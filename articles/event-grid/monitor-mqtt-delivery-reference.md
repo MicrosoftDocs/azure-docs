@@ -78,7 +78,7 @@ The following properties are common for all the resource logs from MQTT broker.
 | `resultType` | `String` | Result of the operation. For example: `Failed`, `Succeeded`. |
 | `resultSignature` | `String` | Result of the failed operation. For example: `QuotaExceeded`, `ClientAuthenticationError`, `AuthorizationError`. This property isn't included for the successful events like `SuccessfulMQTTConnections`. |
 | `resultDescription` | `String` | More description about the result of the failed operation. This property isn't included for the successful events like `SuccessfulMQTTConnections`. |
-| `AuthenticationAuthority` | `String` | Type of authority used to authenticate your MQTT client. It's set to one of the following values: `Local` for clients regisered in Event Grid's local registry, or `AAD` for clients using Microsoft Entra for authentication. |
+| `AuthenticationAuthority` | `String` | Type of authority used to authenticate your MQTT client. It's set to one of the following values: `Local` for clients registered in Event Grid's local registry, or `AAD` for clients using Microsoft Entra for authentication. |
 | `authenticationType` | `String` | Type of authentication used by the client. It's set to one of the following values: `CertificateThumbprintMatch`, `AccessToken`, or `CACertificate`. |
 | `clientIdentitySource` | `String` | Source of the client’s identity. It's `JWT` when you use Microsoft Entra ID authentication. |
 | `authenticationAuthority` | `String` | Authority of the client's identity. It's set to one of the following values: `local` for the clients in Event Grid namespace's local registry, `AAD` for AAD clients. |
@@ -124,7 +124,7 @@ Here are the properties and their descriptions.
 | `traceId` | `Int` | Generated trace ID. |
 
 
-### Successful MQTT connections:
+### Successful MQTT connections
 This log includes an entry for every successful `MQTT CONNECT` operation by the client. This log can be used for auditing purposes.
 
 ```json
