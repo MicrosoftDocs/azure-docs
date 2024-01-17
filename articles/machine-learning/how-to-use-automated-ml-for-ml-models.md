@@ -177,7 +177,7 @@ Column| Customization
 Feature type| Change the value type for the selected column.
 Impute with| Select what value to impute missing values with in your data.
 
-![Azure Machine Learning studio custom featurization](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
+![Azure Machine Learning studio custom featurization](media/how-to-use-automated-ml-for-ml-models/updated-featurization.png)
 
 ## Run experiment and view results
 
@@ -192,24 +192,13 @@ The **Job Detail** screen opens to the **Details** tab. This screen shows you a 
 
 The **Models** tab contains a list of the models created ordered by the metric score. By default, the model that scores the highest based on the chosen metric is at the top of the list. As the training job tries out more models, they're added to the list. Use this to get a quick comparison of the metrics for the models produced so far.
 
-![Job detail](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
-
 ### View training job details
 
-Drill down on any of the completed models to see training job details. In the **Model** tab, you can view details like a model summary and the hyperparameters used for the selected model. 
+Drill down on any of the completed models to see training job details. 
 
-[![Hyperparameter details](media/how-to-use-automated-ml-for-ml-models/hyperparameter-button.png)](media/how-to-use-automated-ml-for-ml-models/hyperparameter-details.png#lightbox)
+You can see model specific performance metric charts on the **Metrics** tab. [Learn more about charts](how-to-understand-automated-ml.md).
 
- You can also see model specific performance metric charts on the **Metrics** tab. [Learn more about charts](how-to-understand-automated-ml.md).
-
-![Iteration details](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
-
-On the Data transformation tab, you can see a diagram of what data preprocessing, feature engineering, scaling techniques and the machine learning algorithm that were applied to generate this model.
-
->[!IMPORTANT]
-> The Data transformation tab is in preview. This capability should be considered [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) and may change at any time.
-
-![Data transformation](./media/how-to-use-automated-ml-for-ml-models/data-transformation.png)
+This is also where you can find details on all the properties of the model along with associated code, child jobs, and images.
 
 ## View remote test job results (preview)
 
