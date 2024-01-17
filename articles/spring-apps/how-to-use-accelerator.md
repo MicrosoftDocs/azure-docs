@@ -498,7 +498,7 @@ You can bootstrap your project from one accelerator of Application Accelerator i
 
 ### View Application Accelerator List
 
-Use the following steps to view the Application Accelerator List for a service instance:
+Use the following steps to view Accelerator List from an Azure Spring Apps Enterprise service instance:
 
 1. In Visual Studio Code, open the Azure Spring Apps extension, and then sign in to your Azure account.
 
