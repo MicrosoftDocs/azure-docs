@@ -8,7 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: nachakra
 ms.custom: devx-track-azurepowershell
-ms.date: 01/16/2024
+ms.date: 01/17/2024
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -65,7 +65,7 @@ This section includes examples involving blob index tags.
 
 ### Example: Read blobs with a blob index tag
 
-This condition allows users to read blobs with a [blob index tag](storage-blob-index-how-to.md) key of Project and a value of Cascade. Attempts to access blobs without this key-value tag won't be allowed.
+This condition allows users to read blobs with a [blob index tag](storage-blob-index-how-to.md) key of Project and a value of Cascade. Attempts to access blobs without this key-value tag isn't allowed.
 
 For this condition to be effective for a security principal, you must add it to all role assignments for them that include the following actions:
 
@@ -77,7 +77,7 @@ For this condition to be effective for a security principal, you must add it to 
 
 ![Diagram of condition showing read access to blobs with a blob index tag.](./media/storage-auth-abac-examples/blob-index-tags-read.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -97,7 +97,7 @@ Here are the settings to add this condition using the Azure portal visual editor
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 ```
 (
@@ -158,7 +158,7 @@ There are two actions that allow you to create new blobs, so you must target bot
 
 ![Diagram of condition showing new blobs must include a blob index tag.](./media/storage-auth-abac-examples/blob-index-tags-new-blobs.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -178,7 +178,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 ```
 (
@@ -239,7 +239,7 @@ There are two actions that allow you to update tags on existing blobs, so you mu
 
 ![Diagram of condition showing existing blobs must have blob index tag keys.](./media/storage-auth-abac-examples/blob-index-tags-keys.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -258,7 +258,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 ```
 (
@@ -319,7 +319,7 @@ There are two actions that allow you to update tags on existing blobs, so you mu
 
 ![Diagram of condition showing existing blobs must have a blob index tag key and values.](./media/storage-auth-abac-examples/blob-index-tags-key-values.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -345,7 +345,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 ```
 (
@@ -420,7 +420,7 @@ Suboperations aren't used in this condition because the suboperation is needed o
 
 ![Diagram of condition showing read, write, or delete blobs in named containers.](./media/storage-auth-abac-examples/containers-read-write-delete.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -439,7 +439,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 **Storage Blob Data Owner**
 
@@ -531,7 +531,7 @@ You must add this condition to any role assignments that include the following a
 
 ![Diagram of condition showing read access to blobs in named containers with a path.](./media/storage-auth-abac-examples/containers-path-read.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -556,7 +556,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 **Storage Blob Data Owner**
 
@@ -634,7 +634,7 @@ You must add this condition to any role assignments that include the following a
 
 ![Diagram of condition showing read and list access to blobs in named containers with a path.](./media/storage-auth-abac-examples/containers-path-read.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -675,7 +675,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 **Storage Blob Data Owner**
 
@@ -760,7 +760,7 @@ You must add this condition to any role assignments that include the following a
 
 ![Diagram of condition showing write access to blobs in named containers with a path.](./media/storage-auth-abac-examples/containers-path-write.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -785,7 +785,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 **Storage Blob Data Owner**
 
@@ -867,7 +867,7 @@ You must add this condition to any role assignments that include the following a
 
 ![Diagram of condition showing read access to blobs with a blob index tag and a path.](./media/storage-auth-abac-examples/blob-index-tags-path-read.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -898,7 +898,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 ```
 (
@@ -971,7 +971,7 @@ You must add this condition to any role assignments that include the following a
 
 ![Diagram of condition showing read access to current blob version only.](./media/storage-auth-abac-examples/current-version-read-only.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -988,7 +988,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 **Storage Blob Data Owner**
 
@@ -1041,7 +1041,7 @@ You must add this condition to any role assignments that include the following a
 
 ![Diagram of condition showing read access to a specific blob version.](./media/storage-auth-abac-examples/version-id-specific-blob-read.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -1064,7 +1064,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 ```
 (
@@ -1102,7 +1102,7 @@ You must add this condition to any role assignments that include the following a
 
 ![Diagram of condition showing delete access to old blob versions.](./media/storage-auth-abac-examples/version-id-blob-delete.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -1119,7 +1119,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 ```
 (
@@ -1157,7 +1157,7 @@ You must add this condition to any role assignments that include the following a
 
 ![Diagram of condition showing read access to current blob versions and any blob snapshots.](./media/storage-auth-abac-examples/version-id-snapshot-blob-read.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -1179,7 +1179,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 **Storage Blob Data Owner**
 
@@ -1241,7 +1241,7 @@ You must add this condition to any role assignments that include the following a
 
 ![Diagram of condition showing read access to storage accounts with hierarchical namespace enabled.](./media/storage-auth-abac-examples/hierarchical-namespace-accounts-read.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -1258,7 +1258,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 **Storage Blob Data Owner**
 
@@ -1316,7 +1316,7 @@ You must add this condition to any role assignments that include the following a
 
 ![Diagram of condition showing read access to blobs with encryption scope validScope1 or validScope2.](./media/storage-auth-abac-examples/encryption-scope-read-blobs.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -1333,7 +1333,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 ```
 (
@@ -1374,7 +1374,7 @@ You must add this condition to any role assignments that include the following a
 
 ![Diagram of condition showing read or write access to blobs in sampleaccount storage account with encryption scope ScopeCustomKey1.](./media/storage-auth-abac-examples/encryption-scope-account-name-read-wite-blobs.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -1397,7 +1397,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 ```
 (
@@ -1449,7 +1449,7 @@ For more information, see [Allow read access to blobs based on tags and custom s
 
 ![Diagram of condition showing read or write access to blobs based on blob index tags and custom security attributes.](./media/storage-auth-abac-examples/principal-blob-index-tags-read-write.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -1481,7 +1481,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 ```
 (
@@ -1533,7 +1533,7 @@ For more information, see [Allow read access to blobs based on tags and custom s
 
 ![Diagram of condition showing read access to blobs based on blob index tags and multi-value custom security attributes.](./media/storage-auth-abac-examples/principal-blob-index-tags-multi-value-read.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -1553,7 +1553,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
 
 ```
 (
@@ -1591,7 +1591,7 @@ There are two potential actions for reading existing blobs. To make this conditi
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -1697,7 +1697,7 @@ There are five potential actions for read, write, add and delete access to exist
 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`                |  |
 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -1825,7 +1825,7 @@ There are two potential actions for reading existing blobs. To make this conditi
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -1948,7 +1948,7 @@ There are five potential actions for read, write and delete of existing blobs. T
 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`                |       |
 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner.<br/>Add if the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -2113,7 +2113,7 @@ There are two potential actions for reading existing blobs. To make this conditi
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
