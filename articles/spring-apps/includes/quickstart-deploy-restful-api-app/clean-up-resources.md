@@ -7,7 +7,7 @@ ms.date: 10/02/2023
 ---
 
 <!-- 
-For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure Portal, AZD, or Azure Cli.
+For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure Portal, AZD, or Azure CLI.
 
 [!INCLUDE [clean-up-resources](includes/quickstart-deploy-restful-api-app/clean-up-resources.md)]
 
