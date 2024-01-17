@@ -54,7 +54,27 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 
 ### Pre-requisites (change)
 
-1. Pay-as-you-go offering is only available in workspaces created in East US 2 and West US 3 regions.
+1. Azure subscription with a valid payment method, free or trial azure subscriptions won't work.
+2. Pay-as-you-go offering is only available in workspaces created in East US 2 and West US 3 regions.
+3. Certain user permissions are needed to subscribe a workspace to a particular offer from the Azure Marketplace and to deploy/fine-tune the model. Assigning a **Contributor** or **Owner** access at the azure subscription level can provide these permissions automatically. Alternatively custom roles can be created with the following specific permissions:
+   
+ a. On the Azure subscription:
+      Microsoft.MarketplaceOrdering/agreements/offers/plans/read
+      Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action
+      Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read
+      Microsoft.SaaS/register/action
+ 
+ b. On the Resource Group:
+      Microsoft.SaaS/resources/read
+      Microsoft.SaaS/resources/write
+ 
+ c. On the Project: (The AI developer role contains below permissions already)
+      Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*  
+      Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*
+      
+ d. For finetuning, following are needed at project level: (The AI developer role contains below permissions already)
+      Microsoft.MachineLearningServices/workspaces/jobs/*
+      Microsoft.MachineLearningServices/workspaces/datastores/*
    
 ### Create a new deployment
 
@@ -70,9 +90,6 @@ To create a deployment:
    (change - add image - Image 2 – terms and conditions, and subscribe)
    
 5. If this is the first time you deployed the model in the workspace, you have to sign your workspace up for the particular offering from the Azure Marketplace. Each workspace has its own connection to the marketplace's offering, which, allows you to control and monitor spending per workspace. Select **Subscribe and Deploy**.
-
-    > [!NOTE]
-    > (change - update RBAC) Subscribing a workspace to a particular offering from the Azure Marketplace requires (change this) **Contributor** or **Owner** access at the subscription level where the workspace is created. 
 
 1. Once you sign up the workspace for the offering, subsequent deployments don't require signing up (neither subscription-level permissions). If this is your case, select **Continue to deploy**.
 
