@@ -143,7 +143,7 @@ connection failure:
 #### Background
 
 SAP released an upgrade to their .NET connector (NCo) to 3.1, which changed the way that it requests connections to backend servers from message servers. It now uses a new API for application server resolution by the message server, if it is not
-forced into the older API by the `ms/lg_with_hostname=0` setting.  
+forced into the older API by the `ms/lg_with_hostname=0` setting. See [SAP KB Article 3305039 - SMLG IP Address setting not considered during Logon Group login](https://me.sap.com/notes/3305039/E) for further information.
 
 ## Prerequisites
 
