@@ -13,7 +13,7 @@ ms.date: 01/11/2024
 
 # Monitor Azure Kubernetes Service (AKS) control plane metrics (preview)
 
-The Azure Kubernetes Service (AKS) [control plane](concepts-clusters-workloads.md#control-plane) health is critical for the performance and reliability of the cluster. Control plane metrics (preview) provide additional visibility into its availability and performance, allowing you to maximize overall observability and maintain operational excellence. These metrics are fully compatible with Prometheus and Grafana, and can be customized to only store what you consider necessary. With these new metrics, you can collect all metrics from API server, ETCD, Scheduler, Autoscaler, and controller manager.
+The Azure Kubernetes Service (AKS) [control plane](concepts-clusters-workloads.md#control-plane) health is critical for the performance and reliability of the cluster. Control plane metrics (preview) provide more visibility into its availability and performance, allowing you to maximize overall observability and maintain operational excellence. These metrics are fully compatible with Prometheus and Grafana, and can be customized to only store what you consider necessary. With these new metrics, you can collect all metrics from API server, ETCD, Scheduler, Autoscaler, and controller manager.
 
 This article helps you understand this new feature, how to implement it, and how to observe the telemetry collected.
 
@@ -101,7 +101,7 @@ All ConfigMaps should be applied to `kube-system` namespace for any cluster.
 
 ### Ingest only minimal metrics for the default targets
 
-This is the default behavior with the setting `default-targets-metrics-keep-list.minimalIngestionProfile="true"`. Only metrics listed below are ingested for each of the default targets, which in this case are `controlplane-apiserver` and `controlplane-etcd`.
+This is the default behavior with the setting `default-targets-metrics-keep-list.minimalIngestionProfile="true"`. Only metrics listed later in this article are ingested for each of the default targets, which in this case are `controlplane-apiserver` and `controlplane-etcd`.
 
 ### Ingest all metrics from all targets
 
@@ -125,7 +125,7 @@ Perform the following steps to collect all metrics from all targets on the clust
 
 1. Download the ConfigMap file [ama-metrics-settings-configmap][ama-metrics-settings-configmap] and rename it to `configmap-controlplane.yaml`.
 
-1. Set ` minimalingestionprofile = true` and verify the targets under `default-scrape-settings-enabled` that you want to scrape are set to `true`. The only targets you can specify are: `controlplane-apiserver`, `controlplane-cluster-autoscaler`, `controlplane-kube-scheduler`, `controlplane-kube-controller-manager`, and `controlplane-etcd`.
+1. Set `minimalingestionprofile = true` and verify the targets under `default-scrape-settings-enabled` that you want to scrape are set to `true`. The only targets you can specify are: `controlplane-apiserver`, `controlplane-cluster-autoscaler`, `controlplane-kube-scheduler`, `controlplane-kube-controller-manager`, and `controlplane-etcd`.
 
 1. Under the `default-target-metrics-list`, specify the list of metrics for the `true` targets. For example,
 
@@ -145,7 +145,7 @@ Perform the following steps to collect all metrics from all targets on the clust
 
 1. Download the ConfigMap file [ama-metrics-settings-configmap][ama-metrics-settings-configmap] and rename it to `configmap-controlplane.yaml`.
 
-1. Set ` minimalingestionprofile = false` and verify the targets under `default-scrape-settings-enabled` that you want to scrape are set to `true`. The only targets you can specify here are `controlplane-apiserver`, `controlplane-cluster-autoscaler`, `controlplane-kube-scheduler`,`controlplane-kube-controller-manager`, and `controlplane-etcd`.
+1. Set `minimalingestionprofile = false` and verify the targets under `default-scrape-settings-enabled` that you want to scrape are set to `true`. The only targets you can specify here are `controlplane-apiserver`, `controlplane-cluster-autoscaler`, `controlplane-kube-scheduler`,`controlplane-kube-controller-manager`, and `controlplane-etcd`.
 
 1. Under the `default-target-metrics-list`, specify the list of metrics for the `true` targets. For example,
 
@@ -178,11 +178,11 @@ Start by setting some of the [node related metrics][node-metrics] to `true` and 
 
 ### Events ingested
 
-Once you have applied the new changes, you can open metrics explorer from the **Azure Monitor overview** page, or from the **Monitoring** section the selected cluster. In the Azure portal, select **Metrics**.  Check for an increase or decrease in the number of events ingested per minute, this should give an idea if the specific metric is missing or all metrics are missing
+Once you applied the changes, you can open metrics explorer from the **Azure Monitor overview** page, or from the **Monitoring** section the selected cluster. In the Azure portal, select **Metrics**.  Check for an increase or decrease in the number of events ingested per minute, it should help you determine if the specific metric is missing or all metrics are missing.
 
 ### Specific metric is not exposed
 
-We have seen cases where the metric is documented, but it's not exposed from the target and doesn't flow to the Azure Monitor workspace. In this case it's necessary to verify other metrics are being forwarded to the workspace.
+There have been cases where the metric is documented, but it's not exposed from the target and isn't forwarded to the Azure Monitor workspace. In this case, it's necessary to verify other metrics are being forwarded to the workspace.
 
 ### No access to the Azure Monitor workspace
 
@@ -209,7 +209,7 @@ az feature unregister "Microsoft.ContainerService" --name "AzureMonitorMetricsCo
 
 ## Next steps
 
-If you've evaluated this preview feature, [share your feedback][share-feedback] as we're interested in hearing what you think.
+After evaluating this preview feature, [share your feedback][share-feedback]. We're interested in hearing what you think.
 
 - Learn more about the [list of default metrics for AKS control plane][list-of-default-metrics-aks-control-plane].
 
