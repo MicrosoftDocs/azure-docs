@@ -126,7 +126,7 @@ export USER_PRINCIPAL_NAME=<user-principal-name>
 
 ### 3.2. Create a new resource group
 
-Use the following steps to create a new resource group.
+Use the following steps to create a new resource group:
 
 1. Use the following command to sign in to the Azure CLI:
 
@@ -168,10 +168,10 @@ Use the following steps to create a new resource group.
 
 Use the following commands to install the Azure Spring Apps extension for the Azure CLI and register the `Microsoft.SaaS` namespace:
 
-   ```azurecli
-   az extension add --name spring --upgrade
-   az provider register --namespace Microsoft.SaaS
-   ```
+```azurecli
+az extension add --name spring --upgrade
+az provider register --namespace Microsoft.SaaS
+```
 
 ### 3.4. Create an Azure Spring Apps instance
 
@@ -204,24 +204,24 @@ Use the following commands to install the Azure Spring Apps extension for the Az
 
 ### 3.5. Prepare the PostgreSQL instance
 
-The Spring web app uses H2 for the database in localhost, and Azure Database for PostgreSQL for the database in Azure.
+The Spring web app uses H2 for the database in localhost and Azure Database for PostgreSQL for the database in Azure.
 
 Use the following command to create a PostgreSQL instance:
 
-   ```azurecli
-   az postgres flexible-server create \
-       --name ${POSTGRESQL_SERVER} \
-       --database-name ${POSTGRESQL_DB} \
-       --admin-user ${POSTGRESQL_ADMIN_USERNAME} \
-       --admin-password ${POSTGRESQL_ADMIN_PASSWORD} \
-       --public-access 0.0.0.0
-   ```
+```azurecli
+az postgres flexible-server create \
+    --name ${POSTGRESQL_SERVER} \
+    --database-name ${POSTGRESQL_DB} \
+    --admin-user ${POSTGRESQL_ADMIN_USERNAME} \
+    --admin-password ${POSTGRESQL_ADMIN_PASSWORD} \
+    --public-access 0.0.0.0
+```
 
 Specifying `0.0.0.0` enables public access from any resources deployed within Azure to access your server.
 
 ### 3.6. Connect app instance to PostgreSQL instance
 
-After the application instance and the PostgreSQL instance are created, the application instance can't access the PostgreSQL instance directly. Use the following steps to enable the app to connect to the PostgreSQL instance.
+After the application instance and the PostgreSQL instance are created, the application instance can't access the PostgreSQL instance directly. Use the following steps to enable the app to connect to the PostgreSQL instance:
 
 1. Use the following command to get the PostgreSQL instance's fully qualified domain name:
 
@@ -245,10 +245,13 @@ After the application instance and the PostgreSQL instance are created, the appl
 
 ### 3.7. Expose RESTful APIs
 
+Use the following steps to expose the RESTful APIs:
+
 1. Use the following command to create a Microsoft Entra ID application:
 
    ```azurecli
-   az ad app create --display-name ${TODO_APP_NAME} \
+   az ad app create \
+       --display-name ${TODO_APP_NAME} \
        --sign-in-audience AzureADandPersonalMicrosoftAccount \
        --identifier-uris ${TODO_APP_URL}
    ```
@@ -307,8 +310,9 @@ After the application instance and the PostgreSQL instance are created, the appl
 1. Use the following command to add scopes:
 
    ```azurecli
-   az ad app update --id ${TODO_APP_URL} \
-    --set api="$api"
+   az ad app update \
+       --id ${TODO_APP_URL} \
+       --set api="$api"
    ```
 
 1. Use the following command to get the tenant ID to use in the next step:
@@ -320,9 +324,10 @@ After the application instance and the PostgreSQL instance are created, the appl
 1. Use the following command to get the application ID to use in the next steps:
 
    ```azurecli
-   appid=$(az ad app show --id ${TODO_APP_URL} \
-    --query appId \
-    --output tsv);
+   appid=$(az ad app show \
+       --id ${TODO_APP_URL} \
+       --query appId \
+       --output tsv);
    echo $appid
    ```
 
@@ -351,13 +356,13 @@ You can now deploy the app to Azure Spring Apps.
 
 Use the following command to deploy the app based on source code:
 
-   ```azurecli
-   az spring app deploy \
+```azurecli
+az spring app deploy \
     --service ${AZURE_SPRING_APPS_NAME} \
     --name ${APP_NAME} \
     --build-env BP_JVM_VERSION=17 \
     --source-path .
-   ```
+```
 
 ---
 
@@ -377,10 +382,13 @@ The RESTful APIs act as a resource server, which is protected by Microsoft Entra
 
 #### Register the client application
 
+Use the following steps to register the client application:
+
 1. Use the following command to create a Microsoft Entra ID application,  which is used to add the permissions for the `ToDo` app:
 
    ```azurecli
-   az ad app create --display-name ${TODOWEB_APP_NAME} \
+   az ad app create \
+       --display-name ${TODOWEB_APP_NAME} \
        --sign-in-audience AzureADMyOrg \
        --identifier-uris ${TODOWEB_APP_URL}
    ```
@@ -388,7 +396,10 @@ The RESTful APIs act as a resource server, which is protected by Microsoft Entra
 1. Use the following command to add permissions:
 
    ```azurecli
-   az ad app permission add --id api://simple-todowebtest2 --api $appid --api-permissions $permissionid1=Scope $permissionid2=Scope $permissionid3=Scope
+   az ad app permission add \
+       --id api://simple-todowebtest2 \
+       --api $appid \
+       --api-permissions $permissionid1=Scope $permissionid2=Scope $permissionid3=Scope
    ```
 
 1. Use the following command to grant admin consent for the permissions you added:
@@ -400,22 +411,26 @@ The RESTful APIs act as a resource server, which is protected by Microsoft Entra
 1. Use the following command to get the client ID of the `ToDoWeb` app used in the [Obtain the access token](#obtain-the-access-token) step:
 
    ```azurecli
-   az ad app show --id ${TODOWEB_APP_URL} \
-    --query appId \
-    --output tsv
+   az ad app show \
+       --id ${TODOWEB_APP_URL} \
+       --query appId \
+       --output tsv
    ```
 
 #### Add user to access the RESTful APIs
 
-1. Use the following steps to create a member user in your Microsoft Entra tenant. Then, the user can manage the data of the `ToDo` application through RESTful APIs:
+Use the following command to create a member user in your Microsoft Entra tenant. Then, the user can manage the data of the `ToDo` application through RESTful APIs:
 
-   ```azurecli
-   az ad user create --display-name ${NEW_MEMBER_USERNAME} \
-       --password ${NEW_MEMBER_PASSWORD} \
-       --user-principal-name ${USER_PRINCIPAL_NAME}
-   ```
+```azurecli
+az ad user create \
+    --display-name ${NEW_MEMBER_USERNAME} \
+    --password ${NEW_MEMBER_PASSWORD} \
+    --user-principal-name ${USER_PRINCIPAL_NAME}
+```
 
 #### Update the OAuth2 configuration for Swagger UI authorization
+
+Use the following steps to update the OAuth2 configuration:
 
 1. Use the following command to get the object ID of the `ToDoWeb` app:
 
@@ -423,21 +438,23 @@ The RESTful APIs act as a resource server, which is protected by Microsoft Entra
    az ad app show --id ${TODOWEB_APP_URL} --query id
    ```
 
-1. Use the following command to get the url of your `simple-todo-api` app:
+1. Use the following command to get the URL of your `simple-todo-api` app:
 
    ```azurecli
-   az spring app show --name ${APP_NAME} \
+   az spring app show \
+       --name ${APP_NAME} \
        --service ${AZURE_SPRING_APPS_NAME} \
        --query properties.url
    ```
 
-1. Use the following command to update the OAuth2 configuration for Swagger UI authorization, replace **\<object-id>** and **\<url>** with the parameters you got. Then, you can authorize users to acquire access tokens through the `ToDoWeb` app.
+1. Use the following command to update the OAuth2 configuration for Swagger UI authorization, replacing the `<object-id>` and `<URL>` placeholders with the parameter values you got. Then, you can authorize users to acquire access tokens through the `ToDoWeb` app.
 
    ```azurecli
-   az rest --method PATCH \
-     --uri "https://graph.microsoft.com/v1.0/applications/<object-id>" \
-     --headers 'Content-Type=application/json' \
-     --body '{"spa":{"redirectUris":["<url>/swagger-ui/oauth2-redirect.html"]}}'
+   az rest \
+       --method PATCH \
+       --uri "https://graph.microsoft.com/v1.0/applications/<object-id>" \
+       --headers 'Content-Type=application/json' \
+       --body '{"spa":{"redirectUris":["<URL>/swagger-ui/oauth2-redirect.html"]}}'
    ```
 
 ---

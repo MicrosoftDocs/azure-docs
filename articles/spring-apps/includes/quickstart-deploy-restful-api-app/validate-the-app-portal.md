@@ -17,7 +17,7 @@ You can now access the RESTful API to see if it works.
 
 ### 5.1. Request an access token
 
-The RESTful APIs act as a resource server, which is protected by Microsoft Entra ID. Before acquiring an access token, you're required to register another application in Microsoft Entra ID and grant permissions to the client application, which is named `ToDoWeb`.
+The RESTful APIs act as a resource server, which is protected by Microsoft Entra ID. Before acquiring an access token, you must register another application in Microsoft Entra ID and grant permissions to the client application, which is named `ToDoWeb`.
 
 #### Register the client application
 
@@ -72,6 +72,6 @@ Use the following steps to update the OAuth2 configuration for Swagger UI author
 
 1. Under **Manage**, select **Authentication**, select **Add a platform**, and then select **Single-page application**.
 
-1. Use the format `<your-app-exposed-application-url-or-endpoint>/swagger-ui/oauth2-redirect.html` as the OAuth2 redirect URL in the **Redirect URIs** field, and then select **Configure**.
+1. Use the format `<your-app-exposed-application-URL-or-endpoint>/swagger-ui/oauth2-redirect.html` as the OAuth2 redirect URL in the **Redirect URIs** field, and then select **Configure**.
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/single-page-app-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication page for Microsoft Entra ID." lightbox="../../media/quickstart-deploy-restful-api-app/single-page-app-authentication.png":::
