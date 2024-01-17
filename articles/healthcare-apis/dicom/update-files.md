@@ -15,6 +15,14 @@ The bulk update operation lets you make changes to imaging metadata for multiple
 
 Beyond the efficiency gains, the bulk update capability preserves a record of the changes in the [change feed](change-feed-overview.md) and persists the original, unmodified instances for future retrieval. 
 
+## Limitations
+There are a few limitations when you use the bulk update operation:
+
+- A maximum of 50 studies can be updated in a single operation.
+- Only one bulk update operation can be performed at a time.
+- You can't delete only the latest version of a study or revert back to the original version. 
+- You can't update any field from non-null to a null value.
+
 ## Use the bulk update operation
 Bulk update is an asynchronous, long-running operation available at the studies endpoint. The request payload includes one or more studies to update, the set of attributes to update, and the new values for those attributes. 
 
@@ -197,13 +205,5 @@ Any attributes in the [Patient Identification Module](https://dicom.nema.org/dic
 | Referring Physician's Name | (0008,0090) | Name of the patient's referring physician.  |
 | Accession Number | (0008,0050) | A RIS generated number that identifies the order for the Study. |
 | Study Description | (0008,1030) | Institution-generated description or classification of the Study (component) performed. |
-
-## Limitations
-There are a few limitations when you use the bulk update operation:
-
-- A maximum of 50 studies can be updated in a single operation.
-- Only one bulk update operation can be performed at a time.
-- You can't delete only the latest version of a study or revert back to the original version. 
-- You can't update any field from non-null to a null value.
 
 [!INCLUDE [DICOM trademark statements](../includes/healthcare-apis-dicom-trademark.md)]
