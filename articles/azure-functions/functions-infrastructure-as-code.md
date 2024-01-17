@@ -1639,7 +1639,7 @@ These application settings are required for container deployments:
 
 Keep these considerations in mind when working with site and application settings using Bicep files or ARM templates:
  :::zone pivot="consumption-plan,premium-plan,dedicated-plan" 
-+ There are important considerations for using [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) in an automated deployment.  
++ There are important considerations for when you should set `WEBSITE_CONTENTSHARE` in an automated deployment. For detailed guidance, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference. 
 ::: zone-end
 :::zone pivot="container-apps,azure-arc,premium-plan,dedicated-plan"  
 + For container deployments, also set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../app-service/reference-app-settings.md#custom-containers) to `false`, since your app content is provided in the container itself. 

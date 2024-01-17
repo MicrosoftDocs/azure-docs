@@ -456,9 +456,9 @@ api-key: {{admin-api-key}}
 
 ## Multiple vector queries
 
-Multi-query vector search sends multiple queries across multiple vector fields in your search index. A common example of this query request is when using models such as [CLIP](https://openai.com/research/clip) for a multi-modal vector search where the same model can vectorize image and non-image content.
+Multi-query vector search sends multiple queries across multiple vector fields in your search index. A common example of this query request is when using models such as [CLIP](https://openai.com/research/clip) for a multimodal vector search where the same model can vectorize image and text content.
 
-The following query example looks for similarity in both `myImageVector` and `myTextVector`, but sends in two different query embeddings respectively. This scenario is ideal for multi-modal use cases where you want to search over different embedding spaces. This query produces a result that's scored using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md).
+The following query example looks for similarity in both `myImageVector` and `myTextVector`, but sends in two different query embeddings respectively, each executing in parallel. This query produces a result that's scored using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md).
 
 + `vectorQueries` provides an array of vector queries.
 + `vector` contains the image vectors and text vectors in the search index. Each instance is a separate query.

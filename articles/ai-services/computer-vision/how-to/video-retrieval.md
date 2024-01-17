@@ -20,7 +20,7 @@ Azure AI Spatial Analysis Video Retrieval APIs are part of Azure AI Vision and e
 ## Prerequisites
 
 - Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
-- Once you have your Azure subscription, [create a Vision resource using the portal](/azure/cognitive-services/cognitive-services-apis-create-account). For this preview, you must create your resource in the East US region.
+- Once you have your Azure subscription, [create a Vision resource using the portal](/azure/cognitive-services/cognitive-services-apis-create-account). For this preview, you must create your resource in the one of the following regions - Australia East, Switzerland North, Sweden Central, or East US.
 - An Azure Storage resource - [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 
 ## Input requirements

@@ -9,7 +9,8 @@ ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: aahi
-ms.devlang: csharp, python
+ms.devlang: csharp
+# ms.devlang: csharp, python
 ms.custom: language-service-custom-ner, event-tier1-build-2022
 ---
 

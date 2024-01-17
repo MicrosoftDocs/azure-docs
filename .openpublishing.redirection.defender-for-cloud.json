@@ -906,8 +906,18 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/defender-for-cloud/integration-overview.md",
+            "redirect_url": "/azure/defender-for-cloud/integration-servicenow",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/defender-for-cloud/tutorial-security-incident.md",
             "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/how-to-migrate-to-built-in.md",
+            "redirect_url": "/azure/defender-for-cloud/how-to-transition-to-built-in",
             "redirect_document_id": true
         }
     ]

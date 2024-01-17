@@ -103,6 +103,15 @@ The following services support data loss prevention configuration:
 * Speech Service
 * QnA Maker
 
+
+## Limitations
+
+[Azure OpenAI on your data - text](./openai/concepts/use-your-data.md) features don't support data loss prevention yet. When `restrictOutboundNetworkAccess` is set as true, all requests to the following APIs will fail immediately to prevent potential data loss.
+
+* /extensions/chat/completions (with text models)
+* /extensions/on-your-data/ingestion-jobs
+
+
 ## Next steps
 
 * [Configure Virtual Networks](cognitive-services-virtual-networks.md)

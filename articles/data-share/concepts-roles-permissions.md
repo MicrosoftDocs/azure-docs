@@ -5,7 +5,7 @@ author: sidontha
 ms.author: sidontha
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 12/19/2023
+ms.date: 01/03/2023
 ms.custom: subject-rbac-steps
 ---
 
@@ -19,8 +19,8 @@ With Azure Data Share service, you can share data without exchanging credentials
 
 To create shares in Azure Data share, a user will need these permissions:
 
-- **Contributor** permissions on the data share account.
-- **Reader** permissions on the resource group where your storage accounts or databases live. (This gives you permission to browse for them in the portal.)
+- Data share account permissions: **Contributor**
+- Storage resource group: **Reader** (Read permissions on the resource group where your storage accounts or databases live you permission to browse for them in the portal.)
 - Source permissions, depending on the source:
     - [Storage and data lake sharing](#storage-and-data-lake-sharing)
     - [Azure SQL sharing](#sql-database-sharing)
@@ -30,16 +30,16 @@ To create shares in Azure Data share, a user will need these permissions:
 
 |Data store type|Action|Role on source data store|Role on target data store|Note|
 |--|--|--|--|--|
-|Azure Blob Storage|Share data|Storage Blob Data Contributor|||
-||Receive Data||Storage Blob Data Contributor||
+|Azure Blob Storage|Share data|Storage Account Contributor\*\*||\*\*Instead, you could create a [custom role with the necessary storage actions](#custom-roles-for-data-share)|
+||Receive Data||Storage Account Contributor\*\*|\*\*Instead, you could create a [custom role with the necessary storage actions](#custom-roles-for-data-share)|
 ||Automatically assign MI permissions to share|A role with *Microsoft.Authorization/role assignments/write*\*||Optional. Instead, you could [assign the MI permissions manually.](#assign-mi-permissions-manually)|
 ||Automatically assign MI permissions to receive||A role with *Microsoft.Authorization/role assignments/write*\*|Optional. Instead, you could [assign the MI permissions manually.](#assign-mi-permissions-manually)|
 |Azure Data Lake Gen 1|Share data|[Access and write permissions on the files you want to share.](../data-lake-store/data-lake-store-access-control.md#permissions)|||
 ||Receive Data|||Not Supported|
 ||Automatically assign MI permissions to share|A role with *Microsoft.Authorization/role assignments/write*\*||Optional. Instead, you could [assign the MI permissions manually.](#assign-mi-permissions-manually)|
 ||Automatically assign MI permissions to receive|||Not supported.|
-|Azure Data Lake Gen 2|Share data|Storage Blob Data Contributor|||
-||Receive Data||Storage Blob Data Contributor||
+|Azure Data Lake Gen 2|Share data|Storage Account Contributor\*\*||\*\*Instead, you could create a [custom role with the necessary storage actions](#custom-roles-for-data-share)|
+||Receive Data||Storage Account Contributor\*\*|\*\*Instead, you could create a [custom role with the necessary storage actions](#custom-roles-for-data-share)|
 ||Automatically assign MI permissions to share|A role with *Microsoft.Authorization/role assignments/write*\*||Optional. Instead, you could [assign the MI permissions manually.](#assign-mi-permissions-manually)|
 ||Automatically assign MI permissions to receive||A role with *Microsoft.Authorization/role assignments/write*\*|Optional. Instead, you could [assign the MI permissions manually.](#assign-mi-permissions-manually)|
 

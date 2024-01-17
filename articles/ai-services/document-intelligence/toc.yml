@@ -82,7 +82,7 @@ items:
       href: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/documentintelligence/ai-document-intelligence-rest/MIGRATION-FR_v4-DI_v1.md
     - name: Python SDK
       href: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md
-  - name: "Migration guide: 2023-07-31 latest (GA)"
+  - name: "Migration guide: 2023—07—31 latest (GA)"
     displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
     href: v3-1-migration-guide.md
   - name: Check my usage and estimate the cost
@@ -206,7 +206,7 @@ items:
       displayName: table, label, ocr, confidence, template, neural
       href: concept-custom.md
     - name: Custom model lifecycle
-      displayName: custom, train, modelId, model ID
+      displayName: custom, train, modelId, model ID, expiration, train, build
       href: concept-custom-lifecycle.md
     - name: Custom template model
       displayName: structure, selection, labels, tables, tabular, train, template, neural, build mode, signatures, custom
@@ -226,9 +226,6 @@ items:
     - name: Composed models
       displayName: custom, assign, modelId, model ID
       href:  concept-composed-models.md
-    - name: Custom model lifecycle
-      displayName: custom, model, expiration, train, build
-      href:  concept-custom-lifecycle.md
 - name: Samples
   items:
   - name: "C#/.NET"

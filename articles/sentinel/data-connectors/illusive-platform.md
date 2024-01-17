@@ -84,7 +84,6 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 >> 3. Protocol: TCP
 >> 4. Audit messages: Send audit messages to server
 > 5. To add the syslog server, click Add.
-> 6. For more information about how to add a new syslog server in the Illusive platform, please find the Illusive Networks Admin Guide in here: https://support.illusivenetworks.com/hc/en-us/sections/360002292119-Documentation-by-Version
 
 3. Validate connection
 

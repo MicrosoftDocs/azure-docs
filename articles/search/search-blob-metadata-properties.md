@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/08/2023
+ms.date: 01/11/2024
 ---
 
 # Content metadata properties used in Azure AI Search
@@ -24,7 +24,7 @@ Azure AI Search supports blob indexing and SharePoint document indexing for the 
 
 ## Properties by document format
 
-The following table summarizes processing done for each document format, and describes the metadata properties extracted by a blob indexer and the SharePoint indexer.
+The following table summarizes processing for each document format, and describes the metadata properties extracted by a blob indexer and the SharePoint indexer.
 
 | Document format / content type | Extracted metadata | Processing details |
 | --- | --- | --- |

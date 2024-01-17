@@ -108,7 +108,7 @@ For more information, see [Move a Marketplace Azure Virtual Machine to another s
 
 To move virtual machines configured with Azure Backup, you must delete the restore points collections (snapshots) from the vault. Restore points already copied to the vault can be retained and moved.
 
-If [soft delete](../../../backup/soft-delete-virtual-machines.md) is enabled for your virtual machine, you can't move the virtual machine while those restore points are kept. Either [disable soft delete](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) or wait 14 days after deleting the restore points.
+If [soft delete](../../../backup/soft-delete-virtual-machines.md) is enabled for your virtual machine, you can't move the virtual machine while those restore points are kept. Either [disable soft delete](../../../backup/backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete) or wait 14 days after deleting the restore points.
 
 ### Portal
 

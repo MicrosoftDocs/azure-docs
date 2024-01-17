@@ -85,7 +85,7 @@ After you complete these steps, you can use this integration name (MDCIntegratio
    For simplicity, We recommend creating the integration on the higher scope based on the user permissions. For example, if you have permission for a management group, you could create a single integration of a management group rather than create integrations in each one of the subscriptions.
 
 1. Select **Default** or **Customized** based on your requirement.
-   
+
    The default option creates a Title, Description and Short description in the backend. The customized option lets you choose other fields such as **Incident data**, **Problems data**, and **Changes data**.
 
    :::image type="content" border="true" source="./media/integration-servicenow/customize-fields.png" alt-text="Screenshot of how to customize fields.":::

@@ -43,40 +43,42 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
 1. On the tab **Basics**, configure the following settings:
 
-    1. Under **Project details**, for **Subscription**, select an Azure subscription that meets the [prerequisites](#prerequisites).
+    a. Under **Project details**, for **Subscription**, select an Azure subscription that meets the [prerequisites](#prerequisites).
     
-    1. For **Resource Group**, select **Create new** to create a new resource group. Enter a name, and select **OK**.
+    b. For **Resource Group**, select **Create new** to create a new resource group. Enter a name, and select **OK**.
 
-    1. Under **Instance details**, for **Virtual machine name**, enter a name for your new VM.
+    c. Under **Instance details**, for **Virtual machine name**, enter a name for your new VM.
 
-    1. For **Region**, select the Azure region in which to deploy your VM. 
+    d. For **Region**, select the Azure region in which to deploy your VM. 
 
-        > [!NOTE]
-        > Confidential VMs are not available in all locations. For currently supported locations, see which [VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+    > [!NOTE]
+    > Confidential VMs are not available in all locations. For currently supported locations, see which [VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+        
+    e. For **Availability options**, select **No infrastructure redundancy required** for singular VMs or [**Virtual machine scale set**](/azure/virtual-machine-scale-sets/overview) for multiple VMs.
 
-    1. For **Security Type**, select **Confidential virtual machines**.
+    f. For **Security Type**, select **Confidential virtual machines**.
 
-    1. For **Image**, select the OS image to use for your VM. Select **See all images** to open Azure Marketplace. Select the filter **Security Type** &gt; **Confidential** to show all available confidential VM images.
+    g. For **Image**, select the OS image to use for your VM. Select **See all images** to open Azure Marketplace. Select the filter **Security Type** &gt; **Confidential** to show all available confidential VM images.
 
-    1. Toggle [Generation 2](../virtual-machines/generation-2.md) images. Confidential VMs only run on Generation 2 images. To ensure, under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
+    h. Toggle [Generation 2](../virtual-machines/generation-2.md) images. Confidential VMs only run on Generation 2 images. To ensure, under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
 
-    1. For **Size**, select a VM size. For more information, see [supported confidential VM families](virtual-machine-solutions.md).
+    i. For **Size**, select a VM size. For more information, see [supported confidential VM families](virtual-machine-solutions.md).
 
 
-    1. For **Authentication type**, if you're creating a Linux VM, select **SSH public key** . If you don't already have SSH keys, [create SSH keys for your Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md).
+    j. For **Authentication type**, if you're creating a Linux VM, select **SSH public key** . If you don't already have SSH keys, [create SSH keys for your Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-    1. Under **Administrator account**, for **Username**, enter an administrator name for your VM.
+    k. Under **Administrator account**, for **Username**, enter an administrator name for your VM.
 
-    1. For **SSH public key**, if applicable, enter your RSA public key.
+    l. For **SSH public key**, if applicable, enter your RSA public key.
 
-    1. For **Password** and **Confirm password**, if applicable, enter an administrator password.
+    m. For **Password** and **Confirm password**, if applicable, enter an administrator password.
 
-    1. Under **Inbound port rules**, for **Public inbound ports**, select **Allow selected ports**.
+    n. Under **Inbound port rules**, for **Public inbound ports**, select **Allow selected ports**.
 
-    1. For **Select inbound ports**, select your inbound ports from the drop-down menu. For Windows VMs, select **HTTP (80)** and **RDP (3389)**. For Linux VMs, select **SSH (22)** and **HTTP (80)**.
+    o. For **Select inbound ports**, select your inbound ports from the drop-down menu. For Windows VMs, select **HTTP (80)** and **RDP (3389)**. For Linux VMs, select **SSH (22)** and **HTTP (80)**.
 
-        > [!NOTE]
-        > It's not recommended to allow RDP/SSH ports for production deployments.
+    > [!NOTE]
+    > It's not recommended to allow RDP/SSH ports for production deployments.
 
 1. On the tab **Disks**, configure the following settings:
 
@@ -89,7 +91,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
 1. (Optional) If necessary, you need to create a **Confidential disk encryption set** as follows.
 
-    1. [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md) selecting the **Premium** pricing tier that includes support for HSM-backed keys. Alternatively, you can create an [Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md).
+    1. [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md) selecting the **Premium** pricing tier that includes support for HSM-backed keys and enable purge protection. Alternatively, you can create an [Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md).
         
     1. In the Azure portal, search for and select **Disk Encryption Sets**. 
 

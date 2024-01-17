@@ -6,7 +6,7 @@ author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 12/21/2023
+ms.date: 1/4/2024
 ---
 
 # Overview of business continuity with Azure Database for PostgreSQL - Flexible Server

@@ -248,7 +248,7 @@ To protect workloads in a new vault, the current protection and data will need t
 
 **Stop and delete current protection on the old vault:**
 
-1. Disable soft delete in the vault properties. Follow [these steps](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) to disable soft delete.
+1. Disable soft delete in the vault properties. Follow [these steps](backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete) to disable soft delete.
 
 2. Stop protection and delete backups from the current vault. In the Vault dashboard menu, select **Backup Items**. Items listed here that need to be moved to the new vault must be removed along with their backup data. See how to [delete protected items in the cloud](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) and [delete protected items on premises](backup-azure-delete-vault.md#delete-protected-items-on-premises).
 

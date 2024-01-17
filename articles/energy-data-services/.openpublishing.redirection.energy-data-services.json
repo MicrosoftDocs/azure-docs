@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path": "how-to-generate-refresh-token.md",
+            "redirect_url": "how-to-generate-auth-token.md",
+            "redirect_document_id": false
+        }
+    ]
+}

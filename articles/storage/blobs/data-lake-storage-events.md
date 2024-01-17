@@ -9,7 +9,8 @@ ms.topic: tutorial
 ms.date: 03/07/2023
 ms.author: normesta
 ms.reviewer: sumameh
-ms.devlang: csharp, python
+ms.devlang: csharp
+# ms.devlang: csharp, python
 ms.custom: devx-track-csharp
 ---
 

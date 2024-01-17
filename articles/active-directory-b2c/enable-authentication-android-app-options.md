@@ -7,10 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 10/06/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As an Android app developer using Azure AD B2C for authentication, I want to configure authentication options in my app, so that I can customize and enhance the authentication experience for my users.
+
 ---
 
 # Configure authentication options in an Android app by using Azure AD B2C 

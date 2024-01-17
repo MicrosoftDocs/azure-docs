@@ -9,7 +9,8 @@ ms.service: azure-ai-personalizer
 ms.topic: how-to
 ms.date: 05/24/2021
 zone_pivot_groups: programming-languages-set-six
-ms.devlang: csharp, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, javascript, python
 ms.custom: mode-other, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 

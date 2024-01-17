@@ -134,7 +134,7 @@ Before you call the `evaluate()` function, your environment needs to set up your
 
 ```python
 from azure.identity import DefaultAzureCredential
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 
 client = AIClient.from_config(DefaultAzureCredential())
 ```
