@@ -3,7 +3,7 @@ title: What's new in Azure Disk Storage
 description: Learn about new features and enhancements in Azure Disk Storage.   
 author: roygara
 ms.author: rogarana
-ms.date: 01/16/2024
+ms.date: 01/17/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ms.custom: references_regions
@@ -18,8 +18,8 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 - [What's new in 2024](#whats-new-in-2024)
     - [Quarter 1 (January, February, March)](#quarter-1-january-february-march)
         - [Generally available: Trusted launch support for Ultra Disks and Premium SSD v2](#generally-available-trusted-launch-support-for-ultra-disks-and-premium-ssd-v2)
-        - [Ultra Disk regional availability expansion](#ultra-disk-regional-availability-expansion)
-        - [Zone redundant storage disk regional availability expansion](#zone-redundant-storage-disk-regional-availability-expansion)
+        - [Expanded regional availability for Ultra Disks](#expanded-regional-availability-for-ultra-disks)
+        - [Expanded regional availability for zone-redundant storage disks](#expanded-regional-availability-for-zone-redundant-storage-disks)
 - [What's new in 2023](#whats-new-in-2023)
     - [Quarter 4 (October, November, December)](#quarter-4-october-november-december)
         - [Encryption at host GA for Premium SSD v2 and Ultra Disks](#encryption-at-host-ga-for-premium-ssd-v2-and-ultra-disks)
@@ -34,10 +34,10 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
         - [Expanded regional availability for Premium SSD v2 (2)](#expanded-regional-availability-for-premium-ssd-v2-2)
         - [Expanded regional availability for ZRS disks (2)](#expanded-regional-availability-for-zrs-disks-2)
         - [Azure Backup support (preview) for Premium SSD v2](#azure-backup-support-preview-for-premium-ssd-v2)
-    - [Quarter 1 (January, February, March) (1)](#quarter-1-january-february-march-1)
+    - [Quarter 1 (January, February, March)](#quarter-1-january-february-march-1)
         - [Expanded regional availability for Premium SSD v2 (3)](#expanded-regional-availability-for-premium-ssd-v2-3)
         - [Preview - Performance plus](#preview---performance-plus)
-        - [Expanded regional availability for Ultra Disks](#expanded-regional-availability-for-ultra-disks)
+        - [Expanded regional availability for Ultra Disks](#expanded-regional-availability-for-ultra-disks-1)
         - [More transactions at no extra cost - Standard SSDs](#more-transactions-at-no-extra-cost---standard-ssds)
 
 ## What's new in 2024
@@ -48,13 +48,13 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 
 Trusted launch VMs added support for Ultra Disks and Premium SSD v2, allowing you to combine the foundational compute security of Trusted Launch with the high throughput, high IOPS, and low latency of Ultra Disks and Premium SSD v2. For more information, see [Trusted launch for Azure virtual machines](trusted-launch.md) or the [Azure Update](https://azure.microsoft.com/updates/premium-ssd-v2-and-ultra-disks-support-with-trusted-launch-vm/).
 
-#### Ultra Disk regional availability expansion
+#### Expanded regional availability for Ultra Disks
 
 Ultra Disks were made available in the UK West and Poland Central regions.
 
-#### Zone redundant storage disk regional availability expansion
+#### Expanded regional availability for zone-redundant storage disks
 
-Zone Redundant Storage (ZRS) disks were made available in West US 3 and Germany Central regions.
+Zone-redundant storage (ZRS) disks were made available in West US 3 and Germany Central regions.
 
 ## What's new in 2023
 
