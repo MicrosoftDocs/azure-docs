@@ -254,6 +254,8 @@
                        href: istio-deploy-addon.md
                      - name: Deploy external or internal Istio Ingress
                        href: istio-deploy-ingress.md
+                     - name: Plug in CA certificates for Istio
+                       href: istio-plugin-ca.md
                      - name: Upgrade Istio service mesh add-on
                        href: istio-upgrade.md
                  - name: Open Service Mesh AKS add-on
