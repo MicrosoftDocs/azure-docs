@@ -9,10 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 10/05/2023
-ms.custom: 
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to understand the available features and their availability, so that I can make informed decisions about which features to use in my application development.
+
 ---
 
 # Developer notes for Azure Active Directory B2C
@@ -174,7 +177,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | ------- | :--: | ----- |
 | Azure portal | GA |   |
 | [Application Insights user journey logs](troubleshoot-with-application-insights.md) | Preview | Used for troubleshooting during development.  |
-| [Application Insights event logs](analytics-with-application-insights.md) | Preview | Used to monitor user flows in production. |
+| [Application Insights event logs](analytics-with-application-insights.md) | Preview | Used to monitor user flows and custom policies in production. |
 
 ## Other features 
 

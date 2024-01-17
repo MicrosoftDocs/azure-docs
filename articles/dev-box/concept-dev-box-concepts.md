@@ -64,7 +64,7 @@ To learn more about native Microsoft Entra join and Microsoft Entra hybrid join,
 
 Before setting up Dev Box, you need to choose the best regions for your organization. Check [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=dev-box) and [Azure geographies](https://azure.microsoft.com/explore/global-infrastructure/geographies/#choose-your-region) to help you decide on the regions you use. If the region you prefer isn’t available for Dev Box, choose a region within 500 miles.
 
-You specify a region for your dev center and projects. Typically, these resources are in the same region as your main office or IT management center.
+Your dev center and projects typically exist in the same region as your main office or IT management center.
 
 The region of the virtual network specified in a network connection determines the region for a dev box. You can create multiple network connections based on the regions where you support developers. You can then use those connections when you're creating dev box pools to ensure that dev box users create dev boxes in a region close to them. Using a region close to the dev box user provides the best experience.
 

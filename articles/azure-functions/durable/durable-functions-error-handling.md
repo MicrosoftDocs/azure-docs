@@ -4,7 +4,8 @@ description: Learn how to handle errors in the Durable Functions extension for A
 ms.topic: conceptual
 ms.date: 02/14/2023
 ms.author: azfuncdf
-ms.devlang: csharp, javascript, powershell, python, java
+ms.devlang: csharp
+# ms.devlang: csharp, javascript, powershell, python, java
 ms.custom: devx-track-js
 ---
 

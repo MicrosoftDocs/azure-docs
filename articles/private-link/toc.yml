@@ -75,6 +75,8 @@
       href: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
 - name: How-to
   items:
+  - name: Approve private link connections across subscriptions
+    href: how-to-approve-private-link-cross-subscription.md
   - name: Configure an application security group
     href: configure-asg-private-endpoint.md
   - name: Export private endpoint DNS records

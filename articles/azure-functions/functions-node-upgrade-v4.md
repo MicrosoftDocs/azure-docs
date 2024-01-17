@@ -3,7 +3,8 @@ title: Migrate to v4 of the Node.js model for Azure Functions
 description: This article shows you how to upgrade your existing function apps running on v3 of the Node.js programming model to v4.
 ms.service: azure-functions
 ms.date: 03/15/2023
-ms.devlang: javascript, typescript
+ms.devlang: javascript
+# ms.devlang: javascript, typescript
 ms.custom: devx-track-js
 ms.topic: how-to
 ---

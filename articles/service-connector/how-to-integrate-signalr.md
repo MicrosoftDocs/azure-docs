@@ -25,10 +25,10 @@ This article supported authentication methods and clients, and shows sample code
 
 Supported authentication and clients for App Service, Azure Functions and Container Apps:
 
-| Client type | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
-|-------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
-| .NET        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| None        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Client type | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
+|-------------|----------------------------------|--------------------------------|----------------------------|-------------------|
+| .NET        | Yes                              | Yes                            | Yes                        | Yes               |
+| None        | Yes                              | Yes                            | Yes                        | Yes               |
 
 ---
 
