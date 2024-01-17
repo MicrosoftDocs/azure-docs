@@ -89,6 +89,8 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     1. Enter your endpoint URL and key in the appropriate fields.
     1. Enter your GPT-4 Turbo with Vision deployment name in the appropriate field. 
     1. Change the value of the `"image"` field to the base 64 byte data of your image.
+> [!NOTE]
+> You can optionally update the System Message to guide the assistant. It is recommended to update the System Message to be specific to the task in order to avoid unhelpful responses from the model.
 1. Run the application with the `python` command:
 
     ```console
