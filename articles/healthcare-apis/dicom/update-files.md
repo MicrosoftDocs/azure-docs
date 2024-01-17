@@ -13,7 +13,7 @@ ms.author: mmitrik
 
 The bulk update operation allows you to make changes to imaging metadata for multiple files stored in the DICOM&reg; service. For example, bulk update enables you to modify DICOM attributes for one or more studies in a single, asynchronous operation. You can use this API to perform updates to patient demographic changes and avoid the costs of repeating time-consuming uploads. 
 
-Beyond the efficiency gains, the bulk update capability preserves a record of the changes in the [change feed](dicom-change-feed-overview.md) and persists the original, unmodified instances for future retrieval. 
+Beyond the efficiency gains, the bulk update capability preserves a record of the changes in the [change feed](change-feed-overview.md) and persists the original, unmodified instances for future retrieval. 
 
 ## Use the bulk update operation
 Bulk update is an asynchronous, long-running operation available at the studies endpoint. The request payload includes one or more studies to update, the set of attributes to update, and the new values for those attributes. 
@@ -145,7 +145,7 @@ Content-Type: application/dicom
 The [delete](dicom-services-conformance-statement-v2.md#delete) method deletes both the original and latest version of a study, series, or instance.
 
 ## Change feed
-The [change feed](dicom-change-feed-overview.md) records update actions in the same manner as create and delete actions. 
+The [change feed](change-feed-overview.md) records update actions in the same manner as create and delete actions. 
 
 ## Supported DICOM modules
 Any attributes in the [Patient Identification Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-2) and [Patient Demographic Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-3) that aren't sequences can be updated using the bulk update operation. Supported attributes are called out in the tables.

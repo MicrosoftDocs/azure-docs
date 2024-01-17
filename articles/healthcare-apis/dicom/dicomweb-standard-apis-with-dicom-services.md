@@ -22,7 +22,7 @@ The supported services are:
 
 In addition to the subset of DICOMweb APIs, the DICOM service supports two custom APIs that are unique to Microsoft:
 
-* [Change feed](dicom-change-feed-overview.md): Track changes to DICOM data over time.
+* [Change feed](change-feed-overview.md): Track changes to DICOM data over time.
 * [Extended query tags](dicom-extended-query-tags-overview.md): Define custom tags for querying DICOM data.
 
 ## Prerequisites

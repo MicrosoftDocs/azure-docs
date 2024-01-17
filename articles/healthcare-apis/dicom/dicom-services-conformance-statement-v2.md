@@ -32,7 +32,7 @@ The Medical Imaging Server for DICOM&reg; supports a subset of the DICOMweb Stan
 
 Additionally, these nonstandard API(s) are supported:
 
-* [Change Feed](dicom-change-feed-overview.md)
+* [Change Feed](change-feed-overview.md)
 * [Extended Query Tags](dicom-extended-query-tags-overview.md)
 * [Bulk Update](update-files.md)
 * [Bulk Import](import-files.md)

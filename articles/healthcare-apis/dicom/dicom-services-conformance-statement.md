@@ -32,7 +32,7 @@ The Medical Imaging Server for DICOM&reg; supports a subset of the DICOMweb Stan
 
 Additionally, the following nonstandard API(s) are supported:
 
-* [Change Feed](dicom-change-feed-overview.md)
+* [Change Feed](change-feed-overview.md)
 * [Extended Query Tags](dicom-extended-query-tags-overview.md)
 
 The service uses REST API versioning. The version of the REST API must be explicitly specified as part of the base URL, as in the following example:

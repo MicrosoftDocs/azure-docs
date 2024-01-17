@@ -69,7 +69,7 @@ items:
       expanded: false
       items: 
         - name: Change feed overview
-          href: dicom-change-feed-overview.md
+          href: change-feed-overview.md
         - name: Extended query tags
           href: dicom-extended-query-tags-overview.md
     - name: API versioning
