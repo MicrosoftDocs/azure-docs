@@ -124,7 +124,7 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
 ### Patch version upgrade
 
 * Istio add-on patch version availability information is published in [AKS weekly release notes][aks-release-notes].
-* Patches are rolled out automatically for istiod and ingress pods as part of these AKS weekly releases.
+* Patches are rolled out automatically for istiod and ingress pods as part of these AKS weekly releases, which respect the `default` [planned maintenance window](./planned-maintenance.md) set up for the cluster.
 * User needs to initiate patches to Istio proxy in their workloads by restarting the pods for reinjection:
   * Check the version of the Istio proxy intended for new or restarted pods. This version is the same as the version of the istiod and Istio ingress pods after they were patched:
 
