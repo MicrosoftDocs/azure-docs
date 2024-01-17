@@ -43,6 +43,7 @@ Here is the data flow:
 
 To enable DeepAR filters, you need to initialize DeepAR SDK, this can be done by invoking `deepar.initialize` API.
 ```javascript
+const canvas = document.createElement('canvas');
 const deepAR = await deepar.initialize({
     licenseKey: 'YOUR_LICENSE_KEY',
     canvas: canvas,
@@ -76,9 +77,14 @@ const camera = cameras[0]
 const inputVideoStream = new LocalVideoStream(camera);
 const inputMediaStream = await inputVideoStream.getMediaStream();
 const video = document.createElement('video');
+const videoResizeCallback = () => {
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+};
+video.addEventListener('resize', videoResizeCallback);
 video.autoplay = true;
 video.srcObject = inputMediaStream;
-deepAR.setVideoElement(video, false);
+deepAR.setVideoElement(video, true);
 ```
 Now we have finished configuring the input video. To configure the output video, we need another `LocalVideoStream`.
 
@@ -122,5 +128,5 @@ await deepAR.stopVideo();
 For more information, see the following articles:
 
 - Learn about [Video effects](./get-started-video-effects.md?pivots=platform-web).
-- Learn more about [Manage video during calls](../../how-tos/calling-sdk/manage-video?pivots=platform-web).
+- Learn more about [Manage video during calls](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web).
 - DeepAR documentation. [Getting started | DeepAR](https://docs.deepar.ai/deepar-sdk/platforms/web/getting-started).
