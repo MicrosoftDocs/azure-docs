@@ -33,7 +33,7 @@ Consider these tools to identify high CPU utilization.
 
 ### Azure Metrics
 
-Azure Metrics is a good starting point to check the CPU utilization for the definite date and period. Metrics give information about the time duration during which the CPU utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput with CPU utilization to find out times when the workload caused high CPU. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md).
+Azure Metrics is a good starting point to check the CPU utilization for the definite date and period. Metrics give information about the time duration during which the CPU utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput with CPU utilization to find out times when the workload caused high CPU. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./how-to-alert-on-metrics.md).
 
 ### Query Store
 

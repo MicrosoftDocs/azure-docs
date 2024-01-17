@@ -51,7 +51,7 @@ az resource create --id /subscriptions/<subscription_id>/resourceGroups/<resourc
 
 After you successfully run the preceding command, you can view the private endpoint in the Azure portal by going to **Data Factory** > **Managed private endpoints**. The following screenshot shows an example.
 
-:::image type="content" source="./media/howto-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen.png" alt-text="Example screenshot of the pane for managed private endpoints in the Azure portal." lightbox="./media/howto-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen.png":::
+:::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen.png" alt-text="Example screenshot of the pane for managed private endpoints in the Azure portal." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen.png":::
 
 ## Approve a private endpoint
 
@@ -65,7 +65,7 @@ In the preceding steps, when you selected the server for which you created the p
 
 1. Select a database, enter a username and password, and select **SSL** as the encryption method. The following screenshot shows an example.
 
-   :::image type="content" source="./media/howto-connect-to-data-factory-private-endpoint/data-factory-data-source-connection.png" alt-text="Example screenshot of connection properties." lightbox="./media/howto-connect-to-data-factory-private-endpoint/data-factory-data-source-connection.png":::
+   :::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-data-source-connection.png" alt-text="Example screenshot of connection properties." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-data-source-connection.png":::
 
 1. Select **Test connection**. A **Connection successful** message should appear next to the **Test connection** button.
 

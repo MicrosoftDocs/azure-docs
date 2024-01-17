@@ -33,7 +33,7 @@ Consider the following tools to identify high memory utilization.
 ### Azure Metrics
 
 Use Azure Metrics to monitor the percentage of memory in use for the definite date and time frame.  
-For proactive monitoring, configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md).
+For proactive monitoring, configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./how-to-alert-on-metrics.md).
 
 ### Query Store
 
@@ -114,4 +114,4 @@ For more information on the **EXPLAIN** command, review [Explain Plan](https://w
 
 - [Autovacuum Tuning](how-to-autovacuum-tuning.md)
 - [High CPU Utilization](how-to-high-cpu-utilization.md)
-- [Server Parameters](howto-configure-server-parameters-using-portal.md)
+- [Server Parameters](how-to-configure-server-parameters-using-portal.md)

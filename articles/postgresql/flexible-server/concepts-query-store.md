@@ -108,7 +108,7 @@ The following options apply specifically to wait statistics:
 > [!NOTE]  
 > **pg_qs.query_capture_mode** supersedes **pgms_wait_sampling.query_capture_mode**. If pg_qs.query_capture_mode is NONE, the pgms_wait_sampling.query_capture_mode setting has no effect.
 
-Use the [Azure portal](howto-configure-server-parameters-using-portal.md) to get or set a different value for a parameter.
+Use the [Azure portal](how-to-configure-server-parameters-using-portal.md) to get or set a different value for a parameter.
 
 ## Views and functions
 

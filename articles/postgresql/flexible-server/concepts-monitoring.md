@@ -250,6 +250,6 @@ In addition to the metrics, you can use Azure Database for PostgreSQL flexible s
 
 ## Next steps
 
-- Learn more about how to [configure and access logs](howto-configure-and-access-logs.md).
+- Learn more about how to [configure and access logs](how-to-configure-and-access-logs.md).
 - Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 - Learn more about [audit logs](concepts-audit.md).

@@ -43,7 +43,7 @@ az postgres flexible-server parameter set --resource-group <your resource group>
    ```
 
  
-To install pgAudit, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a server restart to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [REST API](/rest/api/postgresql/singleserver/configurations/createorupdate).
+To install pgAudit, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a server restart to take effect. You can change parameters using the [Azure portal](how-to-configure-server-parameters-using-portal.md), [Azure CLI](how-to-configure-server-parameters-using-cli.md), or [REST API](/rest/api/postgresql/singleserver/configurations/createorupdate).
 
 Using the [Azure portal](https://portal.azure.com):
 
@@ -123,4 +123,4 @@ AzureDiagnostics
 
 ## Next steps
 - [Learn about logging in Azure Database for PostgreSQL flexible server](concepts-logging.md)
-- [Learn how to setup logging in Azure Database for PostgreSQL flexible server and how to access logs](howto-configure-and-access-logs.md)
+- [Learn how to setup logging in Azure Database for PostgreSQL flexible server and how to access logs](how-to-configure-and-access-logs.md)

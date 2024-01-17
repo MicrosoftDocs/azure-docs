@@ -55,7 +55,7 @@ For example, let's suppose that you're running one general purpose Gen5 – 32 v
 3. Select **Add** and then in the Purchase reservations pane, select **Azure Database for PostgreSQL** to purchase a new reservation for your Azure Database for PostgreSQL flexible server databases.
 4. Fill in the required fields. Existing or new databases that match the attributes you select qualify to get the reserved capacity discount. The actual number of your Azure Database for PostgreSQL flexible server instances that get the discount depend on the scope and quantity selected.
 
-:::image type="content" source="media/concept-reserved-pricing/postgresql-reserved-price.png" alt-text="Overview of reserved pricing":::
+:::image type="content" source="media/concepts-reserved-pricing/postgresql-reserved-price.png" alt-text="Overview of reserved pricing":::
 
 The following table describes required fields.
 

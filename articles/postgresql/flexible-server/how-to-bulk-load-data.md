@@ -215,6 +215,6 @@ The `number_of_scans`, `tuples_read`, and `tuples_fetched` columns would indicat
 ## Next steps
 - [Troubleshoot high CPU utilization](./how-to-high-CPU-utilization.md)
 - [Troubleshoot high memory utilization](./how-to-high-memory-utilization.md)
-- [Configure server parameters](./howto-configure-server-parameters-using-portal.md)
+- [Configure server parameters](./how-to-configure-server-parameters-using-portal.md)
 - [Troubleshoot and tune Autovacuum](./how-to-autovacuum-tuning.md)
 - [Troubleshoot high CPU utilization](./how-to-high-io-utilization.md)

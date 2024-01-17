@@ -18,7 +18,7 @@ In this article, you learn how to use troubleshooting guides for Azure Database 
 ## Prerequisites
 
 To effectively troubleshoot specific issue, you need to make sure you have all the necessary data in place. 
-Each troubleshooting guide requires a specific set of data, which is sourced from three separate features: [Diagnostic settings](howto-configure-and-access-logs.md), [Query Store](concepts-query-store.md), and [Enhanced Metrics](concepts-monitoring.md#enabling-enhanced-metrics).
+Each troubleshooting guide requires a specific set of data, which is sourced from three separate features: [Diagnostic settings](how-to-configure-and-access-logs.md), [Query Store](concepts-query-store.md), and [Enhanced Metrics](concepts-monitoring.md#enabling-enhanced-metrics).
 All troubleshooting guides require logs to be sent to the Log Analytics workspace, but the specific category of logs to be captured may vary depending on the particular guide. 
 
 Please follow the steps described in [Configure and Access Logs - Azure Database for PostgreSQL - Flexible Server](howto-configure-and-access-logs.md) to configure diagnostic settings and send the logs to the Log Analytics workspace.

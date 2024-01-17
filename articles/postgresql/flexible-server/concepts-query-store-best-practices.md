@@ -37,4 +37,4 @@ The **pg_qs.retention_period_in_days** parameter specifies in days the data rete
 
 ## Next steps
 
-- Learn how to get or set parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
+- Learn how to get or set parameters using the [Azure portal](how-to-configure-server-parameters-using-portal.md) or the [Azure CLI](how-to-configure-server-parameters-using-cli.md).

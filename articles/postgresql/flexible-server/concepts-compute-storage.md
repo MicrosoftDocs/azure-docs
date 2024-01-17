@@ -205,7 +205,7 @@ When you reach the storage limit, the server starts returning errors and prevent
 
 To avoid this situation, the server is automatically switched to read-only mode when the storage usage reaches 95 percent or when the available capacity is less than 5 GiB.
 
-We recommend that you actively monitor the disk space that's in use and increase the disk size before you run out of storage. You can set up an alert to notify you when your server storage is approaching an out-of-disk state. For more information, see [Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Flexible Server](howto-alert-on-metrics.md).
+We recommend that you actively monitor the disk space that's in use and increase the disk size before you run out of storage. You can set up an alert to notify you when your server storage is approaching an out-of-disk state. For more information, see [Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Flexible Server](how-to-alert-on-metrics.md).
 
 ### Storage autogrow
 

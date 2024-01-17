@@ -44,7 +44,7 @@
   - name: Major version upgrades
     href: single-server/how-to-upgrade-using-dump-and-restore.md
   - name: Prepay for reserved capacity
-    href: flexible-server/concept-reserved-pricing.md
+    href: flexible-server/concepts-reserved-pricing.md
   - name: Request quota increase
     href: flexible-server/how-to-request-quota-increase.md
   - name: Known issues & limitations
@@ -107,7 +107,7 @@
     - name: Scaling resources
       href: flexible-server/concepts-scaling-resources.md
     - name: Prepay for reserved capacity
-      href: flexible-server/concept-reserved-pricing.md
+      href: flexible-server/concepts-reserved-pricing.md
     - name: Networking
       items:
       - name: Networking with public access (allowed IP addresses)
@@ -300,7 +300,7 @@
         - name: Azure portal
           href: flexible-server/how-to-restore-to-different-subscription-or-resource-group.md
         - name: Azure REST API
-          href: flexible-server/howto-restore-different-subscription-resource-group-api.md 
+          href: flexible-server/how-to-restore-different-subscription-resource-group-api.md 
       - name: Restart a server
         items:
         - name: Azure portal
@@ -352,7 +352,7 @@
         - name: Azure portal
           href: flexible-server/how-to-manage-virtual-network-private-endpoint-portal.md
         - name: Connect to managed data factory via Private Endpoint
-          href: flexible-server/howto-connect-to-data-factory-private-endpoint.md
+          href: flexible-server/how-to-connect-to-data-factory-private-endpoint.md
       - name: Public access (allowed IP addresses)
         items:
         - name: Azure portal
@@ -362,10 +362,10 @@
     - name: Configure server parameters
       items:
       - name: Azure portal
-        href: flexible-server/howto-configure-server-parameters-using-portal.md
+        href: flexible-server/how-to-configure-server-parameters-using-portal.md
         displayName: application development, server parameters
       - name: Azure CLI
-        href: flexible-server/howto-configure-server-parameters-using-cli.md
+        href: flexible-server/how-to-configure-server-parameters-using-cli.md
         displayName: application development, server parameters
     - name: Enable authentication
       items:
@@ -395,9 +395,9 @@
     - name: Monitor
       items:
       - name: Create alerts on metrics using portal
-        href: flexible-server/howto-alert-on-metrics.md
+        href: flexible-server/how-to-alert-on-metrics.md
       - name: Configure and access logs
-        href: flexible-server/howto-configure-and-access-logs.md
+        href: flexible-server/how-to-configure-and-access-logs.md
     - name: Intelligent performance
       items:
         - name: Intelligent tuning
@@ -428,7 +428,7 @@
         - name: Basics of pgvector
           href: flexible-server/how-to-use-pgvector.md
         - name: Optimize performance when using pgvector
-          href: flexible-server/howto-optimize-performance-pgvector.md
+          href: flexible-server/how-to-optimize-performance-pgvector.md
     - name: pg_azure_storage
       href: flexible-server/reference-pg-azure-storage.md 
 - name: Azure Database for PostgreSQL - Single Server

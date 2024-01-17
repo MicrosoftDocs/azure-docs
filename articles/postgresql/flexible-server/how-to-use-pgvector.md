@@ -39,7 +39,7 @@ CREATE EXTENSION vector;
 Learn more around performance, indexing and limitations using `pgvector`.
 
 > [!div class="nextstepaction"]
-> [Optimize performance using pgvector](howto-optimize-performance-pgvector.md)
+> [Optimize performance using pgvector](how-to-optimize-performance-pgvector.md)
 
 > [!div class="nextstepaction"]
 > [Generate vector embeddings with Azure OpenAI - Azure Database for PostgreSQL - Flexible Server](./generative-ai-azure-openai.md)

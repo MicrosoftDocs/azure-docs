@@ -1516,6 +1516,46 @@
         "redirect_document_id": false
     },    
     {
+        "source_path_from_root": "/articles/postgresql/flexible-server/howto-alert-on-metrics.md",
+        "redirect_url": "/azure/postgresql/flexible-server/how-to-alert-on-metrics",
+        "redirect_document_id": true
+    },    
+    {
+        "source_path_from_root": "/articles/postgresql/flexible-server/howto-configure-and-access-logs.md",
+        "redirect_url": "/azure/postgresql/flexible-server/how-to-configure-and-access-logs",
+        "redirect_document_id": true
+    },    
+    {
+        "source_path_from_root": "/articles/postgresql/flexible-server/howto-configure-server-parameters-using-cli.md",
+        "redirect_url": "/azure/postgresql/flexible-server/how-to-configure-server-parameters-using-cli",
+        "redirect_document_id": true
+    },    
+    {
+        "source_path_from_root": "/articles/postgresql/flexible-server/howto-configure-server-parameters-using-portal.md",
+        "redirect_url": "/azure/postgresql/flexible-server/how-to-configure-server-parameters-using-portal",
+        "redirect_document_id": true
+    },    
+    {
+        "source_path_from_root": "/articles/postgresql/flexible-server/howto-connect-to-data-factory-private-endpoint.md",
+        "redirect_url": "/azure/postgresql/flexible-server/how-to-connect-to-data-factory-private-endpoint",
+        "redirect_document_id": true
+    },    
+    {
+        "source_path_from_root": "/articles/postgresql/flexible-server/howto-optimize-performance-pgvector.md",
+        "redirect_url": "/azure/postgresql/flexible-server/how-to-optimize-performance-pgvector",
+        "redirect_document_id": true
+    },    
+    {
+        "source_path_from_root": "/articles/postgresql/flexible-server/howto-restore-different-subscription-resource-group-api.md",
+        "redirect_url": "/azure/postgresql/flexible-server/how-to-restore-different-subscription-resource-group-api",
+        "redirect_document_id": true
+    },    
+    {
+        "source_path_from_root": "/articles/postgresql/flexible-server/concept-reserved-pricing.md",
+        "redirect_url": "/azure/postgresql/flexible-server/concepts-reserved-pricing",
+        "redirect_document_id": true
+    },    
+    {
         "source_path_from_root": "/articles/postgresql/single-server/overview.md",
         "redirect_url": "/azure/postgresql/flexible-server/service-overview",
         "redirect_document_id": false

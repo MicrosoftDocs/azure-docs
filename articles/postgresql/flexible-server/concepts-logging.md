@@ -61,6 +61,6 @@ The following table describes the fields for the **PostgreSQLLogs** type. Depend
 
 ## Next steps
 
-- Learn more about how to [Configure and Access Logs](howto-configure-and-access-logs.md).
+- Learn more about how to [Configure and Access Logs](how-to-configure-and-access-logs.md).
 - Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 - Learn more about [audit logs](concepts-audit.md)
