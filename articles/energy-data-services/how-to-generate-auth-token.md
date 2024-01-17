@@ -66,6 +66,8 @@ A `client-secret` is a string value your app can use in place of a certificate t
    :::image type="content" source="media/how-to-generate-auth-token/client-secret.png" alt-text="Screenshot that shows finding the client secret.":::
 
 ### Find redirect-uri
+The `redirect-uri` of your app, where your app sends and receives the authentication responses. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL encoded.
+
 1. Go to **App registrations**.
 1. Under the **Manage** section, select **Authentication**.
 1. Fetch the `redirect-uri` (or reply URL) for your app to receive responses from Microsoft Entra ID.
