@@ -27,7 +27,7 @@ To update the properties of an existing Standby Pool, navigate to the scale set 
 ### [CLI](#tab/cli1)
 Update an existing Standby Pool using [az standbypool update]().
 
-```azurecli-interartive
+```azurecli-interactive
 az standbypool update \
    --resource-group myResourceGroup 
    --name myStandbyPool \
@@ -38,7 +38,7 @@ az standbypool update \
 ### [PowerShell](#tab/powershell1)
 Update an existing Standby Pool using [Update-AzStandbyPool]().
 
-```azurepowershell-interative
+```azurepowershell-interactive
 Update-AzStandbyPool `
    -ResourceGroup myResourceGroup 
    -Name myStandbyPool `
@@ -155,13 +155,13 @@ To delete an existing Standby Pool, navigate to the scale set that is associated
 ### [CLI](#tab/cli2)
 Delete an existing Standby Pool using [az standbypool delete]().
 
-```azurecli-interartive
+```azurecli-interactive
 az standbypool delete --resource-group myResourceGroup --name myStandbyPool
 ```
 ### [PowerShell](#tab/powershell2)
 Delete an existing Standby Pool using [Delete-AzStandbyPool]().
 
-```azurepowershell-interative
+```azurepowershell-interactive
 Delete-AzStandbyPool -ResourceGroup myResourceGroup -Name myStandbyPool 
 ```
 

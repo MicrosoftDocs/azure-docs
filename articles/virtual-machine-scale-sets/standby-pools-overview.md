@@ -18,9 +18,7 @@ Standby Pools for Virtual Machine Scale Sets allow you to increase scaling perfo
 
 Standby Pools reduce the time to scale-out by performing various initialization steps such as installing applications/ software or loading large amounts of data. These initialization steps are performed on the VMs in the Standby Pool prior to being put into the scale set and before the instances begin taking traffic.
 
-## Concepts
-
-### Standby Pool Size
+## Standby Pool Size
 The number of VMs in a Standby Pool is determined by the number of VMs in your scale set and the total available capacity you want ready at any point in time. 
 
 | Setting | Description | 
@@ -29,7 +27,7 @@ The number of VMs in a Standby Pool is determined by the number of VMs in your s
 | `instanceCount` | The current number of VMs already deployed in your scale set.|
 |Standby Pool Size | `MaxReadyCapacity`– `InstanceCount`
 
-### Scaling
+## Scaling
 
 When your scale set requires more instances, rather than creating new instances and placing them directly into the scale set, the scale set can instead pull VMs from the Standby Pool. This significantly reduces the time it takes to scale-out and have the instances ready to take traffic. 
 
@@ -37,7 +35,7 @@ When your scale set scales back down, the instances are deleted from your scale 
 
 If at any point in time your scale set needs to scale beyond the number of instances you have in your Standby Pool, the scale set defaults to standard scale-out methods and create new instances that are added directly into the Scale Set
 
-### Virtual Machine States
+## Virtual Machine States
 
 The VMs in the Standby Pool can be created in a Running State or a Stopped (deallocated) state. The states of the VMs in the Standby Pool are configured using the `virtualMachineState` parameter.
 
@@ -53,7 +51,7 @@ NICs, and any static IPs remain unchanged.
 **Running VM State:** Using VMs in a Running state is recommended when latency and reliability 
 requirements are strict.
 
-### Pricing
+## Pricing
 
 >[IMPORTANT]
 >The `VirtualMachineState` you choose will impact the cost of your Standby Pool. You can update the desired state at any point in time. 
