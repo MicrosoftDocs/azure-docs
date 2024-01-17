@@ -815,7 +815,7 @@ The following parameters are used inside of the optional `embeddingDependency` p
 },
 ```
 
-### Start an ingestion job 
+### Start an ingestion job (preview)
 
 > [!TIP]
 > The `JOB_NAME` you choose will be used as the index name. Be aware of the [constraints](/rest/api/searchservice/create-index#uri-parameters) for the *index name*.
