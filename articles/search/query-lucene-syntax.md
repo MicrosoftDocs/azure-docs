@@ -89,7 +89,7 @@ You can embed Boolean operators in a query string to improve the precision of a 
 * In full syntax, queries with a single negation are not allowed. For example, the query `-luxury` is not allowed.
 * In full syntax, negations will behave as if they are always ANDed onto the query regardless of the search mode.
    * For example, the full syntax query `wifi -luxury` in full syntax only fetches documents that contain the term `wifi`, and then applies the negation `-luxury` to those documents.
-* If you want to use negations to search over all documents in the index, simple syntax with the any search mode is recommended.
+* If you want to use negations to search over all documents in the index, simple syntax with the `any` search mode is recommended.
 * If you want to use negations to search over a subset of documents in the index, full syntax or the simple syntax with the all search mode are recommended.
 
 | Query Type | Search Mode | Example Query | Behavior |

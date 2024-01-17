@@ -31,7 +31,7 @@ You can prepare these documents yourself, but if content resides in a [supported
 
 ### [**Azure portal**](#tab/portal)
 
-Using Azure portal, the sole means for loading an index is an indexer or running the [Import Data wizard](search-import-data-portal.md). The wizard creates objects. If you want to load an existing index, you'll need to use an alternative approach.
+In the Azure portal, use the Import Data wizards to create and load indexes in a seamless workflow. If you want to load an existing index, choose an alternative approach.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
@@ -39,7 +39,7 @@ Using Azure portal, the sole means for loading an index is an indexer or running
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
-1. Alternatively, you can [reset and run an indexer](search-howto-run-reset-indexers.md), which is useful if you're adding fields incrementally. Reset forces the indexer to start over, picking up all fields from all source documents.
+If indexers are already defined, you can [reset and run an indexer](search-howto-run-reset-indexers.md) from the Azure portal, which is useful if you're adding fields incrementally. Reset forces the indexer to start over, picking up all fields from all source documents.
 
 ### [**REST**](#tab/import-rest)
 
