@@ -133,8 +133,6 @@ Along with simple string and number inputs, the SAP connector accepts the follow
 
 If you specify an IP address to connect to an SAP Message Server, for example, a load balancer, the connection might still fail with an error message similar to **"hostname SAPDBSERVER01.example.com unknown"**. The message server instructs the SAP connector to use a hostname for the connection to the backend SAP Application Server, or the server behind the load balancer. If DNS can't resolve the hostname, the connection fails.
 For this problem, the following workarounds or solutions exist:
-connection failure:
-
 
 - Make sure that the client making the connection, such as the computer with the on-premises data gateway for the SAP connector or the ISE connector host for the ISE-based SAP connector, can resolve the hostnames returned by the message server.
 -  In the transaction named **RZ11**, change or add the SAP setting named **ms/lg_with_hostname=0**.
