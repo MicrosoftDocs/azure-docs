@@ -11,6 +11,9 @@ ms.reviewer: ju-shim
 
 # Standby Pools FAQ
 
+> [!IMPORTANT]
+> Standby Pools for Virtual Machine Scale Sets are currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+
 Get answers to frequently asked questions about Standby Pools for Virtual Machine Scale Sets in Azure.
 
 ### What are Standby Pools for VM Scale Sets? 
