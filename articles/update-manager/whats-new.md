@@ -21,7 +21,7 @@ Azure Update Manager allows you to create and manage pre and post events on sche
 ## November 2023
 
 ### Alerting (preview)
-Azure Update Manager allows you to enable alerts to address events as captured in updates data.
+Azure Update Manager allows you to enable alerts to address events as captured in updates data. [Learn more](manage-alerts.md).
 
 ### Azure Stack HCI patching (preview)
 

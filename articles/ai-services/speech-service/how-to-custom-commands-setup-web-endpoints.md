@@ -2,7 +2,6 @@
 title: 'Set up web endpoints'                             
 titleSuffix: Azure AI services
 description: set up web endpoints for Custom Commands
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

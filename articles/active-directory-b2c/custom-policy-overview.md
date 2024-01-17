@@ -8,10 +8,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: overview
-ms.date: 11/20/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As an identity developer working with Azure AD B2C, I want to understand the basics of custom policies, so that I can configure and customize the behavior of my Azure AD B2C tenant for different identity tasks.
+
 ---
 
 # Azure AD B2C custom policy overview

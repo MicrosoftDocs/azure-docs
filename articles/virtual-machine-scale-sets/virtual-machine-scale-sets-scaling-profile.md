@@ -9,7 +9,7 @@ ms.date: 05/05/2023
 ms.reviewer: jushiman
 ---
 
-# Scaling Profile
+# Scaling profile
 
 Virtual machine scale sets allow you to define a scaling profile or template, which specifies the properties of virtual machine instances. Examples of properties set in the virtual machine scaling profile include:
 
@@ -29,12 +29,16 @@ By default, scale sets are created with a virtual machine scaling profile. See [
 
 ## Create a scale set without a scaling profile
 
-
 > [!IMPORTANT]
 >Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
 https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
 
-Virtual machine scale sets in Flexible Orchestration Mode can optionally be created without a virtual machine scaling profile. This configuration is similar to creating and deploying an Availability Set in that you add to the set by manually creating virtual machine instances and adding them to the set. It's useful to create a scale set without a scaling profile when, need complete control over all VM properties, need to follow your own VM naming conventions, want to add different types of VMs to the same scale set, or need to control the placement of virtual machines into a specific availability zone or fault domain.
+Virtual machine scale sets in Flexible Orchestration Mode can optionally be created without a virtual machine scaling profile. This configuration is similar to creating and deploying an Availability Set in that you add to the set by manually creating virtual machine instances and adding them to the set. It's useful to create a scale set without a scaling profile when:
+
+- You need complete control over all VM properties.
+- You need to follow your own VM naming conventions.
+- You want to add different types of VMs to the same scale set.
+- You need to control the placement of virtual machines into a specific availability zone or fault domain.
 
 | Feature                             | Virtual machine scale sets (no scaling profile) | Availability Sets |
 | ----------------------------------- | :---------------------------------------------: | :---------------: |

@@ -2,7 +2,6 @@
 title: Role-based access control for Speech resources - Speech service
 titleSuffix: Azure AI services
 description: Learn how to assign access roles for a Speech resource.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -59,7 +58,7 @@ If Speech Studio uses your Microsoft Entra token, but the Speech resource doesn'
 | ---| ---|  
 |Speech resource key|Full access limited only by the assigned role permissions.|
 |Microsoft Entra token with custom subdomain and private endpoint|Full access limited only by the assigned role permissions.|
-|Microsoft Entra token without custom subdomain and private endpoint (not recommended)|Features are limited. For example, the Speech resource can be used to train a Custom Speech model or Custom Neural Voice. But you can't use a Custom Speech model or Custom Neural Voice.|
+|Microsoft Entra token without custom subdomain and private endpoint (not recommended)|Features are limited. For example, the Speech resource can be used to train a Custom Speech model or custom neural voice. But you can't use a Custom Speech model or custom neural voice.|
 
 ## Next steps
 

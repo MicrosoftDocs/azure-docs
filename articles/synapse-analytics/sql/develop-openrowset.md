@@ -115,7 +115,9 @@ You have three choices for input files that contain the target data for querying
 
 - 'PARQUET' - Binary file in Parquet format 
 
-- 'DELTA' - A set of Parquet files organized in Delta Lake (preview) format 
+- 'DELTA' - A set of Parquet files organized in Delta Lake (preview) format
+
+Values with blank spaces are not valid, e.g. 'CSV  ' is not a valid value. 
 
 **'unstructured_data_path'**
 

@@ -5,7 +5,7 @@ ms.author: nickoman
 author: nickomang
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 10/22/2023
+ms.date: 01/05/2024
 ---
 
 # Use Image Cleaner to clean up stale images on your Azure Kubernetes Service (AKS) cluster
@@ -160,9 +160,9 @@ Images specified in the exclusion list aren't removed from the cluster. Image Cl
 
 ## FAQ
 
-### How to check eraser version is using?
+### How can I check which version Image Cleaner is using?
 ```
-kubectl get configmap -n kube-system eraser-manager-config | grep tag -C 3
+kubectl describe configmap -n kube-system eraser-manager-config | grep tag -C 3
 ```
 
 ### Does Image Cleaner support other vulnerability scanners besides trivy-scanner?
@@ -188,7 +188,8 @@ kubectl logs -n kube-system <worker-pod-name> -c trivy-scanner
 kubectl logs -n kube-system <worker-pod-name> -c remover
 ```
 
-- when `eraser-aks-xxxxx` was deleted, you can follow these steps to enable the [Azure Monitor add-on](./monitor-aks.md) and use the Container Insights pod log table to view historical pod logs.
+- `eraser-aks-xxxxx` pod will be deleted in 10 minutes after work completion. You can follow these steps to enable the [Azure Monitor add-on](./monitor-aks.md) and use the Container Insights pod log table. After that, historical logs will be stored and you can review them even `eraser-aks-xxxxx` is deleted
+  
   1. Ensure Azure Monitoring is enabled on your cluster. For detailed steps, see [Enable Container Insights on AKS clusters](../azure-monitor/containers/container-insights-enable-aks.md#existing-aks-cluster).
 
   2. Get the Log Analytics resource ID using the [`az aks show`][az-aks-show] command.

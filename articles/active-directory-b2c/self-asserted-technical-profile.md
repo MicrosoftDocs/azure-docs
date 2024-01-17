@@ -9,9 +9,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 12/11/2023
+ms.date: 01/11/2024
+
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to define a self-asserted technical profile with display claims and output claims, so that I can collect and validate user input and return the claims to the next orchestration step.
+
 ---
 
 # Define a self-asserted technical profile in an Azure Active Directory B2C custom policy
