@@ -17,7 +17,7 @@ Understanding quota limits that affect your Dev Box resources helps you to plan 
 
 To help you understand where and how you're using your quota, Azure provides the **Usage + Quotas** page in the Azure portal. Each subscription has its own **Usage + quotas** page that covers all the various services in the subscription.
 
-For example, if dev box users encounter a vCPU quota error such as, *QuotaExceeded*, error during dev box creation there might be a need to increase this quota. A great place to start is to determine the current quota available.   
+For example, if dev box users encounter a vCPU quota error such as, *QuotaExceeded*, during dev box creation there might be a need to increase this quota. A great place to start is to determine the current quota available.   
 
 
 ## Determine your Dev Box usage and quota by subscription in Azure portal
