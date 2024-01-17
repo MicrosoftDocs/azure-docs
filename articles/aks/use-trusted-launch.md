@@ -2,7 +2,7 @@
 title: Trusted launch (preview) with Azure Kubernetes Service (AKS)
 description: Learn how trusted launch (preview) protects the Azure Kubernetes Cluster (AKS) nodes against boot kits, rootkits, and kernel-level malware. 
 ms.topic: article
-ms.date: 05/15/2023
+ms.date: 11/16/2024
 
 ---
 
@@ -23,15 +23,51 @@ Trusted launch is composed of several, coordinated infrastructure technologies t
 
 - The Azure CLI version 2.44.1 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-- The `aks-preview` Azure CLI extension version 0.5.123 or later <Need to call this out or not?>.
+- The `aks-preview` Azure CLI extension version 0.5.123 or later.
 
-- Register the `xxx` feature in your Azure subscription <Need to specify a feature flag or not?>.
+- Register the `TrustedLaunchPreview` feature in your Azure subscription.
 
 - AKS supports trusted launch (preview) on version 1.25.2 and higher.
 
+### Install the aks-preview Azure CLI extension
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+### Register the TrustedLaunchPreview feature flag
+
+Register the `TrustedLaunchPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "TrustedLaunchPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "TrustedLaunchPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace "Microsoft.ContainerService"
+```
+
 ## Limitations
 
-- Windows Server 2019 and higher cluster nodes are not supported.
+- Cluster nodes running Windows Server 2019 and higher operating system are not supported.
 
 ## Deploy new cluster
 
@@ -46,7 +82,7 @@ Perform the following steps to deploy an AKS Mariner cluster using the Azure CLI
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
     ```azurecli
-    az aks create --name myAKSCluster --resource-group myResourceGroup --enable-secure-boot
+    az aks create --name myAKSCluster --resource-group myResourceGroup --enable-secure-boot --enable-vtpm
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
