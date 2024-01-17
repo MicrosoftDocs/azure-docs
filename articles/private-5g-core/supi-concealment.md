@@ -12,9 +12,9 @@ ms.custom: template-how-to
 
 # Enable SUPI concealment
 
-The **subscription permanent identifier (SUPI)** is a unique, permanent identifier for a device. To avoid transmitting this identifier in plain text, it can be concealed through encryption. The encrypted value is known as the **subscription concealed identifier (SUCI)**. The encryption (SUPI concealment) is performed by the UE on registration, generating a new SUCI each time to prevent the user from being tracked. Decryption (SUCI deconcealment) is performed by the packet core.
+The **subscription permanent identifier (SUPI)** is a unique, permanent identifier for a device. To avoid transmitting this identifier in plain text, it can be concealed through encryption. The encrypted value is known as the **subscription concealed identifier (SUCI)**. The encryption (SUPI concealment) is performed by the UE on registration, generating a new SUCI each time to prevent the user from being tracked. Decryption (SUCI deconcealment) is performed by the Unified Data Management (UDM) network function in the packet core.
 
-SUPI concealment requires a home network public key (HPNK) and a corresponding private key. The public key is stored on the SIM. The private key is stored in Azure Key Vault and referenced by a URL configured on the packet core. In this how-to guide, you'll learn how to configure the packet core with a private key for SUPI concealment.
+SUPI concealment requires a home network public key (HPNK) and a corresponding private key. The public key is stored on the SIM. The private key is stored in Azure Key Vault and referenced by a URL configured on the packet core. In this how-to guide, you'll learn how to configure the packet core with a private key for SUCI deconcealment.
 
 SUPI concealment and SUCI deconcealment are defined in 3GPP TS 33.501: Security architecture and procedures for 5G System.
 
@@ -43,13 +43,13 @@ You can use the OpenSSL tool in Bash to generate a public and private key pair f
 
 When using SUPI protection scheme Profile A, the key must be an X25519 Private Key.
 
-1. Generate a key pair and save the private key to a file called `hnpk_profile_a.pem``: 
+1. Generate a key pair and save the private key to a file called `hnpk_profile_a.pem`: 
 
     ```bash
     openssl genpkey -algorithm x25519 -outform pem -out hnpk_profile_a.pem 
     ```
  
-1. Get the corresponding public key and save it to a file called `hnpk_profile_a.pub``: 
+1. Get the corresponding public key and save it to a file called `hnpk_profile_a.pub`: 
 
     ```bash
     openssl pkey -in hnpk_profile_a.pem -pubout -out hnpk_profile_a.pub 
@@ -59,13 +59,13 @@ When using SUPI protection scheme Profile A, the key must be an X25519 Private K
 
 When using SUPI protection scheme Profile B, the key must be an Elliptic Curve Private Key using curve prime256v1. 
 
-1. Generate a key pair and save the private key to a file called `hnpk_profile_b.pem``: 
+1. Generate a key pair and save the private key to a file called `hnpk_profile_b.pem`: 
 
     ```bash
     openssl genpkey -algorithm ec -pkeyopt ec_paramgen_curve:prime256v1 -outform pem -out hnpk_profile_b.pem 
     ```
  
-1. Get the corresponding public key and save it to a file called hnpk_profile_b.pub: 
+1. Get the corresponding public key and save it to a file called `hnpk_profile_b.pub`: 
 
     ```bash
     openssl pkey -in hnpk_profile_b.pem -pubout -out hnpk_profile_b.pub 
@@ -73,7 +73,7 @@ When using SUPI protection scheme Profile B, the key must be an Elliptic Curve P
 
 ## Add home network private keys to Azure Key Vault
 
-The home network private keys are stored in Azure Key Vault. You must use the Azure command line to upload the keys because the portal does not support multi-line entries.
+The home network private keys are stored in Azure Key Vault. You must use the Azure command line to upload the keys because the portal doesn't support multi-line entries.
 
 1. Either [create an Azure Key Vault](../key-vault/general/quick-create-portal.md) or choose an existing one to host your private keys. Ensure that the Key Vault uses role based access control (RBAC) for authorization.
 
@@ -105,7 +105,7 @@ Updating the packet core configuration requires you to reinstall the packet core
 1. Select **Modify mobile network**.
 1. Under **Home network public key configuration**, select **Add** for either Profile A or Profile B.
 
-    :::image type="content" source="media/supi-concealment/modify-mobile-network.png" alt-text="Screenshot of the Azure portal. It shows mobile network configuration pane.":::
+    :::image type="content" source="media/supi-concealment/modify-mobile-network.png" alt-text="Screenshot of the Azure portal. It shows the mobile network configuration pane.":::
 
 1. Choose an ID between 1 and 255 and enter the URL of the private key secret in your Key Vault.
 
