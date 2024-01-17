@@ -4,7 +4,7 @@ description: Learn how to deploy microservice applications to Azure Spring Apps.
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 06/21/2023
+ms.date: 01/10/2024
 ms.author: v-shilichen
 ms.custom: devx-track-java, devx-track-extended-java, mode-other, event-tier1-build-2022, engagement-fy23
 zone_pivot_groups: spring-apps-tier-selection
@@ -18,28 +18,62 @@ zone_pivot_groups: spring-apps-tier-selection
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-This article explains how to deploy microservice applications to Azure Spring Apps using the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices). The Pet Clinic sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application on Azure Spring Apps.
+This article explains how to deploy microservice applications to Azure Spring Apps using the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices).
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-architecture.png" alt-text="Diagram showing the architecture of the PetClinic sample on Azure Spring Apps." lightbox="media/quickstart-deploy-microservice-apps/petclinic-architecture.png" border="false":::
+::: zone pivot="sc-enterprise"
+
+The Pet Clinic sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application on the Azure Spring Apps Enterprise plan.
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-enterprise-architecture.png" alt-text="Diagram that shows the architecture of the PetClinic sample on the Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/petclinic-enterprise-architecture.png" border="false":::
+
+The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
+
+- Uses Azure Spring Apps to manage the frontend and backend apps. The backend apps are built with Spring Boot and each app uses HSQLDB as the persistent store. The reforged frontend app builds upon Pet Clinic API Gateway App with Node.js serving as a standalone frontend web application.
+- Uses the managed components on Azure Spring Apps, including Service Registry, Application Configuration Service, Spring Cloud Gateway, and Application Live View. The Application Configuration Service reads the Git repository configuration.
+- Exposes the URL of Spring Cloud Gateway to route request to backend service apps, and exposes the URL of the Application Live View to monitor the backend apps.
+- Analyzes logs using the Log Analytics workspace.
+- Monitors performance with Application Insights.
+
+> [!NOTE]
+> This article uses a simplified version of PetClinic, using an in-memory database that isn't production-ready to quickly deploy to Azure Spring Apps.
+>
+> The Tanzu Developer Tools exposes public access for Application Live View, which is a risk point. The production environment needs to secure the access. For more information, see the [Configure Dev Tools Portal](./how-to-use-dev-tool-portal.md#configure-dev-tools-portal) section of [Configure Tanzu Dev Tools in the Azure Spring Apps Enterprise plan](how-to-use-dev-tool-portal.md).
+
+::: zone-end
+
+::: zone pivot="sc-standard"
+
+The Pet Clinic sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application on the Azure Spring Apps Standard plan.
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" alt-text="Diagram showing the architecture of the PetClinic sample on the Azure Spring Apps standard plan." lightbox="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" border="false":::
 
 The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
 
 - Uses Azure Spring Apps to manage the Spring Boot apps. Each app uses HSQLDB as the persistent store.
-- Uses the managed components Spring Cloud Config Server and Eureka Service Discovery on Azure Spring Apps. The Config Server reads Git repository configuration.
+- Uses the managed components Spring Cloud Config Server and Eureka Service Registry on Azure Spring Apps. The Config Server reads the Git repository configuration.
 - Exposes the URL of API Gateway to load balance requests to service apps, and exposes the URL of the Admin Server to manage the applications.
 - Analyzes logs using the Log Analytics workspace.
 - Monitors performance with Application Insights.
 
 > [!NOTE]
-> This article uses a simplified version of PetClinic, using an in-memory database that is not production-ready to quickly deploy to Azure Spring Apps.
-> 
+> This article uses a simplified version of PetClinic, using an in-memory database that isn't production-ready to quickly deploy to Azure Spring Apps.
+>
 > The deployed app `admin-server` exposes public access, which is a risk point. The production environment needs to secure the Spring Boot Admin application.
 
-::: zone pivot="sc-standard"
+::: zone-end
 
 This article provides the following options for deploying to Azure Spring Apps:
 
-- The **Azure portal and Maven plugin** option provides a more conventional way to create resources and deploy applications step by step. This option is suitable for Spring developers using Azure cloud services for the first time.
+::: zone pivot="sc-enterprise"
+
+- The **Azure portal** option is the easiest and the fastest way to create resources and deploy applications with a single click. This option is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
+- The **Azure portal + Maven plugin** option is a more conventional way to create resources and deploy applications step by step. This option is suitable for Spring developers using Azure cloud services for the first time.
+
+::: zone-end
+
+::: zone pivot="sc-standard"
+
+- The **Azure portal + Maven plugin** option is a more conventional way to create resources and deploy applications step by step. This option is suitable for Spring developers using Azure cloud services for the first time.
 - The **Azure Developer CLI** option is a more efficient way to automatically create resources and deploy applications through simple commands. The Azure Developer CLI uses a template to provision the Azure resources needed and to deploy the application code. This option is suitable for Spring developers who are familiar with Azure cloud services.
 
 ::: zone-end
@@ -67,9 +101,23 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 ::: zone pivot="sc-enterprise"
 
+### [Azure portal](#tab/Azure-portal-ent)
+
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 - (Optional) [Git](https://git-scm.com/downloads).
 - (Optional) [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- [Git](https://git-scm.com/downloads).
+- (Optional) [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+- (Optional) [Node.js](https://nodejs.org/en/download), version 16.20 or higher.
+- [Azure CLI](/cli/azure/install-azure-cli), version 2.45.0 or higher.
+
+---
 
 ::: zone-end
 
@@ -89,27 +137,46 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 The following sections describe how to validate the deployment.
 
+::: zone pivot="sc-enterprise"
+
+### [Azure portal](#tab/Azure-portal-ent)
+
+[!INCLUDE [validate-the-apps](includes/quickstart-deploy-microservice-apps/validate-the-apps.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
 ### 5.1. Access the applications
 
-Using the URL information in the deployment log output, open the URL exposed by the app named `api-gateway` - for example, `https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io`. The application should look similar to the following screenshot:
+Using the endpoint assigned from Spring Cloud Gateway - for example, `
+https://<your-Azure-Spring-Apps-instance-name>-gateway-xxxxx.svc.azuremicroservices.io`. The application should look similar to the following screenshot:
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/application.png" alt-text="Screenshot of the PetClinic application running on Azure Spring Apps." lightbox="media/quickstart-deploy-microservice-apps/application.png":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/application-enterprise.png" alt-text="Screenshot of the PetClinic application running on the Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/application-enterprise.png":::
 
 ### 5.2. Query the application logs
 
 After you browse each function of the Pet Clinic, the Log Analytics workspace collects logs of each application. You can check the logs by using custom queries, as shown in the following screenshot:
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/azure-spring-apps-log-query.png" alt-text="Screenshot of the Azure portal showing the Logs page of the query on PetClinic application and the results." lightbox="media/quickstart-deploy-microservice-apps/azure-spring-apps-log-query.png":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/azure-spring-apps-log-query-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Logs page of the query on PetClinic application and the results for the Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/azure-spring-apps-log-query-enterprise.png":::
 
 ### 5.3. Monitor the applications
 
 Application Insights monitors the application dependencies, as shown by the following application tracing map:
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/application-insights-map.png" alt-text="Screenshot of the Azure portal showing the Application map page for an Application Insights." lightbox="media/quickstart-deploy-microservice-apps/application-insights-map.png":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png" alt-text="Screenshot of the Azure portal that shows the Application map page for the Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png":::
 
-Open the URL exposed by the app `admin-server` to manage the applications through the Spring Boot Admin Server, as shown in the following screenshot:
+Open the Application Live View URL exposed by the Developer Tools to monitor application runtimes, as shown in the following screenshot:
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/admin-server.png" alt-text="Screenshot of the Admin Server for the PetClinic application listing the current application instances." lightbox="media/quickstart-deploy-microservice-apps/admin-server.png":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/application-live-view.png" alt-text="Screenshot of the Application Live View for the PetClinic application." lightbox="media/quickstart-deploy-microservice-apps/application-live-view.png":::
+
+---
+
+::: zone-end
+
+::: zone pivot="sc-standard"
+
+[!INCLUDE [validate-the-apps](includes/quickstart-deploy-microservice-apps/validate-the-apps.md)]
+
+::: zone-end
 
 ## 6. Clean up resources
 
@@ -125,7 +192,7 @@ Be sure to delete the resources you created in this article when you no longer n
 
 Use the following steps to delete the entire resource group, including the newly created service instance:
 
-1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**, and then select the name of your resource group.
+1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups** and then select the name of your resource group.
 
 1. On the **Resource group** page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion, then select **Delete**.
 

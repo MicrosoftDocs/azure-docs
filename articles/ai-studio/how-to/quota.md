@@ -2,15 +2,15 @@
 title: Manage and increase quotas for resources with Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article provides instructions on how to manage and increase quotas for resources with Azure AI Studio.
-author: eric-urban
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
-ms.reviewer: eur
-ms.author: eur
+ms.reviewer: siarora
+ms.author: larryfr
+author: Blackmist 
 ---
 
 # Manage and increase quotas for resources with Azure AI Studio

@@ -384,12 +384,8 @@ items:
     href: intro-to-spatial-analysis-public-preview.md
   - name: Responsible use of AI
     items:
-    - name: Transparency notes
-      items:
-      - name: Spatial Analysis use cases
-        href: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=/azure/ai-services/computer-vision/context/context
-      - name: Characteristics and limitations
-        href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/ai-services/computer-vision/context/context
+    - name: Transparency note
+      href: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=/azure/ai-services/computer-vision/context/context
     - name: Integration and responsible use
       items:
       - name: Responsible use in AI deployment 

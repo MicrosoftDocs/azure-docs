@@ -134,7 +134,7 @@ AKSDEV_ID=$(az ad user create \
   --display-name "AKS Dev" \
   --user-principal-name $AAD_DEV_UPN \
   --password $AAD_DEV_PW \
-  --query objectId -o tsv)
+  --query id -o tsv)
 ```
 
 2. Add the user to the *appdev* group created in the previous section using the [`az ad group member add`][az-ad-group-member-add] command.
@@ -163,7 +163,7 @@ AKSSRE_ID=$(az ad user create \
   --display-name "AKS SRE" \
   --user-principal-name $AAD_SRE_UPN \
   --password $AAD_SRE_PW \
-  --query objectId -o tsv)
+  --query id -o tsv)
 
 # Add the user to the opssre Azure AD group
 az ad group member add --group opssre --member-id $AKSSRE_ID

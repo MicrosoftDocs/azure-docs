@@ -358,10 +358,10 @@ POST {your-resource-name}/openai/deployments/{deployment-id}/extensions/chat/com
 - `2023-06-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-06-01-preview/inference.json)
 - `2023-07-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-07-01-preview/inference.json)
 - `2023-08-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-08-01-preview/inference.json)
-
+- `2023-12-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
 #### Example request
 
-You can make requests using [Azure AI Search](./concepts/use-your-data.md?tabs=ai-search#ingesting-your-data) and [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db#ingesting-your-data).
+You can make requests using [Azure AI Search](./concepts/use-your-data.md?tabs=ai-search#ingesting-your-data), [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db#ingesting-your-data), [Azure Machine learning](/azure/machine-learning/overview-what-is-azure-machine-learning), [Pinecone](https://www.pinecone.io/), and [Elasticsearch](https://www.elastic.co/).
 
 ##### Azure AI Search
 
@@ -379,9 +379,9 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
         {
             "type": "AzureCognitiveSearch",
             "parameters": {
-                "endpoint": "'YOUR_AZURE_COGNITIVE_SEARCH_ENDPOINT'",
-                "key": "'YOUR_AZURE_COGNITIVE_SEARCH_KEY'",
-                "indexName": "'YOUR_AZURE_COGNITIVE_SEARCH_INDEX_NAME'"
+                "endpoint": "YOUR_AZURE_COGNITIVE_SEARCH_ENDPOINT",
+                "key": "YOUR_AZURE_COGNITIVE_SEARCH_KEY",
+                "indexName": "YOUR_AZURE_COGNITIVE_SEARCH_INDEX_NAME"
             }
         }
     ],
@@ -441,6 +441,123 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
 '
 ```
 
+##### Elasticsearch
+
+```console
+curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/extensions/chat/completions?api-version=2023-12-01-preview \
+-H "Content-Type: application/json" \
+-H "api-key: YOUR_API_KEY" \
+-d \
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "you are a helpful assistant that talks like a pirate"
+    },
+    {
+      "role": "user",
+      "content": "can you tell me how to care for a parrot?"
+    }
+  ],
+  "dataSources": [
+    {
+      "type": "Elasticsearch",
+      "parameters": {
+        "endpoint": "{search endpoint}",
+        "indexName": "{index name}",
+        "authentication": {
+          "type": "KeyAndKeyId",
+          "key": "{key}",
+          "keyId": "{key id}"
+        }
+      }
+    }
+  ]
+}
+```
+
+##### Azure Machine Learning
+
+```console
+curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/extensions/chat/completions?api-version=2023-12-01-preview \
+-H "Content-Type: application/json" \
+-H "api-key: YOUR_API_KEY" \
+-d \
+'
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "you are a helpful assistant that talks like a pirate"
+    },
+    {
+      "role": "user",
+      "content": "can you tell me how to care for a parrot?"
+    }
+  ],
+  "dataSources": [
+    {
+      "type": "AzureMLIndex",
+      "parameters": {
+        "projectResourceId": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-id}",
+        "name": "my-project",
+        "version": "5"
+      }
+    }
+  ]
+}
+'
+```
+
+##### Pinecone
+
+```console
+curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/extensions/chat/completions?api-version=2023-12-01-preview \
+-H "Content-Type: application/json" \
+-H "api-key: YOUR_API_KEY" \
+-d \
+'
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "you are a helpful assistant that talks like a pirate"
+    },
+    {
+      "role": "user",
+      "content": "can you tell me how to care for a parrot?"
+    }
+  ],
+  "dataSources": [
+    {
+      "type": "Pinecone",
+      "parameters": {
+        "authentication": {
+          "type": "APIKey",
+          "apiKey": "{api key}"
+        },
+        "environment": "{environment name}",
+        "indexName": "{index name}",
+        "embeddingDependency": {
+          "type": "DeploymentName",
+          "deploymentName": "{embedding deployment name}"
+        },
+        "fieldsMapping": {
+          "titleField": "title",
+          "urlField": "url",
+          "filepathField": "filepath",
+          "contentFields": [
+            "content"
+          ],
+          "contentFieldsSeparator": "\n"
+        }
+      }
+    }
+  ]
+}
+'
+```
+
 #### Example response
 
 ```json
@@ -469,6 +586,8 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
 }
 ```
 
+
+
 | Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | `messages` | array | Required | null | The messages to generate chat completions for, in the chat format. |
@@ -484,7 +603,7 @@ The following parameters can be used inside of the `parameters` field inside of 
 
 |  Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| `type` | string | Required | null | The data source to be used for the Azure OpenAI on your data feature. For Azure AI Search the value is `AzureCognitiveSearch`. For Azure Cosmos DB for MongoDB vCore, the value is `AzureCosmosDB`. |
+| `type` | string | Required | null | The data source to be used for the Azure OpenAI on your data feature. For Azure AI Search the value is `AzureCognitiveSearch`. For Azure Cosmos DB for MongoDB vCore, the value is `AzureCosmosDB`. For Elasticsearch the value is `Elasticsearch`. For Azure Machine Learning, the value is `AzureMLIndex`. For Pinecone, the value is `Pinecone`. |
 | `indexName` | string | Required | null | The search index to be used. |
 | `inScope` | boolean | Optional | true | If set, this value will limit responses specific to the grounding data content.  |
 | `topNDocuments` | number | Optional | 5 | Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. This is the *retrieved documents* parameter in Azure OpenAI studio.   |
@@ -497,7 +616,9 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `strictness` | number | Optional | 3 | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. |
 
 
-**The following parameters are used for Azure AI Search**
+### Azure AI Search parameters
+
+The following parameters are used for Azure AI Search.
 
 | Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
@@ -505,6 +626,20 @@ The following parameters can be used inside of the `parameters` field inside of 
 | `key` | string | Required | null | Azure AI Search only. One of the Azure AI Search admin keys for your service. |
 | `queryType` | string | Optional | simple |  Indicates which query option will be used for Azure AI Search. Available types: `simple`, `semantic`, `vector`, `vectorSimpleHybrid`, `vectorSemanticHybrid`. |
 | `fieldsMapping` | dictionary | Optional for Azure AI Search.  | null | defines which [fields](./concepts/use-your-data.md?tabs=ai-search#index-field-mapping) you want to map when you add your data source. |
+
+The following parameters are used inside of the `authentication` field, which enables you to use Azure OpenAI [without public network access](./how-to/use-your-data-securely.md).
+
+| Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `type` | string | Required | null | The authentication type. |
+| `managedIdentityResourceId` | string | Required | null | The resource ID of the user-assigned managed identity to use for authentication. |
+
+```json
+"authentication": {
+  "type": "UserAssignedManagedIdentity",
+  "managedIdentityResourceId": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{resource-name}"
+},
+```
 
 The following parameters are used inside of the `fieldsMapping` field.
 
@@ -514,7 +649,7 @@ The following parameters are used inside of the `fieldsMapping` field.
 | `urlField` | string | Optional  | null | The field in your index that contains the original URL of each document. |
 | `filepathField` | string | Optional  | null | The field in your index that contains the original file name of each document. |
 | `contentFields` | dictionary | Optional  | null | The fields in your index that contain the main text content of each document. |
-| `contentFieldsSeparator` | string | Optional  | null | The separator for the your content fields. Use `\n` by default.  |
+| `contentFieldsSeparator` | string | Optional  | null | The separator for the content fields. Use `\n` by default.  |
 
 ```json
 "fieldsMapping": {
@@ -528,7 +663,23 @@ The following parameters are used inside of the `fieldsMapping` field.
 }
 ```
 
-**The following parameters are used for Azure Cosmos DB for MongoDB vCore**
+The following parameters are used inside of the optional `embeddingDependency` parameter, which contains details of a vectorization source that is based on an internal embeddings model deployment name in the same Azure OpenAI resource.
+
+| Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `deploymentName` | string | Optional  | null | The type of vectorization source to use. |
+| `type` | string | Optional  | null | The embedding model deployment name, located within the same Azure OpenAI resource. This enables you to use vector search without an Azure OpenAI API key and without Azure OpenAI public network access. |
+
+```json
+"embeddingDependency": {
+  "type": "DeploymentName",
+  "deploymentName": "{embedding deployment name}"
+},
+```
+
+### Azure CosmosDB for MongoDB vCore parameters
+
+The following parameters are used for Azure Cosmos DB for MongoDB vCore.
 
 | Parameters | Type | Required? | Default | Description |
 |--|--|--|--|--|
@@ -538,7 +689,131 @@ The following parameters are used inside of the `fieldsMapping` field.
 | `containerName` | string | Required | null | Azure Cosmos DB for MongoDB vCore only. The Azure Cosmos Mongo vCore container name in the database. |
 | `type` (found inside of`embeddingDependencyType`) | string | Required | null | Indicates the embedding model dependency. |
 | `deploymentName` (found inside of`embeddingDependencyType`) | string | Required | null | The embedding model deployment name. |
-| `fieldsMapping` | dictionary | Required for Azure Cosmos DB for MongoDB vCore.  | null | Index data column mapping. When using Azure Cosmos DB for MongoDB vCore, the value `vectorFields` is required, which indicates the fields that store vectors.  |
+| `fieldsMapping` | dictionary | Required for Azure Cosmos DB for MongoDB vCore.  | null | Index data column mapping. When you use Azure Cosmos DB for MongoDB vCore, the value `vectorFields` is required, which indicates the fields that store vectors.  |
+
+The following parameters are used inside of the optional `embeddingDependency` parameter, which contains details of a vectorization source that is based on an internal embeddings model deployment name in the same Azure OpenAI resource.
+
+| Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `deploymentName` | string | Optional  | null | The type of vectorization source to use. |
+| `type` | string | Optional  | null | The embedding model deployment name, located within the same Azure OpenAI resource. This enables you to use vector search without an Azure OpenAI API key and without Azure OpenAI public network access. |
+
+```json
+"embeddingDependency": {
+  "type": "DeploymentName",
+  "deploymentName": "{embedding deployment name}"
+},
+```
+
+### Elasticsearch parameters
+
+The following parameters are used for Elasticsearch.
+
+| Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `endpoint` | string | Required | null | The endpoint for connecting to Elasticsearch. |
+| `indexName` | string | Required | null | The name of the Elasticsearch index. |
+| `type` (found inside of `authentication`) | string | Required | null | The authentication to be used. For Elasticsearch, the value is `KeyAndKeyId`. |
+| `key` (found inside of `authentication`) | string | Required | null | The key used to connect to  Elasticsearch. |
+| `keyId` (found inside of `authentication`) | string | Required | null | The key ID to be used. For Elasticsearch. |
+
+The following parameters are used inside of the `fieldsMapping` field.
+
+| Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `titleField` | string | Optional  | null | The field in your index that contains the original title of each document. |
+| `urlField` | string | Optional  | null | The field in your index that contains the original URL of each document. |
+| `filepathField` | string | Optional  | null | The field in your index that contains the original file name of each document. |
+| `contentFields` | dictionary | Optional  | null | The fields in your index that contain the main text content of each document. |
+| `contentFieldsSeparator` | string | Optional  | null | The separator for the content fields. Use `\n` by default.  |
+| `vectorFields` | dictionary | Optional  | null | The names of fields that represent vector data |
+
+```json
+"fieldsMapping": {
+  "titleField": "myTitleField",
+  "urlField": "myUrlField",
+  "filepathField": "myFilePathField",
+  "contentFields": [
+    "myContentField"
+  ],
+  "contentFieldsSeparator": "\n",
+  "vectorFields": [
+    "myVectorField"
+  ]
+}
+```
+
+The following parameters are used inside of the optional `embeddingDependency` parameter, which contains details of a vectorization source that is based on an internal embeddings model deployment name in the same Azure OpenAI resource.
+
+| Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `deploymentName` | string | Optional  | null | The type of vectorization source to use. |
+| `type` | string | Optional  | null | The embedding model deployment name, located within the same Azure OpenAI resource. This enables you to use vector search without an Azure OpenAI API key and without Azure OpenAI public network access. |
+
+```json
+"embeddingDependency": {
+  "type": "DeploymentName",
+  "deploymentName": "{embedding deployment name}"
+},
+```
+
+### Azure Machine Learning parameters
+
+The following parameters are used for Azure Machine Learning.
+
+| Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `projectResourceId` | string | Required | null | The project resource ID. |
+| `name` | string | Required | null | The name of the Azure Machine Learning project name. |
+| `version` (found inside of `authentication`) | string | Required | null | The version of the Azure Machine Learning vector index. |
+
+The following parameters are used inside of the optional `embeddingDependency` parameter, which contains details of a vectorization source that is based on an internal embeddings model deployment name in the same Azure OpenAI resource.
+
+| Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `deploymentName` | string | Optional  | null | The type of vectorization source to use. |
+| `type` | string | Optional  | null | The embedding model deployment name, located within the same Azure OpenAI resource. This enables you to use vector search without an Azure OpenAI API key and without Azure OpenAI public network access. |
+
+```json
+"embeddingDependency": {
+  "type": "DeploymentName",
+  "deploymentName": "{embedding deployment name}"
+},
+```
+
+### Pinecone parameters
+
+The following parameters are used for Pinecone.
+
+| Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `type` (found inside of `authentication`) | string | Required | null | The authentication to be used. For Pinecone, the value is `APIKey`. |
+| `apiKey` (found inside of `authentication`) | string | Required | null | The API key for Pinecone. |
+| `environment` | string | Required | null | The name of the Pinecone environment. |
+| `indexName` | string | Required | null | The name of the Pinecone index. |
+| `embeddingDependency` | string | Required | null | The embedding dependency for vector search. |
+| `type` (found inside of `embeddingDependency`) | string | Required | null | The type of dependency. For Pinecone the value is `DeploymentName`. |
+| `deploymentName` (found inside of `embeddingDependency`) | string | Required | null | The name of the deployment. |
+| `titleField` (found inside of `fieldsMapping`) | string | Required | null | The name of the index field to use as a title. |
+| `urlField` (found inside of `fieldsMapping`) | string | Required | null | The name of the index field to use as a URL. |
+| `filepathField` (found inside of `fieldsMapping`) | string | Required | null | The name of the index field to use as a file path. |
+| `contentFields` (found inside of `fieldsMapping`) | string | Required | null | The name of the index fields that should be treated as content. |
+| `vectorFields` | dictionary | Optional  | null | The names of fields that represent vector data |
+| `contentFieldsSeparator` (found inside of `fieldsMapping`) | string | Required  | null | The separator for the your content fields. Use `\n` by default.  |
+
+The following parameters are used inside of the optional `embeddingDependency` parameter, which contains details of a vectorization source that is based on an internal embeddings model deployment name in the same Azure OpenAI resource.
+
+| Parameters | Type | Required? | Default | Description |
+|--|--|--|--|--|
+| `deploymentName` | string | Optional  | null | The type of vectorization source to use. |
+| `type` | string | Optional  | null | The embedding model deployment name, located within the same Azure OpenAI resource. This enables you to use vector search without an Azure OpenAI API key and without Azure OpenAI public network access. |
+
+```json
+"embeddingDependency": {
+  "type": "DeploymentName",
+  "deploymentName": "{embedding deployment name}"
+},
+```
 
 ### Start an ingestion job 
 

@@ -577,6 +577,13 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | userAssignedIdentities | resource group | 3-128 | Alphanumerics, hyphens, and underscores<br><br>Start with letter or number. |
 
+## Microsoft.Management
+
+>[!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | managementgroups | tenant | 1-90 | Alphanumerics, hyphens, underscores, periods, and parentheses. <br><br> Start with letter or number.<br><br>Cannot end with period. |
+
 ## Microsoft.Maps
 
 > [!div class="mx-tableFixed"]

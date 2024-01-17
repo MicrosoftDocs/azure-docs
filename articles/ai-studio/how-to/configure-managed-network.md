@@ -2,15 +2,15 @@
 title: How to configure a managed network for Azure AI
 titleSuffix: Azure AI Studio
 description: Learn how to configure a managed network for Azure AI
-author: eric-urban
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
-ms.reviewer: eur
-ms.author: eur
+ms.reviewer: jhirono
+ms.author: larryfr
+author: Blackmist
 ---
 
 # How to configure a managed network for Azure AI

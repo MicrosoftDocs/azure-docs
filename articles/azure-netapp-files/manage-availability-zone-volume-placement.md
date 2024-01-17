@@ -11,7 +11,7 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.custom:
+ms.custom: devx-track-terraform
 ms.topic: how-to
 ms.date: 01/13/2023
 ms.author: anfdocs

@@ -1,6 +1,6 @@
 ---
-title: How to manage ACLs in Microsoft Azure Data Manager for Energy
-description: This article describes how to manage ACLs in Azure Data Manager for Energy
+title: Manage ACLs in Azure Data Manager for Energy
+description: This article describes how to manage ACLs in Azure Data Manager for Energy.
 author: shikhagarg1
 ms.author: shikhagarg
 ms.service: energy-data-services
@@ -9,8 +9,28 @@ ms.date: 12/11/2023
 ms.custom: template-how-to
 ---
 
-# How to manage ACLs of the data record
+# Manage ACLs of the data record
+
 In this article, you learn how to add or remove ACLs from the data record in your Azure Data Manager for Energy instance.
+
+## Create a data group as ACL
+Run the following curl command in Azure Cloud Shell to create a new data group, e.g., data.sampledb.viewer, in the specific data partition of the Azure Data Manager for Energy instance.
+
+**Request format**
+
+```bash
+    curl --location --request POST "https://<URI>/api/entitlements/v2/groups/" \
+    --header 'data-partition-id: <data-partition>' \
+    --header 'Authorization: Bearer <access_token>'
+    --data-raw '{
+       "description": "<data-group-description>",
+       "name": "data.sampledb.viewer"
+    }
+```
+
+users.data.root entitlement group is the default member of all data groups when groups are created. If you try to remove users.data.root from any data group, you get error since this membership is enforced by OSDU. 
+
+In case, a data record has 2 ACLs, ACL_1 and ACL_2, and a given user is member of ACL_1 and users.data.root, now if you remove this given user from  ACL_1, the user remains to have access of the data record via users.data.root group. 
 
 ## Create a record with ACLs
 
@@ -57,6 +77,7 @@ curl --location --request PUT 'https://osdu-ship.msft-osdu-test.org/api/storage/
 ```
 
 **Sample response**
+
 ```JSON
 {
     "recordCount": 1,
@@ -69,7 +90,8 @@ curl --location --request PUT 'https://osdu-ship.msft-osdu-test.org/api/storage/
     ]
 }
 ```
-Keep the recordId from the response handy for future references.
+
+Keep the record ID from the response handy for future references.
 
 ## Get created record with ACLs
 
@@ -119,9 +141,8 @@ curl --location 'https://osdu-ship.msft-osdu-test.org/api/storage/v2/records/ope
 ```
 
 ## Delete ACLs from the data record
-1. The first `/acl/owners/0` operation removes ACL from 0th position in the array of ACL.
-2. When you delete the first with this operation, the system deletes the first entry. Thus, the previous second entry becomes the first entry.
-3. The second `/acl/owners/0` operation tries to remove the second entry.
+
+The first `/acl/owners/0` operation removes ACL from 0th position in the array of ACL. When you delete the first entry with this operation, the system deletes it. The previous second entry then becomes the first entry. The second `/acl/owners/0` operation tries to remove the second entry.
   
 **Request format**
 
@@ -159,8 +180,7 @@ curl --location --request PATCH 'https://osdu-ship.msft-osdu-test.org/api/storag
 }
 ```
 
-
-If you delete the last owner ACL from the data record, you get the error
+If you delete the last owner ACL from the data record, you get the error.
 
 **Sample response**
 
@@ -178,11 +198,15 @@ If you delete the last owner ACL from the data record, you get the error
 }
 ```
 
-## Next steps
-After you have added ACLs to the data records, you can do the following:
-- [How to manage legal tags](how-to-manage-legal-tags.md)
-- [How to manage users](how-to-manage-users.md)
 
-You can also ingest data into your Azure Data Manager for Energy instance with
+## Next steps
+
+After you add ACLs to the data records, you can:
+
+- [Manage legal tags](how-to-manage-legal-tags.md)
+- [Manage users](how-to-manage-users.md)
+
+You can also ingest data into your Azure Data Manager for Energy instance:
+
 - [Tutorial on CSV parser ingestion](tutorial-csv-ingestion.md)
 - [Tutorial on manifest ingestion](tutorial-manifest-ingestion.md)

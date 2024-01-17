@@ -50,7 +50,9 @@ The actual minimum RU/s may vary depending on your account configuration. You ca
 
 #### Minimum throughput on container
 
-To estimate the minimum throughput required of a container with manual throughput, find the maximum of:
+**Manual throughput**
+
+To estimate the minimum RU/s required of a container with manual throughput, find the maximum of:
 
 * 400 RU/s 
 * Current storage in GB * 1 RU/s
@@ -58,23 +60,49 @@ To estimate the minimum throughput required of a container with manual throughpu
 
 For example, you have a container provisioned with 400 RU/s and 0-GB storage. You increase the throughput to 50,000 RU/s and import 20 GB of data. The minimum RU/s is now `MAX(400, 20 * 1 RU/s per GB, 50,000 RU/s / 100)` = 500 RU/s. Over time, the storage grows to 2000 GB. The minimum RU/s is now `MAX(400, 2000 * 1 RU/s per GB, 50,000 / 100)` = 2000 RU/s.
 
+**Autoscale throughput**
+
+To estimate the minimum autoscale max RU/s required of a container with autoscale throughput, find the maximum of:
+
+* 1000 RU/s 
+* Current storage in GB * 10 RU/s
+* Highest RU/s ever provisioned on the container / 10
+
+For example, you have a container provisioned with 1000 RU/s and 0-GB storage. You increase the throughput to 50,000 RU/s and import 20 GB of data. The minimum max RU/s is now `MAX(1000, 20 * 10 RU/s per GB, 50,000 RU/s / 10)` = 5000 RU/s. Over time, the storage grows to 2000 GB. The minimum max RU/s is now `MAX(1000, 2000 * 10 RU/s per GB, 50,000 / 10)` = 20,000 RU/s.
+
 #### Minimum throughput on shared throughput database
 
-To estimate the minimum throughput required of a shared throughput database with manual throughput, find the maximum of:
+**Manual throughput**
+
+To estimate the minimum RU/s required of a shared throughput database with manual throughput, find the maximum of:
 
 * 400 RU/s 
 * Current storage in GB * 1 RU/s
 * Highest RU/s ever provisioned on the database / 100
 * 400 + MAX(Container count - 25, 0) * 100 RU/s
 
-For example, you have a database provisioned with 400 RU/s, 15 GB of storage, and 10 containers. The minimum RU/s is `MAX(400, 15 * 1 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. If there were 30 containers in the database, the minimum RU/s would be `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 RU/s. 
+For example, you have a database provisioned with 400 RU/s, 15 GB of storage, and 10 containers. The minimum RU/s is `MAX(400, 15 * 1 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. If there were 30 containers in the database, the minimum RU/s would be `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 RU/s.
 
-In summary, here are the minimum provisioned RU limits when using manual throughput.
+**Autoscale throughput**
 
-| Resource | Limit |
-| --- | --- |
-| Minimum RUs per container ([dedicated throughput provisioned mode with manual throughput](./resource-model.md#azure-cosmos-db-containers)) | 400 |
-| Minimum RUs per database ([shared throughput provisioned mode with manual throughput](./resource-model.md#azure-cosmos-db-containers)) | 400 RU/s for first 25 containers. |
+To estimate the minimum autoscale max RU/s required of a shared throughput database with autoscale throughput, find the maximum of:
+
+* 1000 RU/s 
+* Current storage in GB * 10 RU/s
+* Highest RU/s ever provisioned on the database / 10
+* 1000 + MAX(Container count - 25, 0) * 1000 RU/s
+
+For example, you have a database provisioned with 1000 RU/s, 15 GB of storage, and 10 containers. The minimum max RU/s for autoscale database is `MAX(1000, 15 * 10 RU/s per GB, 1000 / 10, 1000 + 0 )` = 1000 RU/s. If there were 30 containers in the database, the minimum max RU/s would be `1000 + MAX(30 - 25, 0) * 1000 RU/s` = 5000 RU/s. 
+ 
+
+In summary, here are the minimum provisioned RU limits when using provisioned throughput.
+
+| Provisioning Type | Resource | Limit |
+| --- | --- | --- |
+| Manual throughput | Minimum RUs per container ([dedicated throughput provisioned mode with manual throughput](./set-throughput.md#set-throughput-on-a-container)) | 400 |
+| Manual throughput | Minimum RUs per database ([shared throughput provisioned mode with manual throughput](./set-throughput.md#set-throughput-on-a-database) | 400 RU/s for first 25 containers. |
+| Autoscale throughput | Minimum max RUs per container ([dedicated throughput provisioned mode with autoscale throughput](./provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works)) | 1000 |
+| Autoscale throughput | Minimum max RUs per database ([shared throughput provisioned mode with autoscale throughput](./provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works)) | 1000 RU/s for first 25 containers. |
 
 Azure Cosmos DB supports programmatic scaling of throughput (RU/s) per container or database via the SDKs or portal.
 

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/06/2023
+ms.date: 01/05/2024
 ---
 
 # Manage Azure Data Factory studio preview experience
