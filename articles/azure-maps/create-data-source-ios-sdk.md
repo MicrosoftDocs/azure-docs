@@ -495,9 +495,9 @@ See the following articles for more code samples to add to your maps:
 [Polygon layer]: Add-polygon-layer-map-ios.md
 [Tile layer]: how-to-add-tile-layer-android-map.md
 <!---------   REST API Links     --------------->
-[Road tiles]: /rest/api/maps/render-v2/get-map-tile
+[Road tiles]: /rest/api/maps/render/get-map-tile
 [Traffic incidents]: /rest/api/maps/traffic/gettrafficincidenttile
 [Traffic flow]: /rest/api/maps/traffic/gettrafficflowtile
-[Render - Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
+[Render - Get Map Tile]: /rest/api/maps/render/get-map-tile
 <!---------   External Links     --------------->
 [Mapbox Vector Tile Specification]: https://github.com/mapbox/vector-tile-spec

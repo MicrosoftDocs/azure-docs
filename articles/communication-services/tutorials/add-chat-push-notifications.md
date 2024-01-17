@@ -93,6 +93,8 @@ Here we recommend creating a .p12 APNS cert and set it in Notification Hub.
 
 <img src="./media/add-chat-push-notification/xcode-config.png"  width="730" height="500" alt="Screenshot of Enable Push Notifications and Background modes in Xcode.">  
 
+* Set "Require Only App-Extension-Safe API" as "No" for Pod Target - AzureCore
+  
 ## Implementation
 
 

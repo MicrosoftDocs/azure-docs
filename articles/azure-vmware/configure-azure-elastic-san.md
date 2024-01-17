@@ -50,12 +50,12 @@ In this section, you create a virtual network for your Elastic SAN. Then you cre
 1. Use one of the following instruction options to set up an Elastic SAN, your dedicated volume group, and initial volume in that group:
 	> [!IMPORTANT]
 	> Create your Elastic SAN in the same region and availability zone as your private cloud for best performance.
-	- [Azure portal](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal)
-	- [PowerShell](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create?tabs=azure-powershell)
-	- [Azure CLI](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create?tabs=azure-cli)
+	- [Azure portal](/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal)
+	- [PowerShell](/azure/storage/elastic-san/elastic-san-create?tabs=azure-powershell)
+	- [Azure CLI](/azure/storage/elastic-san/elastic-san-create?tabs=azure-cli)
 1. Use one of the following instructions to configure a Private Endpoint (PE) for your Elastic SAN:
-	- [PowerShell](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-a-private-endpoint)
-	- [Azure CLI](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-networking?tabs=azure-cli#tabpanel_2_azure-cli)
+	- [PowerShell](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-a-private-endpoint)
+	- [Azure CLI](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-cli#tabpanel_2_azure-cli)
 
 ## Add an Elastic SAN volume as a datastore
 

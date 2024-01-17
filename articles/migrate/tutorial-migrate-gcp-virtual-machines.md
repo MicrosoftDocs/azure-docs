@@ -4,7 +4,7 @@ description: This article describes how to migrate GCP VMs to Azure with Azure M
 author: vijain
 ms.author: vijain
 ms.topic: tutorial
-ms.date: 12/14/2022
+ms.date: 01/15/2024
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy23
 ---
@@ -182,7 +182,7 @@ A Mobility service agent must be pre-installed on the source GCP VMs to be migra
 
 2. Run the installer script:
     ```
-    sudo ./install -r MS -q
+    sudo ./install -r MS -v VmWare -q -c CSLegacy
     ```  
 
 3. Register the agent with the replication appliance:
