@@ -11,36 +11,41 @@ ms.reviewer: ju-shim
 
 # Standby Pools for Virtual Machine Scale Sets
 
-Standby Pools for Virtual Machine Scale Sets allow you to increase scaling performance by creating a pool of pre-provisioned virtual machines from which the scale set can draw from when scaling out. Standby Pools reduce the time to scale out by performing various initialization steps such as installing applications/ software or loading large amounts of data. These initialization steps are performed on the VMs in the Standby Pool prior to being put into the scale set and before the instances begin taking traffic.
+> [!IMPORTANT]
+> Standby Pools for Virtual Machine Scale Sets are currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+
+Standby Pools for Virtual Machine Scale Sets allow you to increase scaling performance by creating a pool of pre-provisioned virtual machines from which the scale set can draw from when scaling out. 
+
+Standby Pools reduce the time to scale out by performing various initialization steps such as installing applications/ software or loading large amounts of data. These initialization steps are performed on the VMs in the Standby Pool prior to being put into the scale set and before the instances begin taking traffic.
 
 ## Concepts
 
 ### Standby Pool Size
-The number of VMs in a Standby Pool is determined by the number of VMs in your scale set and the total Max Capacity you want ready at any point in time. 
+The number of VMs in a Standby Pool is determined by the number of VMs in your scale set and the total available capacity you want ready at any point in time. 
 
-- Max Ready Capacity = The maximum number of VMs you want to have ready.
-
-- VM Scale Set Capacity = The current number of VMs already deployed in your scale set.
-
-- Standby Pool Size = Max Ready Capacity – VM Scale Set Capacity
+| Setting | Description | 
+|---|---|
+| `MaxReadyCapacity` | The maximum number of VMs you want to have ready.|
+| `instanceCount` | The current number of VMs already deployed in your scale set.|
+|Standby Pool Size | `MaxReadyCapacity`– `InstanceCount`
 
 ### Scaling
 
 When your scale set requires additional instances, rather than creating new instances and placing them directly into the scale set, the scale set can instead pull VMs from the Standby Pool. This significantly reduces the time it takes to scale out and have the instances ready to take traffic. 
 
-When your scale set scales back down, the instances are deleted from your scale set and your Standby Pool will be refilled to meet the Standby Pool Size based on the above formula. 
+When your scale set scales back down, the instances are deleted from your scale set and your Standby Pool will be refilled to meet the `MaxReadyCapacity` set.  
 
 If at any point in time your scale set needs to scale beyond the number of instances you have in your Standby Pool, the scale set will default to standard scale out methods and create new instances that are added directly into the Scale Set
 
 ### Virtual Machine States
 
-The VMs in the Standby Pool can be created in a Running State or a Stopped (deallocated) state. The state of the VMs in the Standby Pool is configured using the virtualMachineState parameter: 
+The VMs in the Standby Pool can be created in a Running State or a Stopped (deallocated) state. The state of the VMs in the Standby Pool are configured using the `virtualMachineState` parameter.
 
-```HTTP
+```
 "virtualMachineState":"Running"
+
 "virtualMachineState":"Deallocated"
 ```
-
 
 **Stopped (Deallocated) VM State:** Deallocated VMs are shut down and keep any associated data disks, 
 NICs, and any static IPs remain unchanged. 
@@ -50,22 +55,22 @@ requirements are very strict.
 
 ### Pricing
 
-There is no direct cost associated with using Standby Pools. Users are charged based on the resources 
-deployed into the Standby Pool. For more information on Virtual Machine billing, see [VM power states and billing documentation](../virtual-machines/states-billing.md)
+>[IMPORTANT]
+>The `VirtualMachineState` you choose will impact the cost of your Standby Pool. You can update the desired state at any point in time. 
 
-**Deallocated VM State:** Leveraging a Standby Pool with VMs in the Deallocated State is a great way to reduce the cost while keeping your scale out times fast. VMs in the deallocated state do not incur any compute costs, only the associated resources incur costs. 
+There is no direct cost associated with using Standby Pools. Users are charged based on the resources deployed into the Standby Pool. For more information on Virtual Machine billing, see [VM power states and billing documentation](../virtual-machines/states-billing.md)
 
-**Running VM State:** Running VMs will incur a higher cost due to compute resources being 
-consumed.
+| State | Description |
+|---|---|
+|**Stopped (deallocated) VM State:** | Leveraging a Standby Pool with VMs in the Stopped (deallocated) state is a great way to reduce the cost while keeping your scale out times fast. VMs in the Stopped (deallocated) state do not incur any compute costs, only the associated resources incur costs. |
+| **Running VM State:** | Running VMs will incur a higher cost due to compute resources being consumed. |
 
 ## Considerations
-- The total capacity of the Standby Pool and the VMSS together cannot exceed 1000 instances. 
-- Standby Pools do not currently support Spot VMs or Spot/ Priority Mix VMs.
-- If your scale set has already been scaled out to the maximum ready capacity of your Standby Pool, VMs will be created from scratch just as they would a standard scale out without Standby Pools. 
+- The total capacity of the Standby Pool and the Virtual Machine Scale Set together cannot exceed 1000 instances. 
+- Standby Pools do not currently support Spot Virtual Machines or Spot Priority Mix.
+- If the instances in your Standby Pool have been exhausted, the scale set will default to standard scale out methods and create new VMs directly in your scale set to meet the new desired instance count.  
 - Creation of pooled resources is subject to the resource availability in each region.
-- If using autoscale to trigger scaling, autoscale takes into account the metrics associated with your VMs in your scale set and the VMs in the pool. This could result in unexpected scale out events. This is currently being addressed. 
-- Deploying a Standby Pool attached to a Zonal scale set is not currently supported. The pool itself will be deployed zonally, however scaling out can cause random VMs to enter a failed state. This work is in progress. 
-
+- If using autoscale to trigger scaling, autoscale takes into account the metrics associated with your VMs in your scale set and the VMs in the pool. This could result in unexpected scale out events.
 
 ## Next steps
 

@@ -20,19 +20,16 @@ ms.reviewer: ju-shim
 
 
 ### Feature Registration 
-Register the Standby Pool Resource Provider and the Standby Pool Preview Feature with your 
-subscription using PowerShell in Azure Cloud Shell. Registration can take about 30 mins to take effect. 
-You can rerun the below commands to determine when the feature has been successfully registered. 
+Register the Standby Pool Resource Provider and the Standby Pool Preview Feature with your subscription using PowerShell in Azure Cloud Shell. Registration can take about 30 mins to take effect. You can rerun the below commands to determine when the feature has been successfully registered. 
 
-```azurepowershell-interactice
+```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.StandbyPool
 
 Register-AzProviderFeature -FeatureName StandbyVMPoolPreview -ProviderNamespace Microsoft.StandbyPool
 ```
 
 ### RBAC Permissions
-Assign the appropriate RBAC roles for creating virtual machines to the Standby Pool Resource Provider 
-Service Principal. 
+In order for Standby Pools to successfully create Virtual Machines, you need to assign the appropriate RBAC roles. 
 1) In the Azure Portal, navigate to your subscriptions. 
 2) Select the subscription you want to adjust RBAC permissions. 
 3) Select **Access Control (IAM)**.
@@ -40,23 +37,36 @@ Service Principal.
 5) Search for **Virtual Machine Contributor** and highlight it. Select **Next**. 
 6) Click on **+ Select Members**.
 7) Search for **Standby Pool Resource Provider** 
-8) Select the Standby Pool Resource Provider and select R**eview + Assign**.
-9) Repeat the above steps and with **Network Contributor** instead of “Virtual Machine 
-Contributor” 
+8) Select the Standby Pool Resource Provider and select **Review + Assign**.
+9) Repeat the above steps and but in step 5, assign the **Network Contributor** role.  
 
-If you are leveraging a customized image in Compute Gallery, ensure to assign Standby Pool Resource 
-Provider the **Compute Gallery Sharing Admin** permissions as well.
+If you are leveraging a customized image in Compute Gallery, ensure to assign Standby Pool Resource Provider the **Compute Gallery Sharing Admin** permissions as well.
 
 For more information on assigning roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
 ## Create a Standby Pool
 
 ### [Portal](#tab/portal1)
+A Standby Pool can be created as part of the Virtual Machine Scale Set creation process or created and attached to an existing scale set. 
 
+During Virtual Machine Scale Set creation, navigate to the **Managment** tab. Select **Add a Standby Pool**.
+
+:::image type="content" source="./media/standby-pools/create-standby-pool-1.png" alt-text="Image shows selecting to create a Standby Pool during scale set creation in the Azure Portal.":::
+
+Input the desired Max Ready Capacity and Virtual Machine State. 
+
+:::image type="content" source="./media/standby-pools/create-standby-pool-2.png" alt-text="Image shows selecting the Standby Pool configuration options in the Azure Portal during scale set creation.":::
+
+If you instead choose to create a Standby Pool on an existing Virtual Machine Scale set, navigate to the scale set you want to associate a Standby Pool with. Under **Availability + scale**, select **Standby Pool**. Select **Create Standby Pool** and input your desired configurations. 
+
+:::image type="content" source="./media/standby-pools/create-standby-pool-3.png" alt-text="Image shows selecting the Standby Pool configuration options in the Azure Portal during scale set creation.":::
+
+ 
 
 ### [CLI](#tab/cli1)
+Create a Standby Pool and associate it with an existing scale set using [az standbypool create]().
 
-```azurecli-interartive
+```azurecli-interactive
 az standbypool create \
    --resource-group myResourceGroup 
    --name myStandbyPool \
@@ -65,8 +75,9 @@ az standbypool create \
    --attached-scale-set "/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
 ```
 ### [PowerShell](#tab/powershell1)
+Create a Standby Pool and associate it with an existing scale set using [Create-AzStandbyPool]().
 
-```azurepowershell-interative
+```azurepowershell-interactive
 Create-AzStandbyPool `
    -ResourceGroup myResourceGroup 
    -Name myStandbyPool `
@@ -76,6 +87,7 @@ Create-AzStandbyPool `
 ```
 
 ### [ARM Template](#tab/template1)
+
 ```ARM
 {
  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -99,7 +111,7 @@ Create-AzStandbyPool `
 ```
 
 ### [REST API](#tab/rest1)
-
+Create a Standby Pool and associate it with an existing scale set using the Microsoft.StandbyPool REST command.
 ```HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyPoolName}?api-version=2023-06-01-preview
 {
@@ -115,7 +127,11 @@ PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{
     }
 }
 ```
+
+
 ### [Terraform](#tab/terraform1)
+Create a Standby Pool and associate it with an existing Scale Set using Terraform. Include Standby Pool name, Location, Max Ready Capacity, Virtual Machine Running State and the scale set id you want associated. 
+
 ```terraform
 terraform {
      required_providers {
