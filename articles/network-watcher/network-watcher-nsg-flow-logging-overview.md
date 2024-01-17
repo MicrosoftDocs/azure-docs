@@ -6,7 +6,7 @@ ms.author: halkazwini
 author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 11/30/2023
+ms.date: 01/17/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can log my network traffic to analyze and optimize the network performance.
 ---
@@ -472,11 +472,11 @@ When you delete a network security group, the associated flow log resource is de
 
 ### Cost
 
-NSG flow logging is billed on the volume of logs produced. High traffic volume can result in large-flow log volume and the associated costs.
+NSG flow logging is billed on the volume of logs produced. High traffic volume can result in large flow-log volume which increases the associated costs. 
 
-Pricing of NSG flow logs doesn't include the underlying costs of storage. Using the retention policy feature with NSG flow logs means incurring separate storage costs for extended periods of time.
+NSG flow log pricing doesn't include the underlying costs of storage. Using the retention policy feature with NSG flow logs means incurring separate storage costs for extended periods of time.
 
-If you want to retain data forever and don't want to apply any retention policy, set retention days to 0. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+If you want to retain data forever and don't want to apply a retention policy, set retention days to 0. For more information, see [Network Watcher Pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ### Non-default inbound TCP rules
 
@@ -556,17 +556,9 @@ This problem might be related to:
 
 - **Lack of traffic on your network security groups**: Sometimes you don't see logs because your virtual machines aren't active, or because upstream filters at Application Gateway or other devices are blocking traffic to your network security groups.
 
-## Cost
-
-NSG flow logging is billed on the volume of logs collected. High traffic volume can result in large flow-log volume which increases the associated costs. 
-
-NSG flow log pricing does not include the underlying costs of storage. Using the retention policy feature to hold data for extended periods of time means incurred storage costs last longer. If you want to retain data forever and don't want to apply a retention policy, set retention days to 0. Set the retention policy to your organization's standards.
-
-For more information on costs, see [Network Watcher Pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
 ## Pricing
 
-NSG flow logs are charged per gigabyte of "Network Logs Collected" and come with a free tier of 5 GB/month per subscription. If traffic analytics is enabled with NSG flow logs, traffic analysitcs pricing is applicable at per gigabyte processing rates. Traffic Analytics is not offered with a free tier of pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
+NSG flow logs are charged per gigabyte of *Network flow logs collected* and come with a free tier of 5 GB/month per subscription. If traffic analytics is enabled with NSG flow logs, traffic analytics pricing applies at per gigabyte processing rates. Traffic analytics isn't offered with a free tier of pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
 Storage of logs is charged separately. For relevant prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
