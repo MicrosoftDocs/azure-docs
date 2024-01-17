@@ -23,7 +23,7 @@ In this article, learn how to deploy [MLflow](https://www.mlflow.org) models to 
 * Creates a batch job pipeline with a scoring script for you that can be used to process data using parallelization.
 
 > [!NOTE]
-> For more information about the supported input file types in model deployments with MLflow, view [Considerations when deploying to batch inference](#considerations-when-deploying-to-batch-inference).
+> For more information about the supported input file types and details about how MLflow model works see [Considerations when deploying to batch inference](#considerations-when-deploying-to-batch-inference).
 
 ## About this example
 
@@ -139,8 +139,8 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
     
     ---
    
-    > [!NOTE]
-    > Batch deployments only support deploying MLflow models with a `pyfunc` flavor. To use a different flavor, see [Customizing MLflow models deployments with a scoring script](#customizing-mlflow-models-deployments-with-a-scoring-script)..
+    > [!IMPORTANT]
+    > Configure `timeout` in your deployment based on how long it takes for your model to run inference on a single batch. The bigger the batch size the longer this value has to be. Remeber that `mini_batch_size` indicates the number of files in a batch, not the number of samples. When working with tabular data, each file may contain multiple rows which will increase the time it takes for the batch endpoint to process each file. Use high values on those cases to avoid time out errors.
 
 7. Although you can invoke a specific deployment inside of an endpoint, you will usually want to invoke the endpoint itself and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment and hence changing the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
 
@@ -265,16 +265,16 @@ The output looks as follows:
 
 ## Considerations when deploying to batch inference
 
-Azure Machine Learning supports no-code deployment for batch inference in [managed endpoints](concept-endpoints.md). This represents a convenient way to deploy models that require processing of big amounts of data in a batch-fashion.
+Azure Machine Learning supports deploying MLflow models to batch endpoints without indicating a scoring script. This represents a convenient way to deploy models that require processing of big amounts of data in a batch-fashion. Azure Machine Learning uses information in the MLflow model specification to orchestrate the inference process.
 
 ### How work is distributed on workers
 
-Work is distributed at the file level, for both structured and unstructured data. As a consequence, only [file datasets (v1 API)](v1/how-to-create-register-datasets.md#filedataset) or [URI folders](reference-yaml-data.md) are supported for this feature. Each worker processes batches of `Mini batch size` files at a time. Further parallelism can be achieved if `Max concurrency per instance` is increased. 
+Batch Endpoints distribute work at the file level, for both structured and unstructured data. As a consequence, only [URI file](reference-yaml-data.md) and [URI folders](reference-yaml-data.md) are supported for this feature. Each worker processes batches of `Mini batch size` files at a time. For tabular data, batch endpoints don't take into account the number of rows inside of each file when distributing the work.
 
 > [!WARNING]
 > Nested folder structures are not explored during inference. If you are partitioning your data using folders, make sure to flatten the structure beforehand.
 
-Batch deployments will call the `predict` function of the MLflow model once per file. For CSV files containing multiple rows, this may impose a memory pressure in the underlying compute. When sizing your compute, take into account not only the memory consumption of the data being read but also the memory footprint of the model itself. This is specially true for models that processes text, like transformer-based models where the memory consumption is not linear with the size of the input. If you encounter several out-of-memory exceptions, consider splitting the data in smaller files with less rows or implement batching at the row level inside of the model/scoring script.
+Batch deployments will call the `predict` function of the MLflow model once per file. For CSV files containing multiple rows, this may impose a memory pressure in the underlying compute and may increase the time it takes for the model to score a single file (specially for expensive models like large language models). If you encounter several out-of-memory exceptions or time-out entries in logs, consider splitting the data in smaller files with less rows or implement batching at the row level inside of the model/scoring script.
 
 ### File's types support
 
@@ -314,7 +314,7 @@ You will typically select this workflow when:
 > * You model can't process each file at once because of memory constrains and it needs to read it in chunks.
 
 > [!IMPORTANT]
-> If you choose to indicate an scoring script for an MLflow model deployment, you will also have to specify the environment where the deployment will run.
+> If you choose to indicate a scoring script for an MLflow model deployment, you will also have to specify the environment where the deployment will run.
 
 
 ### Steps
