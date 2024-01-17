@@ -194,7 +194,11 @@ Create a sample dataset and then use OLTP to ingest that data to the API for NoS
     ::: zone pivot="programming-language-scala"
 
     ```scala
-    
+    // Create sample data
+    val products = Seq(
+      ("68719518391", "gear-surf-surfboards", "Yamba Surfboard", 12, 850.00, false),
+      ("68719518371", "gear-surf-surfboards", "Kiama Classic Surfboard", 25, 790.00, true)
+    )
     ```
 
     ::: zone-end
@@ -219,7 +223,14 @@ Create a sample dataset and then use OLTP to ingest that data to the API for NoS
     ::: zone pivot="programming-language-scala"
 
     ```scala
-    
+    // Ingest sample data
+    spark.createDataFrame(products)
+      .toDF("id", "category", "name", "quantity", "price", "clearance")
+      .write
+      .format("cosmos.oltp")
+      .options(config)
+      .mode("APPEND")
+      .save()
     ```
 
     ::: zone-end
@@ -245,7 +256,11 @@ Load OLTP data into a data frame to perform common queries on the data. You can 
     ::: zone pivot="programming-language-scala"
 
     ```scala
-    
+    // Load data
+    val df = spark.read.format("cosmos.oltp")
+      .options(config)
+      .option("spark.cosmos.read.inferSchema.enabled", "true")
+      .load()
     ```
 
     ::: zone-end
@@ -264,7 +279,8 @@ Load OLTP data into a data frame to perform common queries on the data. You can 
     ::: zone pivot="programming-language-scala"
 
     ```scala
-    
+    // Render schema    
+    df.printSchema()
     ```
 
     ::: zone-end
@@ -284,7 +300,9 @@ Load OLTP data into a data frame to perform common queries on the data. You can 
     ::: zone pivot="programming-language-scala"
 
     ```scala
-    
+    // Render filtered data
+    df.where("quantity < 20")
+      .show()
     ```
 
     ::: zone-end
@@ -304,7 +322,9 @@ Load OLTP data into a data frame to perform common queries on the data. You can 
     ::: zone pivot="programming-language-scala"
 
     ```scala
-    
+    // Render 1 row of flitered data
+    df.filter($"clearance" === true)
+      .show(1)
     ```
 
     ::: zone-end
@@ -323,7 +343,8 @@ Load OLTP data into a data frame to perform common queries on the data. You can 
     ::: zone pivot="programming-language-scala"
 
     ```scala
-    
+    // Render five rows of unfiltered and untruncated data    
+    df.show(5, false)
     ```
 
     ::: zone-end
@@ -344,7 +365,10 @@ Load OLTP data into a data frame to perform common queries on the data. You can 
     ::: zone pivot="programming-language-scala"
 
     ```scala
-    
+    // Render results of raw query    
+    val rawQuery = s"SELECT * FROM cosmosCatalog.cosmicworks.products WHERE price > 800"
+    val rawDf = spark.sql(rawQuery)
+    rawDf.show()
     ```
 
     ::: zone-end
@@ -355,7 +379,7 @@ When working with API for NoSQL data in Spark, you can perform partial updates o
 
 1. To perform a partial update of an item, perform these steps:
 
-    1. TODO
+    1. Copy the existing `config` configuration variable and modify the properties in the new copy. Specifically; configure the write strategy to `ItemPatch`, disable bulk support, set the columns and mapped operations, and finally set the default operation type to `Set`.
 
         ::: zone pivot="programming-language-python"
 
@@ -373,12 +397,19 @@ When working with API for NoSQL data in Spark, you can perform partial updates o
         ::: zone pivot="programming-language-scala"
 
         ```scala
-        
+        // Copy and modify configuration
+        val configPatch = scala.collection.mutable.Map.empty ++ config
+        configPatch ++= Map(
+          "spark.cosmos.write.strategy" -> "ItemPatch",
+          "spark.cosmos.write.bulk.enabled" -> "false",
+          "spark.cosmos.write.patch.defaultOperationType" -> "Set",
+          "spark.cosmos.write.patch.columnConfigs" -> "[col(name).op(set)]"
+        )
         ```
 
         ::: zone-end
 
-    1. TODO
+    1. Create variables for the item partition key and unique identifier that you intend to target as part of this patch operation.
 
         ::: zone pivot="programming-language-python"
 
@@ -393,12 +424,14 @@ When working with API for NoSQL data in Spark, you can perform partial updates o
         ::: zone pivot="programming-language-scala"
 
         ```scala
-        
+        // Specify target item id and partition key
+        val targetItemId = "68719518391"
+        val targetItemPartitionKey = "gear-surf-surfboards"
         ```
 
         ::: zone-end
 
-    1. TODO
+    1. Create a set of patch objects to specify the target item and specify fields that should be modified.
 
         ::: zone pivot="programming-language-python"
 
@@ -412,12 +445,15 @@ When working with API for NoSQL data in Spark, you can perform partial updates o
         ::: zone pivot="programming-language-scala"
 
         ```scala
-        
+        // Create set of patch diffs
+        val patchProducts = Seq(
+          (targetItemId, targetItemPartitionKey, "Yamba New Surfboard")
+        )
         ```
 
         ::: zone-end
 
-    1. TODO
+    1. Create a data frame using the set of patch objects and use `write` to perform the patch operation.
 
         ::: zone pivot="programming-language-python"
 
@@ -436,12 +472,19 @@ When working with API for NoSQL data in Spark, you can perform partial updates o
         ::: zone pivot="programming-language-scala"
 
         ```scala
-        
+        // Create data frame
+        patchProducts
+          .toDF("id", "category", "name")
+          .write
+          .format("cosmos.oltp")
+          .options(configPatch)
+          .mode("APPEND")
+          .save()
         ```
 
         ::: zone-end
 
-    1. TODO
+    1. Run a query to review the results of the patch operation. The item should now be named `Yamba New Surfboard` with no other changes.
 
         ::: zone pivot="programming-language-python"
 
@@ -457,14 +500,17 @@ When working with API for NoSQL data in Spark, you can perform partial updates o
         ::: zone pivot="programming-language-scala"
 
         ```scala
-        
+        // Create and run query
+        val patchQuery = s"SELECT * FROM cosmosCatalog.cosmicworks.products WHERE id = '$targetItemId' AND category = '$targetItemPartitionKey'"
+        val patchDf = spark.sql(patchQuery)
+        patchDf.show(1)
         ```
 
         ::: zone-end
 
 1. To work with raw JSON data, perform these steps:
 
-    1. TODO
+    1. Copy the existing `config` configuration variable and modify the properties in the new copy. Specifically; change the target container to `employees` and configure the `contacts` column/field to use raw JSON data.
 
         ::: zone pivot="programming-language-python"
 
@@ -480,12 +526,17 @@ When working with API for NoSQL data in Spark, you can perform partial updates o
         ::: zone pivot="programming-language-scala"
 
         ```scala
-        
+        // Copy and modify configuration
+        val configRawJson = scala.collection.mutable.Map.empty ++ config
+        configRawJson ++= Map(
+          "spark.cosmos.container" -> "employees",
+          "spark.cosmos.write.patch.columnConfigs" -> "[col(contacts).path(/contacts).op(set).rawJson]"
+        )
         ```
 
         ::: zone-end
 
-    1. TODO
+    1. Create a set of employees to ingest into the container.
 
         ::: zone pivot="programming-language-python"
 
@@ -501,12 +552,15 @@ When working with API for NoSQL data in Spark, you can perform partial updates o
         ::: zone pivot="programming-language-scala"
 
         ```scala
-        
+        // Create employee data
+        val employees = Seq(
+          ("63476388581", "CosmicWorks", "Marketing", "Outside Sales", "Alain Henry",  """[ { "type": "phone", "value": "425-555-0117" }, { "email": "alain@adventure-works.com" } ]""")
+        )
         ```
 
         ::: zone-end
 
-    1. TODO
+    1. Create a data frame and use `write` to ingest the employee data.
 
         ::: zone pivot="programming-language-python"
 
@@ -526,12 +580,19 @@ When working with API for NoSQL data in Spark, you can perform partial updates o
         ::: zone pivot="programming-language-scala"
 
         ```scala
-        
+        // Ingest data
+        spark.createDataFrame(employees)
+          .toDF("id", "organization", "department", "team", "name", "contacts")
+          .write
+          .format("cosmos.oltp")
+          .options(configRawJson)
+          .mode("APPEND")
+          .save()
         ```
 
         ::: zone-end
 
-    1. TODO
+    1. Render the data from the data frame using `show`. Observe that the `contacts` column is raw JSON in the output.
 
         ::: zone pivot="programming-language-python"
 
@@ -548,7 +609,11 @@ When working with API for NoSQL data in Spark, you can perform partial updates o
         ::: zone pivot="programming-language-scala"
 
         ```scala
-        
+        // Read and render data
+        val rawJsonDf = spark.read.format("cosmos.oltp")
+          .options(configRawJson)
+          .load()
+        rawJsonDf.show()
         ```
 
         ::: zone-end
