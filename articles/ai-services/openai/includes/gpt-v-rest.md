@@ -21,6 +21,9 @@ Use this article to get started using the Azure OpenAI REST APIs to deploy and u
 - An Azure OpenAI Service resource with a GPT-4 Turbo with Vision model deployed. The resource must be in the `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see [the resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
 - For Vision enhancement (optional): An Azure Computer Vision resource in the same region as your Azure OpenAI resource.
 
+> [!NOTE]
+> It is currently not supported to turn off content filtering for the GPT-4 Turbo with Vision model.
+
 ## Retrieve key and endpoint
 
 To successfully call the Azure OpenAI APIs, you need the following information about your Azure OpenAI resource:
