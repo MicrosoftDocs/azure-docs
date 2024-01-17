@@ -14,7 +14,7 @@ ms.date: 01/11/2024
 
 You can set a limit on the number of dev boxes each developer can create within a project. You can use this functionality to help manage costs, use resources effectively, or prevent dev box creation for a given project. 
 
-In the developer portal, you can see the number of existing dev boxes in a project, and the total number of dev boxes you can create in the project. If all of your available dev boxes in a project are in use, you can't create a new dev box.
+In the developer portal, a Dev Box User can see their existing dev boxes and their total number of allocations for each project. When they reach their allocation limit for a project, they can't create a new dev box for that project.
 
 In this tutorial, you learn how to:
 
