@@ -25,7 +25,7 @@ To troubleshoot issues regarding a declined card, see [Troubleshoot a declined c
 
 You might be using an email ID that differs from the one that is used for the subscriptions.
 
-To troubleshoot this issue, see [No subscriptions found sign-in error for Azure portal](no-subscriptions-found.md).
+To troubleshoot this issue, see [No subscriptions found sign-in error for Azure portal](../troubleshoot-subscription/no-subscriptions-found.md).
 
 ## Unable to use a virtual or prepaid credit as a payment method.
 
@@ -100,8 +100,8 @@ Best practices:
 Other troubleshooting articles for Azure Billing and Subscriptions
 
 - [Declined card](troubleshoot-declined-card.md)
-- [Subscription sign-in issues](troubleshoot-sign-in-issue.md)
-- [No subscriptions found](no-subscriptions-found.md)
+- [Subscription sign-in issues](../troubleshoot-subscription/troubleshoot-sign-in-issue.md)
+- [No subscriptions found](../troubleshoot-subscription/no-subscriptions-found.md)
 - [Enterprise cost view disabled](enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 ## Contact us for help

@@ -42,7 +42,7 @@ You may be experiencing other sign-up issues
 
 For more information about how to troubleshoot Azure sign-up issues, see the following article:
 
-[You can't sign-up for Azure in the Azure portal](troubleshoot-azure-sign-up.md)
+[You can't sign-up for Azure in the Azure portal](../troubleshoot-subscription/troubleshoot-azure-sign-up.md)
 
 ## You represent a business that doesn't want to pay by card
 
@@ -66,8 +66,8 @@ For more information about threshold billing, see [Troubleshoot threshold billin
 
 Other troubleshooting articles for Azure Billing and Subscriptions
 
-- [Sign-up issues](troubleshoot-azure-sign-up.md)
-- [Subscription sign-in issues](troubleshoot-sign-in-issue.md)
+- [Sign-up issues](../troubleshoot-subscription/troubleshoot-azure-sign-up.md)
+- [Subscription sign-in issues](../troubleshoot-subscription/troubleshoot-sign-in-issue.md)
 - [No subscriptions found](no-subscriptions-found.md)
 - [Enterprise cost view disabled](enterprise-mgmt-grp-troubleshoot-cost-view.md)
 

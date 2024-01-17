@@ -55,6 +55,6 @@ If you have questions or need help, [create a support request](https://portal.az
 Read the following billing and subscription articles to help troubleshoot problems.
 
 - [Declined card](./troubleshoot-declined-card.md)
-- [Subscription sign in issues](./troubleshoot-sign-in-issue.md)
-- [No subscriptions found](./no-subscriptions-found.md)
+- [Subscription sign in issues](../troubleshoot-subscription/troubleshoot-sign-in-issue.md)
+- [No subscriptions found](../troubleshoot-subscription/no-subscriptions-found.md)
 - [Enterprise cost view disabled](./enterprise-mgmt-grp-troubleshoot-cost-view.md)

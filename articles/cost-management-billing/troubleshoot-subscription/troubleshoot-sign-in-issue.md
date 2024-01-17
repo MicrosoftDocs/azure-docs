@@ -67,10 +67,10 @@ To fix this issue:
 
 Other troubleshooting articles for Azure Billing and Subscriptions
 
-- [Declined card](./troubleshoot-declined-card.md)
+- [Declined card](../troubleshoot-billing/troubleshoot-declined-card.md)
 - [Subscription sign-up issues](./troubleshoot-azure-sign-up.md)
 - [No subscriptions found](./no-subscriptions-found.md)
-- [Enterprise cost view disabled](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Enterprise cost view disabled](../troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md)
 - [Azure Billing documentation](../index.yml)
 
 ## Contact us for help
