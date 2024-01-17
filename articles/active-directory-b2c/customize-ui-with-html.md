@@ -2,18 +2,21 @@
 title: Customize the user interface with HTML templates
 titleSuffix: Azure AD B2C
 description: Learn how to customize the user interface with HTML templates for your applications that use Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 11/06/2023
-ms.custom: project-no-code
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer customizing the user interface in Azure Active Directory B2C, I want to know how to customize the default pages and host my own HTML and CSS files, so that I can provide a branded and seamless user experience in my application.
+
 ---
 
 # Customize the user interface with HTML templates in Azure Active Directory B2C

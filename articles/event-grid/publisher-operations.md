@@ -4,7 +4,7 @@ description: Describes publisher operations supported by Azure Event Grid when u
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 11/02/2023
+ms.date: 11/15/2023
 ---
 
 # Azure Event Grid - publisher operations 

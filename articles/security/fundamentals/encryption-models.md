@@ -139,7 +139,7 @@ The Azure services that support each encryption model:
 | Product, Feature, or Service | Server-Side Using Service-Managed Key   | Server-Side Using Customer-Managed Key | Client-Side Using Client-Managed Key  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 | **AI and Machine Learning**      |                    |                    |                    |
-| Azure Cognitive Search           | Yes                | Yes                | -                  |
+| Azure AI Search           | Yes                | Yes                | -                  |
 | Azure AI services         | Yes                | Yes, including Managed HSM | -                  |
 | Azure Machine Learning           | Yes                | Yes                | -                  |
 | Content Moderator                | Yes                | Yes, including Managed HSM | -                  |

@@ -4,7 +4,7 @@ description: Take the first steps toward upgrading to App Service Environment v3
 ms.author: jordanselig
 author: seligj95
 ms.topic: overview
-ms.date: 10/30/2023
+ms.date: 12/11/2023
 ---
 
 # Upgrade to App Service Environment v3
@@ -40,6 +40,13 @@ App Service Environment v3 is the latest version of App Service Environment. It'
 - [App Service Environment v3 overview](overview.md)
 - [App Service Environment version comparison](version-comparison.md)
 - [Feature differences](overview.md#feature-differences)
+
+## We want your feedback!
+
+Got 2 minutes? We'd love to hear about your upgrade experience in this quick, anonymous poll. You'll help us learn and improve.
+
+> [!div class="nextstepaction"]
+> [Feedback link](https://forms.office.com/r/fJUuxtBGGC)
 
 ## Next steps
 

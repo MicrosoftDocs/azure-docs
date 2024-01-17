@@ -155,7 +155,8 @@ client.decline_job_offer(
 client.declineJobOffer(
     offerIssuedEvent.getData().getWorkerId(),
     offerIssuedEvent.getData().getOfferId(),
-    new DeclineJobOfferOptions().setRetryOfferAt(OffsetDateTime.now().plusMinutes(5)));
+    new RequestOptions().setBody(BinaryData.fromObject(
+        new DeclineJobOfferOptions().setRetryOfferAt(OffsetDateTime.now().plusMinutes(5)))));
 ```
 
 ::: zone-end
@@ -175,7 +176,7 @@ await routerClient.CompleteJobAsync(new CompleteJobOptions(jobId: accept.Value.J
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.path("/routing/jobs/{jobId}:complete", accept.body.jobId, accept.body.assignmentId).post();
+await client.path("/routing/jobs/{jobId}/assignments/{assignmentId}:complete", accept.body.jobId, accept.body.assignmentId).post();
 ```
 
 ::: zone-end
@@ -191,7 +192,7 @@ router_client.complete_job(job_id = job.id, assignment_id = accept.assignment_id
 ::: zone pivot="programming-language-java"
 
 ```java
-routerClient.completeJob(accept.getJobId(), accept.getAssignmentId());
+routerClient.completeJobWithResponse(accept.getJobId(), accept.getAssignmentId(), null);
 ```
 
 ::: zone-end
@@ -213,7 +214,7 @@ await routerClient.CloseJobAsync(new CloseJobOptions(jobId: accept.Value.JobId, 
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.path("/routing/jobs/{jobId}:close", accept.body.jobId, accept.body.assignmentId).post({
+await client.path("/routing/jobs/{jobId}/assignments/{assignmentId}:close", accept.body.jobId, accept.body.assignmentId).post({
     body: {
         dispositionCode: "Resolved"
     }
@@ -233,8 +234,8 @@ router_client.close_job(job_id = job.id, assignment_id = accept.assignment_id, d
 ::: zone pivot="programming-language-java"
 
 ```java
-routerClient.closeJob(accept.getJobId(), accept.getAssignmentId(), new CloseJobOptions()
-    .setDispositionCode("Resolved"));
+routerClient.closeJobWithResponse(accept.getJobId(), accept.getAssignmentId(), 
+    new RequestOptions().setBody(BinaryData.fromObject(new CloseJobOptions().setDispositionCode("Resolved"))));
 ```
 
 ::: zone-end

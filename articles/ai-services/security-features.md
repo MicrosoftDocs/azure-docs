@@ -2,7 +2,7 @@
 title: Azure AI services security
 titleSuffix: Azure AI services
 description: Learn about the security considerations for Azure AI services usage.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-services

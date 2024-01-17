@@ -2,14 +2,15 @@
 title: Deploy a web app for chat on your data in the Azure AI Studio playground
 titleSuffix: Azure AI Studio
 description: Use this article to deploy a web app for chat on your data in the Azure AI Studio playground.
-author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: tutorial
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Tutorial: Deploy a web app for chat on your data
@@ -53,7 +54,7 @@ Follow these steps to deploy a chat model and test it without your data.
     :::image type="content" source="../media/tutorials/chat-web-app/deploy-gpt-35-turbo-16k.png" alt-text="Screenshot of the model selection page." lightbox="../media/tutorials/chat-web-app/deploy-gpt-35-turbo-16k.png":::
 
 1. On the **Deploy model** page, enter a name for your deployment, and then select **Deploy**. After the deployment is created, you see the deployment details page. Details include the date you created the deployment and the created date and version of the model you deployed.
-1. On the deployment details page from the previous step, select **Test in playground**.
+1. On the deployment details page from the previous step, select **Open in playground**.
 
     :::image type="content" source="../media/tutorials/chat-web-app/deploy-gpt-35-turbo-16k-details.png" alt-text="Screenshot of the GPT chat deployment details." lightbox="../media/tutorials/chat-web-app/deploy-gpt-35-turbo-16k-details.png":::
 

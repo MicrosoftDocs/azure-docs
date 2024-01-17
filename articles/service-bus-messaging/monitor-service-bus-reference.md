@@ -270,7 +270,7 @@ AzureDiagnostics:
     "Status": "Success | Failure",
     "Protocol": "AMQP | HTTP | SBMP", 
     "AuthType": "SAS | AAD", 
-    "AuthId": "<AAD Application Name| SAS policy name>",
+    "AuthKey": "<AAD Application Name| SAS policy name>",
     "NetworkType": "Public | Private", 
     "ClientIp": "x.x.x.x",
     "Count": 1, 

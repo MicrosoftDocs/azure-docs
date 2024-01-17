@@ -62,7 +62,7 @@ var classificationPolicy = await client.path("/routing/classificationPolicies/{c
         queueSelectorAttachments: [{            
             kind: "conditional",
             condition: {
-                kind: "expression-rule",
+                kind: "expression",
                 expression: 'job.Escalated = true'
             },
             queueSelectors: [{
@@ -72,7 +72,7 @@ var classificationPolicy = await client.path("/routing/classificationPolicies/{c
             }]
         }],
         prioritizationRule: {
-            kind: "expression-rule",
+            kind: "expression",
             expression: "If(job.Escalated = true, 10, 1)"
         }
     },
@@ -151,7 +151,7 @@ await client.path("/routing/exceptionPolicies/{exceptionPolicyId}", "Escalate_XB
         exceptionRules: [
         {
             id: "Escalated_Rule",
-            trigger: { kind: "wait-time", thresholdSeconds: 5 * 60 },
+            trigger: { kind: "waitTime", thresholdSeconds: 5 * 60 },
             actions: [{ kind: "reclassify", classificationPolicyId: classificationPolicy.body.id, labelsToUpsert: { Escalated: true }}]
         }]
     },

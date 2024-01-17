@@ -1,16 +1,20 @@
 ---
 title:  Samples of APIs for modifying your Azure AD B2C user flows  
 description: Code samples for modifying user flows with API connectors 
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.author: kengaderdus
-ms.date: 11/03/2022
+ms.date: 01/11/2024
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating web APIs into user flows using API connectors, I want to access code samples that use API connectors, so that I can easily implement functionality such as fraud and abuse protection, identity verification, and invitation codes in my applications.
+
 ---
 
 # API connector REST API samples

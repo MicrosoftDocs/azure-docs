@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 09/19/2023
+ms.date: 01/10/2024
 ms.author: greglin 
 ---
 
@@ -26,7 +26,7 @@ You can use different types of logs in Azure to manage and troubleshoot applicat
 * **Firewall log**: You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall. Firewall logs are collected every 60 seconds. 
 
 > [!NOTE]
-> Logs are available only for resources deployed in the Azure Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, see the [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md) article.
+> Logs are available only for resources deployed in the Azure Resource Manager deployment model. You can't use logs for resources in the classic deployment model. For a better understanding of the two models, see the [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md) article.
 
 ## Storage locations
 
@@ -102,7 +102,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |httpVersion     | HTTP version of the request.        |
 |receivedBytes     | Size of packet received, in bytes.        |
 |sentBytes| Size of packet sent, in bytes.|
-|clientResponseTime| Time difference  (in **seconds**) between first byte application gateway received from the backend to first byte application gateway sent to the client. |
+|clientResponseTime| Time difference (in seconds) between the first byte and the last byte application gateway sent to the client. Helpful in gauging Application Gateway's processing time for responses or slow clients. |
 |timeTaken| Length of time (in **seconds**) that it takes for the first byte of a client request to be processed and its last-byte sent in the response to the client. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
 |WAFEvaluationTime| Length of time (in **seconds**) that it takes for the request to be processed by the WAF. |
 |WAFMode| Value can be either Detection or Prevention |
@@ -117,7 +117,11 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |originalRequestUriWithArgs| This field contains the original request URL |
 |requestUri| This field contains the URL after the rewrite operation on Application Gateway |
 |upstreamSourcePort| The source port used by Application Gateway when initiating a connection to the backend target|
-|originalHost| This field contains the original request host name
+|originalHost| This field contains the original request host name|
+|error_info|The reason for the 4xx and 5xx error. Displays an error code for a failed request. More details in [Error code information.](./application-gateway-diagnostics.md#error-code-information) |
+|contentType|The type of content or data that is being processed or delivered by the application gateway
+
+
 ```json
 {
     "timeStamp": "2021-10-14T22:17:11+00:00",
@@ -157,7 +161,9 @@ The access log is generated only if you've enabled it on each Application Gatewa
         "serverResponseLatency": "0.028",
         "upstreamSourcePort": "21564",
         "originalHost": "20.110.30.194",
-        "host": "20.110.30.194"
+        "host": "20.110.30.194",
+        "error_info":"ERRORINFO_NO_ERROR",
+        "contentType":"application/json"
     }
 }
 ```
@@ -181,8 +187,8 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |sentBytes| Size of packet sent, in bytes.|
 |timeTaken| Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
 |sslEnabled| Whether communication to the backend pools used TLS/SSL. Valid values are on and off.|
-|host| The hostname with which the request has been sent to the backend server. If backend hostname is being overridden, this name reflects that.|
-|originalHost| The hostname with which the request was received by the Application Gateway from the client.|
+|host| The hostname for which the request has been sent to the backend server. If backend hostname is being overridden, this name reflects that.|
+|originalHost| The hostname for which the request was received by the Application Gateway from the client.|
 
 ```json
 {
@@ -209,7 +215,31 @@ The access log is generated only if you've enabled it on each Application Gatewa
     }
 }
 ```
+### Error code Information
+If the application gateway can't complete the request, it stores one of the following reason codes in the error_info field of the access log. 
 
+
+|4XX Errors  |The 4xx error codes indicate that there was an issue with the client's request, and the server can't fulfill it |
+|---------|---------|
+|    ERRORINFO_INVALID_METHOD|	The client has sent a request  which is non-RFC compliant.  Possible reasons: client using HTTP method not supported by server, misspelled method, incompatible HTTP protocol version etc.|
+  |  ERRORINFO_INVALID_REQUEST	| The server can't fulfill the request because of incorrect syntax.|
+  | ERRORINFO_INVALID_VERSION|	The application gateway received a request with an invalid or unsupported HTTP version.|
+   | ERRORINFO_INVALID_09_METHOD|	The client sent request with HTTP Protocol version 0.9.|
+   | ERRORINFO_INVALID_HOST	|The value provided in the "Host" header is either missing, improperly formatted, or doesn't match the expected host value (when there is no Basic listener, and none of the hostnames of Multisite listeners match with the host).| 
+   | ERRORINFO_INVALID_CONTENT_LENGTH |	The length of the content specified by the client in the content-Length header doesn't match the actual length of the content in the request.|
+   | ERRORINFO_INVALID_METHOD_TRACE | The  client sent HTTP TRACE method which is not supported by the application gateway.|
+   |  ERRORINFO_CLIENT_CLOSED_REQUEST |	The client closed the connection with the application gateway before the idle timeout period elapsed.Check whether the client timeout period is greater than the [idle timeout period](./application-gateway-faq.yml#what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout) for the application gateway.|
+   | ERRORINFO_REQUEST_URI_INVALID	|Indicates issue with the Uniform Resource Identifier (URI) provided in the client's request. |
+   |  ERRORINFO_HTTP_NO_HOST_HEADER	| Client sent a request without Host header. |
+   | ERRORINFO_HTTP_TO_HTTPS_PORT	|The client sent a plain HTTP request to an HTTPS port. |
+   | ERRORINFO_HTTPS_NO_CERT | 	Indicates client is not sending a valid and properly configured TLS certificate during Mutual TLS authentication.    |
+
+
+|5XX Errors  |Description  |
+|---------|---------|
+  |  ERRORINFO_UPSTREAM_NO_LIVE	| The application gateway is unable to find any active or reachable backend servers to handle incoming requests       |
+  |  ERRORINFO_UPSTREAM_CLOSED_CONNECTION	| The backend server closed the connection unexpectedly or before the request was fully processed. This could happen due to backend server reaching its limits, crashing etc.|
+  | ERRORINFO_UPSTREAM_TIMED_OUT	| The established TCP connection with the server was closed as the connection took longer than the configured timeout value. |
 ### Performance log
 
 The performance log is generated only if you have enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. The performance log data is generated in 1-minute intervals. It is available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data. The following data is logged:

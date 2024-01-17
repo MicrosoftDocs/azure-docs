@@ -7,7 +7,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 08/21/2023
+ms.date: 11/21/2023
 ms.author: lajanuar
 ---
 
@@ -15,7 +15,7 @@ ms.author: lajanuar
 >
 > This project targets Azure AI Document Intelligence API version 3.1 and uses cURL to execute REST API calls.
 
-[Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Azure SDKs](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../../sdk-overview-v3-1.md)
+[Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Azure SDKs](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../../sdk-overview-v3-1.md)
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ Open a console window and run the following cURL command. The commands include t
 curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/<modelId>:analyze?api-version=2023-07-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" --data-ascii "{'urlSource': '<document-url>'}"
 ```
 
-To enable add-on capabilities, use the `features` query parameter in the POST request. There are four add-on capabilities available with the 2023-07-31 (GA) release: *ocr.highResolution*, *ocr.formula*, *ocr.font*, and *queryFields.premium*. To learn more about each of the capabilities, see [Custom models](../../../concept-accuracy-confidence.md).
+To enable add-on capabilities, use the `features` query parameter in the POST request. There are four add-on capabilities available with the `2023-07-31` (GA) release: *ocr.highResolution*, *ocr.formula*, *ocr.font*, and *queryFields.premium*. To learn more about each of the capabilities, see [Custom models](../../../concept-accuracy-confidence.md).
 
 You can only call the *highResolution*, *formula*, and *font* capabilities for the Read and Layout model, and the *queryFields* capability for the General Documents model. The following example shows how to call the *highResolution*, *formula*, and *font* capabilities for the Layout model.
 
@@ -87,7 +87,7 @@ You receive a `202 (Success)` response that includes an `Operation-location` hea
 
 ### Get analyze result (GET Request)
 
-After you call the [Analyze document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) API, call the [Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data.
+After you call the [Analyze document](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API, call the [`Get analyze` result}(/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to get the status of the operation and the extracted data.
 
 <!-- markdownlint-disable MD024 -->
 
@@ -127,9 +127,9 @@ The *json_pp* command tool ships with macOS and can be used as a JSON formatter 
 
 #### [Linux](#tab/linux)
 
-The *json_pp* command line tool is preinstalled in most Linux distributions. If it's not included, you can use your distribution's package manager to install it.
+The *json_pp* command line tool is preinstalled in most Linux distributions. If it isn't included, you can use your distribution's package manager to install it.
 
-- Pretty print the JSON output by including `| json_pp` with your GET requests.
+- Pretty print the JSON output by including `| json_pp` with your `GET` requests.
 
   ```console
   curl -i -X GET "<endpoint>formrecognizer/documentModels/prebuilt-read/analyzeResults/0e49604a-2d8e-4b15-b6b8-bb456e5d3e0a?api-version=2023-07-31"-H "Ocp-Apim-Subscription-Key: <subscription key>" | json_pp
@@ -159,7 +159,7 @@ curl -i -X GET "<POST response>" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" | `<js
 
 You receive a `200 (Success)` response with JSON output. The first field, `status`, indicates the status of the operation. If the operation isn't complete, the value of `status` is `running` or `notStarted`. Call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
-Visit the Azure samples repository on GitHub to view the GET response for each of the Document Intelligence models:
+Visit the Azure samples repository on GitHub to view the `GET` response for each of the Document Intelligence models:
 
 | Model | Output URL |
 | --- | --- |

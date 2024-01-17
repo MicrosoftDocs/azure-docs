@@ -1,13 +1,13 @@
 ---
 title: High availability – Azure Cosmos DB for PostgreSQL
 description: High availability and disaster recovery concepts
-ms.author: jonels
-author: jonels-msft
+ms.author: nlarin
+author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 06/05/2023
+ms.date: 11/28/2023
 ---
 
 # High availability in Azure Cosmos DB for PostgreSQL
@@ -20,11 +20,11 @@ switches incoming connections from the failed node to its standby. Failover
 happens within a few minutes, and promoted nodes always have fresh data through
 PostgreSQL synchronous streaming replication.
 
-All primary nodes in a cluster are provisioned into one availability zone
+All primary nodes in a cluster are provisioned into one [availability zone](./concepts-availability-zones.md)
 for better latency between the nodes. The preferred availability zone allows you to put all cluster nodes in the same availability zone where the application is deployed. This proximity could improve performance further by decreasing app-database latency. The standby nodes are provisioned into
 another availability zone. The Azure portal
 [displays](concepts-cluster.md#node-availability-zone) the availability
-zone of each primary node in a cluster.
+zone of each primary node in a cluster. You can also check availability zone of each node in a cluster using one of the programmatic methods such as [REST APIs](/rest/api/postgresqlhsc/servers/get).
 
 Even without HA enabled, each node has its own locally
 redundant storage (LRS) with three synchronous replicas maintained by Azure
@@ -71,4 +71,5 @@ for clusters in the Azure portal.
 
 ## Next steps
 
-- Learn how to [enable high availability](howto-high-availability.md) in a cluster
+- Learn how to [enable high availability](howto-high-availability.md) in a cluster.
+- Learn about [availability zones](./concepts-availability-zones.md) in Azure Cosmos DB for PostgreSQL.

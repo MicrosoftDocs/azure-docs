@@ -64,7 +64,7 @@ await administrationClient.path("/routing/exceptionPolicies/{exceptionPolicyId}"
         exceptionRules: [
         {
             id: "cancelJob",
-            trigger: { kind: "queue-length", threshold: 100 },
+            trigger: { kind: "queueLength", threshold: 100 },
             actions: [{ kind: "cancel" }]
         }
       ]
@@ -145,12 +145,12 @@ await administrationClient.path("/routing/exceptionPolicies/{exceptionPolicyId}"
         exceptionRules: [
         {
             id: "increasePriority",
-            trigger: { kind: "wait-time", thresholdSeconds: "60" },
+            trigger: { kind: "waitTime", thresholdSeconds: "60" },
             actions: [{ "manual-reclassify", priority: 10 }]
         },
         {
             id: "changeQueue",
-            trigger: { kind: "wait-time", thresholdSeconds: "300" },
+            trigger: { kind: "waitTime", thresholdSeconds: "300" },
             actions: [{ kind: "manual-reclassify", queueId: "queue2" }]
         }]
     },

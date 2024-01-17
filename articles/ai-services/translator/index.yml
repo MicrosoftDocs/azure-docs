@@ -6,12 +6,12 @@ metadata:
   title: Azure AI Translator documentation - quickstarts, tutorials, API reference
   titleSuffix: Azure AI services
   description: Azure AI Translator is a cloud-based machine translation service you can use to translate text through a simple REST API call. The service uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of Translator, which allows you to build neural translation systems. The customized translation system can be used to translate text with Translator or Microsoft Speech Services.
-  services: cognitive-services
+  #services: cognitive-services
   author: laujan
   manager: nitinme
   ms.service: azure-ai-translator
   ms.topic: landing-page
-  ms.date: 12/17/2022
+  ms.date: 01/16/2024
   ms.author: lajanuar
 
 
@@ -20,11 +20,11 @@ metadata:
 
 landingContent:
   # Card 1
-  - title: About Translator Service
+  - title: About Azure AI Translator Service
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Translator Service?
+          - text: What is Azure AI Translator Service?
             url: translator-overview.md
           - text: Language support
             url:  language-support.md
@@ -34,7 +34,7 @@ landingContent:
             url: https://www.microsoft.com/translator/faq.aspx
       - linkListType: whats-new
         links:
-         - text: What's new in Translator Service?
+         - text: What's new in Azure AI Translator Service?
            url: whats-new.md
 
   # Card 2

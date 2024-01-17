@@ -2,12 +2,12 @@
 title: Assertion detection in Text Analytics for health
 titleSuffix: Azure AI services
 description: Learn about assertion detection.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 01/04/2023
+ms.date: 12/19/2023
 ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
 ---

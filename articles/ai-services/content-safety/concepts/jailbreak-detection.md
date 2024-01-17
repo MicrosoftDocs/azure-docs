@@ -2,7 +2,7 @@
 title: "Jailbreak risk detection in Azure AI Content Safety"
 titleSuffix: Azure AI services
 description: Learn about jailbreak risk detection and the related flags that the Azure AI Content Safety service returns.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
@@ -23,7 +23,7 @@ Despite these precautions, models remain susceptible to adversarial inputs that 
 
 ## What is a jailbreak attack?
 
-A jailbreak attack, also known as a User Prompt Injection Attack (UPIA), is an intentional attempt by a user to exploit the vulnerabilities of an LLM-powered system, bypass its safety mechanisms, and provoke restricted behaviors. These attacks can lead to the LLM generating inappropriate content or performing actions restricted by System Prompt or RHLF.  
+A jailbreak attack, also known as a User Prompt Injection Attack (UPIA), is an intentional attempt by a user to exploit the vulnerabilities of an LLM-powered system, bypass its safety mechanisms, and provoke restricted behaviors. These attacks can lead to the LLM generating inappropriate content or performing actions restricted by System Prompt or RLHF(Reinforcement Learning with Human Feedback).  
 
 Most generative AI models are prompt-based: the user interacts with the model by entering a text prompt, to which the model responds with a completion.  
 

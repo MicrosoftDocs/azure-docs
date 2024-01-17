@@ -2,7 +2,7 @@
 title: Create an Azure AI services resource using ARM templates | Microsoft Docs
 description: Create an Azure AI service resource with ARM template.
 keywords: Azure AI services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-services

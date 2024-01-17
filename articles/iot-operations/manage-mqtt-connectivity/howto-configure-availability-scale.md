@@ -1,13 +1,14 @@
 ---
 title: Configure core MQTT broker settings
-# titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ
 description: Configure core MQTT broker settings for high availability, scale, memory usage, and disk-backed message buffer behavior.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.subservice: mq
 ms.custom:
   - ignite-2023
-ms.date: 10/27/2023
+ms.date: 11/15/2023
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ---

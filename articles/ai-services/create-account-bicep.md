@@ -2,7 +2,7 @@
 title: Create an Azure AI services resource using Bicep | Microsoft Docs
 description: Create an Azure AI service resource with Bicep.
 keywords: Azure AI services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 ms.service: azure-ai-services
 ms.topic: quickstart

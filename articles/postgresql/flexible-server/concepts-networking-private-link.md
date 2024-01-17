@@ -68,6 +68,8 @@ Cross Feature Availability Matrix for preview of Private Endpoint in Azure Datab
 
 > [!NOTE]
 > Azure Database for PostgreSQL - Flexible Server support for Private Endpoints in Preview requires enablement of [**PostgreSQL Private Endpoint capability** preview feature in your subscription](../../azure-resource-manager/management/preview-features.md). 
+> Only **after preview feature is enabled** you can create servers which are PE capable, i.e. can be networked using Private Link.
+
 
 
 

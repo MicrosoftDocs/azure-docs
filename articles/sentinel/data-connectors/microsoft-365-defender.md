@@ -1,6 +1,6 @@
 ---
-title: "Microsoft 365 Defender connector for Microsoft Sentinel"
-description: "Learn how to install the connector Microsoft 365 Defender to connect your data source to Microsoft Sentinel."
+title: "Microsoft Defender XDR connector for Microsoft Sentinel"
+description: "Learn how to install the connector Microsoft Defender XDR to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,11 +8,11 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Microsoft 365 Defender connector for Microsoft Sentinel
+# Microsoft Defender XDR connector for Microsoft Sentinel
 
-Microsoft 365 Defender​ is a unified, natively integrated, pre- and post-breach enterprise defense suite that protects endpoint, identity, email, and applications and helps you detect, prevent, investigate, and automatically respond to sophisticated threats.
+Microsoft Defender XDR​ is a unified, natively integrated, pre- and post-breach enterprise defense suite that protects endpoint, identity, email, and applications and helps you detect, prevent, investigate, and automatically respond to sophisticated threats.
 
-Microsoft 365 Defender suite includes: 
+Microsoft Defender XDR suite includes: 
 - Microsoft Defender for Endpoint
 - Microsoft Defender for Identity
 - Microsoft Defender for Office 365

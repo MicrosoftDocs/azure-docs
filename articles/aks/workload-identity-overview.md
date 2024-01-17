@@ -3,7 +3,7 @@ title: Use a Microsoft Entra Workload ID on Azure Kubernetes Service (AKS)
 description: Learn about Microsoft Entra Workload ID for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 ms.topic: article
 ms.custom: build-2023
-ms.date: 09/13/2023
+ms.date: 11/17/2023
 ---
 
 # Use Microsoft Entra Workload ID with Azure Kubernetes Service (AKS)
@@ -34,7 +34,7 @@ The following table provides the **minimum** package version required for each l
 | Ecosystem | Library                                                                                                          | Minimum version |
 |-----------|------------------------------------------------------------------------------------------------------------------|-----------------|
 | .NET      | [Azure.Identity](/dotnet/api/overview/azure/identity-readme)                                                     | 1.9.0           |
-| C++       | [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md) | 1.6.0-beta.2    |
+| C++       | [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md) | 1.6.0           |
 | Go        | [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity)                                | 1.3.0           |
 | Java      | [azure-identity](/java/api/overview/azure/identity-readme)                                                       | 1.9.0           |
 | Node.js   | [@azure/identity](/javascript/api/overview/azure/identity-readme)                                                | 3.2.0           |

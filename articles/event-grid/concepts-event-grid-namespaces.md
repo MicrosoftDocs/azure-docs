@@ -1,5 +1,5 @@
 ---
-ms.date: 11/02/2023
+ms.date: 11/15/2023
 author: jfggdl
 ms.author: jafernan
 title: Concepts for Event Grid namespace topics

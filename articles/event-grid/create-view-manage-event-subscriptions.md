@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.custom:
   - ignite-2023
 ms.author: robece
-ms.date: 05/24/2023
+ms.date: 11/15/2023
 ---
 
 # Create, view, and manage event subscriptions in namespace topics

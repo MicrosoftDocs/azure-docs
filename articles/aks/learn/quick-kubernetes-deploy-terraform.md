@@ -1,15 +1,15 @@
 ---
-title: 'Quickstart: Create an Azure Kubernetes Service (AKS) cluster using Terraform'
-description: Learn how to quickly create a Kubernetes cluster using Terraform and deploy an application in Azure Kubernetes Service (AKS).
+title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Terraform'
+description: Learn how to quickly deploy a Kubernetes cluster using Terraform and deploy an application in Azure Kubernetes Service (AKS).
 ms.topic: quickstart
-ms.date: 10/23/2023
+ms.date: 01/12/2024
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
-#Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
+#Customer intent: As a developer or cluster operator, I want to quickly deploy an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
-# Quickstart: Create an Azure Kubernetes Service (AKS) cluster using Terraform
+# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Terraform
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you:
 
@@ -17,9 +17,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
 
 > [!NOTE]
-> This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
-
-:::image type="content" source="media/quick-kubernetes-deploy-terraform/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-terraform/aks-store-application.png":::
+> To get started with quickly provisioning an AKS cluster, this article includes steps to deploy a cluster with default settings for evaluation purposes only. Before deploying a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
 
 ## Before you begin
 
@@ -38,7 +36,9 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 > [!NOTE]
 > The Azure Linux node pool is now generally available (GA). To learn about the benefits and deployment steps, see the [Introduction to the Azure Linux Container Host for AKS][intro-azure-linux].
 
-## Login to your Azure Account
+## Login to your Azure account
+
+First, log into your Azure account and authenticate using one of the methods described in the following section.
 
 [!INCLUDE [authenticate-to-azure.md](~/azure-dev-docs-pr/articles/terraform/includes/authenticate-to-azure.md)]
 
@@ -91,7 +91,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
     resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-2. Display the name of your new Kubernetes cluster using the [`az aks list`](/cli/azure/aks#az-aks-list) command.
+2. Display the name of your new Kubernetes cluster using the [az aks list](/cli/azure/aks#az-aks-list) command.
 
     ```azurecli-interactive
     az aks list \
@@ -380,6 +380,8 @@ To deploy the application, you use a manifest file to create all the objects req
 
     For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
+    If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
+
 2. Deploy the application using the `kubectl apply` command and specify the name of your YAML manifest.
 
     ```console
@@ -404,6 +406,10 @@ To deploy the application, you use a manifest file to create all the objects req
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
 
 1. Check the status of the deployed pods using the `kubectl get pods` command. Make all pods are `Running` before proceeding.
+
+    ```console
+    kubectl get pods
+    ```
 
 2. Check for a public IP address for the store-front application. Monitor progress using the `kubectl get service` command with the `--watch` argument.
 
@@ -445,7 +451,7 @@ When the application runs, a Kubernetes service exposes the application front en
     sp=$(terraform output -raw sp)
     ```
 
-1. Delete the service principal using the [`az ad sp delete`](/cli/azure/ad/sp#az-ad-sp-delete) command.
+1. Delete the service principal using the [az ad sp delete](/cli/azure/ad/sp#az-ad-sp-delete) command.
 
     ```azurecli-interactive
     az ad sp delete --id $sp
@@ -457,12 +463,18 @@ When the application runs, a Kubernetes service exposes the application front en
 
 ## Next steps
 
+In this quickstart, you deployed a Kubernetes cluster and then deployed a simple multi-container application to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
+
+To learn more about AKS and walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
+
 > [!div class="nextstepaction"]
 > [Learn more about using AKS.](/azure/aks)
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
-
-<!-- LINKS - Internal -->
 [intro-azure-linux]: ../../azure-linux/intro-azure-linux.md
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+[baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+
+<!-- LINKS - External -->

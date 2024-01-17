@@ -3,7 +3,7 @@ ms.service: api-management
 ms.topic: include
 author: dlepow
 ms.author: danlep
-ms.date: 02/24/2023
+ms.date: 12/11/2023
 ms.custom: 
 ---
 

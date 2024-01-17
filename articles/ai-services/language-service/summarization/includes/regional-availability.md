@@ -1,10 +1,10 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
-ms.date: 12/06/2022
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom:
   - references_regions
@@ -13,6 +13,8 @@ ms.custom:
 ---
 
 > [!IMPORTANT]
+> Our preview region, Sweden Central, showcases our latest and continually evolving LLM fine tuning techniques based on GPT models. You are welcome to try them out with a Langauge resource in the Sweden Central region.
+>
 > Conversation summarization is only available using:
 >  - REST API
 >  - Python

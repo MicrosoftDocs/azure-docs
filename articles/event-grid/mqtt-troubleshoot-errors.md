@@ -5,9 +5,10 @@ ms.topic: conceptual
 ms.custom:
   - build-2023
   - ignite-2023
-ms.date: 05/23/2023
-author: veyaddan
-ms.author: veyaddan
+ms.date: 11/15/2023
+author: george-guirguis
+ms.author: geguirgu
+ms.subservice: mqtt
 ---
 
 # Guide to troubleshoot issues with Azure Event Grid’s MQTT broker feature

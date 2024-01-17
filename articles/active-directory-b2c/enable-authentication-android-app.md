@@ -1,16 +1,20 @@
 ---
 title: Enable authentication in an Android app - Azure AD B2C
 description:  Enable authentication in an Android application using Azure Active Directory B2C building blocks. Learn how to use Azure AD B2C to sign in and sign up users in an Android application.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 09/16/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support, has-adal-ref"
+
+
+#Customer intent: As an Android app developer, I want to enable Azure AD B2C authentication in my own app, so that my users can sign in using Azure AD B2C and access protected resources.
+
 ---
 
 # Enable authentication in your own Android app by using Azure AD B2C

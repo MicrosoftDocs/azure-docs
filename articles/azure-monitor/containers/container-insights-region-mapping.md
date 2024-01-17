@@ -40,11 +40,6 @@ Supported AKS regions are listed in [Products available by region](https://azure
 |WestCentralUS<sup>1</sup>|EastUS |
 
 
-
-## Custom metrics supported regions
-
-Collecting metrics from Azure Kubernetes Services (AKS) clusters nodes and pods are supported for publishing as custom metrics only in the following [Azure regions](../essentials/metrics-custom-overview.md#supported-regions).
-
 ## Next steps
 
 To begin monitoring your AKS cluster, review [How to enable the Container insights](container-insights-onboard.md) to understand the requirements and available methods to enable monitoring.  

@@ -3,7 +3,7 @@ title: Author API Management policies using Microsoft Copilot for Azure (preview
 description: Learn about how Microsoft Copilot for Azure (preview) can generate Azure API Management policies based on your requirements.
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
@@ -21,6 +21,8 @@ When you're working with API Management policies, you can also select a portion 
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
+[!INCLUDE [preview-note](includes/preview-note.md)]
+
 ## Sample prompts
 
 Here are a few examples of the kinds of prompts you can use to get help authoring API Management policies. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of policies.
@@ -31,7 +33,7 @@ Here are a few examples of the kinds of prompts you can use to get help authorin
 
 ## Examples
 
-When creating an API Management policy, you can say "Generate a policy to configure rate limiting with 5 requests per second." Microsoft Copilot for Azure (preview) provides an example and explains how you might want to modify the provided based on your requirements.
+When creating an API Management policy, you can say "**Generate a policy to configure rate limiting with 5 requests per second.**" Microsoft Copilot for Azure (preview) provides an example and explains how you might want to modify the provided based on your requirements.
 
 :::image type="content" source="media/author-api-management-policies/api-management-policy-rate-limiting.png" lightbox="media/author-api-management-policies/api-management-policy-rate-limiting.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) generating a policy to configure rate limiting.":::
 

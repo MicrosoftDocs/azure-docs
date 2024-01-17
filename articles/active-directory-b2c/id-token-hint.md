@@ -2,16 +2,20 @@
 title: Define an ID token hint technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an ID token hint technical profile in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 09/16/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure AD B2C with a relying party application, I want to define an ID token hint technical profile, so that I can send a JWT token with a hint about the user or the authorization request. This allows me to validate the token and extract the claims for further processing.
+
 ---
 
 # Define an ID token hint technical profile in an Azure Active Directory B2C custom policy

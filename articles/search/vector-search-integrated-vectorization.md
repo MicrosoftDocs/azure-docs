@@ -46,7 +46,7 @@ Here's a checklist of the components responsible for integrated vectorization:
 + A skillset providing a Text Split skill for data chunking, and a skill for vectorization (either the AzureOpenAiEmbedding skill or a custom skill pointing to an external embedding model).
 + Optionally, index projections (also defined in a skillset) to push chunked data to a secondary index
 + An embedding model, deployed on Azure OpenAI or available through an HTTP endpoint.
-+ An indexer for driving the process end-t-end. An indexer also specifies a schedule, field mappings, and properties for change detection.
++ An indexer for driving the process end-to-end. An indexer also specifies a schedule, field mappings, and properties for change detection.
 
 This checklist focuses on integrated vectorization, but your solution isn't limited to this list. You can add more skills for AI enrichment, create a knowledge store, add semantic ranking, add relevance tuning, and other query features.
 

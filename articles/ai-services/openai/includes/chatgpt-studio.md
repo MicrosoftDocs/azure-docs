@@ -2,7 +2,7 @@
 title: 'Quickstart: Use GPT-35-Turbo via the Azure OpenAI Studio'
 titleSuffix: Azure OpenAI Service
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with Azure OpenAI Studio. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include

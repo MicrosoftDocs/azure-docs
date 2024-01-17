@@ -24,7 +24,7 @@ The following table describes the different goals that you can achieve by using 
 You can apply transformations to the following tables in a Log Analytics workspace:
 
 - Any Azure table listed in [Tables that support transformations in Azure Monitor Logs](../logs/tables-feature-support.md)
-- Any custom table
+- Any custom table created for the Azure Monitor Agent. (MMA custom table can't use transformations)
 
 ## How transformations work
 Transformations are performed in Azure Monitor in the [data ingestion pipeline](../essentials/data-collection.md) after the data source delivers the data and before it's sent to the destination. The data source might perform its own filtering before sending data but then rely on the transformation for further manipulation before it's sent to the destination.

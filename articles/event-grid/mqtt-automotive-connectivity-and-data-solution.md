@@ -4,9 +4,10 @@ description: 'Describes the use case of automotive messaging'
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 05/23/2023
+ms.date: 11/15/2023
 author: msmarioo
 ms.author: marioo
+ms.subservice: mqtt
 ---
 
 # Automotive messaging, data & analytics reference architecture

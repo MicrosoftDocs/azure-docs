@@ -2,14 +2,15 @@
 title: How to add a new connection in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Learn how to add a new connection in Azure AI Studio
-author: eric-urban
-manager: nitinme
-ms.service: azure-ai-services
+manager: scottpolly
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
-ms.author: eur
+ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
 ---
 
 # How to add a new connection in Azure AI Studio
@@ -116,9 +117,9 @@ When you [create a new connection](#create-a-new-connection), you enter the foll
 
 ---
 
-
 ## Next steps
 
 - [Connections in Azure AI Studio](../concepts/connections.md)
 - [How to create vector indexes](../how-to/index-add.md)
+- [How to configure a managed network](configure-managed-network.md)
 

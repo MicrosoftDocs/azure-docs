@@ -28,6 +28,18 @@ Azure Data Manager for Agriculture Preview is updated on an ongoing basis. To st
 ### LLM capability
 Our LLM capability enables seamless selection of APIs mapped to farm operations today. This enables use cases that are based on tillage, planting, applications and harvesting type of farm operations. In the time to come we'll add the capability to select APIs mapped to soil sensors, weather, and imagery type of data. The skills in our LLM capability allow for a combination of results, calculation of area, ranking, summarizing to help serve customer prompts. These capabilities enable others to build their own agriculture copilots that deliver insights to farmers. Learn more about this [here](concepts-llm-apis.md).
 
+### Imagery enhancements
+We improved our satellite ingestion service. The improvements include:
+- Search caching.
+- Pixel source control to a single tile by specifying the item ID.
+- Improved the reprojection method to more accurately reflect on the ground dimensions across the globe.
+- Adapted nomenclature to better converge with standards. 
+
+These improvements might require changes in how you consume services to ensure continuity. More details on the satellite service and these changes found [here](concepts-ingest-satellite-imagery.md).
+
+### Farm activity records
+Listing of activities by party ID and by activity ID is consolidated into a more powerful common search endpoint. Read more about [here](how-to-ingest-and-egress-farm-operations-data.md).
+
 ## October 2023
 
 ### Azure portal experience enhancement

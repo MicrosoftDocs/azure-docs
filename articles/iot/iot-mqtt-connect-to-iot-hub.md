@@ -40,7 +40,7 @@ The following table explains the differences in MQTT support between the two ser
 | Limited feature support for MQTT v3.1.1, and limited feature support for [MQTT v5 in preview](./iot-mqtt-5-preview.md). More feature support isn't planned. | MQTT v3.1.1 and v5 protocol support, with more feature support and industry compliance planned. |
 | Static, predefined topics. | Custom hierarchical topics with wildcard support. |
 | No support for cloud-to-device broadcasts and device-to-device communication. | Supports device-to-cloud, high fan-out cloud-to-device broadcasts, and device-to-device communication patterns. |
-| 256-kb max message size. | 512-kb max message size. |
+| 256KB max message size. | 512KB max message size. |
 
 ## Connecting to IoT Hub
 

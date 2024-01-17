@@ -17,6 +17,7 @@ More information about policies:
 + [Policy overview](api-management-howto-policies.md)
 + [Set or edit policies](set-edit-policies.md)
 + [Policy expressions](api-management-policy-expressions.md)
++ [Author policies using Microsoft Copilot for Azure](../copilot/author-api-management-policies.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 
 > [!IMPORTANT]
 >  [Limit call rate by subscription](rate-limit-policy.md) and [Set usage quota by subscription](quota-policy.md) have a dependency on the subscription key. A subscription key isn't required when other policies are applied.
@@ -100,10 +101,5 @@ More information about policies:
 - [Validate parameters](validate-parameters-policy.md) - Validates the request header, query, or path parameters against the API schema.
 - [Validate headers](validate-headers-policy.md) - Validates the response headers against the API schema.
 - [Validate status code](validate-status-code-policy.md) - Validates the HTTP status codes in responses against the API schema.
-## Next steps
 
-For more information about working with policies, see:
-
-+ [Tutorial: Transform and protect your API](transform-api.md)
-+ [Set or edit policies](set-edit-policies.md)
-+ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]	

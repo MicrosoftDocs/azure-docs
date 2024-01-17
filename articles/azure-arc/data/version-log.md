@@ -19,6 +19,32 @@ ms.topic: conceptual
 
 This article identifies the component versions with each release of Azure Arc-enabled data services.
 
+## December 12, 2023
+
+|Component|Value|
+|-----------|-----------|
+|Container images tag |`v1.26.0_2023-12-12`|
+|**CRD names and version:**| |
+|`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
+|`datacontrollers.arcdata.microsoft.com`| v1beta1, v1 through v5|
+|`exporttasks.tasks.arcdata.microsoft.com`| v1beta1, v1, v2|
+|`failovergroups.sql.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
+|`kafkas.arcdata.microsoft.com`| v1beta1 through v1beta4|
+|`monitors.arcdata.microsoft.com`| v1beta1, v1, v3|
+|`postgresqls.arcdata.microsoft.com`| v1beta1 through v1beta6|
+|`postgresqlrestoretasks.tasks.postgresql.arcdata.microsoft.com`| v1beta1|
+|`sqlmanagedinstances.sql.arcdata.microsoft.com`| v1beta1, v1 through v13|
+|`sqlmanagedinstancemonitoringprofiles.arcdata.microsoft.com`| v1beta1, v1beta2|
+|`sqlmanagedinstancereprovisionreplicatasks.tasks.sql.arcdata.microsoft.com`| v1beta1|
+|`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`| v1beta1, v1|
+|`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
+|`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
+|Azure Resource Manager (ARM) API version|2023-11-01-preview|
+|`arcdata` Azure CLI extension version|1.5.8 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|Arc-enabled Kubernetes helm chart extension version|1.26.0|
+|Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
+|SQL Database version | 957 |
+
 ## November 14, 2023
 
 |Component|Value|
@@ -472,7 +498,7 @@ All other components are the same as previously released.
 
 ## July 30, 2021
 
-This release introduces general availability for Azure Arc-enabled SQL Managed Instance General Purpose and Azure Arc-enabled SQL Server. The following table describes the components in this release.
+This release introduces general availability for SQL Managed Instance enabled by Azure Arc General Purpose and SQL Server enabled by Azure Arc. The following table describes the components in this release.
 
 |Component  |Value  |
 |--------------------------------------------------------|---------|

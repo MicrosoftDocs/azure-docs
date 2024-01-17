@@ -4,7 +4,7 @@ description: Describes how to choose the right tier based on resource features a
 ms.topic: overview
 ms.custom:
   - ignite-2023
-ms.date: 11/02/2023
+ms.date: 11/15/2023
 ---
 
 # Choose the right Event Grid tier for your solution

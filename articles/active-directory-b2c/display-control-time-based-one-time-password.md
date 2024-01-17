@@ -2,16 +2,20 @@
 title: TOTP display controls
 titleSuffix: Azure AD B2C
 description: Learn how to use Azure AD B2C TOTP display controls in the user journeys provided by your custom policies.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 07/20/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to enable multifactor authentication using the TOTP method, so that end users can use an authenticator app to generate TOTP codes for enrollment and verification.
+
 ---
 
 # TOTP display control

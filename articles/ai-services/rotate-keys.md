@@ -2,7 +2,7 @@
 title: Rotate keys in Azure AI services
 titleSuffix: Azure AI services
 description: "Learn how to rotate API keys for better security, without interrupting service"
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-services

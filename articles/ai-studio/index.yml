@@ -5,11 +5,12 @@ summary:  Build cutting-edge, market-ready, responsible applications for your or
 metadata:
   title: Azure AI Studio documentation
   description: Azure AI Studio helps developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include generative AI, natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.  
-  ms.service: azure-ai-services
+  ms.service: azure-ai-studio
   ms.topic: landing-page
   ms.collection: collection
-  author: eric-urban
+  ms.reviewer: eur
   ms.author: eur
+  author: eric-urban
   ms.date: 11/15/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -51,6 +52,8 @@ landingContent:
         links:
           - text: Deploy a web app for chat on your data
             url: tutorials/deploy-chat-web-app.md
+          - text: Build your own copilot using prompt flow
+            url: tutorials/deploy-copilot-ai-studio.md
 
   # Card
   - title: Develop apps
@@ -61,8 +64,8 @@ landingContent:
             url: how-to/sdk-install.md
           - text: Get started with the Azure AI CLI
             url: how-to/cli-install.md
-          - text: Get started with projects in VS Code (Web)
-            url: how-to/vscode-web.md
+          - text: Work with Azure AI projects in VS Code
+            url: how-to/develop-in-vscode.md
       - linkListType: concept
         links:
           - text: Connections for flows and indexing

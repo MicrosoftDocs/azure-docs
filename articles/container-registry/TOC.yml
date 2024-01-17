@@ -171,8 +171,10 @@
         href: allow-access-trusted-services.md
       - name: Access behind a firewall
         href: container-registry-firewall-access-rules.md
-      - name: Enable conditional access policy
-        href: container-registry-enable-conditional-access-policy.md
+      - name: Configure conditional access to your Azure Container Registry.
+        href: container-registry-configure-conditional-access.md
+      - name: Disable authentication as ARM template
+        href: container-registry-disable-authentication-as-arm.md
       - name: Authentication
         items:
         - name: Authentication overview
@@ -202,8 +204,10 @@
         displayName: permissions, authorization
       - name: Content trust
         href: container-registry-content-trust.md
-      - name: Sign and verify containers with notation (preview)
+      - name: Sign container images with Notation and AKV using a self-signed certificate (Preview)
         href: container-registry-tutorial-sign-build-push.md
+      - name: Sign container images with Notation and AKV using a CA issued certificate (Preview)
+        href: container-registry-tutorial-sign-trusted-ca.md
     - name: Registries and other Azure services
       expanded: false
       items:

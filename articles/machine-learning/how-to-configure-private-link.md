@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, sdkv2, event-tier1-build-2022, ignite-2022
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/29/2022
+ms.date: 01/02/2024
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace
@@ -38,8 +38,8 @@ Azure Private Link enables you to connect to your workspace using a private endp
 
 * You must have an existing virtual network to create the private endpoint in. 
 
-    > [!IMPORTANT]
-    > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
+    > [!WARNING]
+    > Do not use the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network, and will result in errors if used for your VNet. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
 * [Disable network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) before adding the private endpoint.
 

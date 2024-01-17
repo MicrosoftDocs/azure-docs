@@ -2,7 +2,7 @@
 title: Create an Azure AI services resource using Azure PowerShell
 titleSuffix: Azure AI services
 description: Get started with Azure AI services by using Azure PowerShell commands to create and subscribe to a resource.
-services: cognitive-services
+#services: cognitive-services
 author: mgreenegit
 manager: nitinme
 ms.service: azure-ai-services

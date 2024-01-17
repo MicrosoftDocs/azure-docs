@@ -21,7 +21,7 @@ To enable Azure Monitor to monitor all of your Azure resources, you need to both
 - Configure Azure resources to generate monitoring data for Azure Monitor to collect.
 
 > [!IMPORTANT]
-> If you're new to Azure Monitor or are want to monitor a single Azure resource, start with the [Monitor Azure resources with Azure Monitor tutorial](essentials/monitor-azure-resource.md). The tutorial provides general concepts for Azure Monitor and guidance for monitoring a single Azure resource. This article provides recommendations for preparing your environment to leverage all features of Azure Monitor to monitoring your entire set of applications and resources together at scale.
+> If you're new to Azure Monitor or want to monitor a single Azure resource, start with the [Monitor Azure resources with Azure Monitor tutorial](essentials/monitor-azure-resource.md). The tutorial provides general concepts for Azure Monitor and guidance for monitoring a single Azure resource. This article provides recommendations for preparing your environment to leverage all features of Azure Monitor to monitoring your entire set of applications and resources together at scale.
 
 ## Getting started workflow
 These articles provide detailed information about each of the main steps you'll need to do when getting started with Azure Monitor.

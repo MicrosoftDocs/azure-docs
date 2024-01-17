@@ -2,16 +2,20 @@
 title: Define a RESTful technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a RESTful technical profile in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 06/08/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating a RESTful service with Azure Active Directory B2C, I want to define a technical profile, so that I can send and receive data from the REST API using input and output claims collections.
+
 ---
 
 # Define a RESTful technical profile in an Azure Active Directory B2C custom policy

@@ -2,7 +2,7 @@
 title: "Overview: Verification with Face"
 titleSuffix: Azure AI services
 description: Provide the best-in-class face verification experience in your business solution using Azure AI Face service. You can verify a user's face against a government-issued ID card like a passport or driver's license.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 

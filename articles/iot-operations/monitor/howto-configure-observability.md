@@ -1,6 +1,6 @@
 ---
 title: Configure observability
-# titleSuffix: Azure IoT Operations
+titleSuffix: Azure IoT Operations
 description: Configure observability features in Azure IoT Operations to monitor the health of your solution.
 author: timlt
 ms.author: timlt

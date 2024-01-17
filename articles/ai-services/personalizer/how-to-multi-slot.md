@@ -1,7 +1,7 @@
 ---
 title: How to use multi-slot with Personalizer
 description: Learn how to use multi-slot with Personalizer to improve content recommendations provided by the service.
-services: cognitive-services
+#services: cognitive-services
 author: jcodella
 ms.author: jacodel
 manager: nitinme

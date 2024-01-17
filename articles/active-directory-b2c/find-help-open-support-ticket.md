@@ -2,16 +2,20 @@
 title: Find help and open a support ticket for Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to find technical, pre-sales, billing, and subscription help and open a support ticket for Azure Active Directory B2C 
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: troubleshooting
-ms.date: 03/13/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: "As an Azure Active Directory B2C user experiencing technical issues, I want to open a support ticket, so that I can receive assistance from Microsoft support engineers to resolve my problem and contribute to service improvements."
+
 ---
 
 # Find help and open a support ticket for Azure Active Directory B2C

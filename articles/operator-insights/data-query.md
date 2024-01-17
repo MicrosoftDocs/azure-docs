@@ -1,13 +1,14 @@
 ---
 title: Query data in the Azure Operator Insights Data Product
 description: This article outlines how to access and query the data in the Azure Operator Insights Data Product.
-author: bettylew
-ms.author: bettylew
+author: rcdun
+ms.author: rdunstan
+ms.reviewer: rathishr
 ms.service: operator-insights
 ms.topic: how-to
 ms.date: 10/22/2023
 
-#CustomerIntent: As a consumer of the Data Product, I want to query data that has been collected so that I can visualise the data and gain customised insights.
+#CustomerIntent: As a consumer of the Data Product, I want to query data that has been collected so that I can visualize the data and gain customized insights.
 ---
 
 # Query data in the Data Product
@@ -18,14 +19,16 @@ The Azure Operator Insights Data Product stores enriched and processed data, whi
 
 ## Prerequisites
 
-A deployed Data Product, see [Create an Azure Operator Insights Data Product](data-product-create.md).
+- A deployed Data Product: see [Create an Azure Operator Insights Data Product](data-product-create.md).
+- The `Reader` role for the data for this Data Product, because access to the data is controlled by role-based access control (RBAC).
+    - To check your access, sign in to the [Azure portal](https://portal.azure.com), go to the Data Product resource and open the **Permissions** pane. You must have the `Reader` role.
+    - If you don't have this role, ask an owner of the resource to give you `Reader` permissions by following [Manage permissions to the consumption URL](consumption-plane-configure-permissions.md).
 
-## Get access to the ADX cluster
+## Add the consumption URL in Azure Data Explorer
 
-Access to the data is controlled by role-based access control (RBAC).
-
-1. In the Azure portal, select the Data Product resource and open the Permissions pane. You must have the `Reader` role. If you do not, contact an owner of the resource to grant you `Reader` permissions.
-1. In the Overview pane, copy the Consumption URL.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Go to your Azure Operator Insights Data Product resource.
+1. In the **Overview** pane, copy the Consumption URL.
 1. Open the [Azure Data Explorer web UI](https://dataexplorer.azure.com/) and select **Add** > **Connection**.
 1. Paste your Consumption URL in the connection box and select **Add**.
 

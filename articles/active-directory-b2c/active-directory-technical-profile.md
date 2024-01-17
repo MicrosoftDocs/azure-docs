@@ -2,18 +2,21 @@
 title: Define a Microsoft Entra technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a Microsoft Entra technical profile in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
-ms.custom: build-2023
+
 ms.topic: reference
-ms.date: 11/06/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelhor
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to define a technical profile for Microsoft Entra user management, so that I can interact with a claims provider that supports the standardized protocol and perform operations like reading, writing, and deleting user accounts.
+
 ---
 
 # Define a Microsoft Entra technical profile in an Azure Active Directory B2C custom policy

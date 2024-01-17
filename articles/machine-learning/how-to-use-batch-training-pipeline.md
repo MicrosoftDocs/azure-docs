@@ -8,7 +8,7 @@ ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
-ms.date: 04/21/2023
+ms.date: 11/16/2023
 reviewer: msakande
 ms.reviewer: mopeakande
 ms.custom:
@@ -16,6 +16,7 @@ ms.custom:
   - devplatv2
   - event-tier1-build-2023
   - ignite-2023
+  - update-code
 ---
 
 # How to operationalize a training pipeline with batch endpoints
@@ -267,7 +268,7 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
     
     # [Python](#tab/python)
 
-    Our pipeline is defined in a function. To transform it to a component, you'll use the `build()` method. Pipeline components are reusable compute graphs that can be included in batch deployments or used to compose more complex pipelines.
+    Our pipeline is defined in a function. To transform it to a component, you'll use the `component` property from it. Pipeline components are reusable compute graphs that can be included in batch deployments or used to compose more complex pipelines.
 
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=build_pipeline_component)]
     
@@ -330,8 +331,12 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
     :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="invoke_deployment_file" :::
     
     # [Python](#tab/python)
+
+    > [!TIP]
+    > [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
     
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=invoke_deployment)]
+
     
 1. You can monitor the progress of the show and stream the logs using:
 
@@ -448,6 +453,9 @@ Once the deployment is created, it's ready to receive jobs. We can test it in th
     :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="invoke_nondefault_deployment_file" :::
     
     # [Python](#tab/python)
+
+    > [!TIP]
+    > [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
     
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=invoke_nondefault_deployment)]
     

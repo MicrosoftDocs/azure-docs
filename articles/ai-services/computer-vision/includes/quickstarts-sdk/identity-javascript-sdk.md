@@ -1,7 +1,7 @@
 ---
 title: "Face JavaScript client library quickstart"
 description: Use the Face client library for JavaScript to detect and identify faces (facial recognition search).
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision

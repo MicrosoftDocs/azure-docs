@@ -8,7 +8,7 @@ ms.author: meyetman
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 09/23/2022
+ms.date: 01/05/2024
 ms.topic: how-to
 ms.custom: has-adal-ref, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022, devx-track-azurecli
 ---
@@ -451,7 +451,7 @@ To access the workspace ACR, create machine learning compute cluster with system
 
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-```azurecli-interaction
+```azurecli-interactive
 az ml compute create --name cpu-cluster --type <cluster name>  --identity-type systemassigned
 ```
 

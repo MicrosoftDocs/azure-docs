@@ -3,7 +3,7 @@ title: Build infrastructure and deploy workloads using Microsoft Copilot for Azu
 description: Learn how Microsoft Copilot for Azure (preview) can help you build custom infrastructure for your workloads and provide templates and scripts to help you deploy.
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
@@ -24,6 +24,8 @@ To get help building infrastructure and deploying workloads, start on the **Virt
 Once you're there, start the conversation by letting Microsoft Copilot for Azure (preview) know what you want to build and deploy.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
+
+[!INCLUDE [preview-note](includes/preview-note.md)]
 
 ## Sample prompts
 
@@ -54,7 +56,7 @@ The prompts you use can vary depending on the type of workload you want to deplo
 
 ## Examples
 
-From the **More virtual machines and related solutions** page, you can tell Microsoft Copilot for Azure (preview) "I want to deploy a website on Azure." Microsoft Copilot for Azure (preview) responds with a series of questions to better understand your scenario.
+From the **More virtual machines and related solutions** page, you can tell Microsoft Copilot for Azure (preview) "**I want to deploy a website on Azure**." Microsoft Copilot for Azure (preview) responds with a series of questions to better understand your scenario.
 
 :::image type="content" source="media/build-infrastructure-deploy-workloads/workloads-deploy-website.png" lightbox="media/build-infrastructure-deploy-workloads/workloads-deploy-website.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing options to deploy a website.":::
 

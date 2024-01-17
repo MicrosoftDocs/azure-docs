@@ -124,6 +124,8 @@ Several filters are available for customizing a blob inventory report:
 
 
 
+
+
 View the JSON for inventory rules by selecting the **Code view** tab in the **Blob inventory** section of the Azure portal. Filters are specified within a rule definition.
 
 ```json
@@ -253,6 +255,7 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 | RemainingRetentionDays (Will appear only if include deleted containers is selected)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
 
 
+
 ## Inventory run
 
 If you configure a rule to run daily, then it will be scheduled to run every day. If you configure a rule to run weekly, then it will be scheduled to run each week on Sunday UTC time. 
@@ -380,7 +383,7 @@ Each inventory run for a rule generates the following files:
 
 ## Pricing and billing
 
-Pricing for inventory is based on the number of blobs and containers that are scanned during the billing period. The [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page shows the price per one million objects scanned. For example, if the price to scan one million objects is $0.003, your account contains three million objects, and you produce four reports in a month, then your bill would be 4 * 3  * $0.003 = $0.036.
+Pricing for inventory is based on the number of blobs and containers that are scanned during the billing period. The [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page shows the price per one million objects scanned. For example, if the price to scan one million objects is `$0.003`, your account contains three million objects, and you produce four reports in a month, then your bill would be `4 * 3  * $0.003 = $0.036`.
 
 After inventory files are created, additional standard data storage and operations charges will be incurred for storing, reading, and writing the inventory-generated files in the account.
 
@@ -420,9 +423,14 @@ An inventory job can take a longer amount of time in these cases:
 
 An object replication policy can prevent an inventory job from writing inventory reports to the destination container. Some other scenarios can archive the reports or make the reports immutable when they're partially completed which can cause inventory jobs to fail.
 
+### Inventory and Immutable Storage
+
+You can't configure an inventory policy in the account if support for version-level immutability is enabled on that account, or if support for version-level immutability is enabled on the destination container that is defined in the inventory policy.
+
 ## Next steps
 
 - [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md)
 - [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
 - [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
 - [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)
+- [Blob Inventory FAQ](storage-blob-faq.yml#azure-storage-blob-inventory)

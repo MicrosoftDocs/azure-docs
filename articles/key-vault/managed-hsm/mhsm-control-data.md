@@ -131,7 +131,7 @@ These administrative security controls are in place in Azure Key Vault Managed H
 
 - **Data defense**. You have Microsoft’s strong commitment to challenge government requests and to [defend your data](https://blogs.microsoft.com/on-the-issues/2020/11/19/defending-your-data-edpb-gdpr/).
 - **Contractual obligations**. It offers control obligations for security and customer data protection as discussed in [Microsoft Trust Center](https://www.microsoft.com/trust-center?rtc=1).
-- **[Cross-region replication](../../availability-zones/cross-region-replication-azure.md)**. Soon, you can use geo replication in Managed HSM to deploy HSMs in a secondary region.
+- **[Cross-region replication](../../availability-zones/cross-region-replication-azure.md)**. You can use multi region replication in Managed HSM to deploy HSMs in a secondary region.
 - **Disaster recovery**. Azure offers an end-to-end backup and disaster recovery solution that is simple, secure, scalable, and cost-effective:
   - [Business continuity management program](../../availability-zones/business-continuity-management-program.md)
   - [Azure Site Recovery](../../site-recovery/index.yml)

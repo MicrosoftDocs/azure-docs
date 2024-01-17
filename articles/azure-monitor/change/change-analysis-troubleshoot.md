@@ -4,10 +4,8 @@ description: Learn how to troubleshoot problems in Azure Monitor's Change Analys
 ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
-ms.contributor: cawa
-ms.date: 09/21/2022 
+ms.date: 11/17/2023 
 ms.subservice: change-analysis
-ms.reviewer: cawa
 ---
 
 # Troubleshoot Azure Monitor's Change Analysis

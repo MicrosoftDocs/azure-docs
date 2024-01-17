@@ -5,7 +5,7 @@
  author: robece
  ms.service: event-grid
  ms.topic: include
- ms.date: 10/11/2023
+ ms.date: 11/15/2023
  ms.author: robece
 ms.custom:
   - include file

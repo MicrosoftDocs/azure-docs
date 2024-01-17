@@ -2,7 +2,7 @@
 title: 'How to use blocklists with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Learn how to use blocklists with Azure OpenAI Service
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
@@ -20,7 +20,7 @@ The configurable content filters are sufficient for most content moderation need
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Once you have your Azure subscription, create an Azure OpenAI resource in the Azure portal to get your token, key and endpoint. Enter a unique name for your resource, select the subscription you entered on the application form, select a resource group, supported region, and supported pricing tier. Then select **Create**.
-    - The resource takes a few minutes to deploy. After it finishes, sSelect **go to resource**. In the left pane, under **Resource Management**,  select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
+    - The resource takes a few minutes to deploy. After it finishes, select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 - [Azure CLI](/cli/azure/install-azure-cli) installed
 - [cURL](https://curl.haxx.se/) installed
 

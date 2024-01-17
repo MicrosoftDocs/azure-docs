@@ -2,17 +2,21 @@
 title: Track user behavior by using Application Insights
 titleSuffix: Azure AD B2C
 description: Learn how to enable event logs in Application Insights from Azure AD B2C user journeys.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
 ms.topic: how-to
-ms.workload: identity
-ms.date: 08/24/2021
+
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer using Azure AD B2C, I want to track user behavior by sending event data to Application Insights, so that I can gain insights on user behavior, troubleshoot policies, measure performance, and create notifications.
+
 ---
 
 # Track user behavior in Azure AD B2C by using Application Insights

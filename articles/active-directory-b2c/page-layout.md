@@ -2,16 +2,20 @@
 title: Page layout versions
 titleSuffix: Azure AD B2C
 description: Page layout version history for UI customization in custom policies.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 10/16/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to stay up-to-date with the latest page layout versions, so that I can ensure that my page elements reflect the latest security enhancements, accessibility standards, and fixes.
+
 ---
 
 # Page layout versions
