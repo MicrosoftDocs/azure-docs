@@ -3454,6 +3454,11 @@
             "source_path_from_root": "/articles/marketplace/partner-center-portal/saas-fulfillment-apis-faq.yml",
             "redirect_url": "/partner-center/marketplace/partner-center-portal/saas-fulfillment-apis-faq",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/context/context.yml",
+            "redirect_url": "/partner-center/marketplace/",
+            "redirect_document_id": false
         }
     ]
 }
