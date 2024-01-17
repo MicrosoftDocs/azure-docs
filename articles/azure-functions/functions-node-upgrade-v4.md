@@ -6,6 +6,7 @@ ms.date: 03/15/2023
 ms.devlang: javascript, typescript
 ms.custom: devx-track-js
 ms.topic: how-to
+zone_pivot_groups: programming-languages-set-functions-nodejs
 ---
 
 # Migrate to version 4 of the Node.js programming model for Azure Functions
@@ -26,7 +27,9 @@ Version 4 of the Node.js programming model requires the following minimum versio
 
 - [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0
 - [Node.js](https://nodejs.org/en/download/releases/) v18+
+:::zone pivot="programming-language-typescript"
 - [TypeScript](https://www.typescriptlang.org/) v4+
+:::zone-end
 - [Azure Functions Runtime](./functions-versions.md) v4.25+
 - [Azure Functions Core Tools](./functions-run-local.md) v4.0.5382+ (if running locally)
 
@@ -44,14 +47,27 @@ In v4, the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) 
 
 In v4 of the programming model, you can structure your code however you want. The only files that you need at the root of your app are *host.json* and *package.json*.
 
-Otherwise, you define the file structure by setting the `main` field in your *package.json* file. You can set the `main` field to a single file or multiple files by using a [glob pattern](https://wikipedia.org/wiki/Glob_(programming)). Common values for the `main` field might be:
+Otherwise, you define the file structure by setting the `main` field in your *package.json* file. You can set the `main` field to a single file or multiple files by using a [glob pattern](https://wikipedia.org/wiki/Glob_(programming)). The following table shows example values for the `main` field:
 
-- TypeScript:
-  - `dist/src/index.js`
-  - `dist/src/functions/*.js`
-- JavaScript:
-  - `src/index.js`
-  - `src/functions/*.js`
+:::zone pivot="programming-language-javascript"
+
+| Example | Description |
+| --- | --- |
+| **`src/index.js`** | Register functions from a single root file. |
+| **`src/functions/*.js`** | Register each function from its own file. |
+| **`src/{index.js,functions/*.js}`** | A combination where you register each function from its own file, but you still have a root file for general app-level code. |
+
+:::zone-end
+
+:::zone pivot="programming-language-typescript"
+
+| Example | Description |
+| --- | --- |
+| **`dist/src/index.js`** | Register functions from a single root file. |
+| **`dist/src/functions/*.js`** | Register each function from its own file. |
+| **`dist/src/{index.js,functions/*.js}`** | A combination where you register each function from its own file, but you still have a root file for general app-level code. |
+
+:::zone-end
 
 > [!TIP]
 > Make sure you define a `main` field in your *package.json* file.
@@ -67,38 +83,23 @@ The trigger input, instead of the invocation context, is now the first argument 
 
 You no longer have to create and maintain those separate *function.json* configuration files. You can now fully define your functions directly in your TypeScript or JavaScript files. In addition, many properties now have defaults so that you don't have to specify them every time.
 
+:::zone pivot="programming-language-javascript"
+
 # [v4](#tab/v4)
 
-```javascript
-const { app } = require("@azure/functions");
-
-app.http('helloWorld1', {
-  methods: ['GET', 'POST'],
-  handler: async (request, context) => {
-    context.log('Http function processed request');
-
-    const name = request.query.get('name') 
-      || await request.text() 
-      || 'world';
-
-    return { body: `Hello, ${name}!` };
-  }
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTrigger1.js" :::
 
 # [v3](#tab/v3)
 
 ```javascript
 module.exports = async function (context, req) {
-  context.log('HTTP function processed a request');
+    context.log(`Http function processed request for url "${request.url}"`);
 
-  const name = req.query.name
-    || req.body
-    || 'world';
+    const name = req.query.name || req.body || 'world';
 
-  context.res = {
-    body: `Hello, ${name}!`
-  };
+    context.res = {
+        body: `Hello, ${name}!`
+    };
 };
 ```
 
@@ -126,6 +127,59 @@ module.exports = async function (context, req) {
 
 ---
 
+:::zone-end
+
+:::zone pivot="programming-language-typescript"
+
+# [v4](#tab/v4)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTrigger1.ts" :::
+
+# [v3](#tab/v3)
+
+```typescript
+import { AzureFunction, Context, HttpRequest } from "@azure/functions"
+
+const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+    context.log(`Http function processed request for url "${request.url}"`);
+
+    const name = req.query.name || req.body || 'world';
+
+    context.res = {
+        body: `Hello, ${name}!`
+    };
+};
+
+export default httpTrigger;
+```
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "scriptFile": "../dist/HttpTrigger1/index.js"
+}
+```
+
+---
+
+:::zone-end
+
 > [!TIP]
 > Move the configuration from your *function.json* file to your code. The type of the trigger corresponds to a method on the `app` object in the new model. For example, if you use an `httpTrigger` type in *function.json*, call `app.http()` in your code to register the function. If you use `timerTrigger`, call `app.timer()`.
 
@@ -143,21 +197,49 @@ The primary input is also called the *trigger* and is the only required input or
 
 Version 4 supports only one way of getting the trigger input, as the first argument:
 
+:::zone pivot="programming-language-javascript"
+
 ```javascript
-async function helloWorld1(request, context) {
+async function httpTrigger1(request, context) {
   const onlyOption = request;
 ```
+
+:::zone-end
+
+:::zone pivot="programming-language-typescript"
+
+```typescript
+async function httpTrigger1(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
+  const onlyOption = request;
+```
+
+:::zone-end
 
 # [v3](#tab/v3)
 
 Version 3 supports several ways of getting the trigger input:
 
+:::zone pivot="programming-language-javascript"
+
 ```javascript
-async function helloWorld1(context, request) {
+async function httpTrigger1(context, request) {
     const option1 = request;
     const option2 = context.req;
     const option3 = context.bindings.req;
 ```
+
+:::zone-end
+
+:::zone pivot="programming-language-typescript"
+
+```typescript
+async function httpTrigger1(context: Context, req: HttpRequest): Promise<void> {
+    const option1 = request;
+    const option2 = context.req;
+    const option3 = context.bindings.req;
+```
+
+:::zone-end
 
 ---
 
@@ -206,6 +288,28 @@ return {
 > [!TIP]
 > Make sure you always return the output in your function handler, instead of setting it with the `context` object.
 
+### Context logging
+
+In v4, logging methods were moved to the root `context` object as shown in the following example. For more information about logging, see the [Node.js developer guide](./functions-reference-node.md#logging).
+
+# [v4](#tab/v4)
+
+```javascript
+context.log('This is an info log');
+context.error('This is an error');
+context.warn('This is an error');
+```
+
+# [v3](#tab/v3)
+
+```javascript
+context.log('This is an info log');
+context.log.error('This is an error');
+context.log.warn('This is an error');
+```
+
+---
+
 ### Create a test context
 
 Version 3 doesn't support creating an invocation context outside the Azure Functions runtime, so authoring unit tests can be difficult. Version 4 allows you to create an instance of the invocation context, although the information during tests isn't detailed unless you add it yourself.
@@ -237,7 +341,7 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
 
 - *Body*. You can access the body by using a method specific to the type that you want to receive:
 
-  ```javascript
+    ```javascript
     const body = await request.text();
     const body = await request.json();
     const body = await request.formData();
@@ -300,8 +404,16 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
 
 - *Body*:
 
+    Use the `body` property for most types like a `string` or `Buffer`:
+
     ```javascript
     return { body: "Hello, world!" };
+    ```
+
+    Use the `jsonBody` property to most easily return a JSON response:
+
+    ```javascript
+    return { jsonBody: { hello: "world" } };
     ```
 
 - *Header*. You can set the header in two ways, depending on whether you're using the `HttpResponse` class or the `HttpResponseInit` interface:
@@ -332,11 +444,22 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
 
 - *Body*. You can set a body in several ways:
 
+    The following examples set a string body:
+
     ```javascript
     context.res.send("Hello, world!");
     context.res.end("Hello, world!");
-    context.res = { body: "Hello, world!" }
+    context.res = { body: "Hello, world!" };
     return { body: "Hello, world!" };
+    ```
+
+    The following examples set a JSON body:
+
+    ```javascript
+    context.res.send({ hello: "world" });
+    context.res.end({ hello: "world" });
+    context.res = { body: { hello: "world" } };
+    return { body: { hello: "world" } };
     ```
 
 - *Header*. You can set a header in several ways:
@@ -355,8 +478,18 @@ The types use the [`undici`](https://undici.nodejs.org/) package in Node.js. Thi
 
 ---
 
+:::zone pivot="programming-language-javascript"
+
 > [!TIP]
-> Update any logic by using the HTTP request or response types to match the new methods. If you're using TypeScript, you'll get build errors if you use old methods.
+> Update any logic by using the HTTP request or response types to match the new methods.
+
+:::zone-end
+:::zone pivot="programming-language-typescript"
+
+> [!TIP]
+> Update any logic by using the HTTP request or response types to match the new methods. You should get TypeScript build errors to help you identify if you're using old methods.
+
+:::zone-end
 
 ## Troubleshoot
 
