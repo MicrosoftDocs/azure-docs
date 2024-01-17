@@ -2,7 +2,7 @@
 title: Configure schedule patching on Azure VMs for business continuity
 description: The article describes the new prerequisites to configure scheduled patching to ensure business continuity in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 09/18/2023
+ms.date: 01/17/2024
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha
@@ -147,10 +147,42 @@ PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/provider
   } 
 } 
 ```
+# [PowerShell](#tab/new-prereq-powershell)
+
+### Enable on Windows VMs
+
+```powershell-interactive
+$VirtualMachine = Get-AzVM -ResourceGroupName "<resourceGroup>" -Name "<vmName>"
+Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -PatchMode "AutomaticByPlatform"
+$AutomaticByPlatformSettings = $VirtualMachine.OSProfile.WindowsConfiguration.PatchSettings.AutomaticByPlatformSettings
+ 
+if ($null -eq $AutomaticByPlatformSettings) {
+	$VirtualMachine.OSProfile.WindowsConfiguration.PatchSettings.AutomaticByPlatformSettings = New-Object -TypeName Microsoft.Azure.Management.Compute.Models.WindowsVMGuestPatchAutomaticByPlatformSettings -Property @{BypassPlatformSafetyChecksOnUserSchedule = $true}
+} else {
+  $AutomaticByPlatformSettings.BypassPlatformSafetyChecksOnUserSchedule = $true
+}
+ 
+Update-AzVM -VM $VirtualMachine -ResourceGroupName "<resourceGroup>"
+```
+### Enable on Linux VMs
+
+```powershell-interactive
+$VirtualMachine = Get-AzVM -ResourceGroupName "<resourceGroup>" -Name "<vmName>"
+Set-AzVMOperatingSystem -VM $VirtualMachine -Linux -PatchMode "AutomaticByPlatform"
+$AutomaticByPlatformSettings = $VirtualMachine.OSProfile.LinuxConfiguration.PatchSettings.AutomaticByPlatformSettings
+ 
+if ($null -eq $AutomaticByPlatformSettings) {
+	$VirtualMachine.OSProfile.LinuxConfiguration.PatchSettings.AutomaticByPlatformSettings = New-Object -TypeName Microsoft.Azure.Management.Compute.Models.LinuxVMGuestPatchAutomaticByPlatformSettings -Property @{BypassPlatformSafetyChecksOnUserSchedule = $true}
+} else {
+  $AutomaticByPlatformSettings.BypassPlatformSafetyChecksOnUserSchedule = $true
+}
+ 
+Update-AzVM -VM $VirtualMachine -ResourceGroupName "<resourceGroup>"
+```
 ---
 
 > [!NOTE]
-> Currently, you can only enable the new prerequisite for schedule patching via the Azure portal and the REST API. It can't be enabled via the Azure CLI or PowerShell.
+> Currently, you can only enable the new prerequisite for schedule patching via the Azure portal, REST API, and PowerShell. It can't be enabled via the Azure CLI.
 
 ## Enable automatic guest VM patching on Azure VMs
 
