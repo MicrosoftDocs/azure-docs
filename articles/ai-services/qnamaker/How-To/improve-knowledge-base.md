@@ -7,7 +7,8 @@ ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: jboback
 author: jboback
-ms.devlang: csharp, javascript
+ms.devlang: csharp
+# ms.devlang: csharp, javascript
 ms.custom: devx-track-csharp, ignite-fall-2021
 ---
 

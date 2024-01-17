@@ -7,7 +7,8 @@ ms.topic: how-to
 ms.date: 10/14/2020
 author: manishmsfte
 ms.author: mansha
-ms.devlang: csharp, java
+ms.devlang: csharp
+# ms.devlang: csharp, java
 ms.custom: devx-track-csharp, devx-track-java, ignite-2022, devx-track-dotnet, devx-track-extended-java
 ---
 # Find the request unit charge for operations executed in Azure Cosmos DB for Gremlin
