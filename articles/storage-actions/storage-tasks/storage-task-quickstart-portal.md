@@ -7,7 +7,7 @@ author: normesta
 ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: quickstart
-ms.date: 05/16/2023
+ms.date: 01/17/2024
 ms.author: normesta
 ---
 
@@ -79,7 +79,7 @@ You can specify the operations that a storage task performs by making selections
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Then operation which sets the immutability policy.](../media/storage-tasks/storage-task-quickstart-portal/then-operation-immutability-policy.png)
 
-   This operation applies a a time-based immutability policy to Microsoft Word documents.
+   This operation applies a time-based immutability policy to Microsoft Word documents.
 
 2. Select **Add new operation**, and then in the **Select a operation** drop-down list, select **Set blob tags**.
 
@@ -115,7 +115,7 @@ A storage task _assignment_ specifies a storage account. After you enable the st
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Filter objects section of the Add assignment pane.](../media/storage-tasks/storage-task-quickstart-portal/assignment-pane-filter-prefix.png)
 
-   Filters help you narrow the scope of execution. If your want the task to evaluate all of the containers and blobs in an account, then you can select the **Do not filter** option instead.
+   Filters help you narrow the scope of execution. If you want the task to evaluate all of the containers and blobs in an account, then you can select the **Do not filter** option instead.
 
 5. In the **Trigger details** section, select **Single run (only once)** and then select the container where you'd like to store the execution reports.
 
@@ -136,7 +136,7 @@ A storage task _assignment_ specifies a storage account. After you enable the st
 
 Storage task assignments are disabled by default. Enable assignments from the **Assignments** page.
 
-1. Select **Assignments**, select the **mystoragetaskassignment** assignment, and then selet **Enable**.
+1. Select **Assignments**, select the **mystoragetaskassignment** assignment, and then select **Enable**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Assignments option and the storage task assignment link.](../media/storage-tasks/storage-task-quickstart-portal/open-task-assignment.png)

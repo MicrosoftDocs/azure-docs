@@ -7,7 +7,7 @@ ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: how-to
 ms.author: normesta
-ms.date: 05/10/2023
+ms.date: 01/17/2024
 ---
 
 # Create a storage task

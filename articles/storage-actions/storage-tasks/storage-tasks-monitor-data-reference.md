@@ -7,7 +7,7 @@ author: normesta
 ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: reference
-ms.date: 05/16/2023
+ms.date: 01/17/2024
 ms.author: normesta
 ---
 
@@ -47,7 +47,7 @@ The following table lists the operations that Azure Storage Actions might record
 | Microsoft.StorageActions/storageTasks/write | Edits a storage task. |
 | Microsoft.StorageActions/storageAccounts/storageTasks/delete | Deletes a storage task. |
 | Microsoft.StorageActions/storageAccounts/storageTasks/read | Reads an existing storage task. |
-| Microsoft.StorageActions/storageAccounts/storageTasks/executionsummary/action | Opens an task runs. |
+| Microsoft.StorageActions/storageAccounts/storageTasks/executionsummary/action | Opens task runs. |
 | Microsoft.StorageActions/storageAccounts/storageTasks/assignmentexecutionsummary/action | Opens task runs from the Assignments pane. |
 | Microsoft.StorageActions/storageAccounts/storageTasks/write | Edits a storage task. |
 
@@ -57,5 +57,5 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 
 ## See Also
 
-- See [Monitoring Azure Azure Storage Actions](monitor-storage-tasks.md) for a description of monitoring Azure Azure Storage Actions.
+- See [Monitoring Azure Storage Actions](monitor-storage-tasks.md) for a description of monitoring Azure Azure Storage Actions.
 - See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

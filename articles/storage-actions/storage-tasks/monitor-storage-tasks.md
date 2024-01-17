@@ -8,7 +8,7 @@ author: normesta
 ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 01/17/2024
 ms.author: normesta
 
 ---
@@ -26,7 +26,7 @@ The following metrics appear in the **Overview** page of each storage task.
 - Total number of objects targeted by task runs
 - Total number of objects operated on
 - Total number of objects where an operation succeeded
-- Total number of objects where an operations failed
+- Total number of objects where an operation failed
 
 The following image shows how these metrics appear in the **Overview** page.
 

@@ -7,7 +7,7 @@ ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: how-to
 ms.author: normesta
-ms.date: 05/10/2023
+ms.date: 01/17/2024
 ---
 
 # Define storage task conditions and operations
@@ -139,11 +139,11 @@ In the **Preview Conditions**, you can specify a target subscription, storage ac
 
 ## Define operations
 
-An operation is an that is action taken on each object that meets the conditions defined in the task.  
+An operation is an action taken on each object that meets the conditions defined in the task.  
 
 ### Add and remove operations
 
-To add a operation, select **Add new operation**, and to remove an operation, select the delete icon(:::image type="icon" source="../media/storage-tasks/storage-task-conditions-operations-edit/conditions-delete-icon.png":::) that appears next to it.
+To add an operation, select **Add new operation**, and to remove an operation, select the delete icon(:::image type="icon" source="../media/storage-tasks/storage-task-conditions-operations-edit/conditions-delete-icon.png":::) that appears next to it.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Add new operation button and three operations that were added to the list of operations.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-add-operations.png)

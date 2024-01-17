@@ -7,7 +7,7 @@ author: normesta
 ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: conceptual
-ms.date: 05/16/2023
+ms.date: 01/17/2024
 ms.author: normesta
 ---
 

@@ -7,7 +7,7 @@ ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: how-to
 ms.author: normesta
-ms.date: 05/10/2023
+ms.date: 01/17/2024
 ---
 
 # Create and manage a storage task assignment
@@ -29,7 +29,7 @@ Create an assignment for each storage account you want to target. A storage task
 
 ### Create an assignment from the storage task menu
 
-You can create an assignment in the context of a storage task. This option can be convenient if you're the task author and you want to target multiple storage accounts. For each assignment you'll to identify the storage account that you want to target.
+You can create an assignment in the context of a storage task. This option can be convenient if you're the task author and you want to target multiple storage accounts. For each assignment you'll identify the storage account that you want to target.
 
 Navigate to the storage task in the Azure portal and then under **Storage task management**, select **Assignments**, and then select **Configure assignments**.
 
@@ -40,7 +40,7 @@ In the **Assignments** page, select **+ Add assignment** and the **Add assignmen
 
 ### Create an assignment from the storage account menu
 
-You can also create an assignment in the context of a storage account. This option can be convenient if you want to use an existing task to process objects in your storage account. For each assignment you'll to identify the storage task that you want to assign to your account.
+You can also create an assignment in the context of a storage account. This option can be convenient if you want to use an existing task to process objects in your storage account. For each assignment you'll identify the storage task that you want to assign to your account.
 
 Navigate to the storage account in the Azure portal and then under **Data management**, select **Storage tasks**.
 
@@ -75,7 +75,7 @@ In the **Role assignment** section, in the **Role** drop-down list, select the r
 
 ## Add a filter
 
-In the **Filter objects** section, choose whether you want to target a subset of blobs based on a filter. Filters help you narrow the scope of execution. If your want the task to evaluate all of the containers and blobs in an account, then you can select the **Do not filter** option. The following example uses a filter to target only blobs that exist in a container that is named `mycontainer`.
+In the **Filter objects** section, choose whether you want to target a subset of blobs based on a filter. Filters help you narrow the scope of execution. If you want the task to evaluate all of the containers and blobs in an account, then you can select the **Do not filter** option. The following example uses a filter to target only blobs that exist in a container that is named `mycontainer`.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Filter objects section of the Add assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-pane-filter-prefix.png)
@@ -124,7 +124,7 @@ After the task runs, an execution report is generated and then stored in the con
 
 ## Edit an assignment
 
-An assignment becomes a sub resource of the targeted storage account. Therefore, after you create the assignment, you can edit only the its run frequency. The other fields of an assignment become read only. The **Single run (only once)** option becomes read only as well.
+An assignment becomes a sub resource of the targeted storage account. Therefore, after you create the assignment, you can edit only it's run frequency. The other fields of an assignment become read only. The **Single run (only once)** option becomes read only as well.
 
 - To edit the run frequency of an assignment in the context of a storage task, navigate to the storage task in the Azure portal and then under **Storage task management**, select **Assignments**.
 
