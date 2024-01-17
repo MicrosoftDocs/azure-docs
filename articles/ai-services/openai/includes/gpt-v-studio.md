@@ -19,6 +19,8 @@ Start exploring GPT-4 Turbo with Vision capabilities with a no-code approach thr
 - An Azure OpenAI Service resource. The resource must be in the `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast` Azure region. For more information about resource creation, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
 - For Vision enhancement (optional): An Azure Computer Vision resource in the same region as your Azure OpenAI resource.
 
+> [!NOTE]
+> It is currently not supported to turn off content filtering for the GPT-4 Turbo with Vision model.
 
 ## Go to Azure OpenAI Studio
 
