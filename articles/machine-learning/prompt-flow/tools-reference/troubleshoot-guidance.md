@@ -64,13 +64,21 @@ Prompt flow relies on a file share storage to store a snapshot of the flow. If t
 
 :::image type="content" source="../media/faq/flow-missing.png" alt-text="Screenshot that shows a flow missing an authoring page." lightbox = "../media/faq/flow-missing.png":::
 
-Prompt flow relies on a file share to store a snapshot of a flow. This error means that prompt flow service can operate a prompt flow folder in the file share storage, but the prompt flow UI can't find the folder in the file share storage. There are some potential reasons:
+There are possible reasons for this issue:
+- If you disabled public access to storage account, then you need have access to storage account either add you IP to the storage Firewall or add access studio through the virtual network which have private endpoint to the storage account.
 
-- Prompt flow relies on a datastore named `workspaceworkingdirectory` in your workspace, which uses `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`. Make sure your datastore uses the same container. If your datastore is using a different file share name, you need to use a new workspace.
+    :::image type="content" source="../media/faq/storage-account-networking-firewall.png" alt-text="Screenshot that shows firewall setting on storage account." lightbox = "../media/faq/storage-account-networking-firewall.png":::
 
-  ![Screenshot that shows the name of a file share in a datastore detail page.](../media/faq/file-share-name.png)
+- There are some cases, the account key in data store is out of sync with the storage account, you can try to update the account key in data store detail page to fix this.
 
-- If your file share storage is correctly named, try a different network environment, such as a home or company network. There's a rare case where a file share storage can't be accessed in some network environments even if it's enabled for public access.
+    :::image type="content" source="../media/faq/datastore-with-wrong-account-key.png" alt-text="Screenshot that shows datastore with wrong account key." lightbox = "../media/faq/datastore-with-wrong-account-key.png":::
+ 
+- If you are using AI studio, the storage account need set CORS to allow AI studio access the storage account, otherwise, you will see the flow missing issue. You can add following CORS setting to the storage account to fix this issue.
+    - Go to storage account page, select `Resource sharing (CORS)` under `settings`, and select to `File service` tab.
+    - Allowed origins: `https://mlworkspace.azure.ai,https://ml.azure.com,https://*.ml.azure.com,https://ai.azure.com,https://*.ai.azure.com,https://mlworkspacecanary.azure.ai,https://mlworkspace.azureml-test.net`
+    - Allowed methods: `DELETE, GET, HEAD, POST, OPTIONS, PUT`
+
+    :::image type="content" source="../media/faq/resource-sharing-setting-storage-account.png" alt-text="Screenshot that shows data store with wrong account key." lightbox = "../media/faq/resource-sharing-setting-storage-account.png":::
 
 ## Runtime-related issues
 
