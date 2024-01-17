@@ -45,8 +45,9 @@ The content filtering system integrated in the Azure OpenAI Service contains:
 
 <sup>*</sup> If you are an owner of text material and want to submit text content for protection, please [file a request](https://aka.ms/protectedmaterialsform).
 
-[!INCLUDE [severity-levels](../../content-safety/includes/severity-levels.md)]
+[!INCLUDE [text severity-levels, four-level](../../content-safety/includes/severity-levels-text-four.md)]
 
+[!INCLUDE [image severity-levels](../../content-safety/includes/severity-levels-image.md)]
 
 
 ## Configurability (preview)
