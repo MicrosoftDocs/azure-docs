@@ -508,7 +508,7 @@ Use the following steps to view the Application Accelerator List for a service i
 
    :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-open-accelerator.png" alt-text="Screenshot of the VS Code extension showing the Open Application Accelerator option for a service instance." lightbox="media/how-to-use-accelerator/visual-studio-code-open-accelerator.png":::
 
-1. Access the extension and you will see the accelerator list and you can click any accelerator project to do further actions.
+1. You should be automatically navigated to the accelerator blade where you can see the accelerator list. And then you can select any accelerator to bootstrap your project.
 
    :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png" alt-text="Screenshot that shows the VS Code extension accelerator list." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png":::
 
