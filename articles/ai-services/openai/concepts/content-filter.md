@@ -60,7 +60,7 @@ The default content filtering configuration is set to filter at the medium sever
 | High              | Yes| Yes | Content detected at severity levels low and medium isn't filtered. Only content at severity level high is filtered.|
 | No filters | If approved<sup>\*</sup>| If approved<sup>\*</sup>| No content is filtered regardless of severity level detected. Requires approval<sup>\*</sup>.|
 
-<sup>\*</sup> Only customers who have been approved for modified content filtering have full content filtering control and can turn content filters partially or fully off. Apply for modified content filters using this form: [Azure OpenAI Limited Access Review: Modified Content Filtering (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUMlBQNkZMR0lFRldORTdVQzQ0TEI5Q1ExOSQlQCN0PWcu)
+<sup>\*</sup> Only customers who have been approved for modified content filtering have full content filtering control and can turn content filters partially or fully off. Content filtering control does not apply to content filters for DALL-E (preview) or GPT-4 Vision (vision-preview). Apply for modified content filters using this form: [Azure OpenAI Limited Access Review: Modified Content Filtering (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUMlBQNkZMR0lFRldORTdVQzQ0TEI5Q1ExOSQlQCN0PWcu). 
 
 Customers are responsible for ensuring that applications integrating Azure OpenAI comply with the [Code of Conduct](/legal/cognitive-services/openai/code-of-conduct?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext). 
 
