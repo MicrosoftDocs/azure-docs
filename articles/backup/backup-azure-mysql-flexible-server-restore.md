@@ -1,5 +1,5 @@
 ---
-title: Restore the Azure Database for MySQL - Flexible Server by using Azire Backup
+title: Restore the Azure Database for MySQL - Flexible Server by using Azure Backup
 description: Learn how to restore the Azure Database for MySQL - Flexible Server.
 ms.topic: how-to
 ms.date: 07/20/2023
@@ -13,29 +13,22 @@ This article describes how to restore the Azure Database for MySQL - Flexible Se
 
 
 
-## Restore the database
+## Restore the MySQL database
 
-Follow these steps:
+To restore the database, follow these steps:
 
 1. Go to the *Backup vault* > **Backup Instances**.
 
-2. Select the **Azure database for MySQL - Flexible Server** to > **Restore**.
+2. Select the **Azure database for MySQL - Flexible Server** > **Restore**.
 
-3. Click **Select restore point** and select the *point-in-time* your want to restore.
+3. Click **Select restore point** > **Point-in-time** you want to restore.
 
-   You can change the date range by selecting **Time period**.
+   Ton change the date range, select **Time period**.
 
-
-
-4. On the **Restore parameters** tab, choose the *target storage account and container*, and then select **Validate** to check the restore parameters permissions.
+4. On the **Restore parameters** tab, choose the **Target storage account**, and then select **Validate** to check if the restore parameters and permissions are assigned for the restore operation.
 
 
-5. Once the validation is successful, select **Restore** to restore the selected Azure databases for  MySQL - Flexible Server backup in target storage account.
-
-
-
-
-
+5. Once the validation is successful, select **Restore** to restore the selected database backups in the target storage account.
 
 
 ## Next steps
