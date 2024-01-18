@@ -16,6 +16,7 @@ ms.custom:
   - devplatv2
   - event-tier1-build-2023
   - ignite-2023
+  - update-code
 ---
 
 # How to deploy a pipeline to perform batch scoring with preprocessing

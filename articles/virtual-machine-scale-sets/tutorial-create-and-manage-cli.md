@@ -45,6 +45,7 @@ You create a Virtual Machine Scale Set with the [az vmss create](/cli/azure/vmss
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
+  --orchestration-mode flexible \
   --image <SKU image> \
   --admin-username azureuser \
   --generate-ssh-keys
@@ -158,6 +159,7 @@ When you created a scale set at the start of the tutorial, a default VM SKU of *
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
+  --orchestration-mode flexible \
   --image <SKU image> \
   --vm-sku Standard_F1 \
   --admin-user azureuser \

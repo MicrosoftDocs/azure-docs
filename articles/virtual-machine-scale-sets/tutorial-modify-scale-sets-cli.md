@@ -127,6 +127,7 @@ Additionally, if you previously deployed the scale set with the `az vmss create`
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
+  --orchestration-mode flexible \
   --image RHELRaw8LVMGen2 \
   --admin-username azureuser \
   --generate-ssh-keys \

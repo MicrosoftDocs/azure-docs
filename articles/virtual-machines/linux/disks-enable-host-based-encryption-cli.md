@@ -162,6 +162,7 @@ az vmss create -g $rgName \
 -n $vmssName \
 --encryption-at-host \
 --image $image \
+--orchestration-mode flexible \
 --admin-username azureuser \
 --generate-ssh-keys \
 --os-disk-encryption-set $diskEncryptionSetId \
@@ -187,6 +188,7 @@ az vmss create -g $rgName \
 -n $vmssName \
 --encryption-at-host \
 --image $image \
+--orchestration-mode flexible \
 --admin-username azureuser \
 --generate-ssh-keys \
 --data-disk-sizes-gb 64 128 \

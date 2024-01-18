@@ -22,35 +22,13 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 
 ### ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services 
 
-<<<<<<< HEAD
-| **Products**  | 
-| --- | 
-|[Azure Cosmos DB](../cosmos-db/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Database for PostgreSQL - Flexible Server](reliability-postgresql-flexible-server.md)|
-[Azure Event Hubs](../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones)|
-[Azure ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Key Vault](../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Load Balancer](reliability-load-balancer.md)|
-[Azure Public IP](../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone)|
-[Azure Service Bus](../service-bus-messaging/service-bus-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones)|
-[Azure Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Site Recovery](../site-recovery/site-recovery-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure SQL](/azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Storage: Blob Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Storage Mover](reliability-azure-storage-mover.md)|
-[Azure Virtual Machine Scale Sets](reliability-virtual-machine-scale-sets.md)|
-[Azure Virtual Machines](reliability-virtual-machines.md)|
-[Azure Virtual Machines Image Builder](reliability-image-builder.md)|
-[Azure Virtual Network](../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-=======
 | Product| Availability zone guide | Disaster recovery guide |
 |----------|----------|----------|
 |Azure Cosmos DB|[Achieve high availability](../cosmos-db/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Configure multi-region writes](../cosmos-db/nosql/how-to-multi-master.md?tabs=api-async&?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Event Hubs| [Availability Zones](../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones)| [Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure ExpressRoute| [Designing for high availability with ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Designing for disaster recovery with ExpressRoute private peering](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Key Vault|[Azure Key Vault failover within a region](../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#failover-within-a-region)| [Azure Key Vault](../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#failover-across-regions) |
-|Azure Load Balancer|[Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Create a cross-region Azure Load Balancer](../load-balancer/tutorial-cross-region-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
+|Azure Load Balancer|[Reliability in Load Balancer](./reliability-load-balancer.md)| [Reliability in Load Balancer](./reliability-load-balancer.md)|
 |Azure Public IP|[Azure Public IP - Availability zones](../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone)| [Azure Public IP: Cross-region overview](../load-balancer/cross-region-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Service Bus|[Azure Service Bus - Availability zones](../service-bus-messaging/service-bus-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones)| [Azure Service Bus Geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Service Fabric| [Deploy an Azure Service Fabric cluster across Availability Zones](../service-fabric/service-fabric-cross-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Disaster recovery in Azure Service Fabric](../service-fabric/service-fabric-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
@@ -66,7 +44,6 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 |Azure VPN Gateway| [About zone-redundant virtual network gateway in Azure availability zones](../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Highly Available cross-premises and VNet-to-VNet connectivity](../vpn-gateway/vpn-gateway-highlyavailable.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 
 
->>>>>>> 25b203553984cb7382d97759b1ce913b35695c62
 
 ### ![An icon that signifies this service is mainstream.](media/icon-mainstream.svg) Mainstream services
 
@@ -141,8 +118,8 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 |Azure Storage Mover|[Reliability in Azure Storage Mover](./reliability-azure-storage-mover.md)|[Reliability in Azure Storage Mover](./reliability-azure-storage-mover.md)|
 |Azure VMware Solution|| [Azure VMware disaster recovery for virtual machines](../azure-vmware/disaster-recovery-for-virtual-machines.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Microsoft Defender for Cloud DevOps security|[Reliability in Microsoft Defender for Cloud DevOps security](./reliability-defender-devops.md)|[Reliability in Microsoft Defender for Cloud DevOps security](./reliability-defender-devops.md)|
-|Microsoft Fabric|[Microsoft Fabric](reliability-fabric.md) |[Microsoft Fabric](reliability-fabric.md)
-
+|Microsoft Fabric|[Microsoft Fabric](reliability-fabric.md) |[Microsoft Fabric](reliability-fabric.md)|
+|Microsoft Purview|[Reliability for Microsoft Purview](reliability-fabric.md) |[Disaster recovery for Microsoft Purview](/purview/concept-best-practices-migration#implementation-steps)|
 
 ## Azure Service Manager Retirement
 

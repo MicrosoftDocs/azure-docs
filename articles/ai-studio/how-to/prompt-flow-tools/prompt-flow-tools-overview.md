@@ -2,13 +2,13 @@
 title: Overview of prompt flow tools in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Learn about prompt flow tools that are available in Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: overview
 ms.date: 12/6/2023
-ms.reviewer: eur
-ms.author: eur
+ms.reviewer: keli19
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Overview of prompt flow tools in Azure AI Studio
@@ -22,7 +22,7 @@ The following table provides an index of tools in prompt flow. If existing tools
 | [LLM](./llm-tool.md) | Use Azure Open AI large language models (LLM) for tasks such as text completion or chat. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Prompt](./prompt-tool.md) | Craft a prompt by using Jinja as the templating language. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Python](./python-tool.md) | Run Python code. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
-| [Azure OpenAI GPT-4 Turbo with Vision (preview)](./azure-open-ai-gpt-4v-tool.md) | Use AzureOpenAI GPT-4 Turbo with Vision model deployment to analyze images and provide textual responses to questions about them. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
+| [Azure OpenAI GPT-4 Turbo with Vision](./azure-open-ai-gpt-4v-tool.md) | Use AzureOpenAI GPT-4 Turbo with Vision model deployment to analyze images and provide textual responses to questions about them. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Vector Index Lookup](./vector-index-lookup-tool.md) | Search text or a vector-based query from a vector index. | Default | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 | [Content Safety (Text)](./content-safety-tool.md) | Use Azure AI Content Safety to detect harmful content. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Faiss Index Lookup](./faiss-index-lookup-tool.md) | Search a vector-based query from the Faiss index file. | Default | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |

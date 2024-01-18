@@ -36,7 +36,7 @@ Create the following variables containing your Azure DevOps information.
 
 ```azurecli
 gitrepo=<Replace with your Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) repo URL>
-token=<Replace with a Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) personal access token>
+token=<Replace with an Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) personal access token>
 ```
 
 Configure continuous deployment from Azure DevOps Services (formerly Visual Studio Team Services, or VSTS). The `--git-token` parameter is required only once per Azure account (Azure remembers token).

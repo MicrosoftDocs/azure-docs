@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 01/10/2024
 ---
 
 # Debug an Azure AI Search skillset in Azure portal
@@ -27,29 +27,29 @@ A debug session is a cached indexer and skillset execution, scoped to a single d
 
 + An Azure Storage account, used to save session state.
 
-+ A **Storage Blob Data Contributor** role assignment in Azure Storage. 
++ A **Storage Blob Data Contributor** role assignment in Azure Storage if you're using a system managed identity. Otherwise, plan on using a full access connection string for the debug session connection to Azure Storage.
 
-+ If the Azure Storage account is behind a firewall, configure it to [allow Search service access](search-indexer-howto-access-ip-restricted.md).
++ If the Azure Storage account is behind a firewall, configure it to [allow search service access](search-indexer-howto-access-ip-restricted.md).
 
 ## Limitations
 
-A Debug Session works with all generally available [indexer data sources](search-data-sources-gallery.md) and most preview data sources. The following list notes the exceptions:
+Debug sessions work with all generally available [indexer data sources](search-data-sources-gallery.md) and most preview data sources. The following list notes the exceptions:
 
 + Azure Cosmos DB for MongoDB is currently not supported.
 
 + For the Azure Cosmos DB for NoSQL, if a row fails during index and there's no corresponding metadata, the debug session might not pick the correct row.
 
-+ For the SQL API of Azure Cosmos DB, if a partitioned collection was previously non-partitioned, a Debug Session won't find the document.
++ For the SQL API of Azure Cosmos DB, if a partitioned collection was previously non-partitioned, the debug session won't find the document.
 
-+ Debug sessions doesn't currently support connections using a managed identity or private endpoints to custom skills.
++ For custom skills, a user-assigned managed identity isn't supported for a debug session connection to Azure Storage. As stated in the prerequisites, you can use a system managed identity, or specify a full access connection string that includes a key. For more information, see [Connect a search service to other Azure resources using a managed identity](search-howto-managed-identities-data-sources.md).
 
 ## Create a debug session
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and find your search service.
 
-1. In the **Overview** page of your search service, select the **Debug Sessions** tab.
+1. In the left navigation page, select **Debug sessions**.
 
-1. Select **+ New Debug Session**.
+1. In the action bar at the top, select **Add debug session**.
 
    :::image type="content" source="media/cognitive-search-debug/new-debug-session.png" alt-text="Screenshot of the debug sessions commands in the portal page." border="true":::
 
@@ -57,17 +57,19 @@ A Debug Session works with all generally available [indexer data sources](search
 
 1. In **Storage connection**, find a general-purpose storage account for caching the debug session. You'll be prompted to select and optionally create a blob container in Blob Storage or Azure Data Lake Storage Gen2. You can reuse the same container for all subsequent debug sessions you create. A helpful container name might be "cognitive-search-debug-sessions".
 
+1. In **Managed identity authentication**, choose **None** if the connection to Azure Storage doesn't use a managed identity. Otherwise, choose the managed identity to which you've granted **Storage Blob Data Contributor** permissions.
+
 1. In **Indexer template**, select the indexer that drives the skillset you want to debug. Copies of both the indexer and skillset are used to initialize the session.
 
-1. In **Document to debug**, choose the first document in the index or select a specific document. If you select a specific document, depending on the data source, you'll be asked for a URI or a row ID.
+1. In **Document to debug**, choose the first document in the index or select a specific document. If you select a specific document, depending on the data source, you're asked for a URI or a row ID.
 
-   If your specific document is a blob, you'll be asked for the blob URI. You can find the URL in the blob property page in the portal.
+   If your specific document is a blob, provide the blob URI. You can find the URI in the blob property page in the portal.
 
    :::image type="content" source="media/cognitive-search-debug/copy-blob-url.png" alt-text="Screenshot of the URI property in blob storage." border="true":::
 
 1. Optionally, in **Indexer settings**, specify any indexer execution settings used to create the session. The settings should mimic the settings used by the actual indexer. Any indexer options that you specify in a debug session have no effect on the indexer itself.
 
-1. Your configuration should look similar to this screenshot. Select **Save Session** to get started.
+1. Your configuration should look similar to this screenshot. Select **Save session** to get started.
 
    :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Screenshot of a debug session page." border="true":::
 
@@ -75,8 +77,7 @@ The debug session begins by executing the indexer and skillset on the selected d
 
 A debug session can be canceled while it's executing using the **Cancel** button. If you hit the **Cancel** button you should be able to analyze partial results.
 
-It is expected for a debug session to take longer to execute than the indexer since it goes through extra processing. 
-
+It's expected for a debug session to take longer to execute than the indexer since it goes through extra processing. 
 
 ## Start with errors and warnings
 

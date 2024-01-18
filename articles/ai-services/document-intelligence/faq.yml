@@ -33,7 +33,7 @@ sections:
 
            - There are no changes to pricing. The names "Cognitive Services" and "Azure Applied AI" continue to be used in Azure billing, cost analysis, price list, and price APIs.
 
-           - There are no breaking changes to application programming interfaces (APIs) or SDKs.
+           - There are no breaking changes to application programming interfaces (APIs) or SDKs. Starting from 2023-10-31-preview, API and SDKs will be renamed to "documentintelligence".
 
            - Some platforms are still awaiting the renaming update. All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
 
@@ -44,6 +44,13 @@ sections:
         answer: |
 
           A Document Generative AI solution can enable you to chat with your documents, generate captivating content from them and access the power of Azure OpenAI models on your data. With Azure AI Document Intelligence and Azure OpenAI combined, you can build an enterprise application to seamlessly interact with your documents using natural languages, easily find answers and gain valuable insights, effortlessly generate new and engaging content from your existing documents. Check for more details in the [technical community blog](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/document-generative-ai-the-power-of-azure-ai-document/ba-p/3875015).
+
+      - question: |
+          How is Document Intelligence related to Retrieval Augmented Generation (RAG)?
+        answer: |
+
+          Semantic chunking is a key step in RAG to ensure its efficient storage and retrieval. The Document Intelligence [Layout model](concept-layout.md) offers a comprehensive solution for advanced content extraction and document structure analysis capabilities. With the Layout model, you can easily extract text and structural elements to divide large bodies of text into smaller, meaningful chunks based on semantic content rather than arbitrary splits. The extracted information can be conveniently outputted to Markdown format, enabling you to define your semantic chunking strategy based on provided building blocks. Check for more details in this [article](concept-retrieval-augumented-generation.md).
+
 
       - question: |
           Which Document Intelligence use cases require special consideration?
@@ -104,7 +111,7 @@ sections:
       - question: |
            What is the accuracy score and how is it calculated?
         answer: |
-           The output of a `build` (v3.0) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document.
+           The output of a `build` (v3.0 and later versions) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document.
 
            Accuracy is measured within a percentage value range between 0% (low) and 100% (high).
 
@@ -159,7 +166,7 @@ sections:
           What is a bounding box?
         answer: |
 
-          A bounding box is an abstract rectangle that surrounds text elements on a document or form and is used as a reference point for object detection.
+          A bounding box (`polygon` in v3.0 and later versions) is an abstract rectangle that surrounds text elements on a document or form and is used as a reference point for object detection.
 
           - The bounding box specifies position using an x and y coordinate plane presented in an array of four numerical pairs. Each pair represents a corner of the box in the following order: top-left, top-right, bottom-right, bottom-left.
 
@@ -205,7 +212,7 @@ sections:
           Where can I find the supported API version for the latest programming language SDKs?
         answer:   |
 
-          This table provides links to the latest SDK versions and shows the relationship between supported Document Intelligence SDK and API versions: |
+          This table provides links to the latest SDK versions and shows the relationship between supported Document Intelligence SDK and API versions: 
             | Supported Language | Azure SDK reference|Supported API version|
             | ----- | -----|-----|
             | C#/.NET| [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[**v3.0**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
@@ -242,7 +249,7 @@ sections:
             How can I specify a specific range of pages to be analyzed in a document?
         answer:  |
 
-           - The parameter `pages`(supported in both v2.1 and v3.0 REST API) enables you to specify pages for multi-page PDF and TIFF documents. Accepted input includes the following ranges:
+           - The parameter `pages`(supported in v2.1, v3.0 and later version REST API) enables you to specify pages for multi-page PDF and TIFF documents. Accepted input includes the following ranges:
 
               - Single pages (for example,'1, 2' -> pages 1 and 2 are processed).- Finite (for example '2-5' -> pages 2 to 5 are processed)
               - Open-ended ranges (for example '5-' -> all the pages from page 5 are processed & for example, '-10' -> pages 1 to 10 are processed).
@@ -271,13 +278,13 @@ sections:
         answer: |
          Document Intelligence billing is  calculated monthly based on the model type and number of pages analyzed:
 
-          - When you submit a document for analysis, all pages are analyzed unless you specify a page range with the `pages` parameter in your request. When the service analyzes Microsoft Excel and PowerPoint documents with the new Read OCR model, each worksheet and slide is counted as one page respectively.
+          - When you submit a document for analysis, all pages are analyzed unless you specify a page range with the `pages` parameter in your request. When the service analyzes Microsoft Excel and PowerPoint documents with the Read OCR and Layout model, each worksheet and slide is counted as one page respectively.
 
           - When analyzing PDF and TIFF files, each page in the PDF file or each image in the TIFF file is counted as one page with no maximum character limits.
 
-          - When analyzing Microsoft Word and HTML files supported by only the Read model, pages are counted in blocks of 3,000 characters each. For example, if your document contains 7,000 characters, the two pages with 3,000 characters each and one page with 1,000 characters adds up to a total of three pages.
+          - When analyzing Microsoft Word and HTML files supported by the Read and Layout model, pages are counted in blocks of 3,000 characters each. For example, if your document contains 7,000 characters, the two pages with 3,000 characters each and one page with 1,000 characters adds up to a total of three pages.
 
-          - When using the Read model, if your Microsoft Word, Excel, and PowerPoint pages with embedded images, each image is analyzed and counted as a page. Therefore, the total analyzed pages for Microsoft Office documents are equal to the sum of total text pages and total images analyzed. In the previous example if the document contains two embedded images, the total page count in the service output is three text pages plus two images equaling a total of five pages.
+          - When using the Read or Layout model to analyze Microsoft Word, Excel, PowerPoint and HTML files, embedded or linked images are not supported. So they will not be counted as additional images for chargeing.
 
           - Training a custom model is always free with Document Intelligence. You’re only charged when a model is used to analyze a document.
 
