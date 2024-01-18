@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # Visually monitor Azure Data Factory

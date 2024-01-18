@@ -150,7 +150,7 @@ A persistent volume claim (PVC) uses the storage class object to dynamically pro
 
     ```output
     NAME           STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      AGE
-    my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   10Gi       RWX            my-azurefile      5m
+    my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   100Gi       RWX            my-azurefile      5m
     ```
 
 ### Use the persistent volume

@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 10/03/2022
+ms.date: 01/16/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 

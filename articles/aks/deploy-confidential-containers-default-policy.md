@@ -2,7 +2,7 @@
 title: Deploy an AKS cluster with Confidential Containers (preview)
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with Confidential Containers (preview) and a default security policy by using the Azure CLI.
 ms.topic: quickstart
-ms.date: 11/13/2023
+ms.date: 01/10/2024
 ms.custom: devx-track-azurecli, ignite-fall-2023, mode-api, devx-track-linux
 ---
 
@@ -24,7 +24,7 @@ In general, getting started with AKS Confidential Containers involves the follow
 
 - The `aks-preview` Azure CLI extension version 0.5.169 or later.
 
-- The `confcom` Confidential Container Azure CLI extension 0.3.0 or later. `confcom` is required to generate a [security policy][confidential-containers-security-policy].
+- The `confcom` Confidential Container Azure CLI extension 0.3.3 or later. `confcom` is required to generate a [security policy][confidential-containers-security-policy].
 
 - Register the `Preview` feature in your Azure subscription.
 

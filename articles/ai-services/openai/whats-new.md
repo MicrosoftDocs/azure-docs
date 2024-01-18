@@ -95,7 +95,7 @@ Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
     - The strictness setting sets the threshold to categorize documents as relevant to your queries.
     - The retrieved documents setting specifies the number of top-scoring documents from your data index used to generate responses.
 - You can see data ingestion/upload status in the Azure OpenAI Studio.
-- Support for [private endpoints & VPNs for blob containers](./how-to/use-your-data-securely.md#security-support-for-azure-blob-storage)
+- Support for private endpoints & VPNs for blob containers.
 
 ## September 2023
 
@@ -126,7 +126,7 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 ### Azure OpenAI on your own data (preview) updates
 
 - You can now deploy Azure OpenAI on your data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
-- [Azure OpenAI on your data](./concepts/use-your-data.md#virtual-network-support--private-endpoint-support) now supports private endpoints.
+- Azure OpenAI on your data now supports private endpoints.
 - Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control).
 - [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
 - [Vector search and semantic search options](./concepts/use-your-data.md#search-options). 

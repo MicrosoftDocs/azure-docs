@@ -270,7 +270,7 @@ Use the following command to deploy the newly built JAR file to your Azure Sprin
 ```azurecli
 az spring app deploy \
     --name ${CUSTOMERS_SERVICE} \
-    --jar-path ${CUSTOMERS_SERVICE_JAR} \
+    --artifact-path ${CUSTOMERS_SERVICE_JAR} \
     --jvm-options='-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql' \
     --env MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_FULL_NAME} \
           MYSQL_DATABASE_NAME=${MYSQL_DATABASE_NAME} \

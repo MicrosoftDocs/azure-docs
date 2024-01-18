@@ -1,17 +1,21 @@
 ---
-title: Microsoft Sentinel feature support for Azure clouds
+title: Microsoft Sentinel feature support for Azure commercial/other clouds
 description: This article describes feature availability in Microsoft Sentinel across different Azure environments.
-author: cwatson-cat
-ms.author: cwatson
+author: batamig
+ms.author: bagol
 ms.topic: feature-availability
 ms.custom: references_regions
 ms.service: microsoft-sentinel
 ms.date: 07/25/2023
 ---
 
-# Microsoft Sentinel feature support for Azure clouds
+# Microsoft Sentinel feature support for Azure commercial/other clouds
 
 This article describes the features available in Microsoft Sentinel across different Azure environments. Features are listed as GA (generally available), public preview, or shown as not available.
+
+> [!NOTE]
+> These lists and tables do not include feature or bundle availability in the Azure Government Secret or Azure Government Top Secret clouds. 
+> For more information about specific availability for air-gapped clouds, please contact your account team.
 
 ## Analytics		
 

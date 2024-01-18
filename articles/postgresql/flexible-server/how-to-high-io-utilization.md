@@ -1,11 +1,12 @@
 ---
-title: High IOPS utilization for Azure Database for PostgreSQL - Flexible Server
-description: This article is a troubleshooting guide for high IOPS utilization in Azure Database for PostgreSQL - Flexible Server
+title: High IOPS utilization
+description: This article is a troubleshooting guide for high IOPS utilization in Azure Database for PostgreSQL - Flexible Server.
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan
 ms.date: 10/26/2023
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.custom:
   - template-how-to
@@ -13,7 +14,9 @@ ms.custom:
 
 # Troubleshoot high IOPS utilization for Azure Database for PostgreSQL - Flexible Server
 
-This article shows you how to quickly identify the root cause of high IOPS (input/output operations per second) utilization and provides remedial actions to control IOPS utilization when you're using [Azure Database for PostgreSQL - Flexible Server](overview.md).
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
+This article shows you how to quickly identify the root cause of high IOPS (input/output operations per second) utilization and provides remedial actions to control IOPS utilization when you're using [Azure Database for PostgreSQL flexible server](overview.md).
 
 In this article, you learn how to:
 
@@ -24,7 +27,7 @@ In this article, you learn how to:
 
 ## Troubleshooting guides
 
-Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL - Flexible Server portal the probable root cause and recommendations to the mitigate high IOPS utilization scenario can be found. How to setup the troubleshooting guides to use them please follow [setup troubleshooting guides](how-to-troubleshooting-guides.md).
+Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL flexible server portal the probable root cause and recommendations to the mitigate high IOPS utilization scenario can be found. How to setup the troubleshooting guides to use them please follow [setup troubleshooting guides](how-to-troubleshooting-guides.md).
 
 ## Tools to identify high I/O utilization
 
@@ -32,11 +35,11 @@ Consider the following tools to identify high I/O utilization.
 
 ### Azure Metrics
 
-Azure Metrics is a good starting point to check I/O utilization for a defined date and period. Metrics give information about the time during which I/O utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput to find out times when the workload is causing high I/O utilization. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md).
+Azure Metrics is a good starting point to check I/O utilization for a defined date and period. Metrics give information about the time during which I/O utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput to find out times when the workload is causing high I/O utilization. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./how-to-alert-on-metrics.md).
 
 ### Query Store
 
-The Query Store feature automatically captures the history of queries and runtime statistics, and retains them for your review. It slices the data by time to see temporal usage patterns. Data for all users, databases, and queries is stored in a database named *azure_sys* in the Azure Database for PostgreSQL instance. For step-by-step guidance, see [Monitor performance with Query Store](./concepts-query-store.md).
+The Query Store feature automatically captures the history of queries and runtime statistics, and retains them for your review. It slices the data by time to see temporal usage patterns. Data for all users, databases, and queries is stored in a database named *azure_sys* in the Azure Database for PostgreSQL flexible server instance. For step-by-step guidance, see [Monitor performance with Query Store](./concepts-query-store.md).
 
 Use the following statement to view the top five SQL statements that consume I/O:
 
@@ -80,7 +83,7 @@ ORDER BY duration DESC;
 
 ### Checkpoint timings
 
-High I/O can also be seen in scenarios where a checkpoint is happening too frequently. One way to identify this is by checking the PostgreSQL log file for the following log text: "LOG: checkpoints are occurring too frequently."
+High I/O can also be seen in scenarios where a checkpoint is happening too frequently. One way to identify this is by checking the Azure Database for PostgreSQL flexible server log file for the following log text: "LOG: checkpoints are occurring too frequently."
 
 You could also investigate by using an approach where periodic snapshots of `pg_stat_bgwriter` with a time stamp are saved. By using the saved snapshots, you can calculate the average checkpoint interval, number of checkpoints requested, and number of checkpoints timed.
 
@@ -104,7 +107,7 @@ To resolve high I/O utilization, you can use any of the following three methods.
 
 ### The `EXPLAIN ANALYZE` command
 
-After you've identified the query that's consuming high I/O, use `EXPLAIN ANALYZE` to further investigate the query and tune it. For more information about the `EXPLAIN ANALYZE` command, review the [EXPLAIN plan](https://www.postgresql.org/docs/current/sql-explain.html).
+After you identify the query that's consuming high I/O, use `EXPLAIN ANALYZE` to further investigate the query and tune it. For more information about the `EXPLAIN ANALYZE` command, review the [EXPLAIN plan](https://www.postgresql.org/docs/current/sql-explain.html).
 
 ### Terminate long-running transactions
 
@@ -129,7 +132,7 @@ SELECT pg_terminate_backend(pid);
 
 ### Tune server parameters
 
-If you've observed that the checkpoint is happening too frequently, increase the `max_wal_size` server parameter until most checkpoints are time driven, instead of requested. Eventually, 90 percent or more should be time based, and the interval between two checkpoints should be close to the `checkpoint_timeout` value that's set on the server.
+If you observe that the checkpoint is happening too frequently, increase the `max_wal_size` server parameter until most checkpoints are time driven, instead of requested. Eventually, 90 percent or more should be time based, and the interval between two checkpoints should be close to the `checkpoint_timeout` value that's set on the server.
 
 - `max_wal_size`: Peak business hours are a good time to arrive at a `max_wal_size` value. To arrive at a value, do the following:
 
