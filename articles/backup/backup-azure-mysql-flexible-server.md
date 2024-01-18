@@ -21,7 +21,11 @@ To create the backup policy, follow these steps:
 
 2. Go to the *Backup vault* > **+Backup** to open the **Configure backup** page.
 3. To create a new backup policy, under **Backup policy**, select **Create new**.
-4. On the **Create a Backup Policy** page, enter a name for the new policy, and then select **Azure Database for MySQL (Preview) as the **Datasource type**.
+
+
+   :::image type="content" source="./media/backup-azure-mysql-flexible-server/create-backup-policy.png" alt-text="Screenshot shows how to start creating the new backup policy." lightbox="./media/backup-azure-mysql-flexible-server/create-backup-policy.png":::
+
+4. On the **Create a Backup Policy** page, enter a name for the new policy, and then select **Azure Database for MySQL (Preview)** as the **Datasource type**.
 
 5. Define the **Backup schedule**.
 
@@ -96,7 +100,7 @@ To trigger an on-demand backup (that's not in the schedule specified in the poli
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/backup-instances.png" alt-text="Screenshot shows how to run an on-demand backup." lightbox="./media/backup-azure-mysql-flexible-server/backup-instances.png":::
 
-2. Select **Backup Now*.
+2. Select **Backup Now**.
 3. Choose a retention rule from the list.
 4. Select **Backup now**.
  
