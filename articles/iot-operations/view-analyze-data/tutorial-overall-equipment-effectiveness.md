@@ -261,7 +261,7 @@ To create the _production-data-reference_ pipeline that ingests the data from th
 
 1. Select the title of the pipeline on the top left corner, rename it to _production-data-reference_, and **Apply** the change.
 
-1. Select **Configure source** and then select **HTTP Endpoint**. Use the information from the following table to configure it:
+1. In the pipeline diagram, select **Configure source** and then select **HTTP Endpoint**. Use the information from the following table to configure it:
 
     | Field                      | Value                                         |
     |----------------------------|-----------------------------------------------|
@@ -275,7 +275,7 @@ To create the _production-data-reference_ pipeline that ingests the data from th
 
     Select **Apply**. 
 
-1. In the pipeline diagram, select **Add stages** and then select **Delete** to delete the stage.
+1. Select **Add stages** and then select **Delete** to delete the middle stage.
 
 1. To connect the source and destination stages, select the red dot at the bottom of the source stage and drag it to the red dot at the top of the destination stage.
 
@@ -314,7 +314,7 @@ To create the _operations-data-reference_ pipeline that ingests the data from th
 
 1. Select the title of the pipeline on the top left corner, rename it to _operations-data-reference_, and **Apply** the change.
 
-1. Select **Configure source** and then select **HTTP Endpoint**. Use the information from the following table to configure it:
+1. In the pipeline diagram, select **Configure source** and then select **HTTP Endpoint**. Use the information from the following table to configure it:
 
     | Field                      | Value                                         |
     |----------------------------|-----------------------------------------------|
@@ -328,7 +328,7 @@ To create the _operations-data-reference_ pipeline that ingests the data from th
 
     Select **Apply**. 
 
-1. Select **Add stages** and then select **Delete** to delete the stage.
+1. Select **Add stages** and then select **Delete** to delete the middle stage.
 
 1. To connect the source and destination stages, select the red dot at the bottom of the source stage and drag it to the red dot at the top of the destination stage.
 
@@ -608,7 +608,7 @@ The next step is to create a Data Processor pipeline that sends the transformed 
 
 1. Back in the [Azure IoT Operations](https://iotoperations.azure.com) portal, navigate to **Data pipelines** and select **Create pipeline**.
 
-1. 1. Select **Configure source** and then select **MQ**. Use the information from the following table to configure it:
+1. In the pipeline diagram, select **Configure source** and then select **MQ**. Use the information from the following table to configure it:
 
     | Field       | Value                            |
     |-------------|----------------------------------|
@@ -619,7 +619,7 @@ The next step is to create a Data Processor pipeline that sends the transformed 
 
     Select **Apply**.
 
-1. Select **Add stages** and then select **Delete** to delete the stage.
+1. Select **Add stages** and then select **Delete** to delete the middle stage.
 
 1. To connect the source and destination stages, select the red dot at the bottom of the source stage and drag it to the red dot at the top of the destination stage.
 
