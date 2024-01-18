@@ -23,7 +23,7 @@ This article explains how to update in DNS settings in a virtual network injecte
 
 When you are making changes to the custom DNS servers in the virtual network settings, for the update in DNS settings to take effect, it's required to restart network service in all the underlying nodes to load the new settings.  Before, you had to reboot the whole Azure Spring Apps instance to apply any changes to the DNS settings. This was a heavy and time-consuming operation. Now, with the new flush DNS settings feature, you can update the DNS settings in an Azure Spring Apps instance with a simple and fast action. 
 
-This flush DNS settings operation will not restart any underlying nodes or running applications within your service instance, but it needs to restart the the network infrastructure to implement the DNS setting changes, potentially causing a brief interruption in network services and affecting application availability.
+This flush DNS settings operation will not restart any underlying nodes or running applications within your service instance, but it needs to restart the the network infrastructure to implement the DNS setting changes, potentially causing a brief interruption in the order of seconds in network services and affecting application availability.
 
 ## Prerequisites
 - An Azure subscription. If you don't have a subscription, create a free account before you begin.
