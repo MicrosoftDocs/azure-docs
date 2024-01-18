@@ -23,7 +23,7 @@ ms.author: lajanuar
 > * Azure AI Language public preview releases provide early access to features that are in active development.
 > * Features, approaches, and processes may change, prior to General Availability (GA), based on user feedback.
 
-Azure AI Language is a cloud-based service that applies Natural Language Processing (NLP) features to analyze text-based data.  Native document support extends the accepted plain text (.txt) input for the [Personally Identifiable Information (PII)](../personally-identifiable-information/overview.md) and [`Document Summarization`](../summarization/overview.md) features to include Word and PDF native document eliminating the need for text extraction preprocessing. In this quickstart demonstrates Personally Identifiable Information (PII) and `Summarization` processing for documents.
+Azure AI Language is a cloud-based service that applies Natural Language Processing (NLP) features to analyze text-based data.  Native document support extends the accepted plain text (.txt) input for the [Personally Identifiable Information (PII)](../personally-identifiable-information/overview.md) and [`Document Summarization`](../summarization/overview.md) features to include Word and PDF native documents.
 
 Let's get started:
 
@@ -35,7 +35,7 @@ Let's get started:
     > macOS `curl -V`
     > Linux: `curl --version`
 
-    If cURL isn't installed, here are links for your platform:
+    If cURL isn't installed, here are installation links for your platform:
 
   * [Windows](https://curl.haxx.se/windows/).
   * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows).
@@ -79,14 +79,14 @@ Requests to the Language service require a read-only key and custom endpoint to 
 
 ## Create Azure Blob Storage containers
 
-You must [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
+[**Create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
 
 * **Source container**. This container is where you upload your native files for analysis (required).
 * **Target container**. This container is where your analyzed files are stored (required).
 
 ### **Authentication**
 
-You must grant the Language Service resource access to your storage account before it can create, read, or delete blobs. User delegation SAS tokens are secured with Microsoft Entra credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
+Your Language resource needs granted access to your storage account before it can create, read, or delete blobs. User delegation SAS tokens are secured with Microsoft Entra credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
 The `sourceUrl` and `targetUrl` are authenticated with Shared Access Signature (SAS) tokens appended as query strings. Tokens can be assigned to your container or specific blobs. *See* [**Create SAS tokens**](../../translator/document-translation/how-to-guides/create-sas-tokens.md).
 
@@ -110,11 +110,11 @@ The `sourceUrl` and `targetUrl` are authenticated with Shared Access Signature (
 |`-H "Ocp-Apim-Subscription-Key:<key>`    | Specifies the Language resource key for accessing the API.        |
 |`-d`     | The JSON file containing the data you want to pass with your request.         |
 
-The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
+The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values. Try analyzing native documents by selecting the following `**Personally Identifiable Information (PII)**` or `**Document Summarization**`:
 
 ### [Personally Identifiable Information (PII)](#tab/pii)
 
-### Sample document
+#### PII Sample document
 
 For this quickstart, you need a **source document** uploaded to your **source container**. You can download our [Microsoft Word sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-pii.docx) or [Adobe PDF](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl//Language/native-document-pii.pdf) for this project. The source language is English.
 
@@ -124,7 +124,7 @@ For this quickstart, you need a **source document** uploaded to your **source co
 
 1. Create a new json file called **pii-detection.json** in your **native-document** directory.
 
-1. Copy and paste the Personally Identifiable Information (PII) **request sample** into your `pii-detection.json` file. Replace **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance:
+1. Copy and paste the following Personally Identifiable Information (PII) **request sample** into your `pii-detection.json` file. Replace **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance:
 
   `**Request sample**`
 
@@ -172,7 +172,7 @@ For this quickstart, you need a **source document** uploaded to your **source co
 
 ### [Document Summarization](#tab/summarization)
 
-### Sample document
+### Summarization sample document
 
 For this project, you need a **source document** uploaded to your **source container**. You can download our [Microsoft Word sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-summarization.docx) or [Adobe PDF](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-summarization.pdf) for this quickstart. The source language is English.
 
@@ -181,7 +181,7 @@ For this project, you need a **source document** uploaded to your **source conta
 1. Using your preferred editor or IDE, create a new directory for your app named `native-document`.
 1. Create a new json file called **document-summarization.json** in your **native-document** directory.
 
-1. Copy and paste the Personally Identifiable Information (PII) **request sample** into your `document-summarization.json` file. Replace **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance:
+1. Copy and paste the Document Summarization **request sample** into your `document-summarization.json` file. Replace **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance:
 
   `**Request sample**`
 
