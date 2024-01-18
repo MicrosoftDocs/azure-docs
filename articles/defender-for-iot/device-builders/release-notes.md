@@ -19,7 +19,7 @@ For more information, see [Upgrade the Microsoft Defender for IoT micro agent](u
 
 **Firmware analysis general availability announcement**
 
-Microsoft Defender for IoT Firmware analysis is now generally available. Here are the changes that were made since public preview:
+Microsoft Defender for IoT Firmware analysis is now generally available. Here are the changes that we made since public preview:
 
 - **PDF report generator**: Addition of a "Download as PDF" capability on the Overview page that generates and downloads a PDF report of the firmware analysis results.
 
@@ -27,9 +27,9 @@ Microsoft Defender for IoT Firmware analysis is now generally available. Here ar
 
 - **Reduced analysis time**: Analysis time has been shortened by 30-80%, depending on image size.
 
-- **CODESYS libraries detection**: Now detects the use of CODESYS libraries, in which Microsoft recently identified high-severity vulnerabilities. These vulnerabilities can be exploited for attacks such as remote code execution (RCE) or denial of service (DoS). For more information, see [Multiple high severity vulnerabilities in CODESYS V3 SDK could lead to RCE or DoS](https://www.microsoft.com/en-us/security/blog/2023/08/10/multiple-high-severity-vulnerabilities-in-codesys-v3-sdk-could-lead-to-rce-or-dos/).
+- **CODESYS libraries detection**: Now detects the use of CODESYS libraries, which Microsoft recently identified as having high-severity vulnerabilities. These vulnerabilities can be exploited for attacks such as remote code execution (RCE) or denial of service (DoS). For more information, see [Multiple high severity vulnerabilities in CODESYS V3 SDK could lead to RCE or DoS](https://www.microsoft.com/en-us/security/blog/2023/08/10/multiple-high-severity-vulnerabilities-in-codesys-v3-sdk-could-lead-to-rce-or-dos/).
 
-- **Enhanced documentation**: Addition of documentation addressing the following:
+- **Enhanced documentation**: Addition of documentation addressing the following concepts:
     - [Azure role-based access control for Defender for IoT Firmware analysis](defender-for-iot-firmware-analysis-rbac.md), which explains roles and permissions needed to upload firmware images and share analysis results, and an explanation of how the **FirmwareAnalysisRG** works
     - [Frequently asked questions](defender-for-iot-FAQ.md)
 
@@ -49,7 +49,7 @@ Microsoft Defender for IoT Firmware analysis is now generally available. Here ar
     - WolfSSL
     - sqlite3
 
-- **Added support for file systems**: Now supports extration of the following file systems. For more information, see [Defender for IoT FAQs](defender-for-iot-FAQ.md):
+- **Added support for file systems**: Now supports extraction of the following file systems. For more information, see [Defender for IoT FAQs](defender-for-iot-FAQ.md):
     - ISO
     - RomFS
     - Zstandard and non-standard LZMA implementations of SquashFS
