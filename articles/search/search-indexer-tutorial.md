@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/04/2022
+ms.date: 01/18/2024
 ms.custom:
   - devx-track-csharp
   - devx-track-dotnet
@@ -19,7 +19,7 @@ ms.custom:
 
 Configure an [indexer](search-indexer-overview.md) to extract searchable data from Azure SQL Database, sending it to a search index in Azure AI Search. 
 
-This tutorial uses C# and the [.NET SDK](/dotnet/api/overview/azure/search) to perform the following tasks:
+This tutorial uses C# and the [Azure SDK for .NET](/dotnet/api/overview/azure/search) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Create a data source that connects to Azure SQL Database

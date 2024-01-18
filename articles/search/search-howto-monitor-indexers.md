@@ -1,7 +1,7 @@
 ---
 title: Monitor indexer status and results
 titleSuffix: Azure AI Search
-description: Monitor the status, progress, and results of Azure AI Search indexers in the Azure portal, using the REST API, or the .NET SDK.
+description: Monitor the status, progress, and results of Azure AI Search indexers in the Azure portal, using the REST API, or the Azure SDKs.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,7 +11,7 @@ ms.custom:
   - devx-track-dotnet
   - ignite-2023
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 01/18/2024
 ---
 
 # Monitor indexer status and results in Azure AI Search
@@ -60,7 +60,7 @@ Metric views can be filtered or split up by a set of predefined dimensions.
 | Document processed count  | Shows the number of indexer processed documents.  | Data source name, failed, index name, indexer name, skillset name  | <br> - Can be referenced as a rough measure of throughput (number of documents processed by indexer over time) <br> - Set up to alert on failed documents | 
 |  Skill execution invocation count | Shows the number of skill invocations. | Data source name, failed, index name, indexer name, skill name, skill type, skillset name | <br> - Reference to ensure skills are invoked as expected by comparing relative invocation numbers between skills and number of skill invocations to the number of documents. <br> - Set up to alert on failed skill invocations |
 
-The screenshot below shows the number of documents processed by indexers within a service over an hour, split up by indexer name.
+The following screenshot shows the number of documents processed by indexers within a service over an hour, split up by indexer name.
 
    ![Indexer documents processed metric](media/search-monitor-indexers/indexers-documents-processed-metric.png "Indexer documents processed metric")
 

@@ -13,12 +13,12 @@
     href: search-faq-frequently-asked-questions.yml
 - name: Quickstarts
   items:
+  - name: Vector search
+    href: search-get-started-vector.md
   - name: Full text search
     href: search-get-started-text.md
   - name: Semantic ranking
     href: search-get-started-semantic.md
-  - name: Vector search
-    href: search-get-started-vector.md
   - name: Portal
     items:
     - name: Create an index
@@ -232,14 +232,6 @@
       href: search-how-to-create-search-index.md
     - name: Create an index alias
       href: search-how-to-alias.md
-    - name: Create a vector index
-      href: vector-search-how-to-create-index.md
-    - name: Configure a vectorizer (vectors)
-      href: vector-search-how-to-configure-vectorizer.md
-    - name: Chunk documents (vectors)
-      href: vector-search-how-to-chunk-documents.md
-    - name: Generate embeddings (vectors)
-      href: vector-search-how-to-generate-embeddings.md
     - name: Load an index
       href: search-how-to-load-search-index.md
     - name: Index large data sets
@@ -254,6 +246,17 @@
       href: search-howto-complex-data-types.md
     - name: Model relational data
       href: index-sql-relational-data.md
+  - name: Vectore stores
+    items:
+    - name: Create a vector index
+      href: vector-search-how-to-create-index.md
+    - name: Configure a vectorizer (vectors)
+      href: vector-search-how-to-configure-vectorizer.md
+    - name: Chunk documents (vectors)
+      href: vector-search-how-to-chunk-documents.md
+    - name: Generate embeddings (vectors)
+      href: vector-search-how-to-generate-embeddings.md
+
   - name: Analyzers
     items:
     - name: Add a language analyzer
@@ -366,19 +369,19 @@
         href: cognitive-search-custom-skill-scale.md
       - name: Example - Bing Entity Search
         href: cognitive-search-create-custom-skill-example.md
-    - name: Knowledge store
-      items:
-      - name: Create using REST
-        href: knowledge-store-create-rest.md
-      - name: Shaping data
-        href: knowledge-store-projection-shape.md
-      - name: Define projections
-        href: knowledge-store-projections-examples.md 
-      - name: Projection example
-        href: knowledge-store-projection-example-long.md
-      - name: Connect with Power BI
-        href: knowledge-store-connect-power-bi.md
-  - name: Queries
+  - name: Knowledge stores
+    items:
+    - name: Create using REST
+      href: knowledge-store-create-rest.md
+    - name: Shaping data
+      href: knowledge-store-projection-shape.md
+    - name: Define projections
+      href: knowledge-store-projections-examples.md 
+    - name: Projection example
+      href: knowledge-store-projection-example-long.md
+    - name: Connect with Power BI
+      href: knowledge-store-connect-power-bi.md
+  - name: Queries (text and vector)
     items:
     - name: Full text query
       href: search-query-create.md
@@ -438,7 +441,7 @@
       href: performance-benchmarks.md
     - name: Tips for better performance
       href: search-performance-tips.md
-    - name: Monitoring Azure AI Search
+    - name: Monitor Azure AI Search
       href: monitor-azure-cognitive-search.md
     - name: Visualize resource logs
       href: search-monitor-logs-powerbi.md
