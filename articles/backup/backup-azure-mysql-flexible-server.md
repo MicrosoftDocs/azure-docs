@@ -35,27 +35,25 @@ To create a backup policy, follow these steps:
 
 4. On the **Create a Backup Policy** page, enter a name for the new policy, and then select **Azure Database for MySQL (Preview)** as the **Datasource type**.
 
-5. Define the **Backup schedule**.
+5. On the **Schedule + retention** tab, define the **Backup schedule**.
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/schedule-retention-final.png" alt-text="Screenshot shows the process to configure the backup schedule." lightbox="./media/backup-azure-mysql-flexible-server/schedule-retention-final.png":::
 
    
 
-6. Define the **Retention** settings.
+   Define the **Retention** settings.
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/add-retention.png" alt-text="Screenshot shows how to configure the retention duration." lightbox="./media/backup-azure-mysql-flexible-server/add-retention.png":::
 
    You can add one or more retention rules.
 
-7. To move the backups from *backup data store* to *archive data store* once they expire as per the backup policy, select **On-expiry**.
+6. To move the backups from *backup data store* to *archive data store* once they expire as per the backup policy, select **On-expiry**.
 
-   :::image type="content" source="./media/backup-azure-mysql-flexible-server/schedule-retention-final.png" alt-text="Screenshot shows the settings to move the backup data to archive." lightbox="./media/backup-azure-mysql-flexible-server/schedule-retention-final.png":::
-
-   >[!Note]
+      >[!Note]
    >- Retention duration ranges from *7 days* to *10 years* in the *Backup data store*.
    >- As per the pre-determined order of priority, the retention with the *yearly* rule selected has the highest priority, followed by the monthly, and then the weekly rule. By default, the retention rule is set to *3 months* if no retention rule is set. 
 
-8. Select **Create**.   
+7. Select **Create**.   
 
 ## Configure backup on Azure Database for MySQL - Flexible Server
 
