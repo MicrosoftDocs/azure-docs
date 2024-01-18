@@ -49,14 +49,21 @@ In the diagram below, the red flow lines illustrate redeployment of the target i
 
 ### Redeploy your Automation instance to another region:**
 
-1. Manually create the Azure Automation instance with the required parameters and configurations or export the source Azure automation template and reconfigure the parameters as per the target. Deploy the template using [ARM](/automation/quickstart-create-automation-account-template#deploy-the-template)  or [PowerShell](powershell/module/az.automation/import-azautomationrunbook?view=azps-11.2.0).
+1. Manually create the Azure Automation instance with the required parameters and configurations or [export the source Azure automation template](/azure/azure-resource-manager/templates/export-template-portal).
+
+1. Reconfigure the template parameters for the target. 
+
+1. Deploy the template using [ARM](/automation/quickstart-create-automation-account-template#deploy-the-template)  or [PowerShell](powershell/module/az.automation/import-azautomationrunbook?view=azps-11.2.0).
+
 1. Use PowerShell to export all associated runbooks from the source Azure Automation instance and import them to the target instance. Reconfigure the properties as per target. For more information, see [Export-AzAuotomationRunbook](/powershell/module/az.automation/export-azautomationrunbook?view=azps-11.2.0&viewFallbackFrom=azps-9.4.0).
+
 1. Associate the relocated Azure Automation instance to the target Log Analytics workspace.
+
 1. Configure the target virtual machines with desired state configuration from the relocated Azure Automation instance as per source.
 
 ### Validate relocation
 
-Once the relocation is completed, the Azure Automation needs to be tested and validated. Below are some of the recommended guidelines.
+Once the relocation is complete, the Azure Automation needs to be tested and validated. Below are some of the recommended guidelines.
 
 - Run manual or automated smoke and integration tests to ensure that configurations and dependent resources have been properly linked, and that configured data is accessible.
 - Test Azure Automation components and integration.
