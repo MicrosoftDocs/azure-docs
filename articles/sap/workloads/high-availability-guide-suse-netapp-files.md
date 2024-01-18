@@ -169,7 +169,7 @@ During VM configuration, you have an option to create or select exiting load bal
 
 The instructions in this section are only applicable, if using Azure NetApp Files volumes with NFSv4.1 protocol. Perform the configuration on all VMs, where Azure NetApp Files NFSv4.1 volumes will be mounted.  
 
-1. Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, that is, **`defaultv4iddomain.com`** and the mapping is set to **nobody**.  
+1. Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain that is, **`defaultv4iddomain.com`** and the mapping is set to **nobody**.  
 
     > [!IMPORTANT]
     > Make sure to set the NFS domain in `/etc/idmapd.conf` on the VM to match the default domain configuration on Azure NetApp Files: **`defaultv4iddomain.com`**. If there's a mismatch between the domain configuration on the NFS client (i.e. the VM) and the NFS server, i.e. the Azure NetApp configuration, then the permissions for files on Azure NetApp volumes that are mounted on the VMs will be displayed as `nobody`.  
@@ -246,7 +246,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 2. **[A]** Update SAP resource agents  
 
-   A patch for the resource-agents package is required to use the new configuration, that is described in this article. You can check, if the patch is already installed with the following command
+   A patch for the resource-agents package is required to use the new configuration that is described in this article. You can check, if the patch is already installed with the following command
 
    ```bash
    sudo grep 'parameter name="IS_ERS"' /usr/lib/ocf/resource.d/heartbeat/SAPInstance
