@@ -144,19 +144,19 @@ Payload is a JSON formatted string containing the following parameters:
 
 | Key           | Type      | Default | Description    |
 |---------------|-----------|---------|----------------|
-| `prompt`      | `string`  |  No default. This must be specified.  | The prompt to send to the model. |
+| `prompt`      | `string`  |  No default. This value must be specified.  | The prompt to send to the model. |
 | `stream`      | `boolean` | `False`  | Streaming allows the generated tokens to be sent as data-only server-sent events whenever they become available. |
 | `max_tokens`  | `integer` | `16`    | The maximum number of tokens to generate in the completion. The token count of your prompt plus `max_tokens` can't exceed the model's context length.  |
-| `top_p`       | `float`   | `1`     | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering it or `temperature` but not both. |
-| `temperature` | `float`   | `1`     | The sampling temperature to use, between 0 and 2. Higher values mean the model samples more broadly the distribution of tokens. Zero means greedy sampling. It's recommend altering this or `top_p` but not both. |
-| `n`           | `integer` | `1`     | How many completions to generate for each prompt. Note: Because this parameter generates many completions, it can quickly consume your token quota. |
+| `top_p`       | `float`   | `1`     | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering `top_p` or `temperature`, but not both. |
+| `temperature` | `float`   | `1`     | The sampling temperature to use, between 0 and 2. Higher values mean the model samples more broadly the distribution of tokens. Zero means greedy sampling. We recommend altering this or `top_p`, but not both. |
+| `n`           | `integer` | `1`     | How many completions to generate for each prompt. <br>Note: Because this parameter generates many completions, it can quickly consume your token quota. |
 | `stop`        | `array`   | `null`  | String or a list of strings containing the word where the API stops generating further tokens. The returned text won't contain the stop sequence.   |
-| `best_of`     | `integer` | `1`     | Generates best_of completions server-side and returns the "best" (the one with the lowest log probability per token). Results can't be streamed. When used with n, best_of controls the number of candidate completions and n specifies how many to return – best_of must be greater than n. Note: Because this parameter generates many completions, it can quickly consume your token quota.|
-| `logprobs` | `integer` |  `null` | A number indicating to include the log probabilities on the logprobs most likely tokens, as well the chosen tokens. For example, if logprobs is 10, the API returns a list of the 10 most likely tokens. the API always returns the logprob of the sampled token, so there might be up to logprobs+1 elements in the response.  |
+| `best_of`     | `integer` | `1`     | Generates `best_of` completions server-side and returns the "best" (the one with the lowest log probability per token). Results can't be streamed. When used with `n`, `best_of` controls the number of candidate completions and `n` specifies how many to return—best_of must be greater than `n`. <br>Note: Because this parameter generates many completions, it can quickly consume your token quota.|
+| `logprobs` | `integer` |  `null` | A number indicating to include the log probabilities on the `logprobs` most likely tokens and the chosen tokens. For example, if `logprobs` is 10, the API returns a list of the 10 most likely tokens. the API always returns the logprob of the sampled token, so there might be up to `logprobs`+1 elements in the response.  |
 | `presence_penalty`    | `float`   | `null`  | Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. |
 | `ignore_eos`          | `boolean` | `True`  | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated.  |
-| `use_beam_search`     | `boolean` | `False` | Whether to use beam search instead of sampling. In such case, `best_of must > 1` and `temperature` must be `0`. |
-| `stop_token_ids`      | `array`   | `null`  | List of tokens' ID that stops the generation when they're generated. The returned output contains the stop tokens unless the stop tokens are special tokens. |
+| `use_beam_search`     | `boolean` | `False` | Whether to use beam search instead of sampling. In such case, `best_of` must be greater than `1` and `temperature` must be `0`. |
+| `stop_token_ids`      | `array`   | `null`  | List of IDs for tokens that, when generated, stop further token generation. The returned output contains the stop tokens unless the stop tokens are special tokens. |
 | `skip_special_tokens` | `boolean` | `null`  | Whether to skip special tokens in the output. |
 
 #### Example
@@ -181,22 +181,21 @@ The response payload is a dictionary with the following fields.
 | `choices` | `array`   | The list of completion choices the model generated for the input prompt. |
 | `created` | `integer` | The Unix timestamp (in seconds) of when the completion was created.      |
 | `model`   | `string`  | The model_id used for completion.                                        |
-| `object`  | `string`  | The object type, which is always "text_completion".                      |
+| `object`  | `string`  | The object type, which is always `text_completion`.                      |
 | `usage`   | `object`  | Usage statistics for the completion request.                             |
 
 > [!TIP]
 > In the streaming mode, for each chunk of response, `finish_reason` is always `null`, except from the last one which is terminated by a payload `[DONE]`. 
 
 
-The `choice` object is a dictionary with the following fields. 
+The `choices` object is a dictionary with the following fields. 
 
 | Key     | Type      | Description  |
 |---------|-----------|------|
-| `index` | `integer` | Choice index. When best_of > 1, the index in this array might not be in order and might not be 0 to n-1. |
+| `index` | `integer` | Choice index. When `best_of` > 1, the index in this array might not be in order and might not be 0 to n-1. |
 | `text`  | `string`  | Completion result. |
-| `finish_reason` | `string` | The reason the model stopped generating tokens: `stop`, model hit a natural stop point, or a provided stop sequence; `length`, if max number of tokens have been reached; `content_filter`, When RAI moderates and CMP forces moderation; `content_filter_error`, an error during moderation and wasn't able to make decision on the response; `null`, API response still in progress or incomplete. |
+| `finish_reason` | `string` | The reason the model stopped generating tokens: <br>- `stop`: model hit a natural stop point, or a provided stop sequence. <br>- `length`: if max number of tokens have been reached. <br>- `content_filter`: When RAI moderates and CMP forces moderation. <br>- `content_filter_error`: an error during moderation and wasn't able to make decision on the response. <br>- `null`: API response still in progress or incomplete. |
 | `logprobs` | `object` | The log probabilities of the generated tokens in the output text. |
-
 
 The `usage` object is a dictionary with the following fields. 
 
@@ -205,14 +204,14 @@ The `usage` object is a dictionary with the following fields.
 | `prompt_tokens`     | `integer` | Number of tokens in the prompt.               |
 | `completion_tokens` | `integer` | Number of tokens generated in the completion. |
 | `total_tokens`      | `integer` | Total tokens.                                 |
-    
+
 The `logprobs` object is a dictionary with the following fields:
 
 | Key              | Type  | Value |
 |------------------|-------------------------|----|
 | `text_offsets`   | `array` of `integers`   | The position or index of each token in the completion output.  |
-| `token_logprobs` | `array` of `float`      | Selected logprobs from dictionary in top_logprobs array  |
-| `tokens`         | `array` of `string`     | Selected tokens  |
+| `token_logprobs` | `array` of `float`      | Selected `logprobs` from dictionary in `top_logprobs` array.  |
+| `tokens`         | `array` of `string`     | Selected tokens. |
 | `top_logprobs`   | `array` of `dictionary` | Array of dictionary. In each dictionary, the key is the token and the value is the prob. |
 
 #### Example
@@ -257,22 +256,22 @@ Payload is a JSON formatted string containing the following parameters:
 
 | Key | Type | Default | Description |
 |-----|-----|-----|-----|
-| `messages`    | `string`  | No default. This must be specified.  | The message or history of messages to prompt the model with.  |
+| `messages`    | `string`  | No default. This value must be specified.  | The message or history of messages to use to prompt the model.  |
 | `stream`      | `boolean` | `False` | Streaming allows the generated tokens to be sent as data-only server-sent events whenever they become available.  |
 | `max_tokens`  | `integer` | `16`    | The maximum number of tokens to generate in the completion. The token count of your prompt plus `max_tokens` can't exceed the model's context length. |
-| `top_p`       | `float`   | `1`     | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering it or `temperature` but not both.  |
-| `temperature` | `float`   | `1`     | The sampling temperature to use, between 0 and 2. Higher values mean the model samples more broadly the distribution of tokens. Zero means greedy sampling. It's recommend altering this or `top_p` but not both.  |
-| `n`           | `integer` | `1`     | How many completions to generate for each prompt. Note: Because this parameter generates many completions, it can quickly consume your token quota. |
+| `top_p`       | `float`   | `1`     | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering `top_p` or `temperature`, but not both.  |
+| `temperature` | `float`   | `1`     | The sampling temperature to use, between 0 and 2. Higher values mean the model samples more broadly the distribution of tokens. Zero means greedy sampling. We recommend altering this or `top_p`, but not both.  |
+| `n`           | `integer` | `1`     | How many completions to generate for each prompt. <br>Note: Because this parameter generates many completions, it can quickly consume your token quota. |
 | `stop`        | `array`   | `null`  | String or a list of strings containing the word where the API stops generating further tokens. The returned text won't contain the stop sequence. |
-| `best_of`     | `integer` | `1`     | Generates best_of completions server-side and returns the "best" (the one with the lowest log probability per token). Results can't be streamed. When used with n, best_of controls the number of candidate completions and n specifies how many to return – best_of must be greater than n. Note: Because this parameter generates many completions, it can quickly consume your token quota.|
-| `logprobs` | `integer` |  `null` | A number indicating to include the log probabilities on the logprobs most likely tokens, as well the chosen tokens. For example, if logprobs is 10, the API returns a list of the 10 most likely tokens. the API will always return the logprob of the sampled token, so there might be up to logprobs+1 elements in the response.  |
+| `best_of`     | `integer` | `1`     | Generates `best_of` completions server-side and returns the "best" (the one with the lowest log probability per token). Results can't be streamed. When used with `n`, `best_of` controls the number of candidate completions and `n` specifies how many to return—`best_of` must be greater than `n`. <br>Note: Because this parameter generates many completions, it can quickly consume your token quota.|
+| `logprobs` | `integer` |  `null` | A number indicating to include the log probabilities on the `logprobs` most likely tokens and the chosen tokens. For example, if `logprobs` is 10, the API returns a list of the 10 most likely tokens. the API will always return the logprob of the sampled token, so there might be up to `logprobs`+1 elements in the response.  |
 | `presence_penalty`    | `float`   | `null`  | Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. |
 | `ignore_eos`          | `boolean` | `True`  | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated. |
-| `use_beam_search`     | `boolean` | `False` | Whether to use beam search instead of sampling. In such case, `best_of must > 1` and `temperature` must be `0`. |
-| `stop_token_ids`      | `array`   | `null`  | List of token IDs that stop the generation when they are generated. The returned output contains the stop tokens unless the stop tokens are special tokens. |
+| `use_beam_search`     | `boolean` | `False` | Whether to use beam search instead of sampling. In such case, `best_of` must be greater than `1` and `temperature` must be `0`. |
+| `stop_token_ids`      | `array`   | `null`  | List of IDs for tokens that, when generated, stop further token generation. The returned output contains the stop tokens unless the stop tokens are special tokens.|
 | `skip_special_tokens` | `boolean` | `null`  | Whether to skip special tokens in the output. |
 
-The `message` object has the following fields:
+The `messages` object has the following fields:
 
 | Key       | Type      | Value |
 |-----------|-----------|------------|
@@ -311,20 +310,20 @@ The response payload is a dictionary with the following fields.
 | `choices` | `array`   | The list of completion choices the model generated for the input messages. |
 | `created` | `integer` | The Unix timestamp (in seconds) of when the completion was created.        |
 | `model`   | `string`  | The model_id used for completion.                                          |
-| `object`  | `string`  | The object type, which is always "chat.completion".                        |
+| `object`  | `string`  | The object type, which is always `chat.completion`.                        |
 | `usage`   | `object`  | Usage statistics for the completion request.                               |
 
 > [!TIP]
-> In the streaming mode, for each chunk of response, `finish_reason` is always `null`, except from the last one which is terminated by a payload `[DONE]`. In each `choice` object, the key for `message` is changed by `delta`. 
+> In the streaming mode, for each chunk of response, `finish_reason` is always `null`, except from the last one which is terminated by a payload `[DONE]`. In each `choices` object, the key for `messages` is changed by `delta`. 
 
 
-The `choice` object is a dictionary with the following fields. 
+The `choices` object is a dictionary with the following fields. 
 
 | Key     | Type      | Description  |
 |---------|-----------|--------------|
-| `index` | `integer` | Choice index. When best_of > 1, the index in this array might not be in order and might not be 0 to n-1. |
-| `message` or `delta`   | `string`  | Chat completion result in `message` object. When streaming mode is used, `delta` key is used.  |
-| `finish_reason` | `string` | The reason the model stopped generating tokens: `stop`, model hit a natural stop point, or a provided stop sequence; `length`, if max number of tokens have been reached; `content_filter`, When RAI moderates and CMP forces moderation; `content_filter_error`, an error during moderation and wasn't able to make decision on the response; `null`, API response still in progress or incomplete. |
+| `index` | `integer` | Choice index. When `best_of` > 1, the index in this array might not be in order and might not be `0` to `n-1`. |
+| `messages` or `delta`   | `string`  | Chat completion result in `messages` object. When streaming mode is used, `delta` key is used.  |
+| `finish_reason` | `string` | The reason the model stopped generating tokens: <br>- `stop`: model hit a natural stop point or a provided stop sequence. <br>- `length`: if max number of tokens have been reached. <br>- `content_filter`: When RAI moderates and CMP forces moderation <br>- `content_filter_error`: an error during moderation and wasn't able to make decision on the response <br>- `null`: API response still in progress or incomplete. |
 | `logprobs` | `object` | The log probabilities of the generated tokens in the output text. |
 
 
@@ -341,8 +340,8 @@ The `logprobs` object is a dictionary with the following fields:
 | Key              | Type                    | Value   |
 |------------------|-------------------------|---------|
 | `text_offsets`   | `array` of `integers`   | The position or index of each token in the completion output. |
-| `token_logprobs` | `array` of `float`      | Selected logprobs from dictionary in top_logprobs array   |
-| `tokens`         | `array` of `string`     | Selected tokens   |
+| `token_logprobs` | `array` of `float`      | Selected `logprobs` from dictionary in `top_logprobs` array.   |
+| `tokens`         | `array` of `string`     | Selected tokens.   |
 | `top_logprobs`   | `array` of `dictionary` | Array of dictionary. In each dictionary, the key is the token and the value is the prob. |
 
 #### Example
@@ -421,7 +420,7 @@ Each time a workspace subscribes to a given offer from the Azure Marketplace, a 
 :::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters."  lightbox="../media/cost-management/marketplace/costs-model-as-service-cost-details.png":::
 )
 
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits don’t suffice your scenarios.
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits don't suffice your scenarios.
 
 ### Considerations for Llama 2 models deployed as real-time endpoints
 
