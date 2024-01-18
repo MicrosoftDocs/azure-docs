@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/09/2024
+ms.date: 01/18/2024
 ms.custom: fasttrack-edit
 ---
 
@@ -26,6 +26,13 @@ In *multitenant* Azure Logic Apps, deployment depends on Azure Resource Manager 
 In *single-tenant* Azure Logic Apps, deployment becomes easier because you can separate resource provisioning between apps and infrastructure. You can use *parameters* to abstract values that might change between environments. By defining parameters to use in your workflows, you can first focus on designing your workflows, and then insert your environment-specific variables later. You can call and reference your environment variables at runtime by using app settings and parameters. That way, you don't have to redeploy as often.
 
 App settings integrate with Azure Key Vault. You can [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection strings and keys. Similar to Azure Resource Manager templates (ARM templates), where you can define environment variables at deployment time, you can define app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. However, app settings have size limitations and can't be referenced from certain areas in Azure Logic Apps.
+
+> [!NOTE]
+>
+> If you use Key Vault, make sure that you store only secrets, such as passwords, credentials, and certificates. 
+> In a logic app workflow, don't use Key Vault to store non-secret values, such as URL paths, that the workflow designer needs to make calls. 
+> The designer can't deference an app setting that references a Key Vault resource type, which results in an 
+> error and a failed call. For non-secret values, store them directly in app settings.
 
 For more information about setting up your logic apps for deployment, see the following documentation:
 

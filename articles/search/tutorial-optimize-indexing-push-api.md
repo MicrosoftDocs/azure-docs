@@ -6,7 +6,7 @@ author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 1/05/2023
+ms.date: 1/18/2024
 ms.custom:
   - devx-track-csharp
   - ignite-2023
@@ -14,11 +14,11 @@ ms.custom:
 
 # Tutorial: Optimize indexing with the push API
 
-Azure AI Search supports [two basic approaches](search-what-is-data-import.md) for importing data into a search index: *pushing* your data into the index programmatically, or pointing an [Azure AI Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
+Azure AI Search supports [two basic approaches](search-what-is-data-import.md) for importing data into a search index: *push* your data into the index programmatically, or pointing an [Azure AI Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
 
 This tutorial describes how to efficiently index data using the [push model](search-what-is-data-import.md#pushing-data-to-an-index) by batching requests and using an exponential backoff retry strategy. You can [download and run the sample application](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/optimize-data-indexing). This article explains the key aspects of the application and factors to consider when indexing data.
 
-This tutorial uses C# and the [.NET SDK](/dotnet/api/overview/azure/search) to perform the following tasks:
+This tutorial uses C# and the [Azure.Search.Documents library from the Azure SDK for .NET](/dotnet/api/overview/azure/search) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Create an index
@@ -45,9 +45,7 @@ Source code for this tutorial is in the [optimize-data-indexing/v11](https://git
 
 ## Key considerations
 
-When pushing data into an index, there's several key considerations that impact indexing speeds. You can learn more about these factors in the [index large data sets article](search-howto-large-index.md).
-
-Six key factors to consider are:
+Factors affecting indexing speeds are listed next. You can learn more in [Index large data sets](search-howto-large-index.md).
 
 + **Service tier and number of partitions/replicas** - Adding partitions and increasing your tier will both increase indexing speeds.
 + **Index Schema** - Adding fields and adding additional properties to fields (such as *searchable*, *facetable*, or *filterable*) both reduce indexing speeds.
@@ -55,7 +53,6 @@ Six key factors to consider are:
 + **Number of threads/workers** - a single thread won't take full advantage of indexing speeds
 + **Retry strategy** - An exponential backoff retry strategy should be used to optimize indexing.
 + **Network data transfer speeds** - Data transfer speeds can be a limiting factor. Index data from within your Azure environment to increase data transfer speeds.
-
 
 ## 1 - Create Azure AI Search service
 
@@ -151,7 +148,7 @@ List<Hotel> hotels = dg.GetHotels(numDocuments, "large");
 
 There are two sizes of hotels available for testing in this sample: **small** and  **large**.
 
-The schema of your index can have a significant impact on indexing speeds. Because of this impact, it makes sense to convert this class to generate data matching your intended index schema after you run through this tutorial.
+The schema of your index has an effect on indexing speeds. For this reason, it makes sense to convert this class to generate data that best matches your intended index schema after you run through this tutorial.
 
 ## 4 - Test batch sizes
 
@@ -230,7 +227,7 @@ public static double EstimateObjectSize(object data)
 }
 ```
 
-The function requires an `SearchClient` as well as the number of tries you'd like to test for each batch size. As there may be some variability in indexing times for each batch, we try each batch three times by default to make the results more statistically significant.
+The function requires a `SearchClient` plus the number of tries you'd like to test for each batch size. Because there might be variability in indexing times for each batch, we try each batch three times by default to make the results more statistically significant.
 
 ```csharp
 await TestBatchSizesAsync(searchClient, numTries: 3);
@@ -240,7 +237,7 @@ When you run the function, you should see an output like below in your console:
 
    ![Output of test batch size function](media/tutorial-optimize-data-indexing/test-batch-sizes.png "Output of test batch size function")
 
-Identify which batch size is most efficient and then use that batch size in the next step of the tutorial. You may see a plateau in MB/s across different batch sizes.
+Identify which batch size is most efficient and then use that batch size in the next step of the tutorial. You might see a plateau in MB/s across different batch sizes.
 
 ## 5 - Index data
 
@@ -253,9 +250,9 @@ Now that we've identified the batch size we intend to use, the next step is to b
 
 To take full advantage of Azure AI Search's indexing speeds, you'll likely need to use multiple threads to send batch indexing requests concurrently to the service.  
 
-Several of the key considerations mentioned above impact the optimal number of threads. You can modify this sample and test with different thread counts to determine the optimal thread count for your scenario. However, as long as you have several threads running concurrently, you should be able to take advantage of most of the efficiency gains.
+Several of the key considerations previously mentioned can affect the optimal number of threads. You can modify this sample and test with different thread counts to determine the optimal thread count for your scenario. However, as long as you have several threads running concurrently, you should be able to take advantage of most of the efficiency gains.
 
-As you ramp up the requests hitting the search service, you may encounter [HTTP status codes](/rest/api/searchservice/http-status-codes) indicating the request didn't fully succeed. During indexing, two common HTTP status codes are:
+As you ramp up the requests hitting the search service, you might encounter [HTTP status codes](/rest/api/searchservice/http-status-codes) indicating the request didn't fully succeed. During indexing, two common HTTP status codes are:
 
 + **503 Service Unavailable** - This error means that the system is under heavy load and your request can't be processed at this time.
 + **207 Multi-Status** - This error means that some documents succeeded, but at least one failed.
@@ -281,7 +278,7 @@ TimeSpan delay = delay = TimeSpan.FromSeconds(2);
 int maxRetryAttempts = 5;
 ```
 
-The results of the indexing operation are stored in the variable `IndexDocumentResult result`. This variable is important because it allows you to check if any documents in the batch failed as shown below. If there is a partial failure, a new batch is created based on the failed documents' ID.
+The results of the indexing operation are stored in the variable `IndexDocumentResult result`. This variable is important because it allows you to check if any documents in the batch failed as shown below. If there's a partial failure, a new batch is created based on the failed documents' ID.
 
 `RequestFailedException` exceptions should also be caught as they indicate the request failed completely and should also be retried.
 
@@ -366,7 +363,7 @@ You can explore the populated search index after the program has run programatic
 
 ### Programatically
 
-There are two main options for checking the number of documents in an index: the [Count Documents API](/rest/api/searchservice/count-documents) and the [Get Index Statistics API](/rest/api/searchservice/get-index-statistics). Both paths may require some additional time to update so don't be alarmed if the number of documents returned is lower than you expected initially.
+There are two main options for checking the number of documents in an index: the [Count Documents API](/rest/api/searchservice/count-documents) and the [Get Index Statistics API](/rest/api/searchservice/get-index-statistics). Both paths require time to process so don't be alarmed if the number of documents returned is initially lower than you expect.
 
 #### Count Documents
 
@@ -390,7 +387,7 @@ In Azure portal, open the search service **Overview** page, and find the **optim
 
   ![List of Azure AI Search indexes](media/tutorial-optimize-data-indexing/portal-output.png "List of Azure AI Search indexes")
 
-The *Document Count* and *Storage Size* are based on [Get Index Statistics API](/rest/api/searchservice/get-index-statistics) and may take several minutes to update.
+The *Document Count* and *Storage Size* are based on [Get Index Statistics API](/rest/api/searchservice/get-index-statistics) and can take several minutes to update.
 
 ## Reset and rerun
 
