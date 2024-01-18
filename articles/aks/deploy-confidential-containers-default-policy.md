@@ -379,7 +379,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 
 1. Copy and paste the external IP address of the consumer service into your browser and observe the decrypted message. 
 
-    The following resemblers the output of the command:
+    The following resembles the output of the command:
     
     ```output
     Welcome to Confidential Containers on AKS!
