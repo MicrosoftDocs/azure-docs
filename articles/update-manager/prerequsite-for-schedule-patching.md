@@ -162,8 +162,7 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -PatchMode "AutomaticByPlat
 $AutomaticByPlatformSettings = $VirtualMachine.OSProfile.WindowsConfiguration.PatchSettings.AutomaticByPlatformSettings
  
 if ($null -eq $AutomaticByPlatformSettings) {
-	
-   $VirtualMachine.OSProfile.WindowsConfiguration.PatchSettings.AutomaticByPlatformSettings = New-Object -TypeName Microsoft.Azure.Management.Compute.Models.WindowsVMGuestPatchAutomaticByPlatformSettings -Property @{BypassPlatformSafetyChecksOnUserSchedule = $true}
+	 $VirtualMachine.OSProfile.WindowsConfiguration.PatchSettings.AutomaticByPlatformSettings = New-Object -TypeName Microsoft.Azure.Management.Compute.Models.WindowsVMGuestPatchAutomaticByPlatformSettings -Property @{BypassPlatformSafetyChecksOnUserSchedule = $true}
 } else {
    $AutomaticByPlatformSettings.BypassPlatformSafetyChecksOnUserSchedule = $true
 }
