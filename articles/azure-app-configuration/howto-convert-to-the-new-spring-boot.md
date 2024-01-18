@@ -45,7 +45,7 @@ All of the group and artifact IDs in the Azure libraries for Spring Boot have be
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.5.0</version>
+        <version>5.8.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>
@@ -78,7 +78,7 @@ All of the group and artifact IDs in the Azure libraries for Spring Boot have be
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.11.0</version>
+        <version>4.14.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>
@@ -119,6 +119,37 @@ spring.cloud.azure.appconfiguration.stores[0].monitoring.feature-flag-refresh-in
 ```
 
 The property `spring.cloud.azure.appconfiguration.stores[0].feature-flags.label` has been removed. Instead, you can use `spring.cloud.azure.appconfiguration.stores[0].feature-flags.selects[0].label-filter` to specify a label filter.
+
+## Using Client Customizers
+
+`ConfigurationClientCustomizer` and `SecretClientCustomizer` are used to customize the `ConfigurationClient` and `SecretClient` instances. You can use them to modify the clients before they're used to connect to App Configuration. This allows for using any credential type supported by the [Azure Identity library](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/identity/azure-identity/README.md#credential-classes). You can also modify the clients to set a custom `HttpClient` or `HttpPipeline`.
+
+```java
+import com.azure.core.credential.TokenCredential;
+import com.azure.data.appconfiguration.ConfigurationClientBuilder;
+import com.azure.identity.AzureCliCredential;
+import com.azure.identity.AzureCliCredentialBuilder;
+import com.azure.identity.ChainedTokenCredential;
+import com.azure.identity.ChainedTokenCredentialBuilder;
+import com.azure.identity.EnvironmentCredentialBuilder;
+import com.azure.identity.ManagedIdentityCredential;
+import com.azure.identity.ManagedIdentityCredentialBuilder;
+import com.azure.spring.cloud.appconfiguration.config.ConfigurationClientCustomizer;
+
+public class ConfigurationClientCustomizerImpl implements ConfigurationClientCustomizer {
+
+    @Override
+    public void customize(ConfigurationClientBuilder builder, String endpoint) {
+        AzureCliCredential cliCredential = new AzureCliCredentialBuilder().build();
+        String managedIdentityClientId = System.getenv("MANAGED_IDENTITY_CLIENT_ID");
+        ManagedIdentityCredential managedIdentityCredential = new ManagedIdentityCredentialBuilder()
+            .clientId(managedIdentityClientId).build();
+        ChainedTokenCredential credential = new ChainedTokenCredentialBuilder().addLast(cliCredential)
+            .addLast(managedIdentityCredential).build();
+        builder.credential(credential);
+    }
+}
+```
 
 ## Possible conflicts with Spring Cloud Azure global properties
 

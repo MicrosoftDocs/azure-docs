@@ -15,6 +15,9 @@ ms.custom: devx-track-js
 ---
 # Calling SDK overview
 
+[!INCLUDE [Survey Request](../../includes/survey-request.md)]
+
+
 The Calling SDK enables end-user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To get started right away, check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md).
 
 Once you've started development, check out the [known issues page](../known-issues.md) to find bugs we're working on.
