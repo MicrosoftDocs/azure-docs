@@ -15,14 +15,14 @@ ms.topic: how-to
 
 This article describes how you can manage machines from an updates standpoint. 
 
-The Updates blade (preview) allow you to manage machines from an updates viewpoint. It implies that you can see how many Linux and Windows updates are pending and the update applies to which machines. It also enables you to act on each of the pending updates. To view the latest pending updates on each of the machines, we recommend that you enable periodic assessment on all your machines. For more information, see [enable periodic assessment at scale using Policy](periodic-assessment-at-scale.md) or [enable using update settings](manage-update-settings.md).
+The Updates blade (preview) allows you to manage machines from an updates viewpoint. It implies that you can see how many Linux and Windows updates are pending and the update applies to which machines. It also enables you to act on each of the pending updates. To view the latest pending updates on each of the machines, we recommend that you enable periodic assessment on all your machines. For more information, see [enable periodic assessment at scale using Policy](periodic-assessment-at-scale.md) or [enable using update settings](manage-update-settings.md).
 
   :::image type="content" source="./media/deploy-manage-updates-using-updates-view/overview-pending-updates.png" alt-text="Screenshot that shows number of updates and the type of updates pending on your Windows and Linux machines." lightbox="./media/deploy-manage-updates-using-updates-view/overview-pending-updates.png":::
 
 
 ## Classic use case
 
-This option can be much helpful when you discover a vulnerability and want to fix it by applying a specific update on all machines on which it was pending. For example, in one of the software, a vulnerability is discovered and this vulnerability exposes the customer's environment to risk like remote code extension. When the Central IT team discovers this threat, they want to secure their enterprise's environment by applying an update *abc* that would mitigate vulnerability. Using the Updates view, they can apply the update *abc* on all the impacted machines.
+This option is helpful when you discover a vulnerability and want to fix it by applying a specific update on all machines on which it was pending. For example, in a software, a vulnerability is discovered and this vulnerability exposes the customer's environment to risk like remote code extension. When the Central IT team discovers this threat, they want to secure their enterprise's environment by applying an update *abc* that would mitigate vulnerability. Using the Updates view, they can apply the update *abc* on all the impacted machines.
 
  ## Summarized view
 
