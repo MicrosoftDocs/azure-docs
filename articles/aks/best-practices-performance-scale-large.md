@@ -3,7 +3,7 @@ title: Performance and scaling best practices for large workloads in Azure Kuber
 titleSuffix: Azure Kubernetes Service
 description: Learn the best practices for performance and scaling for large workloads in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 11/03/2023
+ms.date: 01/18/2024
 ---
 
 # Best practices for performance and scaling for large workloads in Azure Kubernetes Service (AKS)
@@ -33,7 +33,7 @@ Kubernetes has a multi-dimensional scale envelope with each resource type repres
 
 The control plane manages all the resource scaling in the cluster, so the more you scale the cluster within a given dimension, the less you can scale within other dimensions. For example, running hundreds of thousands of pods in an AKS cluster impacts how much pod churn rate (pod mutations per second) the control plane can support.
 
-The size of the envelope is proportional to the size of the Kubernetes control plane. AKS supports two control plane tiers as part of the Base SKU: the Free tier and the Standard tier. For more information, see [Free and Standard pricing tiers for AKS cluster management][free-standard-tier].
+The size of the envelope is proportional to the size of the Kubernetes control plane. AKS supports three control plane tiers as part of the Base SKU: Free, Standard, and Premium tier. For more information, see [Free, Standard, and Premium pricing tiers for AKS cluster management][pricing-tiers].
 
 > [!IMPORTANT]
 > We highly recommend using the Standard tier for production or at-scale workloads. AKS automatically scales up the Kubernetes control plane to support the following scale limits:
@@ -115,7 +115,7 @@ As you scale your AKS clusters to larger scale points, keep the following node p
 [managed-nat-gateway]: ./nat-gateway.md
 [azure-cni-dynamic-ip]: ./configure-azure-cni-dynamic-ip-allocation.md
 [azure-cni-overlay]: ./azure-cni-overlay.md
-[free-standard-tier]: ./free-standard-pricing-tiers.md
+[pricing-tiers]: ./free-standard-pricing-tiers.md
 [cluster-autoscaler]: cluster-autoscaler.md
 [azure-npm]: ../virtual-network/kubernetes-network-policies.md
 
