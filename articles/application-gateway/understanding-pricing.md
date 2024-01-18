@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 10/03/2022
+ms.date: 01/19/2022
 ms.author: greglin
 ---
 
@@ -24,11 +24,20 @@ This article describes the costs associated with each SKU and it's recommended t
 
 ## V2 SKUs  
 
-Application Gateway V2 and WAF V2 SKUs support autoscaling and guarantee high availability by default.
+Application Gateway V2 and WAF V2 SKUs support autoscaling and guarantee high availability by default. V2 SKUs are billed based on the consumption and constitute of two parts:
 
-### Key Terms
+- **Fixed costs**: These costs are based on the time the Application Gateway V2 or WAF V2 is provisioned and available for processing requests. This ensures high availability. There is an associated cost even if zero instances are reserved by specifying `0` in the minimum instance count, as part of autoscaling. 
+    - The fixed cost also includes the cost associated with the public IP address attached to the application gateway. 
+    - The number of instances running at any point of time isn't considered in calculating fixed costs for V2 SKUs. The fixed costs of running a Standard_V2 (or WAF_V2) is the same per hour, regardless of the number of instances running within the same Azure region.
+- **Capacity unit costs**: These costs are based on the number of capacity units that are either reserved or utilized - as required for processing the incoming requests. Consumption based costs are computed hourly.
 
-##### Capacity Unit 
+**Total costs** = **fixed costs** + **capacity unit costs**
+
+> [!NOTE]
+> A partial hour is billed as a full hour.
+
+### Capacity Unit 
+
 Capacity Unit is the measure of capacity utilization for an Application Gateway across multiple parameters.
 
 A single Capacity Unit consists of the following parameters:
@@ -36,40 +45,26 @@ A single Capacity Unit consists of the following parameters:
 * 2.22-Mbps throughput
 * 1 Compute Unit
 
-If any of these parameters are exceeded, then another N capacity units are necessary, even if the other two parameters don’t exceed this single capacity unit’s limits.
-The parameter with the highest utilization among the three above will be internally used for calculating capacity units, which is in turn billed.
+The parameter with the highest utilization among these three parameters is used to calculate capacity units for billing purposes.
 
-##### Compute Unit
-Compute Unit is the measure of compute capacity consumed. Factors affecting compute unit consumption are TLS connections/sec, URL Rewrite computations, and WAF rule processing. The number of requests a compute unit can handle depends on various criteria like TLS certificate key size, key exchange algorithm, header rewrites, and in case of WAF - incoming request size.
+#### Capacity Unit related to Instance Count
+
+You can also can preprovision resources by specifying the **Instance Count**. Each instance guarantees a minimum of 10 capacity units in terms of processing capability. The same instance could potentially support more than 10 capacity units for different traffic patterns depending upon the capacity unit parameters.
+
+Manually defined scale and limits set for autoscaling (minimum or maximum) are set in terms of instance count. The manually set scale for instance count and the minimum instance count in autoscale config will reserve 10 capacity units/instance. These reserved capacity units are billed as long as the application gateway is active regardless of the actual resource consumption. If actual consumption crosses the 10 capacity units/instance threshold, additional capacity units are billed under the variable component.
+
+#### Total capacity units
+
+Total capacity units are calculated based on the higher of the capacity units by utilization or by instance count.
+
+### Compute unit
+
+**Compute Unit** is the measure of compute capacity consumed. Factors affecting compute unit consumption are TLS connections/seccond, URL Rewrite computations, and WAF rule processing. The number of requests a compute unit can handle depends on various criteria like TLS certificate key size, key exchange algorithm, header rewrites, and in case of WAF: incoming request size.
 
 Compute unit guidance:
+* Basic_v2 (preview) - Each compute unit is capable of approximately 10 connections per second with RSA 2048-bit key TLS certificate.
 * Standard_v2 - Each compute unit is capable of approximately 50 connections per second with RSA 2048-bit key TLS certificate.
-
 * WAF_v2 - Each compute unit can support approximately 10 concurrent requests per second for 70-30% mix of traffic with 70% requests less than 2 KB GET/POST and remaining higher. WAF performance isn't affected by response size currently.
-
-##### Instance Count 
-Pre-provisioning of resources for Application Gateway V2 SKUs is defined in terms of instance count. Each instance guarantees a minimum of 10 capacity units in terms of processing capability. The same instance could potentially support more than 10 capacity units for different traffic patterns depending upon the Capacity Unit parameters.
-
-Manually defined scale and limits set for autoscaling (minimum or maximum) are set in terms of Instance Count. The manually set scale for instance count and the minimum instance count in autoscale config will reserve 10 capacity units/instance. These reserved CUs will be billed as long as the Application Gateway is active regardless of the actual resource consumption. If actual consumption crosses the 10 capacity units/instance threshold, additional capacity units will be billed under the variable component.
-
-V2 SKUs are billed based on the consumption and constitute of two parts:
-
-* Fixed Costs
-
-    Cost based on the time the Application Gateway V2 /WAF V2 is provisioned and available for processing requests. This ensures high availability - even if 0 instances are reserved by specifying 0 in minimum instance count as part of autoscaling. 
-    
-    The fixed cost also includes the cost associated with the public IP attached to the Application Gateway.
-
-    The number of instances running at any point of time isn't considered as a factor for fixed costs for V2 SKUs. The fixed costs of running a Standard_V2 (or WAF_V2) would be same per hour regardless of the number of instances running within the same Azure region.
-
-* Capacity Unit Costs 
-
-    Cost based on the number of capacity units either reserved or utilized additionally as required for processing the incoming requests.  Consumption based costs are computed hourly.
-
-Total Costs = Fixed Costs + Capacity Unit Costs
-
-> [!NOTE]
-> A partial hour is billed as a full hour.
 
 The following table shows example prices based on a snapshot of East US pricing and are for illustration purposes only.
 

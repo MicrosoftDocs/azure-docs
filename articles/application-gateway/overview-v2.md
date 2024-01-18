@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 01/11/2024
+ms.date: 01/17/2024
 ms.author: greglin
 ms.custom: references_regions
 ---
@@ -31,8 +31,8 @@ The new v2 SKU includes the following enhancements:
 - **Mutual Authentication (mTLS)**: Application Gateway v2 supports authentication of client requests. For more information, see [Overview of mutual authentication with Application Gateway](mutual-authentication-overview.md).
 - **Azure Kubernetes Service Ingress Controller**: The Application Gateway v2 Ingress Controller allows the Azure Application Gateway to be used as the ingress for an Azure Kubernetes Service (AKS) known as AKS Cluster. For more information, see [What is Application Gateway Ingress Controller?](ingress-controller-overview.md).
 - **Private link**: The v2 SKU offers private connectivity from other virtual networks in other regions and subscriptions through the use of private endpoints.
-- **Performance enhancements**: The v2 SKU offers up to 5X better TLS offload performance as compared to the Standard/WAF SKU.
-- **Faster deployment and update time** The v2 SKU provides faster deployment and update time as compared to Standard/WAF SKU. This also includes WAF configuration changes.
+- **Performance enhancements**: The v2 SKU offers up to 5X better TLS offload performance as compared to v1.
+- **Faster deployment and update time** The v2 SKU provides faster deployment and update time as compared to v1. This also includes WAF configuration changes.
 
 ![Diagram of auto-scaling zone.](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
@@ -42,12 +42,12 @@ The new v2 SKU includes the following enhancements:
 ## SKU types
 
 Application Gateway v2 is available under two SKUs: 
-- **Basic_v2**: The Basic SKU is designed for applications that have lower traffic and SLA requirements, and don't need advanced auto scale and traffic management features. 
+- **Basic_v2** (preview): The Basic SKU is designed for applications that have lower traffic and SLA requirements, and don't need advanced auto scale and traffic management features. 
 - **Standard_v2 SKU**: The Standard_v2 is designed for running production workloads and high traffic. It also includes auto scale that can automatically adjust the number of instances to match your traffic needs. 
 
 See the following table for a comparison between Basic_v2 and Stadard_v2.
 
-|      Feature             | Capabilities                             |   Basic SKU    |   Standard SKU    |
+|      Feature             | Capabilities                             | Basic SKU (preview)|   Standard SKU    |
 |     :---:                | :---                                     |     :---:      |     :---:         |
 | Reliability              | SLA                                      | 99.9           | 99.95             |
 | Functionality - basic    | HTTP/HTTP2/HTTPS<br>Websocket<br>Public/Private IP<br>Cookie Affinitiy<br>Path-based affinity<br>Wildcard<br>Multisite<br>KeyVault<br>AKS (via AGIC)<br>Zone | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br><br> | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;|
@@ -58,6 +58,17 @@ See the following table for a comparison between Basic_v2 and Stadard_v2.
 ## Pricing
 
 With the v2 SKU, the pricing model is driven by consumption and is no longer attached to instance counts or sizes. To learn more, see [Understanding pricing](understanding-pricing.md).
+
+## Unsupported regions
+
+The Standard_v2 and WAF_v2 SKU are not currently available in the following regions:
+
+- UK North
+- UK South2
+- China East
+- China North
+- US DOD East
+- US DOD Central
 
 ## Migrate from v1 to v2
 
@@ -109,17 +120,6 @@ This section describes features and limitations of the v2 SKU that differ from t
 |FIPS mode|Currently not supported.|
 |Private frontend configuration only mode|Currently in public preview [Learn more](application-gateway-private-deployment.md).|
 |Microsoft Defender for Cloud integration|Not yet available.
-
-## Unsupported regions
-
-The Standard_v2 and WAF_v2 SKU is not currently available in the following regions:
-
-- UK North
-- UK South2
-- China East
-- China North
-- US DOD East
-- US DOD Central
 
 ## Next steps
 
