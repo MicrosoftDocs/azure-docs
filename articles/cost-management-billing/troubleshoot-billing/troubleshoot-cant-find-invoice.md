@@ -73,4 +73,4 @@ If you have questions or need help, [create a support request](https://portal.az
 
 - [View and download your Azure invoice](../understand/download-azure-invoice.md)
 - [View and download your Azure usage and charges](../understand/download-azure-daily-usage.md)
-- [No subscriptions found sign in error for Azure portal](no-subscriptions-found.md)
+- [No subscriptions found sign in error for Azure portal](../troubleshoot-subscription/no-subscriptions-found.md)
