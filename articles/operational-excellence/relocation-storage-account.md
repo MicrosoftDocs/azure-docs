@@ -30,6 +30,8 @@ This article covers relocation guidance for Azure Storage Account across regions
     - [Virtual Network, Network Security Groups, and User Defined Route](./relocation-virtual-network.md)
     - [Azure Key Vault](./relocation-key-vault.md)
     - [Azure Automation](./relocation-automation.md)
+    - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
+    - [Azure Private Link](./relocation-private-link.md)
 
     >[!IMPORTANT]
     >If the Storage Account instance is operating in a production layer of a landing zone, such as hosting a static website or CDN, then you must reevaluate dependent resources as per configured resources like Traffic Manager.

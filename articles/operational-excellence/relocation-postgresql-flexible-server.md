@@ -72,7 +72,7 @@ Configuration includes, but is not limited to:
     - [Azure Private Link](./relocation-private-link.md)
     - [Virtual Network](./relocation-virtual-network.md)
     - [Network Peering](/azure/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks)
-    - [Azure Private DNS]()
+
 
 ### Redeploy your PostgreSQL server with data migration
 
