@@ -98,7 +98,7 @@ To configure your tenant application as an eID-ME relying party in eID-Me, suppl
 | Application privacy policy URL| Appears to the end user|
 
 >[!NOTE]
->When the relying party is configurede, ID-Me provides a Client ID and a Client Secret. Note the Client ID and Client Secret to configure the identity provider (IdP) in Azure AD B2C.
+>When the relying party is configured, ID-Me provides a Client ID and a Client Secret. Note the Client ID and Client Secret to configure the identity provider (IdP) in Azure AD B2C.
 
 ## Add a new Identity provider in Azure AD B2C
 
