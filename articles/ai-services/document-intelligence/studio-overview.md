@@ -21,7 +21,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 Document Intelligence Studio is an online tool to visually explore, understand, train, and integrate features from the Document Intelligence service into your applications. The studio provides a platform for you to experiment with the different Document Intelligence models and sample returned data in an interactive manner without the need to write code.
 
-[Document Intelligence Studio](https://documentintelligence.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service into your applications. Use the Document Intelligence Studio to:
+[Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio/) is an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service into your applications. Use the Document Intelligence Studio to:
 * Learn more about the different capabilities in Document Intelligence.
 * Use your Document Intelligence resource to test models on sample documents or upload your own documents.
 * Experiment with different add-on and preview features to adapt the output to your needs.
