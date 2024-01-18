@@ -5,18 +5,6 @@ ms.topic: tutorial
 ms.date: 11/07/2023
 ---
 
-# Tutorial: Create a log query alert for an Azure resource
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. Log query alert rules create an alert when a log query returns a particular result. For example, receive an alert when a particular event is created on a virtual machine, or send a warning when excessive anonymous requests are made to a storage account.
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Access prebuilt log queries designed to support alert rules for different kinds of resources
-> * Create a log query alert rule
-> * Create an action group to define notification details
-
-
-## Prerequisites
 
 # Tutorial: Create a log query alert for an Azure resource
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. Log query alert rules create an alert when a log query returns a particular result. For example, receive an alert when a particular event is created on a virtual machine, or send a warning when excessive anonymous requests are made to a storage account.
