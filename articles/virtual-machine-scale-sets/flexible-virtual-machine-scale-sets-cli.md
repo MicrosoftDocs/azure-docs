@@ -43,8 +43,8 @@ Now create a Virtual Machine Scale Set with [az vmss create](/cli/azure/vmss). T
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
+  --orchestration-mode Flexible \
   --image <SKU Linux Image> \
-  --upgrade-policy-mode automatic \
   --instance-count 2 \
   --admin-username azureuser \
   --generate-ssh-keys
