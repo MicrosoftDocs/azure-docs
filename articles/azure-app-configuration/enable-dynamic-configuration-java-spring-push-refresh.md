@@ -70,7 +70,7 @@ In this tutorial, you learn how to:
             <dependency>
             <groupId>com.azure.spring</groupId>
             <artifactId>spring-cloud-azure-dependencies</artifactId>
-            <version>5.5.0</version>
+            <version>5.8.0</version>
             <type>pom</type>
             <scope>import</scope>
             </dependency>
@@ -84,7 +84,6 @@ In this tutorial, you learn how to:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>4.10.0</version>
     </dependency>
 
     <!-- Adds the Ability to Push Refresh -->
@@ -98,7 +97,7 @@ In this tutorial, you learn how to:
             <dependency>
             <groupId>com.azure.spring</groupId>
             <artifactId>spring-cloud-azure-dependencies</artifactId>
-            <version>4.11.0</version>
+            <version>4.14.0</version>
             <type>pom</type>
             <scope>import</scope>
             </dependency>
@@ -115,7 +114,7 @@ In this tutorial, you learn how to:
    mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
    ```
 
-1. Open bootstrap.properties and configure Azure App Configuration Push Refresh and Azure Service Bus
+1. Open bootstrap.properties and configure Azure App Configuration Push Refresh.
 
    ```properties
    # Azure App Configuration Properties
@@ -201,7 +200,10 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
     :::image type="content" source="./media/event-subscription-view-webhook.png" alt-text="Web Hook shows up in a table on the bottom of the page." :::
 
 > [!NOTE]
-> When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](../event-grid/event-filtering.md) or [Service Bus subscription filters](../service-bus-messaging/topic-filters.md). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
+> When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](../event-grid/event-filtering.md). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
+
+> [!NOTE]
+> If you have multiple instances of your application running, you can use the `appconfiguration-refresh-bus` endpoint which requires setting up Azure Service Bus, which is used to send a message to all instances of your application to refresh their configuration. This is useful if you have multiple instances of your application running and want to ensure that all instances are updated with the latest configuration. This endpoint isn't available unless you have `spring-cloud-bus` as a dependency with it configured. See the [Azure Service Bus Spring Cloud Bus documentation](/azure/developer/java/spring-framework/using-service-bus-in-spring-applications) for more information. The service bus connection only needs to be set up and the Azure App Configuration library will handle sending and receiving the messages.
 
 ## Verify and test application
 

@@ -13,12 +13,31 @@ ms.custom: template-how-to
 
 In this article, you learn how to add or remove ACLs from the data record in your Azure Data Manager for Energy instance.
 
+## Create a data group as ACL
+Run the following curl command in Azure Cloud Shell to create a new data group, e.g., data.sampledb.viewer, in the specific data partition of the Azure Data Manager for Energy instance.
+
+**Request format**
+
+```bash
+    curl --location --request POST "https://<adme-url>/api/entitlements/v2/groups/" \
+    --header 'data-partition-id: <data-partition>' \
+    --header 'Authorization: Bearer <access_token>'
+    --data-raw '{
+       "description": "<data-group-description>",
+       "name": "data.sampledb.viewer"
+    }
+```
+
+users.data.root entitlement group is the default member of all data groups when groups are created. If you try to remove users.data.root from any data group, you get error since this membership is enforced by OSDU. 
+
+In case, a data record has 2 ACLs, ACL_1 and ACL_2, and a given user is member of ACL_1 and users.data.root, now if you remove this given user from  ACL_1, the user remains to have access of the data record via users.data.root group. 
+
 ## Create a record with ACLs
 
 **Request format**
 
 ```bash
-curl --location --request PUT 'https://osdu-ship.msft-osdu-test.org/api/storage/v2/records/' \
+curl --location --request PUT 'https://<adme-url>/api/storage/v2/records/' \
 --header 'data-partition-id: opendes' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer <token>’ \
@@ -79,7 +98,7 @@ Keep the record ID from the response handy for future references.
 **Request format**
 
 ```bash
-curl --location 'https://osdu-ship.msft-osdu-test.org/api/storage/v2/records/opendes:master-data--Well:999736019023' \
+curl --location 'https://<adme-url>/api/storage/v2/records/opendes:master-data--Well:999736019023' \
 --header 'data-partition-id: opendes' \
 --header 'Authorization: Bearer <token>’
 ```
@@ -128,7 +147,7 @@ The first `/acl/owners/0` operation removes ACL from 0th position in the array o
 **Request format**
 
 ```bash
-curl --location --request PATCH 'https://osdu-ship.msft-osdu-test.org/api/storage/v2/records/' \
+curl --location --request PATCH 'https://<adme-url>/api/storage/v2/records/' \
 --header 'data-partition-id: opendes' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer <token>’\
@@ -178,6 +197,7 @@ If you delete the last owner ACL from the data record, you get the error.
     ]
 }
 ```
+
 
 ## Next steps
 

@@ -43,7 +43,7 @@ Ubuntu 20.04: 5.4.0-1046-azure
 
 | Size                | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU                        | GPU Memory GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max network bandwidth  | Max NICs |
 |---------------------|------|------------|------------------------|----------------------------|----------------|----------------|-----------------------------------------|------------------------------|----------|
-| Standard_ND96isr_v5 | 96   | 1900       | 1000                   | 8 H100 80 GB GPUs(NVLink)  | 80             | 32             | 40800/612                               | 80,000 Mbps                         | 8        |
+| Standard_ND96isr_H100_v5 | 96   | 1900       | 1000                   | 8 H100 80 GB GPUs(NVLink)  | 80             | 32             | 40800/612                               | 80,000 Mbps                         | 8        |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
