@@ -2,7 +2,7 @@
 title: Unified insights from Microsoft Entra permissions management | Defender for Cloud in the field
 description: Learn about unified insights from Microsoft Entra permissions management
 ms.topic: reference
-ms.date: 01/17/2024
+ms.date: 01/18/2024
 ---
 
 # Unified insights from Microsoft Entra permissions management
@@ -11,9 +11,9 @@ ms.date: 01/17/2024
 
 > [!VIDEO https://aka.ms/docs/player?id=28414ce1-1acb-486a-a327-802a654edc38]
 
-- [01:48](/shows/mdc-in-the-field/agentless-secret-scanning-for-virtual-machines#time=01m48s) - Overview of Entra permission management
-- [02:55](/shows/mdc-in-the-field/agentless-secret-scanning-for-virtual-machines#time=02m55s) - Details about the integration with Defender for Cloud
-- [06:50](/shows/mdc-in-the-field/agentless-secret-scanning-for-virtual-machines#time=06m50s) - Demonstration
+- [01:48](/shows/mdc-in-the-field/unified-insights#time=01m48s) - Overview of Entra permission management
+- [02:55](/shows/mdc-in-the-field/unified-insights#time=02m55s) - Details about the integration with Defender for Cloud
+- [06:50](/shows/mdc-in-the-field/unified-insights#time=06m50s) - Demonstration
 
 ## Recommended resources
 
