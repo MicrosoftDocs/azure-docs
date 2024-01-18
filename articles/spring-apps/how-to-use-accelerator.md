@@ -496,13 +496,13 @@ az spring dev-tool create \
 
 You can bootstrap your project from any accelerator of App Accelerator in an Azure Spring Apps Enterprise service instance in VS Code directly.
 
-### View App Accelerator list
+### View the list of App Accelerators
 
-Use the following steps to view the App Accelerator list from an Azure Spring Apps Enterprise service instance:
+Use the following steps to view the list of App Accelerators in an Azure Spring Apps Enterprise service instance:
 
 1. In Visual Studio Code, open the Azure Spring Apps extension, and then sign in to your Azure account.
 
-1. Expand the service instance that you want to operate and right-click to select the service instance.
+1. Expand the service instance that you want and right-click to select the service instance.
 
 1. From the menu, select **Open Application Accelerator** to open the list of App Accelerators. The system prompts you to install the [Tanzu Application Accelerator Visual Studio Code extension](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.6/tap/application-accelerator-vscode.html) if it isn't installed.
 
@@ -513,7 +513,7 @@ Use the following steps to view the App Accelerator list from an Azure Spring Ap
    :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png" alt-text="Screenshot of VS Code that shows the list of App Accelerator extensions." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png":::
 
 > [!NOTE]
-> If you experience any failure that you can't fix when using the extension, log out of your account from the extension.
+> When using the extension, if you experience any issues that you can't fix, log out of your account from the extension.
 
 ### Troubleshoot App Accelerator issues
 
