@@ -2,7 +2,11 @@
 title: Sample solutions using AI
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Review solution accelerators using both Azure Cosmos DB for MongoDB vCore and Azure OpenAI. These solutions integrate AI with vector search capabilities.
+author: seesharprun
 ms.author: sidandrews
+ms.reviewer: wangwilliam
+ms.service: cosmos-db
+ms.subservice: nosql
 ms.topic: overview
 ms.date: 01/18/2024
 ---

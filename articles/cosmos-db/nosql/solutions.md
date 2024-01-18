@@ -4,6 +4,9 @@ titleSuffix: Azure Cosmos DB for NoSQL
 description: Review solution accelerators using both Azure Cosmos DB for NoSQL and Azure OpenAI. The solutions integrate AI with vector search capabilities.
 author: seesharprun
 ms.author: sidandrews
+ms.reviewer: wangwilliam
+ms.service: cosmos-db
+ms.subservice: nosql
 ms.topic: overview
 ms.date: 01/18/2024
 ---
@@ -18,7 +21,7 @@ Implement vector search and an AI assistant using Azure Cosmos DB for NoSQL, Azu
 
 :::image type="content" source="media/solutions/modernize-apps-screenshot.png" alt-text="Screenshot of an AI assistants application responding to queries about various bikes for a retail shop.":::
 
-:::image type="complex" source="media/solutions/modernize-apps-diagram.png" alt-text="Diagram of the architecture of the solution accelerator.":::
+:::image type="complex" source="media/solutions/modernize-apps-diagram.png" alt-text="Diagram of the architecture of the application modernization solution accelerator.":::
 Diagram illustrating a Kubernetes-backed web application using Azure AI Search, Azure OpenAI, Azure Storage, and Azure Cosmos DB and backing services. Vectors and items are persisted in Azure Cosmos DB while files are persisted in Azure Storage.
 :::image-end:::
 
@@ -31,7 +34,7 @@ Diagram illustrating a Kubernetes-backed web application using Azure AI Search, 
 
 Use Azure Front Door, Azure OpenAI, Azure Kubernetes Service, Azure Static Web Apps, and Azure Cosmos DB for NoSQL to implement a payment tracking process.
 
-:::image type="complex" source="media/solutions/payment-processing-diagram.png" alt-text="Diagram of the architecture of the solution accelerator.":::
+:::image type="complex" source="media/solutions/payment-processing-diagram.png" alt-text="Diagram of the architecture of the payment processing solution accelerator.":::
 Diagram illustrating a service that uses an Azure Static Web App and Azure Front Door as a customer interface. The solution then hosts a combination of payment APIs and worker services to process payment transactions in Azure Kubernetes Service. Finally, the Kubernetes containers store data in Azure Cosmos DB and retrieve AI completions from Azure OpenAI.
 :::image-end:::
 
@@ -44,7 +47,7 @@ Diagram illustrating a service that uses an Azure Static Web App and Azure Front
 
 Process complex medical claims using a solution build with Azure Event Hubs, Azure Static Web Apps, Azure Kubernetes Service, Azure OpenAI, an Azure Cosmos DB for NoSQL.
 
-:::image type="complex" source="media/solutions/" alt-text="Diagram of the architecture of the solution accelerator.":::
+:::image type="complex" source="media/solutions/claims-processing-diagram.png" alt-text="Diagram of the architecture of the claims processing solution accelerator.":::
 Diagram Illustrating an external system ingesting claims using Azure Event Hubs. Concurrently, agents are interesting with an Azure Static Web App. Worker Services and APIs are hosted in Azure Kubernetes Service. The containers use Azure OpenAI for completions. The containers also store data in Azure Cosmos DB for NoSQL, which is then analyzed and manged using Azure Synapse Analytics.
 :::image-end:::
 
@@ -60,4 +63,4 @@ Use tools like the new Azure Developer CLI to automate the deployment of AI-powe
 | | Link |
 | --- | --- |
 | **Azure Developer CLI template** | <https://github.com/azure-samples/chat-csharp-cosmos-db-nosql-openai> |
-| **Training module** | <https://learn.microsoft.com/training/modules/build-chat-bot-azure-cosmos-db-openai-blazor> |
+| **Training module** | </training/modules/build-chat-bot-azure-cosmos-db-openai-blazor> |
