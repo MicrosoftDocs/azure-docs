@@ -104,5 +104,5 @@ After you delete an image, there's no way to retrieve the image or the associate
 
 ## Next steps
 
-For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md). Visit [FAQs about Defender for IoT Firmware Analysis](/articles/defender-for-iot/device-builders/defender-for-iot-FAQ.md) for answers to frequent questions.
+For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md). Visit [FAQs about Defender for IoT Firmware Analysis](/articles/defender-for-iot/device-builders/defender-for-iot-firmware-analysis-FAQ.md) for answers to frequent questions.
 

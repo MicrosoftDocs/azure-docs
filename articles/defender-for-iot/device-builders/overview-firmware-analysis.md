@@ -38,4 +38,4 @@ Defender for IoT can analyze your firmware for common weaknesses and vulnerabili
 
 - [Analyze a firmware image](tutorial-analyze-firmware.md)
 - [Understand Role-Based Access Control for Firmware Images](/articles/defender-for-iot/device-builders/defender-for-iot-firmware-analysis-rbac.md)
-- [Frequently asked questions about Defender for IoT Firmware Analysis](/articles/defender-for-iot/device-builders/defender-for-iot-FAQ.md)
+- [Frequently asked questions about Defender for IoT Firmware Analysis](/articles/defender-for-iot/device-builders/defender-for-iot-firmware-analysis-FAQ.md)
