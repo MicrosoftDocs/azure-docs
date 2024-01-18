@@ -53,7 +53,7 @@ The following resources provide you with support:
 [!INCLUDE [dcr.sh](./includes/dcr.md)]
 - `assign.sh`: use the script to create a policy to associate the DCR with all Arc-enabled servers in a resource group
 [!INCLUDE [assign.sh](./includes/assign.md)]
-- `install.sh`: Arc-enable Nexus Kubernetes cluster VMs and install Azure Monitoring Agent on each VM
+- `install.sh`: Install Azure Monitoring Agent on each VM to collect monitoring data from Azure Virtual Machines. 
 [!INCLUDE [install.sh](./includes/install.md)]
 
 ### Prerequisites-VM
@@ -169,11 +169,11 @@ For convenience, the provided **`assign.sh`** script assigns the built-in policy
 ./assign.sh
 ```
 
-#### Connect Arc-enabled servers and install Azure monitoring agent
+#### Install Azure monitoring agent
 
-Use the included **`install.sh`** script to Arc-enroll all server VMs that represent the nodes of the Nexus Kubernetes cluster.
-This script creates a Kubernetes daemonSet on the Nexus Kubernetes cluster.
-It deploys a pod to each cluster node, connecting each VM to Arc-enabled servers and installing the Azure Monitoring Agent (AMA).
+All server VMs that represent the nodes of the Nexus Kubernetes cluster are arc-enabled by default. 
+Use the included **`install.sh`** which creates a Kubernetes daemonSet on the Nexus Kubernetes cluster.
+It deploys a pod to each cluster node and installs the Azure Monitoring Agent (AMA).
 The `daemonSet` also includes a liveness probe that monitors the server connection and AMA processes.
 
 1. Set the environment as specified in [Environment Setup](#environment-setup). Set the current `kubeconfig` context for the Nexus Kubernetes cluster VMs.
@@ -191,7 +191,6 @@ kubectl logs <podname>
 ```
 
 On completion, the system logs the message "Server monitoring configured successfully".
-At that point, the Arc-enabled servers appear as resources within the selected resource group.
 
 > [!NOTE]
 > Associate these connected servers to the [DCR](#associate-arc-enabled-server-resources-to-dcr).
