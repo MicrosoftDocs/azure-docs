@@ -33,6 +33,8 @@ The Llama 2 family of large language models (LLMs) is a collection of pretrained
 
 Llama 2 can be deployed as a service with pay-as-you-go billing or with hosted infrastructure in real-time endpoints.
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Deploy Llama 2 models with pay-as-you-go
 
 Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
@@ -52,30 +54,35 @@ The following models are available for Llama 2 when deployed as a service with p
 
 If you need to deploy a different model, [deploy it to real-time endpoints](#deploy-llama-2-models-to-real-time-endpoints) instead.
 
-### Pre-requisites (change)
+### Prerequisites (change)
 
-1. Azure subscription with a valid payment method, free or trial azure subscriptions won't work.
-2. Pay-as-you-go offering is only available in workspaces created in East US 2 and West US 3 regions.
-3. Certain user permissions are needed to subscribe a workspace to a particular offer from the Azure Marketplace and to deploy/fine-tune the model. Assigning a **Contributor** or **Owner** access at the azure subscription level can provide these permissions automatically. Alternatively custom roles can be created with the following specific permissions:
-   
- a. On the Azure subscription:
-      Microsoft.MarketplaceOrdering/agreements/offers/plans/read
-      Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action
-      Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read
-      Microsoft.SaaS/register/action
+- An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure Machine Learning account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
+- An Azure Machine Learning workspace and a compute instance. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them.
+
+    - Pay-as-you-go offering is only available in workspaces created in East US 2 and West US 3 regions.
+
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role can be created with the following permissions:
+
+    - On the Azure subscription:
+      - `Microsoft.MarketplaceOrdering/agreements/offers/plans/read`
+      - `Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action`
+      - `Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read`
+      - `Microsoft.SaaS/register/action`
  
- b. On the Resource Group:
-      Microsoft.SaaS/resources/read
-      Microsoft.SaaS/resources/write
+    - On the Resource Group:
+      - `Microsoft.SaaS/resources/read`
+      - `Microsoft.SaaS/resources/write`
  
- c. On the Project: (The AI developer role contains below permissions already)
-      Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*  
-      Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*
+    - On the Project: (The AI developer role contains these permissions already)
+      - `Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*`  
+      - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*`
       
- d. For finetuning, following are needed at project level: (The AI developer role contains below permissions already)
-      Microsoft.MachineLearningServices/workspaces/jobs/*
-      Microsoft.MachineLearningServices/workspaces/datastores/*
-   
+    - For finetuning, these permissions are needed at the project level: (The AI developer role contains these permissions already)
+      - `Microsoft.MachineLearningServices/workspaces/jobs/*`
+      - `Microsoft.MachineLearningServices/workspaces/datastores/*`
+
+For more information on permissions, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+
 ### Create a new deployment
 
 To create a deployment:
