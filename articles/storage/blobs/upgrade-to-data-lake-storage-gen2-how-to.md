@@ -213,7 +213,7 @@ After the upgrade has completed, break the leases you created to resume allowing
 
 1. First, open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-2. Verify that the version of Azure CLI that have installed is `2.29.0` or higher by using the following command.
+2. Verify that the version of Azure CLI that has installed is `2.29.0` or higher by using the following command.
 
    ```azurecli
     az --version
