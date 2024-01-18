@@ -74,3 +74,7 @@
   items:
     - name: Troubleshoot common issues
       href: troubleshoot-common-issues.md
+- name: Samples
+  items:
+    - name: Solution accelerators
+      href: solutions.md
