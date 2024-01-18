@@ -10,7 +10,7 @@ displayName: chat history, history, chat logs, logs
 ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 12/19/2023
 ms.custom: ignite-fall-2021
 ---
 

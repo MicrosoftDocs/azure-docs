@@ -15,7 +15,7 @@ keywords: speech translation
 
 # What is speech translation?
 
-In this article, you learn about the benefits and capabilities of the speech translation service, which enables real-time, multi-language speech-to-speech and speech to text translation of audio streams. 
+In this article, you learn about the benefits and capabilities of the speech translation service, which enables real-time, multi-language speech to speech and speech to text translation of audio streams. 
 
 By using the Speech SDK or Speech CLI, you can give your applications, tools, and devices access to source transcriptions and translation outputs for the provided audio. Interim transcription and translation results are returned as speech is detected, and the final results can be converted into synthesized speech.
 

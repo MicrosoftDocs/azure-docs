@@ -6,9 +6,8 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 12/20/2023
 ms.author: eur
-ms.custom: ignite-fall-2021
 zone_pivot_groups: speech-studio-cli-rest
 show_latex: true
 no-loc: [$$, '\times', '\over']
@@ -22,7 +21,7 @@ In this article, you learn how to quantitatively measure and improve the accurac
 
 ## Create a test
 
-You can test the accuracy of your custom model by creating a test. A test requires a collection of audio files and their corresponding transcriptions. You can compare a custom model's accuracy with a speech to text base model or another custom model. After you [get](#get-test-results) the test results, [evaluate](#evaluate-word-error-rate) the word error rate (WER) compared to speech recognition results.
+You can test the accuracy of your custom model by creating a test. A test requires a collection of audio files and their corresponding transcriptions. You can compare a custom model's accuracy with a speech to text base model or another custom model. After you [get](#get-test-results) the test results, [evaluate the word error rate (WER)](#evaluate-word-error-rate-wer) compared to speech recognition results.
 
 ::: zone pivot="speech-studio"
 
@@ -222,7 +221,7 @@ The top-level `self` property in the response body is the evaluation's URI. Use 
 
 ## Get test results
 
-You should get the test results and [evaluate](#evaluate-word-error-rate) the word error rate (WER) compared to speech recognition results.
+You should get the test results and [evaluate](#evaluate-word-error-rate-wer) the word error rate (WER) compared to speech recognition results.
 
 ::: zone pivot="speech-studio"
 
@@ -386,7 +385,7 @@ You should receive a response body in the following format:
 ::: zone-end
 
 
-## Evaluate word error rate
+## Evaluate word error rate (WER)
 
 The industry standard for measuring model accuracy is [word error rate (WER)](https://en.wikipedia.org/wiki/Word_error_rate). WER counts the number of incorrect words identified during recognition, and divides the sum by the total number of words provided in the human-labeled transcript (N). 
 
@@ -422,6 +421,26 @@ You can use the WER calculation from the machine recognition results to evaluate
 How the errors are distributed is important. When many deletion errors are encountered, it's usually because of weak audio signal strength. To resolve this issue, you need to collect audio data closer to the source. Insertion errors mean that the audio was recorded in a noisy environment and crosstalk might be present, causing recognition issues. Substitution errors are often encountered when an insufficient sample of domain-specific terms has been provided as either human-labeled transcriptions or related text.
 
 By analyzing individual files, you can determine what type of errors exist, and which errors are unique to a specific file. Understanding issues at the file level will help you target improvements.
+
+## Evaluate token error rate (TER)
+
+Besides [word error rate](#evaluate-word-error-rate-wer), you can also use the extended measurement of **Token Error Rate (TER)** to evaluate quality on the final end-to-end display format. In addition to the lexical format (`That will cost $900.` instead of `that will cost nine hundred dollars`), TER takes into account the display format aspects such as punctuation, capitalization, and ITN. Learn more about [Display output formatting with speech to text](display-text-format.md). 
+
+TER counts the number of incorrect tokens identified during recognition, and divides the sum by the total number of tokens provided in the human-labeled transcript (N).
+
+$$
+TER = {{I+D+S}\over N} \times 100
+$$
+
+The formula of TER calculation is also very similar to WER. The only difference is that TER is calculated based on the token level instead of word level.
+* Insertion (I): Tokens that are incorrectly added in the hypothesis transcript
+* Deletion (D): Tokens that are undetected in the hypothesis transcript
+* Substitution (S): Tokens that were substituted between reference and hypothesis
+
+In a real-world case, you may analyze both WER and TER results to get the desired improvements. 
+
+> [!NOTE]
+> To measure TER, you need to make sure the [audio + transcript testing data](./how-to-custom-speech-test-and-train.md#audio--human-labeled-transcript-data-for-training-or-testing) includes transcripts with display formatting such as punctuation, capitalization, and ITN.
 
 ## Example scenario outcomes
 

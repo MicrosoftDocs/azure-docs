@@ -70,8 +70,6 @@ items:
           href: dicom-change-feed-overview.md
         - name: Extended query tags
           href: dicom-extended-query-tags-overview.md
-        - name: Bulk update
-          href: update-files.md
     - name: API versioning
       expanded: false
       items: 

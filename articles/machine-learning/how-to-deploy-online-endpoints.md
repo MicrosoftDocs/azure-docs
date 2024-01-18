@@ -75,9 +75,9 @@ For managed online endpoints, Azure Machine Learning reserves 20% of your comput
 
 There are certain VM SKUs that are exempted from extra quota reservation. To view the full list, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 
-Azure Machine Learning provides a [shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota) pool from which all users can access quota to perform testing for a limited time. When you use the studio to deploy Llama models (from the model catalog) to a managed online endpoint, Azure Machine Learning allows you to access this shared quota for a short time. 
+Azure Machine Learning provides a [shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota) pool from which all users can access quota to perform testing for a limited time. When you use the studio to deploy Llama-2, Phi, Nemotron, Mistral, Dolly and Deci-DeciLM models from the model catalog to a managed online endpoint, Azure Machine Learning allows you to access this shared quota for a short time. 
 
-To deploy a _Llama-2-70b_ or _Llama-2-70b-chat_ model, however, you must have an [Enterprise Agreement subscription](/azure/cost-management-billing/manage/create-enterprise-subscription) before you can deploy using the shared quota. For more information on how to use the shared quota for online endpoint deployment, see [How to deploy foundation models using the studio](how-to-use-foundation-models.md#deploying-using-the-studio).
+For more information on how to use the shared quota for online endpoint deployment, see [How to deploy foundation models using the studio](how-to-use-foundation-models.md#deploying-using-the-studio).
 
 ## Prepare your system
 

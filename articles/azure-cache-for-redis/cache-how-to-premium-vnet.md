@@ -154,7 +154,7 @@ There are eight inbound port range requirements. Inbound requests in these range
 | 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing | (Redis subnet) | (Redis subnet), (Client subnet), AzureLoadBalancer <sup>1</sup> |
 | 8443 |Inbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 | 8500 |Inbound |TCP/UDP |Azure load balancing | (Redis subnet) | AzureLoadBalancer |
-| 10221-10231 |Inbound |TCP |Client communication to Redis Clusters, internal communications for Redis | (Redis subnet) |(Redis subnet), AzureLoadBalancer, (Client subnet) |
+| 10221-10231 |Inbound |TCP |Client communication to Redis Clusters, internal communications for Redis | (Redis subnet) |(Redis subnet), (Client subnet), AzureLoadBalancer |
 | 13000-13999 |Inbound |TCP |Client communication to Redis Clusters, Azure load balancing | (Redis subnet) | (Redis subnet), (Client subnet), AzureLoadBalancer |
 | 15000-15999 |Inbound |TCP |Client communication to Redis Clusters, Azure load balancing, and geo-replication | (Redis subnet) | (Redis subnet), (Client subnet), AzureLoadBalancer, (Geo-replica peer subnet) |
 | 16001 |Inbound |TCP/UDP |Azure load balancing | (Redis subnet) | AzureLoadBalancer |

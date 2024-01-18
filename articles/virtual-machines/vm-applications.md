@@ -6,9 +6,9 @@ ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 09/18/2023
-author: ericd-mst-github
+author: ju-shim
 ms.author: nikhilpatel
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.custom: devx-track-linux
 ---
 

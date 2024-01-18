@@ -109,7 +109,7 @@ The following table shows connectivity locations and the service providers for e
 | **Pune** | [STT GDC Pune DC1](https://www.sttelemediagdc.in/our-data-centres-in-india) | 2 | Central India | Supported | Airtel<br/>Lightstorm<br/>Tata Communications |
 | **Quebec City** | [Vantage](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | 1 | Canada East | Supported | Bell Canada<br/>Equinix<br/>Megaport<br/>RISQ<br/>Telus |
 | **Queretaro (Mexico)** | [KIO Networks QR01](https://www.kionetworks.com/es-mx/) | 4 | n/a | Supported | Cirion Technologies<br/>Megaport<br/>Transtelco |
-| **Quincy** | [Sabey Datacenter - Building A](https://sabeydatacenters.com/data-center-locations/central-washington-data-centers/quincy-data-center) | 1 | West US 2 | Supported |  |
+| **Quincy** | Sabey Datacenter - Building A | 1 | West US 2 | Supported |  |
 | **Rio de Janeiro** | [Equinix-RJ2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/rio-de-janeiro-data-centers/rj2/) | 3 | Brazil Southeast | Supported | Cirion Technologies<br/>Equinix |
 | **San Antonio** | [CyrusOne SA1](https://cyrusone.com/locations/texas/san-antonio-texas/) | 1 | South Central US | Supported | CenturyLink Cloud Connect<br/>Megaport<br/>Zayo |
 | **Santiago** | [EdgeConnex SCL](https://www.edgeconnex.com/locations/south-america/santiago/) | 3 | n/a | Supported | PitChile |

@@ -47,7 +47,7 @@ The following quotas apply to the Essential (preview) and Standard plans.
 
 | Limit                                | Description                                                                                         | Essential       | Standard         |
 |--------------------------------------|-----------------------------------------------------------------------------------------------------|-----------------|------------------|
-| Alert rules                          | Maximum number of alert rules that can be created                                                   | Not supported   | 100 per instance |
+| Alert rules                          | Maximum number of alert rules that can be created                                                   | Not supported   | 500 per instance |
 | Dashboards                           | Maximum number of dashboards that can be created                                                    | 20 per instance | Unlimited        |
 | Data sources                         | Maximum number of datasources that can be created                                                   | 5 per instance  | Unlimited        |
 | API keys                             | Maximum number of API keys that can be created                                                      | 2 per instance  | 100 per instance |

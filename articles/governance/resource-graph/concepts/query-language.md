@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 12/15/2023
+ms.date: 12/18/2023
 ms.topic: conceptual
 ms.author: davidsmatlak
 author: davidsmatlak
@@ -167,23 +167,23 @@ Here's the list of KQL tabular operators supported by Resource Graph with specif
 
 |KQL |Resource Graph sample query |Notes |
 |---|---|---|
-|[count](/azure/data-explorer/kusto/query/countoperator) |[Count key vaults](../samples/starter.md#count-keyvaults) | |
-|[distinct](/azure/data-explorer/kusto/query/distinctoperator) |[Show resources that contain storage](../samples/starter.md#show-storage) | |
-|[extend](/azure/data-explorer/kusto/query/extendoperator) |[Count virtual machines by OS type](../samples/starter.md#count-os) | |
-|[join](/azure/data-explorer/kusto/query/joinoperator) |[Key vault with subscription name](../samples/advanced.md#join) |Join flavors supported: [innerunique](/azure/data-explorer/kusto/query/joinoperator#default-join-flavor), [inner](/azure/data-explorer/kusto/query/joinoperator#inner-join), [leftouter](/azure/data-explorer/kusto/query/joinoperator#left-outer-join). Limit of three `join` in a single query, one of which might be a cross-table `join`. If all cross-table `join` use is between _Resource_ and _ResourceContainers_, then three cross-table `join` are allowed. Custom join strategies, such as broadcast join, aren't allowed. For which tables can use `join`, go to [Resource Graph tables](#resource-graph-tables). |
-|[limit](/azure/data-explorer/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Synonym of `take`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
+|[count](/azure/data-explorer/kusto/query/countoperator) |[Count key vaults](../samples/starter.md#count-key-vault-resources) | |
+|[distinct](/azure/data-explorer/kusto/query/distinctoperator) |[Show resources that contain storage](../samples/starter.md#show-resources-that-contain-storage) | |
+|[extend](/azure/data-explorer/kusto/query/extendoperator) |[Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type) | |
+|[join](/azure/data-explorer/kusto/query/joinoperator) |[Key vault with subscription name](../samples/advanced.md#key-vaults-with-subscription-name) |Join flavors supported: [innerunique](/azure/data-explorer/kusto/query/joinoperator#default-join-flavor), [inner](/azure/data-explorer/kusto/query/joinoperator#inner-join), [leftouter](/azure/data-explorer/kusto/query/joinoperator#left-outer-join). Limit of three `join` in a single query, one of which might be a cross-table `join`. If all cross-table `join` use is between _Resource_ and _ResourceContainers_, then three cross-table `join` are allowed. Custom join strategies, such as broadcast join, aren't allowed. For which tables can use `join`, go to [Resource Graph tables](#resource-graph-tables). |
+|[limit](/azure/data-explorer/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-all-public-ip-addresses) |Synonym of `take`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/data-explorer/kusto/query/mvexpandoperator) | | Legacy operator, use `mv-expand` instead. _RowLimit_ max of 400. The default is 128. |
-|[mv-expand](/azure/data-explorer/kusto/query/mvexpandoperator) |[List Azure Cosmos DB with specific write locations](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max of 400. The default is 128. Limit of 2 `mv-expand` in a single query.|
-|[order](/azure/data-explorer/kusto/query/orderoperator) |[List resources sorted by name](../samples/starter.md#list-resources) |Synonym of `sort` |
-|[parse](/azure/data-explorer/kusto/query/parseoperator) |[Get virtual networks and subnets of network interfaces](../samples/advanced.md#parse-subnets) |It's optimal to access properties directly if they exist instead of using `parse`. |
-|[project](/azure/data-explorer/kusto/query/projectoperator) |[List resources sorted by name](../samples/starter.md#list-resources) | |
-|[project-away](/azure/data-explorer/kusto/query/projectawayoperator) |[Remove columns from results](../samples/advanced.md#remove-column) | |
-|[sort](/azure/data-explorer/kusto/query/sort-operator) |[List resources sorted by name](../samples/starter.md#list-resources) |Synonym of `order` |
-|[summarize](/azure/data-explorer/kusto/query/summarizeoperator) |[Count Azure resources](../samples/starter.md#count-resources) |Simplified first page only |
-|[take](/azure/data-explorer/kusto/query/takeoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Synonym of `limit`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
-|[top](/azure/data-explorer/kusto/query/topoperator) |[Show first five virtual machines by name and their OS type](../samples/starter.md#show-sorted) | |
-|[union](/azure/data-explorer/kusto/query/unionoperator) |[Combine results from two queries into a single result](../samples/advanced.md#unionresults) |Single table allowed: ```| union [kind= inner|outer] [withsource=ColumnName] Table```. Limit of three `union` legs in a single query. Fuzzy resolution of `union` leg tables isn't allowed. Might be used within a single table or between the _Resources_ and _ResourceContainers_ tables. |
-|[where](/azure/data-explorer/kusto/query/whereoperator) |[Show resources that contain storage](../samples/starter.md#show-storage) | |
+|[mv-expand](/azure/data-explorer/kusto/query/mvexpandoperator) |[List Azure Cosmos DB with specific write locations](../samples/advanced.md#list-azure-cosmos-db-with-specific-write-locations) |_RowLimit_ max of 400. The default is 128. Limit of 2 `mv-expand` in a single query.|
+|[order](/azure/data-explorer/kusto/query/orderoperator) |[List resources sorted by name](../samples/starter.md#list-resources-sorted-by-name) |Synonym of `sort` |
+|[parse](/azure/data-explorer/kusto/query/parseoperator) |[Get virtual networks and subnets of network interfaces](../samples/advanced.md#get-virtual-networks-and-subnets-of-network-interfaces) |It's optimal to access properties directly if they exist instead of using `parse`. |
+|[project](/azure/data-explorer/kusto/query/projectoperator) |[List resources sorted by name](../samples/starter.md#list-resources-sorted-by-name) | |
+|[project-away](/azure/data-explorer/kusto/query/projectawayoperator) |[Remove columns from results](../samples/advanced.md#remove-columns-from-results) | |
+|[sort](/azure/data-explorer/kusto/query/sort-operator) |[List resources sorted by name](../samples/starter.md#list-resources-sorted-by-name) |Synonym of `order` |
+|[summarize](/azure/data-explorer/kusto/query/summarizeoperator) |[Count Azure resources](../samples/starter.md#count-azure-resources) |Simplified first page only |
+|[take](/azure/data-explorer/kusto/query/takeoperator) |[List all public IP addresses](../samples/starter.md#list-all-public-ip-addresses) |Synonym of `limit`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
+|[top](/azure/data-explorer/kusto/query/topoperator) |[Show first five virtual machines by name and their OS type](../samples/starter.md#show-first-five-virtual-machines-by-name-and-their-os-type) | |
+|[union](/azure/data-explorer/kusto/query/unionoperator) |[Combine results from two queries into a single result](../samples/advanced.md#combine-results-from-two-queries-into-a-single-result) |Single table allowed: ```| union [kind= inner|outer] [withsource=ColumnName] Table```. Limit of three `union` legs in a single query. Fuzzy resolution of `union` leg tables isn't allowed. Might be used within a single table or between the _Resources_ and _ResourceContainers_ tables. |
+|[where](/azure/data-explorer/kusto/query/whereoperator) |[Show resources that contain storage](../samples/starter.md#show-resources-that-contain-storage) | |
 
 There's a default limit of three `join` and three `mv-expand` operators in a single Resource Graph SDK query. You can request an increase in these limits for your tenant through **Help + support**.
 

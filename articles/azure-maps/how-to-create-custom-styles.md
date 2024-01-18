@@ -248,8 +248,8 @@ Now when you select that unit in the map, the pop-up menu has the new layer ID, 
 [map configuration]: creator-indoor-maps.md#map-configuration
 [style editor]: https://azure.github.io/Azure-Maps-Style-Editor
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[tileset get]: /rest/api/maps/2023-03-01-preview/tileset/get
-[tileset]: /rest/api/maps/2023-03-01-preview/tileset
+[tileset get]: /rest/api/maps-creator/tileset/get?view=rest-maps-creator-2023-03-01-preview
+[tileset]: /rest/api/maps-creator/tileset?view=rest-maps-creator-2023-03-01-preview
 [unitProperties]: drawing-requirements.md#unitproperties
 [Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [Use the Azure Maps Indoor Maps module]: how-to-use-indoor-module.md

@@ -36,7 +36,7 @@ landingContent:
             url: quickstart-create-and-run-load-test.md
           - text: Create a load test with a JMeter script
             url: how-to-create-and-run-load-test-with-JMeter-script.md
-          - text: 'Automate load tests with CI/CD'
+          - text: Automate load tests with Azure Pipelines
             url: quickstart-add-load-test-cicd.md
       - linkListType: tutorial
         links:
@@ -50,26 +50,36 @@ landingContent:
         links:
           - text: Load test Azure App Service apps
             url: concept-load-test-app-service.md
-  
+
   # Card
-  - title: Configure load tests
+  - title: Configure test plan
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Add HTTP requests to URL-based tests
             url: how-to-add-requests-to-url-based-test.md
+          - text: Read data from a CSV file
+            url: how-to-read-csv-data.md
+          - text: Customize tests with JMeter plugins
+            url: how-to-use-jmeter-plugins.md
+          - text: Use JMeter user properties
+            url: how-to-configure-user-properties.md
+
+  # Card
+  - title: Configure test settings
+    linkLists:
+      - linkListType: how-to-guide
+        links:
           - text: Configure for high scale loads
             url: how-to-high-scale-load.md
           - text: Parameterize load tests
             url: how-to-parameterize-load-tests.md
           - text: 'Define test fail criteria'
             url: how-to-define-test-criteria.md
-          - text: Use JMeter user properties
-            url: how-to-configure-user-properties.md
-          - text: Customize tests with JMeter plugins
-            url: how-to-use-jmeter-plugins.md
-          - text: Read data from a CSV file
-            url: how-to-read-csv-data.md
+          - text: Test private endpoints
+            url: how-to-test-private-endpoint.md
+          - text: Test secure endpoints
+            url: how-to-test-secured-endpoints.md
 
   # Card
   - title: Run load tests
@@ -78,12 +88,10 @@ landingContent:
         links:
           - text: Create a load test with a JMeter script
             url: how-to-create-and-run-load-test-with-jmeter-script.md
-          - text: Set up automated regression testing with CI/CD
-            url: tutorial-cicd-azure-pipelines.md
-          - text: Test applications with authentication
-            url: how-to-test-secured-endpoints.md
-          - text: Test a private endpoint with VNET injection
-            url: how-to-test-private-endpoint.md
+          - text: Automate load tests with Azure Pipelines
+            url: quickstart-add-load-test-cicd.md
+          - text: Manually add load tests to CI/CD
+            url: how-to-configure-load-test-cicd.md
 
   # Card
   - title: Analyze test results

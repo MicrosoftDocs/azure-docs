@@ -99,6 +99,9 @@ During these steps, the SQL output can experience following types of errors:
 * `BulkCopy` timeouts can happen during `BulkCopy` in Step 5. `BulkCopy` can experience operation timeouts occasionally. The default minimum configured  timeout is five minutes and it's doubled when hit consecutively.
 Once the timeout is above 15 minutes, the max batch size hint to `BulkCopy` is reduced to half until 100 events per batch are left.
 
+    > [!IMPORTANT]
+    > For non-[network injected ASA jobs](./run-job-in-virtual-network.md), please do not rely on source IP address of connections coming from ASA in any way. They can be public or private IPs depending on service infrastructure operations that happen from time to time.
+        
 ## Column names are lowercase in Azure Stream Analytics (1.0)
 
 When using the original compatibility level (1.0), Azure Stream Analytics changes column names to lowercase. This behavior was fixed in later compatibility levels. To preserve the case, move to compatibility level 1.1 or later. For more information, see [Compatibility level for Stream Analytics jobs](./stream-analytics-compatibility-level.md).

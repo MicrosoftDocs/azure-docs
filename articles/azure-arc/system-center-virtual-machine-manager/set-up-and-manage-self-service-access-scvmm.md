@@ -3,8 +3,8 @@ title: Set up and manage self-service access to SCVMM resources
 description: This article describes how to use built-in roles to manage granular access to SCVMM resources through Azure Role-based Access Control (RBAC).
 ms.service: azure-arc
 ms.subservice: azure-arc-scvmm
-author: PriskeyJeronika-MS
-ms.author: v-gjeronika
+author: Farha-Bano
+ms.author: v-farhabano
 manager: jsuri
 ms.topic: how-to 
 ms.date: 11/15/2023
@@ -61,4 +61,4 @@ The **Azure Arc ScVmm VM Contributor** role is a built-in role that provides per
 
 ## Next steps
 
-[Create an Azure Arc VM](https://learn.microsoft.com/azure/azure-arc/system-center-virtual-machine-manager/create-virtual-machine).
+[Create an Azure Arc VM](create-virtual-machine.md).

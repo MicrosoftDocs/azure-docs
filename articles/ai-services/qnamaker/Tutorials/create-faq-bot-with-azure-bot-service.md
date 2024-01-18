@@ -7,7 +7,7 @@ ms.author: jboback
 author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 12/19/2023
 ms.custom: ignite-fall-2021
 ---
 

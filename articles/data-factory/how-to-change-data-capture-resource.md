@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice:
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/06/2023
+ms.date: 01/05/2024
 ---
 
 # Capture changed data from Azure Data Lake Storage Gen2 to Azure SQL Database by using a change data capture resource

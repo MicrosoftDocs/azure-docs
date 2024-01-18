@@ -16,6 +16,8 @@ items:
       href: https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/
     - name: What's new
       href: whats-new.md
+    - name: Programming languages/SDKs
+      href: ./supported-languages.md
     - name: Azure OpenAI FAQ
       href: faq.yml
 - name: Quickstarts
@@ -43,6 +45,8 @@ items:
       href: ./concepts/understand-embeddings.md
     - name: Fine-tuning
       href: ./concepts/fine-tuning-considerations.md
+    - name: GPT-4 Turbo with Vision
+      href: ./concepts/gpt-with-vision.md
     - name: Red teaming large language models (LLMs)
       href: ./concepts/red-teaming.md
     - name: Content credentials
@@ -55,6 +59,7 @@ items:
       href: ./concepts/advanced-prompt-engineering.md
     - name: Provisioned throughput units (PTU)
       href: ./concepts/provisioned-throughput.md
+      displayName: PTU, provisioned, provisioned throughput units
     - name: System message templates
       href: ./concepts/system-message.md
     - name: Using your data - text (preview)
@@ -63,6 +68,8 @@ items:
       href: ./concepts/use-your-image-data.md
 - name: How-to 
   items:
+  - name: API version lifecycle
+    href: ./api-version-deprecation.md
   - name: Completions & chat completions
     items:
     - name: GPT-35-Turbo & GPT-4 
@@ -122,6 +129,12 @@ items:
         href: ./how-to/quota.md
       - name: Monitor Azure OpenAI
         href: ./how-to/monitoring.md
+      - name: Onboarding to Provisioned Throughput Units (PTU)
+        href: ./how-to/provisioned-throughput-onboarding.md
+        displayName: PTU, provisioned, provisioned throughput units
+      - name: Get started with Provisioned Deployments
+        href: ./how-to/provisioned-get-started.md
+        displayName: PTU, provisioned, provisioned throughput units
       - name: Plan and manage costs
         href: ./how-to/manage-costs.md
       - name: Performance & latency

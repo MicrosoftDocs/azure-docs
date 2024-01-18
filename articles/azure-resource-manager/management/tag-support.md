@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 01/03/2024
 ---
 
 # Tag support for Azure resources
@@ -2023,7 +2023,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | registries / models / versions | No | No |
 > | virtualclusters | Yes | Yes |
 > | workspaces | Yes | Yes |
-> | workspaces / batchEndpoints | Yes | Yes |
+> | workspaces / batchEndpoints | Yes | No |
 > | workspaces / batchEndpoints / deployments | Yes | Yes |
 > | workspaces / batchEndpoints / deployments / jobs | No | No |
 > | workspaces / batchEndpoints / jobs | No | No |
@@ -2050,7 +2050,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | workspaces / services | No | No |
 
 > [!NOTE]
-> Workspace tags don't propagate to compute clusters and compute instances.
+> Workspace tags don't propagate to compute clusters and compute instances. It is not supported with tracking cost at cluster/batch endpoint level.
 
 ## Microsoft.Maintenance
 
@@ -2331,7 +2331,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | networkVirtualAppliances | Yes | Yes |
 > | networkWatchers | Yes | Yes |
 > | networkWatchers / connectionMonitors | Yes | No |
-> | networkWatchers / flowLogs | Yes | Yes |
+> | networkWatchers / flowLogs | Yes | No |
 > | networkWatchers / lenses | Yes | No |
 > | networkWatchers / pingMeshes | Yes | No |
 > | p2sVpnGateways | Yes | Yes |
@@ -2659,6 +2659,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | backupProtectedItems | No | No |
 > | vaults | Yes | Yes |
+> | vaults / backupPolicies | Yes | Yes |
 
 ## Microsoft.RedHatOpenShift
 
