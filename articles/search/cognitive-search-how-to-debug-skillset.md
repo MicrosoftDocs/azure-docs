@@ -203,7 +203,7 @@ You can edit the skill definition in the portal.
 
 ### Test your code
 
-At this point, new requests from your debug session should now be sent to your local Azure Function. You can use breakpoints in your Visual Studio code to debug your code or run step by step.
+At this point, new requests from your debug session should now be sent to your local Azure Function. You can use breakpoints in your Visual Studio Code to debug your code or run step by step.
 
 ## Next steps
 
