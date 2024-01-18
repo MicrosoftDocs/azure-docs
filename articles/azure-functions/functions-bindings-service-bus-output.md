@@ -55,7 +55,7 @@ This example shows a [C# function](dotnet-isolated-process-guide.md) that receiv
 
 This example uses an HTTP trigger with an `OutputType` object to both send an HTTP response and write the output message. 
 
-```cs
+```csharp
 [Function("HttpSendMsg")]
 public async Task<OutputType> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req, FunctionContext context)
 {
@@ -74,7 +74,7 @@ public async Task<OutputType> Run([HttpTrigger(AuthorizationLevel.Function, "get
 
 This code defines the multiple output type `OutputType`, which includes the Service Bus output binding definition on `OutputEvent`:
 
-```cs
+```csharp
  public class OutputType
 {
    [ServiceBusOutput("TopicOrQueueName", Connection = "ServiceBusConnection")]
@@ -88,7 +88,7 @@ This code defines the multiple output type `OutputType`, which includes the Serv
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that sends a Service Bus queue message:
 
-```cs
+```csharp
 [FunctionName("ServiceBusOutput")]
 [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
 public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
@@ -97,13 +97,12 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
     return input.Text;
 }
 ```
-
 &nbsp;
 <hr/>
 
 Instead of using the return statement to send the message, this HTTP trigger function returns an HTTP response that is different from the output message.
 
-```cs
+```csharp
 [FunctionName("HttpTrigger1")]
 public static async Task<IActionResult> Run(
 [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req, 
