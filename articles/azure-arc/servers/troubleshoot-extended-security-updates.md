@@ -63,7 +63,7 @@ If installing the Extended Security Update enabled by Azure Arc fails with error
 
 #### Option 1: Allow access to the PKI URL
 
-Configure your network firewall and/or proxy server to allow access from the Windows Server 2012 (R2) machines to `http://microsoft.com/pkiops/certs` (TCP port 80). This will enable the machines to automatically retrieve any missing intermediate CA certificates from Microsoft.
+Configure your network firewall and/or proxy server to allow access from the Windows Server 2012 (R2) machines to `http://microsoft.com/pkiops/certs` and `https://microsoft.com/pkiops/certs` (both TCP 80 and 443). This will enable the machines to automatically retrieve any missing intermediate CA certificates from Microsoft.
 
 Once the network changes are made to allow access to the PKI URL, try installing the Windows updates again. You may need to reboot your computer for the automatic installation of certificates and validation of the license to take effect.
 
