@@ -162,20 +162,24 @@ Follow the steps to create artifact streaming in the [Azure portal](https://port
 
 4. Convert the image and create artifact streaming in Azure portal.
 
-   [![A screenshot of Azure portal with the create streaming artifact button highlighted](./media/container-registry-artifact-streaming/01-create-artifact-streaming-inline.png)](./media/container-registry-artifact-streaming/01-create-artifact-streaming-expanded.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > [![A screenshot of Azure portal with the create streaming artifact button highlighted](./media/container-registry-artifact-streaming/01-create-artifact-streaming-inline.png)](./media/container-registry-artifact-streaming/01-create-artifact-streaming-expanded.png#lightbox)
 
 
 5. Check the streaming artifact generated from the image in Referrers tab.     
-    
-   [![A screenshot of Azure portal with the streaming artifact highlighted.](./media/container-registry-artifact-streaming/02-artifact-streaming-generated-inline.png)](./media/container-registry-artifact-streaming/02-artifact-streaming-generated-expanded.png#lightbox)
+   
+   > [!div class="mx-imgBorder"]
+   > [![A screenshot of Azure portal with the streaming artifact highlighted.](./media/container-registry-artifact-streaming/02-artifact-streaming-generated-inline.png)](./media/container-registry-artifact-streaming/02-artifact-streaming-generated-expanded.png#lightbox)
 
 6. You can also delete the artifact streaming from the repository blade. 
 
-   [![A screenshot of Azure portal with the delete artifact streaming button highlighted](./media/container-registry-artifact-streaming/04-delete-artifact-streaming-inline.png)](./media/container-registry-artifact-streaming/04-delete-artifact-streaming-expanded.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > [![A screenshot of Azure portal with the delete artifact streaming button highlighted](./media/container-registry-artifact-streaming/04-delete-artifact-streaming-inline.png)](./media/container-registry-artifact-streaming/04-delete-artifact-streaming-expanded.png#lightbox)
 
 7. You can also enable auto-conversion on the repository blade. Active means auto-conversion is enabled on the repository. Inactive means auto-conversion is disabled on the repository. 
-
-   [![A screenshot of Azure portal with the start artifact streaming button highlighted](./media/container-registry-artifact-streaming/03-start-artifact-streaming-inline.png)](./media/container-registry-artifact-streaming/03-start-artifact-streaming-expanded.png#lightbox)
+    
+   > [!div class="mx-imgBorder"]
+   > [![A screenshot of Azure portal with the start artifact streaming button highlighted](./media/container-registry-artifact-streaming/03-start-artifact-streaming-inline.png)](./media/container-registry-artifact-streaming/03-start-artifact-streaming-expanded.png#lightbox)
 
 > [!NOTE]
 > The state of artifact streaming in a repository (inactive or active) determines whether newly pushed compatible images will be automatically converted. By default, all repositories are in an inactive state for artifact streaming. This means that when new compatible images are pushed to the repository, artifact streaming will not be triggered, and the images will not be automatically converted. If you want to start automatic conversion of newly pushed images, you need to set the repository's artifact streaming to the active state. Once the repository is in the active state, any new compatible container images that are pushed to the repository will trigger artifact streaming. This will start the automatic conversion of those images.
