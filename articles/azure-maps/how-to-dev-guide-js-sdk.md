@@ -157,7 +157,7 @@ const client = MapsSearch(credential);
 
 Shared access signature (SAS) tokens are authentication tokens created using the JSON Web token (JWT) format and are cryptographically signed to prove authentication for an application to the Azure Maps REST API.
 
-You can get the SAS token using [`AzureMapsManagementClient.accounts.listSas`][listSas] package. Please follow the section [Create and authenticate a `AzureMapsManagementClient`][azureMapsManagedmentClient] to setup first.
+You can get the SAS token using [`AzureMapsManagementClient.accounts.listSas`][listSas] package. Please follow the section [Create and authenticate a `AzureMapsManagementClient`][azureMapsManagementClient] to setup first.
 
 Second, follow [Managed identities for Azure Maps][managedIdentity] to create a managed identity for your Azure Maps account. Copy the principal ID (object ID) of the managed identity.
 
@@ -201,7 +201,7 @@ Finally, you can use the SAS token to authenticate the client:
 
 ## Geocoding
 
-The following code snippet demonstrates how, in a simple console application, to import the `azure-maps-search` package and get the coordinates of an address using [geocode] query:
+The following code snippet demonstrates how, in a simple console application, to import the `@azure-rest/maps-search` package and get the coordinates of an address using [geocode] query:
 
 ```JavaScript
 const MapsSearch = require("@azure-rest/maps-search").default;
@@ -423,7 +423,7 @@ main().catch((err) => {
 [Azure Identity library]: /javascript/api/overview/azure/identity-readme
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential
-[azureMapsManagedmentClient]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/arm-maps#create-and-authenticate-a-azuremapsmanagementclient
+[azureMapsManagementClient]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/arm-maps#create-and-authenticate-a-azuremapsmanagementclient
 [geocode]: /javascript/api/@azure-rest/maps-search/geocode
 [GetGeocoding]: /javascript/api/@azure-rest/maps-search/getgeocoding 
 [GeocodingResponseOutput]: /javascript/api/@azure-rest/maps-search/geocodingresponseoutput
