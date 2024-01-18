@@ -42,6 +42,15 @@ A native document refers to the file format used to create the original document
 |Adobe PDF| `.pdf`       |A portable document file formatted document.|
 |Microsoft Word| `.doc` `.docx`|A text document file.|
 
+## Input guidelines
+
+|Input type|support and limitations|
+|---|---|
+|**PDFs**| Fully digital and fully scanned PDFs are supported.|
+|**Text within images**| Digital PDFs with imbedded text and text within images are not supported.|
+|**Digital tables**| Tables in digital documents are supported, however scanned table quality isn't guaranteed.|
+|**PII content**| Custom redaction for native documents is supported in the latest 2023-04-14-preview|
+
 ## Responsible AI
 
 An AI system includes not only technology, but human users and the deployment environment. Read the [transparency note for summarization](/legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/ai-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. For more information, review the following articles:
