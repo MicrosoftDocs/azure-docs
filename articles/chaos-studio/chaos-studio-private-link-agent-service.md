@@ -234,6 +234,8 @@ Example of updated agentInstanceConfig.json:
 
 **IF** you blocked outbound access to Microsoft Certificate Revocation List (CRL) verification endpoints, then you need to update agentSettings.JSON to disable CRL verification check in the agent.
 
+By default this field is set to **true**, so you can either remove this field or set the value to false. See [here](chaos-studio-tutorial-agent-based-cli.md) for more details. 
+
 ```
 "communicationApi": {
      "checkCertRevocation": false
