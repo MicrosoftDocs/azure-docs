@@ -21,15 +21,22 @@ To restore the database, follow these steps:
 
 2. Select the **Azure database for MySQL - Flexible Server** > **Restore**.
 
+   :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/restore-parameters.png" alt-text="Screenshot shows how to go to the backup instance." lightbox="./media/backup-azure-mysql-flexible-server-restore/restore-parameters.png":::
+
 3. Click **Select restore point** > **Point-in-time** you want to restore.
 
-   Ton change the date range, select **Time period**.
+   To change the date range, select **Time period**.
+
+   :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/restore-point.png" alt-text="Screenshot shows the selection of point-in-time recovery point." lightbox="./media/backup-azure-mysql-flexible-server-restore/restore-point.png":::
 
 4. On the **Restore parameters** tab, choose the **Target storage account**, and then select **Validate** to check if the restore parameters and permissions are assigned for the restore operation.
 
 
-5. Once the validation is successful, select **Restore** to restore the selected database backups in the target storage account.
+   :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/restore.png" alt-text="Screenshot shows the selection of restore parameters." lightbox="./media/backup-azure-mysql-flexible-server-restore/restore.png":::
 
+5. When the validation is successful, select **Restore** to restore the selected database backups in the target storage account.
+
+   :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/review-restore.png" alt-text="Screenshot shows how to trigger restore operation." lightbox="./media/backup-azure-mysql-flexible-server-restore/review-restore.png":::
 
 ## Next steps
 

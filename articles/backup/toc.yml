@@ -310,6 +310,12 @@
         href: restore-azure-sql-vm-rest-api.md
       - name: Manage
         href: manage-azure-sql-vm-rest-api.md
+  - name:Azure Database for MySQL - Flexible Server backup retention
+    items:
+    - name: Backup
+      href: backup-azure-mysql-flexible-server.md
+    - name: Restore
+      href: backup-azure-mysql-flexible-server-restore.md      
   - name: Azure Database for PostgreSQL backup
     items:
     - name: Overview
