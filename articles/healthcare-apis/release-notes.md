@@ -24,7 +24,7 @@ This article provides details about the features and enhancements made to Azure 
 
 ### DICOM service
 
-**Bulk update of files in the DICOM service is generally available**.
+**Bulk update of files in the DICOM service is generally available**
 
 The bulk update operation enables you to change imaging metadata for multiple files stored in the DICOM service. For example, bulk update enables you to modify DICOM attributes for one or more studies in a single, asynchronous operation. You can use an API to perform updates to patient demographics and avoid the cost of repeating time-consuming uploads.
 
@@ -32,7 +32,7 @@ Beyond the efficiency gains, the bulk update capability preserves a record of th
 
 Learn more:
 
-- [Bulk update DICOM files]9(update-files.md)
+- [Bulk update DICOM files](update-files.md)
 
 ### FHIR service
 
