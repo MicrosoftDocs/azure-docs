@@ -8,12 +8,12 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 12/19/2023
+ms.date: 01/18/2024
 ---
 
 # Azure Cache for Redis output binding for Azure Functions
 
-When a function runs, the Azure Azure Cache for Redis output binding retrieves data from a cache and passes it to the input parameter of the function.
+The Azure Cache for Redis output bindings lets you change the keys in a cache based on a set of available trigger on the cache.
 
 For information on setup and configuration details, see the [overview](functions-bindings-cache.md).
 
@@ -21,14 +21,14 @@ For information on setup and configuration details, see the [overview](functions
 
 ::: zone pivot="programming-language-csharp"
 
-This is an example of the SetDeleters function.
+The following example shows a pub/sub trigger on the set event with an output binding to an Azure Cache for Redis instance. The set event triggers the cache to delete the key that was recently set.
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
 # [In-process](#tab/in-process)
 
 ```c#
-﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging;
 
 namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisOutputBinding
 {

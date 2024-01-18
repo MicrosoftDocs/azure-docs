@@ -1,6 +1,6 @@
 ---
-title: Using Redis Input Azure Function for Azure Cache for Redis (preview)
-description: Learn how to use Redis an input Azure Functions 
+title: Using input binding with Azure Cache for Redis (preview)
+description: Learn how to use input bindings for Azure Functions with Azure Cache for Redis.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
@@ -21,7 +21,7 @@ For information on setup and configuration details, see the [overview](functions
 
 ::: zone pivot="programming-language-csharp"
 
-The following sample gets any key that was recently set from the _SetGetter_ sample.
+The following code gets any key that was recently set using the pub/sub trigger and an input binding on the `GET` command.
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
@@ -102,7 +102,9 @@ Not available in preview.
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-Here's the binding data in the _function.json_ file.
+The following Azure Function code uses a pub/sub trigger with an input binding to the GET message on an Azure Cache for Redis instance. The trigger and binding are configured in the _function.json_ file associated with the Python function.
+
+<!-- The following code sample gets any key that was recently set using the pub/sub trigger and an input binding on the GET command. -->
 
 ```python
         {
@@ -121,8 +123,6 @@ Here's the binding data in the _function.json_ file.
         }
 ```
 
-
-
 ```python
 import logging
 
@@ -137,6 +137,9 @@ The [configuration](#configuration) section explains these properties.
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
+> [!NOTE]
+> Not all commands are supported for this binding. At the moment, only read commands that return a single output are supported. The full list can be found [here](https://github.com/Azure/azure-functions-redis-extension/blob/main/src/Microsoft.Azure.WebJobs.Extensions.Redis/Bindings/RedisConverter.cs#L61)
+
 # [In-process](#tab/in-process)
 
 |Attribute property | Description                                                                                                                                                 |
@@ -144,8 +147,6 @@ The [configuration](#configuration) section explains these properties.
 | `ConnectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `Command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces. For example:  `GET key`, `HGET key field`. |
 
-> [!NOTE]
-> Not all commands are supported for this binding. At the moment, only read commands that return a single output are supported. The full list can be found [here](https://github.com/Azure/azure-functions-redis-extension/blob/main/src/Microsoft.Azure.WebJobs.Extensions.Redis/Bindings/RedisConverter.cs#L61)
 
 # [Isolated process](#tab/isolated-process)
 
