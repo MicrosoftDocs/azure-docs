@@ -17,7 +17,7 @@ A billing account is created when you sign up to use Azure. You use your billing
 
 You can view your billing accounts one the [Cost Management + Billing](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade) page.
 
-To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](view-all-accounts.md).
+To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](../manage/view-all-accounts.md).
 
 If you're unable to see your billing account in the Azure portal, try the following options:
 
@@ -55,6 +55,6 @@ If you have questions or need help, [create a support request](https://portal.az
 Read the following billing and subscription articles to help troubleshoot problems.
 
 - [Declined card](./troubleshoot-declined-card.md)
-- [Subscription sign in issues](./troubleshoot-sign-in-issue.md)
-- [No subscriptions found](./no-subscriptions-found.md)
+- [Subscription sign in issues](../troubleshoot-subscription/troubleshoot-sign-in-issue.md)
+- [No subscriptions found](../troubleshoot-subscription/no-subscriptions-found.md)
 - [Enterprise cost view disabled](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
