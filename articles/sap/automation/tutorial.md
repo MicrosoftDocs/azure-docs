@@ -285,7 +285,7 @@ code .
     # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
     environment = "LAB"
     # The location/region value is a mandatory field, it is used to control where the resources are deployed
-    location = "westeurope"
+    location = "swedencentral"
 
     # management_network_address_space is the address space for management virtual network
     management_network_address_space = "10.10.20.0/25"
@@ -328,7 +328,7 @@ code .
     # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
     environment = "LAB"
     # The location/region value is a mandatory field, it is used to control where the resources are deployed
-    location = "westeurope"
+    location = "swedencentral"
 
     #Defines the DNS suffix for the resources
     dns_label = "lab.sdaf.contoso.net"
@@ -349,9 +349,9 @@ Use the [deploy_controlplane.sh](bash/deploy-controlplane.md) script to deploy t
 
 The deployment goes through cycles of deploying the infrastructure, refreshing the state, and uploading the Terraform state files to the library storage account. All of these steps are packaged into a single deployment script. The script needs the location of the configuration file for the deployer and library, and some other parameters.
 
-For example, choose **West Europe** as the deployment location, with the four-character name `WEEU`, as previously described. The sample deployer configuration file `LAB-WEEU-DEP05-INFRASTRUCTURE.tfvars` is in the `${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/LAB-WEEU-DEP05-INFRASTRUCTURE` folder.
+For example, choose **West Europe** as the deployment location, with the four-character name `SECE`, as previously described. The sample deployer configuration file `LAB-SECE-DEP05-INFRASTRUCTURE.tfvars` is in the `${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/LAB-SECE-DEP05-INFRASTRUCTURE` folder.
 
-The sample SAP library configuration file `LAB-WEEU-SAP_LIBRARY.tfvars` is in the `${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/LAB-WEEU-SAP_LIBRARY` folder.
+The sample SAP library configuration file `LAB-SECE-SAP_LIBRARY.tfvars` is in the `${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/LAB-SECE-SAP_LIBRARY` folder.
 
 Set the environment variables for the service principal:
 
@@ -385,7 +385,7 @@ export                  TF_use_webapp=true
 
 export            env_code="LAB"
 export           vnet_code="DEP05"
-export         region_code="WEEU"
+export         region_code="SECE"
 
 export     DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export         CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
@@ -420,10 +420,10 @@ You need to note some values for upcoming steps. Look for this text block in the
 #########################################################################################
 #                                                                                       #
 #  Please save these values:                                                            #
-#     - Key Vault: LABWEEUDEP05user39B                                                 #
+#     - Key Vault: LABSECEDEP05user39B                                                  #
 #     - Deployer IP: x.x.x.x                                                            #
-#     - Storage Account: mgmtnoeutfstate53e                                             #
-#     - Web Application Name: mgmt-noeu-sapdeployment39B                                #
+#     - Storage Account: labsecetfstate53e                                              #
+#     - Web Application Name: lab-sece-sapdeployment39B                                 #
 #     - App registration Id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx                       #
 #                                                                                       #
 #########################################################################################
@@ -589,10 +589,10 @@ export       ARM_TENANT_ID="<tenantId>"
 
 export            env_code="LAB"
 export           vnet_code="DEP05"
-export         region_code="WEEU"
+export         region_code="SECE"
 
 terraform_state_storage_account=labweeutfstate###
-                     vault_name="LABWEEUDEP05user###"
+                     vault_name="LABSECEDEP05user###"
 
 export     DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export         CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
@@ -621,7 +621,7 @@ You can deploy the web application using the following script:
 ```bash
 export            env_code="LAB"
 export           vnet_code="DEP05"
-export         region_code="WEEU"
+export         region_code="SECE"
 export         webapp_name="<webAppName>"
 export              app_id="<appRegistrationId>"
 export           webapp_id="<webAppId>"
@@ -651,12 +651,12 @@ az webapp restart --resource-group ${env_code}-${region_code}-${vnet_code}-INFRA
 1. Collect the following information in a text editor. This information was collected at the end of the "Deploy the control plane" phase.
 
     1. The name of the Terraform state file storage account in the library resource group:
-        - Following from the preceding example, the resource group is `LAB-WEEU-SAP_LIBRARY`.
-        - The name of the storage account contains `mgmtnoeutfstate`.
+        - Following from the preceding example, the resource group is `LAB-SECE-SAP_LIBRARY`.
+        - The name of the storage account contains `labsecetfstate`.
 
     1. The name of the key vault in the deployer resource group:
-        - Following from the preceding example, the resource group is `LAB-WEEU-DEP05-INFRASTRUCTURE`.
-        - The name of the key vault contains `LABWEEUDEP05user`.
+        - Following from the preceding example, the resource group is `LAB-SECE-DEP05-INFRASTRUCTURE`.
+        - The name of the key vault contains `LABSECEDEP05user`.
 
     1. The public IP address of the deployer VM. Go to your deployer's resource group, open the deployer VM, and copy the public IP address.
 
@@ -664,7 +664,7 @@ az webapp restart --resource-group ${env_code}-${region_code}-${vnet_code}-INFRA
 
     1. The name of the deployer state file is found under the library resource group:
         - Select **Library resource group** > **State storage account** > **Containers** > `tfstate`. Copy the name of the deployer state file.
-        - Following from the preceding example, the name of the blob is `LAB-WEEU-DEP05-INFRASTRUCTURE.terraform.tfstate`.
+        - Following from the preceding example, the name of the blob is `LAB-SECE-DEP05-INFRASTRUCTURE.terraform.tfstate`.
 
 1. If necessary, register the Service Principal, for this tutorial this step is not needed.
 
@@ -677,7 +677,7 @@ az webapp restart --resource-group ${env_code}-${region_code}-${vnet_code}-INFRA
     export       ARM_TENANT_ID="<tenant>"
     export           key_vault="<vaultName>"
     export            env_code="LAB"
-    export         region_code="WEEU"
+    export         region_code="SECE"
 
     export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
     export         CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
@@ -707,7 +707,7 @@ Use the [install_workloadzone](bash/install-workloadzone.md) script to deploy th
 1. On the deployer VM, go to the `Azure_SAP_Automated_Deployment` folder.
 
     ```bash
-    cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/LAB-WEEU-SAP04-INFRASTRUCTURE
+    cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/LAB-SECE-SAP04-INFRASTRUCTURE
     ```
 
 1. Optionally, open the workload zone configuration file and, if needed, change the network logical name to match the network name.
@@ -729,7 +729,7 @@ export           ARM_TENANT_ID="<tenantId>"
 ```bash
 export       deployer_env_code="LAB"
 export            sap_env_code="LAB"
-export             region_code="WEEU"
+export             region_code="SECE"
 
 export      deployer_vnet_code="DEP05"
 export               vnet_code="SAP04"
@@ -785,7 +785,7 @@ Deploy the SAP system.
 ```bash
 
 export             sap_env_code="LAB"
-export              region_code="WEEU"
+export              region_code="SECE"
 export                vnet_code="SAP04"
 export                      SID="L00"
 
@@ -845,7 +845,7 @@ materials:
     - name:         "Kernel Part I ; OS: Linux on x86_64 64bit ; DB: Database independent"
 ```
 
-For this example configuration, the resource group is `LAB-WEEU-DEP05-INFRASTRUCTURE`. The deployer key vault name contains `LABWEEUDEP05user` in the name. You use this information to configure your deployer's key vault secrets.
+For this example configuration, the resource group is `LAB-SECE-DEP05-INFRASTRUCTURE`. The deployer key vault name contains `LABSECEDEP05user` in the name. You use this information to configure your deployer's key vault secrets.
 
 1. Connect to your deployer VM for the following steps. A copy of the repo is now there.
 
@@ -916,12 +916,15 @@ The SAP application installation happens through Ansible playbooks.
 Go to the system deployment folder.
 
 ```bash
-cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-WEEU-SAP04-L00/
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
 ```
 
 Make sure you have the following files in the current folders: `sap-parameters.yaml` and `L00_host.yaml`.
 
 For a standalone SAP S/4HANA system, there are eight playbooks to run in sequence. One way you can run the playbooks is to use the **Configuration** menu.
+
+:::image type="content" source="./media/deployment-framework/automation-diagram-full.png" alt-text="Diagram that shows the SAP Deployment Automation Framework environment.":::
+
 
 Run the `configuration_menu` script.
 
@@ -991,28 +994,28 @@ Before you begin, sign in to your Azure account. Then, check that you're in the 
 
 ### Remove the SAP infrastructure
 
-Go to the `DEV-WEEU-SAP01-X00` subfolder inside the `SYSTEM` folder. Then, run this command:
+Go to the `LAB-SECE-SAP01-L00` subfolder inside the `SYSTEM` folder. Then, run this command:
 
 ```bash
-export  sap_env_code="DEV"
-export   region_code="WEEU"
+export  sap_env_code="LAB"
+export   region_code="SECE"
 export sap_vnet_code="SAP04"
 
-cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/${sap_env_code}-${region_code}-${sap_vnet_code}-X00
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/${sap_env_code}-${region_code}-${sap_vnet_code}-L00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh                   \
-  --parameterfile "${sap_env_code}-${region_code}-${sap_vnet_code}-X00.tfvars" \
+  --parameterfile "${sap_env_code}-${region_code}-${sap_vnet_code}-L00.tfvars" \
   --type sap_system
 ```
 
 ### Remove the SAP workload zone
 
-Go to the `DEV-XXXX-SAP01-INFRASTRUCTURE` subfolder inside the `LANDSCAPE` folder. Then, run the following command:
+Go to the `LAB-XXXX-SAP01-INFRASTRUCTURE` subfolder inside the `LANDSCAPE` folder. Then, run the following command:
 
 ```bash
 
-export  sap_env_code="DEV"
-export   region_code="WEEU"
+export  sap_env_code="LAB"
+export   region_code="SECE"
 export sap_vnet_code="SAP01"
 
 cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/${sap_env_code}-${region_code}-${sap_vnet_code}-INFRASTRUCTURE
@@ -1042,7 +1045,7 @@ export ARM_SUBSCRIPTION_ID="<subscriptionId>"
 Run the following command:
 
 ```bash
-export region_code="WEEU"
+export region_code="SECE"
 export    env_code="LAB"
 export   vnet_code="DEP05"
 
