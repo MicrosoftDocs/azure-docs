@@ -159,7 +159,7 @@ This system topic provides in-depth VM [health data](https://learn.microsoft.com
 As you start subscribing to events from the HealthResources system topic, consider the following best practices:
 
 - Choose an appropriate [destination or event handler](https://learn.microsoft.com/en-us/azure/event-grid/event-handlers) based on the anticipated scale and size of events.
-- For fan-in scenarios where notifications from multiple system topics need to be consolidated, [event hubs](https://learn.microsoft.com/en-us/azure/event-grid/handler-event-hubs) are highly recommended as a destination. This is especially useful for real-time processing scenarios to maintain data freshness and for periodic processing for analytics, with configurable retention periods.
+- For fan-in scenarios where notifications from multiple system topics need to be consolidated, [event hubs](../event-grid/handler-event-hubs.md) are highly recommended as a destination. This is especially useful for real-time processing scenarios to maintain data freshness and for periodic processing for analytics, with configurable retention periods.
 
 Looking ahead to 2024, we have plans to transition the preview into a fully-fledged general availability feature. As part of the preview, we'll emit events scoped to changes in VM availability states, with the sample [schema](https://learn.microsoft.com/azure/event-grid/event-schema) below:
 
