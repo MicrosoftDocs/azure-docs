@@ -13,7 +13,7 @@ ms.author: v-abhmallick
 
 This article summarizes  the supported scenarios, considerations, and limitations for Azure Database for MySQL - Flexible Server backup and retention for long term by using [Azure Backup](./backup-overview.md).
 
-## ## Supported regions
+## Supported regions
 
 Long-term retention for Azure Database for MySQL - Flexible Server (preview) is available in all Azure public cloud regions.
 
