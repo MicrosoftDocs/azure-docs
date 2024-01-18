@@ -5,7 +5,7 @@ author: schaffererin
 ms.author: schaffererin
 ms.topic: concept-article
 ms.service: azure-kubernetes-service
-ms.date: 12/06/2023
+ms.date: 01/18/2024
 ---
 
 # High availability and disaster recovery overview for Azure Kubernetes Service (AKS)
@@ -32,6 +32,52 @@ The control plane and its resources reside only in the region where you created 
 To run your applications and supporting services, you need a Kubernetes *node*. An AKS cluster has at least one node, an Azure virtual machine (VM) that runs the Kubernetes node components and container runtime. The Azure VM size for your nodes defines CPUs, memory, size, and the storage type available (such as high-performance SSD or regular HDD). Plan the VM and storage size around whether your applications may require large amounts of CPU and memory or high-performance storage. In AKS, the VM image for your cluster's nodes is based on Ubuntu Linux, [Azure Linux](./use-azure-linux.md), or Windows Server 2022. When you create an AKS cluster or scale out the number of nodes, the Azure platform automatically creates and configures the requested number of VMs.
 
 For more information on cluster and workload components in AKS, see [Kubernetes core concepts for AKS](./concepts-clusters-workloads.md).
+
+## Important considerations
+
+### Regional and global resources
+
+**Regional resources** are provisioned as part of a *deployment stamp* to a single Azure region. These resources share nothing with resources in other regions, and they can be independently removed or replicated to other regions. For more information, see [Regional resources](/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#regional-resources).
+
+**Global resources** share the lifetime of the system, and they can be globally available within the context of a multi-region deployment. For more information, see [Global resources](/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#global-resources).
+
+### Recovery objectives
+
+A complete disaster recovery plan must specify business requirements for each process the application implements:
+
+- **Recovery Point Objective (RPO)** is the maximum duration of acceptable data loss. RPO is measured in units of time, such as minutes, hours, or days.
+- **Recovery Time Objective (RTO)** is the maximum duration of acceptable downtime, with *downtime* defined by your specification. For example, if the acceptable downtime duration in a disaster is *eight hours*, then the RTO is eight hours.
+
+### Availability zones
+
+You can use availability zones to spread your data across multiple zones in the same region. Within a region, availability zones are close enough to have low-latency connections to other availability zones, but they're far enough apart to reduce the likelihood that more than one will be affected by local outages or weather. For more information, see [Recommendations for using availability zones and regions](/well-architected/reliability/regions-availability-zones).
+
+### Zonal resilience
+
+AKS clusters are resilient to zonal failures. If a zone fails, the cluster continues to run in the remaining zones. The cluster's control plane and nodes are spread across the zones, and the Azure platform automatically handles the distribution of the nodes. For more information, see [AKS zonal resilience](./zonal-resilience.md).
+
+### Load balancing
+
+#### Global load balancing
+
+Global load balancing services distribute traffic across regional backends, clouds, or hybrid on-premises services. These services route end-user traffic to the closest available backend. They also react to changes in service reliability or performance to maximize availability and performance. The following Azure services provide global load balancing:
+
+- [Azure Front Door](../frontdoor/front-door-overview.md)
+- [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
+- [Cross-region Azure Load Balancer](../load-balancer/cross-region-overview.md)
+- [Azure Kubernetes Fleet Manager](../kubernetes-fleet/overview.md)
+
+#### Regional load balancing
+
+Regional load balancing services distribute traffic within virtual networks across VMs or zonal and zone-redundant service endpoints within a region. The following Azure services provide regional load balancing:
+
+- [Azure Load Balancer](../load-balancer/load-balancer-overview.md)
+- [Azure Application Gateway](../application-gateway/overview.md)
+- [Azure Application Gateway for Containers](../application-gateway/for-containers/overview.md)
+
+### Observability
+
+You need to collect data from applications and infrastructure to allow for effective operations and maximized reliability. Azure provides tools to help you monitor and manage your AKS workloads. For more information, see [Observability resources](/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#observability-resources).
 
 ## Scope definition
 

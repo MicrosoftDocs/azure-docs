@@ -5,7 +5,7 @@ author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.topic: concept-article
-ms.date: 12/06/2023
+ms.date: 01/18/2024
 ---
 
 # Passive-cold solution overview for Azure Kubernetes Service (AKS)
@@ -68,20 +68,9 @@ Occasionally, localized failure can occur to compute resources, such as power be
 
 In a complete regional failure, Azure Front Door routes traffic to the remaining healthy regions. Again, make sure to compensate for increased traffic and requests to the remaining cluster.
 
+## Failover testing strategy
+
 While there are no mechanisms currently available within AKS to take down an entire region of deployment for testing purposes, [Azure Chaos Studio](../chaos-studio/chaos-studio-overview.md) offers the ability to create a chaos experiment on your cluster.
-
-One example experiment you can use is taking down an entire Availability Zone for the Virtual Machine Scale Sets instances with autoscale disabled. To create a test in the Azure portal, use the following steps:
-
-1. [Create a chaos experiment to shut down all targets in a zone](../chaos-studio/chaos-studio-tutorial-dynamic-target-portal.md).
-2. Enable Chaos Studio on your AKS cluster by selecting your cluster resource and enabling service-direct targets.
-3. Create a new experiment in Chaos Studio and add a name for it.
-4. In the experiment designer, add a fault action and select the **VMSS Shutdown (version 2.0) fault**.
-5. Choose the duration and abruptness of the shutdown and select the virtual machine scale set resource that you want to use in the experiment.
-6. In the scope section, select the zone where you want to shut down the VMs in the scale set and add it to the experiment.
-7. Review and create the experiment and run it when ready.
-
-> [!NOTE]
-> You can also [use the Azure CLI to create and run a chaos experiment](../chaos-studio/chaos-studio-tutorial-agent-based-cli.md).
 
 ## Next steps
 
