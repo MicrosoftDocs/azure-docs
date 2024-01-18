@@ -117,13 +117,12 @@ If the Azure AI resource the project uses was created through Azure portal:
 
 1. Open your AI Studio project
 1. In Flows, create a new Flow or open an existing flow 
-1. On the top menu of the flow designer, select More tools, and then select Vector Index Lookup
+1. On the top menu of the flow designer, select More tools, and then select ***Index Lookup***
 
     :::image type="content" source="../media/index-retrieve/vector-index-lookup.png" alt-text="Screenshot of Vector index Lookup from More Tools." lightbox="../media/index-retrieve/vector-index-lookup.png":::
 
-1. Provide a name for your step and select **Add**.
-1. The Vector Index Lookup tool is added to the canvas. If you don't see the tool immediately, scroll to the bottom of the canvas
-1. Enter the path to your vector index, along with the query that you want to perform against the index.
+1. Provide a name for your Index Lookup Tool and select **Add**.
+1. Click into the mlindex_content value box, and select your index. After completing this step, enter the queries and query_types to be performed against the index.
 
     :::image type="content" source="../media/index-retrieve/configure-index-lookup.png" alt-text="Screenshot of Configure Vector index Lookup." lightbox="../media/index-retrieve/configure-index-lookup.png":::
 
