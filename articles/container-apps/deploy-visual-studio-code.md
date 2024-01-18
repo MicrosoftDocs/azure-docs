@@ -7,7 +7,7 @@ ms.author: alexwolf
 ms.service: container-apps
 ms.topic: tutorial
 ms.date: 10/29/2023
-ms.custom: vscode-azure-extension-update-completed, devx-track-dotnet, devx-track-linux
+ms.custom: vscode-azure-extension-update-completed, devx-track-dotnet, linux-related-content
 ---
 
 # Quickstart: Deploy to Azure Container Apps using Visual Studio Code
@@ -23,7 +23,7 @@ In this tutorial, you'll deploy a containerized application to Azure Container A
 - The following Visual Studio Code extensions installed:
     - The [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
     - The [Azure Container Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecontainerapps)
-    - The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) 
+    - The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
 
 ## Clone the project
 
@@ -89,7 +89,7 @@ Follow these steps in the Azure portal to remove the resources you created:
 1. Select the **my-container-app** resource group from the *Overview* section.
 1. Select the **Delete resource group** button at the top of the resource group *Overview*.
 1. Enter the resource group name **my-container-app** in the *Are you sure you want to delete "my-container-apps"* confirmation dialog.
-1. Select **Delete**.  
+1. Select **Delete**.
     The process to delete the resource group might take a few minutes to complete.
 
 > [!TIP]
