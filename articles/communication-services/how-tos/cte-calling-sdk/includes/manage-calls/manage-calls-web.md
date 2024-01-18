@@ -343,7 +343,7 @@ If Teams user stops call recording, the recording is placed into the chat associ
 
 Recommendations for the management of chat ID:
 - Escalation of the 1:1 phone call by adding another phone participant:
-  * (Optional way) Use addParticipant API on web calling SDK to add another participant without providing chat thread ID. You only need to provide identifier of the participant you want to add into the call.
+  * Method `addParticipant` allows you to provide optional parameter thread ID. If the parameter isn't provided, then a new group chat is created, and all participants are added to the call and chat participants list. If the parameter is provided, then Teams users can see ongoing call associated to this group chat in Teams app. You can create new group chat via Graph API.
     ```js
     addParticipant(participant: MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)
     ```
