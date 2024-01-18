@@ -182,7 +182,7 @@ To configure the workload identity, perform the following steps described in the
 
 The following steps configure end-to-end encryption for Kafka messages using encryption keys managed by [Azure Managed Hardware Security Modules][azure-managed-hsm] (mHSM). The key is only released when the Kafka consumer runs within a Confidential Container with an Azure attestation secret provisioning container injected in to the pod.
 
-This configuration is basedon the following four components:
+This configuration is based on the following four components:
 
 * Kafka Cluster: A simple Kafka cluster deployed in the Kafka namespace on the cluster.
 * Kafka Producer: A Kafka producer running as a vanilla Kubernetes pod that sends encrypted user-configured messages using a public key to a Kafka topic.
@@ -196,7 +196,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
    >The managed identity is the value you assigned to the `USER_ASSIGNED_IDENTITY_NAME` variable.
 
    >[!NOTE]
-   >To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac],or [Owner][owner-rbac].
+   >To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac], or [Owner][owner-rbac].
 
    Run the following command to set the scope:
 
@@ -313,19 +313,19 @@ For this preview release, we recommend for test and evaluation purposes to eithe
           targetPort: kafka-consumer
     ```
 
-1. Create a Kafka namespace by running the following command:
+1. Create a kafka namespace by running the following command:
 
     ```bash
     kubectl create namespace kafka
     ```
 
-1. Install the Kafka cluster in the Kafka namespace by running the following command::
+1. Install the Kafka cluster in the kafka namespace by running the following command:
 
     ```bash
     kubectl create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
     ```
 
-1. Run the following command to apply the `Kafka` cluster CR file.
+1. Run the following command to apply the `kafka` cluster CR file.
 
     ```bash
     kubectl apply -f https://strimzi.io/examples/latest/kafka/kafka-persistent-single.yaml -n kafka
@@ -338,7 +338,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 
     ```
 
-1. Prepare the RSA Encryption/Decryption key by [https://github.com/microsoft/confidential-container-demos/blob/main/kafka/setup-key.sh] the Bash script for the workload from GitHub. Save the file as `setup-key.sh`.
+1. Prepare the RSA Encryption/Decryption key by the [bash script](https://github.com/microsoft/confidential-container-demos/raw/main/kafka/setup-key.sh) for the workload from GitHub. Save the file as `setup-key.sh`.
 
 1. Set the `MAA_ENDPOINT` environmental variable to match the value for the `SkrClientMAAEndpoint` from the `consumer.yaml` manifest file by running the following command.
 
@@ -377,19 +377,19 @@ For this preview release, we recommend for test and evaluation purposes to eithe
     kubectl get svc consumer -n kafka 
     ```
 
-Copy and paste the external IP address of the consumer service into your browser and observe the decrypted message. 
+1. Copy and paste the external IP address of the consumer service into your browser and observe the decrypted message. 
 
-The following resemblers the output of the command:
+    The following resembles the output of the command:
+    
+    ```output
+    Welcome to Confidential Containers on AKS!
+    Encrypted Kafka Message: 
+    Msg 1: Azure Confidential Computing
+    ```
 
-```output
-Welcome to Confidential Containers on AKS!
-Encrypted Kafka Message: 
-Msg 1: Azure Confidential Computing
-```
+1. You should also attempt to run the consumer as a regular Kubernetes pod by removing the `skr container` and `kata-cc runtime class` spec. Since you aren't running the consumer with kata-cc runtime class, you no longer need the policy.
 
-You should also attempt to run the consumer as a regular Kubernetes pod by removing the `skr container` and `kata-cc runtime class` spec. Since you aren't running the consumer with kata-cc runtime class, you no longer need the policy.
-
-Remove the entire policy and observe the messages again in the browser after redeploying the workload. Messages appear as base64-encoded ciphertext because the private encryption key can't be retrieved. The key can't be retrieved because the consumer is no longer running in a confidential environment, and the `skr container` is missing, preventing decryption of messages.
+1. Remove the entire policy and observe the messages again in the browser after redeploying the workload. Messages appear as base64-encoded ciphertext because the private encryption key can't be retrieved. The key can't be retrieved because the consumer is no longer running in a confidential environment, and the `skr container` is missing, preventing decryption of messages.
 
 ## Cleanup
 
