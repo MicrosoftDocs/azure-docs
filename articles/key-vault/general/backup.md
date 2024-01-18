@@ -29,9 +29,9 @@ If you want protection against accidental or malicious deletion of your secrets,
 > [!IMPORTANT]
 > Key Vault does not support the ability to backup more than 500 past versions of a key, secret, or certificate object. Attempting to backup a key, secret, or certificate object may result in an error. It is not possible to delete previous versions of a key, secret, or certificate.
 
-Key Vault doesn't currently provide a way to back up an entire key vault in a single operation and keys, secrets and certitificates must be backup indvidually.
+Key Vault doesn't currently provide a way to back up an entire key vault in a single operation. Any attempt to use the commands listed in this document to do an automated backup of a key vault may result in errors and won't be supported by Microsoft or the Azure Key Vault team. 
 
-Also consider the following issues:
+Also consider the following consequences:
 
 * Backing up secrets that have multiple versions might cause time-out errors.
 * A backup creates a point-in-time snapshot. Secrets might renew during a backup, causing a mismatch of encryption keys.

@@ -123,7 +123,7 @@ Use the following steps to create a private endpoint for an existing Azure Data 
 
     * Configure network and private IP settings. [Learn more](../private-link/create-private-endpoint-portal.md#create-a-private-endpoint).
 
-    * Configure a private endpoint with an application security group. [Learn more](../private-link/configure-asg-private-endpoint.md#create-a-private-endpoint-with-an-asg).
+    * Configure a private endpoint with an application security group. [Learn more](../private-link/configure-asg-private-endpoint.md#create-private-endpoint-with-an-asg).
 
     [![Screenshot of virtual network information for a private endpoint.](media/how-to-manage-private-links/private-links-4-virtual-network.png)](media/how-to-manage-private-links/private-links-4-virtual-network.png#lightbox)
 

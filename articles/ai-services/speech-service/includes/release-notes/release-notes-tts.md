@@ -16,40 +16,6 @@ The custom voice API is available for creating and managing [professional](../..
 
 The newly trained voice models now support 48 kHz sample rate, irrespective of the model version. For previously trained voice models, it's necessary to [upgrade the engine version](../../how-to-custom-voice-create-voice.md?tabs=neural#update-engine-version-for-your-voice-model) to at least **2023.11.13.0** version to enhance the sample rate to 48 kHz.
 
-#### Prebuilt neural voice
-- Introducing new multilingual voices for public preview:
-
-| Locale (BCP-47) | Language | Text to speech voices |
-| ----- | ----- | ----- |
-| `de-DE` | German (Germany) | `de-DE-FlorianMultilingualNeural` (Male) |
-| `en-US` | English (United States) | `en-US-AvaMultilingualNeural` (Female) |
-| `en-US` | English (United States) | `en-US-EmmaMultilingualNeural` (Female) |
-| `fr-FR` | French (France) | `fr-FR-RemyMultilingualNeural` (Male) |
-| `en-US` | English (United States) | `en-US-BrianMultilingualNeural` (Male) |
-| `en-US` | English (United States) | `en-US-AndrewMultilingualNeural` (Male) |
-| `fr-FR` | French (France) | `fr-FR-SeraphinaMultilingualNeural` (Female) |
-| `fr-FR` | French (France) | `fr-FR-VivienneMultilingualNeural` (Female) |
-| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoMultilingualNeural` (Female) |
-| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaochenMultilingualNeural` (Female) |
-| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-YunyiMultilingualNeural` (Male) |
-
-- Introducing new `zh-CN-XiaoxiaoDialectsNeural` voices for public preview which support several Chinese dialects and accents:
-
-| Voicename | Secondary language | Dialect/Accent |
-| ----- | ----- | ----- |
-| `zh-CN-XiaoxiaoDialectsNeural` | `zh-CN-shaanxi` | Chinese (Zhongyuan Mandarin Shaanxi, Simplified) |
-|  | `zh-CN-sichuan` | Chinese (Southwestern Mandarin, Simplified) |
-|  | `zh-CN-shanxi` | Chinese (Shanxi Accent Mandarin, Simplified) |
-|  | `nan-CN` | Chinese (Southern Min, Simplified) |
-|  | `zh-CN-anhui` | Chinese (Jianghuai Mandarin Anhui, Simplified) |
-|  | `zh-CN-hunan` | Chinese (Hunan Accent Mandarin, Simplified) |
-|  | `zh-CN-gansu` | Chinese (Lanyin Mandarin Gansu, Simplified) |
-|  | `zh-CN-shandong` | Chinese (Jilu Mandarin, Simplified) |
-|  | `zh-CN-henan` | Chinese (Zhongyuan Mandarin Henan, Simplified) |
-|  | `zh-CN-liaoning` | Chinese (Northeastern Mandarin, Simplified) |
-|  | `zh-TW` | Chinese (Taiwanese Mandarin, Traditional) |
-
-
 ### November 2023 release
 
 #### Personal voice

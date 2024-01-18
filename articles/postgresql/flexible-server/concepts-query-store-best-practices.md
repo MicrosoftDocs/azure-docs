@@ -1,6 +1,6 @@
 ---
-title: Query Store best practices
-description: This article describes best practices for Query Store in Azure Database for PostgreSQL - Flexible Server.
+title: Query Store best practices in Azure Database for PostgreSQL - Flex Server
+description: This article describes best practices for Query Store in Azure Database for PostgreSQL - Flex Server.
 author: markingmyname
 ms.author: maghan
 ms.service: postgresql
@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/31/2023
 ---
 
-# Best practices for Query Store - Azure Database for PostgreSQL - Flexible Server
+# Best practices for Query Store - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article outlines best practices for using Query Store in Azure Database for PostgreSQL flexible server.
+This article outlines best practices for using Query Store in Azure Database for PostgreSQL.
 
 ## Set the optimal query capture mode
 
@@ -37,4 +37,4 @@ The **pg_qs.retention_period_in_days** parameter specifies in days the data rete
 
 ## Next steps
 
-- Learn how to get or set parameters using the [Azure portal](how-to-configure-server-parameters-using-portal.md) or the [Azure CLI](how-to-configure-server-parameters-using-cli.md).
+- Learn how to get or set parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).

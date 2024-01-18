@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.topic: tutorial
 ms.date: 06/06/2022
 ms.author: chrupa
---- 
+---
 
 # Configure Azure RBAC role for Azure Health Data Services
 

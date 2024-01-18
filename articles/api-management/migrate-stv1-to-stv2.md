@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 10/18/2023
 ms.author: danlep
 ---
 
@@ -52,17 +52,26 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 
 For an API Management instance that's not deployed in a VNet, migrate your instance using the **Platform migration** blade in the Azure portal, or invoke the Migrate to `stv2` REST API. 
 
-During the migration, the VIP address of your API Management instance will be preserved. 
+You can choose whether the virtual IP address of API Management will change, or whether the original VIP address is preserved.
 
-* API requests will be unresponsive for approximately 15 minutes while the IP address is migrated to the new infrastructure. 
-* Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 45 minutes. 
-* No further configuration is required after migration.
+* **New virtual IP address (recommended)** - If you choose this mode, API requests remain responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address. 
+
+* **Preserve IP address** - If you preserve the VIP address, API requests will be unresponsive for approximately 15 minutes while the IP address is migrated to the new infrastructure. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 45 minutes. No further configuration is required after migration.
 
 #### [Portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **Settings**, select **Platform migration**.
-1. On the **Platform migration** page, review guidance for the migration process, and prepare your environment. 
+1. On the **Platform migration** page, select one of the two migration options:
+
+    * **New virtual IP address (recommended)**. The VIP address of your API Management instance will change automatically. Your service will have no downtime, but after migration you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
+
+    * **Preserve IP address** - The VIP address of your API Management instance won't change. Your instance will have downtime for up to 15 minutes.
+
+        :::image type="content" source="media/migrate-stv1-to-stv2/platform-migration-portal.png" alt-text="Screenshot of API Management platform migration in the portal.":::
+
+1. Review guidance for the migration process, and prepare your environment. 
+
 1. After you've completed preparation steps, select **I have read and understand the impact of the migration process.** Select **Migrate**.
 
 #### [Azure CLI](#tab/cli)
@@ -93,14 +102,21 @@ RG_NAME={name of your resource group}
 # Get resource ID of API Management instance
 APIM_RESOURCE_ID=$(az apim show --name $APIM_NAME --resource-group $RG_NAME --query id --output tsv)
 
-# Call REST API to migrate to stv2 and preserve VIP address
-az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "PreserveIp"}'
+# Call REST API to migrate to stv2 and change VIP address
+az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "NewIp"}'
+
+# Alternate call to migrate to stv2 and preserve VIP address
+# az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "PreserveIp"}'
 ```
 ---
 
 ### Verify migration
 
 To verify that the migration was successful, when the status changes to `Online`, check the [platform version](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance) of your API Management instance. After successful migration, the value is `stv2`.
+
+### Update network dependencies
+
+On successful migration, update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
 
 ## Scenario 2: Migrate a network-injected API Management instance
 

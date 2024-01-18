@@ -554,7 +554,7 @@ From the networking isolation standpoint, key benefits of Private Link include:
 >
 > *Extra resources:*
 > - **[How to manage private endpoint connections on Azure PaaS resources](../private-link/manage-private-endpoint.md#manage-private-endpoint-connections-on-azure-paas-resources)**
-> - **[How to manage private endpoint connections on a customer- or partner-owned Private Link service](../private-link/manage-private-endpoint.md#manage-private-endpoint-connections-on-a-customer--or-partner-owned-private-link-service)**
+> - **[How to manage private endpoint connections on customer/partner owned Private Link service](../private-link/manage-private-endpoint.md#manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service)**
 
 ### Data encryption in transit
 Azure provides many options for [encrypting data in transit](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit). **Data encryption in transit isolates your network traffic from other traffic and helps protect data from interception**. Data in transit applies to scenarios involving data traveling between:

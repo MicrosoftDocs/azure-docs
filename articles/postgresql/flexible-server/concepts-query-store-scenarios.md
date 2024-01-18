@@ -1,6 +1,6 @@
 ---
-title: Query Store scenarios
-description: This article describes some scenarios for Query Store in Azure Database for PostgreSQL - Flexible Server.
+title: Query Store scenarios - Azure Database for PostgreSQL - Flex Server
+description: This article describes some scenarios for Query Store in Azure Database for PostgreSQL - Flex Server.
 author: markingmyname
 ms.author: maghan
 ms.date: 12/31/2023
@@ -9,7 +9,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Usage scenarios for Query Store - Azure Database for PostgreSQL - Flexible Server
+# Usage scenarios for Query Store - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
@@ -43,7 +43,7 @@ Use Query Store to compare workload performance before and after an application 
 - Modifying the amount of resources granted to the server.
 - Changing any of the server parameters that affect the behavior of the server.
 - Creating missing indexes on tables referenced by expensive queries.
-- Migrating from Azure Database for PostgreSQL single server to Azure Database for PostgreSQL flexible server.
+- Migrating from Single Server to Flexible Server.
 
 In any of these scenarios, apply the following workflow:
 1. Run your workload with Query Store before the planned change, to generate a performance baseline.
@@ -61,4 +61,4 @@ If you are in control of the application code, you might consider rewriting the 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Best practices for using Query Store](concepts-query-store-best-practices.md)
+> [best practices for using Query Store](concepts-query-store-best-practices.md)

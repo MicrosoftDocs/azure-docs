@@ -1,6 +1,6 @@
 ---
-title: High CPU utilization
-description: Troubleshooting guide for high CPU utilization.
+title: High CPU Utilization
+description: Troubleshooting guide for high cpu utilization in Azure Database for PostgreSQL - Flexible Server
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan
@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article shows you how to quickly identify the root cause of high CPU utilization, and possible remedial actions to control CPU utilization when using [Azure Database for PostgreSQL flexible server](overview.md).
+This article shows you how to quickly identify the root cause of high CPU utilization, and possible remedial actions to control CPU utilization when using [Azure Database for PostgreSQL - Flexible Server](overview.md).
 
 In this article, you'll learn:
 
@@ -25,7 +25,7 @@ In this article, you'll learn:
 
 ## Troubleshooting guides
 
-Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL flexible server portal the probable root cause and recommendations to the mitigate high CPU scenario can be found. How to setup the troubleshooting guides to use them please follow [setup troubleshooting guides](how-to-troubleshooting-guides.md).
+Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL - Flexible Server portal the probable root cause and recommendations to the mitigate high CPU scenario can be found. How to setup the troubleshooting guides to use them please follow [setup troubleshooting guides](how-to-troubleshooting-guides.md).
 
 ## Tools to identify high CPU utilization
 
@@ -33,11 +33,11 @@ Consider these tools to identify high CPU utilization.
 
 ### Azure Metrics
 
-Azure Metrics is a good starting point to check the CPU utilization for the definite date and period. Metrics give information about the time duration during which the CPU utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput with CPU utilization to find out times when the workload caused high CPU. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./how-to-alert-on-metrics.md).
+Azure Metrics is a good starting point to check the CPU utilization for the definite date and period. Metrics give information about the time duration during which the CPU utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput with CPU utilization to find out times when the workload caused high CPU. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md).
 
 ### Query Store
 
-Query Store automatically captures the history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named azure_sys in the Azure Database for PostgreSQL flexible server instance. For step-by-step guidance, see [Query Store](./concepts-query-store.md).
+Query Store automatically captures the history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named azure_sys in the Azure Database for PostgreSQL instance. For step-by-step guidance, see [Query Store](./concepts-query-store.md).
 
 ### pg_stat_statements
 
@@ -145,7 +145,7 @@ For more details about PgBouncer, review:
 
 [Best Practices](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/connection-handling-best-practice-with-postgresql/ba-p/790883)
 
-Azure Database for PostgreSQL flexible server offers PgBouncer as a built-in connection pooling solution. For more information, see [PgBouncer](./concepts-pgbouncer.md)
+Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more information, see [PgBouncer](./concepts-pgbouncer.md)
 
 ### Terminate long running transactions
 

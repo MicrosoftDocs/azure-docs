@@ -1,32 +1,38 @@
 ---
-title: Azure Monitor features for Kubernetes monitoring
-description: Describes Container insights and Managed Prometheus in Azure Monitor, which work together to monitor your Kubernetes clusters.
+title: Overview of Container insights in Azure Monitor
+description: This article describes Container insights, which monitors the AKS Container insights solution, and the value it delivers by monitoring the health of your AKS clusters and Container Instances in Azure.
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/20/2023
 ms.reviewer: viviandiec
 ---
 
-# Azure Monitor features for Kubernetes monitoring
+# Overview of Container insights in Azure Monitor
 
-[Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) and Container insights work together for complete monitoring of your Kubernetes environment. This article describes both features and the data they collect.
+Container insights is a feature of Azure Monitor that collects and analyzes container logs from [Azure Kubernetes clusters](../../aks/intro-kubernetes.md) or [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md) clusters and their components.  You can analyze the collected data for the different components in your cluster with a collection of [views](container-insights-analyze.md) and prebuilt [workbooks](container-insights-reports.md). 
 
-- [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) is a fully managed service based on the [Prometheus](https://aka.ms/azureprometheus-promio) project from the Cloud Native Computing Foundation. It allows you to collect and analyze metrics from your Kubernetes cluster at scale and analyze them using prebuilt dashboards in [Grafana](../../managed-grafana/overview.md).
-- Container insights is a feature of Azure Monitor that collects and analyzes container logs from [Azure Kubernetes clusters](../../aks/intro-kubernetes.md) or [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md) clusters and their components.  You can analyze the collected data for the different components in your cluster with a collection of [views](container-insights-analyze.md) and prebuilt [workbooks](container-insights-reports.md).
+Container insights works with [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) for complete monitoring of your Kubernetes environment. It identifies all clusters across your subscriptions and allows you to quickly enable monitoring by both services.
+
 
 > [!IMPORTANT]
 > Container insights collects metric data from your cluster in addition to logs. This functionality has been replaced by [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). You can analyze that data using built-in dashboards in [Managed Grafana](../../managed-grafana/overview.md) and alert on them using [prebuilt Prometheus alert rules](container-insights-metric-alerts.md).
 > 
 > You can continue to have Container insights collect metric data so you can use the Container insights monitoring experience. Or you can save cost by disabling this collection and using Grafana for metric analysis. See [Configure data collection in Container insights using data collection rule](container-insights-data-collection-dcr.md) for configuration options.
-> 
+
+
+## Access Container insights
+
+Access Container insights in the Azure portal from **Containers** in the **Monitor** menu or directly from the selected AKS cluster by selecting **Insights**. The Azure Monitor menu gives you the global perspective of all the containers that are deployed and monitored. This information allows you to search and filter across your subscriptions and resource groups. You can then drill into Container insights from the selected container. Access Container insights for a particular cluster from its page in the Azure portal.
+
+:::image type="content" source="media/container-insights-overview/azmon-containers-experience.png" lightbox="media/container-insights-overview/azmon-containers-experience.png" alt-text="Screenshot that shows an overview of methods to access Container insights." border="false":::
+
 ## Data collected
-Container insights sends data to a [Log Analytics workspace](../logs/data-platform-logs.md) where you can analyze it using different features of Azure Monitor. Managed Prometheus sends data to an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) where it can be accessed by Managed Grafana. See [Monitoring data](../../aks/monitor-aks.md#monitoring-data) for further details on this data.
+Container insights sends data to a [Log Analytics workspace](../logs/data-platform-logs.md) where you can analyze it using different features of Azure Monitor. This workspace is different than the [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) used by Managed Prometheus. For more information on these other services, see [Monitoring data](../../aks/monitor-aks.md#monitoring-data).
 
-:::image type="content" source="media/container-insights-overview/aks-monitor-data.png" lightbox="media/container-insights-overview/aks-monitor-data.png" alt-text="Diagram of collection of monitoring data from Kubernetes cluster using Container insights and related services." border="false":::
+:::image type="content" source="../../aks/media/monitor-aks/aks-monitor-data.png" lightbox="../../aks/media/monitor-aks/aks-monitor-data.png" alt-text="Diagram of collection of monitoring data from Kubernetes cluster using Container insights and related services." border="false":::
 
 
-
-### Supported configurations
+## Supported configurations
 Container insights supports the following environments:
 
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)
@@ -43,14 +49,9 @@ Container insights supports the following environments:
 
 > [!NOTE]
 > Container insights supports ARM64 nodes on AKS. See [Cluster requirements](../../azure-arc/kubernetes/system-requirements.md#cluster-requirements) for the details of Azure Arc-enabled clusters that support ARM64 nodes.
->
+
+>[!NOTE]
 > Container insights support for Windows Server 2022 operating system is in public preview.
-
-## Access Container insights
-
-Access Container insights in the Azure portal from **Containers** in the **Monitor** menu or directly from the selected AKS cluster by selecting **Insights**. The Azure Monitor menu gives you the global perspective of all the containers that are deployed and monitored. This information allows you to search and filter across your subscriptions and resource groups. You can then drill into Container insights from the selected container. Access Container insights for a particular cluster from its page in the Azure portal.
-
-:::image type="content" source="media/container-insights-overview/azmon-containers-experience.png" lightbox="media/container-insights-overview/azmon-containers-experience.png" alt-text="Screenshot that shows an overview of methods to access Container insights." border="false":::
 
 
 ## Agent
@@ -79,7 +80,7 @@ Yes, Container Insights supports pod sandboxing through support for Kata Contain
 
 ## Next steps
 
-- See [Enable monitoring for Kubernetes clusters](kubernetes-monitoring-enable.md) to enable Managed Prometheus and Container insights on your cluster.
+To begin monitoring your Kubernetes cluster, review [Enable Container insights](container-insights-onboard.md) to understand the requirements and available methods to enable monitoring.
 
 <!-- LINKS - external -->
 [aks-release-notes]: https://github.com/Azure/AKS/releases

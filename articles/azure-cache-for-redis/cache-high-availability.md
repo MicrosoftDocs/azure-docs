@@ -120,11 +120,9 @@ Zone-redundant Enterprise and Enterprise Flash tier caches are available in the 
 | Canada Central* | North Europe | | | Australia East |
 | Central US* | UK South | | | Central India |
 | East US | West Europe | | | Southeast Asia |
-| East US 2 | | | | Japan East* |
-| South Central US | | | | East Asia* |
+| East US 2 | | | | |
+| South Central US | | | | |
 | West US 2 | | | | |
-| West US 3 | | | | |
-| Brazil South | | | | |
 
 \* Enterprise Flash tier not available in this region.
 
