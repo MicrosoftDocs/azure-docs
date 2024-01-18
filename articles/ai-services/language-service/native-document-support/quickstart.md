@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Azure AI Language Native document support"
+title: "Quickstart: Azure AI Language Native document support preview"
 titleSuffix: Azure AI services
-description: "Learn to process native documents with the Language service REST APIs."
+description: "Learn to process native documents with the Language service preview REST APIs."
 author: laujan
 manager: nitinme
 ms.service: azure-ai-language
@@ -16,7 +16,12 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD049 -->
 
-# Quickstart: Native document support
+# Quickstart: Native document support (preview)
+
+> [!IMPORTANT]
+>
+> * Azure AI Language public preview releases provide early access to features that are in active development.
+> * Features, approaches, and processes may change, prior to General Availability (GA), based on user feedback.
 
 Azure AI Language is a cloud-based service that applies Natural Language Processing (NLP) features to analyze text-based data.  Native document support extends the accepted plain text (.txt) input for the [Personally Identifiable Information (PII)](../personally-identifiable-information/overview.md) and [`Document Summarization`](../summarization/overview.md) features to include Word and PDF native document eliminating the need for text extraction preprocessing. In this quickstart demonstrates Personally Identifiable Information (PII) and `Summarization` processing for documents.
 
@@ -228,6 +233,13 @@ Before you run the **POST** request, replace `{your-language-resource-endpoint}`
 * The analyzed documents can be found in your target container.
 * The successful POST method returns a `202 Accepted` response code indicating that the service created the batch request.
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
+
+## Clean up resources
+
+If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+
+* [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+* [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next step
 
