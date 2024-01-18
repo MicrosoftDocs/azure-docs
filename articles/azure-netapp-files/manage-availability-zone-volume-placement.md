@@ -34,7 +34,7 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
 * VMs and Azure NetApp Files volumes are to be deployed separately, within the same logical availability zone to create zone alignment between VMs and Azure NetApp Files. The availability zone volume placement feature doesn't create zonal VMs upon volume creation, or vice versa.
 
-* <a name="file-path-uniqueness"></a> For volumes in the same availability zone, Azure NetApp Files allows you to create volumes with the same file path (NFS), share name (SMB), or volume path (dual-protocol). This feature is currently in preview. 
+* <a name="file-path-uniqueness"></a> For volumes in different availability zones, Azure NetApp Files allows you to create volumes with the same file path (NFS), share name (SMB), or volume path (dual-protocol). This feature is currently in preview. 
 
     You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required.
     
