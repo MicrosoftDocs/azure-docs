@@ -26,7 +26,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 When you update the sensor in the Azure portal, you can now choose to update to any of the supported, previous versions (versions other than the latest version). Previously, sensors onboarded to Microsoft Defender for IoT on the Azure portal were automatically updated to the latest version.
 
-You might want to update your sensor to a specific version for various reasons, including the use of a more stable version, for testing purposes, or to align all sensors to the same version.
+You might want to update your sensor to a specific version for various reasons, such as for testing purposes, or to align all sensors to the same version.
 
 :::image type="content" source="media/whats-new/send-package-multiple-versions-400.png" alt-text="screenshot of sensor update pane with option to choose sensor update version" border="false" lightbox="media/whats-new/send-package-multiple-versions.png" :::
 
