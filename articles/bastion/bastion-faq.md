@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/13/2023
+ms.date: 01/18/2024
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -49,6 +49,10 @@ Azure Bastion isn't supported with Azure Private DNS Zones in national clouds.
 ### <a name="dns"></a>Does Azure Bastion support Private Link?
 
 No, Azure Bastion doesn't currently support private link.
+
+### Why do I get a "Failed to add subnet" error when using "Deploy Bastion" in the portal?
+
+At this time, for most address spaces, you must add a subnet named **AzureBastionSubnet** to your virtual network before you select **Deploy Bastion**.
 
 ### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
 

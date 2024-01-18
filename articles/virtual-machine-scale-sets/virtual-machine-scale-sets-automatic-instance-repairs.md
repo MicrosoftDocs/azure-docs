@@ -161,6 +161,7 @@ The automatic instance repair feature can be enabled while creating a new scale 
 New-AzVmssConfig `
  -Location "EastUS" `
  -SkuCapacity 2 `
+ -OrchestrationMode "Flexible" `
  -SkuName "Standard_DS2" `
  -EnableAutomaticRepair $true `
  -AutomaticRepairGracePeriod "PT30M"
@@ -176,6 +177,7 @@ az vmss create \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
   --image RHELRaw8LVMGen2 \
+  --orchestration-mode Flexible \
   --admin-username <azureuser> \
   --generate-ssh-keys \
   --load-balancer <existingLoadBalancer> \

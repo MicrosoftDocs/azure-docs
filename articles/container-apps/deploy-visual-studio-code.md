@@ -76,7 +76,9 @@ The Azure Container Apps extension for Visual Studio Code enables you to choose 
 
     In the browser's location bar, append the `/albums` path at the end of the app URL to view data from a sample API request.
 
-Congratulations! You successfully created and deployed your first container app using Visual Studio code.
+Congratulations! You successfully created and deployed your first container app using Visual Studio Code.
+
+[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
 
 ## Clean up resources
 
