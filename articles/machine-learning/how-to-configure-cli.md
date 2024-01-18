@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-author: saachigopal
-ms.author: sagopal
-ms.date: 11/16/2022
+author: balapv
+ms.author: balapv
+ms.date: 01/08/2024
 ms.reviewer: larryfr
 ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022, ignite-2022
 ---
@@ -56,11 +56,11 @@ You can upgrade the extension to the latest version:
 
 ### Installation on Linux
 
-If you're using Linux, the fastest way to install the necessary CLI version and the Machine Learning extension is:
+If you're using Debian or Ubuntu, the fastest way to install the necessary CLI version and the Machine Learning extension is:
 
 :::code language="bash" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_install_linux":::
 
-For more, see [Install the Azure CLI for Linux](/cli/azure/install-azure-cli-linux).
+For information on how to install on other Linux distributions, visit [Install the Azure CLI for Linux](/cli/azure/install-azure-cli-linux).
 
 ## Set up
 

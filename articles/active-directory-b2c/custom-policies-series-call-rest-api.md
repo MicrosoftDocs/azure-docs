@@ -10,10 +10,14 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements, devx-track-js
-ms.date: 11/20/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C custom policy, I want to learn how to call a REST API and handle errors returned by the service, so that I can validate user inputs and issue JWT tokens based on the response.
+
 ---
 
 # Call a REST API by using Azure Active Directory B2C custom policy

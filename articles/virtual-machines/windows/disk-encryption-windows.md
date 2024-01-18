@@ -7,7 +7,7 @@ ms.subservice: disks
 ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
-ms.date: 07/07/2023
+ms.date: 01/03/2024
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
 ---
 

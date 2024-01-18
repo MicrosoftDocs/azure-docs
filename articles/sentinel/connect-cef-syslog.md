@@ -23,7 +23,7 @@ Learn how to [collect Syslog with the Azure Monitor Agent](../azure-monitor/agen
 >
 > On **February 28th 2023**, we introduced changes to the CommonSecurityLog table schema. Following this change, you might need to review and update custom queries. For more details, see the [recommended actions section](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232) in this blog post. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) has been updated by Microsoft Sentinel.   
 
-Read more about [CEF](connect-cef-ama.md#what-is-cef-collection) and [Syslog](connect-syslog.md#architecture) collection in Microsoft Sentinel. 
+Read more about [CEF](connect-cef-ama.md#what-is-common-event-format-cef) and [Syslog](connect-syslog.md#architecture) collection in Microsoft Sentinel. 
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Before you begin, verify that you have:
     - For space requirements for your log forwarder, see the [Azure Monitor Agent Performance Benchmark](../azure-monitor/agents/azure-monitor-agent-performance.md). You can also review this blog post, which includes [designs for scalable ingestion](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/designs-for-accomplishing-microsoft-sentinel-scalable-ingestion/ba-p/3741516).
 - Either the `syslog-ng` or `rsyslog` daemon enabled.
 - To collect events from any system that isn't an Azure virtual machine, ensure that [Azure Arc](../azure-monitor/agents/azure-monitor-agent-manage.md) is installed.
-- To ingest Syslog and CEF logs into Microsoft Sentinel, you can designate and configure a Linux machine that collects the logs from your devices and forwards them to your Microsoft Sentinel workspace. [Configure a log forwarder](connect-cef-ama.md#configure-a-log-forwarder).
+- To ingest Syslog and CEF logs into Microsoft Sentinel, you can designate and configure a Linux machine that collects the logs from your devices and forwards them to your Microsoft Sentinel workspace. [Configure a log forwarder](connect-cef-ama.md#how-microsoft-sentinel-collects-cef-logs-with-the-azure-monitor-agent).
 
 ## Avoid data ingestion duplication
 
@@ -54,18 +54,18 @@ To avoid this scenario, use one of these methods:
 ## Create a DCR for your CEF logs
 
 - Create the DCR via the UI:
-    1. [Open the connector page and create the DCR](connect-cef-ama.md#open-the-connector-page-and-create-the-dcr).
+    1. [Open the connector page and start the DCR wizard](connect-cef-ama.md#open-the-connector-page-and-start-the-dcr-wizard).
     1. [Define resources (VMs)](connect-cef-ama.md#define-resources-vms).
-    1. [Select the data source type and create the DCR](connect-cef-ama.md#select-the-data-source-type-and-create-the-dcr).
+    1. [Select facilities and severities and create the DCR](connect-cef-ama.md#select-facilities-and-severities-and-create-the-dcr).
 
         > [!IMPORTANT]
         > Make sure to **[avoid data ingestion duplication](#avoid-data-ingestion-duplication)** (review the options in this section).
 
-    1. [Run the installation script](connect-cef-ama.md).
+    1. [Run the installation script](connect-cef-ama.md#run-the-installation-script).
 
 - Create the DCR via the API:
-    1. [Create the request URL and header](connect-cef-ama.md#request-url-and-header). 
-    1. [Create the request body](connect-cef-ama.md#request-body).
+    1. [Create the request URL and header](connect-cef-ama.md#create-the-request-url-and-header). 
+    1. [Create the request body](connect-cef-ama.md#create-the-request-body-and-send-the-request).
 
     See [examples of facilities and log levels sections](connect-cef-ama.md#examples-of-facilities-and-log-levels-sections).
 
@@ -80,8 +80,7 @@ Create the DCR for your Syslog-based logs using the Azure Monitor [guidelines](.
     ```python
     sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python3 Forwarder_AMA_installer.py 
     ```
-    The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon. The script opens port 514 to listen to incoming messages in both UDP and TCP protocols. To change this setting, refer to the     
-    Syslog daemon configuration file according to the daemon type running on the machine:
+    The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon. The script opens port 514 to listen to incoming messages in both UDP and TCP protocols. To change this setting, refer to the Syslog daemon configuration file according to the daemon type running on the machine:
         - Rsyslog: `/etc/rsyslog.conf`
         - Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
 

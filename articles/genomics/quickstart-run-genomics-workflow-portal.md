@@ -1,9 +1,7 @@
 ---
 title: 'Quickstart: Run a workflow - Microsoft Genomics'
 description: The quickstart shows how to load input data into Azure Blob Storage and run a workflow through the Microsoft Genomics service.
-services: genomics
 author: vigunase
-manager: cgronlun
 ms.author: vigunase
 ms.service: genomics
 ms.topic: quickstart

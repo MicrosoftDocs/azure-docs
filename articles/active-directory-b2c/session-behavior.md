@@ -8,11 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 11/20/2023
+ms.date: 01/11/2024
 ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer configuring session behavior in Azure Active Directory B2C, I want to understand the different types of single sign-on sessions (Azure AD B2C session, federated identity provider session, application session) and how to configure their behavior, so that I can implement the most appropriate SSO method for my policy.
+
 ---
 
 
