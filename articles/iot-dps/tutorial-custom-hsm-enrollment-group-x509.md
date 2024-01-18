@@ -821,7 +821,7 @@ Your signing certificates are now trusted on the Windows-based device and the fu
 
 ## Prepare and run the device provisioning code
 
-In this section, you update the sample code with your Device Provisioning Service instance information. If a device is authenticated, it is assigned to an IoT hub linked to the Device Provisioning Service instance configured in this section.
+In this section, you update the sample code with your Device Provisioning Service instance information. If a device is authenticated, it's assigned to an IoT hub linked to the Device Provisioning Service instance configured in this section.
 
 ::: zone pivot="programming-language-ansi-c"
 
