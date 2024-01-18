@@ -12,9 +12,9 @@ ms.date: 01/17/2024
 
 Organizations are increasingly moving to multicloud architectures, whether by design or due to ongoing requirements. A growing number of these organizations use applications and store data on multiple public clouds, including the Google Cloud Platform (GCP).
 
-This article describes how to ingest GCP data into Microsoft Sentinel to get full security coverage and analyze and detect attacks in your multi-cloud environment.
+This article describes how to ingest GCP data into Microsoft Sentinel to get full security coverage and analyze and detect attacks in your multicloud environment.
 
-With the **GCP Pub/Sub** connectors, based on our [Codeless Connector Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) (CCP), you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview). 
+With the **GCP Pub/Sub** connector, based on our [Codeless Connector Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) (CCP), you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview). 
 
 > [!IMPORTANT]
 > The GCP Pub/Sub Audit Logs connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.  
@@ -55,22 +55,34 @@ You can set up the environment in one of two ways:
 
 1. Select the **project** you want to work with, by typing the following command in the editor: 
     ```bash
-    $ gcloud config set project {projectId}  
+    gcloud config set project {projectId}  
     ```
 
-1. Copy the Terraform [GCPInitialAuthenticationSetup script](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPInitialAuthenticationSetup) from the Azure Sentinel GitHub repository, paste the script to a new file, and save it as a `.tf` file.  
+1. Copy the Terraform script provided by Microsoft Sentinel from the Sentinel GitHub repository into your GCP Cloud Shell environment.
 
-1. Run the script by typing the following commands in the editor:  
+    1. Open the Terraform [GCPInitialAuthenticationSetup script](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPInitialAuthenticationSetup) file and copy its contents.  
+
+    1. Create a directory in your Cloud Shell environment, enter it, and create a new blank file.
+        ```bash
+        mkdir {directory-name} && cd {directory-name} && touch main.tf
+        ```
+
+    1. Open *main.tf* in the Cloud Shell editor and paste the contents of the script file into it.
+
+1. Initialize Terraform in the directory you created by typing the following command in the terminal:
     ```bash
-    $ terraform init 
-
-    $ terraform apply 
+    terraform init 
     ```
 
-1. When prompted for it, type your Microsoft tenant ID. You can find your tenant ID on the **GCP Pub/Sub Audit Logs** connector page in the Microsoft Sentinel portal, or in the **Portal settings** screen (accessible anywhere in the portal by selecting the gear icon along the top of the screen), in the **Directory ID** column.
+1. When you receive the confirmation message that Terraform was initialized, run the script by typing the following command in the terminal:
+    ```bash
+    terraform apply 
+    ```
+
+1. When the script prompts for your Microsoft tenant ID, copy and paste it into the terminal. You can find and copy your tenant ID on the **GCP Pub/Sub Audit Logs** connector page in the Microsoft Sentinel portal, or in the **Portal settings** screen (accessible anywhere in the portal by selecting the gear icon along the top of the screen), in the **Directory ID** column.
     :::image type="content" source="media/connect-google-cloud-platform/find-tenant-id.png" alt-text="Screenshot of portal settings screen." lightbox="media/connect-google-cloud-platform/find-tenant-id.png":::
 
-1. When asked if a workload Identity Pool has already been created for Azure, type *yes* or *no*.
+1. When asked if a workload Identity Pool has already been created for Azure, answer *yes* or *no* accordingly.
 
 1. When asked if you want to create the resources listed, type *yes*.
 
