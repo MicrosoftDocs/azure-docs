@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 01/03/2024
+ms.date: 01/11/2024
 ms.author: greglin
 ms.custom: references_regions
 ---
