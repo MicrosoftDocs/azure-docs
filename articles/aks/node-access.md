@@ -12,15 +12,15 @@ ms.custom: contperf-fy21q4, devx-track-linux
 
 Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you eventually need to directly access an AKS node. This access could be for maintenance, log collection, or troubleshooting operations. 
 
-You access a node through authentication, which methods vary depending on your Node OS and method of connection. You securely authenticate against AKS Linux and Windows nodes using SSH. Alternatively, for Windows Servers you can also connect to Windows Server nodes using the [remote desktop protocol (RDP)][aks-windows-rdp]. 
+You access a node through authentication, which methods vary depending on your Node OS and method of connection. You securely authenticate against AKS Linux and Windows nodes through two options discussed in this article. One requires that you have Kubernetes API access and an alternate is through the Machines ARM API which provides direct Private IP information. For security reasons, AKS nodes aren't exposed to the internet. Instead, to connect directly to any AKS nodes, you need to use either `kubectl debug` or the host's private IP address.
 
-For security reasons, AKS nodes aren't exposed to the internet. Instead, to connect directly to any AKS nodes, you need to use either `kubectl debug` or the host's private IP address.
+# Access to Nodes via Kubernetes API
 
-This guide shows you how to create a connection to an AKS node and update the SSH key of your AKS cluster.
+This requires usage of `kubectl debug` command. 
 
 ## Before you begin
 
-To follow along the steps, you need to use Azure CLI that supports version 2.0.64 or later. Run `az --version` to check the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+This guide shows you how to create a connection to an AKS node and update the SSH key of your AKS cluster. To follow along the steps, you need to use Azure CLI that supports version 2.0.64 or later. Run `az --version` to check the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 Complete these steps if you don't have an SSH key. Create an SSH key depending on your Node OS Image, for [macOS and Linux][ssh-nix], or [Windows][ssh-windows]. Make sure you save the key pair in the OpenSSH format, avoid unsupported formats such as `.ppk`. Next, refer to [Manage SSH configuration][manage-ssh-node-access] to add the key to your cluster. 
 
@@ -73,58 +73,13 @@ When you're done with your node, enter the `exit` command to end the interactive
 ```bash
 kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 ```
-
-## Private IP Method
-
-If you don't have access to the Kubernetes API, you can get access to properties such as ```Node IP``` and ```Node Name``` through the [AKS Agent Pool Preview API][agent-pool-rest-api] (preview version 07-02-2023 or above) to troubleshoot node-specific issues in your AKS node pools. 
-
-### Create an interactive shell connection to a node using the IP address
-
-For convenience, the nodepools are exposed when the node has a public IP assigned. However, you need to be in the cluster's virtual network to SSH into the node.
-
-1. To get the private IP, use the `machine list` to show all your VMs.
-
-    ```bash
-        az aks machine list --resource-group myResourceGroup  --cluster-name myAKSCluster --nodepool-name nodepool1 -o table
-     ```
-
-    Sample output:
-
-     ```output
-       Name                               Ip 
-    ---------------------------------  --------------------------
-    aks-nodepool1-33555069-vmss000000  10.224.0.5,family:IPv4;
-    aks-nodepool1-33555069-vmss000001  10.224.0.6,family:IPv4;
-    aks-nodepool1-33555069-vmss000002  10.224.0.4,family:IPv4;            
-    ```
-    To target a specific node inside the nodepool, add a `--machine-name` flag:
-
-    ```bash
-        az aks machine show --cluster-name myAKScluster --nodepool-name nodepool1 -g myResourceGroup --machine-name aks-nodepool1-33555069-vmss000000 -o table
-     ```
-    Sample output:
-
-    ```output
-        Name                               Ip 
-    ---------------------------------  --------------------------
-    aks-nodepool1-33555069-vmss000000  10.224.0.5,family:IPv4;
-       ```
-
-2. SSH using your private IP address to access your node.
-
-    ```bash
-    ssh azureuser@10.224.0.33
-    ```
-
-3. Optionally, you can test with Azure Bastion. Follow these steps to set up [Azure Bastion][azure-bastion] to test your connection to your virtual machines using a private IP address. Make sure that the Azure Bastion is hosted in the same virtual network as your VM.
-
-## Windows Server proxy connection
+## Windows Server proxy connection for SSH
 
 Follow these steps as a workaround to connect with SSH on a Windows Server node.
 
 ### Create a proxy server
 
-At this time, you can't connect to a Windows Server node directly by using `kubectl debug`. Instead, you need to first connect to another node in the cluster with `kubectl`, then connect to the Windows Server node from that node using SSH. Alternatively, you can connect to Windows Server nodes using [remote desktop protocol (RDP) connections][aks-windows-rdp].
+At this time, you can't connect to a Windows Server node directly by using `kubectl debug`. Instead, you need to first connect to another node in the cluster with `kubectl`, then connect to the Windows Server node from that node using SSH.
 
 To connect to another node in the cluster, use the `kubectl debug` command. For more information, follow the above steps in the kubectl section. Create an SSH connection to the Windows Server node from another node, and use the SSH keys provided when you created the AKS cluster and the internal IP address of the Windows Server node.
 
@@ -132,9 +87,25 @@ To connect to another node in the cluster, use the `kubectl debug` command. For 
 >
 > The following steps for creating the SSH connection to the Windows Server node from another node can only be used if you created your AKS cluster using the Azure CLI and the `--generate-ssh-keys` parameter. The AKS Update command can also be used to manage, create SSH keys on an existing AKS cluster. For more information, see [manage SSH node access][manage-ssh-node-access]. 
 
-Finish the prior steps to use kubectl debug, then return to this section, as you need to run the `kubectl debug` in your proxy.
+> [!Note]
+>
+> If your Linux proxy node is down or unresponsive, please use [Azure Bastion][azure-bastion] method. 
 
-1. Open a new terminal window and use the `kubectl get pods` command to get the name of the pod started by `kubectl debug`.
+1. Use the `kubectl debug` command to start a privileged container on your proxy (Linux) node and connect to it.
+
+    ```bash
+    kubectl debug node/aks-nodepool1-37663765-vmss000000 -it --image=mcr.microsoft.com/cbl-mariner/busybox:2.0
+    ```
+
+    Sample output:
+
+    ```output
+    Creating debugging pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx with container debugger on node aks-nodepool1-37663765-vmss000000.
+    If you don't see a command prompt, try pressing enter.
+    root@aks-nodepool1-37663765-vmss000000:/#
+    ```
+
+2. Open a new terminal window and use the `kubectl get pods` command to get the name of the pod started by `kubectl debug`.
 
     ```bash
     kubectl get pods
@@ -149,7 +120,7 @@ Finish the prior steps to use kubectl debug, then return to this section, as you
 
     In the sample output, *node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx* is the name of the pod started by `kubectl debug`.
 
-2. Use the `kubectl port-forward` command to open a connection to the deployed pod:
+3. Use the `kubectl port-forward` command to open a connection to the deployed pod:
 
     ```bash
     kubectl port-forward node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx 2022:22
@@ -200,6 +171,55 @@ Finish the prior steps to use kubectl debug, then return to this section, as you
     >  ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' -o PreferredAuthentications=password azureuser@10.224.0.62
     > ```
 
+## SSH using Azure Bastion for Windows
+
+In the event that your Linux proxy node is not reachable , then azure bastion is an alternative. This requires that you have set up an Azure Bastion host for the virtual network in which the cluster resides. For Windows refer this [article][azure-bastion] for details.
+
+## Private IP Method through Machines API.
+
+If you don't have access to the Kubernetes API, you can get access to properties such as ```Node IP``` and ```Node Name``` through the [AKS Agent Pool Preview API][agent-pool-rest-api] (preview version 07-02-2023 or above) to troubleshoot node-specific issues in your AKS node pools. 
+
+### Create an interactive shell connection to a node using the IP address
+
+For convenience, the nodepools are exposed when the node has a public IP assigned. However, you need to be in the cluster's virtual network to SSH into the node.
+
+1. To get the private IP, use the `machine list` to show all your VMs.
+
+    ```bash
+        az aks machine list --resource-group myResourceGroup  --cluster-name myAKSCluster --nodepool-name nodepool1 -o table
+     ```
+
+    Sample output:
+
+     ```output
+       Name                               Ip         Family    
+    ---------------------------------  -----------  ----------- 
+    aks-nodepool1-33555069-vmss000000  10.224.0.5   IPv4
+    aks-nodepool1-33555069-vmss000001  10.224.0.6   IPv4
+    aks-nodepool1-33555069-vmss000002  10.224.0.4   IPv4            
+    ```
+    To target a specific node inside the nodepool, add a `--machine-name` flag:
+
+    ```bash
+        az aks machine show --cluster-name myAKScluster --nodepool-name nodepool1 -g myResourceGroup --machine-name aks-nodepool1-33555069-vmss000000 -o table
+     ```
+    Sample output:
+
+    ```output
+      Name                               Ip         Family    
+    ---------------------------------  -----------  ----------- 
+    aks-nodepool1-33555069-vmss000000  10.224.0.5   IPv4
+       ```
+
+2. SSH using your private IP address to access your node. This applies for Linux machines only.
+
+    ```bash
+    ssh -i /path/to/private_key.pem azureuser@10.224.0.33
+    ```
+
+3. Optionally, you can test with Azure Bastion. Follow these steps to set up bastion [for windows][azure-bastion] and [for linux][azure-bastion-linux], then test your connection to your virtual machines using a private IP address. Make sure that the Azure Bastion is hosted in the same virtual network as your cluster.
+
+
 ## Next steps
 
 If you need more troubleshooting data, you can [view the kubelet logs][view-kubelet-logs] or [view the Kubernetes control plane logs][view-control-plane-logs].
@@ -210,10 +230,9 @@ To learn about managing your SSH keys, see [Manage SSH configuration][manage-ssh
 [view-kubelet-logs]: kubelet-logs.md
 [view-control-plane-logs]: monitor-aks-reference.md#resource-logs
 [install-azure-cli]: /cli/azure/install-azure-cli
-[aks-windows-rdp]: rdp.md
-[azure-bastion]: ../bastion/bastion-overview.md 
+[azure-bastion]: rdp.md#connect-with-azure-bastion
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
 [agent-pool-rest-api]: /rest/api/aks/agent-pools/get#agentpool
 [manage-ssh-node-access]: manage-ssh-node-access.md
-
+[azure-bastion-linux]:../bastion/bastion-connect-vm-ssh-linux.md
