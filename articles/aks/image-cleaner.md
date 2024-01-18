@@ -104,6 +104,8 @@ You can also manually trigger the clean up by defining a CRD object `ImageList`.
 
 ## Manually remove images using Image Cleaner
 
+Note that the name must be 'imagelist'
+
 * Example to manually remove image `docker.io/library/alpine:3.7.3` if it is unused.
 
     ```bash
@@ -118,16 +120,17 @@ You can also manually trigger the clean up by defining a CRD object `ImageList`.
     EOF
     ```
 
-The `ImageList` is one-time and manual mode is only triggered when the imagelist changes. After the image is deleted, the imagelist won't be deleted automatically.
-If you need to remove the new images, you need to delete the old `ImageList` and create a new one. 
+The manual mode is one-time and only triggered when a new imagelist is created or changes made to the existing imagelist. After the image is deleted, the imagelist won't be deleted automatically.
+
+If you need to remove the same image again, you need to delete the old imagelist and create a new one. 
 
 Delete the old imagelist
 
     ```bash
-    kubectl delete imagelist imagelist
+    kubectl delete ImageList imagelist
     ```
     
-Create a new imagelist with the new image names.
+Create a new imagelist with the same image name
 
     ```bash
     cat <<EOF | kubectl apply -f -
@@ -138,8 +141,23 @@ Create a new imagelist with the new image names.
     spec:
       images:
         - docker.io/library/alpine:3.7.3
-          docker.io/library/python:alpine3.18
     EOF
+    ```
+
+If you want to remove other new images, you can change the imagelist directly.  
+
+    ```bash
+    kubectl edit ImageList imagelist
+    ```
+    
+    ```bash
+    apiVersion: eraser.sh/v1
+    kind: ImageList
+    metadata:
+      name: imagelist
+    spec:
+      images:
+          docker.io/library/python:alpine3.18 #newly added 
     ```
 
 For manual mode, `eraser-aks-xxxxx` pod will be deleted in 10 minutes after work completion. 
