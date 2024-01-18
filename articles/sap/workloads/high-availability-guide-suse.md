@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 09/15/2023
+ms.date: 01/17/2024
 ms.author: radeltch
 ---
 
@@ -494,7 +494,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Create the SAP cluster resources
 
-   If using enqueue server 1 architecture (ENSA1), define the resources as follows:
+   Depending on whether you are running an ENSA1 or ENSA2 system, select respective tab to define the resources. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
+
+   #### [ENSA1](#tab/ensa1)
 
    ```bash
    sudo crm configure property maintenance-mode="true"
@@ -525,9 +527,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure property maintenance-mode="false"
    ```
 
-   SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
-
-   If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), define the resources as follows:
+   #### [ENSA2](#tab/ensa2)
 
    > [!NOTE]
    > If you have a two-node cluster running ENSA2, you have the option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resoure priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
@@ -561,29 +561,31 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure property maintenance-mode="false"
    ```
 
-   If you're upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
+---
 
-   Make sure that the cluster status is ok and that all resources are started. It isn't important on which node the resources are running.
+If you're upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
 
-   ```bash
-   sudo crm_mon -r
-   
-   # Online: [ nw1-cl-0 nw1-cl-1 ]
-   #
-   # Full list of resources:
-   #
-   # stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
-   #  Resource Group: g-NW1_ASCS
-   #      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-   #      nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
-   #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
-   #      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
-   #  Resource Group: g-NW1_ERS
-   #      fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-   #      nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
-   #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
-   #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
-   ```
+Make sure that the cluster status is ok and that all resources are started. It isn't important on which node the resources are running.
+
+```bash
+sudo crm_mon -r
+ 
+# Online: [ nw1-cl-0 nw1-cl-1 ]
+#
+# Full list of resources:
+#
+# stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+#  Resource Group: g-NW1_ASCS
+#      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+#      nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+#      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+#      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+#  Resource Group: g-NW1_ERS
+#      fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+#      nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+#      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+#      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+```
 
 ## SAP NetWeaver application server preparation
 

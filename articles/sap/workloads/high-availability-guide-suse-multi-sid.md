@@ -7,7 +7,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/21/2023
+ms.date: 01/17/2024
 ms.author: radeltch
 ---
 
@@ -377,7 +377,9 @@ This documentation assumes that:
 
 8. **[1]** Create the SAP cluster resources for the newly installed SAP system.
 
-   If using enqueue server 1 architecture (ENSA1), define the resources for SAP systems **NW2** and **NW3** as follows:
+   Depending on whether you are running an ENSA1 or ENSA2 system, select respective tab to define the resources for **NW2** and **NW3** systems. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
+
+   #### [ENSA1](#tab/ensa1)
 
     ```bash
     sudo crm configure property maintenance-mode="true"
@@ -424,8 +426,7 @@ This documentation assumes that:
     sudo crm configure property maintenance-mode="false"
     ```
 
-   SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
-   If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), define the resources for SAP systems **NW2** and **NW3** as follows:
+   #### [ENSA2](#tab/ensa2)
 
     ```bash
     sudo crm configure property maintenance-mode="true"
@@ -468,54 +469,57 @@ This documentation assumes that:
     sudo crm configure property maintenance-mode="false"
     ```
 
-   If you're upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
+---
 
-   Make sure that the cluster status is ok and that all resources are started. It isn't important on which node the resources are running.
-   The following example shows the cluster resources status, after SAP systems **NW2** and **NW3** were added to the cluster.
+If you're upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
 
-    ```bash
-    sudo crm_mon -r
-    
-    # Online: [ slesmsscl1 slesmsscl2 ]
-    
-    #Full list of resources:
-    
-    #stonith-sbd     (stonith:external/sbd): Started slesmsscl1
-    # Resource Group: g-NW1_ASCS
-    #     fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl2
-    #     nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl2
-    #     vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl2
-    #     rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started slesmsscl2
-    # Resource Group: g-NW1_ERS
-    #     fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl1
-    #     nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl1
-    #     vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
-    #     rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
-    # Resource Group: g-NW2_ASCS
-    #     fs_NW2_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
-    #     nc_NW2_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
-    #     vip_NW2_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
-    #     rsc_sap_NW2_ASCS10 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
-    # Resource Group: g-NW2_ERS
-    #     fs_NW2_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
-    #     nc_NW2_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl2
-    #     vip_NW2_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
-    #     rsc_sap_NW2_ERS12  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
-    # Resource Group: g-NW3_ASCS
-    #     fs_NW3_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
-    #     nc_NW3_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
-    #     vip_NW3_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
-    #     rsc_sap_NW3_ASCS20 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
-    # Resource Group: g-NW3_ERS
-    #     fs_NW3_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
-    #     nc_NW3_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl2
-    #     vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
-    #     rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
-    ```
+Make sure that the cluster status is ok and that all resources are started. It isn't important on which node the resources are running.
 
-   The following picture shows how the resources would look like in the HA Web Konsole(Hawk), with the resources for SAP system **NW2** expanded.  
+The following example shows the cluster resources status, after SAP systems **NW2** and **NW3** were added to the cluster.
 
-   [![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk.png)](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk-detail.png#lightbox)
+```bash
+sudo crm_mon -r
+  
+# Online: [ slesmsscl1 slesmsscl2 ]
+ 
+#Full list of resources:
+   
+#stonith-sbd     (stonith:external/sbd): Started slesmsscl1
+# Resource Group: g-NW1_ASCS
+#     fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl2
+#     nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl2
+#     vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl2
+#     rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started slesmsscl2
+# Resource Group: g-NW1_ERS
+#     fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl1
+#     nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl1
+#     vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
+#     rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
+# Resource Group: g-NW2_ASCS
+#     fs_NW2_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
+#     nc_NW2_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
+#     vip_NW2_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
+#     rsc_sap_NW2_ASCS10 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
+# Resource Group: g-NW2_ERS
+#     fs_NW2_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
+#     nc_NW2_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl2
+#     vip_NW2_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
+#     rsc_sap_NW2_ERS12  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
+# Resource Group: g-NW3_ASCS
+#     fs_NW3_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
+#     nc_NW3_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
+#     vip_NW3_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
+#     rsc_sap_NW3_ASCS20 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
+# Resource Group: g-NW3_ERS
+#     fs_NW3_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
+#     nc_NW3_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl2
+#     vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
+#     rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
+```
+
+The following picture shows how the resources would look like in the HA Web Konsole(Hawk), with the resources for SAP system **NW2** expanded.  
+
+[![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk.png)](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk-detail.png#lightbox)
 
 ### Proceed with the SAP installation
 
