@@ -1,6 +1,6 @@
 ---
-title: Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL Flexible Server
-description: Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL Flexible Server
+title: Generate vector embeddings with Azure OpenAI
+description: Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL - Flexible Server.
 author: mulander
 ms.author: adamwolk
 ms.date: 11/02/2023
@@ -11,7 +11,7 @@ ms.custom:
 ms.topic: conceptual
 ---
 
-# Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL Flexible Server (Preview)
+# Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL - Flexible Server (Preview)
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
@@ -87,7 +87,7 @@ CREATE TABLE conference_session_embeddings(
 INSERT INTO conference_sessions
     (title,session_abstract,duration_minutes,publish_date) 
 VALUES
-    ('Gen AI with Azure Database for PostgreSQL'
+    ('Gen AI with Azure Database for PostgreSQL flexible server'
     ,'Learn about building intelligent applications with azure_ai extension and pg_vector' 
     , 60, current_timestamp)
     ,('Deep Dive: PostgreSQL database storage engine internals'
