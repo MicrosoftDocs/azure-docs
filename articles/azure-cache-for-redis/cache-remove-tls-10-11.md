@@ -6,7 +6,8 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 09/12/2023
 ms.author: franlanglois
-ms.devlang: csharp, golang, java, javascript, php, python
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, javascript, php, python
 
 ---
 

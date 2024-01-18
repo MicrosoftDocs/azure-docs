@@ -50,7 +50,7 @@ In order to use the video prompt enhancement, you need both an Azure AI Vision r
 > [!IMPORTANT]
 > Pricing details are subject to change in the future.
 
-GPT-4 Turbo with Vision accrues charges like other Azure OpenAI chat models. You pay a per-token rate for the prompts and completions, detailed on the [Pricing page](/pricing/details/cognitive-services/openai-service/). The base charges and additional features are outlined here:
+GPT-4 Turbo with Vision accrues charges like other Azure OpenAI chat models. You pay a per-token rate for the prompts and completions, detailed on the [Pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/). The base charges and additional features are outlined here:
 
 Base Pricing for GPT-4 Turbo with Vision is:
 - Input: $0.01 per 1000 tokens

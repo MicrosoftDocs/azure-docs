@@ -14,8 +14,6 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 - Deploy an AKS cluster using the Azure CLI.
 - Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
 
-:::image type="content" source="media/quick-kubernetes-deploy-cli/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-cli/aks-store-application.png":::
-
 > [!NOTE]
 > To get started with quickly provisioning an AKS cluster, this article includes steps to deploy a cluster with default settings for evaluation purposes only. Before deploying a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
 
@@ -27,9 +25,9 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-- This article requires version 2.0.64 or later of the Azure CLI. If you are using Azure Cloud Shell, then the latest version is already installed.
+- This article requires version 2.0.64 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed there.
 - Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
-- If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account](/cli/azure/account) command.
+- If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account set](/cli/azure/account#az-account-set) command.
 
 ## Create a resource group
 
@@ -37,7 +35,7 @@ An [Azure resource group][azure-resource-group] is a logical group in which Azur
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-Create a resource group using the [`az group create`][az-group-create] command.
+Create a resource group using the [az group create][az-group-create] command.
 
   ```azurecli
   az group create --name myResourceGroup --location eastus
@@ -60,7 +58,7 @@ Create a resource group using the [`az group create`][az-group-create] command.
 
 ## Create an AKS cluster
 
-To create an AKS cluster, use the [`az aks create`][az-aks-create] command. The following example creates a cluster named *myAKSCluster* with one node and enables a system-assigned managed identity.
+To create an AKS cluster, use the [az aks create][az-aks-create] command. The following example creates a cluster named *myAKSCluster* with one node and enables a system-assigned managed identity.
 
   ```azurecli
   az aks create \
@@ -78,15 +76,15 @@ To create an AKS cluster, use the [`az aks create`][az-aks-create] command. The 
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, use the [`az aks install-cli`][az-aks-install-cli] command.
+To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, call the [az aks install-cli][az-aks-install-cli] command.
 
-1. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
     ```azurecli
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
-1. Verify the connection to your cluster using the [`kubectl get`][kubectl-get] command. This command returns a list of the cluster nodes.
+1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
     ```azurecli
     kubectl get nodes
@@ -348,7 +346,7 @@ To deploy the application, you use a manifest file to create all the objects req
 
     If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
 
-1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
+1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
 
     ```azurecli
     kubectl apply -f aks-store-quickstart.yaml
@@ -371,9 +369,13 @@ To deploy the application, you use a manifest file to create all the objects req
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
 
-1. Check the status of the deployed pods using the [`kubectl get pods`][kubectl-get] command. Make sure all pods are `Running` before proceeding.
+1. Check the status of the deployed pods using the [kubectl get pods][kubectl-get] command. Make sure all pods are `Running` before proceeding.
 
-1. Check for a public IP address for the store-front application. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
+    ```console
+    kubectl get pods
+    ```
+
+1. Check for a public IP address for the store-front application. Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
     ```azurecli
     kubectl get service store-front --watch
@@ -401,16 +403,14 @@ When the application runs, a Kubernetes service exposes the application front en
 
 ## Delete the cluster
 
-If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up unnecessary resources to avoid Azure charges.
+If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up unnecessary resources to avoid Azure charges. Call the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
-- Remove the resource group, container service, and all related resources using the [`az group delete`][az-group-delete] command.
+  ```azurecli
+  az group delete --name myResourceGroup --yes --no-wait
+  ```
 
-    ```azurecli
-    az group delete --name myResourceGroup --yes --no-wait
-    ```
-
-    > [!NOTE]
-    > The AKS cluster was created with a system-assigned managed identity, which is the default identity option used in this quickstart. The platform manages this identity so you don't need to manually remove it.
+  > [!NOTE]
+  > The AKS cluster was created with a system-assigned managed identity, which is the default identity option used in this quickstart. The platform manages this identity so you don't need to manually remove it.
 
 ## Next steps
 
@@ -428,10 +428,8 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
-[aks-identity-concepts]: ../concepts-identity.md
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
 [azure-resource-group]: ../../azure-resource-manager/management/overview.md
-[az-account]: /cli/azure/account
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
@@ -439,5 +437,4 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [az-group-delete]: /cli/azure/group#az-group-delete
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-[intro-azure-linux]: ../../azure-linux/intro-azure-linux.md
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json

@@ -11,8 +11,6 @@ ms.date: 01/11/2024
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you deploy an AKS cluster that runs Windows Server containers using the Azure portal. You also deploy an ASP.NET sample application in a Windows Server container to the cluster.
 
-:::image type="content" source="media/quick-windows-container-deploy-portal/asp-net-sample-app.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-windows-container-deploy-portal/asp-net-sample-app.png":::
-
 > [!NOTE]
 > To get started with quickly provisioning an AKS cluster, this article includes steps to deploy a cluster with default settings for evaluation purposes only. Before deploying a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
 
@@ -78,7 +76,7 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
 ### [Azure CLI](#tab/azure-cli)
 
 1. Open Cloud Shell by selecting the `>_` button at the top of the Azure portal page.
-1. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command. The following command downloads credentials and configures the Kubernetes CLI to use them.
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command downloads credentials and configures the Kubernetes CLI to use them.
 
     ```azurecli
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -104,7 +102,7 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
 ### [Azure PowerShell](#tab/azure-powershell)
 
 1. Open Cloud Shell by selecting the `>_` button at the top of the Azure portal page.
-1. Configure `kubectl` to connect to your Kubernetes cluster using the [`Import-AzAksCredential`][import-azakscredential] cmdlet. The following command downloads credentials and configures the Kubernetes CLI to use them.
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [Import-AzAksCredential][import-azakscredential] cmdlet. The following command downloads credentials and configures the Kubernetes CLI to use them.
 
     ```azurepowershell
     Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
@@ -184,7 +182,7 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
 
     If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
 
-1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
+1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
 
     ```console
     kubectl apply -f sample.yaml
@@ -201,9 +199,13 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete. Occasionally, the service can take longer than a few minutes to provision. Allow up to 10 minutes for provisioning.
 
-1. Check the status of the deployed pods using the [`kubectl get pods`][kubectl-get] command. Make all pods are `Running` before proceeding.
+1. Check the status of the deployed pods using the [kubectl get pods][kubectl-get] command. Make all pods are `Running` before proceeding.
 
-1. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
+    ```console
+    kubectl get pods
+    ```
+
+1. Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
     ```console
     kubectl get service sample --watch

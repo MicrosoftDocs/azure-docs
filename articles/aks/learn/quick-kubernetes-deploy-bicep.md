@@ -14,8 +14,6 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Deploy an AKS cluster using Bicep.
 * Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
 
-:::image type="content" source="media/quick-kubernetes-deploy-bicep/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-bicep/aks-store-application.png":::
-
 > [!NOTE]
 > To get started with quickly provisioning an AKS cluster, this article includes steps to deploy a cluster with default settings for evaluation purposes only. Before deploying a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
 
@@ -30,14 +28,14 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-* This article requires Azure CLI version 2.0.64 or later. If you're using Azure Cloud Shell, the latest version is already installed.
-* This article requires an existing Azure resource group. If you need to create one, you can use the [`az group create`][az-group-create] command.
+* This article requires Azure CLI version 2.0.64 or later. If you're using Azure Cloud Shell, the latest version is already installed there.
+* This article requires an existing Azure resource group. If you need to create one, you can use the [az group create][az-group-create] command.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* If you're running PowerShell locally, install the `Az PowerShell` module. If using Azure Cloud Shell, the latest version is already installed.
+* If you're running PowerShell locally, install the `Az PowerShell` module. If you're using Azure Cloud Shell, the latest version is already installed there.
 * You need the Bicep CLI. For more information, see [Azure PowerShell](../../azure-resource-manager/bicep/install.md#azure-powershell).
-* This article requires an existing Azure resource group. If you need to create one, you can use the [`New-AzAksCluster`][new-az-aks-cluster] cmdlet.
+* This article requires an existing Azure resource group. If you need to create one, you can use the [New-AzAksCluster][new-az-aks-cluster] cmdlet.
 
 ---
 
@@ -48,9 +46,9 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 ### Create an SSH key pair
 
 1. Go to [https://shell.azure.com](https://shell.azure.com) to open Cloud Shell in your browser.
-2. Create an SSH key pair using the [`az sshkey create`][az-sshkey-create] Azure CLI command or the `ssh-keygen` command.
+2. Create an SSH key pair using the [az sshkey create][az-sshkey-create] Azure CLI command or the `ssh-keygen` command.
 
-    ```azurecli-interactive
+    ```azurecli
     # Create an SSH key pair using Azure CLI
     az sshkey create --name "mySSHKey" --resource-group "myResourceGroup"
 
@@ -79,17 +77,17 @@ For more AKS samples, see the [AKS quickstart templates][aks-quickstart-template
 > [!IMPORTANT]
 > The Bicep file sets the `clusterName` param to the string *aks101cluster*. If you want to use a different cluster name, make sure to update the string to your preferred cluster name before saving the file to your computer.
 
-2. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
     ### [Azure CLI](#tab/azure-cli)
 
-    ```azurecli-interactive
+    ```azurecli
     az deployment group create --resource-group myResourceGroup --template-file main.bicep --parameters dnsPrefix=<dns-prefix> linuxAdminUsername=<linux-admin-username> sshRSAPublicKey='<ssh-key>'
     ```
 
     ### [Azure PowerShell](#tab/azure-powershell)
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     New-AzResourceGroup -Name myResourceGroup -Location eastus
     New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile ./main.bicep -dnsPrefix=<dns-prefix> -linuxAdminUsername=<linux-admin-username> -sshRSAPublicKey="<ssh-key>"
     ```
@@ -112,21 +110,21 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Install `kubectl` locally using the [`az aks install-cli`][az-aks-install-cli] command.
+1. Install `kubectl` locally using the [az aks install-cli][az-aks-install-cli] command.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks install-cli
     ```
 
-2. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
-3. Verify the connection to your cluster using the [`kubectl get`][kubectl-get] command. This command returns a list of the cluster nodes.
+1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
-    ```azurecli-interactive
+    ```azurecli
     kubectl get nodes
     ```
 
@@ -141,21 +139,21 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. Install `kubectl` locally using the [`Install-AzAksKubectl`][install-azakskubectl] cmdlet.
+1. Install `kubectl` locally using the [Install-AzAksKubectl][install-azakskubectl] cmdlet.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Install-AzAksKubectl
     ```
 
-2. Configure `kubectl` to connect to your Kubernetes cluster using the [`Import-AzAksCredential`][import-azakscredential] cmdlet. This command downloads credentials and configures the Kubernetes CLI to use them.
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [Import-AzAksCredential][import-azakscredential] cmdlet. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
     ```
 
-3. Verify the connection to your cluster using the [`kubectl get`][kubectl-get] command. This command returns a list of the cluster nodes.
+1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     kubectl get nodes
     ```
 
@@ -417,7 +415,9 @@ To deploy the application, you use a manifest file to create all the objects req
 
     For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
-2. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
+    If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
+
+1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
 
     ```console
     kubectl apply -f aks-store-quickstart.yaml
@@ -440,9 +440,13 @@ To deploy the application, you use a manifest file to create all the objects req
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
 
-1. Check the status of the deployed pods using the [`kubectl get pods`][kubectl-get] command. Make all pods are `Running` before proceeding.
+1. Check the status of the deployed pods using the [kubectl get pods][kubectl-get] command. Make all pods are `Running` before proceeding.
 
-2. Check for a public IP address for the store-front application. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
+    ```console
+    kubectl get pods
+    ```
+
+1. Check for a public IP address for the store-front application. Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
     ```console
     kubectl get service store-front --watch
@@ -455,7 +459,7 @@ When the application runs, a Kubernetes service exposes the application front en
     store-front   LoadBalancer   10.0.100.10   <pending>     80:30025/TCP   4h4m
     ```
 
-3. Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
+1. Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
 
     The following example output shows a valid public IP address assigned to the service:
 
@@ -464,7 +468,7 @@ When the application runs, a Kubernetes service exposes the application front en
     store-front   LoadBalancer   10.0.100.10   20.62.159.19   80:30025/TCP   4h5m
     ```
 
-4. Open a web browser to the external IP address of your service to see the Azure Store app in action.
+1. Open a web browser to the external IP address of your service to see the Azure Store app in action.
 
     :::image type="content" source="media/quick-kubernetes-deploy-bicep/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-bicep/aks-store-application.png":::
 
@@ -474,17 +478,17 @@ If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up un
 
 ### [Azure CLI](#tab/azure-cli)
 
-* Remove the resource group, container service, and all related resources using the [`az group delete`][az-group-delete] command.
+* Remove the resource group, container service, and all related resources using the [az group delete][az-group-delete] command.
 
-    ```azurecli-interactive
+    ```azurecli
     az group delete --name myResourceGroup --yes --no-wait
     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* Remove the resource group, container service, and all related resources using the [`Remove-AzResourceGroup`][remove-azresourcegroup] cmdlet
+* Remove the resource group, container service, and all related resources using the [Remove-AzResourceGroup][remove-azresourcegroup] cmdlet
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Remove-AzResourceGroup -Name myResourceGroup
     ```
 
