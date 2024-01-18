@@ -20,7 +20,7 @@ ms.custom:
 
 [Azure Database for PostgreSQL](../single-server/overview.md) powered by the PostgreSQL community edition is available in two deployment modes:
 
-- [Azure Database for PostgreSQL flexible server](overview.md)
+- [Azure Database for PostgreSQL single server](overview.md)
 - [Azure Database for PostgreSQL flexible server](../single-server/overview-single-server.md)
 
 This article provides an overview and introduction to the core concepts of the Azure Database for PostgreSQL flexible server deployment model.
