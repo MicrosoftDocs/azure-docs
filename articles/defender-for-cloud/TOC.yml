@@ -555,9 +555,6 @@
     - name: Define lists of safe applications for machines
       displayName: aac, allowlist, reviewgroup, adaptive application controls
       href: adaptive-application-controls.md
-    - name: Review applications and software installed on your machines
-      displayName: inventory, apps, software inventory, mde, tvm
-      href: asset-inventory.md#access-a-software-inventory
     - name: Review server protection
       items:
         - name: Review hardening recommendations
@@ -578,6 +575,9 @@
         - name: Improve your network security posture
           displayName: anh, adaptive network hardening
           href: adaptive-network-hardening.md
+        - name: Review applications and software installed on your machines
+          displayName: inventory, apps, software inventory, mde, tvm
+          href: asset-inventory.md#access-a-software-inventory
     - name: Common questions (FAQ)
       items:
         - name: Common questions about Defender for Servers
