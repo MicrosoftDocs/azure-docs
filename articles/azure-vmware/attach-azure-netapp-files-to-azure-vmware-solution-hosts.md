@@ -121,7 +121,7 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
 1. Create a datastore using an existing ANF volume in Azure VMware Solution private cloud cluster.
 
     `az vmware datastore netapp-volume create --name MyDatastore1 --resource-group MyResourceGroup –-cluster Cluster-1 --private-cloud MyPrivateCloud –-volume-id /subscriptions/<Subscription Id>/resourceGroups/<Resourcegroup name>/providers/Microsoft.NetApp/netAppAccounts/<Account name>/capacityPools/<pool name>/volumes/<Volume name>`
-1. If needed, you can display the help on the datastores.
+1. If needed, display the help on the datastores.
 
     `az vmware datastore -h`
 1. Show the details of an ANF-based datastore in a private cloud cluster.
