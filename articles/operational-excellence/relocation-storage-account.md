@@ -149,13 +149,13 @@ Azure Data Factory supports all Storage Account types from one region to another
 
 1. Choose the authentication types for source and target. Azure Data Factory's support for authenticate types depends on the data type that's being migrate. Use the table below to see which authentication types are supported for each storage type.
 
-| Authentication type	| Azure Blob storage| 	Azure Data Lake Storage Gen2	| Azure Files share	| Azure Table storage| 
-|---------------------------| ----------------------| ---------------------| ------------------| ---------| 
-| Account key authentication| 	Yes	| Yes	| Yes| 	Yes| 
-| Shared access signature authentication	| Yes	| No	| Yes	| Yes| 
-| Service principal authentication	| Yes| 	Yes| 	No| 	No| 
-| System-assigned managed identity authentication| 	Yes| 	Yes	| No| 	No| 
-| User-assigned managed identity authentication| 	Yes	| Yes| 	No| 	No| 
+    | Authentication type	| Azure Blob storage| 	Azure Data Lake Storage Gen2	| Azure Files share	| Azure Table storage| 
+    |---------------------------| ----------------------| ---------------------| ------------------| ---------| 
+    | Account key authentication| 	Yes	| Yes	| Yes| 	Yes| 
+    | Shared access signature authentication	| Yes	| No	| Yes	| Yes| 
+    | Service principal authentication	| Yes| 	Yes| 	No| 	No| 
+    | System-assigned managed identity authentication| 	Yes| 	Yes	| No| 	No| 
+    | User-assigned managed identity authentication| 	Yes	| Yes| 	No| 	No| 
 
 1. [Define Azure Data Factory linked service pipelines and configure connectors](/azure/data-factory/concepts-linked-services?tabs=data-factory) for the migrating data.
 
