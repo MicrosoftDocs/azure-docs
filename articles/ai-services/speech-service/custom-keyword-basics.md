@@ -8,7 +8,8 @@ ms.service: azure-ai-speech
 ms.topic: quickstart
 ms.date: 11/12/2021
 ms.author: eur
-ms.devlang: csharp, objective-c, python
+ms.devlang: csharp
+# ms.devlang: csharp, objective-c, python
 ms.custom: devx-track-csharp, ignite-fall-2021, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-speech-services
 ---

@@ -8,7 +8,8 @@ ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.devlang: cpp, csharp, java, javascript, objective-c, python
+ms.devlang: cpp
+# ms.devlang: cpp, csharp, java, javascript, objective-c, python
 ms.custom: devx-track-js, ignite-fall-2021, devx-track-python
 ---
 
