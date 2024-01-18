@@ -1,6 +1,6 @@
 ---
 title: Enterprise Agreement cost details file schema - version 2019-07-02-preview
-description: Learn about the data fields available in the Enterprise Agreement cost details file.
+description: Learn about the data fields available in the Enterprise Agreement cost details file for version 2019-07-02-preview.
 author: bandersmsft
 ms.reviewer: jojo
 ms.service: cost-management-billing

@@ -12,7 +12,7 @@ ms.author: banders
 
 # Microsoft Customer Agreement price sheet schema
 
-This article lists all of the data fields available in the Microsoft Customer Agreement price sheet. The price sheet is your Customer Price Sheet (CPS). Its a CSV file that contains all of the prices for your Azure services. The price sheet is available for download in the Azure portal. You can also download the price sheet by using the [Azure Resource RateCard API](https://docs.microsoft.com/rest/api/cost-management/retail-prices/azure-retail-prices).
+This article lists all of the data fields available in the Microsoft Customer Agreement price sheet. The price sheet is your Customer Price Sheet (CPS). Its a CSV file that contains all of the prices for your Azure services. The price sheet is available for download in the Azure portal. You can also download the price sheet by using the [Azure Resource RateCard API](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
 ## Price sheet data fields
 
