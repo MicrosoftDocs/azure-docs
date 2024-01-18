@@ -129,7 +129,7 @@ Use the following script to identify your Application Insights resources by inge
 
 #### Example
 
-```azurecli
+```powershell
 Get-AzApplicationInsights -SubscriptionId 'Your Subscription ID' | Format-Table -Property Name, IngestionMode, Id, @{label='Type';expression={
     if ([string]::IsNullOrEmpty($_.IngestionMode)) {
         'Unknown'
