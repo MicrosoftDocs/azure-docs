@@ -15,7 +15,7 @@ If your AKS clusters satisfy any of the following criteria, we recommend using t
 * Clusters running more than 10 nodes on average
 * Clusters that need to scale beyond 1000 nodes
 
-To scale AKS clusters beyond 1000 nodes, you need to request a node limit quota increase by [raising a support ticket in the Azure portal][support-ticket] up to a maximum of 5000 nodes per cluster. Increasing the node limit doesn't increase other AKS service quota limits, like the number of pods per node. For more information, see [Limits, quotas, and restrictions for AKS resources][quotas-skus-regions].
+You can now automatically scale beyond 1000 nodes up to a maximum of 5000 nodes per cluster. If you are unable to scale upto 5k nodes please [raise a support ticket in the Azure portal][support-ticket]. Increasing the node limit doesn't increase other AKS service quota limits, like the number of pods per node. For more information, see [Limits, quotas, and restrictions for AKS resources][quotas-skus-regions].
 
 To increase the node limit beyond 1000, you must have the following pre-requisites:
 
