@@ -45,6 +45,8 @@ items:
       href: dicom-configure-azure-rbac.md
     - name: Enable audit and diagnostic logging
       href: enable-diagnostic-logging.md
+    - name: Access DICOM Change Feed logs 
+      href: pull-dicom-changes-from-change-feed.md
     - name: Import DICOM files
       href: import-files.md
     - name: Export DICOM files

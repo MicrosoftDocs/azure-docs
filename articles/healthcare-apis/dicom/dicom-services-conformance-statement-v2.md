@@ -6,7 +6,7 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: dicom
 ms.topic: reference
-ms.date: 1/17/2024
+ms.date: 1/18/2024
 ms.author: mmitrik
 ---
 
@@ -271,7 +271,7 @@ An example response with `Accept` header `application/dicom+json` with a FailedA
 | `272`   | The store transaction didn't store the instance because of a general failure in processing the operation. |
 | `43264` | The DICOM instance failed the validation. |
 | `43265` | The provided instance `StudyInstanceUID` didn't match the specified `StudyInstanceUID` in the store request. |
-| `45070` | A DICOM instance with the same `StudyInstanceUID`, `SeriesInstanceUID`, and `SopInstanceUID` was already stored stored. If you want to update the contents, delete this instance first. |
+| `45070` | A DICOM instance with the same `StudyInstanceUID`, `SeriesInstanceUID`, and `SopInstanceUID` was already stored. If you want to update the contents, delete this instance first. |
 | `45071` | A DICOM instance is being created by another process, or the previous attempt to create failed and the cleanup process isn't complete. Delete the instance first before attempting to create again. |
 
 #### Store warning reason codes

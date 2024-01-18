@@ -5,7 +5,7 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: dicom
 ms.topic: how-to
-ms.date: 1/17/2024
+ms.date: 1/18/2024
 ms.author: mmitrik
 ---
 

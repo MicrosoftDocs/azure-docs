@@ -1,11 +1,11 @@
 ---
-title: Update DICOM files in the DICOM service
+title: Update files in the DICOM service in Azure Health Data Services
 description: Learn how to use the bulk update API in Azure Health Data Services to modify DICOM attributes for multiple files in the DICOM service. This article explains the benefits, requirements, and steps of the bulk update operation.
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: dicom
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 1/18/2024
 ms.author: mmitrik
 ---
 
@@ -164,7 +164,7 @@ Any attributes in the [Patient Identification Module](https://dicom.nema.org/dic
 | Patient's Name   | (0010,0010)   | Patient's full name   |
 | Patient ID       | (0010,0020)   | Primary hospital identification number or code for the patient. |
 | Other Patient IDs| (0010,1000) | Other identification numbers or codes used to identify the patient. 
-| Type of Patient ID| (0010,0022) |  The type of identifier in this item. Enumerated Values: TEXT RFID BARCODE Note The identifier is coded as a string regardless of the type, not as a binary value. 
+| Type of Patient ID| (0010,0022) |  The type of identifier in this item. Enumerated Values: TEXT RFID BARCODE Note that the identifier is coded as a string regardless of the type, not as a binary value. 
 | Other Patient Names| (0010,1001) | Other names used to identify the patient. 
 | Patient's Birth Name| (0010,1005) | Patient's birth name. 
 | Patient's Mother's Birth Name| (0010,1060) | Birth name of patient's mother. 
@@ -197,7 +197,7 @@ Any attributes in the [Patient Identification Module](https://dicom.nema.org/dic
 | Patient Species Description | (0010,2201) | The species of the patient. |
 | Patient Breed Description | (0010,2292) | The breed of the patient. See Section C.7.1.1.1.1. |
 | Breed Registration Number | (0010,2295) | Identification number of a veterinary patient within the registry. |
-| Issuer of Patient ID | (0010,0021) | Identifier of the Assigning Authority (system, organization, agency, or department) that issued the Patient ID. ```
+| Issuer of Patient ID | (0010,0021) | Identifier of the Assigning Authority (system, organization, agency, or department) that issued the Patient ID.
 
 #### General study module
 | Attribute Name   | Tag           | Description           |
