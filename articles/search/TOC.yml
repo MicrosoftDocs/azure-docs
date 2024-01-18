@@ -246,7 +246,7 @@
       href: search-howto-complex-data-types.md
     - name: Model relational data
       href: index-sql-relational-data.md
-  - name: Vectore stores
+  - name: Vector stores
     items:
     - name: Create a vector index
       href: vector-search-how-to-create-index.md
@@ -620,7 +620,7 @@
         href: cognitive-search-skill-sentiment-v3.md
       - name: Text Translation
         href: cognitive-search-skill-text-translation.md
-    - name: Azure AI Search utility skills (non-billable)
+    - name: Azure AI Search utility skills (nonbillable)
       items:
       - name: Conditional
         href: cognitive-search-skill-conditional.md

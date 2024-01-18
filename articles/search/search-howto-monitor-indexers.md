@@ -120,7 +120,7 @@ For more information about status codes and indexer monitoring data, see [Get In
 
 ## Monitor using .NET
 
-Using the Azure AI Search .NET SDK, the following C# example writes information about an indexer's status and the results of its most recent (or ongoing) run to the console.
+The following C# example writes information about an indexer's status and the results of its most recent (or ongoing) run to the console.
 
 ```csharp
 static void CheckIndexerStatus(SearchIndexerClient indexerClient, SearchIndexer indexer)
