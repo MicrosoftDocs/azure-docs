@@ -74,8 +74,8 @@ If you get this error, check whether a network routing rule, or a firewall is bl
 
 ### Error: `Failed to resolve IP.`
 
-If you get this error, check whether the upstream DNS server is correctly configured in your DNS server. To solve this issue, add Azure DNS IP `168.63.129.16` as the upstream DNS server in your custom DNS server. If you cannot use Azure DNS as the upstream server, use other proper upstream servers. For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md). can be resolved.
+If you get this error, check whether the upstream DNS server is correctly configured in your DNS server. To solve this issue, add Azure DNS IP `168.63.129.16` as the upstream DNS server in your custom DNS server. If you can't use Azure DNS as the upstream server, use other valid upstream servers. For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md). can be resolved.
 
 ### Error: `Not all the VM instances in the cluster are in succeeded running state.`
 
-This error usually indicates that DNS or other networking settings is blocking the underlying nodes provision. For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md) and [Troubleshooting Azure Spring Apps in virtual networks](troubleshooting-vnet.md).
+This error usually indicates that DNS or other networking settings is blocking the underlying nodes provisioning. For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md) and [Troubleshooting Azure Spring Apps in virtual networks](troubleshooting-vnet.md).
