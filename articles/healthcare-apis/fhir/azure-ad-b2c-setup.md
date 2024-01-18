@@ -50,11 +50,11 @@ Connect-AzAccount -Tenant $tenantid -SubscriptionId $subscriptionid
 New-AzResourceGroup -Name $resourcegroupname -Location $region
 
 ### deploy the resource
-New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateFile "templates/b2c-arm-template.json" -b2cName $b2cName
+New-AzResourceGroupDeployment -ResourceGroup2cName $b2cNa
 ```
 
 #### [Azure CLI](#tab/command-line)
-
+Name $resourcegroupname -TemplateUri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/b2c-arm-template.json -b
 - Use `Connect-AzAccount` to sign in to Azure. After you sign in, use `az account show --output table` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
 
 - Create a new resource group, or use an existing one by skipping the step or commenting out the line starting with `az group create`.
@@ -75,7 +75,7 @@ az account set --subscription $subscriptionid
 az group create --name $resourcegroupname --location $region
 
 ### deploy the resource
-az deployment group create --resource-group $resourcegroupname --template-file 'templates/b2c-arm-template.json' --parameters b2cName=$b2cName
+az deployment group create --resource-group $resourcegroupname --template-uri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/b2c-arm-template.json --parameters b2cName=$b2cName
 ```
 
 ---
@@ -163,7 +163,7 @@ The B2C resource application handles authentication requests from your healthcar
 #### Configure API permissions for the app 
 1. On the **App registrations page** in the left pane, choose **Manifest**. 
 
-1. Scroll until you find the `oauth2Permissions` array. Replace the array with one or more values in the [oauth2Permissions.json](/oauth2Permissions.json) file. Copy the entire array or individual permissions. 
+1. Scroll until you find the `oauth2Permissions` array. Replace the array with one or more values in the [oauth2Permissions.json](https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/oauthPermissions.json) file. Copy the entire array or individual permissions. 
  
    If you add a permission to the list, any user in the B2C tenant can obtain an access token with the API permission. If a level of access isn't appropriate for a user within the B2C tenant, don't add to the array because there isn't a way to limit permissions to a subset of users.
 
@@ -263,7 +263,7 @@ Connect-AzAccount -Tenant $tenantid -SubscriptionId $subscriptionid
 New-AzResourceGroup -Name $resourcegroupname -Location $region
 
 ### deploy the resource
-New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateFile "templates/fhir-service-arm-template.json" -tenantid $tenantid -region $region -workspaceName $workspacename -fhirServiceName $fhirservicename -smartAuthorityUrl $smartAuthorityUrl -smartClientId $smartClientId
+New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateUri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/fhir-service-arm-template.json -tenantid $tenantid -region $region -workspaceName $workspacename -fhirServiceName $fhirservicename -smartAuthorityUrl $smartAuthorityUrl -smartClientId $smartClientId
 ```
 
 #### [Azure CLI](#tab/command-line)
@@ -292,7 +292,7 @@ az account set --subscription $subscriptionid
 az group create --name $resourcegroupname --location $region
 
 ### deploy the resource
-az deployment group create --resource-group $resourcegroupname --template-file 'templates/fhir-service-arm-template.json' --parameters tenantid=$tenantid region=$region workspaceName=$workspacename fhirServiceName=$fhirservicename smartAuthorityUrl=$smartAuthorityUrl storageAccountConfirm=$smartClientId
+az deployment group create --resource-group $resourcegroupname --template-uri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/fhir-service-arm-template.json --parameters tenantid=$tenantid region=$region workspaceName=$workspacename fhirServiceName=$fhirservicename smartAuthorityUrl=$smartAuthorityUrl storageAccountConfirm=$smartClientId
 ```
 
 ---
