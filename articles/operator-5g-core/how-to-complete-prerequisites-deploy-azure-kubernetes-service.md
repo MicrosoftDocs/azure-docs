@@ -1,11 +1,11 @@
 ---
-title: Prerequisites to deploy on advanced kubernetes service
-description: Learn how to complete the prerequisites necessary to deploy AO5GC on the advanced kubernetes service
+title: Prerequisites to deploy Azure Operator 5G Core on Azure Kubernetes Service
+description: Learn how to complete the prerequisites necessary to deploy Azure Operator 5G Core on the Azure Kubernetes Service.
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: how-to #required; leave this attribute/value as-is.
-ms.date: 01/08/2024
+ms.date: 01/18/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -34,7 +34,7 @@ For example: "Migrate data from regular tables to ledger tables" or "Create a ne
 
 -->
 
-# Complete the prerequisites to deploy AO5GC on Advanced Kubernetes Service
+# Complete the prerequisites to deploy Azure Operator 5G Core on Advanced Kubernetes Service
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------

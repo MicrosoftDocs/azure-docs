@@ -1,11 +1,11 @@
 ---
-title: Performing health checks post-deployment
+title: Performing health checks post-deployment in Azure Operator 5G Core
 description: Learn how to ensure your deployment is running at its highest capacity by performing health checks post-deployment.
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: how-to #required; leave this attribute/value as-is.
-ms.date: 01/08/2024
+ms.date: 01/18/2024
 
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.

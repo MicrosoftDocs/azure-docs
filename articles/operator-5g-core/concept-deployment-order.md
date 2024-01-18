@@ -1,11 +1,11 @@
 ---
-title: Deployment ordering on AKS
-description: Outlines the deployment order for components on AKS
+title: Azure Operator 5G Core Deployment ordering on Azure Kubernetes Services
+description: Outlines the deployment order for components on Azure Kubernetes Services
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: concept-article #required; leave this attribute/value as-is.
-ms.date: 01/08/2024
+ms.date: 01/18/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---

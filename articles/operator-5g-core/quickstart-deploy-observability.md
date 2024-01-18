@@ -1,6 +1,6 @@
 ---
-title: Deploy AO5GC observability on AKS
-description: Learn the high-level process to deploy AO5GC observability on Advanced Kubernetes services.
+title: Deploy Azure Operator 5G Core observability on Azure Kubernetes Services
+description: Learn the high-level process to deploy Azure Operator 5G Core observability on Advanced Kubernetes Services.
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
@@ -35,7 +35,7 @@ For example: "Quickstart: Demonstrate the incident response capabilities of Micr
 
 -->
 
-# Quickstart: Deploy observability on Advanced Kubernetes Services (AKS)
+# Quickstart: Deploy observability on Azure Kubernetes Services (AKS)
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------

@@ -1,11 +1,11 @@
 ---
-title: Configure a network function
+title: Configure a network function in Azure Operator 5G Core
 description: Learn the high-level process for configuring a network function.
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: quickstart #required; leave this attribute/value as-is
-ms.date: 01/08/2024
+ms.date: 01/18/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---

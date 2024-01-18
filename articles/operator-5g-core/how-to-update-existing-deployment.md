@@ -1,11 +1,11 @@
 ---
-title: How to update existing deployments
-description: Learn how to update existing AO5GC deployments
+title: How to update existing deployments of Azure Operator 5G Core
+description: Learn how to update existing Azure Operator 5G Core deployments
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: how-to #required; leave this attribute/value as-is.
-ms.date: 01/08/2024
+ms.date: 01/18/2024
 
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.

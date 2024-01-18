@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot deployment issues
-description: Review troubleshooting solutions for common AO5GC deployment issues.
+description: Review troubleshooting solutions for common Azure Operator 5G Core deployment issues.
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: troubleshooting-problem-resolution #don't change.
-ms.date: 01/08/2024
+ms.date: 01/18/2024
 
 #customer intent: As a <role>, I want <what> so that <why>.
 

@@ -1,11 +1,11 @@
 ---
-title: Centralized lifecycle management
-description: Outlines the benefit of AO5GC's centralized lifecycle management feature.
+title: Centralized lifecycle management in Azure Operator 5G Core
+description: Outlines the benefit of Azure Operator 5G Core's centralized lifecycle management feature.
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: concept-article #required; leave this attribute/value as-is.
-ms.date: 01/08/2024
+ms.date: 01/18/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---

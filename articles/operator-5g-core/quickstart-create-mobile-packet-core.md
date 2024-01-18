@@ -1,11 +1,11 @@
 ---
-title: Create a mobile packet core
-description: Learn the high-level process to create a mobile packet core in AO5GC.
+title: Create a Mobile Packet Core in Azure Operator 5G Core
+description: Learn the high-level process to create a Mobile Packet Core in Azure Operator 5G Core.
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: quickstart #required; leave this attribute/value as-is
-ms.date: 01/08/2024
+ms.date: 01/18/2024
 
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
@@ -36,7 +36,7 @@ For example: "Quickstart: Demonstrate the incident response capabilities of Micr
 
 -->
 
-# Quickstart: Create a mobile packet core in your AO5GC subscription
+# Quickstart: Create a Mobile Packet Core in your Azure Operator 5G Core subscription
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------

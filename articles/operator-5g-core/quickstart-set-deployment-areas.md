@@ -5,7 +5,7 @@ author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: quickstart #required; leave this attribute/value as-is
-ms.date: 01/08/2024
+ms.date: 01/18/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -35,7 +35,7 @@ For example: "Quickstart: Demonstrate the incident response capabilities of Micr
 
 -->
 
-# Quickstart: Set deployment areas for your AO5GC subscription
+# Quickstart: Set deployment areas for your Azure Operator 5G Core subscription
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------

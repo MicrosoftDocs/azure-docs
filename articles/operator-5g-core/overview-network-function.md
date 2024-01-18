@@ -1,11 +1,11 @@
 ---
 title: What is a network function?
-description: Learn about network functions that are used to deploy and run AO5GC
+description: Learn about network functions that are used to deploy and run Azure Operator 5G Core
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: overview #required; leave this attribute/value as-is.
-ms.date: 01/08/2024
+ms.date: 01/18/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---

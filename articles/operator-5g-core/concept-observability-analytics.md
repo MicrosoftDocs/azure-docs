@@ -1,11 +1,11 @@
 ---
-title: Observability analytics
-description: Learn how observability analytics are used in AO5GC
+title: Observability analytics in Azure Operator 5G Core
+description: Learn how observability analytics are used in Azure Operator 5G Core
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: concept-article #required; leave this attribute/value as-is.
-ms.date: 01/08/2024
+ms.date: 01/18/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
@@ -47,7 +47,7 @@ One clear sign of a procedural article would be the use of a numbered list. With
 
 -->
 
-# Observability analytics concepts
+# Observability analytics
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph

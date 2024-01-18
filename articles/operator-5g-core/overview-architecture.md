@@ -1,11 +1,11 @@
 ---
 title: Azure Operator 5G Core architecture
-description: View the architecture behind the AO5GC software solution.
+description: View the architecture behind the Azure Operator 5G Core software solution.
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: overview #required; leave this attribute/value as-is.
-ms.date: 01/08/2024
+ms.date: 01/18/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---

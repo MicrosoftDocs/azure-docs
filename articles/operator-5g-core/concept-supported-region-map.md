@@ -1,11 +1,12 @@
 ---
-title: Supported region map
-description: A visual representation of the regions that support AO5GC deployment.
+title: Supported region map for Azure Operator 5G Core
+description: A visual representation of the regions that support Azure Operator 5G Core deployment.
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: concept-article #required; leave this attribute/value as-is.
-ms.date: 01/08/2024
+ms.custom: references_regions 
+ms.date: 01/18/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---

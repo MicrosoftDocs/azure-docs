@@ -1,11 +1,11 @@
 ---
-title: Deployment ordering for NAKS
-description: Outlines the deployment order for components on NAKS
+title: Azure Operator 5G Core deployment ordering for Nexus Azure Kubernetes Services
+description: Outlines the deployment order for components on Nexus Azure Kubernetes Services
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: concept-article #required; leave this attribute/value as-is.
-ms.date: 01/08/2024
+ms.date: 01/18/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---

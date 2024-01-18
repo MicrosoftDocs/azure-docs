@@ -1,6 +1,6 @@
 ---
 title: Configure network functions
-description: This tutorial outlines the process to configure a network function in AO5GC.
+description: This tutorial outlines the process to configure a network function in Azure Operator 5G Core.
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core

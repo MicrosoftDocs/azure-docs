@@ -6,6 +6,8 @@ items:
   items:
   - name: What is Azure Operator 5G Core?
     href: overview-product.md
+  - name: Azure Operator 5G Core architecture
+    href: overview-architecture.md
   - name: What is a Mobile Packet Core?
     href: overview-packet-core.md
   - name: What is a network function?
@@ -58,8 +60,8 @@ items:
     href: concept-centralized-lifecycle-management.md
   - name: Supported features
     href: concept-supported-features.md
-  - name: Deployment order for clusters, network functions and observability on Nexus Azure Kubernetes Services
-    href: concept-nexus-deployment-order.md
+  - name: Deployment order for clusters, network functions and observability on Azure Kubernetes Services
+    href: concept-deployment-order.md
   - name: Observability and analytics
   - name: Deployment order for clusters, network functions and observability on Nexus Azure Kubernetes Services
     href: concept-nexus-deployment-order.md
@@ -70,9 +72,9 @@ items:
 - name: How-to guides
   items:
   - name: Complete the prerequisite tasks to deploy Nexus Azure Kubernetes Services
-    href: how-to-complete-prereqs-deploy-nexus-azure-kubernetes-service.md
+    href: how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md
   - name: Complete the prerequisite tasks to deploy Azure Kubernetes Services
-    href: how-to-complete-prereqs-deploy-azure-kubernetes-service.md
+    href: how-to-complete-prerequisites-deploy-azure-kubernetes-service.md
   - name: Monitor the deployment status
     href: how-to-monitor-deployment-status.md
   - name: Update an existing deployment

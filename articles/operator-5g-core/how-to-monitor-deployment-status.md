@@ -1,11 +1,11 @@
 ---
-title: Monitoring the deployment status
+title: Monitoring the deployment status of Azure Operator 5G Core
 description: Monitor the deployment status of your Azure Operator 5G Core and its components
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: how-to #required; leave this attribute/value as-is.
-ms.date: 01/08/2024
+ms.date: 01/18/2024
 
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
@@ -36,7 +36,7 @@ For example: "Quickstart: Demonstrate the incident response capabilities of Micr
 
 -->
 
-# Quickstart: Monitor the  status of your AO5GC deployment
+# Quickstart: Monitor the  status of your Azure Operator 5G Core deployment
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
 
@@ -202,7 +202,7 @@ If there is a follow-on Quickstart that uses the same resources, make that optio
 <!-- Use this exact H2 -->
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the resourcea with the following steps:
+If you're not going to continue to use this application, delete the resources with the following steps:
 
 1. From the left-hand menu...
 2. ...click Delete, type...and then click Delete

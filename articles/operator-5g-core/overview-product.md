@@ -1,11 +1,11 @@
 ---
-title: What is AO5GC?
+title: What is Azure Operator 5G Core?
 description: Learn about Azure Operator 5G Core and its components.
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: overview #required; leave this attribute/value as-is.
-ms.date: 01/16/2024
+ms.date: 01/18/2024
 ---
 
 <!--

@@ -1,11 +1,11 @@
 ---
-title: Restart a packet core instance
-description: Learn the high-level process to restart a mobile packet core instance in Azure Operator 5G Core.
+title: Restart a packet core instance in Azure Operator 5G Core
+description: Learn the high-level process to restart a Mobile Packet Core instance in Azure Operator 5G Core.
 author: HollyCl
 ms.author: HollyCl
 ms.service: private-5g-core
 ms.topic: quickstart #required; leave this attribute/value as-is
-ms.date: 01/08/2024
+ms.date: 01/18/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -35,7 +35,7 @@ For example: "Quickstart: Demonstrate the incident response capabilities of Micr
 
 -->
 
-# Quickstart: Restart a packet core instance
+# Quickstart: Restart a packet core instance in Azure Operator 5G Core
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
