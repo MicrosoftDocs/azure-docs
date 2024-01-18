@@ -1,18 +1,18 @@
 ---
-title: Apache Kafka on Confluent Cloud overview
-description: Learn about using Apache Kafka on Confluent Cloud in the Azure Marketplace.
+title: Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service overview
+description: Learn about using Apache Kafka® & Apache Flink® on Confluent Cloud™ in the Azure Marketplace.
 ms.topic: conceptual
 
 ms.date: 11/20/2023
 ---
 
-# What is Apache Kafka on Confluent Cloud - An Azure Native ISV Service?
+# What is Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service?
 
 Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. This Azure Native ISV Service is developed and managed by Microsoft and Confluent.
 
-You can find Apache Kafka on Confluent Cloud - An Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview).
+You can find Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview).
 
-Apache Kafka on Confluent Cloud is an Azure Marketplace offering that provides Apache Kafka as a service. It's fully managed so you can focus on building your applications rather than managing the clusters.
+Apache Kafka® & Apache Flink® on Confluent Cloud™ is an Azure Marketplace offering that provides Apache Kafka as a service. It's fully managed so you can focus on building your applications rather than managing the clusters.
 
 To reduce the burden of cross-platform management, Microsoft partnered with Confluent Cloud to build an integrated provisioning layer from Azure to Confluent Cloud. It provides a consolidated experience for using Confluent Cloud on Azure. You can easily integrate and manage Confluent Cloud with your Azure applications.
 
@@ -56,7 +56,7 @@ You decide which billing option to use when you create the service.
 
 ## Confluent links
 
-For more help with using Apache Kafka for Confluent Cloud, see the following links to the [Confluent site](https://docs.confluent.io/home/overview.html).
+For more help with using Apache Kafka® & Apache Flink® on Confluent Cloud™, see the following links to the [Confluent site](https://docs.confluent.io/home/overview.html).
 
 To learn about billing options, see:
 
@@ -83,7 +83,7 @@ To learn more, see Confluent blog articles about Azure services that integrate w
 
 ## Next steps
 
-- To create an instance of Apache Kafka on Confluent Cloud, see [QuickStart: Get started with Confluent Cloud on Azure](create.md).
+- To create an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™, see [QuickStart: Get started with Confluent Cloud on Azure](create.md).
 - Get started with Apache Kafka on Confluent Cloud - An Azure Native ISV Service on
 
     > [!div class="nextstepaction"]

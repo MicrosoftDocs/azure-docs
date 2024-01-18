@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Apache Kafka on Confluent Cloud - An Azure Native ISV Service
+title: Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service
 summary: Enables using Apache Kafka as a service.
 
 metadata:
   title: Confluent Cloud with Azure documentation
-  description: Confluent Cloud integrates with Azure to offer Apache Kafka as a service.
+  description: Confluent Cloud integrates with Azure to offer Apache Kafka and Apache Flink as a service.
   ms.service: partner-services
   ms.subservice: confluent
   ms.topic: landing-page
@@ -16,11 +16,11 @@ metadata:
 
 landingContent:
   # Card (optional)
-  - title: About Apache Kafka on Confluent Cloud - An Azure Native ISV Service
+  - title: About Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Apache Kafka on Confluent Cloud - An Azure Native ISV Service?
+          - text: What is Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service
             url: overview.md
       - linkListType: how-to-guide
         links:
@@ -32,15 +32,15 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Get started with Apache Kafka on Confluent Cloud - Azure portal
+          - text: Get started with Apache Kafka® & Apache Flink® on Confluent Cloud™ - Azure portal
             url: create.md
-          - text: Get started with Apache Kafka on Confluent Cloud - Azure CLI
+          - text: Get started with Apache Kafka® & Apache Flink® on Confluent Cloud™ - Azure CLI
             url: create-cli.md
       - linkListType: how-to-guide
         links:
           - text: Add connectors for Confluent Cloud
             url: add-connectors.md
-          - text: Troubleshooting Apache Kafka on Confluent Cloud solutions
+          - text: Troubleshooting Apache Kafka® & Apache Flink® on Confluent Cloud™ solutions
             url: troubleshoot.md
 
   # Card

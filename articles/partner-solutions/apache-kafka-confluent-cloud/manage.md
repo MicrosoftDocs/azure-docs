@@ -10,7 +10,7 @@ ms.date: 11/20/2023
 
 # Manage the Confluent Cloud resource
 
-This article describes how to manage your instance of Apache Kafka for Confluent Cloud on Azure. It shows how to set up single sign-on (SSO) and delete a Confluent organization.
+This article describes how to manage your instance of Apache Kafka® & Apache Flink® on Confluent Cloud™ on Azure. It shows how to set up single sign-on (SSO) and delete a Confluent organization.
 
 ## Single sign-on
 
@@ -81,6 +81,6 @@ You're billed for prorated usage up to the time of cluster deletion. After your 
 
 ## Next steps
 
-* For help with troubleshooting, see [Troubleshooting Apache Kafka on Confluent Cloud solutions](troubleshoot.md).
+* For help with troubleshooting, see [Troubleshooting Apache Kafka® & Apache Flink® on Confluent Cloud™ solutions](troubleshoot.md).
 * If you need to contact support, see [Get support for Confluent Cloud resource](get-support.md).
 * To learn about managing user permissions, go to [How to manage user permissions in a Confluent organization](manage.md).

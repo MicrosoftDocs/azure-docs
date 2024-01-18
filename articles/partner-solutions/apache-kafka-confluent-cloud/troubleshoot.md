@@ -1,14 +1,14 @@
 ---
-title: Troubleshooting Apache Kafka for Confluent Cloud
+title: Troubleshooting Apache Kafka® & Apache Flink® on Confluent Cloud™
 description: This article provides information about troubleshooting and frequently asked questions (FAQ) for Confluent Cloud on Azure.
 ms.topic: conceptual
 
 ms.date: 11/20/2023
 ---
 
-# Troubleshooting Apache Kafka on Confluent Cloud solutions
+# Troubleshooting Apache Kafka® & Apache Flink® on Confluent Cloud™ solutions
 
-This document contains information about troubleshooting your solutions that use Apache Kafka on Confluent Cloud.
+This document contains information about troubleshooting your solutions that use Apache Kafka® & Apache Flink® on Confluent Cloud™.
 
 If you don't find an answer or can't resolve a problem, [create a request through the Azure portal](get-support.md) or contact [Confluent support](https://support.confluent.io).
 
@@ -66,8 +66,8 @@ If the problem persists, contact [Confluent support](https://support.confluent.i
 
 ## Next steps
 
-- Learn about [managing your instance](manage.md) of Apache Kafka on Confluent Cloud.
-- Get started with Apache Kafka on Confluent Cloud - An Azure Native ISV Service on
+- Learn about [managing your instance](manage.md) of Apache Kafka® & Apache Flink® on Confluent Cloud™.
+- Get started with Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service on
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
