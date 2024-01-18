@@ -31,10 +31,6 @@ SUPI concealment and SUCI deconcealment are defined in 3GPP TS 33.501: Security 
 
 - Identify the name of the Mobile Network resource corresponding to your private mobile network.
 
-## Plan a maintenance window
-
-Updating the packet core configuration requires you to reinstall the packet core, during which your service will be unavailable for up to two hours. We recommend using a maintenance window to minimize the impact on your service.
-
 ## Generate home network private keys
 
 You can use the OpenSSL tool in Bash to generate a public and private key pair for either profile A or profile B.
@@ -95,8 +91,6 @@ The home network private keys are stored in Azure Key Vault. You must use the Az
 
 ## Configure home network private keys on the packet core
 
-Updating the packet core configuration requires you to reinstall the packet core, during which your service will be unavailable for up to two hours. We recommend using a maintenance window to minimize the impact on your service.
-
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Mobile Network** resource representing the private mobile network for which you want to provision SIMs.
 
@@ -113,13 +107,12 @@ Updating the packet core configuration requires you to reinstall the packet core
 
 1. Select **Add**.
 1. Repeat for any additional private keys.
-1. [Reinstall the packet core instance](reinstall-packet-core.md).
 1. Return to the **Mobile Network** resource. It should now show **Home network public keys : succeeded**.
 1. Navigate to the **Packet Core Control Plane** resource. It should now show **Home network private keys provisioning : succeeded**.
 
 ## Disabling SUPI concealment
 
-If you need to disable SUPI concealment, remove the configuration from the **Mobile Network** resource and reinstall the packet core.
+If you need to disable SUPI concealment, remove the configuration from the **Mobile Network** resource.
 
 ## Rotating keys
 
