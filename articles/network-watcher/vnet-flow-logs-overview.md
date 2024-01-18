@@ -77,11 +77,11 @@ VNet flow logs have the following properties:
 
 - `time`: Time in UTC when the event was logged.
 - `flowLogVersion`: Version of the flow log schema.
-- `flowLogGUID`: Resource GUID of the flow log resource.
+- `flowLogGUID`: Resource GUID of the `FlowLog` resource.
 - `macAddress`: MAC address of the network interface where the event was captured.
 - `category`: Category of the event. The category is always `FlowLogFlowEvent`.
-- `flowLogResourceID`: Resource ID of the flow log resource.
-- `targetResourceID`: Resource ID of the target resource that's associated with the flow log resource.
+- `flowLogResourceID`: Resource ID of the `FlowLog` resource.
+- `targetResourceID`: Resource ID of the target resource that's associated with the `FlowLog` resource.
 - `operationName`: Always `FlowLogFlowEvent`.
 - `flowRecords`: Collection of flow records.
   - `flows`: Collection of flows. This property has multiple entries for access control lists (ACLs):
@@ -118,9 +118,9 @@ VNet flow logs have the following properties:
 | `NX_NOT_ACCEPTED` | **Drop due to no encryption**. Encryption is configured on both source and destination endpoints, with a drop on unencrypted policies. If traffic encryption fails, the packet is dropped. |
 | `NX_NOT_SUPPORTED` | **Discovery is unsupported**. Encryption is configured, but the encryption session wasn't established because the host networking stack doesn't support discovery. In this case, the packet is dropped. If you encounter this problem, report it to Microsoft for investigation. |
 | `NX_LOCAL_DST` | **Destination is on the same host**. Encryption is configured, but the source and destination virtual machines are running on the same Azure host. In this case, the connection isn't encrypted by design. |
-| `NX_FALLBACK` | **Fall back to no encryption**. Encryption is configured with the allow-unencrypted policy for both source and destination endpoints. The system attempted encryption but had a problem. In this case, the connection is allowed but isn't encrypted. For example, a virtual machine initially landed on a node that supports encryption, but this support was removed later. |
+| `NX_FALLBACK` | **Fall back to no encryption**. Encryption is configured with the **Allow unencrypted** policy for both source and destination endpoints. The system attempted encryption but had a problem. In this case, the connection is allowed but isn't encrypted. For example, a virtual machine initially landed on a node that supports encryption, but this support was removed later. |
 
-Traffic in your virtual networks is unencrypted (`NX`) by default. For encrypted traffic, enable [virtual network encryption](../virtual-network/virtual-network-encryption-overview.md).
+Traffic in your virtual networks is unencrypted (`NX`) by default. For encrypted traffic, see [Virtual network encryption](../virtual-network/virtual-network-encryption-overview.md).
 
 ## Sample log record
 
@@ -204,7 +204,9 @@ Here's an example bandwidth calculation for flow tuples from a TCP conversation 
 
 For continuation (`C`) and end (`E`) flow states, byte and packet counts are aggregate counts from the time of the previous flow's tuple record. In the example conversation, the total number of packets transferred is 1,021 + 52 + 8,005 + 47 = 9,125. The total number of bytes transferred is 588,096 + 29,952 + 4,610,880 + 27,072 = 5,256,000.
 
-## Considerations for storage accounts
+## Considerations for Vnet flow logs
+
+### Storage account
 
 - **Location**: The storage account must be in the same region as the virtual network.
 - **Subscription**: The storage account must be in either:
@@ -214,13 +216,17 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 - **Performance tier**: The storage account must be standard. Premium storage accounts aren't supported.
 - **Self-managed key rotation**: If you change or rotate the access keys to your storage account, VNet flow logs stop working. To fix this problem, you must disable and then re-enable VNet flow logs.
 
-## Cost
+### Cost
 
-VNet flow logs are billed on the volume of logs produced. High traffic volume can result in large-flow log volume and associated costs. If you configure traffic analytics in VNet flow logs, existing traffic analytics pricing applies.
+VNet flow logs are billed on the volume of logs produced. High traffic volume can result in large-flow log volume and the associated costs.
 
-Pricing of VNet flow logs doesn't include the underlying costs of storage. Using the retention policy feature with VNet flow logs means incurring separate storage costs for extended periods of time. If you want to retain data forever and don't want to apply any retention policy, set retention days to zero.
+Pricing of VNet flow logs doesn't include the underlying costs of storage. Using the retention policy feature with VNet flow logs means incurring separate storage costs for extended periods of time.
 
-For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+If you want to retain data forever and don't want to apply any retention policy, set retention days to zero. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+
+## Pricing
+
+Currently, VNet flow logs aren't billed. In the future, VNet flow logs will be billed per gigabyte of *network logs collected* and will come with a free tier of 5 GB/month per subscription. If enable traffic analytics for VNet flow logs, existing pricing for traffic analytics applies. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
 ## Availability
 
