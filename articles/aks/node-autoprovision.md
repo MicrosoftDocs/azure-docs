@@ -1,20 +1,24 @@
 ---
-title: Node autoprovisioning (Preview)
-description: Learn about Azure Kubernetes Service (AKS) Node autoprovisioning
+title: Node autoprovisioning (preview)
+description: Learn about Azure Kubernetes Service (AKS) node autoprovisioning (preview).
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 10/19/2023
+ms.date: 01/18/2024
 ms.author: juda
 #Customer intent: As a cluster operator or developer, how to scale my cluster based on workload requirements and right size my nodes automatically
 ---
 
-# Node autoprovision
-When deploying workloads onto AKS, you need to make a decision about the node pool configuration regarding the VM size needed.  As your workloads become more complex, and require different CPU, Memory and capabilities to run, the overhead of having to design your VM configuration for numerous resource requests becomes difficult.
+# Node autoprovisioning (preview)
 
-Node autoprovision (NAP) decides based on pending pod resource requirements the optimal VM configuration to run those workloads in the most efficient and cost effective manner.
+When you deploy workloads onto AKS, you need to make a decision about the node pool configuration regarding the VM size needed.  As your workloads become more complex, and require different CPU, memory, and capabilities to run, the overhead of having to design your VM configuration for numerous resource requests becomes difficult.
+
+Node autoprovisioning (NAP) (preview) decides based on pending pod resource requirements the optimal VM configuration to run those workloads in the most efficient and cost effective manner.
 
 NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and the [AKS provider](https://github.com/Azure/karpenter) is also Open Source.  NAP automatically deploys and configures and manages Karpenter on your AKS clusters.
 
+> [!IMPORTANT]
+> Node autoprovisioning (NAP) for AKS is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Before you begin
 
