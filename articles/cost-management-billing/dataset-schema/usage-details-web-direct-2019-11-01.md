@@ -13,7 +13,7 @@ ms.author: banders
 # Web direct cost details file schema
 
 > [!NOTE]
-> This article applies to the web direct cost details file schema. Web direct is also called pay-as-you-go (PAYG) and Microsoft Online Services Program (MOSP). For other versions, see the [dataset schema index](schema-index.md).
+> This article applies to the web direct cost details file schema. Web direct is also called pay-as-you-go (PAYG), Microsoft Online Services Program (MOSP), and Microsoft Online Subscription Agreement (MOSA). For other versions, see the [dataset schema index](schema-index.md).
 
 This article lists the cost details (formerly known as usage details) fields found in cost details files by using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-export-acm-data.md) from Cost Management, or the [Cost Details API](/rest/api/cost-management/generate-cost-details-report). The cost details file is a CSV file that contains all of the cost details for the Azure services that were used. For more information about cost details best practices, see [Choose a cost details solution](../automate/usage-details-best-practices.md).
 
