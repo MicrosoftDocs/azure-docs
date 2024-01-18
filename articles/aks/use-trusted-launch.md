@@ -143,6 +143,26 @@ The following example updates the node pool *mynodepool* on the *myAKSCluster* i
 az aks nodepool update --cluster-name myCluster --resource-group myResourceGroup --name mynodepool --enable-secure-boot --enable-vtpm 
 ```
 
+## Assign pods to nodes with trusted launch enabled
+
+You can constrain a Pod so that it is restricted to run on particular node(s), or to prefer to run on particular nodes where trusted launch is enabled. This is achieved using the following node pool selector in your pod manifest.
+
+For a node pool running vTPM, apply the following:
+
+```yml
+spec:
+  nodeSelector:
+        kubernetes.azure.com/trusted-launch: true
+```
+
+For a node pool running Secure Boot, apply the following:
+
+```yml
+spec:
+  nodeSelector:
+        kubernetes.azure.com/secure-boot: true
+```
+
 ## Disable Secure Boot
 
 To disable Secure Boot on an AKS cluster, run the following command:
