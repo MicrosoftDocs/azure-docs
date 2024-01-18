@@ -18,13 +18,13 @@ Virtual network (VNet) flow logs are a feature of Azure Network Watcher. You can
 Flow data from VNet flow logs is sent to Azure Storage. From there, you can access the data and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS). VNet flow logs overcome some of the limitations of [NSG flow logs](network-watcher-nsg-flow-logging-overview.md).
 
 > [!IMPORTANT]
-> The feature of VNet flow logs is currently in preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The VNet flow logs feature is currently in preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Why use flow logs?
 
 It's vital to monitor, manage, and know your network so that you can protect and optimize it. You might need to know the current state of the network, who's connecting, and where users are connecting from. You might also need to know which ports are open to the internet, what network behavior is expected, what network behavior is irregular, and when sudden rises in traffic happen.
 
-Flow logs are the source of truth for all network activity in your cloud environment. Whether you're in a startup that's trying to optimize resources or a large enterprise that's trying to prevent attacks, flow logs can help. You can use them for optimizing network flows, monitoring throughput, verifying compliance, detecting intrusions, and more.
+Flow logs are the source of truth for all network activity in your cloud environment. Whether you're in a startup that's trying to optimize resources or a large enterprise that's trying to detect intrusion, flow logs can help. You can use them for optimizing network flows, monitoring throughput, verifying compliance, detecting intrusions, and more.
 
 ## Common use cases
 
@@ -234,7 +234,7 @@ VNet flow logs are available in the following regions during the preview:
 - West US
 - West US 2
 
-To get access to the preview, go to the [sign-up page](https://aka.ms/VNetflowlogspreviewsignup).
+To get access to the preview, go to the [VNet flow logs preview sign-up page](https://aka.ms/VNetflowlogspreviewsignup).
 
 ## Related content
 
