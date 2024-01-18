@@ -268,7 +268,7 @@ This section contains an example of what that data would look like for each even
   }]
 ```
 
-### Microsoft.Communication.ChatParticipantAddedToThreadWithUser  event 
+### Microsoft.Communication.ChatParticipantAddedToThreadWithUser event 
 ```json
 [{
     "id": "049a5a7f-6cd7-43c1-b352-df9e9e6146d1",
