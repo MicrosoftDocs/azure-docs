@@ -63,13 +63,16 @@ Azure Communications Gateway includes SIP trunks to your own network and can int
 
 [!INCLUDE [communications-gateway-multitenant](includes/communications-gateway-multitenant.md)]
 
-To allow Azure Communications Gateway to identify the correct service for a call, you must configure the details of each number and its service(s) on Azure Communications Gateway. This is:
+To allow Azure Communications Gateway to identify the correct service for a call, you must configure the details of each number and its service(s) on Azure Communications Gateway. This use of the Provisioning API is:
 - Required for Microsoft Teams Direct Routing and Zoom Phone Cloud Peering.
 - Not required for Operator Connect (because Azure Communications Gateway defaults to Operator Connect for fixed line calls) or Teams Phone Mobile.
 
 You can also configure Azure Communications Gateway to add a custom header to messages associated with a number. You can use this feature to indicate the service and/or the enterprise associated with a call.
 
 Configuring numbers with services and custom headers requires Azure Communications Gateway's Provisioning API. For more information, see [Provisioning API for Azure Communications Gateway](provisioning-platform.md).
+
+> [!NOTE]
+> Although integrating with the Provisioning API is optional for Operator Connect or Teams Phone Mobile, we strongly recommend it. Integrating with the Provisioning API enables flow-through API-based provisioning of your customers in the Operator Connect environment, in addition to provisioning on Azure Communications Gateway (for custom header configuration). This flow-through provisioning interoperates with the Operator Connect APIs, and allows you to meet the requirements for API-based provisioning from the Operator Connect and Teams Phone Mobile programs. For more information, see [Provisioning and Operator Connect APIs](interoperability-operator-connect.md#provisioning-and-operator-connect-apis).
 
 You can arrange more interworking function as part of your initial network design or at any time by raising a support request for Azure Communications Gateway. For example, you might need extra interworking configuration for:
 

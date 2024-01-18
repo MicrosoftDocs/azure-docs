@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: overview
-ms.date: 11/27/2023
+ms.date: 01/31/2024
 ms.custom: template-overview
 ---
 
@@ -58,12 +58,17 @@ Azure Communications Gateway's voice features include:
 
 ## Provisioning and API integration for Operator Connect and Teams Phone Mobile
 
-Launching Operator Connect or Teams Phone Mobile requires you to use the Operator Connect APIs to provision subscribers (instead of the Operator Connect Portal). Azure Communications Gateway offers a Number Management Portal integrated into the Azure portal. This portal uses the Operator Connect APIs, allowing you to pass the certification process and sell Operator Connect or Teams Phone Mobile services while you carry out a custom API integration project. 
+Launching Operator Connect or Teams Phone Mobile requires you to use the Operator Connect APIs to provision subscribers (instead of the Operator Connect Portal). Azure Communications Gateway offers two methods of provisioning subscribers that allow you to meet this requirement:
 
-For more information, see [Number Management Portal for provisioning with Operator Connect APIs](interoperability-operator-connect.md#number-management-portal-for-provisioning-with-operator-connect-apis) and [Manage an enterprise with Azure Communications Gateway's Number Management Portal for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
+- A Number Management Portal integrated into the Azure portal, for browser-based provisioning.
+- A Provisioning API that allows flow-through provisioning from your BSS clients to Azure Communications Gateway and the Operator Connect environments.
+
+Both methods integrate with the Operator Connect APIs, allowing you to pass the certification process and sell Operator Connect or Teams Phone Mobile services.
+
+For more information, see [Provisioning and Operator Connect APIs](interoperability-operator-connect.md#provisioning-and-operator-connect-apis).
 
 > [!TIP]
-> The Number Management Portal does not allow your enterprise customers to manage Teams Calling. For example, it does not provide self-service portals.
+> These methods do not allow your enterprise customers to manage Teams Calling. For example, they do not provide self-service portals.
 
 Azure Communications Gateway also automatically integrates with Operator Connect APIs to upload call duration data to Microsoft Teams. For more information, see [Providing call duration data to Microsoft Teams](interoperability-operator-connect.md#providing-call-duration-data-to-microsoft-teams).
 

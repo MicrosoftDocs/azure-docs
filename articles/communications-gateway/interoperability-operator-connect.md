@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual
-ms.date: 09/01/2023
+ms.date: 01/31/2024
 ms.custom: template-concept
 ---
 
@@ -91,14 +91,22 @@ Azure Communications Gateway offers multiple media interworking options. For exa
 
 For full details of the media interworking features available in Azure Communications Gateway, raise a support request.
 
-## Number Management Portal for provisioning with Operator Connect APIs
+## Provisioning and Operator Connect APIs
 
-Operator Connect and Teams Phone Mobile require API integration between your IT systems and Microsoft Teams for flow-through provisioning and automation. After your deployment has been certified and launched, you must not use the Operator Connect portal for provisioning. You can use Azure Communications Gateway's Number Management Portal instead. This Azure portal feature enables you to pass the certification process and sell Operator Connect or Teams Phone Mobile services while you carry out a custom API integration project.
+Operator Connect and Teams Phone Mobile require API integration between your IT systems and Microsoft Teams for flow-through provisioning and automation. After your deployment is certified and launched, you must not use the Operator Connect portal for provisioning. Azure Communications Gateway offers two alternative methods for provisioning subscribers:
 
-For more information, see [Manage an enterprise with Azure Communications Gateway's Number Management Portal for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
+- A Number Management Portal, integrated into the Azure portal, for browser-based provisioning.
+- A Provisioning API that allows flow-through provisioning from your BSS clients to Azure Communications Gateway and the Operator Connect environments.
+
+Both methods integrate with the Operator Management and Telephone Number Management APIs provided by the Operator Connect environment. They meet the Operator Connect and Teams Phone Mobile requirement to use APIs to manage your customers and numbers after you launch your service.. They therefore allow you to pass the certification process and sell Operator Connect or Teams Phone Mobile services.
+
+For more information, see:
+
+- [Provisioning API for Azure Communications Gateway](provisioning-platform.md) and [Integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md).
+- [Manage an enterprise with Azure Communications Gateway's Number Management Portal for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
 
 > [!TIP]
-> The Number Management Portal does not allow your enterprise customers to manage Teams Calling. For example, it does not provide self-service portals.
+> These methods do not allow your enterprise customers to manage Teams Calling. For example, they do not provide self-service portals.
 
 ## Providing call duration data to Microsoft Teams
 

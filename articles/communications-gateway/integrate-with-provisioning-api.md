@@ -18,10 +18,10 @@ Whether you need to integrate with the REST API depends on your chosen communica
 
 |Communications service  |Provisioning API integration  |Purpose  |
 |---------|---------|---------|
-|Microsoft Teams Direct Routing |Required |- Configure the subdomain associated with each Direct Routing customer<br>- Generate DNS records specific to each customer (as required by the Microsoft 365 environment)<br>- Indicate that numbers are enabled for Direct Routing.<br>- (Optional) Configure a custom header for messages to your network|
-|Operator Connect|Optional|(Optional) Configure a custom header for messages to your network|
-|Teams Phone Mobile|Optional|(Optional) Configure a custom header for messages to your network|
-|Zoom Phone Cloud Peering |Required |- Indicate that numbers are enabled for Zoom<br>- (Optional) Configure a custom header for messages to your network|
+|Microsoft Teams Direct Routing |Required |- Configuring the subdomain associated with each Direct Routing customer<br>- Generating DNS records specific to each customer (as required by the Microsoft 365 environment)<br>- Indicating that numbers are enabled for Direct Routing<br>- (Optional) Configuring a custom header for messages to your network|
+|Operator Connect|Recommended|- (Recommended) Flow-through provisioning of Operator Connect customers through interoperation with Operator Connect APIs<br>- (Optional) Configuring a custom header for messages to your network|
+|Teams Phone Mobile|Recommended|- (Recommended) Flow-through provisioning of Teams Phone Mobile customers through interoperation with Operator Connect APIs<br>- (Optional) Configuring a custom header for messages to your network|
+|Zoom Phone Cloud Peering |Required |- Indicating that numbers are enabled for Zoom<br>- (Optional) Configuring a custom header for messages to your network|
 
 ## Prerequisites
 
