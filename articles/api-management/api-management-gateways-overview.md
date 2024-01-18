@@ -101,7 +101,8 @@ The following table compares features available in the managed gateway versus th
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️<sup>1</sup> | ✔️<sup>1</sup> |
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ❌ | ✔️ |
 | [Pass-through gRPC](grpc-api.md) |  ❌ |  ❌ | ✔️ |
-| [Circuit Breaker](backends.md#circuit-breaker-preview) |  ✔️ |  ✔️ | ✔️ |
+| [Circuit breaker in backend](backends.md#circuit-breaker-preview) |  ✔️ |  ❌ | ✔️ |
+| [Load-balanced backend pool](backends.md#load-balanced-pool-preview) |  ✔️ |  ✔️ | ✔️ |
 
 <sup>1</sup> Synthetic GraphQL subscriptions (preview) aren't supported.
 

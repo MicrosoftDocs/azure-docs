@@ -20,8 +20,8 @@ ms.custom:
 
 [Azure Database for PostgreSQL](../single-server/overview.md) powered by the PostgreSQL community edition is available in two deployment modes:
 
-- [Azure Database for PostgreSQL flexible server](overview.md)
-- [Azure Database for PostgreSQL flexible server](../single-server/overview-single-server.md)
+- [Azure Database for PostgreSQL Flexible Server](overview.md)
+- [Azure Database for PostgreSQL Single Server](../single-server/overview-single-server.md)
 
 This article provides an overview and introduction to the core concepts of the Azure Database for PostgreSQL flexible server deployment model.
 Whether you're just starting out or looking to refresh your knowledge, this introductory video offers a comprehensive overview of Azure Database for PostgreSQL flexible server, helping you get acquainted with its key features and capabilities.
@@ -84,45 +84,46 @@ An Azure Database for PostgreSQL flexible server instance has a [built-in PgBoun
 
 One advantage of running your workload in Azure is global reach. Azure Database for PostgreSQL flexible server is currently available in the following Azure regions:
 
-| Region | V3/V4/V5 compute availability | Zone-Redundant HA | Same-Zone HA | Geo-Redundant backup |
+| Region | Intel V3/V4/V5/AMD Compute | Zone-Redundant HA | Same-Zone HA | Geo-Redundant backup |
 | --- | --- | --- | --- | --- |
+| Australia Central | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Australia Southeast | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Australia Southeast | (v3/v4/v5 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Brazil South | :heavy_check_mark: (v3 only) | :x: $ | :heavy_check_mark: | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canada East | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Central India | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Central US | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | China East 3 | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| China North 3 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| East Asia | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: | :heavy_check_mark: |
-| East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| China North 3 | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| East Asia | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: ** | :heavy_check_mark: | :heavy_check_mark: |
+| East US | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East US 2 | :heavy_check_mark: (v3/v4 only) | :x: $ | :heavy_check_mark: | :heavy_check_mark: |
-| France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | France South | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: |
+| Germany West Central | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: |
 | Israel Central | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Italy North | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Japan East | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Japan West | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Jio India West | :heavy_check_mark: (v3 only) | :x: | :heavy_check_mark: | :x: |
-| Korea Central | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: | :heavy_check_mark: |
-| Korea South | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Korea Central | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: ** | :heavy_check_mark: | :heavy_check_mark: |
+| Korea South | :heavy_check_mark: (v3/v4/v5 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Poland Central| :heavy_check_mark: (v3/v4 only) | :heavy_check_mark:  | :heavy_check_mark: | :x:|
 | North Central US | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | North Europe | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Norway East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Norway West | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :x: |
 | Qatar Central | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| South Africa North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| South Africa North | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | South Central US | :heavy_check_mark: (v3/v4 only) | :x: $ | :heavy_check_mark: | :heavy_check_mark: |
-| South India | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| South India | :heavy_check_mark: (v3/v4/v5 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Southeast Asia | :heavy_check_mark:(v3/v4 only) | :x: $ | :heavy_check_mark: | :heavy_check_mark: |
-| Sweden Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Sweden Central | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Switzerland North | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland West | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | UAE Central* | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :x: |
-| UAE North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| UAE North | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | US Gov Arizona | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :x: |
 | US Gov Texas | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :x: |
 | US Gov Virginia | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :x: |
