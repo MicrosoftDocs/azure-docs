@@ -167,7 +167,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | automationaccounts | **Yes** | **Yes** | **Yes** [PowerShell script](../../automation/automation-disaster-recovery.md)  |
+> | automationaccounts | **Yes** | **Yes** | [PowerShell script](../../automation/automation-disaster-recovery.md)  |
 > | automationaccounts / configurations | **Yes** | **Yes** | No |
 > | automationaccounts / runbooks | **Yes** | **Yes** | No |
 
