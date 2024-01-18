@@ -35,7 +35,7 @@ The datetime value that results from adding the duration value to the base value
 
 ### Remarks
 
-The `dateTimeAdd` function doesn't take leap years into consideration, and _P1Y_ should be interpreted as _P365D_, while _P1M_ should be interpreted as P30D. The following json shows some examples:
+The `dateTimeAdd` function doesn't take leap years into consideration, and _P1Y_ should be interpreted as _P365D_, while _P1M_ should be interpreted as _P30D_. The following json shows some examples:
 
 ```json
 {

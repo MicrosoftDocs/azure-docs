@@ -32,7 +32,7 @@ The datetime value that results from adding the duration value to the base value
 
 ### Remarks
 
-The `dateTimeAdd` function doesn't take leap years into consideration, and _P1Y_ should be interpreted as _P365D_, while _P1M_ should be interpreted as P30D. The following json shows some examples:
+The `dateTimeAdd` function doesn't take leap years into consideration, and _P1Y_ should be interpreted as _P365D_, while _P1M_ should be interpreted as _P30D_. The following Bicep file shows some examples:
 
 ```bicep
 output addOneYearNonLeap string = dateTimeAdd('2023-01-01 00:00:00Z', 'P1Y') //2024-01-01T00:00:00Z
