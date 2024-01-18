@@ -36,7 +36,7 @@ Query fields and key value pairs perform very similar functions, there are a few
 
 For query field extraction, specify the fields you want to extract and Document Intelligence analyzes the document accordingly. Here's an example:
 
-* If you're processing a contract in the [Document Intelligence Studio](https://documentintelligence.appliedai.azure.com/studio/layout), use the `2023-10-31-preview` or later API version:
+* If you're processing a contract in the [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio/layout), use the `2023-10-31-preview` or later API version:
 
     :::image type="content" source="media/studio/query-fields.png" alt-text="Screenshot of the query fields button in Document Intelligence Studio.":::
 
