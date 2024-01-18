@@ -12,11 +12,11 @@ ms.custom: contperf-fy21q4, devx-track-linux
 
 Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you eventually need to directly access an AKS node. This access could be for maintenance, log collection, or troubleshooting operations. 
 
-You access a node through authentication, which methods vary depending on your Node OS and method of connection. You securely authenticate against AKS Linux and Windows nodes through two options discussed in this article. One requires that you have Kubernetes API access and an alternate is through the Machines ARM API which provides direct Private IP information. For security reasons, AKS nodes aren't exposed to the internet. Instead, to connect directly to any AKS nodes, you need to use either `kubectl debug` or the host's private IP address.
+You access a node through authentication, which methods vary depending on your Node OS and method of connection. You securely authenticate against AKS Linux and Windows nodes through two options discussed in this article. One requires that you have Kubernetes API access and an alternate is through the Machines ARM API, which provides direct Private IP information. For security reasons, AKS nodes aren't exposed to the internet. Instead, to connect directly to any AKS nodes, you need to use either `kubectl debug` or the host's private IP address.
 
 # Access to Nodes via Kubernetes API
 
-This requires usage of `kubectl debug` command. 
+This method requires usage of `kubectl debug` command. 
 
 ## Before you begin
 
@@ -173,7 +173,7 @@ To connect to another node in the cluster, use the `kubectl debug` command. For 
 
 ## SSH using Azure Bastion for Windows
 
-In the event that your Linux proxy node is not reachable , then azure bastion is an alternative. This requires that you have set up an Azure Bastion host for the virtual network in which the cluster resides. For Windows refer this [article][azure-bastion] for details.
+If your Linux proxy node isn't reachable, then Azure bastion is an alternative. This method requires that you set up an Azure Bastion host for the virtual network in which the cluster resides. For Windows refer, this [article][azure-bastion] for details.
 
 ## Private IP Method through Machines API.
 
@@ -211,7 +211,7 @@ For convenience, the nodepools are exposed when the node has a public IP assigne
     aks-nodepool1-33555069-vmss000000  10.224.0.5   IPv4
        ```
 
-2. SSH using your private IP address to access your node. This applies for Linux machines only.
+2. SSH using your private IP address to access your node. Applicable for Linux machines only.
 
     ```bash
     ssh -i /path/to/private_key.pem azureuser@10.224.0.33
