@@ -621,7 +621,7 @@ You can get pronunciation assessment scores for:
 
 Pronunciation assessment can provide syllable-level assessment results. Grouping in syllables is more legible and aligned with speaking habits, as a word is typically pronounced syllable by syllable rather than phoneme by phoneme.
 
-Pronunciation assessment supports syllable groups in `en-US` with IPA and in both `en-US` and `en-GB` with SAPI.
+Pronunciation assessment supports IPA only with syllable groups in `en-US`.
 
 The following table compares example phonemes with the corresponding syllables.
 
