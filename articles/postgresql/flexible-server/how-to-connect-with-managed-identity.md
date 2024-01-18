@@ -67,7 +67,8 @@ For more information on managing Microsoft Entra ID enabled database roles, see 
 
 The managed identity now has access when authenticating with the identity name as a role name and the Microsoft Entra token as a password.
 
-> Note: if the managed identity is not valid, an error is returned: `ERROR:   Could not validate AAD user <ObjectId> because its name is not found in the tenant. [...]`
+> [!Note]
+> If the managed identity is not valid, an error is returned: `ERROR:   Could not validate AAD user <ObjectId> because its name is not found in the tenant. [...]`.
 
 ## Retrieve the access token from the Azure Instance Metadata service
 
