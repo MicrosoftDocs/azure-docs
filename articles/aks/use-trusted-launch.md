@@ -2,7 +2,7 @@
 title: Trusted launch (preview) with Azure Kubernetes Service (AKS)
 description: Learn how trusted launch (preview) protects the Azure Kubernetes Cluster (AKS) nodes against boot kits, rootkits, and kernel-level malware. 
 ms.topic: article
-ms.date: 11/16/2024
+ms.date: 11/17/2024
 
 ---
 
@@ -71,58 +71,114 @@ az provider register --namespace "Microsoft.ContainerService"
 
 ## Deploy new cluster
 
-Perform the following steps to deploy an AKS Mariner cluster using the Azure CLI.
+Perform the following steps to deploy an AKS cluster using the Azure CLI.
 
-1. Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the following parameters:
+1. Create an AKS cluster using the [az aks create][az-aks-create] command. Before running the command, review the following parameters:
 
    * **--name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
    * **--resource-group**: Enter the name of an existing resource group to create the AKS cluster in.
    * **--enable-secure-boot**: Enables Secure Boot to authenticate that the image was signed by a trusted publisher.
+   * **--enable-vtpm**: Enables vTPM and performs attestation by measuring the entire boot chain of your VM.
 
-   The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
+   The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup* and enables Secure Boot:
 
     ```azurecli
-    az aks create --name myAKSCluster --resource-group myResourceGroup --enable-secure-boot --enable-vtpm
+    az aks create --name myAKSCluster --resource-group myResourceGroup --enable-secure-boot --enable-managed-identity --generate-ssh-keys
+    ```
 
-2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][aks-get-credentials] command and replace the values for the cluster name and the resource group name.
+   The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*, and enables Secure Boot and vTPM:
+
+    ```azurecli
+    az aks create --name myAKSCluster --resource-group myResourceGroup --enable-secure-boot --enable-vtpm --enable-managed-identity --generate-ssh-keys
+    ```
+
+2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
     ```azurecli
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
-## Update cluster and enable Secure Boot
+## Add a node pool with trusted launch enabled
 
-Use the following command to enable Secure Boot by updating a node pool.
+Deploy a node pool with trusted launch enabled using the [az aks nodepool add][az-aks-nodepool-add] command. Before running the command, review the following parameters:
 
-1. Add a node pool to your AKS cluster using the [az aks nodepool update][az-aks-nodepool-update] command. Specify the following parameters:
+   * **--cluster-name**: Enter the name of the AKS cluster.
+   * **--resource-group**: Enter the name of an existing resource group that the AKS cluster is created in.
+   * **--name**: Enter a unique name for the node pool. The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools, the length must be between 1-11 characters.
+   * **--node-count**: The number of nodes in the Kubernetes agent pool. Default is 3.
+   * **--enable-secure-boot**: Enables Secure Boot to authenticate that the image was signed by a trusted publisher.
+   * **--enable-vtpm**: Enables vTPM and performs attestation by measuring the entire boot chain of your VM.
+
+The following example deploys a node pool with vTMP enabled on a cluster named *myAKSCluster* with three nodes:
+
+```azurecli-interactive
+az aks nodepool add –resource-group myResourceGroup –cluster-name myAKSCluster –name mynodepool –node-count 3 –enable-vtpm  
+```
+
+The following example deploys a node pool with vTPM and Secure Boot enabled on a cluster named *myAKSCluster* with three nodes:
+
+```azurecli-interactive
+az aks nodepool add –resource-group myResourceGroup –cluster-name myAKSCluster –name mynodepool –node-count 3 –enable-vtpm –enable-secure-boot
+```
+
+## Update cluster and enable trusted launch
+
+Update a node pool with trusted launch enabled using the [az aks nodepool update][az-aks-nodepool-update] command. Before running the command, review the following parameters:
 
    * **--resource-group**: Enter the name of an existing resource group hosting your existing AKS cluster.
    * **--cluster-name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
-   * **--name**: Enter a unique name for your clusters node pool, such as *nodepool2*.
+   * **--name**: Enter the name of your node pool, such as *mynodepool*.
    * **--enable-secure-boot**: Enables Secure Boot to authenticate that the image was signed by a trusted publisher.
+   * **--enable-vtpm**: Enables vTPM and performs attestation by measuring the entire boot chain of your VM.
 
-   The following example updates a node pool on the *myAKSCluster* in the *myResourceGroup* and enables Secure Boot:
+The following example updates the node pool *mynodepool* on the *myAKSCluster* in the *myResourceGroup* and enables Secure Boot:
 
-```azurecli
+```azurecli-interactive
 az aks nodepool update --cluster-name myCluster --resource-group myResourceGroup --name mynodepool --enable-secure-boot 
+```
+
+The following example updates the node pool *mynodepool* on the *myAKSCluster* in the *myResourceGroup*, and enables Secure Boot and vTPM:
+
+```azurecli-interactive
+az aks nodepool update --cluster-name myCluster --resource-group myResourceGroup --name mynodepool --enable-secure-boot --enable-vtpm 
 ```
 
 ## Disable Secure Boot
 
-To disable Secure Boot on the AKS cluster where it's been enabled and configured, you can run the following command:
+To disable Secure Boot on an AKS cluster, run the following command:
 
-```azurecli
+```azurecli-interactive
 az aks nodepool update –cluster-name myCluster –g myResourceGroup –n mynodepool –disable-secure-boot 
 ```
 
 > [!NOTE]
 > Updates do not automatically kickoff node reimage. You need to restart nodes for the update process to complete.
 
+## Disable vTPM
+
+To disable vTPM on an AKS cluster, run the following command:
+
+```azurecli-interactive
+az aks nodepool update –cluster-name myCluster –g myResourceGroup –n mynodepool –disable-secure-boot –disable-vtpm
+```
+
+## Next steps
+
+In this article, you learned how to enable trusted launch. Learn more about [trusted launch][trusted-launch-overview] and [Boot integrity monitoring][boot-integrity-monitoring] VMs.
+
 <!-- EXTERNAL LINKS -->
 
 <!-- INTERNAL LINKS -->
+[install-azure-cli]: /cli/azu
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
 [trusted-launch-overview]: ../virtual-machines/trusted-launch.md
 [secure-boot-overview]: /windows-hardware/design/device-experiences/oem-secure-boot
 [trusted-platform-module-overview]: /windows/security/information-protection/tpm/trusted-platform-module-overview
 [attestation-overview]: /windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation
 [microsoft-defender-for-cloud-overview]: ../defender-for-cloud/defender-for-cloud-introduction.md
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
+[boot-integrity-monitoring]: https://learn.microsoft.com/en-us/azure/virtual-machines/boot-integrity-monitoring-overview?tabs=portal
