@@ -74,8 +74,6 @@
               href: deploy-github-actions.md
         - name: Run from package
           href: deploy-run-package.md
-        - name: Use cloud sync
-          href: deploy-content-sync.md
     - name: Authentication for deployment
       href: deploy-authentication-types.md
     - name: Set deployment credentials

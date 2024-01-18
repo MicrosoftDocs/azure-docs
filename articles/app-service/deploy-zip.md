@@ -2,7 +2,7 @@
 title: Deploy files to App Service
 description: Learn to deploy various app packages or discrete libraries, static files, or startup scripts to Azure App Service
 ms.topic: article
-ms.date: 07/21/2023
+ms.date: 01/22/2024
 ms.custom: seodec18, devx-track-azurecli
 author: cephalin
 ms.author: cephalin
@@ -67,14 +67,15 @@ Publish-AzWebApp -ResourceGroupName Default-Web-WestUS -Name MyApp -ArchivePath 
 
 # [Kudu API](#tab/api)
 
-The following example uses the cURL tool to deploy a ZIP package. Replace the placeholders `<username>`, `<password>`, `<zip-package-path>`, and `<app-name>`. Use the [deployment credentials](deploy-configure-credentials.md) for authentication.
+The following example uses the cURL tool to deploy a ZIP package. Replace the placeholders `<zip-package-path>` and `<app-name>`.
 
 ```bash
+TOKEN=$(az account get-access-token --query accessToken | tr -d '"')
+
 curl -X POST \
-     -H "Content-Type: application/octet-stream" \
-     -u '<username>:<password>' \
-     -T "<zip-package-path>" \
-     "https://<app-name>.scm.azurewebsites.net/api/zipdeploy"
+     -H "Authorization: Bearer $TOKEN" \
+     -T @"<zip-package-path>" \
+     "https://<app-name>.scm.azurewebsites.net/api/publish?type=zip"
 ```
 
 [!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
@@ -82,11 +83,12 @@ curl -X POST \
 The following example uses the `packageUri` parameter to specify the URL of an Azure Storage account that the web app should pull the ZIP from.
 
 ```bash
+TOKEN=$(az account get-access-token --query accessToken | tr -d '"')
+
 curl -X PUT \
-     -H "Content-Type: application/json" \
-     -u '<username>:<password>' \
+     -H "Authorization: Bearer $TOKEN" \
      -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}' \
-     "https://<app-name>.scm.azurewebsites.net/api/zipdeploy"
+     "https://<app-name>.scm.azurewebsites.net/api/publish?type=zip"
 ```
 
 # [Kudu UI](#tab/kudu-ui)
@@ -98,6 +100,8 @@ Upload the ZIP package you created in [Create a project ZIP package](#create-a-p
 When deployment is in progress, an icon in the top right corner shows you the progress in percentage. The page also shows verbose messages for the operation below the explorer area. When it is finished, the last deployment message should say `Deployment successful`.
 
 The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](./faq-app-service-linux.yml) instead.
+
+# []
 
 -----
 
@@ -154,7 +158,7 @@ az webapp deploy --resource-group <group-name> --name <app-name> --src-path ./<p
 The following example uses the `--src-url` parameter to specify the URL of an Azure Storage account that the web app should pull the WAR from.
 
 ```azurecli-interactive
-az webapp deploy --resource-group <group-name> --name <app-name> --src-url "https://storagesample.blob.core.windows.net/sample-container/myapp.war?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3 --type war
+az webapp deploy --resource-group <group-name> --name <app-name> --src-url "https://storagesample.blob.core.windows.net/sample-container/myapp.war?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3" --type war
 ```
 
 The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to deploy the package and can be fully customized.
@@ -169,10 +173,15 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 # [Kudu API](#tab/api)
 
-The following example uses the cURL tool to deploy a .war, .jar, or .ear file. Replace the placeholders `<username>`, `<file-path>`, `<app-name>`, and `<package-type>` (`war`, `jar`, or `ear`, accordingly). When prompted by cURL, type in the [deployment password](deploy-configure-credentials.md).
+The following example uses the cURL tool to deploy a .war, .jar, or .ear file. Replace the placeholders `<file-path>`, `<app-name>`, and `<package-type>` (`war`, `jar`, or `ear`, accordingly).
 
 ```bash
-curl -X POST -u <username> -T @"<file-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=<package-type>
+TOKEN=$(az account get-access-token --query accessToken | tr -d '"')
+
+curl -X POST \
+     -H "Authorization: Bearer $TOKEN" \
+     -T @"<file-path>" \
+     "https://<app-name>.scm.azurewebsites.net/api/publish?type=<package-type>"
 ```
 
 [!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
@@ -180,7 +189,12 @@ curl -X POST -u <username> -T @"<file-path>" https://<app-name>.scm.azurewebsite
 The following example uses the `packageUri` parameter to specify the URL of an Azure Storage account that the web app should pull the WAR from. The WAR file could also be a JAR or EAR file.
 
 ```bash
-curl -X POST -u <username> https://<app-name>.scm.azurewebsites.net/api/publish -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.war?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}'
+TOKEN=$(az account get-access-token --query accessToken | tr -d '"')
+
+curl -X POST \
+     -H "Authorization: Bearer $TOKEN" \
+     -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.war?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}' \
+     "https://<app-name>.scm.azurewebsites.net/api/publish?type=war"
 ```
 
 For more information, see [Kudu publish API reference](#kudu-publish-api-reference)
@@ -227,26 +241,41 @@ Not supported. See Azure CLI or Kudu API.
 
 ### Deploy a startup script
 
-The following example uses the cURL tool to deploy a startup file for their application.Replace the placeholders `<username>`, `<startup-file-path>`, and `<app-name>`. When prompted by cURL, type in the [deployment password](deploy-configure-credentials.md).
+The following example uses the cURL tool to deploy a startup file for their application.Replace the placeholders `<startup-file-path>` and `<app-name>`.
 
 ```bash
-curl -X POST -u <username> -T @"<startup-file-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=startup
+TOKEN=$(az account get-access-token --query accessToken | tr -d '"')
+
+curl -X POST \
+     -H "Authorization: Bearer $TOKEN" \
+     -T @"<startup-file-path>" \
+     "https://<app-name>.scm.azurewebsites.net/api/publish?type=startup"
 ```
 
 ### Deploy a library file
 
-The following example uses the cURL tool to deploy a library file for their application. Replace the placeholders `<username>`, `<lib-file-path>`, and `<app-name>`. When prompted by cURL, type in the [deployment password](deploy-configure-credentials.md).
+The following example uses the cURL tool to deploy a library file for their application. Replace the placeholders `<lib-file-path>` and `<app-name>`. 
 
 ```bash
-curl -X POST -u <username> -T @"<lib-file-path>" "https://<app-name>.scm.azurewebsites.net/api/publish?type=lib&path=/home/site/deployments/tools/my-lib.jar"
+TOKEN=$(az account get-access-token --query accessToken | tr -d '"')
+
+curl -X POST \
+     -H "Authorization: Bearer $TOKEN" \
+     -T @"<lib-file-path>" \
+     "https://<app-name>.scm.azurewebsites.net/api/publish?type=lib&path=/home/site/deployments/tools/my-lib.jar"
 ```
 
 ### Deploy a static file
 
-The following example uses the cURL tool to deploy a config file for their application. Replace the placeholders `<username>`, `<config-file-path>`, and `<app-name>`. When prompted by cURL, type in the [deployment password](deploy-configure-credentials.md).
+The following example uses the cURL tool to deploy a config file for their application. Replace the placeholders `<config-file-path>` and `<app-name>`.
 
 ```bash
-curl -X POST -u <username> -T @"<config-file-path>" "https://<app-name>.scm.azurewebsites.net/api/publish?type=static&path=/home/site/deployments/tools/my-config.json"
+TOKEN=$(az account get-access-token --query accessToken | tr -d '"')
+
+curl -X POST \
+     -H "Authorization: Bearer $TOKEN" \
+     -T @"<config-file-path>" \
+     "https://<app-name>.scm.azurewebsites.net/api/publish?type=static&path=/home/site/deployments/tools/my-config.json"
 ```
 
 # [Kudu UI](#tab/kudu-ui)
@@ -257,7 +286,7 @@ The Kudu UI does not support deploying individual files. Please use the Azure CL
 
 ## Kudu publish API reference
 
-The `publish` Kudu API allows you to specify the same parameters from the CLI command as URL query parameters. To authenticate with the Kudu API, you can use basic authentication with your app's [deployment credentials](deploy-configure-credentials.md#userscope).
+The `publish` Kudu API allows you to specify the same parameters from the CLI command as URL query parameters. To authenticate with the Kudu API, it's best to use token authentication, but you can also use basic authentication with your app's [deployment credentials](deploy-configure-credentials.md#userscope).
 
 The table below shows the available query parameters, their allowed values, and descriptions.
 
@@ -276,5 +305,4 @@ For more advanced deployment scenarios, try [deploying to Azure with Git](deploy
 ## More resources
 
 * [Kudu: Deploying from a zip file](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
-* [Azure App Service Deployment Credentials](deploy-ftp.md)
 * [Environment variables and app settings reference](reference-app-settings.md)
