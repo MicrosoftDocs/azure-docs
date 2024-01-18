@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.subservice: hpc
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 07/13/2023
+ms.date: 01/18/2024
 ms.reviewer: cynthn
 ms.author: jushiman
 author: ju-shim
@@ -21,7 +21,7 @@ author: ju-shim
 
 Maximizing high performance compute (HPC) application performance on AMD EPYC requires a thoughtful approach memory locality and process placement. Below we outline the AMD EPYC architecture and our implementation of it on Azure for HPC applications. We use the term **pNUMA** to refer to a physical NUMA domain, and **vNUMA** to refer to a virtualized NUMA domain.
 
-Physically, an [HBv2-series](hbv2-series.md) server is 2 * 64-core EPYC 7742 CPUs for a total of 128 physical cores. These 128 cores are divided into 32 pNUMA domains (16 per socket), each of which is 4 cores and termed by AMD as a **Core Complex** (or **CCX**). Each CCX has its own L3 cache, which is how an OS sees a pNUMA/vNUMA boundary. Four adjacent CCXs share access to two channels of physical DRAM.
+Physically, an [HBv2-series](hbv2-series.md) server is 2 * 64-core EPYC 7V12 CPUs for a total of 128 physical cores. These 128 cores are divided into 32 pNUMA domains (16 per socket), each of which is 4 cores and termed by AMD as a **Core Complex** (or **CCX**). Each CCX has its own L3 cache, which is how an OS sees a pNUMA/vNUMA boundary. Four adjacent CCXs share access to two channels of physical DRAM.
 
 To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve physical pNUMA domains 0 and 16 (that is, the first CCX of each CPU socket). All remaining 30 pNUMA domains are assigned to the VM at which point they become vNUMA. Thus, the VM sees:
 
@@ -37,7 +37,7 @@ Process pinning works on HBv2-series VMs because we expose the underlying silico
 | Hardware Specifications          | HBv2-series VM                   |
 |----------------------------------|----------------------------------|
 | Cores                            | 120 (SMT disabled)               |
-| CPU                              | AMD EPYC 7742                    |
+| CPU                              | AMD EPYC 7V12                    |
 | CPU Frequency (non-AVX)          | ~3.1 GHz (single + all cores)    |
 | Memory                           | 4 GB/core (480 GB total)         |
 | Local Disk                       | 960 GiB NVMe (block), 480 GB SSD (page file) |
