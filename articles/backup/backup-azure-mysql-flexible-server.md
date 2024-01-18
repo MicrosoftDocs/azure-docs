@@ -7,16 +7,20 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Back up the Azure Database for MySQL - Flexible Server (preview)
+# Back up the Azure Database for MySQL - Flexible Server by using Azure Backup (preview)
 
 This article describes how to back up the Azure Database for MySQL - Flexible Server by using Azure Backup.
 
->[!Note]
+>[!Important]
 >- Currently, this feature supports only the *Weekly backup* option. However, you can schedule the backups on multiple days of the week. 
 >- Retention duration ranges from *7 days* to *10 years* in the *Backup data store*.
+>- Each retention rule requires inputs for specific backups, data store, and retention duration for the backups.
 >- The retention rules are evaluated in a pre-determined order of priority. The priority is the highest for the yearly rule, followed by the monthly, and then the weekly rule. Default retention settings are applied when no other rules qualify. For example, the same recovery point may be the first successful backup taken every week as well as the first successful backup taken every month. However, as the monthly rule priority is higher than that of the weekly rule, the retention corresponding to the first successful backup taken every month applies.
 >- By default, the retention rule is set to *3 months* if no retention rule is set.
   
+
+Learn more about the [supported scenarios. considerations, and limitations](backup-azure-mysql-flexible-server-support-matrix.md).
+
 ## Create a backup policy for the Azure MySQL - Flexible Server database backup
 
 To create a backup policy, follow these steps:
@@ -41,7 +45,7 @@ To create a backup policy, follow these steps:
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/add-retention.png" alt-text="Screenshot shows how to configure the retention duration." lightbox="./media/backup-azure-mysql-flexible-server/add-retention.png":::
 
-   You can add one or more retention rules. Each retention rule requires inputs for specific backups, data store, and retention duration for the backups.
+   You can add one or more retention rules.
 
 7. To move the backups from *backup data store* to *archive data store* once they expire as per the backup policy, select **On-expiry**.
 
@@ -49,8 +53,8 @@ To create a backup policy, follow these steps:
 
    >[!Note]
    >- Retention duration ranges from *7 days* to *10 years* in the *Backup data store*.
-   >- The retention rules are evaluated in a pre-determined order of priority. The priority is the highest for the yearly rule, followed by the monthly, and then the weekly rule. Default retention settings are applied when no other rules qualify. For example, the same recovery point may be the first successful backup taken every week as well as the first successful backup taken every month. However, as the monthly rule priority is higher than that of the weekly rule, the retention corresponding to the first successful backup taken every month applies.
-   >- By default, the retention rule is set to *3 months* if no retention rule is set. 
+   >- As per the pre-determined order of priority, the retention with the *yearly* rule selected has the highest priority, followed by the monthly, and then the weekly rule. By default, the retention rule is set to *3 months* if no retention rule is set. 
+
 8. Select **Create**.   
 
 ## Configure backup on Azure Database for MySQL - Flexible Server
@@ -122,5 +126,5 @@ To view the status of all the backup jobs, select **All** as the **Status** to s
 
 ## Next steps
 
-- [Restore the Azure Database for MySQL - Flexible Server (preview)](backup-azure-mysql-flexible-server-restore.md)
+- [Restore the Azure Database for MySQL - Flexible Server (preview)](backup-azure-mysql-flexible-server-restore.md).
  
