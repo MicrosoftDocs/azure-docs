@@ -14,7 +14,7 @@ zone_pivot_groups: openai-fine-tuning
 keywords: 
 ---
 
-# Customize a model with fine-tuning (preview)
+# Customize a model with fine-tuning
 
 Azure OpenAI Service lets you tailor our models to your personal datasets by using a process known as *fine-tuning*. This customization step lets you get more out of the service by providing:
 

@@ -1,14 +1,14 @@
 ---
-title: Azure VM Image Builder overview 
+title: Azure VM Image Builder overview
 description: In this article, you learn about VM Image Builder for virtual machines in Azure.
 author: sumit-kalra
 ms.author: sukalra
-ms.date: 07/31/2023
+ms.date: 12/20/2023
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
-ms.reviewer: erd
+ms.reviewer: jushiman
 ---
 
 # Azure VM Image Builder overview
@@ -191,7 +191,10 @@ For more information about permissions, see
 * [Create a VM Image Builder template](./linux/image-builder-json.md#identity) 
 
 ## Costs
-You'll incur some compute, networking, and storage costs when you create, build, and store images by using VM Image Builder. These costs are similar to those that you incur when you create custom images manually. Your resources are charged at your Azure rates. 
+You'll incur some compute, networking, and storage costs when you create, build, and store images by using VM Image Builder. These costs are similar to those that you incur when you create custom images manually. Your resources are charged at your Azure rates.
+
+> [!NOTE]
+> The Azure Image Builder service currently does not support Azure Hybrid Benefit for Windows Server at this time.
 
 During the image-creation process, files are downloaded and stored in the `IT_<DestinationResourceGroup>_<TemplateName>` resource group, which incurs a small storage cost. If you don't want to keep these files, delete the image template after you've built the image.
  

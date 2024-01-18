@@ -3,7 +3,7 @@ title: How to use Azure Image Builder triggers to set up an automatic image buil
 description: Use triggers in Azure Image Builder to set up automatic image builds when criteria are met in a build pipeline
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.topic: how-to

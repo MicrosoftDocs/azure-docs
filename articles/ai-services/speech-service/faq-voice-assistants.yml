@@ -3,7 +3,6 @@ metadata:
   title: Voice assistants frequently asked questions
   titleSuffix: Azure AI services
   description: Get answers to the most popular questions about voice assistants using Custom Commands or the Direct Line Speech channel.
-  #services: cognitive-services
   author: trrwilson
   manager: nitinme
   ms.service: azure-ai-speech

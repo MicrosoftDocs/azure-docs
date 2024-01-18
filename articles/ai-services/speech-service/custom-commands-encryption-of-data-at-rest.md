@@ -2,7 +2,6 @@
 title: Custom Commands service encryption of data at rest
 titleSuffix: Azure AI services
 description: Custom Commands encryption of data at rest.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -38,9 +37,9 @@ By default, your subscription uses Microsoft-managed encryption keys. However, y
 
 To request the ability to use customer-managed keys, fill out and submit Customer-Managed Key Request Form. It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using CMK with the Speech service, you'll need to create a new Speech resource from the Azure portal.
    > [!NOTE]
-   > **Customer-managed keys (CMK) are supported only for Custom Commands.**
+   > **Customer-managed keys (CMK) are supported only for custom commands.**
    >
-   >  **Custom Speech and Custom Voice still support only Bring Your Own Storage (BYOS).**  [Learn more](speech-encryption-of-data-at-rest.md)
+   >  **Custom speech and custom voice still support only Bring Your Own Storage (BYOS).**  [Learn more](speech-encryption-of-data-at-rest.md)
    >
    > If you're using the given speech resource for accessing these service, compliance needs must be met by explicitly configuring BYOS.
 

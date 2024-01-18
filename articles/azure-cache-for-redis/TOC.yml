@@ -238,6 +238,8 @@
         href: cache-overview-vector-similarity.md
       - name: Vector similarity search
         href: cache-tutorial-vector-similarity.md
+      - name: Semantic caching search
+        href: cache-tutorial-semantic-cache.md
   - name: ASP.NET
     items:
     - name: Use session state provider

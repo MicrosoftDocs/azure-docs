@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 10/23/2023
+ms.date: 07/26/2023
 ms.author: cwatson
 ---
 
@@ -123,6 +123,7 @@ Data connectors are available as part of the following offerings:
 - [[Recommended] Cisco Secure Email Gateway via AMA](data-connectors/recommended-cisco-secure-email-gateway-via-ama.md)
 - [Cisco Application Centric Infrastructure](data-connectors/cisco-application-centric-infrastructure.md)
 - [Cisco ASA](data-connectors/cisco-asa.md)
+- [Cisco ASA/FTD via AMA (Preview)](data-connectors/cisco-asa-ftd-via-ama.md)
 - [Cisco Duo Security (using Azure Functions)](data-connectors/cisco-duo-security-using-azure-functions.md)
 - [Cisco Identity Services Engine](data-connectors/cisco-identity-services-engine.md)
 - [Cisco Meraki](data-connectors/cisco-meraki.md)
@@ -173,6 +174,7 @@ Data connectors are available as part of the following offerings:
 ## Crowdstrike
 
 - [Crowdstrike Falcon Data Replicator (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator-using-azure-functions.md)
+- [Crowdstrike Falcon Data Replicator V2 (using Azure Functions) (Preview)](data-connectors/crowdstrike-falcon-data-replicator-v2-using-azure-functions.md)
 - [CrowdStrike Falcon Endpoint Protection](data-connectors/crowdstrike-falcon-endpoint-protection.md)
 
 ## Cyber Defense Group B.V.
@@ -183,6 +185,10 @@ Data connectors are available as part of the following offerings:
 
 - [CyberArk Enterprise Password Vault (EPV) Events](data-connectors/cyberark-enterprise-password-vault-epv-events.md)
 - [CyberArkEPM (using Azure Functions)](data-connectors/cyberarkepm-using-azure-functions.md)
+
+## CyberPion
+
+- [IONIX Security Logs](data-connectors/ionix-security-logs.md)
 
 ## Cybersixgill
 
@@ -390,11 +396,9 @@ Data connectors are available as part of the following offerings:
 ## Microsoft
 
 - [Automated Logic WebCTRL](data-connectors/automated-logic-webctrl.md)
-- [Microsoft Entra ID](data-connectors/azure-active-directory.md)
-- [Microsoft Entra ID Protection](data-connectors/azure-active-directory-identity-protection.md)
 - [Azure Activity](data-connectors/azure-activity.md)
 - [Azure Batch Account](data-connectors/azure-batch-account.md)
-- [Azure AI Search](data-connectors/azure-cognitive-search.md)
+- [Azure Cognitive Search](data-connectors/azure-cognitive-search.md)
 - [Azure Data Lake Storage Gen1](data-connectors/azure-data-lake-storage-gen1.md)
 - [Azure DDoS Protection](data-connectors/azure-ddos-protection.md)
 - [Azure Event Hub](data-connectors/azure-event-hub.md)
@@ -410,7 +414,7 @@ Data connectors are available as part of the following offerings:
 - [DNS](data-connectors/dns.md)
 - [Fortinet FortiWeb Web Application Firewall](data-connectors/fortinet-fortiweb-web-application-firewall.md)
 - [Microsoft 365 (formerly, Office 365)](data-connectors/microsoft-365.md)
-- [Microsoft 365 Defender](data-connectors/microsoft-365-defender.md)
+- [Microsoft Defender XDR](data-connectors/microsoft-365-defender.md)
 - [Microsoft 365 Insider Risk Management](data-connectors/microsoft-365-insider-risk-management.md)
 - [Microsoft Defender for Cloud](data-connectors/microsoft-defender-for-cloud.md)
 - [Microsoft Defender for Cloud Apps](data-connectors/microsoft-defender-for-cloud-apps.md)
@@ -419,6 +423,8 @@ Data connectors are available as part of the following offerings:
 - [Microsoft Defender for IoT](data-connectors/microsoft-defender-for-iot.md)
 - [Microsoft Defender for Office 365 (preview)](data-connectors/microsoft-defender-for-office-365.md)
 - [Microsoft Defender Threat Intelligence](data-connectors/microsoft-defender-threat-intelligence.md)
+- [Microsoft Entra ID](data-connectors/azure-active-directory.md)
+- [Microsoft Entra ID Protection](data-connectors/microsoft-entra-id-protection.md)
 - [Microsoft PowerBI (preview)](data-connectors/microsoft-powerbi.md)
 - [Microsoft Project (preview)](data-connectors/microsoft-project.md)
 - [Microsoft Purview (preview)](data-connectors/microsoft-purview.md)
@@ -611,6 +617,9 @@ Data connectors are available as part of the following offerings:
 
 - [SentinelOne (using Azure Functions)](data-connectors/sentinelone-using-azure-functions.md)
 
+## SERAPHIC ALGORITHMS LTD
+- [Seraphic Web Security](data-connectors/seraphic-web-security.md)
+
 ## Slack
 
 - [Slack Audit (using Azure Functions)](data-connectors/slack-audit-using-azure-functions.md)
@@ -678,6 +687,10 @@ Data connectors are available as part of the following offerings:
 ## Ubiquiti
 
 - [Ubiquiti UniFi (Preview)](data-connectors/ubiquiti-unifi.md)
+
+## Valence Security Inc.
+
+- [SaaS Security](data-connectors/saas-security.md)
 
 ## vArmour Networks
 

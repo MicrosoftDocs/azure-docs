@@ -42,6 +42,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Support of features/regressors known at the time of forecast in AutoML forecasting TCN models.
   + **azureml-core**
     + Add appinsights location swap for qatarcentral to point to uaenorth
+    + [Python 3.7 reached end-of-life on June 27th 2023](https://devguide.python.org/versions/). Consequently, 3.7 will be deprecated in azureml-core starting in October 2023 and azureml-core will end support for 3.7 in February 2024.
   + **azureml-mlflow**
     + Fix for loading models with MLflow load_model APIs when passing an AzureML URI
   + **azureml-pipeline-core**

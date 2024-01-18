@@ -2,7 +2,6 @@
 title: How to use private endpoints with Speech service
 titleSuffix: Azure AI services
 description: Learn how to use Speech service with private endpoints provided by Azure Private Link
-#services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: azure-ai-speech
@@ -235,7 +234,7 @@ All possible values for the region (first element of the DNS name) are listed in
 | `s2s`          | [Speech Translation](speech-translation.md)                 |
 | `stt`          | [Speech to text](speech-to-text.md)                         |
 | `tts`          | [Text to speech](text-to-speech.md)                         |
-| `voice`        | [Custom Voice](how-to-custom-voice.md)                      |
+| `voice`        | [Custom voice](professional-voice-create-project.md)                      |
 
 So the earlier example (`westeurope.stt.speech.microsoft.com`) stands for a Speech to text endpoint in West Europe.
 

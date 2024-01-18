@@ -33,7 +33,7 @@ The following models support fine-tuning:
 - `babbage-002`
 - `davinci-002`
 
-Fine-tuning for `gpt-35-turbo-0613` is not available in every region where this model is available for inference. Consult the [models page](../concepts/models.md#fine-tuning-models-preview) to check which regions currently support fine-tuning.
+Fine-tuning for `gpt-35-turbo-0613` is not available in every region where this model is available for inference. Consult the [models page](../concepts/models.md#fine-tuning-models) to check which regions currently support fine-tuning.
 
 ## Review the workflow for the REST API
 
@@ -150,7 +150,7 @@ For large data files, we recommend that you import from an Azure Blob store. Lar
 ### Upload training data
 
 ```bash
-curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-10-01-preview \
+curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-12-01-preview \
   -H "Content-Type: multipart/form-data" \
   -H "api-key: $AZURE_OPENAI_KEY" \
   -F "purpose=fine-tune" \
@@ -160,7 +160,7 @@ curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-10-01-preview 
 ### Upload validation data
 
 ```bash
-curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-10-01-preview \
+curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-12-01-preview \
   -H "Content-Type: multipart/form-data" \
   -H "api-key: $AZURE_OPENAI_KEY" \
   -F "purpose=fine-tune" \
@@ -172,7 +172,7 @@ curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-10-01-preview 
 After you uploaded your training and validation files, you're ready to start the fine-tuning job. The following code shows an example of how to create a new fine-tuning job with the REST API:
 
 ```bash
-curl -X POST $AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs?api-version=2023-10-01-preview \
+curl -X POST $AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs?api-version=2023-12-01-preview \
   -H "Content-Type: application/json" \
   -H "api-key: $AZURE_OPENAI_KEY" \
   -d '{
@@ -187,7 +187,7 @@ curl -X POST $AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs?api-version=2023-10-
 After you start a fine-tune job, it can take some time to complete. Your job might be queued behind other jobs in the system. Training your model can take minutes or hours depending on the model and dataset size. The following example uses the REST API to check the status of your fine-tuning job. The example retrieves information about your job by using the job ID returned from the previous example:
 
 ```bash
-curl -X GET $AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs/<YOUR-JOB-ID>?api-version=2023-10-01-preview \
+curl -X GET $AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs/<YOUR-JOB-ID>?api-version=2023-12-01-preview \
   -H "api-key: $AZURE_OPENAI_KEY"
 ```
 
@@ -266,12 +266,12 @@ Azure OpenAI attaches a result file named _results.csv_ to each fine-tune job af
 The following Python example uses the REST API to retrieve the file ID of the first result file attached to the fine-tune job for your customized model, and then downloads the file to your working directory for analysis.
 
 ```bash
-curl -X GET "$AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs/<JOB_ID>?api-version=2023-10-01-preview" \
+curl -X GET "$AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs/<JOB_ID>?api-version=2023-12-01-preview" \
   -H "api-key: $AZURE_OPENAI_KEY")
 ```
 
 ```bash
-curl -X GET "$AZURE_OPENAI_ENDPOINT/openai/files/<RESULT_FILE_ID>/content?api-version=2023-10-01-preview" \
+curl -X GET "$AZURE_OPENAI_ENDPOINT/openai/files/<RESULT_FILE_ID>/content?api-version=2023-12-01-preview" \
     -H "api-key: $AZURE_OPENAI_KEY" > <RESULT_FILENAME>
 ```
 
@@ -322,4 +322,4 @@ In order to successfully access fine-tuning you need **Cognitive Services OpenAI
 ## Next steps
 
 - Explore the fine-tuning capabilities in the [Azure OpenAI fine-tuning tutorial](../tutorials/fine-tune.md).
-- Review fine-tuning [model regional availability](../concepts/models.md#fine-tuning-models-preview)
+- Review fine-tuning [model regional availability](../concepts/models.md#fine-tuning-models)

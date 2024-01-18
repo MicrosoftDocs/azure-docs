@@ -309,6 +309,7 @@ The following `Accept` header(s) are supported for retrieving instances within a
 * `multipart/related; type="application/dicom";` (when transfer-syntax isn't specified, 1.2.840.10008.1.2.1 is used as default)
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.1`
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.4.90`
+- `*/*` (when transfer-syntax is not specified, `1.2.840.10008.1.2.1` is used as default and mediaType defaults to `application/dicom`)
 
 #### Retrieve an Instance
 
@@ -322,6 +323,7 @@ The following `Accept` header(s) are supported for retrieving a specific instanc
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.1`
 * `application/dicom; transfer-syntax=1.2.840.10008.1.2.4.90`
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.4.90`
+- `*/*` (when transfer-syntax is not specified, `1.2.840.10008.1.2.1` is used as default and mediaType defaults to `application/dicom`)
 
 #### Retrieve Frames
 
@@ -332,6 +334,7 @@ The following `Accept` headers are supported for retrieving frames:
 * `multipart/related; type="image/jp2";` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.4.90` is used as default)
 * `multipart/related; type="image/jp2";transfer-syntax=1.2.840.10008.1.2.4.90`
 * `application/octet-stream; transfer-syntax=*` for single frame retrieval
+- `*/*` (when transfer-syntax is not specified, `1.2.840.10008.1.2.1` is used as default and mediaType defaults to `application/octet-stream`)
 
 #### Retrieve transfer syntax
 

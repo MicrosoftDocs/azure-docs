@@ -52,7 +52,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Anautics](https://anautics.com)|
 |[Anika Systems Inc.](https://www.anikasystems.com)|
 |[APEX TECHNOLOGY MANAGEMENT INC](https://www.apex.com)|
-|[Applied Information Sciences, Inc.](https://www.appliedis.com)|
+|Applied Information Sciences, Inc.|
 |[Apollo Information Systems Corp.](https://www.apollo-is.com/)|
 |[Approved Contact, LLC](https://approvedcontact.com)|
 |[Apps4Rent](https://www.apps4rent.com)|
@@ -396,7 +396,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[SKY SOLUTIONS LLC](https://www.skysolutions.com/)|
 |[SKY Terra Technologies LLC](https://www.skyterratech.com)|
 |[Smartronix](https://www.smartronix.com)|
-|[Smoothlogics](https://www.smoothlogics.com)|
+|Smoothlogics|
 |[Socius 1 LLC](http://www.socius1.com)|
 |[Softchoice Corporation](https://www.softchoice.com)|
 |[Software Services Group, dba Secant Technologies (Aunalytics)](https://www.aunalytics.com)|
@@ -522,7 +522,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Accenture LLP](https://www.accenture.coM)|
 |[Agile IT, Inc](https://www.agileit.com)|
 |[American Technology Services LLC](https://networkats.com)|
-|[Applied Information Sciences](https://www.appliedis.com)|
+|Applied Information Sciences|
 |[Applied Insight LLC](https://www.applied-insight.com)|
 |[Applied Research Solutions](https://www.appliedres.com)|
 |[Arctic Information Technology, Inc.](https://arcticit.com)|

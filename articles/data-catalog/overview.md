@@ -3,7 +3,7 @@ title: Introduction to Azure Data Catalog
 description: This article provides an overview of Microsoft Azure Data Catalog, including its features and the problems it addresses. Data Catalog enables any user to register, discover, understand, and consume data sources.
 ms.service: data-catalog
 ms.topic: overview
-ms.date: 12/07/2022
+ms.date: 12/13/2023
 ---
 
 # What is Azure Data Catalog?
@@ -29,7 +29,7 @@ Traditionally, discovering enterprise data sources has been an organic process b
 Although data consumers face the previously mentioned challenges, users who are responsible for producing and maintaining information assets face challenges of their own:
 
 * Annotating data sources with descriptive metadata is often a lost effort. Client applications typically ignore descriptions that are stored in the data source.
-* Creating documentation for data sources is often a lost effort. Keeping documentation in sync with data sources is an ongoing responsibility. Users may lack trust in documentation that's perceived as being out of date.
+* Creating documentation for data sources is often a lost effort. Keeping documentation in sync with data sources is an ongoing responsibility. Users might lack trust in documentation that's perceived as being out of date.
 * Creating and maintaining documentation for data sources is complex and time-consuming. Making that documentation readily available to everyone who uses the data source can be even more so.
 * Restricting access to data sources and ensuring that data consumers know how to request access is an ongoing challenge.
 
@@ -65,7 +65,4 @@ To learn more about the capabilities of Data Catalog, see:
 
 ## Next steps
 
-To get started with Data Catalog:
-
-* [Quickstart: Create an Azure Data Catalog](data-catalog-get-started.md)
 * [Open your Azure Data Catalog](https://www.azuredatacatalog.com)

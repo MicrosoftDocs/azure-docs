@@ -72,7 +72,7 @@ ms.author: xiaofanzhou
     ```
     For more information, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase%2Csystemassigned%2Cjava%2Cwindowsclient#3-modify-your-code).
 
-### [SpringBoot](#tab/sql-me-id-spring)
+### [SpringBoot](#tab/sql-me-id-springBoot)
 
 For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector sets the properties `spring.datasource.url` with value format `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` to Azure Spring Apps.
 
@@ -180,6 +180,10 @@ Update your application following the tutorial [Migrate a Java application to us
 
     this.poolconnection = await sql.connect(config);
     ```
+
+### [Other](#tab/sql-me-id-none)
+For other languages, use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure SQL Database with Service Connector](../how-to-integrate-sql-database.md).
+
 
 ---
 

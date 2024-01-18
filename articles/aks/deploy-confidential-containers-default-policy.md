@@ -2,7 +2,7 @@
 title: Deploy an AKS cluster with Confidential Containers (preview)
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with Confidential Containers (preview) and a default security policy by using the Azure CLI.
 ms.topic: quickstart
-ms.date: 11/13/2023
+ms.date: 01/10/2024
 ms.custom: devx-track-azurecli, ignite-fall-2023, mode-api, devx-track-linux
 ---
 
@@ -24,7 +24,7 @@ In general, getting started with AKS Confidential Containers involves the follow
 
 - The `aks-preview` Azure CLI extension version 0.5.169 or later.
 
-- The `confcom` Confidential Container Azure CLI extension 0.3.0 or later. `confcom` is required to generate a [security policy][confidential-containers-security-policy].
+- The `confcom` Confidential Container Azure CLI extension 0.3.3 or later. `confcom` is required to generate a [security policy][confidential-containers-security-policy].
 
 - Register the `Preview` feature in your Azure subscription.
 
@@ -196,7 +196,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
    >The managed identity is the value you assigned to the `USER_ASSIGNED_IDENTITY_NAME` variable.
 
    >[!NOTE]
-   >To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator (preview)][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac],or [Owner][owner-rbac].
+   >To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac],or [Owner][owner-rbac].
 
    Run the following command to set the scope:
 
@@ -443,7 +443,7 @@ kubectl delete pod pod-name
 [azure-managed-hsm]: ../key-vault/managed-hsm/overview.md
 [provision-key-vault-azure-cli]: ../key-vault/general/quick-create-cli.md
 [assign-key-vault-access-cli]: ../key-vault/general/rbac-guide.md#assign-role
-[key-vault-data-access-admin-rbac]: ../role-based-access-control/built-in-roles.md#key-vault-data-access-administrator-preview
+[key-vault-data-access-admin-rbac]: ../role-based-access-control/built-in-roles.md#key-vault-data-access-administrator
 [user-access-admin-rbac]: ../role-based-access-control/built-in-roles.md#user-access-administrator
 [owner-rbac]: ../role-based-access-control/built-in-roles.md#owner
 [az-attestation-show]: /cli/azure/attestation#az-attestation-show

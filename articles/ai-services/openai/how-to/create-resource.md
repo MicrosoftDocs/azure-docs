@@ -46,3 +46,4 @@ In this article, you review examples for creating and deploying resources in the
 
 - Make API calls and generate text with [Azure OpenAI Service quickstarts](../quickstart.md).
 - Learn more about the [Azure OpenAI Service models](../concepts/models.md).
+- For information on pricing visit the [Azure OpenAI pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/)

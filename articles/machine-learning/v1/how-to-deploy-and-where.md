@@ -43,7 +43,7 @@ For more information on the concepts involved in the machine learning deployment
 
 [!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
-[!INCLUDE [cli10-only](../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli10-only](../includes/machine-learning-cli-v1-deprecation.md)]
 
 - An Azure Machine Learning workspace. For more information, see [Create workspace resources](../quickstart-create-resources.md).
 - A model. The examples in this article use a pre-trained model.
@@ -256,7 +256,19 @@ The options available for a deployment configuration differ depending on the com
 
 [!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
-[!INCLUDE [aml-local-deploy-config](../includes/machine-learning-service-local-deploy-config.md)]
+The entries in the `deploymentconfig.json` document map to the parameters for [LocalWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration). The following table describes the mapping between the entities in the JSON document and the parameters for the method:
+
+| JSON entity | Method parameter | Description |
+| ----- | ----- | ----- |
+| `computeType` | NA | The compute target. For local targets, the value must be `local`. |
+| `port` | `port` | The local port on which to expose the service's HTTP endpoint. |
+
+This JSON is an example deployment configuration for use with the CLI:
+
+
+:::code language="json" source="~/azureml-examples-archive/v1/python-sdk/tutorials/deploy-local/deploymentconfig.json":::
+
+Save this JSON as a file called `deploymentconfig.json`.
 
 For more information, see the [deployment schema](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
@@ -405,7 +417,18 @@ curl -v -X POST -H "content-type:application/json" \
 
 ## Choose a compute target
 
-[!INCLUDE [aml-deploy-target](../includes/aml-compute-target-deploy.md)]
+The compute target you use to host your model will affect the cost and availability of your deployed endpoint. Use this table to choose an appropriate compute target.
+
+| Compute target | Used for | GPU support | Description |
+| ----- | ----- | ----- | ----- | 
+| [Local&nbsp;web&nbsp;service](how-to-deploy-local-container-notebook-vm.md) | Testing/debugging |  &nbsp; | Use for limited testing and troubleshooting. Hardware acceleration depends on use of libraries in the local system. |
+| [Azure Machine Learning Kubernetes](how-to-deploy-azure-kubernetes-service.md) | Real-time inference | Yes | Run inferencing workloads in the cloud. |  
+| [Azure Container Instances](how-to-deploy-azure-container-instance.md) | Real-time inference <br/><br/> Recommended for dev/test purposes only.| &nbsp;  | Use for low-scale CPU-based workloads that require less than 48 GB of RAM. Doesn't require you to manage a cluster.<br/><br/> Only suitable for models less than 1 GB in size.<br/><br/> Supported in the designer. |
+
+> [!NOTE]
+> When choosing a cluster SKU, first scale up and then scale out. Start with a machine that has 150% of the RAM your model requires, profile the result and find a machine that has the performance you need. Once you've learned that, increase the number of machines to fit your need for concurrent inference.
+
+[!INCLUDE [endpoints-option](../includes/machine-learning-endpoints-preview-note.md)]
 
 ## Deploy to cloud
 

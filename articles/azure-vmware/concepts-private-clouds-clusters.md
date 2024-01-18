@@ -3,7 +3,7 @@ title: Concepts - Private clouds and clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined data centers and VMware vSphere clusters. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 11/12/2023
+ms.date: 1/16/2024
 ms.custom: engagement-fy23
 ---
 
@@ -31,8 +31,8 @@ Each Azure VMware Solution architectural component has the following function:
 - Azure Subscription: Provides controlled access, budget, and quota management for the Azure VMware Solution.
 - Azure Region: Groups data centers into Availability Zones (AZs) and then groups AZs into regions.
 - Azure Resource Group: Places Azure services and resources into logical groups.
-- Azure VMware Solution Private Cloud: Offers compute, networking, and storage resources using VMware software, including vCenter Server, NSX-T Data Center software-defined networking, vSAN software-defined storage, and Azure bare-metal ESXi hosts. Azure NetApp Files and Pure Cloud Block Store are also supported.
-- Azure VMware Solution Resource Cluster: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud using VMware software, including vSAN software-defined storage and Azure bare-metal ESXi hosts. Azure NetApp Files and Pure Cloud Block Store are also supported.
+- Azure VMware Solution Private Cloud: Offers compute, networking, and storage resources using VMware software, including vCenter Server, NSX-T Data Center software-defined networking, vSAN software-defined storage, and Azure bare-metal ESXi hosts. Azure NetApp Files, Azure Elastic SAN, and Pure Cloud Block Store are also supported.
+- Azure VMware Solution Resource Cluster: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud using VMware software, including vSAN software-defined storage and Azure bare-metal ESXi hosts. Azure NetApp Files, Azure Elastic SAN, and Pure Cloud Block Store are also supported.
 - VMware HCX: Delivers mobility, migration, and network extension services.
 - VMware Site Recovery: Automates disaster recovery and storage replication services with VMware vSphere Replication. Third-party disaster recovery solutions Zerto Disaster Recovery and JetStream Software Disaster Recovery are also supported.
 - Dedicated Microsoft Enterprise Edge (D-MSEE): Router that connects Azure cloud and the Azure VMware Solution private cloud instance.
@@ -70,7 +70,7 @@ The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tag
 | East US | AZ01 | AV36P | No |
 | East US | AZ02 | AV36P | No |
 | East US | AZ03 | AV36, AV36P, AV64 | No |
-| East US 2 | AZ01 | AV36 | No |
+| East US 2 | AZ01 | AV36, AV64 | No |
 | East US 2 | AZ02 | AV36P, AV52, AV64 | No |
 | France Central | AZ01 | AV36 | No |
 | Germany West Central | AZ02 | AV36 | Yes |
@@ -147,9 +147,9 @@ Azure VMware Solution monitors the following conditions on the host:
 > [!NOTE]
 > Azure VMware Solution tenant admins must not edit or delete the previously defined VMware vCenter Server alarms because they are managed by the Azure VMware Solution control plane on vCenter Server. These alarms are used by Azure VMware Solution monitoring to trigger the Azure VMware Solution host remediation process.
 
-## Backup and restoration
+## Backup and restore
 
-Private cloud vCenter Server and NSX-T Data Center configurations are on an hourly backup schedule. Backups are kept for three days. If you need to restore from a backup, open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) in the Azure portal to request restoration.
+Azure VMware Solution private cloud vCenter Server, NSX-T Data Center, and HCX Manager (if enabled) configurations are on a daily backup schedule. Backups are kept for three days. If you need to restore from a backup, open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) in the Azure portal to request restoration.
 
 Azure VMware Solution continuously monitors the health of both the physical underlay and the VMware Solution components. When Azure VMware Solution detects a failure, it takes action to repair the failed components.
 

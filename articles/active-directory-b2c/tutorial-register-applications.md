@@ -6,7 +6,7 @@ author: garrodonnell
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
-ms.date: 10/26/2022
+ms.date: 11/13/2023
 ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
@@ -22,14 +22,15 @@ Before your [applications](application-types.md) can interact with Azure Active 
 A "web application" refers to a traditional web application that performs most of the application logic on the server. They may be built using frameworks like ASP.NET Core, Spring (Java), Flask (Python), or Express (Node.js).
 
 > [!IMPORTANT]
-> If you're using a single-page application ("SPA") instead (e.g. using Angular, Vue, or React), learn [how to register a single-page application](tutorial-register-spa.md).
+> If you're using a single-page application ("SPA") instead (such as using Angular, Vue, or React), learn [how to register a single-page application](tutorial-register-spa.md).
 > 
-> If you're using a native app instead (e.g. iOS, Android, mobile & desktop), learn [how to register a native client application](add-native-application.md).
+> If you're using a native app instead (such as iOS, Android, mobile & desktop), learn [how to register a native client application](add-native-application.md).
 
 ## Prerequisites
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-tenant.md), create one now. You can use an existing Azure AD B2C tenant.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+- If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-tenant.md), create one now. You can use an existing Azure AD B2C tenant.
 
 ## Register a web application
 
@@ -39,7 +40,7 @@ To register a web application in your Azure AD B2C tenant, you can use our new u
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
-1. In the Azure portal, search for and select **Azure AD B2C**.
+1. In the Azure portal, search for, then select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *webapp1*.
 1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.

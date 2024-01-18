@@ -60,7 +60,3 @@ This how-to guide shows you how to create a `WebPubSubServiceClient` using Micro
    ```
 
    Learn how to use this client, see [Azure Web PubSub service client library for Python](/python/api/overview/azure/messaging-webpubsubservice-readme)
-
-## Complete sample
-
-- [Simple chatroom with Microsoft Entra authorization](https://github.com/Azure/azure-webpubsub/tree/main/samples/python/chatapp-aad)

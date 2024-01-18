@@ -92,7 +92,7 @@ The following code snippet is from an example of an Intel QPL configuration file
                     "metadata": "true" 
                 }, 
                 "params": { 
-                    "api-version  ": "2021-07-22-preview" 
+                    "api-version": "2021-07-22-preview" 
                 } 
             } 
         } 

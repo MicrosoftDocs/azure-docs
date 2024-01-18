@@ -8,6 +8,7 @@ ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.custom:
   - ignite-2023
+  - references_regions
 ms.topic: whats-new
 ms.date: 11/30/2023
 recommendations: false
@@ -23,9 +24,19 @@ keywords:
 - Full VPN and private endpoint support for Azure OpenAI on your data, including security support for: storage accounts, Azure OpenAI resources, and Azure AI Search service resources.   
 - New article for using [Azure OpenAI on your data securely](./how-to/use-your-data-securely.md) by protecting data with virtual networks and private endpoints.
 
+### GPT-4 Turbo with Vision now available
+
+GPT-4 Turbo with Vision on Azure OpenAI service is now in public preview. GPT-4 Turbo with Vision is a large multimodal model (LMM) developed by OpenAI that can analyze images and provide textual responses to questions about them. It incorporates both natural language processing and visual understanding. With enhanced mode, you can use the [Azure AI Vision](/azure/ai-services/computer-vision/overview) features to generate additional insights from the images.
+
+- Explore the capabilities of GPT-4 Turbo with Vision in a no-code experience using the [Azure Open AI Playground](https://oai.azure.com/). Learn more in the [Quickstart guide](./gpt-v-quickstart.md).
+- Vision enhancement using GPT-4 Turbo with Vision is now available in the [Azure Open AI Playground](https://oai.azure.com/) and includes support for Optical Character Recognition, object grounding, image support for "add your data," and support for video prompt. 
+- Make calls to the chat API directly using the [REST API](https://aka.ms/gpt-v-api-ref).
+- Region availability is currently limited to `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, and `AustraliaEast`  
+- Learn more about the known limitations of GPT-4 Turbo with Vision and other [frequently asked questions](/azure/ai-services/openai/faq#gpt-4-with-vision).
+
 ## November 2023
 
-### New data source support in Azure OpenAI on your data 
+### New data source support in Azure OpenAI on your data
 
 - You can now use [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db.md#ingesting-your-data) as well as URLs/web addresses as data sources to ingest your data and chat with a supported Azure OpenAI model.
 
@@ -72,7 +83,7 @@ Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
 
 - `babbage-002` and `davinci-002` are [now available for fine-tuning](./how-to/fine-tuning.md). These models replace the legacy ada, babbage, curie, and davinci base models that were previously available for fine-tuning.
 
-- Fine-tuning availability is limited to certain regions. Check the [models page](concepts/models.md#fine-tuning-models-preview), for the latest information on model availability in each region.
+- Fine-tuning availability is limited to certain regions. Check the [models page](concepts/models.md#fine-tuning-models), for the latest information on model availability in each region.
 
 - Fine-tuned models have different [quota limits](quotas-limits.md) than regular models.
 
@@ -84,7 +95,7 @@ Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
     - The strictness setting sets the threshold to categorize documents as relevant to your queries.
     - The retrieved documents setting specifies the number of top-scoring documents from your data index used to generate responses.
 - You can see data ingestion/upload status in the Azure OpenAI Studio.
-- Support for [private endpoints & VPNs for blob containers](./how-to/use-your-data-securely.md#security-support-for-azure-blob-storage)
+- Support for private endpoints & VPNs for blob containers.
 
 ## September 2023
 
@@ -115,7 +126,7 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 ### Azure OpenAI on your own data (preview) updates
 
 - You can now deploy Azure OpenAI on your data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
-- [Azure OpenAI on your data](./concepts/use-your-data.md#virtual-network-support--private-endpoint-support) now supports private endpoints.
+- Azure OpenAI on your data now supports private endpoints.
 - Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control).
 - [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
 - [Vector search and semantic search options](./concepts/use-your-data.md#search-options). 

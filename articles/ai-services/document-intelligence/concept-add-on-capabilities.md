@@ -196,7 +196,7 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 
 * Use query fields when you need to extend the schema of a prebuilt or custom model or need to extract a few fields with the output of layout.
 
-* Query fields are a premium add-on capability. For best results, define the fields you want to extract using camel case or Pascal case field names for multi-work field names.
+* Query fields are a premium add-on capability. For best results, define the fields you want to extract using camel case or Pascal case field names for multi-word field names.
 
 * Query fields support a maximum of 20 fields per request. If the document contains a value for the field, the field and value are returned.
 

@@ -33,9 +33,9 @@ $AppInfo = @{}
 
 foreach ($App in $FunctionApps)
 {
-     if ($App.ApplicationSettings["FUNCTIONS_WORKER_RUNTIME"] -eq 'dotnet')
+     if ($App.Runtime -eq 'dotnet')
      {
-          $AppInfo.Add($App.Name, $App.ApplicationSettings["FUNCTIONS_WORKER_RUNTIME"])
+          $AppInfo.Add($App.Name, $App.Runtime)
      }
 }
 

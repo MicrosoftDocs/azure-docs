@@ -5,7 +5,8 @@ author: cgillum
 ms.topic: overview
 ms.date: 10/24/2023
 ms.author: azfuncdf
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: df-languages
 #Customer intent: As a developer, I want to learn what durable entities are and how to use them to solve distributed, stateful problems in my applications.

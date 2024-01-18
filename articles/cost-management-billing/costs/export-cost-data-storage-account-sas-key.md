@@ -3,7 +3,7 @@ title: Export cost data with an Azure Storage account SAS key
 description: This article helps partners create a SAS key and configure Cost Management exports.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/29/2023
+ms.date: 12/06/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -18,8 +18,9 @@ Often, partners don't have their own Azure subscriptions in the tenant associate
 
 ## Requirements
 
-- You need must be a partner with a Microsoft Partner Agreement. Your customers on the Azure plan must have Microsoft Customer Agreement that is signed.
+- You must be a partner with a Microsoft Partner Agreement. Your customers on the Azure plan must have a signed Microsoft Customer Agreement.
     - SAS key-based export isn't supported for indirect enterprise agreements.
+- SAS key-based export is available for partners that sign in to the Azure portal from a partner tenant. However, the SAS key option isn't supported if you're using Azure Lighthouse for customer management.
 - You must be global admin for your partner organization's billing account.
 - You must have access to configure a storage account that's in a different tenant of your partner organization. You're responsible for maintaining permissions and data access when your export data to your storage account.
 - The storage account must not have a firewall configured.

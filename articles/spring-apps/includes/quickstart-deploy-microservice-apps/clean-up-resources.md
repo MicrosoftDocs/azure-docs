@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 05/24/2022
 ---
 
-<!-- 
+<!--
 For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure Portal or AZD.
 
-[!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart-deploy-microservice-apps/clean-up-resources.md)]
+[!INCLUDE [clean-up-resources](includes/quickstart-deploy-microservice-apps/clean-up-resources.md)]
 
 -->
 
