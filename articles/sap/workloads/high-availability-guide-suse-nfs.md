@@ -94,7 +94,7 @@ Deploy two virtual machines for NFS servers. Choose a suitable SLES image that i
 
 ### Configure Azure load balancer
 
-Follow [create load balancer](../../load-balancer/quickstart-load-balancer-standard-internal-portal.md#create-load-balancer) guide to set up a standard load balancer for a NFS server high availability. During the setup of load balancer, consider following points.
+Follow [create load balancer](../../load-balancer/quickstart-load-balancer-standard-internal-portal.md#create-load-balancer) guide to configure a standard load balancer for an NFS server high availability. During the configuration of load balancer, consider following points.
 
 1. **Frontend IP Configuration:** Create two frontend IP. Select the same virtual network and subnet as your NFS server.
 2. **Backend Pool:** Create backend pool and add NFS server VMs.

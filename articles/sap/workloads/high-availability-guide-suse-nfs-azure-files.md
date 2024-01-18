@@ -99,7 +99,7 @@ Deploy virtual machines with SLES for SAP Applications image. Choose a suitable 
 
 ### Configure Azure load balancer
 
-During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow below steps, to setup standard load balancer for high availability setup of SAP ASCS and SAP ERS.
+During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow the steps below to configure a standard load balancer for the high-availability setup of SAP ASCS and SAP ERS.
 
 #### [Azure portal](#tab/lb-portal)
 
@@ -239,7 +239,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    If the grep command does not find the IS_ERS parameter, you need to install the patch listed on [the SUSE download page](https://download.suse.com/patch/finder/#bu=suse&familyId=&productId=&dateRange=&startDate=&endDate=&priority=&architecture=&keywords=resource-agents)
 
-3. **[A]** Setup host name resolution
+3. **[A]** Set up host name resolution
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands
@@ -632,7 +632,7 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
     vm.dirty_background_bytes = 314572800
     ```
 
-1. **[A]** Setup host name resolution
+1. **[A]** Set up host name resolution
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands

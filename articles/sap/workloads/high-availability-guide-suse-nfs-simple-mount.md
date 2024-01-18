@@ -111,7 +111,7 @@ Deploy virtual machines with SLES for SAP Applications image. Choose a suitable 
 
 ### Configure Azure load balancer
 
-During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow below steps, to setup standard load balancer for high availability setup of SAP ASCS and SAP ERS.
+During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow the steps below to configure a standard load balancer for the high-availability setup of SAP ASCS and SAP ERS.
 
 #### [Azure portal](#tab/lb-portal)
 
