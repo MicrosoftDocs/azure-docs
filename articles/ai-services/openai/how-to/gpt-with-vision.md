@@ -234,7 +234,10 @@ The chat responses you receive from the model should now include enhanced inform
     "choices":
     [
         {
-            "finish_reason":"stop",
+            "finish_details": {
+                "type": "stop",
+                "stop": "<|fim_suffix|>"
+            },
             "index": 0,
             "message":
             {
