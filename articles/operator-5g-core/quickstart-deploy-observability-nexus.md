@@ -35,7 +35,7 @@ For example: "Quickstart: Demonstrate the incident response capabilities of Micr
 
 -->
 
-# Quickstart: Deploy Azure Operator 5G Core obvervability on Nexus Advanced Kubernetes Services (NAKS)
+# Quickstart: Deploy Azure Operator 5G Core observability on Nexus Advanced Kubernetes Services (NAKS)
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------

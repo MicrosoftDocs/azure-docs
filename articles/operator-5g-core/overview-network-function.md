@@ -35,7 +35,7 @@ You can also use this in the TOC if your service name doesn’t cause the phrase
 
 -->
 
-# What is a network funciton?
+# What is a network function?
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------

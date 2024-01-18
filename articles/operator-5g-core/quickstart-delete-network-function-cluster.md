@@ -1,5 +1,5 @@
 ---
-title: Delete a network function and/or cluster
+title: Delete a network function and/or cluster in Azure Operator 5G Core
 description: Learn the high-level process to delete a network function and/or cluster.
 author: HollyCl
 ms.author: HollyCl
@@ -36,7 +36,7 @@ For example: "Quickstart: Demonstrate the incident response capabilities of Micr
 
 -->
 
-# Quickstart: Delete a network function or cluster
+# Quickstart: Delete a network function or cluster in Azure Operator 5G Core
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------

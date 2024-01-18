@@ -46,8 +46,8 @@ Concept articles are primarily distinguished by what they aren't:
 One clear sign of a procedural article would be the use of a numbered list. With rare exception, numbered lists shouldn't appear in Concept articles.
 
 -->
-
-# Supported features
+ 
+# Supported features in Azure Operator 5G Core
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph

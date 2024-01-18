@@ -36,7 +36,7 @@ For example: "Quickstart: Demonstrate the incident response capabilities of Micr
 
 -->
 
-# Update an existing deployment
+# Update an existing deployment of Azure Operator 5G Core
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------

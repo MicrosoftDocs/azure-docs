@@ -47,7 +47,7 @@ One clear sign of a procedural article would be the use of a numbered list. With
 
 -->
 
-# Build a 5G Core network
+# Build a 5G Core network for Azure Operator 5G Core
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph

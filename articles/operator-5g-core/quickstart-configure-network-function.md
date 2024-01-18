@@ -35,7 +35,7 @@ For example: "Quickstart: Demonstrate the incident response capabilities of Micr
 
 -->
 
-# Quickstart: Configure a network function
+# Quickstart: Configure a network function in Azure Operator 5G Core
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------

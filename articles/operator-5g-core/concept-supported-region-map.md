@@ -48,7 +48,7 @@ One clear sign of a procedural article would be the use of a numbered list. With
 
 -->
 
-# Supported region map
+# Supported region map for Azure Operator 5G Core
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph

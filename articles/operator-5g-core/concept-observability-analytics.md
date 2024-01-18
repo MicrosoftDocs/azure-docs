@@ -47,7 +47,7 @@ One clear sign of a procedural article would be the use of a numbered list. With
 
 -->
 
-# Observability analytics
+# Observability analytics in Azure Operator 5G Core
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph
