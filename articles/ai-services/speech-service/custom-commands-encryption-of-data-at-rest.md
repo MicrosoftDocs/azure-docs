@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 07/05/2020
+ms.date: 1/18/2024
 ms.author: eur
 ms.custom: cogserv-non-critical-speech
 ---
@@ -15,7 +15,7 @@ ms.custom: cogserv-non-critical-speech
 
 [!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
 
-Custom Commands automatically encrypts your data when it is persisted to the cloud. The Custom Commands service encryption protects your data and to help you to meet your organizational security and compliance commitments.
+Custom Commands automatically encrypts your data when it's persisted to the cloud. The Custom Commands service encryption protects your data and to help you to meet your organizational security and compliance commitments.
 
 > [!NOTE]
 > Custom Commands service doesn't automatically enable encryption for the LUIS resources associated with your application. If needed, you must enable encryption for your LUIS resource from [here](../luis/encrypt-data-at-rest.md).
@@ -25,7 +25,7 @@ Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki
 
 ## About encryption key management
 
-When you use Custom Commands, speech service will store following data in the cloud:
+When you use Custom Commands, speech service stores following data in the cloud:
 * Configuration JSON behind the Custom Commands application
 * LUIS authoring and prediction key
 
@@ -35,7 +35,7 @@ By default, your subscription uses Microsoft-managed encryption keys. However, y
 > [!IMPORTANT]
 > Customer-managed keys are only available resources created after 27 June, 2020. To use CMK with the Speech service, you will need to create a new Speech resource. Once the resource is created, you can use Azure Key Vault to set up your managed identity.
 
-To request the ability to use customer-managed keys, fill out and submit Customer-Managed Key Request Form. It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using CMK with the Speech service, you'll need to create a new Speech resource from the Azure portal.
+To request the ability to use customer-managed keys, fill out and submit Customer-Managed Key Request Form. It takes approximately 3-5 business days to hear back on the status of your request. Depending on demand, you might be placed in a queue and approved as space becomes available. Once approved for using CMK with the Speech service, you need to create a new Speech resource from the Azure portal.
    > [!NOTE]
    > **Customer-managed keys (CMK) are supported only for custom commands.**
    >
@@ -48,9 +48,9 @@ To request the ability to use customer-managed keys, fill out and submit Custome
 
 You must use Azure Key Vault to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Speech resource and the key vault must be in the same region and in the same Microsoft Entra tenant, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
 
-When a new Speech resource is created and used to provision Custom Commands application - data is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the resource is created. Customer-managed keys are stored in Azure Key Vault, and the key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the Azure AI services resource. The managed identity is available only after the resource is created using the Pricing Tier required for CMK.
+When a new Speech resource is created and used to provision Custom Commands applications, data is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the resource is created. Customer-managed keys are stored in Azure Key Vault, and the key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the Azure AI services resource. The managed identity is available only after the resource is created using the Pricing Tier required for CMK.
 
-Enabling customer managed keys will also enable a system assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), a feature of Microsoft Entra ID. Once the system assigned managed identity is enabled, this resource will be registered with Microsoft Entra ID. After being registered, the managed identity will be given access to the Key Vault selected during customer managed key setup. 
+Enabling customer managed keys also enables a system assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), a feature of Microsoft Entra ID. Once the system assigned managed identity is enabled, this resource is registered with Microsoft Entra ID. After being registered, the managed identity is given access to the Key Vault selected during customer managed key setup. 
 
 > [!IMPORTANT]
 > If you disable system assigned managed identities, access to the key vault will be removed and any data encrypted with the customer keys will no longer be accessible. Any features depended on this data will stop working.
@@ -60,7 +60,7 @@ Enabling customer managed keys will also enable a system assigned [managed ident
 
 ## Configure Azure Key Vault
 
-Using customer-managed keys requires that two properties be set in the key vault, **Soft Delete** and **Do Not Purge**. These properties are not enabled by default, but can be enabled using either PowerShell or Azure CLI on a new or existing key vault.
+Using customer-managed keys requires that two properties be set in the key vault, **Soft Delete** and **Do Not Purge**. These properties aren't enabled by default, but can be enabled using either PowerShell or Azure CLI on a new or existing key vault.
 
 > [!IMPORTANT]
 > If you do not have the **Soft Delete** and **Do Not Purge** properties enabled and you delete your key, you won't be able to recover the data in your Azure AI services resource.
@@ -77,7 +77,7 @@ Only RSA keys of size 2048 are supported with Azure Storage encryption. For more
 To enable customer-managed keys in the Azure portal, follow these steps:
 
 1. Navigate to your Speech resource.
-1. On the **Settings** blade for your Speech resource, select **Encryption**. Select the **Customer Managed Keys** option, as shown in the following figure.
+1. On the **Settings** page for your Speech resource, select **Encryption**. Select the **Customer Managed Keys** option, as shown in the following figure.
 
  ![Screenshot showing how to select Customer Managed Keys](media/custom-commands/select-cmk.png)
 
@@ -89,7 +89,7 @@ After you enable customer-managed keys, you'll have the opportunity to specify a
 
 To specify a key as a URI, follow these steps:
 
-1. To locate the key URI in the Azure portal, navigate to your key vault, and select the **Keys** setting. Select the desired key, then click the key to view its versions. Select a key version to view the settings for that version.
+1. To locate the key URI in the Azure portal, navigate to your key vault, and select the **Keys** setting. Select the desired key, then select the key to view its versions. Select a key version to view the settings for that version.
 1. Copy the value of the **Key Identifier** field, which provides the URI.
 
     ![Screenshot showing key vault key URI](../media/cognitive-services-encryption/key-uri-portal.png)
@@ -132,7 +132,7 @@ To change the key used for encryption, follow these steps:
 
 You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. When the key is rotated, you must update the Speech resource to use the new key URI. To learn how to update the resource to use a new version of the key in the Azure portal, see [Update the key version](#update-the-key-version).
 
-Rotating the key does not trigger re-encryption of data in the resource. There is no further action required from the user.
+Rotating the key doesn't trigger re-encryption of data in the resource. There's no further action required from the user.
 
 ## Revoke access to customer-managed keys
 
