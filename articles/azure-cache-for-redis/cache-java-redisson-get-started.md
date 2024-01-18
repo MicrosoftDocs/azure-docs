@@ -1,19 +1,19 @@
 ---
-title: 'Quickstart: Use Azure Cache for Redis in Java with Redisson Redis client'
-description: In this quickstart, you will create a new Java app that uses Azure Cache for Redis and Redisson as Redis client
+title: "Quickstart: Use Azure Cache for Redis in Java with Redisson Redis client"
+description: In this quickstart, you will create a new Java app that uses Azure Cache for Redis and Redisson as Redis client.
 author: KarlErickson
 ms.author: zhihaoguo
-ms.date: 01/16/2024
+ms.date: 01/18/2024
 ms.topic: quickstart
 ms.service: cache
 ms.devlang: java
-ms.custom: mvc, seo-java-january2024, seo-java-february2024, mode-api, devx-track-java, devx-track-javaee 
+ms.custom: mvc, seo-java-january2024, seo-java-february2024, mode-api, devx-track-java, devx-track-extended-java, devx-track-javaee
 #Customer intent: As a Java developer, new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis and Redisson as Redis client.
 ---
 
 # Quickstart: Use Azure Cache for Redis in Java with Redisson Redis client
 
-In this quickstart, you incorporate Azure Cache for Redis into a Java app using the [Redisson](https://redisson.org/) Redis client and JCP stardand JCache API to have access to a secure, dedicated cache that is accessible from any application within Azure.
+In this quickstart, you incorporate Azure Cache for Redis into a Java app using the [Redisson](https://redisson.org/) Redis client and JCP standard JCache API to have access to a secure, dedicated cache that is accessible from any application within Azure.
 
 ## Skip to the code on GitHub
 
@@ -22,7 +22,7 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- [Use Microsoft Entra ID for cache authentication](azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication)
+- [Use Microsoft Entra ID for cache authentication](cache-azure-active-directory-for-authentication.md)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
 ## Create an Azure Cache for Redis
@@ -31,11 +31,11 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
-## Setting up the working environment 
+## Set up the working environment
 
 Depending on your operating system, add environment variables for your **Host name** and **USERNAME**. Open a command prompt, or a terminal window, and set up the following values:
 
-```CMD 
+```cmd
 set REDIS_CACHE_HOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
 set USERNAME=<USERNAME>
 ```
@@ -165,7 +165,7 @@ In the example below, you can see the `Message` key previously had a cached valu
 
 If you will be continuing to the next tutorial, you can keep the resources created in this quickstart and reuse them.
 
-Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges. 
+Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually on the left instead of deleting the resource group.

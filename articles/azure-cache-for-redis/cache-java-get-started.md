@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis in Java'
 description: In this quickstart, you'll create a new Java app that uses Azure Cache for Redis
-author: flang-msft
-ms.author: franlanglois
+author: KarlErickson
+ms.author: zhihaoguo
 ms.date: 01/04/2022
 ms.topic: quickstart
 ms.service: cache
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty-aks, mode-api, mvc, seo-java-august2019, seo-java-september2019, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-liberty-aks, mode-api, mvc, seo-java-august2019, seo-java-september2019, devx-track-extended-java
 ---
 
 # Quickstart: Use Azure Cache for Redis in Java
@@ -29,11 +29,11 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
-## Setting up the working environment
+## Set up the working environment
 
 Depending on your operating system, add environment variables for your **Host name** and **Primary access key** that you noted above. Open a command prompt, or a terminal window, and set up the following values:
 
-```dos
+```cmd
 set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
 set REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
 ```
@@ -48,7 +48,7 @@ Replace the placeholders with the following values:
 - `<YOUR_HOST_NAME>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
 - `<YOUR_PRIMARY_ACCESS_KEY>`: The primary access key, obtained from the *Access keys* section of your Azure Cache for Redis resource in the Azure portal.
 
-## Understanding the Java sample
+## Understand the Java sample
 
 In this sample, you use Maven to run the quickstart app.
 
