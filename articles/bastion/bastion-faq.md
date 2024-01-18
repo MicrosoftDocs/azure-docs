@@ -239,7 +239,7 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 
 ### I am connecting to a VM using a JIT policy, do I need additional permissions?
 
-If user is connecting to a VM using a JIT policy, there is no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](./defender-for-cloud/just-in-time-access-usage.md)
+If user is connecting to a VM using a JIT policy, there is no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](../defender-for-cloud/just-in-time-access-usage.md)
 
 ### My privatelink.azure.com can't resolve to management.privatelink.azure.com
 
