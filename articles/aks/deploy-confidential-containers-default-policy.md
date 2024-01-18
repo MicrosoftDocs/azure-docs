@@ -3,7 +3,7 @@ title: Deploy an AKS cluster with Confidential Containers (preview)
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with Confidential Containers (preview) and a default security policy by using the Azure CLI.
 ms.topic: quickstart
 ms.date: 01/10/2024
-ms.custom: devx-track-azurecli, ignite-fall-2023, mode-api, devx-track-linux
+ms.custom: devx-track-azurecli, ignite-fall-2023, mode-api, linux-related-content
 ---
 
 # Deploy an AKS cluster with Confidential Containers and a default policy
@@ -201,7 +201,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
    Run the following command to set the scope:
 
     ```azurecli-interactive
-    AKV_SCOPE=$(az keyvault show --name <AZURE_AKV_RESOURCE_NAME> --query id --output tsv) 
+    AKV_SCOPE=$(az keyvault show --name <AZURE_AKV_RESOURCE_NAME> --query id --output tsv)
     ```
 
    Run the following command to assign the **Key Vault Crypto Officer** role.
@@ -374,16 +374,16 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 1. Get the IP address of the web service using the following command:
 
     ```bash
-    kubectl get svc consumer -n kafka 
+    kubectl get svc consumer -n kafka
     ```
 
-1. Copy and paste the external IP address of the consumer service into your browser and observe the decrypted message. 
+1. Copy and paste the external IP address of the consumer service into your browser and observe the decrypted message.
 
     The following resembles the output of the command:
-    
+
     ```output
     Welcome to Confidential Containers on AKS!
-    Encrypted Kafka Message: 
+    Encrypted Kafka Message:
     Msg 1: Azure Confidential Computing
     ```
 
@@ -396,7 +396,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 When you're finished evaluating this feature, to avoid Azure charges, clean up your unnecessary resources. If you deployed a new cluster as part of your evaluation or testing, you can delete the cluster using the [az aks delete][az-aks-delete] command.
 
 ```azurecli-interactive
-az aks delete --resource-group myResourceGroup --name myAKSCluster 
+az aks delete --resource-group myResourceGroup --name myAKSCluster
 ```
 
 If you enabled Confidential Containers (preview) on an existing cluster, you can remove the pod(s) using the [kubectl delete pod][kubectl-delete-pod] command.

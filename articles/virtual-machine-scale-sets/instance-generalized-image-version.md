@@ -263,6 +263,7 @@ az vmss create \
    --resource-group myResourceGroup \
    --name myScaleSet \
    --image $imgDef \
+   --orchestration-mode Flexible \
    --admin-username azureuser \
    --generate-ssh-keys
 ```
