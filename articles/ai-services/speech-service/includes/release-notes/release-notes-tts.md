@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 12/1/2023
+ms.date: 1/18/2024
 ms.author: eur
 ---
 
@@ -22,12 +22,12 @@ The newly trained voice models now support 48 kHz sample rate, irrespective of t
 | Locale (BCP-47) | Language | Text to speech voices |
 | ----- | ----- | ----- |
 | `de-DE` | German (Germany) | `de-DE-FlorianMultilingualNeural` (Male) |
+| `de-DE` | German (Germany) | `de-DE-SeraphinaMultilingualNeural` (Female) |
 | `en-US` | English (United States) | `en-US-AvaMultilingualNeural` (Female) |
 | `en-US` | English (United States) | `en-US-EmmaMultilingualNeural` (Female) |
 | `fr-FR` | French (France) | `fr-FR-RemyMultilingualNeural` (Male) |
 | `en-US` | English (United States) | `en-US-BrianMultilingualNeural` (Male) |
 | `en-US` | English (United States) | `en-US-AndrewMultilingualNeural` (Male) |
-| `fr-FR` | French (France) | `fr-FR-SeraphinaMultilingualNeural` (Female) |
 | `fr-FR` | French (France) | `fr-FR-VivienneMultilingualNeural` (Female) |
 | `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoMultilingualNeural` (Female) |
 | `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaochenMultilingualNeural` (Female) |
