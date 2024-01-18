@@ -39,7 +39,7 @@ In the above diagram,
 
 1. Azure Database for MySQL flexible server instances are injected into a delegated subnet - 10.0.1.0/24 of virtual network **VNet-1**.
 2. Applications deployed on different subnets within the same virtual network can access the Azure Database for MySQL flexible server instances directly.
-3. Applications deployed on a different virtual network **VNet-2** don't have direct access to Azure Database for MySQL flexible server instances. Before they can access an instance, you must perform a [private DNS zone virtual network peering](#private-dns-zone-and-vnet-peering).
+3. Applications deployed on a different virtual network **VNet-2** don't have direct access to Azure Database for MySQL flexible server instances. Before they can access an instance, you must perform a [private DNS zone virtual network peering](#private-dns-zone-and-virtual-network-peering).
 
 ## Virtual network concepts
 
