@@ -32,6 +32,11 @@ App Accelerator helps you bootstrap developing your applications and deploying t
   az extension remove --name spring-cloud
   ```
 
+- To use App Accelerator in VS Code, you'll also need to satisfy the following prerequisites:
+
+  - [Visual Studio Code](https://code.visualstudio.com/Download)
+  - [Azure Spring Apps extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-cloud)
+
 ## Enable App Accelerator
 
 You can enable App Accelerator when you provision an Azure Spring Apps Enterprise plan instance. If you already have an Azure Spring Apps Enterprise plan resource, see the [Manage App Accelerator in an existing Enterprise plan instance](#manage-app-accelerator-in-an-existing-enterprise-plan-instance) section to enable it.
@@ -273,7 +278,7 @@ To view the newly published accelerator, refresh Dev Tools Portal.
 :::image type="content" source="media/how-to-use-accelerator/tap-gui-accelerator.png" alt-text="Screenshot of the VMware Tanzu Dev Tools for Azure Spring Apps Application Accelerators page." lightbox="media/how-to-use-accelerator/tap-gui-accelerator.png":::
 
 > [!NOTE]
-> It might take a few seconds for Dev Tools Portal to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as `git-interval` when you create the accelerator. After you change the accelerator, it will also take time to be reflected in Dev Tools Portal. The best practice is to change the `git-interval` to speed up for verification after you apply changes to the Git repo.
+> It might take a few seconds for Dev Tools Portal to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as `git-interval` when you create the accelerator. After you change the accelerator, it also takes time to be reflected in Dev Tools Portal. The best practice is to change the `git-interval` to speed up for verification after you apply changes to the Git repo.
 
 ### Reference a fragment in your own accelerators
 
@@ -487,61 +492,50 @@ az spring dev-tool create \
 
 ---
 
-## Use Application Accelerator in VS Code
+## Use App Accelerator in VS Code
 
-You can bootstrap your project from one accelerator of Application Accelerator in an Azure Spring Apps Enterprise service instance in VS code directly.
+You can bootstrap your project from any accelerator of App Accelerator in an Azure Spring Apps Enterprise service instance in VS Code directly.
 
-### Prerequisites
+### View App Accelerator list
 
-- [Visual Studio Code](https://code.visualstudio.com/Download)
-- [Azure Spring Apps extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-cloud)
-
-### View Application Accelerator List
-
-Use the following steps to view Accelerator List from an Azure Spring Apps Enterprise service instance:
+Use the following steps to view the App Accelerator list from an Azure Spring Apps Enterprise service instance:
 
 1. In Visual Studio Code, open the Azure Spring Apps extension, and then sign in to your Azure account.
 
 1. Expand the service instance that you want to operate and right-click to select the service instance.
 
-1. Select **Open Application Accelerator** from the menu to open the Application Accelerator List. The system will prompt you to install the [Tanzu Application Accelerator Visual Studio Code extension]([Use the Application Accelerator Visual Studio Code extension (vmware.com)](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.6/tap/application-accelerator-vscode.html)) if it is not installed.
+1. From the menu, select **Open Application Accelerator** to open the list of App Accelerators. The system prompts you to install the [Tanzu Application Accelerator Visual Studio Code extension](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.6/tap/application-accelerator-vscode.html) if it isn't installed.
 
    :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-open-accelerator.png" alt-text="Screenshot of the VS Code extension showing the Open Application Accelerator option for a service instance." lightbox="media/how-to-use-accelerator/visual-studio-code-open-accelerator.png":::
 
-1. You should be automatically navigated to the accelerator blade where you can see the accelerator list. And then you can select any accelerator to bootstrap your project.
+1. Select any accelerator to bootstrap your project.
 
-   :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png" alt-text="Screenshot that shows the VS Code extension accelerator list." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png":::
+   :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png" alt-text="Screenshot of VS Code that shows the list of App Accelerator extensions." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png":::
 
 > [!NOTE]
-> In case you experience any unfixable failure when using the extension, you can logout your account from the extension.
+> If you experience any failure that you can't fix when using the extension, log out of your account from the extension.
 
-### Troubleshoot Application Accelerator issues
+### Troubleshoot App Accelerator issues
 
-If you try to open Application Accelerator for a service instance that hasn't enabled Application Accelerator or exposed a public endpoint, you see an error message.
+If you try to open App Accelerator for a service instance that hasn't enabled App Accelerator or exposed a public endpoint, you see the following error message:
 
-  :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-not-enabled.png" alt-text="Screenshot of the error message showing Application Accelerator not enabled and public endpoint not accessible." lightbox="media/how-to-use-accelerator/visual-studio-code-not-enabled.png":::
+  :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-not-enabled.png" alt-text="Screenshot of the error message that shows Application Accelerator not enabled and public endpoint not accessible." lightbox="media/how-to-use-accelerator/visual-studio-code-not-enabled.png":::
 
-To enable Application Accelerator and expose public endpoint, use either the Azure portal or the Azure CLI. For more information, see the [Manage App Accelerator in an existing Enterprise plan instance](./how-to-use-accelerator.md#manage-app-accelerator-in-an-existing-enterprise-plan-instance) section.
+To enable App Accelerator and expose public endpoints, use the following steps. For more information, see the [Manage App Accelerator in an existing Enterprise plan instance](./how-to-use-accelerator.md#manage-app-accelerator-in-an-existing-enterprise-plan-instance) section.
 
-If you enabled single-sign-on Dev Tools Portal, see the section [Configure Dev Tools Portal](./how-to-use-dev-tool-portal.md#configure-dev-tools-portal), when you access the extension and you will see the windows popup as shown in picture below.
+1. If you enabled single sign-on in the Dev Tools Portal, you see the following flyout when you access the extension. For more information, see the [Configure Dev Tools Portal](./how-to-use-dev-tool-portal.md#configure-dev-tools-portal) section of [Configure Tanzu Dev Tools in the Azure Spring Apps Enterprise plan](how-to-use-dev-tool-portal.md).
 
-:::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-popup.png" alt-text="Screenshot that shows the VS Code extension popup windows." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-popup.png":::
+   :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-popup.png" alt-text="Screenshot that shows the VS Code extension flyout window." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-popup.png":::
 
-And then click the **Allow** button It will bring up an authentication window. Once you successfully login your account you can will see the popup windows below.
+1. Select **Allow**, select **Open**, and then select **Open** again to open the list of VS Code extensions.
 
-:::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-allow.png" alt-text="Screenshot that shows the allow login windows." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-allow.png":::
+   :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png" alt-text="Screenshot of VS Code that shows the list of App Accelerator extensions." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png":::
 
-Click **Open** button, the VS Code will be activated and you will see the popup windows below in VS Code.
-
-:::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-allow-open.png" alt-text="Screenshot that shows the allow open windows." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-allow-open.png":::
-
-Click **Open** and you will see the accelerator list and you can click any accelerator project to do further actions.
-
-:::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png" alt-text="Screenshot that shows the VS Code extension accelerator list." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png":::
-
-In case you got below error message when doing above steps, you need to add redirect URIs `vscode://VMware.tanzu-app-accelerator` to relevant IdP. Go to the **Authentication** pane for your Microsoft Entra app and add redirect URIs to Mobile and desktop applications in Platform configurations.
+Sometimes, you might get an error message similar to the following example:
 
 AADSTS50011: The redirect URI 'vscode://VMware.tanzu-app-accelerator' specified in the request does not match the redirect URIs configured for the application 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'. Make sure the redirect URI sent in the request matches one added to your application in the Azure portal. Navigate to https://aka.ms/redirectUriMismatchError to learn more about how to fix this.
+
+To address this issue, add redirect URIs `vscode://VMware.tanzu-app-accelerator` to relevant IdP. In Microsoft Entra ID, go to the **Authentication** menu, and add redirect URIs to mobile and desktop applications in platform configurations.
 
 ## Next steps
 
