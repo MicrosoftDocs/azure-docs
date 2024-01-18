@@ -17,7 +17,7 @@ This how-to guide explains the steps for installing the required Azure CLI and e
 ## Prerequisites
 
 1. The [Install Azure CLI][installation-instruction] must be installed.
-2. The `networkcloud` cli extension is required.  If the `networkcloud` extension isn't installed, it can be installed following the steps listed [here](https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/operator-nexus/howto-install-cli-extensions.md).
+2. The `networkcloud` CLI extension is required.  If the `networkcloud` extension isn't installed, it can be installed following the steps listed [here](https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/operator-nexus/howto-install-cli-extensions.md).
 3. Access to the Azure portal for the target cluster to be upgraded.
 4. You must be logged in to the same subscription as your target cluster via `az login`
 5. Target cluster must be in a running state, with all control plane nodes healthy and 80+% of compute nodes in a running and healthy state.
@@ -87,6 +87,7 @@ az networkcloud cluster show --cluster-name "clusterName" --resource-group "reso
 ```
 
 The output should be the target cluster's information and the cluster's detailed status and detail status message should be present.
+For more detailed insights on the upgrade progress, the individual BMM in each Rack can be checked for status. Example of this is provided in the reference section under [BareMetal Machine roles](./reference-near-edge-baremetal-machine-roles.md).
 
 ## Frequently Asked Questions
 
