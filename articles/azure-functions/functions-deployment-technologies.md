@@ -43,7 +43,6 @@ Each plan has different behaviors. Not all deployment technologies are available
 | [Web Deploy](#web-deploy-msdeploy) |✔|✔|✔| | | |
 | [Source control](#source-control) |✔|✔|✔| |✔|✔|
 | [Local Git](#local-git)<sup>1</sup> |✔|✔|✔| |✔|✔|
-| [Cloud sync](#cloud-sync)<sup>1</sup> |✔|✔|✔| |✔|✔|
 | [FTPS](#ftps)<sup>1</sup> |✔|✔|✔| |✔|✔|
 | [In-portal editing](#portal-editing)<sup>2</sup> |✔|✔|✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|
 

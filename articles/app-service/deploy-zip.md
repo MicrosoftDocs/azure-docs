@@ -101,8 +101,6 @@ When deployment is in progress, an icon in the top right corner shows you the pr
 
 The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](./faq-app-service-linux.yml) instead.
 
-# []
-
 -----
 
 > [!NOTE]
