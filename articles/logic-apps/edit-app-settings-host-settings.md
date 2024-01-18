@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/09/2024
+ms.date: 01/18/2024
 ms.custom: fasttrack-edit
 ---
 
@@ -26,6 +26,13 @@ In *multitenant* Azure Logic Apps, deployment depends on Azure Resource Manager 
 In *single-tenant* Azure Logic Apps, deployment becomes easier because you can separate resource provisioning between apps and infrastructure. You can use *parameters* to abstract values that might change between environments. By defining parameters to use in your workflows, you can first focus on designing your workflows, and then insert your environment-specific variables later. You can call and reference your environment variables at runtime by using app settings and parameters. That way, you don't have to redeploy as often.
 
 App settings integrate with Azure Key Vault. You can [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection strings and keys. Similar to Azure Resource Manager templates (ARM templates), where you can define environment variables at deployment time, you can define app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. However, app settings have size limitations and can't be referenced from certain areas in Azure Logic Apps.
+
+> [!NOTE]
+>
+> Key Vault should not be used for non-secrets such as URL paths. We should use regular app settings for non-secrets. When it 
+> comes to logic app, non-secrets such as base URL is needed by the logic app designer to make calls. The designer will not be
+> able to dereference a Key Vault type app setting, thus will not be able to make the call. Key Vault 
+> should only be used for the secrets such as credentials, certificates etc.
 
 For more information about setting up your logic apps for deployment, see the following documentation:
 
