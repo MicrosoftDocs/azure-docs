@@ -10,7 +10,7 @@ ms.date: 01/10/2024
 This article addresses frequent questions about Defender for IoT Firmware Analysis.
 
 ## What is FirmwareAnalysisRG?
-**FirmwareAnalysisRG** is the resource group that stores your firmware images. We automatically create **FirmwareAnalysisRG** for you when you register your subscription to the resource provider. To learn more about the **FirmwareAnalysisRG** and how it fits into your resource hierarchy, refer to [Defender for IoT Firmware Analysis RBAC](/articles/defender-for-iot/device-builders/defender-for-iot-firmware-analysis-rbac.md#understanding-the-representation-of-firmware-images-in-the-azure-resource-hierarchy).
+**FirmwareAnalysisRG** is the resource group that stores your firmware images. We automatically create **FirmwareAnalysisRG** for you when you register your subscription to the resource provider. To learn more about the **FirmwareAnalysisRG** and how it fits into your resource hierarchy, refer to [Defender for IoT Firmware Analysis RBAC](defender-for-iot-firmware-analysis-rbac.md#understanding-the-representation-of-firmware-images-in-the-azure-resource-hierarchy).
 
 ## What types of firmware images does Defender for IoT Firmware Analysis support?
 Defender for IoT Firmware Analysis supports unencrypted images that contain file systems with embedded Linux. The following are the embedded file system formats that we support:
