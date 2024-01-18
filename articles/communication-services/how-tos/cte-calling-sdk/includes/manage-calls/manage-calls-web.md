@@ -347,7 +347,6 @@ Recommendations for the management of chat ID:
     ```js
     addParticipant(participant: MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)
     ```
-  * Use Graph API to get the existing chat ID with only Teams user as a participant or create a new group chat with participants: Teams user ID and "00000000-0000-0000-0000-000000000000".
 - Group call with single Teams user and multiple phone participants:
   * (Optional way) Use startCall API on web calling SDK without providing chat thread ID to create a group chat for participants. You only need to provide identifier for all the participants when leveraging API.
     ```js
