@@ -4,7 +4,7 @@ description: This article describes how to view the updates pending for your env
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 01/14/2024
+ms.date: 01/18/2024
 ms.topic: how-to
 ---
 
@@ -22,17 +22,17 @@ The Updates blade (preview) allows you to manage machines from an updates viewpo
 
 ## Classic use case
 
-This option is helpful when you discover a vulnerability and want to fix it by applying a specific update on all machines on which it was pending. For example, in a software, a vulnerability is discovered and this vulnerability exposes the customer's environment to risk like remote code extension. When the Central IT team discovers this threat, they want to secure their enterprise's environment by applying an update *abc* that would mitigate vulnerability. Using the Updates view, they can apply the update *abc* on all the impacted machines.
+This option is helpful when you discover a vulnerability and want to fix it by applying a specific update on all machines on which it was pending. For example, a vulnerability is discovered in software, which can potentially expose the customer's environment to risk like remote code extension. The Central IT team discovers this threat and want to secure their enterprise's environment by applying an update *abc* that would mitigate vulnerability. Using the Updates view, they can apply the update *abc* on all the impacted machines.
 
  ## Summarized view
 
-In the **Overview** blade of Azure Update Manager, the Updates view provides a summary of pending updates. Select the individual updates to see a detailed view of each of the pending category of updates. Following is a screenshot that gives a summarized view of the pending updates on Windows and Linux
+In the **Overview** blade of Azure Update Manager, the Updates view provides a summary of pending updates. Select the individual updates to see a detailed view of each of the pending category of updates. Following is a screenshot that gives a summarized view of the pending updates on Windows and Linux machines.
 
   :::image type="content" source="./media/deploy-manage-updates-using-updates-view/overview-pending-updates.png" alt-text="Screenshot that shows number of updates and the type of updates pending on your Windows and Linux machines." lightbox="./media/deploy-manage-updates-using-updates-view/overview-pending-updates.png":::
 
 ## Updates list view
 
-You can use either the **Overview** blade or select the **Updates (preview)** blade that provides a list view of the updates pending in your environment. Following are few actions that you can perform in this page:
+You can use either the **Overview** blade or select the **Updates (preview)** blade that provides a list view of the updates pending in your environment. You can perform the following actions on this page:
 
 - Filter Windows and Linux updates by selecting the cards for each.
 - Filter updates by using the filter options at the top like **Resource group**, **Location**,  **Resource type**, **Workloads**, **Update Classifications**
@@ -54,12 +54,12 @@ You can use either the **Overview** blade or select the **Updates (preview)** bl
 
 1. **One-time update**  - Allows you to install update(s) on the applicable machines on demand and can take instant action about the pending update(s). For more information on how to use One-time update, see [how to deploy on demand updates](deploy-updates.md#).
 
-  :::image type="content" source="./media/deploy-manage-updates-using-updates-view/install-one-time-updates.png" alt-text="Screenshot that shows how to install one-time updates." lightbox="./media/deploy-manage-updates-using-updates-view/install-one-time-updates.png":::
+    :::image type="content" source="./media/deploy-manage-updates-using-updates-view/install-one-time-updates.png" alt-text="Screenshot that shows how to install one-time updates." lightbox="./media/deploy-manage-updates-using-updates-view/install-one-time-updates.png":::
 
 
 1. **Schedule updates** - Allows you to install updates later, you have to select a future date on when you would like to install the update(s) and specify an end date when the schedule should end. For more information on scheduled updates, see [how to schedule updates](scheduled-patching.md).
 
-  :::image type="content" source="./media/deploy-manage-updates-using-updates-view/schedule-updates.png" alt-text="Screenshot that shows how to schedule updates." lightbox="./media/deploy-manage-updates-using-updates-view/schedule-updates.png":::
+    :::image type="content" source="./media/deploy-manage-updates-using-updates-view/schedule-updates.png" alt-text="Screenshot that shows how to schedule updates." lightbox="./media/deploy-manage-updates-using-updates-view/schedule-updates.png":::
 
 
 ## Next steps
