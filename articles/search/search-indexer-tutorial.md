@@ -52,7 +52,7 @@ This tutorial provides *hotels.sql* file in the sample download to populate the 
 
 If you have an existing Azure SQL Database resource, you can add the hotels table to it, starting at the **Open query** step.
 
-1. Create an Azure SQL database, using the instructions in [Quickstart: Create a single database](/azure-sql/database/single-database-create-quickstart).
+1. Create an Azure SQL database, using the instructions in [Quickstart: Create a single database](/azure/azure-sql/database/single-database-create-quickstart).
 
    Server configuration for the database is important.
 
@@ -64,7 +64,7 @@ If you have an existing Azure SQL Database resource, you can add the hotels tabl
 
 1. In the Azure portal, go to the new resource.
 
-1. Add a firewall rule to allow access from your client, using the instructions in [Quickstart: Create a server-level firewall rule in Azure portal](/azure/azure-sql/database/firewall-create-server-level-portal-quickstart0). You can run `ipconfig` from a command prompt to get your IP address. 
+1. Add a firewall rule to allow access from your client, using the instructions in [Quickstart: Create a server-level firewall rule in Azure portal](/azure/azure-sql/database/firewall-create-server-level-portal-quickstart). You can run `ipconfig` from a command prompt to get your IP address. 
 
 1. Use the Query editor to load the sample data. On the navigation pane, select **Query editor (preview)** and enter the user name and password of server admin. 
 
