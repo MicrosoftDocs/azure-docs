@@ -114,7 +114,7 @@ The `run()` method should return a Pandas `DataFrame` or an array/list. Each ret
 > If you need to write predictions in a different way, you can [customize outputs in batch deployments](how-to-deploy-model-custom-output.md).
 
 > [!WARNING]
-> Do not not output complex data types (or lists of complex data types) rather than `pandas.DataFrame` in the `run` function. Those outputs will be transformed to string and they will be hard to read.
+> Do not output complex data types (or lists of complex data types) rather than `pandas.DataFrame` in the `run` function. Those outputs will be transformed to string and they will be hard to read.
 
 The resulting DataFrame or array is appended to the output file indicated. There's no requirement on the cardinality of the results (1 file can generate 1 or many rows/elements in the output). All elements in the result DataFrame or array are written to the output file as-is (considering the `output_action` isn't `summary_only`).
 

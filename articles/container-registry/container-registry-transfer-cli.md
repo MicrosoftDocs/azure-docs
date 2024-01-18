@@ -4,8 +4,9 @@ description: Use ACR Transfer with Az CLI
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.custom: devx-track-azurecli
+ms.service: container-registry
 ---
 
 # ACR Transfer with Az CLI
@@ -189,7 +190,7 @@ az acr repository show-tags --name $MyRegistry --repository $MyRepository
 > [!Note]
 > Source Trigger will only import blobs that have a Last Modified time within the last 60 days. If you intend to use Source Trigger to import blobs older than that, please refresh the Last Modified time of the blobs by add blob metadata to them or else import them with manually created pipeline runs.
 
-If you did use the the `--source-trigger-enabled False` parameter when creating your ImportPipeline, you will need to create a PipelineRun manually, as shown in the following section.
+If you did use the `--source-trigger-enabled False` parameter when creating your ImportPipeline, you will need to create a PipelineRun manually, as shown in the following section.
 
 ## Create PipelineRun for import with the acrtransfer Az CLI extension
 

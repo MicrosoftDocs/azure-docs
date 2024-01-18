@@ -6,13 +6,16 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 08/21/2023
+ms.date: 11/02/2023
 ms.author: cherylmc
 
 ---
 # VPN Gateway classic to Resource Manager migration
 
-VPN gateways can now be migrated from the classic deployment model to [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md). For more information, see [Resource Manager deployment model](../azure-resource-manager/management/overview.md). In this article, we discuss how to migrate from classic deployments to the Resource Manager model. 
+VPN gateways can now be migrated from the classic deployment model to [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md). For more information, see [Resource Manager deployment model](../azure-resource-manager/management/overview.md). In this article, we discuss how to migrate from classic deployments to the Resource Manager model.
+
+> [!IMPORTANT]
+> [!INCLUDE [classic gateway restrictions](../../includes/vpn-gateway-classic-gateway-restrict-create.md)]
 
 VPN gateways are migrated as part of VNet migration from classic to Resource Manager. This migration is done one VNet at a time. There aren't additional requirements in terms of tools or prerequisites to migrate. Migration steps are identical to the existing VNet migration and are documented at [IaaS resources migration page](../virtual-machines/migration-classic-resource-manager-ps.md). 
 

@@ -166,7 +166,7 @@ for loc in range(len(searchPolyResponse["results"])):
 
 ## Upload the reachable range and charging points
 
-It's helpful to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle on a map. Follow the steps outlined in the [How to create data registry] article to upload the boundary data and charging stations data as geojson objects to your [Azure storage account] then register them in your Azure Maps account. Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is is how you reference the geojson objects you uploaded into your Azure storage account from your source code.
+It's helpful to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle on a map. Follow the steps outlined in the [How to create data registry] article to upload the boundary data and charging stations data as geojson objects to your [Azure storage account] then register them in your Azure Maps account. Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is how you reference the geojson objects you uploaded into your Azure storage account from your source code.
 
 <!---------------------------------------------------------------------------
 To upload the boundary and charging point data to Azure Maps Data service, run the following two cells:
@@ -330,7 +330,7 @@ routeData = {
 
 ## Visualize the route
 
-To help visualize the route, follow the steps outlined in the [How to create data registry] article to upload the route data as a geojson object to your [Azure storage account] then register it in your Azure Maps account. Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is is how you reference the geojson objects you uploaded into your Azure storage account from your source code. Then, call the rendering service, [Get Map Image API], to render the route on the map, and visualize it.
+To help visualize the route, follow the steps outlined in the [How to create data registry] article to upload the route data as a geojson object to your [Azure storage account] then register it in your Azure Maps account. Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is how you reference the geojson objects you uploaded into your Azure storage account from your source code. Then, call the rendering service, [Get Map Image API], to render the route on the map, and visualize it.
 
 To get an image for the rendered route on the map, run the following script:
 
@@ -408,8 +408,8 @@ To learn more about Azure Notebooks, see
 [Azure Maps REST APIs]: /rest/api/maps
 [Azure Notebooks]: https://notebooks.azure.com
 [Azure storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
-[Get Map Image API]: /rest/api/maps/render-v2/get-map-static-image
-[Get Map Image service]: /rest/api/maps/render-v2/get-map-static-image
+[Get Map Image API]: /rest/api/maps/render/get-map-static-image
+[Get Map Image service]: /rest/api/maps/render/get-map-static-image
 [Get Route Directions API]: /rest/api/maps/route/getroutedirections
 [Get Route Directions]: /rest/api/maps/route/getroutedirections
 [Get Route Range API]: /rest/api/maps/route/getrouterange
@@ -419,10 +419,10 @@ To learn more about Azure Notebooks, see
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Matrix Routing API]: /rest/api/maps/route/postroutematrix
 [Post Route Matrix]: /rest/api/maps/route/postroutematrix
-[Post Search Inside Geometry API]: /rest/api/maps/search/postsearchinsidegeometry
-[Post Search Inside Geometry]: /rest/api/maps/search/postsearchinsidegeometry
+[Post Search Inside Geometry API]: /rest/api/maps/search/postsearchinsidegeometry?view=rest-maps-1.0
+[Post Search Inside Geometry]: /rest/api/maps/search/postsearchinsidegeometry?view=rest-maps-1.0
 [Quickstart: Sign in and set a user ID]: https://notebooks.azure.com
-[Render - Get Map Image]: /rest/api/maps/render-v2/get-map-static-image
+[Render - Get Map Image]: /rest/api/maps/render/get-map-static-image
 [*requirements.txt*]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt
 [routing APIs]: /rest/api/maps/route
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

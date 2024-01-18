@@ -257,7 +257,7 @@ const entities = tableClient.listEntities({
 });
 
 let topEntities = [];
-const iterator = listResults.byPage({ maxPageSize: topN });
+const iterator = entities.byPage({ maxPageSize: topN });
 
 for await (const page of iterator) {
   topEntities = page;

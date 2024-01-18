@@ -90,14 +90,14 @@ When Azure Arc-enabled servers is configured on the VM, you see two representati
    If your Azure VM is running CentOS, Red Hat, or SUSE Linux Enterprise Server (SLES), perform the following steps to configure firewalld:
 
    ```bash
-   firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 1 -p tcp -d 169.254.169.254 -j DROP
-   firewall-cmd --reload
+   sudo firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 1 -p tcp -d 169.254.169.254 -j DROP
+   sudo firewall-cmd --reload
    ```
 
    For other distributions, consult your firewall docs or configure a generic iptables rule with the following command:
 
    ```bash
-   iptables -A OUTPUT -d 169.254.169.254 -j DROP
+   sudo iptables -A OUTPUT -d 169.254.169.254 -j DROP
    ```
 
    > [!NOTE]

@@ -2,7 +2,7 @@
 title: Phone number Prebuilt entities - LUIS
 titleSuffix: Azure AI services
 description: This article contains phone number prebuilt entity information in Language Understanding (LUIS).
-services: cognitive-services
+#services: cognitive-services
 ms.author: aahi
 author: aahill
 manager: nitinme

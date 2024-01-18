@@ -86,4 +86,4 @@ Refer to the MySQL documentation for [Date and Time Functions](https://dev.mysql
 
 ## Next steps
 
-- [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md).
+- [Connection libraries for Azure Database for MySQL](../flexible-server/concepts-connection-libraries.md).

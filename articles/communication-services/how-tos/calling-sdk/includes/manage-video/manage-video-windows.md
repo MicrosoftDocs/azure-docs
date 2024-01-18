@@ -141,7 +141,7 @@ private async void CallButton_Click(object sender, RoutedEventArgs e)
 
     if (!string.IsNullOrEmpty(callString))
     {
-        if (callString.StartsWith("8:")) // 1:1 ACS call
+        if (callString.StartsWith("8:")) // 1:1 Azure Communication Services call
         {
             this.call = await StartAcsCallAsync(callString);
         }

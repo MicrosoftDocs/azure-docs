@@ -3,7 +3,7 @@ title: Azure IoT Central quotas and limits
 description: This article lists the key quotas and limits that apply to an IoT Central application including from the underlying DPS and IoT Hub services.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/12/2023
+ms.date: 10/26/2023
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -14,21 +14,18 @@ services: iot-central
 
 There are various quotas and limits that apply to IoT Central applications. IoT Central applications internally use multiple Azure services such as IoT Hub and the Device Provisioning Service (DPS), and these services also have quotas and limits. Where relevant, quotas and limits in the underlying services are called out in this article.
 
-> [!NOTE]
-> The quotas and limits described in this article apply to the new multiple IoT hub architecture. Currently, there are a few legacy IoT Central applications that were created before April 2021 that haven't yet been migrated to the multiple IoT hub architecture. Use the `az iot central device manual-failover` command in the [Azure CLI](/cli/azure/?view=azure-cli-latest&preserve-view=true) to check if your application still uses a single IoT hub. This triggers an IoT hub failover if your application uses the multiple IoT hub architecture. It returns an error if your application uses the older architecture.
-
 ## Devices
 
-| Item | Quota or limit | Notes |
-| ---- | -------------- | ----- |
-| Number of devices in an application | 1,000,000 | Contact support to discuss increasing this quota for your application. |
-| Number of IoT Central simulated devices in an application | 100 | Contact support to discuss increasing this quota for your application. |
+| Item | Quota or limit |
+| ---- | -------------- |
+| Number of devices in an application | 200,000 |
+| Number of IoT Central simulated devices in an application | 100 |
 
 ## Telemetry
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
-| Number of telemetry messages per second per device| 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
+| Number of messages per second per application | 200 | Individual devices can temporarily send up to 10 messages per second. |
 | Maximum size of a device-to-cloud message | 256 KB | The IoT Hub service sets this value. |
 | Maximum size of a cloud-to-device message | 64 KB | The IoT Hub service sets this value. |
 
@@ -47,10 +44,10 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 
 ## REST API calls
 
-| Item | Quota or limit | Notes |
-| ---- | -------------- | ----- |
-| Query API requests per second | 1 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
-| Other API requests per second | 20 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
+| Item | Quota or limit |
+| ---- | -------------- |
+| Query API requests per second | 1 |
+| Other API requests per second | 20 |
 
 ## Storage
 
@@ -67,6 +64,8 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 | Number of data export destinations per job | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
 | Number of filters and enrichments per data export job | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
 
+For large volumes of export data, you may experience up to 60 seconds of latency. Typically, the latency is much lower than this.
+
 ## Device modeling
 
 | Item | Quota or limit | Notes |
@@ -78,20 +77,20 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
-| Number of device groups in an application | 1,000 | For performance reasons, you shouldn't exceed this limit. |
+| Number of device groups in an application | 500 | For performance reasons, you shouldn't exceed this limit. |
 | Number of filters in a device group | 100 | For performance reasons, you shouldn't exceed this limit. |
 
 ## Device provisioning
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
-| Number of devices registrations per minute | 200 | The underlying DPS instance sets this quota. Contact support to discuss increasing this quota for your application. |
+| Number of devices registrations per minute | 200 | The underlying DPS instance sets this quota. |
 
 ## Rules
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
-| Number of rules in an application | 50 | Contact support to discuss increasing this quota for your application. |
+| Number of rules in an application | 50 | This quota is fixed and can't be changed. |
 | Number of actions in a rule | 5 | This quota is fixed and can't be changed. |
 | Number of alerts for an email action | One alert every minute per rule | This quota is fixed and can't be changed. |
 | Number of alerts for a webhook action | One alert every 10 seconds per action | This quota is fixed and can't be changed. |

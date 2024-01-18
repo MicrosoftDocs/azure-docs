@@ -60,7 +60,7 @@ In this tutorial, you learn how to:
 1. Install the required Python packages:
 
    ```python
-   pip install openai num2words matplotlib plotly scipy scikit-learn pandas tiktoken redis langchain
+   pip install "openai==1.6.1" num2words matplotlib plotly scipy scikit-learn pandas tiktoken redis langchain
    ```
 
 ## Download the dataset
@@ -94,10 +94,9 @@ To successfully make a call against Azure OpenAI, you need an **endpoint** and a
    from num2words import num2words
    import os
    import pandas as pd
-   from openai.embeddings_utils import get_embedding
    import tiktoken
    from typing import List
-   from langchain.embeddings import OpenAIEmbeddings
+   from langchain.embeddings import AzureOpenAIEmbeddings
    from langchain.vectorstores.redis import Redis as RedisVectorStore
    from langchain.document_loaders import DataFrameLoader
 
@@ -226,13 +225,14 @@ Now that the data has been filtered and loaded into LangChain, you'll create emb
    ```python
    # Code cell 8
 
-   embedding = OpenAIEmbeddings(
+   embedding = AzureOpenAIEmbeddings(
        deployment=DEPLOYMENT_NAME,
        model=MODEL_NAME,
-       openai_api_base=RESOURCE_ENDPOINT,
+       azure_endpoint=RESOURCE_ENDPOINT,
        openai_api_type="azure",
        openai_api_key=API_KEY,
        openai_api_version="2023-05-15",
+       show_progress_bar=True,
        chunk_size=16 # current limit with Azure OpenAI service. This will likely increase in the future.
        )
 
@@ -255,8 +255,11 @@ Now that the data has been filtered and loaded into LangChain, you'll create emb
    vectorstore.write_schema("redis_schema.yaml")
    ```
 
-1. Execute code cell 8.  This can take up to 10 minutes to complete. A `redis_schema.yaml` file is generated as well. This file is useful if you want to connect to your index in Azure Cache for Redis instance without re-generating embeddings.
+1. Execute code cell 8.  This can take over 30 minutes to complete. A `redis_schema.yaml` file is generated as well. This file is useful if you want to connect to your index in Azure Cache for Redis instance without re-generating embeddings.
 
+> [!Important]
+> The speed at which embeddings are generated depends on the [quota available](../ai-services/openai/quotas-limits.md) to the Azure OpenAI Model. With a quota of 240k tokens per minute, it will take around 30 minutes to process the 7M tokens in the data set.
+> 
 ## Run vector search queries
 
 Now that your dataset, Azure OpenAI service API, and Redis instance are set up, you can search using vectors. In this example, the top 10 results for a given query are returned.

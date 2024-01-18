@@ -20,7 +20,7 @@ Azure creates a default route table for your virtual networks on create. By impl
 
 You can also use a NAT gateway or any other third party appliances instead of Azure Firewall.
 
-For more information on networking concepts in Container Apps, see [Networking Environment in Azure Container Apps](./networking.md).
+See the [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall) in [networking in Azure Container Apps](./networking.md) for more information.
 
 ## Prerequisites
 
@@ -66,7 +66,7 @@ A subnet called **AzureFirewallSubnet** is required in order to deploy a firewal
     | **Virtual network** | Select the integrated virtual network. |
     | **Public IP address** | Select an existing address or create one by selecting **Add new**. |
 
-1. Select **Review + create**. After validation finishes, select **Create**. The validation step may take a few minutes to complete.
+1. Select **Review + create**. After validation finishes, select **Create**. The validation step might take a few minutes to complete.
 
 1. Once the deployment completes, select **Go to Resource**.
 

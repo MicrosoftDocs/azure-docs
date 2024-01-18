@@ -2,7 +2,7 @@
 title: What's new in Custom Vision?
 titleSuffix: Azure AI services
 description: This article contains news about Custom Vision.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-custom-vision

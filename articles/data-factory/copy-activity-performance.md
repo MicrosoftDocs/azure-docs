@@ -12,7 +12,7 @@ ms.subservice: data-movement
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: synapse, contperf-fy22q2
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ---
 # Copy activity performance and scalability guide
 
@@ -167,7 +167,7 @@ You can set the `parallelCopies` property to indicate the parallelism you want t
 
 A data copy operation can send the data _directly_ to the sink data store. Alternatively, you can choose to use Blob storage as an _interim staging_ store. [Learn more](copy-activity-performance-features.md#staged-copy).
 
-## Next steps
+## Related content
 
 See the other copy activity articles:
 

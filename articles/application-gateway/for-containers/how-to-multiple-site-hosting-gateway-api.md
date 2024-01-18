@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 09/20/2023
+ms.date: 11/07/2023
 ms.author: greglin
 ---
 
@@ -28,8 +28,8 @@ Application Gateway for Containers enables multi-site hosting by allowing you to
 > Application Gateway for Containers is currently in PREVIEW.<br>
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-1. If you follow the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If you follow the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If you follow the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
+2. If you follow the ALB managed deployment strategy, ensure provisioning of your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and the Application Gateway for Containers resources via the [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing.  
   ```bash
@@ -38,8 +38,8 @@ Application Gateway for Containers enables multi-site hosting by allowing you to
   
   This command creates the following on your cluster:
   - a namespace called `test-infra`
-  - 2 services called `backend-v1` and `backend-v2` in the `test-infra` namespace
-  - 2 deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
+  - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
+  - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 
@@ -109,7 +109,7 @@ EOF
 
 ---
 
-Once the gateway resource has been created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+Once the gateway resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
@@ -160,7 +160,7 @@ status:
       kind: HTTPRoute
 ```
 
-Once the gateway has been created, create two HTTPRoute resources for `contoso.com` and `fabrikam.com` domain names.  Each domain forwards traffic to a different backend service.
+Once the gateway is created, create two HTTPRoute resources for `contoso.com` and `fabrikam.com` domain names.  Each domain forwards traffic to a different backend service.
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: gateway.networking.k8s.io/v1beta1
@@ -195,13 +195,13 @@ spec:
 EOF
 ```
 
-Once the HTTPRoute resource has been created, ensure both HTTPRoute resources show _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
+Once the HTTPRoute resource is created, ensure both HTTPRoute resources show _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
 ```bash
 kubectl get httproute contoso-route -n test-infra -o yaml
 kubectl get httproute fabrikam-route -n test-infra -o yaml
 ```
 
-Verify the status of the Application Gateway for Containers resource has been successfully updated for each HTTPRoute.
+Verify the status of the Application Gateway for Containers resource is successfully updated for each HTTPRoute.
 
 ```yaml
 status:
@@ -241,7 +241,7 @@ Now we're ready to send some traffic to our sample application, via the FQDN ass
 fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
 ```
 
-Specifying server name indicator using the curl command, `contoso.com` for the frontend FQDN should return a response from the backend-v1 service.
+If you specify the server name indicator using the curl command, `contoso.com` for the frontend FQDN, it returns a response from the backend-v1 service.
 
 ```bash
 fqdnIp=$(dig +short $fqdn)
@@ -279,7 +279,7 @@ Via the response we should see:
 }
 ```
 
-Specifying server name indicator using the curl command, `contoso.com` for the frontend FQDN should return a response from the backend-v1 service.
+If you specify the server name indicator using the curl command, `fabrikam.com` for the frontend FQDN, it returns a response from the backend-v1 service.
 
 ```bash
 fqdnIp=$(dig +short $fqdn)

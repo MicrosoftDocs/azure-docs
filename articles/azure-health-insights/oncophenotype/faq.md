@@ -1,7 +1,7 @@
 ---
-title: Onco Phenotype frequently asked questions
-titleSuffix: Project Health Insights
-description: Onco Phenotype frequently asked questions
+title: Onco-Phenotype frequently asked questions
+titleSuffix: Azure AI Health Insights
+description: Onco-Phenotype frequently asked questions
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -12,7 +12,7 @@ ms.author: behoorne
 ---
 
 
-# Onco Phenotype Frequently Asked Questions
+# Onco-Phenotype Frequently Asked Questions
 
 - What does inference value `None` mean?
 
@@ -20,7 +20,7 @@ ms.author: behoorne
 
 - How is the `description` property populated for tumor site inference?
 
-  It's populated based on ICD-O-3 SEER Site/Histology Validation List [here](https://seer.cancer.gov/icd-o-3/).
+  It is populated on ICD-O-3 SEER Site/Histology Validation List [here](https://seer.cancer.gov/icd-o-3/).
 
 - Do you support behavior code along with histology code?
 
@@ -28,11 +28,11 @@ ms.author: behoorne
 
 - What does inference value `N+` mean for clinical/pathologic N category? Why don't you have `N1, N2, N3` inference values?
 
-  `N+` means there's involvement of regional lymph nodes without explicitly mentioning the extent of spread. Microsoft has trained the models to classify whether or not there's regional lymph node involvement but not the extent of spread and hence `N1, N2, N3` inference values aren't supported.
+  `N+` means there's involvement of regional lymph nodes without explicitly mentioning the extent of spread. Microsoft trained the models to classify whether or not there's regional lymph node involvement but not the extent of spread and hence `N1, N2, N3` inference values aren't supported.
 
 - Do you support subcategories for clinical/pathologic TNM categories?
 
-  No, subcategories or isolated tumor cell modifiers aren't supported. For instance, T3a would be predicted as T3, and N0(i+) would be predicted as N0.
+  No, subcategories or isolated tumor cell modifiers aren't supported. For instance, 'T3 a' would be predicted as T3, and N0(i+) would be predicted as N0.
 
 - Do you have plans to support I-IV stage grouping?
 

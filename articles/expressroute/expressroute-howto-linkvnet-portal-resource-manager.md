@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Link a virtual network to an ExpressRoute circuit - Azure portal'
-description: This tutorial shows you how to create a connection to link a virtual network to an Azure ExpressRoute circuit using the Azure portal. 
+title: 'Link a virtual network to an ExpressRoute circuit - Azure portal'
+description: This article shows you how to create a connection to link a virtual network to an Azure ExpressRoute circuit using the Azure portal. 
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/31/2023
 ms.author: duau
 ms.custom: seodec18, template-tutorial
 ---
 
-# Tutorial: Connect a virtual network to an ExpressRoute circuit using the Azure portal
+# Connect a virtual network to an ExpressRoute circuit using the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
@@ -19,16 +19,9 @@ ms.custom: seodec18, template-tutorial
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
 
-This tutorial helps you create a connection to link a virtual network (virtual network) to an Azure ExpressRoute circuit using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription or part of another subscription.
+This article helps you create a connection to link a virtual network (virtual network) to an Azure ExpressRoute circuit using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription or part of another subscription.
 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit.":::
-
-In this tutorial, you learn how to:
-> [!div class="checklist"]
-> - Connect a virtual network to a circuit in the same subscription.
-> - Connect a virtual network to a circuit in a different subscription.
-> - Configure ExpressRoute FastPath.
-> - Delete the link between the virtual network and ExpressRoute circuit.
 
 ## Prerequisites
 

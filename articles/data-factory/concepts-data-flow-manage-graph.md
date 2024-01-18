@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/18/2023
+ms.date: 10/20/2023
 ---
 
 # Managing the mapping data flow graph
@@ -56,6 +56,6 @@ If your data flow has any join, lookup, exists, or union transformations, data f
 
 :::image type="content" source="media/data-flow/hide-reference-nodes.png" alt-text="Hide reference nodes":::
 
-## Next steps
+## Related content
 
 After completing your data flow logic, turn on [debug mode](concepts-data-flow-debug-mode.md) and test it out in a data preview.

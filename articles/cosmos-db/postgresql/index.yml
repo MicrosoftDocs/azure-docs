@@ -29,6 +29,8 @@ landingContent:
             url: concepts-cluster.md
           - text: Distribute and modify tables
             url: howto-modify-distributed-tables.md
+          - text: Sharding models
+            url: concepts-sharding-models.md
   - title: Get started
     linkLists:
       - linkListType: quickstart
@@ -47,6 +49,8 @@ landingContent:
         links:
           - text: Design a multi-tenant database
             url: tutorial-design-database-multi-tenant.md
+          - text: Design for microservices
+            url: tutorial-design-database-microservices.md
       - linkListType: how-to-guide
         links:
           - text: Connect to a cluster

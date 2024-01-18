@@ -2,8 +2,11 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: conceptual
-ms.custom: devx-track-extended-java, devx-track-python
-ms.date: 12/15/2022
+ms.custom:
+  - devx-track-extended-java
+  - devx-track-python
+  - ignite-2023
+ms.date: 12/28/2023
 ---
 
 # App settings reference for Azure Functions
@@ -28,7 +31,7 @@ When using app settings, you should be aware of the following considerations:
     }
     ````
     
-    In this article, only double-underscores are used, since they're supported on both operating systems.
+    In this article, only double-underscores are used, since they're supported on both operating systems. Most of the settings that support managed identity connections use double-underscores.
 
 + When Functions runs locally, app settings are specified in the `Values` collection in the [local.settings.json](functions-develop-local.md#local-settings-file).
 
@@ -36,7 +39,7 @@ When using app settings, you should be aware of the following considerations:
 
 + You can use application settings to override host.json setting values without having to change the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. This also lets you change host.json settings without having to republish your project. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values). 
 
-+ This article documents the settings that are most relevant to your function apps. Because Azure Functions runs on App Service, other application settings may also be supported. For more information, see [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md).
++ This article documents the settings that are most relevant to your function apps. Because Azure Functions runs on App Service, other application settings are also supported. For more information, see [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md).
 
 + Some scenarios also require you to work with settings documented in [App Service site settings](#app-service-site-settings). 
 
@@ -61,7 +64,7 @@ Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECT
 The connection string for Application Insights. Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING`. While the use of `APPLICATIONINSIGHTS_CONNECTION_STRING` is recommended in all cases, it's required in the following cases:
 
 + When your function app requires the added customizations supported by using the connection string.  
-+ When your Application Insights instance runs in a sovereign cloud, which requires a custom endpoint.  
++ When your Application Insights instance runs in a sovereign cloud, which requires a custom endpoint.
 
 For more information, see [Connection strings](../azure-monitor/app/sdk-connection-string.md).
 
@@ -71,7 +74,10 @@ For more information, see [Connection strings](../azure-monitor/app/sdk-connecti
 
 ## AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
-By default, [Functions proxies](functions-proxies.md) use a shortcut to send API calls from proxies directly to functions in the same function app. This shortcut is used instead of creating a new HTTP request. This setting allows you to disable that shortcut behavior.
+> [!IMPORTANT]
+> Azure Functions proxies is a legacy feature for [versions 1.x through 3.x](functions-versions.md) of the Azure Functions runtime. For more information about legacy support in version 4.x, see [Functions proxies](functions-proxies.md).
+
+By default, Functions proxies use a shortcut to send API calls from proxies directly to functions in the same function app. This shortcut is used instead of creating a new HTTP request. This setting allows you to disable that shortcut behavior.
 
 |Key|Value|Description|
 |-|-|-|
@@ -79,6 +85,9 @@ By default, [Functions proxies](functions-proxies.md) use a shortcut to send API
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|`false`|Calls with a backend URL pointing to a function in the local function app are forwarded directly to the function. `false` is the default value. |
 
 ## AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+
+> [!IMPORTANT]
+> Azure Functions proxies is a legacy feature for [versions 1.x through 3.x](functions-versions.md) of the Azure Functions runtime. For more information about legacy support in version 4.x, see [Functions proxies](functions-proxies.md).
 
 This setting controls whether the characters `%2F` are decoded as slashes in route parameters when they're inserted into the backend URL.
 
@@ -107,7 +116,17 @@ When `AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES` is set to `true`, the URL
 
 ## AZURE_FUNCTIONS_ENVIRONMENT
 
-In version 2.x and later versions of the Functions runtime, configures app behavior based on the runtime environment. This value is read during initialization, and can be set to any value. Only the values of `Development`, `Staging`, and `Production` are honored by the runtime. When this application setting isn't present when running in Azure, the environment is assumed to be `Production`. Use this setting instead of `ASPNETCORE_ENVIRONMENT` if you need to change the runtime environment in Azure to something other than `Production`. The Azure Functions Core Tools set `AZURE_FUNCTIONS_ENVIRONMENT` to `Development` when running on a local computer, and this setting can't be overridden in the local.settings.json file. To learn more, see [Environment-based Startup class and methods](/aspnet/core/fundamentals/environments#environment-based-startup-class-and-methods).
+Configures the runtime [hosting environment](/dotnet/api/microsoft.extensions.hosting.environments) of the function app when running in Azure. This value is read during initialization, and only these values are honored by the runtime:
+
+| Value | Description |
+| --- | --- | 
+| `Production` | Represents a production environment, with reduced logging and full performance optimizations. This is the default when `AZURE_FUNCTIONS_ENVIRONMENT` either isn't set or is set to an unsupported value.  | 
+| `Staging` | Represents a staging environment, such as when running in a [staging slot](functions-deployment-slots.md). |
+| `Development` | A development environment supports more verbose logging and other reduced performance optimizations. The Azure Functions Core Tools sets `AZURE_FUNCTIONS_ENVIRONMENT` to `Development` when running on your local computer. This setting can't be overridden in the local.settings.json file.  | 
+
+Use this setting instead of `ASPNETCORE_ENVIRONMENT` when you need to change the runtime environment in Azure to something other than `Production`. For more information, see [Environment-based Startup class and methods](/aspnet/core/fundamentals/environments#environments).
+
+This setting isn't available in version 1.x of the Functions runtime.
 
 ## AzureFunctionsJobHost__\*
 
@@ -134,14 +153,13 @@ For more information, see [Host ID considerations](storage-considerations.md#hos
 
 ## AzureWebJobsDashboard
 
-Optional storage account connection string for storing logs and displaying them in the **Monitor** tab in the portal. This setting is only valid for apps that target version 1.x of the Azure Functions runtime. The storage account must be a general-purpose one that supports blobs, queues, and tables. To learn more, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
+_This setting is deprecated and is only supported when running on version 1.x of the Azure Functions runtime._ 
+
+Optional storage account connection string for storing logs and displaying them in the **Monitor** tab in the portal. The storage account must be a general-purpose one that supports blobs, queues, and tables. To learn more, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
 
 |Key|Sample value|
 |---|------------|
 |AzureWebJobsDashboard|`DefaultEndpointsProtocol=https;AccountName=...`|
-
-> [!NOTE]
-> For better performance and experience, runtime version 2.x and later versions use APPINSIGHTS_INSTRUMENTATIONKEY and App Insights for monitoring instead of `AzureWebJobsDashboard`.
 
 ## AzureWebJobsDisableHomepage
 
@@ -260,11 +278,53 @@ To learn more, see [Secret repositories](security-concepts.md#secret-repositorie
 
 ## AzureWebJobsStorage
 
-The Azure Functions runtime uses this storage account connection string for normal operation. Some uses of this storage account include key management, timer trigger management, and Event Hubs checkpoints. The storage account must be a general-purpose one that supports blobs, queues, and tables. See [Storage account](functions-infrastructure-as-code.md#storage-account) and [Storage account requirements](storage-considerations.md#storage-account-requirements).
+Specifies the connection string for an Azure Storage account that the Functions runtime uses for normal operations. Some uses of this storage account by Functions include key management, timer trigger management, and Event Hubs checkpoints. The storage account must be a general-purpose one that supports blobs, queues, and tables. For more information, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
 
 |Key|Sample value|
 |---|------------|
 |AzureWebJobsStorage|`DefaultEndpointsProtocol=https;AccountName=...`|
+
+Instead of a connection string, you can use an identity based connection for this storage account. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
+
+## AzureWebJobsStorage__accountName
+
+When using an identity-based storage connection, sets the account name of the storage account instead of using the connection string in `AzureWebJobsStorage`. This syntax is unique to `AzureWebJobsStorage` and can't be used for other identity-based connections. 
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsStorage__accountName|`<STORAGE_ACCOUNT_NAME>`|
+
+For sovereign clouds or when using a custom DNS, you must instead use the service-specific `AzureWebJobsStorage__*ServiceUri` settings.
+
+## AzureWebJobsStorage__blobServiceUri
+
+When using an identity-based storage connection, sets the data plane URI of the blob service of the storage account. 
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsStorage__blobServiceUri|`https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`|
+
+Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
+
+## AzureWebJobsStorage__queueServiceUri
+
+When using an identity-based storage connection, sets the data plane URI of the queue service of the storage account.
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsStorage__queueServiceUri|`https://<STORAGE_ACCOUNT_NAME>.queue.core.windows.net`|
+
+Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
+
+## AzureWebJobsStorage__tableServiceUri
+
+When using an identity-based storage connection, sets data plane URI of a table service of the storage account.
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsStorage__tableServiceUri|`https://<STORAGE_ACCOUNT_NAME>.table.core.windows.net`|
+
+Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
 
 ## AzureWebJobs_TypeScriptPath
 
@@ -273,6 +333,18 @@ Path to the compiler used for TypeScript. Allows you to override the default if 
 |Key|Sample value|
 |---|------------|
 |AzureWebJobs_TypeScriptPath|`%HOME%\typescript`|
+
+## DOCKER_REGISTRY_SERVER_PASSWORD
+
+Indicates the password used to access a private container registry. This setting is only required when deploying your containerized function app from a private container registry. For more information, see [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md#custom-containers).
+
+## DOCKER_REGISTRY_SERVER_URL
+
+Indicates the URL of a private container registry. This setting is only required when deploying your containerized function app from a private container registry. For more information, see [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md#custom-containers).
+
+## DOCKER_REGISTRY_SERVER_USERNAME
+
+Indicates the account used to access a private container registry. This setting is only required when deploying your containerized function app from a private container registry. For more information, see [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md#custom-containers).
 
 ## DOCKER_SHM_SIZE
 
@@ -296,15 +368,17 @@ Indicates whether the [Oryx build system](https://github.com/microsoft/Oryx) is 
 
 ## FUNCTION\_APP\_EDIT\_MODE
 
-Dictates whether editing in the Azure portal is enabled. Valid values are `readwrite` and `readonly`.
+Indicates whether you're able to edit your function app in the Azure portal. Valid values are `readwrite` and `readonly`.
 
 |Key|Sample value|
 |---|------------|
 |FUNCTION\_APP\_EDIT\_MODE|`readonly`|
 
+The value is set by the runtime based on the language stack and deployment status of your function app. For more information, see [Development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal).  
+
 ## FUNCTIONS\_EXTENSION\_VERSION
 
-The version of the Functions runtime that hosts your function app. A tilde (`~`) with major version means use the latest version of that major version (for example, `~3`). When new versions for the same major version are available, they're automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, `3.0.12345`). Default is `~3`. A value of `~1` pins your app to version 1.x of the runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md). A value of `~4` means that your app runs on version 4.x of the runtime, which supports .NET 6.0.
+The version of the Functions runtime that hosts your function app. A tilde (`~`) with major version means use the latest version of that major version (for example, `~3`). When new versions for the same major version are available, they're automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, `3.0.12345`). Default is `~3`. A value of `~1` pins your app to version 1.x of the runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md). A value of `~4` means that your app runs on version 4.x of the runtime.
 
 |Key|Sample value|
 |---|------------|
@@ -315,9 +389,9 @@ The following major runtime version values are supported:
 | Value | Runtime target | Comment |
 | ------ | -------- | --- |
 | `~4` | 4.x | Recommended |
-| `~3` | 3.x | Support ends December 13, 2022 |
+| `~3` | 3.x | No longer supported |
 | `~2` | 2.x | No longer supported |
-| `~1` | 1.x | Supported |
+| `~1` | 1.x | Support ends September 14, 2026 |
 
 ## FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR
 
@@ -336,16 +410,8 @@ For Node.js v18 or lower, the app setting can be used and the default behavior d
 
 ## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
-This setting enables your function app to run in a version 2.x compatible mode on the version 3.x runtime. Use this setting only if encountering issues after upgrading your function app from version 2.x to 3.x of the runtime.
-
 >[!IMPORTANT]
-> This setting is intended only as a short-term workaround while you update your app to run correctly on version 3.x. This setting is supported as long as the [2.x runtime is supported](functions-versions.md). If you encounter issues that prevent your app from running on version 3.x without using this setting, please [report your issue](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
-
-You must also set [FUNCTIONS\_EXTENSION\_VERSION](functions-app-settings.md#functions_extension_version) to `~3`.
-
-|Key|Sample value|
-|---|------------|
-|FUNCTIONS\_V2\_COMPATIBILITY\_MODE|`true`|
+> This setting is no longer supported. It was originally provided to enable a short-term workaround for apps that targeted the v2.x runtime to be able to instead run on the v3.x runtime while it was still supported. Except for legacy apps that run on version 1.x, all function apps must run on version 4.x of the Functions runtime: `FUNCTIONS_EXTENSION_VERSION=~4`. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
 
 ## FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT
 
@@ -357,7 +423,7 @@ Overrides the default limit on the body size of requests sent to HTTP endpoints.
 
 ## FUNCTIONS\_WORKER\_PROCESS\_COUNT
 
-Specifies the maximum number of language worker processes, with a default value of `1`. The maximum value allowed is `10`. Function invocations are evenly distributed among language worker processes. Language worker processes are spawned every 10 seconds until the count set by FUNCTIONS\_WORKER\_PROCESS\_COUNT is reached. Using multiple language worker processes isn't the same as [scaling](functions-scale.md). Consider using this setting when your workload has a mix of CPU-bound and I/O-bound invocations. This setting applies to all language runtimes, except for .NET running in process (`dotnet`).
+Specifies the maximum number of language worker processes, with a default value of `1`. The maximum value allowed is `10`. Function invocations are evenly distributed among language worker processes. Language worker processes are spawned every 10 seconds until the count set by `FUNCTIONS_WORKER_PROCESS_COUNT` is reached. Using multiple language worker processes isn't the same as [scaling](functions-scale.md). Consider using this setting when your workload has a mix of CPU-bound and I/O-bound invocations. This setting applies to all language runtimes, except for .NET running in process (`FUNCTIONS_WORKER_RUNTIME=dotnet`).
 
 |Key|Sample value|
 |---|------------|
@@ -365,7 +431,7 @@ Specifies the maximum number of language worker processes, with a default value 
 
 ## FUNCTIONS\_WORKER\_RUNTIME
 
-The language worker runtime to load in the function app.  This corresponds to the language being used in your application (for example, `dotnet`). Starting with version 2.x of the Azure Functions runtime, a given function app can only support a single language.
+The language or language stack of the worker runtime to load in the function app. This corresponds to the language being used in your application (for example, `python`). Starting with version 2.x of the Azure Functions runtime, a given function app can only support a single language.
 
 |Key|Sample value|
 |---|------------|
@@ -373,7 +439,7 @@ The language worker runtime to load in the function app.  This corresponds to th
 
 Valid values:
 
-| Value | Language |
+| Value | Language/language stack |
 |---|---|
 | `dotnet` | [C# (class library)](functions-dotnet-class-library.md)<br/>[C# (script)](functions-reference-csharp.md) |
 | `dotnet-isolated` | [C# (isolated worker process)](dotnet-isolated-process-guide.md) |
@@ -405,7 +471,7 @@ Used to customize the Java virtual machine (JVM) used to run your Java functions
 
 Controls the managed dependencies background update period for PowerShell function apps, with a default value of `7.00:00:00` (weekly).
 
-Each PowerShell worker process initiates checking for module upgrades on the PowerShell Gallery on process start and every `MDMaxBackgroundUpgradePeriod` after that. When a new module version is available in the PowerShell Gallery, it's installed to the file system and made available to PowerShell workers. Decreasing this value lets your function app get newer module versions sooner, but it also increases the app resource usage (network I/O, CPU, storage). Increasing this value decreases the app's resource usage, but it may also delay delivering new module versions to your app.
+Each PowerShell worker process initiates checking for module upgrades on the PowerShell Gallery on process start and every `MDMaxBackgroundUpgradePeriod` after that. When a new module version is available in the PowerShell Gallery, it's installed to the file system and made available to PowerShell workers. Decreasing this value lets your function app get newer module versions sooner, but it also increases the app resource usage (network I/O, CPU, storage). Increasing this value decreases the app's resource usage, but it can also delay delivering new module versions to your app.
 
 |Key|Sample value|
 |---|------------|
@@ -417,9 +483,9 @@ To learn more, see [Dependency management](functions-reference-powershell.md#dep
 
 Specifies how often each PowerShell worker checks whether managed dependency upgrades have been installed. The default frequency is `01:00:00` (hourly).
 
-After new module versions are installed to the file system, every PowerShell worker process must be restarted. Restarting PowerShell workers affects your app availability as it can interrupt current function execution. Until all PowerShell worker processes are restarted, function invocations may use either the old or the new module versions. Restarting all PowerShell workers completes within `MDNewSnapshotCheckPeriod`.
+After new module versions are installed to the file system, every PowerShell worker process must be restarted. Restarting PowerShell workers affects your app availability as it can interrupt current function execution. Until all PowerShell worker processes are restarted, function invocations can use either the old or the new module versions. Restarting all PowerShell workers completes within `MDNewSnapshotCheckPeriod`.
 
-Within every `MDNewSnapshotCheckPeriod`, the PowerShell worker checks whether or not managed dependency upgrades have been installed. When upgrades have been installed, a restart is initiated. Increasing this value decreases the frequency of interruptions because of restarts. However, the increase might also increase the time during which function invocations could use either the old or the new module versions, non-deterministically.
+Within every `MDNewSnapshotCheckPeriod`, the PowerShell worker checks whether or not managed dependency upgrades have been installed. When upgrades have been installed, a restart is initiated. Increasing this value decreases the frequency of interruptions because of restarts. However, the increase might also increase the time during which function invocations could use either the old or the new module versions, nondeterministically.
 
 |Key|Sample value|
 |---|------------|
@@ -460,13 +526,21 @@ The value for this setting indicates an extra index URL for custom packages for 
 
 To learn more, see [`pip` documentation for `--extra-index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-extra-index-url) and [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
 
+## PROJECT
+
+A [continuous deployment](./functions-continuous-deployment.md) setting that tells the Kudu deployment service the folder in a connected repository to location the deployable project. 
+
+|Key|Sample value|
+|---|------------|
+|PROJECT |`WebProject/WebProject.csproj` |
+
 ## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES
 
 The configuration is specific to Python function apps. It defines the prioritization of module loading order. By default, this value is set to `0`.
 
 |Key|Value|Description|
 |---|-----|-----------|
-|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`0`| Prioritize loading the Python libraries from internal Python worker's dependencies, which is the default behavior. Third-party libraries defined in requirements.txt may be shadowed. |
+|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`0`| Prioritize loading the Python libraries from internal Python worker's dependencies, which is the default behavior. Third-party libraries defined in requirements.txt might be shadowed. |
 |PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`1`| Prioritize loading the Python libraries from application's package defined in requirements.txt. This prevents your libraries from colliding with internal Python worker's libraries. |
 
 ## PYTHON_ENABLE_DEBUG_LOGGING
@@ -477,7 +551,7 @@ When debugging Python functions, make sure to also set a debug or trace [logging
 
 ## PYTHON\_ENABLE\_WORKER\_EXTENSIONS
 
-The configuration is specific to Python function apps. Setting this to `1` allows the worker to load in [Python worker extensions](functions-reference-python.md#python-worker-extensions) defined in requirements.txt. It enables your function app to access new features provided by third-party packages. It may also change the behavior of function load and invocation in your app. Ensure the extension you choose is trustworthy as you bear the risk of using it. Azure Functions gives no express warranties to any extensions. For how to use an extension, visit the extension's manual page or readme doc. By default, this value sets to `0`.
+The configuration is specific to Python function apps. Setting this to `1` allows the worker to load in [Python worker extensions](functions-reference-python.md#python-worker-extensions) defined in requirements.txt. It enables your function app to access new features provided by third-party packages. It can also change the behavior of function load and invocation in your app. Ensure the extension you choose is trustworthy as you bear the risk of using it. Azure Functions gives no express warranties to any extensions. For how to use an extension, visit the extension's manual page or readme doc. By default, this value sets to `0`.
 
 |Key|Value|Description|
 |---|-----|-----------|
@@ -526,15 +600,17 @@ The above sample value of `1800` sets a timeout of 30 minutes. For more informat
 
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
-Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans. For more information, see [Create a function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
+Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans. For more information, see [Storage account connection setting](storage-considerations.md#storage-account-connection-setting).
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|`DefaultEndpointsProtocol=https;AccountName=...`|
 
-This setting is required for Consumption plan apps on Windows and for Elastic Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
+This setting is required for Consumption and Elastic Premium plan apps running on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
 
-Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+Changing or removing this setting can cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+
+Azure Files doesn't support using managed identity when accessing the file share. For more information, see [Azure Files supported authentication scenarios](../storage/files/storage-files-active-directory-overview.md#supported-authentication-scenarios). 
 
 ## WEBSITE\_CONTENTOVERVNET
 
@@ -548,7 +624,7 @@ Supported on [Premium](functions-premium-plan.md) and [Dedicated (App Service) p
 
 ## WEBSITE\_CONTENTSHARE
 
-The file path to the function app code and configuration in an event-driven scaling plans. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string generated by the runtime that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
+The name of the file share that Functions uses to store function app code and configuration files. This content is required by event-driven scaling plans. Used with `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`. Default is a unique string generated by the runtime, which begins with the function app name. For more information, see [Storage account connection setting](storage-considerations.md#storage-account-connection-setting).
 
 |Key|Sample value|
 |---|------------|
@@ -556,16 +632,14 @@ The file path to the function app code and configuration in an event-driven scal
 
 This setting is required for Consumption and Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
 
-Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+The share is created when your function app is created. Changing or removing this setting can cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
-The following considerations apply when using an Azure Resource Manager (ARM) template to create a function app during deployment: 
+The following considerations apply when using an Azure Resource Manager (ARM) template or Bicep file to create a function app during deployment: 
 
-+ When you don't set a `WEBSITE_CONTENTSHARE` value for the main function app or any apps in slots, unique share values are generated for you. Not setting `WEBSITE_CONTENTSHARE` is the recommended approach for an ARM template deployment.
++ When you don't set a `WEBSITE_CONTENTSHARE` value for the main function app or any apps in slots, unique share values are generated for you. Not setting `WEBSITE_CONTENTSHARE` _is the recommended approach_ for an ARM template deployment.
 + There are scenarios where you must set the `WEBSITE_CONTENTSHARE` value to a predefined share, such as when you [use a secured storage account in a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network). In this case, you must set a unique share name for the main function app and the app for each deployment slot.  
 + Don't make `WEBSITE_CONTENTSHARE` a slot setting. 
 + When you specify `WEBSITE_CONTENTSHARE`, the value must follow [this guidance for share names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names). 
-
-To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
 
 ## WEBSITE\_DNS\_SERVER
 
@@ -638,7 +712,7 @@ Valid values are either a URL that resolves to the location of a deployment pack
 
 ## WEBSITE\_SKIP\_CONTENTSHARE\_VALIDATION
 
-The [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](#website_contentazurefileconnectionstring) and [WEBSITE_CONTENTSHARE](#website_contentshare) settings have extra validation checks to ensure that the app can be properly started. Creation of application settings will fail if the function app can't properly call out to the downstream Storage Account or Key Vault due to networking constraints or other limiting factors. When WEBSITE_SKIP_CONTENTSHARE_VALIDATION is set to `1`, the validation check is skipped; otherwise the value defaults to `0` and the validation will take place. 
+The [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](#website_contentazurefileconnectionstring) and [WEBSITE_CONTENTSHARE](#website_contentshare) settings have extra validation checks to ensure that the app can be properly started. Creation of application settings fail when the function app can't properly call out to the downstream Storage Account or Key Vault due to networking constraints or other limiting factors. When WEBSITE_SKIP_CONTENTSHARE_VALIDATION is set to `1`, the validation check is skipped; otherwise the value defaults to `0` and the validation takes place. 
 
 |Key|Sample value|
 |---|------------|
@@ -673,6 +747,15 @@ Indicates whether to use a specific [cold start](event-driven-scaling.md#cold-st
 |---|------------|
 |WEBSITE_USE_PLACEHOLDER|`1`|
 
+
+## WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED
+
+Indicates whether to use a specific [cold start](event-driven-scaling.md#cold-start) optimization when running .NET isolated worker process functions on the [Consumption plan](consumption-plan.md). Set to `0` to disable the cold-start optimization on the Consumption plan. 
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED|`1`|
+
 ## WEBSITE\_VNET\_ROUTE\_ALL
 
 > [!IMPORTANT]
@@ -684,15 +767,23 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 |---|------------|
 |WEBSITE\_VNET\_ROUTE\_ALL|`1`|
 
+## WEBSITES_ENABLE_APP_SERVICE_STORAGE
+
+Indicates whether the `/home` directory is shared across scaled instances, with a default value of `true`. You should set this to `false` when deploying your function app in a container. d 
+
 ## App Service site settings
 
 Some configurations must be maintained at the App Service level as site settings, such as language versions. These settings are managed in the portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
 
+### alwaysOn
+
+On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.md), the functions runtime goes idle after a few minutes of inactivity, a which point only requests to an HTTP triggers _wakes-up_ your functions. To make sure that your non-HTTP triggered functions run correctly, including Timer trigger, enable Always On for the function app by setting the `alwaysOn` site setting to a value of `true`. 
+
 ### linuxFxVersion 
 
-For function apps running on Linux, `linuxFxVersion` indicates the language and version for the language-specific worker process. This information is used, along with [`FUNCTIONS_EXTENSION_VERSION`](#functions_extension_version), to determine which specific Linux container image is installed to run your function app. This setting can be set to a pre-defined value or a custom image URI.
+For function apps running on Linux, `linuxFxVersion` indicates the language and version for the language-specific worker process. This information is used, along with [`FUNCTIONS_EXTENSION_VERSION`](#functions_extension_version), to determine which specific Linux container image is installed to run your function app. This setting can be set to a predefined value or a custom image URI.
 
-This value is set for you when you create your Linux function app. You may need to set it for ARM template and Bicep deployments and in certain upgrade scenarios. 
+This value is set for you when you create your Linux function app. You might need to set it for ARM template and Bicep deployments and in certain upgrade scenarios. 
 
 #### Valid linuxFxVersion values
 

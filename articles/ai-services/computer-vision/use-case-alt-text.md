@@ -2,7 +2,7 @@
 title: "Overview: Generate alt text of images with Image Analysis"
 titleSuffix: Azure AI services
 description: Grow your customer base by making your products and services more accessible. Generate a description of an image in human-readable language, using complete sentences. 
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
@@ -47,17 +47,17 @@ Microsoft’s own products such as PowerPoint, Word, and Edge browser use image 
 
 ### What languages are image captions available in? 
 
-Image captions are available in English, Chinese, Portuguese, Japanese, and Spanish in Image Analysis 3.2 API. In the Image Analysis 4.0 API (preview), image captions are only available in English.
+Image captions are available in English, Chinese, Portuguese, Japanese, and Spanish in Image Analysis 3.2 API. In the Image Analysis 4.0 API, image captions are only available in English.
 
 ### What confidence threshold should I use? 
 
 To ensure accurate alt text for all images, you can choose to only accept captions above a certain confidence level. The right confidence level varies for each user depending on the type of images and usage scenario.  
 
-In general, we advise a confidence threshold of `0.4` for the Image Analysis 3.2 API and of `0.0` for the Image Analysis 4.0 API (preview).
+In general, we advise a confidence threshold of `0.4` for the Image Analysis 3.2 API and of `0.0` for the Image Analysis 4.0 API.
 
 ### What can I do about embarrassing or erroneous captions?  
 
-On rare occasions, image captions can contain embarrassing errors, such as labeling a male-identifying person as a "woman" or labeling an adult woman as a "girl". We encourage users to consider using the latest Image Analysis 4.0 API (preview) which eliminates some errors by supporting gender-neutral captions.
+On rare occasions, image captions can contain embarrassing errors, such as labeling a male-identifying person as a "woman" or labeling an adult woman as a "girl". We encourage users to consider using the latest Image Analysis 4.0 API which eliminates some errors by supporting gender-neutral captions.
 
 Please report any embarrassing or offensive captions by going to the [Azure portal](https://portal.azure.com) and navigating to the **Feedback** button in the top right.
 

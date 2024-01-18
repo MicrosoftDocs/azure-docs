@@ -6,7 +6,7 @@ ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 12/19/2023
 ---
 
 # Prebuilt API

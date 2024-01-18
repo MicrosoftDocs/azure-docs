@@ -1,17 +1,18 @@
 ---
 title: Partner services
-description: Learn about services  offered by partners on Azure. 
+description: Learn about services  offered by partners on Azure.
 
 ms.topic: conceptual
-ms.date: 04/25/2023
-
+ms.custom:
+  - ignite-2023
+ms.date: 10/04/2023
 ---
 
 # Extend Azure with Azure Native ISV Services
 
-Partner organizations use Azure Native ISV Services to offer solutions that you can use in Azure to enhance your cloud infrastructure. These Azure Native ISV Services are fully integrated into Azure. You work with these solutions in much the same way you would work with solutions from Microsoft. You use a resource provider, resource types, and SDKs to manage the solution.
+Partner organizations use Azure Native ISV Services to offer solutions that you can use in Azure to enhance your cloud infrastructure. These Azure Native ISV Services is fully integrated into Azure. You work with these solutions in much the same way you would work with solutions from Microsoft. You use a resource provider, resource types, and SDKs to manage the solution.
 
-Azure Native ISV Services are available through the Marketplace.
+Azure Native ISV Services is available through the Marketplace.
 
 ## Observability
 
@@ -29,6 +30,7 @@ Azure Native ISV Services are available through the Marketplace.
 |---------|-------------|---------------|----|
 |[Apache Kafka for Confluent Cloud](apache-kafka-confluent-cloud/overview.md) | Fully managed event streaming platform powered by Apache Kafka. | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations) | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview) |
 |[Azure Native Qumulo Scalable File Service](qumulo/qumulo-overview.md) |  Multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.  | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems) | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp?tab=Overview) |
+| [Apache Airflow on Astro - An Azure Native ISV Service](astronomer/astronomer-overview.md) | Deploy a fully managed and seamless Apache Airflow on Astro on Azure. | [Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Astronomer_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Astronomer.Astro%2Forganizations) | [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/astronomer1591719760654.astronomer?tab=Overview) |
 
 ## Networking and security
 

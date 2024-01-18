@@ -2,14 +2,13 @@
 title: Use the Microsoft Audio Stack (MAS) - Speech service
 titleSuffix: Azure AI services
 description: An overview of the features, capabilities, and restrictions for audio processing using the Speech Software Development Kit (SDK).
-services: cognitive-services
 author: hasyashah
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 1/18/2024
 ms.author: hasshah
-ms.devlang: cpp, csharp, java
+ms.devlang: cpp
 ms.custom: devx-track-csharp, ignite-fall-2021
 ---
 
@@ -17,7 +16,10 @@ ms.custom: devx-track-csharp, ignite-fall-2021
 
 The Speech SDK integrates Microsoft Audio Stack (MAS), allowing any application or product to use its audio processing capabilities on input audio. See the [Audio processing](audio-processing-overview.md) documentation for an overview.
 
-In this article, you learn how to use the Microsoft Audio Stack (MAS) with the Speech SDK. 
+In this article, you learn how to use the Microsoft Audio Stack (MAS) with the Speech SDK.
+
+> [!IMPORTANT]
+> On Speech SDK for C++ and C# v1.33.0 and newer, the `Microsoft.CognitiveServices.Speech.Extension.MAS` package must be installed to use the Microsoft Audio Stack on Windows, and on Linux if you install the Speech SDK using NuGet.
 
 ## Default options
 
@@ -101,7 +103,7 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ## Custom microphone geometry
 
 This sample shows how to use MAS with a custom microphone geometry on a specified audio input device. In this example:
-* **Enhancement options** - The default enhancements will be applied on the input audio stream.
+* **Enhancement options** - The default enhancements are applied on the input audio stream.
 * **Custom geometry** - A custom microphone geometry for a 7-microphone array is provided via the microphone coordinates. The units for coordinates are millimeters.
 * **Audio input** - The audio input is from a file, where the audio within the file is expected from an audio input device corresponding to the custom geometry specified. 
 
@@ -169,7 +171,7 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 This sample shows how to use MAS with a custom set of enhancements on the input audio. By default, all enhancements are enabled but there are options to disable dereverberation, noise suppression, automatic gain control, and echo cancellation individually by using `AudioProcessingOptions`.
 
 In this example:
-* **Enhancement options** - Echo cancellation and noise suppression will be disabled, while all other enhancements remain enabled.
+* **Enhancement options** - Echo cancellation and noise suppression are disabled, while all other enhancements remain enabled.
 * **Audio input device** - The audio input device is the default microphone of the device.
 
 ### [C#](#tab/csharp)
@@ -209,10 +211,12 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ## Specify beamforming angles
 
 This sample shows how to use MAS with a custom microphone geometry and beamforming angles on a specified audio input device. In this example:
-* **Enhancement options** - The default enhancements will be applied on the input audio stream.
+* **Enhancement options** - The default enhancements are applied on the input audio stream.
 * **Custom geometry** - A custom microphone geometry for a 4-microphone array is provided by specifying the microphone coordinates. The units for coordinates are millimeters.
-* **Beamforming angles** - Beamforming angles are specified to optimize for audio originating in that range. The units for angles are degrees. In the sample code below, the start angle is set to 70 degrees and the end angle is set to 110 degrees.
+* **Beamforming angles** - Beamforming angles are specified to optimize for audio originating in that range. The units for angles are degrees. 
 * **Audio input** - The audio input is from a push stream, where the audio within the stream is expected from an audio input device corresponding to the custom geometry specified. 
+
+In the following code example, the start angle is set to 70 degrees and the end angle is set to 110 degrees.
 
 ### [C#](#tab/csharp)
 

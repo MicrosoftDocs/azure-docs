@@ -28,7 +28,7 @@ Azure Communications Services provides monitoring and analytics features via [Az
 The following are instructions for configuring your Azure Monitor resource to start creating logs and metrics for your Communications Services. For detailed documentation about using Diagnostic Settings across all Azure resources, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
 
 > [!NOTE]
-> Under diagnostic setting name please select  select “Email Service Delivery Status Update Logs”, "Email Service Send Mail logs", "Email Service User Engagement Logs" to enable the logs for emails
+> Under diagnostic setting name please select “Email Service Delivery Status Update Logs”, "Email Service Send Mail logs", "Email Service User Engagement Logs" to enable the logs for emails
 >
 >  :::image type="content" source="..\logs\email-diagnostic-log.png" alt-text="Screenshot of diagnostic settings for Email.":::
 
@@ -74,6 +74,7 @@ Communication Services offers the following types of logs that you can enable:
 | `BccRecipientsCount` | The total # of unique email addresses on the Bcc line. |
 | `UniqueRecipientsCount` | This is the deduplicated total recipient count for the To, Cc, and Bcc address fields. |
 | `AttachmentsCount` | The total # of attachments. |
+| `TrafficSource` | The name of the client where the email request originated from. |
 
 **Samples**
 
@@ -86,7 +87,8 @@ Communication Services offers the following types of logs that you can enable:
   "CcRecipientsCount":3, 
   "BccRecipientsCount":1, 
   "UniqueRecipientsCount":6, 
-  "AttachmentsCount":0
+  "AttachmentsCount":0,
+  "TrafficSource":"Email .NET SDK"
 }
 ```
 

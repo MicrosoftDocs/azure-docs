@@ -2,12 +2,12 @@
 title: Security recommendations for Blob storage
 titleSuffix: Azure Storage
 description: Learn about security recommendations for Blob storage. Implementing this guidance will help you fulfill your security obligations as described in our shared responsibility model.
-author: akashdubey-ms
+author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 09/12/2023
-ms.author: akashdubey
+ms.author: normesta
 ms.custom: security-recommendations
 ---
 

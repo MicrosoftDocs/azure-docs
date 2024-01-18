@@ -50,3 +50,8 @@
   items:
   - name: Discovering your attack surface
     href: discovering-your-attack-surface.md
+
+- name: Integrations
+  items: 
+  - name: Security Copilot (preview) and Defender EASM
+    href: easm-copilot.md

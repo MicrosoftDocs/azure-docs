@@ -36,6 +36,11 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 - [Learn about Cybersixgill integration with Microsoft Sentinel @Cybersixgill](https://www.cybersixgill.com/partners/azure-sentinel/)
 - To connect Microsoft Sentinel to Cybersixgill TAXII Server and get access to Darkfeed, [contact Cybersixgill](mailto://azuresentinel@cybersixgill.com) to obtain the API Root, Collection ID, Username and Password.
 
+### ESET
+
+- [Learn about ESET's threat intelligence offering](https://www.eset.com/int/business/services/threat-intelligence/).
+- To connect Microsoft Sentinel to the ESET TAXII server, obtain the API root URL, Collection ID, Username and Password from your ESET account. Then follow the [general instructions](connect-threat-intelligence-taxii.md) and [ESET's knowledge base article](https://support.eset.com/en/kb8314-eset-threat-intelligence-with-ms-azure-sentinel).
+
 ### Financial Services Information Sharing and Analysis Center (FS-ISAC)
 
 - Join [FS-ISAC](https://www.fsisac.com/membership?utm_campaign=ThirdParty&utm_source=MSFT&utm_medium=ThreatFeed-Join) to get the credentials to access this feed.

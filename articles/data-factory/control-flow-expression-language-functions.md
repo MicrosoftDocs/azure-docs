@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ---
 
 # Expressions and functions in Azure Data Factory and Azure Synapse Analytics
@@ -3457,5 +3457,5 @@ And returns this result: `"Paris"`
 > [!NOTE]
 > One can add comments to data flow expressions, but not in pipeline expressions.
 
-## Next steps
+## Related content
 For a list of system variables you can use in expressions, see [System variables](control-flow-system-variables.md).

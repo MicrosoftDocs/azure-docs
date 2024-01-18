@@ -1,10 +1,10 @@
 items: 
-- name: Project Health Insights documentation
+- name: Azure AI Health Insights documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-    - name: About Project Health Insights
+    - name: About Azure AI Health Insights
       href: overview.md
     - name: OncoPhenotype
       href: ./oncophenotype/index.yml
@@ -13,12 +13,12 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-     - name: Deploy Project Health Insights using the portal
+     - name: Deploy Azure AI Health Insights using the portal
        href: deploy-portal.md
 - name: How-To 
   expanded: true
   items:
-     - name: How to Use Project Health Insights with containers
+     - name: How to Use Azure AI Health Insights with containers
        href: use-containers.md
      - name: How to configure the containers
        href: configure-containers.md

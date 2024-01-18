@@ -1,19 +1,19 @@
 ---
-title: Process real-time IoT data on Flink with Azure HDInsight on AKS
-description: How to integrate Azure IoT Hub and Apache Flink
+title: Process real-time IoT data on Apache Flink® with Azure HDInsight on AKS
+description: How to integrate Azure IoT Hub and Apache Flink®
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 10/03/2023
 ---
 
-# Process real-time IoT data on Flink with Azure HDInsight on AKS
+# Process real-time IoT data on Apache Flink® with Azure HDInsight on AKS
 
 Azure IoT Hub is a managed service hosted in the cloud that acts as a central message hub for communication between an IoT application and its attached devices. You can connect millions of devices and their backend solutions reliably and securely. Almost any device can be connected to an IoT hub.
 
 ## Prerequisites
 
 1. [Create an Azure IoTHub](/azure/iot-hub/iot-hub-create-through-portal/)
-2. [Create an HDInsight on AKS Flink cluster](./flink-create-cluster-portal.md)
+2. [Create Flink cluster on HDInsight on AKS](./flink-create-cluster-portal.md)
 
 ## Configure Flink cluster
 
@@ -207,3 +207,8 @@ public class StreamingJob {
 Submit job using HDInsight on AKS's [Flink job submission API](./flink-job-management.md)
 
 :::image type="content" source="./media/azure-iot-hub/create-new-job.png" alt-text="Screenshot shows create a new job." lightbox="./media/azure-iot-hub/create-new-job.png":::
+
+### Reference
+
+- [Apache Flink Website](https://flink.apache.org/)
+- Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

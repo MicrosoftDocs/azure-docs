@@ -3,7 +3,7 @@ title:  DICOM extended query tags overview - Azure Health Data Services
 description: In this article, you'll learn the concepts of Extended Query Tags.
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: conceptual
 ms.date: 10/9/2023
 ms.author: mmitrik
@@ -79,6 +79,7 @@ The following VR types are supported:
 > [!NOTE]
 > Sequential tags, which are tags under a tag of type Sequence of Items (SQ), are currently not supported.
 > You can add up to 128 extended query tags.
+> We do not index extended query tags if the value is null or empty.
 
 #### Responses
 

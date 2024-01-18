@@ -29,7 +29,7 @@ The IOPS of an Elastic SAN increases by 5,000 per base TiB. So if you had an Ela
 
 ### Throughput
 
-The throughput of an Elastic SAN increases by 80 MB/s per base TiB. So if you had an Elastic SAN that has 6 TiB of base capacity, that SAN could still provide up to 480 MB/s. That same SAN would provide 480-MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an Elastic SAN is distributed among all its volumes.
+The throughput of an Elastic SAN increases by 200 MB/s per base TiB. So if you had an Elastic SAN that has 6 TiB of base capacity, that SAN could still provide up to 1200 MB/s. That same SAN would provide 1200 MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an Elastic SAN is distributed among all its volumes.
 
 ### Elastic SAN scale targets
 
@@ -40,9 +40,9 @@ The appliance scale targets vary depending on region and redundancy of the SAN i
 |Resource  |France Central   |Southeast Asia |Australia East |North Europe | West Europe | UK South | East US | East US 2 | South Central US| West US 2   | West US 3 | Sweden Central |
 |---------|---------|---------|---------|
 |Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |5        |5        |5        |5        |5        |5        |5        | 5 | 5|5|
-|Maximum total capacity (TiB)     |100         |100         |600        |600|600|600|        |600        |600        |600        | 100 | 100 |
-|Maximum base capacity (TiB)    |100         |100         |400        |400 | 400|400       |400        |400        |400        |400        | 100 |100 |
-|Minimum total capacity (TiB)    |1         |1         |1        |1        |1        |1        |1        |1        | 1 | 1 | 1 |1|
+|Maximum total capacity units (TiB)     |100         |100         |600        |600|600|600|        |600        |600        |600        | 100 | 100 |
+|Maximum base capacity units (TiB)    |100         |100         |400        |400 | 400|400       |400        |400        |400        |400        | 100 |100 |
+|Minimum total SAN capacity (TiB)    |1         |1         |1        |1        |1        |1        |1        |1        | 1 | 1 | 1 |1|
 |Maximum total IOPS     |500,000         |500,000         |2,000,000        |2,000,000|2,000,000   |2,000,000        |2,000,000        |2,000,000        |2,000,000        |2,000,000        | 500,000 |500,000 |
 |Maximum total throughput (MB/s)    |8,000         |8,000         |32,000        |32,000 |32,000|32,000        |32,000        |32,000        |32,000        |32,000        | 8,000|8,000|
 
@@ -54,26 +54,30 @@ ZRS is only available in France Central, North Europe, West Europe and West US 2
 |Resource  |France Central  |North Europe | West Europe |West US 2    |
 |---------|---------|---------|---------|
 |Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5        |5        |5        |
-|Maximum total capacity (TiB)     |200         |200        |200        |200        |
-|Maximum base capacity (TiB)    |100         |100        |100        |100        |
-|Minimum total capacity (TiB)    |1         |1        |1        |1        |
+|Maximum total capacity units (TiB)     |200         |200        |200        |200        |
+|Maximum base capacity units (TiB)    |100         |100        |100        |100        |
+|Minimum total SAN capacity (TiB)    |1         |1        |1        |1        |
 |Maximum total IOPS     |500,000         |500,000        |500,000        |500,000        |
 |Maximum total throughput (MB/s)    |8,000         |8,000        |8,000        |8,000        |
 
+#### Quota and Capacity Increases
+To increase quota, raise a support ticket with the subscription ID and region information to request for an increase in quota for the “Maximum number of Elastic SAN that can be deployed per subscription per region”.
+
+For capacity increase requests, please raise a support ticket with the subscription ID and the region information and it will be evaluated.
 
 ## Volume group
 
-An Elastic SAN can have a maximum of 20 volume groups, and a volume group can contain up to 1,000 volumes.
+An Elastic SAN can have a maximum of 200 volume groups, and a volume group can contain up to 1,000 volumes.
 
 ## Volume
 
-The performance of an individual volume is determined by its capacity. The maximum IOPS of a volume increase by 750 per GiB, up to a maximum of 64,000 IOPS. The maximum throughput increases by 60 MB/s per GiB, up to a maximum of 1,024 MB/s. A volume needs at least 86 GiB to be capable of using 64,000 IOPS. A volume needs at least 18 GiB in order to be capable of using the maximum 1,024 MB/s. The combined IOPS and throughput of all your volumes can't exceed the IOPS and throughput of your SAN.
+The performance of an individual volume is determined by its capacity. The maximum IOPS of a volume increases by 750 per GiB, up to a maximum of 80,000 IOPS. The maximum throughput increases by 60 MB/s per GiB, up to a maximum of 1,280 MB/s. A volume needs at least 106 GiB to be capable of using the maximum 80,000 IOPS. A volume needs at least 21 GiB in order to be capable of using the maximum 1,280 MB/s. The combined IOPS and throughput of all your volumes can't exceed the IOPS and throughput of your SAN.
 
 ### Volume scale targets
 
 |Supported capacities  |Maximum potential IOPS  |Maximum potential throughput (MB/s)  |
 |---------|---------|---------|
-|1 GiB - 64 TiB     |750 - 64,000 (increases by 750 per GiB)         |60 - 1,024 (increases by 60 per GiB)         |
+|1 GiB - 64 TiB     |750 - 80,000 (increases by 750 per GiB)         |60 - 1,280 (increases by 60 per GiB)         |
 
 ## Next steps
 

@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 10/19/2022
+ms.date: 10/20/2023
 ---
 
 # Transform data by using the Script activity in Azure Data Factory or Synapse Analytics 
@@ -180,7 +180,7 @@ Logging options:
 > [!NOTE]
 > **Billing** - The Script activity will be [billed](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) as **Pipeline activities**.
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways:
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md)

@@ -2,8 +2,8 @@
 title: Connectivity setup from virtual machines to SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Connectivity setup from virtual machines for using SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
-documentationcenter: 
-author: lauradolan
+documentationcenter:
+author: ju-shim
 manager: patfilot
 editor: ''
 tags: azure-resource-manager
@@ -14,9 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/28/2021
-ms.author: ladolan
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Connecting Azure VMs to HANA Large Instances

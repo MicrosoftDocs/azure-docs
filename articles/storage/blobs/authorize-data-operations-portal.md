@@ -2,12 +2,12 @@
 title: Authorize access to blob data in the Azure portal
 titleSuffix: Azure Storage
 description: When you access blob data using the Azure portal, the portal makes requests to Azure Storage under the covers. These requests to Azure Storage can be authenticated and authorized using either your Microsoft Entra account or the storage account access key.
-author: akashdubey-ms
-
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/10/2021
-ms.author: akashdubey
+
 ms.reviewer: nachakra
 ms.custom: contperf-fy21q1
 ---
@@ -125,6 +125,8 @@ To update this setting for an existing storage account, follow these steps:
 1. Set **Default to Microsoft Entra authorization in the Azure portal** to **Enabled**.
 
     :::image type="content" source="media/authorize-data-operations-portal/default-auth-account-update-portal.png" alt-text="Screenshot showing how to configure default Microsoft Entra authorization in Azure portal for existing account":::
+
+The **defaultToOAuthAuthentication** property of a storage account is not set by default and does not return a value until you explicitly set it.
 
 ## Next steps
 

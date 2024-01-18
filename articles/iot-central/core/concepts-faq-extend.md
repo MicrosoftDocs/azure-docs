@@ -24,7 +24,7 @@ To extend IoT Central's built-in rules and analytics capabilities, use the data 
 
 - Enrich, and transform your IoT data to generate advanced visualizations that provide insights.
 - Extract business metrics and use artificial intelligence and machine learning to derive business insights from your IoT data.
-- Monitoring and diagnostics for millions of connected IoT devices.
+- Monitoring and diagnostics for hundreds of thousands of connected IoT devices.
 - Combine your IoT data with other business data to build dashboards and reports.
 
 To learn more, see [IoT Central data integration guide](overview-iot-central-solution-builder.md).

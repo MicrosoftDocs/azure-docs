@@ -50,7 +50,7 @@ For apps that run on devices or desktop computers or in a web browser, you shoul
 
 ### Confidential client applications
 
-For apps that run on servers (such as web services and service/daemon apps), if you prefer to avoid the overhead and complexity of managing secrets, consider [Managed Identities]. Managed identities can provide an identity for your web service to use when connecting to Azure Maps using Microsoft Entra authentication. If so, your web service uses that identity to obtain the required Microsoft Entra tokens. You should use Azure RBAC to configure what access the web service is given, using the [Least privileged roles] possible.
+For apps that run on servers (such as web services and service/daemon apps), if you prefer to avoid the overhead and complexity of managing secrets, consider [Managed Identities]. Managed identities can provide an identity for your web service to use when connecting to Azure Maps using [Microsoft Entra authentication]. If so, your web service uses that identity to obtain the required Microsoft Entra tokens. You should use Azure RBAC to configure what access the web service is given, using the [Least privileged roles] possible.
 
 ## Next steps
 
@@ -64,7 +64,7 @@ For apps that run on servers (such as web services and service/daemon apps), if 
 > [Tutorial: Add app authentication to your web app running on Azure App Service]
 
 [Authentication with Azure Maps]: azure-maps-authentication.md
-[Azure Active Directory (Azure AD) authentication]: ../active-directory/fundamentals/active-directory-whatis.md
+[Microsoft Entra authentication]: ../active-directory/fundamentals/active-directory-whatis.md
 [Configurable token lifetimes in the Microsoft identity platform (preview)]: ../active-directory/develop/configurable-token-lifetimes.md
 [Create SAS tokens]: azure-maps-authentication.md#create-sas-tokens
 [Cross origin resource sharing (CORS)]: azure-maps-authentication.md#cross-origin-resource-sharing-cors

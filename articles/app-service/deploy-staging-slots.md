@@ -1,15 +1,15 @@
 ---
 title: Set up staging environments
 description: Learn how to deploy apps to a nonproduction slot and autoswap into production. Increase the reliability and eliminate app downtime from deployments.
-
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 07/30/2023
-ms.custom: fasttrack-edit, devx-track-azurepowershell, devx-track-azurecli
 author: cephalin
 ms.author: cephalin
-
+ms.custom: fasttrack-edit, devx-track-azurepowershell, devx-track-azurecli, ai-video-demo
+ai-usage: ai-assisted
 ---
+
 # Set up staging environments in Azure App Service
 <a name="Overview"></a>
 
@@ -24,6 +24,11 @@ Deploying your application to a nonproduction slot has the following benefits:
 Each App Service plan tier supports a different number of deployment slots. There's no extra charge for using deployment slots. To find out the number of slots your app's tier supports, see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
 
 To scale your app to a different tier, make sure that the target tier supports the number of slots your app already uses. For example, if your app has more than five slots, you can't scale it down to the **Standard** tier, because the **Standard** tier supports only five deployment slots. 
+
+This video shows you how to set up staging environments in Azure App Service.
+> [!VIDEO 99aaff5e-fd3a-4568-b03a-a65745807d0f]
+
+The steps in the video are also described in the following sections.
 
 ## Prerequisites
 
@@ -86,7 +91,7 @@ For more information, see [New-AzWebAppSlot](/powershell/module/az.websites/new-
 
 The new deployment slot has no content, even if you clone the settings from a different slot. For example, you can [publish to this slot with Git](./deploy-local-git.md). You can deploy to the slot from a different repository branch or a different repository.  Get publish profile [from Azure App Service](/visualstudio/azure/how-to-get-publish-profile-from-azure-app-service) can provide required information to deploy to the slot.  The profile can be imported by Visual Studio to deploy contents to the slot.
 
-The slot's URL has the format `http://sitename-slotname.azurewebsites.net`. To keep the URL length within necessary DNS limits, the combined site name and slot name must be fewer than 59 characters.
+The slot's URL has the format `http://sitename-slotname.azurewebsites.net`. To keep the URL length within necessary DNS limits, the site name will be truncated at 40 characters, and the combined site name and slot name must be fewer than 59 characters.
 
 <a name="AboutConfiguration"></a>
 
@@ -94,7 +99,7 @@ The slot's URL has the format `http://sitename-slotname.azurewebsites.net`. To k
 
 ### Swap operation steps
 
-When you swap two slots (usually from a staging slot into the production slot), App Service does the following to ensure that the target slot doesn't experience downtime:
+When you swap two slots (usually from a staging slot *as the source* into the production slot *as the target*), App Service does the following to ensure that the target slot doesn't experience downtime:
 
 1. Apply the following settings from the target slot (for example, the production slot) to all instances of the source slot: 
     - [Slot-specific](#which-settings-are-swapped) app settings and connection strings, if applicable.
@@ -103,7 +108,7 @@ When you swap two slots (usually from a staging slot into the production slot), 
     
     Any of these cases trigger all instances in the source slot to restart. During [swap with preview](#Multi-Phase), this marks the end of the first phase. The swap operation is paused, and you can validate that the source slot works correctly with the target slot's settings.
 
-1. Wait for every instance in the target slot to complete its restart. If any instance fails to restart, the swap operation reverts all changes to the source slot and stops the operation.
+1. Wait for every instance in the source slot to complete its restart. If any instance fails to restart, the swap operation reverts all changes to the source slot and stops the operation.
 
 1. If [local cache](overview-local-cache.md) is enabled, trigger local cache initialization by making an HTTP request to the application root ("/") on each instance of the source slot. Wait until each instance returns any HTTP response. Local cache initialization causes another restart on each instance.
 

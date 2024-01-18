@@ -6,8 +6,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 09/15/2023
-ms.custom: engagement-fy23
+ms.date: 10/23/2023
+ms.custom: engagement-fy24
 ---
 
 
@@ -31,8 +31,8 @@ You can use the script to deploy the Azure Migrate appliance on an existing serv
 
 Scenario | Requirements
 --- | ---
-VMware | Windows Server 2022, with 32 GB of memory, eight vCPUs, around 80 GB of disk storage.
-Hyper-V | Windows Server 2022, with 16 GB of memory, eight vCPUs, around 80 GB of disk storage.
+VMware | Windows Server 2019 or Windows Server 2022, with 32 GB of memory, eight vCPUs, around 80 GB of disk storage.
+Hyper-V | Windows Server 2019 or Windows Server 2022, with 16 GB of memory, eight vCPUs, around 80 GB of disk storage.
 
 - The server also needs an external virtual switch. It requires a static or dynamic IP address. 
 - Before you deploy the appliance, review detailed appliance requirements for [VMware](migrate-appliance.md#appliance---vmware) and [Hyper-V](migrate-appliance.md#appliance---hyper-v).

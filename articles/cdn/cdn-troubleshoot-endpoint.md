@@ -36,13 +36,10 @@ There are several possible causes, including:
 
 > [!IMPORTANT]
 > After creating a CDN endpoint, it will not immediately be available for use, as it takes time for the registration to propagate through the CDN:
-> - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in ten minutes. 
-> - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
+> - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in ten minutes.
 > - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes within 90 minutes. 
 > 
 > If you complete the steps in this document and you're still getting 404 responses, consider waiting a few hours to check again before opening a support ticket.
-> 
-> 
 
 ### Check the origin file
 
@@ -52,7 +49,6 @@ First, verify that the file to cache is available on the origin server and is pu
 
 > [!WARNING]
 > While this is the quickest and easiest way to verify your file is publicly available, some network configurations in your organization could make it appear that a file is publicly available when it is, in fact, only visible to users of your network (even if it's hosted in Azure). To ensure that this isn't the case, test the file with an external browser, such as a mobile device that is not connected to your organization's network, or a virtual machine in Azure.
-> 
 > 
 
 ### Check the origin settings
@@ -74,11 +70,6 @@ Verify that the values of the **Origin type** and **Origin hostname** are correc
 Check your **HTTP** and **HTTPS ports**. In most cases, 80 and 443 are correct, and you require no changes.  However, if the origin server is listening on a different port, that needs to be represented here. If you're not sure, view the URL for your origin file. The HTTP and HTTPS specifications use ports 80 and 443 as the defaults. In the example URL, https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt, a port isn't specified, so the default of 443 is assumed and the settings are correct.  
 
 However, suppose the URL for the origin file that you tested earlier is http:\//www.contoso.com:8080/file.txt. Note the *: 8080* portion at the end of the hostname segment. That number instructs the browser to use port 8080 to connect to the web server at www\.contoso.com, therefore you need to enter *8080* in the **HTTP port** field. It's important to note that these port settings affect only what port the endpoint uses to retrieve information from the origin.
-
-> [!NOTE]
-> **Azure CDN Standard from Akamai** endpoints do not allow the full TCP port range for origins.  For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](/previous-versions/azure/mt757337(v=azure.100)).  
-> 
-> 
 
 ### Check the endpoint settings
 

@@ -3,12 +3,13 @@ title: Frequently asked questions (FAQ) for Azure Files
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: azure-file-storage
-ms.date: 07/12/2023
+ms.date: 01/05/2024
 ms.author: kendownie
 ms.topic: conceptual
 ---
 
 # Frequently asked questions (FAQ) about Azure Files
+
 [Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry-standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) and the [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). You can mount Azure file shares concurrently on cloud or on-premises deployments of Windows, Linux, and macOS. You also can cache Azure file shares on Windows Server machines by using Azure File Sync for fast access close to where the data is used.
 
 ## Azure File Sync
@@ -106,6 +107,7 @@ ms.topic: conceptual
   Using ABE with Azure Files isn't currently supported, but you can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md#access-based-enumeration-abe).
    
 ### Identity-based authentication
+
 * <a id="ad-support-devices"></a>
 **Does Microsoft Entra Domain Services support SMB access using Microsoft Entra credentials from devices joined to or registered with Microsoft Entra ID?**
 
@@ -114,11 +116,7 @@ ms.topic: conceptual
 * <a id="ad-file-mount-cname"></a>
 **Can I use the canonical name (CNAME) to mount an Azure file share while using identity-based authentication?**
 
-    No, this scenario isn't currently supported in single-forest AD environments. This is because when receiving the mount request, Azure Files depends on the Kerberos ticket's server name field to determine what storage account the request is intended for. If `storageaccount.file.core.windows.net` isn't present in the Kerberos ticket as the server name, then the service can't decide which storage account the request is for and is therefore unable to set up an SMB session for the user.
-
-    As an alternative to CNAME, you can use DFS Namespaces with SMB Azure file shares. To learn more, see [How to use DFS Namespaces with Azure Files](files-manage-namespaces.md).
-
-    As a workaround for mounting the file share, see the instructions in [Mount the file share from a non-domain-joined VM or a VM joined to a different AD domain](storage-files-identity-ad-ds-mount-file-share.md#mount-the-file-share-from-a-non-domain-joined-vm-or-a-vm-joined-to-a-different-ad-domain).
+    Yes, this scenario is now supported in both [single-forest](storage-files-identity-ad-ds-mount-file-share.md#mount-file-shares-using-custom-domain-names) and [multi-forest](storage-files-identity-multiple-forests.md) environments for SMB Azure file shares. However, Azure Files only supports configuring CNAMEs using the storage account name as a domain prefix. If you don't want to use the storage account name as a prefix, consider using [DFS Namespaces](files-manage-namespaces.md) instead.
 
 * <a id="ad-vm-subscription"></a>
 **Can I access Azure file shares with Microsoft Entra credentials from a VM under a different subscription?**
@@ -142,7 +140,7 @@ ms.topic: conceptual
 * <a id="ad-aad-smb-files"></a>
 **Is there any difference in creating a computer account or service logon account to represent my storage account in AD?**
 
-    Creating either a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](/windows/win32/ad/about-service-logon-accounts) has no difference on how authentication works with Azure Files. You can make your own choice on how to represent a storage account as an identity in your AD environment. The default DomainAccountType set in `Join-AzStorageAccountForAuth` cmdlet is computer account. However, the password expiration age configured in your AD environment can be different for computer or service logon account and you need to take that into consideration for [Update the password of your storage account identity in AD](./storage-files-identity-ad-ds-update-password.md).
+    Creating either a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](/windows/win32/ad/about-service-logon-accounts) has no difference on how authentication works with Azure Files. You can make your own choice on how to represent a storage account as an identity in your AD environment. The default DomainAccountType set in `Join-AzStorageAccountForAuth` cmdlet is computer account. However, the password expiration age configured in your AD environment can be different for computer or service logon accounts, and you need to take that into consideration to [Update the password of your storage account identity in AD](./storage-files-identity-ad-ds-update-password.md).
 
 * <a id="ad-support-rest-apis"></a>
 **How to remove cached credentials with storage account key and delete existing SMB connections before initializing new connection with Microsoft Entra ID or AD credentials?**
@@ -160,7 +158,7 @@ ms.topic: conceptual
 * <a id="ad-sid-to-upn"></a>
 **Is it possible to view the userPrincipalName (UPN) of a file/directory owner in File Explorer instead of the security identifier (SID)?**
 
-    In File Explorer, the SID of a file/directory owner is displayed instead of the UPN for files and directories hosted on Azure Files. However, you can use the following PowerShell command to view all items in a directory and their owner, including UPN:
+    File Explorer calls an RPC API directly to the server (Azure Files) to translate the SID to a UPN. Azure Files doesn't support this API, so in File Explorer, the SID of a file/directory owner is displayed instead of the UPN for files and directories hosted on Azure Files. However, from a domain joined client, you can use the following PowerShell command to view all items in a directory and their owner, including UPN: 
 
     ```PowerShell
     Get-ChildItem <Path> | Get-ACL | Select Path, Owner
@@ -176,12 +174,12 @@ ms.topic: conceptual
 * <a id="backup-nfs-data"></a>
 **How do I backup data stored in NFS shares?**
 
-    Backing up your data on NFS shares can either be orchestrated using familiar tooling like rsync or products from one of our third-party backup partners. Multiple backup partners including [Commvault](https://documentation.commvault.com/commvault/v11/article?p=92634.htm), [Veeam](https://www.veeam.com/blog/?p=123438), and [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001) and have extended their solutions to work with both SMB 3.x and NFS 4.1 for Azure Files.
+    Backing up your data on NFS shares can either be orchestrated using familiar tooling like rsync or products from one of our third-party backup partners. Multiple backup partners including [Commvault](https://documentation.commvault.com/index.html), [Veeam](https://www.veeam.com/blog/?p=123438), and [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001) have extended their solutions to work with both SMB 3.x and NFS 4.1 for Azure Files. You can also use [NFS file share snapshots (preview)](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots-preview).
 
 * <a id="migrate-nfs-data"></a>
 **Can I migrate existing data to an NFS share?**
 
-    Within a region, you can use standard tools like scp, rsync, or SSHFS to move data. Because NFS Azure file shares can be accessed from multiple compute instances concurrently, you can improve copying speeds with parallel uploads. If you want to bring data from outside of a region, use a VPN or a ExpressRoute to mount to your file system from your on-premises data center.
+    Within a region, you can use standard tools like scp, rsync, or SSHFS to move data. Because NFS Azure file shares can be accessed from multiple compute instances concurrently, you can improve copying speeds with parallel uploads. To learn more, see [Migrate to NFS Azure file shares](storage-files-migration-nfs.md). If you want to bring data from outside of a region, use a VPN or ExpressRoute to mount to your file system from your on-premises data center.
     
 * <a id=nfs-ibm-mq-support></a>
 **Can you run IBM MQ (including multi-instance) on NFS Azure file shares?**
@@ -219,10 +217,12 @@ ms.topic: conceptual
     Share snapshots are incremental in nature. The base share snapshot is the share itself. All subsequent share snapshots are incremental and store only the difference from the preceding share snapshot. You're billed only for the changed content. If you have a share with 100 GiB of data but only 5 GiB has changed since your last share snapshot, the share snapshot consumes only 5 additional GiB, and you're billed for 105 GiB. For more information about transaction and standard egress charges, see the [Pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Interoperability with other services
+
 * <a id="cluster-witness"></a>
 **Can I use my Azure file share as a *File Share Witness* for my Windows Server Failover Cluster?**  
     This configuration isn't currently supported for Azure Files. To learn how to set this up using Azure Blob storage, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
 
 ## See also
+
 * [Troubleshoot Azure Files](/troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json)
 * [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)

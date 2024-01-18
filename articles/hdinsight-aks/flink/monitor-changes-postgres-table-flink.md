@@ -1,12 +1,12 @@
 ---
-title: Change Data Capture (CDC) of PostgreSQL table using Apache FlinkSQL
-description: Learn how to perform CDC on PostgreSQL table using Apache FlinkSQL CDC
+title: Change Data Capture (CDC) of PostgreSQL table using Apache Flink® 
+description: Learn how to perform CDC on PostgreSQL table using Apache Flink® 
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/27/2023
 ---
 
-# Change Data Capture (CDC) of PostgreSQL table using Apache FlinkSQL
+# Change Data Capture (CDC) of PostgreSQL table using Apache Flink® 
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -27,7 +27,7 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
 ## Prerequisites
 
 * [Azure PostgresSQL flexible server Version 14.7](/azure/postgresql/flexible-server/overview)
-* [HDInsight on AKS Flink 1.16.0](./flink-create-cluster-portal.md) 
+* [Apache Flink Cluster on HDInsight on AKS](./flink-create-cluster-portal.md) 
 * Linux virtual Machine to use PostgreSQL client
 * Add the NSG rule that allows inbound and outbound connections on port 5432 in HDInsight on AKS pool subnet.
 
@@ -159,4 +159,6 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
 
 ### Reference
 
-[PostgreSQL CDC Connector](https://ververica.github.io/flink-cdc-connectors/release-2.1/content/connectors/postgres-cdc.html) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
+- [Apache Flink Website](https://flink.apache.org/)
+- [PostgreSQL CDC Connector](https://ververica.github.io/flink-cdc-connectors/release-2.1/content/connectors/postgres-cdc.html) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
+- Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

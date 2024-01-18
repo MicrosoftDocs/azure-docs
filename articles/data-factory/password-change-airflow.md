@@ -5,7 +5,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 10/20/2023
 ms.author: abnarain
 ---
 
@@ -21,7 +21,7 @@ We recommend using **Microsoft Entra ID** authentication in Managed Airflow envi
 
 :::image type="content" source="media/password-change-airflow/password-change-airflow.png" alt-text="Screenshot showing how to change an Airflow password in the integration runtime settings.":::
 
-## Next steps
+## Related content
 
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
 - [Managed Airflow pricing](airflow-pricing.md)

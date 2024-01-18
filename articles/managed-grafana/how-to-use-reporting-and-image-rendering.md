@@ -5,7 +5,7 @@ ms.service: managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 5/6/2023
+ms.date: 10/06/2023
 --- 
 
 # Use reporting and image rendering (preview)
@@ -22,7 +22,7 @@ Generating reports in the PDF format requires Grafana's image rendering capabili
 Image rendering is a CPU-intensive operation. An Azure Managed Grafana instance needs about 10 seconds to render one panel, assuming data query is completed in less than 1 second. The Grafana software allows a maximum of 200 seconds to generate an entire report. Dashboards should contain no more than 20 panels each if they're used in PDF reports. You may have to reduce the panel number further if you plan to include other artifacts (for example, CSV) in the reports.
 
 > [!NOTE]
-> You'll see a "Image Rendering Timeout" error if a rendering request has exceeded the 200 second limit.
+> You'll see an "Image Rendering Timeout" error if a rendering request has exceeded the 200 second limit.
 
 For screen-capturing in alerts, the Grafana software only allows 30 seconds to snapshot panel images before timing out. At most three screenshots can be taken within this time frame. If there's a sudden surge in alert volume, some alerts may not have screenshots even if screen-capturing has been enabled.
 
@@ -34,7 +34,7 @@ For screen-capturing in alerts, the Grafana software only allows 30 seconds to s
 To follow the steps in this guide, you must have:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An Azure Managed Grafana instance. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
+- An Azure Managed Grafana instance in the Standard plan. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
 - An SMTP server. If you don't have one yet, you may want to consider using [Twilio SendGrid's email API for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/sendgrid.tsg-saas-offer).
 - Email set up for your Azure Managed Grafana instance. [Configure SMTP settings](how-to-smtp-settings.md).
 

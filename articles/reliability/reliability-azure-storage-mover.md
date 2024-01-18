@@ -27,49 +27,82 @@ Current doc score: 100, 1130, 0
 
 # Reliability in Azure Storage Mover
 
-This article describes reliability support in Azure Storage Mover and covers cross-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in [Azure Storage Mover](/azure/storage-mover/service-overview) and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For a more detailed overview of reliability principles in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-## Regional reliability
 
-When deploying an Azure Storage Mover resource, you must select a location in which the resource's instance metadata is stored. Instance metadata includes projects, endpoints, agents, job definitions, and job run history, but doesn't include the actual data to be migrated. Azure storage accounts to be used as migration targets have their own reliability support. Disaster recovery for on-premises data sources is the responsibility of the customer.
+## Availability zone support
 
-Instance metadata is replicated across multiple availability zones in regions where availability zones are available. Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking.
+[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Some regions are paired in order to allow cross-region replication. When cross-region replication is utilized, instance metadata is replicated to each region, but is never permitted to leave the geography.
+Azure Storage Mover supports a zone-redundant deployment model.  
 
-When a Storage Mover agent is registered, it connects to the region in which the Storage Mover resource is registered. If an agent's Azure region experiences an outage, the agent itself isn't affected, but management operations that rely on Azure may be unable to complete. In addition, any active data migrations to storage accounts located within the affected region may fail.
+When you deploy an Azure Storage Mover resource, you must [select a particular region](/azure/storage-mover/deployment-planning#select-an-azure-region-for-your-deployment) in which the resource's instance metadata is stored. 
 
-In the unlikely event of a full region outage, you have the option of using one of the following strategies:
+If the region supports availability zones, the instance metadata is automatically replicated across multiple availability zones within that region. 
 
-- Wait for Azure to recover the region
-- Redeploy your resources to a different region
-- Deploy a redundant Storage Mover in advance
+>[!IMPORTANT]
+>Azure Storage Mover instance metadata includes projects, endpoints, agents, job definitions, and job run history, but doesn't include the actual data to be migrated. Azure storage accounts that are used as migration targets have their own reliability support.  
 
-The last two options are a matter of timing, since deployment will occur either before or after any future outage.
 
-## Determining reliability for target storage accounts
+### Prerequisites
 
-Any migration target storage account may require its own recovery steps. This requirement depends on the redundancy options chosen for each storage account. See the [storage account disaster recovery](/azure/storage/common/storage-disaster-recovery-guidance) article to determine whether more steps are necessary.
+- To deploy with availability zone support, you must choose a region that supports availability zones. To see which regions supports availability zones, see the [list of supported regions](availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
 
-If a local storage was chosen in lieu of redundancy options, you may need to create a new storage account for use in migrations during the outage.
+- (Optional) If your target storage account doesn't support availability zones, and you would like to migrate the account to AZ support, see [Migrate Azure Storage accounts to availability zone support](migrate-storage.md).
 
 ### Zone down experience
 
-During a zone-wide outage, no action is required during zone recovery. Azure Storage Mover is designed to self-heal and rebalance itself to take advantage of the healthy zone automatically.
+During a zone-wide outage, no action is required during zone recovery. Azure Storage Mover is designed to self-heal and re-balance itself to take advantage of the healthy zone automatically.
 
-## Disaster recovery: cross-region failover
+Any migration target storage account may require its own recovery steps. This requirement depends on the redundancy options chosen for each storage account. See the [storage account disaster recovery guide](/azure/storage/common/storage-disaster-recovery-guidance) to determine whether more steps are necessary.
 
-Azure can provide disaster recovery protection against a region-wide or large geography disaster by making use of another region. For more information on Azure disaster recovery architecture, see the article on [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture).
+If a local storage was chosen in lieu of redundancy options, you may need to create a new storage account for use in migrations during the outage.
 
-Azure initiated disaster recovery is only applicable for those regions that have are paired with a cross-region replication region. Azure Storage Mover uses Cosmos DB for storing instance metadata. Data loss may occur only with an unrecoverable disaster in the Azure Cosmos DB region. For more information, see [Region outages](/azure/cosmos-db/high-availability). Azure initiated recovery is active-passive, and full recovery of a region may be up to 24 hours.
 
-Customers can minimize downtime by following the customer enabled disaster recovery steps described in this section. These strategies may require that further steps be taken prior to a disaster, so be sure to review and plan accordingly.
+## Cross-region disaster recovery and business continuity
 
-## Customer enabled disaster recovery
+[!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
-### Deploy resources to a different region
+When a Storage Mover agent is registered, it connects to the region in which the Storage Mover resource is registered. If an agent's Azure region experiences an outage, the agent itself isn't affected, but management operations that rely on Azure may be unable to complete. In addition, any active data migrations to storage accounts located within the affected region may fail.
 
-Since access to your resources may be impacted during an outage. To redeploy resources to a different region, you must first have a snapshot of the resources you wish to redeploy. To ensure that you're restoring the most recent data, taking a snapshot should be done periodically, either on a schedule or after you make substantial changes. Storing the snapshots using a version control system is a good way to store and track history of the snapshots.
+Storage Mover supports two forms of disaster recovery: 
+
+- [Azure initiated disaster recovery](#azure-initiated-disaster-recovery)
+- [Customer initiated disaster recovery](#customer-initiated-disaster-recovery)
+
+>[!IMPORTANT]
+>Disaster recovery for on-premises data sources is the responsibility of the customer.
+
+
+### Azure initiated disaster recovery
+
+Azure initiated disaster recovery is only applicable to those [regions that have region pairs](./cross-region-replication-azure.md#azure-paired-regions).  When cross-region replication is utilized, instance metadata is replicated to each region, but is never permitted to leave the geography. 
+
+Azure Storage Mover uses Cosmos DB for storing instance metadata. Data loss may occur only with an unrecoverable disaster in the Azure Cosmos DB . For more information, see [Region outages](/azure/cosmos-db/high-availability). Azure initiated recovery is active-passive, and full recovery of a region may be up to 24 hours.
+
+
+### Customer initiated disaster recovery
+
+Customer initiated disaster recovery isn't restricted to paired regions. 
+
+**Before a regional outage occurs:** 
+
+- Deploy a zone-redundant Storage Mover by creating Storage Mover resources in a region that supports availability zones. 
+
+- Periodically - either on a schedule or after you make substantial changes - take a snapshot of your Storage Mover resources. Storing the snapshots using a version control system is a good way to store and track history of the snapshots. You'll use the last good snapshot in the event of a disaster where you need to recover your resources in a new region.
+
+**During a regional outage:**
+
+You can do one of two things:
+
+- Choose to wait for Azure to recover the region. 
+- Minimize downtime by [redeploying your resources to a different region](#deploy-resources-to-a-different-region). Since access to your resources may be impacted during an outage, you'll want to use the last good snapshot of your resources.
+
+>[!TIP]
+>Either one of these strategies still may require that you need to take further steps prior to a disaster, so be sure to review and plan accordingly.
+
+
+#### Deploy resources to a different region
 
 See the documentation on [exporting templates](/azure/azure-resource-manager/templates/export-template-portal) for further instructions on exporting resources as an Azure Resource Manager (ARM) template.
 
@@ -86,11 +119,11 @@ To use the exported template for disaster recovery, a few changes to the templat
 
 After completing the previous steps and verifying that the template parameters are correct, the template is ready for deployment to a new region. You should deploy the template to a new resource group that has the same default region as the location property in the template.
 
-### Registering the new agent
+#### Registering the new agent
 
 Follow the steps within the [deploy an Azure Storage Mover agent](/azure/storage-mover/agent-deploy) article to register a new agent in the new Storage Mover resource.
 
-### Assigning the agent to job definitions
+#### Assigning the agent to job definitions
 
 After the new agent has been registered and reports as online, use the Azure portal or PowerShell to associate the existing job definitions to the new agent. The following PowerShell example is provided for convenience.
 
@@ -113,7 +146,7 @@ Update-AzStorageMoverJobDefinition `
     -AgentName $agentName
 ```
 
-### Granting agent access to the target storage container
+#### Granting agent access to the target storage container
 
 You need to assign the data contributor role to the managed identity to successfully perform a migration job. Assign the Hybrid Compute resource's system managed identity access to the target storage account resource. The [assign a managed identity access to a resource](/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal) article provides guidance on how to grant access to the target resource.
 
@@ -121,9 +154,5 @@ You're now ready to start migration jobs using the newly deployed Storage Mover 
 
 ## Next steps
 
-Read more about any of the following features or options.
-
-| Guide | Description |
-|---|---|
-| [Azure resiliency and reliability](/azure/architecture/framework/resiliency/overview) | A detailed overview of resiliency and reliability in Azure.
-| [storage account disaster recovery](/azure/storage/common/storage-disaster-recovery-guidance) | Concepts and processes involved with a storage account failover and recovery. |
+- [Reliability in Azure](./overview.md)
+- [Storage account disaster recovery](/azure/storage/common/storage-disaster-recovery-guidance)

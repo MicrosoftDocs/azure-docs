@@ -6,7 +6,7 @@ metadata:
   ms.author: rosemalcolm 
   ms.service: dev-box 
   ms.topic: faq 
-  ms.date: 05/16/2023 
+  ms.date: 01/16/2024 
 title: "Microsoft Dev Box: Frequently asked questions"
 summary: This article provides answers to some of the most commonly asked questions about [Microsoft Dev Box](https://azure.microsoft.com/services/dev-box/).
   
@@ -18,6 +18,9 @@ summary: This article provides answers to some of the most commonly asked questi
 sections:
   - name: General FAQ
     questions:
+      - question: How many Microsoft Intune licenses do I need for Dev Box?
+        answer: Every Dev Box user needs one Microsoft Intune license and can create multiple dev boxes. 
+
       - question: Which repository providers does Dev Box support?
         answer: Dev Box supports GitHub, Azure Repos, and Bitbucket repositories to provide an image gallery for Dev Box.  
                 For more information, see [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md)
@@ -41,12 +44,22 @@ sections:
       - question: Why does it take 25 minutes or more to provision a dev box?
         answer: The provisioning process for a dev box involves interacting with several services, including authenticating with Microsoft Entra ID. The new dev box must be created, initiate networking connectivity services, authenticate to and join the Microsoft Entra ID, register with Intune, and check for any Microsoft Entra security requirements. Depending on the complexity of the dev box definition, there might also be installation and configuration tasks on the dev box itself to provide you with the environment you need to start work. When your dev box is fully provisioned, it's running, ready for you to sign in.
 
-      - question: How can I check my Dev Box quota? # Question.
+      - question: Where should I create my Dev Center, Projects and Pools for my team for optimal performance?
         answer: |
-                You can check your Dev Box quota using either: 
-                - REST API - [Usages - List By Location - REST API (Azure Dev Center) | Microsoft Learn](/rest/api/devcenter/administrator/usages/list-by-location?tabs=HTTP)
-                - CLI - [az devcenter admin usage | Microsoft Learn |](/cli/azure/devcenter/admin/usage?view=azure-cli-latest) 
+          Your Dev Center and Projects are generally created where your resources are located. For example, if your headquarters is in California, we would recommend the West US region. 
+          
+          For optimal latency, we recommend creating pools close to the developer's physical location. For example, if a developer is based in India, we recommend creating a dev box in the Central India region. This is generally thought of as a best practice to improve typing speeds as developers work within their dev boxes.  
 
+          Developers primarily spend their time typing and moving their mouse within their Dev Box. We recommend optimizing for typing latency, since these actions affect development teams the most. 
+      
+      - question: Can I look up in which regions I should create my pools?  
+        answer: |
+          Whether you're creating a new pool, or choosing a pool for creating a dev box, it's important to optimize for latency and performance. It can be difficult to determine the optimal region for developers to host their dev boxes.  
+
+          For best results, we recommend that admins ask the developers to use the [Azure Virtual Desktop Experience Estimator](https://aka.ms/avd-estimator). This tool estimates the connection round trip time (RTT) from the developer's physical location, through the Azure Virtual Desktop service, to each Azure region in which you can deploy your dev box. The highlighted region is the region with the lowest RTT from your current location. This is the region where the developer experiences optimal connectivity.  
+
+          If there isn't a pool for that region yet, we recommend that you create a new pool for that region or for the next best option according to the estimator.  
+     
       - question: How are backup, high-availability, and disaster recovery implemented in Microsoft Dev Box? 
         answer: |
           Microsoft Intune provides backup functionality for dev boxes. It automatically sets regular restore points, and enables you to create a manual restore point, just as you would for a [Cloud PC](/windows-365/enterprise/create-manual-restore-point).
@@ -65,31 +78,17 @@ sections:
                 [Compare the features of remote desktop clients - Redirections comparison](../virtual-desktop/compare-remote-desktop-clients.md#redirections-comparison)
 
       - question: What if I use Linux as my development environment?
-        answer: Microsoft Dev Box supports Windows Subsystem for Linux (WSL) for Linux scenarios. This enables users to use Linux environment alongside Windows tools. GitHub users who use VS Code for development can use GitHub Codespaces.  
+        answer: Microsoft Dev Box supports Windows Subsystem for Linux (WSL) for Linux scenarios. This support enables users to use Linux environment alongside Windows tools. GitHub users who use VS Code for development can use GitHub Codespaces.  
 
-      - question: What to do when network connection health check fails?
-        answer: Dev Box service is built on top of Windows 365 Enterprise and uses the same [Azure network connection health checks](/windows-365/enterprise/health-checks). Such health checks can make sure that Dev Box provisioning is successful and end-user experiences are optimal. If you see the failure of health check, please click “view details” to see what causes the failure and address the issue from there. Most of the time it can be your network policy that blocks the following service URLs and ports [Network requirements for Windows 365](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#allow-network-connectivity).           
+      - question: What should I do when a network connection health check fails?
+        answer: Dev Box service is built on top of Windows 365 Enterprise and uses the same [Azure network connection health checks](/windows-365/enterprise/health-checks). Such health checks ensure that Dev Box provisioning is successful and end-user experiences are optimal. If a health check fails, select *view details* to see what is causing the failure and address the issue from there. For example, your network policy might block the following service URLs and ports [Network requirements for Windows 365](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#allow-network-connectivity).
+        
+      - question: Is there a policy or a feature to prevent users copying data or code from the Dev Box to their laptop using the clipboard? 
+        answer: You can prevent users copying data or code from the Dev Box to their local machine by disabling the clipboard redirection feature in the RDP client. You can manage this setting through a device configuration policy in Microsoft Intune. For more information, see [RDP device redirection settings](/windows-365/enterprise/manage-rdp-device-redirections#rdp-device-redirection-settings).
 
-  - name: Dev Box hibernation
-    questions:
-      - question: Can I use auto-stop schedules to hibernate Dev Boxes on a schedule? # Question.
-        answer: 
-          The ability to use auto-stop schedules to initiate hibernation is in Preview.
-
-      - question: I enabled hibernation on a Dev Box definition, but my Dev Box definition reports that hibernation couldn't be enabled. # Question.
-        answer: |
-          - We recommend using the Visual Studio for Dev Box marketplace images, either directly, or as base images for generating your custom image.
-          - The Windows + OS optimizations image contains optimized power settings, and they can't be used with hibernation.  
-          - If you're using a custom Azure Compute Gallery image, enable hibernation on your Azure Compute Gallery image before enabling hibernation on your Dev Box definition.
-          - If hibernation can't be enabled on the definition even after you enable it on your gallery image, your custom image likely has a Windows configuration that prevents hibernation. 
-
-            For more information, see [Settings not compatible with hibernation](how-to-configure-dev-box-hibernation.md#settings-not-compatible-with-hibernation).
 
 additionalContent: |
-    ## Next steps
+    ## Related content
 
-    To learn more, see [What is Microsoft Dev Box?](overview-what-is-microsoft-dev-box.md).
-
-
-    
-    
+    - [What is Microsoft Dev Box?](overview-what-is-microsoft-dev-box.md)
+    - [Microsoft Dev Box architecture overview](./concept-dev-box-architecture.md)

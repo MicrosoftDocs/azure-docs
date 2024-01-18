@@ -1,12 +1,12 @@
 ---
-title: Write messages to HBase with DataStream API
-description: Learn how to write messages to HBase with DataStream API
+title: Write messages to Apache HBase® with Apache Flink® DataStream API
+description: Learn how to write messages to Apache HBase with Apache Flink DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
-# Write messages to HBase with DataStream API
+# Write messages to Apache HBase® with Apache Flink® DataStream API
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -21,10 +21,10 @@ In a real world scenario, this example is a stream analytics layer to realize va
 
 ## Prerequisites
 
-* [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md) 
-* [HDInsight Kafka](../flink/process-and-consume-data.md)
-* [HDInsight HBase 2.4.11](../../hdinsight/hbase/apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
-  * You're required to make sure HDInsight on AKS Flink can connect to HDInsight HBase Master(zk), with same virtual network.
+* [Apache Flink cluster on HDInsight on AKS](../flink/flink-create-cluster-portal.md) 
+* [Apache Kafka cluster on HDInsight](../flink/process-and-consume-data.md)
+* [Apache HBase 2.4.11 clusteron HDInsight](../../hdinsight/hbase/apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
+  * You're required to ensure HDInsight on AKS cluster can connect to HDInsight cluster, with same virtual network.
 * Maven project on IntelliJ IDEA for development on an Azure VM in the same VNet
 
 ## Implementation Steps
@@ -91,7 +91,7 @@ if __name__ == "__main__":
     main()
 ```
 
-**Use pipeline to produce Kafka topic**
+**Use pipeline to produce Apache Kafka topic**
 
 We're going to use click_events for the Kafka topic
 ```
@@ -127,7 +127,7 @@ python weblog.py | /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh -
 .....
 ```
 
-**Create HBase table on HDInsight HBase**
+**Create HBase table on HDInsight cluster**
 
 ``` sql
 root@hn0-contos:/home/sshuser# hbase shell
@@ -394,3 +394,4 @@ Took 0.9531 seconds
 ## References
 * [Apache Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka)
 * [Download IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows)
+* Apache, Apache Kafka, Kafka, Apache HBase, HBase, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

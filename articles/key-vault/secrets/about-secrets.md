@@ -76,7 +76,7 @@ How-to guides to control access in Key Vault:
 - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../general/rbac-guide.md)
 
 ## Secret tags  
-You can specify more application-specific metadata in the form of tags. Key Vault supports up to 15 tags, each of which can have a 256 character name and a 256 character value.  
+You can specify more application-specific metadata in the form of tags. Key Vault supports up to 15 tags, each of which can have a 512 character name and a 512 character value.  
 
 >[!Note]
 >Tags are readable by a caller if they have the *list* or *get* permission.

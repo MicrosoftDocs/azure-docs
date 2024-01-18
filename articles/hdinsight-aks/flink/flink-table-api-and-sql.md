@@ -1,12 +1,12 @@
 ---
-title: Table API and SQL - HDInsight on AKS - Apache Flink
-description: Learn about Table API and SQL in HDInsight on AKS - Apache Flink
+title: Table API and SQL in Apache Flink® clusters on HDInsight on AKS
+description: Learn about Table API and SQL in Apache Flink® clusters on HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/27/2023
 ---
 
-# Table API and SQL in HDInsight on AKS - Apache Flink
+# Table API and SQL in Apache Flink® clusters on HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -20,7 +20,7 @@ Like other SQL engines, Flink queries operate on top of tables. It differs from 
 
 Flink data processing pipelines begin with source tables and end with sink tables. Source tables produce rows operated over during the query execution; they're the tables referenced in the *FROM* clause of a query. Connectors can be of type HDInsight Kafka, HDInsight HBase, Azure Event Hubs, databases, filesystems, or any other system whose connector lies in the classpath.
 
-## Using SQL Client in HDInsight on AKS - Flink
+## Using Flink SQL Client in HDInsight on AKS clusters
 
 You can refer this article on how to use CLI from [Secure Shell](./flink-web-ssh-on-portal-to-flink-sql.md) on Azure portal. Here are some quick samples of how to get started.
   
@@ -93,7 +93,7 @@ Write out to **Sink Table** from **Source Table**:
   GROUP BY grade;
 ```
 
-## Adding Dependencies for Apache Flink SQL
+## Adding Dependencies
 
 JAR statements are used to add user jars into the classpath or remove user jars from the classpath or show added jars in the classpath in the runtime.
 
@@ -121,7 +121,7 @@ Flink SQL> REMOVE JAR '/path/hello.jar';
 [INFO] The specified jar is removed from session classloader.
 ```
 
-## Hive Metastore in HDInsight on AKS - Flink
+## Hive Metastore in Apache Flink® clusters on HDInsight on AKS
 
 Catalogs provide metadata, such as databases, tables, partitions, views, and functions and information needed to access data stored in a database or other external systems. 
 
@@ -136,7 +136,7 @@ The *GenericInMemoryCatalog* is an in-memory implementation of a catalog. All th
 The *HiveCatalog* serves two purposes; as persistent storage for pure Flink metadata, and as an interface for reading and writing existing Hive metadata.
 
 > [!NOTE]
-> In HDInsight on AKS, Flink comes with an integrated option of Hive Metastore. You can opt for Hive Metastore during [cluster creation](../flink/flink-create-cluster-portal.md)
+> HDInsight on AKS clusters comes with an integrated option of Hive Metastore for Apache Flink. You can opt for Hive Metastore during [cluster creation](../flink/flink-create-cluster-portal.md)
 
 ## How to Create and Register Flink Databases to Catalogs
 
@@ -156,7 +156,7 @@ You can refer this article on how to use CLI and get started with Flink SQL Clie
     USE CATALOG myhive;
   ```
   > [!NOTE]
-  > HDInsight on AKS Flink supports **Hive 3.1.2** and **Hadoop 3.3.2**. The `hive-conf-dir` is set to location `/opt/hive-conf`
+  > HDInsight on AKS supports **Hive 3.1.2** and **Hadoop 3.3.2**. The `hive-conf-dir` is set to location `/opt/hive-conf`
   
 - Let us create Database in hive catalog and make it default for the session (unless changed).
   :::image type="content" source="./media/flink-table-sql-api/create-default-hive-catalog.png" alt-text="Screenshot showing creating database in hive catalog and making it default catalog for the session.":::
@@ -194,4 +194,8 @@ You can refer this article on how to use CLI and get started with Flink SQL Clie
   CREATE TABLE partitioned_hive_table(x int, days STRING) PARTITIONED BY (days) WITH ( 'connector' = 'hive', 'sink.partition-commit.delay'='1 s', 'sink.partition-commit.policy.kind'='metastore,success-file');
   ```
 > [!IMPORTANT]
-> There is a known limitation in Flink. The last ‘n’ columns are chosen for partitions, irrespective of user defined partition column. [FLINK-32596](https://issues.apache.org/jira/browse/FLINK-32596) The partition key will be wrong when use Flink dialect to create Hive table.
+> There is a known limitation in Apache Flink. The last ‘n’ columns are chosen for partitions, irrespective of user defined partition column. [FLINK-32596](https://issues.apache.org/jira/browse/FLINK-32596) The partition key will be wrong when use Flink dialect to create Hive table.
+
+### Reference
+- [Apache Flink Table API & SQL](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/dev/table/overview/#table-api--sql)
+- Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

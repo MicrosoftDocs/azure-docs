@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/storage/common/storage-failover-customer-managed-planned.md",
+            "redirect_url": "/articles/storage/common/storage-failover-customer-managed-unplanned",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/queues/storage-c-plus-plus-how-to-use-queues.md",
             "redirect_url": "/previous-versions/azure/storage/queues/storage-c-plus-plus-how-to-use-queues",
             "redirect_document_id": false
@@ -118,6 +123,11 @@
         {
             "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-storm.md",
             "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/static-website-content-delivery-network.md",
+            "redirect_url": "/azure/cdn/cdn-create-a-storage-account-with-cdn",
             "redirect_document_id": false
         },
         {

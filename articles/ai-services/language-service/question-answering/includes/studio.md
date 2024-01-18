@@ -4,7 +4,7 @@ description: You can create a question answering project from your own content, 
 ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: include
-ms.date: 06/06/2022
+ms.date: 12/19/2023
 ms.custom: ignite-fall-2021
 ---
 

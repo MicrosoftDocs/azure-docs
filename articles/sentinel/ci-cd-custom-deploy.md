@@ -166,7 +166,7 @@ Rather than passing parameters as inline values in your content files, consider 
 1. Is there a workspace-mapped parameter file? This would be a parameter file in the same directory as the content files that ends with *.parameters-\<WorkspaceID>.json*
 1. Is there a default parameter file? This would be any parameter file in the same directory as the content files that ends with *.parameters.json*
      
-It is encouraged to map your parameter files through through the configuration file or by specifying the workspace ID in the file name to avoid clashes in scenarios with multiple deployments.
+It is encouraged to map your parameter files through the configuration file or by specifying the workspace ID in the file name to avoid clashes in scenarios with multiple deployments.
 
 > [!IMPORTANT]
 > Once a parameter file match is determined based on the above mapping precedence, the pipeline will ignore any remaining mappings.

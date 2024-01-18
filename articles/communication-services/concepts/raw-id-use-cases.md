@@ -58,7 +58,7 @@ public void CommunicationIdentifierFromGetRawId()
 You can find more platform-specific examples in the following article: [Understand identifier types](./identifiers.md)
 
 ## Storing CommunicationIdentifier in a database
-One of the typical jobs that may be required from you is mapping ACS users to users coming from Contoso user database or identity provider. This is usually achieved by adding an extra column or field in Contoso user DB or Identity Provider. However, given the characteristics of the Raw ID (stable, globally unique, and deterministic), you may as well choose it as a primary key for the user storage.
+One of the typical jobs that may be required from you is mapping Azure Communication Services users to users coming from Contoso user database or identity provider. This is usually achieved by adding an extra column or field in Contoso user DB or Identity Provider. However, given the characteristics of the Raw ID (stable, globally unique, and deterministic), you may as well choose it as a primary key for the user storage.
 
 Assuming a `ContosoUser` is a class that represents a user of your application, and you want to save it along with a corresponding CommunicationIdentifier to the database. The original value for a `CommunicationIdentifier` can come from the Communication Identity, Calling or Chat APIs or from a custom Contoso API but can be represented as a `string` data type in your programming language no matter what the underlying type is:
 

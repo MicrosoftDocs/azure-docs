@@ -33,7 +33,7 @@ Currently, Azure Government Marketplace supports only the following offer types:
 - Virtual Machines > Bring your own license
 - Virtual Machines > Pay-as-you-go
 - Azure Application > Solution template / Managed app
-- Azure containers > Bring your own license
+- Azure containers (container images) > Bring your own license
 - IoT Edge modules > Bring your own license
 
 ## Publishing
@@ -112,3 +112,5 @@ Make sure that any virtual machine extensions your solution template relies on a
 
 - Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 - Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov) tag
+
+

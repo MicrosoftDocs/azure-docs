@@ -33,6 +33,7 @@ from azure.storage.blob import (
     ContainerClient,
     BlobClient,
     BlobSasPermissions,
+    ContainerSasPermissions,
     UserDelegationKey,
     generate_container_sas,
     generate_blob_sas

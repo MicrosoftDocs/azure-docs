@@ -68,6 +68,8 @@ landingContent:
             url: ./validated-partners/data-management/dobimigrate-quick-start-guide.md
           - text: Komprise getting started guide
             url: ./validated-partners/data-management/komprise-quick-start-guide.md
+          - text: Komprise tiering guide
+            url: ./validated-partners/data-management/komprise-tiering-guide.md
           - text: StorageX getting started guide
             url: ./validated-partners/data-management/storagex-quick-start-guide.md
           - text: Cirrus Data getting started guide
@@ -81,6 +83,8 @@ landingContent:
             url: .\validated-partners\primary-secondary-storage\partner-overview.md
           - text: ISV file services
             url: .\validated-partners\primary-secondary-storage\isv-file-services.md
+          - text: Nasuni getting started guide
+            url: ./validated-partners/primary-secondary-storage/nasuni-deployment-guide.md
           - text: Tiger Bridge getting started guide
             url: ./validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide.md
       

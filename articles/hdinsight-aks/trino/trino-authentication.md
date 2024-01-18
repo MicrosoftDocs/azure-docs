@@ -3,14 +3,14 @@ title: Client authentication
 description: How to authenticate to Trino cluster
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ---
 
 # Authentication mechanism
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-Azure HDInsight on AKS Trino provides tools such as CLI client, JDBC driver etc., to access the cluster, which is integrated with Microsoft Entra ID to simplify the authentication for users.
+Trino with HDInsight on AKS provides tools such as CLI client, JDBC driver etc., to access the cluster, which is integrated with Microsoft Entra ID to simplify the authentication for users.
 Supported tools or clients need to authenticate using Microsoft Entra ID OAuth2 standards that are, a JWT access token issued by Microsoft Entra ID must be provided to the cluster endpoint.
 
 This section describes common authentication flows supported by the tools.

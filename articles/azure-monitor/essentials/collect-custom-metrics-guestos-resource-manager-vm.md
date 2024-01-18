@@ -22,7 +22,6 @@ If you're new to ARM templates, learn about [template deployments](../../azure-r
 
 - Your subscription must be registered with [Microsoft.Insights](../../azure-resource-manager/management/resource-providers-and-types.md).
 - You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](../../cloud-shell/overview.md) installed.
-- Your VM resource must be in a [region that supports custom metrics](./metrics-custom-overview.md#supported-regions).
 
 ## Set up Azure Monitor as a data sink
 The Azure Diagnostics extension uses a feature called *data sinks* to route metrics and logs to different locations. The following steps show how to use an ARM template and PowerShell to deploy a VM by using the new Azure Monitor data sink.
@@ -263,7 +262,7 @@ To deploy the ARM template, we use Azure PowerShell.
 
 1. On the **Monitor** page, select **Metrics**.
 
-   ![Screenshot that shows the Metrics page.](media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png)
+   :::image type="content" source="media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png" lightbox="media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png" alt-text="Screenshot that shows the Metrics page.":::
 
 1. Change the aggregation period to **Last 30 minutes**.
 

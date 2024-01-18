@@ -5,8 +5,8 @@ author: anraghun
 ms.author: anraghun
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 08/31/2023
-ms.custom: template-tutorial
+ms.date: 11/23/2023
+ms.custom: template-tutorial, engagement-fy24
 ---
 
 # Modernize ASP.NET web apps to Azure Kubernetes Service (preview)
@@ -58,7 +58,7 @@ Once the web apps are assessed, you can migrate them using the integrated migrat
 
 ### Choose from discovered apps
 
-In **Replicate** > **Web apps**, a paged list of discovered ASP.NET apps discovered on your environment is shown.
+In **Replicate** > **Web apps**, you can see a list of ASP.NET apps discovered on your environment.
 
 :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-web-apps-list.png" alt-text="Screenshot of the Web apps tab on the Replicate tab.":::
 
@@ -74,22 +74,25 @@ In **Replicate** > **Web apps**, a paged list of discovered ASP.NET apps discove
 
 5. Select **Next**.
 
+> [!NOTE]
+> The source path and the attribute value of App configurations and App directories together must be under 3000 characters in length. This can roughly be translated to around 15 entries (inclusive of both configurations and directories) of character length of about 200 each.
+
 ### Configure target settings
 
-In **Replicate** > **Target settings**, settings are provided to configure the target where the applications will be migrated to.
+In **Replicate** > **Target settings**, you can configure the target where the applications will be migrated to.
 
 :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-target-settings.png" alt-text="Screenshot of the Target settings tab on the Replicate tab.":::
 
-1. Choose the subscription, resource group, and container registry resource to which the app container images should be pushed to.
+1. Choose the subscription, resource group, and container registry resource to which the app container images should be pushed.
 2. Choose the subscription, resource group, and AKS cluster resource on which the app should be deployed.
 3. Select **Next**.
 
 > [!NOTE]
-> Only AKS clusters with windows nodes are listed.
+> Only AKS clusters with Windows nodes are listed.
 
 ### Configure deployment settings
 
-In **Replicate** > **Deployment settings**, settings are provided to configure the application on the AKS cluster.
+In **Replicate** > **Deployment settings**, you can configure the application on the AKS cluster.
 
 :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-deployment-settings.png" alt-text="Screenshot of the Deployment settings tab on the Replicate tab.":::
 

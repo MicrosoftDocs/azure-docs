@@ -2,29 +2,29 @@
 title: Onboard with PowerShell
 description: This document walks you through the process of enabling Microsoft Defender for Cloud with PowerShell cmdlets.
 ms.topic: quickstart
-ms.date: 01/24/2023
+ms.date: 01/04/2024
 ms.custom: mode-api, ignite-2022, devx-track-azurepowershell
 ---
 
-# Quickstart: Automate onboarding of Microsoft Defender for Cloud using PowerShell
+# Automate onboarding of Microsoft Defender for Cloud using PowerShell
 
 You can secure your Azure workloads programmatically, using the Microsoft Defender for Cloud PowerShell module. Using PowerShell enables you to automate tasks and avoid the human error inherent in manual tasks. This is especially useful in large-scale deployments that involve dozens of subscriptions with hundreds and thousands of resources, all of which must be secured from the beginning.
 
 Onboarding Microsoft Defender for Cloud using PowerShell enables you to programmatically automate onboarding and management of your Azure resources and add the necessary security controls.
 
-This article provides a sample PowerShell script that can be modified and used in your environment to roll out Defender for Cloud across your subscriptions. 
+This article provides a sample PowerShell script that can be modified and used in your environment to roll out Defender for Cloud across your subscriptions.
 
 In this example, we'll enable Defender for Cloud on a subscription with ID: d07c0080-170c-4c24-861d-9c817742786c and apply the recommended settings that provide a high level of protection, by enabling Microsoft Defender for Cloud's enhanced security features, which provides advanced threat protection and detection capabilities:
 
 1. Enable [the enhanced security in Microsoft Defender for Cloud](enable-enhanced-security.md).
- 
-2. Set the Log Analytics workspace to which the Log Analytics agent will send the data it collects on the VMs associated with the subscription – in this example, an existing user defined workspace (myWorkspace).
 
-3. Activate Defender for Cloud’s automatic agent provisioning, which [deploys the Log Analytics agent](working-with-log-analytics-agent.md).
+1. Set the Log Analytics workspace to which the Log Analytics agent will send the data it collects on the VMs associated with the subscription – in this example, an existing user defined workspace (myWorkspace).
 
-5. Set the organization’s [CISO as the security contact for Defender for Cloud alerts and notable events](configure-email-notifications.md).
+1. Activate Defender for Cloud’s automatic agent provisioning, which [deploys the Log Analytics agent](working-with-log-analytics-agent.md).
 
-6. Assign Defender for Cloud’s [default security policies](tutorial-security-policy.md).
+1. Set the organization’s [CISO as the security contact for Defender for Cloud alerts and notable events](configure-email-notifications.md).
+
+1. Assign Defender for Cloud’s [default security policies](tutorial-security-policy.md).
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ These steps should be performed before you run the Defender for Cloud cmdlets:
 1. Run PowerShell as admin.
 
 1. Run the following commands in PowerShell:
-      
+
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy AllSigned
     ```
@@ -71,11 +71,11 @@ These steps should be performed before you run the Defender for Cloud cmdlets:
     ```
 
 1. Auto-provision installation of the Log Analytics agent on your Azure VMs:
-    
+
     ```powershell
     Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
     ```
-    
+
     ```powershell
     Set-AzSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision
     ```
@@ -97,19 +97,17 @@ These steps should be performed before you run the Defender for Cloud cmdlets:
     ```
 
     ```powershell
-    $Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Azure Security Benchmark'} 
+    $Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Microsoft cloud security benchmark'} 
 
-    New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Defender for Cloud Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
+    New-AzPolicyAssignment -Name 'Microsoft cloud security benchmark' -PolicySetDefinition $Policy -Scope '/subscriptions/$($Subscription.Id)'
     ```
 
 You've successfully onboarded Microsoft Defender for Cloud with PowerShell.
 
 You can now use these PowerShell cmdlets with automation scripts to programmatically iterate across subscriptions and resources. This saves time and reduces the likelihood of human error. You can use this [sample script](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) as reference.
 
-
-
-
 ## See also
+
 To learn more about how you can use PowerShell to automate onboarding to Defender for Cloud, see the following article:
 
 * [Az.Security](/powershell/module/az.security)

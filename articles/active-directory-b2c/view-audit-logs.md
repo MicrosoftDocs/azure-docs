@@ -2,17 +2,21 @@
 title: Access and review audit logs
 titleSuffix: Azure AD B2C
 description: How to access Azure AD B2C audit logs programmatically and in the Azure portal.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
 ms.topic: how-to
-ms.workload: identity
-ms.date: 06/08/2022
+
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to access and view the audit logs for my B2C tenant, so that I can monitor activity, track user sign-ins, and troubleshoot any issues related to B2C resources and applications.
+
 ---
 
 # Accessing Azure AD B2C audit logs

@@ -1,12 +1,12 @@
 ---
-title: Table API and SQL - Use Delta Catalog type with Hive in HDInsight on AKS - Apache Flink
-description: Learn about how to create Apache Flink-Delta Catalog in HDInsight on AKS - Apache Flink
+title: Table API and SQL - Use Delta Catalog type with Hive with Apache Flink® on Azure HDInsight on AKS
+description: Learn about how to create Delta Catalog with Apache Flink® on Azure HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
-# Create Apache Flink-Delta Catalog
+# Create Delta Catalog with Apache Flink® on Azure HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -82,3 +82,8 @@ We use arrival data of flights from a sample data, you can choose a table of you
 You can view the Delta Table output on the ABFS container
 
 :::image type="content" source="media/flink-catalog-delta-hive/flink-catalog-delta-hive-output.png" alt-text="Screenshot showing output of the delta table in ABFS.":::
+
+### Reference
+
+- [Apache Flink Website](https://flink.apache.org/)
+- Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

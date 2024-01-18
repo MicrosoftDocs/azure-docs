@@ -11,7 +11,7 @@ This article describes how to post an event to a custom topic using an access ke
 
 
 > [!NOTE]
-> Microsoft Entra authentication provides a superior authentication support than that's offered by access key or Shared Access Signature (SAS) token authentication. With Microsoft Entra authentication, the identity is validated against Microsoft Entra identity provider. As a developer, you won't have to handle keys in your code if you use Microsoft Entra authentication. you'll also benefit from all security features built into the Microsoft identity platform, such as Conditional Access, that can help you improve your application's security stance. For more information, see [Authenticate publishing clients using Microsoft Entra ID](authenticate-with-active-directory.md).
+> Microsoft Entra authentication provides a superior authentication support than that's offered by access key or Shared Access Signature (SAS) token authentication. With Microsoft Entra authentication, the identity is validated against Microsoft Entra identity provider. As a developer, you won't have to handle keys in your code if you use Microsoft Entra authentication. you'll also benefit from all security features built into the Microsoft identity platform, such as Conditional Access, that can help you improve your application's security stance. For more information, see [Authenticate publishing clients using Microsoft Entra ID](authenticate-with-microsoft-entra-id.md).
 
 ## Endpoint
 

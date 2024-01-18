@@ -67,7 +67,7 @@ If the policy hasn't been assigned, you'll see `Assignments (0)`.
 If the policy has already been assigned to a workspace, you'll see `Assignments (1)`. 
 
 > [!NOTE]
-> If you have more than one subscription the number may be higher. If you have a number 1 or higher, the assignment may still not be on the relevant scope. If this is the case, you will want to follow the [Create a new assignment with custom workspace](#create-a-new-assignment-with-custom-workspace) steps.
+> If you have more than one subscription the number might be higher. If you have a number 1 or higher, the assignment might still not be on the relevant scope. If this is the case, you will want to follow the [Create a new assignment with custom workspace](#create-a-new-assignment-with-custom-workspace) steps.
 
 :::image type="content" source="../media/defender-for-containers/already-assigned-arc.png" alt-text="Screenshot that shows Assignment (1), meaning a workspace has already been assigned for Arc." lightbox="../media/defender-for-containers/already-assigned-arc.png":::
 

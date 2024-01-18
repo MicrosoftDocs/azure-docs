@@ -5,8 +5,9 @@ metadata:
   author: roygara
   ms.service: azure-disk-storage
   ms.topic: faq
-  ms.date: 05/04/2023
+  ms.date: 10/20/2023
   ms.author: rogarana
+  ms.custom: references_regions
 title: Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
 summary: This article answers some frequently asked questions about Azure Managed Disks and Azure Premium SSD disks.
 
@@ -142,6 +143,11 @@ sections:
           Can I attach a disk to a VM in another region?
         answer: |
           No. All managed disks, even shared disks, must be in the same region as the VM they are attaching to.
+
+      - question: |
+          For Premium SSD v2, the Azure pricing calculator gives me different pricing?
+        answer: |
+          Premium SSD v2 provides a baseline performance of 3,000 IOPS and 125 MB/s for any size that is offered at no additional cost. Currently, for the following regions, the pricing calculator has an incorrect price. Until the pricing calculator is corrected, deduct 3000IOPS from target IOPS and 125MB/s for target bandwidth for these regions to correctly estimate the cost: North Central US, West Central US, West US, UK West, UAE Central, UAE North, Switzerland North, Switzerland West, Sweden South, Korea Central, Korea South, Japan East, Japan West, Italy North, Central India, South India, Germany North, Germany West Central, France Central, Canada Central, Canada East, Brazil South, US GOV Arizona, US GOV Virginia, Australia Central, Australia Central 2, Australia Southeast, South Africa North, South Arica West.
 
   - name: Snapshots
     questions:

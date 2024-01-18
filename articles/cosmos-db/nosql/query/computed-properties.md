@@ -60,13 +60,15 @@ The constraints on computed property names are:
 
 Queries in the computed property definition must be valid syntactically and semantically, otherwise the create or update operation fails. Queries should evaluate to a deterministic value for all items in a container. Queries may evaluate to undefined or null for some items, and computed properties with undefined or null values behave the same as persisted properties with undefined or null values when used in queries.
 
-The constraints on computed property query definitions are:
+The limitations on computed property query definitions are:
 
-- Queries must specify a FROM clause that represents the root item reference. Examples of supported FROM clauses are `FROM c`, `FROM root c`, and `FROM MyContainer c`.
+- Queries must specify a FROM clause that represents the root item reference. Examples of supported FROM clauses are: `FROM c`, `FROM root c`, and `FROM MyContainer c`.
 - Queries must use a VALUE clause in the projection.
-- Queries can't use any of the following clauses: WHERE, GROUP BY, ORDER BY, TOP, DISTINCT, OFFSET LIMIT, EXISTS, ALL, and NONE.
+- Queries can't include a JOIN.
+- Queries can't use non-deterministic Scalar expressions. Examples of non-deterministic scalar expressions are: GetCurrentDateTime, GetCurrentTimeStamp, GetCurrentTicks, and RAND.
+- Queries can't use any of the following clauses: WHERE, GROUP BY, ORDER BY, TOP, DISTINCT, OFFSET LIMIT, EXISTS, ALL, LAST, FIRST, and NONE.
 - Queries can't include a scalar subquery.
-- Aggregate functions, spatial functions, nondeterministic functions, and user defined functions aren't supported.
+- Aggregate functions, spatial functions, nondeterministic functions, and user defined functions (UDFs) aren't supported.
 
 ## Create computed properties
 
@@ -303,6 +305,15 @@ There are a few considerations for indexing computed properties, including:
 
 > [!NOTE]
 > All computed properties are defined at the top level of the item. The path is always `/<computed property name>`.
+
+> [!TIP]
+> Every time you update container properties, the old values are overwritten. If you have existing computed properties and want to add new ones, be sure that you add both new and existing computed properties to the collection.
+
+>![NOTE]
+> When the definition of an indexed computed property is modified, it's not automatically reindexed. To index the modified computed property, you'll first need to drop the computed property from the index. Then after the reindexing is completed, add the computed property back to the index policy.
+>
+> If you want to delete a computed property, you'll first need to remove it from the index policy.
+
 
 ### Add a single index for computed properties
 

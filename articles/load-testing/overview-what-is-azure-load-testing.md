@@ -47,6 +47,8 @@ By [using JMeter plugins](./how-to-use-jmeter-plugins.md) in your test script, y
 
 With the quick test experience you can [test a single URL-based HTTP endpoint](./quickstart-create-and-run-load-test.md). By [uploading a JMeter script](how-to-create-and-run-load-test-with-jmeter-script.md), you can use all JMeter-supported communication protocols.
 
+Azure Load Testing currently does not support other testing frameworks than Apache JMeter.
+
 ## Identify performance bottlenecks by using high-scale load tests
 
 Performance problems often remain undetected until an application is under load. You can start a high-scale load test in the Azure portal to learn sooner how your application behaves under stress. While the test is running, the Azure Load Testing dashboard provides a live update of the client and server-side metrics.

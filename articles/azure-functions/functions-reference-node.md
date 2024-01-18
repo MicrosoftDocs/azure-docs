@@ -4,7 +4,8 @@ description: Understand how to develop functions by using Node.js.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 04/17/2023
-ms.devlang: javascript, typescript
+ms.devlang: javascript
+# ms.devlang: javascript, typescript
 ms.custom: devx-track-js, vscode-azure-extension-update-not-needed
 zone_pivot_groups: functions-nodejs-model
 ---
@@ -269,7 +270,25 @@ export default httpTrigger;
 
 ::: zone pivot="nodejs-model-v4"
 
-The programming model loads your functions based on the `main` field in your `package.json`. This field can be set to a single file like `src/index.js` or a [glob pattern](https://wikipedia.org/wiki/Glob_(programming)) specifying multiple files like `src/functions/*.js`.
+The programming model loads your functions based on the `main` field in your `package.json`. You can set the `main` field to a single file or multiple files by using a [glob pattern](https://wikipedia.org/wiki/Glob_(programming)). The following table shows example values for the `main` field:
+
+# [JavaScript](#tab/javascript)
+
+| Example | Description |
+| --- | --- |
+| **`src/index.js`** | Register functions from a single root file. |
+| **`src/functions/*.js`** | Register each function from its own file. |
+| **`src/{index.js,functions/*.js}`** | A combination where you register each function from its own file, but you still have a root file for general app-level code. |
+
+# [TypeScript](#tab/typescript)
+
+| Example | Description |
+| --- | --- |
+| **`dist/src/index.js`** | Register functions from a single root file. |
+| **`dist/src/functions/*.js`** | Register each function from its own file. |
+| **`dist/src/{index.js,functions/*.js}`** | A combination where you register each function from its own file, but you still have a root file for general app-level code. |
+
+---
 
 In order to register a function, you must import the `app` object from the `@azure/functions` npm module and call the method specific to your trigger type. The first argument when registering a function is the function name. The second argument is an `options` object specifying configuration for your trigger, your handler, and any other inputs or outputs. In some cases where trigger configuration isn't necessary, you can pass the handler directly as the second argument instead of an `options` object.
 
@@ -1742,13 +1761,29 @@ When you develop Azure Functions in the serverless hosting model, cold starts ar
 
 When you use a service-specific client in an Azure Functions application, don't create a new client with every function invocation because you can hit connection limits. Instead, create a single, static client in the global scope. For more information, see [managing connections in Azure Functions](manage-connections.md).
 
-::: zone pivot="nodejs-model-v3"
 
 ### Use `async` and `await`
 
 When writing Azure Functions in Node.js, you should write code using the `async` and `await` keywords. Writing code using `async` and `await` instead of callbacks or `.then` and `.catch` with Promises helps avoid two common problems:
  - Throwing uncaught exceptions that [crash the Node.js process](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), potentially affecting the execution of other functions.
  - Unexpected behavior, such as missing logs from `context.log`, caused by asynchronous calls that aren't properly awaited.
+
+::: zone pivot="nodejs-model-v4"
+
+In the following example, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues previously mentioned. An exception that isn't explicitly caught in the correct scope can crash the entire process (issue #1). Returning without ensuring the callback finishes means the http response will sometimes have an empty body (issue #2).
+
+# [JavaScript](#tab/javascript)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerBadAsync.js" :::
+
+# [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerBadAsync.ts" :::
+
+---
+
+::: zone-end
+::: zone pivot="nodejs-model-v3"
 
 In the following example, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues previously mentioned. An exception that isn't explicitly caught in the correct scope can crash the entire process (issue #1). Calling the deprecated `context.done()` method outside of the scope of the callback can signal the function is finished before the file is read (issue #2). In this example, calling `context.done()` too early results in missing log entries starting with `Data from file:`.
 
@@ -1799,9 +1834,28 @@ export default trigger1;
 
 ---
 
+::: zone-end
+
 Use the `async` and `await` keywords to help avoid both of these issues. Most APIs in the Node.js ecosystem have been converted to support promises in some form. For example, starting in v14, Node.js provides an `fs/promises` API to replace the `fs` callback API.
 
-In the following example, any unhandled exceptions thrown during the function execution only fail the individual invocation that raised the exception. The `await` keyword means that steps following `readFile` only execute after it's complete. With `async` and `await`, you also don't need to call the `context.done()` callback.
+In the following example, any unhandled exceptions thrown during the function execution only fail the individual invocation that raised the exception. The `await` keyword means that steps following `readFile` only execute after it's complete.
+
+::: zone pivot="nodejs-model-v4"
+
+# [JavaScript](#tab/javascript)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerGoodAsync.js" :::
+
+# [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerGoodAsync.ts" :::
+
+---
+
+::: zone-end
+::: zone pivot="nodejs-model-v3"
+
+With `async` and `await`, you also don't need to call the `context.done()` callback.
 
 # [JavaScript](#tab/javascript)
 

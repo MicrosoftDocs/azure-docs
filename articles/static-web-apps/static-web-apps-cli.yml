@@ -449,7 +449,7 @@ directCommands:
   - name: --help, -h
     summary: Display help for command.
 globalParameters:
-- name: --version, v
+- name: --version, -v
   summary: Display the version number.
 - name: --verbose, --V [level]
   summary: Enable verbose output. Level values include `silly`, `info`, `log` (default), and `silent`.

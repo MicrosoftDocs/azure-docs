@@ -98,7 +98,7 @@ After you validate your custom domain, you can associate it to your Azure Front 
 
     :::image type="content" source="../media/how-to-add-custom-domain/add-update-cname-record.png" alt-text="Screenshot of add or update CNAME record.":::
 
-1. Once the CNAME record gets created and the custom domain is associated to the Azure Front Door endpoint completes, traffic flow starts flowing.
+1. Once the CNAME record gets created and the custom domain is associated to the Azure Front Door endpoint, traffic starts flowing.
 
     > [!NOTE]
     > * If HTTPS is enabled, certificate provisioning and propagation may take a few minutes because propagation is being done to all edge locations.
@@ -114,4 +114,6 @@ Lastly, validate that your application content is getting served using a browser
 
 ## Next steps
 
-Learn how to [enable HTTPS for your custom domain](how-to-configure-https-custom-domain.md).
+* Learn how to [enable HTTPS for your custom domain](how-to-configure-https-custom-domain.md).
+* Learn more about [custom domains in Azure Front Door](../domain.md).
+* Learn about [End-to-end TLS with Azure Front Door](../end-to-end-tls.md).

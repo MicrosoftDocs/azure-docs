@@ -6,15 +6,15 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: infrastructure nodes, aro, deploy, openshift, red hat
 ms.topic: how-to
-ms.date: 09/30/2023
+ms.date: 11/27/2023
 ms.custom: template-how-to
 ---
 
 # Deploy infrastructure nodes in an Azure Red Hat OpenShift (ARO) cluster
 
-ARO allows you to use infrastructure machine sets to create machines that only host infrastructure components, such as the default router, the integrated container registry, and the components for cluster metrics and monitoring. These infrastructure machines aren't counted toward the total number of subscriptions that are required to run the environment.
+ARO allows you to use infrastructure machine sets to create machines that only host infrastructure components, such as the default router, the integrated container registry, and the components for cluster metrics and monitoring. These infrastructure machines don't incur OpenShift costs; they only incur Azure Compute costs.
 
-In a production deployment, it's recommended that you deploy at least three machine sets to hold infrastructure components. Each of these nodes can be deployed to different availability zones to increase availability. This type of configuration requires three different machines sets; one for each availability zone.
+In a production deployment, it's recommended that you deploy three machine sets to hold infrastructure components. Each of these nodes can be deployed to different availability zones to increase availability. This type of configuration requires three different machines sets; one for each availability zone.
 
 ## Qualified workloads
 
@@ -43,6 +43,9 @@ In order for Azure VMs added to an ARO cluster to be recognized as infrastructur
     - Standard_E4s_v5
     - Standard_E8s_v5
     - Standard_E16s_v5
+    - Standard_E4as_v5
+    - Standard_E8as_v5
+    - Standard_E16as_v5
     
 - There can be no more than three nodes. Any additional nodes are charged an OpenShift fee.
 

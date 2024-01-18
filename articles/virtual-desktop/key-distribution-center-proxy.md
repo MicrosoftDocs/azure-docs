@@ -1,6 +1,6 @@
 ---
 title: Set up Kerberos Key Distribution Center proxy Azure Virtual Desktop - Azure
-description: How to set up a Azure Virtual Desktop host pool to use a Kerberos Key Distribution Center proxy.
+description: How to set up an Azure Virtual Desktop host pool to use a Kerberos Key Distribution Center proxy.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 05/04/2021
@@ -9,7 +9,7 @@ manager: femila
 ---
 # Configure a Kerberos Key Distribution Center proxy
 
-Security-conscious customers, such as financial or government organizations, often sign in using Smartcards. Smartcards make deployments more secure by requiring multifactor authentication (MFA). However, for the RDP portion of a Azure Virtual Desktop session, Smartcards require a direct connection, or "line of sight," with an Active Directory (AD) domain controller for Kerberos authentication. Without this direct connection, users can't automatically sign in to the organization's network from remote connections. Users in a Azure Virtual Desktop deployment can use the KDC proxy service to proxy this authentication traffic and sign in remotely. The KDC proxy allows for authentication for the Remote Desktop Protocol of a Azure Virtual Desktop session, letting the user sign in securely. This makes working from home much easier, and allows for certain disaster recovery scenarios to run more smoothly.
+Security-conscious customers, such as financial or government organizations, often sign in using Smartcards. Smartcards make deployments more secure by requiring multifactor authentication (MFA). However, for the RDP portion of an Azure Virtual Desktop session, Smartcards require a direct connection, or "line of sight," with an Active Directory (AD) domain controller for Kerberos authentication. Without this direct connection, users can't automatically sign in to the organization's network from remote connections. Users in an Azure Virtual Desktop deployment can use the KDC proxy service to proxy this authentication traffic and sign in remotely. The KDC proxy allows for authentication for the Remote Desktop Protocol of an Azure Virtual Desktop session, letting the user sign in securely. This makes working from home much easier, and allows for certain disaster recovery scenarios to run more smoothly.
 
 However, setting up the KDC proxy typically involves assigning the Windows Server Gateway role in Windows Server 2016 or later. How do you use a Remote Desktop Services role to sign in to Azure Virtual Desktop? To answer that, let's take a quick look at the components.
 
@@ -22,7 +22,7 @@ This article will show you how to configure the feed in the Azure Virtual Deskto
 
 ## Requirements
 
-To configure a Azure Virtual Desktop session host with a KDC proxy, you'll need the following things:
+To configure an Azure Virtual Desktop session host with a KDC proxy, you'll need the following things:
 
 - Access to the Azure portal and an Azure administrator account.
 - The remote client machines must be running at least Windows 10 and have the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installed. The web client isn't currently supported.

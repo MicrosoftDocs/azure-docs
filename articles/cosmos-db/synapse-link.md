@@ -114,7 +114,7 @@ Azure Synapse Link isn't recommended if you're looking for traditional data ware
 
 * Although analytical store data isn't backed up, and therefore can't be restored, you can rebuild your analytical store by reenabling Azure Synapse Link in the restored container. Check the [analytical store documentation](analytical-store-introduction.md) for more information.
 
-* The capability to turn on Synapse Link in database accounts with continuous backup enabled is in preview now. The opposite situation, to turn on continuous backup in Synapse Link enabled database accounts, is still not supported yet.
+* The capability to turn on Synapse Link in database accounts with continuous backup enabled is available now. But the opposite situation, to turn on continuous backup in Synapse Link enabled database accounts, is still not supported yet.
 
 * Granular role-based access control isn't supported when querying from Synapse. Users that have access to your Synapse workspace and have access to the Azure Cosmos DB account can access all containers within that account. We currently don't support more granular access to the containers.
 

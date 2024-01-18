@@ -112,7 +112,7 @@ Most Azure services will send [platform metrics](essentials/data-platform-metric
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Metrics | Platform metrics will write to the Azure Monitor metrics database with no configuration. Access platform metrics from Metrics Explorer.  | [Getting started with Azure Metrics Explorer](essentials/metrics-getting-started.md)<br>[Supported metrics with Azure Monitor](essentials/metrics-supported.md) |
+| Azure Monitor Metrics | Platform metrics will write to the Azure Monitor metrics database with no configuration. Access platform metrics from Metrics Explorer.  | [Analyze metrics with Azure Monitor metrics explorer](essentials/analyze-metrics.md) <br>[Supported metrics with Azure Monitor](essentials/metrics-supported.md) |
 | Azure Monitor Logs | Copy platform metrics to Logs for trending and other analysis using Log Analytics. | [Azure diagnostics direct to Log Analytics](essentials/resource-logs.md#send-to-log-analytics-workspace) |
 | Azure Monitor Change Analysis | Change Analysis detects various types of changes, from the infrastructure layer through application deployment. | [Use Change Analysis in Azure Monitor](./change/change-analysis.md) |
 | Event Hubs | Stream metrics to other locations using Event Hubs. |[Stream Azure monitoring data to an event hub for consumption by an external tool](essentials/stream-monitoring-data-event-hubs.md) |

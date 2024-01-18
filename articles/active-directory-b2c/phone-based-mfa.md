@@ -2,16 +2,20 @@
 title: Securing phone-based MFA in Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn tips for securing phone-based multifactor authentication in your Azure AD B2C tenant by using Azure Monitor Log Analytics reports and alerts. Use our workbook to identify fraudulent phone authentications and mitigate fraudulent sign-ups. =
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
 ms.topic: how-to
-ms.workload: identity
-ms.date: 09/20/2021
+
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to monitor phone authentication failures and mitigate fraudulent sign-ups, so that I can protect against malicious use of the telephony service and ensure a secure authentication process.
 
 ---
 # Securing phone-based multifactor authentication
@@ -92,8 +96,7 @@ Take the following actions to help mitigate fraudulent sign-ups.
 - Remove country codes that aren't relevant to your organization from the drop-down menu where the user verifies their phone number (this change will apply to future sign-ups):
     
    1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of your Azure AD B2C tenant.
-   1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-   1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+   1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
    1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
    1. Select the user flow, and then select **Languages**. Select the language for your organization's geographic location to open the language details panel. (For this example, we'll select **English en** for the United States). Select **Multifactor authentication page**, and then select **Download defaults (en)**.
  

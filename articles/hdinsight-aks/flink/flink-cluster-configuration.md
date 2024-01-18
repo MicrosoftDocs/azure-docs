@@ -1,12 +1,12 @@
 ---
-title: Flink cluster configuration - HDInsight on AKS - Apache Flink
-description: Learn Flink cluster configuration troubleshoot in HDInsight on AKS - Apache Flink
+title: Troubleshoot Apache Flink® on HDInsight on AKS
+description: Learn to troubleshoot Apache Flink® cluster configurations on HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: troubleshooting
 ms.date: 09/26/2023
 ---
 
-# Troubleshoot Flink cluster configuration
+# Troubleshoot Apache Flink® cluster configurations on HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -42,12 +42,15 @@ Some of the errors may occur due to environment conditions and be transient. The
 
    - Detailed error message. 
 
-1. Contact support team with this information. 
+1. Contact [support team](../hdinsight-aks-support-help.md) with this information. 
 
 | Error code | Description |
 |---|---|
 | System.DependencyFailure | Failure in one of cluster components. |
 
+### Reference
 
+- [Apache Flink Website](https://flink.apache.org/)
+- Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
 
 

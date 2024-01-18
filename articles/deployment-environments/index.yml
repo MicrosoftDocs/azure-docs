@@ -5,15 +5,18 @@ summary: Learn how to configure self-serve environments that developers can use 
 
 metadata:
   title: Azure Deployment Environments documentation
-  description: Learn how to configure self-serve environments that developers can use to deploy their code with Azure Deployment Environments. Tutorials, quickstarts, how-to guides, and more. 
+  description: Learn how to configure self-serve environments that developers can use to deploy their code with Azure Deployment Environments. Tutorials, quickstarts, how-to guides, and more.
   services: deployment-environments
   ms.service: deployment-environments
-  ms.custom: ignite-2022, build-2023
+  ms.custom:
+    - ignite-2022
+    - build-2023
+    - ignite-2023
   ms.topic: landing-page
   ms.collection: collection
   ms.author: rosemalcolm
   author: RoseHJM
-  ms.date: 05/05/2023
+  ms.date: 10/28/2023
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -40,6 +43,10 @@ landingContent:
             url: quickstart-create-and-configure-projects.md
           - text: 'Create & access environments'
             url: quickstart-create-access-environments.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an environment with Azure Developer CLI
+            url: how-to-create-environment-with-azure-developer.md  
   
   # Card
   - title: Configure the Deployment Environments service
@@ -64,11 +71,23 @@ landingContent:
             url: how-to-configure-project-environment-types.md
 
   # Card
+  - title: Configure Deployment Environments from the CLI
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create and configure a dev center 
+            url: how-to-create-configure-dev-center.md
+          - text: Create and configure a project 
+            url: how-to-create-configure-projects.md
+          - text: Create environments
+            url: how-to-create-access-environments.md
+        
+  # Card
   - title: Provide access to create and manage environments
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Provide access to dev center project admin
             url: how-to-configure-project-admin.md
-          - text: Provide access to create environments
+          - text: Grant access to create environments
             url: how-to-configure-deployment-environments-user.md

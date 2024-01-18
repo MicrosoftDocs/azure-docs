@@ -379,7 +379,7 @@ Here are the steps to create the pipeline:
 
 1. Confirm that the data was copied to the target Azure Synapse Analytics you used in this tutorial. 
 
-## Next steps
+## Related content
 You performed the following steps in this tutorial: 
 
 > [!div class="checklist"]
