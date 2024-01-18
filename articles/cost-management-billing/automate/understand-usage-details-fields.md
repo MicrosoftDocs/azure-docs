@@ -69,7 +69,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | MeterCategory | All | Name of the classification category for the meter. For example, _Cloud services_ and _Networking_. Purchases and Marketplace usage might be shown as blank or `unassigned`. |
 | MeterId¹ | All | The unique identifier for the meter. |
 | MeterName | All | The name of the meter. Purchases and Marketplace usage might be shown as blank or `unassigned`.|
-| MeterRegion | All | Name of the datacenter location for services priced based on location. See Location. |
+| MeterRegion | All | Name of the datacenter location for services priced based on location. See `Location`. |
 | MeterSubCategory | All | Name of the meter subclassification category. Purchases and Marketplace usage might be shown as blank or `unassigned`.|
 | OfferId¹ | All | Name of the offer purchased. |
 | pay-as-you-goPrice² ³| All | The market price, also referred to as retail or list price, for a given product or service. |

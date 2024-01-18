@@ -150,7 +150,7 @@ Keep in mind that if you have an underutilized reservation, the _UnusedReservati
 
 ## Reservation purchases and amortization in cost analysis
 
-Reservation costs are available in [cost analysis](https://aka.ms/costanalysis). By default, cost analysis shows **Actual cost**, which is how costs will be shown on your bill. To view reservation purchases broken down and associated with the resources which used the benefit, switch to **Amortized cost**:
+Reservation costs are available in [cost analysis](https://aka.ms/costanalysis). By default, cost analysis shows **Actual cost**, which is how costs are shown on your bill. To view reservation purchases broken down and associated with the resources which used the benefit, switch to **Amortized cost**:
 
 ![Example showing where to select amortized cost in cost analysis](./media/understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 

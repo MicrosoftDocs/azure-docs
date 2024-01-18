@@ -283,6 +283,64 @@
     href: manage/enterprise-api.md
   - name: Enterprise reporting REST APIs
     href: /rest/api/billing/enterprise/billing-enterprise-api-balance-summary
+  - name: Dataset schema
+    items:
+    - name: Dataset schema index
+      href: dataset-schema/schema-index.md
+    - name: Price Sheet
+      items:
+      - name: EA price sheet schema
+        href: dataset-schema/price-sheet-ea-2023-05-01.md
+      - name: MCA price sheet schema
+        href: dataset-schema/price-sheet-mca-2023-05-01.md
+    - name: Reservation details
+      items:
+      - name: EA reservation details
+        href: dataset-schema/reservation-details-ea-2023-03-01.md
+      - name: MCA reservation details
+        href: dataset-schema/reservation-details-mca-2023-03-01.md
+    - name: Reservation recommendations
+      items:
+      - name: EA reservation recommendations
+        href: dataset-schema/reservation-recommendations-ea-2023-05-01.md
+      - name: MCA reservation recommendations
+        href: dataset-schema/reservation-recommendations-mca-2023-05-01.md
+    - name: Reservation transactions
+      items:
+      - name: EA reservation transactions
+        href: dataset-schema/reservation-transactions-ea-2023-05-01.md
+      - name: MCA reservation transactions
+        href: dataset-schema/reservation-transactions-mca-2023-05-01.md
+    - name: Cost details
+      items:
+    - name: AIRS cost details
+      href: dataset-schema/usage-details-airs-2019-11-01.md
+    - name: EA cost details v2019-07-02-preview
+      href: dataset-schema/usage-details-ea-2019-07-02-preview.md
+    - name: EA cost details v2019-10-01
+      href: dataset-schema/usage-details-ea-2019-10-01.md
+    - name: EA cost details v2020-01-01
+      href: dataset-schema/usage-details-ea-2020-01-01.md
+    - name: EA cost details v2021-01-01
+      href: dataset-schema/usage-details-ea-2021-01-01.md
+    - name: EA cost details v2021-10-01
+      href: dataset-schema/usage-details-ea-2021-10-01.md
+    - name: EA cost details v2023-12-01
+      href: dataset-schema/usage-details-ea-2023-12-01.md
+    - name: FOCUS cost details
+      href: dataset-schema/usage-details-focus-v1.0-preview.md
+    - name: MCA cost details v2019-10-01
+      href: dataset-schema/usage-details-mca-2019-10-01.md
+    - name: MCA cost details v2019-11-01
+      href: dataset-schema/usage-details-mca-2019-11-01.md
+    - name: MCA cost details v2021-01-01
+      href: dataset-schema/usage-details-mca-2021-01-01.md
+    - name: MCA cost detals v2021-10-01
+      href: dataset-schema/usage-details-mca-2021-10-01.md
+    - name: MCA cost details v2023-12-01
+      href: dataset-schema/usage-details-mca-2023-12-01.md
+    - name: Web direct cost details
+      href: dataset-schema/usage-details-web-direct-2019-11-01.md
 - name: Resources
   items:
   - name: FAQ
