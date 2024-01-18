@@ -28,7 +28,7 @@ When you update the sensor in the Azure portal, you can now choose to update to 
 
 You might want to update your sensor to a specific version for various reasons, such as for testing purposes, or to align all sensors to the same version.
 
-:::image type="content" source="media/whats-new/send-package-multiple-versions-400.png" alt-text="screenshot of sensor update pane with option to choose sensor update version" border="false" lightbox="media/whats-new/send-package-multiple-versions.png" :::
+:::image type="content" source="media/whats-new/send-package-multiple-versions-400.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." border="false" lightbox="media/whats-new/send-package-multiple-versions.png" :::
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md#send-the-software-update-to-your-ot-sensor).
 
