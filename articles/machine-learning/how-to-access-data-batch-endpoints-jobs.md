@@ -732,7 +732,7 @@ The following example shows how to change the location where an output named `sc
             },
             "OutputData": {
                 "score": {
-                    "JobOutputType" : "UriFolder",
+                    "JobOutputType" : "UriFile",
                     "Uri": "azureml:/subscriptions/<subscription>/resourceGroups/<resource-group/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/datastores/<data-store>/paths/<data-path>"
                 }
             }
