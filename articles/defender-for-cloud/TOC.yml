@@ -496,12 +496,6 @@
           href: plan-defender-for-servers-agents.md
         - name: Scale a Defender for Servers deployment
           href: plan-defender-for-servers-scale.md
-    - name: Understand just-in-time VM access
-      displayName: jit, management
-      href: just-in-time-access-overview.md
-    - name: Understand File Integrity Monitoring
-      displayName: fim, change
-      href: file-integrity-monitoring-overview.md
     - name: Agentless scanning
       items:
       - name: Agentless machine scanning
@@ -516,7 +510,7 @@
       - name: Enable agentless scanning for VMs
         displayName: vulnerability, software inventory, agentless scanning
         href: enable-agentless-scanning-vms.md
-    - name: Configure vulnerability scanning
+    - name: Vulnerability scanning
       items:
       - name: Enable vulnerability scanning with Microsoft Defender Vulnerability Management
         displayName: mde, tvm, vulnerability, va, arc, hybrid, defender vulnerability management
@@ -536,9 +530,25 @@
       - name: Enable vulnerability scanning with the integrated Qualys scanner (deprecated)
         displayName: qualys, va, vulnerability, arc, hybrid
         href: deploy-vulnerability-assessment-vm.md
-    - name: Enable just-in-time access on VMs
-      displayName: jit, management, ports
-      href: just-in-time-access-usage.md
+    - name: File integrity monitoring
+      items:
+      - name: Understand File Integrity Monitoring
+        displayName: fim, change
+        href: file-integrity-monitoring-overview.md
+      - name: Enable File Integrity Monitoring (AMA)
+        displayName: fim, change, azure monitor agent
+        href: file-integrity-monitoring-enable-ama.md
+      - name: Enable File Integrity Monitoring (Log Analytics)
+        displayName: fim, change, log analytics, mma
+        href: file-integrity-monitoring-enable-log-analytics.md
+    - name: Just-in-time access
+      items:
+      - name: Understand just-in-time VM access
+        displayName: jit, management
+        href: just-in-time-access-overview.md
+      - name: Enable just-in-time access on VMs
+        displayName: jit, management, ports
+        href: just-in-time-access-usage.md
     - name: Protect your endpoints with Defender for Cloud's integration with Microsoft Defender for Endpoint
       displayName: ATP, mdatp, wdatp, mde, mdfe, defender for endpoint, endpoint, edr
       href: integration-defender-for-endpoint.md
@@ -548,14 +558,6 @@
     - name: Review applications and software installed on your machines
       displayName: inventory, apps, software inventory, mde, tvm
       href: asset-inventory.md#access-a-software-inventory
-    - name: Configure file integrity monitoring
-      items:
-        - name: Enable File Integrity Monitoring (AMA)
-          displayName: fim, change, azure monitor agent
-          href: file-integrity-monitoring-enable-ama.md
-        - name: Enable File Integrity Monitoring (Log Analytics)
-          displayName: fim, change, log analytics, mma
-          href: file-integrity-monitoring-enable-log-analytics.md
     - name: Review server protection
       items:
         - name: Review hardening recommendations
