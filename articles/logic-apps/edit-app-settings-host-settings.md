@@ -32,7 +32,7 @@ App settings integrate with Azure Key Vault. You can [directly reference secure 
 > If you use Key Vault, make sure that you store only secrets, such as passwords, credentials, and certificates. 
 > In a logic app workflow, don't use Key Vault to store non-secret values, such as URL paths, that the workflow designer needs to make calls. 
 > The designer can't deference an app setting that references a Key Vault resource type, which results in an 
-> should only be used for the secrets such as credentials, certificates etc.
+> error and a failed call. For non-secret values, store them directly in app settings.
 
 For more information about setting up your logic apps for deployment, see the following documentation:
 
