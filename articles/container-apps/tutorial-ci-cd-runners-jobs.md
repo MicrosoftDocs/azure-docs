@@ -448,7 +448,7 @@ You can now create a job that uses to use the container image. In this section, 
     | `--polling-interval` | The polling interval at which to evaluate the scale rule. |
     | `--scale-rule-name` | The name of the scale rule. |
     | `--scale-rule-type` | The type of scale rule to use. To learn more about the GitHub runner scaler, see the KEDA [documentation](https://keda.sh/docs/latest/scalers/github-runner/). |
-    | `--scale-rule-metadata` | The metadata for the scale rule. |
+    | `--scale-rule-metadata` | The metadata for the scale rule. If you're using GitHub Enterprise, update `githubAPIURL` with its API URL. |
     | `--scale-rule-auth` | The authentication for the scale rule. |
     | `--secrets` | The secrets to use for the job. |
     | `--env-vars` | The environment variables to use for the job. |
