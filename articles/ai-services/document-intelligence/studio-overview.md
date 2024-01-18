@@ -25,9 +25,9 @@ Document Intelligence Studio is an online tool to visually explore, understand, 
 * Learn more about the different capabilities in Document Intelligence.
 * Use your Document Intelligence resource to test models on sample documents or upload your own documents.
 * Experiment with different add-on and preview features to adapt the output to your needs.
-* Train custom classifcation models to classify documents.
+* Train custom classification models to classify documents.
 * Train custom extraction models to extract fields from documents.
-* Get sample code for the language spcific SDKs to integrate into y9our applications.
+* Get sample code for the language specific SDKs to integrate into your applications.
 
 The studio supports Document Intelligence v3.0 and later API versions for model analysis and custom model training. Previously trained v2.1 models with labeled data are supported, but not v2.1 model training. Refer to the [REST API migration guide](v3-1-migration-guide.md) for detailed information about migrating from v2.1 to v3.0.
 
@@ -59,7 +59,7 @@ The studio supports Document Intelligence v3.0 and later API versions for model 
 
     :::image type="content" source="media/studio/welcome-to-studio.png" alt-text="Screenshot of Document Intelligence Studio front page.":::
 
-1. To test any of the document analysis or prebuilt models, select the model and use one o the sample dpcuments or upload your own document to analyze. The analysis result are displayed on the right.
+1. To test any of the document analysis or prebuilt models, select the model and use one o the sample documents or upload your own document to analyze. The analysis result is displayed on the right.
 
 1. Custom models need to be trained on your documents. See [custom models overview](concept-custom.md) for an overview of custom models.
 
