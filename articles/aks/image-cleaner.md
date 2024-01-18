@@ -5,7 +5,7 @@ ms.author: nickoman
 author: nickomang
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/17/2024
+ms.date: 01/18/2024
 ---
 
 # Use Image Cleaner to clean up stale images on your Azure Kubernetes Service (AKS) cluster
@@ -122,7 +122,10 @@ Note that the name must be 'imagelist'
 
 The manual mode is one-time and only triggered when a new imagelist is created or changes made to the existing imagelist. After the image is deleted, the imagelist won't be deleted automatically.
 
-If you need to remove the same image again, you need to delete the old imagelist and create a new one. 
+If you need to trigger another manual clean up, you have to create a new imagelist or make some changes to existing one.
+
+
+For removing the same image again, you need to re-create a new imagelist.
 
 Delete the old imagelist
 
