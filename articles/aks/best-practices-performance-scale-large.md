@@ -36,7 +36,7 @@ The control plane manages all the resource scaling in the cluster, so the more y
 The size of the envelope is proportional to the size of the Kubernetes control plane. AKS supports three control plane tiers as part of the Base SKU: Free, Standard, and Premium tier. For more information, see [Free, Standard, and Premium pricing tiers for AKS cluster management][pricing-tiers].
 
 > [!IMPORTANT]
-> We highly recommend using the Standard tier for production or at-scale workloads. AKS automatically scales up the Kubernetes control plane to support the following scale limits:
+> We highly recommend using the Standard or Premium tier for production or at-scale workloads. AKS automatically scales up the Kubernetes control plane to support the following scale limits:
 >
 > * Up to 5,000 nodes per AKS cluster
 > * 200,000 pods per AKS cluster (with Azure CNI Overlay)
