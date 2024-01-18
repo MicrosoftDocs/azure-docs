@@ -19,7 +19,7 @@ ms.author: anfdocs
 
 # Configure customer-managed keys for Azure NetApp Files volume encryption
 
-Customer-managed keys in Azure NetApp Files volume encryption enable you to use your own keys rather than a Microsoft-managed key when creating a new volume. With customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys.
+Customer-managed keys for Azure NetApp Files volume encryption enable you to use your own keys rather than a Microsoft-managed key when creating a new volume. With customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys.
 
 The following diagram demonstrates how customer-managed keys work with Azure NetApp Files:
 
@@ -172,7 +172,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ### [Azure CLI](#tab/azure-cli)
 
-The process to configure a NetApp account with customer-managed keys in the Azure CLI depends on whether you are using a [system-assigned identity](#use-a-system-assigned-identity) or an [user-assigned identity](#use-a-new-user-assigned-identity).
+How you configure a NetApp account with customer-managed keys with the Azure CLI depends on whether you are using a [system-assigned identity](#use-a-system-assigned-identity) or an [user-assigned identity](#use-a-new-user-assigned-identity).
 
 #### Use a system-assigned identity
 
@@ -259,7 +259,6 @@ The process to configure a NetApp account with customer-managed keys in the Azur
     az netappfiles account update --name <account_name> \  
         --resource-group <resource_group> \
         --identity-type UserAssigned \
-        --user-identity-id $user-assigned-identity \   
         --key-source Microsoft.Keyvault \
         --key-vault-uri $key_vault_uri \
         --key-name <key> \

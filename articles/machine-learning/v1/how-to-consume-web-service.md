@@ -10,7 +10,8 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/16/2022
 ms.topic: how-to
-ms.devlang: csharp, golang, java, python
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, python
 ms.custom: UpdateFrequency5, devx-track-python, devx-track-csharp, cliv1, sdkv1, event-tier1-build-2022, devx-track-extended-java
 #Customer intent: As a developer, I need to understand how to create a client application that consumes the web service of a deployed ML model.
 ---

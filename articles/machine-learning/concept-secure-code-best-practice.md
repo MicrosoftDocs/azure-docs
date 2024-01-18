@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: deeikele
 author: deeikele 
 ms.reviewer: larryfr
-ms.date: 11/04/2022
+ms.date: 01/16/2024
 ---
 
 # Secure code best practices with Azure Machine Learning

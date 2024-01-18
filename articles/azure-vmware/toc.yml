@@ -125,17 +125,17 @@ items:
     href: configure-github-enterprise-server.md
   - name: Configure identity
     items:
-    - name: Configure external identity source for vCenter Server
+    - name: Set an external identity source for vCenter Server
       href: configure-identity-source-vcenter.md
-    - name: Configure external identity source for NSX-T Data Center
+    - name: Set an external identity source for NSX-T Data Center
       href: configure-external-identity-source-nsx-t.md
-  - name: Configure Internet connectivity
+  - name: Configure internet connectivity
     items:
-    - name: Enable Managed SNAT for Azure VMware Solution Workloads
+    - name: Enable Managed SNAT for Azure VMware Solution workloads
       href: enable-managed-snat-for-workloads.md
-    - name: Enable Public IP on the NSX-T Data Center Edge for Azure VMware Solution
+    - name: Enable public IP on the NSX-T Data Center Edge for Azure VMware Solution
       href: enable-public-ip-nsx-edge.md
-    - name: Disable Internet access or enable a default route
+    - name: Disable internet access or enable a default route
       href: disable-internet-access.md
   - name: Configure networking
     items:

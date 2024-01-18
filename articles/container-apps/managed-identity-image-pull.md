@@ -552,7 +552,7 @@ az containerapp create \
   --name $CONTAINERAPP_NAME \
   --resource-group $RESOURCE_GROUP \
   --environment $CONTAINERAPPS_ENVIRONMENT \
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
+  --image mcr.microsoft.com/k8se/quickstart:latest \
   --target-port 80 \
   --ingress external
 ```
@@ -562,7 +562,7 @@ az containerapp create \
 ```powershell
 $ImageParams = @{
     Name = "my-container-app"
-    Image = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
+    Image = "mcr.microsoft.com/k8se/quickstart:latest"
 }
 $TemplateObj = New-AzContainerAppTemplateObject @ImageParams
 $EnvId = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).Id

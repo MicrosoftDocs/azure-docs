@@ -181,7 +181,7 @@ As your application workload demands change, you may need to scale the number of
 
 AKS offers a separate feature to automatically scale node pools with a feature called the [cluster autoscaler](cluster-autoscaler.md). You can enable this feature with unique minimum and maximum scale counts per node pool.
 
-For more information, see [use the cluster autoscaler](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
+For more information, see [use the cluster autoscaler](cluster-autoscaler.md#use-the-cluster-autoscaler-on-multiple-node-pools).
 
 ## Associate capacity reservation groups to node pools (preview)
 

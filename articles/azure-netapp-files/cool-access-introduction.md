@@ -57,6 +57,8 @@ Standard storage with cool access is supported for the following regions:
 * Switzerland North 
 * Switzerland West 
 * UAE North 
+* US Gov Arizona
+* US Gov Virginia 
 * West US
 
 ## Effects of cool access on data

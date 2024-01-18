@@ -447,6 +447,8 @@
       href: azacsnap-cmd-ref-runbefore-runafter.md
 - name: Resources
   items:
+  - name: Azure NetApp Files tools 
+    href: tools-reference.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/netapp/
   - name: Regional availability
