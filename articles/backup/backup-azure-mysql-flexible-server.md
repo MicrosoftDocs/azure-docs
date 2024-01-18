@@ -23,11 +23,9 @@ To create the backup policy, follow these steps:
 3. To create a new backup policy, under **Backup policy**, select **Create new**.
 4. On the **Create a Backup Policy** page, enter a name for the new policy, and then select **Azure Database for MySQL (Preview) as the **Datasource type**.
 
-   :::image type="content" source="{source}" alt-text="{alt-text}":::
-
 5. Define the **Backup schedule**.
 
-   :::image type="content" source="./media/backup-azure-mysql-flexible-server/schedule-retention-final.png" alt-text="Screenshot shows the process to configure the backup schedule." lightbox=="./media/backup-azure-mysql-flexible-server/schedule-retention-final.png":::
+   :::image type="content" source="./media/backup-azure-mysql-flexible-server/schedule-retention-final.png" alt-text="Screenshot shows the process to configure the backup schedule." lightbox="./media/backup-azure-mysql-flexible-server/schedule-retention-final.png":::
 
    >[!Note]
    >Currently, this feature supports only the *Weekly backup* option. However, you can schedule the backups on multiple days of the week. 
