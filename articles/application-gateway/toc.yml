@@ -273,7 +273,7 @@
         href: application-gateway-create-probe-classic-ps.md
       - name: Resource Manager PowerShell
         href: application-gateway-create-probe-ps.md
-  - name: Deploy Application v2 Basic SKU
+  - name: Deploy Application Gateway V2 Basic SKU
     href: deploy-v2-basic-portal.md
   - name: Configure App Service
     href: configure-web-app.md

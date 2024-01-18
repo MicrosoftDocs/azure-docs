@@ -61,7 +61,7 @@ With the v2 SKU, the pricing model is driven by consumption and is no longer att
 
 ## Unsupported regions
 
-The Standard_v2 and WAF_v2 SKU are not currently available in the following regions:
+The Standard_v2 and WAF_v2 SKUs aren't currently available in the following regions:
 
 - UK North
 - UK South2
