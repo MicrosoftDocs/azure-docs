@@ -278,11 +278,10 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 
 ### REST API
 
-::: moniker range="doc-intel-4.0.0"
 ```REST
 https://{your resource}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2023-10-31-preview&features=keyValuePairs
 ```
-:::moniker-end
+
 
 ## Query Fields
 
