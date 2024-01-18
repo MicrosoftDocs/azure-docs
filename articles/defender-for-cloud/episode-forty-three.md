@@ -17,6 +17,7 @@ ms.date: 01/18/2024
 
 ## Recommended resources
 
+- Learn more about [enabling permissions management in Defender for Cloud](enable-permissions-management.md)
 - Learn more about [Microsoft Security](https://msft.it/6002T9HQY).
 - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS).
 
