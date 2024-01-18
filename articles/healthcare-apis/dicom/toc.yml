@@ -49,7 +49,7 @@ items:
       href: import-files.md
     - name: Export DICOM files
       href: export-files.md
-    - name: Bulk update
+    - name: Bulk update DICOM files
       href: update-files.md
 - name: API reference
   expanded: true

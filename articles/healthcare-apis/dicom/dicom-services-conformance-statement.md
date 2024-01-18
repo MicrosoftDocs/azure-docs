@@ -34,6 +34,9 @@ Additionally, the following nonstandard API(s) are supported:
 
 * [Change Feed](change-feed-overview.md)
 * [Extended Query Tags](dicom-extended-query-tags-overview.md)
+* [Bulk update](update-files.md)
+* [Bulk import](import-files.md)
+* [Export](export-dicom-files.md)
 
 The service uses REST API versioning. The version of the REST API must be explicitly specified as part of the base URL, as in the following example:
 
