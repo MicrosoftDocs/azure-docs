@@ -527,34 +527,34 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    #### [ENSA1](#tab/ensa1)
 
-    ```bash
-    sudo crm configure property maintenance-mode="true"
+   ```bash
+   sudo crm configure property maintenance-mode="true"
    
-    sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
+   sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
      operations \$id=rsc_sap_NW1_ASCS00-operations \
      op monitor interval=11 timeout=60 on-fail=restart \
      params InstanceName=NW1_ASCS00_sapascs START_PROFILE="/sapmnt/NW1/profile/NW1_ASCS00_sapascs" \
      AUTOMATIC_RECOVER=false \
      meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
    
-    sudo crm configure primitive rsc_sap_NW1_ERS01 SAPInstance \
+   sudo crm configure primitive rsc_sap_NW1_ERS01 SAPInstance \
      operations \$id=rsc_sap_NW1_ERS01-operations \
      op monitor interval=11 timeout=60 on-fail=restart \
      params InstanceName=NW1_ERS01_sapers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS01_sapers" AUTOMATIC_RECOVER=false IS_ERS=true \
      meta priority=1000
    
-    sudo crm configure modgroup g-NW1_ASCS add rsc_sap_NW1_ASCS00
-    sudo crm configure modgroup g-NW1_ERS add rsc_sap_NW1_ERS01
+   sudo crm configure modgroup g-NW1_ASCS add rsc_sap_NW1_ASCS00
+   sudo crm configure modgroup g-NW1_ERS add rsc_sap_NW1_ERS01
    
-    sudo crm configure colocation col_sap_NW1_no_both -5000: g-NW1_ERS g-NW1_ASCS
-    sudo crm configure location loc_sap_NW1_failover_to_ers rsc_sap_NW1_ASCS00 rule 2000: runs_ers_NW1 eq 1
-    sudo crm configure order ord_sap_NW1_first_start_ascs Optional: rsc_sap_NW1_ASCS00:start rsc_sap_NW1_ERS01:stop symmetrical=false
+   sudo crm configure colocation col_sap_NW1_no_both -5000: g-NW1_ERS g-NW1_ASCS
+   sudo crm configure location loc_sap_NW1_failover_to_ers rsc_sap_NW1_ASCS00 rule 2000: runs_ers_NW1 eq 1
+   sudo crm configure order ord_sap_NW1_first_start_ascs Optional: rsc_sap_NW1_ASCS00:start rsc_sap_NW1_ERS01:stop symmetrical=false
 
-    sudo crm_attribute --delete --name priority-fencing-delay
+   sudo crm_attribute --delete --name priority-fencing-delay
    
-    sudo crm node online sap-cl1
-    sudo crm configure property maintenance-mode="false"
-    ```
+   sudo crm node online sap-cl1
+   sudo crm configure property maintenance-mode="false"
+   ```
 
    #### [ENSA2](#tab/ensa2)
 
@@ -563,32 +563,32 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    >
    > The property priority-fencing-delay is only applicable for ENSA2 running on two-node cluster.
 
-    ```bash
-    sudo crm configure property maintenance-mode="true"
+   ```bash
+   sudo crm configure property maintenance-mode="true"
 
-    sudo crm configure property priority-fencing-delay=30
+   sudo crm configure property priority-fencing-delay=30
    
-    sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
+   sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
      operations \$id=rsc_sap_NW1_ASCS00-operations \
      op monitor interval=11 timeout=60 on-fail=restart \
      params InstanceName=NW1_ASCS00_sapascs START_PROFILE="/sapmnt/NW1/profile/NW1_ASCS00_sapascs" \
      AUTOMATIC_RECOVER=false \
      meta resource-stickiness=5000 priority=100
    
-    sudo crm configure primitive rsc_sap_NW1_ERS01 SAPInstance \
+   sudo crm configure primitive rsc_sap_NW1_ERS01 SAPInstance \
      operations \$id=rsc_sap_NW1_ERS01-operations \
      op monitor interval=11 timeout=60 on-fail=restart \
      params InstanceName=NW1_ERS01_sapers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS01_sapers" AUTOMATIC_RECOVER=false IS_ERS=true
    
-    sudo crm configure modgroup g-NW1_ASCS add rsc_sap_NW1_ASCS00
-    sudo crm configure modgroup g-NW1_ERS add rsc_sap_NW1_ERS01
+   sudo crm configure modgroup g-NW1_ASCS add rsc_sap_NW1_ASCS00
+   sudo crm configure modgroup g-NW1_ERS add rsc_sap_NW1_ERS01
     
-    sudo crm configure colocation col_sap_NW1_no_both -5000: g-NW1_ERS g-NW1_ASCS
-    sudo crm configure order ord_sap_NW1_first_start_ascs Optional: rsc_sap_NW1_ASCS00:start rsc_sap_NW1_ERS01:stop symmetrical=false
+   sudo crm configure colocation col_sap_NW1_no_both -5000: g-NW1_ERS g-NW1_ASCS
+   sudo crm configure order ord_sap_NW1_first_start_ascs Optional: rsc_sap_NW1_ASCS00:start rsc_sap_NW1_ERS01:stop symmetrical=false
    
-    sudo crm node online sap-cl1
-    sudo crm configure property maintenance-mode="false"
-    ```
+   sudo crm node online sap-cl1
+   sudo crm configure property maintenance-mode="false"
+   ```
 
    ---
 
