@@ -101,4 +101,5 @@ It shows the jobs dashboard with operation and status for the *past seven days*.
 
 ## Next steps
 
+- [Restore the Azure Database for MySQL - Flexible Server (preview)](backup-azure-mysql-flexible-server-restore.md)
 - 

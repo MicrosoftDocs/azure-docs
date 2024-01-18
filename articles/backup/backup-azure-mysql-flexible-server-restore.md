@@ -40,4 +40,4 @@ To restore the database, follow these steps:
 
 ## Next steps
 
-- 
+- [Back up the Azure Database for MySQL - Flexible Server (preview)](backup-azure-mysql-flexible-server.md)
