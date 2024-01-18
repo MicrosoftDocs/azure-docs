@@ -71,21 +71,17 @@ After you create a vector index, you can add it to a prompt flow from the prompt
 
 1. Open an existing prompt flow.
 
-1. On the top menu of the prompt flow designer, select **More tools**, and then select **Vector Index Lookup**.
+1. On the top menu of the prompt flow designer, select **More tools**, and then select **Index Lookup**.
 
     :::image type="content" source="media/how-to-create-vector-index/vector-lookup.png" alt-text="Screenshot that shows the list of available tools.":::
 
-   The Vector Index Lookup tool is added to the canvas. If you don't see the tool immediately, scroll to the bottom of the canvas.
+   The Index Lookup tool is added to the canvas. If you don't see the tool immediately, scroll to the bottom of the canvas.
 
     :::image type="content" source="media/how-to-create-vector-index/vector-index-lookup-tool.png" alt-text="Screenshot that shows the Vector Index Lookup tool.":::
 
-1. Enter the path to your vector index, along with the query that you want to perform against the index. The 'path' is the location for the MLIndex created in the create a vector index section of this tutorial. To know this location select the desired Vector Index, select 'Details', and select 'Index Data'. Then on the 'Index data' page, copy the 'Datasource URI' in the Data sources section.
+1. Click into the mlindex_content value box, and select your index. The tool should detect the index created in the the "Create a vector index" section of the tutorial. After filling in all the necessary information, click save to close the generate drawer.
 
-1. Enter a query that you want to perform against the index. A query is a question either as plain string or an embedding from the input cell of the previous step. If you choose to enter an embedding, be sure your query is defined in the input section of your prompt flow like the example here:
-
-   :::image type="content" source="media/how-to-create-vector-index/query-example.png" alt-text="Screenshot that shows the Vector Index Lookup tool query.":::
-   
-   An example of a plain string you can input in this case would be: `How to use SDK V2?'. Here is an example of an embedding as an input: `${embed_the_question.output}`. Passing a plain string will only work when the Vector Index is getting used on the workspace which created it.
+1. Enter the queries and query_types to be performed against the index. 
 
 ## Supported File Types
 
