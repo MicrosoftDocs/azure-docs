@@ -180,8 +180,7 @@ There are two options to provide access to Azure Monitor for containers:
 | **`*.ods.opinsights.azure.com`**    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for ingesting log analytics data. |
 | **`*.oms.opinsights.azure.com`** | **`HTTPS:443`** | This endpoint is used by omsagent, which is used to authenticate the log analytics service. |
 | **`*.monitoring.azure.com`** | **`HTTPS:443`** | This endpoint is used to send metrics data to Azure Monitor. |
-| **`global.handler.control.monitor.azure.com`**    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for accessing the control service. |
-| **`<cluster-region-name>.ingest.monitor.azure.com`** | **`HTTPS:443`** | This endpoint is used by Azure monitor managed service for Prometheus metrics ingestion.|
+| **`<cluster-region-name>.ingest.monitor.azure.com`** | **`HTTPS:443`** | This endpoint is used by Azure Monitor managed service for Prometheus metrics ingestion.|
 | **`<cluster-region-name>.handler.control.monitor.azure.com`** | **`HTTPS:443`** | This endpoint is used to fetch data collection rules for a specific cluster. |
 
 #### Microsoft Azure operated by 21Vianet required FQDN / application rules
