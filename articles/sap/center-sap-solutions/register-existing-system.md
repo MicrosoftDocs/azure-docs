@@ -27,7 +27,7 @@ When you register a system with Azure Center for SAP solutions, the following re
 - A Storage account within the managed resource group which contains blobs that have scripts and logs necessary for the service to provide the various capabilities including discovering and registering all components of SAP system.
 
 > [!NOTE]
-> You can customize the names of the Managed resource group and the Storage account which get deployed as part of the registration process by using [Azure PowerShell](quickstart-register-system-powershell.md) or [Azure CLI](quickstart-register-system-cli.md) interfaces for registering your systems.
+> You can customize the names of the Managed resource group and the Storage account which get deployed as part of the registration process by using Azure Portal, [Azure PowerShell](quickstart-register-system-powershell.md) or [Azure CLI](quickstart-register-system-cli.md) interfaces, when you register your systems.
 
 > [!NOTE]
 > You can now enable secure access to the ACSS managed storage account from specific virtual networks using the [new option in the registration experience](#managed-storage-account-network-access-settings).
