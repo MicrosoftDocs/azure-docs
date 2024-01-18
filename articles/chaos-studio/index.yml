@@ -63,11 +63,11 @@ landingContent:
         - text: Induce an outage on an Azure Active Directory instance
           url: chaos-studio-tutorial-aad-outage-portal.md
         - text: Take down Virtual Machine Scale Set availability zones
-          url: chaos-studio-tutorial-availability-zone-down-portal
+          url: chaos-studio-tutorial-availability-zone-down-portal.md
         - text: Emit Experiment Fault Events to Azure Monitor
-          url: chaos-studio-set-up-azure-monitor
+          url: chaos-studio-set-up-azure-monitor.md
         - text: Emit Experiment Fault Events to App Insights
-          url: chaos-studio-set-up-app-insights
+          url: chaos-studio-set-up-app-insights.md
 
   # Card
   - title: Tutorials
