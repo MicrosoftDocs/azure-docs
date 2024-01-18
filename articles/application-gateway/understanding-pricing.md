@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 01/19/2022
+ms.date: 01/19/2024
 ms.author: greglin
 ---
 
@@ -48,7 +48,7 @@ A single Capacity Unit consists of the following parameters:
 The parameter with the highest utilization among these three parameters is used to calculate capacity units for billing purposes.
 
 #### Capacity Unit related to Instance Count
-
+<h4 id="instance-count"></h4>
 You can also can preprovision resources by specifying the **Instance Count**. Each instance guarantees a minimum of 10 capacity units in terms of processing capability. The same instance could potentially support more than 10 capacity units for different traffic patterns depending upon the capacity unit parameters.
 
 Manually defined scale and limits set for autoscaling (minimum or maximum) are set in terms of instance count. The manually set scale for instance count and the minimum instance count in autoscale config will reserve 10 capacity units/instance. These reserved capacity units are billed as long as the application gateway is active regardless of the actual resource consumption. If actual consumption crosses the 10 capacity units/instance threshold, additional capacity units are billed under the variable component.
