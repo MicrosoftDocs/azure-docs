@@ -10,7 +10,7 @@ ms.date: 12/01/2023
 ms.author: RunCai
 ms.custom:
   - mode-ui
-  - devx-track-linux
+  - linux-related-content
   - has-azure-ad-ps-ref
   - ignite-2023
 ---
@@ -24,11 +24,11 @@ You can use the Azure portal to create a [confidential VM](confidential-vm-overv
 
 - An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
 - If you're using a Linux-based confidential VM, use a BASH shell for SSH or install an SSH client, such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-- If Confidential disk encryption with a customer-managed key is required, please run below command to opt in service principal `Confidential VM Orchestrator` to your tenant. 
+- If Confidential disk encryption with a customer-managed key is required, please run below command to opt in service principal `Confidential VM Orchestrator` to your tenant.
 
     ```azurecli
     Connect-AzureAD -Tenant "your tenant ID"
-    New-AzureADServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"    
+    New-AzureADServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"
     ```
 
 ## Create confidential VM
@@ -44,16 +44,16 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 1. On the tab **Basics**, configure the following settings:
 
     a. Under **Project details**, for **Subscription**, select an Azure subscription that meets the [prerequisites](#prerequisites).
-    
+
     b. For **Resource Group**, select **Create new** to create a new resource group. Enter a name, and select **OK**.
 
     c. Under **Instance details**, for **Virtual machine name**, enter a name for your new VM.
 
-    d. For **Region**, select the Azure region in which to deploy your VM. 
+    d. For **Region**, select the Azure region in which to deploy your VM.
 
     > [!NOTE]
     > Confidential VMs are not available in all locations. For currently supported locations, see which [VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
-        
+
     e. For **Availability options**, select **No infrastructure redundancy required** for singular VMs or [**Virtual machine scale set**](/azure/virtual-machine-scale-sets/overview) for multiple VMs.
 
     f. For **Security Type**, select **Confidential virtual machines**.
@@ -84,30 +84,30 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     1. Under **Disk options**, enable **Confidential OS disk encryption** if you want to encrypt your VM's OS disk during creation.
 
-    1. For **Key Management**, select the type of key to use. 
-    
+    1. For **Key Management**, select the type of key to use.
+
     1. If **Confidential disk encryption with a customer-managed key** is selected, create a **Confidential disk encryption set** before creating your confidential VM.
     1. If you want to encrypt your VM's temp disk, please refer to the [following documentation](https://aka.ms/CVM-tdisk-encrypt).
 
 1. (Optional) If necessary, you need to create a **Confidential disk encryption set** as follows.
 
     1. [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md) selecting the **Premium** pricing tier that includes support for HSM-backed keys and enable purge protection. Alternatively, you can create an [Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md).
-        
-    1. In the Azure portal, search for and select **Disk Encryption Sets**. 
 
-    1. Select **Create**. 
+    1. In the Azure portal, search for and select **Disk Encryption Sets**.
 
-    1. For **Subscription**, select which Azure subscription to use. 
+    1. Select **Create**.
+
+    1. For **Subscription**, select which Azure subscription to use.
 
     1. For **Resource group**, select or create a new resource group to use.
-    
+
     1. For **Disk encryption set name**, enter a name for the set.
 
-    1. For **Region**, select an available Azure region. 
+    1. For **Region**, select an available Azure region.
 
     1. For **Encryption type**, select **Confidential disk encryption with a customer-managed key**.
 
-    1. For **Key Vault**, select the key vault you already created. 
+    1. For **Key Vault**, select the key vault you already created.
 
     1. Under **Key Vault**, select **Create new** to create a new key.
 
@@ -119,17 +119,17 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
     1. For the key type, select **RSA-HSM**
 
     1. Select your key size
-  
+
     n. Under Confidential Key Options select **Exportable** and set the Confidential operation policy as **CVM confidential operation policy**.
 
     o. Select **Create** to finish creating the key.
 
     p. Select **Review + create** to create new disk encryption set. Wait for the resource creation to complete successfully.
- 
+
     q. Go to the disk encryption set resource in the Azure portal.
 
     r. Select the pink banner to grant permissions to Azure Key Vault.
-   
+
    > [!IMPORTANT]
    > You must perform this step to successfully create the confidential VM.
 
