@@ -338,7 +338,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 
     ```
 
-1. Prepare the RSA Encryption/Decryption key by the [bash script](https://github.com/microsoft/confidential-container-demos/blob/main/kafka/setup-key.sh) for the workload from GitHub. Save the file as `setup-key.sh`.
+1. Prepare the RSA Encryption/Decryption key by the [bash script](https://github.com/microsoft/confidential-container-demos/raw/main/kafka/setup-key.sh) for the workload from GitHub. Save the file as `setup-key.sh`.
 
 1. Set the `MAA_ENDPOINT` environmental variable to match the value for the `SkrClientMAAEndpoint` from the `consumer.yaml` manifest file by running the following command.
 
