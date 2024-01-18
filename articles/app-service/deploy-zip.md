@@ -35,7 +35,7 @@ This ZIP package deployment uses the same Kudu service that powers continuous in
 For more information, see [Kudu documentation](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
 > [!NOTE]
-> Files in the ZIP package are copied only if their timestamps don't match what is already deployed. Generating a zip using a build process that caches outputs can result in faster deployments. See [Deploying from a zip file or url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url), for more information.
+> Files in the ZIP package are copied only if their timestamps don't match what is already deployed. Generating a zip using a build process that caches outputs can result in faster deployments. For more information, see [Deploying from a zip file or url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
 # [Azure CLI](#tab/cli)
 
@@ -97,9 +97,9 @@ In the browser, navigate to `https://<app_name>.scm.azurewebsites.net/ZipDeployU
 
 Upload the ZIP package you created in [Create a project ZIP package](#create-a-project-zip-package) by dragging it to the file explorer area on the web page.
 
-When deployment is in progress, an icon in the top right corner shows you the progress in percentage. The page also shows verbose messages for the operation below the explorer area. When it is finished, the last deployment message should say `Deployment successful`.
+When deployment is in progress, an icon in the top right corner shows you the progress in percentage. The page also shows verbose messages for the operation below the explorer area. When it's finished, the last deployment message should say `Deployment successful`.
 
-The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](./faq-app-service-linux.yml) instead.
+The above endpoint doesn't work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](./faq-app-service-linux.yml) instead.
 
 -----
 
@@ -141,7 +141,7 @@ For more information, see [Kudu documentation](https://github.com/projectkudu/ku
 
 You can deploy your [WAR](https://wikipedia.org/wiki/WAR_(file_format)), [JAR](https://wikipedia.org/wiki/JAR_(file_format)), or [EAR](https://wikipedia.org/wiki/EAR_(file_format)) package to App Service to run your Java web app using the Azure CLI, PowerShell, or the Kudu publish API.
 
-The deployment process used by the steps here places the package on the app's content share with the right naming convention and directory structure (see [Kudu publish API reference](#kudu-publish-api-reference)), and it's the recommended approach. If you deploy WAR/JAR/EAR packages using [FTP](deploy-ftp.md) or WebDeploy instead, you may see unkown failures due to mistakes in the naming or structure.
+The deployment process shown here puts the package on the app's content share with the right naming convention and directory structure (see [Kudu publish API reference](#kudu-publish-api-reference)), and it's the recommended approach. If you deploy WAR/JAR/EAR packages using [FTP](deploy-ftp.md) or WebDeploy instead, you might see unknown failures due to mistakes in the naming or structure.
 
 # [Azure CLI](#tab/cli)
 
@@ -199,7 +199,7 @@ For more information, see [Kudu publish API reference](#kudu-publish-api-referen
 
 # [Kudu UI](#tab/kudu-ui)
 
-The Kudu UI does not support deploying JAR, WAR, or EAR applications. Please use one of the other options.
+The Kudu UI doesn't support deploying JAR, WAR, or EAR applications. Use one of the other options.
 
 -----
 
@@ -239,7 +239,7 @@ Not supported. See Azure CLI or Kudu API.
 
 ### Deploy a startup script
 
-The following example uses the cURL tool to deploy a startup file for their application.Replace the placeholders `<startup-file-path>` and `<app-name>`.
+The following example uses the cURL tool to deploy a startup file for their application. Replace the placeholders `<startup-file-path>` and `<app-name>`.
 
 ```bash
 TOKEN=$(az account get-access-token --query accessToken | tr -d '"')
@@ -278,7 +278,7 @@ curl -X POST \
 
 # [Kudu UI](#tab/kudu-ui)
 
-The Kudu UI does not support deploying individual files. Please use the Azure CLI or Kudu REST API.
+The Kudu UI doesn't support deploying individual files. Use the Azure CLI or Kudu REST API.
 
 -----
 
@@ -286,11 +286,11 @@ The Kudu UI does not support deploying individual files. Please use the Azure CL
 
 The `publish` Kudu API allows you to specify the same parameters from the CLI command as URL query parameters. To authenticate with the Kudu API, it's best to use token authentication, but you can also use basic authentication with your app's [deployment credentials](deploy-configure-credentials.md#userscope).
 
-The table below shows the available query parameters, their allowed values, and descriptions.
+The following table shows the available query parameters, their allowed values, and descriptions.
 
 | Key | Allowed values | Description | Required | Type  |
 |-|-|-|-|-|
-| `type` | `war`\|`jar`\|`ear`\|`lib`\|`startup`\|`static`\|`zip` | The type of the artifact being deployed, this sets the default target path and informs the web app how the deployment should be handled. <br/> - `type=zip`: Deploy a ZIP package by unzipping the content to `/home/site/wwwroot`. `target-path` parameter is optional. <br/> - `type=war`: Deploy a WAR package. By default, the WAR package is deployed to `/home/site/wwwroot/app.war`. The target path can be specified with `target-path`. <br/> - `type=jar`: Deploy a JAR package to `/home/site/wwwroot/app.jar`. The `target-path` parameter is ignored <br/> - `type=ear`: Deploy an EAR package to `/home/site/wwwroot/app.ear`. The `target-path` parameter is ignored <br/> - `type=lib`: Deploy a JAR library file. By default, the file is deployed to `/home/site/libs`. The target path can be specified with `target-path`. <br/> - `type=static`: Deploy a static file (e.g. a script). By default, the file is deployed to `/home/site/wwwroot`. <br/> - `type=startup`: Deploy a script that App Service automatically uses as the startup script for your app. By default, the script is deployed to `D:\home\site\scripts\<name-of-source>` for Windows and `home/site/wwwroot/startup.sh` for Linux. The target path can be specified with `target-path`. | Yes | String |
+| `type` | `war`\|`jar`\|`ear`\|`lib`\|`startup`\|`static`\|`zip` | The type of the artifact being deployed, this sets the default target path and informs the web app how the deployment should be handled. <br/> - `type=zip`: Deploy a ZIP package by unzipping the content to `/home/site/wwwroot`. `target-path` parameter is optional. <br/> - `type=war`: Deploy a WAR package. By default, the WAR package is deployed to `/home/site/wwwroot/app.war`. The target path can be specified with `target-path`. <br/> - `type=jar`: Deploy a JAR package to `/home/site/wwwroot/app.jar`. The `target-path` parameter is ignored <br/> - `type=ear`: Deploy an EAR package to `/home/site/wwwroot/app.ear`. The `target-path` parameter is ignored <br/> - `type=lib`: Deploy a JAR library file. By default, the file is deployed to `/home/site/libs`. The target path can be specified with `target-path`. <br/> - `type=static`: Deploy a static file (such as a script). By default, the file is deployed to `/home/site/wwwroot`. <br/> - `type=startup`: Deploy a script that App Service automatically uses as the startup script for your app. By default, the script is deployed to `D:\home\site\scripts\<name-of-source>` for Windows and `home/site/wwwroot/startup.sh` for Linux. The target path can be specified with `target-path`. | Yes | String |
 | `restart` | `true`\|`false` | By default, the API restarts the app following the deployment operation (`restart=true`). To deploy multiple artifacts, prevent restarts on the all but the final deployment by setting `restart=false`. | No | Boolean |
 | `clean` | `true`\|`false` | Specifies whether to clean (delete) the target deployment before deploying the artifact there. | No | Boolean |
 | `ignorestack` | `true`\|`false` | The publish API uses the `WEBSITE_STACK` environment variable to choose safe defaults depending on your site's language stack. Setting this parameter to `false` disables any language-specific defaults. | No | Boolean |

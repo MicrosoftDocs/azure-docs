@@ -13,7 +13,7 @@ ms.author: jordanselig
 
 High availability and fault tolerance are key components of a well-architected solution. It’s best to prepare for the unexpected by having an emergency plan that can shorten downtime and keep your systems up and running automatically when something fails.
 
-When you deploy your application to the cloud, you choose a region in that cloud where your application infrastructure is based. If your application is deployed to a single region and the region becomes unavailable, your application will also be unavailable. This lack of availability may be unacceptable under the terms of your application's SLA. If so, deploying your application and its services across multiple regions is a good solution.
+When you deploy your application to the cloud, you choose a region in that cloud where your application infrastructure is based. If your application is deployed to a single region and the region becomes unavailable, your application will also be unavailable. This lack of availability might be unacceptable under the terms of your application's SLA. If so, deploying your application and its services across multiple regions is a good solution.
 
 In this tutorial, you learn how to deploy a highly available multi-region web app. This scenario is kept simple by restricting the application components to just a web app and [Azure Front Door](../frontdoor/front-door-overview.md), but the concepts can be expanded and applied to other infrastructure patterns. For example, if your application connects to an Azure database offering or storage account, see [active geo-replication for SQL databases](/azure/azure-sql/database/active-geo-replication-overview) and [redundancy options for storage accounts](../storage/common/storage-redundancy.md). For a reference architecture for a more detailed scenario, see [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
@@ -261,7 +261,7 @@ In the preceding steps, you created Azure resources in a resource group. If you 
 az group delete --name myresourcegroup
 ```
 
-This command may take a few minutes to run.
+This command might take a few minutes to run.
 
 ## Deploy from ARM/Bicep
 
