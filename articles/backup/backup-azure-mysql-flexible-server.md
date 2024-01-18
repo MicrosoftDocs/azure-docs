@@ -87,7 +87,7 @@ To configure backup, follow these steps:
 
 5. After the selection, the backup readiness check ensures the configuration is correct. 
 
-   :::image type="content" source="./media/backup-azure-mysql-flexible-server/datasources-readiness-check.png" alt-text="Screemshot shows the validation is successful." lightbox="./media/backup-azure-mysql-flexible-server/datasources-readiness-check.png":::
+   :::image type="content" source="./media/backup-azure-mysql-flexible-server/datasources-readiness-check.png" alt-text="Screenshot shows the validation is successful." lightbox="./media/backup-azure-mysql-flexible-server/datasources-readiness-check.png":::
    To resolve any access issues, select **Assign missing roles**.  
  
  
