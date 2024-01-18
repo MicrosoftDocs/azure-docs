@@ -74,7 +74,7 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
         aks-istio-ingressgateway-internal-asm-1-18-757d9b5545-krq9w   1/1     Running   0          51m
         ```
 
-        Observe that ingress gateway pods of both revisions are deployed side-by-side. However,the service and its IP remain immutable.
+        Observe that ingress gateway pods of both revisions are deployed side-by-side. However, the service and its IP remain immutable.
 
 1. Relabel the namespace so that any new pods get the Istio sidecar associated with the new revision and its control plane:
 
