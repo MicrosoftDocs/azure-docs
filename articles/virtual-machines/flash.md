@@ -203,7 +203,7 @@ Event Grid for degradation notifications:
 
 ### Azure monitor—VM availability metric
 
-Currently in public preview. It's well-suited for tracking trends, aggregating platform metrics (such as CPU and disk usage) and configuring precise threshold-based alerts. Customers can utilize this out-of-the-box [VM availability metric](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-overview) in [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-overview). This metric displays the trend of VM availability over time, so users can:
+Currently in public preview. It's well-suited for tracking trends, aggregating platform metrics (such as CPU and disk usage) and configuring precise threshold-based alerts. Customers can utilize this out-of-the-box [VM availability metric](../azure-monitor/platform/alerts-overview.md) in [Azure Monitor](../azure-monitor/platform/alerts-overview.md). This metric displays the trend of VM availability over time, so users can:
 
 - Set up [threshold-based metric alerts](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric) on dipping VM availability to quickly trigger appropriate mitigation actions.
 - Correlate the VM availability metric with existing [platform metrics](https://learn.microsoft.com/azure/azure-monitor/essentials/data-platform-metrics) like memory, network, or disk for deeper insights into concerning changes that impact the overall performance of workloads.
