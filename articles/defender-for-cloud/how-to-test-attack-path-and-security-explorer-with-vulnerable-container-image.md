@@ -101,6 +101,12 @@ If there are no entries in the list of attack paths, you can still test this fea
     kubectl get nodes
     ```
 
+1. Install [ngnix ingress Controller](https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/) :
+
+    ```azurecli
+    helm install ingress-controller oci://ghcr.io/nginxinc/charts/nginx-ingress --version 1.0.1
+    ```
+
 1. Install the following Helm chart:
 
     ```awscli
