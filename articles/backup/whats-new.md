@@ -85,7 +85,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)
 
-Azure Backup and Azure Database Services provide a new backup solution for the MySQL - Flexible Servers that support retaining backups for up to **10 years**. This feature provides you access to:
+Azure Backup and Azure Database Services provide a new backup solution for the MySQL - Flexible Servers that support retaining backups for up to **10 years**. This feature provides you with access to:
 
 - Comprehensive data protection for different levels of data loss due to  accidental deletions or ransomware attacks.
 - Customer controlled scheduled and on-demand backups.
