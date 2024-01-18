@@ -107,7 +107,7 @@ az afd profile create --profile-name myfrontdoorprofile --resource-group myresou
 
 ### Add an endpoint
 
-Run [az afd endpoint create](/cli/azure/afd/endpoint#az-afd-endpoint-create) to create an endpoint in your profile. You can create multiple endpoints in your profile after finishing the create experience.
+Run [`az afd endpoint create`](/cli/azure/afd/endpoint#az-afd-endpoint-create) to create an endpoint in your profile. You can create multiple endpoints in your profile after finishing the create experience.
 
 ```azurecli-interactive
 az afd endpoint create --resource-group myresourcegroup --endpoint-name myendpoint --profile-name myfrontdoorprofile --enabled-state Enabled
@@ -120,7 +120,7 @@ az afd endpoint create --resource-group myresourcegroup --endpoint-name myendpoi
 
 ### Create an origin group
 
-Run [az afd origin-group create](/cli/azure/afd/origin-group#az-afd-origin-group-create) to create an origin group that contains your two web apps.
+Run [`az afd origin-group create`](/cli/azure/afd/origin-group#az-afd-origin-group-create) to create an origin group that contains your two web apps.
 
 ```azurecli-interactive
 az afd origin-group create --resource-group myresourcegroup --origin-group-name myorigingroup --profile-name myfrontdoorprofile --probe-request-type GET --probe-protocol Http --probe-interval-in-seconds 60 --probe-path / --sample-size 4 --successful-samples-required 3 --additional-latency-in-milliseconds 50
@@ -183,7 +183,7 @@ Allow about 15 minutes for this step to complete as it takes some time for this 
 
 ### Restrict access to web apps to the Azure Front Door instance
 
-At this point, you can still access your apps directly using their URLs at this point. To ensure traffic can only reach your apps through Azure Front Door, you set access restrictions on each of your apps. Front Door's features work best when traffic only flows through Front Door. You should configure your origins to block traffic that isn't sent through Front Door yet. Otherwise, traffic might bypass Front Door's web application firewall, DDoS protection, and other security features. Traffic from Azure Front Door to your applications originates from a well known set of IP ranges defined in the AzureFrontDoor.Backend service tag. By using a service tag restriction rule, you can [restrict traffic to only originate from Azure Front Door](../frontdoor/origin-security.md).
+At this point, you can still access your apps directly using their URLs at this point. To ensure traffic can only reach your apps through Azure Front Door, you set access restrictions on each of your apps. Front Door's features work best when traffic only flows through Front Door. You should configure your origins to block traffic that isn't sent through Front Door yet. Otherwise, traffic might bypass Front Door's web application firewall, DDoS protection, and other security features. Traffic from Azure Front Door to your applications originates from a well known set of IP ranges defined in the `AzureFrontDoor.Backend` service tag. By using a service tag restriction rule, you can [restrict traffic to only originate from Azure Front Door](../frontdoor/origin-security.md).
 
 Before setting up the App Service access restrictions, take note of the *Front Door ID* by running the following command. This ID is needed to ensure traffic only originates from your specific Front Door instance. The access restriction further filters the incoming requests based on the unique HTTP header that your Azure Front Door sends.
 
@@ -332,7 +332,7 @@ A default workflow file that uses a publish profile to authenticate to App Servi
 
 ### How do I disable basic authentication on App Service?
 
-Consider [disabling basic authentication](configure-basic-auth-disable.md), which limits access to the FTP and SCM endpoints to users that are backed by Microsoft Entra ID. If using a continuous deployment tool to deploy your application source code, disabling basic authentication requires [extra steps to configure continuous deployment](deploy-github-actions.md). For example, you won't be able to use a publish profile since that authentication mechanism doesn't use Entra ID backed credentials. Instead, you need to use either a [service principal or OpenID Connect](deploy-github-actions.md#1-generate-deployment-credentials).
+Consider [disabling basic authentication](configure-basic-auth-disable.md), which limits access to the FTP and SCM endpoints to users that are backed by Microsoft Entra ID. If using a continuous deployment tool to deploy your application source code, disabling basic authentication requires [extra steps to configure continuous deployment](deploy-github-actions.md). For example, you can't use a publish profile since  it doesn't use Microsoft Entra credentials. Instead, you need to use either a [service principal or OpenID Connect](deploy-github-actions.md#1-generate-deployment-credentials).
 
 To disable basic authentication for your App Service, run the following commands for each app and slot by replacing the placeholders for `<web-app-east-us>` and `<web-app-west-us>` with your app names. The first set of commands disables FTP access for the production sites and staging slots, and the second set of commands disables basic auth access to the WebDeploy port and SCM site for the production sites and staging slots.
 
