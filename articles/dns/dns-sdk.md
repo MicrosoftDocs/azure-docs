@@ -12,7 +12,7 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.author: greglin
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---

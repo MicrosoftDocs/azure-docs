@@ -204,6 +204,6 @@ Use the following steps to confirm that the event-driven app works correctly. Yo
 
 For more information, see the following articles:
 
-- [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+- [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples).
 - [Spring on Azure](/azure/developer/java/spring/)
 - [Spring Cloud Azure](/azure/developer/java/spring-framework/)

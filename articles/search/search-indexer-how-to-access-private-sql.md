@@ -1,20 +1,22 @@
 ---
 title: Connect to SQL Managed Instance
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Configure an indexer connection to access content in an Azure SQL Managed instance that's protected through a private endpoint.
 
 author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 09/29/2023
 ---
 
-# Create a shared private link for a SQL managed instance from Azure Cognitive Search
+# Create a shared private link for a SQL managed instance from Azure AI Search
 
-This article explains how to configure an indexer in Azure Cognitive Search for a private connection to a SQL managed instance that runs within a virtual network.
+This article explains how to configure an indexer in Azure AI Search for a private connection to a SQL managed instance that runs within a virtual network.
 
-On a private connection to a managed instance, the fully qualified domain name (FQDN) of the instance must include the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture). Currently, only the Azure Cognitive Search Management REST API provides a `resourceRegion` parameter for accepting the DNS zone specification.
+On a private connection to a managed instance, the fully qualified domain name (FQDN) of the instance must include the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture). Currently, only the Azure AI Search Management REST API provides a `resourceRegion` parameter for accepting the DNS zone specification.
 
 Although you can call the Management REST API directly, it's easier to use the Azure CLI `az rest` module to send Management REST API calls from a command line. This article uses the Azure CLI with REST to set up the private link.
 
@@ -25,11 +27,11 @@ Although you can call the Management REST API directly, it's easier to use the A
 
 + [Azure CLI](/cli/azure/install-azure-cli)
 
-+ Azure Cognitive Search, Basic or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, use Standard 2 (S2) or higher. See [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details.
++ Azure AI Search, Basic or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, use Standard 2 (S2) or higher. See [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details.
 
 + Azure SQL Managed Instance, configured to run in a virtual network.
 
-+ You should have a minimum of Contributor permissions on both Azure Cognitive Search and SQL Managed Instance.
++ You should have a minimum of Contributor permissions on both Azure AI Search and SQL Managed Instance.
 
 + Azure SQL Managed Instance connection string. Managed identity is not currently supported with shared private link. Your connection string must include a user name and password.
 
@@ -82,7 +84,7 @@ For more information about connection properties, see [Create an Azure SQL Manag
 
    To set the subscription, use `az account set --subscription {{subscription ID}}`
 
-1. Call the `az rest` command to use the [Management REST API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update) of Azure Cognitive Search. 
+1. Call the `az rest` command to use the [Management REST API](/rest/api/searchmanagement) of Azure AI Search. 
 
    Because shared private link support for SQL managed instances is still in preview, you need a preview version of the REST API. Use `2021-04-01-preview` for this step`.
 
@@ -90,7 +92,7 @@ For more information about connection properties, see [Create an Azure SQL Manag
    az rest --method put --uri https://management.azure.com/subscriptions/{{search-service-subscription-ID}}/resourceGroups/{{search service-resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version=2021-04-01-preview --body @create-pe.json
    ```
 
-   Provide the subscription ID, resource group name, and service name of your Cognitive Search resource.
+   Provide the subscription ID, resource group name, and service name of your Azure AI Search resource.
 
    Provide the same shared private link name that you specified in the JSON body.
 
@@ -110,11 +112,11 @@ On the SQL Managed Instance side, the resource owner must approve the private co
 
 1. Select the connection, and then select **Approve**. It can take a few minutes for the status to be updated in the portal.
 
-After the private endpoint is approved, Azure Cognitive Search creates the necessary DNS zone mappings in the DNS zone that's created for it.
+After the private endpoint is approved, Azure AI Search creates the necessary DNS zone mappings in the DNS zone that's created for it.
 
 ## 5 - Check shared private link status
 
-On the Azure Cognitive Search side, you can confirm request approval by revisiting the Shared Private Access tab of the search service **Networking** page. Connection state should be approved.
+On the Azure AI Search side, you can confirm request approval by revisiting the Shared Private Access tab of the search service **Networking** page. Connection state should be approved.
 
    ![Screenshot of the Azure portal, showing an "Approved" shared private link resource.](media\search-indexer-howto-secure-access\new-shared-private-link-resource-approved.png)
 
@@ -136,7 +138,7 @@ This article assumes Postman or equivalent tool, and uses the REST APIs to make 
      api-key: admin-key
      {
          "name" : "my-sql-datasource",
-         "description" : "A database for testing Azure Cognitive Search indexes.",
+         "description" : "A database for testing Azure AI Search indexes.",
          "type" : "azuresql",
          "credentials" : { 
              "connectionString" : "Server=tcp:contoso.public.0000000000.database.windows.net,1433; Persist Security Info=false; User ID=<your user name>; Password=<your password>;MultipleActiveResultsSets=False; Encrypt=True;Connection Timeout=30;" 

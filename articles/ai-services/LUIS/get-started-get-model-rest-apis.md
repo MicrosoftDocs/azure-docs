@@ -2,11 +2,12 @@
 title: "How to update your LUIS model using the REST API"
 titleSuffix: Azure AI services
 description: In this article, add example utterances to change a model and train the app.
-services: cognitive-services
+#services: cognitive-services
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.devlang: csharp, golang, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, javascript, python
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp, devx-track-extended-java, devx-track-go
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis

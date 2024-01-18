@@ -2,7 +2,7 @@
 title: Code samples - Content Moderator, .NET
 titleSuffix: Azure AI services
 description: Learn how to use Content Moderator in your .NET applications through the SDK.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-moderator
@@ -14,7 +14,7 @@ ms.custom: devx-track-dotnet
 ---
 # Content Moderator .NET SDK samples
 
-The following list includes links to the code samples built using the Azure AI Content Moderator SDK for .NET.
+The following list includes links to the code samples built using the Azure Content Moderator SDK for .NET.
 
 - **Image moderation**: [Evaluate an image for adult and racy content, text, and faces](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageModeration/Program.cs). See the [.NET SDK quickstart](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp).
 - **Custom images**: [Moderate with custom image lists](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageListManagement/Program.cs). See the [.NET SDK quickstart](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp).

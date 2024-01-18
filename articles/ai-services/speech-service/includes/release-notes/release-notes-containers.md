@@ -6,6 +6,29 @@ ms.date: 10/2/2023
 ms.author: eur
 ---
 
+### 2023-November release
+
+Add support for the latest model versions:
+- Custom speech to text 4.5.0
+- Speech to text 4.5.0
+- Neural text to speech 2.19.0
+
+
+### 2023-October release
+
+Add support for the latest model versions:
+- Custom speech to text 4.4.0
+- Speech to text 4.4.0
+- Neural text to speech 2.18.0
+
+Fix a bunch of high risk vulnerability issues.
+
+Remove redundant logs in containers.
+
+Upgrade internal media component to the latest.
+
+Add support for voice `en-IN-NeerjaNeural`.
+
 ### 2023-September release
 
 Add support for the latest model versions:
@@ -18,7 +41,7 @@ Upgrade custom speech to text and speech to text to the latest framework.
 
 Fix vulnerability issues.
 
-Add support for voice`ar-AE-FatimaNeural`.
+Add support for voice `ar-AE-FatimaNeural`.
 
 ### 2023-July release
 

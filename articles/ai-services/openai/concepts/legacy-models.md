@@ -47,10 +47,10 @@ Each family includes models across a range of capability. The following list ind
 
 |  Base Model  |  Model(s)  |  Dimensions  |
 |---|---|---|
-| Ada | | 1024 |
-| Babbage |  | 2048 |
-| Curie |  | 4096 |
-| Davinci |  | 12288 |
+| Ada | | 1,024 |
+| Babbage |  | 2,048 |
+| Curie |  | 4,096 |
+| Davinci |  | 12,288 |
 
 
 ### Similarity embedding
@@ -116,7 +116,7 @@ Region availability is for customers with deployments of the models prior to Jul
 |  --- | --- | --- | --- | --- |
 | text-similarity-ada-001| East US, South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-similarity-babbage-001  | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
-| text-similarity-curie-001 | East US, South Central US, West Europe | N/A |  2046 | Aug 2020 |
+| text-similarity-curie-001 | East US, South Central US, West Europe | N/A |  2,046 | Aug 2020 |
 | text-similarity-davinci-001  | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-search-ada-doc-001 | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-search-ada-query-001 | South Central US, West Europe | N/A | 2,046 | Aug 2020 |

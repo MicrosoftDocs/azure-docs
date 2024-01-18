@@ -2,7 +2,7 @@
 title: Manage multiple machines in Azure Update Manager
 description: This article explains how to use Azure Update Manager in Azure to manage multiple supported machines and view their compliance state in the Azure portal.
 ms.service: azure-update-manager
-ms.date: 09/18/2023
+ms.date: 11/16/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -90,7 +90,7 @@ Update Manager in Azure enables you to browse information about your Azure VMs a
 
    The table lists all the machines in the specified subscription, and for each machine it helps you understand the following details that show up based on the latest assessment:
 
-   * **Customer Managed Schedules**—enables schedule patching on your existing VMs. The new patch orchestration option enables the two VM properties - **Patch mode = Azure-orchestrated** and **BypassPlatformSafetyChecksOnUserSchedule = TRUE** on your behalf after receiving your consent.
+   * **Customer Managed Schedules**—enables schedule patching on your existing VMs. The new patch orchestration option enables the two VM properties - **Patch mode = AutomaticByPlatform** and **BypassPlatformSafetyChecksOnUserSchedule = TRUE** on your behalf after receiving your consent.
    * **Azure Managed - Safe Deployment**—for a group of virtual machines undergoing an update, the Azure platform will orchestrate updates. The VM is set to [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md).(i.e), the patch mode is **AutomaticByPlatform**.
    * **Automatic by OS**—the machine is automatically updated by the OS.
    * **Image Default**—for Linux machines, its default patching configuration is used.
@@ -99,7 +99,7 @@ Update Manager in Azure enables you to browse information about your Azure VMs a
 
 The **Patch orchestration** column in the machine's patch mode has the following values:
 
-   * **Customer Managed Schedules (preview)**: Enables schedule patching on your existing VMs. The new patch orchestration option enables the two VM properties: `Patch mode = Azure-orchestrated` and `BypassPlatformSafetyChecksOnUserSchedule = TRUE` on your behalf after receiving your consent.
+   * **Customer Managed Schedules (preview)**: Enables schedule patching on your existing VMs. The new patch orchestration option enables the two VM properties: `Patch mode = AutomaticByPlatform` and `BypassPlatformSafetyChecksOnUserSchedule = TRUE` on your behalf after receiving your consent.
    * **Azure Managed - Safe Deployment**: For a group of virtual machines undergoing an update, the Azure platform orchestrates updates. The VM is set to [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md). For example, the patch mode is `AutomaticByPlatform`.
    * **Automatic by OS**: The machine is automatically updated by the OS.
    * **Image default**: For Linux machines, its default patching configuration is used.

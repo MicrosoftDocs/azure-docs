@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 03/27/2023
+ms.date: 01/05/2024
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -232,7 +232,7 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 - **Recommendation**: For more information about HTTP status code, see this [document](/troubleshoot/developer/webapps/iis/www-administration-management/http-status-code).
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

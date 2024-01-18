@@ -223,6 +223,8 @@ To modify the policy evaluation order using the policy editor:
 
     A globally scoped policy has no parent scope, and using the `base` element in it has no effect.
 
+[!INCLUDE [api-management-policies-azure-copilot](../../includes/api-management-policies-azure-copilot.md)]
+
 ## Related content
 
 For more information about working with policies, see:
@@ -231,3 +233,4 @@ For more information about working with policies, see:
 + [Set or edit policies](set-edit-policies.md)
 + [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings
 + [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	
++ [Author policies using Microsoft Copilot for Azure](../copilot/author-api-management-policies.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)

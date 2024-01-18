@@ -6,21 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, alexzuniga, azla
 ms.topic: how-to
-ms.date: 10/10/2023
+ms.date: 11/15/2023
 # As a developer, I want to transform data in Azure Logic Apps by creating a map between schemas with Visual Studio Code.
 ---
 
-# Create maps to transform data in Azure Logic Apps with Visual Studio Code (preview)
-
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Create maps to transform data in Azure Logic Apps with Visual Studio Code
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 To exchange messages that have different XML or JSON formats in an Azure Logic Apps workflow, you have to transform the data from one format to another, especially if you have gaps between the source and target schema structures. Data transformation helps you bridge those gaps. For this task, you need to create a map that defines the transformation between data elements in the source and target schemas.
 
-To visually create and edit a map, you can use Visual Studio Code with the Data Mapper extension within the context of a Standard logic app project. The Data Mapper tool provides a unified experience for XSLT mapping and transformation using drag and drop gestures, a prebuilt functions library for creating expressions, and a way to manually test the maps that you create and use in your workflows.
+To visually create and edit a map, you can use Visual Studio Code with the Azure Logic Apps (Standard) extension within the context of a Standard logic app project. The Data Mapper tool provides a unified experience for XSLT mapping and transformation using drag and drop gestures, a prebuilt functions library for creating expressions, and a way to manually test the maps that you create and use in your workflows.
 
 After you create your map, you can directly call that map from a workflow in your logic app project or from a workflow in the Azure portal. For this task, you can use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT** in your workflow.
 
@@ -28,23 +24,29 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
 ## Limitations and known issues
 
-- The Data Mapper extension currently works only in Visual Studio Code running on Windows operating systems.
+- Data Mapper currently works only in Visual Studio Code running on Windows operating systems.
 
-- The Data Mapper tool is currently available only in Visual Studio Code, not the Azure portal, and only from within Standard logic app projects, not Consumption logic app projects.
+- Data Mapper is currently available only in Visual Studio Code, not the Azure portal, and only from within Standard logic app projects, not Consumption logic app projects.
 
-- To call maps created with the Data Mapper tool, you can only use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**. [For maps created by any other tool, use the **XML Operations** action named **Transform XML**](logic-apps-enterprise-integration-transform.md).
+- Data Mapper currently doesn't support comma-separated values (.csv) files.
 
-- The Data Mapper tool's **Code view** pane is currently read only.
+- The Data Mapper's **Code view** pane is currently read only.
 
 - The map layout and item position are currently automatic and read only.
 
-- The Data Mapper extension currently works only with schemas in flat folder-structured projects.
+- To call maps created with the Data Mapper tool, you can only use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**. [For maps created by any other tool, use the **XML Operations** action named **Transform XML**](logic-apps-enterprise-integration-transform.md).
+
+- To use the maps that you create with the Data Mapper tool but in the Azure portal, you must [add them directly to your Standard logic app resource](logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
 
 ## Prerequisites
 
-- [Same prerequisites for using Visual Studio Code and the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites) to create Standard logic app workflows.
+- [Visual Studio Code and the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites) to create Standard logic app workflows.
 
-- The latest **Azure Logic Apps - Data Mapper** extension. You can download and install this extension from inside Visual Studio Code through the Marketplace, or you can find this extension externally on the [Marketplace website](https://marketplace.visualstudio.com/vscode).
+  > [!NOTE]
+  >
+  > The previously separate Data Mapper extension is now merged with the Azure Logic Apps (Standard) extension. 
+  > To avoid conflicts, any existing version of the Data Mapper extension is removed when you install or update 
+  > the Azure Logic Apps (Standard) extension. After extension install or update, please restart Visual Studio Code.
 
 - The source and target schema files that describe the data types to transform. These files can have either the following formats:
 
@@ -59,13 +61,15 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
 - Sample input data if you want to test the map and check that the transformation works as you expect.
 
+- To use the **Run XSLT** function, your XSLT snippets must exist in files that use either the **.xml** or **.xslt** file name extension. You must put your XSLT snippets in the **InlineXslt** folder in your local project folder structure: **Artifacts** > **DataMapper** > **Extensions** > **InlineXslt**. If this folder structure doesn't exist, create the missing folders.
+
 ## Create a data map
 
 1. On the Visual Studio Code left menu, select the **Azure** icon.
 
 1. In the **Azure** pane, under the **Data Mapper** section, select **Create new data map**.
 
-   ![Screenshot showing Visual Studio Code with Data Mapper extension installed, Azure window open, and selected button for Create new data map.](media/create-maps-data-transformation-visual-studio-code/create-new-data-map.png)
+   ![Screenshot showing Visual Studio Code with Data Mapper tool, Azure window open, and selected button for Create new data map.](media/create-maps-data-transformation-visual-studio-code/create-new-data-map.png)
 
 1. Provide a name for your data map.
 
@@ -93,7 +97,7 @@ This how-to guide shows how to create a blank data map, choose your source and t
 
       The map surface now shows data types from the target schema.
 
-   Alternatively, you can also add your source and target schema files locally to your logic app project in the **Artifacts** **Schemas** folder, so that they appear in Visual Studio Code. In this case, you can specify your source and target schema in the Data Mapper tool on the **Configure** pane by selecting **Select existing**, rather than **Add new**.
+   Alternatively, you can also add your source and target schema files locally to your logic app project in the **Artifacts**\/**Schemas** folder, so that they appear in Visual Studio Code. In this case, you can specify your source and target schema in the Data Mapper tool on the **Configure** pane by selecting **Select existing**, rather than **Add new**.
 
    When you're done, your map looks similar to the following example:
 
@@ -194,13 +198,13 @@ The following table lists the available function groups and *example* functions 
 
 | Group | Example functions |
 |-------|-------------------|
-| Collection | Average, Count, Direct Access, Index, Join, Maximum, Minimum, Sum |
+| Collection | Average, Count, Direct Access, Distinct values, Filter, Index, Join, Maximum, Minimum, Reverse, Sort, Subsequence, Sum |
 | Conversion | To date, To integer, To number, To string |
 | Date and time | Add days |
 | Logical comparison | Equal, Exists, Greater, Greater or equal, If, If else, Is nil, Is null, Is number, Is string, Less, Less or equal, Logical AND, Logical NOT, Logical OR, Not equal |
 | Math | Absolute, Add, Arctangent, Ceiling, Cosine, Divide, Exponential, Exponential (base 10), Floor, Integer divide, Log, Log (base 10), Module, Multiply, Power, Round, Sine, Square root, Subtract, Tangent |
 | String | Code points to string, Concat, Contains, Ends with, Length, Lowercase, Name, Regular expression matches, Regular expression replace, Replace, Starts with, String to code-points, Substring, Substring after, Substring before, Trim, Trim left, Trim right, Uppercase |
-| Utility | Copy, Error, Format date-time, Format number |
+| Utility | Copy, Error, Execute XPath, Format date-time, Format number, Run XSLT |
 
 On the map, the function's label looks like the following example and is color-coded based on the function group. To the function name's left side, a symbol for the function appears. To the function name's right side, a symbol for the function output's data type appears.
 
@@ -220,7 +224,7 @@ The example in this section transforms the source element type from String type 
 
 1. From the functions list that opens, find and select the function that you want to use, which adds the function to the map. If the function doesn't appear visible on the map, try zooming out on the map surface.
 
-   This example selects the **To date** function.
+   This example selects the **To date** function. You can also find and select any custom functions in the same way. For more information, see [Create a custom function](#create-custom-function).
 
    ![Screenshot showing the selected function named To date.](media/create-maps-data-transformation-visual-studio-code/no-mapping-select-function.png)
 
@@ -262,7 +266,9 @@ When a mapping relationship already exists between source and target elements, y
 
 1. On the map, select the line for the mapping that you created.
 
-1. Move your pointer over the selected line, and select the plus sign (**+**) that appears.
+1. Move your pointer over the selected line, and select the **Insert function** plus sign (**+**) that appears, for example:
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/insert-function.png" alt-text="Screenshot shows Visual Studio Code with elements from source and target schemas with mapping relationship and option to Insert function." lightbox="media/create-maps-data-transformation-visual-studio-code/insert-function.png":::
 
 1. From the functions list that opens, find and select the function that you want to use. 
 
@@ -405,9 +411,17 @@ Visual Studio Code saves your map as the following artifacts:
 - A **<*your-map-name*>.yml** file in the **Artifacts** > **MapDefinitions** project folder
 - An **<*your-map-name*>.xslt** file in the **Artifacts** > **Maps** project folder
 
+<a name="generate-xslt"></a>
+
+## Generate XSLT file at any time
+
+To generate the **<*your-map-name*>.xslt** file at any time, on the map toolbar, select **Generate XSLT**.
+
 ## Test your map
 
 To confirm that the transformation works as you expect, you'll need sample input data.
+
+1. Before you test your map, make sure to [generate the latest **<*your-map-name*>.xslt** file](#generate-xslt).
 
 1. On your map toolbar, select **Test**.
 
@@ -421,16 +435,91 @@ To confirm that the transformation works as you expect, you'll need sample input
 
 1. Expand the folder that has your workflow name. From the **workflow.json** file's shortcut menu, select **Open Designer**.
 
-1. On the workflow designer, either after the step or between the steps where you want to perform the transformation, select the plus sign (**+**) > **Add an action**.
+1. On the workflow designer, follow these [general steps to add the **Data Mapper Operations** built-in action named **Transform using Data Mapper XSLT**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-1. On the **Add an action** pane, in the search box, enter **data mapper**. Select the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**.
+1. On the designer, select the **Transform using Data Mapper XSLT** action.
 
-1. In the action information box, specify the **Content** value, and leave **Map Source** set to **Logic App**. From the **Map Name** list, select the map file (.xslt) that you want to use.
+1. On the action information pane that appears, specify the **Content** value, and leave **Map Source** set to **Logic App**. From the **Map Name** list, select the map file (.xslt) that you want to use.
 
-To use the same **Transform using Data Mapper XSLT** action in the Azure portal, add the map to either of the following resources:
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/transform-data-mapper-xslt-action.png" alt-text="Screenshot shows Visual Studio Code, Standard workflow designer, with selected action named Transform using Data Mapper XSLT and action properties.":::
 
-- An integration account for a Consumption or Standard logic app resource
-- The Standard logic app resource itself
+   To use the same **Transform using Data Mapper XSLT** action in the Azure portal, you must [add the map to the Standard logic app resource](logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
+
+<a name="create-custom-function"></a>
+
+## Create a custom function
+
+To create your own function that you can use with the Data Mapper tool, follow these steps:
+
+1. Create an XML (.xml) file that has a meaningful name that describes your function's purpose.
+
+   If you have multiple related functions, you can use a single file for these functions. Although you can use any file name, a meaningful file name or category makes your functions easier to identify, find, and discover.
+
+1. In your XML file, you must use the following schema for the function definition:
+
+   ```xml
+   <?xml version="1.0" encoding="utf-8"?>
+   <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="customfunctions">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element maxOccurs="unbounded" name="function">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element maxOccurs="unbounded" name="param">
+                           <xs:complexType>
+                               <xs:attribute name="name" type="xs:string" use="required" />
+                               <xs:attribute name="as" type="xs:string" use="required" />
+                           </xs:complexType>
+                        </xs:element>
+                        <xs:any minOccurs="0" />
+                     </xs:sequence>
+                     <xs:attribute name="name" type="xs:string" use="required" />
+                     <xs:attribute name="as" type="xs:string" use="required" />
+                     <xs:attribute name="description" type="xs:string" use="required" />
+                  </xs:complexType>
+               </xs:element>
+            </xs:sequence>
+         </xs:complexType>
+      </xs:element>
+   </xs:schema>
+   ```
+
+   Each XML element named **"function"** implements an XSLT3.0 style function with few more attributes. The Data Mapper functions list includes the function name, description, parameter names, and parameter types.
+
+   The following example shows the implementation for a **SampleFunctions.xml** file:
+
+   ```xml
+   <?xml version="1.0" encoding="utf-8" ?>
+   <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <customfunctions>
+      <function name="age" as="xs:float" description="Returns the current age.">
+         <param name="inputDate" as="xs:date"/> 
+         <value-of select="round(days-from-duration(current-date() - xs:date($inputDate)) div 365.25, 1)"/>
+      </function> 
+      <function name="custom-if-then-else" as="xs:string" description="Evaluates the condition and returns corresponding value.">
+         <param name="condition" as="xs:boolean"/>
+         <param name="thenResult" as="xs:anyAtomicType"/>
+         <param name="elseResult" as="xs:anyAtomicType"/>
+         <choose>
+            <when test="$condition">
+               <value-of select="$thenResult"></value-of>
+            </when>
+            <otherwise>
+               <value-of select="$elseResult"></value-of>
+            </otherwise>
+         </choose>
+      </function>
+   </customfunctions>
+   ```
+
+1. On your local computer, open the folder for your Standard logic app project.
+
+1. Open the **Artifacts** folder, and create the following folder structure, if none exists: **DataMapper** > **Extensions** > **Functions**.
+
+1. In the **Functions** folder, save your function's XML file.
+
+1. To find your custom function in the Data Mapper tool's functions list, search for the function, or expand the **Custom functions** collection.
 
 ## Next steps
 

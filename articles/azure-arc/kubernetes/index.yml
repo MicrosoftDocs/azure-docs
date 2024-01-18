@@ -56,7 +56,7 @@ landingContent:
      - linkListType: sample
        links:
           - text: Jumpstart for Azure Arc-enabled Kubernetes
-            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/
+            url: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_k8s
   
   - title: Manage your cluster
     linkLists:

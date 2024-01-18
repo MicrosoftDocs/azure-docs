@@ -1,15 +1,16 @@
 ---
 title: Document Extraction cognitive skill
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Extracts content from a file within the enrichment pipeline.
 
 author: careyjmac
 ms.author: chalton
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 12/12/2021
-
 ---
 # Document Extraction cognitive skill
 
@@ -17,7 +18,7 @@ The **Document Extraction** skill extracts content from a file within the enrich
 
 > [!NOTE]
 > This skill isn't bound to Azure AI services and has no Azure AI services key requirement.
-> This skill extracts text and images. Text extraction is free. Image extraction is [metered by Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/). On a free search service, the cost of 20 transactions per indexer per day is absorbed so that you can complete quickstarts, tutorials, and small projects at no charge. For Basic, Standard, and above, image extraction is billable.
+> This skill extracts text and images. Text extraction is free. Image extraction is [metered by Azure AI Search](https://azure.microsoft.com/pricing/details/search/). On a free search service, the cost of 20 transactions per indexer per day is absorbed so that you can complete quickstarts, tutorials, and small projects at no charge. For Basic, Standard, and above, image extraction is billable.
 >
 
 ## @odata.type
@@ -36,13 +37,13 @@ Parameters are case-sensitive.
 
 | Inputs | Allowed Values | Description |
 |-----------------|----------------|-------------|
-| `parsingMode`   | `default` </br>`text` </br>`json`  | Set to `default` for document extraction from files that are not pure text or json. For source files that contain mark up (such as PDF, HTML, RTF, and Microsoft Office files), use the default to extract just the text, minus any markup language or tags. If `parsingMode` is not defined explicitly, it will be set to `default`. </p>Set to `text` if source files are TXT. This parsing mode improves performance on plain text files. If files include markup, this mode will preserve the tags in the final output. </p>Set to `json` to extract structured content from json files.  |
-| `dataToExtract` | `contentAndMetadata` </br>`allMetadata` | Set to `contentAndMetadata` to extract all metadata and textual content from each file. If `dataToExtract` is not defined explicitly, it will be set to `contentAndMetadata`. </p>Set to `allMetadata` to extract only the [metadata properties for the content type](search-blob-metadata-properties.md) (for example, metadata unique to just .png files).  |
+| `parsingMode`   | `default` </br>`text` </br>`json`  | Set to `default` for document extraction from files that aren't pure text or json. For source files that contain mark up (such as PDF, HTML, RTF, and Microsoft Office files), use the default to extract just the text, minus any markup language or tags. If `parsingMode` isn't defined explicitly, it will be set to `default`. </p>Set to `text` if source files are TXT. This parsing mode improves performance on plain text files. If files include markup, this mode will preserve the tags in the final output. </p>Set to `json` to extract structured content from json files.  |
+| `dataToExtract` | `contentAndMetadata` </br>`allMetadata` | Set to `contentAndMetadata` to extract all metadata and textual content from each file. If `dataToExtract` isn't defined explicitly, it will be set to `contentAndMetadata`. </p>Set to `allMetadata` to extract only the [metadata properties for the content type](search-blob-metadata-properties.md) (for example, metadata unique to just .png files).  |
 | `configuration` | See below. | A dictionary of optional parameters that adjust how the document extraction is performed. See the below table for descriptions of supported configuration properties. |
 
 | Configuration Parameter	| Allowed Values | Description |
 |-------------------------|----------------|-------------|
-| `imageAction`           | `none` </br>`generateNormalizedImages` </br>`generateNormalizedImagePerPage` | Set to `none` to ignore embedded images or image files in the data set, or if the source data does not include image files. This is the default. </p>For [OCR and image analysis](cognitive-search-concept-image-scenarios.md), set to `generateNormalizedImages` to have the skill create an array of normalized images as part of [document cracking](search-indexer-overview.md#document-cracking). This action requires that `parsingMode` is set to `default` and `dataToExtract` is set to `contentAndMetadata`. A normalized image refers to additional processing resulting in uniform image output, sized and rotated to promote consistent rendering when you include images in visual search results (for example, same-size photographs in a graph control as seen in the [JFK demo](https://github.com/Microsoft/AzureSearch_JFK_Files)). This information is generated for each image when you use this option. </p>If you set to `generateNormalizedImagePerPage`, PDF files will be treated differently in that instead of extracting embedded images, each page will be rendered as an image and normalized accordingly.  Non-PDF file types will be treated the same as if `generateNormalizedImages` was set.
+| `imageAction`           | `none` </br>`generateNormalizedImages` </br>`generateNormalizedImagePerPage` | Set to `none` to ignore embedded images or image files in the data set, or if the source data doesn't include image files. This is the default. </p>For [OCR and image analysis](cognitive-search-concept-image-scenarios.md), set to `generateNormalizedImages` to have the skill create an array of normalized images as part of [document cracking](search-indexer-overview.md#document-cracking). This action requires that `parsingMode` is set to `default` and `dataToExtract` is set to `contentAndMetadata`. A normalized image refers to extra processing resulting in uniform image output, sized and rotated to promote consistent rendering when you include images in visual search results (for example, same-size photographs in a graph control as seen in the [JFK demo](https://github.com/Microsoft/AzureSearch_JFK_Files)). This information is generated for each image when you use this option. </p>If you set to `generateNormalizedImagePerPage`, PDF files are treated differently in that instead of extracting embedded images, each page is rendered as an image and normalized accordingly.  Non-PDF file types are treated the same as if `generateNormalizedImages` was set.
 | `normalizedImageMaxWidth` | Any integer between 50-10000 | The maximum width (in pixels) for normalized images generated. The default is 2000. | 
 | `normalizedImageMaxHeight` | Any integer between 50-10000 | The maximum height (in pixels) for normalized images generated. The default is 2000. |
 
@@ -76,7 +77,7 @@ Alternatively, it can be defined as:
 
 The file reference object can be generated one of three ways:
 
-+ Setting the `allowSkillsetToReadFileData` parameter on your indexer definition to "true".  This will create a path `/document/file_data` that is an object representing the original file data downloaded from your blob data source. This parameter only applies to files in Blob storage.
++ Setting the `allowSkillsetToReadFileData` parameter on your indexer definition to "true".  This creates a path `/document/file_data` that is an object representing the original file data downloaded from your blob data source. This parameter only applies to files in Blob storage.
 
 + Setting the `imageAction` parameter on your indexer definition to a value other than `none`.  This creates an array of images  that follows the required convention for input to this skill if passed individually (that is, `/document/normalized_images/*`).
 
@@ -87,7 +88,7 @@ The file reference object can be generated one of three ways:
 | Output name	 | Description |
 |--------------|-------------|
 | `content` | The textual content of the document. |
-| `normalized_images`	| When the `imageAction` is set to a value other than `none`, the new *normalized_images* field will contain an array of images. See [Extract text and information from images](cognitive-search-concept-image-scenarios.md) for more details on the output format. |
+| `normalized_images`	| When the `imageAction` is set to a value other than `none`, the new *normalized_images* field contains an array of images. See [Extract text and information from images](cognitive-search-concept-image-scenarios.md) for more details on the output format. |
 
 ## Sample definition
 
@@ -160,4 +161,4 @@ The file reference object can be generated one of three ways:
 
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [How to process and extract information from images in cognitive search scenarios](cognitive-search-concept-image-scenarios.md)
++ [How to process and extract information from images](cognitive-search-concept-image-scenarios.md)

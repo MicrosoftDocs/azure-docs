@@ -11,7 +11,7 @@ metadata:
   author: aahill
   ms.service: azure-ai-language
   ms.subservice: azure-ai-luis
-  services: cognitive-services
+  #services: cognitive-services
   title: Language Understanding (LUIS) Documentation
   titleSuffix: Azure AI services
   description: The Language Understanding (LUIS) service allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it.

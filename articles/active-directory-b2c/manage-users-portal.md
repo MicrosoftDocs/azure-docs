@@ -1,12 +1,12 @@
 ---
 title: Create & delete Azure AD B2C consumer user accounts in the Azure portal
 description: Learn how to use the Azure portal to create and delete consumer users in your Azure AD B2C directory.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 05/26/2023
 ms.author: godonnell

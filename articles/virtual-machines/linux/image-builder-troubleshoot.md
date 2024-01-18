@@ -3,8 +3,8 @@ title: Troubleshoot Azure VM Image Builder
 description: This article helps you troubleshoot common problems and errors you might encounter when you're using Azure VM Image Builder.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
-ms.date: 11/01/2023
+ms.reviewer: jushiman
+ms.date: 11/27/2023
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -40,6 +40,11 @@ VM Image Builder failures can happen in two areas:
 
 - During image template submission
 - During image building
+
+> [!NOTE]
+> CIS-hardened images (Linux or Windows) on Azure marketplace, managed by CIS, can cause build failures with Azure Image Builder service due to their configurations. For instance:
+> - CIS-Hardened Windows images might disrupt WinRM connectivity, a prerequisite for AIB build.
+> - CIS Linux images can fail due to `chmod +x` permission issues.
 
 ## Troubleshoot image template submission errors
 
@@ -735,10 +740,30 @@ The cause might be a timing issue because of the D1_V2 VM size. If customization
 
 To avoid the timing issue, you can increase the VM size or you can add a 60-second PowerShell sleep customization.
 
+### Unregistered Azure Container Instances provider
+
+#### Error
+```text
+Azure Container Instances provider not registered for your subscription.
+```
+
+#### Cause
+Your template subscription doesn't have the Azure Container Instances provider registered.
+
+#### Solution
+Register the Azure Container Instances provider for your template subscription and add the Azure CLI or PowerShell commands:
+
+- Azure CLI: `az provider register -n Microsoft.ContainerInstance`
+- PowerShell: `Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance`
+
+
+
 ### Azure Container Instances quota exceeded
 
 #### Error
-"Azure Container Instances quota exceeded"
+```text
+Azure Container Instances quota exceeded"
+```
 
 #### Cause
 Your subscription doesn't have enough Azure Container Instances (ACI) quota for Azure Image Builder to successfully build an image.
@@ -879,6 +904,36 @@ To resolve the issue, delete the below resources one by one in the specific orde
 1. Image template.
 
 For additional assistance, you can [contact Azure support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to resolve the stuck deletion error.
+
+### Distribute target not found in the update request 
+
+#### Error  
+
+```text
+Validation failed: Distribute target with Runoutput name <runoutputname> not found in the update request. Deleting a distribution target is not allowed.
+```
+#### Cause
+
+This error occurs when an existing distribute target isn't found in the Patch request body. 
+
+#### Solution  
+
+The distribution array should contain all the distribution targets that is, new targets (if any), existing targets with no change and updated targets. If you want to remove an existing distribution target, delete and re-create the image template as deleting a distribution target is currently not supported through the Patch API.   
+
+### Missing required fields 
+
+#### Error  
+
+```text
+Validation failed: 'ImageTemplate.properties.distribute[<index>]': Missing field <fieldname>. Please review http://aka.ms/azvmimagebuildertmplref for details on fields required in the Image Builder Template.
+``` 
+#### Cause
+
+This error occurs when a required field is missing from a distribute target. 
+
+#### Solution 
+
+When creating a request, please provide every required field in a distribute target even if there's no change.
 
 ## DevOps tasks
 

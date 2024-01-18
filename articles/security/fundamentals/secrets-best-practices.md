@@ -28,6 +28,7 @@ These best practices are intended to be a resource for IT pros. This might inclu
 - Azure Communications Service: [Create and manage access tokens](../../communication-services/quickstarts/identity/access-tokens.md)
 - Azure Service Bus: [Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities](../../service-bus-messaging/authenticate-application.md)
 - Azure App Service: [Learn to configure common settings for an App Service application](../../app-service/configure-common.md)
+- Azure Pipelines: [Protecting secrets in Azure Pipelines](/azure/devops/pipelines/security/secrets)
 
 ## Next steps
 

@@ -44,7 +44,7 @@ The following table shows an overview of the Defender for Servers deployment pro
 | Protect on-premises servers | • Onboard them as Azure Arc machines and deploy agents with automation provisioning. |
 | Foundational CSPM           | • There are no charges when you use foundational CSPM with no plans enabled.<br /><br />• AWS/GCP machines don't need to be set up with Azure Arc for foundational CSPM. On-premises machines do.<br /><br />• Some foundational recommendations rely only agents: Antimalware / endpoint protection (Log Analytics agent or Azure Monitor agent) \| OS baselines recommendations (Log Analytics agent or Azure Monitor agent and Guest Configuration extension) \| 
 
-- Learn more about [foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+- Learn more about [foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md).
 - Learn more about [Azure Arc](../azure-arc/index.yml) onboarding.
 
 When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on an Azure subscription or a connected AWS account, all of the connected machines are protected by Defender for Servers. You can enable Microsoft Defender for Servers at the Log Analytics workspace level, but only servers reporting to that workspace will be protected and billed and those servers won't receive some benefits, such as Microsoft Defender for Endpoint, vulnerability assessment, and just-in-time VM access.

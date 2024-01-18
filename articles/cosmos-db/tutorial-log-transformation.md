@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 To complete this tutorial, you need:
 
 - A Log Analytics workspace where you have at least [contributor rights](../azure-monitor/logs/manage-access.md#azure-rbac).
-- [Permissions to create DCR objects](../azure-monitor/essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create DCR objects](../azure-monitor/essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 - A table that already has some data.
 - The table can't be linked to the [workspace transformation DCR](../azure-monitor/essentials/data-collection-transformations.md#workspace-transformation-dcr).
 

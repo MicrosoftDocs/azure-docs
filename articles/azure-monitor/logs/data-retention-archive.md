@@ -30,6 +30,7 @@ You can access archived data by [running a search job](search-jobs.md) or [resto
 
 > [!NOTE]
 > The archive period can only be set at the table level, not at the workspace level.
+
 ### Adjustments to retention and archive settings
 
 When you shorten an existing retention setting, Azure Monitor waits 30 days before removing the data, so you can revert the change and avoid data loss in the event of an error in configuration. You can [purge data](#purge-retained-data) immediately when required. 
@@ -183,6 +184,7 @@ For example:
 Update-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -TableName Syslog -RetentionInDays -1 -TotalRetentionInDays -1
 ```
 
+
 ---
 
 ## Get retention and archive settings by table
@@ -194,6 +196,7 @@ To view the retention and archive duration for a table in the Azure portal, from
 The **Tables** screen shows the interactive retention and archive period for all the tables in the workspace.
 
 :::image type="content" source="media/data-retention-configure/log-analytics-view-table-retention-archive.png" lightbox="media/data-retention-configure/log-analytics-view-table-retention-archive.png" alt-text="Screenshot that shows the Manage table button for one of the tables in a workspace.":::
+
 
 
 # [API](#tab/api-2)
@@ -232,6 +235,7 @@ For example:
 Get-AzOperationalInsightsTable -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -tableName SecurityEvent
 ``` 
 
+
 ---
 
 ## Purge retained data
@@ -242,7 +246,8 @@ Workspaces with a 30-day retention might keep data for 31 days if you don't set 
 
 You can also purge data from a workspace by using the [purge feature](personal-data-mgmt.md#exporting-and-deleting-personal-data), which removes personal data. You can't purge data from archived logs.
 
-The Log Analytics [Purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing. To lower retention costs, *decrease the retention period for the workspace or for specific tables*.
+> [!IMPORTANT]
+> The Log Analytics [Purge feature](/rest/api/loganalytics/workspacepurge/purge) doesn't affect your retention costs. To lower retention costs, decrease the retention period for the workspace or for specific tables.
 
 ## Tables with unique retention periods
 

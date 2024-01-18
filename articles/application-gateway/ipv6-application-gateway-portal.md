@@ -37,7 +37,7 @@ You can also complete this quickstart using [Azure PowerShell](ipv6-application-
 
 ## Regions and availability
 
-The IPv6 Application Gateway preview is available to all public cloud regions where Application Gateway v2 SKU is supported.
+The IPv6 Application Gateway preview is available to all public cloud regions where Application Gateway v2 SKU is supported. It's also available in [Microsoft Azure operated by 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 ## Limitations
 

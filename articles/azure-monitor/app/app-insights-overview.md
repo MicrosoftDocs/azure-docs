@@ -2,7 +2,7 @@
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
 ms.topic: overview
-ms.date: 10/09/2023
+ms.date: 12/15/2023
 ---
 
 # Application Insights overview
@@ -19,7 +19,7 @@ Application Insights provides many experiences to enhance the performance, relia
 - [Application dashboard](overview-dashboard.md): An at-a-glance assessment of your application's health and performance.
 - [Application map](app-map.md): A visual overview of application architecture and components' interactions.
 - [Live metrics](live-stream.md): A real-time analytics dashboard for insight into application activity and performance.
-- [Transaction search](search-and-transaction-diagnostics.md?tabs=transaction-search): Trace and diagnose transactions to identify issues and optimize performance.
+- [Transaction search](transaction-search-and-diagnostics.md?tabs=transaction-search): Trace and diagnose transactions to identify issues and optimize performance.
 - [Availability view](availability-overview.md): Proactively monitor and test the availability and responsiveness of application endpoints.
 - Performance view: Review application performance metrics and potential bottlenecks.
 - Failures view: Identify and analyze failures in your application to minimize downtime.
@@ -65,11 +65,11 @@ For detailed information about instrumenting applications to enable Application 
 
 #### OpenTelemetry Distro
 
+* [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore)
 * [ASP.NET](opentelemetry-enable.md?tabs=net)
 * [Java](opentelemetry-enable.md?tabs=java)
 * [Node.js](opentelemetry-enable.md?tabs=nodejs)
 * [Python](opentelemetry-enable.md?tabs=python)
-* [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore) (preview)
 
 #### Application Insights SDK (Classic API)
 
@@ -245,6 +245,6 @@ Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/we
 - [Application dashboard](overview-dashboard.md)
 - [Application Map](app-map.md)
 - [Live metrics](live-stream.md)
-- [Transaction search](search-and-transaction-diagnostics.md?tabs=transaction-search)
+- [Transaction search](transaction-search-and-diagnostics.md?tabs=transaction-search)
 - [Availability overview](availability-overview.md)
 - [Users, sessions, and events](usage-segmentation.md)

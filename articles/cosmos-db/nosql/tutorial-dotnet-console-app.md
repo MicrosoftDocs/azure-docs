@@ -20,7 +20,7 @@ ms.custom: devx-track-dotnet, ignite-2022, cosmos-dev-refresh, cosmos-dev-dotnet
 
 [!INCLUDE[Console app language selector](includes/tutorial-console-app-selector.md)]
 
-The Azure SDK for .NET allows you to add data to an API for NoSQL container either how-to-dotnet-create-item.md#create-an-item-asynchronously or by using a [transactional batch](transactional-batch.md?tabs=dotnet). This tutorial will walk through the process of create a new .NET console application that adds multiple items to a container.
+The Azure SDK for .NET allows you to add data to an API for NoSQL container either [asynchronous individual operations](how-to-dotnet-create-item.md#create-an-item-asynchronously) or a [transactional batch](transactional-batch.md?tabs=dotnet). This tutorial will walk through the process of create a new .NET console application that adds multiple items to a container.
 
 In this tutorial, you learn how to:
 

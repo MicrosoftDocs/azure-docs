@@ -2,8 +2,8 @@
 title: Monitoring SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn about monitoring SAP HANA on an Azure (Large Instances).
 services: virtual-machines-linux
-documentationcenter: 
-author: lauradolan
+documentationcenter:
+author: ju-shim
 manager: bburns
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
@@ -11,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/19/2022
-ms.author: ladolan
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017, contperf-fy21q4
 ---
 

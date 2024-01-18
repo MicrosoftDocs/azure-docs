@@ -1,8 +1,7 @@
 ---
 title: How to back up and recover speech customer resources
 titleSuffix: Azure AI services
-description: Learn how to prepare for service outages with Custom Speech and Custom Voice.
-services: cognitive-services
+description: Learn how to prepare for service outages with custom speech and custom voice.
 author: eric-urban
 ms.author: eur
 manager: nitinme
@@ -24,7 +23,7 @@ Datasets for customer-created data assets, such as customized speech models, cus
 -   Customized speech models
 -   Log data
 
-**Custom Voice**
+**Custom voice**
 -   Training audio/text data
 -   Test audio/text data
 -   Custom voice fonts
@@ -94,9 +93,9 @@ This section provides general guidance about timing. The times were recorded to 
 
 It's nonetheless advisable to create keys for a primary and secondary region for production models with real-time requirements.
 
-### Custom Voice
+### Custom voice
 
-Custom Voice doesn't support automatic failover. Handle real-time synthesis failures with these two options.
+Custom voice doesn't support automatic failover. Handle real-time synthesis failures with these two options.
 
 **Option 1: Fail over to public voice in the same region.**
 

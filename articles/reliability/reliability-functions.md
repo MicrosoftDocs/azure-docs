@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: conceptual
 ms.service: azure-functions
 ms.custom: references_regions, subject-reliability
-ms.date: 08/24/2023
+ms.date: 11/14/2023
 #Customer intent: I want to understand reliability support in Azure Functions so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 
@@ -64,7 +64,7 @@ Availability zone support is a property of the Premium plan. The following are t
 
 ### Pricing
 
-There's no extra cost associated with enabling availability zones. Pricing for a zone redundant Premium plan is the same as a single zone Premium plan. You are charged based on your Premium plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform enforces a minimum instance count of three and charge you for those three instances.
+There's no extra cost associated with enabling availability zones. Pricing for a zone redundant Premium App Service plan is the same as a single zone Premium plan. For each App Service plan you use, you're charged based on the SKU you choose, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three for an App Service plan, the platform enforces a minimum instance count of three for that App Service plan and charges you for those three instances.
 
 ### Create a zone-redundant Premium plan and function app
 

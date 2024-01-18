@@ -4,7 +4,6 @@ description: Learn how to run web apps in Azure App Service by deploying your fi
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 05/03/2023
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, devdivchpfy22, devx-track-azurepowershell, devx-track-dotnet
 zone_pivot_groups: app-service-ide
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
@@ -12,6 +11,8 @@ adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
 author: cephalin
 ms.author: cephalin
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, devdivchpfy22, devx-track-azurepowershell, devx-track-dotnet, ai-video-demo
+ai-usage: ai-assisted
 ---
 
 <!-- NOTES:
@@ -36,6 +37,11 @@ target cross-platform with .NET 7.0.
 In this quickstart, you learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps, and provides a highly scalable, self-patching web hosting service. ASP.NET web apps are cross-platform and can be hosted on Linux or Windows. When you're finished, you have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
 
 Alternatively, you can deploy an ASP.NET web app as part of a [Windows or Linux container in App Service](quickstart-custom-container.md).
+
+This video shows you how to deploy an ASP.NET web app.
+> [!VIDEO 31309745-82c2-4208-aed5-7ace0b7f7f4d]
+
+The steps in the video are also described in the following sections.
 
 ## Prerequisites
 
@@ -209,7 +215,7 @@ In this step, you fork a demo project to deploy.
 
 This quickstart uses the [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) both to create Azure resources and deploy code to it. For more information about Azure Developer CLI, visit the [documentation](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) or [training path](/training/paths/azure-developer-cli/).
 
-Retrieve and initialize [the ASP.NET Core web app template](https://github.com/Azure-Samples/quickstart-deploy-aspnet-core-app-service.git) for this quickstart using the following steps:
+Retrieve and initialize [the ASP.NET Core web app template](https://github.com/Azure-Samples/quickstart-deploy-aspnet-core-app-service) for this quickstart using the following steps:
 
 1. Open a terminal window on your machine to an empty working directory. Initialize the `azd` template using the `azd init` command.
 

@@ -3,8 +3,9 @@ title: Optimize Costs in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Recommendations for optimizing costs in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
+ms.custom:
+  - ignite-2023
 ms.date: 04/13/2023
-
 ---
 
 # Optimize costs in Azure Kubernetes Service (AKS)
@@ -27,7 +28,7 @@ Explore the following table of recommendations to optimize your AKS configuratio
 
 | Recommendation | Benefit |
 |----------------------------------|-----------|
-|**Cluster architecture**: Utilize AKS cluster pre-set configurations. |From the Azure portal, the **cluster preset configurations** option helps offload this initial challenge by providing a set of recommended configurations that are cost-conscious and performant regardless of environment. Mission critical applications may require more sophisticated VM instances, while small development and test clusters may benefit from the lighter-weight, preset options where availability, Azure Monitor, Azure Policy, and other features are turned off by default. The **Dev/Test** and **Cost-optimized** pre-sets help remove unnecessary added costs.|
+|**Cluster architecture**: Utilize AKS cluster pre-set configurations. |From the Azure portal, the **cluster preset configurations** option helps offload this initial challenge by providing a set of recommended configurations that are cost-conscious and performant regardless of environment. Mission critical applications might require more sophisticated VM instances, while small development and test clusters might benefit from the lighter-weight, preset options where availability, Azure Monitor, Azure Policy, and other features are turned off by default. The **Dev/Test** and **Cost-optimized** pre-sets help remove unnecessary added costs.|
 |**Cluster architecture:** Consider using [ephemeral OS disks](concepts-storage.md#ephemeral-os-disk).|Ephemeral OS disks provide lower read/write latency, along with faster node scaling and cluster upgrades. Containers aren't designed to have local state persisted to the managed OS disk, and this behavior offers limited value to AKS. AKS defaults to an ephemeral OS disk if you chose the right VM series and the OS disk can fit in the VM cache or temporary storage SSD.|
 |**Cluster and workload architectures:** Use the [Start and Stop feature](start-stop-cluster.md) in Azure Kubernetes Services (AKS).|The AKS Stop and Start cluster feature allows AKS customers to pause an AKS cluster, saving time and cost. The stop and start feature keeps cluster configurations in place and customers can pick up where they left off without reconfiguring the clusters.|
 |**Workload architecture:** Consider using [Azure Spot VMs](spot-node-pool.md) for workloads that can handle interruptions, early terminations, and evictions.|For example, workloads such as batch processing jobs, development and testing environments, and large compute workloads may be good candidates for you to schedule on a spot node pool. Using spot VMs for nodes with your AKS cluster allows you to take advantage of unused capacity in Azure at a significant cost savings.|
@@ -39,5 +40,5 @@ Explore the following table of recommendations to optimize your AKS configuratio
 
 ## Next steps
 
-- Explore and analyze costs with [Cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
 - [Azure Advisor recommendations](../advisor/advisor-cost-recommendations.md) for cost can highlight the over-provisioned services and ways to lower cost.
+- Consider enabling [AKS cost analysis](./cost-analysis.md) to get granular insight into costs associated with Kubernetes resources across your clusters and namespaces. After you enable cost analysis, you can [explore and analyze costs](../cost-management-billing/costs/quick-acm-cost-analysis.md).

@@ -1,5 +1,5 @@
 ---
-title: Project Health Insights response info  
+title: Azure AI Health Insights response info  
 description: this article describes the response from the service
 services: azure-health-insights
 author: iBoonZ
@@ -10,13 +10,13 @@ ms.date: 02/17/2023
 ms.author: behoorne
 ---
 
-# Project Health Insights response info  
+# Azure AI Health Insights response info  
 
-This page describes the response models and parameters that are returned by Project Health Insights service.
+This page describes the response models and parameters that are returned by Azure AI Health Insights service.
 
 
 ## Response
-The generic part of Project Health Insights response, common to all models.
+The generic part of Azure AI Health Insights response, common to all models.
 
 Name              |Required|Type  |Description                                                                                     
 ------------------|--------|------|------------------------------------------------------------------------------------------------

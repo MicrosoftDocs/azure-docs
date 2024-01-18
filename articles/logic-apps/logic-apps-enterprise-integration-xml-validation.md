@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
+ms.date: 01/04/2024
 ---
 
 # Validate XML in workflows with Azure Logic Apps
