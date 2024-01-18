@@ -43,7 +43,7 @@ This article lists the cost details (formerly known as usage details) fields fou
 |ConsumedService|Name of the service the charge is associated with.|
 |ResourceType|MISSING.|
 |InstanceId|MISSING.|
-|Tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources).|
+|Tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
 |OfferId|Name of the offer purchased.|
 |AdditionalInfo|Service-specific metadata. For example, an image type for a virtual machine.|
 |ServiceInfo1|Service-specific metadata.|

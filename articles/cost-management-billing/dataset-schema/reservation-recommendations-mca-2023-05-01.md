@@ -14,7 +14,7 @@ ms.author: banders
 
 This article lists all of the data fields available in the Microsoft Customer Agreement reservation recommendations file. The reservation recommendations file is a CSV file that contains all of the reservation recommendation details for savings. The savings are calculated in addition to your negotiated, or discounted, if applicable, prices.
 
-Azure reserved instance (RI) purchase recommendations are provided through the [Azure Consumption Reservation Recommendation API](https://learn.microsoft.com/en-us/rest/api/consumption/reservationrecommendations), [Azure Advisor](https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations#reserved-instances), and through the reservation purchase experience in the Azure portal.
+Azure reserved instance (RI) purchase recommendations are provided through the [Azure Consumption Reservation Recommendation API](/rest/api/consumption/reservationrecommendations), [Azure Advisor](../../advisor/advisor-reference-cost-recommendations.md#reserved-instances), and through the reservation purchase experience in the Azure portal.
 
 ## Microsoft Customer Agreement reservation recommendations data fields
 

@@ -12,7 +12,7 @@ ms.author: banders
 
 # Azure Internal Registration System (AIRS) cost details file schema
 
-This article lists the cost details (formerly known as usage details) fields found in cost details files by using [Azure portal download](https://learn.microsoft.com/en-us/azure/cost-management-billing/understand/download-azure-daily-usage), [Exports](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-export-acm-data) from Cost Management, or the [Cost Details API](https://learn.microsoft.com/en-us/rest/api/cost-management/generate-cost-details-report). The cost details file is a CSV file that contains all of the cost details for the Azure services that were used. For more information about cost details best practices, see [Choose a cost details solution](https://learn.microsoft.com/en-us/azure/cost-management-billing/automate/usage-details-best-practices).
+This article lists the cost details (formerly known as usage details) fields found in cost details files by using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-export-acm-data.md) from Cost Management, or the [Cost Details API](/rest/api/cost-management/generate-cost-details-report). The cost details file is a CSV file that contains all of the cost details for the Azure services that were used. For more information about cost details best practices, see [Choose a cost details solution](../automate/usage-details-best-practices.md).
 
 ## Cost details data file fields
 
@@ -33,7 +33,7 @@ This article lists the cost details (formerly known as usage details) fields fou
 |ConsumedService|Name of the service the charge is associated with.|
 |ResourceType|Type of resource instance. Not all charges come from deployed resources. Charges that don't have a resource type is shown as null or empty, `Others`, or `Not applicable`.|
 |InstanceId|Unique identifier of the Azure Resource Manager resource.|
-|Tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources).|
+|Tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
 |OfferId|Name of the offer purchased.|
 |AdditionalInfo|Service-specific metadata. For example, an image type for a virtual machine.|
 |ServiceInfo1|Service-specific metadata.|
