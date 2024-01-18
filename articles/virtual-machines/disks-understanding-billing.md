@@ -39,7 +39,7 @@ This table displays our current disk types and the available billable features:
 
 ### Provisioning examples 
 The disk pricing can include various combinations of features as well as provisioned and used size. Let's take a look at some examples for different disk types and feature definitions and availability for each disk type:
-For more detailed Azure Disks pricing information, see [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
+For detailed Azure Disks pricing information, see [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ### Standard Disks:
 - Standard HDDs: Azure standard HDDs deliver reliable, low-cost disk support for VMs running latency-tolerant workloads. 
@@ -93,11 +93,11 @@ You will be billed for the provisioned size of the HDD disk, the transactions pe
 - Ultra SSDs: Ultra disks feature a flexible performance configuration model that allows you to independently configure IOPS and throughput both before and after you provision the disk.
 
 #### Premium SSD bursting
-Premium SSDs offer disk bursting, which provides better tolerance on unpredictable changes of IO patterns. Disk bursting is especially useful during OS disk boot and for applications with spiky traffic. 
+Premium SSD managed disks offer [on-demand disk bursting](disks-enable-bursting.md), providing better tolerance on unpredictable changes of IO patterns. Disk bursting is especially useful during OS disk boot and for applications with spiky traffic. 
 Premium SSD managed disks using the on-demand bursting model are charged an hourly burst enablement flat fee and transaction costs apply to any burst transactions beyond the provisioned target. Transaction costs are charged using the pay-as-you go model, based on uncached disk IOs, including both reads and writes that exceed provisioned targets. 
 
 #### Premium SSD transactions
-For Premium SSDs, each I/O operation less than or equal to 256 kB of throughput is considered a single I/O operation. I/O operations larger than 256 kB of throughput are considered multiple I/Os of size 256 kB.
+For Premium SSD managed disks, each I/O operation less than or equal to 256 kB of throughput is considered a single I/O operation. I/O operations larger than 256 kB of throughput are considered multiple I/Os of size 256 kB.
 
 #### Premium SSD v2 IOPS
 All Premium SSD v2 disks have a baseline IOPS of 3000 that is free of charge. After 6 GiB, the maximum IOPS a disk can have increases at a rate of 500 per GiB, up to 80,000 IOPS. So an 8 GiB disk can have up to 4,000 IOPS, and a 10 GiB can have up to 5,000 IOPS. To be able to set 80,000 IOPS on a disk, that disk must have at least 160 GiBs. Increasing your IOPS beyond 3000 increases the price of your disk.
@@ -106,11 +106,11 @@ All Premium SSD v2 disks have a baseline IOPS of 3000 that is free of charge. Af
 All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of charge. After 6 GiB, the maximum throughput that can be set increases by 0.25 MB/s per set IOPS. If a disk has 3,000 IOPS, the max throughput it can set is 750 MB/s. To raise the throughput for this disk beyond 750 MB/s, its IOPS must be increased. Increasing your throughput beyond 125 increases the price of your disk.
 
 #### Snapshots
-You can store incremental snapshots for Premium SSD and Premium SSD v2 only on Standard storage (which will also be reflected on the bill, see below examples). They are charged a monthly rate for both Standard LRS and ZRS snapshot options of the storage occupied by the delta changes since the last snapshot. For example, you are using a managed disk with provisioned size of 128 GB and a used size of 10 GB. The first incremental snapshot is billed only for the used size of 10 GB. Before you create the second snapshot, 20 GB of data is added to the disk. Now, the second incremental snapshot is billed for only 20 GB.
+You can store incremental snapshots for Premium SSD and Premium SSD v2 only on Standard storage (which will also be reflected on the bill, see below examples). They are charged a monthly rate for both Standard LRS and ZRS snapshot options of the storage occupied by the delta changes since the last snapshot. For example, you are using a managed disk with provisioned size of 128 GiB and a used size of 10 GiB. The first incremental snapshot is billed only for the used size of 10 GiB. Before you create the second snapshot, 20 GiB of data is added to the disk. Now, the second incremental snapshot is billed for only 20 GiB.
 
 #### Example 1 - Premium SSD 
-In this example, we want to provision a Premium SSD Disk at 512 Gb with LRS redundancy with bursting enabled.
-You will be billed for the provisioned size of the Premium SSD disk and the burst enablement flat fee and transaction costs apply to any burst transactions beyond the provisioned target which will show as the following tier and meters in your bill:
+In this example, we want to provision a Premium SSD Disk at 512 GiB with LRS redundancy with bursting enabled.
+You are billed for the provisioned size of the Premium SSD disk and the burst enablement flat fee and transaction costs apply to any burst transactions beyond the provisioned target which will show as the following tier and meters in your bill:
 
 | Tier | Meter |
 |-|-|
@@ -122,21 +122,22 @@ You will be billed for the provisioned size of the Premium SSD disk and the burs
     - LRS Burst Enablement*
 
 *To see a more detailed example of how bursting is billed, see [Disk-level bursting](disk-bursting.md#disk-level-bursting).
+
 #### Example 2 - Premium SSD v2 
-In this example, we want to provision a Premium SSD v2 Disk with LRS redundancy with a total provisioned size of 512 Gb, a target performance of 40,000 IOPS and 200 Mbps of throughput. You also create and store incremental snapshots for your current used capacity. 
+In this example, we want to provision a Premium SSD v2 Disk with LRS redundancy with a total provisioned size of 512 GiB, a target performance of 40,000 IOPS and 200 MB/s of throughput. You also create and store incremental snapshots for your current used capacity. 
 You will be billed for the provisioned size of the disk, the additional IOPS and throughput past the baseline values, and the used snapshot size which will show as the following tier and meters in your bill:
 
 | Tier | Meter |
 |-|-|
 |Azure Premium SSD v2| Premium LRS Provisioned Capacity|
 |Azure Premium SSD v2| Premium LRS Provisioned IOPS |
-|Azure Premium SSD v2| Premium LRS Provisioned Throughput (MBps) |
+|Azure Premium SSD v2| Premium LRS Provisioned Throughput (MB/s) |
 |Standard HDD Managed Disks| LRS Snapshots |
 
 - Azure Premium SSD v2
     - Premium LRS Provisioned Capacity
     - Premium LRS Provisioned IOPS
-    - Premium LRS Provisioned Throughput (MBps)
+    - Premium LRS Provisioned Throughput (MB/s)
 - Standard HDD Managed Disks
     - LRS Snapshots
 
