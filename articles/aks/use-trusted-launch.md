@@ -169,7 +169,7 @@ In this article, you learned how to enable trusted launch. Learn more about [tru
 <!-- EXTERNAL LINKS -->
 
 <!-- INTERNAL LINKS -->
-[install-azure-cli]: /cli/azu
+[install-azure-cli]: /cli/azure/install-azure-cli
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
