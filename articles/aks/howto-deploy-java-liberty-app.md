@@ -5,7 +5,7 @@ description: Deploy a Java application with Open Liberty/WebSphere Liberty on an
 ms.topic: how-to
 ms.date: 12/21/2022
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, build-2023, devx-track-extended-java, devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, build-2023, devx-track-extended-java, devx-track-azurecli, linux-related-content
 ---
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
@@ -46,7 +46,7 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
 
 1. Visit the [Azure portal](https://portal.azure.com/). In the search box at the top of the page, type *IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service*. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section. If you prefer, you can go directly to the offer with this shortcut link: [https://aka.ms/liberty-aks](https://aka.ms/liberty-aks).
 1. Select **Create**.
-1. In the **Basics** pane, create a new resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0913-java-liberty-project-rg`. Select *East US* as **Region**. Select **Next** to **AKS** pane. 
+1. In the **Basics** pane, create a new resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0913-java-liberty-project-rg`. Select *East US* as **Region**. Select **Next** to **AKS** pane.
 1. This pane allows you to select an existing AKS cluster and Azure Container Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability enables you to use the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. Leave all other values at the defaults and select **Next** to **Load balancing** pane.
 1. Next to **Connect to Azure Application Gateway?** select **Yes**. This section lets you customize the following deployment options.
    1. You can customize the virtual network and subnet into which the deployment will place the resources. Leave these values at their defaults.
@@ -185,7 +185,7 @@ You can now run and test the project locally before deploying to Azure. For conv
 
 ### Build image for AKS deployment
 
-You can now run the `docker build` command to build the image. 
+You can now run the `docker build` command to build the image.
 
 ```bash
 cd <path-to-your-repo>/java-app/target
@@ -271,9 +271,9 @@ The following steps deploy and test the application.
       ```
 
       Copy the value of **ADDRESS** from the output, this is the frontend public IP address of the deployed Azure Application Gateway.
-      
+
    1. Go to `https://<ADDRESS>` to test the application. For your convenience, this shell command will create an environment variable whose value you can paste straight into the browser.
-      
+
       ```bash
       export APP_URL=https://$(kubectl get ingress | grep javaee-cafe-cluster-agic-ingress | cut -d " " -f14)/
       echo $APP_URL
