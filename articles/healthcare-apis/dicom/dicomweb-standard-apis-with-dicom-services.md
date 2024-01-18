@@ -24,6 +24,9 @@ In addition to the subset of DICOMweb APIs, the DICOM service supports two custo
 
 * [Change feed](change-feed-overview.md): Track changes to DICOM data over time.
 * [Extended query tags](dicom-extended-query-tags-overview.md): Define custom tags for querying DICOM data.
+* [Bulk update](update-files.md)
+* [Bulk import](import-files.md)
+* [Export](export-dicom-files.md)
 
 ## Prerequisites
 
