@@ -17,7 +17,7 @@ This tutorial describes how to use Defender for IoT's **Firmware analysis** page
 ## Prerequisites
 
 > [!NOTE]
-> The Defender for IoT **Firmware Analysis** feature is automatically available if you currently access Defender for IoT using the Security Admin, Contributor, or Owner role. If you only have the SecurityReader role or want to use Firmware Analysis as a standalone feature, then your Admin must give the FirmwareAnalysisAdmin role. For additional information, please see [Defender for IoT Firmware Analysis Azure RBAC](/articles/defender-for-iot/device-builders/defender-for-iot-firmware-analysis-rbac.md).
+> The Defender for IoT **Firmware Analysis** feature is automatically available if you currently access Defender for IoT using the Security Admin, Contributor, or Owner role. If you only have the SecurityReader role or want to use Firmware Analysis as a standalone feature, then your Admin must give the FirmwareAnalysisAdmin role. For additional information, please see [Defender for IoT Firmware Analysis Azure RBAC](defender-for-iot-firmware-analysis-rbac.md).
 >
 
 To use the **Firmware analysis** page to analyze your firmware security, your firmware image must have the following prerequisites:
@@ -28,7 +28,7 @@ To use the **Firmware analysis** page to analyze your firmware security, your fi
 
 - Your image must be less than 1 GB in size.
 
-To learn more about what roles you need to perform firmware analysis and share your analysis results, see [Defender for IoT Firmware Analysis Azure RBAC](/articles/defender-for-iot/device-builders/defender-for-iot-firmware-analysis-rbac.md).
+To learn more about what roles you need to perform firmware analysis and share your analysis results, see [Defender for IoT Firmware Analysis Azure RBAC](defender-for-iot-firmware-analysis-rbac.md).
 
 ## Select the region for storing firmware images
 
@@ -104,5 +104,5 @@ After you delete an image, there's no way to retrieve the image or the associate
 
 ## Next steps
 
-For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md). Visit [FAQs about Defender for IoT Firmware Analysis](/articles/defender-for-iot/device-builders/defender-for-iot-firmware-analysis-FAQ.md) for answers to frequent questions.
+For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md). Visit [FAQs about Defender for IoT Firmware Analysis](defender-for-iot-firmware-analysis-FAQ.md) for answers to frequent questions.
 
