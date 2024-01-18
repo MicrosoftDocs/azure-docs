@@ -1,6 +1,6 @@
 ---
 title: Azure Storage Actions as Event Grid source
-description: Describes the properties that are provided for Azure Storage Actions events with Azure Event Grid
+description: Describes the properties that are provided for Azure Storage Actions events with Azure Event Grid.
 ms.topic: conceptual
 author: normesta
 ms.author: normesta
@@ -24,7 +24,7 @@ These events are triggered when a storage task is queued and when a storage task
 
  |Event name |Description|
  |----------|-----------|
- | [Microsoft.StorageActions.StorageTaskQueued](#microsoftstorageactionsstoragetaskqueued-event) | Triggered when a storage task assignment run is queued. This event provides the status of assignment execution such as when the assignment is queued, and the corresponding execution id for tracking purpose. |
+ | [Microsoft.StorageActions.StorageTaskQueued](#microsoftstorageactionsstoragetaskqueued-event) | Triggered when a storage task assignment run is queued. This event provides the status of assignment execution such as when the assignment is queued, and the corresponding execution ID for tracking purpose. |
  |[Microsoft.StorageActions.StorageTaskCompleted](#microsoftstorageactionsstoragetaskcompleted-event) | Triggered when a storage tasks assignment run is completed. This event provides the status of assignment execution such as when the assignment is completed, the assignment's status, which task is associated with the assignment, and the link to summary report file. |
 
 ### Example events

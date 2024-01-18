@@ -27,7 +27,7 @@ To learn more, see [Properties, operators, and operations in storage task condit
 Navigate to the storage task in the Azure portal and then under **Storage task management**, select **Conditions**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Conditions button and the Conditions editor](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-condition-editor.png)
+> ![Screenshot of the Conditions button and the Conditions editor.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-condition-editor.png)
 
 The **Visual builder** tab of the **Conditions** pane appears. 
 

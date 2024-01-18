@@ -1,7 +1,7 @@
 ---
 title: Storage Actions monitoring data reference
 titleSuffix: Azure Storage Actions
-description: Important reference material needed when you monitor Azure Storage Actions 
+description: Important reference material needed when you monitor Azure Storage Actions.
 author: normesta
 
 ms.service: azure-storage-actions
@@ -24,7 +24,7 @@ This section lists all the automatically collected platform metrics for Azure St
 | Storage tasks | [Microsoft.StorageActions/storageTasks](/azure/azure-monitor/reference/supported-metrics/microsoft-storage-storagetasks-metrics) |
 | Storage tasks | [Microsoft.StorageActions/storageAccounts/storageTasks](/azure/azure-monitor/reference/supported-metrics/microsoft-storage-storageaccounts-storagetasks-metrics) |
 
-## Metric Dimensions
+## Metric dimensions
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
@@ -57,5 +57,5 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 
 ## See Also
 
-- See [Monitoring Azure Storage Actions](monitor-storage-tasks.md) for a description of monitoring Azure Azure Storage Actions.
+- See [Monitoring Azure Storage Actions](monitor-storage-tasks.md) for a description of monitoring Azure Storage Actions.
 - See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

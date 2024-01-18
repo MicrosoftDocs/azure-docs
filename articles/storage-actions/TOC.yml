@@ -18,7 +18,7 @@ items:
   - name: Storage task authorization
     href: storage-tasks/storage-task-authorization-roles.md
   expanded: true
-- name: How-To
+- name: How-to
   items: 
   - name: Create a storage task
     href: storage-tasks/storage-task-create.md

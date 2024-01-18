@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Storage Actions
 titleSuffix: Azure Storage Actions
-description: Start here to learn how to monitor Azure Storage Actions 
+description: Start here to learn how to monitor Azure Storage Actions.
 services: storage
 author: normesta
 
