@@ -11,7 +11,7 @@ ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
-#Customer intent: As a developer, I want to enable CAPTCHA in consumer-facing application that is secured by Azure Active Directory B2C.
+#Customer intent: As a developer, I want to enable CAPTCHA in consumer-facing application that is secured by Azure Active Directory B2C, so that I can protect my sign-in and sign-up flows from automated attacks.
 
 ---
 
@@ -19,7 +19,7 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C (Azure AD B2C) allows you to enable CAPTCHA prevent to automated attacks on your consumer-facing applications. Azure AD B2C’s CAPTCHA supports both audio and visual captcha challenges. You can enable this security feature in both sign-up and sign-in flows for your local accounts. CAPTCHA isn't applicable for social identity providers' sign-in.   
+Azure Active Directory B2C (Azure AD B2C) allows you to enable CAPTCHA prevent to automated attacks on your consumer-facing applications. Azure AD B2C’s CAPTCHA supports both audio and visual CAPTCHA challenges. You can enable this security feature in both sign-up and sign-in flows for your local accounts. CAPTCHA isn't applicable for social identity providers' sign-in.   
 
 > [!NOTE]
 > This feature is in public preview
