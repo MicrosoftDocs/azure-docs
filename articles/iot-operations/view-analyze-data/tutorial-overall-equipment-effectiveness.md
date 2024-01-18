@@ -537,7 +537,7 @@ To create the _oee-process-pipeline_ pipeline:
     .payload |= del(.productionData)
     ```
 
-    Select **Apply**. These JQ expressions move the enrichment data to the same flat path as the real-time data as key/value pairs. This structure makes it easy to export the data to Microsoft Fabric.
+    Select **Apply**. These JQ expressions move the enrichment data to the same flat path as the real-time data. This structure makes it easy to export the data to Microsoft Fabric.
 
 1. Use the **Destinations** tab on the left to select **MQ** for the output stage, and select the stage. Add the following configuration:
 
@@ -550,9 +550,9 @@ To create the _oee-process-pipeline_ pipeline:
 
     Select **Apply**.
 
-1. Review your pipeline diagram to make sure all the stages are present and connected. It should look something like this:
- 
-    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png.png" alt-text="Screenshot that shows the oee-process-pipeline in the Azure IoT Operations portal." lightbox="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png.png":::
+1. Review your pipeline diagram to make sure all the stages are present and connected. It should look like the following:
+
+    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png" alt-text="Screenshot that shows the oee-process-pipeline in the Azure IoT Operations portal." lightbox="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png":::
 
 1. To save your pipeline, select **Save**. It may take a few minutes for the pipeline to deploy to your cluster, so make sure it's finished before you proceed.
 
@@ -769,13 +769,13 @@ In [Microsoft Fabric](https://msit.powerbi.com/groups/me/list?experience=power-b
 
 1. Select **Get data** followed by **Microsoft Fabric**:
 
-    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/powerbi-get-lakehouse-data.png" alt-text="Screenshot that shows how to access lakehouse data in Power BI.":::
+    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/powerbi-get-lakehouse-data.png" alt-text="Screenshot that shows how to access lakehouse data in Power BI." lightbox="media/tutorial-overall-equipment-effectiveness/powerbi-get-lakehouse-data.png":::
 
 1. Select **Lakehouses** and then select **Connect**.
 
 1. Select your lakehouse, and then **Connect to SQL endpoint**:
 
-    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/powerbi-connect-sql-endpoint.png" alt-text="Screenshot that shows how to access SQL endpoint in Power BI.":::
+    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/powerbi-connect-sql-endpoint.png" alt-text="Screenshot that shows how to access SQL endpoint in Power BI." lightbox="media/tutorial-overall-equipment-effectiveness/powerbi-connect-sql-endpoint.png":::
 
 1. Check the box next to the **OEE** table and then select **Load**.
 
@@ -805,7 +805,7 @@ Follow these steps to create some measures and use them to build a visualization
 
 1. Select the **Card** icon in the Visualizations panel and select the **OEE** measurement you created. You're now using the most recent asset measurement data to calculate OEE for your production lines.
 
-    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-card.png" alt-text="Screenshot that shows a visualization card for OEE in Power BI.":::
+    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-card.png" alt-text="Screenshot that shows a visualization card for OEE in Power BI." lightbox="media/tutorial-overall-equipment-effectiveness/oee-card.png":::
 
 1. Repeat these steps to create new measurements and their corresponding tiles for _Performance_, _Availability_, and _Quality_. Use the following data analysis expressions:
 
@@ -823,7 +823,7 @@ Follow these steps to create some measures and use them to build a visualization
 
 Your dashboard looks like the following example:
 
-:::image type="content" source="media/tutorial-overall-equipment-effectiveness/example-dashboard.png" alt-text="Screen shot of an example dashboard that displays OEE, performance, quality, and availability measurements.":::
+:::image type="content" source="media/tutorial-overall-equipment-effectiveness/example-dashboard.png" alt-text="Screen shot of an example dashboard that displays OEE, performance, quality, and availability measurements." lightbox="media/tutorial-overall-equipment-effectiveness/example-dashboard.png":::
 
 To create a filter that lets you calculate OEE for each Contoso Bakery site and further enhance the visualizations on the dashboard, complete the following steps:
 
@@ -841,7 +841,7 @@ To create a filter that lets you calculate OEE for each Contoso Bakery site and 
 
 1. Your dashboard now looks like the following example
 
-    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/dashboard-line-charts.png" alt-text="Screenshot that shows line charts on a Power BI dashboard.":::
+    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/dashboard-line-charts.png" alt-text="Screenshot that shows line charts on a Power BI dashboard." lightbox="media/tutorial-overall-equipment-effectiveness/dashboard-line-charts.png":::
 
 1. Save your dashboard.
 
