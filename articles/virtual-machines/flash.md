@@ -1,5 +1,5 @@
 ---
-title: 'Project Flash Onboarding Doc'
+title: What is Project Flash?
 description: This article covers important reference material for monitoring Azure virtual machines.
 ms.service: virtual-machines
 ms.custom: subject-monitoring
