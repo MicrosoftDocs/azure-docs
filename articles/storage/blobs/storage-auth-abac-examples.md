@@ -97,7 +97,7 @@ Here are the settings to add this condition using the Azure portal visual editor
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 ```
 (
@@ -111,16 +111,9 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+In this example, the condition restricts the read action except when the suboperation is `Blob.List`. This means that a List Blobs operation is allowed, but all other read actions are further evaluated against the expression that checks for the blob index tag.
 
-> [!NOTE]
-> If you try to perform an action in the assigned role that is *not* the action restricted by the condition, `!(ActionMatches)` evaluates to true and the overall condition evaluates to true. This result allows the action to be performed.
->
-> If you try to perform the action restricted by the condition, `!(ActionMatches)` evaluates to false, so the expression is evaluated. If the expression evaluates to true, the overall condition evaluates to true and allows the action to be performed. Otherwise, the action is not allowed to be performed.
->
-> In this example, the condition restricts the read action except when the suboperation is `Blob.List`. This means that a List Blobs operation is allowed, but all other read actions are further evaluated against the expression that checks for the blob index tag.
->
->To learn more about how conditions are formatted and evaluated, see [Conditions format](../../role-based-access-control/conditions-format.md).
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -178,7 +171,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 ```
 (
@@ -194,7 +187,7 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -258,7 +251,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 ```
 (
@@ -274,7 +267,7 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -345,7 +338,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 ```
 (
@@ -363,7 +356,7 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -439,7 +432,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 **Storage Blob Data Owner**
 
@@ -483,7 +476,7 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -556,7 +549,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 **Storage Blob Data Owner**
 
@@ -592,7 +585,9 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+In this example, the condition restricts the read action except when the suboperation is `Blob.List`. This means that a List Blobs operation is allowed, but all other read actions are further evaluated against the expression that checks for the container name and path.
+
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -675,7 +670,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 **Storage Blob Data Owner**
 
@@ -737,7 +732,7 @@ AND
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -785,7 +780,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 **Storage Blob Data Owner**
 
@@ -825,7 +820,7 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -898,7 +893,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 ```
 (
@@ -922,7 +917,9 @@ AND
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+In this example, the condition restricts the read action except when the suboperation is `Blob.List`. This means that a List Blobs operation is allowed, but all other read actions are further evaluated against the expression that checks for the blob index tag and path.
+
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -988,7 +985,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 **Storage Blob Data Owner**
 
@@ -1020,7 +1017,9 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+In this example, the condition restricts the read action except when the suboperation is `Blob.List`. This means that a List Blobs operation is allowed, but all other read actions are further evaluated against the expression that checks the version.
+
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -1064,7 +1063,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 ```
 (
@@ -1080,7 +1079,9 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+In this example, the condition restricts the read action except when the suboperation is `Blob.List`. This means that a List Blobs operation is allowed, but all other read actions are further evaluated against the expression that checks version information.
+
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -1119,7 +1120,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 ```
 (
@@ -1135,7 +1136,7 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -1179,7 +1180,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 **Storage Blob Data Owner**
 
@@ -1215,7 +1216,9 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+In this example, the condition restricts the read action except when the suboperation is `Blob.List`. This means that a List Blobs operation is allowed, but all other read actions are further evaluated against the expression that checks version and snapshot information.
+
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -1258,7 +1261,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 **Storage Blob Data Owner**
 
@@ -1290,7 +1293,9 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+In this example, the condition restricts the read action except when the suboperation is `Blob.List`. This means that a List Blobs operation is allowed, but all other read actions are further evaluated against the expression that checks for hierarchical namespace.
+
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -1333,7 +1338,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 ```
 (
@@ -1347,7 +1352,9 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+In this example, the condition restricts the read action except when the suboperation is `Blob.List`. This means that a List Blobs operation is allowed, but all other read actions are further evaluated against the expression that checks encryption scopes.
+
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -1397,7 +1404,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 ```
 (
@@ -1417,7 +1424,7 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -1481,7 +1488,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 ```
 (
@@ -1507,7 +1514,7 @@ AND
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -1553,7 +1560,7 @@ Here are the settings to add this condition using the Azure portal.
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 ```
 (
@@ -1567,7 +1574,9 @@ To add the condition using the code editor, copy the condition code sample and p
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+In this example, the condition restricts the read action except when the suboperation is `Blob.List`. This means that a List Blobs operation is allowed, but all other read actions are further evaluated against the expression that checks blob index tags and custom security attributes.
+
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -1629,7 +1638,7 @@ The following image shows the condition after the settings are entered into the 
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the following condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the following condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 ```
 ( 
@@ -1645,7 +1654,7 @@ To add the condition using the code editor, copy the following condition code sa
 ) 
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -1738,7 +1747,7 @@ The following image shows the condition after the settings are entered into the 
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the following condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the following condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 ```
 (
@@ -1760,7 +1769,7 @@ To add the condition using the code editor, copy the following condition code sa
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -1874,7 +1883,7 @@ The following image shows the condition after the settings are entered into the 
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the following condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the following condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 ```
 (
@@ -1894,7 +1903,9 @@ To add the condition using the code editor, copy the following condition code sa
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+In this example, the condition restricts the read action except when the suboperation is `Blob.List`. This means that a List Blobs operation is allowed, but all other read actions are further evaluated against the expression.
+
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -1998,7 +2009,7 @@ The following image shows the condition after the settings are entered into the 
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, choose one of the following condition code samples, depending on the role associated with the assignment.
+To add the condition using the code editor, choose one of the following condition code samples, depending on the role associated with the assignment. After entering your code, switch back to the visual editor to validate it.
 
 **Storage Blob Data Owner:**
 
@@ -2054,7 +2065,7 @@ To add the condition using the code editor, choose one of the following conditio
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -2165,7 +2176,7 @@ The following image shows the condition after the settings are entered into the 
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the following condition code sample and paste it into the code editor.
+To add the condition using the code editor, copy the following condition code sample and paste it into the code editor. After entering your code, switch back to the visual editor to validate it.
 
 ```
 (
@@ -2185,7 +2196,9 @@ To add the condition using the code editor, copy the following condition code sa
 )
 ```
 
-After entering your code, switch back to the visual editor to validate it.
+In this example, the condition restricts the read action except when the suboperation is `Blob.List`. This means that a List Blobs operation is allowed, but all other read actions are further evaluated against the expression.
+
+[!INCLUDE [storage-abac-conditions-include](../../../includes/storage-abac-conditions-include.md)]
 
 # [PowerShell](#tab/azure-powershell)
 
