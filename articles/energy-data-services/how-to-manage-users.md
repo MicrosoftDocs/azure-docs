@@ -50,7 +50,7 @@ The object ID (OID) is the Microsoft Entra user OID.
 Run the following curl command in Azure Cloud Shell to get all the groups that are available for you or that you have access to in the specific data partition of the Azure Data Manager for Energy instance.
 
 ```bash
-    curl --location --request GET "https://<URI>/api/entitlements/v2/groups/" \
+    curl --location --request GET "https://<adme-url>/api/entitlements/v2/groups/" \
     --header 'data-partition-id: <data-partition>' \
     --header 'Authorization: Bearer <access_token>'
 ```
@@ -61,7 +61,7 @@ Run the following curl command in Azure Cloud Shell to get all the groups that a
 1. The value to be sent for the parameter `email` is the OID of the user and not the user's email address.
 
     ```bash
-        curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/<group-name>@<data-partition-id>.dataservices.energy/members' \
+        curl --location --request POST 'https://<adme-url>/api/entitlements/v2/groups/<group-name>@<data-partition-id>.dataservices.energy/members' \
         --header 'data-partition-id: <data-partition-id>' \
         --header 'Authorization: Bearer <access_token>' \
         --header 'Content-Type: application/json' \
@@ -118,7 +118,7 @@ Run the following curl command in Azure Cloud Shell to get all the groups that a
 1. Run the following curl command in Azure Cloud Shell to get all the groups associated with the user.
 
     ```bash
-        curl --location --request GET 'https://<URI>/api/entitlements/v2/members/<OBJECT_ID>/groups?type=none' \
+        curl --location --request GET 'https://<adme-url>/api/entitlements/v2/members/<OBJECT_ID>/groups?type=none' \
         --header 'data-partition-id: <data-partition-id>' \
         --header 'Authorization: Bearer <access_token>'
     ```
@@ -160,7 +160,7 @@ Run the following curl command in Azure Cloud Shell to get all the groups that a
 1. *Do not* delete the OWNER of a group unless you have another OWNER who can manage users in that group.
     
     ```bash
-        curl --location --request DELETE 'https://<URI>/api/entitlements/v2/members/<OBJECT_ID>' \
+        curl --location --request DELETE 'https://<adme-url>/api/entitlements/v2/members/<OBJECT_ID>' \
         --header 'data-partition-id: <data-partition-id>' \
         --header 'Authorization: Bearer <access_token>'
     ```
