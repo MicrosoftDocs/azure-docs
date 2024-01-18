@@ -2,7 +2,7 @@
 title: Trusted launch (preview) with Azure Kubernetes Service (AKS)
 description: Learn how trusted launch (preview) protects the Azure Kubernetes Cluster (AKS) nodes against boot kits, rootkits, and kernel-level malware. 
 ms.topic: article
-ms.date: 11/17/2024
+ms.date: 01/17/2024
 
 ---
 
@@ -181,4 +181,4 @@ In this article, you learned how to enable trusted launch. Learn more about [tru
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
-[boot-integrity-monitoring]: https://learn.microsoft.com/en-us/azure/virtual-machines/boot-integrity-monitoring-overview?tabs=portal
+[boot-integrity-monitoring]: ../virtual-machines/boot-integrity-monitoring-overview.md
