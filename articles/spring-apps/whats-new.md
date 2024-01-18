@@ -18,6 +18,28 @@ Azure Spring Apps is improved on an ongoing basis. To help you stay up to date w
 
 This article is updated quarterly, so revisit it regularly. You can also visit [Azure updates](https://azure.microsoft.com/updates/?query=azure%20spring), where you can search for updates or browse by category.
 
+## Q4 2023
+
+The following updates are now available in the Enterprise plan:
+
+- **Spring Cloud Gateway supports a response cache**: The response cache enables services and clients to efficiently store and reuse responses to HTTP requests. You can configure the memory size and the time-to-live of the cache and apply settings at the route-level or globally. For more information, see the [Configure the response cache](how-to-configure-enterprise-spring-cloud-gateway.md?tabs=Azure-portal#configure-the-response-cache) section of [Configure VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway.md).
+
+- **API Portal supports enable/disable of the try-out option**: The try-out feature enables you to try out APIs through the centric view of API Portal. You can now easily turn this feature off if there's any security concern. For more information, see the [Try out APIs in API portal](how-to-use-enterprise-api-portal.md?tabs=Portal#try-out-apis-in-api-portal) section of [Use API portal for VMware Tanzu](how-to-use-enterprise-api-portal.md).
+
+- **Service connector supports application-level settings**: This update enables you to efficiently configure common settings across deployments within one application. For more information, see the following articles:
+  - [Connect an Azure Cosmos DB database to your application in Azure Spring Apps](how-to-bind-cosmos.md?tabs=Java%2CService-Connector)
+  - [Connect Azure Cache for Redis to your application in Azure Spring Apps](how-to-bind-redis.md?tabs=Java%2CService-Connector)
+  - [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](how-to-bind-mysql.md?tabs=Java%2CService-Connector)
+  - [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](how-to-bind-postgres.md?tabs=JavaFlex%2CPasswordlessflex%2CJavaSingle%2CPasswordlessSingle&pivots=postgresql-passwordless-single-server)
+
+- **Richer information in the build history**: To help you better troubleshoot build-related issues for your apps, the build history now presents richer information for all builds. For more information, see the [Build history](how-to-enterprise-build-service.md?tabs=azure-portal#build-history) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
+
+The following update is now available in the Enterprise and Basic/Standard plans:
+
+- **Planned maintenance (public preview)**: Azure Spring Apps regularly patches server-side components that your applications depend on to make sure they are secure and up to date. These components include the JDK, Spring Cloud middleware, APM, base OS image, and runtime infrastructure. For such patches to take effect, you need to restart your applications. With planned maintenance, you can schedule a time on a specific day for such mandatory restarts. For more information, see [How to configure planned maintenance (preview)](how-to-configure-planned-maintenance.md).
+
+- **Auto sync of certificates**: Some Azure Spring Apps features secure your applications with certificates of your choice. With auto sync of certificates, you can now rotate your certificates in Azure Key Vault and they automatically sync to Azure Spring Apps. This enhancement makes it easier for you to manage features such as custom domain and TLS/SSL settings. For more information, see the [Auto sync certificate](how-to-custom-domain.md?tabs=Azure-portal#auto-sync-certificate) section of [Map an existing custom domain to Azure Spring Apps](how-to-custom-domain.md).
+
 ## Q3 2023
 
 The following updates are now available in the Enterprise plan:

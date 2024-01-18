@@ -17,7 +17,7 @@
 # - name: Samples
 - name: Concepts
   items:
-  - name: NAS volumes as a service 
+  - name: Volumes as a service 
     items: 
       - name: Understand NAS
         href: network-attached-storage-concept.md 
@@ -447,6 +447,8 @@
       href: azacsnap-cmd-ref-runbefore-runafter.md
 - name: Resources
   items:
+  - name: Azure NetApp Files tools 
+    href: tools-reference.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/netapp/
   - name: Regional availability

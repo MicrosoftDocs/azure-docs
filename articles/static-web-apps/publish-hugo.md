@@ -5,7 +5,7 @@ services: static-web-apps
 author: aaronpowell
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 01/10/2024
 ms.author: aapowell
 ---
 

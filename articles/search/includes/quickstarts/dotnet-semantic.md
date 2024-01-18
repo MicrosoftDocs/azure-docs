@@ -5,7 +5,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 11/05/2023
+ms.date: 01/02/2024
 ---
 
 Build a console application using the [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library to add semantic ranking to an existing search index. 
@@ -61,9 +61,10 @@ Alternatively, you can [download the source code](https://github.com/Azure-Sampl
 
 #### Create an index
 
-Create or update an index schema to include `SemanticConfiguration` and `SemanticSettings`. If you're updating an existing index, this modification doesn't require a reindexing because the structure of your documents is unchanged.
+Create or update an index schema to include a `SemanticConfiguration`. If you're updating an existing index, this modification doesn't require a reindexing because the structure of your documents is unchanged.
 
 ```csharp
+// Create hotels-quickstart index
 private static void CreateIndex(string indexName, SearchIndexClient adminClient)
 {
 
@@ -71,29 +72,28 @@ private static void CreateIndex(string indexName, SearchIndexClient adminClient)
     var searchFields = fieldBuilder.Build(typeof(Hotel));
 
     var definition = new SearchIndex(indexName, searchFields);
-
     var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category", "Address/City", "Address/StateProvince" });
     definition.Suggesters.Add(suggester);
-
-    SemanticSettings semanticSettings = new SemanticSettings();
-    semanticSettings.Configurations.Add(new SemanticConfiguration
-        (
-            "my-semantic-config",
-            new PrioritizedFields()
+    definition.SemanticSearch = new SemanticSearch
+    {
+        Configurations =
+        {
+            new SemanticConfiguration("my-semantic-config", new()
             {
-                TitleField = new SemanticField { FieldName = "HotelName" },
-                ContentFields = {
-                new SemanticField { FieldName = "Description" },
-                new SemanticField { FieldName = "Description_fr" }
+                TitleField = new SemanticField("HotelName"),
+                ContentFields =
+                {
+                    new SemanticField("Description"),
+                    new SemanticField("Description_fr")
                 },
-                KeywordFields = {
-                new SemanticField { FieldName = "Tags" },
-                new SemanticField { FieldName = "Category" }
+                KeywordsFields =
+                {
+                    new SemanticField("Tags"),
+                    new SemanticField("Category")
                 }
             })
-        );
-
-    definition.SemanticSettings = semanticSettings;
+        }
+    };
 
     adminClient.CreateOrUpdateIndex(definition);
 }
@@ -118,15 +118,16 @@ Azure AI Search searches over content stored in the service. The code for upload
 Here's a query that invokes semantic ranking, with search options for specifying parameters:
 
 ```csharp
-// Query 4
 Console.WriteLine("Query #3: Invoke semantic ranking");
 
 options = new SearchOptions()
 {
     QueryType = Azure.Search.Documents.Models.SearchQueryType.Semantic,
-    SemanticConfigurationName = "my-semantic-config",
-    QueryCaption = QueryCaptionType.Extractive,
-    QueryCaptionHighlightEnabled = true
+    SemanticSearch = new()
+    {
+        SemanticConfigurationName = "my-semantic-config",
+        QueryCaption = new(QueryCaptionType.Extractive)
+    }
 };
 options.Select.Add("HotelName");
 options.Select.Add("Category");

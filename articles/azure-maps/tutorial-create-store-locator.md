@@ -1036,7 +1036,7 @@ To see more code examples and an interactive coding experience:
 [Simple Store Locator.html]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Samples/Tutorials/Simple%20Store%20Locator/Simple%20Store%20Locator.html
 
 [data]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/data
-[Search service]: /rest/api/maps/search
+[Search service]: /rest/api/maps/search?view=rest-maps-1.0
 [Spherical Mercator projection]: glossary.md#spherical-mercator-projection
 [EPSG:3857]: https://epsg.io/3857
 [EPSG:4326]: https://epsg.io/4326

@@ -1,7 +1,7 @@
 ---
 ms.service: azure-arc
 ms.topic: include
-ms.date: 11/01/2023
+ms.date: 01/10/2024
 ---
 
 If you are using Azure Arc-enabled servers only for the purpose of Extended Security Updates for Windows Server 2012, you can enable the following subset of endpoints:
@@ -18,6 +18,7 @@ If you are using Azure Arc-enabled servers only for the purpose of Extended Secu
 |`*.his.arc.azure.com`|Metadata and hybrid identity services|Always| Private |
 |`*.guestconfiguration.azure.com`| Extension management and guest configuration services |Always| Private |
 |`microsoft.com/pkiops/certs`| Certificate download for ESUs | ESUs enabled by Azure Arc | Public |
+|`san-af-<region>-prod.azurewebsites.net`| Azure Arc data processing service| SQL Server ESUs | Public|
 
 #### [Azure Government](#tab/azure-government)
 

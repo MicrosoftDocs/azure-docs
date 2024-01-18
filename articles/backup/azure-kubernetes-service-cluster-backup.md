@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: backup
 ms.custom:
   - ignite-2023
-ms.date: 12/25/2023
+ms.date: 01/03/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -51,6 +51,11 @@ If you want to use Azure Backup to protect your AKS clusters from any regional o
 2. Set the **Cross Region Restore** parameter under **Vault Properties** as **Enabled**. Once this parameter is enabled, you can't disable it.
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/enable-cross-region-restore-parameter.png" alt-text="Screenshot shows how to enable the Cross Region Restore parameter.":::
+
+3. Create a Backup Instance using a Backup Policy with retention duration set for Vault-standard datastore. Every recovery point stored in this datastore will be in the secondary region.
+
+   >[!Note]
+   >Vault-standard datastore is currently in preview.
 
 ## Create a backup policy
 
@@ -98,7 +103,8 @@ To create a backup policy:
 
    >[!Note]
    >- In addition to first successful backup of the day, you can define the retention rules for first successful backup of the week, month, and year. In terms of priority, the order is year, month, week, and day.
-   >- The backups stored in the Vault Tier are also copied in the secondary region (Azure Paired region) which you can use to restore AKS clusters to a secondary region during primary region outage.
+   >- The Vault-standard datastore is currently in preview. If you don't want to use the feature, edit the retention rule and clear the checkbox next to the **Vault-standard datastore**.
+   >- The backups stored in the Vault Tier can also copied in the secondary region (Azure Paired region) that you can use to restore AKS clusters to a secondary region when the primary region is unavailable. To opt for this feature, use a *Geo-redundant vault* with *Cross Region Restore* enabled.
 
 
 

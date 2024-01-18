@@ -133,3 +133,5 @@ Make sure to specify the following properties for your VM in the parameters sect
 
 > [!div class="nextstepaction"]
 > [Deploy a confidential VM from the Azure portal](quick-create-confidential-vm-portal.md)
+
+For more information see our [Confidential VM FAQ](confidential-vm-faq.yml).

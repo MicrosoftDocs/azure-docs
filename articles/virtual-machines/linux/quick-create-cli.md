@@ -87,6 +87,8 @@ You can retrieve and store the IP address in the variable IP_ADDRESS with the fo
 export IP_ADDRESS=$(az vm show --show-details --resource-group $RESOURCE_GROUP_NAME --name $VM_NAME --query publicIps --output tsv)
 ```
 
+Cost information isn't presented during the virtual machine creation process for CLI like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
+
 ## Install web server 
 
 To see your VM in action, install the NGINX web server. Update your package sources and then install the latest NGINX package. The following command uses run-command to run `sudo apt-get update && sudo apt-get install -y nginx` on the VM:

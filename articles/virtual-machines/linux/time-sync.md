@@ -125,8 +125,7 @@ $ sudo udevadm trigger --subsystem-match=ptp --action=add
 On Ubuntu 19.10 and later versions, Red Hat Enterprise Linux, and CentOS 8.x, [chrony](https://chrony.tuxfamily.org/) is configured to use a PTP source clock. Instead of chrony, older Linux releases use the Network Time Protocol daemon (ntpd), which doesn't support PTP sources. To enable PTP in those releases, chrony must be manually installed and configured (in chrony.conf) by using the following statement:
 
 ```bash
-local stratum 2
-refclock PHC /dev/ptp_hyperv poll 3 dpoll -2 offset 0
+refclock PHC /dev/ptp_hyperv poll 3 dpoll -2 offset 0 stratum 2
 ```
 
 If the /dev/ptp_hyperv symlink is available, use it instead of /dev/ptp0 to avoid any confusion with the /dev/ptp device created by the Mellanox mlx5 driver.
@@ -142,7 +141,7 @@ makestep 1.0 -1
 Here, chrony will force a time update if the drift is greater than 1 second. To apply the changes restart the chronyd service:
 
 ```bash
-systemctl restart chronyd
+systemctl restart chronyd && systemctl restart chrony
 ```
 
 ### Time sync messages related to systemd-timesyncd

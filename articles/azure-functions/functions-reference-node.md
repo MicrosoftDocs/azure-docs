@@ -4,7 +4,8 @@ description: Understand how to develop functions by using Node.js.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 04/17/2023
-ms.devlang: javascript, typescript
+ms.devlang: javascript
+# ms.devlang: javascript, typescript
 ms.custom: devx-track-js, vscode-azure-extension-update-not-needed
 zone_pivot_groups: functions-nodejs-model
 ---
@@ -269,7 +270,25 @@ export default httpTrigger;
 
 ::: zone pivot="nodejs-model-v4"
 
-The programming model loads your functions based on the `main` field in your `package.json`. This field can be set to a single file like `src/index.js` or a [glob pattern](https://wikipedia.org/wiki/Glob_(programming)) specifying multiple files like `src/functions/*.js`.
+The programming model loads your functions based on the `main` field in your `package.json`. You can set the `main` field to a single file or multiple files by using a [glob pattern](https://wikipedia.org/wiki/Glob_(programming)). The following table shows example values for the `main` field:
+
+# [JavaScript](#tab/javascript)
+
+| Example | Description |
+| --- | --- |
+| **`src/index.js`** | Register functions from a single root file. |
+| **`src/functions/*.js`** | Register each function from its own file. |
+| **`src/{index.js,functions/*.js}`** | A combination where you register each function from its own file, but you still have a root file for general app-level code. |
+
+# [TypeScript](#tab/typescript)
+
+| Example | Description |
+| --- | --- |
+| **`dist/src/index.js`** | Register functions from a single root file. |
+| **`dist/src/functions/*.js`** | Register each function from its own file. |
+| **`dist/src/{index.js,functions/*.js}`** | A combination where you register each function from its own file, but you still have a root file for general app-level code. |
+
+---
 
 In order to register a function, you must import the `app` object from the `@azure/functions` npm module and call the method specific to your trigger type. The first argument when registering a function is the function name. The second argument is an `options` object specifying configuration for your trigger, your handler, and any other inputs or outputs. In some cases where trigger configuration isn't necessary, you can pass the handler directly as the second argument instead of an `options` object.
 
