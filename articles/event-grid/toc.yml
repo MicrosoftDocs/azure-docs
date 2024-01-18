@@ -79,8 +79,6 @@ items:
         items:
         - name: Create and manage namespaces
           href: create-view-manage-namespaces.md
-        - name: MQTT client authentication using certificate chain
-          href: mqtt-certificate-chain-client-authentication.md
         - name: Customer enabled disaster recovery
           href: custom-disaster-recovery-client-side.md
         - name: How to configure multiple sessions for an MQTT client
@@ -103,6 +101,8 @@ items:
             href: mqtt-configure-private-endpoints.md
           - name: Enable managed identity for namespace
             href: event-grid-namespace-managed-identity.md 
+          - name: MQTT client authentication using certificate chain
+            href: mqtt-certificate-chain-client-authentication.md            
     - name: Namespace topics
       items:
       - name: Pull delivery overview
@@ -168,10 +168,6 @@ items:
           href: create-view-manage-namespace-topics.md
         - name: Create, view, and manage event subscriptions
           href: create-view-manage-event-subscriptions.md
-        - name: Enable managed identity for namespace
-          href: event-grid-namespace-managed-identity.md
-        - name: Authenticate publishing clients using Microsoft Entra ID
-          href: authenticate-with-entra-id-namespaces.md
         - name: Forward events to Event Grid namespace topic
           href: handler-event-grid-namespace-topic.md
         - name: Monitor
@@ -186,6 +182,10 @@ items:
             href: configure-firewall-namespaces.md
           - name: Allow access via private endpoints
             href: configure-private-endpoints-pull.md
+          - name: Enable managed identity for namespace
+            href: event-grid-namespace-managed-identity.md
+          - name: Authenticate publishing clients using Microsoft Entra ID
+            href: authenticate-with-entra-id-namespaces.md
   - name: Event Grid basic
     items:
     - name: Overview
