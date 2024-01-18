@@ -34,7 +34,7 @@ Note: Although you can create the Prometheus alert in a resource group different
 
 2.	Toggle a group of Prometheus rules to enable that set of rules. Expand the group to see the individual rules. You can leave the defaults or disable individual rules and edit their name and severity.
 
-    :::image type="content" source="media/kubernetes-metric-alerts/recommended-alert-rules-enable-promtheus.png" lightbox="media/kubernetes-metric-alerts/recommended-alert-rules-enable-prometheus.png" alt-text="Screenshot of enabling Prometheus alert rule.":::
+    :::image type="content" source="media/kubernetes-metric-alerts/recommended-alert-rules-enable-prometheus.png" lightbox="media/kubernetes-metric-alerts/recommended-alert-rules-enable-prometheus.png" alt-text="Screenshot of enabling Prometheus alert rule.":::
 
 3. Toggle a platform metric rule to enable that rule. You can expand the rule to modify its details such as the name, severity, and threshold.
 
@@ -65,22 +65,37 @@ Download the [Community alerts template.](https://aka.ms/azureprometheus-alerts-
 
 ---
 
+
 ## Edit Prometheus alert rules
 
-Once the rule group has been created, you can't use the same page in the portal to edit the rules. Instead, use the following process to open the rule group and edit its rules.
+Once the rule group has been created, you can't use the same page in the portal to edit the rules. For Prometheus metrics, you must edit the rule group to modify any rules in it, including enabling any rules that weren't already enabled. For platform metrics, you can edit each alert rule.
 
-1.	From the **Alerts** menu for your cluster, select **Set up recommendations**.
+Use the following process to open the rule or rule group for editing.
 
-    :::image type="content" source="media/kubernetes-metric-alerts/setup-recommendations.png" lightbox="media/kubernetes-metric-alerts/setup-recommendations.png" alt-text="Screenshot of AKS cluster showing Set up recommendations button.":::
+1.	From the **Alerts** menu for your cluster, select **Set up recommendations**. Any rules or rule groups that have already been created will be labeled as **Already created**.
+2. Expand the rule or rule group. Click on **View rule group** for Prometheus and **View alert rule** for platform metrics.
 
-2. Click on **View rule group** to open the alert rule group.
+    :::image type="content" source="media/kubernetes-metric-alerts/recommended-alert-rules-already-enabled.png" lightbox="media/kubernetes-metric-alerts/recommended-alert-rules-already-enabled.png" alt-text="Screenshot of view rule group option.":::
 
-3. Select **Rules** to view the alert rules in the group.
-4. Click the **Edit** icon next a rule that you want to modify. This will open the full details for the rule including the PromQL query and severity of the alert. Modify any of these properties and select **Save** to save your changes.
+3. For Prometheus rule groups:
+   1. select **Rules** to view the alert rules in the group. 
+   2. Click the **Edit** icon next a rule that you want to modify. Use the guidance in [Create an alert rule](../essentials/prometheus-rule-groups.md#configure-the-rules-in-the-group) to modify the rule.
+
+    :::image type="content" source="media/kubernetes-metric-alerts/edit-platform-metric-rule.png" lightbox="media/kubernetes-metric-alerts/edit-platform-metric-rule.png" alt-text="Screenshot of option to edit platform metric rule.":::
+
+    3. When you're done editing rules in the group, click **Save** to save the rule group.
+
+4. For platform metrics:
+
+   1. click **Edit** to open the details for the alert rule. Use the guidance in [Create an alert rule](../alerts/alerts-create-metric-alert-rule.md#configure-the-alert-rule-conditions) to modify the rule. 
+
+        :::image type="content" source="media/kubernetes-metric-alerts/edit-platform-metric-rule.png" lightbox="media/kubernetes-metric-alerts/edit-platform-metric-rule.png" alt-text="Screenshot of option to edit platform metric rule.":::
+
+
 
 ## Apply alert rule group to multiple clusters
 
-
+For Prometheus alert rules, 
 
 
 ## Next steps
