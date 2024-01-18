@@ -149,7 +149,7 @@ To get the server out of read-only mode, you should increase the provisioned sto
 
 We recommended that you <!--turn on storage auto-grow or to--> set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. For more information, see the documentation on alert documentation [how to set up an alert](how-to-alert-on-metric.md).
 
-### Storage autogrow
+### Storage auto grow
 
 Storage autogrow prevents your server from running out of storage and becoming read-only. If storage autogrow is enabled, the storage automatically grows without impacting the workload. Storage autogrow is enabled by default for all new server creates. For servers with less than equal to 100 GB provisioned storage, the provisioned storage size is increased by 5 GB when the free storage is below 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 10 GB of the provisioned storage size. Maximum storage limits as specified above apply. Refresh the server instance to see the updated storage provisioned under **Settings** on the **Compute + Storage** page. 
 
