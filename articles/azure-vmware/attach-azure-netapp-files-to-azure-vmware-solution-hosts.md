@@ -28,18 +28,10 @@ Before you begin the prerequisites, review the [Performance best practices](#per
 1. [Deploy Azure VMware Solution](./deploy-azure-vmware-solution.md) private cloud and a dedicated virtual network connected via ExpressRoute gateway. The virtual network gateway should be configured with the Ultra performance or ErGw3Az SKU and have FastPath enabled. For more information, see [Configure networking for your VMware private cloud](tutorial-configure-networking.md) and [Network planning checklist](tutorial-network-checklist.md).
 1. Create an [NFSv3 volume for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-create-volumes.md) in the same virtual network created in the previous step.
     1. Verify connectivity from the private cloud to Azure NetApp Files volume by pinging the attached target IP.
-        2. Verify the subscription is registered to the `ANFAvsDataStore` feature in the `Microsoft.NetApp` namespace. If the subscription isn't registered, register it now.
-
-        `az feature register --name "ANFAvsDataStore" --namespace "Microsoft.NetApp"`
-
-        `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp" --query properties.state`
     1. Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. Select option **Azure VMware Solution Datastore** listed under the **Protocol** section.
     1. Create a volume with **Standard** [network features](../azure-netapp-files/configure-network-features.md) if available for ExpressRoute FastPath connectivity.
     1. Under the **Protocol** section, select **Azure VMware Solution Datastore** to indicate the volume is created to use as a datastore for Azure VMware Solution private cloud.
     1. If you're using [export policies](../azure-netapp-files/azure-netapp-files-configure-export-policy.md) to control access to Azure NetApp Files volumes, enable the Azure VMware private cloud IP range, not individual host IPs. Faulty hosts in a private cloud could get replaced. If the IP isn't enabled, connectivity to datastore is impacted.
-
->[!NOTE]
->Azure NetApp Files datastores for Azure VMware Solution are generally available. To use it, you must register Azure NetApp Files datastores for Azure VMware Solution.
 
 ## Supported regions 
 
@@ -99,13 +91,6 @@ For performance benchmarks that Azure NetApp Files datastores deliver for VMs on
 To attach an Azure NetApp Files volume to your private cloud using Portal, follow these steps:
 
 1. Sign in to the Azure portal.
-1. Select **Subscriptions** to see a list of subscriptions.
-1. From the list, select the subscription you want to use.
-1. Under Settings, select **Resource providers**.
-1. Search for **Microsoft.AVS** and select it.
-1. Select **Register**.
-1. Under **Settings**, select **Preview features**.
-	1. Verify you're registered for both the `CloudSanExperience` and `AnfDatstoreExperience` features.
 1. Navigate to your Azure VMware Solution.
 Under **Manage**, select **Storage**.
 1. Select **Connect Azure NetApp Files volume**.
@@ -122,25 +107,6 @@ Under **Manage**, select **Storage**.
 ### [Azure CLI](#tab/azure-cli)
 
 To attach an Azure NetApp Files volume to your private cloud using Azure CLI, follow these steps:
-
-1. Verify the subscription is registered to `CloudSanExperience` feature in the **Microsoft.AVS** namespace. If it's not, register it.
-
-    `az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS"`
-
-    `az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"`
-1. The registration should take approximately 15 minutes to complete. You can also check the status.
-
-    `az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS" --query properties.state`
-1. If the registration is stuck in an intermediate state for longer than 15 minutes, unregister, then re-register the flag.
-
-    `az feature unregister --name "CloudSanExperience" --namespace "Microsoft.AVS"`
-
-    `az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"`
-1. Verify the subscription is registered to `AnfDatastoreExperience` feature in the **Microsoft.AVS** namespace. If it's not, register it.
-
-    `az feature register --name " AnfDatastoreExperience" --namespace "Microsoft.AVS"`
-
-    `az feature show --name "AnfDatastoreExperience" --namespace "Microsoft.AVS" --query properties.state`
 
 1. Verify the VMware extension is installed. If the extension is already installed, verify you're using the latest version of the Azure CLI extension. If an older version is installed, update the extension.
 
