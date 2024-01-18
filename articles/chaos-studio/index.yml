@@ -48,16 +48,17 @@ landingContent:
           url: chaos-studio-quickstart-azure-portal.md
 
   # Card
-  -title: How-to guides
-  linklists:
-    -linklistType: how-to-guide
-        - text: Use a service-direct fault to fail over an Azure Cosmos DB instance
+  - title: How-to guides
+    linklists:
+     - linklistType: how-to-guide
+       limks:
+        - text: Use a service-direct fault to fail
           url: chaos-studio-tutorial-service-direct-portal.md
         - text: Use an agent-based fault
           url: chaos-studio-tutorial-agent-based-portal.md
-        - text: Use an AKS Chaos Mesh fault with Azure Chaos Studio
+        - text: Use an AKS Chaos Mesh fault
           url: chaos-studio-tutorial-aks-portal.md
-        - text: Shut down all targets in a zone with Azure Chaos Studio
+        - text: Shut down all targets in a zone
           url: chaos-studio-tutorial-dynamic-target-portal.md
         - text: Induce an outage on an Azure Active Directory instance
           url: chaos-studio-tutorial-aad-outage-portal.md
