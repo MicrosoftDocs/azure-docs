@@ -186,7 +186,7 @@ In prompt flow, on flow page with successful run and run detail page, you can fi
 
 :::image type="content" source="../media/faq/trace-large-language-model-tool.png" alt-text="Screenshot that shows raw request send to LLM model and response from LLM model." lightbox = "../media/faq/trace-large-language-model-tool.png":::
 
-## How to fix 409 error in from Azure OpenAI? 
+## How to fix 409 error from Azure OpenAI? 
 
 You may encounter 409 error from Azure OpenAI, it means you have reached the rate limit of Azure OpenAI. You can check the error message in the output section of LLM node. Learn more about [Azure OpenAI rate limit](../../../ai-services/openai/quotas-limits.md).
 
