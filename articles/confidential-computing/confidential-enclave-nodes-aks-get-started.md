@@ -193,7 +193,7 @@ spec:
     metadata:
       labels:
         app: oe-helloworld
-    spec::
+    spec:
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

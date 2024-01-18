@@ -71,7 +71,7 @@ func main() {
 		Prompt:       []string{"What is Azure OpenAI, in 20 words or less"},
 		MaxTokens:    to.Ptr(int32(2048)),
 		Temperature:  to.Ptr(float32(0.0)),
-		DeploymentID: modelDeploymentID,
+		Deployment: modelDeploymentID,
 	}, nil)
 
 	if err != nil {

@@ -30,7 +30,15 @@ items:
       - name: SAP ILM
         href: sap-information-lifecycle-management.md
       - name: SAP RISE integration
-        href: rise-integration.md
+        items:
+        - name: SAP RISE integration overview
+          href: rise-integration.md
+        - name: Network connectivity with SAP RISE
+          href: rise-integration-network.md
+        - name: Azure services with SAP RISE
+          href: rise-integration-services.md
+        - name: Identity and security services with SAP RISE
+          href: rise-integration-security.md
       - name: Virtual Machine Scale Sets
         items:
         - name: Flexible scale sets deployment guide
@@ -221,7 +229,7 @@ items:
           href: high-availability-guide-rhel-with-hana-ascs-ers-dialog-instance.md
     - name: Disaster recovery
       items: 
-      - name: Add HSR third site to HANA Pacemaker cluster on SUSE
+      - name: Add HSR third site to HANA Pacemaker cluster
         href: disaster-recovery-sap-hana-suse.md
     - name: Integration with Microsoft services
       items:

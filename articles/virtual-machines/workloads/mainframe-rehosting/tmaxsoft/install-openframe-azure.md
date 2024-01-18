@@ -98,7 +98,7 @@ Plan on spending a few days to assemble all the required software and complete a
 
 Before getting started, do the following:
 
-- Get the OpenFrame installation media from TmaxSoft. If you are an existing TmaxSoft customer, contact your TmaxSoft representative for a licensed copy. Otherwise, request a trial version from [TmaxSoft](https://www.tmaxsoft.com/contact/).
+- Get the OpenFrame installation media from TmaxSoft. If you are an existing TmaxSoft customer, contact your TmaxSoft representative for a licensed copy. Otherwise, request a trial version from [TmaxSoft](https://www.tmaxsoft.com/en/counsel-buying).
 - Request the OpenFrame documentation by sending email to <support@tmaxsoft.com>.
 - Get an Azure subscription if you don't already have one. You can also create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Optional. Set up a site-to-site VPN tunnel or a jumpbox that restricts access to the Azure VM to the permitted users in your organization. This step is not required, but it is a best practice.
@@ -573,7 +573,7 @@ The Base application server is installed before the individual services that Ope
      > [!IMPORTANT]
      > Make sure you start Tibero before installation.
 
-5. Generate license at [technet.tmaxsoft.com](https://technet.tmaxsoft.com/en/front/main/main.do) and PUT the OpenFrame Base, Batch, TACF, OSC licenses in the appropriate folder:
+5. Generate license at `technet.tmaxsoft.com` and PUT the OpenFrame Base, Batch, TACF, OSC licenses in the appropriate folder:
 
      ```bash
      cp license.dat /opt/tmaxapp/OpenFrame/core/license/

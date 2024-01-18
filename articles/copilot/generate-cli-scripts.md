@@ -4,9 +4,7 @@ description: Learn about scenarios where Microsoft Copilot for Azure (preview) c
 ms.date: 11/15/2023
 ms.topic: conceptual
 ms.service: copilot-for-azure
-ms.custom:
-  - ignite-2023
-  - ignite-2023-copilotinAzure
+ms.custom: ignite-2023, ignite-2023-copilotinAzure, devx-track-azurecli
 ms.author: jenhayes
 author: JnHs
 ---
@@ -19,6 +17,8 @@ When you tell Microsoft Copilot for Azure (preview) about a task you want to per
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
+[!INCLUDE [preview-note](includes/preview-note.md)]
+
 ## Sample prompts
 
 Here are a few examples of the kinds of prompts you can use to generate Azure CLI scripts. Modify these prompts based on your real-life scenarios, or try additional prompts to create different kinds of queries.
@@ -29,15 +29,15 @@ Here are a few examples of the kinds of prompts you can use to generate Azure CL
 
 ## Examples
 
-In this example, the prompt "I want to use Azure CLI to create a web application" provides a list of steps, along with the necessary Azure CLI commands.
+In this example, the prompt "**I want to use Azure CLI to create a web application**" provides a list of steps, along with the necessary Azure CLI commands.
 
 :::image type="content" source="media/generate-cli-scripts/cli-web-app.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing Azure CLI commands to create a web app.":::
 
-Similarly, you can say "I want to create a virtual machine using Azure cli" to get a step-by-step guide with commands.
+Similarly, you can say "**I want to create a virtual machine using Azure CLI**" to get a step-by-step guide with commands.
 
 :::image type="content" source="media/generate-cli-scripts/cli-vm.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing Azure CLI commands to create a VM.":::
 
-For a more detailed scenario, you can say "I want to use Azure CLI to deploy and manage AKS using a private service endpoint."
+For more detailed scenarios, you can use prompts like "**I want to use Azure CLI to deploy and manage AKS using a private service endpoint**."
 
 :::image type="content" source="media/generate-cli-scripts/cli-aks.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing commands to deploy and manage AKS using a private service endpoint.":::
 

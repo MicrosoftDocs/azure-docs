@@ -64,8 +64,6 @@ Open a command prompt and browse to your project folder. Create a new python fil
 
 ## Install the Python SDK
 
-> [!IMPORTANT]
-> The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) does not currently support DALL-E when used with Azure OpenAI. To access DALL-E with Azure OpenAI use version `0.28.1`.
 
 Install the OpenAI Python SDK by using the following command:
 
@@ -76,6 +74,9 @@ pip install openai
 ```
 
 #### [DALL-E 2](#tab/dalle2)
+
+> [!IMPORTANT]
+> The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) does not currently support DALL-E 2 when used with Azure OpenAI. To access DALL-E 2 with Azure OpenAI use version `0.28.1`. Or, follow the [migration guide](/azure/ai-services/openai/how-to/migration?tabs=python%2Cdalle-fix) to use DALL-E 2 with OpenAI 1.x.
 
 ```bash
 pip install openai==0.28.1

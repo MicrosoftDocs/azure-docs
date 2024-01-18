@@ -8,6 +8,7 @@ ms.date: 10/29/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-ansible
 ---
 
 # Extending the SAP Deployment Automation Framework
@@ -15,13 +16,15 @@ ms.subservice: sap-automation
 
 Within the SAP Deployment Automation Framework (SDAF), we recognize the importance of adaptability and customization to meet the unique needs of various deployments. This document describes the ways to extend the framework's capabilities, ensuring that it aligns  with your specific requirements.
 
-Forking the Source Code Repository: One method of extending SDAF is by forking the source code repository. This approach grants you the flexibility to make tailored modifications within your own forked version of the code. By doing so, you gain control over the framework's core functionality, enabling you to tailor it precisely to your deployment objectives.
+Some of the common scenarios for extending the framework include:
 
-Adding Stages to the SAP Configuration Pipeline: Another way to customization is by adding stages to the SAP configuration pipeline. This approach allows you to integrate specific processes or steps that are integral to your deployment workflows into the automation pipeline.
+- Forking the Source Code Repository: One method of extending SDAF is by forking the source code repository. This approach grants you the flexibility to make tailored modifications within your own forked version of the code. By doing so, you gain control over the framework's core functionality, enabling you to tailor it precisely to your deployment objectives.
 
-Streamlined Extensibility: This capability allows you to effortlessly incorporate your existing Ansible playbooks directly into the SDAF. By using this feature, you can seamlessly integrate your Ansible automation scripts with the framework, further enhancing its versatility.
+- Adding Stages to the SAP Configuration Pipeline: Another way to customization is by adding stages to the SAP configuration pipeline. This approach allows you to integrate specific processes or steps that are integral to your deployment workflows into the automation pipeline.
 
-Configuration extensibility: This feature allows you to extend the framework's configuration capabilities by adding custom repositories, packages, kernel parameters, logical volumes, mounts, and exports without the need to write any code.
+- Streamlined Extensibility: This capability allows you to effortlessly incorporate your existing Ansible playbooks directly into the SDAF. By using this feature, you can seamlessly integrate your Ansible automation scripts with the framework, further enhancing its versatility.
+
+- Configuration extensibility: This feature allows you to extend the framework's configuration capabilities by adding custom repositories, packages, kernel parameters, logical volumes, mounts, and exports without the need to write any code.
 
 Throughout this documentation, we provide comprehensive guidance on each of these extensibility options, ensuring that you have the knowledge and tools needed to tailor the SAP Deployment Automation Framework to your specific deployment needs.
 
@@ -39,7 +42,7 @@ The Ansible playbooks must be named according to the following naming convention
 
 'Playbook name_pre' for playbooks to be run before the SDAF playbook and 'Playbook name_post' for playbooks to be run after the SDAF playbook.
 
-| Playbook name                             | Playbook name for 'pre' tasks                 | Playbook name for 'post' tasks                 | Description                                                        |
+| Playbook name                             | Playbook name for 'pre' tasks                 | Playbook name for 'post' tasks                 | Description                                                       |
 | ----------------------------------------- | --------------------------------------------- | ---------------------------------------------- | ----------------------------------------------------------------- |
 | `playbook_01_os_base_config.yaml`         | `playbook_01_os_base_config_pre.yaml`         | `playbook_01_os_base_config_post.yaml`         | Base operating system configuration                               |
 | `playbook_02_os_sap_specific_config.yaml` | `playbook_02_os_sap_specific_config_pre.yaml` | `playbook_02_os_sap_specific_config_post.yaml` | SAP specific configuration                                        |
@@ -49,8 +52,8 @@ The Ansible playbooks must be named according to the following naming convention
 | `playbook_05_00_00_sap_scs_install.yaml`  | `playbook_05_00_00_sap_scs_install_pre.yaml`  | `playbook_05_00_00_sap_scs_install_post.yaml`  | Central Services Installation and High Availability configuration |
 | `playbook_05_01_sap_dbload.yaml`          | `playbook_05_01_sap_dbload_pre.yaml`          | `playbook_05_01_sap_dbload_post.yaml`          | Database load                                                     |
 | `playbook_05_02_sap_pas_install.yaml`     | `playbook_05_02_sap_pas_install_pre.yaml`     | `playbook_05_02_sap_pas_install_post.yaml`     | Primary Application Server installation                           |
-| `playbook_05_03_sap_app_install.yaml`     | `playbook_05_03_sap_app_install_pre.yaml`     | `playbook_05_03_sap_app_install_post.yaml`     | Additional Application Server installation                        |
-| `playbook_05_04_sap_web_install.yaml`     | `playbook_05_04_sap_web_install_pre.yaml`     | `playbook_05_04_sap_web_install.yaml`          | Web dispatcher installation                                        |
+| `playbook_05_03_sap_app_install.yaml`     | `playbook_05_03_sap_app_install_pre.yaml`     | `playbook_05_03_sap_app_install_post.yaml`     | Application Server installation                                   |
+| `playbook_05_04_sap_web_install.yaml`     | `playbook_05_04_sap_web_install_pre.yaml`     | `playbook_05_04_sap_web_install.yaml`          | Web dispatcher installation                                       |
 
 
 ### Sample Ansible playbook
@@ -185,7 +188,7 @@ custom_parameters:
 
 ## Adding custom services (Linux)
 
-If you need to manage additional services on the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters.yaml file.
+If you need to manage other services on the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters.yaml file.
 
 In this example, the 'firewalld' service is stopped and disabled on all the hosts in your SAP deployment that are running RedHat 7.x.
 
@@ -201,9 +204,9 @@ custom_services:
 
 ## Adding custom logical volumes (Linux)
 
-You can extend the SAP Deployment Automation Framework by adding logical volumes based on additional disks in your SDAF installation.
+You can extend the SAP Deployment Automation Framework by adding logical volumes based on extra disks in your SDAF installation.
 
-When you add the following section to the sap-parameters.yaml file, a logical volume 'lv_custom' is created on all Virtual machines with a disk with the name 'custom' in your SAP deployment. A filesystem is mounted on the logical volume and available on '/custompath'.
+When you add the following section to the sap-parameters.yaml file, a logical volume 'lv_custom' is created on all Virtual machines with a disk with the name 'custom' in your SAP deployment. A filesystem is mounted on the logical volume and available on '/custompath.'
 
 
 ```yaml
@@ -219,7 +222,7 @@ custom_logical_volumes:
 ```
 
 > [!NOTE]
-> In order to use this functionality you need to add an additional disk named 'custom' to one or more of your Virtual machines. See [Custom disk sizing](configure-extra-disks.md) for more information.
+> In order to use this functionality you need to add an extra disk named 'custom' to one or more of your Virtual machines. For more information, see [Custom disk sizing](configure-extra-disks.md).
 
 You can use the `configuration_settings` variable to let Terraform add them to sap-parameters.yaml file.
 
@@ -241,9 +244,9 @@ configuration_settings = {
 
 ## Adding custom mount (Linux)
 
-You can extend the SAP Deployment Automation Framework by mounting additional mount points in your installation.
+You can extend the SAP Deployment Automation Framework by mounting extra mount points in your installation.
 
-When you add the following section to the sap-parameters.yaml file, a filesystem '/usr/custom' is mounted from an NFS share on "xxxxxxxxx.file.core.windows.net:/xxxxxxxxx/custom".
+When you add the following section to the sap-parameters.yaml file, a filesystem '/usr/custom' is mounted from an NFS share on 'xxxxxxxxx.file.core.windows.net:/xxxxxxxxx/custom.'
 
 ```yaml
 
@@ -273,9 +276,9 @@ configuration_settings = {
 
 ## Adding custom export (Linux)
 
-You can extend the SAP Deployment Automation Framework by adding additional folders to be exported from the Central Services virtual machine.
+You can extend the SAP Deployment Automation Framework by adding extra folders to be exported from the Central Services virtual machine.
 
-When you add the following section to the sap-parameters.yaml file, a filesystem '/usr/custom' will be exported from the Central Services virtual machine and available via NFS.
+When you add the following section to the sap-parameters.yaml file, a filesystem '/usr/custom' is exported from the Central Services virtual machine and available via NFS.
 
 ```yaml
 
@@ -299,7 +302,38 @@ configuration_settings = {
 > [!NOTE]
 > This applies only for deployments with NFS_Provider set to 'NONE' as this makes the Central Services server an NFS Server.
 
+## Custom Stripe sizes (Linux)
 
+If you want to the stripe sizes used by the framework when creating the disks, you can add the following section to the sap-parameters.yaml file with the values you want.
+
+```yaml
+# User and group IDs
+hana_data_stripe_size:                 256
+hana_log_stripe_size:                  64
+
+db2_log_stripe_size:                   64
+db2_data_stripe_size:                  256
+db2_temp_stripe_size:                  128
+
+sybase_data_stripe_size:               256
+sybase_log_stripe_size:                64
+sybase_temp_stripe_size:               128
+
+oracle_data_stripe_size:               256
+oracle_log_stripe_size:                128
+
+```
+
+## Custom volume sizes (Linux)
+
+If you want to the default volume sizes used by the framework, you can add the following section to the sap-parameters.yaml file with the values you want.
+
+```yaml
+
+sapmnt_volume_size:                    32g
+usrsap_volume_size:                    32g
+hanashared_volume_size:                32g
+```
 
 ## Next step
 

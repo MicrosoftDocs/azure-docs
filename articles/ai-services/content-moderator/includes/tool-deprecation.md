@@ -13,7 +13,7 @@ ms.author: pafarley
 
 
 > [!IMPORTANT]
-> Try [Azure AI Content Safety](/azure/ai-services/content-safety/overview), which offers advanced AI features and enhanced performance.
+> Azure Content Moderator is being deprecated in February 2024, and will be retired by February 2027. It is being replaced by [Azure AI Content Safety](/azure/ai-services/content-safety/overview), which offers advanced AI features and enhanced performance.
 >
 > Azure AI Content Safety is a comprehensive solution designed to detect harmful user-generated and AI-generated content in applications and services. Azure AI Content Safety is suitable for many scenarios such as online marketplaces, gaming companies, social messaging platforms, enterprise media companies, and K-12 education solution providers. Here's an overview of its features and capabilities:
 > 

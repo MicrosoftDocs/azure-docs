@@ -14,6 +14,12 @@ services: azure-maps
 
 This document contains information about new features and other changes to the Azure Maps Spatial IO Module.
 
+## [0.1.7]
+
+#### New features (0.1.7)
+
+- Introduced a new customization option, `bubbleRadiusFactor`, to enable users to adjust the default multiplier for the bubble radius in a SimpleDataLayer.
+
 ## [0.1.6]
 
 ### Other changes (0.1.6)
@@ -49,6 +55,7 @@ Stay up to date on Azure Maps:
 > [Azure Maps Blog]
 
 [WmsClient.getFeatureInfoHtml]: /javascript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient#azure-maps-spatial-io-atlas-io-ogc-wfsclient-getfeatureinfo
+[0.1.7]: https://www.npmjs.com/package/azure-maps-spatial-io/v/0.1.7
 [0.1.6]: https://www.npmjs.com/package/azure-maps-spatial-io/v/0.1.6
 [0.1.5]: https://www.npmjs.com/package/azure-maps-spatial-io/v/0.1.5
 [0.1.4]: https://www.npmjs.com/package/azure-maps-spatial-io/v/0.1.4

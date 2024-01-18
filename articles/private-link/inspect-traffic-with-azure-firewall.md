@@ -38,7 +38,7 @@ Azure Firewall filters traffic using either:
 * [FQDN in application rules](../firewall/features.md#application-fqdn-filtering-rules) for HTTP, HTTPS, and MSSQL. 
 
 > [!IMPORTANT] 
-> The use of application rules over network rules is recommended when inspecting traffic destined to private endpoints in order to maintain flow symmetry. If network rules are used, or an NVA is used instead of Azure Firewall, SNAT must be configured for traffic destined to private endpoints in order to maintain flow symmetry.
+> The use of application rules over network rules is recommended when inspecting traffic destined to private endpoints in order to maintain flow symmetry. Application rules are preferred over network rules to inspect traffic destined to private endpoints because Azure Firewall always SNATs traffic with application rules. If network rules are used, or an NVA is used instead of Azure Firewall, SNAT must be configured for traffic destined to private endpoints in order to maintain flow symmetry.
 
 > [!NOTE]
 > SQL FQDN filtering is supported in [proxy-mode](/azure/azure-sql/database/connectivity-architecture#connection-policy) only (port 1433). **Proxy** mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using FQDN in firewall network rules.
@@ -91,7 +91,7 @@ This architecture can be implemented if you have configured connectivity with yo
 
 If your security requirements require client traffic to services exposed via private endpoints to be routed through a security appliance, deploy this scenario.
 
-The same considerations as in scenario 2 above apply. In this scenario, there aren't virtual network peering charges. For more information about how to configure your DNS servers to allow on-premises workloads to access private endpoints, see [on-premises workloads using a DNS forwarder](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
+The same considerations as in scenario 2 above apply. In this scenario, there aren't virtual network peering charges. For more information about how to configure your DNS servers to allow on-premises workloads to access private endpoints, see [on-premises workloads using a DNS forwarder](./private-endpoint-dns-integration.md#on-premises-workloads-using-a-dns-forwarder).
 
 ## Next steps
 

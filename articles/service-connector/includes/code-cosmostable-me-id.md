@@ -3,7 +3,7 @@ author: wchigit
 description: managed identity, code sample
 ms.service: service-connector
 ms.topic: include
-ms.date: 11/01/2023
+ms.date: 12/04/2023
 ms.author: wchi
 ---
 
@@ -14,7 +14,7 @@ ms.author: wchi
     dotnet add package Azure.Data.Tables
     dotnet add package Azure.Identity
     ```
-2. Get an access token for the managed identity or service principal using client library [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Use the access token and `AZURE_COSMOS_LISTCONNECTIONSTRINGURL` to get the connection string. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Table. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get an access token for the managed identity or service principal using client library [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Use the access token and `AZURE_COSMOS_LISTCONNECTIONSTRINGURL` to get the connection string. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Table. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     ```csharp
     using System;
     using System.Security.Authentication;
@@ -56,8 +56,8 @@ ms.author: wchi
     httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken.Token}");
     var response = await httpClient.POSTAsync(listConnectionStringUrl);
     var responseBody = await response.Content.ReadAsStringAsync();
-    var connectionStrings = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseBody);
-    var connectionString = connectionStrings["Primary Table Connection String"];
+    var connectionStrings = JsonConvert.DeserializeObject<Dictionary<string, List<Dictionary<string, string>>>(responseBody);
+    var connectionString = connectionStrings["connectionStrings"][0]["connectionString"];
 
     // Connect to Azure Cosmos DB for Table
     TableServiceClient tableServiceClient = new TableServiceClient(connectionString);
@@ -120,7 +120,8 @@ ms.author: wchi
     HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
     JSONParser parser = new JSONParser();
     JSONObject responseBody = parser.parse(response.body());
-    String connectionString = responseBody.get("Primary Table Connection String");
+    List<Map<String, String>> connectionStrings = responseBody.get("connectionStrings");
+    String connectionString = connectionStrings[0]["connectionString"];
 
     // Connect to Azure Cosmos DB for Table
     TableClient tableClient = new TableClientBuilder()
@@ -164,18 +165,83 @@ ms.author: wchi
     session = BearerTokenCredentialPolicy(cred, scope).on_request(session)
     response = session.post(listKeyUrl)
     keys_dict = response.json()
-    conn_str = keys_dict["Primary Table Connection String"]
+    conn_str = keys_dict["connectionStrings"][0]["connectionString"]
 
     # Connect to Azure Cosmos DB for Table
     table_service = TableServiceClient.from_connection_string(conn_str) 
     ```
-### [NodeJS](#tab/node)
+
+### [Go](#tab/go)
+1. Install dependencies.
+    ```bash
+    go get github.com/Azure/azure-sdk-for-go/sdk/data/aztables
+    go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    ```
+1. In code, get the access token using `@azidentity`, then use it to acquire the connection string. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Table. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+    ```go
+    import (
+        "fmt"
+        "os"
+        "context"
+        "log"
+        "io/ioutil"
+        "encoding/json"
+
+        "github.com/Azure/azure-sdk-for-go/sdk/data/aztables"
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
+
+    func main() {
+        endpoint = os.Getenv("AZURE_COSMOS_RESOURCEENDPOINT")
+        listConnectionStringUrl = os.Getenv("AZURE_COSMOS_LISTCONNECTIONSTRINGURL")
+        scope = os.Getenv("AZUE_COSMOS_SCOPE")
+
+        // Uncomment the following lines according to the authentication type.
+        // For system-assigned identity.
+        // cred, err := azidentity.NewDefaultAzureCredential(nil)
+        
+        // For user-assigned identity.
+        // clientid := os.Getenv("AZURE_COSMOS_CLIENTID")
+        // azidentity.ManagedIdentityCredentialOptions.ID := clientid
+        // options := &azidentity.ManagedIdentityCredentialOptions{ID: clientid}
+        // cred, err := azidentity.NewManagedIdentityCredential(options)
+        
+        // For service principal.
+        // clientid := os.Getenv("AZURE_COSMOS_CLIENTID")
+        // tenantid := os.Getenv("AZURE_COSMOS_TENANTID")
+        // clientsecret := os.Getenv("AZURE_COSMOS_CLIENTSECRET")
+        // cred, err := azidentity.NewClientSecretCredential(tenantid, clientid, clientsecret, &azidentity.ClientSecretCredentialOptions{})
+
+        // Acquire the access token.
+        ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+        token, err := cred.GetToken(ctx, policy.TokenRequestOptions{
+            Scopes: []string{scope},
+        })
+        
+        // Acquire the connection string.
+        client := &http.Client{}
+        req, err := http.NewRequest("POST", listConnectionStringUrl, nil)
+        req.Header.Add("Authorization", "Bearer " + token.Token)
+        resp, err := client.Do(req)
+        body, err := ioutil.ReadAll(resp.Body)
+        var result map[string]interface{}
+        json.Unmarshal(body, &result)
+        connStr, err := result["connectionStrings"][0]["connectionString"];
+
+        serviceClient, err := aztables.NewServiceClientFromConnectionString(connStr, nil)
+        if err != nil {
+            panic(err)
+        }
+    }
+    ```
+
+### [NodeJS](#tab/nodejs)
 1. Install dependencies
    ```bash
    npm install @azure/data-tables
    npm install --save @azure/identity
    ```
-2. In code, get the access token using `@azure/identity`, then use it to acquire the connection string. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for MongoDB. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. In code, get the access token using `@azure/identity`, then use it to acquire the connection string. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Table. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
     const { TableClient } = require("@azure/data-tables");
@@ -213,8 +279,11 @@ ms.author: wchi
     };
     const response = await axios(config);
     const keysDict = response.data;
-    const connectionString = keysDict['Primary Table Connection String'];
+    const connectionString = keysDict["connectionStrings"][0]["connectionString"];
 
     // Connect to Azure Cosmos DB for Table
     const serviceClient = TableClient.fromConnectionString(connectionString);
     ```
+
+### [Other](#tab/none)
+For other languages, you can use the endpoint URL and other properties that Service Connector sets to the environment variables to connect to Azure Cosmos DB for Table. For environment variable details, see [Integrate Azure Cosmos DB for Table with Service Connector](../how-to-integrate-cosmos-table.md).

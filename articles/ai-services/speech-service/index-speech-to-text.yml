@@ -5,10 +5,9 @@ summary: Speech to text from the Speech service, also known as speech recognitio
 metadata:
   title: Speech to text documentation - Tutorials, API Reference - Azure AI services | Microsoft Docs
   titleSuffix: Azure AI services
-  #services: cognitive-services
   author: eric-urban
   manager: nitinme
-  ms.service: speech-service
+  ms.service: azure-ai-speech
   ms.topic: landing-page
   ms.date: 11/29/2022
   ms.author: eur

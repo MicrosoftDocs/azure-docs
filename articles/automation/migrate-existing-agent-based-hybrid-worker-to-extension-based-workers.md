@@ -3,7 +3,7 @@ title: Migrate an existing agent-based hybrid workers to extension-based-workers
 description: This article provides information on how to migrate an existing agent-based hybrid worker to extension based workers.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/17/2023
+ms.date: 12/10/2023
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-azurepowershell, devx-track-linux
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently migrate agent based hybrid workers to extension based workers.
@@ -87,7 +87,8 @@ If agent-based Hybrid Worker is using custom Hybrid Worker credentials, then ens
 |Arc-enabled Server | C:\ProgramData\AzureConnectedMachineAgent\Tokens (read)</br> C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows (read and execute) |
 
 > [!NOTE]
-> Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets (VMSS).
+> - For the Arc-enabled server, ensure to reassign the permissions as they get removed whenever the ARC agent is updated.
+> - Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets (VMSS).
 
 ## Migrate an existing Agent based Hybrid Worker to Extension based Hybrid Worker
 

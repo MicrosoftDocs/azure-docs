@@ -2,14 +2,15 @@
 title: How to create vector indexes
 titleSuffix: Azure AI Studio
 description: Learn how to create and use a vector index for performing Retrieval Augmented Generation (RAG).
-author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # How to create a vector index
@@ -72,7 +73,7 @@ You must have:
     > [!NOTE]
     > If you see a **DeploymentNotFound** error, you need to assign more permissions. See [mitigate DeploymentNotFound error](#mitigate-deploymentnotfound-error) for more details.
 
-1. You're taken to the index details page where you can see the status of your index creation
+1. You're taken to the index details page where you can see the status of your index creation.
 
 
 ### Mitigate DeploymentNotFound error

@@ -23,7 +23,7 @@ In this article you'll learn how to define the triggers and conditions that will
 
 ### Determine the scope
 
-The first step in designing and defining your automation rule is figuring out which incidents (or alerts) you want it to apply to. This determination will directly impact how you create the rule.
+The first step in designing and defining your automation rule is figuring out which incidents or alerts you want it to apply to. This determination will directly impact how you create the rule.
 
 You also want to determine your use case. What are you trying to accomplish with this automation? Consider the following options:
 
@@ -38,7 +38,7 @@ You also want to determine your use case. What are you trying to accomplish with
 
 ### Determine the trigger
 
-Do you want this automation to be activated when new incidents (or alerts, in preview) are created? Or anytime an incident gets updated?
+Do you want this automation to be activated when new incidents or alerts are created? Or anytime an incident gets updated?
 
 Automation rules are triggered **when an incident is created or updated** or **when an alert is created**. Recall that incidents include alerts, and that both alerts and incidents are created by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
 
@@ -46,7 +46,7 @@ The following table shows the different possible scenarios that will cause an au
 
 | Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
-| **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender.<br>- A new incident is created manually. |
+| **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft Defender XDR.<br>- A new incident is created manually. |
 | **When incident is updated**<br> | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
 | **When alert is created**<br> | - An alert is created by a scheduled analytics rule.
 
@@ -75,11 +75,11 @@ From the **Trigger** drop-down, select the appropriate trigger according to the 
 
 #### Base conditions
 
-1. **Incident provider**: Incidents can have two possible sources: they can be created inside Microsoft Sentinel, and they can also be [imported from&mdash;and synchronized with&mdash;Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md).
+1. **Incident provider**: Incidents can have two possible sources: they can be created inside Microsoft Sentinel, and they can also be [imported from&mdash;and synchronized with&mdash;Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md).
 
-    If you selected one of the incident triggers and you want the automation rule to take effect only on incidents created in Microsoft Sentinel, or alternatively, only on those imported from Microsoft 365 Defender, specify the source in the **If Incident provider equals** condition. (This condition will be displayed only if an incident trigger is selected.)
+    If you selected one of the incident triggers and you want the automation rule to take effect only on incidents created in Microsoft Sentinel, or alternatively, only on those imported from Microsoft Defender XDR, specify the source in the **If Incident provider equals** condition. (This condition will be displayed only if an incident trigger is selected.)
 
-1. **Analytics rule name**: For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition. (This condition will *not* be displayed if Microsoft 365 Defender is selected as the incident provider.)
+1. **Analytics rule name**: For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition. (This condition will *not* be displayed if Microsoft Defender XDR is selected as the incident provider.)
 
 #### Other conditions (incidents only)
 
@@ -191,11 +191,15 @@ You can change the order of actions in your rule even after you've added them. S
 
 ### Finish creating your rule
 
-1. Set an **expiration date** for your automation rule if you want it to have one.
+1. Under **Rule expiration**, if you want your automation rule to expire, set an expiration date (and optionally, a time). Otherwise, leave it as *Indefinite*.
 
-1. Enter a number under **Order** to determine where in the sequence of automation rules this rule will run.
+1. The **Order** field is pre-populated with the next available number for your rule's trigger type. This number determines where in the sequence of automation rules (of the same trigger type) this rule will run. You can change the number if you want this rule to run before an existing rule.
+
+    See [Notes on execution order and priority](automate-incident-handling-with-automation-rules.md#notes-on-execution-order-and-priority) for more information.
 
 1. Click **Apply**. You're done!
+
+:::image type="content" source="media/create-manage-use-automation-rules/finish-creating-rule.png" alt-text="Screenshot of final steps of creating automation rule.":::
 
 ## Audit automation rule activity
 
@@ -208,7 +212,7 @@ SecurityIncident
 
 ## Automation rules execution
 
-Automation rules are run sequentially, according to the order you determine. Each automation rule is executed after the previous one has finished its run. Within an automation rule, all actions are run sequentially in the order in which they are defined.
+Automation rules are run sequentially, according to the order you determine. Each automation rule is executed after the previous one has finished its run. Within an automation rule, all actions are run sequentially in the order in which they are defined. See [Notes on execution order and priority](automate-incident-handling-with-automation-rules.md#notes-on-execution-order-and-priority) for more information.
 
 Playbook actions within an automation rule may be treated differently under some circumstances, according to the following criteria:
 

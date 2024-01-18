@@ -34,7 +34,7 @@ The IOPS of an Elastic SAN increases by 5,000 per base TiB. So if you had an Ela
 
 ### Throughput
 
-The throughput of an Elastic SAN increases by 80 MB/s per base TiB. So if you had an Elastic SAN that has 6 TiB of base capacity, that SAN could still provide up to 480 MB/s. That same SAN would provide 480-MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an Elastic SAN is distributed among all its volumes.
+The throughput of an Elastic SAN increases by 200 MB/s per base TiB. So if you had an Elastic SAN that has 6 TiB of base capacity, that SAN could still provide up to 1200 MB/s. That same SAN would provide 1200-MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an Elastic SAN is distributed among all its volumes.
 
 ### Elastic SAN volumes
 

@@ -2,6 +2,7 @@
 title: Subscribe to Azure Resource Notifications - Resource Management events
 description: This article explains how to subscribe to Azure Resource Notifications - Azure Resource Management events.
 ms.topic: how-to
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 10/08/2023
 ---
 

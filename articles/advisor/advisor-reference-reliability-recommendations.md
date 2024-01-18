@@ -4,7 +4,7 @@ description: Full list of available reliability recommendations in Advisor.
 author: mabrahms
 ms.author: v-mabrahms
 ms.topic: article
-ms.date: 09/27/2023
+ms.date: 12/11/2023
 ---
 
 # Reliability recommendations
@@ -23,19 +23,19 @@ Azure Advisor helps you ensure and improve the continuity of your business-criti
 
 You're close to exceeding storage quota of 2GB. Create a Standard search service. Indexing operations stop working when storage quota is exceeded.
 
-Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity).
+Learn more about [Service limits in Azure AI Search](/azure/search/search-limits-quotas-capacity).
 
 ### You're close to exceeding storage quota of 50MB. Create a Basic or Standard search service
 
 You're close to exceeding storage quota of 50MB. Create a Basic or Standard search service. Indexing operations stop working when storage quota is exceeded.
 
-Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity).
+Learn more about [Service limits in Azure AI Search](/azure/search/search-limits-quotas-capacity).
 
 ### You're close to exceeding your available storage quota. Add more partitions if you need more storage
 
 You're close to exceeding your available storage quota. Add extra partitions if you need more storage. After exceeding storage quota, you can still query, but indexing operations no longer work.
 
-Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity)
+Learn more about [Service limits in Azure AI Search](/azure/search/search-limits-quotas-capacity)
 
 ### Quota Exceeded for this resource
 
@@ -544,7 +544,7 @@ Learn more about [Front Door Profile - RenewExpiredBYOC (Renew the expired Azure
 
 Deploying two or more medium or large sized instances ensures business continuity during outages caused by planned or unplanned maintenance.
 
-Learn more about [Application gateway - AppGateway (Upgrade your SKU or add more instances to ensure fault tolerance)](https://aka.ms/aa_gatewayrec_learnmore).
+Learn more about [Improve the reliability of your application by using Azure Advisor - Ensure application gateway fault tolerance)](/azure/advisor/advisor-high-availability-recommendations#ensure-application-gateway-fault-tolerance).
 
 ### Avoid hostname override to ensure site integrity
 
@@ -645,6 +645,23 @@ In active-active configuration, both instances of the VPN gateway establish S2S 
 
 Learn more about [Virtual network gateway - VNetGatewayActiveActive (Enable Active-Active gateways for redundancy)](https://aka.ms/aa_vpnha_learnmore).
 
+### Use HEAD health probes
+
+For health probes, it’s a good practice to use the HEAD method, which reduces the amount of traffic load on your origins.
+
+Learn more about [Front Door - Use HEAD health probes](https://aka.ms/afd-use-health-probes).
+
+### Use managed TLS certificates
+
+Front Door management of your TLS certificates reduces your operational costs and helps you to avoid costly outages caused by forgetting to renew a certificate.
+
+Learn more about [Use managed TLS certificates](https://aka.ms/afd-use-managed-tls).
+
+### Disable health probes when there is only one origin in an origin group
+
+If you only have a single origin, Front Door always routes traffic to that origin even if its health probe reports an unhealthy status. The status of the health probe doesn't do anything to change Front Door's behavior. In this scenario, health probes don't provide a benefit and you should disable them to reduce the traffic on your origin.
+
+Learn more about [Health probe best practices](https://aka.ms/afd-disable-health-probes).
 
 ## SAP for Azure
 

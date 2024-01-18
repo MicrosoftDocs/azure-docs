@@ -2,7 +2,6 @@
 title: "Speech Studio overview - Speech service"
 titleSuffix: Azure AI services
 description: Speech Studio is a set of UI-based tools for building and integrating features from Speech service in your applications.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -45,7 +44,7 @@ In Speech Studio, the following Speech service features are available as project
 
 * [Voice Gallery](https://aka.ms/speechstudio/voicegallery): Build apps and services that speak naturally. Choose from a broad portfolio of [languages, voices, and variants](language-support.md?tabs=tts). Bring your scenarios to life with highly expressive and human-like neural voices.
 
-* [Custom Voice](https://aka.ms/speechstudio/customvoice): Create custom, one-of-a-kind voices for text to speech. You supply audio files and create matching transcriptions in Speech Studio, and then use the custom voices in your applications. To create and use custom voices via endpoints, see [Create and use your voice model](how-to-custom-voice-create-voice.md). 
+* [Custom voice](https://aka.ms/speechstudio/customvoice): Create custom, one-of-a-kind voices for text to speech. You supply audio files and create matching transcriptions in Speech Studio, and then use the custom voices in your applications. To create and use custom voices via endpoints, see [Create and use your voice model](professional-voice-train-voice.md). 
 
 * [Audio Content Creation](https://aka.ms/speechstudio/audiocontentcreation): A no-code approach for text to speech synthesis. You can use the output audio as-is, or as a starting point for further customization. You can build highly natural audio content for a variety of scenarios, such as audiobooks, news broadcasts, video narrations, and chat bots. For more information, see the [Audio Content Creation](how-to-audio-content-creation.md) documentation.
 

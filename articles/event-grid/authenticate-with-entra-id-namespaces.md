@@ -12,11 +12,11 @@ ms.date: 11/15/2023
 This article describes how to authenticate clients publishing events to Azure Event Grid namespaces using Microsoft Entra ID.
 
 ## Overview
-The [Microsoft Identity](../active-directory/develop/v2-overview.md) platform provides an integrated authentication and access control management for resources and applications that use Microsoft Entra ID as their identity provider. Use the Microsoft Identity platform to provide authentication and authorization support in your applications. It's based on open standards such as OAuth 2.0 and OpenID Connect and offers tools and open-source libraries that support many authentication scenarios. It provides advanced features such as [Conditional Access](../active-directory/conditional-access/overview.md) that allows you to set policies that require multifactor authentication or allow access from specific locations, for example.
+The [Microsoft Identity](/entra/identity-platform/v2-overview) platform provides an integrated authentication and access control management for resources and applications that use Microsoft Entra ID as their identity provider. Use the Microsoft Identity platform to provide authentication and authorization support in your applications. It's based on open standards such as OAuth 2.0 and OpenID Connect and offers tools and open-source libraries that support many authentication scenarios. It provides advanced features such as [Conditional Access](/entra/identity/conditional-access/overview) that allows you to set policies that require multifactor authentication or allow access from specific locations, for example.
 
-An advantage that improves your security stance when using Microsoft Entra ID is that you don't need to store credentials, such as authentication keys, in the code or repositories. Instead, you rely on the acquisition of OAuth 2.0 access tokens from the Microsoft Identity platform that your application presents when authenticating to a protected resource. You can register your event publishing application with Microsoft Entra ID and obtain a service principal associated with your app that you manage and use. Instead, you can use [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md), either system assigned or user assigned, for an even simpler identity management model as some aspects of the identity lifecycle are managed for you. 
+An advantage that improves your security stance when using Microsoft Entra ID is that you don't need to store credentials, such as authentication keys, in the code or repositories. Instead, you rely on the acquisition of OAuth 2.0 access tokens from the Microsoft Identity platform that your application presents when authenticating to a protected resource. You can register your event publishing application with Microsoft Entra ID and obtain a service principal associated with your app that you manage and use. Instead, you can use [Managed Identities](/entra/identity/managed-identities-azure-resources/overview), either system assigned or user assigned, for an even simpler identity management model as some aspects of the identity lifecycle are managed for you. 
 
-[Role-based access control (RBAC)](../active-directory/develop/custom-rbac-for-developers.md) allows you to configure authorization in a way that certain security principals (identities for users, groups, or apps) have specific permissions to execute operations over Azure resources. This way, the security principal used by a client application that sends events to Event Grid must have the RBAC role **EventGrid Data Sender** associated with it. 
+[Role-based access control (RBAC)](/entra/identity-platform/custom-rbac-for-developers) allows you to configure authorization in a way that certain security principals (identities for users, groups, or apps) have specific permissions to execute operations over Azure resources. This way, the security principal used by a client application that sends events to Event Grid must have the RBAC role **EventGrid Data Sender** associated with it. 
 
 ### Security principals
 There are two broad categories of security principals that are applicable when discussing authentication of an Event Grid publishing client: 
@@ -24,7 +24,7 @@ There are two broad categories of security principals that are applicable when d
 - **Managed identities**. A managed identity can be system assigned, which you enable on an Azure resource and is associated to only that resource, or user assigned, which you explicitly create and name. User assigned managed identities can be associated to more than one resource.
 - **Application security principal**. It's a type of security principal that represents an application, which accesses resources protected by Microsoft Entra ID. 
 
-Regardless of the security principal used, a managed identity or an application security principal, your client uses that identity to authenticate before Microsoft Entra ID and obtain an [OAuth 2.0 access token](../active-directory/develop/access-tokens.md) that's sent with requests when sending events to Event Grid. That token is cryptographically signed and once Event Grid receives it, the token is validated. For example, the audience (the intended recipient of the token) is confirmed to be Event Grid (`https://eventgrid.azure.net`), among other things. The token contains information about the client identity. Event Grid takes that identity and validates that the client has the role **EventGrid Data Sender** assigned to it. More precisely, Event Grid validates that the identity has the ``Microsoft.EventGrid/events/send/action`` permission in an RBAC role associated to the identity before allowing the event publishing request to complete. 
+Regardless of the security principal used, a managed identity or an application security principal, your client uses that identity to authenticate before Microsoft Entra ID and obtain an [OAuth 2.0 access token](/entra/identity-platform/access-tokens) that's sent with requests when sending events to Event Grid. That token is cryptographically signed and once Event Grid receives it, the token is validated. For example, the audience (the intended recipient of the token) is confirmed to be Event Grid (`https://eventgrid.azure.net`), among other things. The token contains information about the client identity. Event Grid takes that identity and validates that the client has the role **EventGrid Data Sender** assigned to it. More precisely, Event Grid validates that the identity has the ``Microsoft.EventGrid/events/send/action`` permission in an RBAC role associated to the identity before allowing the event publishing request to complete. 
  
 If you're using the Event Grid SDK, you don't need to worry about the details on how to implement the acquisition of access tokens and how to include it with every request to Event Grid because the [Event Grid data plane SDKs](#publish-events-using-event-grids-client-sdks) do that for you. 
 
@@ -41,18 +41,18 @@ Managed identities are identities associated with Azure resources. Managed ident
 
 Managed identity provides Azure services with an automatically managed identity in Microsoft Entra ID. Contrasting to other authentication methods, you don't need to store and protect access keys or Shared Access Signatures (SAS) in your application code or configuration, either for the identity itself or for the resources you need to access.
 
-To authenticate your event publishing client using managed identities, first decide on the hosting Azure service for your client application and then enable system assigned or user assigned managed identities on that Azure service instance. For example, you can enable managed identities on a [VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md), an [Azure App Service or Azure Functions](../app-service/overview-managed-identity.md?tabs=dotnet). 
+To authenticate your event publishing client using managed identities, first decide on the hosting Azure service for your client application and then enable system assigned or user assigned managed identities on that Azure service instance. For example, you can enable managed identities on a [VM](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm), an [Azure App Service or Azure Functions](../app-service/overview-managed-identity.md?tabs=dotnet). 
 
 Once you have a managed identity configured in a hosting service, [assign the permission to publish events to that identity](#assign-permission-to-a-security-principal-to-publish-events).
 
 ## Authenticate using a security principal of a client application
 
-Besides managed identities, another identity option is to create a security principal for your client application. To that end, you need to register your application with Microsoft Entra ID. Registering your application is a gesture through which you delegate identity and access management control to Microsoft Entra ID. Follow the steps in section [Register an application](../active-directory/develop/quickstart-register-app.md#register-an-application) and in section [Add a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret). Make sure to review the [prerequisites](../active-directory/develop/quickstart-register-app.md#prerequisites) before starting.
+Besides managed identities, another identity option is to create a security principal for your client application. To that end, you need to register your application with Microsoft Entra ID. Registering your application is a gesture through which you delegate identity and access management control to Microsoft Entra ID. Follow the steps in section [Register an application](/entra/identity-platform/quickstart-register-app#register-an-application) and in section [Add a client secret](/entra/identity-platform/quickstart-register-app#add-a-client-secret). Make sure to review the [prerequisites](/entra/identity-platform/quickstart-register-app#prerequisites) before starting.
 
 Once you have an application security principal and followed above steps, [assign the permission to publish events to that identity](#assign-permission-to-a-security-principal-to-publish-events).
 
 > [!NOTE]
-> When you register an application in the portal, an [application object](../active-directory/develop/app-objects-and-service-principals.md#application-object) and a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) are created automatically in your home tenant. Alternatively, you can use Microsot Graph to register your application. However, if you register or create an application using the Microsoft Graph APIs, creating the service principal object is a separate step. 
+> When you register an application in the portal, an [application object](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#application-object) and a [service principal](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#service-principal-object) are created automatically in your home tenant. Alternatively, you can use Microsot Graph to register your application. However, if you register or create an application using the Microsoft Graph APIs, creating the service principal object is a separate step. 
 
 ## Assign permission to a security principal to publish events
 
@@ -103,7 +103,7 @@ Following are the prerequisites to authenticate to Event Grid.
 
 ### Publish events using Microsoft Entra Authentication
 
-To send events to a topic, domain, or partner namespace, you can build the client in the following way. The api version that first provided support for Microsoft Entra authentication is ``2018-01-01``. Use that API version or a more recent version in your application.
+To send events to a topic, domain, or partner namespace, you can build the client in the following way. The API version that first provided support for Microsoft Entra authentication is ``2018-01-01``. Use that API version or a more recent version in your application.
 
 Sample:
 
@@ -126,7 +126,7 @@ For more information, see the following articles:
 
 ## Disable key and shared access signature authentication
 
-Microsoft Entra authentication provides a superior authentication support than that's offered by access key or Shared Access Signature (SAS) token authentication. With Microsoft Entra authentication, the identity is validated against Microsoft Entra identity provider. As a developer, you won't have to handle keys in your code if you use Microsoft Entra authentication. You'll also benefit from all security features built into the Microsoft Identity platform, such as [Conditional Access](../active-directory/conditional-access/overview.md) that can help you improve your application's security stance. 
+Microsoft Entra authentication provides a superior authentication support than that's offered by access key or Shared Access Signature (SAS) token authentication. With Microsoft Entra authentication, the identity is validated against Microsoft Entra identity provider. As a developer, you won't have to handle keys in your code if you use Microsoft Entra authentication. You'll also benefit from all security features built into the Microsoft Identity platform, such as [Conditional Access](/entra/identity/conditional-access/overview) that can help you improve your application's security stance. 
 
 Once you decide to use Microsoft Entra authentication, you can disable authentication based on access keys or SAS tokens. 
 
@@ -137,16 +137,16 @@ Once you decide to use Microsoft Entra authentication, you can disable authentic
 
 When creating a new topic, you can disable local authentication on the **Advanced** tab of the **Create Topic** page. 
 
-:::image type="content" source="./media/authenticate-with-active-directory/create-topic-disable-local-auth.png" alt-text="Screenshot showing the Advanced tab of Create Topic page when you can disable local authentication.":::
+:::image type="content" source="./media/authenticate-with-microsoft-entra-id/create-topic-disable-local-auth.png" alt-text="Screenshot showing the Advanced tab of Create Topic page when you can disable local authentication.":::
 
 For an existing topic, following these steps to disable local authentication:
 
 1. Navigate to the **Event Grid Topic** page for the topic, and select **Enabled** under **Local Authentication**
 
-    :::image type="content" source="./media/authenticate-with-active-directory/existing-topic-local-auth.png" alt-text="Screenshot showing the Overview page of an existing topic.":::
+    :::image type="content" source="./media/authenticate-with-microsoft-entra-id/existing-topic-local-auth.png" alt-text="Screenshot showing the Overview page of an existing topic.":::
 2. In the **Local Authentication** popup window, select **Disabled**, and select **OK**.
 
-    :::image type="content" source="./media/authenticate-with-active-directory/local-auth-popup.png" alt-text="Screenshot showing the Local Authentication window.":::
+    :::image type="content" source="./media/authenticate-with-microsoft-entra-id/local-auth-popup.png" alt-text="Screenshot showing the Local Authentication window.":::
 
 
 ### Azure CLI
@@ -191,14 +191,14 @@ New-AzResource -ResourceGroupName <ResourceGroupName> -ResourceType Microsoft.Ev
    - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md)  
    - [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/identity/azure-identity/README.md)
    - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md)
-- Learn about [managed identities](../active-directory/managed-identities-azure-resources/overview.md)
+- Learn about [managed identities](/entra/identity/managed-identities-azure-resources/overview)
 - Learn about [how to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md?tabs=dotnet)
-- Learn about [applications and service principals](../active-directory/develop/app-objects-and-service-principals.md)
-- Learn about [registering an application with the Microsoft Identity platform](../active-directory/develop/quickstart-register-app.md).
+- Learn about [applications and service principals](/entra/identity-platform/app-objects-and-service-principals)
+- Learn about [registering an application with the Microsoft Identity platform](/entra/identity-platform/quickstart-register-app).
 - Learn about how [authorization](../role-based-access-control/overview.md) (RBAC access control) works.
 - Learn about Event Grid built-in RBAC roles including its [Event Grid Data Sender](../role-based-access-control/built-in-roles.md#eventgrid-data-sender) role. [Event Grid's roles list](security-authorization.md#built-in-roles).
 - Learn about [assigning RBAC roles](../role-based-access-control/role-assignments-portal.md?tabs=current) to identities.
 - Learn about how to define [custom RBAC roles](../role-based-access-control/custom-roles.md).
-- Learn about [application and service principal objects in Microsoft Entra ID](../active-directory/develop/app-objects-and-service-principals.md).
-- Learn about [Microsoft Identity Platform access tokens](../active-directory/develop/access-tokens.md).
-- Learn about [OAuth 2.0 authentication code flow and Microsoft Identity Platform](../active-directory/develop/v2-oauth2-auth-code-flow.md)
+- Learn about [application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals).
+- Learn about [Microsoft Identity Platform access tokens](/entra/identity-platform/access-tokens).
+- Learn about [OAuth 2.0 authentication code flow and Microsoft Identity Platform](/entra/identity-platform/v2-oauth2-auth-code-flow)

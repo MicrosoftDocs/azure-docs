@@ -4,7 +4,7 @@ description: In this tutorial, learn how to create ExpressRoute Global Reach pee
 ms.topic: tutorial
 ms.custom: "contperf-fy21q4, contperf-fy22q1, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 04/06/2023
+ms.date: 12/19/2023
 ---
 
 # Tutorial: Peer on-premises environments to Azure VMware Solution
@@ -23,7 +23,7 @@ In this article, you'll:
 > * Peer the private cloud with your on-premises ExpressRoute circuit
 > * Verify on-premises network connectivity
 
-Once you've completed this section, follow the next steps provided at the end of this tutorial.
+Once you completed this section, follow the next steps provided at the end of this tutorial.
 
 ## Prerequisites
 
@@ -51,11 +51,11 @@ The circuit owner creates an authorization, which creates an authorization key t
 
    Once created, the new key appears in the list of authorization keys for the circuit.
 
-1. Copy the authorization key and the ExpressRoute ID. You'll use them in the next step to complete the peering.
+1. Copy the authorization key and the ExpressRoute ID to use them in the next step to complete the peering.
 
 ## Peer private cloud to on-premises
 
-Now that you've created an authorization key for the private cloud ExpressRoute circuit, you can peer it with your on-premises ExpressRoute circuit. The peering is done from the on-premises ExpressRoute circuit in the **Azure portal**. You'll use the resource ID (ExpressRoute circuit ID) and authorization key of your private cloud ExpressRoute circuit to finish the peering.
+Now that you created an authorization key for the private cloud ExpressRoute circuit, you can peer it with your on-premises ExpressRoute circuit. The peering is done from the on-premises ExpressRoute circuit in the **Azure portal**. You use the resource ID (ExpressRoute circuit ID) and authorization key of your private cloud ExpressRoute circuit to finish the peering.
 
 1. From the private cloud, under Manage, select **Connectivity** > **ExpressRoute Global Reach** > **Add**.
 

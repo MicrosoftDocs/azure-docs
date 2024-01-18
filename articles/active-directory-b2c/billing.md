@@ -1,17 +1,21 @@
 ---
 title: Billing model for Azure Active Directory B2C
 description: Learn about Azure AD B2C's monthly active users (MAU) billing model, how to link an Azure AD B2C tenant to an Azure subscription, and how to select the appropriate premium tier pricing.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
 ms.topic: reference
-ms.workload: identity
-ms.date: 06/06/2023
+
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
+
+
+#Customer intent: As a business decision maker managing an Azure AD B2C tenant, I want to understand the billing model based on monthly active users (MAU), so that I can determine the cost and pricing structure for my Azure AD B2C tenant.
+
 ---
 
 # Billing model for Azure Active Directory B2C

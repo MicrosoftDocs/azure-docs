@@ -12,7 +12,7 @@ ms.date: 07/26/2023
 keywords: 
 ---
 
-[Source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai) | [Package (npm)](https://www.npmjs.com/package/@azure/openai) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples) | [Enterprise chat app template](/azure/developer/javascript/get-started-app-chat-template)|
+[Source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai) | [Package (npm)](https://www.npmjs.com/package/@azure/openai) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples) | [Retrieval Augmented Generation (RAG) enterprise chat template](/azure/developer/javascript/get-started-app-chat-template)|
 
 ## Prerequisites
 

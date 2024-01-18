@@ -4,7 +4,7 @@ description: Configure on-premises Active Directory Domain Services (AD DS) auth
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 11/21/2023
 ms.author: kendownie
 ---
 

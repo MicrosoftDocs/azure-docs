@@ -65,7 +65,7 @@ Azure AI containers provide the following set of Docker containers, each of whic
 | [Speech Service API][sp-containers-stt] |  **Speech to text** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/speech-to-text/about)) | Transcribes continuous real-time speech into text. | Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Speech Service API][sp-containers-cstt] | **Custom Speech to text** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/custom-speech-to-text/about)) | Transcribes continuous real-time speech into text using a custom model. | Generally available <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Speech Service API][sp-containers-ntts] | **Neural Text to speech** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/neural-text-to-speech/about)) | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
-| [Speech Service API][sp-containers-lid] | **Speech language detection** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/language-detection/about)) | Determines the language of spoken audio. | Preview |
+| [Speech Service API][sp-containers-lid] | **Speech language identification** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/language-detection/about)) | Determines the language of spoken audio. | Preview |
 
 ### Vision containers
 

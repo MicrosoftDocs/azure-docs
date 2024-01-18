@@ -6,7 +6,7 @@ author: n0elleli
 ms.service: data-factory
 ms.subservice:
 ms.topic: troubleshooting
-ms.date: 04/06/2023
+ms.date: 01/05/2024
 ms.author: noelleli
 ms.custom:
 ---
@@ -108,6 +108,6 @@ SET IDENTITY_INSERT dbo.TableName ON;
 Currently, Self-hosted integration runtime isn't supported in the CDC resource. If trying to connect to an on-premise source, use Azure integration runtime with managed virtual network. 
 
 
-## Next steps
+## Related content
 - [Learn more about the change data capture resource](concepts-change-data-capture-resource.md)
 - [Set up a change data capture resource](how-to-change-data-capture-resource.md)

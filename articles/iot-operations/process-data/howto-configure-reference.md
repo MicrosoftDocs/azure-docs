@@ -2,7 +2,7 @@
 title: Configure a reference dataset
 description: The reference datasets within the Data Processor store reference data that other pipelines can use for enrichment and contextualization.
 author: dominicbetts
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.author: dobett
 ms.topic: how-to
 ms.custom:

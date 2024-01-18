@@ -4,8 +4,7 @@ description: View the Azure Monitor activity log and send it to Azure Monitor Lo
 author: guywi-ms
 services: azure-monitor
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 07/01/2022
+ms.date: 12/11/2023
 ms.author: guywild
 ms.reviewer: orens
 ---
@@ -16,7 +15,7 @@ The Azure Monitor activity log is a [platform log](./platform-logs-overview.md) 
 
 For more functionality, create a diagnostic setting to send the activity log to one or more of these locations for the following reasons:
 
-- Send to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and for longer retention, up to two years.
+- Send to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and for [longer retention of up to twelve years](../logs/data-retention-archive.md).
 - Send to Azure Event Hubs to forward outside of Azure.
 - Send to Azure Storage for cheaper, long-term archiving.
 
@@ -25,6 +24,7 @@ For details on how to create a diagnostic setting, see [Create diagnostic settin
 > [!NOTE]
 > * Entries in the Activity Log are system generated and can't be changed or deleted.
 > * Entries in the Activity Log are representing control plane changes like a virtual machine restart, any non related entries should be written into [Azure Resource Logs](resource-logs.md)
+> * Entries in the Activity Log are typically a result of changes (create, update or delete operations) or an action having been initiated.  Operations focused on reading details of a resource are not typically captured.
 
 ## Retention period
 
@@ -277,6 +277,7 @@ If a log profile already exists, you first must remove the existing log profile,
     |enabled | Yes |True or False. Used to enable or disable the retention policy. If True, then the `days` parameter must be a value greater than zero.
     | categories |Yes |Space-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
 
+
 ---
 
 ### Data structure changes
@@ -309,3 +310,4 @@ Learn more about:
 * [Platform logs](./platform-logs-overview.md)
 * [Activity log event schema](activity-log-schema.md)
 * [Activity log insights](activity-log-insights.md)
+

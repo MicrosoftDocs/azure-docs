@@ -4,7 +4,7 @@ description: Learn about the Azure cloud environments where Defender for Cloud c
 ms.topic: limits-and-quotas
 author: dcurwin
 ms.author: dacurwin
-ms.date: 04/13/2023
+ms.date: 12/21/2023
 ---
 
 # Support matrices for Defender for Cloud
@@ -23,7 +23,7 @@ Defender for Cloud provides recommendations, security alerts, and vulnerability 
 |Azure Blob Storage|✔|✔|-|
 |Azure Cache for Redis|✔|-|-|
 |Azure Cloud Services|✔|-|-|
-|Azure Cognitive Search|✔|-|-|
+|Azure AI Search|✔|-|-|
 |Azure Container Registry|✔|✔|[Defender for Containers](defender-for-containers-introduction.md)|
 |Azure Cosmos DB*|✔|✔|-|
 |Azure Data Lake Analytics|✔|-|-|

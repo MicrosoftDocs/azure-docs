@@ -2,7 +2,6 @@
 title: Batch transcription overview - Speech service
 titleSuffix: Azure AI services
 description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure blobs. Then you can asynchronously retrieve transcriptions.
-#services: cognitive-services
 manager: nitinme
 author: eric-urban
 ms.author: eur
@@ -36,7 +35,7 @@ To use the batch transcription REST API:
 1. [Get batch transcription results](batch-transcription-get.md) - Check transcription status and retrieve transcription results asynchronously. 
 
 > [!IMPORTANT]
-> Batch transcription jobs are scheduled on a best-effort basis. At pick hours it may take up to 30 minutes or longer for a transcription job to start processing. See how to check the current status of a batch transcription job in [this section](batch-transcription-get.md#get-transcription-status).
+> Batch transcription jobs are scheduled on a best-effort basis. At peak hours it may take up to 30 minutes or longer for a transcription job to start processing. See how to check the current status of a batch transcription job in [this section](batch-transcription-get.md#get-transcription-status).
 
 ## Next steps
 

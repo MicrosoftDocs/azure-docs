@@ -3,11 +3,11 @@ title: Send data to Azure Data Explorer from a pipeline
 description: Configure a pipeline destination stage to send the pipeline output to Azure Data Explorer for storage and analysis.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/09/2023
+ms.date: 01/10/2024
 
 #CustomerIntent: As an operator, I want to send data from a pipeline to Azure Data Explorer so that I can store and analyze my data in the cloud.
 ---
@@ -40,16 +40,18 @@ To grant admin access to your Azure Data Explorer database, run the following co
 
 Data Processor writes to Azure Data Explorer in batches. While you batch data in data processor before sending it, Azure Data Explorer has its own default [ingestion batching policy](/azure/data-explorer/kusto/management/batchingpolicy). Therefore, you might not see your data in Azure Data Explorer immediately after Data Processor writes it to the Azure Data Explorer destination.
 
-To view data in Azure Data Explorer as soon as the pipeline sends it, you can set the ingestion batching policy `Count` to 1. To edit the ingestion batching policy, run the following command in your database query tab:
+To view data in Azure Data Explorer as soon as the pipeline sends it, you can set the ingestion batching policy count to `1`. To edit the ingestion batching policy, run the following command in your database query tab:
 
-```kusto
-.alter table <DatabaseName>.<TableName> policy ingestionbatching
+````kusto
+.alter database <YourDatabaseName> policy ingestionbatching
+```
 {
     "MaximumBatchingTimeSpan" : "00:00:30",
     "MaximumNumberOfItems" : 1,
     "MaximumRawDataSizeMB": 1024
 }
 ```
+````
 
 ## Configure your secret
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Migrate managed online endpoint/deployment runtime to compute instance or serverless runtime.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
 ms.topic: how-to

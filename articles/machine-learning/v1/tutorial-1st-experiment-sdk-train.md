@@ -228,7 +228,8 @@ if __name__ == "__main__":
 
 1. You'll see a link in the terminal window that opens. Select the link to view the job.
 
-    [!INCLUDE [amlinclude-info](../includes/machine-learning-py38-ignore.md)]
+    > [!NOTE]
+    > You may see some warnings starting with *Failure while loading azureml_run_type_providers...*. You can ignore these warnings. Use the link at the bottom of these warnings to view your output.
 
 ### View the output
 

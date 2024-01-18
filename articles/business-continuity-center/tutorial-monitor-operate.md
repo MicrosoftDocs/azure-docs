@@ -2,8 +2,8 @@
 title: Tutorial - Monitor and operate jobs
 description: In this tutorial, learn how to monitor jobs across your business continuity estate using Azure Business Continuity center.
 ms.topic: tutorial
-ms.date: 10/19/2023
-ms.service: backup
+ms.date: 11/15/2023
+ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
 author: AbhishekMallick-MS

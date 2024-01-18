@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 05/19/2022
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: language-service-orchestration
 ---

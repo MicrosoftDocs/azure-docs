@@ -6,11 +6,9 @@ services: container-apps
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 12/13/2023
 ms.author: hannahhunter
-ms.custom:
-  - ignite-fall-2023
-  - ignite-2023
+ms.custom: ignite-fall-2023, ignite-2023, devx-track-azurecli
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
 
@@ -61,7 +59,7 @@ resource myPolicyDoc 'Microsoft.App/managedEnvironments/daprComponents/resilienc
             maxIntervalInMilliseconds: 10000
           }
       } 
-    }, 
+    } 
     inboundPolicy: {
       timeoutPolicy: {
         responseTimeoutInSeconds: 15
@@ -210,7 +208,7 @@ properties: {
     timeoutPolicy: {
         responseTimeoutInSeconds: 15
     }
-  },
+  }
   inbound: {
     timeoutPolicy: {
         responseTimeoutInSeconds: 15
@@ -238,7 +236,7 @@ properties: {
           maxIntervalInMilliseconds: 10000
         }
     }
-  },
+  }
   inbound: {
     httpRetryPolicy: {
         maxRetries: 5

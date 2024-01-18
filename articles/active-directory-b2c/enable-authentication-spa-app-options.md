@@ -1,16 +1,20 @@
 ---
 title: Enable SPA application options by using Azure Active Directory B2C
 description:  This article discusses several ways to enable the use of SPA applications.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 07/05/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer integrating Azure AD B2C authentication into a single-page application, I want to customize the authentication experience by configuring various options such as custom domains, login hints, domain hints, UI locales, custom parameters, and ID token hints, so that I can provide a tailored and seamless authentication flow for my users.
+
 ---
 
 # Configure authentication options in a single-page application by using Azure AD B2C

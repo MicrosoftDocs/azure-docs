@@ -3,7 +3,7 @@ title: Data Processor configuration patterns
 description: Understand the common patterns such as path, batch, and duration that you use to configure pipeline stages.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.custom:
   - ignite-2023

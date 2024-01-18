@@ -2,17 +2,19 @@
 title: Microsoft Entra ID SSPR technical profiles in custom policies
 titleSuffix: Azure AD B2C
 description: Custom policy reference for Microsoft Entra ID SSPR technical profiles in Azure AD B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
-ms.custom: build-2023
+
 ms.topic: reference
-ms.date: 11/08/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure AD B2C, I want to define a Microsoft Entra ID self-service password reset technical profile.
 ---
 
 # Define a Microsoft Entra ID SSPR technical profile in an Azure AD B2C custom policy

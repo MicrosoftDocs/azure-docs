@@ -3,7 +3,7 @@ title: Create an Azure Image Builder Bicep file or ARM template JSON template
 description: Learn how to create a Bicep file or ARM template JSON template to use with Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 10/03/2023
 ms.topic: reference
 ms.service: virtual-machines

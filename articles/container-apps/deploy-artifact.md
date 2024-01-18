@@ -7,7 +7,7 @@ ms.author: cshoe
 ms.service: container-apps
 ms.topic: quickstart
 ms.date: 11/15/2023
-ms.custom: ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 ---
 
 # Quickstart: Deploy an artifact file to Azure Container Apps

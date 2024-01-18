@@ -29,6 +29,6 @@ To access the latest reference documentation:
 - [`sql instance-failover-group-arc`](/cli/azure/sql/instance-failover-group-arc)
 - [`az postgres server-arc`](/cli/azure/postgres/server-arc)
 
-## Next steps
+## Related content
 
 [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)

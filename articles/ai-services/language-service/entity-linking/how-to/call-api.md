@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: language-service-entity-linking, ignite-fall-2021
 ---

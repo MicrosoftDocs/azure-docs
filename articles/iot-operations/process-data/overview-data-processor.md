@@ -3,7 +3,7 @@ title: Process messages at the edge
 description: Use the Azure IoT Data Processor to aggregate, enrich, normalize, and filter the data from your devices before you send it to the cloud.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: conceptual #Required.
 ms.custom:
   - ignite-2023

@@ -4,8 +4,7 @@ description: Learn how to use cost analysis to surface granular cost allocation 
 author: nickomang
 ms.author: nickoman
 ms.service: azure-kubernetes-service
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/06/2023
 
@@ -112,7 +111,7 @@ az aks create --resource-group <resource_group> --name <name> --location <locati
 You can disable cost analysis at any time using `az aks update`.
 
 ```azurecli-interactive
-az aks update --name myAKSCluster --resource-group myResourceGroup –-disable-cost-analysis
+az aks update --name myAKSCluster --resource-group myResourceGroup --disable-cost-analysis
 ```
 
 > [!NOTE]

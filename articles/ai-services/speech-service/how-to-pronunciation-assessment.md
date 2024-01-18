@@ -2,7 +2,6 @@
 title: Use pronunciation assessment
 titleSuffix: Azure AI services
 description: Learn about pronunciation assessment features that are currently publicly available.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -23,6 +22,8 @@ zone_pivot_groups: programming-languages-ai-services
 In this article, you learn how to evaluate pronunciation with speech to text through the Speech SDK. To [get pronunciation assessment results](#get-pronunciation-assessment-results), you apply the `PronunciationAssessmentConfig` settings to a `SpeechRecognizer` object.
 
 > [!NOTE]
+> For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service). 
+> 
 > As a baseline, usage of pronunciation assessment costs the same as speech to text for pay-as-you-go or commitment tier [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). If you [purchase a commitment tier](../commitment-tier.md) for speech to text, the spend for pronunciation assessment goes towards meeting the commitment. 
 > 
 > For pricing differences between scripted and unscripted assessment, see [the pricing note](./pronunciation-assessment-tool.md#pricing).
@@ -89,7 +90,7 @@ In the `SpeechRecognizer`, you can specify the language that you're learning or 
 > [!TIP]
 > If you aren't sure which locale to set when a language has multiple locales (such as Spanish), try each locale (such as `es-ES` and `es-MX`) separately. Evaluate the results to determine which locale scores higher for your specific scenario.
 
-You must create a `PronunciationAssessmentConfig` object. You need to configure the `PronunciationAssessmentConfig` object to enable prosody assessment for your pronunciation evaluation. This feature assesses aspects like stress, intonation, speaking speed, and rhythm, providing insights into the naturalness and expressiveness of your speech. For a content assessment (part of the [unscripted assessment](#unscripted-assessment-results) for the speaking language learning scenario), you also need to configure the `PronunciationAssessmentConfig` object. By providing a topic description, you can enhance the assessment's understanding of the specific topic being spoken about, resulting in more precise content assessment scores.
+You must create a `PronunciationAssessmentConfig` object. Optionally you can set `EnableProsodyAssessment` and `EnableContentAssessmentWithTopic` to enable prosody and content assessment. For more information, see [configuration methods](#configuration-methods).
 
 ::: zone pivot="programming-language-csharp"
 
@@ -148,8 +149,8 @@ var pronunciationAssessmentConfig = new sdk.PronunciationAssessmentConfig(
     gradingSystem: sdk.PronunciationAssessmentGradingSystem.HundredMark,  
     granularity: sdk.PronunciationAssessmentGranularity.Phoneme,  
     enableMiscue: false); 
-pronunciationAssessmentConfig.EnableProsodyAssessment(); 
-pronunciationAssessmentConfig.EnableContentAssessmentWithTopic("greeting");  
+pronunciationAssessmentConfig.enableProsodyAssessment(); 
+pronunciationAssessmentConfig.enableContentAssessmentWithTopic("greeting");  
 ```
 
 ::: zone-end
@@ -192,6 +193,18 @@ This table lists some of the key configuration parameters for pronunciation asse
 | `Granularity` | Determines the lowest level of evaluation granularity. Scores for levels greater than or equal to the minimal value are returned. Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. The provided full reference text can be a word, sentence, or paragraph, and it depends on your input reference text. Default: `Phoneme`.| 
 | `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. Enabling miscue is optional. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. To enable miscue calculation, set the `EnableMiscue` to `True`. You can refer to the code snippet below the table. |
 | `ScenarioId` | A GUID indicating a customized point system. |
+
+### Configuration methods
+
+This table lists some of the optional methods you can set for the `PronunciationAssessmentConfig` object.
+
+> [!NOTE]
+> Content and prosody assessments are only available in the [en-US](./language-support.md?tabs=pronunciation-assessment) locale.
+
+| Method | Description | 
+|-----------|-------------|
+| `EnableProsodyAssessment` | Enables prosody assessment for your pronunciation evaluation. This feature assesses aspects like stress, intonation, speaking speed, and rhythm, providing insights into the naturalness and expressiveness of your speech.<br/><br/>Enabling prosody assessment is optional. If this method is called, the `ProsodyScore` result value is returned. |
+| `EnableContentAssessmentWithTopic` | Enables content assessment. A content assessment is part of the [unscripted assessment](#unscripted-assessment-results) for the speaking language learning scenario. By providing a topic description via this method, you can enhance the assessment's understanding of the specific topic being spoken about. For example, in C# call `pronunciationAssessmentConfig.EnableContentAssessmentWithTopic("greeting");`, you can replace 'greeting' with your desired text to describe a topic. The topic value has no length limit and currently only supports `en-US` locale . |
 
 ## Get pronunciation assessment results 
 
@@ -604,12 +617,11 @@ You can get pronunciation assessment scores for:
 - Syllable groups
 - Phonemes in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) or [IPA](https://en.wikipedia.org/wiki/IPA) format
 
-> [!NOTE]
-> The syllable group, phoneme name, and spoken phoneme of pronunciation assessment are currently only available for the en-US locale. For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
-
 ## Syllable groups
 
 Pronunciation assessment can provide syllable-level assessment results. Grouping in syllables is more legible and aligned with speaking habits, as a word is typically pronounced syllable by syllable rather than phoneme by phoneme.
+
+Pronunciation assessment supports syllable groups in `en-US` with IPA and in both `en-US` and `en-GB` with SAPI.
 
 The following table compares example phonemes with the corresponding syllables.
 
@@ -624,7 +636,9 @@ To request syllable-level results along with phonemes, set the granularity [conf
 
 ## Phoneme alphabet format
 
-For the `en-US` locale, the phoneme name is provided together with the score, to help identify which phonemes were pronounced accurately or inaccurately. For other locales, you can only get the phoneme score. 
+Pronunciation assessment supports phoneme name in `en-US` with IPA and in `en-US`, `en-GB` and `zh-CN` with SAPI.
+
+For locales that support phoneme name, the phoneme name is provided together with the score, to help identify which phonemes were pronounced accurately or inaccurately. For other locales, you can only get the phoneme score. 
 
 The following table compares example SAPI phonemes with the corresponding IPA phonemes.
 
@@ -701,6 +715,8 @@ pronunciationAssessmentConfig?.phonemeAlphabet = "IPA"
 ## Spoken phoneme
 
 With spoken phonemes, you can get confidence scores indicating how likely the spoken phonemes matched the expected phonemes. 
+
+Pronunciation assessment supports spoken phonemes in `en-US` with IPA and in both `en-US` and `en-GB` with SAPI.
 
 For example, to obtain the complete spoken sound for the word "Hello", you can concatenate the first spoken phoneme for each expected phoneme with the highest confidence score. In the following assessment result, when you speak the word "hello", the expected IPA phonemes are "h ɛ l oʊ". However, the actual spoken phonemes are "h ə l oʊ". You have five possible candidates for each expected phoneme in this example. The assessment result shows that the most likely spoken phoneme was `"ə"` instead of the expected phoneme `"ɛ"`. The expected phoneme `"ɛ"` only received a confidence score of 47. Other potential matches received confidence scores of 52, 17, and 2. 
 

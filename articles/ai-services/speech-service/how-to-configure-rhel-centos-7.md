@@ -2,7 +2,6 @@
 title: How to configure RHEL/CentOS 7 - Speech service
 titleSuffix: Azure AI services
 description: Learn how to configure RHEL/CentOS 7 so that the Speech SDK can be used.
-#services: cognitive-services
 author: pankopon
 manager: jhakulin
 ms.service: azure-ai-speech

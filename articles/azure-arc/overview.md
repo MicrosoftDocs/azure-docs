@@ -82,7 +82,7 @@ For information, see the [Azure pricing page](https://azure.microsoft.com/pricin
 * Learn about [Azure Arc-enabled servers](./servers/overview.md).
 * Learn about [Azure Arc-enabled Kubernetes](./kubernetes/overview.md).
 * Learn about [Azure Arc-enabled data services](https://azure.microsoft.com/services/azure-arc/hybrid-data-services/).
-* Learn about [Azure Arc-enabled SQL Server](/sql/sql-server/azure-arc/overview).
+* Learn about [SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/overview).
 * Learn about [Azure Arc-enabled VMware vSphere](vmware-vsphere/overview.md).
 * Learn about [Azure Arc-enabled VM Management on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview).
 * Learn about [Azure Arc-enabled System Center Virtual Machine Manager](system-center-virtual-machine-manager/overview.md).

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Make data-driven decisions and policies with the Responsible AI dashboard's integration of the causal analysis tool EconML. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: enterprise-readiness
+ms.subservice: rai
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki

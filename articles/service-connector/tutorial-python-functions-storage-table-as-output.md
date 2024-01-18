@@ -4,6 +4,7 @@ description: Learn how you can connect a Python function to a storage table as o
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
+ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 11/14/2023
 ---

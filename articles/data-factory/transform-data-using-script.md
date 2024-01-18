@@ -180,7 +180,7 @@ Logging options:
 > [!NOTE]
 > **Billing** - The Script activity will be [billed](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) as **Pipeline activities**.
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways:
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md)

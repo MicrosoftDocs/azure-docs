@@ -5,7 +5,8 @@ description: This article provides information about getting support and trouble
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/13/2023
+ms.date: 11/29/2023
+
 ---
 
 # Troubleshooting Astro (Preview) integration with Azure
@@ -30,15 +31,11 @@ Here are some troubleshooting options to consider:
 
 The Astro resource can only be created by users who have _Owner_ or _Contributor_ access on the Azure subscription. Ensure you have the appropriate access before setting up this integration.
 
-### Purchase errors
+### Marketplace purchase errors
 
-#### Purchase fails because a valid credit card isn't connected to the Azure subscription or a payment method isn't associated with the subscription
+[!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
-Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](../../cost-management-billing/manage/change-credit-card.md).
-
-#### The EA subscription doesn't allow Marketplace purchases
-
-Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Astronomer support](https://support.astronomer.io).
+If those options don't solve the problem, contact [Astronomer support](https://support.astronomer.io).
 
 ### DeploymentFailed error
 
@@ -58,6 +55,10 @@ If SSO isn't working for the Astronomer portal, verify you're using the correct 
 > If you are seeing an Admin consent screen along with the User consent during your first-time login using the SSO Url, then please check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent?pivots=portal).
 
 For more information, see the [single sign-on guidance](astronomer-manage.md#single-sign-on).
+
+### Unable to install Astro using a personal email
+
+Installing Apache Airflow on Astro from the Azure Marketplace using a personal email from a generic domain isn't supported. To install this service, use an email address with a unique domain, such as an email address associated with work or school, or start by creating a new user in Azure and make this user a subscription owner. For more information, see [Install Astro from the Azure Marketplace using a personal email](https://docs.astronomer.io/astro/install-azure#install-astro-from-the-azure-marketplace-using-a-personal-email).
 
 ## Next steps
 

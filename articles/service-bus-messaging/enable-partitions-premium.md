@@ -3,7 +3,7 @@ title: Enable partitioning in Azure Service Bus Premium namespaces
 description: This article explains how to enable partitioning in Azure Service Bus Premium namespaces by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
 ms.date: 10/23/2023 
-ms.custom: ignite-2022, ignite-2023, devx-track-arm-template, devx-track-python
+ms.custom: ignite-2022, ignite-2023, devx-track-arm-template, devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
 
@@ -22,7 +22,7 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 > - JMS is currently not supported on partitioned namespaces.
 > - The feature is currently available in the regions noted below. New regions will be added regularly, we will keep this article updated with the latest regions as they become available.
 > 
-> |  |  |  |  |  |
+> | Regions  | Regions  | Regions | Regions |Regions  |
 > |-----------------------|----------------------|------------------|-------------------|-----------------|
 > | Australia Central     | Central US           | Italy North      | Poland Central    | UK South        |
 > | Australia East        | East Asia            | Japan West       | South Central US  | UK West         |

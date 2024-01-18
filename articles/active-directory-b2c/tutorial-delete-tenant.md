@@ -1,16 +1,20 @@
 ---
 title: Clean up resources and delete a tenant - Azure Active Directory B2C
 description: Steps describing how to delete an Azure AD B2C tenant. Learn how to delete all tenant resources, and then delete the tenant.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: tutorial
-ms.date: 03/06/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to delete the tenant and all associated resources, so that I can clean up after completing tutorials or testing.
+
 ---
 
 # Clean up resources and delete the tenant
