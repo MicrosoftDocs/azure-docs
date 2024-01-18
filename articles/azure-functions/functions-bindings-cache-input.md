@@ -25,13 +25,13 @@ The following code gets any key that was recently set using the pub/sub trigger 
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-More samples for the Azure Cache for Redis input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-redis-extension/tree/main).
+More samples for the Azure Cache for Redis input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-redis-extension).
 <!-- link to redis samples -->
 
-# [In-process](#tab/in-process)
+### [In-process](#tab/in-process)
 
-```C#
-﻿using Microsoft.Extensions.Logging;
+```csharp
+using Microsoft.Extensions.Logging;
 
 namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisPubSubTrigger
 {
@@ -49,7 +49,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisPubSubTrigger
 }
 ```
 
-# [Isolated process](#tab/isolated-process)
+### [Isolated process](#tab/isolated-process)
 
 ```csharp
 ﻿using Microsoft.Extensions.Logging;
@@ -76,33 +76,111 @@ namespace Microsoft.Azure.Functions.Worker.Extensions.Redis.Samples.RedisInputBi
 }
 
 ```
+
 ---
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-Not available in preview.
+```java
+package com.function.RedisInputBinding;
 
-<!--Content and samples from the Java tab in ##Examples go here.-->
+import com.microsoft.azure.functions.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.redis.annotation.*;
+
+public class SetGetter {
+    @FunctionName("SetGetter")
+    public void run(
+            @RedisPubSubTrigger(
+                name = "key",
+                connectionStringSetting = "redisConnectionString",
+                channel = "__keyevent@0__:set")
+                String key,
+            @RedisInput(
+                name = "value",
+                connectionStringSetting = "redisConnectionString",
+                command = "GET {Message}")
+                String value,
+            final ExecutionContext context) {
+            context.getLogger().info("Key '" + key + "' was set to value '" + value + "'");
+    }
+}
+```
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-Not available in preview.
+```node.js
+{
+    "bindings": [
+        {
+            "type": "redisPubSubTrigger",
+            "connectionStringSetting": "redisConnectionString",
+            "channel": "__keyevent@0__:set",
+            "name": "key",
+            "direction": "in"
+        },
+        {
+            "type": "redis",
+            "connectionStringSetting": "redisConnectionString",
+            "command": "GET {Message}",
+            "name": "value",
+            "direction": "in"
+        }
+    ],
+    "scriptFile": "index.js"
+}
+```
 
-<!--Content and samples from the JavaScript tab in ##Examples go here.-->
+index.js
+
+```nodejs
+
+module.exports = async function (context, key, value) {
+    context.log("Key '" + key + "' was set to value '" + value + "'");
+}
+
+```
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 
-Not available in preview.
+function.js
 
-<!--Content and samples from the PowerShell tab in ##Examples go here.-->
+```powershell
+{
+    "bindings": [
+        {
+            "type": "redisPubSubTrigger",
+            "connectionStringSetting": "redisConnectionString",
+            "channel": "__keyevent@0__:set",
+            "name": "key",
+            "direction": "in"
+        },
+        {
+            "type": "redis",
+            "connectionStringSetting": "redisConnectionString",
+            "command": "GET {Message}",
+            "name": "value",
+            "direction": "in"
+        }
+    ],
+    "scriptFile": "run.ps1"
+}
+```
+
+run.ps1
+
+```powershell
+param($key, $value, $TriggerMetadata)
+Write-Host "Key '$key' was set to value '$value'"
+```
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following Azure Function code uses a pub/sub trigger with an input binding to the GET message on an Azure Cache for Redis instance. The trigger and binding are configured in the _function.json_ file associated with the Python function.
+The following example uses a pub/sub trigger with an input binding to the GET message on an Azure Cache for Redis instance. The trigger and binding are configured in the _function.json_ file associated with the Python function.
 
 <!-- The following code sample gets any key that was recently set using the pub/sub trigger and an input binding on the GET command. -->
 
@@ -123,7 +201,10 @@ The following Azure Function code uses a pub/sub trigger with an input binding t
         }
 ```
 
+The `__init__.py` file:
+
 ```python
+
 import logging
 
 def main(key: str, value: str):

@@ -49,57 +49,185 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisOutputBinding
 
 # [Isolated process](#tab/isolated-process)
 
-<!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49":::
--->
+```csharp
+﻿using Microsoft.Extensions.Logging;
+
+namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisOutputBinding
+{
+    internal class SetDeleter
+    {
+        [FunctionName(nameof(SetDeleter))]
+        [return: Redis(Common.connectionStringSetting, "DEL")]
+        public static string Run(
+            [RedisPubSubTrigger(Common.connectionStringSetting, "__keyevent@0__:set")] string key,
+            ILogger logger)
+        {
+            logger.LogInformation($"Deleting recently SET key '{key}'");
+            return key;
+        }
+    }
+}
+```
 
 ---
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-<!--Content and samples from the Java tab in ##Examples go here.-->
+```java
 
-Not available in preview.
+package com.function.RedisInputBinding;
+
+import com.microsoft.azure.functions.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.redis.annotation.*;
+
+public class SetGetter {
+    @FunctionName("SetGetter")
+    public void run(
+            @RedisPubSubTrigger(
+                name = "key",
+                connectionStringSetting = "redisConnectionString",
+                channel = "__keyevent@0__:set")
+                String key,
+            @RedisInput(
+                name = "value",
+                connectionStringSetting = "redisConnectionString",
+                command = "GET {Message}")
+                String value,
+            final ExecutionContext context) {
+            context.getLogger().info("Key '" + key + "' was set to value '" + value + "'");
+    }
+}
+
+```
+
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-<!--Content and samples from the JavaScript tab in ##Examples go here.-->
 
-Not available in preview.
+
+```javascript
+
+function.json
+
+{
+    "bindings": [
+        {
+            "type": "redisPubSubTrigger",
+            "connectionStringSetting": "redisConnectionString",
+            "channel": "__keyevent@0__:set",
+            "name": "key",
+            "direction": "in"
+        },
+        {
+            "type": "redis",
+            "connectionStringSetting": "redisConnectionString",
+            "command": "DEL",
+            "name": "$return",
+            "direction": "out"
+        }
+    ],
+    "scriptFile": "index.js"
+}
+```
+
+index.js
+
+```javascript
+module.exports = async function (context, key) {
+    context.log("Deleting recently SET key '" + key + "'");
+    return key;
+}
+
+```
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 
-Not available in preview.
+function.json
 
-<!--Content and samples from the PowerShell tab in ##Examples go here.-->
+```powershell
+{
+    "bindings": [
+        {
+            "type": "redisPubSubTrigger",
+            "connectionStringSetting": "redisLocalhost",
+            "channel": "__keyevent@0__:set",
+            "name": "key",
+            "direction": "in"
+        },
+        {
+            "type": "redis",
+            "connectionStringSetting": "redisLocalhost",
+            "command": "DEL",
+            "name": "retVal",
+            "direction": "out"
+        }
+    ],
+    "scriptFile": "run.ps1"
+}
+
+```
+
+run.ps1
+
+```powershell
+param($key, $TriggerMetadata)
+Write-Host "Deleting recently SET key '$key'"
+Push-OutputBinding -Name retVal -Value $key
+```
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-Not available in preview.
+function.json
 
-<!--Content and samples from the Python tab in ##Examples go here.-->
+```python
+{
+    "bindings": [
+        {
+            "type": "redisPubSubTrigger",
+            "connectionStringSetting": "redisLocalhost",
+            "channel": "__keyevent@0__:set",
+            "name": "key",
+            "direction": "in"
+        },
+        {
+            "type": "redis",
+            "connectionStringSetting": "redisLocalhost",
+            "command": "DEL",
+            "name": "$return",
+            "direction": "out"
+        }
+    ],
+    "scriptFile": "__init__.py"
+}
+```
+
+`__init__.py`
+
+```python
+import logging
+
+def main(key: str) -> str:
+    logging.info("Deleting recently SET key '" + key + "'")
+    return key
+```
 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
+
 ## Attributes
+
+> [!NOTE]
+> All commands are supported for this binding.
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
 
-<!-- If the attribute's constructor takes parameters, you'll need to include a table like this, where the values are from the original table in the Configuration section:
-
-The attribute's constructor takes the following parameters:
-
-|Parameter | Description|
-|---------|----------------------|
-|**Parameter1** |Description 1|
-|**Parameter2** | Description 2|
-
--->
+<!-- This is boilerplate and I'm not sure what to put here -->
 
 # [In-process](#tab/in-process)
 
@@ -108,8 +236,6 @@ The attribute's constructor takes the following parameters:
 | `ConnectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `Command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces. For example:  `GET key`, `HGET key field`. |
 
-> [!NOTE]
-> All commands are supported for this binding.
 
 ### Function Return type
 
