@@ -207,7 +207,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content)
   - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
   - Control the order in which your `script` tags are fetched and executed before the page load.
-- Email field is now `type=email` and mobile keyboards will provide the correct suggestions.
+- Email field is now `type=email` and mobile keyboards provide the correct suggestions.
 - Support for Chrome translate.
 - Added support for company branding in user flow pages.
 

@@ -22,7 +22,7 @@ Use CAPTCHA display controls to generate a CAPTCHA challenge string, then verify
 
 The screenshot shows the CAPTCHA display control shown on a sign-up page:
 
-:::image type="content" source="media/add-captcha/add-captcha.png" alt-text="Screenshot of CAPTCHA as it appears in the sign up page."::: 
+:::image type="content" source="media/add-captcha/add-captcha.png" alt-text="Screenshot of CAPTCHA as it appears in the sign-up page."::: 
 
 The sign-up page loads with the CAPTCHA display control. The user then inputs the characters they see or hear. The **Send verification code** button sends a verification code to the user's email, and isn't CAPTCHA display control element, but it causes the CAPTCHA challenge string to be verified.
 
@@ -38,7 +38,7 @@ This table summarizes the elements that a CAPTCHA display control contains.
 |    OutputClaim    |  No  | Any claim to be returned to the self-asserted page after the user completes CAPTCHA code verification process.   |
 |  Actions  |  Yes  |  CAPTCHA display control contains two actions, *GetChallenge* and *VerifyChallenge*. <br> *GetChallenge* action generates, then displays a CAPTCHA challenge code on the user interface. <br> *VerifyChallenge* action verifies the CAPTCHA challenge code that the user inputs. |
 
-The following XML snippet code shows an examples of CaptchaProvider display control:
+The following XML snippet code shows an example of CaptchaProvider display control:
 
 ```xml
 <DisplayControls>

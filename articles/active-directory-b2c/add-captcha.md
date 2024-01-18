@@ -293,7 +293,7 @@ To enable CAPTCHA in MFA flow, you need to make an update in two technical profi
 
 1. Inspect your sign-up sign-in user journey, such as *SignUpOrSignIn*, to identify the self-asserted technical profile and phone factor technical profiles that are responsible for your sign-up or sign-in flow. 
 
-1. In both of the technical profiles, add a metadata key and a display claim entries as shown in the following code:
+1. In both of the technical profiles, add a metadata key and a display claim entry as shown in the following code:
 
 ```xml
 <TechnicalProfile Id="PhoneFactor-InputOrVerify">

@@ -39,7 +39,7 @@ The following example shows a self-asserted technical profile for email sign-up:
 ``` 
 ## CAPTCHA technical profile operations
 
-CAPTCHA technical profile operations has two operations:
+CAPTCHA technical profile operations have two operations:
 
 - **Get challenge operation** generates the CAPTCHA code string, then displays it on the user interface by using a [CAPTCHA display control](display-control-captcha.md). The display includes an input textbox. This operation directs the user to input the characters they see or hear into the input textbox. The user can switch between visual and audio challenge types as needed.
 
@@ -51,12 +51,12 @@ The first operation generates the CAPTCHA code string, then displays it on the u
 
 ### Input claims
 
-The **InputClaims** element contains a list of claims to send to Azure AD B2C's capt service.
+The **InputClaims** element contains a list of claims to send to Azure AD B2C's CAPTCHA service.
 
  | ClaimReferenceId | Required | Description |
 | --------- | -------- | ----------- |
 | challengeType | No | The CAPTCHA challenge type, Audio or Visual (default).|
-| azureregion | Yes | The service region that will serve the CAPTCHA challenge request. |
+| azureregion | Yes | The service region that serves the CAPTCHA challenge request. |
 
 ### Display claims
 
@@ -75,7 +75,7 @@ The **OutputClaims** element contains a list of claims returned by the CAPTCHA t
 | --------- | -------- | ----------- |
 | challengeId | Yes | A unique identifier for CAPTCHA challenge code.|
 | challengeString | Yes | The CAPTCHA challenge code.|
-| azureregion | Yes | The service region that will serve the CAPTCHA challenge request.|
+| azureregion | Yes | The service region that serves the CAPTCHA challenge request.|
 
 
 ### Metadata
@@ -122,14 +122,14 @@ The second operation verifies the CAPTCHA challenge.
 
 ### Input claims
 
-The **InputClaims** element contains a list of claims to send to Azure AD B2C's capt service.
+The **InputClaims** element contains a list of claims to send to Azure AD B2C's CAPTCHA service.
 
  | ClaimReferenceId | Required | Description |
 | --------- | -------- | ----------- |
 | challengeType | No | The CAPTCHA challenge type, Audio or Visual (default).|
 |challengeId| Yes | A unique identifier for CAPTCHA used for session verification. Populated from the *GetChallenge* call. |
 |captchaEntered| Yes | The challenge code that the user inputs into the challenge textbox on the user interface. |
-|azureregion| Yes | The service region that will serve the CAPTCHA challenge request. Populated from the *GetChallenge* call.|
+|azureregion| Yes | The service region that serves the CAPTCHA challenge request. Populated from the *GetChallenge* call.|
 
 
 ### Display claims
