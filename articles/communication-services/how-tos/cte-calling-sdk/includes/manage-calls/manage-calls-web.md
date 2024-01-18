@@ -328,7 +328,7 @@ const localVideoStreams = call.localVideoStreams;
 ```
 
 ## Manage chat thread
-Providing a chat ID is optional for making group calls and adding participants to existing calls (We have a flag config to control if providing chat thread ID is mandatory or not). Associated chat and call have a separate list of participants. Before adding participants to the call, add the user to the chat to provide the best user experience and satisfy information barrier requirements. Adding a user to the call without adding the user to the chat can result in exceptions if an information barrier is set up.
+Providing a chat ID is optional for making group calls and adding participants to existing calls. Associated chat and call have a separate list of participants. Before adding participants to the call, add the user to the chat to provide the best user experience and satisfy information barrier requirements. Adding a user to the call without adding the user to the chat can result in exceptions if an information barrier is set up.
 
 Consider the following scenario, where Alice makes a call to Bob, then Alice adds Charlie, and 3 minutes later, Alice removes Charlie from the call.
 
