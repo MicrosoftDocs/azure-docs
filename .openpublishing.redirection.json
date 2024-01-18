@@ -22531,6 +22531,11 @@
             "source_path_from_root": "/articles/virtual-network/ip-services/virtual-networks-static-private-ip-classic-ps.md",
             "redirect_url": "/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024/",
             "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/orbital/overview-analytics.md",
+            "redirect_url": "/azure/orbital/overview",
+            "redirect_document_id": false  
         }
     ]
 }
