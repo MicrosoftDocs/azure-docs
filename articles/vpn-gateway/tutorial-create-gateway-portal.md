@@ -10,7 +10,7 @@ ms.date: 01/17/2024
 
 ---
 
-# Tutorial: Create and manage a VPN gateway using the Azure portal
+# Tutorial: Create and manage a VPN gateway by using the Azure portal
 
 This tutorial helps you create and manage a virtual network gateway (VPN gateway) by using the Azure portal. The VPN gateway is just one part of a connection architecture to help you securely access resources within a virtual network.
 
@@ -51,7 +51,7 @@ After you create your virtual network, you can optionally configure Azure DDoS P
 
 ## Create a gateway subnet
 
-The virtual network gateway requires a specific subnet named **GatewaySubnet**. The gateway subnet is part of the IP address range for your virtual network and contains the IP addresses that the virtual network gateway resources and services use. Specify a gateway subnet that is /27 or larger.
+The virtual network gateway requires a specific subnet named **GatewaySubnet**. The gateway subnet is part of the IP address range for your virtual network and contains the IP addresses that the virtual network gateway resources and services use. Specify a gateway subnet that's /27 or larger.
 
 [!INCLUDE [Create gateway subnet](../../includes/vpn-gateway-create-gateway-subnet-portal-include.md)]
 
