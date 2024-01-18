@@ -52,4 +52,5 @@ In disaster situations when the control plane loses quorum, there are impacts to
 ## Related Links
 
 [Determining Control Plane Role](./reference-near-edge-baremetal-machine-roles.md)
+
 [Troubleshooting failed Control Plane Quorum](./troubleshoot-control-plane-quorum.md)

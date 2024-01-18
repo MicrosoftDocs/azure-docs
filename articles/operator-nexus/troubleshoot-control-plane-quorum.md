@@ -62,7 +62,7 @@ Follow this troubleshooting guide when multiple control plane nodes are offline 
 
 3. Access the iDRAC GUI using the IP in your browser to shut down impacted management servers
 
-   :::image type="content" source="media\troubleshoot-control-plane-quorum\graceful-shutdown.png" alt-text="Screenshot of an iDRAC GUI and the button to perform a graceful shutdown." lightbox="media\troubleshoot-control-plane-quorum\graceful-shutdown.png":::
+   :::image type="content" source="\media\troubleshoot-control-plane-quorum\graceful-shutdown.png" alt-text="Screenshot of an iDRAC GUI and the button to perform a graceful shutdown." lightbox="media\troubleshoot-control-plane-quorum\graceful-shutdown.png":::
 
 4. When all impacted management servers are down, turn on the servers using the iDRAC GUI
 
