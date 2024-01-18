@@ -1,5 +1,5 @@
 ---
-title: Query Store - Azure Database for PostgreSQL - Flexible Server
+title: Query Store
 description: This article describes the Query Store feature in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
@@ -8,11 +8,11 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
-# Monitor Performance with Query Store
+# Monitor performance with Query Store
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-The Query Store feature in Azure Database for PostgreSQL provides a way to track query performance over time. Query Store simplifies performance-troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named **azure_sys** in the Azure Database for PostgreSQL instance.
+The Query Store feature in Azure Database for PostgreSQL flexible server provides a way to track query performance over time. Query Store simplifies performance-troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named **azure_sys** in the Azure Database for PostgreSQL flexible server instance.
 
 > [!IMPORTANT]  
 > Do not modify the **azure_sys** database or its schema. Doing so will prevent Query Store and related performance features from functioning correctly.
@@ -26,7 +26,7 @@ Query Store is available in all regions with no additional charges. It is an opt
 
 ### Enable Query Store in Azure portal
 
-1. Sign in to the Azure portal and select your Azure Database for PostgreSQL server.
+1. Sign in to the Azure portal and select your Azure Database for PostgreSQL flexible server instance.
 1. Select **Server parameters** in the **Settings** section of the menu.
 1. Search for the `pg_qs.query_capture_mode` parameter.
 1. Set the value to `TOP` or `ALL`, depending on whether you want to track top-level queries or also nested queries (those executed inside a function or procedure), and click on **Save**.
@@ -54,7 +54,7 @@ To minimize space usage, the runtime execution statistics in the runtime stats s
 
 ## Access Query Store information
 
-Query Store data is stored in the azure_sys database on your Postgres server.
+Query Store data is stored in the azure_sys database on your Azure Database for PostgreSQL flexible server instance.
 The following query returns information about queries in Query Store:
 
 ```sql
@@ -108,7 +108,7 @@ The following options apply specifically to wait statistics:
 > [!NOTE]  
 > **pg_qs.query_capture_mode** supersedes **pgms_wait_sampling.query_capture_mode**. If pg_qs.query_capture_mode is NONE, the pgms_wait_sampling.query_capture_mode setting has no effect.
 
-Use the [Azure portal](howto-configure-server-parameters-using-portal.md) to get or set a different value for a parameter.
+Use the [Azure portal](how-to-configure-server-parameters-using-portal.md) to get or set a different value for a parameter.
 
 ## Views and functions
 
@@ -116,7 +116,7 @@ View and manage Query Store using the following views and functions. Anyone in t
 
 Queries are normalized by looking at their structure and ignoring anything not semantically significant, like literals, constants, aliases, or differences in casing.
 
-If two queries are semantically identical, even if they use different aliases for the same referenced columns and tables, they are identified with the same query_id. If two queries only differ in the literal values used in them, they are also identified with the same query_id. For all queries identified with the same query_id, their sql_query_text will be that of the query that executed first since Query Store started recording activity, or since the last time the persisted data was discarded because the function [query_store.qs_reset](#query_storeqs_reset) was executed.
+If two queries are semantically identical, even if they use different aliases for the same referenced columns and tables, they're identified with the same query_id. If two queries only differ in the literal values used in them, they're also identified with the same query_id. For all queries identified with the same query_id, their sql_query_text will be that of the query that executed first since Query Store started recording activity, or since the last time the persisted data was discarded because the function [query_store.qs_reset](#query_storeqs_reset) was executed.
 
 ### How query normalization works
 
@@ -278,7 +278,7 @@ This function discards all statistics gathered in-memory by Query Store (that is
 
 ## Limitations and known issues
 
-- If a PostgreSQL server has the parameter `default_transaction_read_only` set to `on`, Query Store won't capture any data.
+- If an Azure Database for PostgreSQL flexible server instance has the parameter `default_transaction_read_only` set to on, Query Store doesn't capture any data.
 
 ## Related content
 
