@@ -1422,6 +1422,86 @@ The response can be set in several ways:
 
 ::: zone-end
 
+## Hooks
+
+::: zone pivot="nodejs-model-v3"
+
+Hooks aren't supported in the v3 model. [Upgrade to the v4 model](./functions-node-upgrade-v4.md) to use hooks.
+
+::: zone-end
+::: zone pivot="nodejs-model-v4"
+
+Use a hook to execute code at different points in the Azure Functions lifecycle. Hooks are executed in the order they're registered and can be registered from any file in your app. There are currently two scopes of hooks, "app" level and "invocation" level.
+
+### Invocation hooks
+
+Invocation hooks are executed once per invocation of your function, either before in a `preInvocation` hook or after in a `postInvocation` hook. By default your hook executes for all trigger types, but you can also filter by type. The following example registers invocation hooks and filters by trigger type:
+
+# [JavaScript](#tab/javascript)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/invocationHooks1.js" :::
+
+# [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/invocationHooks1.ts" :::
+
+---
+
+The first argument to the hook handler is a context object specific to that hook type.
+
+The `PreInvocationContext` object has the following properties:
+
+| Property | Description |
+| --- | --- |
+| **`inputs`** | The arguments passed to this specific invocation. |
+| **`functionHandler`** | The function handler for this specific invocation. Changes to this value affect the function itself. |
+| **`invocationContext`** | The [invocation context](#invocation-context) object passed to the function. |
+| **`hookData`** | The recommended place to store and share data between hooks in the same scope. You should use a unique property name so that it doesn't conflict with other hooks' data. |
+
+The `PostInvocationContext` object has the following properties:
+
+| Property | Description |
+| --- | --- |
+| **`inputs`** | The arguments passed to this specific invocation. |
+| **`result`** | The result of the function. Changes to this value affect the overall result of the function. |
+| **`error`** | The error thrown by the function, or null/undefined if there's no error. Changes to this value affect the overall result of the function. |
+| **`invocationContext`** | The [invocation context](#invocation-context) object passed to the function. |
+| **`hookData`** | The recommended place to store and share data between hooks in the same scope. You should use a unique property name so that it doesn't conflict with other hooks' data. |
+
+### App hooks
+
+App hooks are executed once per instance of your app, either during startup in an `appStart` hook or during termination in an `appTerminate` hook. App terminate hooks have a limited time to execute and don't execute in all scenarios.
+
+The Azure Functions runtime currently [doesn't support](https://github.com/Azure/azure-functions-host/issues/8222) context logging outside of an invocation. Use the Application Insights [npm package](https://www.npmjs.com/package/applicationinsights) to log information during app hooks.
+
+The following example registers app hooks:
+
+# [JavaScript](#tab/javascript)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/appHooks1.js" :::
+
+# [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/appHooks1.ts" :::
+
+---
+
+The first argument to the hook handler is a context object specific to that hook type.
+
+The `AppStartContext` object has the following properties:
+
+| Property | Description |
+| --- | --- |
+| **`hookData`** | The recommended place to store and share data between hooks in the same scope. You should use a unique property name so that it doesn't conflict with other hooks' data. |
+
+The `AppTerminateContext` object has the following properties:
+
+| Property | Description |
+| --- | --- |
+| **`hookData`** | The recommended place to store and share data between hooks in the same scope. You should use a unique property name so that it doesn't conflict with other hooks' data. |
+
+::: zone-end
+
 ## Scaling and concurrency
 
 By default, Azure Functions automatically monitors the load on your application and creates more host instances for Node.js as needed. Azure Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the Consumption and Premium plans work](event-driven-scaling.md).
