@@ -476,7 +476,6 @@
     displayName: hybrid, arc, Defender for Servers
     items:
     - name: Plan Defender for Servers deployment
-    - name: Settings & monitoring
       items:
         - name: Get started
           displayName: VM, JIT, plan 1, plan 2, plans, vulnerability assessment, threat
