@@ -22,7 +22,7 @@ ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, de
 
 This article explains how to update your DNS settings in a virtual network-injected Azure Spring Apps service instance.
 
-With the new flush DNS settings option, you can update the DNS settings in an Azure Spring Apps instance with one simple and fast action. This option doesn't restart any underlying nodes or running applications within your service instance, but restarts the network infrastructure to implement the DNS setting changes, which could cause a brief interruption in network services and application availability.
+With the new flush DNS settings option, you can update the DNS settings in an Azure Spring Apps instance with one simple and fast action. This option doesn't restart any underlying nodes or running applications within your service instance, but restarts the network infrastructure to implement the DNS setting changes.
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ This section describes how to troubleshoot known errors when connecting to your 
 
 ### Error: `Failed to connect DNS server, connection timed out.`
 
-If you get this error, check whether a network routing rule or a firewall is blocking traffic from your service runtime or app subnets to your custom DNS server IP on port 53 or your custom DNS server listening port.
+If you get this error, check whether a network routing rule, or a firewall is blocking traffic from your service runtime or app subnets to your custom DNS server IP on port 53 or your custom DNS server listening port.
 
 ### Error: `Failed to resolve IP.`
 
@@ -78,4 +78,4 @@ If you get this error, check whether the upstream DNS server is correctly config
 
 ### Error: `Not all the VM instances in the cluster are in succeeded running state.`
 
-This error usually indicates that DNS or other networking settings bis blocking the underlying nodes provision. For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md) and [Troubleshooting Azure Spring Apps in virtual networks](troubleshooting-vnet.md).
+This error usually indicates that DNS or other networking settings is blocking the underlying nodes provision. For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md) and [Troubleshooting Azure Spring Apps in virtual networks](troubleshooting-vnet.md).
