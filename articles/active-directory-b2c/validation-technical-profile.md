@@ -56,7 +56,7 @@ The **ValidationTechnicalProfile** element contains the following attribute:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ReferenceId | Yes | An identifier of a technical profile already defined in the policy or parent policy. |
-|ContinueOnError|No| Indicating whether validation of any subsequent validation technical profiles should continue if this validation technical profile raises an error. Possible values: `true` or `false` (default, processing of further validation profiles will stop and an error returned). Currently, when using ContinueOnError = False for A Validation Technical profile where the Technical profile is a ClaimsTransformationProtocolProvider it will not honor the false and always continue. As a workaround, please use Preconditions. |
+|ContinueOnError|No| Indicating whether validation of any subsequent validation technical profiles should continue if this validation technical profile raises an error. Possible values: `true` or `false` (default, processing of further validation profiles will stop and an error returned). Currently, when a claims transformation technical profile used as a validation technical profile in a self-asserted technical profile, ContinueOnError is always set to True. As a workaround, please use Preconditions.  |
 |ContinueOnSuccess | No | Indicating whether validation of any subsequent validation profiles should continue if this validation technical profile succeeds. Possible values: `true` or `false`. The default is `true`, meaning that the processing of further validation profiles will continue. |
 
 The **ValidationTechnicalProfile** element contains the following element:
