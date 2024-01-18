@@ -1,5 +1,5 @@
 ---
-title: Relocation guidance in Azure Storage Account
+title: Relocation guidance for Azure Storage Account
 description: Learn how to relocate Azure Storage Account to a new region
 author: anaharris-ms
 ms.author: anaharris
@@ -14,7 +14,31 @@ ms.topic: how-to
 
 This article covers relocation guidance for Azure Storage Account across regions.
 
-## Prerequisites
+## Relocation strategies
+
+To relocate Azure Storage account to a new region, you can choose to [redeploy without data migration](#redeploy-without-data-migration) or [redeploy with data migration](#redeploy-with-data-migration-strategy) strategies.
+
+**Azure Resource Mover** doesn't support moving services used by the Azure Storage account. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
+
+## Redeploy without data migration
+
+If your Azure Storage Account instance doesn't have any client specific data and the instance itself needs to be moved alone, you can choose to redeploy without data migration. A simple redeployment without data is also your best option for [Azure Queues](/azure/storage/queues/storage-queues-introduction), as no data migration is required for a service that only supports live messaging transactions.
+
+**To redeploy your Automation instance without data:**
+
+Redeploy the Storage Account instance by using [Bicep, ARM Template, or Terraform](azure/templates/microsoft.storage/storageaccounts?tabs=json&pivots=deployment-language-arm-template).
+
+To view the available configuration templates, see [the complete Azure Template library](/azure/templates/).
+
+## Redeploy with data migration
+
+To redeploy your storage account with data, you can choose between the following tools:
+    
+- [AzCopy](#redeploy-using-azcopy) supports Blob and File storage accounts only.
+- [Azure Data Factory](#redeploy-using-azure-data-factory) supports all storage types.
+- [Azure portal](/azure/storage/common/storage-account-move?tabs=azure-portal)
+
+### Prerequisites
 
 - Identify all Azure Storage Account dependant resources.
 - Confirm that all services and features that are used by Azure Storage Account are supported in the target region.
@@ -35,39 +59,11 @@ This article covers relocation guidance for Azure Storage Account across regions
 
     >[!IMPORTANT]
     >If the Storage Account instance is operating in a production layer of a landing zone, such as hosting a static website or CDN, then you must reevaluate dependent resources as per configured resources like Traffic Manager.
-
-## Relocation strategies
-
-To relocate Azure Storage account to a new region, you can choose to [redeploy without data migration](#redeploy-without-data-migration) or [redeploy with data migration](#redeploy-with-data-migration-strategy) strategies.
-
-**Azure Resource Mover** doesn't support moving services used by the Azure Storage account. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
-
-## Redeploy without data migration
-
-If your Azure Storage Account instance doesn't have any client specific data and the instance itself needs to be moved alone, you can choose to redeploy without data migration. A simple redeployment without data is also your best option for [Azure Queues](/azure/storage/queues/storage-queues-introduction), as no data migration is required for a service that only supports live messaging transactions.
-
-**To redeploy your Automation instance without data:**
-
-Redeploy the Storage Account instance by using [Bicep, ARM Template, or Terraform](azure/templates/microsoft.storage/storageaccounts?tabs=json&pivots=deployment-language-arm-template).
-
-To view the available configuration templates, see [the complete Azure Template library](/azure/templates/).
-
-## Redeploy with data migration
-
-The Azure Storage platform includes the following data services:
-
-- [Azure Blobs](/azure/storage/blobs/storage-blobs-introduction)
-- [Azure Files](/azure/storage/files/storage-files-introduction)
-- [Azure Tables](/azure/storage/tables/table-storage-overview)
-- [Azure Disks](/azure/virtual-machines/managed-disks-overview)
-
-
-To move any of the above data types to new region Storage Account, three different approaches can be used:
-
-- [AzCopy](#redeploy-using-azcopy) supports Blob and File storage accounts only.
-- [Azure Data Factory](#redeploy-using-azure-data-factory) supports all storage types.
-- [Azure portal](/azure/storage/common/storage-account-move?tabs=azure-portal)
-
+- Choose which relocation tool you wish to use:
+    - [AzCopy](#redeploy-using-azcopy) supports Blob and File storage accounts only.
+    - [Azure Data Factory](#redeploy-using-azure-data-factory) supports all storage types.
+    - [Azure portal](/azure/storage/common/storage-account-move?tabs=azure-portal)
+    
 
 ### Redeploy using AzCopy
 

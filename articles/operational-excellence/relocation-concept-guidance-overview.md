@@ -53,6 +53,7 @@ The following tables provide links to each Azure service relocation document.
 [Azure Monitor - Log Analytics](./relocation-log-analytics.md)|
 [Azure Database for PostgreSQL](./relocation-postgresql-flexible-server.md)|
 [Azure Private Link](./relocation-private-link.md) |
+[Storage Account](relocation-storage-account.md)|
 
 
 
@@ -61,6 +62,7 @@ The following tables provide links to each Azure service relocation document.
 | **Product**  |
 | --- | 
 [Azure Automation](./relocation-automation.md)|
+[Microsoft Sentinel](relocation-sentinel.md)|
 
 ## Additional information
 

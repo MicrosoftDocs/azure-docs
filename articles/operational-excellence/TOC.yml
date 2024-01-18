@@ -33,7 +33,7 @@
       - name: Microsoft Defender for Cloud
         href: not-yet.md
       - name: Microsoft Sentinel
-        href: not-yet.md
+        href: relocation-sentinel.md
 - name: Resources
   items:
   - name: Operational Excellence in Microsoft Azure Well-Architected Framework
