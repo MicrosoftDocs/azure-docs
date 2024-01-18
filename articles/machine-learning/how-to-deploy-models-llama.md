@@ -374,16 +374,16 @@ The following is an example response:
    
 ## Deploy Llama 2 models to real-time endpoints
 
-Llama 2 models can be deployed to real-time endpoints in Azure Machine Learning studio. When deployed to real-time endpoints, you can select all the details about the infrastructure running the model including the virtual machines used to run it and the number of instances to handle the load you're expecting. Models deployed in this modality consume quota from your subscription. All the models in the Llama family can be deployed to real-time endpoints.
+Llama 2 models can be deployed to real-time endpoints in the Azure Machine Learning studio. When deployed to real-time endpoints, you can select all the details about the infrastructure running the model, including the virtual machines used to run it and the number of instances to handle the load you're expecting. Models deployed in this modality consume quota from your subscription. All the models in the Llama family can be deployed to real-time endpoints.
 
 ### Create a new deployment
 
 # [Studio](#tab/azure-studio)
 
-Follow the steps below to deploy a model such as `Llama-2-7b-chat` to a real-time endpoint in [Azure ML Studio](https://ml.azure.com).
+Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time endpoint in [Azure Machine Learning studio](https://ml.azure.com).
 
-1.  Choose the worspace you want to deploy the model in.
-2.  Choose a model you want to deploy from the ML Studio [model catalog](change - add link). Alternatively, you can initiate deployment by selecting **Create** from `your workspace`>`endpoints`>`serverless endpoints`
+1.  Choose the workspace in which you want to deploy the model.
+2.  Choose a model you want to deploy from the studio's [model catalog](https://ml.azure.com/model/catalog). Alternatively, you can initiate deployment by selecting **Create** from `your workspace`>`endpoints`>`serverless endpoints`
 3.  On the detail page, select **Deploy** and then **Real-time endpoint**.
 4.  Select if you want to enable **Azure AI Content Safety (preview)**.
 
@@ -401,7 +401,9 @@ Follow the steps below to deploy a model such as `Llama-2-7b-chat` to a real-tim
 9. Select **Deploy**.
 10. You land on the deployment details page. Select **Consume** to obtain code samples that can be used to consume the deployed model in your application. 
 
-# [Python SDK](#tab/python) (change - check)
+# [Python SDK](#tab/python)
+
+(change - check)
 
 ### Consuming Llama 2 models deployed to real-time endpoints
 
