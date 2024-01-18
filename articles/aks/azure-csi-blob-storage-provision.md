@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-linux
-ms.date: 11/28/2023
+ms.date: 01/18/2024
 ---
 
 # Create and use a volume with Azure Blob storage in Azure Kubernetes Service (AKS)
@@ -20,8 +20,6 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 ## Before you begin
 
-- If you don't have a storage account that supports the NFS v3 protocol, review [NFS v3 support with Azure Blob storage][azure-blob-storage-nfs-support].
-
 - [Enable the Blob storage CSI driver][enable-blob-csi-driver] on your AKS cluster.
 
 - To support an [Azure DataLake Gen2 storage account][azure-datalake-storage-account] when using blobfuse mount, you'll need to do the following:
@@ -29,6 +27,9 @@ For more information on Kubernetes volumes, see [Storage options for application
    - To create an ADLS account using the driver in dynamic provisioning, specify `isHnsEnabled: "true"` in the storage class parameters.
    - To enable blobfuse access to an ADLS account in static provisioning, specify the mount option `--use-adls=true` in the persistent volume.
    - If you are going to enable a storage account with Hierarchical Namespace, existing persistent volumes should be remounted with `--use-adls=true` mount option.
+ 
+-  About blobfuse cache
+   - By default, the blobfuse cache is located in the `/mnt` directory. If the VM SKU provides a temporary disk, the `/mnt` directory is mounted on the temporary disk. However, if the VM SKU does not provide a temporary disk, the `/mnt` directory is mounted on the OS disk, you could set `--tmp-path=` mount option to specify a different cache directory
 
 ## Dynamically provision a volume
 
