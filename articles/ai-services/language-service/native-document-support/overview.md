@@ -47,7 +47,7 @@ A native document refers to the file format used to create the original document
 |Input type|support and limitations|
 |---|---|
 |**PDFs**| Fully digital and fully scanned PDFs are supported.|
-|**Text within images**| Digital PDFs with imbedded text and text within images are not supported.|
+|**Text within images**| Digital PDFs with imbedded text and text within images aren't supported.|
 |**Digital tables**| Tables in digital documents are supported, however scanned table quality isn't guaranteed.|
 |**PII content**| Custom redaction for native documents is supported in the latest 2023-04-14-preview|
 

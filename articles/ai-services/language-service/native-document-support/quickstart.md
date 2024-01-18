@@ -110,7 +110,7 @@ The `sourceUrl` and `targetUrl` are authenticated with Shared Access Signature (
 |`-H "Ocp-Apim-Subscription-Key:<key>`    | Specifies the Language resource key for accessing the API.        |
 |`-d`     | The JSON file containing the data you want to pass with your request.         |
 
-The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values. Try analyzing native documents by selecting the following `**Personally Identifiable Information (PII)**` or `**Document Summarization**`:
+The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values. Try analyzing native documents by selecting the `Personally Identifiable Information (PII)` or `Document Summarization` code sample project:
 
 ### [Personally Identifiable Information (PII)](#tab/pii)
 
