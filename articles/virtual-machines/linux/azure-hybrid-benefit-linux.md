@@ -12,7 +12,7 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2023
 ms.author: vvarshney
 ms.reviewer: mattmcinnes
-ms.custom: kr2b-contr-experiment, devx-track-linux, devx-track-azurecli
+ms.custom: kr2b-contr-experiment, linux-related-content, devx-track-azurecli
 ---
 
 # Azure Hybrid Benefit for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines
@@ -45,7 +45,7 @@ Azure dedicated host instances and SQL hybrid benefits aren't eligible for Azure
 You can invoke AHB at the time of virtual machine creation. Benefits of doing so are threefold:
 
 - You can provision both PAYG and BYOS virtual machines by using the same image and process.
-- It enables future licensing mode changes. 
+- It enables future licensing mode changes.
 - The virtual machine is connected to Red Hat Update Infrastructure (RHUI) by default, to help keep it up to date and secure. You can change the updated mechanism after deployment at any time.
 
 #### [Azure portal](#tab/ahbNewPortal)
@@ -59,13 +59,13 @@ To enable Azure Hybrid Benefit when you create a virtual machine, use the follow
 
    ![Screenshot of the Azure portal that shows checkboxes selected for licensing.](./media/azure-hybrid-benefit/create-vm-ahb-checkbox.png)
 1. Create a virtual machine by following the next set of instructions.
-1. On the **Configuration** pane, confirm that the option is enabled. 
+1. On the **Configuration** pane, confirm that the option is enabled.
 
    ![Screenshot of the Azure Hybrid Benefit configuration pane after you create a virtual machine.](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
 #### [Azure CLI](#tab/ahbNewCli)
 
-You can use the `az vm extension` and `az vm update` commands to update new virtual machines after they've been created. 
+You can use the `az vm extension` and `az vm update` commands to update new virtual machines after they've been created.
 
 1. Install the extension
    ```azurecli
@@ -93,7 +93,7 @@ To enable Azure Hybrid Benefit on an existing virtual machine:
 
 #### [Azure CLI](#tab/ahbExistingCli)
 
-You can use the `az vm extension` and `az vm update` commands to update existing virtual machines. 
+You can use the `az vm extension` and `az vm update` commands to update existing virtual machines.
 
 1. Install the extension
    ```azurecli
@@ -118,7 +118,7 @@ It is required the Azure Hybrid Benefit extension be installed on the VM to swit
 
 ### [Azure CLI](#tab/licenseazcli)
 
-1. You can use the `az vm get-instance-view` command to check whether the extension is installed or not. Look for the `AHBForSLES` or `AHBForRHEL` extension, if the corresponding one is installed, the Azure Hybrid Benefit has been enabled, 
+1. You can use the `az vm get-instance-view` command to check whether the extension is installed or not. Look for the `AHBForSLES` or `AHBForRHEL` extension, if the corresponding one is installed, the Azure Hybrid Benefit has been enabled,
 review the license type to review which licensing model your VM is using.
 
    ```azurecli
@@ -140,12 +140,12 @@ review the license type to review which licensing model your VM is using.
    - For RHEL: `RHEL_BYOS`
    - For SLES: `SLES_BYOS`
 
-If the license type of the VM has not been modified, the previous command returns an empty string and the VM continues to use the billing model of the image used to deploy it. 
+If the license type of the VM has not been modified, the previous command returns an empty string and the VM continues to use the billing model of the image used to deploy it.
 
 
 ### [Azure PowerShell](#tab/licensepowershell)
 
-1. You can use the `az vm get-instance-view` command to check whether the extension is installed or not. Look for the `AHBForSLES` or `AHBForRHEL` extension, if the corresponding one is installed, the Azure Hybrid Benefit has been enabled, 
+1. You can use the `az vm get-instance-view` command to check whether the extension is installed or not. Look for the `AHBForSLES` or `AHBForRHEL` extension, if the corresponding one is installed, the Azure Hybrid Benefit has been enabled,
 review the license type to review which licensing model your VM is using.
 
    ```azurepowershell
@@ -168,7 +168,7 @@ review the license type to review which licensing model your VM is using.
    - For RHEL: `RHEL_BYOS`
    - For SLES: `SLES_BYOS`
 
-If the license type of the VM has not been modified, the previous command returns an empty string and the VM continues to use the billing model of the image used to deploy it. 
+If the license type of the VM has not been modified, the previous command returns an empty string and the VM continues to use the billing model of the image used to deploy it.
 
 ---
 
@@ -222,7 +222,7 @@ If you deployed an Azure Marketplace image with PAYG licensing model and desire 
     ```
 
 ---
-    
+
 ## BYOS to PAYG conversions
 Converting to PAYG model is supported for Azure Marketplace images labeled BYOS, machines imported from on-premises or a third party cloud provider.
 
@@ -238,19 +238,19 @@ Converting to PAYG model is supported for Azure Marketplace images labeled BYOS,
     ```azurecli
     # This will enable Azure Hybrid Benefit to fetch software updates for RHEL base/regular repositories
     az vm update -g myResourceGroup -n myVmName --license-type RHEL_BASE
-    
+
     # This will enable Azure Hybrid Benefit to fetch software updates for RHEL EUS repositories
     az vm update -g myResourceGroup -n myVmName --license-type RHEL_EUS
-    
+
     # This will enable Azure Hybrid Benefit to fetch software updates for RHEL SAP APPS repositories
     az vm update -g myResourceGroup -n myVmName --license-type RHEL_SAPAPPS
-    
+
     # This will enable Azure Hybrid Benefit to fetch software updates for RHEL SAP HA repositories
     az vm update -g myResourceGroup -n myVmName --license-type RHEL_SAPHA
-    
+
     # This will enable Azure Hybrid Benefit to fetch software updates for RHEL BASE SAP APPS repositories
     az vm update -g myResourceGroup -n myVmName --license-type RHEL_BASESAPAPPS
-    
+
     # This will enable Azure Hybrid Benefit to fetch software updates for RHEL BASE SAP HA repositories
     az vm update -g myResourceGroup -n myVmName --license-type RHEL_BASESAPHA
    ```
@@ -319,7 +319,7 @@ To start using Azure Hybrid Benefit for Red Hat:
 
 1. Depending on the software updates that you want, change the license type to a relevant value. Here are the available license type values and the software updates associated with them:
 
-    | License type  | Software updates  | Allowed virtual machines|  
+    | License type  | Software updates  | Allowed virtual machines|
     |---|---|---|
     | RHEL_BASE  | Installs Red Hat regular/base repositories on your virtual machine. | RHEL BYOS virtual machines, RHEL custom image virtual machines|
     | RHEL_EUS | Installs Red Hat Extended Update Support (EUS) repositories on your virtual machine. | RHEL BYOS virtual machines, RHEL custom image virtual machines|
@@ -333,12 +333,12 @@ To start using Azure Hybrid Benefit for Red Hat:
    > [!NOTE]
    > If the extension isn't running by itself, you can run it on demand.
 
-1. You should now be connected to Azure Red Hat Update. The relevant repositories are installed on your machine.  
+1. You should now be connected to Azure Red Hat Update. The relevant repositories are installed on your machine.
 
 1. If you want to switch back to the bring-your-own-subscription model,  just change the license type to `None` and run the extension. This action removes all Red Hat Update Infrastructure (RHUI) repositories from your virtual machine and stops the billing.
 
 > [!Note]
-> In the unlikely event that the extension can't install repositories or there are any other issues, switch the license type back to empty and reach out to Microsoft support. This ensures that you don't get billed for software updates.  
+> In the unlikely event that the extension can't install repositories or there are any other issues, switch the license type back to empty and reach out to Microsoft support. This ensures that you don't get billed for software updates.
 
 #### [SUSE (SLES)](#tab/slespaygconversion)
 
@@ -349,7 +349,7 @@ To start using Azure Hybrid Benefit for SLES virtual machines:
 1. Install the `AHBForSLES` extension on the SLES virtual machine.
 1. Change the license type to the value that reflects the software updates you want. Here are the available license type values and the software updates associated with them:
 
-    | License type  | Software updates  | Allowed virtual machines|  
+    | License type  | Software updates  | Allowed virtual machines|
     |---|---|---|
     | SLES | Installs SLES Standard repositories on your virtual machine. | SLES BYOS virtual machines, SLES custom image virtual machines|
     | SLES_SAP | Installs SLES SAP repositories on your virtual machine. | SLES SAP BYOS virtual machines, SLES custom image virtual machines|
@@ -393,7 +393,7 @@ Customers who use Azure Hybrid Benefit for pay-as-you-go RHEL virtual machines h
 
 Customers can use RHUI as the main update source for Azure Hybrid Benefit for pay-as-you-go RHEL virtual machines without attaching subscriptions. Customers who choose the RHUI option are responsible for ensuring RHEL subscription compliance.
 
-Customers who choose either Red Hat Satellite Server or Red Hat Subscription Manager should remove the RHUI configuration and then attach a cloud-access-enabled RHEL subscription to Azure Hybrid Benefit for PAYG RHEL virtual machines.  
+Customers who choose either Red Hat Satellite Server or Red Hat Subscription Manager should remove the RHUI configuration and then attach a cloud-access-enabled RHEL subscription to Azure Hybrid Benefit for PAYG RHEL virtual machines.
 
 For more information about Red Hat subscription compliance, software updates, and sources for Azure Hybrid Benefit for pay-as-you-go RHEL virtual machines, see the [Red Hat article about using RHEL subscriptions with Azure Hybrid Benefit](https://access.redhat.com/articles/5419341).
 

@@ -6,7 +6,7 @@ documentationcenter: saponazure
 author: apmsft
 manager: juergent
 tags: azure-resource-manager
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
@@ -96,13 +96,13 @@ SAP high availability HANA System Replication configuration uses a dedicated vir
 ## Set up the Azure NetApp File infrastructure
 
 Before you continue with the setup for Azure NetApp Files infrastructure, familiarize yourself with the Azure [NetApp Files documentation](../../azure-netapp-files/index.yml).
-Azure NetApp Files is available in several [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Check to see whether your selected Azure region offers Azure NetApp Files.  
+Azure NetApp Files is available in several [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Check to see whether your selected Azure region offers Azure NetApp Files.
 
 For information about the availability of Azure NetApp Files by Azure region, see [Azure NetApp Files Availability by Azure Region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all).
 
 ### Important considerations
 
-As you create your Azure NetApp Files for SAP HANA Scale-up systems, be aware of the important considerations documented in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#important-considerations).  
+As you create your Azure NetApp Files for SAP HANA Scale-up systems, be aware of the important considerations documented in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#important-considerations).
 
 ### Sizing of HANA database on Azure NetApp Files
 
@@ -129,9 +129,9 @@ The following instructions assume that you've already deployed your [Azure virtu
    The HANA architecture presented in this article uses a single Azure NetApp Files capacity pool at the *Ultra* Service level. For HANA workloads on Azure, we recommend using Azure NetApp Files *Ultra* or *Premium* [service Level](../../azure-netapp-files/azure-netapp-files-service-levels.md).
 3. Delegate a subnet to Azure NetApp Files, as described in the instructions in [Delegate a subnet to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 4. Deploy Azure NetApp Files volumes by following the instructions in [Create an NFS volume for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-create-volumes.md).
-  
+
    As you deploy the volumes, be sure to select the NFSv4.1 version. Deploy the volumes in the designated Azure NetApp Files subnet. The IP addresses of the Azure NetApp volumes are assigned automatically.
-  
+
    Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure virtual network or in peered Azure virtual networks. For example, hanadb1-data-mnt00001, hanadb1-log-mnt00001, and so on, are the volume names and nfs://10.3.1.4/hanadb1-data-mnt00001, nfs://10.3.1.4/hanadb1-log-mnt00001, and so on, are the file paths for the Azure NetApp Files volumes.
 
    On **hanadb1**
@@ -230,7 +230,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    ```example
    10.3.1.4:/hanadb1-data-mnt00001 /hana/data/HN1/mnt00001  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
    10.3.1.4:/hanadb1-log-mnt00001 /hana/log/HN1/mnt00001  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
-   10.3.1.4:/hanadb1-shared-mnt00001 /hana/shared/HN1  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0 
+   10.3.1.4:/hanadb1-shared-mnt00001 /hana/shared/HN1  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
    ```
 
    Example for hanadb2
@@ -273,10 +273,10 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    ```bash
    #Check nfs4_disable_idmapping
    sudo cat /sys/module/nfs/parameters/nfs4_disable_idmapping
-   
+
    #If you need to set nfs4_disable_idmapping to Y
    sudo echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-   
+
    #Make the configuration permanent
    sudo echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
    ```
@@ -311,11 +311,11 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    net.core.wmem_max = 16777216
    net.ipv4.tcp_rmem = 4096 131072 16777216
    net.ipv4.tcp_wmem = 4096 16384 16777216
-   net.core.netdev_max_backlog = 300000 
-   net.ipv4.tcp_slow_start_after_idle=0 
+   net.core.netdev_max_backlog = 300000
+   net.ipv4.tcp_slow_start_after_idle=0
    net.ipv4.tcp_no_metrics_save = 1
    net.ipv4.tcp_moderate_rcvbuf = 1
-   net.ipv4.tcp_window_scaling = 1    
+   net.ipv4.tcp_window_scaling = 1
    net.ipv4.tcp_sack = 1
    ```
 
@@ -336,7 +336,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    ```
 
    > [!TIP]
-   > Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more information, see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
+   > Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more information, see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
 
 4. **[A]** Adjust the sunrpc settings, as recommended in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346).
 
@@ -363,7 +363,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 6. **[A]** Install the SAP HANA
 
    Starting with HANA 2.0 SPS 01, MDC is the default option. When you install HANA system, SYSTEMDB and a tenant with same SID will be created together. In some cases, you don't want the default tenant. In case, if you don’t want to create initial tenant along with the installation you can follow SAP Note [2629711](https://launchpad.support.sap.com/#/notes/2629711).
-  
+
    1. Start the hdblcm program from the HANA installation software directory.
 
       ```bash
@@ -395,7 +395,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
       - For Enter Database User (SYSTEM) Password: Enter the database user password
       - For Confirm Database User (SYSTEM) Password: Enter the database user password again to confirm
       - For Restart system after machine reboot? [n]: press Enter to accept the default
-      - For Do you want to continue? (y/n): Validate the summary. Enter **y** to continue  
+      - For Do you want to continue? (y/n): Validate the summary. Enter **y** to continue
 
 7. **[A]** Upgrade SAP Host Agent
 
@@ -423,7 +423,7 @@ This is an important step to optimize the integration with the cluster and impro
 
 ## Configure SAP HANA cluster resources
 
-This section describes the necessary steps required to configure the SAP HANA Cluster resources.  
+This section describes the necessary steps required to configure the SAP HANA Cluster resources.
 
 ### Create SAP HANA cluster resources
 
@@ -483,7 +483,7 @@ Create a dummy file system cluster resource, which monitors and reports failures
 
    ```bash
    sudo crm status
-   
+
    # Cluster Summary:
    # Stack: corosync
    # Current DC: hanadb1 (version 2.0.5+20201202.ba59be712-4.9.1-2.0.5+20201202.ba59be712) - partition with quorum
@@ -491,10 +491,10 @@ Create a dummy file system cluster resource, which monitors and reports failures
    # Last change:  Tue Nov  2 17:57:38 2021 by root via crm_attribute on hanadb1
    # 2 nodes configured
    # 11 resource instances configured
-   
+
    # Node List:
    # Online: [ hanadb1 hanadb2 ]
-   
+
    # Full List of Resources:
    # Clone Set: cln_azure-events [rsc_azure-events]:
    #  Started: [ hanadb1 hanadb2 ]
@@ -514,7 +514,7 @@ Create a dummy file system cluster resource, which monitors and reports failures
 
    `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation, so that monitor operations perform a read/write test on the file system. Without this attribute, the monitor operation only verifies that the file system is mounted. This can be a problem because when connectivity is lost, the file system may remain mounted, despite being inaccessible.
 
-   `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced.  
+   `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced.
 
 > [!IMPORTANT]
 > Timeouts in the above configuration may need to be adapted to the specific HANA set up to avoid unnecessary fence actions.  Don’t set the timeout values too low.  Be aware that the filesystem monitor is not related to the HANA system replication. For details see [SUSE documentation](https://www.suse.com/support/kb/doc/?id=000019904).
@@ -533,7 +533,7 @@ This section describes how you can test your set up.
 
    ```bash
    SAPHanaSR-showAttr
-   
+
    # You should see something like below
    # hanadb1:~ SAPHanaSR-showAttr
    # Global cib-time                 maintenance
@@ -562,7 +562,7 @@ This section describes how you can test your set up.
 
    ```bash
    sudo crm status
-   
+
    #Cluster Summary:
    # Stack: corosync
    # Current DC: hanadb2 (version 2.0.5+20201202.ba59be712-4.9.1-2.0.5+20201202.ba59be712) - partition with quorum
@@ -570,7 +570,7 @@ This section describes how you can test your set up.
    # Last change:  Mon Nov  8 23:25:19 2021 by root via crm_attribute on hanadb2
    # 2 nodes configured
    # 11 resource instances configured
-   
+
    # Node List:
    # Online: [ hanadb1 hanadb2 ]
    # Full List of Resources:
@@ -633,7 +633,7 @@ This section describes how you can test your set up.
 
    ```bash
    sudo crm  status
-   
+
    #Cluster Summary:
     # Stack: corosync
     # Current DC: hanadb2 (version 2.0.5+20201202.ba59be712-4.9.1-2.0.5+20201202.ba59be712) - partition with quorum
@@ -641,10 +641,10 @@ This section describes how you can test your set up.
     # Last change:  Mon Nov  8 23:00:46 2021 by root via crm_attribute on hanadb1
     # 2 nodes configured
     # 11 resource instances configured
-   
+
     #Node List:
     # Online: [ hanadb1 hanadb2 ]
-   
+
     #Full List of Resources:
     # Clone Set: cln_azure-events [rsc_azure-events]:
       # Started: [ hanadb1 hanadb2 ]
@@ -671,7 +671,7 @@ This section describes how you can test your set up.
 
    ```bash
    sudo crm status
-   
+
    #Cluster Summary:
     # Stack: corosync
     # Current DC: hanadb2 (version 2.0.5+20201202.ba59be712-4.9.1-2.0.5+20201202.ba59be712) - partition with quorum
@@ -679,10 +679,10 @@ This section describes how you can test your set up.
     # Last change:  Wed Nov 10 21:59:47 2021 by root via crm_attribute on hanadb2
     # 2 nodes configured
     # 11 resource instances configured
-   
+
     #Node List:
     # Online: [ hanadb1 hanadb2 ]
-   
+
     #Full List of Resources:
     # Clone Set: cln_azure-events [rsc_azure-events]:
       # Started: [ hanadb1 hanadb2 ]
