@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: concept-article
-ms.date: 11/06/2023
+ms.date: 01/31/2024
 ms.custom: template-concept
 ---
 
@@ -40,8 +40,8 @@ Azure Communications Gateway also offers metrics for monitoring your deployment.
 
 We expect your network to have two geographically redundant sites. You must provide networking connections between each site and:
 
-* The other site in your deployment, as cross-connects.
-* The Azure Regions in which you deploy Azure Communications Gateway.
+- The other site in your deployment, as cross-connects.
+- The Azure Regions in which you deploy Azure Communications Gateway.
 
 Connectivity between your networks and Azure Communications Gateway must meet any relevant network connectivity specifications.
 
@@ -64,10 +64,11 @@ Azure Communications Gateway includes SIP trunks to your own network and can int
 [!INCLUDE [communications-gateway-multitenant](includes/communications-gateway-multitenant.md)]
 
 To allow Azure Communications Gateway to identify the correct service for a call, you must configure the details of each number and its service(s) on Azure Communications Gateway. This is:
+
 - Required for Microsoft Teams Direct Routing.
 - Not required for Operator Connect (because Azure Communications Gateway defaults to Operator Connect for fixed line calls) or Teams Phone Mobile.
 
-You can also configure Azure Communications Gateway to add a custom header to messages associated with a number. You can use this to indicate the service and/or the enterprise associated with a call. Custom headers are supported for all services except Teams Phone Mobile.
+You can also configure Azure Communications Gateway to add a custom header to messages associated with a number. You can use this to indicate the service and/or the enterprise associated with a call.
 
 Configuring numbers with services and custom headers requires Azure Communications Gateway's Provisioning API. For more information, see [Provisioning API for Azure Communications Gateway](provisioning-platform.md).
 

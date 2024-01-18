@@ -27,11 +27,14 @@ In this article, you learn about the steps that you and your onboarding team mus
 
 - You must [deploy Azure Communications Gateway](deploy.md) using the Microsoft Azure portal and [connect it to Operator Connect or Teams Phone Mobile](connect-operator-connect.md).
 - You must know the test numbers to use for integration testing and for service verification (continuous call testing). These numbers can't be the same. You chose them as part of [deploying Azure Communications Gateway](deploy.md#prerequisites) or [connecting it to Operator Connect or Teams Phone Mobile](connect-operator-connect.md#prerequisites).
-    - Integration testing allows you to confirm that Azure Communications Gateway and Microsoft Phone System are interoperating correctly with your network.
-    - Service verification is set up by the Operator Connect and Teams Phone Mobile programs. It ensures that your deployment is able to handle calls from Microsoft Phone System throughout the lifetime of your deployment.
+
+  - Integration testing allows you to confirm that Azure Communications Gateway and Microsoft Phone System are interoperating correctly with your network.
+  - Service verification is set up by the Operator Connect and Teams Phone Mobile programs. It ensures that your deployment is able to handle calls from Microsoft Phone System throughout the lifetime of your deployment.
 - You must have a tenant you can use for integration testing (representing an enterprise customer), and some users in that tenant to whom you can assign the numbers for integration testing.
-    - If you don't already have a suitable test tenant, you can use the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program), which provides E5 licenses.
-    - The test users must be licensed for Teams Phone System and in Teams Only mode.
+
+  - If you don't already have a suitable test tenant, you can use the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program), which provides E5 licenses.
+  - The test users must be licensed for Teams Phone System and in Teams Only mode.
+
 - You must have access to the following configuration portals.
 
     |Configuration portal  |Required permissions |
@@ -49,9 +52,11 @@ Your onboarding team must register the test enterprise tenant that you chose in 
 
 1. Find your company's "Operator ID" in your [operator configuration in the Operator Connect portal](https://operatorconnect.microsoft.com/operator/configuration).
 1. Provide your onboarding contact with:
+
     - Your company's name.
     - Your company's Operator ID.
     - The ID of the tenant to use for testing.
+
 1. Wait for your onboarding team to confirm that your test tenant has been registered.
 
 ## Set up your test tenant
@@ -75,12 +80,11 @@ Integration testing requires setting up your test tenant for Operator Connect or
     1. Sign in to the [Azure portal](https://azure.microsoft.com/).
     1. In the search bar at the top of the page, search for your Communications Gateway resource.
     1. Select your Communications Gateway resource.
-    1. On the overview page, select **Consents** in the sidebar.
-    1. Select your test tenant.
-    1. From the menu, select **Update Relationship Status**. Set the status to **Agreement signed**.
-    1. From the menu, select **Manage Numbers**.
-    1. Select **Upload numbers**.
-    1. Fill in the fields as required, and then select **Review + upload** and **Upload**.
+    1. From the overview page for your Communications Gateway resource, find the **Unified Number Management** section in the sidebar. Select **Accounts**.
+    1. Select the checkbox next to the enterprise **Account name**.
+    1. Select **Update Relationship Status**. Set the status to **Agreement signed** and select **Update**.
+    1. Select **View numbers** and select **Upload numbers**.
+    1. Fill in the fields as required, and then select **Review and upload** and **Upload**.
 
     # [Operator Portal](#tab/no-number-management-portal)
 

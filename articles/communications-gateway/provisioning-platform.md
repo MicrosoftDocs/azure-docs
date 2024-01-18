@@ -5,20 +5,24 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual
-ms.date: 11/17/2023
+ms.date: 01/31/2024
 
 #CustomerIntent: As someone learning about Azure Communications Gateway, I want to understand the Provisioning Platform, so that I know whether I need to integrate with it
 ---
 
 # Provisioning API for Azure Communications Gateway
 
+> [!TIP]
+> We recommend using the Number Management Portal to configure numbers and custom headers for Operator Connect and Teams Phone Mobile. See [Manage an enterprise with Azure Communications Gateway's Number Management Portal for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
+
 Azure Communications Gateway's Provisioning API allows you to configure Azure Communications Gateway with the details of your customers and the numbers that you have assigned to them.
 
 You can use the Provisioning API to:
-- Configure numbers for specific configuration services
-- Add custom header configuration
 
-The following table shows whether these uses of the Provisioning API are required, optional or not supported for each communications service. The following sections in this article provide more detail about each use.
+- Configure numbers for specific configuration services.
+- Add custom header configuration.
+
+The following table shows whether these uses of the Provisioning API are required, optional, or not supported for each communications service. The following sections in this article provide more detail about each use.
 
 |Communications service | Configuring numbers for specific communications service | Custom header configuration |
 |---|---|---|
@@ -60,6 +64,6 @@ The following diagram shows an Azure Communications Gateway deployment configure
 
 ## Next steps
 
-- [Learn about the technical requirements for integrating with the Provisioning API](integrate-with-provisioning-api.md)
-- Browse the [API Reference for the Provisioning API](/rest/api/voiceservices)
+- [Learn about the technical requirements for integrating with the Provisioning API](integrate-with-provisioning-api.md).
+- Browse the [API Reference for the Provisioning API](/rest/api/voiceservices).
 

@@ -5,12 +5,15 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 10/09/2023
+ms.date: 01/31/2024
 ---
 
 # Integrate with Azure Communications Gateway's Provisioning API
 
-This article explains when you need to integrate with Azure Communications Gateway's Provisioning API  and provides a high-level overview of getting started. It's aimed at software developers working for telecommunications operators.
+This article provides a high-level overview on how to integrate with Azure Communications Gateway's Provisioning API. It's aimed at software developers working for telecommunications operators.
+
+> [!TIP]
+> We recommend using the Number Management Portal to configure numbers and custom headers for Operator Connect and Teams Phone Mobile.
 
 The Provisioning API allows you to configure Azure Communications Gateway with the details of your customers and the numbers that you have assigned to them. It's a REST API.
 
@@ -18,10 +21,10 @@ Whether you need to integrate with the REST API depends on your chosen communica
 
 |Communications service  |Provisioning API integration  |Purpose  |
 |---------|---------|---------|
-|Microsoft Teams Direct Routing |Required |- Configure the subdomain associated with each Direct Routing customer<br>- Generate DNS records specific to each customer (as required by the Microsoft 365 environment)<br>- Indicate that numbers are enabled for Direct Routing.<br>- (Optional) Configure a custom header for messages to your network|
-|Operator Connect|Optional|(Optional) Configure a custom header for messages to your network|
+|Microsoft Teams Direct Routing |Required |- Configure the subdomain associated with each Direct Routing customer.<br>- Generate DNS records specific to each customer (as required by the Microsoft 365 environment).<br>- Indicate that numbers are enabled for Direct Routing.<br>- (Optional) Configure a custom header for messages to your network.|
+|Operator Connect|Optional|(Optional) Configure a custom header for messages to your network.|
 |Teams Phone Mobile|Not supported|N/A|
-|Zoom Phone Cloud Peering |Required |- Indicate that numbers are enabled for Zoom<br>- (Optional) Configure a custom header for messages to your network|
+|Zoom Phone Cloud Peering |Required |- Indicate that numbers are enabled for Zoom.<br>- (Optional) Configure a custom header for messages to your network.|
 
 ## Prerequisites
 

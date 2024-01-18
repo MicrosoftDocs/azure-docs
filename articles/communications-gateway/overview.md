@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: overview
-ms.date: 11/27/2023
+ms.date: 01/31/2024
 ms.custom: template-overview
 ---
 
@@ -54,11 +54,11 @@ Azure Communications Gateway's voice features include:
   - Media transcoding
   - Ringback injection
 - **Call control integration for Teams Phone Mobile** - Azure Communications Gateway includes an optional IMS Application Server called Mobile Control Point (MCP). MCP ensures calls are only routed to the Microsoft Phone System when a user is eligible for Teams Phone Mobile services. This process minimizes the changes you need in your mobile network to route calls into Microsoft Teams. For more information, see [Mobile Control Point in Azure Communications Gateway for Teams Phone Mobile](mobile-control-point.md).
--  **Optional direct peering to Emergency Routing Service Providers for Operator Connect and Teams Phone Mobile (US only)** - If your network can't transmit Emergency location information in PIDF-LO (Presence Information Data Format Location Object) SIP bodies, Azure Communications Gateway can connect directly to your chosen Teams-certified Emergency Routing Service Provider (ERSP) instead. See [Emergency calling for Operator Connect and Teams Phone Mobile with Azure Communications Gateway](emergency-calls-operator-connect.md).
+- **Optional direct peering to Emergency Routing Service Providers for Operator Connect and Teams Phone Mobile (US only)** - If your network can't transmit Emergency location information in PIDF-LO (Presence Information Data Format Location Object) SIP bodies, Azure Communications Gateway can connect directly to your chosen Teams-certified Emergency Routing Service Provider (ERSP) instead. See [Emergency calling for Operator Connect and Teams Phone Mobile with Azure Communications Gateway](emergency-calls-operator-connect.md).
 
 ## Provisioning and API integration for Operator Connect and Teams Phone Mobile
 
-Launching Operator Connect or Teams Phone Mobile requires you to use the Operator Connect APIs to provision subscribers (instead of the Operator Connect Portal). Azure Communications Gateway offers a Number Management Portal integrated into the Azure portal. This portal uses the Operator Connect APIs, allowing you to pass the certification process and sell Operator Connect or Teams Phone Mobile services while you carry out a custom API integration project. 
+Launching Operator Connect or Teams Phone Mobile requires you to use the Operator Connect APIs to provision subscribers (instead of the Operator Connect Portal). Azure Communications Gateway offers a Number Management Portal integrated into the Azure portal. This portal uses the Operator Connect APIs, allowing you to pass the certification process and sell Operator Connect or Teams Phone Mobile services while you carry out a custom API integration project.
 
 For more information, see [Number Management Portal for provisioning with Operator Connect APIs](interoperability-operator-connect.md#number-management-portal-for-provisioning-with-operator-connect-apis) and [Manage an enterprise with Azure Communications Gateway's Number Management Portal for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
 

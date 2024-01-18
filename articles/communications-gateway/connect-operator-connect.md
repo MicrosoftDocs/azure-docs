@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: integration
-ms.date: 11/27/2023
+ms.date: 01/31/2022
 ms.custom:
     - template-how-to-pattern
     - has-azure-ad-ps-ref
@@ -27,17 +27,20 @@ You must [deploy Azure Communications Gateway](deploy.md).
 You must have access to a user account with the Microsoft Entra Global Administrator role.
 
 You must allocate six "service verification" test numbers for each of Operator Connect and Teams Phone Mobile. These numbers are used by the Operator Connect and Teams Phone Mobile programs for continuous call testing.
+
 - If you selected the service you're setting up as part of deploying Azure Communications Gateway, you've allocated numbers for the service already.
 - Otherwise, choose the phone numbers now (in E.164 format and including the country code) and names to identify them. We recommend names of the form OC1 and OC2 (for Operator Connect) and TPM1 and TPM2 (for Teams Phone Mobile).
 
 You must also allocate at least one test number for each service for integration testing.
 
 If you want to set up Teams Phone Mobile and you didn't select it when you deployed Azure Communications Gateway, choose:
+
 - The number used in Teams Phone Mobile to access the Voicemail Interactive Voice Response (IVR) from native dialers.
 - How you plan to route Teams Phone Mobile calls to Microsoft Phone System. Choose from:
-    - Integrated MCP (MCP in Azure Communications Gateway).
-    - On-premises MCP.
-    - Another method to route calls.
+
+  - Integrated MCP (MCP in Azure Communications Gateway).
+  - On-premises MCP.
+  - Another method to route calls.
 
 ## Enable Operator Connect or Teams Phone Mobile support
 
@@ -46,9 +49,9 @@ If you want to set up Teams Phone Mobile and you didn't select it when you deplo
 
 1. Sign in to the [Azure portal](https://azure.microsoft.com/).
 1. In the search bar at the top of the page, search for your Communications Gateway resource and select it.
-1. In the side menu bar, find **Communications services** and select **Operator Connect** or **Teams Phone Mobile** (as appropriate) to open a page for the service.
-1. On the service's page, select **Operator Connect settings** or **Teams Phone Mobile settings**.
-1. Fill in the fields, selecting **Review + create** and **Create**.
+1. In the side menu bar, under **Communications services**, select **Operator Connect** or **Teams Phone Mobile** (as appropriate) to open a page for the service.
+1. Select **Operator Connect settings** or **Teams Phone Mobile settings**.
+1. Fill in the fields, then select **Review + create** and **Create**.
 1. Select the **Overview** page for your resource.
 1. Select **Add test lines** and add the service verification lines you chose in [Prerequisites](#prerequisites). Set the **Testing purpose** to **Automated**.
     > [!IMPORTANT]
