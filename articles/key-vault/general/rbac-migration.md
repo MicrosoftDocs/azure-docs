@@ -66,7 +66,7 @@ Access policy predefined permission templates:
 | Azure Information BYOK | Keys: get, decrypt, sign | N/A<br>Custom role required|
 
 > [!NOTE]
-> Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. You can use Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Certificate User** role assignments for 'Microsoft Azure App Service' global indentity.
+> Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. You can use Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Certificate User** role assignment for App Service global identity, for example Microsoft Azure App Service' in public cloud.
 
 ## Assignment scopes mapping  
 
