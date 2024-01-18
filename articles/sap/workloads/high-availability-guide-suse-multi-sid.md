@@ -469,7 +469,7 @@ This documentation assumes that:
     sudo crm configure property maintenance-mode="false"
     ```
 
----
+   ---
 
 If you're upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
 
