@@ -839,7 +839,7 @@ To create a filter that lets you calculate OEE for each Contoso site and further
 
 1. Select the **Line chart** icon in the visualizations panel and then check **Timestamp** and **AverageSpeed**.
 
-1. Your dashboard now looks like the following example
+1. Your dashboard now looks like the following example:
 
     :::image type="content" source="media/tutorial-overall-equipment-effectiveness/dashboard-line-charts.png" alt-text="Screenshot that shows line charts on a Power BI dashboard." lightbox="media/tutorial-overall-equipment-effectiveness/dashboard-line-charts.png":::
 
