@@ -1558,7 +1558,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | resources | No | No | No |
 > | subscriptions | No | No | No |
 > | tags | No | No | No |
-> | templatespecs | No | No | **Yes**<br/><br/>[Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
+> | templatespecs | No | No | [Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
 > | templatespecs / versions | No | No | No |
 > | tenants | No | No | No |
 
