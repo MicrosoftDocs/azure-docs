@@ -50,8 +50,6 @@ This example shows a [C# function](dotnet-isolated-process-guide.md) that receiv
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readmessage":::
 
-***
-
 This example uses an HTTP trigger with an `OutputType` object to both send an HTTP response and write the output message. 
 
 ```cs
@@ -96,8 +94,6 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
     return input.Text;
 }
 ```
-
-***
 
 On this other example instead of using the return statement to send the message we have an HTTP trigger function which will send a reply different from the message sent.
 
