@@ -35,7 +35,7 @@ The datetime value that results from adding the duration value to the base value
 
 ### Remarks
 
-The `dateTimeAdd` function lacks leap year awareness, and _P1Y_ should be interpreted as _P365D_, while _P1M_ should be interpreted as P30D. The following example adds one month to January 31:
+The `dateTimeAdd` function doesn't take leap years into consideration, and _P1Y_ should be interpreted as _P365D_, while _P1M_ should be interpreted as P30D. The following json shows some examples:
 
 ```json
 {
@@ -63,7 +63,7 @@ The `dateTimeAdd` function lacks leap year awareness, and _P1Y_ should be interp
 }
 ```
 
-In the preceding example, considering 2023 as a non-leap year, the outcome of adding one year to the initial day of the year is _2024-01-01T00:00:00Z_. Conversely, adding one year to the starting day of 2024, a leap year, results in _2024-12-31T00:00:00Z_, not _2025-01-01T00:00:00Z_, given that a leap year comprises 366 days instead of 365 days. Moreover, the variation between leap and non-leap years is evident when adding one month to the initial day of February, resulting in different day-of-the-month outcomes.
+In the preceding example, considering 2023 as a non-leap year, the outcome of adding one year to the initial day of the year is _2024-01-01T00:00:00Z_. Conversely, adding one year to the starting day of 2024, a leap year, results in _2024-12-31T00:00:00Z_, not _2025-01-01T00:00:00Z_, given that a leap year comprises 366 days instead of 365 days. Furthermore, the distinction between leap and non-leap years becomes apparent when adding one month to the first day of February, leading to varying day-of-the-month results.
 
 ### Examples
 
