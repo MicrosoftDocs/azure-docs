@@ -11,11 +11,15 @@ ms.author: v-abhmallick
 
 This article describes how to back up the Azure Database for MySQL - Flexible Server by using Azure Backup.
 
+>[!Note]
+>- Currently, this feature supports only the *Weekly backup* option. However, you can schedule the backups on multiple days of the week. 
+>- Retention duration ranges from *7 days* to *10 years* in the *Backup data store*.
+>- The retention rules are evaluated in a pre-determined order of priority. The priority is the highest for the yearly rule, followed by the monthly, and then the weekly rule. Default retention settings are applied when no other rules qualify. For example, the same recovery point may be the first successful backup taken every week as well as the first successful backup taken every month. However, as the monthly rule priority is higher than that of the weekly rule, the retention corresponding to the first successful backup taken every month applies.
+>- By default, the retention rule is set to *3 months* if no retention rule is set.
+  
+## Create a backup policy for the Azure MySQL - Flexible Server database backup
 
-
-## Create a backup policy for the Azure MySQL - Flexible database backup
-
-To create the backup policy, follow these steps:
+To create a backup policy, follow these steps:
 
 1. [Create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
 
@@ -31,8 +35,7 @@ To create the backup policy, follow these steps:
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/schedule-retention-final.png" alt-text="Screenshot shows the process to configure the backup schedule." lightbox="./media/backup-azure-mysql-flexible-server/schedule-retention-final.png":::
 
-   >[!Note]
-   >Currently, this feature supports only the *Weekly backup* option. However, you can schedule the backups on multiple days of the week. 
+   
 
 6. Define the **Retention** settings.
 
@@ -47,8 +50,7 @@ To create the backup policy, follow these steps:
    >[!Note]
    >- Retention duration ranges from *7 days* to *10 years* in the *Backup data store*.
    >- The retention rules are evaluated in a pre-determined order of priority. The priority is the highest for the yearly rule, followed by the monthly, and then the weekly rule. Default retention settings are applied when no other rules qualify. For example, the same recovery point may be the first successful backup taken every week as well as the first successful backup taken every month. However, as the monthly rule priority is higher than that of the weekly rule, the retention corresponding to the first successful backup taken every month applies.
-   >- The default retention rule is applied if no retention rule is set, and the value is set to *3 months*.
-    
+   >- By default, the retention rule is set to *3 months* if no retention rule is set. 
 8. Select **Create**.   
 
 ## Configure backup on Azure Database for MySQL - Flexible Server
@@ -92,11 +94,11 @@ To configure backup, follow these steps:
 7. Track the progress under **Backup Instances**.
 
 
-## Run an on-demand backup.
+## Run an on-demand backup
 
 To trigger an on-demand backup (that's not in the schedule specified in the policy), follow these steps:
 
-1. Go to **Backup Instances**, select the *backup instance* for which you want to take backup.
+1. Go to **Backup Instances**, and then select the *backup instance* for which you want to take backup.
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/backup-instances.png" alt-text="Screenshot shows how to run an on-demand backup." lightbox="./media/backup-azure-mysql-flexible-server/backup-instances.png":::
 
@@ -105,15 +107,15 @@ To trigger an on-demand backup (that's not in the schedule specified in the poli
 4. Select **Backup now**.
  
 
-## Monitor a backup job.
+## Monitor a backup job
 
-Azure Backup creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status, go to the **Backup Jobs**.
+Azure Backup creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status, go to **Backup Jobs**.
 
 :::image type="content" source="./media/backup-azure-mysql-flexible-server/track-backup-jobs.png" alt-text="Screenshot shows the list of backup jobs." lightbox="./media/backup-azure-mysql-flexible-server/track-backup-jobs.png":::
 
-It shows the jobs dashboard with operation and status for the *past seven days*. You can select time range and other filters to narrow down your selection.
+It shows the jobs dashboard with the operations and status for the *past seven days*. You can select the time range and other filters to narrow down your selection.
  
-To view the status of the all-backup jobs, select **All** as the **Status** to see ongoing and past jobs of this backup instance.
+To view the status of all the backup jobs, select **All** as the **Status** to see the ongoing and past jobs of this backup instance.
 
 :::image type="content" source="./media/backup-azure-mysql-flexible-server/review-track-backup-jobs.png" alt-text="Screenshot shows how to view all jobs." lightbox="./media/backup-azure-mysql-flexible-server/review-track-backup-jobs.png":::
 
@@ -121,4 +123,4 @@ To view the status of the all-backup jobs, select **All** as the **Status** to s
 ## Next steps
 
 - [Restore the Azure Database for MySQL - Flexible Server (preview)](backup-azure-mysql-flexible-server-restore.md)
-- 
+ 
