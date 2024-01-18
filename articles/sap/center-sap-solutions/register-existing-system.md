@@ -104,7 +104,7 @@ To secure the managed storage account and limit access to only the virtual netwo
 > [!IMPORTANT]
 > When you limit storage account network access to specific virtual networks, you have to configure Microsoft.Storage [service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) on all subnets related to the SAP system that you are registering. Without the service endpoint enabled, you will not be able to successfully register the system. Private endpoint on managed storage account is not currently supported in this scenario. 
 
-When you choose to limit network access to specific virtual networks, Azure Center for SAP solutions service accesses this storage account using [**trusted access**](../../storage/common/storage-network-security?tabs=azure-portal#grant-access-to-trusted-azure-services) based on the managed identity associated with the VIS resource.
+When you choose to limit network access to specific virtual networks, Azure Center for SAP solutions service accesses this storage account using [**trusted access**](../../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services) based on the managed identity associated with the VIS resource.
 
 ## Register SAP system
 
