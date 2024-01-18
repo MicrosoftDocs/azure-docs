@@ -42,7 +42,7 @@ In addition to already flowing [VM availability states](https://docs.microsoft.c
 
 #### Sample Queries
 
-- [Azure Resource Graph sample queries for Azure Service Health - Azure Service Health | Microsoft Learn](https://learn.microsoft.com/en-us/azure/service-health/resource-graph-samples?tabs=azure-cli#resource-health)
+- [Azure Resource Graph sample queries for Azure Service Health - Azure Service Health | Microsoft Learn](../service-health/resource-graph-samples.md#resource-health)
 - [VM availability information in Azure Resource Graph - Azure Virtual Machines | Microsoft Learn](resource-graph-availability.md)
 - [List of sample Azure Resource Graph queries by table - Azure Resource Graph | Microsoft Learn](https://learn.microsoft.com/en-us/azure/governance/resource-graph/samples/samples-by-table?tabs=azure-cli#healthresources)
 
