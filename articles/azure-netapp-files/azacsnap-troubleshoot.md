@@ -2,15 +2,9 @@
 title: Troubleshoot Azure Application Consistent Snapshot tool - Azure NetApp Files
 description: Troubleshoot communication issues, test failures, and other SAP HANA issues when using the Azure Application Consistent Snapshot (AzAcSnap) tool.
 services: azure-netapp-files
-documentationcenter: ''
 author: Phil-Jensen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 01/16/2023
 ms.author: phjensen

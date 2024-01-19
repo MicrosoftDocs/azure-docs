@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 12/01/2023
 ms.author: simranparkhe
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Quickstart: Create a confidential VM with the Azure CLI
@@ -88,7 +88,7 @@ To create a confidential [disk encryption set](../virtual-machines/linux/disks-e
 For this step you need to be a Global Admin or you need to have the User Access Administrator RBAC role. [Install Microsoft Graph SDK](/powershell/microsoftgraph/installation) to execute the commands below.
   ```Powershell
   Connect-Graph -Tenant "your tenant ID" Application.ReadWrite.All
-  New-MgServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"    
+  New-MgServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"
   ```
 2.  Create an Azure Key Vault using the [az keyvault create](/cli/azure/keyvault) command. For the pricing tier, select Premium (includes support for HSM backed keys). Make sure that you have an owner role in this key vault.
   ```azurecli-interactive
@@ -152,7 +152,7 @@ It takes a few minutes to create the VM and supporting resources. The following 
 }
 ```
 Make a note of the `publicIpAddress` to use later.
-  
+
 ## Connect and attest the AMD-based CVM through Microsoft Azure Attestation Sample App
 
 To use a sample application in C++ for use with the guest attestation APIs, use the following steps. This example uses a Linux confidential virtual machine. For Windows, see [build instructions for Windows](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-attestation-sample-app).
@@ -163,11 +163,11 @@ To use a sample application in C++ for use with the guest attestation APIs, use 
 
 3. Install the `build-essential` package. This package installs everything required for compiling the sample application.
 ```bash
-sudo apt-get install build-essential 
+sudo apt-get install build-essential
 ```
 4. Install the packages below.
 ```bash
-sudo apt-get install libcurl4-openssl-dev 
+sudo apt-get install libcurl4-openssl-dev
 sudo apt-get install libjsoncpp-dev
 sudo apt-get install libboost-all-dev
 sudo apt install nlohmann-json3-dev

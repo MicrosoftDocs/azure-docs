@@ -7,7 +7,6 @@ manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 01/03/2024
-keywords: 
 ---
 
 <a href="https://github.com/openai/openai-python" target="_blank">Library source code</a> | <a href="https://pypi.org/project/openai/" target="_blank">Package (PyPi)</a> |
