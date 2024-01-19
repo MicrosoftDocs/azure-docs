@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/22/2023
+ms.date: 01/18/2024
 ---
 
 # Copy data from Google Ads using Azure Data Factory or Synapse Analytics
@@ -19,7 +19,7 @@ ms.date: 12/22/2023
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Google Ads. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!Important]
-> It is highly recommended to [upgrade your Google Ads driver version](#upgrade-the-google-ads-driver-version).
+> It is highly recommended to [upgrade your Google Ads driver version](#upgrade-the-google-ads-driver-version) before **February 18, 2024**.
 
 ## Supported capabilities
 
@@ -78,15 +78,22 @@ The following properties are supported for Google Ads linked service:
 | clientCustomerID | The Client customer ID of the Ads account that you want to fetch report data for.  | Yes |
 | loginCustomerID | The customer ID of the Google Ads manager account through which you want to fetch report data of specific customer.| No |
 | developerToken | The developer token associated with the manager account that you use to grant access to the Ads API.  You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
-| authenticationType | The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR. <br/>Allowed values are: **ServiceAuthentication**, **UserAuthentication** | Yes |
+| authenticationType | The OAuth 2.0 authentication mechanism used for authentication. <br/>Allowed values are: **ServiceAuthentication**, **UserAuthentication**. <br/>ServiceAuthentication can only be used on self-hosted IR. | Yes |
 | refreshToken | The refresh token obtained from Google for authorizing access to Ads for UserAuthentication. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | clientId | The client ID of the Google application used to acquire the refresh token. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | clientSecret | The client secret of the google application used to acquire the refresh token. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | email | The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.  | No |
 | privateKey | The service private key that is used for ServiceAuthentication for recommended driver version and can only be used on self-hosted IR. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md).| No |
-| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Specify this property when you use ServiceAuthentication for the legacy driver version. | No |
-| trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over TLS. This property can only be set when using TLS on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Specify this property when you use ServiceAuthentication for the legacy driver version. | No |
-| useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Specify this property when you use ServiceAuthentication for the legacy driver version. | No |
+
+If you use ServiceAuthentication for the legacy driver version, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| email | The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.  | No |
+| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address and can only be used on self-hosted IR. | No |
+| trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over TLS. This property can only be set when using TLS on self-hosted IR. The default value is the cacerts.pem file installed with the IR. | No |
+| useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. | No |
+
 
 **Example:**
 
@@ -258,6 +265,61 @@ Here are the concrete examples of the field name conversion:
 | Resource fields | `Customer_conversionTrackingSetting_conversionTrackingStatus` | `customer.conversion_tracking_setting.conversion_tracking_status` | 
 | Segments | `DayOfWeek` | `segments.day_of_week` | 
 | Metrics | `VideoViews` | `metrics.video_views` | 
+
+
+## Migrate Google AdWords connector to Google Ads connector 
+
+Migrate your Google AdWords linked service to the latest Google Ads linked service following the steps below:
+
+1. Select **Recommended** as driver version to create a new Google Ads linked service and configure it by referring to [Linked service properties](connector-google-adwords.md#linked-service-properties). 
+1. Update your pipelines that refer to the legacy Google AdWords linked service. Considering that the Google Ads linked service only supports using query to copy data, so:
+    1. If your pipeline is directly retrieving data from the report of Google AdWords, find the corresponding resource name of Google Ads in the table below and use this [tool](https://developers.google.com/google-ads/api/fields/v15/overview_query_builder) to build the query.
+        
+        | Google AdWords report| Google Ads resource |
+        |---------| --------|
+        | ACCOUNT_PERFORMANCE_REPORT | customer |  
+        | AD_PERFORMANCE_REPORT | ad_group_ad |  
+        | ADGROUP_PERFORMANCE_REPORT | ad_group |  
+        | AGE_RANGE_PERFORMANCE_REPORT | age_range_view | 
+        | AUDIENCE_PERFORMANCE_REPORT | campaign_audience_view,ad_group_audience_view | 
+        | AUTOMATIC_PLACEMENTS_PERFORMANCE_REPORT | group_placement_view |  
+        | BID_GOAL_PERFORMANCE_REPORT | bidding_strategy | 
+        | BUDGET_PERFORMANCE_REPORT | campaign_budget |  
+        | CALL_METRICS_CALL_DETAILS_REPORT | call_view | 
+        | CAMPAIGN_AD_SCHEDULE_TARGET_REPORT | ad_schedule_view |  
+        | CAMPAIGN_CRITERIA_REPORT | campaign_criterion | 
+        | CAMPAIGN_PERFORMANCE_REPORT | campaign | 
+        | CAMPAIGN_SHARED_SET_REPORT | campaign_shared_set |  
+        | CAMPAIGN_LOCATION_TARGET_REPORT | location_view | 
+        | CLICK_PERFORMANCE_REPORT | click_view | 
+        | DISPLAY_KEYWORD_PERFORMANCE_REPORT | display_keyword_view | 
+        | DISPLAY_TOPICS_PERFORMANCE_REPORT | topic_view |  
+        | GENDER_PERFORMANCE_REPORT | gender_view |  
+        | GEO_PERFORMANCE_REPORT | geographic_view,user_location_view |  
+        | KEYWORDLESS_QUERY_REPORT | dynamic_search_ads_search_term_view | 
+        | KEYWORDS_PERFORMANCE_REPORT | keyword_view |  
+        | LABEL_REPORT | label |  
+        | LANDING_PAGE_REPORT | landing_page_view,expanded_landing_page_view | 
+        | PAID_ORGANIC_QUERY_REPORT | paid_organic_search_term_view |  
+        | PARENTAL_STATUS_PERFORMANCE_REPORT | parental_status_view |  
+        | PLACEHOLDER_FEED_ITEM_REPORT | feed_item,feed_item_target |  
+        | PLACEHOLDER_REPORT | feed_placeholder_view | 
+        | PLACEMENT_PERFORMANCE_REPORT | managed_placement_view | 
+        | PRODUCT_PARTITION_REPORT | product_group_view | 
+        | SEARCH_QUERY_PERFORMANCE_REPORT | search_term_view |  
+        | SHARED_SET_CRITERIA_REPORT | shared_criterion |  
+        | SHARED_SET_REPORT | shared_set |  
+        | SHOPPING_PERFORMANCE_REPORT | shopping_performance_view | 
+        | TOP_CONTENT_PERFORMANCE_REPORT | No longer available in the Google Ads API. | 
+        | URL_PERFORMANCE_REPORT | detail_placement_view |  
+        | USER_AD_DISTANCE_REPORT | distance_view |  
+        | VIDEO_PERFORMANCE_REPORT | video | 
+
+    1. If the pipeline is using query to retrieve data from Google AdWords, use [Query Migration tool](https://developers.google.com/google-ads/scripts/docs/reference/query-migration-tool) to translate the AWQL (AdWords Query Language) into GAQL (Google Ads Query Language). 
+
+1. Be aware that there are certain limitations with this migration: 
+    1. Not all report types from AWQL are supported in GAQL. 
+    1. Not all AWQL queries are cleanly translated to GAQL queries.  
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
