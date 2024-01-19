@@ -242,7 +242,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME \
-        --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $DATASET_ID
+        --set inputs.heart_dataset.type="uri_folder" inputs.heart_dataset.path=$DATASET_ID
     ```
 
     For an endpoint that serves a model deployment, you can use the `--input` argument to specify the data input, since a model deployment always requires only one data input.
@@ -387,7 +387,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME \
-        --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $INPUT_PATH
+        --set inputs.heart_dataset.type="uri_folder" inputs.heart_dataset.path=$INPUT_PATH
     ```
 
     For an endpoint that serves a model deployment, you can use the `--input` argument to specify the data input, since a model deployment always requires only one data input.
@@ -532,7 +532,7 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME \
-        --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $INPUT_DATA
+        --set inputs.heart_dataset.type="uri_folder" inputs.heart_dataset.path=$INPUT_DATA
     ```
 
     For an endpoint that serves a model deployment, you can use the `--input` argument to specify the data input, since a model deployment always requires only one data input.
@@ -621,7 +621,7 @@ You can also use the argument `--set` to specify the value. However, it tends to
 
 ```azurecli
 az ml batch-endpoint invoke --name $ENDPOINT_NAME \
-    --set inputs.score_mode.type string inputs.score_mode.default append
+    --set inputs.score_mode.type="string" inputs.score_mode.default="append"
 ```
 
 # [Python](#tab/sdk)
@@ -732,7 +732,7 @@ The following example shows how to change the location where an output named `sc
             },
             "OutputData": {
                 "score": {
-                    "JobOutputType" : "UriFolder",
+                    "JobOutputType" : "UriFile",
                     "Uri": "azureml:/subscriptions/<subscription>/resourceGroups/<resource-group/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/datastores/<data-store>/paths/<data-path>"
                 }
             }
@@ -752,8 +752,8 @@ The following example shows how to change the location where an output named `sc
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME \
-        --set inputs.heart_dataset.path $INPUT_PATH \
-        --set outputs.score.path $OUTPUT_PATH
+        --set inputs.heart_dataset.path=$INPUT_PATH \
+        --set outputs.score.path=$OUTPUT_PATH
     ```
    
     # [Python](#tab/sdk)

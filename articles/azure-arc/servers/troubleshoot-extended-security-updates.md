@@ -57,36 +57,44 @@ If you're unable to enable this service offering, review the resource providers 
 
 Ensure that both the licensing package and servicing stack update (SSU) are downloaded for the Azure Arc-enabled server as documented at [KB5031043: Procedure to continue receiving security updates after extended support has ended on October 10, 2023](https://support.microsoft.com/topic/kb5031043-procedure-to-continue-receiving-security-updates-after-extended-support-has-ended-on-october-10-2023-c1a20132-e34c-402d-96ca-1e785ed51d45). Ensure you are following all of the networking prerequisites as recorded at [Prepare to deliver Extended Security Updates for Windows Server 2012](prepare-extended-security-updates.md?tabs=azure-cloud#networking).
 
-
-### Error: Trying to check IMDS again (HRESULT 12002)
+### Error: Trying to check IMDS again (HRESULT 12002 or 12029)
 
 If installing the Extended Security Update enabled by Azure Arc fails with errors such as "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12029)" or "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12002)", you may need to update the intermediate certificate authorities trusted by your computer using one of the following two methods:
 
-1. Configure your network firewall and/or proxy server to allow access from the Windows Server 2012 (R2) machines to `https://microsoft.com/pkiops/certs`. This will allow the machine to automatically retrieve updated intermediate certificates as required and is Microsoft's preferred approach.
-1. Download all intermediate CAs from a machine with internet access, copy them to each Windows Server 2012 (R2) machine, and import them to the machine's intermediate certificate authority store:
-    1. Download the 4 intermediate CA certificates:
-        1. [Microsoft Azure TLS Issuing CA 01](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2001%20-%20xsign.crt)
-        1. [Microsoft Azure TLS Issuing CA 02](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2002%20-%20xsign.crt)
-        1. [Microsoft Azure TLS Issuing CA 05](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2005%20-%20xsign.crt)
-        1. [Microsoft Azure TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2006%20-%20xsign.crt)
-    1. Copy the certificate files to your Windows Server 2012 (R2) machine.
-    1. Run the following commands in an elevated command prompt or PowerShell session to add the certificates to the "Intermediate Certificate Authorities" store for the local computer. The command should be run from the same directory as the certificate files. The commands are idempotent and won't make any changes if you've already imported the certificate:
+#### Option 1: Allow access to the PKI URL
 
-        ```powershell
-        certstore -addstore CA "Microsoft Azure TLS Issuing CA 01 - xsign.crt"
-        certstore -addstore CA "Microsoft Azure TLS Issuing CA 02 - xsign.crt"
-        certstore -addstore CA "Microsoft Azure TLS Issuing CA 05 - xsign.crt"
-        certstore -addstore CA "Microsoft Azure TLS Issuing CA 06 - xsign.crt"
-        ```
+Configure your network firewall and/or proxy server to allow access from the Windows Server 2012 (R2) machines to `http://www.microsoft.com/pkiops/certs` and `https://www.microsoft.com/pkiops/certs` (both TCP 80 and 443). This will enable the machines to automatically retrieve any missing intermediate CA certificates from Microsoft.
 
-After allowing the servers to reach the PKI URL or manually importing the intermediate certificates, try installing the Extended Security Updates again using Windows Update or your preferred patch management software. You may need to reboot your computer for the changes to take effect.
+Once the network changes are made to allow access to the PKI URL, try installing the Windows updates again. You may need to reboot your computer for the automatic installation of certificates and validation of the license to take effect.
+
+#### Option 2: Manually download and install the intermediate CA certificates
+
+If you're unable to allow access to the PKI URL from your servers, you can manually download and install the certificates on each machine.
+
+1. On any computer with internet access, download these intermediate CA certificates:
+    1. [Microsoft Azure TLS Issuing CA 01](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2001%20-%20xsign.crt)
+    1. [Microsoft Azure TLS Issuing CA 02](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2002%20-%20xsign.crt)
+    1. [Microsoft Azure TLS Issuing CA 05](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2005%20-%20xsign.crt)
+    1. [Microsoft Azure TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2006%20-%20xsign.crt)
+1. Copy the certificate files to your Windows Server 2012 (R2) machines.
+1. Run the following commands in an elevated command prompt or PowerShell session to add the certificates to the "Intermediate Certificate Authorities" store for the local computer. The command should be run from the same directory as the certificate files. The commands are idempotent and won't make any changes if you've already imported the certificate:
+
+    ```powershell
+    certstore -addstore CA "Microsoft Azure TLS Issuing CA 01 - xsign.crt"
+    certstore -addstore CA "Microsoft Azure TLS Issuing CA 02 - xsign.crt"
+    certstore -addstore CA "Microsoft Azure TLS Issuing CA 05 - xsign.crt"
+    certstore -addstore CA "Microsoft Azure TLS Issuing CA 06 - xsign.crt"
+    ```
+
+1. Try installing the Windows updates again. You may need to reboot your computer for the validation logic to recognize the newly imported intermediate CA certificates.
 
 ### Error: Not eligible (HRESULT 1633)
 
 If you encounter the error "ESU: not eligible HRESULT_FROM_WIN32(1633)", follow these steps:
 
-`Remove-Item “$env:ProgramData\AzureConnectedMachineAgent\Certs\license.json” -Force`
-
-`Restart-Service himds`
+```powershell
+Remove-Item "$env:ProgramData\AzureConnectedMachineAgent\Certs\license.json" -Force
+Restart-Service himds
+```
 
 If you have other issues receiving ESUs after successfully enrolling the server through Arc-enabled servers, or you need additional information related to issues affecting ESU deployment, see [Troubleshoot issues in ESU](/troubleshoot/windows-client/windows-7-eos-faq/troubleshoot-extended-security-updates-issues).

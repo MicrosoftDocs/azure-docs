@@ -2,14 +2,10 @@
 title: Set up sign-up and sign-in with an Amazon account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Amazon accounts in your applications using Azure Active Directory B2C.
-
 author: garrodonnell
 manager: CelesteDG
-
 ms.service: active-directory
-
 ms.topic: how-to
-ms.custom: 
 ms.date: 09/16/2021
 ms.author: godonnell
 ms.subservice: B2C

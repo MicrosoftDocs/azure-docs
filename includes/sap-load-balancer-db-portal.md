@@ -4,7 +4,7 @@ description: include file
 services: load-balancer
 ms.service: sap-on-azure
 ms.topic: include
-ms.date: 01/16/2024
+ms.date: 01/17/2024
 author: dennispadia
 ms.author: depadia
 ---
@@ -22,6 +22,7 @@ Follow [create load balancer](../articles/load-balancer/quickstart-load-balancer
        - Protocol: TCP
        - Port: [for example: 625<instance-no.>]
        - Interval: 5
+       - Probe Threshold: 2
      - Idle timeout (minutes): 30
      - Check "Enable Floating IP"
 
