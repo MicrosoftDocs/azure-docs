@@ -117,7 +117,7 @@ To allow access to your Azure OpenAI service from your client machines, like usi
 
 ## Configure Azure AI Search
 
-You can use basic pricing tier and higher for the configuration below. You don’t have to use S2 pricing tier because the configuration doesn't require *private endpoint support for indexers with a skill set*. See [step 8](#data-ingestion-architecture) of the data ingestion architecture diagram. The networking for custom skill is *Bypass trusted service*, not *private endpoint*.
+You can use basic pricing tier and higher for the configuration below. You don’t have to use S2 pricing tier because the configuration doesn't require *private endpoint support for indexers with a skill set*. See [step 8](#data-ingestion-architecture) of the data ingestion architecture diagram. The networking for custom skill is *bypass trusted service*, not *private endpoint*.
 
 ### Enable managed identity
 
