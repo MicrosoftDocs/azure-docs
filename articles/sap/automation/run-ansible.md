@@ -216,7 +216,7 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ```
 
-### Operating system configuration
+## Operating system configuration
 
 The operating system configuration playbook is used to configure the operating system of the SAP virtual machines. The playbook performs the following tasks.
 
@@ -312,7 +312,7 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ---
 
-### SAP-specific operating system configuration
+## SAP-specific operating system configuration
 
 The SAP-specific operating system configuration playbook is used to configure the operating system of the SAP virtual machines. The playbook performs the following tasks.
 
@@ -394,7 +394,7 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ---
 
-### Local software download
+## Local software download
 
 This playbook downloads the installation media from the control plane to the installation media source. The installation media can be shared out from the central services instance or from Azure Files or Azure NetApp Files.
 
@@ -470,7 +470,7 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 ```
 ---
 
-### SAP Central Services & High Availability Configuration
+## SAP Central Services & High Availability Configuration
 
 This playbook will perform the Central Services installation. For High availability scenarios, the playbook will also configure the Pacemaker cluster needed for SAP Central Services for high availability on Linux and Windows Failover Clustering for Windows.
 
@@ -550,7 +550,7 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ---
 
-### Database Installation
+## Database Installation
 
 This playbook will perform the Database server installation.
 
@@ -626,5 +626,166 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ```
 
+---
+
+## Database Load
+
+This playbook will perform the Database load.
+
+You can either run the playbook using the DevOps Pipeline 'Configuration and SAP installation' choosing 'Database Load', or the configuration menu script 'configuration_menu.sh' or directly from the command line.
+
+
+
+# [Linux](#tab/linux)
+
+The following tasks are executed by this play:
+
+- Database load.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                   sap_sid=L00
+export  ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars ansible_ssh_pass='{{ lookup("env", "ANSIBLE_PASSWORD") }}'
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+
+# Run the playbook to download the software from the SAP Library
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_05_01_sap_dbload.yaml
+
+```
+
+
+# [Windows](#tab/windows)
+
+The following tasks are executed by this play:
+
+- Database load.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                   sap_sid=L00
+export       workload_vault_name="LABSECESAP04user###"
+export  ANSIBLE_PRIVATE_KEY_FILE=sshkey
+                          prefix="LAB-SECE-SAP04"
+
+password_secret_name=$prefix-sid-password
+
+password_secret=$(az keyvault secret show --vault-name ${workload_vault_name} --name ${password_secret_name} --query value --output table)
+export ANSIBLE_PASSWORD=$password_secret
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars ansible_ssh_pass='{{ lookup("env", "ANSIBLE_PASSWORD") }}'
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+
+# Run the playbook to download the software from the SAP Library
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_05_01_sap_dbload.yaml
+
+```
+
 
 ---
+
+## Database High Availability Configuration
+
+This playbook will perform the Database server high availability configuration.
+
+You can either run the playbook using the DevOps Pipeline 'Configuration and SAP installation' choosing 'Database High Availability Configuration', or the configuration menu script 'configuration_menu.sh' or directly from the command line.
+
+
+
+# [Linux](#tab/linux)
+
+The following tasks are executed by this play:
+
+- Database high availability configuration.
+- For HANA, the playbook will also configure the Pacemaker cluster needed for SAP HANA for high availability on Linux and configure HANA System replication.
+- For Oracle, the playbook will also configure Oracle Data Guard.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                   sap_sid=L00
+export  ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars ansible_ssh_pass='{{ lookup("env", "ANSIBLE_PASSWORD") }}'
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+
+# Run the playbook to download the software from the SAP Library
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_04_00_01_db_ha.yaml
+
+```
+
+
+# [Windows](#tab/windows)
+
+The following tasks are executed by this play:
+
+- Database high availability configuration.
+- SQL Server Always On Availability Group configuration.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                   sap_sid=L00
+export       workload_vault_name="LABSECESAP04user###"
+export  ANSIBLE_PRIVATE_KEY_FILE=sshkey
+                          prefix="LAB-SECE-SAP04"
+
+password_secret_name=$prefix-sid-password
+
+password_secret=$(az keyvault secret show --vault-name ${workload_vault_name} --name ${password_secret_name} --query value --output table)
+export ANSIBLE_PASSWORD=$password_secret
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars ansible_ssh_pass='{{ lookup("env", "ANSIBLE_PASSWORD") }}'
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+
+# Run the playbook to download the software from the SAP Library
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_04_00_01_db_ha.yaml
+
+```
+
+
+---
+
