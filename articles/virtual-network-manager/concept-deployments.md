@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 01/19/2023
+ms.date: 03/22/2023
 ms.custom: template-concept
 ---
 
@@ -32,7 +32,9 @@ Deployment latency is the time it takes for a deployment configuration to be app
 
 - The time to receive a notification of network group membership can vary. 
 
-For manually added members, notification is immediate. For policies adding dynamic members with a smaller scope of subscriptions and impacted resources, notification takes a few minutes. In environments with larger policies covering numerous subscriptions, evaluation and propagation can take time, so there's no predefined expectation of when the evaluation cycle completes. For more understanding of the Azure Policy evaluation cycle, see [Azure Policy evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+For manually added members, notification is immediate. For dynamic members where the scope is less than 1000 subscriptions, notification takes a few minutes. In environments with more than 1000 subscriptions, the notification mechanism works in a 24-hour window. Changes to network groups take effect without the need for configuration redeployment.   
+
+Virtual network manager applies the configuration to the virtual networks in the network group even if your network group consists of dynamic members from more than 1000 subscriptions. When the virtual network manager is notified of group membership, the configuration is applied in a few minutes. 
 
 ## Deployment status
 
