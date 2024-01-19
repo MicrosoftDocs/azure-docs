@@ -2,15 +2,9 @@
 title: What's new in Azure NetApp Files | Microsoft Docs
 description: Provides a summary about the latest new features and enhancements of Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.custom: devx-track-linux
 ms.topic: overview
 ms.date: 11/27/2023
