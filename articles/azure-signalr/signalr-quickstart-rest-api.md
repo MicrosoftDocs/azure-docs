@@ -158,7 +158,6 @@ Version | API HTTP Method | Request URL | Request body
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>` | `{"target": "<method-name>", "arguments": [...]}`
-`1.0` 
 
 <a name="broadcast-group"> </a>
 ### Broadcast to a group
@@ -166,8 +165,7 @@ Version | API HTTP Method | Request URL | Request body
 Version | API HTTP Method | Request URL | Request body
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/group/<group-name>` | `{"target": "<method-name>", "arguments": [...]}`
-`1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>` | 
-`1.0` 
+`1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>` | `{"target": "<method-name>", "arguments": [...]}`
 
 <a name="send-user"> </a>
 ### Sending to a user
@@ -176,7 +174,6 @@ Version | API HTTP Method | Request URL | Request body
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/user/<user-id>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>` |  `{"target": "<method-name>", "arguments": [...]}`
-`1.0` 
 
 <a name="add-user-to-group"> </a>
 ### Adding a user to a group
