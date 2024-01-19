@@ -22,9 +22,6 @@ Create variables to hold the resource names by using the following commands. Be 
 export LOCATION=<location>
 export RESOURCE_GROUP=myresourcegroup
 export SPRING_APPS=myasa
-export APPLICATION_INSIGHTS=<application-insights-name>
-export SPRING_WORKSPACE=<log-analytics-workspace-name-for-spring-apps>
-export INSIGHTS_WORKSPACE=<log-analytics-workspace-name-for-application-insight>
 export APP_FRONTEND=frontend
 export APP_CUSTOMERS_SERVICE=customers-service
 export APP_VETS_SERVICE=vets-service
@@ -113,75 +110,48 @@ Use the following steps to create the service instance:
 
 ### 3.6. Configure the Azure Spring Apps instance
 
-1. Use the following commands to create Log Analytics Workspace to be used for your Azure Spring Apps service and Application Insights:
-
-   ```azurecli
-   az monitor log-analytics workspace create \
-       --workspace-name ${SPRING_WORKSPACE}
-   az monitor log-analytics workspace create \
-       --workspace-name ${INSIGHTS_WORKSPACE}
-   ```
-
-1. Use the following command to create Application Insights to be used for your Azure Spring Apps instance:
-
-   ```azurecli
-   az monitor app-insights component create \
-       --app ${APPLICATION_INSIGHTS} \
-       --workspace ${INSIGHTS_WORKSPACE}
-   ```
-
 1. Use the following command to configure diagnostic settings for the Azure Spring Apps instance:
 
    ```azurecli
-      export SPRING_APPS_RESOURCE_ID=$(az spring show --name ${SPRING_APPS} --query id --output tsv)
-      az monitor diagnostic-settings create --name logs-and-metrics \
-          --resource ${SPRING_APPS_RESOURCE_ID} --workspace ${SPRING_WORKSPACE} \
-          --logs '[
-            {
-              "category": "ApplicationConsole",
-              "enabled": true,
-              "retentionPolicy": {
-                "enabled": false,
-                "days": 0
-              }
-            },
-            {
-               "category": "SystemLogs",
-               "enabled": true,
-               "retentionPolicy": {
-                 "enabled": false,
-                 "days": 0
-               }
-            },
-            {
-               "category": "IngressLogs",
-               "enabled": true,
-               "retentionPolicy": {
-                 "enabled": false,
-                 "days": 0
-                }
+   export SPRING_APPS_RESOURCE_ID=$(az spring show --name ${SPRING_APPS} --query id --output tsv)
+   az monitor diagnostic-settings create --name logs-and-metrics \
+       --resource ${SPRING_APPS_RESOURCE_ID} --workspace ${SPRING_APPS} \
+       --logs '[
+         {
+           "category": "ApplicationConsole",
+           "enabled": true,
+           "retentionPolicy": {
+             "enabled": false,
+             "days": 0
+           }
+         },
+         {
+            "category": "SystemLogs",
+            "enabled": true,
+            "retentionPolicy": {
+              "enabled": false,
+              "days": 0
             }
-          ]' \
-          --metrics '[
-            {
-              "category": "AllMetrics",
-              "enabled": true,
-              "retentionPolicy": {
-                "enabled": false,
-                "days": 0
-              }
-            }
-          ]'
-   ```
-
-1. Use the following commands to create the Application Insights buildpack bindings:
-
-   ```azurecli
-   export INSIGHTS_CONNECTION_STRING=$(az monitor app-insights component show \
-       --app ${APPLICATION_INSIGHTS} --query connectionString --output tsv)
-   az spring build-service builder buildpack-binding set --service ${SPRING_APPS} \
-       --name default --builder-name default --type ApplicationInsights \
-       --properties sampling-percentage=10 connection-string=${INSIGHTS_CONNECTION_STRING}
+         },
+         {
+            "category": "IngressLogs",
+            "enabled": true,
+            "retentionPolicy": {
+              "enabled": false,
+              "days": 0
+             }
+         }
+       ]' \
+       --metrics '[
+         {
+           "category": "AllMetrics",
+           "enabled": true,
+           "retentionPolicy": {
+             "enabled": false,
+             "days": 0
+           }
+         }
+       ]'
    ```
 
 1. Use the following commands to create applications for the Azure Spring Apps instance:
