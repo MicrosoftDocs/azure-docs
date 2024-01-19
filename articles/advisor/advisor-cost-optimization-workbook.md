@@ -40,7 +40,7 @@ Each tab supports the following capabilities:
 *	**Export** - export the recommendations to share the insights and collaborate with your team more effectively.
 *	**Quick Fix** - apply the recommended optimization directly from the workbook page, streamlining the optimization process.
 
-:::image type="content" source="./media/advisor-cost-optimization-workbook-overview.png" alt-text=" Sample Advisor Workbook showing the different available tabs on the main screen and highlighting the goal of the workbook." lightbox="./media/ advisor-cost-optimization-workbook-overview.png"::: 
+:::image type="content" source="./media/advisor-cost-optimization-workbook-overview.png" alt-text=" Sample Advisor Workbook showing the different available tabs on the main screen and highlighting the goal of the workbook." lightbox="./media/advisor-cost-optimization-workbook-overview.png"::: 
 
 > [!NOTE]
 > The workbook serves as guidance and doesn't guarantee cost reduction.
@@ -67,7 +67,7 @@ Potentially, you could enhance the reliability of your workloads by reinvesting 
 
 The Rate Optimization tab focuses on reviewing potential savings related to the rate optimization of your Azure services.
 
-:::image type="content" source="./media/ advisor-cost-optimization-workbook-rate-optimization.png" alt-text=" Advisor Cost Optimization Workbook with the Rate Optimization tab selected." lightbox="./media/ advisor-cost-optimization-workbook-rate-optimization.png" ::: 
+:::image type="content" source="./media/advisor-cost-optimization-workbook-rate-optimization.png" alt-text=" Advisor Cost Optimization Workbook with the Rate Optimization tab selected." lightbox="./media/advisor-cost-optimization-workbook-rate-optimization.png" ::: 
 
 ### Azure Hybrid Benefit
 
@@ -86,17 +86,17 @@ If you have Software Assurance, you can enable [Hybrid Benefit](../windows-serve
 
 #### Linux VM/VMSS
 
-[Azure Hybrid Benefit for Linux](../virtual-machines/linux/azure-hybrid-benefit-linux.md) is a licensing benefit that helps you to significantly reduce the costs of running your Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud.
+[Azure Hybrid Benefit for Linux](https://learn.microsoft.com/windows-server/get-started/azure-hybrid-benefit) is a licensing benefit that helps you to significantly reduce the costs of running your Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud.
 
 #### SQL
 
 Azure Hybrid Benefit represents an excellent opportunity to save costs on SQL instances.
-If you have Software Assurance, you can enable [SQL Hybrid Benefit](../azure-sql/azure-hybrid-benefit.md).
+If you have Software Assurance, you can enable [SQL Hybrid Benefit](https://learn.microsoft.com/azure/azure-sql/azure-hybrid-benefit).
 You can see potential savings using [Azure Hybrid Benefit Calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator).
 
 #### Azure Stack HCI
 
-Azure Hybrid Benefit represents an excellent opportunity to save costs on Azure Stack HCI. If you have Software Assurance, you can enable [Azure Stack HCI Hybrid Benefit](../azure-stack/hci/concepts/azure-hybrid-benefit-hci.md).
+Azure Hybrid Benefit represents an excellent opportunity to save costs on Azure Stack HCI. If you have Software Assurance, you can enable [Azure Stack HCI Hybrid Benefit](https://learn.microsoft.com/azure-stack/hci/concepts/azure-hybrid-benefit-hci).
 
 ### Azure Reservations
 
@@ -110,7 +110,7 @@ Review Azure savings plan for compute cost saving opportunities. Use filters for
 
 The Usage Optimization tab focuses on reviewing potential savings related to usage optimization of your Azure services.
 
-:::image type="content" source="./media/advisor-cost-optimization-workbook-usage-optimization.png" alt-text=" Advisor Cost Optimization Workbook with the Usage Optimization tab selected." lightbox="./media/ advisor-cost-optimization-workbook-usage-optimization.png" :::
+:::image type="content" source="./media/advisor-cost-optimization-workbook-usage-optimization.png" alt-text=" Advisor Cost Optimization Workbook with the Usage Optimization tab selected." lightbox="./media/advisor-cost-optimization-workbook-usage-optimization.png" :::
 
 ### Compute
 
@@ -189,7 +189,7 @@ The Azure Firewall Premium query identifies Azure Firewalls with Premium SKU and
 
 #### Azure Firewall instances per region
 
-Optimize the use of Azure Firewall by having a central instance of Azure Firewall in the hub virtual network or Virtual WAN secure hub. Share the same firewall across many spoke virtual networks that are connected to the same hub from the same region. Ensure there's no unexpected cross-region traffic as part of the hub-spoke topology, nor multiple Azure firewall instances deployed to the same region. To learn more about Azure Firewall design principles, check [Azure Well-Architected Framework review - Azure Firewall](../azure/well-architected/service-guides/azure-firewall#cost-optimization.md).
+Optimize the use of Azure Firewall by having a central instance of Azure Firewall in the hub virtual network or Virtual WAN secure hub. Share the same firewall across many spoke virtual networks that are connected to the same hub from the same region. Ensure there's no unexpected cross-region traffic as part of the hub-spoke topology, nor multiple Azure firewall instances deployed to the same region. To learn more about Azure Firewall design principles, check [Azure Well-Architected Framework review - Azure Firewall](https://learn.microsoft.com/azure/well-architected/service-guides/azure-firewall#cost-optimization).
 
 #### Application Gateway with empty backend pool
 
