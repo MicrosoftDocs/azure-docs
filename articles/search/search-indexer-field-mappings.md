@@ -11,24 +11,24 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 01/17/2024
 ---
 
 # Field mappings and transformations using Azure AI Search indexers
 
 ![Indexer Stages](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "indexer stages")
 
-When an [Azure AI Search indexer](search-indexer-overview.md) loads a search index, it determines the data path through source-to-destination field mappings. Implicit field mappings are internal and occur when field names and data types are compatible between the source and destination. 
+When an [Azure AI Search indexer](search-indexer-overview.md) loads a search index, it determines the data path using source-to-destination field mappings. Implicit field mappings are internal and occur when field names and data types are compatible between the source and destination. If inputs and outputs don't match, you can define explicit *field mappings* to set up the data path, as described in this article. 
 
-If inputs and outputs don't match, you can define explicit *field mappings* to set up the data path, as described in this article. Field mappings can also be used to introduce light-weight data conversion, such as encoding or decoding, through [mapping functions](#mappingFunctions). If more processing is required, consider [Azure Data Factory](../data-factory/index.yml) to bridge the gap.
+Field mappings can also be used for light-weight data conversions, such as encoding or decoding, through [mapping functions](#mappingFunctions). If more processing is required, consider [Azure Data Factory](../data-factory/index.yml) to bridge the gap.
 
 Field mappings apply to:
 
-+ Physical data structures on both sides of the data stream (between a [supported data source](search-indexer-overview.md#supported-data-sources) and a [search index](search-what-is-an-index.md)). If you're importing skill-enriched content that resides in memory, use [outputFieldMappings](cognitive-search-output-field-mapping.md) instead.
++ Physical data structures on both sides of the data stream (between fields in a [supported data source](search-indexer-overview.md#supported-data-sources) and fields in a [search index](search-what-is-an-index.md)). If you're importing skill-enriched content that resides in memory, use [outputFieldMappings](cognitive-search-output-field-mapping.md) to map in-memory nodes to output fields in a search index.
 
 + Search indexes only. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
 
-+ Top-level search fields only, where the "targetFieldName" is either a simple field or a collection. A target field can't be a complex type.
++ Top-level search fields only, where the `targetFieldName` is either a simple field or a collection. A target field can't be a complex type.
 
 > [!NOTE]
 > If you're working with complex data (nested or hierarchical structures), and you'd like to mirror that data structure in your search index, your search index must match the source structure exactly (same field names, levels, and types) so that the default mappings will work. Optionally, you might want just a few nodes in the complex structure. To get individual nodes, you can flatten incoming data into a string collection (see  [outputFieldMappings](cognitive-search-output-field-mapping.md#flatten-complex-structures-into-a-string-collection) for this workaround).
@@ -45,7 +45,7 @@ Field mappings apply to:
 
 ## Define a field mapping
 
-Field mappings are added to the "fieldMappings" array of an indexer definition. A field mapping consists of three parts.
+Field mappings are added to the `fieldMappings` array of an indexer definition. A field mapping consists of three parts.
 
 ```json
 "fieldMappings": [
@@ -54,13 +54,13 @@ Field mappings are added to the "fieldMappings" array of an indexer definition. 
     "targetFieldName": "city",
     "mappingFunction": null
   }
-],
+]
 ```
 
 | Property | Description |
 |----------|-------------|
 | sourceFieldName | Required. Represents a field in your data source. |
-| targetFieldName | Optional. Represents a field in your search index. If omitted, the value of "sourceFieldName" is assumed for the target. Target fields must be top-level simple fields or collections. It can't be a complex type or collection. If you're handling a data type issue, a field's data type is specified in the index definition. The field mapping just needs to have the field's name.|
+| targetFieldName | Optional. Represents a field in your search index. If omitted, the value of `sourceFieldName` is assumed for the target. Target fields must be top-level simple fields or collections. It can't be a complex type or collection. If you're handling a data type issue, a field's data type is specified in the index definition. The field mapping just needs to have the field's name.|
 | mappingFunction | Optional. Consists of [predefined functions](#mappingFunctions) that transform data.  |
 
 Azure AI Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index can't have fields that differ only by case.  
@@ -99,7 +99,7 @@ This example maps a single source field to multiple target fields ("one-to-many"
 
 ### [**.NET SDK (C#)**](#tab/csharp)
 
-In the Azure SDK for .NET, use the [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) class that provides "SourceFieldName" and "TargetFieldName" properties and an optional "MappingFunction" reference.
+In the Azure SDK for .NET, use the [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) class that provides `SourceFieldName` and `TargetFieldName` properties and an optional `MappingFunction` reference.
 
 Specify field mappings when constructing the indexer, or later by directly setting [SearchIndexer.FieldMappings](/dotnet/api/azure.search.documents.indexes.models.searchindexer.fieldmappings). The following C# example sets the field mappings when constructing an indexer.
 
@@ -144,7 +144,7 @@ Performs *URL-safe* Base64 encoding of the input string. Assumes that the input 
 
 Only URL-safe characters can appear in an Azure AI Search document key (so that you can address the document using the [Lookup API](/rest/api/searchservice/lookup-document)). If the source field for your key contains URL-unsafe characters, such as `-` and `\`, use the `base64Encode` function to convert it at indexing time. 
 
-The following example specifies the base64Encode function on "metadata_storage_name" to handle unsupported characters.
+The following example specifies the base64Encode function on `metadata_storage_name `to handle unsupported characters.
 
 ```http
 PUT /indexers?api-version=2020-06-30
@@ -168,7 +168,7 @@ A document key (both before and after conversion) can't be longer than 1,024 cha
 
 #### Example: Make a base-encoded field "searchable"
 
-There are times when you need to use an encoded version of a field like "metadata_storage_path" as the key, but also need an unencoded version for full text search. To support both scenarios, you can map "metadata_storage_path" to two fields: one for the key (encoded), and a second for a path field that we can assume is attributed as "searchable" in the index schema.
+There are times when you need to use an encoded version of a field like `metadata_storage_path` as the key, but also need an unencoded version for full text search. To support both scenarios, you can map `metadata_storage_path` to two fields: one for the key (encoded), and a second for a path field that we can assume is attributed as `searchable` in the index schema.
 
 ```http
 PUT /indexers/blob-indexer?api-version=2020-06-30
@@ -226,7 +226,8 @@ Your source data might contain Base64-encoded strings, such as blob metadata str
       "name" : "base64Decode", 
       "parameters" : { "useHttpServerUtilityUrlTokenDecode" : false }
     }
-  }]
+  }
+]
 ```
 
 If you don't include a parameters property, it defaults to the value `{"useHttpServerUtilityUrlTokenEncode" : true}`.
@@ -328,7 +329,8 @@ When you retrieve the encoded key at search time, you can then use the `urlDecod
     "mappingFunction" : {
       "name" : "urlEncode"
     }
-  }]
+  }
+]
  ```
 
  <a name="urlDecodeFunction"></a>
@@ -349,9 +351,10 @@ Some Azure storage clients automatically URL-encode blob metadata if it contains
     "mappingFunction" : {
       "name" : "urlDecode"
     }
-  }]
+  }
+]
 ```
- 
+
 <a name="fixedLengthEncodeFunction"></a>
 
 ### fixedLengthEncode function
@@ -371,7 +374,8 @@ When errors occur that are related to document key length exceeding 1024 charact
     "mappingFunction" : {
       "name" : "fixedLengthEncode"
     }
-  }]
+  }
+]
  ```
 
 ## See also

@@ -18,7 +18,8 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 > [!IMPORTANT]
 > You must follow guidelines described in [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md) for Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services used with Azure NetApp Files. 
-> In addition, before creating the AD connection, review [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md) to understand the impact of making changes to the AD connection configuration options after the AD connection has been created. Changes to the AD connection configuration options are disruptive to client access and some options cannot be changed at all.
+>
+> Before creating the AD connection, review [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md) to understand the impact of making changes to the AD connection configuration options after the AD connection has been created. Changes to the AD connection configuration options are disruptive to client access and some options cannot be changed at all.
 
 * An Azure NetApp Files account must be created in the region where the Azure NetApp Files volumes are deployed.
 

@@ -1,19 +1,19 @@
 ---
 title: Create a proximity placement group using the Azure CLI
-description: Learn about creating and using proximity placement groups for virtual machines in Azure. 
+description: Learn about creating and using proximity placement groups for virtual machines in Azure.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ms.date: 4/6/2023
 ms.author: mattmcinnes
 ---
 
 # Deploy VMs to proximity placement groups using Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 To get VMs as close as possible, achieving the lowest possible latency, you should deploy them within a [proximity placement group](../co-location.md#proximity-placement-groups).
 
@@ -21,7 +21,7 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 
 
 ## Create the proximity placement group
-Create a proximity placement group using [az ppg create](/cli/azure/ppg#az-ppg-create). 
+Create a proximity placement group using [az ppg create](/cli/azure/ppg#az-ppg-create).
 
 ```azurecli-interactive
 az group create --name myPPGGroup --location eastus
