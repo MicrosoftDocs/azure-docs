@@ -1,7 +1,7 @@
 ---
 title: Use MSBuild to convert Bicep to JSON
 description: Use MSBuild to convert a Bicep file to Azure Resource Manager template (ARM template) JSON.
-ms.date: 09/26/2022
+ms.date: 01/19/2024
 ms.topic: quickstart
 ms.custom: devx-track-bicep, devx-track-arm-template
 
@@ -10,39 +10,39 @@ ms.custom: devx-track-bicep, devx-track-arm-template
 
 # Quickstart: Use MSBuild to convert Bicep to JSON
 
-This article describes how to use MSBuild to convert a Bicep file to Azure Resource Manager template (ARM template) JSON. The examples use MSBuild from the command line with C# project files that convert Bicep to JSON. The project files are examples that can be used in an MSBuild continuous integration (CI) pipeline.
+Learn the process of utilizing MSBuild for the conversion of Bicep files to Azure Resource Manager JSON templates (ARM templates). Additionally, MSBuild can be employed for the conversion of [Bicep parameter files](./parameter-files.md?tabs=Bicep) to [Azure Resource Manager parameters file](../templates/parameter-file.md). The provided examples demonstrate the use of MSBuild from the command line with C# project files for the conversion. These project files serve as examples that can be utilized in an MSBuild continuous integration (CI) pipeline.
 
 ## Prerequisites
 
 You'll need the latest versions of the following software:
 
-- [Visual Studio](/visualstudio/install/install-visual-studio). The free community version will install .NET 6.0, .NET Core 3.1, .NET SDK, MSBuild, .NET Framework 4.8, NuGet package manager, and C# compiler. From the installer, select **Workloads** > **.NET desktop development**.
+- [Visual Studio](/visualstudio/install/install-visual-studio). The free community version will install .NET 8.0, .NET Core 3.1, .NET SDK, MSBuild, .NET Framework 4.8, NuGet package manager, and C# compiler. From the installer, select **Workloads** > **.NET desktop development**.
 - [Visual Studio Code](https://code.visualstudio.com/) with the extensions for [Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) and [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
 - [PowerShell](/powershell/scripting/install/installing-powershell) or a command-line shell for your operating system.
 
 ## MSBuild tasks and CLI packages
 
-If your existing continuous integration (CI) pipeline relies on [MSBuild](/visualstudio/msbuild/msbuild), you can use MSBuild tasks and CLI packages to convert Bicep files into ARM template JSON.
+If your existing continuous integration (CI) pipeline relies on [MSBuild](/visualstudio/msbuild/msbuild), you can use MSBuild tasks and CLI packages to convert Bicep files into ARM JSON templates.
 
-The functionality relies on the following NuGet packages. The latest NuGet package versions match the latest Bicep CLI version.
+The functionality relies on the following [NuGet packages](https://www.nuget.org/packages/Azure.Bicep.Core/). The latest NuGet package versions match the latest Bicep CLI version.
 
 | Package Name | Description |
 | ----  |---- |
-| [Azure.Bicep.MSBuild](https://www.nuget.org/packages/Azure.Bicep.MSBuild) | Cross-platform MSBuild task that invokes the Bicep CLI and compiles Bicep files into ARM template JSON. |
+| [Azure.Bicep.MSBuild](https://www.nuget.org/packages/Azure.Bicep.MSBuild) | Cross-platform MSBuild task that invokes the Bicep CLI and compiles Bicep files into ARM JSON templates. |
 | [Azure.Bicep.CommandLine.win-x64](https://www.nuget.org/packages/Azure.Bicep.CommandLine.win-x64) | Bicep CLI for Windows. |
 | [Azure.Bicep.CommandLine.linux-x64](https://www.nuget.org/packages/Azure.Bicep.CommandLine.linux-x64) | Bicep CLI for Linux. |
 | [Azure.Bicep.CommandLine.osx-x64](https://www.nuget.org/packages/Azure.Bicep.CommandLine.osx-x64) | Bicep CLI for macOS. |
 
 ### Azure.Bicep.MSBuild package
 
-When referenced in a project file's `PackageReference` the `Azure.Bicep.MSBuild` package imports the `Bicep` task that's used to invoke the Bicep CLI. The package converts its output into MSBuild errors and the `BicepCompile` target that's used to simplify the `Bicep` task's usage. By default the `BicepCompile` runs after the `Build` target and compiles all `@(Bicep)` items and places the output in `$(OutputPath)` with the same file name and the _.json_ extension.
+When included in a project file's `PackageReference`, the `Azure.Bicep.MSBuild package` imports in the `Bicep` task, used for invoking the Bicep CLI. The package transforms its output into MSBuild errors and the `BicepCompile` target to streamline the usage of the `Bicep` task. By default, the `BicepCompile` runs after the `Build` target, compiling all @(Bicep) items and @(BicepParam) items. It then deposits the output in `$(OutputPath)` with the same filename and a _.json_ extension.
 
-The following example compiles _one.bicep_ and _two.bicep_ files in the same directory as the project file and places the compiled _one.json_ and _two.json_ in the `$(OutputPath)` directory.
+The following example compiles _main.bicep_ and _main.bicepparam_ files in the same directory as the project file and places the compiled _main.json_ and _main.parameters.json_ in the `$(OutputPath)` directory.
 
 ```xml
 <ItemGroup>
-  <Bicep Include="one.bicep" />
-  <Bicep Include="two.bicep" />
+  <Bicep Include="main.bicep" />
+  <BicepParam Include="main.bicepparam" />
 </ItemGroup>
 ```
 
@@ -51,6 +51,7 @@ You can override the output path per file using the `OutputFile` metadata on `Bi
 ```xml
 <ItemGroup>
   <Bicep Include="**\main.bicep" OutputFile="$(OutputPath)\%(RecursiveDir)\%(FileName).json" />
+  <BicepParam Include="**\main.bicepparam" OutputFile="$(OutputPath)\%(RecursiveDir)\%(FileName).parameters.json" />
 </ItemGroup>
 ```
 
@@ -71,11 +72,11 @@ The `Azure.Bicep.CommandLine.*` packages are available for Windows, Linux, and m
 
 ### SDK-based examples
 
-The following examples contain a default Console App SDK-based C# project file that was modified to convert Bicep files into ARM templates. Replace `__LATEST_VERSION__` with the latest version of the Bicep NuGet packages.
+The following examples contain a default Console App SDK-based C# project file that was modified to convert Bicep files into ARM templates. Replace `__LATEST_VERSION__` with the latest version of the [Bicep NuGet packages](https://www.nuget.org/packages/Azure.Bicep.Core/).
 
-The .NET Core 3.1 and .NET 6 examples are similar. But .NET 6 uses a different format for the _Program.cs_ file. For more information, see [.NET 6 C# console app template generates top-level statements](/dotnet/core/tutorials/top-level-templates).
+The .NET Core 3.1 and .NET 8 examples are similar. But .NET 8 uses a different format for the _Program.cs_ file. For more information, see [.NET 6 C# console app template generates top-level statements](/dotnet/core/tutorials/top-level-templates).
 
-### .NET 6
+### .NET 8
 
 In this example, the `RootNamespace` property contains a placeholder value. When you create a project file, the value matches your project's name.
 
@@ -83,8 +84,8 @@ In this example, the `RootNamespace` property contains a placeholder value. When
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>net6-sdk-project-name</RootNamespace>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>net8-sdk-project-name</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -96,6 +97,7 @@ In this example, the `RootNamespace` property contains a placeholder value. When
 
   <ItemGroup>
     <Bicep Include="**\main.bicep" OutputFile="$(OutputPath)\%(RecursiveDir)\%(FileName).json" />
+    <BicepParam Include="**\main.bicepparam" OutputFile="$(OutputPath)\%(RecursiveDir)\%(FileName).parameters.json" />
   </ItemGroup>
 </Project>
 ```
@@ -116,6 +118,7 @@ In this example, the `RootNamespace` property contains a placeholder value. When
 
   <ItemGroup>
     <Bicep Include="**\main.bicep" OutputFile="$(OutputPath)\%(RecursiveDir)\%(FileName).json" />
+    <BicepParam Include="**\main.bicepparam" OutputFile="$(OutputPath)\%(RecursiveDir)\%(FileName).parameters.json" />
   </ItemGroup>
 </Project>
 ```
@@ -139,6 +142,7 @@ For [Microsoft.Build.NoTargets](/dotnet/core/project-sdk/overview#project-files)
 
   <ItemGroup>
     <Bicep Include="main.bicep"/>
+    <BicepParam Include="main.bicepparam"/>
   </ItemGroup>
 </Project>
 ```
@@ -201,6 +205,7 @@ In this example, the `ProjectGuid`, `RootNamespace` and `AssemblyName` propertie
   <ItemGroup>
     <None Include="App.config" />
     <Bicep Include="main.bicep" />
+    <BicepParam Include="main.bicepparam" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Azure.Bicep.CommandLine.win-x64">
@@ -229,17 +234,15 @@ Build a project in .NET with the dotnet CLI.
     New-Item -Name .\bicep-msbuild-demo -ItemType Directory
     Set-Location -Path .\bicep-msbuild-demo
     ```
-1. Run the `dotnet` command to create a new console with the .NET 6 framework.
+1. Run the `dotnet` command to create a new console with the .NET 8 framework.
 
     ```powershell
-    dotnet new console --framework net6.0
+    dotnet new console --framework net8.0
     ```
 
-    The project file uses the same name as your directory, _bicep-msbuild-demo.csproj_. For more information about how to create a console application from Visual Studio Code, see the [tutorial](/dotnet/core/tutorials/with-visual-studio-code).
+    The command creates a project file using the same name as your directory, _bicep-msbuild-demo.csproj_. For more information about how to create a console application from Visual Studio Code, see the [tutorial](/dotnet/core/tutorials/with-visual-studio-code).
 
-1. Replace the contents of _bicep-msbuild-demo.csproj_ with the [.NET 6](#net-6) or [NoTargets SDK](#notargets-sdk) examples.
-1. Replace `__LATEST_VERSION__` with the latest version of the Bicep NuGet packages.
-1. Save the file.
+1. Open _bicep-msbuild-demo.csproj_ with an editor, and replace the content with the [.NET 8](#net-8) or [NoTargets SDK](#notargets-sdk) examples, and also replace `__LATEST_VERSION__` with the latest version of the Bicep NuGet packages.
 
 # [.NET Core 3.1](#tab/netcore31)
 
@@ -252,7 +255,7 @@ Build a project in .NET Core 3.1 using the dotnet CLI.
     New-Item -Name .\bicep-msbuild-demo -ItemType Directory
     Set-Location -Path .\bicep-msbuild-demo
     ```
-1. Run the `dotnet` command to create a new console with the .NET 6 framework.
+1. Run the `dotnet` command to create a new console with the .NET 8 framework.   ***jgao: typo
 
     ```powershell
     dotnet new console --framework netcoreapp3.1
@@ -291,41 +294,51 @@ Otherwise, edit the project file in Visual Studio Code.
 
 ### Create Bicep file
 
-You'll need a Bicep file that will be converted to JSON.
+You'll need a Bicep file and a BicepParam file that will be converted to JSON.
 
-1. Use Visual Studio Code and create a new file.
-1. Copy the following sample and save it as _main.bicep_ in the _C:\bicep-msbuild-demo_ directory.
+1. Create a _main.bicep_ file in the _C:\bicep-msbuild-demo_ directory with the following content:
 
-```bicep
-@allowed([
-  'Premium_LRS'
-  'Premium_ZRS'
-  'Standard_GRS'
-  'Standard_GZRS'
-  'Standard_LRS'
-  'Standard_RAGRS'
-  'Standard_RAGZRS'
-  'Standard_ZRS'
-])
-@description('Storage account type.')
-param storageAccountType string = 'Standard_LRS'
+    ```bicep
+    @allowed([
+      'Premium_LRS'
+      'Premium_ZRS'
+      'Standard_GRS'
+      'Standard_GZRS'
+      'Standard_LRS'
+      'Standard_RAGRS'
+      'Standard_RAGZRS'
+      'Standard_ZRS'
+    ])
+    @description('Storage account type.')
+    param storageAccountType string = 'Standard_LRS'
 
-@description('Location for all resources.')
-param location string = resourceGroup().location
+    @description('Location for all resources.')
+    param location string = resourceGroup().location
 
-var storageAccountName = 'storage${uniqueString(resourceGroup().id)}'
+    var storageAccountName = 'storage${uniqueString(resourceGroup().id)}'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' = {
-  name: storageAccountName
-  location: location
-  sku: {
-    name: storageAccountType
-  }
-  kind: 'StorageV2'
-}
+    resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+      name: storageAccountName
+      location: location
+      sku: {
+        name: storageAccountType
+      }
+      kind: 'StorageV2'
+    }
 
-output storageAccountNameOutput string = storageAccount.name
-```
+    output storageAccountNameOutput string = storageAccount.name
+    ```
+
+1. Create a _main.bicepparam_ file in the _C:\bicep-msbuild-demo_ directory with the following content:
+
+    ```bicep
+    using './main.bicep'
+
+    param prefix = '{prefix}'
+    ```
+
+    Replace `{prefix}` with a string value used as a prefix for the storage account name.
+
 
 ### Run MSBuild
 
@@ -345,7 +358,7 @@ Run MSBuild to convert the Bicep file to JSON.
 
     MSBuild creates an output directory based on the SDK or framework version:
 
-    - .NET 6: _\bin\Debug\net6.0_
+    - .NET 8: _\bin\Debug\net8.0_
     - .NET Core 3.1: _\bin\Debug\netcoreapp3.1_
     - NoTargets SDK: _\bin\Debug\net48_
     - Classic framework: _\bin\Debug_
