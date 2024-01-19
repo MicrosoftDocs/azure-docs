@@ -14,7 +14,7 @@ This article covers relocation guidance for Microsoft Sentinel across regions. B
 
 ## Prerequisites
 
-Carefully prepare and plan your Sentinel redeployment configuration before you begin the move process. Once you complete a Microsoft Sentinel redeployment, you can't move the Log Analytics Workspace to other resource groups or subscriptions.  
+Carefully prepare and plan your Sentinel reconfiguration, before you move the related Log Analytics Workspace or  other Azure srevices.  
 
 You also need to make sure to plan and prepare any compliance requirements for data collection and storage at target, as well as the Role-based access control (RBAC) model to access Microsoft Sentinel data.
 
