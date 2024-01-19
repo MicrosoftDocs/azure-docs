@@ -126,6 +126,9 @@ You have 8 Windows Server 2012 R2 Standard instances, each with 8 physical cores
 > You needed a regular production license to start with, and you'll be billed only for the production cores. You did not and should not provision non-production cores in your license. 
 > 
 
+## Upgrading from Windows Server 2012/2012 R2
+
+When upgrading a Windows Server 2012/2012R machine to Windows Server 2016 or above, it's not necessary to remove the Connected Machine agent from the machine. The new operating system will be visible for the machine in Azure within a few minutes of upgrade completion. Upgraded machines no longer require ESUs and are no longer eligible for them. Any ESU license associated with the machine is not automatically unlinked from the machine. See [Unlink a license](api-extended-security-updates.md#unlink-a-license) for instructions on doing so manually.
 
 <!--
 

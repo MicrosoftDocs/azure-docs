@@ -7,11 +7,8 @@ brand: azure
 metadata:
   title: Azure compliance documentation
   description: If your organization needs to comply with legal or regulatory standards, start here to learn about compliance in Azure.
-  services: security
   ms.service: security
-  ms.subservice: na
   ms.topic: hub-page
-  ms.collection: na
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
