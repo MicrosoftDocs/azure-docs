@@ -5,12 +5,10 @@ summary: Information retrieval at scale for traditional and conversational searc
 metadata:
   title: Azure AI Search documentation
   description: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
-  services: search
   ms.service: service
   ms.custom:
     - ignite-2023
   ms.topic: landing-page
-
   author: HeidiSteen
   ms.author: heidist
   ms.date: 11/04/2023

@@ -8,7 +8,6 @@ metadata:
   description: Learn about Azure Linux Container Host to use the container-optimized OS in your AKS clusters.
   ms.service: microsoft-linux
   ms.topic: landing-page
-
   author: htaubenfeld
   ms.author: htaubenfeld
   ms.date: 05/10/2023

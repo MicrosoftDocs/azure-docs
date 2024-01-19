@@ -6,7 +6,6 @@ summary: Learn how to use API Management to publish APIs to external, partner, a
 metadata:
   title: API Management documentation
   description: Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Shows you how to create and manage modern API gateways for existing back-end services hosted anywhere.
-  services: api-management
   ms.service: api-management
   ms.topic: landing-page
   author: dlepow
