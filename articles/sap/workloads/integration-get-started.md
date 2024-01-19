@@ -241,7 +241,7 @@ The [Defender product family](../../defender-for-cloud/defender-for-cloud-introd
 
 - Defender for Servers (SAP hosts)
     - [Protect your SAP hosts with Defender](../../defender-for-cloud/defender-for-servers-introduction.md) including OS specific Endpoint protection with Microsoft Defender for Endpoint (MDE)
-    - [Microsoft Defender for Endpoint on Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux)
+    - [Microsoft Defender for Endpoint on Linux](/microsoft-365/security/defender-endpoint/mde-linux-deployment-on-sap)
     - [Microsoft Defender for Endpoint on Windows](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint)
     - [Enable Defender for Servers](../../defender-for-cloud/tutorial-enable-servers-plan.md#enable-the-defender-for-servers-plan)
 - Defender for Storage (SAP SMB file shares on Azure)
