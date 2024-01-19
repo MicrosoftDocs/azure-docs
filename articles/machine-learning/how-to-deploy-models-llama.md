@@ -118,8 +118,8 @@ Models deployed as a service can be consumed using either the chat or the comple
 1. Copy the **Target** URL and the **Key** token values.
 1. Make an API request based on the type of model you deployed. 
 
-    - For completions models, such as `Llama-2-7b`, use the [`<target_url>/v1/completions`](#completions-api) API
-    - For chat models, such as `Llama-2-7b-chat`, use the [`<target_url>/v1/chat/completions`](#chat-api) API. 
+    - For completions models, such as `Llama-2-7b`, use the [`<target_url>/v1/completions`](#completions-api) API.
+    - For chat models, such as `Llama-2-7b-chat`, use the [`<target_url>/v1/chat/completions`](#chat-api) API.
 
     See the [reference](#reference-for-llama-2-models-deployed-as-a-service) section for more details with examples.
 
@@ -371,10 +371,10 @@ The following is an example response:
     }
 }
 ```
-   
+
 ## Deploy Llama 2 models to real-time endpoints
 
-Llama 2 models can be deployed to real-time endpoints in the Azure Machine Learning studio. When deployed to real-time endpoints, you can select all the details about the infrastructure running the model, including the virtual machines used to run it and the number of instances to handle the load you're expecting. Models deployed in this modality consume quota from your subscription. All the models in the Llama family can be deployed to real-time endpoints.
+Apart from deploying with the pay-as-you-go managed service, you can also deploy Llama 2 models to real-time endpoints in the Azure Machine Learning studio. When deployed to real-time endpoints, you can select all the details about the infrastructure running the model, including the virtual machines to use and the number of instances to handle the load you're expecting. Models deployed to real-time endpoints consume quota from your subscription. All the models in the Llama family can be deployed to real-time endpoints.
 
 ### Create a new deployment
 
@@ -382,14 +382,22 @@ Llama 2 models can be deployed to real-time endpoints in the Azure Machine Learn
 
 Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time endpoint in [Azure Machine Learning studio](https://ml.azure.com).
 
-1.  Choose the workspace in which you want to deploy the model.
-2.  Choose a model you want to deploy from the studio's [model catalog](https://ml.azure.com/model/catalog). Alternatively, you can initiate deployment by selecting **Create** from `your workspace`>`endpoints`>`serverless endpoints`
-3.  On the detail page, select **Deploy** and then **Real-time endpoint**.
-4.  Select if you want to enable **Azure AI Content Safety (preview)**.
+1. Select the workspace in which you want to deploy the model.
+1. Choose the model that you want to deploy from the studio's [model catalog](https://ml.azure.com/model/catalog).
+    <!-- Alternatively, you can initiate deployment by selecting **Create** from `your workspace`>`endpoints`>`serverless endpoints` -->
+1. On the model's overview page, select **Deploy** and then **Real-time endpoint**.
+
+    :::image type="content" source="media/how-to-deploy-models-llama/deploy-real-time-endpoint.png" alt-text="A screenshot showing how to deploy a model with the real-time endpoint option." lightbox="media/how-to-deploy-models-llama/deploy-real-time-endpoint.png":::
+
+1. Choose if you want to **Enable Azure AI Content Safety (Recommended)**. This option is the default selection.
 
     > [!TIP]
-    > Deploying Llama 2 models with Azure AI Content Safety (preview) is currently only supported using the Python SDK. (change - check)
-5. Select **Proceed**. .
+    > Deployment with Azure AI Content Safety enabled happens in a notebook.
+
+    <!-- > [!TIP]
+    > Deploying Llama 2 models with Azure AI Content Safety (preview) is currently only supported using the Python SDK. (change - check) -->
+
+1. Select **Proceed**.
 
     > [!TIP]
     > If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**.
@@ -405,34 +413,37 @@ Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time en
 
 (change - check)
 
-### Consuming Llama 2 models deployed to real-time endpoints
+---
 
-For reference about how to invoke Llama 2 models deployed to real-time endpoints, see the model card in the Azure Machine Learning Studio [model catalog](change - add link).
+### Consume Llama 2 models deployed to real-time endpoints
+
+For reference about how to invoke Llama 2 models deployed to real-time endpoints, see the model's card in the Azure Machine Learning studio [model catalog](concept-model-catalog.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
 
 ## Cost and quotas
 
 ### Considerations for Llama 2 models deployed as a service
 
-Llama models deployed as a service are offered by Meta through the Azure Marketplace and integrated with Azure Machine Learning Studio for use. You can find the Azure Marketplace pricing when deploying or fine tuning models.
+Llama models deployed as a service are offered by Meta through the Azure Marketplace and integrated with Azure Machine Learning studio for use. You can find the Azure Marketplace pricing when deploying or fine-tuning models.
 
-Each time a workspace subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine tuning, However, multiple meters are available to track each scenario independently. See (change - check link) [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs.
+Each time a workspace subscribes to a given model offering from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
+<!-- See (change - check link) [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs. -->
 
 (change - use same image as AI Studio
 
 :::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters."  lightbox="../media/cost-management/marketplace/costs-model-as-service-cost-details.png":::
 )
 
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits don't suffice your scenarios.
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
 ### Considerations for Llama 2 models deployed as real-time endpoints
 
-Deploying Llama models and inferencing with real-time endpoints can be done by consuming Virtual Machine (VM) core quota that is assigned to your subscription a per-region basis. When you sign up for Azure Machine Learning Studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once that happens, you can request for quota increase.  
+For deployment and inferencing of Llama models with real-time endpoints, you consume virtual machine (VM) core quota that is assigned to your subscription on a per-region basis. When you sign up for Azure Machine Learning studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once you reach this limit, you can request a quota increase.  
 
 ## Content filtering
 
-Models deployed as a service with pay-as-you-go are protected by Azure AI Content Safety. When deployed to real-time endpoints, you can opt out for this capability. Both the prompt and completion are run through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](../concepts/content-filtering.md)(change - check link).
+Models deployed as a service with pay-as-you-go are protected by Azure AI content safety. When deployed to real-time endpoints, you can opt out of this capability. With Azure AI content safety enabled, both the prompt and completion are run through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](../concepts/content-filtering.md)(change - check link).
 
 ## Next steps
 
-- Learn more about what you can do in [Azure ML Studio](change - add link to what is azure ML studio kind of page)
-- Get answers to frequently asked questions in the [Azure ML Studio FAQ article](change - add link)
+- Learn more about what you can do in [Azure Machine Learning studio](change - add link to what is azure ML studio kind of page)
+- Get answers to frequently asked questions in the [Azure Machine Learning studio FAQ article](change - add link)
