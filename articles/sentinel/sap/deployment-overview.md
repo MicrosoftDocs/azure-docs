@@ -36,7 +36,11 @@ Microsoft Sentinel solution for SAP® applications is certified for SAP S/4HANA�
 > - Microsoft Sentinel identifies a production system by looking at the configuration on the SAP system. To do this, Microsoft Sentinel searches for a production entry in the T000 table. 
 > - [View the roles of your connected production systems](../monitor-sap-system-health.md).
 
-The Microsoft Sentinel for SAP data connector is an agent, installed on a VM or a physical server that collects application logs from across the entire SAP system landscape. It then sends those logs to your Log Analytics workspace in Microsoft Sentinel. You can then use the other content in the Threat Monitoring for SAP solution – the analytics rules, workbooks, and watchlists – to gain insight into your organization's SAP environment and to detect and respond to security threats.
+The Microsoft Sentinel for SAP data connector is an agent, installed on a VM, a physical server, or a Kubernetes cluster that collects application logs from across the entire SAP system landscape for all of your SAP SIDs. It then sends those logs to your Log Analytics workspace in Microsoft Sentinel. You can then use the other content in the Threat Monitoring for SAP solution – the analytics rules, workbooks, and watchlists – to gain insight into your organization's SAP environment and to detect and respond to security threats.
+
+:::image type="complex" source="./media/deployment-overview/sap-sentinel-multi-sid-overview.png" alt-text="Architecture overview showcasing multi-SID protection from Sentinel for production and non-production systems. Additionally it shows the integration with SAP Business Technology Platform":::
+   This diagram shows a multi-SID SAP landscape with a split between productive and non-productive systems including the SAP Business Technology Platform. All of the systems and services are being onboarded to the Sentinel for SAP solution.
+:::image-end:::
 
 ## Deployment milestones
 
