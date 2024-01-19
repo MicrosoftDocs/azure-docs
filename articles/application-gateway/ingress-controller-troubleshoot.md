@@ -1,10 +1,10 @@
 ---
 title: Application Gateway Ingress Controller troubleshooting
-description: This article provides documentation on how to troubleshoot common questions and issues with the Application Gateway Ingress Controller. 
+description: This article provides documentation on how to troubleshoot common questions and issues with the Application Gateway Ingress Controller.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: troubleshooting
 ms.date: 08/01/2023
 ms.author: greglin
@@ -149,10 +149,10 @@ The following conditions must be in place for AGIC to function as expected:
      delyan@Azure:~$ kubectl get services -o wide --show-labels
 
      NAME                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE   SELECTOR        LABELS
-     aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>     
+     aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>
      ```
 
-  3. **Ingress**, annotated with `kubernetes.io/ingress.class: azure/application-gateway`, referencing the previous service. 
+  3. **Ingress**, annotated with `kubernetes.io/ingress.class: azure/application-gateway`, referencing the previous service.
      Verify this configuration from [Cloud Shell](https://shell.azure.com/) with `kubectl get ingress -o wide --show-labels`
      ```output
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
@@ -178,7 +178,7 @@ The following conditions must be in place for AGIC to function as expected:
      ```
 
      The ingress resource must be annotated with `kubernetes.io/ingress.class: azure/application-gateway`.
- 
+
 
 ### Verify Observed Namespace
 
@@ -187,7 +187,7 @@ The following conditions must be in place for AGIC to function as expected:
     ```bash
     # What namespaces exist on your cluster
     kubectl get namespaces
-    
+
     # What pods are currently running
     kubectl get pods --all-namespaces -o wide
     ```
@@ -210,18 +210,18 @@ The following conditions must be in place for AGIC to function as expected:
 * Do you have a Kubernetes
 [Service](https://kubernetes.io/docs/concepts/services-networking/service/) and
 [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resources?
-    
+
     ```bash
     # Get all services across all namespaces
     kubectl get service --all-namespaces -o wide
-    
+
     # Get all ingress resources across all namespaces
     kubectl get ingress --all-namespaces -o wide
     ```
 
 
 * Is your [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) annotated with: `kubernetes.io/ingress.class: azure/application-gateway`? AGIC only watches for Kubernetes Ingress resources that have this annotation.
-    
+
     ```bash
     # Get the YAML definition of a particular ingress resource
     kubectl get ingress --namespace  <which-namespace?>  <which-ingress?>  -o yaml
