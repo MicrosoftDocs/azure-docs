@@ -277,7 +277,7 @@ items:
         href: troubleshooting-vnet.md
       - name: Map DNS names to applications in multiple Azure Spring Apps service instances in the same virtual network
         href: how-to-map-dns-virtual-network.md
-      - name: How to flush DNS settings changes in Azure Spring Apps
+      - name: Flush DNS settings changes
         href: how-to-use-flush-dns-settings.md
     - name: Secure
       items:
