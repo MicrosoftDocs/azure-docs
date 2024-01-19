@@ -80,7 +80,7 @@ Use the following steps to verify if your custom DNS solution is correctly resol
     Address: 10.0.0.4
     ```
 
-1. If the `nslookup` command returns an error, or returns a different IP address than displayed in the portal, then the custom DNS solution isn't configured correctly. For more information, see [How to use a custom DNS server](how-to-custom-dns.md)
+1. If the `nslookup` command returns an error, or returns a different IP address than displayed in the portal, then your custom DNS solution isn't configured correctly.
 
 ### Azure DNS troubleshooting
 
