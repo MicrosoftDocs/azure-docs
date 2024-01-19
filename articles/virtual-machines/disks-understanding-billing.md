@@ -129,20 +129,20 @@ You will be billed for the provisioned size of the disk, the additional IOPS and
 
 | Tier | Meter |
 |-|-|
-|Azure Premium SSD v2| Premium LRS Provisioned Capacity|
-|Azure Premium SSD v2| Premium LRS Provisioned IOPS |
-|Azure Premium SSD v2| Premium LRS Provisioned Throughput (MB/s) |
-|Standard HDD Managed Disks| LRS Snapshots |
+|Azure Premium SSD v2| Premium LRS provisioned capacity|
+|Azure Premium SSD v2| Premium LRS provisioned IOPS |
+|Azure Premium SSD v2| Premium LRS provisioned throughput (MB/s) |
+|Standard HDD managed disks| LRS snapshots |
 
 - Azure Premium SSD v2
-    - Premium LRS Provisioned Capacity
-    - Premium LRS Provisioned IOPS
-    - Premium LRS Provisioned Throughput (MB/s)
+    - Premium LRS provisioned capacity
+    - Premium LRS provisioned IOPS
+    - Premium LRS provisioned throughput (MB/s)
 - Standard HDD Managed Disks
-    - LRS Snapshots
+    - LRS snapshots
 
 ### Ultra Disks:
-- Ultra SSDs: Ultra disks feature a flexible performance configuration model that allows you to independently configure IOPS and throughput both before and after you provision the disk.
+- Ultra SSDs: Ultra Disks feature a flexible performance configuration model that allows you to independently configure IOPS and throughput both before and after you provision the disk.
 
 #### Ultra disk IOPS
 Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160,000 IOPS per disk. To achieve the target IOPS for the disk, ensure that the selected disk IOPS are less than the VM IOPS limit.
@@ -166,17 +166,17 @@ You will be billed for the provisioned size of the disk, the additional IOPS and
 
 | Tier | Meter |
 |-|-|
-|Ultra Disks| Ultra ZRS Provisioned Capacity|
-|Ultra Disks| Ultra ZRS Provisioned IOPS |
-|Ultra Disks| Ultra ZRS Provisioned Throughput (MBps) |
-|Standard HDD Managed Disks| ZRS Snapshots |
+|Ultra Disks| Ultra ZRS provisioned capacity|
+|Ultra Disks| Ultra ZRS provisioned IOPS |
+|Ultra Disks| Ultra ZRS provisioned throughput (MBps) |
+|Standard HDD managed disks| ZRS snapshots |
 
 - Ultra Disks
-    - Ultra ZRS Provisioned Capacity
-    - Ultra ZRS Provisioned IOPS
-    - Ultra ZRS Provisioned Througput (MBps)
-- Standard HDD Managed Disks
-    - ZRS Snapshots
+    - Ultra ZRS provisioned capacity
+    - Ultra ZRS provisioned IOPS
+    - Ultra ZRS provisioned througput (MBps)
+- Standard HDD managed disks
+    - ZRS snapshots
 
 ## See also
 - [Azure Managed Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/)
