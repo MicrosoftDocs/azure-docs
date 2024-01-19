@@ -91,7 +91,7 @@ This step isn't required if you're using an AKS identity. An AKS identity alread
 
     :::image type="content" source="media/prometheus-remote-write-managed-identity/resource-group-details-virtual-machine-scale-sets.png" alt-text="Screenshot that shows virtual machine scale sets in the node resource group." lightbox="media/prometheus-remote-write-managed-identity/resource-group-details-virtual-machine-scale-sets.png":::
 
-2. For each virtual machine scale set, run the following command in Azure CLI:
+2. For each virtual machine scale set, run the following command in the Azure CLI:
 
     ```azurecli
     az vmss identity assign -g <AKS-NODE-RESOURCE-GROUP> -n <AKS-VMSS-NAME> --identities <USER-ASSIGNED-IDENTITY-RESOURCE-ID>
@@ -99,7 +99,7 @@ This step isn't required if you're using an AKS identity. An AKS identity alread
 
 ### Deploy a sidecar container to set up remote write
 
-1. Copy the following YAML and save it to a file. The YAML uses port 8081 as the listening port. If you use a different port, modify that value in the YAML.
+1. Copy the following YAML and save it to a file. The YAML uses port 8081 as the listening port. If you use a different port, modify the port in the YAML.
 
     [!INCLUDE[managed-identity-yaml](../includes/prometheus-sidecar-remote-write-managed-identity-yaml.md)]
 
