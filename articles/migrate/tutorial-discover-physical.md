@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 01/09/2024
+ms.date: 01/19/2024
 ms.service: azure-migrate
 ms.custom: mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > * Start continuous discovery.
 
 > [!NOTE]
-> Tutorials show the quickest path for trying out a scenario, and use default options.  
+> Tutorials show the quickest path for trying out a scenario, and use default options. This scenario is also applicable for discovery of VM servers from AVS.  
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
