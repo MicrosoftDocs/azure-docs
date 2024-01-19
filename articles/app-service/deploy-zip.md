@@ -41,7 +41,7 @@ In the browser, navigate to `https://<app_name>.scm.azurewebsites.net/ZipDeployU
 
 Upload the ZIP package you created in [Create a project ZIP package](#create-a-project-zip-package) by dragging it to the file explorer area on the web page.
 
-When deployment is in progress, an icon in the top right corner shows you the progress in percentage. The page also shows verbose messages for the operation below the explorer area. When it's finished, the last deployment message should say `Deployment successful`.
+When deployment is in progress, an icon in the top right corner shows you the progress in percentage. The page also shows verbose messages for the operation below the explorer area. When deployment completes, the last message should say `Deployment successful`.
 
 The above endpoint doesn't work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](./faq-app-service-linux.yml) instead.
 
