@@ -16,7 +16,7 @@ ms.custom: template-concept, engagement-fy23
 
 You can use [Standard Load Balancer](./load-balancer-overview.md) to create a more predictable application behavior for your scenarios by enabling TCP Reset on Idle for a given rule. Load Balancer's default behavior is to silently drop flows when the idle timeout of a flow is reached.  Enabling TCP reset causes Load Balancer to send bidirectional TCP Resets (TCP RST packets) on idle timeout to inform your application endpoints that the connection timed out and is no longer usable.  Endpoints can immediately establish a new connection if needed.
 
-:::image type="content" source="media/load-balancer-tcp-reset/load-balancer-tcs-reset.png" alt-text="Diagram shows default TCP reset behavior of network nodes.":::
+:::image type="content" source="media/load-balancer-tcp-reset/load-balancer-tcp-reset.png" alt-text="Diagram shows default TCP reset behavior of network nodes.":::
  
 ## TCP reset
 
