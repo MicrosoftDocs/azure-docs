@@ -2,7 +2,7 @@
 title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workload identity
 description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with a Microsoft Entra Workload ID.
 ms.topic: article
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ms.date: 09/27/2023
 ---
 
@@ -28,7 +28,7 @@ This article assumes you have a basic understanding of Kubernetes concepts. For 
 To help simplify steps to configure the identities required, the steps below define
 environmental variables for reference on the cluster.
 
-Run the following commands to create these variables. Replace the default values for `RESOURCE_GROUP`, `LOCATION`, `SERVICE_ACCOUNT_NAME`, `SUBSCRIPTION`, `USER_ASSIGNED_IDENTITY_NAME`, and `FEDERATED_IDENTITY_CREDENTIAL_NAME`.  
+Run the following commands to create these variables. Replace the default values for `RESOURCE_GROUP`, `LOCATION`, `SERVICE_ACCOUNT_NAME`, `SUBSCRIPTION`, `USER_ASSIGNED_IDENTITY_NAME`, and `FEDERATED_IDENTITY_CREDENTIAL_NAME`.
 
 ```bash
 export RESOURCE_GROUP="myResourceGroup"
@@ -37,7 +37,7 @@ export SERVICE_ACCOUNT_NAMESPACE="default"
 export SERVICE_ACCOUNT_NAME="workload-identity-sa"
 export SUBSCRIPTION="$(az account show --query id --output tsv)"
 export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
-export FEDERATED_IDENTITY_CREDENTIAL_NAME="myFedIdentity" 
+export FEDERATED_IDENTITY_CREDENTIAL_NAME="myFedIdentity"
 ```
 
 ## Create AKS cluster
@@ -223,7 +223,7 @@ To check whether all properties are injected properly by the webhook, use the [k
 kubectl describe pod quick-start | grep "SECRET_NAME:"
 ```
 
-If successful, the output should be similar to the following:  
+If successful, the output should be similar to the following:
 ```bash
       SECRET_NAME:                 ${KEYVAULT_SECRET_NAME}
 ```
@@ -234,7 +234,7 @@ To verify that pod is able to get a token and access the resource, use the kubec
 kubectl logs quick-start
 ```
 
-If successful, the output should be similar to the following:  
+If successful, the output should be similar to the following:
 ```bash
 I0114 10:35:09.795900       1 main.go:63] "successfully got secret" secret="Hello\\!"
 ```
