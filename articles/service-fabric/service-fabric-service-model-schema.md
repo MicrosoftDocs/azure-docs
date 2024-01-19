@@ -5,7 +5,6 @@ ms.topic: reference
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
-services: service-fabric
 ms.date: 07/11/2022
 ---
 
@@ -53,7 +52,6 @@ def writeOverviewFile(filename, namedElements, namedComplexTypes, namedElementGr
         file.write('---\n')
         file.write('title: Azure Service Fabric service model XML schema descriptions | Microsoft Docs')
         file.write('description: Describes the XML schema of the Service Fabric service model.\n')
-        file.write('services: service-fabric\n')
         file.write('author: athinanthny\n')
         file.write('manager: chackdan\n')
         file.write('ms.service: service-fabric\n')
