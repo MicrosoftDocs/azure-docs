@@ -11,7 +11,7 @@ ms.date: 01/18/2024
 
 # SAS tokens for your storage containers
 
-Learn how to create user delegation, shared access signature (SAS) tokens, using the Azure portal. User delegation SAS tokens are secured with Microsoft Entra credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
+Learn to create user delegation, shared access signature (SAS) tokens, using the Azure portal. User delegation SAS tokens are secured with Microsoft Entra credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
 :::image type="content" source="media/sas-url-token.png" alt-text="Screenshot of a storage url with SAS token appended.":::
 
