@@ -434,12 +434,12 @@ The following items are prefixed with:
 
    If you use enqueue server 2 architecture ([ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html)), install resource agent resource-agents-sap-4.1.1-12.el7.x86_64 or newer and define the resources as shown here:
 
-   #### [ENSA1](#tab/ensa1)
+    #### [ENSA1](#tab/ensa1)
 
-   ```bash
-   sudo pcs property set maintenance-mode=true
+    ```bash
+    sudo pcs property set maintenance-mode=true
    
-   sudo pcs resource create rsc_sap_NW1_ASCS00 SAPInstance \
+    sudo pcs resource create rsc_sap_NW1_ASCS00 SAPInstance \
     InstanceName=NW1_ASCS00_nw1-ascs START_PROFILE="/sapmnt/NW1/profile/NW1_ASCS00_nw1-ascs" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
@@ -447,28 +447,28 @@ The following items are prefixed with:
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-NW1_ASCS
    
-   sudo pcs resource meta g-NW1_ASCS resource-stickiness=3000
+    sudo pcs resource meta g-NW1_ASCS resource-stickiness=3000
    
-   sudo pcs resource create rsc_sap_NW1_ERS02 SAPInstance \
+    sudo pcs resource create rsc_sap_NW1_ERS02 SAPInstance \
     InstanceName=NW1_ERS02_nw1-aers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS02_nw1-aers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-NW1_AERS
    
-   sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS -5000
-   sudo pcs constraint location rsc_sap_NW1_ASCS00 rule score=2000 runs_ers_NW1 eq 1
-   sudo pcs constraint order start g-NW1_ASCS then stop g-NW1_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS -5000
+    sudo pcs constraint location rsc_sap_NW1_ASCS00 rule score=2000 runs_ers_NW1 eq 1
+    sudo pcs constraint order start g-NW1_ASCS then stop g-NW1_AERS kind=Optional symmetrical=false
    
-   sudo pcs node unstandby nw1-cl-0
-   sudo pcs property set maintenance-mode=false
-   ```
+    sudo pcs node unstandby nw1-cl-0
+    sudo pcs property set maintenance-mode=false
+    ```
 
-   #### [ENSA2](#tab/ensa2)
+    #### [ENSA2](#tab/ensa2)
 
-   ```bash
-   sudo pcs property set maintenance-mode=true
+    ```bash
+    sudo pcs property set maintenance-mode=true
    
-   sudo pcs resource create rsc_sap_NW1_ASCS00 SAPInstance \
+    sudo pcs resource create rsc_sap_NW1_ASCS00 SAPInstance \
     InstanceName=NW1_ASCS00_nw1-ascs START_PROFILE="/sapmnt/NW1/profile/NW1_ASCS00_nw1-ascs" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
@@ -476,53 +476,53 @@ The following items are prefixed with:
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-NW1_ASCS
    
-   sudo pcs resource meta g-NW1_ASCS resource-stickiness=3000
+    sudo pcs resource meta g-NW1_ASCS resource-stickiness=3000
    
-   sudo pcs resource create rsc_sap_NW1_ERS02 SAPInstance \
+    sudo pcs resource create rsc_sap_NW1_ERS02 SAPInstance \
     InstanceName=NW1_ERS02_nw1-aers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS02_nw1-aers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-NW1_AERS
    
-   sudo pcs resource meta rsc_sap_NW1_ERS02 resource-stickiness=3000
+    sudo pcs resource meta rsc_sap_NW1_ERS02 resource-stickiness=3000
    
-   sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS -5000
-   sudo pcs constraint order start g-NW1_ASCS then start g-NW1_AERS kind=Optional symmetrical=false
-   sudo pcs constraint order start g-NW1_ASCS then stop g-NW1_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS -5000
+    sudo pcs constraint order start g-NW1_ASCS then start g-NW1_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-NW1_ASCS then stop g-NW1_AERS kind=Optional symmetrical=false
    
-   sudo pcs node unstandby nw1-cl-0
-   sudo pcs property set maintenance-mode=false
-   ```
+    sudo pcs node unstandby nw1-cl-0
+    sudo pcs property set maintenance-mode=false
+    ```
 
-   ---
+    ---
 
-   > [!NOTE]
-   > If you're upgrading from an older version and switching to enqueue server 2, see SAP Note [2641322](https://launchpad.support.sap.com/#/notes/2641322).
+    > [!NOTE]
+    > If you're upgrading from an older version and switching to enqueue server 2, see SAP Note [2641322](https://launchpad.support.sap.com/#/notes/2641322).
 
-   > [!NOTE]
-   > The timeouts in the preceding configuration are only examples and might need to be adapted to the specific SAP setup.
+    > [!NOTE]
+    > The timeouts in the preceding configuration are only examples and might need to be adapted to the specific SAP setup.
 
-   Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
+    Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
 
-   ```bash
-   sudo pcs status
+    ```bash
+    sudo pcs status
    
-   # Online: [ nw1-cl-0 nw1-cl-1 ]
-   #
-   # Full list of resources:
-   #
-   # rsc_st_azure    (stonith:fence_azure_arm):      Started nw1-cl-0
-   #  Resource Group: g-NW1_ASCS
-   #      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
-   #      nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
-   #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
-   #      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
-   #  Resource Group: g-NW1_AERS
-   #      fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
-   #      nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
-   #      vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
-   #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
-   ```
+    # Online: [ nw1-cl-0 nw1-cl-1 ]
+    #
+    # Full list of resources:
+    #
+    # rsc_st_azure    (stonith:fence_azure_arm):      Started nw1-cl-0
+    #  Resource Group: g-NW1_ASCS
+    #      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+    #      nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+    #      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    #  Resource Group: g-NW1_AERS
+    #      fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+    #      nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+    #      vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+    #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    ```
 
 10. **[A]** Add firewall rules for ASCS and ERS on both nodes.
 
