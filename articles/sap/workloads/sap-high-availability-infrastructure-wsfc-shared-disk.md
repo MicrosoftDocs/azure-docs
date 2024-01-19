@@ -43,13 +43,13 @@ ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 This article describes the steps you take to prepare the Azure infrastructure for installing and configuring a high-availability SAP ASCS/SCS instance on a Windows failover cluster by using a *cluster shared disk* as an option for clustering an SAP ASCS instance. Two alternatives for *cluster shared disk* are presented in the documentation:
 
 - [Azure shared disks](../../virtual-machines/disks-shared.md)
-- Using [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/sios-datakeeper/) to create mirrored storage, that will simulate clustered shared disk
+- Using [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/sios-datakeeper/) to create mirrored storage, that simulates clustered shared disk
 
 The documentation doesn't cover the database layer.  
 
 ## Prerequisites
 
-Before you begin the installation, review this article:
+Before you begin the installation review this article:
 
 - [Architecture guide: Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk][sap-high-availability-guide-wsfc-shared-disk]
 
@@ -66,8 +66,8 @@ SAP deployment in Azure availability set
 
 | Host name role                               | Host name   | Static IP address                        | Availability set | Disk SkuName |
 | -------------------------------------------- | ----------- | ---------------------------------------- | ---------------- | ------------ |
-| 1st cluster node ASCS/SCS cluster            | pr1-ascs-10 | 10.0.0.4                                 | pr1-ascs-avset   | Premium_LRS  |
-| 2nd cluster node ASCS/SCS cluster            | pr1-ascs-11 | 10.0.0.5                                 | pr1-ascs-avset   |              |
+| First cluster node ASCS/SCS cluster            | pr1-ascs-10 | 10.0.0.4                                 | pr1-ascs-avset   | Premium_LRS  |
+| Second cluster node ASCS/SCS cluster            | pr1-ascs-11 | 10.0.0.5                                 | pr1-ascs-avset   |              |
 | Cluster Network Name                         | pr1clust    | 10.0.0.42(**only** for Win 2016 cluster) | n/a              |              |
 | ASCS cluster network name                    | pr1-ascscl  | 10.0.0.43                                | n/a              |              |
 | ERS cluster network name (**only** for ERS2) | pr1-erscl   | 10.0.0.44                                | n/a              |              |
@@ -76,8 +76,8 @@ SAP deployment in Azure availability zones
 
 | Host name role                               | Host name   | Static IP address                        | Availability zone | Disk SkuName |
 | -------------------------------------------- | ----------- | ---------------------------------------- | ----------------- | ------------ |
-| 1st cluster node ASCS/SCS cluster            | pr1-ascs-10 | 10.0.0.4                                 | AZ01              | Premium_ZRS  |
-| 2nd cluster node ASCS/SCS cluster            | pr1-ascs-11 | 10.0.0.5                                 | AZ02              |              |
+| First cluster node ASCS/SCS cluster            | pr1-ascs-10 | 10.0.0.4                                 | AZ01              | Premium_ZRS  |
+| Second cluster node ASCS/SCS cluster            | pr1-ascs-11 | 10.0.0.5                                 | AZ02              |              |
 | Cluster Network Name                         | pr1clust    | 10.0.0.42(**only** for Win 2016 cluster) | n/a               |              |
 | ASCS cluster network name                    | pr1-ascscl  | 10.0.0.43                                | n/a               |              |
 | ERS cluster network name (**only** for ERS2) | pr1-erscl   | 10.0.0.44                                | n/a               |              |
@@ -92,10 +92,10 @@ The steps mentioned in the document remain same for both deployment type. But if
 
 ## Create Azure internal load balancer
 
-During VM configuration, you have an option to create or select exiting load balancer in networking section. For the ENSA1 architecture on Windows, you would need only one virtual IP address for SAP ASCS/SCS. On the other hand, the ENSA2 architecture necessitates two virtual IP addresses - one for SAP ASCS/SCS and another for ERS2. When configuring a [standard internal load balancer](../articles/load-balancer/quickstart-load-balancer-standard-internal-portal.md#create-load-balancer) for the HA setup of SAP ASCS/SCS on Windows, follow below guidelines.
+During VM configuration, you can create or select exiting load balancer in networking section. For the ENSA1 architecture on Windows, you would need only one virtual IP address for SAP ASCS/SCS. On the other hand, the ENSA2 architecture necessitates two virtual IP addresses - one for SAP ASCS/SCS and another for ERS2. When configuring a [standard internal load balancer](../articles/load-balancer/quickstart-load-balancer-standard-internal-portal.md#create-load-balancer) for the HA setup of SAP ASCS/SCS on Windows, follow below guidelines.
 
 1. **Frontend IP Configuration:** Create frontend IP (example: 10.0.0.43). Select the same virtual network and subnet as your ASCS/ERS virtual machines.
-2. **Backend Pool:** Create backend pool and add ASCS and ERS VMs. In this example VMs pr1-ascs-10 and pr1-ascs-11.
+2. **Backend Pool:** Create backend pool and add ASCS and ERS VMs. In this example, VMs are pr1-ascs-10 and pr1-ascs-11.
 3. **Inbound rules:** Create load balancing rule.
      - Frontend IP address: Select frontend IP
      - Backend pool: Select backend pool
@@ -126,7 +126,7 @@ During VM configuration, you have an option to create or select exiting load bal
 
 ## Add registry entries on both cluster nodes of the ASCS/SCS instance
 
-Azure Load Balancer may close connections, if the connections are idle for a period and exceed the idle timeout. The SAP work processes open connections to the SAP enqueue process as soon as the first enqueue/dequeue request needs to be sent. To avoid interrupting these connections, change the TCP/IP KeepAliveTime and KeepAliveInterval values on both cluster nodes. If using ERS1, it is also necessary to add SAP profile parameters, as described later in this article.
+Azure Load Balancer may close connections, if the connections are idle for a period and exceed the idle timeout. The SAP work processes open connections to the SAP enqueue process as soon as the first enqueue/dequeue request needs to be sent. To avoid interrupting these connections, change the TCP/IP KeepAliveTime and KeepAliveInterval values on both cluster nodes. If using ERS1, it's also necessary to add SAP profile parameters, as described later in this article.
 The following registry entries must be changed on both cluster nodes:
 
 - KeepAliveTime
@@ -164,7 +164,7 @@ Once the feature installation has completed, reboot both cluster nodes.
 
 ### Test and configure Windows failover cluster
 
-On Windows 2019, the cluster will automatically recognize that it is running in Azure, and as a default option for cluster management IP, it will use Distributed Network name. Therefore, it will use any of the cluster nodes local IP addresses. As a result, there is no need for a dedicated (virtual) network name for the cluster, and there is no need to configure this IP address on Azure Internal Load Balancer.
+On Windows 2019, the cluster will automatically recognize that it's running in Azure, and as a default option for cluster management IP, it uses Distributed Network name. Therefore, it uses any of the cluster nodes local IP addresses. As a result, there's no need for a dedicated (virtual) network name for the cluster, and there's no need to configure this IP address on Azure Internal Load Balancer.
 
 For more information, see, [Windows Server 2019 Failover Clustering New features](https://techcommunity.microsoft.com/t5/failover-clustering/windows-server-2019-failover-clustering-new-features/ba-p/544029)
 Run this command on one of the cluster nodes:
@@ -215,15 +215,15 @@ After you successfully install the Windows failover cluster, you need to adjust 
 - SameSubNetThreshold = 15
 - RouteHistoryLength = 30
 
-These settings were tested with customers and offer a good compromise. They are resilient enough, but they also provide failover that is fast enough for real error conditions in SAP workloads or VM failure.  
+These settings were tested with customers and offer a good compromise. They're resilient enough, but they also provide failover that is fast enough for real error conditions in SAP workloads or VM failure.  
 
 ## Configure Azure shared disk
 
-This section is only applicable, if you are using Azure shared disk.
+This section is only applicable, if you're using Azure shared disk.
 
 ### Create and attach Azure shared disk with PowerShell
 
-Run this command on one of the cluster nodes. You will need to adjust the values for your resource group, Azure region, SAPSID, and so on.  
+Run this command on one of the cluster nodes. You'll need to adjust the values for your resource group, Azure region, SAPSID, and so on.  
 
 ```powershell
 #############################
@@ -280,7 +280,7 @@ Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
    # 2      Msft Virtual Disk               Healthy      Online                512 GB RAW            
    ```
 
-2. Format the disk. In this example, it is disk number 2.
+2. Format the disk. In this example, it's disk number 2.
 
    ```powershell
    # Format SAP ASCS Disk number '2', with drive letter 'S'
@@ -323,7 +323,7 @@ Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
 
 ## SIOS DataKeeper Cluster Edition for the SAP ASCS/SCS cluster share disk
 
-This section is only applicable, if you are using the third-party software SIOS DataKeeper Cluster Edition to create a mirrored storage that simulates cluster shared disk.  
+This section is only applicable, if you're using the third-party software SIOS DataKeeper Cluster Edition to create a mirrored storage that simulates cluster shared disk.  
 
 Now, you have a working Windows Server failover clustering configuration in Azure. To install an SAP ASCS/SCS instance, you need a shared disk resource. One of the options is to use SIOS DataKeeper Cluster Edition is a third-party solution that you can use to create shared disk resources.  
 
