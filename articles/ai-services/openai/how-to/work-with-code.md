@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 06/24/2022
 author: ChrisHMSFT
 ms.author: chrhoder
-keywords: 
 ---
 
 # Codex models and Azure OpenAI Service

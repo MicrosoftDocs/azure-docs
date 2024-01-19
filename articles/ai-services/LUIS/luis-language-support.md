@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference
-ms.date: 01/18/2022
+ms.date: 01/19/2024
 ---
 
 # Language and region support for LUIS
