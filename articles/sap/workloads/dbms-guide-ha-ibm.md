@@ -59,7 +59,7 @@ HADR is only a replication functionality. It has no failure detection and no aut
 
 ![IBM Db2 high availability overview](./media/dbms-guide-ha-ibm/ha-db2-hadr-lb.png)
 
-To have SAP application servers connect to primary database, you need a virtual host name and a virtual IP address. In the event of a failover, the SAP application servers will connect to new primary database instance. In an Azure environment, an [Azure load balancer](https://microsoft.sharepoint.com/teams/WAG/AzureNetworking/Wiki/Load%20Balancing.aspx) is required to use a virtual IP address in the way that's required for HADR of IBM Db2.
+To have SAP application servers connect to primary database, you need a virtual host name and a virtual IP address. After a failover, the SAP application servers connect to new primary database instance. In an Azure environment, an [Azure load balancer](https://microsoft.sharepoint.com/teams/WAG/AzureNetworking/Wiki/Load%20Balancing.aspx) is required to use a virtual IP address in the way that's required for HADR of IBM Db2.
 
 To help you fully understand how IBM Db2 LUW with HADR and Pacemaker fits into a highly available SAP system setup, the following image presents an overview of a highly available setup of an SAP system based on IBM Db2 database. This article covers only IBM Db2, but it provides references to other articles about how to set up other components of an SAP system.
 
@@ -90,7 +90,7 @@ Complete the planning process before you execute the deployment. Planning builds
 
 | Topic | Short description |
 | --- | --- |
-| Define Azure resource groups | Resource groups where you deploy VM, VNet, Azure Load Balancer, and other resources. Can be existing or new. |
+| Define Azure resource groups | Resource groups where you deploy VM, virtual network, Azure Load Balancer, and other resources. Can be existing or new. |
 | Virtual network / Subnet definition | Where VMs for IBM Db2 and Azure Load Balancer are being deployed. Can be existing or newly created. |
 | Virtual machines hosting IBM Db2 LUW | VM size, storage, networking, IP address. |
 | Virtual host name and virtual IP for IBM Db2 database| The virtual IP or host name that's used for connection of SAP application servers. **db-virt-hostname**, **db-virt-ip**. |
@@ -185,7 +185,7 @@ When you use an Azure Pacemaker fencing agent, set the following parameters:
 - HADR peer window duration (seconds) (HADR_PEER_WINDOW) = 900  
 - HADR timeout value (HADR_TIMEOUT) = 60
 
-We recommend the preceding parameters based on initial failover/takeover testing. It is mandatory that you test for proper functionality of failover and takeover with these parameter settings. Because individual configurations can vary, the parameters might require adjustment.
+We recommend the preceding parameters based on initial failover/takeover testing. It's mandatory that you test for proper functionality of failover and takeover with these parameter settings. Because individual configurations can vary, the parameters might require adjustment.
 
 > [!IMPORTANT]
 > Specific to IBM Db2 with HADR configuration with normal startup: The secondary or standby database instance must be up and running before you can start the primary database instance.
@@ -296,7 +296,7 @@ Execute command as db2<sid> db2pd -hadr -db <SID>
 
 ### Configure Azure Load Balancer
 
-During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow below steps, to setup standard load balancer for high availability setup of DB2 database.
+During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow below steps, to set up standard load balancer for high availability setup of DB2 database.
 
 #### [Azure portal](#tab/lb-portal)
 
@@ -446,7 +446,7 @@ Hostname=db-virt-hostname
 
 ## Install primary and dialog application servers
 
-When you install primary and dialog application servers against an Db2 HADR configuration, use the virtual host name that you picked for the configuration. 
+When installing primary and dialog application servers against a Db2 HADR configuration, use the virtual host name that you picked for the configuration.
 
 If you performed the installation before you created the Db2 HADR configuration, make the changes as described in the preceding section and as follows for SAP Java stacks.
 
@@ -489,7 +489,7 @@ You can use existing highly available NFS shares for transports or a profile dir
 
 ## Test the cluster setup
 
-This section describes how you can test your Db2 HADR setup. *Every test assumes that you are logged in as user root* and the IBM Db2 primary is running on the *azibmdb01* virtual machine.
+This section describes how you can test your Db2 HADR setup. *Every test assumes that you're logged in as user root* and the IBM Db2 primary is running on the *azibmdb01* virtual machine.
 
 The initial status for all test cases is explained here: (crm_mon -r  or crm status)
 
@@ -559,7 +559,7 @@ The original status in an SAP system is documented in Transaction DBACOCKPIT > C
 
 ![DBACockpit - Post Migration](./media/dbms-guide-ha-ibm/hadr-sap-mgr-post.png)
 
-Resource migration with "crm resource migrate" creates location constraints. Location constraints should be deleted. If location constraints are not deleted, the resource cannot fail back or you can experience unwanted takeovers.
+Resource migration with "crm resource migrate" creates location constraints. Location constraints should be deleted. If location constraints aren't deleted, the resource can't fail back or you can experience unwanted takeovers.
 
 Migrate the resource back to *azibmdb01* and clear the location constraints
 
@@ -661,7 +661,7 @@ Failed Actions:
     last-rc-change='Tue Feb 12 14:28:19 2019', queued=40ms, exec=223ms
 ```
 
-Pacemaker will restart the Db2 primary database instance on the same node, or it will fail over to the node that's running the secondary database instance and an error is reported.
+Pacemaker restarts the Db2 primary database instance on the same node, or it fails over to the node that's running the secondary database instance and an error is reported.
 
 ```bash
 2 nodes configured
@@ -819,7 +819,7 @@ us=complete, exitreason='',
 azibmdb01:~ # echo b > /proc/sysrq-trigger
 ```
 
-Pacemaker will promote the secondary instance to the primary instance role. The old primary instance will move into the secondary role after the VM and all services are fully restored after the VM reboot.
+Pacemaker promotes the secondary instance to the primary instance role. The old primary instance will move into the secondary role after the VM and all services are fully restored after the VM reboot.
 
 ```bash
 nodes configured
@@ -845,7 +845,7 @@ Master/Slave Set: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
 azibmdb01:~ # echo b > /proc/sysrq-trigger
 ```
 
-In such a case, Pacemaker will detect that the node that's running the primary database instance isn't responding.
+In such a case, Pacemaker detects that the node that's running the primary database instance isn't responding.
 
 ```bash
 2 nodes configured

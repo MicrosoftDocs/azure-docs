@@ -68,7 +68,7 @@ HADR is only a replication functionality. It has no failure detection and no aut
 
 ![IBM Db2 high availability overview](./media/high-availability-guide-rhel-ibm-db2-luw/ha-db2-hadr-lb-rhel.png)
 
-To have SAP application servers connect to primary database, you need a virtual host name and a virtual IP address. In the event of a failover, the SAP application servers will connect to new primary database instance. In an Azure environment, an [Azure load balancer](https://microsoft.sharepoint.com/teams/WAG/AzureNetworking/Wiki/Load%20Balancing.aspx) is required to use a virtual IP address in the way that's required for HADR of IBM Db2.
+To have SAP application servers connect to primary database, you need a virtual host name and a virtual IP address. After a failover, the SAP application servers connect to new primary database instance. In an Azure environment, an [Azure load balancer](https://microsoft.sharepoint.com/teams/WAG/AzureNetworking/Wiki/Load%20Balancing.aspx) is required to use a virtual IP address in the way that's required for HADR of IBM Db2.
 
 To help you fully understand how IBM Db2 LUW with HADR and Pacemaker fits into a highly available SAP system setup, the following image presents an overview of a highly available setup of an SAP system based on IBM Db2 database. This article covers only IBM Db2, but it provides references to other articles about how to set up other components of an SAP system.
 
@@ -99,10 +99,10 @@ Complete the planning process before you execute the deployment. Planning builds
 
 | Topic | Short description |
 | --- | --- |
-| Define Azure resource groups | Resource groups where you deploy VM, VNet, Azure Load Balancer, and other resources. Can be existing or new. |
+| Define Azure resource groups | Resource groups where you deploy VM, virtual network, Azure Load Balancer, and other resources. Can be existing or new. |
 | Virtual network / Subnet definition | Where VMs for IBM Db2 and Azure Load Balancer are being deployed. Can be existing or newly created. |
 | Virtual machines hosting IBM Db2 LUW | VM size, storage, networking, IP address. |
-| Virtual host name and virtual IP for IBM Db2 database| The virtual IP or host name that's used for connection of SAP application servers. **db-virt-hostname**, **db-virt-ip**. |
+| Virtual host name and virtual IP for IBM Db2 database| The virtual IP or host name is used for connection of SAP application servers. **db-virt-hostname**, **db-virt-ip**. |
 | Azure fencing | Method to avoid split brain situations is prevented. |
 | Azure Load Balancer | Usage of Standard (recommended), probe port for Db2 database (our recommendation 62500) **probe-port**. |
 | Name resolution| How name resolution works in the environment. DNS service is highly recommended. Local hosts file can be used. |
@@ -153,8 +153,8 @@ You can find the guides on the SAP Help portal by using the [SAP Installation Gu
 
 You can reduce the number of guides displayed in the portal by setting the following filters:
 
-* I want to: "Install a new system".
-* My Database: "IBM Db2 for Linux, Unix, and Windows".
+* I want to: Install a new system.
+* My Database: IBM Db2 for Linux, Unix, and Windows.
 * Additional filters for SAP NetWeaver versions, stack configuration, or operating system.
 
 ### Red Hat firewall rules
@@ -185,7 +185,7 @@ When you use an Azure Pacemaker fencing agent, set the following parameters:
 * HADR peer window duration (seconds) (HADR_PEER_WINDOW) = 240
 * HADR timeout value (HADR_TIMEOUT) = 45
 
-We recommend the preceding parameters based on initial failover/takeover testing. It is mandatory that you test for proper functionality of failover and takeover with these parameter settings. Because individual configurations can vary, the parameters might require adjustment.
+We recommend the preceding parameters based on initial failover/takeover testing. It's mandatory that you test for proper functionality of failover and takeover with these parameter settings. Because individual configurations can vary, the parameters might require adjustment.
 
 > [!NOTE]
 > Specific to IBM Db2 with HADR configuration with normal startup: The secondary or standby database instance must be up and running before you can start the primary database instance.
@@ -324,7 +324,7 @@ SOCK_RECV_BUF_REQUESTED,ACTUAL(bytes) = 0, 367360
 
 ### Configure Azure Load Balancer
 
-During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow below steps, to setup standard load balancer for high availability setup of DB2 database.
+During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow below steps, to set up standard load balancer for high availability setup of DB2 database.
 
 #### [Azure portal](#tab/lb-portal)
 
@@ -621,9 +621,9 @@ The original status in an SAP system is documented in Transaction DBACOCKPIT > C
 
 ![DBACockpit - Post Migration](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-sap-mgr-post-rhel.png)
 
-Resource migration with "pcs resource move" creates location constraints. Location constraints in this case are preventing running IBM Db2 instance on az-idb01. If location constraints are not deleted, the resource cannot fail back.
+Resource migration with "pcs resource move" creates location constraints. Location constraints in this case are preventing running IBM Db2 instance on az-idb01. If location constraints aren't deleted, the resource can't fail back.
 
-Remove the location constrain and standby node will be started on az-idb01.
+Remove the location constrain and standby node would be started on az-idb01.
 
 ```bash
 # On RHEL 7.x
@@ -664,10 +664,10 @@ sudo pcs resource move Db2_HADR_ID2-clone --master
 sudo pcs resource clear Db2_HADR_ID2-clone
 ```
 
-* **On RHEL 7.x - pcs resource move \<res_name\> \<host\>:** Creates location constraints and can cause issues with takeover
-* **On RHEL 8.x - pcs resource move \<res_name\> --master:** Creates location constraints and can cause issues with takeover
-* **pcs resource clear \<res_name\>**: Clears location constraints
-* **pcs resource cleanup \<res_name\>**: Clears all errors of the resource
+* On RHEL 7.x - `pcs resource move <resource_name> <host>`: Creates location constraints and can cause issues with takeover
+* On RHEL 8.x - `pcs resource move <resource_name> --master`: Creates location constraints and can cause issues with takeover
+* `pcs resource clear <resource_name>`: Clears location constraints
+* `pcs resource cleanup <resource_name>`: Clears all errors of the resource
 
 ### Test a manual takeover
 
@@ -740,7 +740,7 @@ Failed Actions:
     last-rc-change='Wed Jun 26 09:57:35 2019', queued=0ms, exec=362ms
 ```
 
-Pacemaker will restart the Db2 primary database instance on the same node, or it will fail over to the node that's running the secondary database instance and an error is reported.
+Pacemaker restarts the Db2 primary database instance on the same node, or it fails over to the node that's running the secondary database instance and an error is reported.
 
 ### Kill the Db2 process on the node that runs the secondary database instance
 
@@ -836,7 +836,7 @@ Failed Actions:
 sudo echo b > /proc/sysrq-trigger
 ```
 
-In such a case, Pacemaker will detect that the node that's running the primary database instance isn't responding.
+In such a case, Pacemaker detects that the node that's running the primary database instance isn't responding.
 
 ```bash
 2 nodes configured
