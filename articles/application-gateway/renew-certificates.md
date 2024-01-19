@@ -114,7 +114,7 @@ where:
   ssl_certificate {
       name = "afdpremium-agw-ssl-certificate"                       
       // Reference the Key Vault secret ID
-      <p style="color:bluek">key_vault_secret_id  = data.azurerm_key_vault_secret.vault.id</p> 
+      <font color="red">key_vault_secret_id = data.azurerm_key_vault_secret.vault.id</font>
     }
 ```
 
