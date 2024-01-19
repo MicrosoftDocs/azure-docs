@@ -79,11 +79,11 @@ If you're unable to allow access to the PKI URL from your servers, you can manua
 1. Copy the certificate files to your Windows Server 2012 (R2) machines.
 1. Run any one set of the following commands in an elevated command prompt or PowerShell session to add the certificates to the "Intermediate Certificate Authorities" store for the local computer. The command should be run from the same directory as the certificate files. The commands are idempotent and won't make any changes if you've already imported the certificate:
 
-    ```powershell
-    certstore -addstore CA "Microsoft Azure TLS Issuing CA 01 - xsign.crt"
-    certstore -addstore CA "Microsoft Azure TLS Issuing CA 02 - xsign.crt"
-    certstore -addstore CA "Microsoft Azure TLS Issuing CA 05 - xsign.crt"
-    certstore -addstore CA "Microsoft Azure TLS Issuing CA 06 - xsign.crt"
+    ```
+    certutil -addstore CA "Microsoft Azure TLS Issuing CA 01 - xsign.crt"
+    certutil -addstore CA "Microsoft Azure TLS Issuing CA 02 - xsign.crt"
+    certutil -addstore CA "Microsoft Azure TLS Issuing CA 05 - xsign.crt"
+    certutil -addstore CA "Microsoft Azure TLS Issuing CA 06 - xsign.crt"
     ```
 
     ```powershell
