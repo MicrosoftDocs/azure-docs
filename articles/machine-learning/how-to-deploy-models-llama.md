@@ -80,7 +80,7 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 
 To create a deployment:
 
-1. Go to the [Azure Machine Learning studio](https://ml.azure.com/home).
+1. Go to [Azure Machine Learning studio](https://ml.azure.com/home).
 1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** or **West US 3** region.
 1. Choose the model you want to deploy from the [model catalog](https://ml.azure.com/model/catalog).
 
@@ -394,23 +394,23 @@ Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time en
 
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-real-time-endpoint.png" alt-text="A screenshot showing how to deploy a model with the real-time endpoint option." lightbox="media/how-to-deploy-models-llama/deploy-real-time-endpoint.png":::
 
-1. Choose if you want to **Enable Azure AI Content Safety (Recommended)**. This option is the default selection.
+1. On the **Deploy with Azure AI Content Safety (preview)** page, select **Skip Azure AI Content Safety** so that you can continue to deploy the model using the UI.
 
     > [!TIP]
-    > Deploying Llama 2 models with Azure AI Content Safety (preview) is currently only supported using the Python SDK. This deployment happens in a notebook.
+    > In general, we recommend that you select **Enable Azure AI Content Safety (Recommended)** for deployment of the Llama model. This deployment option is currently only supported using the Python SDK and it happens in a notebook.
 
 1. Select **Proceed**.
 
     > [!TIP]
     > If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**.
 
-6. Select the **Virtual machine** and the instance count you want to assign to the deployment.
-
-7. Select if you want to create this deployment as part of a new endpoint or an existing one. Endpoints can host multiple deployments while keeping resources configuration exclusive for each of them. Deployments under the same endpoint share the endpoint URI and its access keys.
-
-8. Indicate if you want to enable **Inferencing data collection (preview)** or **Package Model (preview)**.
-9. Select **Deploy**.
-10. You land on the deployment details page. Select **Consume** to obtain code samples that can be used to consume the deployed model in your application. 
+1. Select the **Virtual machine** and the **Instance count** that you want to assign to the deployment.
+1. Select if you want to create this deployment as part of a new endpoint or an existing one. Endpoints can host multiple deployments while keeping resources configuration exclusive for each of them. Deployments under the same endpoint share the endpoint URI and its access keys.
+1. Indicate if you want to enable **Inferencing data collection (preview)**.
+1. Indicate if you want to enable **Package Model (preview)**.
+1. Select **Deploy**. After a few moments, the endpoint's **Details** page opens up.
+1. Wait for the endpoint creation and deployment to finish. This step can take a few minutes.
+1. Select the endpoint's **Consume** page to obtain code samples that you can use to consume the deployed model in your application.
 
 # [Python SDK](#tab/python)
 
@@ -469,11 +469,11 @@ For reference about how to invoke Llama 2 models deployed to real-time endpoints
 Llama models deployed as a service are offered by Meta through Azure Marketplace and integrated with Azure Machine Learning studio for use. You can find Azure Marketplace pricing when deploying or fine-tuning models.
 
 Each time a workspace subscribes to a given model offering from Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
-<!-- See (change - check link) [monitor costs for models offered throughout Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs. -->
+See (change - check link) [monitor costs for models offered throughout Azure Marketplace](/azure/ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs.
 
 (change - use same image as AI Studio
 
-:::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters."  lightbox="../media/cost-management/marketplace/costs-model-as-service-cost-details.png":::
+:::image type="content" source="media/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters."  lightbox="media/costs-model-as-service-cost-details.png":::
 )
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
@@ -484,7 +484,7 @@ For deployment and inferencing of Llama models with real-time endpoints, you con
 
 ## Content filtering
 
-Models deployed as a service with pay-as-you-go are protected by Azure AI content safety. When deployed to real-time endpoints, you can opt out of this capability. With Azure AI content safety enabled, both the prompt and completion are run through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](../concepts/content-filtering.md)(change - check link).
+Models deployed as a service with pay-as-you-go are protected by Azure AI content safety. When deployed to real-time endpoints, you can opt out of this capability. With Azure AI content safety enabled, both the prompt and completion are run through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
 
 ## Next steps
 
