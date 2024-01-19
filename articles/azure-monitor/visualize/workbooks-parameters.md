@@ -2,8 +2,6 @@
 title: Create workbook parameters
 description: Learn how to add parameters to your workbook to collect input from the consumers and reference it in other parts of the workbook.
 services: azure-monitor
-manager: carmonm
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/21/2023
