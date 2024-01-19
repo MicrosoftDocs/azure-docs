@@ -1,14 +1,12 @@
 ---
 title: Index lookup tool for flows in Azure AI Studio
 titleSuffix: Azure AI Studio
-description: This article introduces the Index Lookup Vector tool for flows in Azure AI Studio.
+description:  This article introduces the Index Lookup tool for flows in Azure AI Studio.
 author: e-straight
 manager: nitinme
-ms.service: azure-ai-services
-ms.custom:
-  - ignite-2023
+ms.service: azure-ai-studio
 ms.topic: conceptual
-ms.date: 11/30/2023
+ms.date: 01/18/2024
 ms.author: eur
 ---
 
@@ -16,18 +14,18 @@ ms.author: eur
 
 [!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
 
-The prompt flow *Index Lookup* tool is designed to allow the usage of common vector indices (including Azure Cognitive Search, FAISS, Pinecone). This allows for RAG flows to be implemented in prompt flow using a variety of indices. The tool automatically detects the indicies in the workspace and allows the selection of the index to be used in the flow.
+The prompt flow *Index Lookup* tool enables the usage of common vector indices (such as Azure AI Search, FAISS, and Pinecone) for retrieval augmented generation (RAG) in prompt flow. The tool automatically detects the indices in the workspace and allows the selection of the index to be used in the flow.
 
-## Build with the Index Lookup tool 
+## Build with the Index Lookup tool
 
 1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ More tools** > **Index Lookup** to add the Index Lookup tool to your flow.
 
     :::image type="content" source="../../media/prompt-flow/index-lookup-tool.png" alt-text="Screenshot of the Index Lookup tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/common-index-lookup-tool.png":::
 
-1. Enter values for the Index Lookup tool input parameters described [here](#inputs). The [LLM tool](llm-tool.md) can generate the vector input.
+1. Enter values for the Index Lookup tool [input parameters](#inputs). The [LLM tool](llm-tool.md) can generate the vector input.
 1. Add more tools to your flow as needed, or select **Run** to run the flow.
-1. The outputs are described [here](#outputs).
+1. To learn more about the returned output, see [outputs](#outputs).
 
 
 ## Inputs
@@ -144,7 +142,6 @@ The following JSON format response is an example returned by the tool that inclu
 ]
 
 ```
-
 
 ## Next steps
 
