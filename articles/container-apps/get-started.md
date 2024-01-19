@@ -125,7 +125,7 @@ az containerapp up \
   --resource-group my-container-apps \
   --location centralus \
   --environment 'my-container-apps' \
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
+  --image mcr.microsoft.com/k8se/quickstart:latest \
   --target-port 80 \
   --ingress external \
   --query properties.configuration.ingress.fqdn
@@ -139,7 +139,7 @@ az containerapp up `
   --resource-group my-container-apps `
   --location centralus `
   --environment  my-container-apps `
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest `
+  --image mcr.microsoft.com/k8se/quickstart:latest `
   --target-port 80 `
   --ingress external `
   --query properties.configuration.ingress.fqdn
@@ -159,6 +159,8 @@ The `up` command returns the fully qualified domain name for the container app. 
 The following message is displayed when the container app is deployed:
 
 :::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Screenshot of container app web page.":::
+
+[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
 
 ## Clean up resources
 

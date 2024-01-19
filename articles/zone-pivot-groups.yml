@@ -1068,6 +1068,15 @@ groups:
     title: Scala
   - id: programming-language-csharp
     title: C#
+- id: programming-languages-spark-all-minus-sql-r-csharp
+# Owner: sidandrews
+  title: Programming languages
+  prompt: Choose a language
+  pivots:
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-scala
+    title: Scala
 - id: aml-control-methods
   # Owner: gopalv
   title: Azure Machine Learning control plane
@@ -1182,6 +1191,16 @@ groups:
     title: Linux
   - id: platform-windows
     title: Windows
+- id: app-service-platform-windows-linux-windows-container
+  title: App Service platform
+  prompt: Choose a hosting platform
+  pivots:
+  - id: platform-linux
+    title: Linux
+  - id: platform-windows
+    title: Windows
+  - id: platform-windows-container
+    title: Windows container
 # Owner: msangapu
 - id: app-service-portal-azd
   title: App Service deployment method

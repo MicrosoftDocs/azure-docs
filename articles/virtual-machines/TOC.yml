@@ -979,6 +979,8 @@
         href: ./extensions/key-vault-windows.md
     - name: Azure Policy guest configuration
       href: ./extensions/guest-configuration.md
+    - name: Application Health Extension
+      href: ./extensions/health-extension.md
     - name: Custom Script
       items:
       - name: Linux - version 2
@@ -1201,6 +1203,8 @@
     href: disks-types.md
   - name: Disk redundancy options
     href: disks-redundancy.md
+  - name: What's new in Azure Disk Storage
+    href: disks-whats-new.md
   - name: Deploy an ultra disk
     href: disks-enable-ultra-ssd.md
   - name: Deploy a premium SSD v2

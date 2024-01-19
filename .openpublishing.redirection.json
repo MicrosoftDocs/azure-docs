@@ -1,6 +1,16 @@
 {
     "redirections": [
     {
+      "source_path": "articles/storage/common/storage-analytics-metrics.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-analytics-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/manage-storage-analytics-metrics.md",
+      "redirect_url": "/previous-versions/azure/storage/common/manage-storage-analytics-metrics",
+      "redirect_document_id": false
+    },
+    {
         "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-preview-version.md",
         "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version-vmware",
         "redirect_document_id": false
@@ -932,11 +942,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/site-recovery/unregister-vmm-server-script.md",
-            "redirect_url": "/azure/site-recovery/azure-to-azure-autoupdate",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/site-recovery/hyper-v-vmm-secondary-support-matrix.md",
             "redirect_url": "/azure/site-recovery/azure-to-azure-autoupdate",
             "redirect_document_id": false
@@ -990,6 +995,26 @@
             "source_path_from_root": "/articles/container-registry/container-registry-enable-conditional-access-policy.md",
             "redirect_url": "/azure/container-registry/container-registry-configure-conditional-access.md",
             "redirect_document_id": false 
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-artifact-streaming.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-streaming",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-artifact-streaming-cli.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-streaming",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-artifact-streaming-portal.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-streaming",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-artifact-streaming-troubleshoot.md",
+            "redirect_url": "/azure/container-registry/troubleshoot-artifact-streaming",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/vmware-physical-secondary-disaster-recovery.md",
@@ -22520,6 +22545,11 @@
         {
             "source_path_from_root": "/articles/virtual-network/ip-services/virtual-networks-static-private-ip-classic-ps.md",
             "redirect_url": "/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024/",
+            "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/orbital/overview-analytics.md",
+            "redirect_url": "/azure/orbital/overview",
             "redirect_document_id": false  
         }
     ]

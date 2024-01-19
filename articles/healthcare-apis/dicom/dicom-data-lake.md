@@ -47,18 +47,25 @@ AHDS/{workspace-name}/dicom/{dicom-service-name}/{partition-name}
 | `{dicom-service-name}` | The name of the DICOM service instance. |
 | `{partition-name}`     | The name of the data partition. Note, if no partitions are specified, all DICOM data is stored in the default partition, named `Microsoft.Default`. |
 
+In addition to DICOM data, a small file to enable [health checks](#health-check) will be written to this location.
+
 > [!NOTE]
 > During public preview, the DICOM service writes data to the storage container and reads the data, but user-added data isn't read and indexed by the DICOM service. Similarly, if DICOM data written by the DICOM service is modified or removed, it may result in errors when accessing data with the DICOMweb APIs.
 
 ## Permissions
 
-The DICOM service is granted access to the data like any other service or application accessing data in a storage account. Access can be revoked at any time without affecting your organization's ability to access the data. The DICOM service needs to be granted the [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role by using a system-assigned or user-assigned managed identity.  
+The DICOM service is granted access to the data like any other service or application accessing data in a storage account. Access can be revoked at any time without affecting your organization's ability to access the data. The DICOM service needs the ability to read, write, and delete files in the provided file system. This can be provided by granting the [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role to the system-assigned or user-assigned managed identity attached to the DICOM service.
 
 ## Access tiers
 
 You can manage costs for imaging data stored by the DICOM service by using Azure Storage access tiers for the data lake storage account. The DICOM service only supports online access tiers (either hot, cool, or cold), and can retrieve imaging data in those tiers immediately. The hot tier is the best choice for data that is in active use. The cool or cold tier is ideal for data that is accessed less frequently but still must be available for reading and writing.
 
 To learn more about access tiers, including cost tradeoffs and best practices, see [Azure Storage access tiers](/azure/storage/blobs/access-tiers-overview)
+
+## Health check
+
+The DICOM service writes a small file to the data lake every 30 seconds, following the [Data Contract](#data-contracts) to ensure it maintains access. Making any changes to files stored under the `healthCheck` sub-directory might result in incorrect status of the health check.
+If there is an issue with access, status and details are displayed by [Azure Resource Health](../../service-health/overview.md). Azure Resource Health specifies if any action is required to restore access, for example reinstating a role to the DICOM service's identity.
 
 ## Limitations
 

@@ -2,7 +2,7 @@
 title: Use Azure Private Link to securely connect servers to Azure Arc
 description: Learn how to use Azure Private Link to securely connect networks to Azure Arc.
 ms.topic: conceptual
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.date: 06/20/2023
 ---
 
@@ -130,7 +130,7 @@ See the visual diagram under the section [How it works](#how-it-works) for the n
     1. Enter a **Name** for the endpoint.
 
     1. Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone.
-    
+
          > [!NOTE]
          > If you choose **No** and prefer to manage DNS records manually, first complete setting up your Private Link - including this Private Endpoint and the Private Scope configuration. Then, configure your DNS according to the instructions in [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md). Make sure not to create empty records as preparation for your Private Link setup. The DNS records you create can override existing settings and impact your connectivity with Azure Arc-enabled servers.
 
@@ -168,7 +168,7 @@ Once your Azure Arc Private Link Scope is created, you need to connect it with o
 
 1. On the **Configuration** page,
 
-   a. Choose the **virtual network** and **subnet** that you want to connect to your Azure Arc-enabled server. 
+   a. Choose the **virtual network** and **subnet** that you want to connect to your Azure Arc-enabled server.
 
    b. Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. The actual DNS zones might be different from what is shown in the screenshot below.
 
@@ -232,7 +232,7 @@ If you're only planning to use Private Links to support a few machines or server
 
 ### Configure a new Azure Arc-enabled server to use Private link
 
-When connecting a machine or server with Azure Arc-enabled servers for the first time, you can optionally connect it to a Private Link Scope. The following steps are 
+When connecting a machine or server with Azure Arc-enabled servers for the first time, you can optionally connect it to a Private Link Scope. The following steps are
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
@@ -263,7 +263,7 @@ When connecting a machine or server with Azure Arc-enabled servers for the first
 
 1. On the **Download and run script** page, review the summary information, and then select **Download**. If you still need to make changes, select **Previous**.
 
-After downloading the script, you have to run it on your machine or server using a privileged (administrator or root) account. Depending on your network configuration, you might need to download the agent from a computer with internet access and transfer it to your machine or server, and then modify the script with the path to the agent. 
+After downloading the script, you have to run it on your machine or server using a privileged (administrator or root) account. Depending on your network configuration, you might need to download the agent from a computer with internet access and transfer it to your machine or server, and then modify the script with the path to the agent.
 
 The Windows agent can be downloaded from [https://aka.ms/AzureConnectedMachineAgent](https://aka.ms/AzureConnectedMachineAgent) and the Linux agent can be downloaded from [https://packages.microsoft.com](https://packages.microsoft.com). Look for the latest version of the **azcmagent** under your OS distribution directory and installed with your local package manager.
 
