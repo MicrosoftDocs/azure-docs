@@ -411,7 +411,47 @@ Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time en
 
 # [Python SDK](#tab/python)
 
-(change - check)
+You can use the Azure AI Generative SDK to deploy an open model. In this example, you deploy a `distilbert-base-cased` model.
+
+```python
+# Import the libraries
+from azure.ai.resources.client import AIClient
+from azure.ai.resources.entities.deployment import Deployment
+from azure.ai.resources.entities.models import PromptflowModel
+from azure.identity import DefaultAzureCredential
+```
+
+
+Credential info can be found under your project settings on Azure AI Studio. You can go to Settings by selecting the gear icon on the bottom of the left navigation UI.
+
+```python
+credential = DefaultAzureCredential()
+client = AIClient(
+    credential=credential,
+    subscription_id="<xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>",
+    resource_group_name="<YOUR_RESOURCE_GROUP_NAME>",
+    project_name="<YOUR_PROJECT_NAME>",
+)
+```
+
+Define the model and the deployment. `The model_id` can be found on the model card on Azure AI Studio [model catalog](../how-to/model-catalog.md).
+
+```python
+model_id = "azureml://registries/azureml/models/distilbert-base-cased/versions/10"
+deployment_name = "my-distilbert-deployment"
+
+deployment = Deployment(
+    name=deployment_name,
+    model=model_id,
+)
+```
+
+Deploy the model.
+
+```python
+client.deployments.create_or_update(deployment)
+```
+---
 
 ---
 
