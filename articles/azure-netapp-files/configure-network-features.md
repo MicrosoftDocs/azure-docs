@@ -92,7 +92,7 @@ See [regions supported for this feature](azure-netapp-files-network-topologies.m
 This feature currently doesn't support SDK.
 
 > [!NOTE]
-> The option to edit network features is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files standard networking features (edit volumes) Public Preview Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. Feature enablement can take approximately one week to be enabled after you submit the waitlist request. You can check the status of feature registration by using the following command: 
+> The option to edit network features is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files standard networking features (edit volumes) Public Preview Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. The feature can take approximately one week to be enabled after you submit the waitlist request. You can check the status of feature registration by using the following command: 
 >
 > ```azurepowershell-interactive
 > Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBasicToStdNetworkFeaturesUpgrade                                                      
