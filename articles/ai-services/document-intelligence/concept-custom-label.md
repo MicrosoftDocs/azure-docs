@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 01/19/2024
 ms.author: vikurpad
 ms.custom:
   - references_regions

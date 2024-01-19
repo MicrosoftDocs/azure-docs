@@ -6,7 +6,7 @@ author: vkurpad
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 01/19/2024
 ms.author: lajanuar
 ms.custom:
   - references_regions
@@ -107,23 +107,23 @@ Classification models can now be trained on documents of different languages. Se
 
 * For custom classification model training, the total size of training data is `1GB`  with a maximum of 10,000 pages.
 
-
 ## Document splitting
 
-When you have more than one document in a file, the classifier can identify the different document types contained within the input file. The classifier response will contain the page ranges for each of the identified document types contined within a file. This can include multiple instances of the same document type.
+When you have more than one document in a file, the classifier can identify the different document types contained within the input file. The classifier response contains the page ranges for each of the identified document types contained within a file. This response can include multiple instances of the same document type.
 
 ::: moniker range=">=doc-intel-4.0.0"
-The analyze operation now includes a `splitMode` property that gives you granular control over the splitting behavior. 
-* To trat the entire input file as a single document for classification set the splitMode to `none`. When you do this, the service returns just one class for the entire input file.
-* To classify each page of the input file, set the splitMode to `perPage`. The service will attept to classify each page as an individual document.
-* Set the splitMode to `auto` and the service will identify the documents and associated page ranges.
+The analyze operation now includes a `splitMode` property that gives you granular control over the splitting behavior.
+
+* To treat the entire input file as a single document for classification set the splitMode to `none`. When you do so, the service returns just one class for the entire input file.
+* To classify each page of the input file, set the splitMode to `perPage`. The service attempts to classify each page as an individual document.
+* Set the splitMode to `auto` and the service identifies the documents and associated page ranges.
 ::: moniker-end
 
 ## Best practices
 
 Custom classification models require a minimum of five samples per class to train. If the classes are similar, adding extra training samples improves model accuracy.
 
-The classifier will attempt to assign each document to one of the classes, if you expect the model will see document types not in the classes that are part of the training dataset, you should plan to set a threshold on the classification score or add a few representative samples of the document types to an ```"other"``` class. Adding an ```"other"``` class will ensure that the documents not needed do not impact your classifier quality.
+The classifier attempts to assign each document to one of the classes, if you expect the model to see document types not in the classes that are part of the training dataset, you should plan to set a threshold on the classification score or add a few representative samples of the document types to an ```"other"``` class. Adding an ```"other"``` class ensures that unneeded documents don't impact your classifier quality.
 
 ## Training a model
 

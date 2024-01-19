@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 01/19/2024
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.1.0'
 ---
@@ -34,7 +34,7 @@ monikerRange: '>=doc-intel-3.1.0'
 
 :::moniker range=">=doc-intel-3.1.0"
 
-Document Intelligence supports more sophisticated and modular analysis capabilities. Use the add-on features to extend the results to include more features extracted from your documents. Some add-on features incur an extra cost. These optional features can be enabled and disabled depending on the scenario of the document extraction. To enable a feature simply add the associated feature name to the `features` query string property. You can enable more than one add-on feature on a request by providing a comma seperated list of features. The following add-on capabilities are available for `2023-07-31 (GA)` and later releases.
+Document Intelligence supports more sophisticated and modular analysis capabilities. Use the add-on features to extend the results to include more features extracted from your documents. Some add-on features incur an extra cost. These optional features can be enabled and disabled depending on the scenario of the document extraction. To enable a feature, add the associated feature name to the `features` query string property. You can enable more than one add-on feature on a request by providing a comma-separated list of features. The following add-on capabilities are available for `2023-07-31 (GA)` and later releases.
 
 * [`ocrHighResolution`](#high-resolution-extraction)
 
@@ -66,7 +66,7 @@ The following add-on capability is available for `2023-10-31-preview` and later 
 
 ::: moniker-end
 
-|Add-on Capability| Add-On/Free|[2023-10-31-preview](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)|[2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
+|Add-on Capability| Add-On/Free|[2023-10-31-preview](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)|[`2023-07-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[`2022-08-31` (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
 |----------------|-----------|---|--|---|---|
 |Font property extraction|Add-On| ✔️| ✔️| n/a| n/a|
 |Formula extraction|Add-On| ✔️| ✔️| n/a| n/a|
@@ -77,7 +77,7 @@ The following add-on capability is available for `2023-10-31-preview` and later 
 |Query fields|Add-On*| ✔️|n/a|n/a| n/a|
 
 
-Add-On* - Query fields are priced differently than the other add on features. See [pricing](https://azure.microsoft.com/pricing/details/ai-document-intelligence/) for details.
+Add-On* - Query fields are priced differently than the other add-on features. See [pricing](https://azure.microsoft.com/pricing/details/ai-document-intelligence/) for details.
 
 ## High resolution extraction
 
@@ -235,7 +235,7 @@ https://{your resource}.cognitiveservices.azure.com/formrecognizer/documentModel
 
 ## Language detection
 
-Adding the `languages` feature to the analyze request predicts the detected primary language for each text line along with the `confidence` in the `languages` collection under `analyzeResult`.
+Adding the `languages` feature to the `analyzeResult` request predicts the detected primary language for each text line along with the `confidence` in the `languages` collection under `analyzeResult`.
 
 ```json
 "languages": [
@@ -270,7 +270,7 @@ https://{your resource}.cognitiveservices.azure.com/formrecognizer/documentModel
 
 ## Key-value Pairs
 
-In earlier API versions the prebuilt-document model extracted keyvalue pairs from forms and documents. With the addition of the `keyValuePairs` feature to prebuilt-layout, the layout model now produces the same results. 
+In earlier API versions, the prebuilt-document model extracted key-value pairs from forms and documents. With the addition of the `keyValuePairs` feature to prebuilt-layout, the layout model now produces the same results. 
 
 Key-value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, these pairs could be the label and the value the user entered for that field. In an unstructured document, they could be the date a contract was executed on based on the text in a paragraph. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
@@ -282,10 +282,9 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 https://{your resource}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2023-10-31-preview&features=keyValuePairs
 ```
 
-
 ## Query Fields
 
-Query fields is an add-on capability to extend the schema extracted from any prebuilt model or define a specific key name when the key name is variable. To use query fields, set the features to `queryFields` and provide a comma seperated list of field names in the `queryFields` property.
+Query fields are an add-on capability to extend the schema extracted from any prebuilt model or define a specific key name when the key name is variable. To use query fields, set the features to `queryFields` and provide a comma-separated list of field names in the `queryFields` property.
 
 * Document Intelligence now supports query field extractions. With query field extraction, you can add fields to the extraction process using a query request without the need for added training.
 

@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: overview
-ms.date: 11/15/2023
+ms.date: 01/19/2024
 ms.author: lajanuar
 ---
 
@@ -79,7 +79,7 @@ The following decision charts highlight the features of each **Document Intellig
 
 | Training set | Example documents | Your best solution |
 | -----------------|--------------|-------------------|
-|**At least two different types of documents**. |Forms, leeter or documents | [**Custom classifiction model**](./concept-custom-classifier.md)|
+|**At least two different types of documents**. |Forms, letters, or documents | [**Custom classification model**](./concept-custom-classifier.md)|
 
 
 

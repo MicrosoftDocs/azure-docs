@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 01/19/2024
 ms.author: nitinme
 monikerRange: 'doc-intel-4.0.0'
 ---
@@ -26,13 +26,13 @@ monikerRange: 'doc-intel-4.0.0'
 
 Query fields and key value pairs perform similar functions, there are a few distinctions to be aware of when deciding which feature to choose.
 
-* Key value pairs are only available with layout and invoice models. If you are looking to extend the schema for a prebuilt model, use query fields.
+* Key value pairs are only available with layout and invoice models. If you're looking to extend the schema for a prebuilt model, use query fields.
 
-* You do not know the specific fields to be extracted, or the number of fields is large (greater than 20), key value pairs might be a better solution.
+* You don't know the specific fields to be extracted, or the number of fields is large (greater than 20), key value pairs might be a better solution.
 
-* Key value pairs extracts the keys and values as they exist in the form or document, you will need to plan for any key variations. For example keys `First Name` or `Given Name`. With query fields, you define the key and the model only extracts the corresponding value.
+* Key-value pairs extract the keys and values as they exist in the form or document, you need to plan for any key variations. For example, keys `First Name` or `Given Name`. With query fields, you define the key and the model only extracts the corresponding value.
 
-* Use query fields when the value you require may not be described as a key value pair in the document. For example, the agreement date of a contract. 
+* Use query fields when the value you require can't be described as a key value pair in the document. For example, the agreement date of a contract. 
 
 For query field extraction, specify the fields you want to extract and Document Intelligence analyzes the document accordingly. Here's an example:
 
@@ -40,7 +40,7 @@ For query field extraction, specify the fields you want to extract and Document 
 
     :::image type="content" source="media/studio/query-fields.png" alt-text="Screenshot of the query fields button in Document Intelligence Studio.":::
 
-* You can pass a list of field labels like `Party1`, `Party2`, `TermsOfUse`, `PaymentTerms`, `PaymentDate`, and `TermEndDate`" as part of the analyze document request. 
+* You can pass a list of field labels like `Party1`, `Party2`, `TermsOfUse`, `PaymentTerms`, `PaymentDate`, and `TermEndDate`" as part of the `AnalyzeDocument` request.
 
    :::image type="content" source="media/studio/query-field-select.png" alt-text="Screenshot of query fields selection window in Document Intelligence Studio.":::
 

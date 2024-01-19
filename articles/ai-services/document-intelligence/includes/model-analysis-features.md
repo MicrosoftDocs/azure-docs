@@ -4,7 +4,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 01/5/2024
+ms.date: 01/19/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD041 -->

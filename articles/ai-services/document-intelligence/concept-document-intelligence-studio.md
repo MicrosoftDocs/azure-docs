@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 01/19/2024
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.0.0'
 ---
@@ -31,12 +31,13 @@ monikerRange: '>=doc-intel-3.0.0'
 ::: moniker-end
 
 [Document Intelligence Studio](https://documentintelligence.ai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service into your applications. Use the Document Intelligence Studio to:
+
 * Learn more about the different capabilities in Document Intelligence.
 * Use your Document Intelligence resource to test models on sample documents or upload your own documents.
 * Experiment with different add-on and preview features to adapt the output to your needs.
-* Train custom classifcation models to classify documents.
+* Train custom classification models to classify documents.
 * Train custom extraction models to extract fields from documents.
-* Get sample code for the language spcific SDKs to integrate into y9our applications.
+* Get sample code for the language-specific SDKs to integrate into your applications.
 
 Use the [Document Intelligence Studio quickstart](quickstarts/try-document-intelligence-studio.md) to get started analyzing documents with document analysis or prebuilt models. Build custom models and reference the models in your applications using one of the [language specific SDKs](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and other quickstarts.
 
@@ -46,7 +47,7 @@ The following image shows the landing page for Document Intelligence Studio.
 
 ## Getting started
 
-If this is the first time you are visiting the Studio, follow the [getting started guide](studio-overview.md#get-started-using-document-intelligence-studio) to setup the Studio for use.
+If you're visiting the Studio for the first time, follow the [getting started guide](studio-overview.md#get-started-using-document-intelligence-studio) to set up the Studio for use.
 
 ## Analyze options
 

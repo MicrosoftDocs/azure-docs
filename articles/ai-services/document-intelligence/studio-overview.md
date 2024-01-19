@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: overview
-ms.date: 11/15/2023
+ms.date: 01/19/2024
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.0.0'
 ---
@@ -59,7 +59,7 @@ The studio supports Document Intelligence v3.0 and later API versions for model 
 
     :::image type="content" source="media/studio/welcome-to-studio.png" alt-text="Screenshot of Document Intelligence Studio front page.":::
 
-1. To test any of the document analysis or prebuilt models, select the model and use one o the sample documents or upload your own document to analyze. The analysis result is displayed on the right.
+1. To test any of the document analysis or prebuilt models, select the model and use one o the sample documents or upload your own document to analyze. The analysis result is displayed at the right in the content-result-code window.
 
 1. Custom models need to be trained on your documents. See [custom models overview](concept-custom.md) for an overview of custom models.
 
