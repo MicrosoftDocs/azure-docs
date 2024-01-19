@@ -70,16 +70,16 @@ Workflow: **Your storage account** → **containers** → **your container** →
 
 1. Define **Permissions** by checking and/or clearing the appropriate check box:
 
-    * Your **source** file must have designated  **read** and **list** access.
+    * Your **source** file must designate **read** and **list** access.
 
-    * Your **target** file must have designated  **write** and **list** access.
+    * Your **target** file must designate **write** and **list** access.
 
 1. Specify the signed key **Start** and **Expiry** times.
 
     * When you create a shared access signature (SAS), the default duration is 48 hours. After 48 hours, you'll need to create a new token.
     * Consider setting a longer duration period for the time you're using your storage account for Translator Service operations.
     * The value of the expiry time is determined by whether you're using an **Account key** or **User delegation key** **Signing method**:
-       * **Account key**: There's no imposed maximum time limit; however, best practices recommended that you configure an expiration policy to limit the interval and minimize compromise. [Configure an expiration policy for shared access signatures](/azure/storage/common/sas-expiration-policy).
+       * **Account key**: No imposed maximum time limit; however, best practices recommended that you configure an expiration policy to limit the interval and minimize compromise. [Configure an expiration policy for shared access signatures](/azure/storage/common/sas-expiration-policy).
        * **User delegation key**: The value for the expiry time is a maximum of seven days from the creation of the SAS token. The SAS is invalid after the user delegation key expires, so a SAS with an expiry time of greater than seven days will still only be valid for seven days. For more information,*see* [Use Microsoft Entra credentials to secure a SAS](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas).
 
 1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, authorization fails. The IP address or a range of IP addresses must be public IPs, not private. For more information,*see*, [**Specify an IP address or IP range**](/rest/api/storageservices/create-account-sas#specify-an-ip-address-or-ip-range).
@@ -124,7 +124,7 @@ Here's a sample REST API request:
 }
 ```
 
-That's it! You've learned how to create SAS tokens to authorize how clients access your data.
+That's it! You learned how to create SAS tokens to authorize how clients access your data.
 
 ## Next steps
 
