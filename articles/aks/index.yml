@@ -28,6 +28,8 @@ landingContent:
             url: /azure/architecture/reference-architectures/containers/aks-start-here
       - linkListType: whats-new
         links:
+          - text: Deploy an AI model on AKS with the AI toolchain operator (Preview)
+            url: ai-toolchain-operator.md
           - text: Reduce image pull time with Artifact Streaming on AKS (Preview)
             url: artifact-streaming.md
           - text: Secure your cluster using pod security policies (Deprecated)

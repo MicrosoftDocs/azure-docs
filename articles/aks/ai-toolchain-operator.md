@@ -3,7 +3,7 @@ title: Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchai
 description: Learn how to enable the AI toolchain operator add-on on Azure Kubernetes Service (AKS) to simplify OSS AI model management and deployment.
 ms.topic: article
 ms.custom: azure-kubernetes-service
-ms.date: 01/16/2024
+ms.date: 01/19/2024
 ---
 
 # Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator (preview)
@@ -31,7 +31,7 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 * Azure CLI version 2.47.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * Helm v3 installed. For more information, see [Installing Helm](https://helm.sh/docs/intro/install/).
 * The Kubernetes command-line client, kubectl, installed and configured. For more information, see [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-* [Install the Azure CLI AKS preview extension](#enable-the-azure-cli-preview-extension).
+* [Install the Azure CLI AKS preview extension](#install-the-azure-cli-preview-extension).
 * [Register the AI toolchain operator add-on feature flag](#register-the-ai-toolchain-operator-add-on-feature-flag).
 
 ### Install the Azure CLI preview extension
