@@ -13,7 +13,7 @@ manager: femila
 
 The migration module tool lets you migrate your organization from Azure Virtual Desktop (classic) to Azure Virtual Desktop automatically. This article will show you how to use the tool. 
 
-## Requirements
+## Prerequisites
 
 Before you use the migration module, make sure you have the following things ready:
 
