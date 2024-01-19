@@ -7,7 +7,7 @@ author: jr-MS
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
 ms.topic: conceptual
-ms.date: 1/31/2023
+ms.date: 01/18/2024
 ms.author: jingruhan
 ms.custom: 
 ---
