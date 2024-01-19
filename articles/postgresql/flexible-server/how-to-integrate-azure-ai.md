@@ -52,12 +52,6 @@ To retrieve the database connection details:
     export PGPASSWORD="{your-password}"
     ```
     
-    Add one extra environment variable to require an SSL connection to the database.
-    
-    ```bash
-    export PGSSLMODE=require
-    ```
-    
     Connect to your database using the [psql command-line utility](https://www.postgresguide.com/utilities/psql/) by entering the following at the prompt.
     
     ```bash
@@ -100,12 +94,11 @@ The meta-command output shows that the `azure_ai` extension creates three schema
 | `azure_openai` | Contains the UDFs that enable calling an Azure OpenAI endpoint. |
 | `azure_cognitive` | Provides UDFs and composite types related to integrating the database with Azure Cognitive Services. |
 
-The functions and types are all associated with one of the schemas. To review the functions defined in the `azure_ai` schema, use the `\df` meta-command, specifying the schema whose functions should be displayed. The `\x` commands before and after the `\df` command toggle the expanded display on and off to make the output from the command easier to view in the Azure Cloud Shell.
+The functions and types are all associated with one of the schemas. To review the functions defined in the `azure_ai` schema, use the `\df` meta-command, specifying the schema whose functions should be displayed. The `\x auto` commands before the `\df` command toggle the expanded display on and off automatically to make the output from the command easier to view in the Azure Cloud Shell.
 
 ```sql
-\x
+\x auto
 \df+ azure_ai.*
-\x
 ```
 
 The `azure_ai.set_setting()` function lets you set the endpoint and critical values for Azure AI services. It accepts a **key** and the **value** to assign it. The `azure_ai.get_setting()` function provides a way to retrieve the values you set with the `set_setting()` function. It accepts the **key** of the setting you want to view. For both methods, the key must be one of the following:
@@ -196,9 +189,7 @@ The `bill_summaries` table is now ready to store embeddings. Using the `azure_op
 Before using the `create_embeddings()` function, run the following command to inspect it and review the required arguments:
 
 ```sql
-\x
 \df+ azure_openai.*
-\x
 ```
 
 The `Argument data types` property in the output of the `\df+ azure_openai.*` command reveals the list of arguments the function expects.
@@ -275,9 +266,7 @@ To demonstrate some of the capabilities of the `azure_cognitive` functions of th
 To use the Azure AI Language service's ability to generate new, original content, you use the `summarize_abstractive` function to create a summary of text input. Use the `\df` meta-command from `psql` again, this time to look specifically at the `azure_cognitive.summarize_abstractive` function.
 
 ```sql
-\x
 \df azure_cognitive.summarize_abstractive
-\x
 ```
 
 The `Argument data types` property in the output of the `\df azure_cognitive.summarize_abstractive` command reveals the list of arguments the function expects.
@@ -291,11 +280,7 @@ The `Argument data types` property in the output of the `\df azure_cognitive.sum
 | sentence_count | `integer` | 3 | The maximum number of sentences to include in the generated summary. |
 | disable_service_logs | `boolean` | false | The Language service logs your input text for 48 hours solely to allow for troubleshooting issues. Setting this property to `true` disables input logging and might limit our ability to investigate issues that occur. For more information, see Cognitive Services Compliance and Privacy notes at <https://aka.ms/cs-compliance> and Microsoft Responsible AI principles at <https://www.microsoft.com/ai/responsible-ai>. |
 
-The `summarize_abstractive` function, including its required arguments, looks like the following:
-
-```sql
-azure_cognitive.summarize_abstractive(text TEXT, language TEXT)
-```
+The `summarize_abstractive` functionfunction requires the following arguments: `azure_cognitive.summarize_abstractive(text TEXT, language TEXT)`.
 
 The following query against the `bill_summaries` table uses the `summarize_abstractive` function to generate a new one-sentence summary for the text of a bill, allowing you to incorporate the power of generative AI directly into your queries.
 
@@ -311,7 +296,7 @@ The function can also be used to write data into your database tables. Modify th
 
 ```sql
 ALTER TABLE bill_summaries
-ADD COLUMN one_sentence_summary text;
+ADD COLUMN one_sentence_summary TEXT;
 ```
 
 Next, update the table with the summaries. The `summarize_abstractive` function returns an array of text (`text[]`). The `array_to_string` function converts the return value to its string representation. In the query below, the `throw_on_error` argument has been set to `false`. This setting allows the summarization process to continue if an error occurs.
