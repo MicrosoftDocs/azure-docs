@@ -94,7 +94,10 @@ where:
 **The data source "**azurerm_key_vault_secret**" will be used within the `**ssl_certificate**` block under the application gateway section.**
 
 **Reference-1**:
-
+```data "azurerm_key_vault_secret" "vault" {    
+   name         = "<certificate-name>"          
+   key_vault_id = "<resource-id-key-vault>"
+}
 resource "azurerm_application_gateway" "main" {
   name                = "myAppGateway"
   resource_group_name = data.azurerm_resource_group.rg.name
@@ -112,11 +115,11 @@ resource "azurerm_application_gateway" "main" {
   }
   
   ssl_certificate {
-      name = "afdpremium-agw-ssl-certificate"                       
+      name = "<desired-ssl-certificate-name>"                       
       // Reference the Key Vault secret ID
-      key_vault_secret_id = data.azurerm_key_vault_secret.vault.id `#096DA`
+      `#096DA`key_vault_secret_id = data.azurerm_key_vault_secret.vault.id`#096DA`
     }
-
+```
 
 - where, **key_vault_secret_id** is Certificate object stored in Azure KeyVault.
 
