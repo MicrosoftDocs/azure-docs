@@ -13,9 +13,6 @@ ms.author: cephalin
 
 [Azure App Service](overview.md) enables continuous deployment from [GitHub](https://help.github.com/articles/create-a-repo), [Bitbucket](https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html), and [Azure Repos](/azure/devops/repos/git/creatingrepo) repositories by pulling in the latest updates.
 
-> [!NOTE]
-> The **Development Center (Classic)** page in the Azure portal, an earlier version of the deployment functionality, was deprecated in March 2021. This change doesn't affect existing deployment settings in your app, and you can continue to manage app deployment from the **Deployment Center** page in the portal.
-
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## Configure the deployment source
@@ -40,7 +37,7 @@ Select the tab that corresponds to your build provider to continue.
 
     If you can’t find an organization or repository, you might need to enable more permissions on GitHub. For more information, see [Managing access to your organization's repositories](https://docs.github.com/organizations/managing-access-to-your-organizations-repositories).
 
-1. (Preview) Under **Authentication type**, select **User-assigned identity** for better security. For more information, see [frequently asked questions](#frequently-asked-questions). 
+1. Under **Authentication type**, select **User-assigned identity** for better security. For more information, see [frequently asked questions](#frequently-asked-questions). 
 
     > [!NOTE]
     > If your Azure account has the [required permissions](#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials) for the **User-assigned identity** option, Azure creates a [user-assigned managed identity](#what-does-the-user-assigned-identity-option-do-for-github-actions) for you. If you don't, work with your Azure administrator to create an [identity with the required role on your app](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app), then select it here in the dropdown.
@@ -100,7 +97,7 @@ For Windows apps, you can manually configure continuous deployment from a cloud 
 
 Depending on your deployment source in the Deployment Center, you may see a few options to select for build providers. Build providers help you build an CI/CD solution with Azure App Service by automating build, test, and deployment.
 
-You're not limited to the options provided in the Deployment Center, but App Service lets you set them up quickly and offers some integrated deployment logging experience.
+You're not limited to the build provider options found in the Deployment Center, but App Service lets you set them up quickly and offers some integrated deployment logging experience.
 
 # [GitHub Actions](#tab/githubactions)
 
@@ -120,7 +117,7 @@ You can customize the GitHub Actions build provider in these ways:
 # [App Service Build Service](#tab/appservice)
 
 > [!NOTE]
-> App Service Build Service requires [basic authentication to be enabled](configure-basic-auth-disable.md) for the webhook to work. For better security, choose one of the other build providers. For more information, see [Deployment without basic authentication](configure-basic-auth-disable.md#deployment-without-basic-authentication).
+> App Service Build Service requires [basic authentication to be enabled](configure-basic-auth-disable.md) for the webhook to work. For more information, see [Deployment without basic authentication](configure-basic-auth-disable.md#deployment-without-basic-authentication).
 
 App Service Build Service is the deployment and build engine native to App Service, otherwise known as Kudu. When this option is selected, App Service adds a webhook into the repository you have authorized. Any code push to the repository triggers the webhook, and App Service pulls the changes into its repository and performs any deployment tasks. For more information, see [Deploying from GitHub (Kudu)](https://github.com/projectkudu/kudu/wiki/Deploying-from-GitHub).
 
