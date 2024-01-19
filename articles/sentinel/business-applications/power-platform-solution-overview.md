@@ -1,10 +1,10 @@
 ---
 title: Microsoft Sentinel solution for Microsoft Power Platform overview
 description: Learn about the Microsoft Sentinel Solution for Power Platform.
-author: cwatson-cat
-ms.author: cwatson
+author: batamig
+ms.author: bagol
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 01/18/2024
 ---
 
 # Microsoft Sentinel solution for Microsoft Power Platform overview
@@ -48,11 +48,16 @@ The Microsoft Sentinel solution for Power Platform ingests and cross-correlates 
 |Microsoft Power Automate (Preview)     |  Power Automate activity logs  <br><br>For more information, see [View Power Automate audit logs](/power-platform/admin/logging-power-automate).     |   PowerAutomateActivity      |
 |Microsoft Power Platform Connectors (Preview)    |   Power Platform connector activity logs  <br><br>For more information, see [View the Power Platform connector activity logs](/power-platform/admin/connector-events-power-platform).      |     PowerPlatformConnectorActivity    |
 |Microsoft Power Platform DLP (Preview)     |     Data loss prevention activity logs  <br><br>For more information, see [Data loss prevention activity logging](/power-platform/admin/dlp-activity-logging).   |    PowerPlatformDlpActivity     |
+|Microsoft Power Platform Admin Activity (Preview)|Power Platform administrator activity logs<br><Br> For more information, see [View Power Platform administrative logs using auditing solutions in Microsoft Purview (preview)](/power-platform/admin/admin-activity-logging).||
 |Microsoft Dataverse (Preview) |    Dataverse and model-driven apps activity logging <br><br>For more information, see [Microsoft Dataverse and model-driven apps activity logging](/power-platform/admin/enable-use-comprehensive-auditing).    |   DataverseActivity      |
 
 ### Analytic rules
 
 The solution includes analytics rules to detect threats and suspicious activity in your Power Platform environment. These activities include Power Apps being run from unauthorized geographies, suspicious data destruction by Power Apps, mass deletion of Power Apps, and more. For more information, see [Microsoft Sentinel solution for Microsoft Power Platform: security content reference](power-platform-solution-security-content.md).
+
+## Parsers
+
+The solution includes parsers that are used to access data from the raw data tables. Parsers ensure that the correct data is returned with a consistent schema. We recommend that you use the parsers instead of directly querying the custom log tables. For more information, see [Microsoft Sentinel solution for Microsoft Power Platform: security content reference](power-platform-solution-security-content.md).
 
 ## Next steps
 

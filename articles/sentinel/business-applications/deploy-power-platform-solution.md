@@ -1,11 +1,11 @@
 ---
 title: Deploy the Microsoft Sentinel solution for Microsoft Power Platform 
 description: Learn how to deploy the Microsoft Power Platform solution for Microsoft Sentinel.
-ms.author: cwatson
-author: cwatson-cat
+ms.author: bagol
+author: batamig
 ms.service: microsoft-sentinel
 ms.topic: how-to
-ms.date: 11/07/2023
+ms.date: 01/18/2024
 #CustomerIntent: As a security engineer, I want to ingest Power Platform activity logs into Microsoft Sentinel for security monitoring, detect related threats, and respond to incidents.
 ---
 
@@ -31,7 +31,8 @@ The Microsoft Sentinel solution for Power Platform allows you to monitor and det
 - For the Power Platform inventory connector, have the following resources and configurations set up.
    - Storage account to use with Azure Data Lake Storage Gen2. For more information, see [Create a storage account to use with Azure Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account).
    - Blob service endpoint URL for the storage account. For more information, see [Get service endpoints for the storage account](/azure/storage/common/storage-account-get-info?tabs=portal#get-service-endpoints-for-the-storage-account).
-   - Power Platform self-service analytics configured to use the Azure Data Lake Storage Gen2 storage account. This process can take up to 48 hours to activate. For more information, see [Set up Microsoft Power Platform self-service analytics to export Power Platform inventory and usage data](/power-platform/admin/self-service-analytics). Review the prerequisites and requirements for the Power Platform self-service analytics feature that include the requirement to enable public access to the storage account and the permissions required to set up the data export.
+   - Power Platform self-service analytics configured to use the Azure Data Lake Storage Gen2 storage account. This process can take up to 48 hours to activate. For more information, see [Set up Microsoft Power Platform self-service analytics to export Power Platform inventory and usage data](/power-platform/admin/self-service-analytics). Review the prerequisites and requirements for the Power Platform self-service analytics feature. The requirements include that you enable public access to the storage account and that you have the permissions required to set up the data export.
+   - Permissions to assign Storage Blob Data Reader role to the Azure Function
 
 
 Enabling the Power Platform inventory data connector is recommended but not required to fully deploy the Microsoft Power Platform solution. For more information, see [Power Platform inventory data connector](#power-platform-inventory-data-connector).
@@ -79,6 +80,7 @@ Connect each of the remaining data connectors by completing the following steps.
    - **Microsoft Power Automate**
    - **Microsoft Power Platform Connectors**
    - **Microsoft Power Platform DLP**
+   - **Microsoft Power Platform Admin Activity**
    - **Microsoft Dataverse**
 
 ## Enable auditing in your Microsoft Dataverse environment
@@ -135,7 +137,7 @@ To verify that log ingestion is working, complete the following steps.
 
 ### View ingested data in Microsoft Sentinel
 
-After you've waited for Microsoft Sentinel to ingest the data, complete the following steps to verify you get the data you expect.
+After you wait for Microsoft Sentinel to ingest the data, complete the following steps to verify you get the data you expect.
 
 1. In Microsoft Sentinel, select **Logs**.
 1. Run KQL queries against the tables that collect the activity logs from the data connectors. For example, run the following query to return 50 rows from the table with the Power Apps activity logs.
@@ -154,6 +156,7 @@ After you've waited for Microsoft Sentinel to ingest the data, complete the foll
    |PowerAutomateActivity |Power Automate activity logs  |
    |PowerPlatformConnectorActivity |Power Platform connector activity logs |
    |PowerPlatformDlpActivity |Data loss prevention activity logs   |
+   |PowerPlatformAdminActivity|Power Platform administrative logs|
    |DataverseActivity |Dataverse and model-driven apps activity logging  |  
 
 1. Verify that the results for each table show the activities you generated.
