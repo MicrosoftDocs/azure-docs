@@ -17,25 +17,25 @@ ms.custom:
 
 # Quickstart: Create a search index in Azure AI Search using REST
 
-Learn how to use the [Azure AI Search REST APIs](/rest/api/searchservice) to create, load, and query a search index in Azure AI Search. 
+Learn how to use the [Search REST APIs](/rest/api/searchservice) to create, load, and query a search index in Azure AI Search. 
 
-The article uses the Postman app. [Download and import a Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart) or create requests manually using the instruction in this article.
+The article uses the Postman app. [Download and import a Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart) or create requests manually using the instructions in this article.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-+ [Postman app](https://www.postman.com/downloads/), used for sending requests to Azure AI Search.
++ [Postman app](https://www.postman.com/downloads/), used for sending REST requests to Azure AI Search.
 
-+ [Create](search-create-service-portal.md) or [find an existing Azure AI Search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ [Create](search-create-service-portal.md) or [find an existing Azure AI Search resource](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ## Copy a key and URL
 
 REST calls require the service endpoint and an API key on every request. You can get these values from the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com),navigate to your search service **Overview** page, and copy the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+1. Sign in to the [Azure portal](https://portal.azure.com), navigate to the **Overview** page, and copy the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
-1. Under **Settings** > **Keys**, copy an admin key. Admin keys are used to add, modify, and delete objects. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. Copy either one.
+1. Under **Settings** > **Keys**, copy an admin key. Admin keys are used to add, modify, and delete objects. There are two interchangeable admin keys. Copy either one.
 
    :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Screenshot of the URL and API keys in the Azure portal.":::
 
@@ -43,7 +43,7 @@ A valid API key establishes trust, on a per request basis, between the applicati
 
 ## Set collection variables
 
-Postman provides collection variables, enclosed in brackets, to reuse the same string in every request. We use collection variables for customer-specific values, such as `{{service-name}}` in the URI or an `{{admin-key}}` in the request header. 
+Postman provides collection variables, enclosed in brackets in a request, to reuse the same string on every request. We use collection variables for customer-specific values, such as `{{service-name}}` in the URI or an `{{admin-key}}` in the request header. 
 
 A URI with multiple variables looks like this:
 
@@ -51,11 +51,11 @@ A URI with multiple variables looks like this:
 https://{{service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}
 ```
 
-A request header composition for Azure AI Search calls must have two elements: `Content-Type` set to `application/json`, and an `api-key` used to authenticate the request. In this quickstart, the `api-key` is specified as variable.
+A request header for Azure AI Search calls must have `Content-Type` set to `application/json`, and an `api-key` set to an API key of your search service. In this quickstart, the `api-key` in the request header is specified as variable.
 
 1. Open the Postman app and import the [sample collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart) or create a new one.
 
-1. Select the collection's access menu, select **Edit**, and provide the search service name and API key.
+1. Select the collection's access menu, select **Edit**, and provide the search service name and an admin API key.
 
    :::image type="content" source="media/search-get-started-rest/postman-collection-variables.png" lightbox="media/search-get-started-rest/postman-collection-variables.png" alt-text="Screenshot of the Postman collection variable page." border="true":::
 
@@ -69,7 +69,7 @@ Use the [Create Index (REST)](/rest/api/searchservice/create-index) to specify a
 
 1. Under **Headers**, set `Content-Type` to `application/json` and set `api-key` to `{{admin-key}}`.
 
-1. Under **Body** paste in index definition (copyable JSON is provided in the next section). Make sure the request body selection is **Raw** and the type is to **JSON**
+1. Under **Body** paste in index definition (copyable JSON is provided in the next section). Make sure the request body selection is **raw** and the type is to **JSON**
 
 1. Select **Send**.
 
@@ -224,9 +224,9 @@ If you get a 207, at least one document failed to upload. If you get a 404, you 
 
 Now that an index and document set are loaded, you can issue queries against them using [Search Documents REST API](/rest/api/searchservice/search-documents).
 
-You can use GET to specify query parameters on the URI, or POST to specify query parameters in JSON. POST is preferred if you expect to set multiple query parameters.
+Use GET or POST to query an index. On a GET call, specify query parameters on the URI. On POST, specify query parameters in JSON. POST is preferred for setting multiple query parameters.
 
-The URL is extended to include a query expression, specified using the search operator.
+The URL is extended to include a query expression, specified using the `/docs/search` operator.
 
 1. Set the verb to **GET**.
 
@@ -240,7 +240,7 @@ The URL is extended to include a query expression, specified using the search op
 
 1. Set the verb to **POST**.
 
-1. Copy in this URL `https://{{service-name}}.search.windows.net/indexes/hotels-quickstart/docs?api-version=2023-11-01`. On a POST request, the API version is preceded by a `?` character.
+1. Copy in this URL `https://{{service-name}}.search.windows.net/indexes/hotels-quickstart/docs/search?api-version=2023-11-01`. On a POST request, the API version is preceded by a `?` character.
 
 1. Copy in this JSON query and then select **Send**.
 
@@ -255,7 +255,7 @@ The URL is extended to include a query expression, specified using the search op
 
    The request and response should look similar to the following screenshot. For more query examples, including filters and sorting, see [Query examples](search-query-simple-examples.md).
 
-   :::image type="content" source="media/search-get-started-rest/postman-query-post.png" alt-text="Screenshot of a POST request and response in Postman.":::
+   :::image type="content" source="media/search-get-started-rest/postman-query-post.png" lightbox="media/search-get-started-rest/postman-query-post.png" alt-text="Screenshot of a POST request and response in Postman.":::
 
 ## Get index properties
 
@@ -279,7 +279,7 @@ On a free service, remember the limitation of three indexes, indexers, and data 
 
 ## Next steps
 
-Now that you know how to perform basic tasks, try advanced features, such as indexers or [enrichment pipelines](cognitive-search-tutorial-blob.md) that add content transformations to indexing. Move forward with the following article:
+Now that you know how to perform basic tasks, try advanced features, such as indexers or [enrichment pipelines](cognitive-search-tutorial-blob.md) that add content transformations to indexing. We recommend the following article:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Use REST and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob.md)
