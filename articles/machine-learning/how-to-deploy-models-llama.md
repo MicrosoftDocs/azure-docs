@@ -82,8 +82,10 @@ To create a deployment:
 
 1. Go to the [Azure Machine Learning studio](https://ml.azure.com/home).
 1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** or **West US 3** region.
-1. Choose the model you want to deploy from the [model catalog](https://ml.azure.com/model/catalog). 
-  <!-- Alternatively, you can initiate deployment by selecting **Create** from the **Endpoints** option under **Assets** in your workspace. --> Alternatively, you can initiate deployment by selecting **Create** from `your workspace`>`endpoints`>`real-time endpoints`
+1. Choose the model you want to deploy from the [model catalog](https://ml.azure.com/model/catalog).
+
+   Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **Serverless endpoints** > **Create**.
+
 1. On the model's overview page, select **Deploy** and then **Pay-as-you-go**.
 
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png":::
@@ -384,8 +386,10 @@ Apart from deploying with the pay-as-you-go managed service, you can also deploy
 Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time endpoint in [Azure Machine Learning studio](https://ml.azure.com).
 
 1. Select the workspace in which you want to deploy the model.
-1. Choose the model that you want to deploy from the studio's [model catalog](https://ml.azure.com/model/catalog). 
-   <!-- Alternatively, you can initiate deployment by selecting **Create** from `your workspace`>`endpoints`>`real-time endpoints`. -->
+1. Choose the model that you want to deploy from the studio's [model catalog](https://ml.azure.com/model/catalog).
+
+   Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **real-time endpoints** > **Create**.
+
 1. On the model's overview page, select **Deploy** and then **Real-time endpoint**.
 
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-real-time-endpoint.png" alt-text="A screenshot showing how to deploy a model with the real-time endpoint option." lightbox="media/how-to-deploy-models-llama/deploy-real-time-endpoint.png":::
@@ -393,15 +397,13 @@ Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time en
 1. Choose if you want to **Enable Azure AI Content Safety (Recommended)**. This option is the default selection.
 
     > [!TIP]
-    > Deployment with Azure AI Content Safety enabled happens in a notebook.
-
-    <!-- > [!TIP]
-    > Deploying Llama 2 models with Azure AI Content Safety (preview) is currently only supported using the Python SDK. (change - check) -->
+    > Deploying Llama 2 models with Azure AI Content Safety (preview) is currently only supported using the Python SDK. This deployment happens in a notebook.
 
 1. Select **Proceed**.
 
     > [!TIP]
     > If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**.
+
 6. Select the **Virtual machine** and the instance count you want to assign to the deployment.
 
 7. Select if you want to create this deployment as part of a new endpoint or an existing one. Endpoints can host multiple deployments while keeping resources configuration exclusive for each of them. Deployments under the same endpoint share the endpoint URI and its access keys.
