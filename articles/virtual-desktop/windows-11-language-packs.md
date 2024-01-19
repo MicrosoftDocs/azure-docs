@@ -18,7 +18,7 @@ When your organization includes users with multiple different languages, you hav
 
 The second option is more efficient in terms of resources and cost, but requires a few extra steps. Fortunately, this article will help walk you through how to build an image that can accommodate users of all languages and localization needs.
 
-## Requirements
+## Prerequisites
 
 Before you can add languages to a Windows 11 Enterprise VM, you'll need to have the following things ready:
 
