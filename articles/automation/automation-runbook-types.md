@@ -14,9 +14,9 @@ The Azure Automation Process Automation feature supports several types of runboo
 
 | Type | Description |
 |:--- |:--- |
-| [PowerShell](#powershell-runbooks) |Textual runbook based on Windows PowerShell scripting.  The currently supported versions are: PowerShell 7.2 (GA), PowerShell 5.1 (GA), and PowerShell 7.1 (preview). |
+| [PowerShell](#powershell-runbooks) |Textual runbook based on Windows PowerShell scripting.  The currently supported versions are: PowerShell 7.2 (GA) and PowerShell 5.1 (GA). Since [PowerShell 7.1](https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3#powershell-end-of-support-dates) is no longer supported by parent product PowerShell, we recommend you to create runbooks in long term supported version PowerShell 7.2 |
 | [PowerShell Workflow](#powershell-workflow-runbooks)|Textual runbook based on Windows PowerShell Workflow scripting. |
-| [Python](#python-runbooks) |Textual runbook based on Python scripting. The currently supported versions are: Python 2.7 (GA), Python 3.8 (GA), and Python 3.10 (preview).  |
+| [Python](#python-runbooks) |Textual runbook based on Python scripting. The currently supported versions are: Python 3.8 (GA) and Python 3.10 (preview). Since [Python 2.7](https://devguide.python.org/versions/) is no longer supported by parent product Python, we recommend you to create runbooks in long term supported versions.  |
 | [Graphical](#graphical-runbooks)|Graphical runbook based on Windows PowerShell and created and edited completely in the graphical editor in Azure portal. |
 | [Graphical PowerShell Workflow](#graphical-runbooks)|Graphical runbook based on Windows PowerShell Workflow and created and edited completely in the graphical editor in Azure portal. |
 
@@ -124,10 +124,11 @@ The following are the current limitations and known issues with PowerShell runbo
 * When you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true) module version: 3.0.0 or higher, you may experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](/powershell/module/powershellget/) and [PackageManagement](/powershell/module/packagemanagement/) modules as well.
 * If you import module Az.Accounts with version 2.12.3 or newer, ensure that you import the **Newtonsoft.Json** v10 module explicitly if PowerShell 5.1 runbooks have a dependency on this version of the module. The workaround for this issue is to use PowerShell 7.2 runbooks.
 
-# [PowerShell 7.1 (preview)](#tab/lps71)
+# [PowerShell 7.1](#tab/lps71)
 
 **Limitations**
 
+- [PowerShell 7.1](https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3#powershell-end-of-support-dates) is no longer supported by parent product PowerShell. We recommend you to create new runbooks in PowerShell 7.2 for a long term support and update the outdated runbooks.
 - The Azure Automation internal PowerShell cmdlets aren't supported on a Linux Hybrid Runbook Worker. You must import the `automationassets` module at the beginning of your PowerShell runbook to access the Automation account shared resources (assets) functions.
 - For the PowerShell 7 runtime version, the module activities aren't extracted for the imported modules.
 - *PSCredential* runbook parameter type isn't supported in PowerShell 7 runtime version.
@@ -228,6 +229,7 @@ Following are the limitations of Python runbooks
 
 # [Python 2.7](#tab/py27)
 
+- [Python 2.7](https://devguide.python.org/versions/) is no longer supported by parent product Python. We recommend you to create new runbooks in the supported versions and update the outdated runbooks.
 - You must be familiar with Python scripting.
 - For Python 2.7.12 modules, use wheel files cp27-amd6.
 - To use third-party libraries, you must [import the packages](python-packages.md) into the Automation account.
