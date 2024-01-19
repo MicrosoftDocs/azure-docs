@@ -126,7 +126,7 @@ resource "azurerm_application_gateway" "main" {
 
 ![oldsslcert](media/renew-certificate/oldsslcertlink.png)
 
-> :memo: **Note:**
+> [!NOTE]
 > * The certificate added to the application gateway, as shown in the screenshot above, is tied to a **secret version**.
 > * Renewing the above certificate in **KeyVault** doesn't automatically make the application gateway listener select the updated certificate.
 > * To reflect the changes, the certificate in the application gateway must be **manually** updated.
