@@ -361,7 +361,7 @@ After the function is finished running, you can verify that all of the documents
 
 ## 6 - Explore index
 
-You can explore the populated search index after the program has run programatically or using the [**Search explorer**](search-explorer.md) in the portal.
+You can explore the populated search index after the program has run programmatically or using the [**Search explorer**](search-explorer.md) in the portal.
 
 ### Programatically
 

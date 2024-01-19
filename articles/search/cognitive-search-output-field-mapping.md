@@ -129,7 +129,6 @@ SearchIndexer indexer = new SearchIndexer(
 
 await indexerClient.CreateIndexerAsync(indexer);
 ```
- -->
 
 ---
 
