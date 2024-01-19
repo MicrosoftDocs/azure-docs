@@ -33,6 +33,9 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 * HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 * HDInsight 5.1: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 
+> [!NOTE]
+> Ubuntu 18.04 is covered under [ESM(Extended Security Maintenance)](https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/canonical-ubuntu-18-04-lts-reaching-end-of-standard-support/ba-p/3822623) by the Azure Linux team for [Azure HDInsight July 2023](/azure/hdinsight/hdinsight-release-notes-archive#release-date-july-25-2023), release onwards. 
+
 For workload specific versions, see 
 
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
