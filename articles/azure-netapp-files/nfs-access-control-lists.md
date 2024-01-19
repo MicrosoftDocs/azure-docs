@@ -188,6 +188,9 @@ This Audit ACL is an example of that, where `user1` is audited for failed access
 
 Azure NetApp Files only supports setting administrative flags for Audit ACEs. File access logging isn't currently supported. Alarm ACEs aren't supported in Azure NetApp Files.
 
+>[!IMPORTANT]
+>Azure NetApp Files supports setting administrative flags for Audit ACEs, however the ACEs do _not_ function. In addition, Alarm ACEs aren't supported in Azure NetApp Files.
+
 ## NFSv4.x user and group principals
 
 With NFSv4.x ACLs, user and group principals define the specific objects that an ACE should apply to. Principals generally follow a format of name@ID-DOMAIN-STRING.COM. The “name” portion of a principal can be a user or group, but that user or group must be resolvable in Azure NetApp Files via the LDAP server connection when specifying the NFSv4.x ID domain. If the name@domain isn't resolvable by Azure NetApp Files, then the ACL operation fails with an “invalid argument” error.
