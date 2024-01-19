@@ -1,10 +1,8 @@
 ---
 title: Deploy Bicep files by using GitHub Actions
 description: In this quickstart, you learn how to deploy Bicep files by using GitHub Actions.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 01/19/2024
 ms.custom: github-actions-azure, devx-track-bicep
 ---
 
@@ -26,9 +24,19 @@ It provides a short introduction to GitHub actions and Bicep files. If you want 
 
 Create a resource group. Later in this quickstart, you'll deploy your Bicep file to this resource group.
 
+# [CLI](#tab/CLI)
+
 ```azurecli-interactive
 az group create -n exampleRG -l westus
 ```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+New-AzResourceGroup -Name exampleRG -Location westus
+```
+
+---
 
 ## Generate deployment credentials
 
@@ -36,10 +44,10 @@ az group create -n exampleRG -l westus
 
 Your GitHub Actions run under an identity. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) for the identity.
 
-Replace the placeholder `myApp` with the name of your application. Replace `{subscription-id}` with your subscription ID.
+Replace the placeholder `{app-name}` with the name of your application. Replace `{subscription-id}` with your subscription ID.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name myApp --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/exampleRG --sdk-auth
+az ad sp create-for-rbac --name {app-name} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/exampleRG --json-auth
 ```
 
 > [!IMPORTANT]
@@ -56,6 +64,10 @@ The output is a JSON object with the role assignment credentials that provide ac
     (...)
   }
 ```
+
+> [!NOTE]
+> Remove the comma at the end of the last line, or else it will result in an invalid JSON file. You will get an error during the deployment saying "Login failed with Error: Content is not a valid JSON object. Double check if the 'auth-type' is correct."
+
 # [Open ID Connect](#tab/openid)
 
 
@@ -164,23 +176,22 @@ To create a workflow, take the following steps:
     # [Service principal](#tab/userlevel)
 
     ```yml
+    name: Deploy Bicep file
     on: [push]
-    name: Azure ARM
     jobs:
       build-and-deploy:
         runs-on: ubuntu-latest
         steps:
 
-          # Checkout code
-        - uses: actions/checkout@main
+        - name: Checkout code
+          uses: actions/checkout@main
 
-          # Log into Azure
-        - uses: azure/login@v1
+        - name: Log into Azure
+          uses: azure/login@v1
           with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-          # Deploy Bicep file
-        - name: deploy
+        - name: Deploy Bicep file
           uses: azure/arm-deploy@v1
           with:
             subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
@@ -238,7 +249,7 @@ To create a workflow, take the following steps:
 
 
 
-1. Select **Start commit**.
+1. Select **Commit changes**.
 1. Select **Commit directly to the main branch**.
 1. Select **Commit new file** (or **Commit changes**).
 
@@ -246,9 +257,8 @@ Updating either the workflow file or Bicep file triggers the workflow. The workf
 
 ## Check workflow status
 
-1. Select the **Actions** tab. You'll see a **Create deployStorageAccount.yml** workflow listed. It takes 1-2 minutes to run the workflow.
-1. Select the workflow to open it.
-1. Select **Run ARM deploy** from the menu to verify the deployment.
+1. Select the **Actions** tab. You'll see a **Create deployBicepFile.yml** workflow listed. It takes 1-2 minutes to run the workflow.
+1. Select the workflow to open it, and verify the `Status` is `Success`.
 
 ## Clean up resources
 
