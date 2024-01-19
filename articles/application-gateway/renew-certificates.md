@@ -95,7 +95,7 @@ where:
 
 **Reference-1**:
 
-```resource "azurerm_application_gateway" "main" {
+resource "azurerm_application_gateway" "main" {
   name                = "myAppGateway"
   resource_group_name = data.azurerm_resource_group.rg.name
   location            = data.azurerm_resource_group.rg.location
@@ -116,7 +116,7 @@ where:
       // Reference the Key Vault secret ID
       key_vault_secret_id = data.azurerm_key_vault_secret.vault.id `#096DA`
     }
-```
+
 
 - where, **key_vault_secret_id** is Certificate object stored in Azure KeyVault.
 
