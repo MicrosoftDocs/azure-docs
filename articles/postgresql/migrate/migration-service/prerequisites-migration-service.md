@@ -28,20 +28,21 @@ Source PostgreSQL version should be `>= 9.5`. If the source PostgreSQL version i
 
 Proper networking setup is essential to ensure successful connectivity between the source and target during the migration process. Here's a guide to help you establish the network connection for different scenarios:
 
-**Networking Requirements for Migration:**
+**Networking requirements for migration:**
 
-- **ExpressRoute/IPsec VPN/VPN Tunneling**: When connecting your on-premises/AWS source to Azure, you might need to set up an ExpressRoute, IPsec VPN, or VPN tunneling to facilitate secure data transfer.
+- **ExpressRoute/IPsec VPN/VPN tunneling**: When connecting your on-premises/AWS source to Azure, you might need to set up an ExpressRoute, IPsec VPN, or VPN tunneling to facilitate secure data transfer.
 
-- **VNET Peering**: Establish virtual network peering between the two distinct VNets to enable direct network connectivity, a prerequisite for migration between the Azure VM and the Azure Database for PostgreSQL.
+- **VNET peering**: Establish virtual network peering between the two distinct VNets to enable direct network connectivity, a prerequisite for migration between the Azure VM and the Azure Database for PostgreSQL.
 
 **Connectivity Scenarios:**
 
-The following table can help set up the network between the source and target
+The following table can help set up the network between the source and target.
+
 | Source | Target | Connectivity Tips |
 | --- | --- | --- |
-| Public | Public | No other action is required if the source is allowlisted in the target's firewall rules. |
-| Private | Public | This configuration isn't supported; use pg_dump/pg_restore for data transfer. |
-| Public | Private | No other action is required if the source is whitelisted in the target's firewall rules. |
+| Public  | Public  | No other action is required if the source is allowlisted in the target's firewall rules. |
+| Private | Public  | This configuration isn't supported; use pg_dump/pg_restore for data transfer. |
+| Public  | Private | No other action is required if the source is whitelisted in the target's firewall rules. |
 | Private | Private | Establish an ExpressRoute, IPsec VPN, VPN Tunneling, or virtual network Peering between the source and target. |
 | Private | Private Endpoint | This configuration isn't supported; contact [Microsoft support](https://support.microsoft.com/). |
 
