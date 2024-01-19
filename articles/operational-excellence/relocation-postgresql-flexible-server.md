@@ -125,17 +125,7 @@ Redeployment with data migration for Azure Database for PostgreSQL is based on l
     1. Run the script to migrate the database.
     1. Configure the clients to point to the target server.
     1. Perform functional tests on the applications.
-1. If service endpoints were configured for the source region of the database resource, the same must be done for the target region by doing the following steps:
-    1. If you used Resource Mover to migrate the virtual network and subnet to the target region, you need to configure them manually. To manually configure the virtual network and subnet, see [Create and manage VNet service endpoints and VNet rules in Azure Database for PostgreSQL](/azure/postgresql/single-server/how-to-manage-vnet-using-cli)
-    1. In the IaC of the Azure Database for PostgreSQL, do the following:
-        1. In `networkAcl` section, under `virtualNetworkRules`, add the rule for the target subnet.
         1. Ensure that the `ignoreMissingVnetServiceEndpoint` flag is set to `False`, so that the IaC fails to deploy the database when the service endpoint isn’t configured in the target region. 
-
-        ### Migration over public endpoint
-        
         ![Migration over Public Endpoint](media/relocation/postgres/migration-over-public-endpoint.png)
-        
-        ### Migration over private endpoint
-        
         
         
