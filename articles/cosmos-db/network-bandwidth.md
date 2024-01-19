@@ -31,11 +31,11 @@ Azure Cosmos DB bills for data that leaves the Azure cloud to any destination on
 | Data transfer from any region in South America to any other region within the same continent or across continents or any destination on the internet | Not billed | Billed  |
 | Data transfer from any region in China to any other region within the same continent or across continents or any destination on the internet | Not billed | Billed  |
 
-## Billing Meter Details
+## Billing meter details
 
 The following are the recently introduced Azure Cosmos DB Bandwidth billing meter details along with the previous meter identifiers from which Azure Cosmos DB Bandwidth moved.
 
-| New Meter Name  | New Meter Type  | New Meter Id  | Previous Meter Id  |
+| New Meter Name  | New Meter Type  | New Meter ID | Previous Meter ID |
 | --- | --- | --- | --- |
 | Inter Region Data Transfer In | Data Transfer In (GB) | 415e7499-ea3b-5b45-8a9c-80a141aa262 | d8831a85-697a-4d43-acec-8e1599f58b5d  |
 | Inter Region Data Transfer In | Data Transfer In (GB) | ffa692fd-9d68-5f7c-a4b3-2644fe8ddb4 | 3a9d164b-d3c1-4350-9945-fa8056700299  |
@@ -54,19 +54,19 @@ Here's a list of commonly asked questions for this service.
 
 - **Will the change to new Meters cost me more for Azure Cosmos DB bandwidth?**
 
-  - No, whilst the new meters are no longer tiered, the new meter billing rate is equal to or lower than the least expensive tier of the previous meters. Most Cosmos DB accounts will see a reduction in Azure Cosmos DB bandwidth costs.  
+  - No, whilst the new meters are no longer tiered, the new meter billing rate is equal to or lower than the least expensive tier of the previous meters. Most Cosmos DB accounts see a reduction in Azure Cosmos DB bandwidth costs.  
 
-- **Do I get any free bandwidth every month?**
+- **Do I get any network bandwidth every month at no cost?**
 
-  - Yes, Cosmos DB includes 5 GB free bandwidth per month.  
+  - Yes, Azure Cosmos DB includes 5 GB of network bandwidth per month.  
 
-- **Will I still see the previous meters on my bill after Cosmos DB moves to the new meters?**
+- **Will I still see the previous meters on my bill after Azure Cosmos DB moves to the new meters?**
 
-  - It depends, you may continue to see previous meters on your Azure bill as they continue to be used by some other Azure Services. You may see Cosmos DB bandwidth billing disabled for a short period during the transition. You will not be double charged during the transition.
+  - It depends, you could continue to see previous meters on your Azure bill as they continue to be used by some other Azure Services. You could see Azure Cosmos DB bandwidth billing disabled for a short period during the transition. You aren't double charged during the transition.
 
-- **Will a region failover impact my egress data.**
+- **Will a region failover impact my egress data?**
 
-  - It can, when your Cosmos DB account is failed over to new region all traffic will be automatically re-directed to this new region, if this region is now different from where your Cosmos DB client is located it will result in data egress between the regions.  
+  - It can, when your Azure Cosmos DB account is failed over to new region all traffic is automatically redirected to this new region. If this region is now different from where your Azure Cosmos DB client is located it results in data egress between the regions.  
 
 ## Next step
 
