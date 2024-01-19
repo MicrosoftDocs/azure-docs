@@ -24,7 +24,7 @@ To relocate Azure Storage account to a new region, you can choose to [redeploy w
 
 If your Azure Storage Account instance doesn't have any client specific data and the instance itself needs to be moved alone, you can choose to redeploy without data migration. A simple redeployment without data is also your best option for [Azure Queues](/azure/storage/queues/storage-queues-introduction), as no data migration is required for a service that only supports live messaging transactions.
 
-**To redeploy your Automation instance without data:**
+**To redeploy your Storage Account instance without data:**
 
 Redeploy the Storage Account instance by using [Bicep, ARM Template, or Terraform](azure/templates/microsoft.storage/storageaccounts?tabs=json&pivots=deployment-language-arm-template).
 - Depending on your Storage Account deployment, the following dependent resources may need to be deployed and configured in the target region *prior* to relocation:
