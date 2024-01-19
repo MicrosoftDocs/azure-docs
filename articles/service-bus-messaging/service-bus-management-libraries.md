@@ -3,7 +3,8 @@ title: Programmatically manage Azure Service Bus namespaces and entities
 description: This article explains how to dynamically or programmatically provision Service Bus namespaces and entities.
 ms.topic: article
 ms.date: 08/06/2021
-ms.devlang: csharp,java,javascript,python
+ms.devlang: csharp
+# ms.devlang: csharp,java,javascript,python
 ms.custom: devx-track-arm-template
 ---
 

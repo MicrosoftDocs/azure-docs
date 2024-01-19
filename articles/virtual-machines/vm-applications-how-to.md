@@ -7,7 +7,7 @@ ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/08/2023
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 

@@ -18,7 +18,7 @@ ms.date: 11/14/2023
 
 > [!IMPORTANT]
 > These virtual machines are in public preview and not recommended for production usage.
-> These VMs are available in West Europe, Central US and East US 2; North Europe will be available in January 2024.
+> These VMs are available in West Europe, Central US, East US 2 and North Europe.
 
 The ECesv5-series and ECedsv5-series are [Azure confidential VMs](../confidential-computing/confidential-vm-overview.md) that can be used to protect the confidentiality and integrity of your code and data while it's being processed in the public cloud. Organizations can use these VMs to seamlessly bring confidential workloads to the cloud without any code changes to the application. 
 
@@ -41,7 +41,7 @@ These VMs have native support for [confidential disk encryption](disk-encryption
 - [Premium Storage](premium-storage-performance.md)
 - [Premium Storage caching](premium-storage-performance.md)
 - [VM Generation 2](generation-2.md)
-- [Ephemeral OS Disks](ephemeral-os-disks.md) - ECedsv5 only
+- [Ephemeral OS Disk](ephemeral-os-disks.md) - ECedsv5 only
 
 *Unsupported* features in ECesv5-series VMs:
 

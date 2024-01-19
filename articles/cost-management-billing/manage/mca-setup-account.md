@@ -200,6 +200,10 @@ Otherwise, you see an error message saying:
 
 The following Enterprise Agreement's features are replaced with new features in the billing account for a Microsoft Customer Agreement.
 
+### Cost Management Power BI template app
+
+When you convert an EA enrollment to MCA, you can’t use the Cost Management Power BI template app any longer because the app doesn’t support MCA. However, the [Azure Cost Management connector for Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) supports MCA accounts.
+
 ### Enterprise Agreement accounts
 
 The accounts that were created in your Enterprise Agreement enrollment aren't supported in the new billing account. The account's subscriptions belong to the invoice section created for their respective department. Account owners become Azure subscription creators and can create and manage subscriptions for their invoice sections.

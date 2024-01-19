@@ -2,7 +2,7 @@
 title: Integrations with Open Service Mesh on Azure Kubernetes Service (AKS)
 description: Integrations with Open Service Mesh on Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 03/23/2022
+ms.date: 12/26/2023
 ---
 
 # Integrations with Open Service Mesh on Azure Kubernetes Service (AKS)
@@ -200,13 +200,13 @@ Before you can enable metrics on your mesh to integrate with Azure Monitor, make
 
 4. Navigate to the Azure portal and select your AKS cluster.
 5. Under **Monitoring**, select **Logs**.
-6. In the **Monitoring** section, query the `InsightsMetrics` table to view metrics in the enabled namespaces. For example, the following query shows the *envoy* metrics for the *myappnamespace* namespace:
+6. In the **Monitoring** section, query the `InsightsMetrics` table to view metrics in the enabled namespaces. For example, the following query shows the *envoy* metrics for the *default* namespace:
 
     ```sh
     InsightsMetrics
     |     where Name contains "envoy"
     |     extend t=parse_json(Tags)
-    |     where t.app == "myappnamespace"
+    |     where t.namespace == "default"
     ```
 
 ## Automation and developer tools

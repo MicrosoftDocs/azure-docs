@@ -2,12 +2,11 @@
 title: Migrate from v3.1 to v3.2 REST API - Speech service
 titleSuffix: Azure AI services
 description: This document helps developers migrate code from v3.1 to v3.2 of the Speech to text REST API.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 09/15/2023
+ms.date: 11/23/2023
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -55,6 +54,72 @@ Azure AI Speech now supports OpenAI's Whisper model via Speech to text REST API 
 > You'll be charged for custom speech model training if the base model was created on October 1, 2023 and later. You are not charged for training if the base model was created prior to October 2023. For more information, see [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 > 
 > To programmatically determine whether a model was created before or after October 1, 2023, use the `chargedForAdaptation` property that's [new in version 3.2](#charge-for-adaptation).
+
+### Custom display text formatting
+
+To support model adaptation with [custom display text formatting](how-to-custom-speech-test-and-train.md#custom-display-text-formatting-data-for-training) data, the [Datasets_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview1/operations/Datasets_Create) operation supports the **OutputFormatting** data kind. For more information, see [upload datasets](how-to-custom-speech-upload-data.md#upload-datasets). 
+
+Added a definition for `OutputFormatType` with `Lexical` and `Display` enum values.
+
+```json
+"OutputFormatType": {
+    "title": "OutputFormatType",
+    "enum": [
+        "Lexical",
+        "Display"
+    ],
+    "type": "string",
+    "x-ms-enum": {
+        "name": "OutputFormatType",
+        "modelAsString": true,
+        "values": [
+            {
+                "value": "Lexical",
+                "description": "Model provides the transcription output without formatting."
+            },
+            {
+                "value": "Display",
+                "description": "Model supports display formatting transcriptions output or endpoints."
+            }
+        ]
+    }
+},
+```
+
+The `OutputFormattingData` enum value is added to `FileKind` (type of input data).
+
+The `supportedOutputFormat` property is added to `BaseModelFeatures`. This is within the `BaseModel` definition.
+
+```json
+"BaseModelFeatures": {
+    "title": "BaseModelFeatures",
+    "description": "Features supported by the model.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "#/definitions/SharedModelFeatures"
+        }
+    ],
+    "properties": {
+        "supportsAdaptationsWith": {
+            "description": "Supported dataset kinds to adapt the model.",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/DatasetKind"
+            },
+            "readOnly": true
+        },
+        "supportedOutputFormat": {
+            "description": "Supported output formats.",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/OutputFormatType"
+            },
+            "readOnly": true
+        }
+    }
+},
+```
 
 ### Charge for adaptation
 

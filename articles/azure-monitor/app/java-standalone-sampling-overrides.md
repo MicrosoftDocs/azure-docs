@@ -192,7 +192,8 @@ Span attribute names are based on the OpenTelemetry semantic conventions. (HTTP,
 
 https://github.com/open-telemetry/semantic-conventions/blob/main/docs/README.md
 
-To see the exact set of attributes captured by Application Insights Java for your application, set the
+>[!Note]
+> To see the exact set of attributes captured by Application Insights Java for your application, set the
 [self-diagnostics level to debug](./java-standalone-config.md#self-diagnostics), and look for debug messages starting
 with the text "exporting span".
 

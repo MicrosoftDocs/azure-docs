@@ -2,14 +2,15 @@
 title: Role-based access control in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article introduces role-based access control in Azure AI Studio
-author: eric-urban
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
-ms.author: eur
+ms.reviewer: meyetman
+ms.author: larryfr
+author: Blackmist
 ---
 
 # Role-based access control in Azure AI Studio 
@@ -33,9 +34,9 @@ Here's a table of the built-in roles and their permissions for the Azure AI reso
 | Role | Description | 
 | --- | --- |
 | Owner | Full access to the Azure AI resource, including the ability to manage and create new Azure AI resources and assign permissions. This role is automatically assigned to the Azure AI resource creator|
-| Contributor |	User has full access to the Azure AI resource, including the ability to create new Azure AI resources, but isn't able to manage Azure AI resource permissions on the existing resource. |
-| Azure AI Developer | 	Perform all actions except create new Azure AI resources and manage the Azure AI resource permissions. For example, users can create projects, compute, and connections. Users can assign permissions within their project. Users can interact with existing AI resources such as Azure OpenAI, Azure AI Search, and Azure AI services. |
-| Reader | 	Read only access to the Azure AI resource. This role is automatically assigned to all project members within the Azure AI resource. |
+| Contributor |    User has full access to the Azure AI resource, including the ability to create new Azure AI resources, but isn't able to manage Azure AI resource permissions on the existing resource. |
+| Azure AI Developer |     Perform all actions except create new Azure AI resources and manage the Azure AI resource permissions. For example, users can create projects, compute, and connections. Users can assign permissions within their project. Users can interact with existing AI resources such as Azure OpenAI, Azure AI Search, and Azure AI services. |
+| Reader |     Read only access to the Azure AI resource. This role is automatically assigned to all project members within the Azure AI resource. |
 
 
 The key difference between Contributor and Azure AI Developer is the ability to make new Azure AI resources. If you don't want users to make new Azure AI resources (due to quota, cost, or just managing how many Azure AI resources you have), assign the AI Developer role.
@@ -86,9 +87,9 @@ Here's a table of the built-in roles and their permissions for the Azure AI proj
 | Role | Description | 
 | --- | --- |
 | Owner | Full access to the Azure AI project, including the ability to assign permissions to project users. |
-| Contributor |	User has full access to the Azure AI project but can't assign permissions to project users. |
-| Azure AI Developer | 	User can perform most actions, including create deployments, but can't assign permissions to project users. |
-| Reader | 	Read only access to the Azure AI project. |
+| Contributor |    User has full access to the Azure AI project but can't assign permissions to project users. |
+| Azure AI Developer |     User can perform most actions, including create deployments, but can't assign permissions to project users. |
+| Reader |     Read only access to the Azure AI project. |
 
 When a user gets access to a project, two more roles are automatically assigned to the project user. The first role is Reader on the Azure AI resource. The second role is the Inference Deployment Operator role, which allows the user to create deployments on the resource group that the project is in. This role is composed of these two permissions: ```"Microsoft.Authorization/*/read"``` and    ```"Microsoft.Resources/deployments/*"```.
 

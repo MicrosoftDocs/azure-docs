@@ -218,7 +218,7 @@ In this example, you'll remove an outbound rule.
 
 ## Next steps
 
-In this article, you learned how to managed load-balancing rules for an Azure Load Balancer.
+In this article, you learned how to manage load-balancing rules for an Azure Load Balancer.
 
 For more information about Azure Load Balancer, see:
 - [What is Azure Load Balancer?](load-balancer-overview.md)

@@ -3,14 +3,9 @@ title: "Tutorial: Use dynamic configuration in a .NET app"
 titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for .NET apps
 services: azure-app-configuration
-documentationcenter: ''
 author: maud-lv
 manager: zhenlan
-editor: ''
-
-ms.assetid: 
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ms.topic: tutorial

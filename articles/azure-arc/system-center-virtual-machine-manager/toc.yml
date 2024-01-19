@@ -24,6 +24,8 @@
     items:
     - name: Enable SCVMM inventory resources in Azure
       href: enable-scvmm-inventory-resources.md
+    - name: Enable virtual hardware and VM CRUD capabilities in an SCVMM machine with Arc agent installed
+      href: enable-virtual-hardware-scvmm.md
   - name: Use VM lifecycle and self-serve capabilities
     items:
     - name: Set up and manage self-service access to SCVMM resources

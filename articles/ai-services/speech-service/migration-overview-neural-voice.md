@@ -2,7 +2,6 @@
 title: Migration to neural voice - Speech service
 titleSuffix: Azure AI services
 description: This document summarizes the benefits of migration from non-neural voice to neural voice.
-#services: cognitive-services
 author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
@@ -24,7 +23,7 @@ We're retiring two features from [Text to speech](index-text-to-speech.yml) capa
 
 Go to [this article](how-to-migrate-to-custom-neural-voice.md) to learn how to migrate to custom neural voice. 
 
-Custom neural voice is a gated service. You need to create an Azure account and Speech service subscription (with S0 tier), and [apply](https://aka.ms/customneural) to use custom neural feature. After you've been granted access, you can visit the [Speech Studio portal](https://speech.microsoft.com/portal) and then select Custom Voice to get started. 
+Custom neural voice is a gated service. You need to create an Azure account and Speech service subscription (with S0 tier), and [apply](https://aka.ms/customneural) to use custom neural feature. After you've been granted access, you can visit the [Speech Studio portal](https://speech.microsoft.com/portal) and then select custom voice to get started. 
 
 Even without an Azure account, you can listen to voice samples in [Speech Studio](https://aka.ms/customvoice) and determine the right voice for your business needs.
 

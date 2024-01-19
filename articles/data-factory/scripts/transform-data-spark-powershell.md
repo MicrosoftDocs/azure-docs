@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 02/08/2023
+ms.date: 01/05/2024
 ---
 
 # PowerShell script - transform data in cloud using Azure Data Factory

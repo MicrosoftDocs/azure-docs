@@ -1,8 +1,8 @@
 ---
 title: Azure Migrate FAQ
 description: Get answers to common questions about the Azure Migrate service.
-author: jyothisuri
-ms.author: jsuri
+author: MaryMichael-MS
+ms.author: v-michaelar
 ms.topic: conceptual
 ms.date: 12/12/2022
 ms.custom: engagement-fy23

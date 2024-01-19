@@ -27,6 +27,8 @@ Each Azure Communications Gateway deployment consists of three separate regions:
 
 Service regions contain the voice and API infrastructure used for handling traffic between your network and your chosen communications services. Each instance of Azure Communications Gateway consists of two service regions that are deployed in an active-active mode (as required by the Operator Connect and Teams Phone Mobile programs). Fast failover between the service regions is provided at the infrastructure/IP level and at the application (SIP/RTP/HTTP) level.
 
+The service regions also contain the infrastructure for Azure Communications Gateway's [Provisioning API](provisioning-platform.md).
+
 > [!TIP]
 > You must always have two service regions, even if one of the service regions chosen is in a single-region Azure Geography (for example, Qatar). If you choose a single-region Azure Geography, choose a second Azure region in a different Azure Geography.
 
@@ -96,9 +98,11 @@ This section describes the behavior of Azure Communications Gateway during a reg
 
 ### Disaster recovery: cross-region failover for service regions
 
-During a region-wide outage, the failover mechanisms described in this article (OPTIONS polling and SIP retry on failure) will rebalance all traffic to the other service region, maintaining availability. We'll start restoring regional redundancy. Restoring regional redundancy during extended downtime might require using other Azure regions. If we need to migrate a failed region to another region, we'll consult you before starting any migrations.
+During a region-wide outage, the failover mechanisms described in this article (OPTIONS polling and SIP retry on failure) will rebalance all call traffic to the other service region, maintaining availability. We'll start restoring regional redundancy. Restoring regional redundancy during extended downtime might require using other Azure regions. If we need to migrate a failed region to another region, we'll consult you before starting any migrations.
 
-The SIP peers in Azure Communications Gateway provide OPTIONS polling to allow your network to determine peer availability. For MCP, your network must be able to detect when MCP is unavailable, and retry periodically to determine when MCP is available again. MCP doesn't respond to SIP OPTIONS.
+The SBC function in Azure Communications Gateway provides OPTIONS polling to allow your network to determine peer availability. For MCP, your network must be able to detect when MCP is unavailable, and retry periodically to determine when MCP is available again. MCP doesn't respond to SIP OPTIONS.
+
+Provisioning API clients contact Azure Communications Gateway using the base domain name for your deployment. The DNS record for this domain has a time-to-live (TTL) of 60 seconds. When a region fails, Azure updates the DNS record to refer to another region, so clients making a new DNS lookup receive the details of the new region. We recommend ensuring that clients can make a new DNS lookup and retry a request 60 seconds after a timeout or a 5xx response.
 
 ### Disaster recovery: cross-region failover for management regions
 
