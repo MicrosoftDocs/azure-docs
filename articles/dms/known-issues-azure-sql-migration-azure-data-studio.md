@@ -223,6 +223,15 @@ This article provides a list of known issues and troubleshooting steps associate
 
 - **Recommendation**: Make sure to change the target Azure SQL Database collation to the same as the source SQL Server database. Azure SQL Database uses `SQL_Latin1_General_CP1_CI_AS` collation by default, in case your source SQL Server database uses a different collation you might need to re-create or select a different target database whose collation matches. For more information, see [Collation and Unicode support](/sql/relational-databases/collations/collation-and-unicode-support)
 
+- **Message**: `TableColumnCollationMismatch: Table <Tablename> with column <columnname> has collation <collationoptionsource> on source but has collation <collationoptiontarget> on target table.`
+
+- **Cause**: The source database table column's collation isn't the same as the target database table column's collation.
+
+- **Recommendation**:
+  1) Make sure to migrate the Schema to target Azure SQL Database using Database Migration Service. Refer [blog](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/public-preview-schema-migration-for-target-azure-sql-db/ba-p/3990463).
+  2) Follow this [article](https://learn.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-column-collation?view=sql-server-ver16) to manually change collation. 
+  For more information, see [Collation and Unicode support](/sql/relational-databases/collations/collation-and-unicode-support)
+
 - **Message**: `DatabaseSizeMoreThanMax: No tables were found in the target Azure SQL Database. Check if schema migration was completed beforehand.`
 
 - **Cause**: The selected tables for the migration don't exist in the target Azure SQL Database.
