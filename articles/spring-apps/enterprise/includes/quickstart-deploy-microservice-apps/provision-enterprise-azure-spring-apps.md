@@ -166,13 +166,13 @@ Next, configure the routing for Spring Cloud Gateway. Because the Azure portal d
 1. Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
 
    ```azurecli
-   export SUBSCRIPTION_ID="<subscription-ID>"
-   export RESOURCE_GROUP="<resource-group-name>"
-   export SPRING_APPS_NAME="<Azure-Spring-Apps-instance-name>"
-   export APP_CUSTOMERS_SERVICE="customers-service"
-   export APP_VETS_SERVICE="vets-service"
-   export APP_VISITS_SERVICE="visits-service"
-   export APP_FRONTEND="frontend"
+   export SUBSCRIPTION_ID=<subscription-ID>
+   export RESOURCE_GROUP=<resource-group-name>
+   export SPRING_APPS_NAME=<Azure-Spring-Apps-instance-name>
+   export APP_CUSTOMERS_SERVICE=customers-service
+   export APP_VETS_SERVICE=vets-service
+   export APP_VISITS_SERVICE=visits-service
+   export APP_FRONTEND=frontend
    ```
 
 1. Use the following command to set the default subscription:

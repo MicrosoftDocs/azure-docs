@@ -132,46 +132,46 @@ Use the following steps to create the service instance:
 
 1. Use the following command to configure diagnostic settings for the Azure Spring Apps instance:
 
-```azurecli
-   export SPRING_APPS_RESOURCE_ID=$(az spring show --name ${SPRING_APPS} --query id --output tsv)
-   az monitor diagnostic-settings create --name logs-and-metrics \
-       --resource ${SPRING_APPS_RESOURCE_ID} --workspace ${SPRING_WORKSPACE} \
-       --logs '[
-         {
-           "category": "ApplicationConsole",
-           "enabled": true,
-           "retentionPolicy": {
-             "enabled": false,
-             "days": 0
-           }
-         },
-         {
-            "category": "SystemLogs",
-            "enabled": true,
-            "retentionPolicy": {
-              "enabled": false,
-              "days": 0
+   ```azurecli
+      export SPRING_APPS_RESOURCE_ID=$(az spring show --name ${SPRING_APPS} --query id --output tsv)
+      az monitor diagnostic-settings create --name logs-and-metrics \
+          --resource ${SPRING_APPS_RESOURCE_ID} --workspace ${SPRING_WORKSPACE} \
+          --logs '[
+            {
+              "category": "ApplicationConsole",
+              "enabled": true,
+              "retentionPolicy": {
+                "enabled": false,
+                "days": 0
+              }
+            },
+            {
+               "category": "SystemLogs",
+               "enabled": true,
+               "retentionPolicy": {
+                 "enabled": false,
+                 "days": 0
+               }
+            },
+            {
+               "category": "IngressLogs",
+               "enabled": true,
+               "retentionPolicy": {
+                 "enabled": false,
+                 "days": 0
+                }
             }
-         },
-         {
-            "category": "IngressLogs",
-            "enabled": true,
-            "retentionPolicy": {
-              "enabled": false,
-              "days": 0
-             }
-         }
-       ]' \
-       --metrics '[
-         {
-           "category": "AllMetrics",
-           "enabled": true,
-           "retentionPolicy": {
-             "enabled": false,
-             "days": 0
-           }
-         }
-       ]'
+          ]' \
+          --metrics '[
+            {
+              "category": "AllMetrics",
+              "enabled": true,
+              "retentionPolicy": {
+                "enabled": false,
+                "days": 0
+              }
+            }
+          ]'
    ```
 
 1. Use the following commands to create the Application Insights buildpack bindings:
@@ -201,7 +201,7 @@ Use the following steps to create the service instance:
    az spring service-registry bind --service ${SPRING_APPS} --app ${APP_VISITS_SERVICE}
    ```
 
-1. Use the following command to create a configuration repository for the Application Configuration instance:
+1. Use the following command to create a configuration repository for the Application Configuration Service:
 
    ```azurecli
    az spring application-configuration-service git repo add \
