@@ -92,7 +92,7 @@ First, go to the compute instance terminal and run `docker ps` to find the root 
 
 Use `docker images` to check if the image was pulled successfully. If your image was pulled successfully, check if the Docker container is running. If it's already running, locate this runtime. It attempts to restart the runtime and compute instance.
 
-If you are using compute instance runtime AI studio, this is not scenario currently supported, please try use automatic runtime instead, [Switch compute instance runtime to automatic runtime](../how-to-create-manage-runtime.md#switch-compute-instance-runtime-to-automatic-runtime).
+If you are using compute instance runtime AI studio, this is not scenario currently supported, please try use automatic runtime instead, [Switch compute instance runtime to automatic runtime](../how-to-create-manage-runtime.md#switch-compute-instance-runtime-to-automatic-runtime-preview).
 
 ### Run failed because of "No module named XXX"
 
