@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 1/10/2024
+ms.date: 1/19/2024
 ms.author: eur
 ---
 
@@ -24,13 +24,13 @@ The display text pipeline is composed by a sequence of display format builders. 
 
 - **Inverse Text Normalization (ITN)** - To convert the text of spoken form numbers to display form. For example: `"I spend twenty dollars" -> "I spend $20"`
 - **Capitalization** - To upper case entity names, acronyms, or the first letter of a sentence. For example: `"she is from microsoft" -> "She is from Microsoft"`
-- **Profanity filtering** - Masking or removal of profanity words from a sentence. For example, assuming "abcd" is a profanity word, then the word will be masked by profanity masking: `"I never say abcd" -> "I never say ****"`
+- **Profanity filtering** - Masking or removal of profanity words from a sentence. For example, assuming "abcd" is a profanity word, then the word is masked by profanity masking: `"I never say abcd" -> "I never say ****"`
 
-The base builders of the display text pipeline are maintained by Microsoft for the general purpose display processing tasks. You get the base builders by default when you use the Speech service. For more information about out-of-the-box formatting, see [Display text format](./display-text-format.md).
+Microsoft maintains the base builders of the display text pipeline for the general purpose display processing tasks. You get the base builders by default when you use the Speech service. For more information about out-of-the-box formatting, see [Display text format](./display-text-format.md).
 
 ## Custom display text formatting
 
-Beside the base builders maintained by Microsoft for the general purpose display processing tasks, you can define custom display text formatting rules to customize the display text formatting pipeline for your specific scenarios. The custom display text formatting rules are defined in a custom display text formatting file.
+Besides the base builders maintained by Microsoft, you can define custom display text formatting rules to customize the display text formatting pipeline for your specific scenarios. The custom display text formatting rules are defined in a custom display text formatting file.
 
 - [Custom ITN](#custom-itn) - Extend the functionalities of base ITN, by applying a rule based custom ITN model from customer.
 - [Custom rewrite](#custom-rewrite) - Rewrite one phrase to another based on a rule based model from customer. 
@@ -59,9 +59,9 @@ There are four categories of pattern matching with custom ITN rules.
 
 ### Patterns with literals
 
-For example, a developer might have an item (such as a product) named with the alphanumeric form `JO:500`.  The job of our system will be to figure out that users might say the letter part as `J O`, or they might say `joe`, and the number part as `five hundred` or `five zero zero` or `five oh oh` or `five double zero`, and then build a model that maps all of these possibilities back to `JO:500` (including inserting the colon).
+For example, a developer might have an item (such as a product) named with the alphanumeric form `JO:500`.  The Speech service figures out that users might say the letter part as `J O`, or they might say `joe`, and the number part as `five hundred` or `five zero zero` or `five oh oh` or `five double zero`, and then build a model that maps all of these possibilities back to `JO:500` (including inserting the colon).
 
-Patterns can be applied in parallel by specifying one rule per line in the display text formatting file. Here is an example of a display text formatting file that specifies two rules:
+Patterns can be applied in parallel by specifying one rule per line in the display text formatting file. Here's an example of a display text formatting file that specifies two rules:
 
 ```text
 JO:500
@@ -70,13 +70,13 @@ MM:760
 
 ### Patterns with wildcards
 
-Suppose a customer needs to refer to a whole series of alphanumeric items named `JO:500`, `JO:600`, `JO:700`, etc. We can support this without requiring spelling out all possibilities in several ways.
+You can refer to a whole series of alphanumeric items (such as `JO:500`, `JO:600`, `JO:700`) without having to spell out all possibilities in several ways.
 
 Character ranges can be specified with the notation `[...]`, so `JO:[5-7]00` is equivalent to writing out three patterns.
 
 There's also a set of wildcard items that can be used.  One of these is `\d`, which means any digit.  So `JO:\d00` covers `JO:000`, `JO:100`, and others up to `JO:900`.
 
-Like a regular expression, there are several predefined character classes for an ITN rule:
+Like a regular expression, there are multiple predefined character classes for an ITN rule:
 
 * `\d` - match a digit from '0' to '9', and output it directly
 * `\l` - match a letter (case-insensitive) and transduce it to lower case
@@ -103,7 +103,7 @@ A pattern such as `(AB|CD)-(\d)+` would represent constructs like "AB-9" or "CD-
 
 ### Patterns with explicit replacement
 
-The general philosophy is "you show us what the output should look like, and the Speech service figures out how people say it." But this doesn't always work because some scenarios might have quirky unpredictable ways of saying things, or the Speech service background rules might have gaps. For example, there can be colloquial pronunciations for initials and acronyms--`ZPI` might be spoken as `zippy`. In this case a pattern like `ZPI-\d\d` is unlikely to work if a user says `zippy twenty two`.  For this sort of situation, there's a display text format notation `{spoken>written}`. This particular case could be written out `{zippy>ZPI}-\d\d`.
+The general philosophy is "you show us what the output should look like, and the Speech service figures out how people say it." But this doesn't always work because some scenarios might have quirky unpredictable ways of saying things, or the Speech service background rules might have gaps. For example, there can be colloquial pronunciations for initials and acronyms--`ZPI` might be spoken as `zippy`. In this case, a pattern like `ZPI-\d\d` is unlikely to work if a user says `zippy twenty two`.  For this sort of situation, there's a display text format notation `{spoken>written}`. This particular case could be written out `{zippy>ZPI}-\d\d`.
 
 This can be useful for handling things that the Speech mapping rules but don't yet support. For example you might write a pattern `\d0-\d0` expecting the system to understand that "-" can mean a range, and should be pronounced `to`, as in `twenty to thirty`. But perhaps it doesn't. So you can write a more explicit pattern like `\d0{to>-}\d0` and tell it how you expect the dash to be read.
 
