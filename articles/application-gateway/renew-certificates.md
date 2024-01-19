@@ -72,9 +72,7 @@ az network application-gateway ssl-cert update \
 ```
 ### Azure Terraform
 
-If you are managing the application gateway using Terraform, the azure terraform key vault data source will get the entire key vault URI, including the version of the secrets.
-
-For automatic rotation of the certificate to a new version, the secret should be versionless.* 
+If the application gateway is terraform managed, the azure terraform key vault data source will get the entire key vault URI, including the version of the secrets. For automatic rotation of the certificate to a new version, the secret should be versionless.
 
 **Reference snip**:
 
