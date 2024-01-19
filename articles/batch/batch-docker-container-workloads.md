@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 01/10/2024
 ms.devlang: csharp
 # ms.devlang: csharp, python
-ms.custom: seodec18, devx-track-csharp, devx-track-linux
+ms.custom: seodec18, devx-track-csharp, linux-related-content
 ---
 
 # Use Azure Batch to run container workloads
