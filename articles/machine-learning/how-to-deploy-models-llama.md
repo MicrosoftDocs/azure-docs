@@ -31,11 +31,11 @@ Llama 2 can be deployed as a service with pay-as-you-go billing or with hosted i
 
 Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-Llama 2 models deployed as a service with pay-as-you-go are offered by Meta AI through the Azure Marketplace, and they might add more terms of use and pricing.
+Llama 2 models deployed as a service with pay-as-you-go are offered by Meta AI through Microsoft Azure Marketplace, and they might add more terms of use and pricing.
 
 ### Azure Marketplace model offerings
 
-The following models are available in the Azure Marketplace for Llama 2 when deployed as a service with pay-as-you-go:
+The following models are available in Azure Marketplace for Llama 2 when deployed as a service with pay-as-you-go:
 
 * Meta Llama-2-7B (preview)
 * Meta Llama 2 7B-Chat (preview)
@@ -56,7 +56,7 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace. Alternatively, your account can be assigned a custom role that has the following permissions:
 
-    - On the Azure subscription (needed to sign up the workspace for the Azure Marketplace offering, once for each workspace, per offering):
+    - On the Azure subscription (needed to sign up the workspace for Azure Marketplace offerings, once for each workspace, per offering):
       - `Microsoft.MarketplaceOrdering/agreements/offers/plans/read`
       - `Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action`
       - `Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read`
@@ -82,20 +82,21 @@ To create a deployment:
 
 1. Go to the [Azure Machine Learning studio](https://ml.azure.com/home).
 1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** or **West US 3** region.
-1. Choose the model you want to deploy from the [model catalog](https://ml.azure.com/model/catalog). Alternatively, you can initiate deployment by selecting **Create** from the **Endpoints** option under **Assets** in your workspace.
+1. Choose the model you want to deploy from the [model catalog](https://ml.azure.com/model/catalog). 
+  <!-- Alternatively, you can initiate deployment by selecting **Create** from the **Endpoints** option under **Assets** in your workspace. --> Alternatively, you can initiate deployment by selecting **Create** from `your workspace`>`endpoints`>`real-time endpoints`
 1. On the model's overview page, select **Deploy** and then **Pay-as-you-go**.
 
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png":::
 
 1. On the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
-1. If this is your first time deploying the model in the workspace, you have to sign your workspace up for the particular offering (Llama-2-70b) from the Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each workspace has its own connection to the marketplace's offering, which allows you to control and monitor spending per workspace. Select **Subscribe and Deploy**.
+1. If this is your first time deploying the model in the workspace, you have to sign your workspace up for the particular offering (Llama-2-70b) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each workspace has its own connection to the particular Azure Marketplace offering, which allows you to control and monitor spending per workspace. Select **Subscribe and Deploy**.
 
     > [!NOTE]
     > Subscribing a project to a particular Azure Marketplace offering (in this case, Llama-2-70b) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
 
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="media/how-to-deploy-models-llama/deploy-marketplace-terms.png":::
 
-1. Once you've signed up the workspace for the Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace won't require signing up. Therefore, you won't need to have the subscription-level permissions for subsequent deployments. If this is your case, select **Continue to deploy**.
+1. Once you've signed up the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace won't require signing up. Therefore, you won't need to have the subscription-level permissions for subsequent deployments. If this is your case, select **Continue to deploy**.
 
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-pay-as-you-go-project.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="media/how-to-deploy-models-llama/deploy-pay-as-you-go-project.png":::
 
@@ -374,7 +375,7 @@ The following is an example response:
 
 ## Deploy Llama 2 models to real-time endpoints
 
-Apart from deploying with the pay-as-you-go managed service, you can also deploy Llama 2 models to real-time endpoints in the Azure Machine Learning studio. When deployed to real-time endpoints, you can select all the details about the infrastructure running the model, including the virtual machines to use and the number of instances to handle the load you're expecting. Models deployed to real-time endpoints consume quota from your subscription. All the models in the Llama family can be deployed to real-time endpoints.
+Apart from deploying with the pay-as-you-go managed service, you can also deploy Llama 2 models to real-time endpoints in Azure Machine Learning studio. When deployed to real-time endpoints, you can select all the details about the infrastructure running the model, including the virtual machines to use and the number of instances to handle the load you're expecting. Models deployed to real-time endpoints consume quota from your subscription. All the models in the Llama family can be deployed to real-time endpoints.
 
 ### Create a new deployment
 
@@ -383,8 +384,8 @@ Apart from deploying with the pay-as-you-go managed service, you can also deploy
 Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time endpoint in [Azure Machine Learning studio](https://ml.azure.com).
 
 1. Select the workspace in which you want to deploy the model.
-1. Choose the model that you want to deploy from the studio's [model catalog](https://ml.azure.com/model/catalog).
-    <!-- Alternatively, you can initiate deployment by selecting **Create** from `your workspace`>`endpoints`>`serverless endpoints` -->
+1. Choose the model that you want to deploy from the studio's [model catalog](https://ml.azure.com/model/catalog). 
+   <!-- Alternatively, you can initiate deployment by selecting **Create** from `your workspace`>`endpoints`>`real-time endpoints`. -->
 1. On the model's overview page, select **Deploy** and then **Real-time endpoint**.
 
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-real-time-endpoint.png" alt-text="A screenshot showing how to deploy a model with the real-time endpoint option." lightbox="media/how-to-deploy-models-llama/deploy-real-time-endpoint.png":::
@@ -457,16 +458,16 @@ client.deployments.create_or_update(deployment)
 
 ### Consume Llama 2 models deployed to real-time endpoints
 
-For reference about how to invoke Llama 2 models deployed to real-time endpoints, see the model's card in the Azure Machine Learning studio [model catalog](concept-model-catalog.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
+For reference about how to invoke Llama 2 models deployed to real-time endpoints, see the model's card in Azure Machine Learning studio [model catalog](concept-model-catalog.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
 
 ## Cost and quotas
 
 ### Considerations for Llama 2 models deployed as a service
 
-Llama models deployed as a service are offered by Meta through the Azure Marketplace and integrated with Azure Machine Learning studio for use. You can find the Azure Marketplace pricing when deploying or fine-tuning models.
+Llama models deployed as a service are offered by Meta through Azure Marketplace and integrated with Azure Machine Learning studio for use. You can find Azure Marketplace pricing when deploying or fine-tuning models.
 
-Each time a workspace subscribes to a given model offering from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
-<!-- See (change - check link) [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs. -->
+Each time a workspace subscribes to a given model offering from Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
+<!-- See (change - check link) [monitor costs for models offered throughout Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs. -->
 
 (change - use same image as AI Studio
 
