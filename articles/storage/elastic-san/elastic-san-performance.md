@@ -5,8 +5,8 @@ author: roygara
 ms.service: azure-elastic-san-storage
 ms.custom:
   - ignite-2023-elastic-SAN
-ms.topic: overview
-ms.date: 11/06/2023
+ms.topic: conceptual
+ms.date: 01/19/2024
 ms.author: rogarana
 ---
 
@@ -44,14 +44,14 @@ The performance of an individual volume is determined by its capacity. The maxim
 
 Each of the example scenarios in this article uses the following configuration for the VMs and the Elastic SAN:
 
-### VM limits
+### VM SKUs
 
-|VM  |VM IOPS limit  |
-|---------|---------|
-|Standard_DS2_v2 (AKS)     |5,000         |
-|Standard_L48s_v2 (workload 1)     |48,000     |
-|Standard_L32s_v3 (workload 2)    |51,200         |
-|Standard_L48_v3 (workload 3)    |76,800         |
+|VM  |
+|---------|
+|Standard_D2_v5 (AKS)     |
+|Standard_D4s_v5 (workload 1)     |
+|Standard_D32_v5 (workload 2)    |
+|Standard_D48_v5 (workload 3)    |
 
 ### Elastic SAN limits
 
