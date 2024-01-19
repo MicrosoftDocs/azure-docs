@@ -2,15 +2,9 @@
 title: What is Azure NetApp Files | Microsoft Docs
 description: Learn about Azure NetApp Files, an Azure native, first-party, enterprise-class, high-performance file storage service.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/11/2024
 ms.author: anfdocs
