@@ -16,9 +16,9 @@ ms.custom:
 
 Azure AI Search supports [two basic approaches](search-what-is-data-import.md) for importing data into a search index: *push* your data into the index programmatically, or pointing an [Azure AI Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
 
-This tutorial describes how to efficiently index data using the [push model](search-what-is-data-import.md#pushing-data-to-an-index) by batching requests and using an exponential backoff retry strategy. You can [download and run the sample application](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/optimize-data-indexing). This article explains the key aspects of the application and factors to consider when indexing data.
+This tutorial explains how to efficiently index data using the [push model](search-what-is-data-import.md#pushing-data-to-an-index) by batching requests and using an exponential backoff retry strategy. You can [download and run the sample application](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/optimize-data-indexing). This article explains the key aspects of the application and what factors to consider when indexing data.
 
-This tutorial uses C# and the [Azure.Search.Documents library from the Azure SDK for .NET](/dotnet/api/overview/azure/search) to perform the following tasks:
+This tutorial uses C# and the [Azure.Search.Documents library](/dotnet/api/overview/azure/search) from the Azure SDK for .NET to perform the following tasks:
 
 > [!div class="checklist"]
 > * Create an index
@@ -47,20 +47,20 @@ Source code for this tutorial is in the [optimize-data-indexing/v11](https://git
 
 Factors affecting indexing speeds are listed next. You can learn more in [Index large data sets](search-howto-large-index.md).
 
-+ **Service tier and number of partitions/replicas** - Adding partitions and increasing your tier will both increase indexing speeds.
-+ **Index Schema** - Adding fields and adding additional properties to fields (such as *searchable*, *facetable*, or *filterable*) both reduce indexing speeds.
++ **Service tier and number of partitions/replicas** - Adding partitions or upgrading your tier increases indexing speeds.
++ **Index schema complexity** - Adding fields and field properties lowers indexing speeds. Smaller indexes are faster to index.
 + **Batch size** - The optimal batch size varies based on your index schema and dataset.
-+ **Number of threads/workers** - a single thread won't take full advantage of indexing speeds
-+ **Retry strategy** - An exponential backoff retry strategy should be used to optimize indexing.
++ **Number of threads/workers** - A single thread won't take full advantage of indexing speeds.
++ **Retry strategy** - An exponential backoff retry strategy is a best practice for optimum indexing.
 + **Network data transfer speeds** - Data transfer speeds can be a limiting factor. Index data from within your Azure environment to increase data transfer speeds.
 
 ## 1 - Create Azure AI Search service
 
-To complete this tutorial, you'll need an Azure AI Search service, which you can [create in the portal](search-create-service-portal.md). We recommend using the same tier you plan to use in production so that you can accurately test and optimize indexing speeds.
+To complete this tutorial, you need an Azure AI Search service, which you can [create in the portal](search-create-service-portal.md). We recommend using the same tier you plan to use in production so that you can accurately test and optimize indexing speeds.
 
 ### Get an admin api-key and URL for Azure AI Search
 
-API calls require the service URL and an access key. A search service is created with both, so if you added Azure AI Search to your subscription, follow these steps to get the necessary information:
+This tutorial uses key-based authentication. Copy an admin API key to paste into the **appsettings.json** file.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -99,12 +99,12 @@ This simple C#/.NET console app performs the following tasks:
 
   + **Hotel.cs** and **Address.cs** contains the schema that defines the index
   + **DataGenerator.cs** contains a simple class to make it easy to create large amounts of hotel data
-  + **ExponentialBackoff.cs** contains code to optimize the indexing process as described below
+  + **ExponentialBackoff.cs** contains code to optimize the indexing process as described in this article
   + **Program.cs** contains functions that create and delete the Azure AI Search index, indexes batches of data, and tests different batch sizes
 
 ### Creating the index
 
-This sample program uses the .NET SDK to define and create an Azure AI Search index. It takes advantage of the `FieldBuilder` class to generate an index structure from a C# data model class.
+This sample program uses the Azure SDK for .NET to define and create an Azure AI Search index. It takes advantage of the `FieldBuilder` class to generate an index structure from a C# data model class.
 
 The data model is defined by the Hotel class, which also contains references to the Address class. The FieldBuilder drills down through multiple class definitions to generate a complex data structure for the index. Metadata tags are used to define the attributes of each field, such as whether it's searchable or sortable.
 
@@ -138,7 +138,7 @@ private static async Task CreateIndexAsync(string indexName, SearchIndexClient i
 
 A simple class is implemented in the **DataGenerator.cs** file to generate data for testing. The sole purpose of this class is to make it easy to generate a large number of documents with a unique ID for indexing.
 
-To get a list of 100,000 hotels with unique IDs, you'd run the following lines of code:
+To get a list of 100,000 hotels with unique IDs, run the following lines of code:
 
 ```csharp
 long numDocuments = 100000;
@@ -154,7 +154,7 @@ The schema of your index has an effect on indexing speeds. For this reason, it m
 
 Azure AI Search supports the following APIs to load single or multiple documents into an index:
 
-+ [Add, Update, or Delete Documents (REST API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
++ [Documents - Index (REST API)](/rest/api/searchservice/documents)
 + [IndexDocumentsAction class](/dotnet/api/azure.search.documents.models.indexdocumentsaction) or [IndexDocumentsBatch class](/dotnet/api/azure.search.documents.models.indexdocumentsbatch)
 
 Indexing documents in batches will significantly improve indexing performance. These batches can be up to 1000 documents, or up to about 16 MB per batch.
@@ -246,9 +246,11 @@ Now that we've identified the batch size we intend to use, the next step is to b
 + Uses multiple threads/workers.
 + Implements an exponential backoff retry strategy.
 
+Uncomment lines 41 through 49 and rerun and the program. On this run, the sample generates and sends batches of documents, up to 100,000 if you run the code without changing the parameters.
+
 ### Use multiple threads/workers
 
-To take full advantage of Azure AI Search's indexing speeds, you'll likely need to use multiple threads to send batch indexing requests concurrently to the service.  
+To take full advantage of Azure AI Search's indexing speeds, use multiple threads to send batch indexing requests concurrently to the service.  
 
 Several of the key considerations previously mentioned can affect the optimal number of threads. You can modify this sample and test with different thread counts to determine the optimal thread count for your scenario. However, as long as you have several threads running concurrently, you should be able to take advantage of most of the efficiency gains.
 
@@ -261,9 +263,9 @@ As you ramp up the requests hitting the search service, you might encounter [HTT
 
 If a failure happens, requests should be retried using an [exponential backoff retry strategy](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
-Azure AI Search's .NET SDK automatically retries 503s and other failed requests but you'll need to implement your own logic to retry 207s. Open-source tools such as [Polly](https://github.com/App-vNext/Polly) can also be used to implement a retry strategy.
+Azure AI Search's .NET SDK automatically retries 503s and other failed requests but you should implement your own logic to retry 207s. Open-source tools such as [Polly](https://github.com/App-vNext/Polly) can be useful in a retry strategy.
 
-In this sample, we implement our own exponential backoff retry strategy. To implement this strategy, we start by defining some variables including the `maxRetryAttempts` and the initial `delay` for a failed request:
+In this sample, we implement our own exponential backoff retry strategy. We start by defining some variables including the `maxRetryAttempts` and the initial `delay` for a failed request:
 
 ```csharp
 // Create batch of documents for indexing
@@ -383,7 +385,7 @@ var indexStats = await indexClient.GetIndexStatisticsAsync(indexName);
 
 ### Azure portal
 
-In Azure portal, open the search service **Overview** page, and find the **optimize-indexing** index in the **Indexes** list.
+In Azure portal, from the left navigation pane, and find the **optimize-indexing** index in the **Indexes** list.
 
   ![List of Azure AI Search indexes](media/tutorial-optimize-data-indexing/portal-output.png "List of Azure AI Search indexes")
 
@@ -405,7 +407,7 @@ You can find and manage resources in the portal, using the **All resources** or 
 
 ## Next steps
 
-Now that you're familiar with the concept of ingesting data efficiently, let's take a closer look at Lucene query architecture and how full text search works in Azure AI Search.
+To learn more about indexing large amounts data, try the following tutorial.
 
 > [!div class="nextstepaction"]
-> [How full text search works in Azure AI Search](search-lucene-query-architecture.md)
+> [Tutorial: Index large data from Apache Spark using SynapseML and Azure AI Search](search-synapseml-cognitive-services.md)

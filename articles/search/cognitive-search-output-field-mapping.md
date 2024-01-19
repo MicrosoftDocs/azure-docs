@@ -8,14 +8,14 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 01/18/2024
 ---
 
 # Map enriched output to fields in a search index in Azure AI Search
 
 ![Indexer Stages](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "indexer stages")
 
-This article explains how to set up *output field mappings* that determine a data path between in-memory data structures created during skill processing, and target fields in a search index. An output field mapping is defined in an [indexer](search-indexer-overview.md) and has the following elements:
+This article explains how to set up *output field mappings*, defining a data path between in-memory data structures created during [skillset processing](cognitive-search-concept-intro.md), and target fields in a search index. An output field mapping is defined in an [indexer](search-indexer-overview.md) and has the following elements:
 
 ```json
 "outputFieldMappings": [
@@ -27,7 +27,7 @@ This article explains how to set up *output field mappings* that determine a dat
 ],
 ```
 
-In contrast with a [`fieldMappings`](search-indexer-field-mappings.md) definition that maps a path between two physical data structures, an `outputFieldMappings` definition maps in-memory data to fields in a search index.
+In contrast with a [`fieldMappings`](search-indexer-field-mappings.md) definition that maps a path between two physical data structures, an `outputFieldMappings` definition maps in-memory enrichments to fields in a search index.
 
 Output field mappings are required if your indexer has an attached [skillset](cognitive-search-working-with-skillsets.md) that creates new information, such as text translation or key phrase extraction. During indexer execution, AI-generated information exists in memory only. To persist this information in a search index, you'll need to tell the indexer where to send the data.
 
@@ -37,7 +37,7 @@ Output field mappings apply to:
 
 + In-memory content that's created by skills or extracted by an indexer. The source field is a node in an enriched document tree.
 
-+ Search indexes. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
++ Search indexes. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration. If you're populating a vector store, output field mappings aren't used.
 
 Output field mappings are applied after [skillset execution](cognitive-search-working-with-skillsets.md) or after document cracking if there's no associated skillset. 
 
