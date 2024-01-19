@@ -5,13 +5,18 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 01/04/2024
+ms.date: 01/19/2024
 ms.reviewer: ju-shim
-ms.custom: maxsurge, upgradepolicy, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: upgradepolicy
 ---
 # Performing Manual Upgrades on Virtual Machine Scale Sets
+
+> [!IMPORTANT]
+> **Upgrade Policies for Virtual Machine Scale Sets using Flexible Orchestration mode are currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
+>
+>Upgrade Policies for Virtual Machine Scale Sets using Uniform Orchestration mode are generally available (GA). 
  
-If you have the Upgrade Policy set to manual, you need to trigger manual upgrades of each existing VM to apply changes to the instances based on the updated scale set model. Performing a reimage of a VM will cause it to be restarted. 
+If you have the Upgrade Policy set to manual, you need to trigger manual upgrades of each existing virtual machine to apply changes to the instances based on the updated scale set model. Performing a reimage of a virtual machine will cause it to be restarted. 
 
 ### [Portal](#tab/portal1)
 
