@@ -77,7 +77,7 @@ Workflow: **Your storage account** → **containers** → **your container** →
 1. Specify the signed key **Start** and **Expiry** times.
 
     * When you create a shared access signature (SAS), the default duration is 48 hours. After 48 hours, you'll need to create a new token.
-    * Consider setting a longer duration period for the time you're using your storage account for Translator Service operations.
+    * Consider setting a longer duration period for the time you're using your storage account for Language Service operations.
     * The value of the expiry time is determined by whether you're using an **Account key** or **User delegation key** **Signing method**:
        * **Account key**: No imposed maximum time limit; however, best practices recommended that you configure an expiration policy to limit the interval and minimize compromise. [Configure an expiration policy for shared access signatures](/azure/storage/common/sas-expiration-policy).
        * **User delegation key**: The value for the expiry time is a maximum of seven days from the creation of the SAS token. The SAS is invalid after the user delegation key expires, so a SAS with an expiry time of greater than seven days will still only be valid for seven days. For more information,*see* [Use Microsoft Entra credentials to secure a SAS](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas).
@@ -129,5 +129,4 @@ That's it! You learned how to create SAS tokens to authorize how clients access 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get Started with Document Translation](../quickstarts/document-translation-rest-api.md)
->
+> [Try the native document support quickstart](quickstart.md)
