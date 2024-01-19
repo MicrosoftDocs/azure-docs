@@ -14,7 +14,15 @@
     items:
     - name: Quickstart Onboarding
       href: quickstart.md
+  - name: Tutorial
+    items:
+    - name: Trusted Signing Tutorial
+      href: tutorial.md
   - name: FAQ
     items:
     - name: FAQ about Trusted Signing
       href: faq.yml
+  - name: Concept
+    items:
+    - name: Signing Concepts
+      href: concept.md

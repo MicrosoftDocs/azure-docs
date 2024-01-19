@@ -1,5 +1,5 @@
 ---
-title: Trusted Signing Overview #Required; page title is displayed in search results. Include the brand.
+title: Trusted Signing overview #Required; page title is displayed in search results. Include the brand.
 description: Learn how to sign with Trusted Signing #Required; article description that is displayed in search results. 
 author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.

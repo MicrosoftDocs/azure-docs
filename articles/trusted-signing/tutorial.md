@@ -1,11 +1,11 @@
 ---
-title: Public Trust Signing Tutorial #Required; page title displayed in search results. Include the word "tutorial". Include the brand.
+title: Public Trust Signing tutorial #Required; page title displayed in search results. Include the word "tutorial". Include the brand.
 description: Tutorial on getting started with Public Trust Signing in Trusted Signing #Required; article description that is displayed in search results. Include the word "tutorial".
 author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
 ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
 ms.topic: tutorial #Required; leave this attribute/value as-is.
-ms.date: 01/05/2023 #Required; mm/dd/yyyy format.
+ms.date: 01/18/2023 #Required; mm/dd/yyyy format.
 ---
 
 

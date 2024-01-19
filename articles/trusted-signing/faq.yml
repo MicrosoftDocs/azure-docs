@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently Asked Questions #Required; The page title is displayed in search results. Include "FAQ" or "Frequently asked questions".
+  title: Frequently asked questions #Required; The page title is displayed in search results. Include "FAQ" or "Frequently asked questions".
   description: FAQ for Trusted Signing #Required; Article description that's displayed in search results. Use 100 to 160 characters. Include "FAQ" or "Frequently asked questions".
   author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
   ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.

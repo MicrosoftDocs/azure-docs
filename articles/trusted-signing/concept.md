@@ -1,5 +1,5 @@
 ---
-title: Signing Concepts #Required; page title is displayed in search results. Include the brand.
+title: Signing concepts #Required; page title is displayed in search results. Include the brand.
 description: Describing signing concepts and resources in Trusted Signing #Required; article description that is displayed in search results. 
 author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
 ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
