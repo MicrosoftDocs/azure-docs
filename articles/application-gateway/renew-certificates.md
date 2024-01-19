@@ -114,7 +114,7 @@ where:
   ssl_certificate {
       name = "afdpremium-agw-ssl-certificate"                       
       // Reference the Key Vault secret ID
-      key_vault_secret_id = data.azurerm_key_vault_secret.vault.id
+      key_vault_secret_id = data.azurerm_key_vault_secret.vault.id `#096DA`
     }
 ```
 
@@ -129,7 +129,6 @@ where:
 > * Renewing the above certificate in **KeyVault** doesn't automatically make the application gateway listener select the updated certificate.
 > * To reflect the changes, the certificate in the application gateway must be **manually** updated.
 
-The background color is `#0969DA` for a blue shade.
 *To add versionless keyvault certificates, we can leverage the Terraform "**replace**" function. By using this function, we can replace the entire KeyVault URL, which includes the secret version, with just the secret name, excluding the version.*
 
 - **Here's how**:
