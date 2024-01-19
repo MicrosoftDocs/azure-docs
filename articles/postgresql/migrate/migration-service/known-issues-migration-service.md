@@ -1,6 +1,5 @@
 ---
 title: "Migration service - limitations"
-titleSuffix: Azure Database for PostgreSQL Flexible Server
 description: Providing the limitations of the migration service in Azure Database for PostgreSQL
 author: apduvuri
 ms.author: adityaduvuri
@@ -10,7 +9,7 @@ ms.service: postgresql
 ms.topic: conceptual
 ---
 
-# Known Issues and limitations - migration service in Azure Database for PostgreSQL
+# Known Issues and limitations - migration service in Azure Database for PostgreSQL - Flexible Server
 
 This article describes the known issues and limitations associated with the migrations service in Azure Database for PostgreSQL.
 
@@ -28,13 +27,13 @@ Here are common limitations that apply to migration scenarios:
 
 - The migration service doesn't support moving POSTGIS, TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, PG_PARTMAN extensions from source to target.
 
-- You can't move extensions not supported by the Azure Database for PostgreSQL – Flexible server. You can find the supported extensions in [Extensions - Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-extensions).
+- You can't move extensions not supported by the Azure Database for PostgreSQL – Flexible server. The supported extensions are in [Extensions - Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-extensions).
 
 - User-defined collations can't be migrated into Azure Database for PostgreSQL – flexible server.
 
 - You can't migrate to an older version. For instance, you can't migrate from PostgreSQL 15 to Azure Database for PostgreSQL version 14.
 
-- The migration service only works with preferred or required SSLMODE values. Other SSLMODE options like verify-ca and verify-full will be added later.
+- The migration service only works with preferred or required SSLMODE values.
 
 - The migration service doesn't support superuser privileges and objects.
 
@@ -49,6 +48,6 @@ Here are common limitations that apply to migration scenarios:
 
 ## Related content
 
-- [Network setup](network-setup.md)
-- [Premigration validations](premigration-validations.md)
-- [Prerequisites](prerequisites.md)
+- [Network setup](network-setup-migration-service.md)
+- [Premigration validations](premigration-migration-service.md)
+- [Prerequisites](prerequisites-migration-service.md)
