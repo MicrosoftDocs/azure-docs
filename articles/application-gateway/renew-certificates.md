@@ -95,8 +95,7 @@ where:
 
 **Reference-1**:
 
-```
-resource "azurerm_application_gateway" "main" {
+```resource "azurerm_application_gateway" "main" {
   name                = "myAppGateway"
   resource_group_name = data.azurerm_resource_group.rg.name
   location            = data.azurerm_resource_group.rg.location
@@ -116,7 +115,6 @@ resource "azurerm_application_gateway" "main" {
       name = "afdpremium-agw-ssl-certificate"                       
       // Reference the Key Vault secret ID
       <p style="color:bluek">key_vault_secret_id  = data.azurerm_key_vault_secret.vault.id</p> 
-      <p style="color:blue">Make this text blue.</p>
     }
 ```
 
