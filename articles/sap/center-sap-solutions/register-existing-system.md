@@ -27,7 +27,10 @@ When you register a system with Azure Center for SAP solutions, the following re
 - A Storage account within the managed resource group which contains blobs that have scripts and logs necessary for the service to provide the various capabilities including discovering and registering all components of SAP system.
 
 > [!NOTE]
-> You can customize the names of the Managed resource group and the Storage account which get deployed as part of the registration process by using [Azure PowerShell](quickstart-register-system-powershell.md) or [Azure CLI](quickstart-register-system-cli.md) interfaces for registering your systems. 
+> You can customize the names of the Managed resource group and the Storage account which get deployed as part of the registration process by using Azure Portal, [Azure PowerShell](quickstart-register-system-powershell.md) or [Azure CLI](quickstart-register-system-cli.md) interfaces, when you register your systems.
+
+> [!NOTE]
+> You can now enable secure access to the ACSS managed storage account from specific virtual networks using the [new option in the registration experience](#managed-storage-account-network-access-settings).
 
 ## Prerequisites
 
@@ -39,6 +42,9 @@ When you register a system with Azure Center for SAP solutions, the following re
     - Use a [**Service tags**](../../virtual-network/service-tags-overview.md) to allow connectivity
     - Use a [Service tags with regional scope](../../virtual-network/service-tags-overview.md) to allow connectivity to resources in the same region as the VMs.
     - Allowlist the region-specific IP addresses for Azure Storage, ARM and Microsoft Entra ID.
+- ACSS deploys a **managed storage account** into your subscription, for each SAP system being registered. You have the option to choose [**network access**](#managed-storage-account-network-access-settings) setting for the storage account.
+    - If you choose network access from specific Virtual Networks option, then you need to make sure **Microsoft.Storage** service endpoint is enabled on all subnets in which the SAP system Virtual Machines exist. This service endpoint is used to enable access from the SAP virtual machine to the managed storage account, to access the scripts that ACSS runs on the VM extension.
+    - If you choose public network access option, then you need to grant access to Azure Storage accounts from the virtual network where the SAP system exists. 
 - Register the **Microsoft.Workloads** Resource Provider in the subscription where you have the SAP system.
 - Check that your Azure account has **Azure Center for SAP solutions administrator** and **Managed Identity Operator** or equivalent role access on the subscription or resource groups where you have the SAP system resources.
 - A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Compute resource group and **Reader** role access on the Virtual Network resource group of the SAP system. Azure Center for SAP solutions service uses this identity to discover your SAP system resources and register the system as a VIS resource.
@@ -89,6 +95,16 @@ To provide permissions to the SAP system resources to a user-assigned managed id
 1. [Create a new user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity) if needed or use an existing one.
 1. [Assign **Azure Center for SAP solutions service role**](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#manage-access-to-user-assigned-managed-identities) role access to the user-assigned managed identity on the resource group(s) which have the Virtual Machines, Disks and Load Balancers of the SAP system and **Reader** role on the resource group(s) which have the Virtual Network components of the SAP system.
 1. Once the permissions are assigned, this managed identity can be used in Azure Center for SAP solutions to register and manage SAP systems.
+
+## Managed storage account network access settings
+ACSS deploys a **managed storage account** into your subscription, for each SAP system being registered. When you register your SAP system using Azure Portal, PowerShell or REST API, you have the option to choose **network access** setting for the storage account.
+
+To secure the managed storage account and limit access to only the virtual network that has your SAP virtual machines, you can choose the network access setting as **Enable access from specific Virtual Networks**. You can learn more about storage account network security in [this documentation](../../storage/common/storage-network-security.md). 
+
+> [!IMPORTANT]
+> When you limit storage account network access to specific virtual networks, you have to configure Microsoft.Storage [service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) on all subnets related to the SAP system that you are registering. Without the service endpoint enabled, you will not be able to successfully register the system. Private endpoint on managed storage account is not currently supported in this scenario. 
+
+When you choose to limit network access to specific virtual networks, Azure Center for SAP solutions service accesses this storage account using [**trusted access**](../../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services) based on the managed identity associated with the VIS resource.
 
 ## Register SAP system
 
