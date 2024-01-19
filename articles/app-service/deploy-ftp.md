@@ -143,8 +143,8 @@ Azure App Service supports connecting via both Active and Passive mode. Passive 
 #### Why is my connection failing when attempting to connect over FTPS using explicit encryption?
 FTPS allows establishing the TLS secure connection in either an Explicit or Implicit way.
 
- - If connect with Implicit encryption, the connection is established via port 990.
- - If connect with Explicit encryption, the connection is established via port 21.
+ - If you connect with Implicit encryption, the connection is established via port 990.
+ - If you connect with Explicit encryption, the connection is established via port 21.
 
 The URL format you use can affect your connection success, and it also depends on the client application you use. The portal shows the URL as `ftps://`, but note:
 

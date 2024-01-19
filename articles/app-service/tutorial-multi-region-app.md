@@ -100,9 +100,9 @@ az afd profile create --profile-name myfrontdoorprofile --resource-group myresou
 
 |Parameter  |Value  |Description  |
 |---------|---------|---------|
-|profile-name     |myfrontdoorprofile         |Name for the Azure Front Door profile, which is unique within the resource group.         |
-|resource-group     |myresourcegroup         |The resource group that contains the resources from this tutorial.         |
-|sku     |Premium_AzureFrontDoor         |The pricing tier of the Azure Front Door profile.         |
+|`profile-name`     |`myfrontdoorprofile`         |Name for the Azure Front Door profile, which is unique within the resource group.         |
+|`resource-group`     |`myresourcegroup`         |The resource group that contains the resources from this tutorial.         |
+|`sku`     |`Premium_AzureFrontDoor`         |The pricing tier of the Azure Front Door profile.         |
 
 
 ### Add an endpoint
@@ -115,8 +115,8 @@ az afd endpoint create --resource-group myresourcegroup --endpoint-name myendpoi
 
 |Parameter  |Value  |Description  |
 |---------|---------|---------|
-|endpoint-name     |myendpoint         |Name of the endpoint under the profile, which is unique globally.         |
-|enabled-state     |Enabled         |Whether to enable this endpoint.        |
+|`endpoint-name`     |`myendpoint`         |Name of the endpoint under the profile, which is unique globally.         |
+|`enabled-state`     |`Enabled`         |Whether to enable this endpoint.        |
 
 ### Create an origin group
 
@@ -128,14 +128,14 @@ az afd origin-group create --resource-group myresourcegroup --origin-group-name 
 
 |Parameter  |Value  |Description  |
 |---------|---------|---------|
-|origin-group-name     |myorigingroup         |Name of the origin group.         |
-|probe-request-type     |GET         |The type of health probe request that is made.        |
-|probe-protocol    |Http         |Protocol to use for health probe.        |
-|probe-interval-in-seconds     |60         |The number of seconds between health probes.        |
-|probe-path    |/         |The path relative to the origin that is used to determine the health of the origin.       |
-|sample-size     |4         |The number of samples to consider for load balancing decisions.        |
-|successful-samples-required     |3         |The number of samples within the sample period that must succeed.        |
-|additional-latency-in-milliseconds     |50         |The extra latency in milliseconds for probes to fall into the lowest latency bucket.        |
+|`origin-group-name`     |`myorigingroup`         |Name of the origin group.         |
+|`probe-request-type`     |`GET`         |The type of health probe request that is made.        |
+|`probe-protocol`    |`Http`         |Protocol to use for health probe.        |
+|`probe-interval-in-seconds`     |`60`         |The number of seconds between health probes.        |
+|`probe-path`    |`/`         |The path relative to the origin that is used to determine the health of the origin.       |
+|`sample-size`     |`4`         |The number of samples to consider for load balancing decisions.        |
+|`successful-samples-required`     |`3`         |The number of samples within the sample period that must succeed.        |
+|`additional-latency-in-milliseconds`     |`50`         |The extra latency in milliseconds for probes to fall into the lowest latency bucket.        |
 
 ### Add an origin to the group
 
@@ -147,14 +147,14 @@ az afd origin create --resource-group myresourcegroup --host-name <web-app-east-
 
 |Parameter  |Value  |Description  |
 |---------|---------|---------|
-|host-name     |`<web-app-east-us>.azurewebsites.net`        |The hostname of the primary web app.       |
-|origin-name     |primaryapp         |Name of the origin.         |
-|origin-host-header    |`<web-app-east-us>.azurewebsites.net`         |The host header to send for requests to this origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.         |
-|priority     |1         |Set this parameter to 1 to direct all traffic to the primary web app.        |
-|weight     |1000         |Weight of the origin in given origin group for load balancing. Must be between 1 and 1000.         |
-|enabled-state    |Enabled         |Whether to enable this origin.         |
-|http-port    |80         |The port used for HTTP requests to the origin.        |
-|https-port    |443         |The port used for HTTPS requests to the origin.         |
+|`host-name`     |`<web-app-east-us>.azurewebsites.net`        |The hostname of the primary web app.       |
+|`origin-name`     |`primaryapp`         |Name of the origin.         |
+|`origin-host-header`    |`<web-app-east-us>.azurewebsites.net`         |The host header to send for requests to this origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.         |
+|`priority`     |`1`         |Set this parameter to 1 to direct all traffic to the primary web app.        |
+|`weight`     |`1000`         |Weight of the origin in given origin group for load balancing. Must be between 1 and 1000.         |
+|`enabled-state`    |`Enabled`         |Whether to enable this origin.         |
+|`http-port`    |`80`         |The port used for HTTP requests to the origin.        |
+|`https-port`    |`443`         |The port used for HTTPS requests to the origin.         |
 
 Repeat this step to add your second origin. Pay attention to the `--priority` parameter. For this origin, it's set to `2`. This priority setting tells Azure Front Door to direct all traffic to the primary origin unless the primary goes down. If you set the priority for this origin to `1`, Azure Front Door treats both origins as active and direct traffic to both regions. Be sure to replace both instances of the placeholder for `<web-app-west-us>` with the name of that web app.
 
@@ -172,12 +172,12 @@ az afd route create --resource-group myresourcegroup --profile-name myfrontdoorp
 
 |Parameter  |Value  |Description  |
 |---------|---------|---------|
-|endpoint-name     |myendpoint       |Name of the endpoint.       |
+|`endpoint-name`     |`myendpoint`       |Name of the endpoint.       |
 |forwarding-protocol     |MatchRequest       |Protocol this rule uses when forwarding traffic to backends.       |
-|route-name     |route       |Name of the route.       |
-|https-redirect     |Enabled       |Whether to automatically redirect HTTP traffic to HTTPS traffic.       |
-|supported-protocols     |Http Https       |List of supported protocols for this route.       |
-|link-to-default-domain     |Enabled       |Whether this route is linked to the default endpoint domain.       |
+|`route-name`     |`route`       |Name of the route.       |
+|https-redirect     |`Enabled`       |Whether to automatically redirect HTTP traffic to HTTPS traffic.       |
+|`supported-protocols`     |`Http Https`       |List of supported protocols for this route.       |
+|`link-to-default-domain`     |`Enabled`       |Whether this route is linked to the default endpoint domain.       |
 
 Allow about 15 minutes for this step to complete as it takes some time for this change to propagate globally. After this period, your Azure Front Door is fully functional.
 

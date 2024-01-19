@@ -89,7 +89,7 @@ curl -X POST \
 
 # [ARM template](#tab/arm)
 
-ARM templates only support [deployments from remotely-hosted packages](#deploy-to-network-secured-apps).
+ARM templates only support [deployments from remotely hosted packages](#deploy-to-network-secured-apps).
 
 -----
 
@@ -153,7 +153,7 @@ For more information, see [Kudu publish API reference](#kudu-publish-api-referen
 
 # [ARM template](#tab/arm)
 
-ARM templates only support [deployments from remotely-hosted packages](#deploy-to-network-secured-apps).
+ARM templates only support [deployments from remotely hosted packages](#deploy-to-network-secured-apps).
 
 -----
 
@@ -253,7 +253,7 @@ curl -X POST \
 
 # [ARM template](#tab/arm)
 
-ARM templates only support [deployments from remotely-hosted packages](#deploy-to-network-secured-apps).
+ARM templates only support [deployments from remotely hosted packages](#deploy-to-network-secured-apps).
 
 -----
 
@@ -277,7 +277,7 @@ Not supported. See Azure CLI, Kudu API, or ARM template.
 
 # [Kudu API](#tab/api)
 
-Invoke the [Kudu publish API](#kudu-publish-api-reference) like you would in the other sections, but instead of uploading a file, pass in a JSON object with `packageUri` in the request body. The following examples use this method to to specify the URL of a ZIP file hosted in an Azure Storage account. Note the type is still specified as a query string. If you choose basic authentication, supply the [deployment credentials](deploy-configure-credentials.md) in `<username>` and `<password>`.
+Invoke the [Kudu publish API](#kudu-publish-api-reference) like you would in the other sections, but instead of uploading a file, pass in a JSON object with `packageUri` in the request body. The following examples use this method to specify the URL of a ZIP file hosted in an Azure Storage account. Note the type is still specified as a query string. If you choose basic authentication, supply the [deployment credentials](deploy-configure-credentials.md) in `<username>` and `<password>`.
 
 ```bash
 # Microsoft Entra authentication
@@ -301,7 +301,7 @@ curl -X POST \
 
 Add the following JSON to your ARM template. Replace the placeholder `<app-name>`. 
 
-```ARM template
+```json
 {
     "type": "Microsoft.Web/sites/extensions",
     "apiVersion": "2021-03-01",
@@ -321,7 +321,7 @@ Use the following reference to help you configure the properties:
 
 |Property | Description | Required |
 |-|-|-|
-| `packageUri` | The URI of the package or file. For more information, see [Microsoft.Web sites/extensions 'onedeploy' 2021-03-01](/azure/templates/microsoft.web/2021-03-01/sites/extensions-onedeploy?pivots=deployment-language-arm-template). | Yes |
+| `packageUri` | The URI of the package or file. For more information, see [Microsoft.Web sites/extensions 'onedeploy'](/azure/templates/microsoft.web/2021-03-01/sites/extensions-onedeploy?pivots=deployment-language-arm-template). | Yes |
 | `type` | See the `type` parameter in [Kudu publish API reference](#kudu-publish-api-reference). | Yes |
 | `path` | See the `target-path` parameter in [Kudu publish API reference](#kudu-publish-api-reference). | No |
 

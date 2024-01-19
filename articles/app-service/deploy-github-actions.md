@@ -180,9 +180,9 @@ When you configure the GitHub workflow file later, you use the `AZURE_WEBAPP_PUB
 
 In [GitHub](https://github.com/), browse your repository. Select **Settings > Security > Secrets and variables > Actions > New repository secret**.
 
-To use [user-level credentials](#1-generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
+To use [user-level credentials](#1-generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Name the secret `AZURE_CREDENTIALS`.
 
-When you configure the GitHub workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
+When you configure the GitHub workflow file later, you use the secret for the input `creds` of the [Azure/login](https://github.com/marketplace/actions/azure-login). For example:
 
 ```yaml
 - uses: azure/login@v1
@@ -192,7 +192,7 @@ When you configure the GitHub workflow file later, you use the secret for the in
 
 # [OpenID Connect](#tab/openid)
 
-You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
+You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the [Azure/login](https://github.com/marketplace/actions/azure-login) action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
 
 1. Open your GitHub repository and go to **Settings > Security > Secrets and variables > Actions > New repository secret**.
 
@@ -242,11 +242,10 @@ The following examples show the part of the workflow that builds the web app, in
 
 Check out references on Azure GitHub Actions and workflows:
 
-- [Azure login](https://github.com/Azure/login)
-- [Azure WebApp](https://github.com/Azure/webapps-deploy)
-- [Azure WebApp for containers](https://github.com/Azure/webapps-container-deploy)
-- [Docker login/logout](https://github.com/Azure/docker-login)
-- [K8s deploy](https://github.com/Azure/k8s-deploy)
+- [Azure/login action](https://github.com/Azure/login)
+- [Azure/webapps-deploy action](https://github.com/Azure/webapps-deploy)
+- [Docker/login action](https://github.com/Azure/docker-login)
+- [Azure/k8s-deploy action](https://github.com/Azure/k8s-deploy)
 - [Actions workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)
 - [Starter Workflows](https://github.com/actions/starter-workflows)
 - [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)

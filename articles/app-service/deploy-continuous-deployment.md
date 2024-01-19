@@ -95,7 +95,7 @@ For Windows apps, you can manually configure continuous deployment from a cloud 
 
 ## What are the build providers?
 
-Depending on your deployment source in the Deployment Center, you may see a few options to select for build providers. Build providers help you build an CI/CD solution with Azure App Service by automating build, test, and deployment.
+Depending on your deployment source in the Deployment Center, you might see a few options to select for build providers. Build providers help you build an CI/CD solution with Azure App Service by automating build, test, and deployment.
 
 You're not limited to the build provider options found in the Deployment Center, but App Service lets you set them up quickly and offers some integrated deployment logging experience.
 
@@ -119,7 +119,7 @@ You can customize the GitHub Actions build provider in these ways:
 > [!NOTE]
 > App Service Build Service requires [basic authentication to be enabled](configure-basic-auth-disable.md) for the webhook to work. For more information, see [Deployment without basic authentication](configure-basic-auth-disable.md#deployment-without-basic-authentication).
 
-App Service Build Service is the deployment and build engine native to App Service, otherwise known as Kudu. When this option is selected, App Service adds a webhook into the repository you have authorized. Any code push to the repository triggers the webhook, and App Service pulls the changes into its repository and performs any deployment tasks. For more information, see [Deploying from GitHub (Kudu)](https://github.com/projectkudu/kudu/wiki/Deploying-from-GitHub).
+App Service Build Service is the deployment and build engine native to App Service, otherwise known as Kudu. When this option is selected, App Service adds a webhook into the repository you authorized. Any code push to the repository triggers the webhook, and App Service pulls the changes into its repository and performs any deployment tasks. For more information, see [Deploying from GitHub (Kudu)](https://github.com/projectkudu/kudu/wiki/Deploying-from-GitHub).
 
 Resources:
 
@@ -155,7 +155,7 @@ For more information, see [Deployment without basic authentication](configure-ba
 
 When you select **user-assigned identity** under the **GitHub Actions** source, App Service configures all the necessary resources in Azure and in GitHub to enable the recommended OpenID Connect authentication with GitHub Actions.
 
-Specifically, App Service does the following:
+Specifically, App Service does the following operations:
 
 - [Creates a federated credential](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity?pivots=identity-wif-mi-methods-azp) between a user-assigned managed identity in Azure and your selected repository and branch in GitHub.
 - Creates the secrets `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID` from the federated credential in your selected GitHub repository.
