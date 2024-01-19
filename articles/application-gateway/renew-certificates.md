@@ -172,17 +172,12 @@ resource "azurerm_application_gateway" "main" {
 - In this case, string = full URL stored in data source **data.azurerm_key_vault_secret.vault.id** , substring = /secrets/(.*)/[^/]+/ , replacement = /secrets/$1
 
 **For-example**:
-```
-- **secret_value_old** = https://dummy.vault.azure.net/secrets/afdpremium/5cd21fe4d7934a82b187ffcaa86ae3f6
 
-- When the replace function compares the value above with the regex "**/secrets/(.*)/[^/]+**", the resulting replacement will be "**/secrets/$1**", where "**$1**" represents the first match group from the full KeyVault URL within the regex.
+- **secret_value_old** = https://dummy.vault.azure.net/secrets/afdpremium/5cd21fe4d7934a82b187ffcaa86ae3f6 [before replace function]
 
-- **secret_value_new**: https://dummy.vault.azure.net/afdpremium
+- **secret_value_new**: https://dummy.vault.azure.net/afdpremium [after replace function]
 
-- **Regex-Link**: https://regex101.com/r/tOlT5p/1
-
-- **Note**: Please add a forward “**/**” in terraform regex otherwise it will not work. This is because Terraform uses forward slashes as separators in certain syntax constructs to organize resources or data sources hierarchically.
-```
+> Note: Please add a forward “**/**” in terraform regex otherwise it will not work. This is because Terraform uses forward slashes as separators in certain syntax constructs to organize resources or data sources hierarchically.
 
 **Final-Result**:
 
