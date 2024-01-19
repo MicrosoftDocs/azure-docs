@@ -494,6 +494,8 @@ The following items are prefixed with:
    sudo pcs property set maintenance-mode=false
    ```
 
+   ---
+
    > [!NOTE]
    > If you're upgrading from an older version and switching to enqueue server 2, see SAP Note [2641322](https://launchpad.support.sap.com/#/notes/2641322).
 

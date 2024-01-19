@@ -577,13 +577,13 @@ The following items are prefixed with either:
 
    If you use enqueue server 2 architecture ([ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html)), install resource agent resource-agents-sap-4.1.1-12.el7.x86_64 or newer and define the resources as shown here:
 
-   #### [ENSA1](#tab/ensa1)
+    #### [ENSA1](#tab/ensa1)
 
-   ```bash
-   sudo pcs property set maintenance-mode=true
+    ```bash
+    sudo pcs property set maintenance-mode=true
 
-   # If using NFSv3
-   sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
+    # If using NFSv3
+    sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
@@ -591,8 +591,8 @@ The following items are prefixed with either:
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS
    
-   # If using NFSv4.1
-   sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
+    # If using NFSv4.1
+    sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
@@ -600,37 +600,37 @@ The following items are prefixed with either:
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS
    
-   sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
+    sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
    
-   # If using NFSv3
-   sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
+    # If using NFSv3
+    sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_AERS
    
-   # If using NFSv4.1
-   sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
+    # If using NFSv4.1
+    sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=105 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_AERS
    
-   sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
-   sudo pcs constraint location rsc_sap_QAS_ASCS00 rule score=2000 runs_ers_QAS eq 1
-   sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
+    sudo pcs constraint location rsc_sap_QAS_ASCS00 rule score=2000 runs_ers_QAS eq 1
+    sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
    
-   sudo pcs node unstandby anftstsapcl1
-   sudo pcs property set maintenance-mode=false
-   ```
+    sudo pcs node unstandby anftstsapcl1
+    sudo pcs property set maintenance-mode=false
+    ```
 
-   #### [ENSA2](#tab/ensa2)
+    #### [ENSA2](#tab/ensa2)
 
-   ```bash
-   sudo pcs property set maintenance-mode=true
+    ```bash
+    sudo pcs property set maintenance-mode=true
     
-   # If using NFSv3
-   sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
+    # If using NFSv3
+    sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
@@ -638,8 +638,8 @@ The following items are prefixed with either:
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS
    
-   # If using NFSv4.1
-   sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
+    # If using NFSv4.1
+    sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
@@ -647,62 +647,62 @@ The following items are prefixed with either:
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS
     
-   sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
+    sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
    
-   # If using NFSv3
-   sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
+    # If using NFSv3
+    sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_AERS
     
-   # If using NFSv4.1
-   sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
+    # If using NFSv4.1
+    sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=105 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_AERS
    
-   sudo pcs resource meta rsc_sap_QAS_ERS01  resource-stickiness=3000
+    sudo pcs resource meta rsc_sap_QAS_ERS01  resource-stickiness=3000
    
-   sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
-   sudo pcs constraint order start g-QAS_ASCS then start g-QAS_AERS kind=Optional symmetrical=false
-   sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
+    sudo pcs constraint order start g-QAS_ASCS then start g-QAS_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
    
-   sudo pcs node unstandby anftstsapcl1
-   sudo pcs property set maintenance-mode=false
-   ```
+    sudo pcs node unstandby anftstsapcl1
+    sudo pcs property set maintenance-mode=false
+    ```
 
-   ---
+    ---
 
-   If you're upgrading from an older version and switching to enqueue server 2, see SAP Note [2641322](https://launchpad.support.sap.com/#/notes/2641322).
+    If you're upgrading from an older version and switching to enqueue server 2, see SAP Note [2641322](https://launchpad.support.sap.com/#/notes/2641322).
 
-   > [!NOTE]
-   > The higher timeouts that are suggested when you use NFSv4.1 are necessary owing to protocol-specific pause, which is related to NFSv4.1 lease renewals.
-   > For more information, see [NFS in NetApp best practice](https://www.netapp.com/media/10720-tr-4067.pdf).
-   > The timeouts in the preceding configuration are only examples and might need to be adapted to the specific SAP setup.
+    > [!NOTE]
+    > The higher timeouts that are suggested when you use NFSv4.1 are necessary owing to protocol-specific pause, which is related to NFSv4.1 lease renewals.
+    > For more information, see [NFS in NetApp best practice](https://www.netapp.com/media/10720-tr-4067.pdf).
+    > The timeouts in the preceding configuration are only examples and might need to be adapted to the specific SAP setup.
 
-   Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
+    Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
 
-   ```bash
-   sudo pcs status
+    ```bash
+    sudo pcs status
     
-   # Online: [ anftstsapcl1 anftstsapcl2 ]
-   #
-   # Full list of resources:
-   #
-   # rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl2
-   #  Resource Group: g-QAS_ASCS
-   #      fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-   #      nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
-   #      vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
-   #      rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   #  Resource Group: g-QAS_AERS
-   #      fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-   #      nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
-   #      vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
-   #      rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   ```
+    # Online: [ anftstsapcl1 anftstsapcl2 ]
+    #
+    # Full list of resources:
+    #
+    # rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl2
+    #  Resource Group: g-QAS_ASCS
+    #      fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
+    #      nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
+    #      vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
+    #      rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
+    #  Resource Group: g-QAS_AERS
+    #      fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
+    #      nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
+    #      vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
+    #      rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
+    ```
 
 10. **[1]** Run the following step to configure `priority-fencing-delay` (applicable only as of pacemaker-2.0.4-6.el8 or higher).
 
