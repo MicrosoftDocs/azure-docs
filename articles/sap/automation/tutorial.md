@@ -957,7 +957,6 @@ playbook_options=(
 
 # Run the playbook to retrieve the ssh key from the Azure key vault
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
-```
 
 # Run the playbook to perform the Operating System configuration
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_01_os_base_config.yaml
@@ -988,7 +987,6 @@ playbook_options=(
 
 # Run the playbook to retrieve the ssh key from the Azure key vault
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
-```
 
 # Run the playbook to perform the SAP Specific Operating System configuration
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_02_os_sap_specific_config.yaml
