@@ -214,7 +214,7 @@ Currently, you can use non-HTTP trigger functions from within a virtual network 
 
 The [Premium plan](functions-premium-plan.md) lets you create functions that are triggered by services inside a virtual network. These non-HTTP triggers are known as _virtual network triggers_.   
 
-By default, virtual network triggers don't cause your function app to scale. However, certain extensions support virtual network triggers causing your function app to scale. You can enable this _dynamic scale monitoring_ in your function app for supported extensionsin one of these ways:
+By default, virtual network triggers don't cause your function app to scale beyond their pre-warmed instance count. However, certain extensions support virtual network triggers that cause your function app to scale dynamically. You can enable this _dynamic scale monitoring_ in your function app for supported extensions in one of these ways:
 
 #### [Azure portal](#tab/azure-portal)
 
