@@ -28,7 +28,7 @@ When you configure Functions as zone redundant, the platform automatically sprea
 
 Instance spreading with a zone-redundant deployment is determined inside the following rules, even as the app scales in and out:
 
-- The minimum Function Plan instance count is three. 
+- The minimum function app instance count is three. 
 - If you specify a capacity larger than three, and the number of instances is divisible by three, the instances are spread evenly. 
 - Any instance counts beyond 3*N are spread across the remaining one or two zones.
 
