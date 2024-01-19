@@ -16,7 +16,7 @@ ms.custom: upgradepolicy
 >
 >Upgrade Policies for Virtual Machine Scale Sets using Uniform Orchestration mode are generally available (GA). 
 
-The Upgrade Policy of an Virtual Machine Scale Set determines how virtual machines are brought up-to-date with the latest scale set model. 
+The Upgrade Policy of a Virtual Machine Scale Set determines how virtual machines are brought up-to-date with the latest scale set model. 
 
 ## Upgrade Policy modes
 
@@ -48,7 +48,7 @@ When using a Rolling Upgrade Policy, the scale set must also have a [health prob
 
 Depending on the type of change you make to your scale set can impact the availability of the instances. Any changes that impact the Virtual Machine Scale Set model can trigger an upgrade and those upgrades will be applied to the instances within the scale set based on the Upgrade Policy you are using. The exception to this would be if you enable [Instance Protection](virtual-machine-scale-sets-instance-protection.md) on specific instances. 
 
-Some upgrades require a virtual machine restart while others can be complete without disrupting scale set instances. Updates that require restarting, reimaging or redploying the virtual machine instance include: 
+Some upgrades require a virtual machine restart while others can be complete without disrupting scale set instances. Updates that require restarting, reimaging or redeploying the virtual machine instance include: 
 
 - Password or SSH keys updates
 - Custom Data changes
