@@ -19,6 +19,7 @@ We're combining the November and December updates into one. **Have a terrific ho
 <br>
 <br>
 
+[!INCLUDE [Survey Request](./includes/survey-request.md)]
 
 ## New features
 Get detailed information on the latest Azure Communication Services feature launches.
