@@ -67,7 +67,7 @@ To enable the azd feature, go to **Tools** > **Options** > **Environment** > **P
 
 :::image type="content" source="media/how-to-create-environment-with-azure-developer/azd-vs.png" alt-text="Screenshot showing the Visual Studio Preview features dialog, with Integration with azd, the Azure Developer CLI selected." lightbox="media/how-to-create-environment-with-azure-developer/azd-vs.png":::
 
-Once you have enabled the feature, you can use the Azure Developer CLI from your terminal of choice on Windows, Linux, or macOS.
+When the feature is enabled, you can use the Azure Developer CLI from your terminal of choice on Windows, Linux, or macOS.
 
 ---
 
@@ -104,7 +104,7 @@ To open the Developer Command prompt:
 1. From the Tools menu, select **Terminal**.
 1. In the **Terminal** window, select **Developer Command Prompt**.
 
-:::image type="content" source="media/how-to-create-environment-with-azure-developer/vs-developer-command-prompt.png" alt-text="Screenshot showing the terminal window menu with Developer Command Prompt highlighted." lightbox="media/how-to-create-environment-with-azure-developer/vs-developer-command-prompt.png":::
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/vs-developer-command-prompt.png" alt-text="Screenshot showing the terminal window menu with Developer Command Prompt highlighted." lightbox="media/how-to-create-environment-with-azure-developer/vs-developer-command-prompt.png":::
 
 Sign in to AZD using the Developer Command Terminal:
 
@@ -212,7 +212,7 @@ AZD uses an *azure.yaml* file to define the environment. The azure.yaml file def
  
    :::image type="content" source="media/how-to-create-environment-with-azure-developer/init-new-environment-name.png" alt-text="Screenshot showing azd init prompt Enter a new environment name." lightbox="media/how-to-create-environment-with-azure-developer/init-new-environment-name.png":::
 
-1. `azd init` displays a list of the projects you have access to. Select the project for your environment
+1. `azd init` displays a list of the projects you have access to. Select the project for your environment.
 
    :::image type="content" source="media/how-to-create-environment-with-azure-developer/init-select-project.png" alt-text="Screenshot showing azd init prompt Select project." lightbox="media/how-to-create-environment-with-azure-developer/init-select-project.png":::
  
@@ -233,16 +233,26 @@ AZD uses an *azure.yaml* file to define the environment. The azure.yaml file def
    ```
 1. In the AZD terminal, select ***Use code in the current directory***.
 
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/vs-init-folder.png" alt-text="Screenshot showing the az init command and the prompt How do you want to initialize your app." lightbox="media/how-to-create-environment-with-azure-developer/vs-init-folder.png":::
+
    AZD scans the current directory and gathers more information depending on the type of app you're building. Follow the prompts to configure your AZD environment.
 
 1. `azd init` identifies the services defined in your app code and prompts you to confirm and continue, remove a service, or add a service. Select ***Confirm and continue initializing my app***.  
  
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/vs-init-services.png" alt-text="Screenshot showing the AZD init prompt to confirm and continue, remove a service, or add a service." lightbox="media/how-to-create-environment-with-azure-developer/vs-init-services.png":::
+ 
 1. `azd init` continues to gather information to configure your app. For this example application, you're prompted for the name of your MongoDB database instance, and ports that the services listen on.
-  
+ 
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/vs-init-app-services.png" alt-text="Screenshot showing the azd init prompt for a database name." lightbox="media/how-to-create-environment-with-azure-developer/vs-init-app-services.png":::
+   
 1. Enter a name for your local AZD environment. 
  
-1. `azd init` displays a list of the projects you have access to. Select the project for your environment
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/vs-new-environment-name.png" alt-text="Screenshot showing azd init prompt Enter a new environment name." lightbox="media/how-to-create-environment-with-azure-developer/vs-new-environment-name.png":::
  
+1. `azd init` displays a list of the projects you have access to. Select the project for your environment.
+
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/vs-init-select-project.png" alt-text="Screenshot showing azd init prompt Select project." lightbox="media/how-to-create-environment-with-azure-developer/vs-init-select-project.png":::
+  
 1. `azd init` displays a list of environment definitions in the project. Select an environment definition.
 
    AZD creates the project resources, including an *azure.yaml* file in the root of your project. 
@@ -305,7 +315,11 @@ azd provision
 
 1. 'azd provision' provides a list of projects that you have access to. Select the project that you want to provision your application to.
 
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/vs-select-project.png" alt-text="Screenshot showing the azd init prompt to select a project." lightbox="media/how-to-create-environment-with-azure-developer/vs-select-project.png":::
+
 1. 'azd provision' provides a list of environment definitions in the selected project. Select the environment definition that you want to use to provision your application.
+
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/vs-select-environment-type.png" alt-text="Screenshot showing the azd init prompt to select an environment type." lightbox="media/how-to-create-environment-with-azure-developer/vs-select-environment-type.png":::
 
 1. 'azd provision' provides a list of environment types in the selected project. Select the environment type that you want to use to provision your application.
 
@@ -347,6 +361,8 @@ azd env list
 ```
 
 `azd env list` prompts you to select a project and an environment definition.
+
+:::image type="content" source="media/how-to-create-environment-with-azure-developer/vs-environment-list.png" alt-text="Screenshot showing the local AZD environment and the remote Azure environment." lightbox="media/how-to-create-environment-with-azure-developer/vs-environment-list.png":::
 
 ---
 
