@@ -3,7 +3,7 @@ title: What's new in multimedia redirection MMR? - Azure Virtual Desktop
 description: New features and product updates for multimedia redirection for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 09/12/2023
+ms.date: 01/19/2024
 ms.author: helohr
 manager: femila
 ---
@@ -19,6 +19,16 @@ The following table shows the latest available version of the MMR extension for 
 | Release | Latest version | Setup instructions |
 |---------|----------------|----------|
 | Public | 1.0.2309.7002 | [Use multimedia redirection on Azure Virtual Desktop](multimedia-redirection.md) |
+
+## Updates for version 1.0.2311.2004
+
+*Published: January XX, 2024*
+
+In this release, we've made the following changes:
+
+- Fixed an issue that affected call redirection.
+- Fixed an installer log file location issue.
+- The extension no longer displays error messages for unsupported media formats.
 
 ## Updates for version 1.0.2309.7002
 
