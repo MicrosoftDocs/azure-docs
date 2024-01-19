@@ -78,7 +78,7 @@ New-AzVm `
 
 ### Attach an existing VM to a Virtual Machine Scale Set (Preview)
 
-Attach an existing virtual machine to a Virtual Machine Scale Set after the time of VM creation by specifying the `virtualMachineScaleSet` property. Attaching an existing VM to a scale set with a fault domain count of 1 does not require downtime. 
+Attach an existing virtual machine to a Virtual Machine Scale Set after the time of VM creation by specifying the `virtualMachineScaleSet` property. Attaching an existing VM to a scale set with a fault domain count of 1 doesn't require downtime. 
 
 #### Enroll in the Preview
 
