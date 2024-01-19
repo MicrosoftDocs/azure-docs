@@ -15,7 +15,7 @@ This article explains how to connect to an Elastic storage area network (SAN) vo
 
 In this article, you add the Storage service endpoint to an Azure virtual network's subnet, then you configure your volume group to allow connections from your subnet. Finally, you configure your client environment to connect to an Elastic SAN volume and establish a connection. For best performance, ensure that your VM and your Elastic SAN are in the same zone.
 
-Connecting an individual elastic SAN volume to multiple clients requires cluster manager software. For details, see [Use clustered applications on Azure Elastic SAN Preview](elastic-san-shared-volumes.md).
+Connecting an individual elastic SAN volume to multiple clients requires a cluster manager. For details, see [Use clustered applications on Azure Elastic SAN Preview](elastic-san-shared-volumes.md).
 
 ## Prerequisites
 
