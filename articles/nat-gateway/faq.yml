@@ -65,7 +65,7 @@ sections:
 
       - question: Can NAT gateway metrics be retrieved using diagnostic settings?
         answer: |
-          No, NAT gateway metrics can't be exported using [diagnostic settings](../azure-monitor/reference/supported-metrics/microsoft-network-natgateways-metrics.md). NAT gateway metrics are multi-dimensional. Diagnostic settings doesn't support the export of [multi-dimensional metrics](/azure-monitor/reference/supported-metrics/metrics-index.md#exporting-platform-metrics-to-other-locations).
+          No, NAT gateway metrics can't be exported using [diagnostic settings](../azure-monitor/reference/supported-metrics/microsoft-network-natgateways-metrics.md). NAT gateway metrics are multi-dimensional. Diagnostic settings doesn't support the export of [multi-dimensional metrics](../azure-monitor/reference/supported-metrics/metrics-index.md#exporting-platform-metrics-to-other-locations).
       
   - name: Outbound connectivity with NAT gateway
     questions:
