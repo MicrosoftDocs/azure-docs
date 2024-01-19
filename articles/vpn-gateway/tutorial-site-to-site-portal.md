@@ -141,6 +141,8 @@ You can configure more settings for your connection, if necessary. Otherwise, sk
 
 ## Optional steps
 
+This section describes options that are available to you.
+
 ### <a name="resize"></a>Resize a gateway SKU
 
 There are specific rules about resizing versus changing a gateway SKU. In this section, you resize the SKU. For more information, see [Resize or change gateway SKUs](about-gateway-skus.md#resizechange).
