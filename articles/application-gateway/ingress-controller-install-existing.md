@@ -2,12 +2,12 @@
 title: Create an ingress controller with an existing Application Gateway
 description: This article provides information on how to deploy an Application Gateway Ingress Controller with an existing Application Gateway.
 services: application-gateway
-author: greg-lindsay
+author: greg-lindsay, Julien-Robert Lecadou
 ms.service: application-gateway
 ms.custom: devx-track-arm-template, linux-related-content, devx-track-azurecli
 ms.topic: how-to
-ms.date: 07/28/2023
-ms.author: greglin
+ms.date: 01/19/2024
+ms.author: greglin,jlecadou
 ---
 
 # Install an Application Gateway Ingress Controller (AGIC) using an existing Application Gateway
@@ -102,6 +102,11 @@ for the AGIC pod to make HTTP requests to [ARM](../azure-resource-manager/manage
     ```azurecli
     az identity show -g <resourcegroup> -n <identity-name>
     ```
+    ```powershell-interactive 
+$resourceGroup="resource-group-name"
+$identityName="identity-name"
+az identity list -g $resourceGroup --query "[?name == '$identityName'].principalId | [0]" -o tsv
+```
 
 1. Grant the identity **Contributor** access to your Application Gateway. You need the ID of the Application Gateway, which
 looks like: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`. First, get the list of Application Gateway IDs in your subscription by running the following command:
@@ -128,6 +133,35 @@ looks like: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/appli
         --assignee <principalId> \
         --scope <App-Gateway-Resource-Group-ID>
     ```
+```powershell-interactive 
+$resourceGroup="resource-group-name"
+$identityName="identity-Name"
+# Get the Application Gateway ID
+$AppGatewayID=$(az network application-gateway list --query '[].id' -o tsv)
+$role="contributor"
+# Get the principal ID for the User assigned identity
+$principalId=$(az identity list -g $resourceGroup --query "[?name == '$identityName'].principalId | [0]" -o tsv)
+
+az role assignment create --assignee $principalId --role $role --scope $AppGatewayID
+
+```
+2. Grant Reader access to the App Gateway resource group
+
+```powershell-interactive
+$resourceGroup="resource-group-name"
+$identityName="identity-Name"
+# Get the Application Gateway resource group
+$AppGatewayResourceGroup=$(az network application-gateway list --query '[].resourceGroup' -o tsv)
+# Get the Application Gateway resource group ID
+$AppGatewayResourceGroupID=$(az group show --name $AppGatewayResourceGroup --query id -o tsv)
+
+$role="Reader"
+# Get the principal ID for the User assigned identity
+$principalId=$(az identity list -g $resourceGroup --query "[?name == '$identityName'].principalId | [0]" -o tsv)
+
+# Assign the Reader role to the User assigned identity at the resource group scope
+az role assignment create --role $role --assignee $principalId  --scope $AppGatewayResourceGroupID
+```
 
 >[!NOTE]
 > If the virtual network Application Gateway is deployed into doesn't reside in the same resource group as the AKS nodes, please ensure the identity used by AGIC has the **Microsoft.Network/virtualNetworks/subnets/join/action** permission delegated to the subnet Application Gateway is deployed into. If a custom role is not defined with this permission, you may use the built-in **Network Contributor** role, which contains the **Microsoft.Network/virtualNetworks/subnets/join/action** permission.
@@ -151,6 +185,53 @@ next section.
         type: servicePrincipal
         secretJSON: <Base64-Encoded-Credentials>
     ```
+## Deploy Application Gateway Ingress Controller pod
+### Create an Ingress Controller deployment manifest
+```yaml
+---
+# file: pet-supplies-ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pet-supplies-ingress
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: store-front
+            port:
+              number: 80
+      - path: /order-service
+        pathType: Prefix
+        backend:
+          service:
+            name: order-service
+            port:
+              number: 3000
+      - path: /product-service
+        pathType: Prefix
+        backend:
+          service:
+            name: product-service
+            port:
+              number: 3002
+
+```
+### Deploy Ingress Controller
+
+```powershell-interactive
+$namespace="namespace"
+$file="pet-supplies-ingress.yaml"
+
+kubectl apply -f $file -n $namespace
+```
 
 ## Install Ingress Controller as a Helm Chart
 
