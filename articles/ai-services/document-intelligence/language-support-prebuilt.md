@@ -51,17 +51,17 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ***Model ID: prebuilt-businessCard***
 
-| Language—Locale code | Default |
+| Language  Locale code | Default |
 |:----------------------|:---------|
-| &bullet; English (United States) — `en-US`</br>&bullet;  English (Australia)—en-AU</br>&bullet; English (Canada)—en-CA</br>&bullet; English (United Kingdom)—en-GB</br>&bullet; English (India)—en-IN</br>&bullet; English (Japan)—en-JP</br>&bullet; Japanese (Japan)—ja-JP  | Autodetected (en-US or ja-JP)
+| &bullet; English (United States) `en-US`</br>&bullet;  English (Australia)  en-AU</br>&bullet; English (Canada) `en-CA`</br>&bullet; English (United Kingdom)`en-GB`</br>&bullet; English (India) `en-IN`</br>&bullet; English (Japan) `en-JP`</br>&bullet; Japanese (Japan) `ja-JP`  | Autodetected (en-US or ja-JP)
 
 :::moniker-end
 
 :::moniker range="doc-intel-2.1.0"
 
-| Language—Locale code | Default |
+| Language  Locale code | Default |
 |:----------------------|:---------|
-|&bullet; English (United States) — `en-US`</br>&bullet;  English (Australia)—en-AU</br>&bullet; English (Canada)—en-CA</br>&bullet; English (United Kingdom)—en-GB</br>&bullet; English (India)—en-IN</li> | Autodetected |
+|&bullet; English (United States) `en-US`</br>&bullet;  English (Australia)  en-AU</br>&bullet; English (Canada)  en-CA</br>&bullet; English (United Kingdom)  en-GB</br>&bullet; English (India)  en-IN</li> | Autodetected |
 
 :::moniker-end
 
@@ -71,9 +71,9 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ***Model ID: prebuilt-contract***
 
-| Language—Locale code | Default |
+| Language  Locale code | Default |
 |:----------------------|:---------|
-| English (United States) — `en-US`| English (United States) — `en-US`|
+| English (United States) `en-US`| English (United States) `en-US`|
 
 :::moniker-end
 
@@ -83,9 +83,9 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ***Model ID: prebuilt-healthInsuranceCard.us***
 
-| Language—Locale code | Default |
+| Language  Locale code | Default |
 |:----------------------|:---------|
-| English (United States)|English (United States) — `en-US`|
+| English (United States)|English (United States) `en-US`|
 
 :::moniker-end
 
@@ -309,35 +309,35 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ::: moniker range="doc-intel-2.1.0"
 
-| Model | Language—Locale code | Default |
+| Model | Language  Locale code | Default |
 |--------|:----------------------|:---------|
-|Receipt| &bullet; English (United States) — `en-US`</br> &bullet; English (Australia)—en-AU</br> &bullet; English (Canada)—en-CA</br> &bullet; English (United Kingdom)—en-GB</br> &bullet; English (India)—en-IN  | Autodetected |
+|Receipt| &bullet; English (United States) `en-US`</br> &bullet; English (Australia)  `en-AU`</br> &bullet; English (Canada)  `en-CA`</br> &bullet; English (United Kingdom)  `en-GB`</br> &bullet; English (India)  `en-IN`| Autodetected |
 
 ::: moniker-end
 
 ## Tax documents
 
 :::moniker range="doc-intel-4.0.0"
-  | Model ID | Language—Locale code | Default |
+  | Model ID | Language  Locale code | Default |
   |--------|:----------------------|:---------|
-  |**prebuilt-tax.us.w2**|English (United States)|English (United States) — `en-US`|
-  |**prebuilt-tax.us.1098**|English (United States)|English (United States) — `en-US`|
-  |**prebuilt-tax.us.1098E**|English (United States)|English (United States) — `en-US`|
-  |**prebuilt-tax.us.1098T**|English (United States)|English (United States) — `en-US`|
-  |**prebuilt-tax.us.1099**|English (United States)|English (United States) — `en-US`|
+  |**prebuilt-tax.us.w2**|English (United States)|English (United States) `en-US`|
+  |**prebuilt-tax.us.1098**|English (United States)|English (United States) `en-US`|
+  |**prebuilt-tax.us.1098E**|English (United States)|English (United States) `en-US`|
+  |**prebuilt-tax.us.1098T**|English (United States)|English (United States) `en-US`|
+  |**prebuilt-tax.us.1099**|English (United States)|English (United States) `en-US`|
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
-  | Model ID | Language—Locale code | Default |
+  | Model ID | Language  Locale code | Default |
   |--------|:----------------------|:---------|
-  |**prebuilt-tax.us.w2**|English (United States)|English (United States) — `en-US`|
-  |**prebuilt-tax.us.1098**|English (United States)|English (United States) — `en-US`|
-  |**prebuilt-tax.us.1098E**|English (United States)|English (United States) — `en-US`|
-  |**prebuilt-tax.us.1098T**|English (United States)|English (United States) — `en-US`|
+  |**prebuilt-tax.us.w2**|English (United States)|English (United States) `en-US`|
+  |**prebuilt-tax.us.1098**|English (United States)|English (United States) `en-US`|
+  |**prebuilt-tax.us.1098E**|English (United States)|English (United States) `en-US`|
+  |**prebuilt-tax.us.1098T**|English (United States)|English (United States) `en-US`|
 :::moniker-end
 
 :::moniker range="doc-intel-3.0.0"
-  | Model ID | Language—Locale code | Default |
+  | Model ID | Language  Locale code | Default |
   |--------|:----------------------|:---------|
-  |**prebuilt-tax.us.w2**|English (United States)|English (United States) — `en-US`|
+  |**prebuilt-tax.us.w2**|English (United States)|English (United States) `en-US`|
 :::moniker-end
