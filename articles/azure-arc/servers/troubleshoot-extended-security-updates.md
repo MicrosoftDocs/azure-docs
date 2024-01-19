@@ -77,13 +77,20 @@ If you're unable to allow access to the PKI URL from your servers, you can manua
     1. [Microsoft Azure TLS Issuing CA 05](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2005%20-%20xsign.crt)
     1. [Microsoft Azure TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2006%20-%20xsign.crt)
 1. Copy the certificate files to your Windows Server 2012 (R2) machines.
-1. Run the following commands in an elevated command prompt or PowerShell session to add the certificates to the "Intermediate Certificate Authorities" store for the local computer. The command should be run from the same directory as the certificate files. The commands are idempotent and won't make any changes if you've already imported the certificate:
+1. Run any one set of the following commands in an elevated command prompt or PowerShell session to add the certificates to the "Intermediate Certificate Authorities" store for the local computer. The command should be run from the same directory as the certificate files. The commands are idempotent and won't make any changes if you've already imported the certificate:
 
     ```powershell
     certstore -addstore CA "Microsoft Azure TLS Issuing CA 01 - xsign.crt"
     certstore -addstore CA "Microsoft Azure TLS Issuing CA 02 - xsign.crt"
     certstore -addstore CA "Microsoft Azure TLS Issuing CA 05 - xsign.crt"
     certstore -addstore CA "Microsoft Azure TLS Issuing CA 06 - xsign.crt"
+    ```
+
+    ```powershell
+    Import-Certificate -FilePath '.\Microsoft Azure TLS Issuing CA 01 - xsign.crt' -CertStoreLocation Cert:\LocalMachine\CA
+    Import-Certificate -FilePath '.\Microsoft Azure TLS Issuing CA 02 - xsign.crt' -CertStoreLocation Cert:\LocalMachine\CA
+    Import-Certificate -FilePath '.\Microsoft Azure TLS Issuing CA 05 - xsign.crt' -CertStoreLocation Cert:\LocalMachine\CA
+    Import-Certificate -FilePath '.\Microsoft Azure TLS Issuing CA 06 - xsign.crt' -CertStoreLocation Cert:\LocalMachine\CA
     ```
 
 1. Try installing the Windows updates again. You may need to reboot your computer for the validation logic to recognize the newly imported intermediate CA certificates.
