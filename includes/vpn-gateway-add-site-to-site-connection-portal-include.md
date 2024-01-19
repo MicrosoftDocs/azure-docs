@@ -7,7 +7,7 @@
 ---
 1. Go to your virtual network. On your virtual network page, on the left, select **Connected devices**. Locate your VPN gateway and select it to open it.
 1. On the page for the gateway, select **Connections**.
-1. At the top of the **Connections** page, select **+Add** to open the **Create connection** page.
+1. At the top of the **Connections** page, select **+ Add** to open the **Create connection** page.
 
    :::image type="content" source="./media/vpn-gateway-add-site-to-site-connection-portal-include/add-connection.png" alt-text="Screenshot that shows the Basics page." lightbox="./media/vpn-gateway-add-site-to-site-connection-portal-include/add-connection.png":::
 1. On the **Create connection** page, on the **Basics** tab, configure the values for your connection:
@@ -17,7 +17,7 @@
      * **Connection type**: Select **Site-to-site (IPSec)**.
      * **Name**: Name your connection.
      * **Region**: Select the region for this connection.
-1. Select **Settings** to go to the settings page.
+1. Select the **Settings** tab and configure the following values:
 
    :::image type="content" source="./media/vpn-gateway-add-site-to-site-connection-portal-include/settings-page.png" alt-text="Screenshot that shows the Settings page." lightbox="./media/vpn-gateway-add-site-to-site-connection-portal-include/settings-page.png":::
 
@@ -32,7 +32,7 @@
    * **Use policy based traffic selector**: Select **Disable**.
    * **DPD timeout in seconds**: Select **45**.
    * **Connection Mode**: Select **Default**. This setting is used to specify which gateway can initiate the connection. For more information, see [VPN Gateway settings - Connection modes](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#connectionmode).
-1. **NAT Rules Associations**: Leave both Ingress and Egress as **0 selected**.
+1. For **NAT Rules Associations**, leave both **Ingress** and **Egress** as **0 selected**.
 1. Select **Review + create** to validate your connection settings.
 1. Select **Create** to create the connection.
 1. After the deployment is finished, you can view the connection on the **Connections** page of the virtual network gateway. The status changes from *Unknown* to *Connecting* and then to *Succeeded*.
