@@ -89,6 +89,10 @@ Starting in API version 2023-03-01 preview, API Management exposes a [circuit br
 
 The backend circuit breaker is an implementation of the [circuit breaker pattern](/azure/architecture/patterns/circuit-breaker) to allow the backend to recover from overload situations. It augments general [rate-limiting](rate-limit-policy.md) and [concurrency-limiting](limit-concurrency-policy.md) policies that you can implement to protect the API Management gateway and your backend services.
 
+> [!NOTE]
+> * Currently, the backend circuit breaker isn't supported in the **Consumption** tier of API Management.
+> * Because of the distributed nature of the API Management architecture, circuit breaker tripping rules are approximate. Different instances of the gateway do not synchronize and will apply circuit breaker rules based on the information on the same instance.
+
 ### Example
 
 Use the API Management [REST API](/rest/api/apimanagement/backend) or a Bicep or ARM template to configure a circuit breaker in a backend. In the following example, the circuit breaker in *myBackend* in the API Management instance *myAPIM* trips when there are three or more `5xx` status codes indicating server errors in a day. The circuit breaker resets after one hour.
@@ -177,7 +181,9 @@ Use a backend pool for scenarios such as the following:
 To create a backend pool, set the `type` property of the backend to `pool` and specify a list of backends that make up the pool.
 
 > [!NOTE]
-> Currently, you can only include single backends in a backend pool. You can't add a backend of type `pool` to another backend pool.
+> * Currently, you can only include single backends in a backend pool. You can't add a backend of type `pool` to another backend pool.
+> * Because of the distributed nature of the API Management architecture, backend load balancing is approximate. Different instances of the gateway do not synchronize and will load balance based on the information on the same instance.
+
 
 ### Example
 

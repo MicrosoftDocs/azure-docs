@@ -1002,6 +1002,26 @@
             "redirect_document_id": false 
         },
         {
+            "source_path": "articles/container-registry/tutorial-artifact-streaming.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-streaming",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-artifact-streaming-cli.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-streaming",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-artifact-streaming-portal.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-streaming",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-artifact-streaming-troubleshoot.md",
+            "redirect_url": "/azure/container-registry/troubleshoot-artifact-streaming",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/site-recovery/vmware-physical-secondary-disaster-recovery.md",
             "redirect_url": "/azure/site-recovery/vmware-physical-secondary-architecture",
             "redirect_document_id": false
