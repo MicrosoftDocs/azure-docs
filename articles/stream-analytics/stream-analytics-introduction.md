@@ -20,7 +20,7 @@ Here are a few example scenarios where you can use Azure Stream Analytics:
 * Clickstream analytics to determine customer behavior
 * Analyze real-time telemetry streams and logs from applications and IoT devices
 
-:::image type="content" source="./media/stream-analytics-introduction/stream-analytics-e2e-pipeline.png" alt-text="Diagram that shows the stages Ingest, Analyze, and Deliver stages of a streaming pipeline.":::
+:::image type="content" source="./media/stream-analytics-introduction/stream-analytics-e2e-pipeline.png" alt-text="Diagram that shows the stages Ingest, Analyze, and Deliver stages of a streaming pipeline." lightbox="./media/stream-analytics-introduction/stream-analytics-e2e-pipeline.png":::
 
 ## Key capabilities and benefits
 
