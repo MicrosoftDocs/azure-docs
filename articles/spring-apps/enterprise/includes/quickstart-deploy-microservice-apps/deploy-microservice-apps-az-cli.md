@@ -1,0 +1,47 @@
+---
+author: karlerickson
+ms.author: v-shilichen
+ms.service: spring-apps
+ms.custom: event-tier1-build-2022
+ms.topic: include
+ms.date: 01/19/2023
+---
+
+<!-- 
+To reuse the Spring Apps instance deployment steps in other articles, a separate markdown file is used to describe how to deploy app to Spring Apps instance with Azure CLI.
+
+[!INCLUDE [deploy-microservice-apps-az-cli](deploy-microservice-apps-az-cli.md)]
+
+-->
+
+1. Enter the project root directory, use the following command to build and deploy the frontend application:
+
+   ```azurecli
+   az spring app deploy --service ${SPRING_APPS} --name ${APP_FRONTEND} \
+       --build-env BP_WEB_SERVER=nginx \
+       --source-path ./spring-petclinic-frontend
+   ```
+
+1. Use the following command to build and deploy the customer service application:
+
+   ```azurecli
+   az spring app deploy --service ${SPRING_APPS} --name ${APP_CUSTOMERS_SERVICE} \
+       --source-path --config-file-pattern application,customers-service \
+       --build-env BP_MAVEN_BUILT_MODULE=spring-petclinic-customers-service BP_JVM_VERSION=17
+   ```
+
+1. Use the following command to build and deploy the vet service application:
+
+   ```azurecli
+   az spring app deploy --service ${SPRING_APPS} --name ${APP_VETS_SERVICE} \
+       --source-path --config-file-pattern application,vets-service \
+       --build-env BP_MAVEN_BUILT_MODULE=spring-petclinic-vets-service BP_JVM_VERSION=17
+   ```
+
+1. Use the following command to build and deploy the visit service application:
+
+   ```azurecli
+   az spring app deploy --service ${SPRING_APPS} --name ${APP_VISITS_SERVICE} \
+       --source-path --config-file-pattern application,visits-service \
+       --build-env BP_MAVEN_BUILT_MODULE=spring-petclinic-visits-service BP_JVM_VERSION=17
+   ```
