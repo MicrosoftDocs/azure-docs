@@ -11,9 +11,11 @@ ms.custom: references_regions, linux-related-content
 
 # Connect to Elastic SAN Preview volumes - Linux
 
-This article explains how to connect to an Elastic storage area network (SAN) volume from an individual Linux client. For details on connecting from a Windows client, see [Connect to Elastic SAN Preview volumes - Windows](elastic-san-connect-windows.md). Connecting to an individual elastic SAN volume to multiple clients requires cluster manager software, see [Use clustered applications on Azure Elastic SAN Preview](elastic-san-shared-volumes.md).
+This article explains how to connect to an Elastic storage area network (SAN) volume from an individual Linux client. For details on connecting from a Windows client, see [Connect to Elastic SAN Preview volumes - Windows](elastic-san-connect-windows.md).
 
 In this article, you'll add the Storage service endpoint to an Azure virtual network's subnet, then you'll configure your volume group to allow connections from your subnet. Finally, you'll configure your client environment to connect to an Elastic SAN volume and establish a connection.
+
+Connecting an individual elastic SAN volume to multiple clients requires cluster manager software. For details, see [Use clustered applications on Azure Elastic SAN Preview](elastic-san-shared-volumes.md).
 
 ## Prerequisites
 
