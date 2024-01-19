@@ -53,7 +53,7 @@ Trusted Signing has the following resource types:
  
 In the below example structure, you notice that an Azure Subscription has a resource group and under that resource group you can have one or many Code Signing Account resources with one or many Certificate Profiles. This ability to have multiple Code Signing Accounts and Certificate Profiles is useful as the service supports Public Trust, Private Trust, VBS Enclave, and Test signing. 
 
-![Diagram of Azure Code Signing resource group and cert profiles](.\media\TrustedSigning-Resource_Structure.png)
+![Diagram of Azure Code Signing resource group and cert profiles](.\media\trustedsigning-resource_-structure.png)
 
 ## [Section 2 heading]
 <!-- add your content here -->
