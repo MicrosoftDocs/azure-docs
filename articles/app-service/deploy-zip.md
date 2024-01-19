@@ -20,16 +20,6 @@ To complete the steps in this article, [create an App Service app](./index.yml),
 
 [!INCLUDE [Create a project ZIP file](../../includes/app-service-web-deploy-zip-prepare.md)]
 
-## Upload a ZIP package in the Kudu UI
-
-In the browser, navigate to `https://<app_name>.scm.azurewebsites.net/ZipDeployUI`.
-
-Upload the ZIP package you created in [Create a project ZIP package](#create-a-project-zip-package) by dragging it to the file explorer area on the web page.
-
-When deployment is in progress, an icon in the top right corner shows you the progress in percentage. The page also shows verbose messages for the operation below the explorer area. When it's finished, the last deployment message should say `Deployment successful`.
-
-The above endpoint doesn't work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](./faq-app-service-linux.yml) instead.
-
 ## Deploy a ZIP package
 
 When you deploy a ZIP package, App Service unpacks its contents in the default path for your app (`D:\home\site\wwwroot` for Windows, `/home/site/wwwroot` for Linux).
@@ -42,10 +32,20 @@ This ZIP package deployment uses the same Kudu service that powers continuous in
 - Deployment logs. 
 - A package size limit of 2048 MB.
 
-For more information, see [Kudu documentation](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
-
 > [!NOTE]
-> Files in the ZIP package are copied only if their timestamps don't match what is already deployed. Generating a zip using a build process that caches outputs can result in faster deployments. For more information, see [Deploying from a zip file or url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
+> Files in the ZIP package are copied only if their timestamps don't match what is already deployed. 
+
+#### With zip deploy UI in Kudu
+
+In the browser, navigate to `https://<app_name>.scm.azurewebsites.net/ZipDeployUI`.
+
+Upload the ZIP package you created in [Create a project ZIP package](#create-a-project-zip-package) by dragging it to the file explorer area on the web page.
+
+When deployment is in progress, an icon in the top right corner shows you the progress in percentage. The page also shows verbose messages for the operation below the explorer area. When it's finished, the last deployment message should say `Deployment successful`.
+
+The above endpoint doesn't work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](./faq-app-service-linux.yml) instead.
+
+#### Without zip deploy UI in Kudu
 
 # [Azure CLI](#tab/cli)
 
@@ -93,7 +93,7 @@ ARM templates only support [deployments from remotely hosted packages](#deploy-t
 
 -----
 
-## Enable build automation for ZIP deploy
+## Enable build automation for zip deploy
 
 By default, the deployment engine assumes that a ZIP package is ready to run as-is and doesn't run any build automation. To enable the same build automation as in a [Git deployment](deploy-local-git.md), set the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting by running the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -102,8 +102,6 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 ```
 
 For more information, see [Kudu documentation](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
-
-[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## Deploy WAR/JAR/EAR packages
 
