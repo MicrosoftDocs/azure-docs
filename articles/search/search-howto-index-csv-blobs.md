@@ -11,7 +11,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 10/03/2022
+ms.date: 01/17/2024
 ---
 
 # Index CSV blobs and files using delimitedText parsing mode
@@ -32,7 +32,9 @@ Whenever you're creating multiple search documents from a single blob, be sure t
 
 ## Setting up CSV indexing
 
-To index CSV blobs, create or update an indexer definition with the `delimitedText` parsing mode on a [Create Indexer](/rest/api/searchservice/create-indexer) request:
+To index CSV blobs, create or update an indexer definition with the `delimitedText` parsing mode on a [Create Indexer](/rest/api/searchservice/indexers/create) request.
+
+Only UTF-8 encoding is supported.
 
 ```http
 {
@@ -42,7 +44,7 @@ To index CSV blobs, create or update an indexer definition with the `delimitedTe
 }
 ```
 
-`firstLineContainsHeaders` indicates that the first (non-blank) line of each blob contains headers.
+`firstLineContainsHeaders` indicates that the first (nonblank) line of each blob contains headers.
 If blobs don't contain an initial header line, the headers should be specified in the indexer configuration: 
 
 ```http
@@ -56,11 +58,7 @@ You can customize the delimiter character using the `delimitedTextDelimiter` con
 ```
 
 > [!NOTE]
-> Currently, only the UTF-8 encoding is supported. If you need support for other encodings, vote for it on [UserVoice](https://feedback.azure.com/d365community/forum/9325d19e-0225-ec11-b6e6-000d3a4f07b8).
-
-> [!IMPORTANT]
-> When you use the delimited text parsing mode, Azure AI Search assumes that all blobs in your data source will be CSV. If you need to support a mix of CSV and non-CSV blobs in the same data source, please vote for it on [UserVoice](https://feedback.azure.com/d365community/forum/9325d19e-0225-ec11-b6e6-000d3a4f07b8). Otherwise, considering using [file extension filters](search-blob-storage-integration.md#controlling-which-blobs-are-indexed) to control which files are imported on each indexer run.
->
+> In delimited text parsing mode, Azure AI Search assumes that all blobs are CSV. If you have a mix of CSV and non-CSV blobs in the same data source, consider using [file extension filters](search-blob-storage-integration.md#controlling-which-blobs-are-indexed) to control which files are imported on each indexer run.
 
 ## Request examples
 
@@ -69,10 +67,9 @@ Putting it all together, here are the complete payload examples.
 Datasource: 
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
+POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
 Content-Type: application/json
 api-key: [admin key]
-
 {
     "name" : "my-blob-datasource",
     "type" : "azureblob",
@@ -84,10 +81,9 @@ api-key: [admin key]
 Indexer:
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
 Content-Type: application/json
 api-key: [admin key]
-
 {
   "name" : "my-csv-indexer",
   "dataSourceName" : "my-blob-datasource",

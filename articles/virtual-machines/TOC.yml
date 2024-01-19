@@ -1203,6 +1203,8 @@
     href: disks-types.md
   - name: Disk redundancy options
     href: disks-redundancy.md
+  - name: What's new in Azure Disk Storage
+    href: disks-whats-new.md
   - name: Deploy an ultra disk
     href: disks-enable-ultra-ssd.md
   - name: Deploy a premium SSD v2

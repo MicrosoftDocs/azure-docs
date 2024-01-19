@@ -53,6 +53,6 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: What is the DICOM change feed? 
-            url: dicom-change-feed-overview.md
+            url: change-feed-overview.md
           - text: Pull DICOM changes using the change feed
             url: pull-dicom-changes-from-change-feed.md
