@@ -46,12 +46,10 @@ Each of the example scenarios in this article uses the following configuration f
 
 ### VM SKUs
 
-|VM  |
-|---------|
-|Standard_D2_v5 (AKS)     |
-|Standard_D4s_v5 (workload 1)     |
-|Standard_D32_v5 (workload 2)    |
-|Standard_D48_v5 (workload 3)    |
+- Standard_D2_v5 (AKS)
+- Standard_D4s_v5 (workload 1)
+- Standard_D32_v5 (workload 2)
+- Standard_D48_v5 (workload 3)
 
 ### Elastic SAN limits
 
