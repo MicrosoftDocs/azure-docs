@@ -36,7 +36,7 @@ items:
   - name: Copy and ingest data
     items:
     - name: Copy data to and from a Fabric Lakehouse
-      href: /fabric/data-factory/how-to-ingest-data-into-fabric-from-azure-data-factory?toc=/azure/data-factory/TOC.json
+      href: /fabric/data-factory/how-to-ingest-data-into-fabric-from-azure-data-factory?toc=/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
     - name: From Azure Blob Storage to Azure SQL Database
       items:
       - name: Copy data tool
