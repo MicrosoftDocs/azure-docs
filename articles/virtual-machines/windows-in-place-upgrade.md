@@ -216,6 +216,9 @@ Once the upgrade process has completed successfully the following steps should b
 
 - Enable any antivirus, anti-spyware or firewall software that may have been disabled at the start of the upgrade process.
 
+> [!IMPORTANT]
+> The image plan information will not change post the upgrade process. Since, the image version and the plan information describe the original image that was used during the creation of the VM
+
 
 ## Recover from failure
 If the in-place upgrade process failed to complete successfully you can return to the previous version of the VM if snapshots of the operating system disk and data disk(s) were created. To revert the VM to the previous state using snapshots complete the following steps: 
