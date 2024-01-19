@@ -46,7 +46,7 @@ Note: Although you can create the Prometheus alert in a resource group different
 
 ### [ARM template](#tab/arm)
 
-Download the [Community alerts template.](https://aka.ms/azureprometheus-communityalerts) and deploy using any valid method for deploying Resource Manager templates. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
+Download the [Community alerts template.](https://aka.ms/azureprometheus-communityalerts) and deploy using any valid method for deploying Resource Manager templates. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates). For Bicep, download the [Community alerts template.](https://aka.ms/azureprometheus-alerts-bicep) and see the [README.md](https://github.com/Azure/prometheus-collector/blob/main/AddonBicepTemplate/README.md) file for more details.
 
 The template uses the parameters in the following table:
 
@@ -59,9 +59,6 @@ The template uses the parameters in the following table:
 | locatioNode | Region to store the alert rule group. |
 
 
-#### Bicep
-
-Download the [Community alerts template.](https://aka.ms/azureprometheus-alerts-bicep) and deploy using any valid method for deploying Resource Manager templates. See the [README.md](https://github.com/Azure/prometheus-collector/blob/main/AddonBicepTemplate/README.md) file for more details.
 
 ---
 
