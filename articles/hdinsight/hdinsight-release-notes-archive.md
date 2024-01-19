@@ -83,7 +83,7 @@ For workload specific versions, see
 * HDInsight 5.1 is now supported with ESP cluster.  
 * Upgraded version of Ranger 2.3.0 and Oozie 5.2.1 are now part of HDInsight 5.1
 * The Spark 3.3.1 (HDInsight 5.1) cluster comes with Hive Warehouse Connector (HWC) 2.1, which works together with the Interactive Query (HDInsight 5.1) cluster.
-* Ubuntu 18.04 is covered under [ESM(Extended Security Maintenance)](https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/canonical-ubuntu-18-04-lts-reaching-end-of-standard-support/ba-p/3822623) by the Azure Linux team for Azure HDInsight July 2023, release onwards. 
+* Ubuntu 18.04 is supported under [ESM(Extended Security Maintenance)](https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/canonical-ubuntu-18-04-lts-reaching-end-of-standard-support/ba-p/3822623) by the Azure Linux team for Azure HDInsight July 2023, release onwards. 
 
 
 > [!IMPORTANT]
