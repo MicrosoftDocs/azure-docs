@@ -32,7 +32,7 @@ This article shows how to enable the *API Center portal*, an automatically gener
     > Azure CLI command examples in this article are formatted for the bash shell. If you're using PowerShell or another shell environment, you might need to adjust the examples for your environment.
 
 
-## Configure Microsoft Entra app registration
+## Create Microsoft Entra app registration
 
 First configure an app registration in your Microsoft Entra ID tenant for the API Center portal. The app registration enables the portal to access data from your API center on behalf of a signed-in user.
 
@@ -61,7 +61,7 @@ First configure an app registration in your Microsoft Entra ID tenant for the AP
 
     The Azure API Center permissions appear under **Configured permissions**.
 
-    :::image type="content" source="media/enable-api-center-portal/configure-app-permissions.png" alt-text="Screenshot of required permissions in Microsoft Entra app registration in the portal.":::
+    :::image type="content" source="media/enable-api-center-portal/configure-app-permissions.png" alt-text="Screenshot of required permissions in Microsoft Entra app registration in the portal." lightbox="media/enable-api-center-portal/configure-app-permissions.png":::
 
 #### [Azure CLI](#tab/cli)
 
@@ -96,7 +96,8 @@ Use the [az ad app create](/cli/azure/ad/app#az-ad-app-create) command to create
 
     ```azurecli
     az rest --method PATCH \
-        --uri 'https://graph.microsoft.com/v1.0/applications/'$objectID --body '{"spa":{"redirectUris":["https://<apiCenterName>.<region>.azure-apicenter.ms"]}}'
+        --uri 'https://graph.microsoft.com/v1.0/applications/'$objectID \
+         --body '{"spa":{"redirectUris":["https://<apiCenterName>.<region>.azure-apicenter.ms"]}}'
     ```
 ---
 
@@ -112,7 +113,7 @@ Use the [az ad app create](/cli/azure/ad/app#az-ad-app-create) command to create
     * In **Tenant ID**, enter the **Directory (tenant) ID** of the app registration.
     * Select **Save + publish**.
 
-    :::image type="content" source="media/enable-api-center-portal/set-up-sign-in-portal.png" alt-text="Screenshot of the Identity provider settings in the API Center portal.":::
+    :::image type="content" source="media/enable-api-center-portal/set-up-sign-in-portal.png" alt-text="Screenshot of the Identity provider settings in the API Center portal." lightbox="media/enable-api-center-portal/set-up-sign-in-portal.png":::
 
 1. To view the API Center portal, on the **Portal settings** page, select **View API Center portal**.
 
@@ -130,6 +131,9 @@ After you configure the identity provider, the portal is published at the follow
 :::image type="content" source="media/enable-api-center-portal/api-center-portal-home.png" alt-text="Screenshot of the API Center portal home page.":::
 
 While the portal URL is publicly accessible, users must sign in to see the APIs in your API center. To enable access for users and groups, see the following section.
+
+> [!NOTE]
+> You must also configure access for yourself and others who are responsible for managing the API center.  
 
 > [!TIP]
 > By default, the name of the portal is based on the name of your API center. You can customize the website name in the **Portal settings** > **Site settings** page in the Azure portal.
@@ -159,10 +163,12 @@ For detailed prerequisites and steps to assign the **Azure API Center Data Reade
 
 ```azurecli
 # Get resource ID of the API center
-apicID=$(az apic service show --name <apiCenterName> --resource-group <resourceGroupName> --query 'id')
+apicID=$(az apic service show --name <apiCenterName> \
+    --resource-group <resourceGroupName> \
+    --query 'id' --output tsv)
 
-
-# Set variable for user or group to assign role to - for example, "denise@contoso.com", or principal ID of a security group
+# Set variable for user or group to assign role to.
+Example: "denise@contoso.com", or principal ID of a security group
 assignee="<userNameOrGroupPrincipalID>"
 
 
@@ -173,6 +179,7 @@ az role assignment create --assignee $assignee \
 ```
 ---
 
+After you configure access to the portal, users and groups can sign in to the portal and view the APIs in your API center.
 
 
 ## Related content
