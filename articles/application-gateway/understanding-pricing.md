@@ -17,7 +17,7 @@ ms.author: greglin
 
 Azure Application Gateway is a layer 7 load-balancing solution, which enables scalable, highly available, and secure web application delivery on Azure.
 
-There are no upfront costs or termination costs associated with Application Gateway. You are billed only for the resources pre-provisioned and utilized based on actual hourly consumption. Costs associated with Application Gateway are classified into two components: fixed costs and variable costs. Actual costs within each component vary according to the SKU being utilized.
+There are no upfront costs or termination costs associated with Application Gateway. You're billed only for the resources pre-provisioned and utilized based on actual hourly consumption. Costs associated with Application Gateway are classified into two components: fixed costs and variable costs. Actual costs within each component vary according to the SKU being utilized.
 
 This article describes the costs associated with each SKU and it's recommended that users utilize this document for planning and managing costs associated with the Azure Application Gateway.
 
@@ -121,7 +121,7 @@ CUs required to handle 88.8 Mbps = 88.8 / 2.22 = 40
 Pre-provisioned CUs = 3 (Instance count) * 10 = 30 
 
 Since 40 (required capacity) > 30 (reserved capacity), additional CUs are required.
-The number of additional CUs utilized depend on the free capacity available with each instance.
+The number of additional CUs utilized depends on the free capacity available with each instance.
 
 If processing capacity equivalent to 10 additional CUs was available for use within the 3 reserved instances.
 
@@ -230,7 +230,7 @@ Total Costs = $0.492 + $0.24 = $0.732
 
 ### Example 6 – WAF_V2 with DDoS Network Protection, and with manual scaling set to 2 instance
 
-Let’s assume you’ve provisioned a WAF_V2 and set it to manual scaling with 2 instance for the entire month with 2 CUs. Let's also assume that you've enabled DDoS Network Protection. In this example, since you're paying the monthly fee for DDoS Network Protection, there's no additional charges for WAF; and you're charged at the lower Standard_V2 rates.
+Let’s assume you provision a WAF_V2 and set it to manual scaling with 2 instance for the entire month with 2 CUs. Let's also assume that you enable DDoS Network Protection. In this example, since you're paying the monthly fee for DDoS Network Protection, there's no additional charges for WAF; and you're charged at the lower Standard_V2 rates.
 
 Monthly price estimates are based on 730 hours of usage per month.
 
@@ -383,7 +383,7 @@ Total Costs = $3,507.08
 
 ## Azure DDoS Network Protection 
 
-When Azure DDoS Network Protection is enabled on your application gateway with WAF you are billed at the lower non-WAF rates. Please see [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/) for more details.
+When Azure DDoS Network Protection is enabled on your application gateway with WAF you're billed at the lower non-WAF rates. Please see [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/) for more details.
 
 ## Monitoring Billed Usage
 

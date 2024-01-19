@@ -31,7 +31,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create an application gateway
 
-You'll create the application gateway using the tabs on the **Create application gateway** page.
+You create the application gateway using the tabs on the **Create application gateway** page.
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Under **Categories**, select **Networking** and then select **Application Gateway** in the **Popular Azure services** list.
@@ -45,7 +45,7 @@ You'll create the application gateway using the tabs on the **Create application
 
      ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
-2. For Azure to communicate between the resources that you create, a virtual network is needed. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: One for the application gateway, and another for the backend servers.
+2. For Azure to communicate between the resources that you create, a virtual network is needed. You can either create a new virtual network or use an existing one. In this example, you create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: One for the application gateway, and another for the backend servers.
 
     > [!NOTE]
     > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
@@ -68,7 +68,7 @@ You'll create the application gateway using the tabs on the **Create application
 
 ### Frontends tab
 
-1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**. <br>You can configure the Frontend IP to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP.
+1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**. <br>You can configure the Frontend IP to be Public or Private as per your use case. In this example, you choose a Public Frontend IP.
    > [!NOTE]
    > For the Application Gateway v2 SKU, there must be a **Public** frontend IP configuration. You can still have both a Public and a Private frontend IP configuration, but Private only frontend IP configuration (Only ILB mode) is currently not enabled for the v2 SKU. 
 
@@ -84,14 +84,14 @@ You'll create the application gateway using the tabs on the **Create application
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, Virtual Machine Scale Sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multitenant backends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, Virtual Machine Scale Sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multitenant backends like Azure App Service. In this example, you create an empty backend pool with your application gateway and then add backend targets to the backend pool.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 
 2. In the **Add a backend pool** window that opens, enter the following values to create an empty backend pool:
 
     - **Name**: Enter *myBackendPool* for the name of the backend pool.
-    - **Add backend pool without targets**: Select **Yes** to create a backend pool with no targets. You'll add backend targets after creating the application gateway.
+    - **Add backend pool without targets**: Select **Yes** to create a backend pool with no targets. You add backend targets after creating the application gateway.
 
 3. In the **Add a backend pool** window, select **Add** to save the backend pool configuration and return to the **Backends** tab.
 
@@ -101,7 +101,7 @@ The backend pool is used to route requests to the backend servers that serve the
 
 ### Configuration tab
 
-On the **Configuration** tab, you'll connect the frontend and backend pool you created using a routing rule.
+On the **Configuration** tab, you connect the frontend and backend pool you created using a routing rule.
 
 1. Select **Add a routing rule** in the **Routing rules** column.
 
@@ -137,9 +137,9 @@ Review the settings on the **Review + create** tab, and then select **Create** t
 
 ## Add backend targets
 
-In this example, you'll use virtual machines as the target backend. You can either use existing virtual machines or create new ones. You'll create two virtual machines as backend servers for the application gateway.
+In this example, you use virtual machines as the target backend. You can either use existing virtual machines or create new ones. You create two virtual machines as backend servers for the application gateway.
 
-To do this, you'll:
+To do this:
 
 1. Create two new VMs, *myVM* and *myVM2*, to be used as backend servers.
 2. Install IIS on the virtual machines to verify that the application gateway was created successfully.
