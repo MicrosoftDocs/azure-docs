@@ -12,32 +12,6 @@
     items:
     - name: SSL root certificate expiring
       href: single-server/concepts-certificate-rotation.md
-- name: Shared documentation
-  items:
-  - name: Migration
-    items:
-      - name: Migrate Azure Database for PostgreSQL - Single Server to Azure Database for PostgreSQL - Flexible Server
-        items:
-          - name: Migration tool - Concepts
-            href: migrate/concepts-single-to-flexible.md
-          - name: Migration tool - Azure portal
-            href: migrate/how-to-migrate-single-to-flexible-portal.md
-          - name: Migration tool - Azure CLI
-            href: migrate/how-to-migrate-single-to-flexible-cli.md
-          - name: Common errors
-            href: migrate/common-errors-and-special-scenarios-fms.md
-          - name: Best practices for a seamless migration
-            href: migrate/best-practices-seamless-migration-single-to-flexible.md
-          - name: Troubleshoot networking and connectivity issues
-            href: migrate/troubleshooting-networking-and-connectivity-issues.md  
-      - name: Migrate data with pg_dump
-        href: migrate/how-to-migrate-using-dump-and-restore.md
-        displayName: pg_dump, pg_restore
-      - name: Minimal-downtime migration with DMS
-        href: single-server/how-to-migrate-online.md
-        displayName: dms, data migration service
-      - name: Migrate from Oracle
-        href: single-server/how-to-migrate-from-oracle.md
   - name: Versioning policy
     href: flexible-server/concepts-version-policy.md
     displayName: version, postgresql
@@ -430,7 +404,45 @@
         - name: Optimize performance when using pgvector
           href: flexible-server/how-to-optimize-performance-pgvector.md
     - name: pg_azure_storage
-      href: flexible-server/reference-pg-azure-storage.md 
+      href: flexible-server/reference-pg-azure-storage.md
+- name: Migration
+  items:
+  - name: Migration Service
+    items:
+    - name: Concepts
+      items:
+      - name: Premigration check
+        href: migrate/migration-service/premigration-migration-service
+      - name: Known issues and limitations
+        href: migrate/migration-service/known-issues-migration-service
+    - name: Getting Started
+      items:
+      - name: Prerequisites
+        href: migrate/migration-service/prerequisites-migration-service
+    - name: How-to guides
+      items:
+      - name: Network setup
+        href: migrate/migration-service/network-setup-migration-service
+  - name: Migrate Single Server to Flexible Server
+    items:
+    - name: Migration tool - Concepts
+      href: migrate/concepts-single-to-flexible.md
+    - name: Migration tool - Azure portal
+      href: migrate/how-to-migrate-single-to-flexible-portal.md
+    - name: Migration tool - Azure CLI
+      href: migrate/how-to-migrate-single-to-flexible-cli.md
+    - name: Common errors
+      href: migrate/common-errors-and-special-scenarios-fms.md
+    - name: Best practices for a seamless migration
+      href: migrate/best-practices-seamless-migration-single-to-flexible.md
+    - name: Troubleshoot networking and connectivity issues
+      href: migrate/troubleshooting-networking-and-connectivity-issues.md  
+    - name: Migrate data with pg_dump
+      href: migrate/how-to-migrate-using-dump-and-restore.md
+    - name: Minimal-downtime migration with DMS
+      href: single-server/how-to-migrate-online.md
+    - name: Migrate from Oracle
+      href: single-server/how-to-migrate-from-oracle.md
 - name: Azure Database for PostgreSQL - Single Server
   expanded: false
   items:
