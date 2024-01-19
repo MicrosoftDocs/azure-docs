@@ -116,7 +116,7 @@ Blob client library information:
 
 ## Authorize access and connect to Blob Storage
 
-To connect an application to Blob Storage, create an instance of the [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) class. This object is your starting point to interact with data resources at the storage account level. You can use it to operate on the storage account and its containers. You can also use the service client to create container clients or blob clients, depending on the resource you need to work with.
+To connect an application to Blob Storage, create an instance of the [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) class. You can also use the [BlobServiceAsyncClient](/java/api/com.azure.storage.blob.blobserviceasyncclient) class for [asynchronous programming](/azure/developer/java/sdk/async-programming). This object is your starting point to interact with data resources at the storage account level. You can use it to operate on the storage account and its containers. You can also use the service client to create container clients or blob clients, depending on the resource you need to work with.
 
 To learn more about creating and managing client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 
