@@ -32,8 +32,6 @@ You can connect to a VM that's deployed to your virtual network by creating a Re
 1. Open **Remote Desktop Connection** by entering **RDP** or **Remote Desktop Connection** in the search box on the taskbar. Then select **Remote Desktop Connection**. You can also open **Remote Desktop Connection** by using the `mstsc` command in PowerShell.
 1. In **Remote Desktop Connection**, enter the private IP address of the VM. You can select **Show Options** to adjust other settings and then connect.
 
-**Troubleshoot a connection**
-
 If you're having trouble connecting to a VM over your VPN connection, check the following points:
 
 * Verify that your VPN connection is successful.

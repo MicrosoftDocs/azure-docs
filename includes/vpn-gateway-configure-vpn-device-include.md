@@ -9,11 +9,10 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-**Download VPN device configuration scripts:**
 
 Depending on the VPN device that you have, you might be able to download a VPN device configuration script. For more information, see [Download VPN device configuration scripts](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).
 
-**For more configuration information, see the following links:**
+For more configuration information, see the following links:
 
 - For information about compatible VPN devices, see [VPN devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md).
 - Before you configure your VPN device, check for any [Known device compatibility issues](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) for the VPN device that you want to use.
