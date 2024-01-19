@@ -115,7 +115,8 @@ resource "azurerm_application_gateway" "main" {
   ssl_certificate {
       name = "afdpremium-agw-ssl-certificate"                       
       // Reference the Key Vault secret ID
-      <span style="background-color: yellow; color: black">key_vault_secret_id  = data.azurerm_key_vault_secret.vault.id</span> 
+      <p style="color:bluek">key_vault_secret_id  = data.azurerm_key_vault_secret.vault.id</p> 
+      <p style="color:blue">Make this text blue.</p>
     }
 ```
 </pre>
