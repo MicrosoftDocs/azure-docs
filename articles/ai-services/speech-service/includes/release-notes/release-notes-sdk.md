@@ -23,7 +23,7 @@ ms.author: eur
 
 #### Bug fixes
 
-* Fix regression introduced in 1.34.0 where service endpoint url was constructed with bad local info for users in several China regions.
+* Fix regression introduced in 1.34.0 where service endpoint url was constructed with bad locale info for users in several China regions.
 
 
 ### Speech SDK 1.34.0: November 2023 release
