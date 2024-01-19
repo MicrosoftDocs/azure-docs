@@ -51,7 +51,7 @@ The Analysis 4.0 API gives you access to all of the service's image analysis fea
 
 ## Call the Analyze API with options
 
-The following code calls the Analyze API with the features you selected above and additional options, defined below. To analyze from an image buffer instead of URL, replace `imageURL` in the method call with `imageBuffer`.
+The following code calls the Analyze API with the features you selected above and additional options, defined below. To analyze from an image buffer instead of URL, replace `imageURL` in the method call with `imageData`.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/4-0/how-to.js?name=snippet_call)]
 

@@ -87,7 +87,7 @@ This section shows you how to make an analysis call to the service.
 
 Call the **Analyze** method on the **ImageAnalysisClient** object, as shown here. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can call the non-blocking **AnalyzeAsync** method.
 
-Use the input objects created in the above sections. To analyze from an image buffer instead of URL, replace `imageURL` in the method call with the `imageStream` variable.
+Use the input objects created in the above sections. To analyze from an image buffer instead of URL, replace `imageURL` in the method call with the `imageData` variable.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-how-to/Program.cs?name=snippet_call)]
 
