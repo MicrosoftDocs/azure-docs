@@ -467,7 +467,7 @@ For reference about how to invoke Llama 2 models deployed to real-time endpoints
 Llama models deployed as a service are offered by Meta through Azure Marketplace and integrated with Azure Machine Learning studio for use. You can find Azure Marketplace pricing when deploying or fine-tuning models.
 
 Each time a workspace subscribes to a given model offering from Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
-See (change - check link) [monitor costs for models offered throughout Azure Marketplace](/azure/ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs.
+For more information on how to track costs, see [Monitor costs for models offered through Azure Marketplace](/azure/ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
 :::image type="content" source="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters." lightbox="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png":::
 
