@@ -623,9 +623,9 @@ The following table summarizes which feature are supported per locale. You can r
 
 | Phoneme alphabet | IPA | SAPI |
 |-----------|-------------|-------------|
-| Phoneme name | en-US | en-US, en-GB, zh-CN |
-| Syllable group | en-US | en-US, en-GB |
-| Spoken phoneme | en-US | en-US, en-GB |
+| Phoneme name | `en-US` | `en-US`, `en-GB`, `zh-CN` |
+| Syllable group | `en-US` | `en-US`, `en-GB` |
+| Spoken phoneme | `en-US` | `en-US`, `en-GB` |
 
 ## Syllable groups
 
