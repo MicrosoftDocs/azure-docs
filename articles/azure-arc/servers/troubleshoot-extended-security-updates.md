@@ -1,7 +1,7 @@
 ---
 title: How to troubleshoot delivery of Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn how to troubleshoot delivery of Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 01/02/2024
+ms.date: 01/19/2024
 ms.topic: conceptual
 ---
 
@@ -41,7 +41,7 @@ If you're unable to enable this service offering, review the resource providers 
 
 - **Microsoft.GuestConfiguration:** Enables Guest Configuration policies, which are used to assess and enforce configurations on your Arc-enabled servers for compliance and security.
 
-- **Microsoft.UpdateManagement:** This resource provider is required for Azure Update Management, which is used to manage updates and patches on your on-premises servers, including ESU updates.
+- **Microsoft.Compute:** This resource provider is required for Azure Update Management, which is used to manage updates and patches on your on-premises servers, including ESU updates.
 
 - **Microsoft.Security:** Enabling this resource provider is crucial for implementing security-related features and configurations for both Azure Arc and on-premises servers.
 
