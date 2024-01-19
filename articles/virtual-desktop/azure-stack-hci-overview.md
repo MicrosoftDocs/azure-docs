@@ -38,7 +38,7 @@ With Azure Virtual Desktop for Azure Stack HCI, you can:
 
 Your Azure Stack HCI clusters need to be running a minimum of [version 23H2](/azure-stack/hci/release-information) and [registered with Azure](/azure-stack/hci/deploy/register-with-azure).
 
-Azure Virtual Desktop for Azure Stack HCI supports the same [Remote Desktop clients](user-documentation/index.yml) as Azure Virtual Desktop, and you can use the following 64-bit operating system images that are in support:
+Once you're cluster is ready, you can use the following 64-bit operating system images for your session hosts that are in support:
 
 - Windows 11 Enterprise multi-session
 - Windows 11 Enterprise
@@ -52,6 +52,8 @@ To use session hosts on Azure Stack HCI with Azure Virtual Desktop, you also nee
 - License and activate the virtual machines. For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, use [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification). For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Stack HCI](/azure-stack/hci/manage/vm-activate).
 
 - Install the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) on the virtual machines so they can communicate with [Azure Instance Metadata Service](../virtual-machines/instance-metadata-service.md), which is a [required endpoint for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md). The Azure Connected Machine agent is automatically installed when you add session hosts using the Azure portal as part of the process to [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md) or [Add session hosts to a host pool](add-session-hosts-host-pool.md).
+
+Finally, users can connect using the same [Remote Desktop clients](users/remote-desktop-clients-overview.md) as Azure Virtual Desktop.
 
 ## Licensing and pricing
 
