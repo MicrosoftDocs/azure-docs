@@ -5,7 +5,6 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/07/2023

@@ -6,11 +6,9 @@ services: ai-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
-ms.custom: 
 ms.topic: quickstart
 ms.date: 10/30/2023
 ms.author: pafarley
-keywords: 
 ---
 
 # Quickstart: Detect protected material (preview)

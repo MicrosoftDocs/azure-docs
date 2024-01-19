@@ -2,15 +2,9 @@
 title: Guidelines for Azure NetApp Files network planning | Microsoft Docs
 description: Describes guidelines that can help you design an effective network architecture by using Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: ram-kakani
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/10/2023
 ms.author: ramakk
