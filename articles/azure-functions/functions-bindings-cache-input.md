@@ -183,6 +183,7 @@ Write-Host "Key '$key' was set to value '$value'"
 The following example uses a pub/sub trigger with an input binding to the GET message on an Azure Cache for Redis instance. The trigger and binding are configured in the _function.json_ file associated with the Python function.
 
 <!-- The following code sample gets any key that was recently set using the pub/sub trigger and an input binding on the GET command. -->
+function.json
 
 ```python
         {
@@ -216,20 +217,20 @@ The [configuration](#configuration) section explains these properties.
 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
+
 ## Attributes
 
 > [!NOTE]
 > Not all commands are supported for this binding. At the moment, only read commands that return a single output are supported. The full list can be found [here](https://github.com/Azure/azure-functions-redis-extension/blob/main/src/Microsoft.Azure.WebJobs.Extensions.Redis/Bindings/RedisConverter.cs#L61)
 
-# [In-process](#tab/in-process)
+### [In-process](#tab/in-process)
 
 |Attribute property | Description                                                                                                                                                 |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `ConnectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `Command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces. For example:  `GET key`, `HGET key field`. |
 
-
-# [Isolated process](#tab/isolated-process)
+### [Isolated process](#tab/isolated-process)
 
 <!-- 
 C# attribute information for the trigger goes here with an intro sentence. Use a code link like the following to show the method definition: 
@@ -263,7 +264,6 @@ The following table explains the binding configuration properties that you set i
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `connectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces. For example:  `GET key`, `HGET key field`. |
-
 
 ### [v2](#tab/python-v2)
 
@@ -302,7 +302,7 @@ The parameter type supported by the XXX trigger depends on the Functions runtime
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 <!--Any usage information from the PowerShell tab in ## Usage. -->
-::: zone-end   
+::: zone-end
 ::: zone pivot="programming-language-python"  
 <!--Any usage information from the Python tab in ## Usage. -->
 ::: zone-end  
@@ -311,7 +311,7 @@ The parameter type supported by the XXX trigger depends on the Functions runtime
 
 - `StackExchange.Redis.RedisValue, string, byte[], ReadOnlyMemory<byte>`:
   - The value returned by the command.
-- `Custom`: 
+- `Custom`:
   - The trigger uses Json.NET serialization to map the value returned by the command from a string into a custom type.
 
 ## Next steps
