@@ -288,9 +288,9 @@ To create the _opcua-anomaly-pipeline_ pipeline:
 
     ```jq
     .payload[0].Payload |= with_entries(.value |= .Value) |
-    .payload[0].Payload.source_timestamp = .systemProperties.timestamp |
+    .payload[0].Payload.sourceTimestamp = .systemProperties.timestamp |
     .payload |= .[0] |
-    .payload.Payload.asset_name = .payload.DataSetWriterName |
+    .payload.Payload.assetName = .payload.DataSetWriterName |
     del(.payload.DataSetWriterName) |
     .payload.Payload |= with_entries (
         if (.key | startswith("Tacoma")) then
@@ -423,21 +423,21 @@ The next step is to create a Data Processor pipeline that sends the transformed 
     | Batching > Batch time | `5s` |
     | Batching > Batch path | `.payload.payload` |
     | Column > Name | `AssetID` |
-    | Column > Path | `.asset_id` |
+    | Column > Path | `.assetId` |
     | Column > Name | `Timestamp` |
-    | Column > Path | `.source_timestamp` |
+    | Column > Path | `.sourceTimestamp` |
     | Column > Name | `Name` |
-    | Column > Path | `.asset_name` |
+    | Column > Path | `.assetName` |
     | Column > Name | `SerialNumber` |
     | Column > Path | `.serialNumber` |
     | Column > Name | `Status` |
     | Column > Path | `.machineStatus` |
     | Column > Name | `Maintenance` |
-    | Column > Path | `.maintainence_status` |
+    | Column > Path | `.maintenanceStatus` |
     | Column > Name | `Location` |
     | Column > Path | `.site` |
     | Column > Name | `OperatingTime` |
-    | Column > Path | `.operating_time` |
+    | Column > Path | `.operatingTime` |
     | Column > Name | `Humidity` |
     | Column > Path | `.humidity` |
     | Column > Name | `HumidityAnomalyFactor` |
