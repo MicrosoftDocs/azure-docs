@@ -220,7 +220,7 @@ This article assumes that:
     sudo pcs resource create vip_NW2_ASCS IPaddr2 \
     ip=10.3.1.52 \
      --group g-NW2_ASCS
-  
+    
     sudo pcs resource create nc_NW2_ASCS azure-lb port=62010 \
      --group g-NW2_ASCS
 
@@ -334,11 +334,11 @@ This article assumes that:
 
      ```cmd
      sudo vi /sapmnt/NW2/profile/NW2_ERS12_msnw2ers
-   
+     
      # Change the restart command to a start command
      #Restart_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
      Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
-   
+     
      # remove Autostart from ERS profile
      # Autostart = 1
      ```
@@ -422,7 +422,7 @@ This article assumes that:
 
    #### [ENSA2](#tab/ensa2)
 
-   ```cmd
+   ```bash
    sudo pcs property set maintenance-mode=true
 
    sudo pcs resource create rsc_sap_NW2_ASCS10 SAPInstance \
@@ -482,45 +482,45 @@ This article assumes that:
    Make sure that the cluster status is ok and that all resources are started. It's not important on which node the resources are running.
    The following example shows the cluster resources status, after SAP systems `NW2` and `NW3` were added to the cluster.
 
-    ```bash
-    sudo pcs status
+   ```bash
+   sudo pcs status
 
-    Online: [ rhelmsscl1 rhelmsscl2 ]
+   Online: [ rhelmsscl1 rhelmsscl2 ]
 
-    Full list of resources:
+   Full list of resources:
 
-    rsc_st_azure   (stonith:fence_azure_arm):      Started rhelmsscl1
-    Resource Group: g-NW1_ASCS
-        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
-        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
-        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
-        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
-    Resource Group: g-NW1_AERS
-        fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started rhelmsscl2
-        vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl2
-        nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started rhelmsscl2
-        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started rhelmsscl2
-    Resource Group: g-NW2_ASCS
-        fs_NW2_ASCS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
-        vip_NW2_ASCS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
-        nc_NW2_ASCS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
-        rsc_sap_NW2_ASCS10 (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
-    Resource Group: g-NW2_AERS
-        fs_NW2_AERS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
-        vip_NW2_AERS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
-        nc_NW2_AERS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
-        rsc_sap_NW2_ERS12  (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
-    Resource Group: g-NW3_ASCS
-        fs_NW3_ASCS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
-        vip_NW3_ASCS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
-        nc_NW3_ASCS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
-        rsc_sap_NW3_ASCS20 (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
-    Resource Group: g-NW3_AERS
-        fs_NW3_AERS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
-        vip_NW3_AERS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
-        nc_NW3_AERS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
-        rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
-    ```
+   rsc_st_azure   (stonith:fence_azure_arm):      Started rhelmsscl1
+   Resource Group: g-NW1_ASCS
+       fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
+       vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
+       nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
+       rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
+   Resource Group: g-NW1_AERS
+       fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started rhelmsscl2
+       vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl2
+       nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started rhelmsscl2
+       rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started rhelmsscl2
+   Resource Group: g-NW2_ASCS
+       fs_NW2_ASCS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
+       vip_NW2_ASCS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
+       nc_NW2_ASCS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
+       rsc_sap_NW2_ASCS10 (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
+   Resource Group: g-NW2_AERS
+       fs_NW2_AERS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
+       vip_NW2_AERS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
+       nc_NW2_AERS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
+       rsc_sap_NW2_ERS12  (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
+   Resource Group: g-NW3_ASCS
+       fs_NW3_ASCS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
+       vip_NW3_ASCS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
+       nc_NW3_ASCS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
+       rsc_sap_NW3_ASCS20 (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
+   Resource Group: g-NW3_AERS
+       fs_NW3_AERS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
+       vip_NW3_AERS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
+       nc_NW3_AERS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
+      rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
+   ```
 
 8. **[A]** Add firewall rules for ASCS and ERS on both nodes. The example below shows the firewall rules for both SAP systems `NW2` and `NW3`.  
 
@@ -656,9 +656,9 @@ Always read the Red Hat best practices guides and perform all other tests that m
 
    ```cmd
    Online: [ rhelmsscl1 rhelmsscl2 ]
-
+   
    Full list of resources:
-
+   
    rsc_st_azure   (stonith:fence_azure_arm):      Started rhelmsscl1
    Resource Group: g-NW1_ASCS
        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
@@ -702,7 +702,7 @@ Always read the Red Hat best practices guides and perform all other tests that m
 
    ```cmd
    Full list of resources:
-
+   
    rsc_st_azure    (stonith:fence_azure_arm):      Started rhelmsscl2
    Resource Group: g-NW1_ASCS
        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started rhelmsscl2
