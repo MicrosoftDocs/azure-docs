@@ -1,6 +1,6 @@
 items:
 - name: Azure Storage Actions documentation
-  href: ./index.yml
+  href: storage-tasks/index.yml
 - name: Overview
   items:
   - name: What is Azure Storage Actions?
