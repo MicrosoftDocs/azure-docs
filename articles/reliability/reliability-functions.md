@@ -29,8 +29,8 @@ When you configure Functions as zone redundant, the platform automatically sprea
 Instance spreading with a zone-redundant deployment is determined inside the following rules, even as the app scales in and out:
 
 - The minimum function app instance count is three. 
-- If you specify a capacity larger than three, and the number of instances is divisible by three, the instances are spread evenly. 
-- Any instance counts beyond 3*N are spread across the remaining one or two zones.
+- When you specify a capacity larger than three, the instances are spread evenly only when the capacity is a multiple of 3. 
+- For a capacity value more than 3*N, extra instances are spread across the remaining one or two zones.
 
 >[!IMPORTANT]
 >Azure Functions can run on the Azure App Service platform. In the App Service platform, plans that host Premium plan function apps are referred to as Elastic Premium plans, with SKU names like EP1. If you choose to run your function app on a Premium plan, make sure to create a plan with an SKU name that starts with "E", such as EP1. App Service plan SKU names that start with "P", such as P1V2 (Premium V2 Small plan), are actually [Dedicated hosting plans](../azure-functions/dedicated-plan.md). Because they are Dedicated and not Elastic Premium, plans with SKU names starting with "P" won't scale dynamically and may increase your costs.
