@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* You need an Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Make sure you have a compatible VPN device and someone who can configure it. For more information about compatible VPN devices and device configuration, see [About VPN devices](vpn-gateway-about-vpn-devices.md).
 * Verify that you have an externally facing public IPv4 address for your VPN device.
 * If you're unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can overlap with the virtual network subnets that you want to connect to.
@@ -48,7 +48,7 @@ In this section, you create a virtual network by using the following values:
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-After you create your virtual network, you can optionally configure Azure DDoS Protection. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. For more information about Azure DDoS Protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md).
+After you create your virtual network, you can optionally configure Azure DDoS Protection. Azure DDoS Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. For more information about Azure DDoS Protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md).
 
 ## Create a gateway subnet
 
@@ -62,7 +62,7 @@ In this step, you create the virtual network gateway for your virtual network. C
 
 ### Create the gateway
 
-Create a virtual network gateway (VPN gateway) using the following values:
+Create a virtual network gateway (VPN gateway) by using the following values:
 
 * **Name**: VNet1GW
 * **Region**: East US
@@ -108,8 +108,8 @@ Create a local network gateway by using the following values:
 
 Site-to-site connections to an on-premises network require a VPN device. In this step, you configure your VPN device. When you configure your VPN device, you need the following values:
 
-* **A shared key.** This shared key is the same one that you specify when you create your site-to-site VPN connection. In our examples, we use a basic shared key. We recommend that you generate a more complex key to use.
-* **The public IP address of your virtual network gateway.** You can view the public IP address by using the Azure portal, PowerShell, or the Azure CLI. To find the public IP address of your VPN gateway by using the Azure portal, go to **Virtual network gateways** and then select the name of your gateway.
+* **Shared key**: This shared key is the same one that you specify when you create your site-to-site VPN connection. In our examples, we use a basic shared key. We recommend that you generate a more complex key to use.
+* **Public IP address of your virtual network gateway**: You can view the public IP address by using the Azure portal, PowerShell, or the Azure CLI. To find the public IP address of your VPN gateway by using the Azure portal, go to **Virtual network gateways** and then select the name of your gateway.
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
@@ -168,7 +168,7 @@ You can customize site-to-site configurations in various ways. For more informat
 
 * For information about BGP, see the [BGP overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * For information about forced tunneling, see [About forced tunneling](vpn-gateway-forced-tunneling-rm.md).
-* For information about Highly Available Active-Active connections, see [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
+* For information about highly available active-active connections, see [Highly available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
 * For information about how to limit network traffic to resources in a virtual network, see [Network security](../virtual-network/network-security-groups-overview.md).
 * For information about how Azure routes traffic between Azure, on-premises, and internet resources, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md).
 
