@@ -22,6 +22,9 @@ You can migrate VMware vSphere VMs in a couple of ways:
 - **Using agentless migration**: Migrate VMs without needing to install anything on them. You deploy the [Azure Migrate appliance](migrate-appliance.md) for agentless migration.
 - **Using agent-based migration**: Install an agent on the VM for replication. For agent-based migration, you deploy a [replication appliance](migrate-replication-appliance.md).
 
+> [!NOTE]
+> This also supports AVS.
+
 Review [this article](server-migrate-overview.md) to figure out which method you want to use.
 
 ## Agentless migration

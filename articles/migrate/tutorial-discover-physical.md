@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > * Start continuous discovery.
 
 > [!NOTE]
-> Tutorials show the quickest path for trying out a scenario, and use default options. This scenario is also applicable for discovery of VM servers from AVS.  
+> Tutorials show the quickest path for trying out a scenario, and use default options.  
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
