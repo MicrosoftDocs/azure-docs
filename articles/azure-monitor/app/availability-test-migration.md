@@ -23,6 +23,7 @@ The following steps walk you through the process of creating [standard tests](av
 > 
 > - Refer to **[Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing)** before starting this process.
 > 
+
 ### Prerequisites
 
 - Any [URL ping test](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) within Application Insights
@@ -42,9 +43,10 @@ The following steps walk you through the process of creating [standard tests](av
 
 3.	Find the URL Ping Test you want to migrate and record its resource group and name.
 
-4.	The following commands create a standard test with the same logic as the URL ping test:
+1. The following commands create a standard test with the same logic as the URL ping test:
 
-    ```azurepowershell
+    
+```azurepowershell
     $resourceGroup = "pingTestResourceGroup";
     $appInsightsComponent = "componentName";
     $pingTestName = "pingTestName";
@@ -58,13 +60,10 @@ The following steps walk you through the process of creating [standard tests](av
     $dynamicParameters = @{};
     
     if ($pingTestRequest.IgnoreHttpStatusCode -eq [bool]::FalseString) {
-    
     $dynamicParameters["RuleExpectedHttpStatusCode"] = [convert]::ToInt32($pingTestRequest.ExpectedHttpStatusCode, 10);
-    
     }
     
     if ($pingTestValidationRule -and $pingTestValidationRule.DisplayName -eq "Find Text" `
-    
     -and $pingTestValidationRule.RuleParameters.RuleParameter[0].Name -eq "FindText" `
     -and $pingTestValidationRule.RuleParameters.RuleParameter[0].Value) {
     $dynamicParameters["ContentMatch"] = $pingTestValidationRule.RuleParameters.RuleParameter[0].Value;
@@ -104,3 +103,4 @@ Yes, these commands work for both HTTP and HTTPS endpoints, which are used in yo
 * [Troubleshooting](troubleshoot-availability.md)
 * [Web tests Azure Resource Manager template](/azure/templates/microsoft.insights/webtests?tabs=json)
 * [Web test REST API](/rest/api/application-insights/web-tests)
+
