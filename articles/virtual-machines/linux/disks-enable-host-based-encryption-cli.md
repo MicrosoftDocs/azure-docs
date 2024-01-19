@@ -9,13 +9,13 @@ ms.author: rogarana
 ms.custom:
   - references_regions
   - devx-track-azurecli
-  - devx-track-linux
+  - linux-related-content
   - ignite-2023
 ---
 
 # Use the Azure CLI to enable end-to-end encryption using encryption at host
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, and other managed disk encryption types, see [Encryption at host - End-to-end encryption for your VM data](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
@@ -68,7 +68,7 @@ rgName=yourRGName
 vmName=yourVMName
 location=eastus
 vmSize=Standard_DS2_v2
-image=LinuxImageURN 
+image=LinuxImageURN
 diskEncryptionSetName=yourDiskEncryptionSetName
 
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
@@ -94,7 +94,7 @@ rgName=yourRGName
 vmName=yourVMName
 location=eastus
 vmSize=Standard_DS2_v2
-image=LinuxImageURN 
+image=LinuxImageURN
 
 az vm create -g $rgName \
 -n $vmName \
@@ -143,7 +143,7 @@ az vm update -n $vmName \
 
 ### Create a Virtual Machine Scale Set with encryption at host enabled with customer-managed keys
 
-Create a Virtual Machine Scale Set with managed disks using the resource URI of the DiskEncryptionSet created earlier to encrypt cache of OS and data disks with customer-managed keys. The temp disks are encrypted with platform-managed keys. 
+Create a Virtual Machine Scale Set with managed disks using the resource URI of the DiskEncryptionSet created earlier to encrypt cache of OS and data disks with customer-managed keys. The temp disks are encrypted with platform-managed keys.
 
 > [!IMPORTANT]
 >Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
@@ -153,7 +153,7 @@ rgName=yourRGName
 vmssName=yourVMSSName
 location=westus2
 vmSize=Standard_DS3_V2
-image=Ubuntu2204  
+image=Ubuntu2204
 diskEncryptionSetName=yourDiskEncryptionSetName
 
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
@@ -172,7 +172,7 @@ az vmss create -g $rgName \
 
 ### Create a Virtual Machine Scale Set with encryption at host enabled with platform-managed keys
 
-Create a Virtual Machine Scale Set with encryption at host enabled to encrypt cache of OS/data disks and temp disks with platform-managed keys. 
+Create a Virtual Machine Scale Set with encryption at host enabled to encrypt cache of OS/data disks and temp disks with platform-managed keys.
 
 > [!IMPORTANT]
 >Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
@@ -182,7 +182,7 @@ rgName=yourRGName
 vmssName=yourVMSSName
 location=westus2
 vmSize=Standard_DS3_V2
-image=Ubuntu2204 
+image=Ubuntu2204
 
 az vmss create -g $rgName \
 -n $vmssName \
@@ -257,7 +257,7 @@ When calling the [Resource Skus API](/rest/api/compute/resourceskus/list), check
 For the Azure PowerShell module, use the [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) cmdlet.
 
 ```azurepowershell-interactive
-$vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
+$vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')}
 
 foreach($vmSize in $vmSizes)
 {

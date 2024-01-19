@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 01/10/2024
 ms.author: joarteir
-ms.custom: devx-track-azurecli, event-tier1-build-2022, devx-track-azurepowershell, build-2023, devx-track-linux
+ms.custom: devx-track-azurecli, event-tier1-build-2022, devx-track-azurepowershell, build-2023, linux-related-content
 ---
 
 # Tutorial: Deploy a background processing application with Azure Container Apps
@@ -275,7 +275,7 @@ az deployment group create --resource-group "$RESOURCE_GROUP" \
 $Params = @{
     environment_name = $ContainerAppsEnvironment
     location = $Location
-    queueconnection = $QueueConnectionString 
+    queueconnection = $QueueConnectionString
 }
 
 $DeploymentArgs = @{
