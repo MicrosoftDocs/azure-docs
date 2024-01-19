@@ -16,7 +16,7 @@ This article covers relocation guidance for Azure Storage Account across regions
 
 ## Relocation strategies
 
-To relocate Azure Storage account to a new region, you can choose to [redeploy without data migration](#redeploy-without-data-migration) or [redeploy with data migration](#redeploy-with-data-migration-strategy) strategies.
+To relocate Azure Storage account to a new region, you can choose to [redeploy without data migration](#redeploy-without-data-migration) or [redeploy with data migration](#redeploy-with-data-migration) strategies.
 
 **Azure Resource Mover** doesn't support moving Azure Storage accounts. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
 
@@ -26,7 +26,7 @@ If your Azure Storage Account instance doesn't have any client specific data and
 
 **To redeploy your Storage Account instance without data:**
 
-Redeploy the Storage Account instance by using [Bicep, ARM Template, or Terraform](azure/templates/microsoft.storage/storageaccounts?tabs=json&pivots=deployment-language-arm-template).
+Redeploy the Storage Account instance by using [Bicep, ARM Template, or Terraform](/LICENSEazure/templates/microsoft.storage/storageaccounts?tabs=json&pivots=deployment-language-arm-template).
 - Depending on your Storage Account deployment, the following dependent resources may need to be deployed and configured in the target region *prior* to relocation:
     - [Virtual Network, Network Security Groups, and User Defined Route](./relocation-virtual-network.md)
     - [Azure Key Vault](./relocation-key-vault.md)
@@ -79,7 +79,7 @@ AzCopy only supports the following storage types:
 |---------------|---------------------------------------------|
 |Blob storage|	Microsoft Entra ID & shared access signature (SAS)|
 |Blob storage (hierarchical namespace)	|Microsoft Entra ID & SAS|
-|File storage|	|SAS only|
+|File storage|	SAS only|
 
 
 >[!NOTE]

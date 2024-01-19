@@ -4,7 +4,7 @@ description: Learn how to relocate Microsoft Defender for Cloud to a new region
 author: anaharris-ms
 ms.author: anaharris
 ms.date: 01/18/2024
-ms.service: sentinel
+ms.service: defender-for-cloud
 ms.topic: how-to
 ---
 
@@ -24,7 +24,7 @@ To relocate Azure Storage account to a new region, you must reconfigure Sentinel
 **Azure Resource Mover** doesn't support moving services used by the Microsoft Sentinel. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
 
 
-:::image type="content" source="media/relocation/sentinel/sentinel_pattern_design.png" alt-text="Diagram illustrating Sentinel relocation pattern.":::
+:::image type="content" source="media/relocation/sentinel/sentinel-pattern-design.png" alt-text="Diagram illustrating Sentinel relocation pattern.":::
 
 
 >[!IMPORTANT]

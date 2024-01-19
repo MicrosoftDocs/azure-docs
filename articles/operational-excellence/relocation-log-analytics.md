@@ -5,7 +5,8 @@ author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 01/16/2024
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: how-to
 ---
 

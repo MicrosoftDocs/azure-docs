@@ -4,8 +4,8 @@ description: Learn how to relocate Azure Key Vault to a new region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
-ms.date: 01/16/2024
-ms.service: postgresql
+ms.date: 01/18/2024
+ms.service: microsoft-sentinel
 ms.topic: how-to
 ---
 
@@ -33,7 +33,7 @@ Before you begin to plan your key vault relocation, keep the following considera
 
 ## Relocation strategies
 
-To relocate Azure Key Vault to a new region, you can choose to [redeploy without data migration](#redeploy-without-data-migration) or [redeploy with data migration](#redeploy-with-data-migration-strategy) strategies. 
+To relocate Azure Key Vault to a new region, you can choose to [redeploy without data migration](#redeploy-without-data-migration) or [redeploy with data migration](#redeploy-with-data-migration) strategies. 
 
 **Azure Resource Mover** doesn't support moving services used by the Azure Key Vault. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
 
@@ -87,6 +87,6 @@ In the diagram below,
     - Use [Azure portal](../key-vault/general/quick-create-portal.md), the [Azure CLI](../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 
-1. Restore your exported secret, key, and certificates. If you used **encrypted backup**, add them to your new key vault by following the steps in [Azure Key Vault backup and restore](/azure/key-vault/general/backup?tabs=azure-cli). Otherwise, if you used **manual non-encrypted backup**, you can use [Azure portal](/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal) or [PowerShell](/key-vault/secrets/quick-create-powershell) to import them to your new key vault.
+1. Restore your exported secret, key, and certificates. If you used **encrypted backup**, add them to your new key vault by following the steps in [Azure Key Vault backup and restore](/azure/key-vault/general/backup?tabs=azure-cli). Otherwise, if you used **manual non-encrypted backup**, you can use [Azure portal](/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal) or [PowerShell](/azure/key-vault/secrets/quick-create-powershell) to import them to your new key vault.
 
 1. Before deleting your old key vault, verify that the new vault contains all of the required keys, secrets, and certificates. Ensure the key vault isn't needed to decrypt old encrypted backups of virtual machines, databases, or any other dependent Azure services in the source region.
