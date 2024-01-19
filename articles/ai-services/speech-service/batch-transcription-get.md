@@ -7,7 +7,7 @@ author: eric-urban
 ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 1/18/2024
 zone_pivot_groups: speech-cli-rest
 ms.custom: devx-track-csharp
 ---
@@ -69,7 +69,7 @@ You should receive a response body in the following format:
 }
 ```
 
-The `status` property indicates the current status of the transcriptions. The transcriptions and transcription report will be available when the transcription status is `Succeeded`.
+The `status` property indicates the current status of the transcriptions. The transcriptions and transcription report are available when the transcription status is `Succeeded`.
 
 
 ::: zone-end
@@ -120,7 +120,7 @@ You should receive a response body in the following format:
 }
 ```
 
-The `status` property indicates the current status of the transcriptions. The transcriptions and transcription report will be available when the transcription status is `Succeeded`.
+The `status` property indicates the current status of the transcriptions. The transcriptions and transcription report are available when the transcription status is `Succeeded`.
 
 For Speech CLI help with transcriptions, run the following command:
 
@@ -375,22 +375,22 @@ Depending in part on the request parameters set when you created the transcripti
 |`combinedRecognizedPhrases`|The concatenated results of all phrases for the channel.|
 |`confidence`|The confidence value for the recognition.|
 |`display`|The display form of the recognized text. Added punctuation and capitalization are included.|
-|`displayWords`|The timestamps for each word of the transcription. The `displayFormWordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property is not present.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1.|
+|`displayWords`|The timestamps for each word of the transcription. The `displayFormWordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property isn't present.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1.|
 |`duration`|The audio duration. The value is an ISO 8601 encoded duration.|
-|`durationInTicks`|The audio duration in ticks (1 tick is 100 nanoseconds).|
+|`durationInTicks`|The audio duration in ticks (one tick is 100 nanoseconds).|
 |`itn`|The inverse text normalized (ITN) form of the recognized text. Abbreviations such as "Doctor Smith" to "Dr Smith", phone numbers, and other transformations are applied.|
 |`lexical`|The actual words recognized.|
-|`locale`|The locale identified from the input the audio. The `languageIdentification` request property must be set, otherwise this property is not present.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1.|
+|`locale`|The locale identified from the input the audio. The `languageIdentification` request property must be set, otherwise this property isn't present.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1.|
 |`maskedITN`|The ITN form with profanity masking applied.|
 |`nBest`|A list of possible transcriptions for the current phrase with confidences.|
 |`offset`|The offset in audio of this phrase. The value is an ISO 8601 encoded duration.|
-|`offsetInTicks`|The offset in audio of this phrase in ticks (1 tick is 100 nanoseconds).|
+|`offsetInTicks`|The offset in audio of this phrase in ticks (one tick is 100 nanoseconds).|
 |`recognitionStatus`|The recognition state. For example: "Success" or "Failure".|
 |`recognizedPhrases`|The list of results for each phrase.|
 |`source`|The URL that was provided as the input audio source. The source corresponds to the `contentUrls` or `contentContainerUrl` request property. The `source` property is the only way to confirm the audio input for a transcription.|
-|`speaker`|The identified speaker. The `diarization` and `diarizationEnabled` request properties must be set, otherwise this property is not present.|
+|`speaker`|The identified speaker. The `diarization` and `diarizationEnabled` request properties must be set, otherwise this property isn't present.|
 |`timestamp`|The creation date and time of the transcription. The value is an ISO 8601 encoded timestamp.|
-|`words`|A list of results with lexical text for each word of the phrase. The `wordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property is not present.|
+|`words`|A list of results with lexical text for each word of the phrase. The `wordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property isn't present.|
 
 
 ## Next steps
