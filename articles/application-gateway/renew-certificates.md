@@ -94,7 +94,7 @@ where:
 **The data source "**azurerm_key_vault_secret**" will be used within the `**ssl_certificate**` block under the application gateway section.**
 
 **Reference-1**:
-<pre>
+
 ```
 resource "azurerm_application_gateway" "main" {
   name                = "myAppGateway"
@@ -119,7 +119,6 @@ resource "azurerm_application_gateway" "main" {
       <p style="color:blue">Make this text blue.</p>
     }
 ```
-</pre>
 
 - where, **key_vault_secret_id** is Certificate object stored in Azure KeyVault.
 
