@@ -100,11 +100,50 @@ For example, with `-Dapplicationinsights.runtime-attach.configuration.classpath.
 See [configuration file path configuration options](./java-standalone-config.md#configuration-file-path)
 to change the location for a file outside the classpath.
 
-#### Structure of applicationinsights-dev.json
+#### Programmatic configuration examples: Application Insights JSON file
+
+By default, the programmatic Application Insights attachment uses an `applicationinsights.json` contains in the classpath (_src/main/resources_).
+
+You can programmatically use another file contained in the classpath:
+
+```java
+public static void main(String[] args) {
+    System.setProperty("applicationinsights.runtime-attach.configuration.classpath.file", "applicationinsights-dev.json");
+    ApplicationInsights.attach();
+    SpringApplication.run(PetClinicApplication.class, args);
+}
+```
+
+#### Programmatic configuration examples: connection string
+
+To programmatically configure the connection string, tou have three things to do.
+
+First add the `applicationinsights-core` dependency:
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>applicationinsights-core</artifactId>
+    <version>3.4.19</version>
+</dependency>
+```
+
+Now, call the `ConnectionString.configure` method after `ApplicationInsights.attach()`:
+
+```java
+public static void main(String[] args) {
+    System.setProperty("applicationinsights.configuration.file", "{path}/applicationinsights-dev.json");
+    ApplicationInsights.attach();
+    SpringApplication.run(PetClinicApplication.class, args);
+}
+```
+You can also call the  `ConnectionString.configure` method from a Spring component.
+
+You have also to add the following property in your Application Insights JSON file:
 
 ```json
 {
-  "connectionString":"Your-Intrumentation-Key"
+  "connectionStringConfiguredAtRuntime": true
 }
 ```
 
