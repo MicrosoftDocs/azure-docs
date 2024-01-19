@@ -18,6 +18,8 @@ The Azure Monitor Agent Troubleshooter (AMA) is designed to help identify issues
 > The AMA Troubleshooter is an executable that is shipped with the agent for all versions newer than **1.25.1** for Linux.
 
 ## Prerequisites
+
+### Python
 The linux Troubleshooter requires Python 2.6+ or any Python 3 installed on the machine. In addition, the following Python packages are required to run (all should be present on a default install of Python 2 or Python 3):
 
 |Python Package|Required for Python 2?|Required for Python 3?|
