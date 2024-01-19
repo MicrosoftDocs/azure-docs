@@ -76,7 +76,6 @@ Use the following steps to configure an analytic rule in Sentinel.
 1. Optionally, you can also add any automated response to the incident if needed. See [Automated detection and response for Azure WAF with Microsoft Sentinel](afds/automated-detection-response-with-sentinel.md) for more detailed information on automated response configuration.
 1. Finally, select **Save** on the **Review and create** tab.
 
-   :::image type="content" source="media/waf-new-threat-detection/review-and-create.png" alt-text="Screenshot showing the Review and create tab." lightbox="media/waf-new-threat-detection/review-and-create.png":::
 
 This analytic rule enables Sentinel to create an incident based on the WAF logs that record any Code Injection attacks. The Azure WAF blocks these attacks by default, but the incident creation provides additional support for the security analyst to respond to future threats.
 
