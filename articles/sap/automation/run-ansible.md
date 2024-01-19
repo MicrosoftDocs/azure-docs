@@ -195,8 +195,6 @@ export           ANSIBLE_PRIVATE_KEY_FILE=sshkey
 export           ANSIBLE_COLLECTIONS_PATHS=/opt/ansible/collections${ANSIBLE_COLLECTIONS_PATHS:+${ANSIBLE_COLLECTIONS_PATHS}}
 export           ANSIBLE_REMOTE_USER=azureadm
 
-# Ref: https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html
-# Silence warnings about Python interpreter discovery
 export           ANSIBLE_PYTHON_INTERPRETER=auto_silent
 
 # Set of options that will be passed to the ansible-playbook command
@@ -208,8 +206,6 @@ playbook_options=(
         -e ansible_ssh_pass='{{ lookup("env", "ANSIBLE_PASSWORD") }}'
         "${@}"
 )
-
-ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
 
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_01_os_base_config.yaml
 
@@ -289,12 +285,6 @@ cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
 export                   sap_sid=L00
 export       workload_vault_name="LABSECESAP04user###"
 export  ANSIBLE_PRIVATE_KEY_FILE=sshkey
-                          prefix="LAB-SECE-SAP04"
-
-password_secret_name=$prefix-sid-password
-
-password_secret=$(az keyvault secret show --vault-name ${workload_vault_name} --name ${password_secret_name} --query value --output table)
-export ANSIBLE_PASSWORD=$password_secret
 
 playbook_options=(
         --inventory-file="${sap_sid}_hosts.yaml"
@@ -304,9 +294,6 @@ playbook_options=(
         --extra-vars="@sap-parameters.yaml"
         "${@}"
 )
-
-# Run the playbook to retrieve the ssh key from the Azure key vault
-ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
 
 # Run the playbook to perform the Operating System configuration
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_01_os_base_config.yaml
@@ -389,9 +376,6 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
-ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
-
 # Run the playbook to perform the SAP Specific Operating System configuration
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_02_os_sap_specific_config.yaml
 
@@ -468,9 +452,6 @@ playbook_options=(
         --extra-vars="@sap-parameters.yaml"
         "${@}"
 )
-
-# Run the playbook to retrieve the ssh key from the Azure key vault
-ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
 
 # Run the playbook to download the software from the SAP Library
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_03_bom_processing.yaml
@@ -550,9 +531,6 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
-ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
-
 # Run the playbook to download the software from the SAP Library
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_05_00_00_sap_scs_install.yaml
 
@@ -630,9 +608,6 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
-ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
-
 # Run the playbook to download the software from the SAP Library
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_04_00_00_db_install.yaml
 
@@ -709,9 +684,6 @@ playbook_options=(
         --extra-vars="@sap-parameters.yaml"
         "${@}"
 )
-
-# Run the playbook to retrieve the ssh key from the Azure key vault
-ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
 
 # Run the playbook to download the software from the SAP Library
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_05_01_sap_dbload.yaml
@@ -794,9 +766,6 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
-ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
-
 # Run the playbook to download the software from the SAP Library
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_04_00_01_db_ha.yaml
 
@@ -810,7 +779,7 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 This playbook performs the installation of the primary application server.
 
 You can either run the playbook using:
-- the DevOps Pipeline 'Configuration and SAP installation' choosing 'PAS Installation.'
+- the DevOps Pipeline 'Configuration and SAP installation' choosing 'Primary Application Server Installation.'
 - the configuration menu script 'configuration_menu.sh.'
 - directly from the command line.
 
@@ -875,9 +844,6 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
-ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
-
 # Run the playbook to download the software from the SAP Library
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_05_02_sap_pas_install.yaml
 
@@ -891,7 +857,7 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 This playbook performs the installation of the application servers.
 
 You can either run the playbook using:
-- the DevOps Pipeline 'Configuration and SAP installation' choosing 'APP Installation.'
+- the DevOps Pipeline 'Configuration and SAP installation' choosing 'Application Server Installation.'
 - the configuration menu script 'configuration_menu.sh.'
 - directly from the command line.
 
@@ -931,7 +897,7 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 The playbook performs the following tasks:
 
-- Primary Application Server Installation.
+- Application Server Installation.
 
 ```bash
 
@@ -956,9 +922,6 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
-ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
-
 # Run the playbook to download the software from the SAP Library
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_05_02_sap_app_install.yaml
 
@@ -971,7 +934,7 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 This playbook performs the installation of the Web Dispatchers.
 
 You can either run the playbook using:
-- the DevOps Pipeline 'Configuration and SAP installation' choosing 'WebDispatcher Installation.'
+- the DevOps Pipeline 'Configuration and SAP installation' choosing 'Web Dispatcher Installation.'
 - the configuration menu script 'configuration_menu.sh.'
 - directly from the command line.
 
@@ -1011,7 +974,7 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 The playbook performs the following tasks:
 
-- Primary Application Server Installation.
+- Web Dispatcher Installation.
 
 ```bash
 
@@ -1036,11 +999,86 @@ playbook_options=(
         "${@}"
 )
 
+
+# Run the playbook to download the software from the SAP Library
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_05_04_sap_web_install.yaml
+
+```
+
+---
+
+## ACSS Registration
+
+This playbook performs the ACSS registration.
+
+You can either run the playbook using:
+- the DevOps Pipeline 'Configuration and SAP installation' choosing 'Register System in ACSS.'
+- the configuration menu script 'configuration_menu.sh.'
+- directly from the command line.
+
+
+# [Linux](#tab/linux)
+
+The playbook performs the following tasks:
+
+- ACSS registration.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                   sap_sid=L00
+export  ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars ansible_ssh_pass='{{ lookup("env", "ANSIBLE_PASSWORD") }}'
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
 # Run the playbook to retrieve the ssh key from the Azure key vault
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
 
 # Run the playbook to download the software from the SAP Library
-ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_05_04_sap_web_install.yaml
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_06_00_acss_registration.yaml
+
+```
+
+
+# [Windows](#tab/windows)
+
+The playbook performs the following tasks:
+
+- ACSS registration.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                   sap_sid=L00
+export       workload_vault_name="LABSECESAP04user###"
+export  ANSIBLE_PRIVATE_KEY_FILE=sshkey
+                          prefix="LAB-SECE-SAP04"
+
+password_secret_name=$prefix-sid-password
+
+password_secret=$(az keyvault secret show --vault-name ${workload_vault_name} --name ${password_secret_name} --query value --output table)
+export ANSIBLE_PASSWORD=$password_secret
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars ansible_ssh_pass='{{ lookup("env", "ANSIBLE_PASSWORD") }}'
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to download the software from the SAP Library
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_06_00_acss_registration.yaml
 
 ```
 
