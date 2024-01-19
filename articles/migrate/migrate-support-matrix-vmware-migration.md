@@ -23,7 +23,7 @@ You can migrate VMware vSphere VMs in a couple of ways:
 - **Using agent-based migration**: Install an agent on the VM for replication. For agent-based migration, you deploy a [replication appliance](migrate-replication-appliance.md).
 
 > [!NOTE]
-> This also supports AVS.
+> This also supports migrating VMs from AVS.
 
 Review [this article](server-migrate-overview.md) to figure out which method you want to use.
 
