@@ -29,7 +29,7 @@ This document outlines various scenarios for connecting a source database to an 
 
 ## Scenario 2: Private IP on-premises source to virtual network-Integrated Azure Database for PostgreSQL via Express Route/IPSec VPN
 
-:::image type="content" source="media\network-setup-migration-service\onpremise-to-azure-vpn.png" alt-text="Screenshot of an on-premises data center is connected to Azure via ExpressRoute or VPN Gateway. The on-premises PostgreSQL server connects through the secure link to the Azure Database for PostgreSQL." lightbox="media\network-setup-migration-service\onpremise-to-azure-vpn.png":::
+:::image type="content" source="media\network-setup-migration-service\on-premise-to-azure-vpn.png" alt-text="Screenshot of an on-premises data center is connected to Azure via ExpressRoute or VPN Gateway. The on-premises PostgreSQL server connects through the secure link to the Azure Database for PostgreSQL." lightbox="media\network-setup-migration-service\on-premise-to-azure-vpn.png":::
 
 **Networking Steps:**
 
