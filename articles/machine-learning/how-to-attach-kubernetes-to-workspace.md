@@ -7,7 +7,7 @@ ms.author: bozhlin
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 08/31/2022
+ms.date: 01/02/2023
 ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 ---
@@ -20,7 +20,7 @@ Once Azure Machine Learning extension is deployed on AKS or Arc Kubernetes clust
 
 ## Prerequisites
 
-Attaching a Kubernetes cluster to Azure Machine Learning workspace can flexibly support many different scenarios, such as the shared scenarios with multiple attachments, model training scripts accessing Azure resources, and the authentication configuration of the workspace. But you need to pay attention to the following prerequisites.
+Attaching a Kubernetes cluster to Azure Machine Learning workspace can flexibly support many different scenarios. For example, the shared scenarios with multiple attachments, model training scripts accessing Azure resources, and the authentication configuration of the workspace. 
 
 #### Multi-attach and workload isolation
 
@@ -103,7 +103,7 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
 
 1. Enter a compute name and select your Kubernetes cluster from the dropdown.
 
-    * **(Optional)** Enter Kubernetes namespace, which defaults to `default`. All machine learning workloads will be sent to the specified Kubernetes namespace in the cluster. Compute attach won't create the Kubernetes namespace automatically or validate whether the kubernetes namespace exists. You need to verify that the specified namespace exists in your cluster, otherwise, any Azure Machine Learning workloads submitted to this compute will fail.  
+    * **(Optional)** Enter Kubernetes namespace, which defaults to `default`. All machine learning workloads are sent to the specified Kubernetes namespace in the cluster. Compute attach doesn't create the Kubernetes namespace automatically or validate whether the kubernetes namespace exists. You need to verify that the specified namespace exists in your cluster, otherwise, any Azure Machine Learning workloads submitted to this compute would fail.  
 
     * **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. For more information, see the [Assign managed identity](#assign-managed-identity-to-the-compute-target) section of this article.
 
@@ -180,7 +180,7 @@ Azure offers a couple of ways to assign roles to a managed identity.
 - [Use Azure CLI to assign roles](../role-based-access-control/role-assignments-cli.md)
 - [Use Azure PowerShell to assign roles](../role-based-access-control/role-assignments-powershell.md)
 
-If you are using the Azure portal to assign roles and have a **system-assigned managed identity**, **Select User**, **Group Principal** or **Service Principal**, you can search for the identity name by selecting **Select members**. The identity name needs to be formatted as: `<workspace name>/computes/<compute target name>`.
+If you're using the Azure portal to assign roles and have a **system-assigned managed identity**, **Select User**, **Group Principal** or **Service Principal**, you can search for the identity name by selecting **Select members**. The identity name needs to be formatted as: `<workspace name>/computes/<compute target name>`.
 
 If you have user-assigned managed identity, select **Managed identity** to find the target identity.
 

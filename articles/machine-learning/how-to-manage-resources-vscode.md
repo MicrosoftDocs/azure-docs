@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 01/15/2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
@@ -93,7 +93,7 @@ The extension currently supports datastores of the following types:
 For more information, see [datastore](concept-data.md#datastore).
 :::moniker-end
 :::moniker range="azureml-api-1"
-For more information, see [datastore](./v1/concept-data.md#connect-to-storage-with-datastores).
+For more information, see [datastore](concept-data.md).
 :::moniker-end
 ### Create a datastore
 
@@ -125,7 +125,7 @@ The extension currently supports the following dataset types:
 - *Tabular*: Allows you to materialize data into a DataFrame.
 - *File*: A file or collection of files. Allows you to download or mount files to your compute.
 
-For more information, see [datasets](./v1/concept-data.md)
+For more information, see [datasets](./concept-data.md)
 
 ### Create dataset
 
@@ -178,7 +178,7 @@ Alternatively, use the `> Azure ML: View Environment` command in the command pal
 :::moniker range="azureml-api-1"
 ## Experiments
 
-For more information, see [experiments](v1/concept-azure-machine-learning-architecture.md#experiments).
+For more information, see [experiments](concept-azure-machine-learning-architecture.md).
 :::moniker-end
 
 ### Create job
@@ -354,7 +354,7 @@ Alternatively, use the `> Azure ML: View Compute Properties` and `> Azure ML: De
 For more information, see [train machine learning models](concept-train-machine-learning-model.md).
 :::moniker-end
 :::moniker range="azureml-api-1"
-For more information, see [train machine learning models](./v1/concept-train-machine-learning-model.md).
+For more information, see [train machine learning models](./concept-train-machine-learning-model.md).
 :::moniker-end
 
 ### Create model
@@ -398,7 +398,7 @@ Alternatively, use the `> Azure ML: Remove Model` command in the command palette
 For more information, see [endpdoints](concept-endpoints.md).
 :::moniker-end
 :::moniker range="azureml-api-1"
-For more information, see [endpoints](v1/concept-azure-machine-learning-architecture.md#endpoints).
+For more information, see [endpoints](concept-azure-machine-learning-architecture.md).
 :::moniker-end
 
 ### Create endpoint
