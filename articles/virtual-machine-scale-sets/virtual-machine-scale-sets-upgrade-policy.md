@@ -71,7 +71,7 @@ Upgrades that do not require a restart or reimage and can be completed in place 
 
 If you are using Rolling Upgrade Policy with MaxSurge, any changes to the scale set model will trigger a rolling upgrade and result in replacing the virtual machine. However, when using Rolling Upgrades with MaxSurge, the new instances are brought up to date with the latest scale set model before being added to the scale set to take traffic. This results in the capacity of your scale set remaining constant throughout the upgrade process. 
 
-MaxSurge is the suggested way of deploying all scale set upgrades to ensure your application remains available and healthy during the entire upgrade process. For more information on MaxSurge, see [Configure Rolling Upgrades](virtual-machine-scale-sets-configure-rolling-upgrades)
+MaxSurge is the suggested way of deploying all scale set upgrades to ensure your application remains available and healthy during the entire upgrade process. For more information on MaxSurge, see [Configure Rolling Upgrades](virtual-machine-scale-sets-configure-rolling-upgrades.md)
 
 
  
