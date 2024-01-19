@@ -61,7 +61,10 @@ This command restarts the app after deploying the ZIP package.
 
 # [Azure PowerShell](#tab/powershell)
 
-The following example uses [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) to upload the ZIP package. Replace the placeholders `<group-name>`, `<app-name>`, and `<zip-package-path>`                                                                        -ResourceGroupName Default-Web-WestUS -Name MyApp -ArchivePath <zip-package-path> 
+The following example uses [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) to upload the ZIP package. Replace the placeholders `<group-name>`, `<app-name>`, and `<zip-package-path>`
+
+```azurepowershell-interactive
+Publish-AzWebApp -ResourceGroupName Default-Web-WestUS -Name MyApp -ArchivePath <zip-package-path> 
 ```
 
 # [Kudu API](#tab/api)
@@ -317,6 +320,7 @@ Add the following JSON to your ARM template. Replace the placeholder `<app-name>
 Use the following reference to help you configure the properties:
 
 |Property | Description | Required |
+|-|-|-|
 | `packageUri` | The URI of the package or file. For more information, see [Microsoft.Web sites/extensions 'onedeploy' 2021-03-01](/azure/templates/microsoft.web/2021-03-01/sites/extensions-onedeploy?pivots=deployment-language-arm-template). | Yes |
 | `type` | See the `type` parameter in [Kudu publish API reference](#kudu-publish-api-reference). | Yes |
 | `path` | See the `target-path` parameter in [Kudu publish API reference](#kudu-publish-api-reference). | No |
