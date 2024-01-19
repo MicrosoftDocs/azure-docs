@@ -8,7 +8,6 @@ ms.service: azure-ai-openai
 ms.topic: conceptual 
 ms.date: 01/02/2024
 manager: nitinme
-keywords: 
 ---
 
 # GPT-4 Turbo with Vision concepts

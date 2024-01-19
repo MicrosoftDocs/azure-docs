@@ -10,7 +10,6 @@ ms.topic: overview
 ms.date: 10/27/2022
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
-ms.custom: 
 ---
 
 # What is Anomaly Detector?
