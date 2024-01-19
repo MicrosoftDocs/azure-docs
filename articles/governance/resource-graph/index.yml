@@ -8,7 +8,6 @@ metadata:
   description: Explore all of your cloud resources and more effectively manage your cloud inventory
   ms.service: resource-graph
   ms.topic: landing-page
-  ms.collection: collection
   author: davidsmatlak
   ms.author: davidsmatlak
   ms.date: 01/05/2024

@@ -8,7 +8,6 @@ metadata:
   description: Azure Policy helps you manage and prevent IT issues with policy definitions that enforce rules and effects for your resources.
   ms.service: azure-policy
   ms.topic: landing-page
-  ms.collection: collection
   author: davidsmatlak
   ms.author: davidsmatlak
   ms.date: 06/02/2021
