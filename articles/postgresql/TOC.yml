@@ -412,17 +412,17 @@
     - name: Concepts
       items:
       - name: Premigration check
-        href: migrate/migration-service/premigration-migration-service
+        href: migrate/migration-service/premigration-migration-service.md
       - name: Known issues and limitations
-        href: migrate/migration-service/known-issues-migration-service
+        href: migrate/migration-service/known-issues-migration-service.md
     - name: Getting Started
       items:
       - name: Prerequisites
-        href: migrate/migration-service/prerequisites-migration-service
+        href: migrate/migration-service/prerequisites-migration-service.md
     - name: How-to guides
       items:
       - name: Network setup
-        href: migrate/migration-service/network-setup-migration-service
+        href: migrate/migration-service/network-setup-migration-service.md
   - name: Migrate Single Server to Flexible Server
     items:
     - name: Migration tool - Concepts

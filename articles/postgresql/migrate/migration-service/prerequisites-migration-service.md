@@ -58,11 +58,12 @@ The following table can help set up the network between the source and target.
 
 ## Extensions
 
-- Use the select command in the source to list all the extensions that are being used - `select extname,extversion from pg_extension;`
+Extensions are additional features that can be added to PostgreSQL to enhance its functionality. Extensions are supported in Azure Database for PostgreSQL, but they must be enabled manually. To enable extensions, follow these steps:
 
+- Use the select command in the source to list all the extensions that are being used - `select extname,extversion from pg_extension;`
 - Search for azure.extensions server parameter on the Server parameter page on your Azure Database for PostgreSQL. Enable the extensions found in the source within the PostgreSQL.
 
-:::image type="content" source="media\pre-requisites-migration-service\extensions-enable-flexible-server.png" alt-text="Screenshot of enabling the extensions in Azure Database for PostgreSQL." lightbox="media\pre-requisites-migration-service\extensions-enable-flexible-server.png":::
+:::image type="content" source="media\prerequisites-migration-service\extensions-enable-flexible-server.png" alt-text="Screenshot of enabling the extensions in Azure Database for PostgreSQL." lightbox="media\prerequisites-migration-service\extensions-enable-flexible-server.png":::
 
 - Check if the list contains any of the following extensions:
     - PG_CRON
