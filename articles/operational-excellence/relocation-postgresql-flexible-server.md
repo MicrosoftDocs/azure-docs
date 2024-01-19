@@ -126,6 +126,5 @@ Redeployment with data migration for Azure Database for PostgreSQL is based on l
     1. Configure the clients to point to the target server.
     1. Perform functional tests on the applications.
         1. Ensure that the `ignoreMissingVnetServiceEndpoint` flag is set to `False`, so that the IaC fails to deploy the database when the service endpoint isn’t configured in the target region. 
-        ![Migration over Public Endpoint](media/relocation/postgres/migration-over-public-endpoint.png)
         
         
