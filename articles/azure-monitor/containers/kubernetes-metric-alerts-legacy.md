@@ -1,6 +1,6 @@
 ---
 title: Metric alert rules for Kubernetes clusters (legacy)
-description: Describes how to create recommended metric alerts rules for a Kubernetes cluster in Container insights.
+description: Describes legacy recommended metric alerts rules for a Kubernetes cluster in Container insights.
 ms.topic: conceptual
 ms.date: 03/13/2023
 ms.reviewer: aul

@@ -1,6 +1,6 @@
 ---
 title: Metric alert rules for Kubernetes clusters (preview)
-description: Describes how to create recommended metric alerts rules for a Kubernetes cluster in Container insights.
+description: Describes how to enable recommended metric alerts rules for a Kubernetes cluster in Azure Monitor.
 ms.topic: conceptual
 ms.date: 01/17/2024
 ms.reviewer: aul
@@ -70,7 +70,7 @@ Download the [Community alerts template.](https://aka.ms/azureprometheus-alerts-
 
 Once the rule group has been created, you can't use the same page in the portal to edit the rules. For Prometheus metrics, you must edit the rule group to modify any rules in it, including enabling any rules that weren't already enabled. For platform metrics, you can edit each alert rule.
 
-Use the following process to open the rule or rule group for editing.
+### [Azure portal](#tab/portal)
 
 1.	From the **Alerts** menu for your cluster, select **Set up recommendations**. Any rules or rule groups that have already been created will be labeled as **Already created**.
 2. Expand the rule or rule group. Click on **View rule group** for Prometheus and **View alert rule** for platform metrics.
@@ -91,12 +91,35 @@ Use the following process to open the rule or rule group for editing.
 
         :::image type="content" source="media/kubernetes-metric-alerts/edit-platform-metric-rule.png" lightbox="media/kubernetes-metric-alerts/edit-platform-metric-rule.png" alt-text="Screenshot of option to edit platform metric rule.":::
 
+### [ARM template](#tab/arm)
 
+Edit the query and threshold or configure an action group for your alert rules in the ARM template described in [Enable Prometheus alert rules](#enable-prometheus-alert-rules) and redeploy it by using any deployment method.
+
+---
 
 ## Apply alert rule group to multiple clusters
 
-For Prometheus alert rules, 
+Instead of creating multiple Prometheus alert rules for each of your clusters, you can create a single rule group and apply it to all of the clusters that use the same Azure Monitor workspace.
 
+1. View the alert rule group as described in [Edit Prometheus alert rules](#edit-prometheus-alert-rules).
+2. From the **Scope** menu, select **All clusters in the workspace** for the **Cluster** setting. 
+
+    :::image type="content" source="media/kubernetes-metric-alerts/prometheus-rule-group-scope.png" lightbox="media/kubernetes-metric-alerts/prometheus-rule-group-scope.png" alt-text="Screenshot of option to edit rule group scope.":::
+
+## Disable alert rule group
+
+### [Azure portal](#tab/portal)
+
+1. View the alert rule group as described in [Edit Prometheus alert rules](#edit-prometheus-alert-rules).
+2. From the **Overview** menu, select **Disable**.
+
+    :::image type="content" source="media/kubernetes-metric-alerts/disable-prometheus-rule-group.png" lightbox="media/kubernetes-metric-alerts/disable-prometheus-rule-group.png" alt-text="Screenshot of option to edit rule group scope.":::
+
+### [ARM template](#tab/arm)
+
+Set the **enabled** flag to false for the rule group in the ARM template described in [Enable Prometheus alert rules](#enable-prometheus-alert-rules) and redeploy it by using any deployment method.
+
+---
 
 ## Next steps
 
