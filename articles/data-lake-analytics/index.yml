@@ -6,7 +6,7 @@ metadata:
   description: Azure Data Lake Analytics allows you to run big data analysis jobs that scale to massive data sets.
   ms.service: data-lake-analytics
   ms.topic: landing-page
-  ms.collection: collection
+
   author: whhender
   ms.author: whhender
   ms.date: 10/14/2022
