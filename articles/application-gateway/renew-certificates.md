@@ -72,11 +72,7 @@ az network application-gateway ssl-cert update \
 ```
 ### Azure Terraform
 
-If the application gateway is terraform managed, the azure terraform key vault data source will get the entire key vault URI, including the version of the secrets. For automatic rotation of the certificate to a new version, the secret should be versionless.
-
-**Reference snip**:
-
-![Application Gateway SSL Certificate](/.attachments/msimage.png)
+If you're using Terraform to manage the application gateway, the Azure Terraform Key Vault data source will retrieve the complete key vault URI, which includes the version of the secrets. To enable automatic rotation of the certificate to a new version, the secret needs to be without a specific version.
 
 *The below piece of terraform code is okay, but there's a problem with the data source called "azurerm_key_vault_secret." It fetches the Key Vault secret ID, but it includes the version of the secret in the complete Keyvault URL.*
 
@@ -95,7 +91,7 @@ where:
 - **vault**:                     Is the name given to this particular instance of the azurerm_key_vault_secret data source. You will refer to this name when using the output from this data source elsewhere in your Terraform configuration. <br>
 - **name**:                      name of the certificate stored in Keyvault <br>
 
-2. The data source "**azurerm_key_vault_secret**" will be used within the `**ssl_certificate**` block under the application gateway section.
+**The data source "**azurerm_key_vault_secret**" will be used within the `**ssl_certificate**` block under the application gateway section.**
 
 **Reference-1**:
 <pre>
@@ -132,11 +128,9 @@ resource "azurerm_application_gateway" "main" {
 
 ![Application Gateway SSL Certificate](/.attachments/oldsslcertlink.png)
 
-3. The certificate added to the application gateway, as shown in the screenshot above, is tied to a specific secret version. Renewing this certificate in KeyVault doesn't automatically make the application gateway listener select the updated certificate. To reflect the changes, the certificate in the application gateway must be manually updated.
+The certificate added to the application gateway, as shown in the screenshot above, is tied to a specific secret version. Renewing this certificate in KeyVault doesn't automatically make the application gateway listener select the updated certificate. To reflect the changes, the certificate in the application gateway must be manually updated.
 
-#####Solution
-
-*To resolve this issue, we can leverage the Terraform "**replace**" function. By using this function, we can replace the entire KeyVault URL, which includes the secret version, with just the secret name, excluding the version.*
+*To add versionless keyvault certificates, we can leverage the Terraform "**replace**" function. By using this function, we can replace the entire KeyVault URL, which includes the secret version, with just the secret name, excluding the version.*
 
 - **Here's how**:
 
@@ -168,8 +162,6 @@ resource "azurerm_application_gateway" "main" {
     }
 ```
 </pre>
-
-2. What we did above?
 
 - We use the same data source "**data.azurerm_key_vault_secret.vault.id**" which we used earlier in “**Reference-1**”, but we will use that data source along with the replace function and then compare the value in the data source “**data.azurerm_key_vault_secret.vault.id**” with regex “/secrets/(.*)/[^/]+/",” and then just use /secrets/group1.
 
