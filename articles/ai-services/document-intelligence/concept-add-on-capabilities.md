@@ -333,5 +333,5 @@ https://{your resource}.cognitiveservices.azure.com/documentintelligence/documen
 
 > [!div class="nextstepaction"]
 > SDK samples:
-> [**python**](/python/api/overview/azure/ai-documentintelligence-readme.md).
+> [**python**](/python/api/overview/azure/ai-documentintelligence-readme).
 
