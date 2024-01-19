@@ -4,7 +4,7 @@ description: Learn how to relocate Microsoft Sentinel to a new region
 author: anaharris-ms
 ms.author: anaharris
 ms.date: 01/18/2024
-ms.service: sentinel
+ms.service: microsoft-sentinel
 ms.topic: how-to
 ---
 
@@ -14,7 +14,7 @@ This article covers relocation guidance for Microsoft Sentinel across regions. B
 
 ## Prerequisites
 
-Carefully prepare and plan your Sentinel reconfiguration, before you move the related Log Analytics Workspace or  other Azure srevices.  
+Carefully prepare and plan your Sentinel reconfiguration, before you move the related Log Analytics Workspace or  other Azure services.  
 
 You also need to make sure to plan and prepare any compliance requirements for data collection and storage at target, as well as the Role-based access control (RBAC) model to access Microsoft Sentinel data.
 
@@ -29,7 +29,7 @@ To relocate Azure Storage account to a new region, you must reconfigure Sentinel
 **Azure Resource Mover** doesn't support moving services used by the Microsoft Sentinel. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
 
 
-:::image type="content" source="media/relocation/sentinel/sentinel_pattern_design.png" alt-text="Diagram illustrating Sentinel relocation pattern.":::
+:::image type="content" source="media/relocation/sentinel/sentinel-pattern-design.png" alt-text="Diagram illustrating Sentinel relocation pattern.":::
 
 
 >[!IMPORTANT]

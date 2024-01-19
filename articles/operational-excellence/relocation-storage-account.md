@@ -26,15 +26,16 @@ If your Azure Storage Account instance doesn't have any client specific data and
 
 **To redeploy your Storage Account instance without data:**
 
-Redeploy the Storage Account instance by using [Bicep, ARM Template, or Terraform](/LICENSEazure/templates/microsoft.storage/storageaccounts?tabs=json&pivots=deployment-language-arm-template).
-- Depending on your Storage Account deployment, the following dependent resources may need to be deployed and configured in the target region *prior* to relocation:
+1. Redeploy the Storage Account instance by using [Bicep, ARM Template, or Terraform](/azure/templates/microsoft.storage/storageaccounts?tabs=json&pivots=deployment-language-arm-template).
+
+1. Depending on your Storage Account deployment, the following dependent resources may need to be deployed and configured in the target region *prior* to relocation:
     - [Virtual Network, Network Security Groups, and User Defined Route](./relocation-virtual-network.md)
     - [Azure Key Vault](./relocation-key-vault.md)
     - [Azure Automation](./relocation-automation.md)
     - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
     - [Azure Private Link](./relocation-private-link.md)
     
-To view the available configuration templates, see [the complete Azure Template library](/azure/templates/).
+    To view the available configuration templates, see [the complete Azure Template library](/azure/templates/).
 
 ## Redeploy with data migration
 
