@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 01/15/2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
