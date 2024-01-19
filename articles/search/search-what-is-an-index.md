@@ -138,7 +138,7 @@ Although these index variants are somewhat artificial, we can refer to them for 
 + "filterable", "sortable", "facetable" consume more storage.
 + **suggester** has a large potential for increasing index size, but not as much as the screenshot would indicate (all fields that could be made suggester-aware were selected, which isn't a likely scenario in most indexes).
 
-Also not reflected in the above table is the effect of [analyzers](search-analyzers.md). If you use the edgeNgram tokenizer to store verbatim sequences of characters (`a, ab, abc, abcd`), the size of the index will be larger than if you used a standard analyzer.
+Also not reflected in the previous table is the effect of [analyzers](search-analyzers.md). If you use the edgeNgram tokenizer to store verbatim sequences of characters (`a, ab, abc, abcd`), the index is larger than if you use the standard analyzer.
 
 ## Basic operations and interaction
 

@@ -60,7 +60,7 @@ Output field mappings are added to the `outputFieldMappings` array in an indexer
 |----------|-------------|
 | sourceFieldName | Required. Specifies a path to enriched content. An example might be `/document/content`. See [Reference enrichments in an Azure AI Search skillset](cognitive-search-concept-annotations-syntax.md) for path syntax and examples. |
 | targetFieldName | Optional. Specifies the search field that receives the enriched content. Target fields must be top-level simple fields or collections. It can't be a path to a subfield in a complex type. If you want to retrieve specific nodes in a complex structure, you can [flatten individual nodes](#flattening-information-from-complex-types) in memory, and then send the output to a string collection in your index. |
-| mappingFunction | Optional. Adds extra processing provided by [mapping functions](search-indexer-field-mappings.md#mappingFunctions) supported by indexers. In the case of enrichment nodes, encoding and decoding are the most commonly used functions. |
+| mappingFunction | Optional. Adds extra processing provided by [mapping functions](search-indexer-field-mappings.md#mappingFunctions) supported by indexers. For enrichment nodes, encoding and decoding are the most commonly used functions. |
 
 You can use the REST API or an Azure SDK to define output field mappings.
 
@@ -103,7 +103,7 @@ api-key: [admin key]
 }
 ```
 
-For each output field mapping, set the location of the data in the enriched document tree (sourceFieldName), and the name of the field as referenced in the index (targetFieldName). Assign any [mapping functions](search-indexer-field-mappings.md#mappingFunctions) that you require to transform the content of a field before it's stored in the index.
+For each output field mapping, set the location of the data in the enriched document tree (sourceFieldName), and the name of the field as referenced in the index (targetFieldName). Assign any [mapping functions](search-indexer-field-mappings.md#mappingFunctions) needed to transform the content of a field before it's stored in the index.
 
 ### [**.NET SDK (C#)**](#tab/csharp)
 
