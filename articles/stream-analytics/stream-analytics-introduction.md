@@ -48,7 +48,7 @@ Azure Stream Analytics uses a SQL query language that's augmented with powerful 
 - [Azure PowerShell](stream-analytics-quick-create-powershell.md)
 - [Bicep](quick-create-bicep.md)
 - [Azure Resource Manager templates](quick-create-azure-resource-manager.md)
-- [Terraform](quick-create-terraform?tabs=azure-cli.md)
+- [Terraform](quick-create-terraform.md)
 
 Developer tools allow you to develop transformation queries offline and use the CI/CD pipeline to submit jobs to Azure.
 
