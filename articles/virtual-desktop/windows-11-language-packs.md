@@ -41,7 +41,7 @@ To create the content repository you'll use to add languages and features to you
 
 1. Open the VM you want to add languages to in Azure.
 
-2. Open and mount the ISO file you downloaded in the [Requirements](#requirements) section above on the VM.
+2. Open and mount the ISO file you downloaded in the [Prerequisites](#prerequisites) section above on the VM.
 
 3. Create a folder on the file share.
 
