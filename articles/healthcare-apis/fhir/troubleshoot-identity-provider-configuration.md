@@ -12,7 +12,7 @@ ms.author: namalu
 
 # Troubleshoot identity provider configuration for the FHIR service
 
-API version 2023-12-01 of the FHIR&reg; service in Azure Health Data Services supports two non-Microsoft identity providers in addition to [Microsoft Entra ID](/entra/identity/). To provide scoped access to users, you configure the two identity providers by populating the `smartIdentityProviders` section of the `authenticationConfiguration` object.
+API version 2023-12-01 of the FHIR&reg; service in Azure Health Data Services supports two identity providers in addition to [Microsoft Entra ID](/entra/identity/). To provide scoped access to users, you configure the two identity providers by populating the `smartIdentityProviders` section of the `authenticationConfiguration` object.
 
 ## Error messages
 
