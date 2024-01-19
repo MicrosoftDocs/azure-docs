@@ -35,7 +35,7 @@ In this article, you learn how to set up web endpoints in a Custom Commands appl
 
 For this tutorial, you need an HTTP endpoint that maintains states for all the devices you set up in the **TurnOnOff** command of your Custom Commands application.
 
-If you already have a web endpoint you want to call, skip to the [next section](#setup-web-endpoints-in-custom-commands). 
+If you already have a web endpoint you want to call, skip to the [next section](#set-up-web-endpoints-in-custom-commands). 
 Alternatively, the next section provides details about a default hosted web endpoint you can use if you want to skip this section.
 
 ### Input format of Azure function
