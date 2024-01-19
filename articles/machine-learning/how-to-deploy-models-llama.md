@@ -13,9 +13,7 @@ ms.author: mopeakande
 author: msakande
 ms.custom: [references_regions]
 
-#customer intent: As a <role>, I want <what> so that <why>.
-
-#This functionality is also available in Azure AI Studio
+#This functionality is also available in Azure AI Studio: /azure/ai-studio/how-to/deploy-models-llama.md
 ---
 
 
@@ -70,7 +68,7 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
       - `Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*`  
       - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*`
       
-    - For finetuning, these permissions are needed at the project level (the AI developer role contains these permissions already):
+    - For fine-tuning, these permissions are needed at the project level (the AI developer role contains these permissions already):
       - `Microsoft.MachineLearningServices/workspaces/jobs/*`
       - `Microsoft.MachineLearningServices/workspaces/datastores/*`
 
@@ -91,14 +89,14 @@ To create a deployment:
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png":::
 
 1. On the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
-1. If this is your first time deploying the model in the workspace, you have to sign your workspace up for the particular offering (Llama-2-70b) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each workspace has its own connection to the particular Azure Marketplace offering, which allows you to control and monitor spending per workspace. Select **Subscribe and Deploy**.
+1. If this is your first time deploying the model in the workspace, you have to sign up your workspace for the particular offering (Llama-2-70b) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each workspace has its own connection to the particular Azure Marketplace offering, which allows you to control and monitor spending per workspace. Select **Subscribe and Deploy**.
 
     > [!NOTE]
     > Subscribing a project to a particular Azure Marketplace offering (in this case, Llama-2-70b) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
 
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="media/how-to-deploy-models-llama/deploy-marketplace-terms.png":::
 
-1. Once you've signed up the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace won't require signing up. Therefore, you won't need to have the subscription-level permissions for subsequent deployments. If this is your case, select **Continue to deploy**.
+1. Once you sign up the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require signing up. Therefore, you don't need to have the subscription-level permissions for subsequent deployments. If this is your case, select **Continue to deploy**.
 
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-pay-as-you-go-project.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="media/how-to-deploy-models-llama/deploy-pay-as-you-go-project.png":::
 
@@ -114,7 +112,7 @@ To create a deployment:
 
 ### Consume Llama 2 models as a service
 
-Models deployed as a service can be consumed using either the chat or the completions API, depending on the type of model you've deployed.
+Models deployed as a service can be consumed using either the chat or the completions API, depending on the type of model you deployed.
 
 1. In the **workspace**, select **Endpoints** > **Serverless endpoints**.
 1. Find and select the deployment you created.
@@ -124,7 +122,7 @@ Models deployed as a service can be consumed using either the chat or the comple
     - For completions models, such as `Llama-2-7b`, use the [`<target_url>/v1/completions`](#completions-api) API.
     - For chat models, such as `Llama-2-7b-chat`, use the [`<target_url>/v1/chat/completions`](#chat-api) API.
 
-    See the [reference](#reference-for-llama-2-models-deployed-as-a-service) section for more details with examples.
+   For more information on using the APIs, see the [reference](#reference-for-llama-2-models-deployed-as-a-service) section.
 
 ### Reference for Llama 2 models deployed as a service
 
@@ -330,14 +328,14 @@ The `choices` object is a dictionary with the following fields.
 | `logprobs` | `object` | The log probabilities of the generated tokens in the output text. |
 
 
-The `usage` object is a dictionary with the following fields. 
+The `usage` object is a dictionary with the following fields.
 
 | Key                 | Type      | Value                                         |
 |---------------------|-----------|-----------------------------------------------|
 | `prompt_tokens`     | `integer` | Number of tokens in the prompt.               |
 | `completion_tokens` | `integer` | Number of tokens generated in the completion. |
 | `total_tokens`      | `integer` | Total tokens.                                 |
-    
+
 The `logprobs` object is a dictionary with the following fields:
 
 | Key              | Type                    | Value   |
@@ -471,10 +469,7 @@ Llama models deployed as a service are offered by Meta through Azure Marketplace
 Each time a workspace subscribes to a given model offering from Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
 See (change - check link) [monitor costs for models offered throughout Azure Marketplace](/azure/ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs.
 
-(change - use same image as AI Studio
-
-:::image type="content" source="media/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters."  lightbox="media/costs-model-as-service-cost-details.png":::
-)
+:::image type="content" source="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters." lightbox="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png":::
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
@@ -484,9 +479,9 @@ For deployment and inferencing of Llama models with real-time endpoints, you con
 
 ## Content filtering
 
-Models deployed as a service with pay-as-you-go are protected by Azure AI content safety. When deployed to real-time endpoints, you can opt out of this capability. With Azure AI content safety enabled, both the prompt and completion are run through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
+Models deployed as a service with pay-as-you-go are protected by Azure AI content safety. When deployed to real-time endpoints, you can opt out of this capability. With Azure AI content safety enabled, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
 
-## Next steps
+## Related content
 
-- Learn more about what you can do in [Azure Machine Learning studio](change - add link to what is azure ML studio kind of page)
-- Get answers to frequently asked questions in the [Azure Machine Learning studio FAQ article](change - add link)
+- [Model Catalog and Collections](concept-model-catalog.md)
+- [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
