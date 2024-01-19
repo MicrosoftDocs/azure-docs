@@ -1,10 +1,10 @@
 ---
 title: Microsoft Sentinel solution for Microsoft Power Platform - security content reference
 description: Learn about the built-in security content provided by the Microsoft Sentinel solution for Power Platform.
-author: cwatson-cat
-ms.author: cwatson
+author: batamig
+ms.author: bagol
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 01/18/2024
 ---
 
 # Microsoft Sentinel solution for Microsoft Power Platform: security content reference
@@ -29,5 +29,18 @@ The following analytic rules are included when you install the solution for Powe
 |PowerAutomate - Departing employee flow activity|Identifies instances where an employee who has been notified or is already terminated creates or modifies a Power Automate flow.<br><br>This analytics rule uses the **TerminatedEmployees** watchlist.<br><br>To use the **TerminatedEmployees** watchlist, create and populate the watchlist from a default template. For more information, see [Use watchlists in Microsoft Sentinel](/azure/sentinel/watchlists).|User defined in the **TerminatedEmployees** watchlist creates or updates a Power Automate flow.<br><br>**Data sources**:<br>Microsoft Power Automate (Preview)<br>`PowerAutomateActivity`|Exfiltration, Impact|
 |PowerPlatform - Connector added to a sensitive environment|Identifies the creation of new API connectors within Power Platform, specifically targeting a predefined list of sensitive environments.<br><br>Update the list of sensitive environments by modifying the `sensitive_environment_id` in the rule query. |Add a new Power Platform connector in a sensitive Power Platform environment.<br><br>**Data sources**:<br>Microsoft Power Platform Connectors (Preview)<br>`PowerPlatformConnectorActivity`|Execution, Exfiltration|
 |PowerPlatform - DLP policy updated or removed|Identifies changes to the data loss prevention policy, specifically policies that are updated or removed.|Update or remove a Power Platform data loss prevention policy in Power Platform environment.<br><br>**Data sources**:<br>Microsoft Power Platform DLP (Preview)<br>`PowerPlatformDlpActivity`|Defense Evasion|
+
+## Built-in parsers
+
+The solution includes parsers that are used to access data from the raw data tables. Parsers ensure that the correct data is returned with a consistent schema. We recommend that you use the parsers instead of directly querying the inventory tables and watchlists. The Power Platform inventory related parsers return data from the last 14 days.
+
+|Parser  |Data returned  |Table queried |
+|---------|---------|---------|
+|`InventoryApps` | Power Apps Inventory | `PowerApps_CL`  |
+|`InventoryAppsConnections` |  Power Apps connections Inventoryconnections       |  `PowerAppsConnections_CL`      |
+|`InventoryEnvironments`   |Power Platform environments Inventory         |  `PowerPlatrformEnvironments_CL`       |
+|`InventoryFlows`   |  Power Automate flows Inventory       |  `PowerAutomateFlows_CL`       |
+|`MSBizAppsTerminatedEmployees`    | Terminated employees watchlist (from watchlist template)        |  `TerminatedEmployees`      |
+
 
 For more information about analytic rules, see [Detect threats out-of-the-box](../detect-threats-built-in.md).
