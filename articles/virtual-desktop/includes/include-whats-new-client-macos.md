@@ -24,7 +24,7 @@ In this release, we've made the following changes:
 - Fixed microphone redirection on macOS 14.
 - Sorted out daylight savings time issues for time zone redirection scenarios.
 - Added watermarking support for Azure Virtual Desktop scenarios.
-- Resolved an issue that caused workspace resource icons to be partially obscured by a white or black rectangle. If you encounter this issue, you can force a workspace refresh by going to to **Help** > **Troubleshooting** > **Force Refresh All Workspaces**.
+- Resolved an issue that caused workspace resource icons to be partially obscured by a white or black rectangle. If you encounter this issue, you can force a workspace refresh by selecting **Help** > **Troubleshooting** > **Force Refresh All Workspaces**.
 
 ## Updates for version 10.9.4
 
