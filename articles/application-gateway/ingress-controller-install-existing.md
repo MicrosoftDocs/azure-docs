@@ -2,12 +2,12 @@
 title: Create an ingress controller with an existing Application Gateway
 description: This article provides information on how to deploy an Application Gateway Ingress Controller with an existing Application Gateway.
 services: application-gateway
-author: greg-lindsay, Julien-Robert Lecadou
+author: greg-lindsay
 ms.service: application-gateway
 ms.custom: devx-track-arm-template, linux-related-content, devx-track-azurecli
 ms.topic: how-to
 ms.date: 01/19/2024
-ms.author: greglin,jlecadou
+ms.author: greglin
 ---
 
 # Install an Application Gateway Ingress Controller (AGIC) using an existing Application Gateway
