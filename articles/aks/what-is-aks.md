@@ -12,7 +12,7 @@ ms.date: 01/19/2024
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications without container orchestration expertise. Azure handles critical operational tasks such as health monitoring and maintenance. When you create an AKS cluster, Azure automatically creates and configures a control plane for you at no cost. The control plane manages the Kubernetes objects and worker nodes that you deploy to run your applications. You only pay for the worker nodes within your clusters, not for the Kubernetes cluster itself.
 
 > [!NOTE]
-> AKS is [CNCF-certified](https://www.cncf.io/training/certification/software-conformance/) and is compliant with SOC, ISO, PCI DSS, and HIPAA. For more information, see the [Microsoft Azure compliance overview](/azure/explore/trusted-cloud/compliance/).
+> AKS is [CNCF-certified](https://www.cncf.io/training/certification/software-conformance/) and is compliant with SOC, ISO, PCI DSS, and HIPAA. For more information, see the [Microsoft Azure compliance overview](https://azure.microsoft.com/explore/trusted-cloud/compliance/).
 
 ## When to use AKS
 
@@ -29,7 +29,7 @@ The following list describes some of the common use cases for AKS, but by no mea
 * **[Microservices with AKS](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)**: Simplify the deployment and management of microservices-based applications with streamlined horizontal scaling, self-healing, load balancing, and secret management.
 * **[Secure DevOps for AKS](/azure/architecture/reference-architectures/containers/aks-start-here)**: Efficiently balance speed and security by implementing secure DevOps with Kubernetes.
 * **[Bursting from AKS with ACI](/azure/architecture/reference-architectures/containers/aks-start-here)**: Use virtual nodes to provision pods inside ACI that start in seconds and scale to meet demand.
-* **[Machine learning model training with AKS](/azure/architecture/ai-ml/machine-learning-model-deployment-aks)**: Train models using large datasets with familiar tools, such as TensorFlow and Kubeflow.
+* **[Machine learning model training with AKS](/azure/architecture/ai-ml/idea/machine-learning-model-deployment-aks)**: Train models using large datasets with familiar tools, such as TensorFlow and Kubeflow.
 * **[Data streaming with AKS](/azure/architecture/solution-ideas/articles/data-streaming-scenario)**: Ingest and process real-time data streams with millions of data points collected via sensors, and perform fast analyses and computations to develop insights into complex scenarios.
 
 ## Features of AKS
