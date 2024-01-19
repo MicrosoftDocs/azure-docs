@@ -250,11 +250,11 @@
     items:
     - name: Create a vector index
       href: vector-search-how-to-create-index.md
-    - name: Configure a vectorizer (vectors)
+    - name: Configure a vectorizer (preview)
       href: vector-search-how-to-configure-vectorizer.md
-    - name: Chunk documents (vectors)
+    - name: Chunk documents
       href: vector-search-how-to-chunk-documents.md
-    - name: Generate embeddings (vectors)
+    - name: Generate embeddings
       href: vector-search-how-to-generate-embeddings.md
 
   - name: Analyzers
