@@ -2,7 +2,6 @@
 title: API gateway overview | Azure API Management
 description: Learn more about the features of the API gateway component of Azure API Management. API Management offers both Azure-managed and self-hosted gateways.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
