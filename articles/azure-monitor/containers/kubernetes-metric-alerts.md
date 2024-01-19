@@ -50,13 +50,13 @@ Download the [Community alerts template.](https://aka.ms/azureprometheus-communi
 
 The template uses the parameters in the following table:
 
-| Parameter | Description |
+| Parameter | DescriptioNode |
 |:---|:---|
 | clusterName | Name of the cluster. |
 | clusterResourceId | Resource ID of the cluster. |
 | actionGroupResourceId | Resource ID of action group that defines responses to alerts. |
 | azureMonitorWorkspaceResourceId | Resource ID of the Azure Monitor workspace receiving the cluster's Prometheus metrics. |
-| location | Region to store the alert rule group. |
+| locatioNode | Region to store the alert rule group. |
 
 
 #### Bicep
@@ -120,6 +120,59 @@ Instead of creating multiple Prometheus alert rules for each of your clusters, y
 Set the **enabled** flag to false for the rule group in the ARM template described in [Enable Prometheus alert rules](#enable-prometheus-alert-rules) and redeploy it by using any deployment method.
 
 ---
+
+## Alert rule details
+
+The following table lists the details of each Prometheus alert rule. Source code for each is available in [GitHub](https://aka.ms/azureprometheus-communityalerts).
+
+| Alert name | DescriptioNode | Default threshold | Level(P=Pod,C=Cluster,N=Node) |
+|:---|:---|:---|:---|
+| KubePodCrashLooping | Pod is in CrashLoop which means the app dies or is unresponsive and Kubernetes tries to restart it automatically. | NA | Pod |
+| KubePodNotReadyByController | Pod has been in a non-ready state for more than 15 minutes. | NA | Pod |
+| KubeDeploymentReplicasMismatch | Deployment has not matched the expected number of replicas. | NA | Cluster |
+| KubeStatefulSetReplicasMismatch | StatefulSet has not matched the expected number of replicas. | NA | Cluster |
+| KubeJobNotCompleted | Job is taking more than 1h to complete. | NA | Pod |
+| KubeJobFailed | Job failed complete. | NA | Pod |
+| KubeHpaReplicasMismatch | Horizontal Pod Autoscaler has not matched the desired number of replicas for longer than 15 minutes. | NA | Cluster |
+| KubeHpaMaxedOut | Horizontal Pod Autoscaler has been running at max replicas for longer than 15 minutes. | NA | Cluster |
+| KubeCPUQuotaOvercommit | Cluster has overcommitted CPU resource requests for Namespaces and cannot tolerate node failure. | 1.5 | Cluster |
+| KubeMemoryQuotaOvercommit | Cluster has overcommitted memory resource requests for Namespaces. | 1.5 | Cluster |
+| KubeQuotaAlmostFull | Cluster reaches to the allowed limits for given namespace. | Between 0.9 and 1 | Node |
+| KubeVersionMismatch | Different semantic versions of Kubernetes components running. | NA | Cluster |
+| KubeNodeNotReady | KubeNodeNotReady alert is fired when a Kubernetes node is not in Ready state for a certain period. | NA | Node |
+| KubeNodeUnreachable | Kubernetes node is unreachable and some workloads may be rescheduled. | NA | Node |
+| KubeNodeReadinessFlapping | The readiness status of node has changed few times in the last 15 minutes. | 2 | Node |
+| Average PV usage is greater than 80% | Average PV usage is greater than 80% | 80 | Cluster |
+| Average node CPU utilization is greater than 80% | Average node CPU utilization is greater than 80% | 80 | Node |
+| Job did not complete in time | Number of stale jobs older than six hours is greater than 0 | 0 | Pod |
+| Working set memory for a node is greater than 80% | Working set memory for a node is greater than 80% | 80 | Node |
+| Pod container restarted in last 1 hour | Pod container restarted in last 1 hour | NA | Pod |
+| Number of OOM killed containers is greater than 0 | Number of OOM killed containers is greater than 0 | 0 | Node |
+| Ready state of pods is less than 80% | Ready state of pods is less than 80% | 80 | Pod |
+| Number of pods in failed state are greater than 0 | Number of pods in failed state are greater than 0 | 0 | Pod |
+| KubeDaemonSetNotScheduled | Pods of DaemonSet are not scheduled. | NA | Node |
+| KubePodNotReadyByController | Pod has been in a non-ready state for more than 15 minutes. | NA | Pod |
+| KubeStatefulSetGenerationMismatch | StatefulSet generation for {{ $labels.namespace }}/{{ $labels.statefulset }} does not match, this indicates that the StatefulSet has failed but has not been rolled back. | NA | Pod |
+| KubeContainerWaiting | Pod on container waiting longer than 1 hour | NA | Node |
+| KubeClientErrors | Kubernetes API server client is experiencing errors. | 0.01 | Cluster |
+| KubeDaemonSetMisScheduled | DaemonSet pods are misscheduled | 0 | Node |
+| Average CPU usage per container is greater than 95% | Average CPU usage per container is greater than 95% | 95 | Pod |
+| CPUThrottlingHigh | Processes experience elevated CPU throttling | NA | Cluster |
+| KubeletPlegDurationHigh | The Kubelet Pod Lifecycle Event Generator has a 99th percentile duration of {{ $value }} seconds on node {{ $labels.node }}. | 10 | Node |
+| Average Memory usage per container is greater than 95% | Average Memory usage per container is greater than 95% | 95 | Pod |
+| KubePersistentVolumeFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} is only {{ $value | humanizePercentage }} free. | NA | Cluster |
+| KubeletClientCertificateExpiratioNode | Client certificate for Kubelet on node {{ $labels.node }} expires in {{ $value | humanizeDuration }}. | NA | Node |
+| KubeletPodStartUpLatencyHigh | Kubelet Pod startup 99th percentile latency is {{ $value }} seconds on node {{ $labels.node }}. | 60 | Pod |
+| KubePersistentVolumeInodesFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} only has {{ $value | humanizePercentage }} free inodes. | NA | Cluster |
+| KubeletServerCertificateExpiratioNode | Server certificate for Kubelet on node {{ $labels.node }} expires in {{ $value | humanizeDuration }}. | NA | Node |
+| KubePersistentVolumeErrors | The persistent volume {{ $labels.persistentvolume }} has status {{ $labels.phase }} | 0 | Cluster |
+| KubeletClientCertificateRenewalErrors | Kubelet has failed to renew its client certificate. | 0 | Node |
+| KubeletServerCertificateRenewalErrors | Kubelet has failed to renew its server certificate. | 0 | Node |
+| KubeQuotaFullyUsed | Namespace {{ $labels.namespace }} is using {{ $value | humanizePercentage }} of its {{ $labels.resource }} quota | 1 | Node |
+| KubeQuotaExceeded | Namespace {{ $labels.namespace }} is using {{ $value | humanizePercentage }} of its {{ $labels.resource }} quota. | 1 | Node |
+
+
+
 
 ## Next steps
 
