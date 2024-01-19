@@ -133,12 +133,12 @@ Create a link between the Azure Monitor workspace and the Grafana workspace by u
 If your cluster is already configured to send data to an Azure Monitor managed service for Prometheus, you must disable it first using the following command:
 
 ```azurecli
-az aks update --disable-azuremonitormetrics -g <cluster-resource-group> -n <cluster-name> 
+az aks update --disable-azure-monitor-metrics -g <cluster-resource-group> -n <cluster-name> 
 ```
 
 Then, either enable or re-enable using the following command:
 ```azurecli
-az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id 
+az aks update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id 
 <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>
 ```
 

@@ -11,7 +11,8 @@ ms.topic: quickstart
 ms.date: 10/27/2022
 ms.author: mbullwin
 keywords: anomaly detection, algorithms
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ms.custom: mode-api, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 

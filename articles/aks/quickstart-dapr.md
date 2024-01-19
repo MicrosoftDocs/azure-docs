@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.topic: quickstart
 ms.date: 12/27/2023
-ms.custom: template-quickstart, mode-other, event-tier1-build-2022, ignite-2022, devx-track-js, devx-track-python, devx-track-linux
+ms.custom: template-quickstart, mode-other, event-tier1-build-2022, ignite-2022, devx-track-js, devx-track-python, linux-related-content
 ---
 
 # Quickstart: Deploy an application using the Dapr cluster extension for Azure Kubernetes Service (AKS) or Arc-enabled Kubernetes
@@ -145,13 +145,6 @@ Once your store is created, you need to add the keys to the `redis.yaml` file in
     ```bash
     { "orderId": "42" }
     ```
-
-    > [!TIP]
-    > This is a good time to get familiar with the Dapr dashboard, a convenient interface to check status, information, and logs of applications running on Dapr. To access the dashboard at `http://localhost:8080/`, run the following command:
-    >
-    > ```bash
-    > kubectl port-forward svc/dapr-dashboard -n dapr-system 8080:8080
-    > ```
 
 ## Deploy the Python app with the Dapr sidecar
 

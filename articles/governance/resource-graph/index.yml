@@ -39,8 +39,6 @@ landingContent:
             url: ./first-query-azurecli.md
           - text: First query (Azure PowerShell)
             url: ./first-query-powershell.md
-          - text: First query (.NET)
-            url: ./first-query-dotnet.md
           - text: First query (Go)
             url: ./first-query-go.md
           - text: First query (Java)

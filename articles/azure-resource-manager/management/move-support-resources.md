@@ -167,7 +167,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | automationaccounts | **Yes** | **Yes** | **Yes** [PowerShell script](../../automation/automation-disaster-recovery.md)  |
+> | automationaccounts | **Yes** | **Yes** | [PowerShell script](../../automation/automation-disaster-recovery.md)  |
 > | automationaccounts / configurations | **Yes** | **Yes** | No |
 > | automationaccounts / runbooks | **Yes** | **Yes** | No |
 
@@ -694,7 +694,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).<br/><br/> If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage).
+> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).<br/><br/> If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](../../mariadb/concepts-business-continuity.md#recovery-from-an-azure-regional-datacenter-outage).
 
 ## Microsoft.DBforMySQL
 
@@ -1558,7 +1558,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | resources | No | No | No |
 > | subscriptions | No | No | No |
 > | tags | No | No | No |
-> | templatespecs | No | No | **Yes**<br/><br/>[Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
+> | templatespecs | No | No | [Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
 > | templatespecs / versions | No | No | No |
 > | tenants | No | No | No |
 

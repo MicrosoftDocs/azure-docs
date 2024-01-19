@@ -34,7 +34,7 @@ You can now restore Runbooks deleted in the past 29 days. [Learn more](manage-ru
 
 **Type: Retirement**
 
-On **31 August 2024**, Azure Automation will  retire [Automation Update management](https://learn.microsoft.com/answers/questions/1459053/retirement-announcement-azure-automation-update-ma) and [Change Tracking using Log Analytics](https://learn.microsoft.com/answers/questions/1459059/retirement-announcement-azure-automation-change-tr). You must migrate to [Azure Update Manager](../update-manager/overview.md) and [Change tracking and inventory using Azure Monitoring Agent](change-tracking/overview-monitoring-agent.md) respectively before the deprecation date. 
+On **31 August 2024**, Azure Automation will  retire [Automation Update management](/answers/questions/1459053/retirement-announcement-azure-automation-update-ma) and [Change Tracking using Log Analytics](/answers/questions/1459059/retirement-announcement-azure-automation-change-tr). You must migrate to [Azure Update Manager](../update-manager/overview.md) and [Change tracking and inventory using Azure Monitoring Agent](change-tracking/overview-monitoring-agent.md) respectively before the deprecation date. 
 
 ## November 2023
 
