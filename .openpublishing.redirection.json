@@ -942,11 +942,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/site-recovery/unregister-vmm-server-script.md",
-            "redirect_url": "/azure/site-recovery/azure-to-azure-autoupdate",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/site-recovery/hyper-v-vmm-secondary-support-matrix.md",
             "redirect_url": "/azure/site-recovery/azure-to-azure-autoupdate",
             "redirect_document_id": false

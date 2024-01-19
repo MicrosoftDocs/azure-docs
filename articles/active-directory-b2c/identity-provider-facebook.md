@@ -2,15 +2,11 @@
 title: Set up sign-up and sign-in with a Facebook account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Facebook accounts in your applications using Azure Active Directory B2C.
-
 author: garrodonnell
 manager: CelesteDG
-
 ms.service: active-directory
-
 ms.topic: how-to
 ms.date: 03/10/2022
-ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type

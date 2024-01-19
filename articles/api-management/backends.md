@@ -200,7 +200,7 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-05-01-previ
     description: 'Load balancer for multiple backends'
     type: 'Pool'
     protocol: 'http'
-    url: 'http://unused'
+    url: 'http://google.com'
     pool: {
       services: [
         {
@@ -227,7 +227,7 @@ Include a JSON snippet similar to the following in your ARM template for a backe
     "description": "Load balancer for multiple backends",
     "type": "Pool",
     "protocol": "http",
-    "url": "http://unused",
+    "url": "http://google.com",
     "pool": {
       "services": [
         {
