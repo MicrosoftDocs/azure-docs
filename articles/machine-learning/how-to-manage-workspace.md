@@ -109,11 +109,11 @@ If you have problems in accessing your subscription, see [Set up authentication 
 
    :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configure your workspace.":::
 
-1. When you're finished configuring the workspace, select **Review + Create**. Optionally, use the [Networking](#networking), [Advanced](#advanced), and  [Tags](#tags) sections to configure more settings for the workspace.
+1. When you're finished configuring the workspace, select **Review + Create**. Optionally, use the [Networking](#networking), [Encryption](#encryption), and  [Tags](#tags) sections to configure more settings for the workspace.
 
 1. Review the settings and make any other changes or corrections. When you're satisfied with the settings, select **Create**.
 
-   > [!Warning] 
+   > [!Warning]
    > It can take several minutes to create your workspace in the cloud.
 
    When the process is finished, a deployment success message appears.
