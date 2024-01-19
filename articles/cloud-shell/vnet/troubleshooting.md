@@ -16,7 +16,7 @@ Cloud Shell. For best results, and to be supportable, following the deployment i
 ## Verify you have set the correct permissions
 
 To configure Azure Cloud Shell in a virtual network, you must have the **Owner** role assignment on
-the subscription. To view and assign roles, see [List Owners of a Subscription][01].
+the subscription. To view and assign roles, see [List owners of a subscription][01].
 
 Unless otherwise noted, all the troubleshooting steps start in **Subscriptions** section of the
 Azure portal.
@@ -44,7 +44,7 @@ To see all resource providers, and the registration status for your subscription
 1. Repeat the previous steps for the **Microsoft.ContainerInstances** and **Microsoft.Relay**
    resource providers.
 
-   [![Screenshot of selecting resource providers in the Azure portal.][ss01]][ss01x]
+   [![Screenshot of selecting resource providers in the Azure portal.][ss01a]][ss01x]
 
 ## Verify Azure Container Instance Service role assignments
 
@@ -58,7 +58,7 @@ permissions for your subscription:
 1. In the **Essentials** section of the **Overview**, select the **Show hidden types** checkbox.
    This checkbox allows you to see all the resources created by the deployment.
 
-   [![Screenshot showing all the resources in your resource group.][ss02]][ss02x]
+   [![Screenshot showing all the resources in your resource group.][ss02a]][ss02x]
 
 1. Select the network profile resource with the type of `microsoft.network/networkprofile`. The name
    should be `aci-networkProfile-<location>` where `<location>` is the location of the resource
@@ -68,7 +68,7 @@ permissions for your subscription:
 1. In the search box, enter `container`.
 1. Verify that **Azure Container Instance Service** has the `Network Contributor` role.
 
-   [![Screenshot showing the network profiles role assignments.][ss03]][ss03x]
+   [![Screenshot showing the network profiles role assignments.][ss03a]][ss03x]
 
 1. From the Resources page, select the relay namespace resource with the type of `Relay`. The name
    should be the name of the relay namespace you provided in the deployment template.
@@ -77,7 +77,7 @@ permissions for your subscription:
 1. In the search box, enter `container`.
 1. Verify that **Azure Container Instance Service** has the `Contributor` role.
 
-   [![Screenshot showing the network relay role assignments.][ss04]][ss04x]
+   [![Screenshot showing the network relay role assignments.][ss04a]][ss04x]
 
 ## Redeploy Cloud Shell for a private virtual network
 
@@ -100,7 +100,7 @@ Follow these steps to open a support ticket:
 1. Select **Create a support request** at the top of the center pane.
 1. Follow the instructions to create a support ticket.
 
-   [![Screenshot of creating a support ticket in the Azure portal.][ss05]][ss05x]
+   [![Screenshot of creating a support ticket in the Azure portal.][ss05a]][ss05x]
 
 ### Redeploy Cloud Shell for a private virtual network
 
@@ -136,13 +136,13 @@ You can find these resources by viewing the resource group in the Azure portal.
 [02]: https://portal.azure.com/
 [03]: quickstart-deploy-vnet.md
 
-[ss01]: ./media/quickstart-deploy-vnet/resource-provider.png
-[ss01x]: ./media/quickstart-deploy-vnet/resource-provider.png#lightbox
-[ss02]: ./media/vnet-troubleshooting/show-resource-group.png
-[ss02x]: ./media/vnet-troubleshooting/show-resource-group.png#lightbox
-[ss03]: ./media/vnet-troubleshooting/network-profile-role.png
-[ss03x]: ./media/vnet-troubleshooting/network-profile-role.png#lightbox
-[ss04]: ./media/vnet-troubleshooting/relay-namespace-role.png
-[ss04x]: ./media/vnet-troubleshooting/relay-namespace-role.png#lightbox
-[ss05]: ./media/vnet-troubleshooting/create-support-ticket.png
-[ss05x]: ./media/vnet-troubleshooting/create-support-ticket.png#lightbox
+[ss01a]: media/troubleshooting/resource-provider.png
+[ss01x]: media/troubleshooting/resource-provider.png#lightbox
+[ss02a]: media/troubleshooting/show-resource-group.png
+[ss02x]: media/troubleshooting/show-resource-group.png#lightbox
+[ss03a]: media/troubleshooting/network-profile-role.png
+[ss03x]: media/troubleshooting/network-profile-role.png#lightbox
+[ss04a]: media/troubleshooting/relay-namespace-role.png
+[ss04x]: media/troubleshooting/relay-namespace-role.png#lightbox
+[ss05a]: media/troubleshooting/create-support-ticket.png
+[ss05x]: media/troubleshooting/create-support-ticket.png#lightbox

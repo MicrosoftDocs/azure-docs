@@ -61,4 +61,4 @@ For more information, see the [pricing][02] guide.
 <!-- link references -->
 [01]: ../azure-relay/relay-what-is-it.md
 [02]: https://azure.microsoft.com/pricing/details/service-bus/
-[03]: media/private-vnet/data-diagram.png
+[03]: media/overview/data-diagram.png
