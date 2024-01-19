@@ -258,14 +258,7 @@ Data from the Log Analytics agent for Linux is cached on the local machine at *%
 
 The agent attempts to upload every 20 seconds. If it fails, it waits an exponentially increasing length of time until it succeeds. For example, it waits 30 seconds before the second attempt, 60 seconds before the third, 120 seconds, and so on, up to a maximum of 16 minutes between retries until it successfully connects again. The agent retries up to six times for a given chunk of data before discarding and moving to the next one. This process continues until the agent can successfully upload again. For this reason, the data might be buffered up to approximately 30 minutes before it's discarded.
 
-![python-multiple-version-check](media/agent-linux/python-multiple-version-check.png)
-
-![python-version-check](media/agent-linux/python-version-check.png)
-
 The default cache size is 10 MB but can be modified in the [omsagent.conf file](https://github.com/microsoft/OMS-Agent-for-Linux/blob/e2239a0714ae5ab5feddcc48aa7a4c4f971417d4/installer/conf/omsagent.conf).
-
-![AMA-troubleshooter-interactive-mode](media/agent-linux/ama-troubleshooter-interactive-mode.png)
-
 
 ## Next steps
 
