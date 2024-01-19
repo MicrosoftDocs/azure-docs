@@ -94,7 +94,8 @@ where:
 **The data source "**azurerm_key_vault_secret**" will be used within the `**ssl_certificate**` block under the application gateway section.**
 
 **Reference-1**:
-```data "azurerm_key_vault_secret" "vault" {    
+```
+data "azurerm_key_vault_secret" "vault" {    
    name         = "<certificate-name>"          
    key_vault_id = "<resource-id-key-vault>"
 }
