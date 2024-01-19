@@ -2,7 +2,6 @@
 title: High availability of SAP HANA on Azure VMs on RHEL | Microsoft Docs
 description: Establish high availability of SAP HANA on Azure virtual machines (VMs).
 services: virtual-machines-linux
-documentationcenter: 
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
