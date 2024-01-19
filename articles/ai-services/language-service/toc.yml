@@ -359,7 +359,13 @@ items:
     - name: Native document support overview
       href: native-document-support/overview.md
     - name: Native document support quickstart
-      href: native-document-support/quickstart.md  
+      href: native-document-support/quickstart.md
+    - name: Native document support authentication
+      items: 
+      - name: Role- based access control
+        href: Role-based-access-control.md
+      - name: Shared access signature (SAS) tokens
+        href: Shared-access-signature.md    
   - name: Orchestration workflow
     items:
     - name: Orchestration workflow overview

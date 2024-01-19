@@ -86,9 +86,12 @@ Requests to the Language service require a read-only key and custom endpoint to 
 
 ### **Authentication**
 
-Your Language resource needs granted access to your storage account before it can create, read, or delete blobs. User delegation SAS tokens are secured with Microsoft Entra credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
+Your Language resource needs granted access to your storage account before it can create, read, or delete blobs. There are two primary methods you can use to grant access to your storage data:
 
-The `sourceUrl` and `targetUrl` are authenticated with Shared Access Signature (SAS) tokens appended as query strings. Tokens can be assigned to your container or specific blobs. *See* [**Create SAS tokens**](../../translator/document-translation/how-to-guides/create-sas-tokens.md).
+1. **Shared access signature (SAS) tokens**. User delegation SAS tokens are secured with Microsoft Entra credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
+1. [**Managed identity role-based access control (RBAC)**](../concepts/role-based-access-control.md). Managed identities for Azure resources are service principals that create a Microsoft Entra identity and specific permissions for Azure managed resources
+
+For this project, we authenticate access to the `sourceUrl` and `targetUrl`with Shared Access Signature (SAS) tokens appended as query strings. Tokens are assigned to a specific blob (file).
 
 :::image type="content" source="media/sas-url-token.png" alt-text="Screenshot of a storage url with SAS token appended.":::
 
@@ -97,7 +100,7 @@ The `sourceUrl` and `targetUrl` are authenticated with Shared Access Signature (
 
 > [!TIP]
 >
-> * When processing a **single** file (blob) in an operation, **delegate SAS access at the blob level**.
+> **Delegate SAS access at the blob level**.
 >
 > * As an alternative to SAS tokens, you can use a system-assigned managed identity for [**Role-based access control**](../concepts/role-based-access-control.md) (managed identities) for authentication.
 
@@ -234,14 +237,10 @@ Before you run the **POST** request, replace `{your-language-resource-endpoint}`
 * The successful POST method returns a `202 Accepted` response code indicating that the service created the batch request.
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
-## Clean up resources
+## Next step
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 * [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
-## Next step
-
-> [!div class="nextstepaction"]
-> [**Try the Language Studio**](https://language.cognitive.azure.com/)

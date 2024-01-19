@@ -19,7 +19,7 @@ ms.author: lajanuar
 
 Azure AI Language is a cloud-based service that applies Natural Language Processing (NLP) features to text-based data. Native document support eliminates the need for text preprocessing prior to using Azure AI Language resource capabilities.  Currently, native document support is available for the following capabilities:
 
-* [Personally Identifiable Information (PII)](../personally-identifiable-information/overview.md). The PII detection feature can identify, categorize, and redact sensitive information in unstructured text
+* [Personally Identifiable Information (PII)](../personally-identifiable-information/overview.md). The PII detection feature can identify, categorize, and redact sensitive information in unstructured text.
 
 * [Document Summarization](../summarization/overview.md). Document summarization uses natural language processing to generate extractive (salient sentence extraction) or abstractive (contextual word extraction) summaries for documents.
 
@@ -29,7 +29,7 @@ Native document support can be integrated into your applications using the [Azur
 
 |Service|Description|API Reference (Latest GA version)|API Reference (Latest Preview version)|
 |--|--|--|--|
-| Text analysis - runtime | Includes runtime prediction calls to **Personally Identifiable Information (PII)**|[`2023-04-01`](/rest/api/language/2023-04-01/text-analysis-runtime)|[`2023-04-15-preview`](/rest/api/language/2023-04-15-preview/text-analysis-runtime)|
+| Text analysis - runtime | &bullet; Runtime prediction calls to extract **Personally Identifiable Information (PII)**.</br>&bullet; Custom redaction for native documents is supported in the latest **2023-04-14-preview**.|[`2023-04-01`](/rest/api/language/2023-04-01/text-analysis-runtime)|[`2023-04-15-preview`.](/rest/api/language/2023-04-15-preview/text-analysis-runtime)|
 | Summarization for documents - runtime|Runtime prediction calls to **query summarization for documents models**.|[`2023-04-01`](/rest/api/language/2023-04-01/text-analysis-runtime/submit-job)|[`2023-04-15-preview`](/rest/api/language/2023-04-15-preview/text-analysis-runtime)|
 
 ## Supported document formats
@@ -46,10 +46,9 @@ A native document refers to the file format used to create the original document
 
 |Input type|support and limitations|
 |---|---|
-|**PDFs**| Fully digital and fully scanned PDFs are supported.|
-|**Text within images**| Digital PDFs with imbedded text and text within images aren't supported.|
+|**PDFs**| Fully digital and fully scanned PDFs aren't supported.|
+|**Text within images**| Digital images with imbedded text aren't supported.|
 |**Digital tables**| Tables in digital documents are supported, however scanned table quality isn't guaranteed.|
-|**PII content**| Custom redaction for native documents is supported in the latest 2023-04-14-preview|
 
 ## Responsible AI
 
@@ -60,14 +59,9 @@ An AI system includes not only technology, but human users and the deployment en
 * [Characteristics and limitations of summarization](/legal/cognitive-services/language-service/characteristics-and-limitations-summarization?context=/azure/ai-services/language-service/context/context)
 * [Data, privacy, and security](/legal/cognitive-services/language-service/data-privacy?context=/azure/ai-services/language-service/context/context)
 
-## Get started
+## Next steps
 
 You can get started with our quickstart. You need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
 
 > [!div class="nextstepaction"]
 > [Start here](quickstart.md "Learn how to process and analyze native documents.")
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [**Try the Language Studio**](https://language.cognitive.azure.com/)
