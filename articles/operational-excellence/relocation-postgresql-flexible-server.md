@@ -137,6 +137,5 @@ Redeployment with data migration for Azure Database for PostgreSQL is based on l
         
         ### Migration over private endpoint
         
-        ![Migration over Private Endpoint](media/relocation/postgres/migration-over-private-endpoint.png)
         
         
