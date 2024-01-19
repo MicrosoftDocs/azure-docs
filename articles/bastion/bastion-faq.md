@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/13/2023
+ms.date: 01/18/2024
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -49,6 +49,10 @@ Azure Bastion isn't supported with Azure Private DNS Zones in national clouds.
 ### <a name="dns"></a>Does Azure Bastion support Private Link?
 
 No, Azure Bastion doesn't currently support private link.
+
+### Why do I get a "Failed to add subnet" error when using "Deploy Bastion" in the portal?
+
+At this time, for most address spaces, you must add a subnet named **AzureBastionSubnet** to your virtual network before you select **Deploy Bastion**.
 
 ### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
 
@@ -236,6 +240,10 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 |Microsoft.Network/virtualNetworks/read|Get the virtual network definition|Action|
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|Action|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|Action|
+
+### I am connecting to a VM using a JIT policy, do I need additional permissions?
+
+If user is connecting to a VM using a JIT policy, there is no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](../defender-for-cloud/just-in-time-access-usage.md)
 
 ### My privatelink.azure.com can't resolve to management.privatelink.azure.com
 

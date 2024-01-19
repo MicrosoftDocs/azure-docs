@@ -2,7 +2,7 @@
 title: Tutorial - Use a workload identity with an application on Azure Kubernetes Service (AKS)
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
 ms.topic: tutorial
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ms.date: 05/24/2023
 ---
 
@@ -116,7 +116,7 @@ To help simplify steps to configure the identities required, the steps below def
 2. Add a secret to the vault using the [az keyvault secret set][az-keyvault-secret-set] command. The password is the value you specified for the environment variable `KEYVAULT_SECRET_NAME` and stores the value of **Hello!** in it.
 
     ```azurecli-interactive
-    az keyvault secret set --vault-name "${KEYVAULT_NAME}" --name "${KEYVAULT_SECRET_NAME}" --value 'Hello!' 
+    az keyvault secret set --vault-name "${KEYVAULT_NAME}" --name "${KEYVAULT_SECRET_NAME}" --value 'Hello!'
     ```
 
 3. Add the Key Vault URL to the environment variable `KEYVAULT_URL` using the [az keyvault show][az-keyvault-show] command.

@@ -29,7 +29,7 @@ In this article, we provide compelling reasons for single server customers to mi
 
 - **[Cost Savings](../flexible-server/how-to-deploy-on-azure-free-account.md)** – Flexible server allows you to stop and start server on-demand to lower your TCO. Your compute tier billing is stopped immediately, which allows you to have significant cost savings during development, testing and for time-bound predictable production workloads.
 
-- **[Support for new PG versions](../flexible-server/concepts-supported-versions.md)** - Flexible server currently supports PG version 11 and onwards till version 15. Newer community versions of PostgreSQL are supported only in flexible server.
+- **[Support for new PG versions](../flexible-server/concepts-supported-versions.md)** - Flexible server currently supports PG version 11 and onwards till version 16. Newer community versions of PostgreSQL are supported only in flexible server.
 
 - **Minimized Latency** – You can collocate your flexible server in the same availability zone as the application server that results in a minimal latency. This option isn't available in Single server.
 
@@ -76,7 +76,7 @@ The following table lists the different tools available for performing the migra
 The next section of the document gives an overview of the Single to Flex Migration tool, its implementation, limitations, and the experience that makes it the recommended tool to perform migrations from single to flexible server.
 
 > [!NOTE]  
-> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is currently available in UK South, South Africa North, UAE North, and all regions across Asia and Australia. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
+> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is currently available in Central US, France Central, Germany West Central, North Central US, South Central US, North Europe, all West US regions, UK South, South Africa North, UAE North, and all regions across Asia and Australia. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
 
 :::image type="content" source="./media/concepts-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="./media/concepts-single-to-flexible/online-migration-feature-switch.png":::
 

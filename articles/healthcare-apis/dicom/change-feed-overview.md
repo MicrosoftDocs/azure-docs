@@ -1,17 +1,17 @@
 ---
-title:  Overview of DICOM change feed - Azure Health Data Services
-description: In this article, you learn the concepts of DICOM change feed.
+title:  Change feed overview for the DICOM service in Azure Health Data Services
+description: Learn how to use the change feed in the DICOM service to access the logs of all the changes that occur in your organization's medical imaging data. The change feed allows you to query, process, and act upon the change events in a scalable and efficient way.
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: dicom
 ms.topic: conceptual
-ms.date: 10/9/2023
+ms.date: 1/18/2024
 ms.author: mmitrik
 ---
 
 # Change feed overview
 
-The change feed provides logs of all the changes that occur in the DICOM&reg; service. The change feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The change feed offers the ability to go through the history of DICOM service and acts upon the creates and deletes in the service.
+The change feed provides logs of all the changes that occur in the DICOM&reg; service. The change feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The change feed offers the ability to go through the history of DICOM service and acts upon the creates, updates, and deletes in the service.
 
 Client applications can read these logs at any time in batches of any size. The change feed enables you to build efficient and scalable solutions that process change events that occur in your DICOM service.
 
@@ -38,7 +38,7 @@ Sequence            | long      | The unique ID per change event
 StudyInstanceUid    | string    | The study instance UID
 SeriesInstanceUid   | string    | The series instance UID
 SopInstanceUid      | string    | The sop instance UID
-Action              | string    | The action that was performed - either `create` or `delete`
+Action              | string    | The action that was performed - either `create`, `update`, or `delete`
 Timestamp           | datetime  | The date and time the action was performed in UTC
 State               | string    | [The current state of the metadata](#states)
 Metadata            | object    | Optionally, the current DICOM metadata if the instance exists
@@ -48,12 +48,12 @@ Metadata            | object    | Optionally, the current DICOM metadata if the 
 State    | Description
 :------- | :---
 current  | This instance is the current version.
-replaced | This instance has been replaced by a new version.
-deleted  | This instance has been deleted and is no longer available in the service.
+replaced | This instance is replaced with a new version.
+deleted  | This instance is deleted and is no longer available in the service.
 
 ## Change feed
 
-The change feed resource is a collection of events that have occurred within the DICOM server.
+The change feed resource is a collection of events that occurred within the DICOM server.
 
 ### Version 2
 
@@ -152,7 +152,7 @@ limit           | int      | The maximum value of the sequence number relative t
 includeMetadata | bool     | Indicates whether or not to include the DICOM metadata | `true` | | |
 
 ## Latest change feed
-The latest change feed resource represents the latest event that has occurred within the DICOM Server.
+The latest change feed resource represents the latest event that occurred within the DICOM server.
 
 ### Request
 ```http
@@ -168,7 +168,7 @@ Content-Type: application/json
     "StudyInstanceUid": "{uid}",
     "SeriesInstanceUid": "{uid}",
     "SopInstanceUid": "{uid}",
-    "Action": "create|delete",
+    "Action": "create|update|delete",
     "Timestamp": "2020-03-05T07:13:16.4834Z",
     "State": "current|replaced|deleted",
     "Metadata": {
@@ -208,7 +208,7 @@ includeMetadata | bool | Indicates whether or not to include the metadata | `tru
 2. On some regular polling interval, the application performs the following actions:
     * Fetches the latest sequence number from the `/changefeed/latest` endpoint
     * Fetches the next set of changes for processing by querying the change feed with the current offset
-        * For example, if the application has currently processed up to sequence number 15 and it only wants to process at most 5 events at once, then it should use the URL `/changefeed?offset=15&limit=5`
+        * For example, if the application processed up to sequence number 15 and it only wants to process at most five events at once, then it should use the URL `/changefeed?offset=15&limit=5`
     * Processes any entries return by the `/changefeed` resource
     * Updates its current sequence number to either:
         1. The maximum sequence number returned by the `/changefeed` resource
@@ -216,7 +216,7 @@ includeMetadata | bool | Indicates whether or not to include the metadata | `tru
 
 ### Other potential usage patterns
 
-Change feed support is well suited for scenarios that process data based on objects that have changed. For example, it can be used to:
+Change feed support is well-suited for scenarios that process data based on objects that are changed. For example, it can be used to:
 
 * Build connected application pipelines like ML that react to change events or schedule executions based on created or deleted instance.
 * Extract business analytics insights and metrics, based on changes that occur to your objects.
