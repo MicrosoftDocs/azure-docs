@@ -23,10 +23,10 @@ When you use [SAP Deployment Automation Framework](deployment-framework.md), you
 | `playbook_04_00_00_hana_db_install`        | SAP HANA database installation                    |
 | `playbook_05_00_00_sap_scs_install.yaml`   | SAP central services (SCS) installation           |
 | `playbook_05_01_sap_dbload.yaml`           | Database loader                                   |
+| `playbook_04_00_01_hana_hsr.yaml`          | SAP HANA high-availability configuration                         |
 | `playbook_05_02_sap_pas_install.yaml`      | SAP primary application server (PAS) installation |
 | `playbook_05_03_sap_app_install.yaml`      | SAP application server installation               |
 | `playbook_05_04_sap_web_install.yaml`      | SAP web dispatcher installation                   |
-| `playbook_04_00_01_hana_hsr.yaml`          | SAP HANA high-availability configuration                         |
 
 ## Prerequisites
 
@@ -47,12 +47,12 @@ upgrade_packages:              false
 # TERRAFORM CREATED
 sap_fqdn:                      sap.contoso.net                      
 # kv_name is the name of the key vault containing the system credentials
-kv_name:                       DEVWEEUSAP01user###
+kv_name:                       LABSECESAP01user###
 # secret_prefix is the prefix for the name of the secret stored in key vault
-secret_prefix:                 DEV-WEEU-SAP01
+secret_prefix:                 LAB-SECE-SAP01
 
 # sap_sid is the application SID
-sap_sid:                       X01
+sap_sid:                       L00
 # scs_high_availability is a boolean flag indicating 
 # if the SAP Central Services are deployed using high availability 
 scs_high_availability:         false
@@ -79,28 +79,28 @@ db_high_availability:          false
 db_lb_ip:                      10.110.96.13
 
 disks:
-  - { host: 'x01dxdb00l0538', LUN: 0, type: 'sap' }
-  - { host: 'x01dxdb00l0538', LUN: 10, type: 'data' }
-  - { host: 'x01dxdb00l0538', LUN: 11, type: 'data' }
-  - { host: 'x01dxdb00l0538', LUN: 12, type: 'data' }
-  - { host: 'x01dxdb00l0538', LUN: 13, type: 'data' }
-  - { host: 'x01dxdb00l0538', LUN: 20, type: 'log' }
-  - { host: 'x01dxdb00l0538', LUN: 21, type: 'log' }
-  - { host: 'x01dxdb00l0538', LUN: 22, type: 'log' }
-  - { host: 'x01dxdb00l0538', LUN: 2, type: 'backup' }
-  - { host: 'x01app00l538', LUN: 0, type: 'sap' }
-  - { host: 'x01app01l538', LUN: 0, type: 'sap' }
-  - { host: 'x01scs00l538', LUN: 0, type: 'sap' }
+  - { host: 'l00dxdb00l0538', LUN: 0, type: 'sap' }
+  - { host: 'l00dxdb00l0538', LUN: 10, type: 'data' }
+  - { host: 'l00dxdb00l0538', LUN: 11, type: 'data' }
+  - { host: 'l00dxdb00l0538', LUN: 12, type: 'data' }
+  - { host: 'l00dxdb00l0538', LUN: 13, type: 'data' }
+  - { host: 'l00dxdb00l0538', LUN: 20, type: 'log' }
+  - { host: 'l00dxdb00l0538', LUN: 21, type: 'log' }
+  - { host: 'l00dxdb00l0538', LUN: 22, type: 'log' }
+  - { host: 'l00dxdb00l0538', LUN: 2, type: 'backup' }
+  - { host: 'l00app00l538', LUN: 0, type: 'sap' }
+  - { host: 'l00app01l538', LUN: 0, type: 'sap' }
+  - { host: 'l00scs00l538', LUN: 0, type: 'sap' }
 
 ...
 ```
 
-The `X01_hosts.yaml` file is the inventory file that Ansible uses for configuration of the SAP infrastructure. The `X01` label might differ for your deployments.
+The `L00_hosts.yaml` file is the inventory file that Ansible uses for configuration of the SAP infrastructure. The `L00` label might differ for your deployments.
 
 ```yaml
-X01_DB:
+L00_DB:
   hosts:
-    x01dxdb00l0538:
+    l00dxdb00l0538:
       ansible_host        : 10.110.96.12
       ansible_user        : azureadm
       ansible_connection  : ssh 
@@ -108,9 +108,9 @@ X01_DB:
   vars:
     node_tier             : hana
 
-X01_SCS:
+L00_SCS:
   hosts:
-    x01scs00l538:
+    l00scs00l538:
       ansible_host        : 10.110.32.25
       ansible_user        : azureadm
       ansible_connection  : ssh 
@@ -118,14 +118,14 @@ X01_SCS:
   vars:
     node_tier             : scs
 
-X01_ERS:
+L00_ERS:
   hosts:
   vars:
     node_tier             : ers
 
-X01_PAS:
+L00_PAS:
   hosts:
-    x01app00l538:
+    l00app00l538:
       ansible_host        : 10.110.32.24
       ansible_user        : azureadm
       ansible_connection  : ssh 
@@ -134,9 +134,9 @@ X01_PAS:
   vars:
     node_tier             : pas
 
-X01_APP:
+L00_APP:
   hosts:
-    x01app01l538:
+    l00app01l538:
       ansible_host        : 10.110.32.15
       ansible_user        : azureadm
       ansible_connection  : ssh 
@@ -145,7 +145,7 @@ X01_APP:
   vars:
     node_tier             : app
 
-X01_WEB:
+L00_WEB:
   hosts:
   vars:
     node_tier             : web
@@ -155,6 +155,17 @@ X01_WEB:
 ## Run a playbook
 
 Make sure that you [download the SAP software](software.md) to your Azure environment before you run this step.
+
+One way you can run the playbooks is to use the **Configuration** menu.
+
+Run the `configuration_menu` script.
+
+```bash
+${HOME}/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/configuration_menu.sh
+```
+
+:::image type="content" source="./media/tutorial/configuration-menu.png" alt-text="Diagram that shows the SAP Deployment Automation Ansible configuration menu.":::
+
 
 To run a playbook or multiple playbooks, use the following `ansible-playbook` command. This example runs the operating system configuration playbook.
 
@@ -176,7 +187,7 @@ kv_name="$(awk '$1 == "kv_name:" {print $2}' ${sap_params_file})"
 prefix="$(awk '$1 == "secret_prefix:" {print $2}' ${sap_params_file})"
 password_secret_name=$prefix-sid-password
 
-password_secret=$(az keyvault secret show --vault-name ${kv_name} --name ${password_secret_name} | jq -r .value)
+password_secret=$(az keyvault secret show --vault-name ${kv_name} --name ${password_secret_name} --query value --output table )
 
 export           ANSIBLE_PASSWORD=$password_secret
 export           ANSIBLE_INVENTORY="${sap_sid}_hosts.yaml"
@@ -198,7 +209,10 @@ playbook_options=(
         "${@}"
 )
 
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_01_os_base_config.yaml
+
 
 ```
 
@@ -220,6 +234,30 @@ The following tasks are executed on Linux virtual machines:
 - Creates the user accounts and groups
 - Configures the banners displayed when signed in
 - Configures the services required
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                            sap_sid=L00
+export           ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+```
+
+# Run the playbook to perform the Operating System configuration
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_01_os_base_config.yaml
+
+```
 
 # [Windows](#tab/windows)
 
@@ -254,6 +292,30 @@ The following tasks are executed on Linux virtual machines:
 - Performs the disk mount operations
 - Configures the SAP-specific services
 - Implements configurations defined in the relevant SAP Notes
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                            sap_sid=L00
+export           ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+```
+
+# Run the playbook to perform the SAP Specific Operating System configuration
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_02_os_sap_specific_config.yaml
+
+```
 
 # [Windows](#tab/windows)
 

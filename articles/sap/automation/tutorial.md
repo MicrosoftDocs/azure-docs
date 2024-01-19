@@ -923,14 +923,14 @@ Make sure you have the following files in the current folders: `sap-parameters.y
 
 For a standalone SAP S/4HANA system, there are eight playbooks to run in sequence. One way you can run the playbooks is to use the **Configuration** menu.
 
-:::image type="content" source="./media/deployment-framework/automation-diagram-full.png" alt-text="Diagram that shows the SAP Deployment Automation Framework environment.":::
-
-
 Run the `configuration_menu` script.
 
 ```bash
 ${HOME}/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/configuration_menu.sh
 ```
+
+:::image type="content" source="./media/tutorial/configuration-menu.png" alt-text="Diagram that shows the SAP Deployment Automation Ansible configuration menu.":::
+
 
 Choose the playbooks to run.
 
@@ -938,9 +938,62 @@ Choose the playbooks to run.
 
 This playbook performs the generic OS configuration setup on all the machines, which includes configuration of software repositories, packages, and services.
 
+You can either run the playbook using the configuration menu or directly from the command line.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                            sap_sid=L00
+export           ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+```
+
+# Run the playbook to perform the Operating System configuration
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_01_os_base_config.yaml
+
+```
+
+
 ### Playbook: SAP specific Operating System configuration
 
 This playbook performs the SAP OS configuration setup on all the machines. The steps include creation of volume groups and file systems and configuration of software repositories, packages, and services.
+
+You can either run the playbook using the configuration menu or directly from the command line.
+
+```bash
+
+cd ${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/LAB-SECE-SAP04-L00/
+
+export                            sap_sid=L00
+export           ANSIBLE_PRIVATE_KEY_FILE=sshkey
+
+playbook_options=(
+        --inventory-file="${sap_sid}_hosts.yaml"
+        --private-key=${ANSIBLE_PRIVATE_KEY_FILE}
+        --extra-vars="_workspace_directory=`pwd`"
+        --extra-vars="@sap-parameters.yaml"
+        "${@}"
+)
+
+# Run the playbook to retrieve the ssh key from the Azure key vault
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
+```
+
+# Run the playbook to perform the SAP Specific Operating System configuration
+ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_02_os_sap_specific_config.yaml
+
+```
 
 ### Playbook: BOM Processing
 
