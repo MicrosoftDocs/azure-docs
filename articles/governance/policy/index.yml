@@ -46,12 +46,6 @@ landingContent:
             url: ./assign-policy-azurecli.md
           - text: Assign a policy (Azure PowerShell)
             url: ./assign-policy-powershell.md
-          - text: Assign a policy (.NET)
-            url: ./assign-policy-dotnet.md
-          - text: Assign a policy (JavaScript)
-            url: ./assign-policy-javascript.md
-          - text: Assign a policy (Python)
-            url: ./assign-policy-python.md
           - text: Assign a policy (REST)
             url: ./assign-policy-rest-api.md
           - text: Assign a policy (ARM template)
