@@ -59,7 +59,7 @@ The template uses the parameters in the following table:
 | location | Region to store the alert rule group. |
 
 
-### [Bicep](#tab/bicep)
+#### Bicep
 
 Download the [Community alerts template.](https://aka.ms/azureprometheus-alerts-bicep) and deploy using any valid method for deploying Resource Manager templates. See the [README.md](https://github.com/Azure/prometheus-collector/blob/main/AddonBicepTemplate/README.md) file for more details.
 
