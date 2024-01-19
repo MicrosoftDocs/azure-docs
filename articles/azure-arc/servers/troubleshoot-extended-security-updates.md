@@ -86,13 +86,6 @@ If you're unable to allow access to the PKI URL from your servers, you can manua
     certutil -addstore CA "Microsoft Azure TLS Issuing CA 06 - xsign.crt"
     ```
 
-    ```powershell
-    Import-Certificate -FilePath '.\Microsoft Azure TLS Issuing CA 01 - xsign.crt' -CertStoreLocation Cert:\LocalMachine\CA
-    Import-Certificate -FilePath '.\Microsoft Azure TLS Issuing CA 02 - xsign.crt' -CertStoreLocation Cert:\LocalMachine\CA
-    Import-Certificate -FilePath '.\Microsoft Azure TLS Issuing CA 05 - xsign.crt' -CertStoreLocation Cert:\LocalMachine\CA
-    Import-Certificate -FilePath '.\Microsoft Azure TLS Issuing CA 06 - xsign.crt' -CertStoreLocation Cert:\LocalMachine\CA
-    ```
-
 1. Try installing the Windows updates again. You may need to reboot your computer for the validation logic to recognize the newly imported intermediate CA certificates.
 
 ### Error: Not eligible (HRESULT 1633)
