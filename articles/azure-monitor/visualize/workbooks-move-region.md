@@ -2,7 +2,6 @@
 title: Azure Monitor Workbooks - Move Regions
 description: How to move a workbook to a different region
 services: azure-monitor
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: how-to
 ms.custom: subject-moving-resources
