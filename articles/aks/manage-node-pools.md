@@ -499,7 +499,6 @@ When you use an Azure Resource Manager template to create and manage resources, 
                     "count": "[variables('agentPoolProfiles').agentCount]",
                     "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
                     "osType": "[variables('agentPoolProfiles').osType]",
-                    "storageProfile": "ManagedDisks",
                     "type": "VirtualMachineScaleSets",
                     "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
                     "orchestratorVersion": "1.15.7"
