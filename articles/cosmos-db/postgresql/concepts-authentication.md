@@ -6,7 +6,7 @@ ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 01/17/2024
 ---
 
 # Microsoft Entra ID and PostgreSQL authentication with Azure Cosmos DB for PostgreSQL
@@ -109,7 +109,7 @@ Once you've authenticated against the Microsoft Entra ID, you then retrieve a to
 
 ## Next steps
 
-- Check out [Microsoft Entra ID limits and limitations in Azure Cosmos DB for PostgreSQL](./reference-limits.md#azure-active-directory-authentication)
+- Check out [Microsoft Entra ID limits and limitations in Azure Cosmos DB for PostgreSQL](./reference-limits.md#microsoft-entra-id-authentication)
 - [Learn how to configure authentication for Azure Cosmos DB for PostgreSQL clusters](./how-to-configure-authentication.md)
 - Set up private network access to the cluster nodes, see [Manage private access](./howto-private-access.md)
 - Set up public network access to the cluster nodes, see [Manage public access](./howto-manage-firewall-using-portal.md)

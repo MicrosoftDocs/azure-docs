@@ -6,7 +6,7 @@ ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 01/18/2024
 ---
 
 # Use Microsoft Entra ID and native PostgreSQL roles for authentication with Azure Cosmos DB for PostgreSQL
@@ -35,7 +35,7 @@ Complete the following items on your Azure Cosmos DB for PostgreSQL cluster to e
 1. On the cluster page, under the **Cluster management** heading, choose **Authentication** to open authentication management options.
 1. In **Authentication methods** section, choose **PostgreSQL authentication only**, **Microsoft Entra ID authentication (preview)**, or **PostgreSQL and Microsoft Entra ID authentication (preview)** as the authentication method based on your requirements.
 
-Once done proceed with [configuring Microsoft Entra ID authentication](#configure-azure-active-directory-authentication) or [adding native PostgreSQL roles](#configure-native-postgresql-authentication) on **Authentication** page.
+Once done proceed with [configuring Microsoft Entra ID authentication](#configure-azure-active-directory-authentication) or [adding native PostgreSQL roles](#configure-native-postgresql-authentication) on the same **Authentication** page.
 
 <a name='configure-azure-active-directory-authentication'></a>
 
@@ -54,7 +54,7 @@ Users need to be allowed to sign in to Azure Cosmos DB for PostgreSQL in the Mic
 1. Open 'Microsoft Entra ID' service.
 1. On the **Overview** page of Microsoft Entra ID service in the **Overview** section, search for 'b4fa09d8-5da5-4352-83d9-05c2a44cf431' application ID.
 1. Choose 'Azure Cosmos DB for PostgreSQL AAD Authentication' enterprise application in the search results.
-1. In the Azure Cosmos DB for PostgreSQL AAD Authentication enterprise application, choose **Properties** page.
+1. In the **Azure Cosmos DB for PostgreSQL AAD Authentication** enterprise application, choose **Properties** page.
 1. Set **Enabled for users to sign-in?** to **Yes** and save the change.
 
 # [Azure CLI](#tab/cli)
@@ -63,6 +63,9 @@ Users need to be allowed to sign in to Azure Cosmos DB for PostgreSQL in the Mic
 az ad sp update --id b4fa09d8-5da5-4352-83d9-05c2a44cf431 --set accountEnabled=true
 ```
 ---
+
+> [!NOTE]
+> Editing enterprise application's properties such as 'Enabled for users to sign-in' requires permissions granted to the Global Administrator, Cloud Application Administrator, or Application Administrator roles. See [the list of built-in Microsoft Entra roles](/entra/identity/role-based-access-control/permissions-reference).
 
 ### Add Microsoft Entra ID admins to Azure Cosmos DB for PostgreSQL cluster
 
@@ -107,6 +110,8 @@ az login
 
 The command opens a browser window to the Microsoft Entra ID authentication page. It requires you to give your Microsoft Entra ID user name and password.
 
+The user account name you use to authenticate (e.g. user@tenant.onmicrosoft.com) is the one the access token will be generated for in the next step.
+
 <a name='retrieve-the-azure-ad-access-token'></a>
 
 ### Retrieve the Microsoft Entra ID access token
@@ -129,7 +134,7 @@ After authentication is successful, Microsoft Entra ID returns an access token f
 }
 ```
 
-The TOKEN is a Base64 string. It encodes all the information about the authenticated user and is targeted to the Azure Cosmos DB for PostgreSQL service. The token is valid for at least 5 minutes with the maximum of 90 minutes. The expiresOn defines actual token expiration time.
+The TOKEN is a Base64 string. It encodes all the information about the authenticated user and is associated with the Azure Cosmos DB for PostgreSQL service. The token is valid for at least 5 minutes with the maximum of 90 minutes. The **expiresOn** defines actual token expiration time.
 
 ### Use a token as a password for signing in with client psql
 
@@ -167,7 +172,7 @@ export PGPASSWORD=$(az account get-access-token --resource-type oss-rdbms --quer
 > or clear the PGPASSWORD variable value to enter the password interactively.
 > Authentication would fail with the wrong value in PGPASSWORD.
 
-Now you can initiate a connection with Azure Cosmos DB for PostgreSQL as you usually would (without 'password' parameter in the command line):
+Now you can initiate a connection with Azure Cosmos DB for PostgreSQL using the Microsoft Entra ID user account that the access token was generated for. You would do it as you usually would with the user account as the user and without 'password' parameter in the command line:
 
 ```sql
 psql "host=mycluster.[uniqueID].postgres.cosmos.azure.com user=user@tenant.onmicrosoft.com dbname=[db_name] sslmode=require"
