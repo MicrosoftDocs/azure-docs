@@ -500,7 +500,7 @@ Hostname=db-virt-hostname
 
 ## Install primary and dialog application servers
 
-When you install primary and dialog application servers against an Db2 HADR configuration, use the virtual host name that you picked for the configuration.
+When you install primary and dialog application servers against a Db2 HADR configuration, use the virtual host name that you picked for the configuration.
 
 If you performed the installation before you created the Db2 HADR configuration, make the changes as described in the preceding section and as follows for SAP Java stacks.
 
