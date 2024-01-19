@@ -61,10 +61,6 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
    
    > [!NOTE]
    > The **Origin port** value determines only the port the endpoint uses to retrieve information from the origin server. The endpoint itself is available only to end clients on the default HTTP and HTTPS ports (80 and 443), regardless of the **Origin port** value.  
-   > 
-   > Endpoints in **Azure CDN from Akamai** profiles do not allow the full TCP port range for origin ports. For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](/previous-versions/azure/mt757337(v=azure.100)).  
-   > 
-   > HTTPS support for Azure CDN custom domains is not supported on **Azure CDN from Akamai** products. For more information, see [Configure HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md).
     
 9. For **Optimized for**, select an optimization type that best matches the scenario and type of content that you want the endpoint to deliver. For more information, see [Optimize Azure CDN for the type of content delivery](cdn-optimization-overview.md).
 
@@ -76,13 +72,6 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
        - [**General web delivery**](cdn-optimization-overview.md#general-web-delivery)
        - [**Dynamic site acceleration**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
-    - **Azure CDN Standard from Akamai** profiles:
-       - [**General web delivery**](cdn-optimization-overview.md#general-web-delivery)
-       - [**General media streaming**](cdn-optimization-overview.md#general-media-streaming)
-       - [**Video on demand media streaming**](cdn-optimization-overview.md#video-on-demand-media-streaming)
-       - [**Large file download**](cdn-optimization-overview.md#large-file-download)
-       - [**Dynamic site acceleration**](cdn-optimization-overview.md#dynamic-site-acceleration)
-
 10. Select **Add** to create the new endpoint.
    
     After the endpoint is created, it appears in the list of endpoints for the profile.
@@ -91,7 +80,6 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
     
     Because it takes time for the registration to propagate, the endpoint isn't immediately available for use: 
     - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
-    - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
     - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes within 30 minutes. 
    
     If you attempt to use the CDN domain name before the endpoint configuration has propagated to the point-of-presence (POP) servers, you might receive an HTTP 404 response status. If it has been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting Azure CDN endpoints that return a 404 status code](cdn-troubleshoot-endpoint.md).

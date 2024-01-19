@@ -53,7 +53,7 @@ Custom discoveries are organized into discovery groups. They're independent seed
 
 3. Name your new discovery group and add a description. The **Recurring Frequency** field allows you to schedule discovery runs for this group by scanning for new assets related to the designated seeds on a continuous basis. The default recurrence selection is **Weekly**. We recommend this cadence to ensure that your organization's assets are routinely monitored and updated.
 
-   For a single, one-time discovery run, select **Never**. We recommend that you keep the **Weekly** default cadence and instead turn off historical monitoring within your discovery group settings if you later decide to discontinue recurrent discovery runs.
+   For a single, one-time discovery run, select **Never**. We recommend that you keep the **Weekly** default cadence as discovery is designed to continuously discover new assets that are related to your known infrastructure.  You can edit the recurrence frequency later by selecting the "Edit" option from any Discovery group details page. 
 
 4. Select **Next: Seeds**.
 

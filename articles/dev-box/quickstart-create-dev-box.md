@@ -22,13 +22,13 @@ You can create and manage multiple dev boxes as a dev box user. Create a dev box
 
 To complete this quickstart, you need:
 
-- Permissions as a [Dev Box User](quickstart-configure-dev-box-service.md#4-provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
+- Permissions as a [Dev Box User](quickstart-configure-dev-box-service.md#provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
 
 ## Create a dev box
 
 Microsoft Dev Box enables you to create cloud-hosted developer workstations in a self-service way. You can create and manage dev boxes by using the developer portal.
 
-Depending on the project configuration and your permissions, you have access to different projects and associated dev box configurations.
+Depending on the project configuration and your permissions, you have access to different projects and associated dev box configurations. If you have a choice of projects and dev box pools, select the project and dev box pool that best fits your needs. For example, you might choose a project that has a dev box pool located near to you for least latency.
 
 To create a dev box in the Microsoft Dev Box developer portal:
 
@@ -59,8 +59,9 @@ To create a dev box in the Microsoft Dev Box developer portal:
 
 1. Use the dev box tile in the developer portal to track the progress of creation.
 
-   
-
+   > [!Note]
+   > If you encounter a vCPU quota error with a *QuotaExceeded* message, ask your administrator to [request an increased quota limit](/azure/dev-box/how-to-request-quota-increase). If your admin can't increase the quota limit at this time, try selecting another pool with a region close to your location.  
+      
    :::image type="content" source="./media/quickstart-create-dev-box/dev-box-tile-creating.png" alt-text="Screenshot of the developer portal that shows the dev box card with a status of Creating.":::
 
 

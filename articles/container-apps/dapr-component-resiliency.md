@@ -59,7 +59,7 @@ resource myPolicyDoc 'Microsoft.App/managedEnvironments/daprComponents/resilienc
             maxIntervalInMilliseconds: 10000
           }
       } 
-    }, 
+    } 
     inboundPolicy: {
       timeoutPolicy: {
         responseTimeoutInSeconds: 15
@@ -208,7 +208,7 @@ properties: {
     timeoutPolicy: {
         responseTimeoutInSeconds: 15
     }
-  },
+  }
   inbound: {
     timeoutPolicy: {
         responseTimeoutInSeconds: 15
@@ -236,7 +236,7 @@ properties: {
           maxIntervalInMilliseconds: 10000
         }
     }
-  },
+  }
   inbound: {
     httpRetryPolicy: {
         maxRetries: 5

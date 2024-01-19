@@ -7,7 +7,7 @@ ms.subservice: disks
 ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
-ms.date: 07/07/2023
+ms.date: 01/03/2024
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -56,7 +56,8 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 - Encrypting VMs in failover clusters.
 - Encryption of [Azure ultra disks](../disks-enable-ultra-ssd.md).
 - Encryption of [Premium SSD v2 disks](../disks-types.md#premium-ssd-v2-limitations).
-- Encryption of VMs in subscriptions that have the [Secrets should have the specified maximum validity period](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F342e8053-e12e-4c44-be01-c3c2f318400f) policy enabled with the [DENY effect](../../governance/policy/concepts/effects.md).
+- Encryption of VMs in subscriptions that have the [`Secrets should have the specified maximum validity period`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F342e8053-e12e-4c44-be01-c3c2f318400f) policy enabled with the [DENY effect](../../governance/policy/concepts/effects.md).
+- Encryption of VMs in subscriptions that have the [`Key Vault secrets should have an expiration date`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98728c90-32c7-4049-8429-847dc0f4fe37) policy enabled with the [DENY effect](../../governance/policy/concepts/effects.md)
 
 ## Install tools and connect to Azure
 

@@ -1,14 +1,14 @@
 ---
 title: Delete a VM and attached resources
 description: Learn how to delete a VM and the resources attached to the VM.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
-ms.subservice: 
+ms.subservice:
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/09/2022
-ms.author: cynthn
-ms.custom: template-how-to, devx-track-azurecli, devx-track-linux, devx-track-azurepowershell
+ms.author: jushiman
+ms.custom: template-how-to, devx-track-azurecli, linux-related-content, devx-track-azurepowershell
 ---
 
 # Delete a VM and attached resources
@@ -43,7 +43,7 @@ Depending on how you delete a VM, it may only delete the VM resource, not the ne
 
 1. When you're done making selections, select **Review + create**.
 1. You can verify which resources you have chosen to delete when you delete the VM.
-1. When you're satisfied with your selections, and validation passes, select **Create** to deploy the VM. 
+1. When you're satisfied with your selections, and validation passes, select **Create** to deploy the VM.
 
 ### [CLI](#tab/cli2)
 
@@ -88,86 +88,86 @@ New-AzVm `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `
-    -PublicIpAddressName "myPublicIpAddress" 
+    -PublicIpAddressName "myPublicIpAddress"
 ```
 
 
 ### [REST](#tab/rest2)
 
-This example shows how to set the data disk and NIC to be deleted when the VM is deleted. Note, the API version specified in the api-version parameter must be '2021-03-01' or newer to configure the delete option. 
+This example shows how to set the data disk and NIC to be deleted when the VM is deleted. Note, the API version specified in the api-version parameter must be '2021-03-01' or newer to configure the delete option.
 
 ```rest
-PUT 
-https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/myVM?api-version=xx  
-{ 
-  "storageProfile": { 
-    "dataDisks": [ 
-        { 
-          "diskSizeGB": 1023, 
-          "name": "myVMdatadisk", 
-          "createOption": "Empty", 
-          "lun": 0, 
+PUT
+https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/myVM?api-version=xx
+{
+  "storageProfile": {
+    "dataDisks": [
+        {
+          "diskSizeGB": 1023,
+          "name": "myVMdatadisk",
+          "createOption": "Empty",
+          "lun": 0,
           "deleteOption": "Delete"
        }
-    ] 
-  },  
-  "networkProfile": { 
-      "networkInterfaces": [ 
-        { 
-          "id": "/subscriptions/.../Microsoft.Network/networkInterfaces/myNIC", 
-          "properties": { 
+    ]
+  },
+  "networkProfile": {
+      "networkInterfaces": [
+        {
+          "id": "/subscriptions/.../Microsoft.Network/networkInterfaces/myNIC",
+          "properties": {
             "primary": true,
   	        "deleteOption": "Delete"
           }
-        } 
+        }
       ]
   }
-} 
+}
 ```
 
 
 You can also set this property for a Public IP associated with a NIC, so that the Public IP is automatically deleted when the NIC gets deleted.
 
 ```rest
-PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/test-nic?api-version=xx 
-{ 
+PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/test-nic?api-version=xx
+{
 
-  "properties": { 
+  "properties": {
 
-    "enableAcceleratedNetworking": true, 
+    "enableAcceleratedNetworking": true,
 
-    "ipConfigurations": [ 
+    "ipConfigurations": [
 
-      { 
+      {
 
-        "name": "ipconfig1", 
+        "name": "ipconfig1",
 
-        "properties": { 
+        "properties": {
 
-          "publicIPAddress": { 
+          "publicIPAddress": {
 
-            "id": "/subscriptions/../publicIPAddresses/test-ip", 
+            "id": "/subscriptions/../publicIPAddresses/test-ip",
 
-            "properties": { 
+            "properties": {
               "deleteOption": "Delete"
             }
-          }, 
+          },
 
-          "subnet": { 
+          "subnet": {
 
-            "id": "/subscriptions/../virtualNetworks/rg1-vnet/subnets/default" 
+            "id": "/subscriptions/../virtualNetworks/rg1-vnet/subnets/default"
 
-          } 
+          }
 
-        } 
+        }
 
-      } 
+      }
 
-    ] 
+    ]
 
-  }, 
+  },
 
-  "location": "eastus" 
+  "location": "eastus"
 
 }
 ```
@@ -176,7 +176,7 @@ PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/provider
 
 ## Update the delete behavior on an existing VM
 
-You can change the behavior when you delete a VM. 
+You can change the behavior when you delete a VM.
 
 ### [CLI](#tab/cli3)
 
@@ -196,100 +196,100 @@ $vmConfig.StorageProfile.OsDisk.DeleteOption = 'Delete'
 $vmConfig.StorageProfile.DataDisks | ForEach-Object { $_.DeleteOption = 'Delete' }
 $vmConfig.NetworkProfile.NetworkInterfaces | ForEach-Object { $_.DeleteOption = 'Delete' }
 $vmConfig | Update-AzVM
-``` 
+```
 
 ### [REST](#tab/rest3)
 
-The following example updates the VM to delete the NIC, OS disk, and data disk when the VM is deleted. Note, the API version specified in the api-version parameter must be '2021-03-01' or newer to configure the delete option. 
+The following example updates the VM to delete the NIC, OS disk, and data disk when the VM is deleted. Note, the API version specified in the api-version parameter must be '2021-03-01' or newer to configure the delete option.
 
 ```rest
-PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/virtualMachines/testvm?api-version=2021-07-01 
+PATCH https://management.azure.com/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/virtualMachines/testvm?api-version=2021-07-01
 
 
-{ 
-    "properties": {        
-        "hardwareProfile": { 
-            "vmSize": "Standard_D2s_v3" 
-        }, 
-        "storageProfile": { 
-            "imageReference": { 
-                "publisher": "MicrosoftWindowsServer", 
-                "offer": "WindowsServer", 
-                "sku": "2019-Datacenter", 
-                "version": "latest", 
-                "exactVersion": "17763.3124.2111130129" 
-            }, 
-            "osDisk": { 
-                "osType": "Windows", 
-                "name": "OsDisk_1", 
-                "createOption": "FromImage", 
-                "caching": "ReadWrite", 
-                "managedDisk": { 
-                    "storageAccountType": "Premium_LRS", 
-                    "id": "/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/disks/OsDisk_1" 
-                }, 
-                "deleteOption": "Delete", 
-                "diskSizeGB": 127 
-            }, 
-            "dataDisks": [ 
-                { 
-                    "lun": 0, 
-                    "name": "DataDisk_0", 
-                    "createOption": "Attach", 
-                    "caching": "None", 
-                    "writeAcceleratorEnabled": false, 
-                    "managedDisk": { 
-                        "storageAccountType": "Premium_LRS", 
-                        "id": "/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/disks/DataDisk_0" 
-                    }, 
-                    "deleteOption": "Delete", 
-                    "diskSizeGB": 1024, 
-                    "toBeDetached": false 
-                }, 
-                { 
-                    "lun": 1, 
-                    "name": "DataDisk_1", 
-                    "createOption": "Attach", 
-                    "caching": "None", 
-                    "writeAcceleratorEnabled": false, 
-                    "managedDisk": { 
-                        "storageAccountType": "Premium_LRS", 
-                        "id": "/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/disks/DataDisk_1" 
-                    }, 
-                    "deleteOption": "Delete", 
-                    "diskSizeGB": 1024, 
-                    "toBeDetached": false 
-                } 
-            ] 
-        }, 
-        "osProfile": { 
-            "computerName": "testvm", 
-            "adminUsername": "azureuser", 
-            "windowsConfiguration": { 
-                "provisionVMAgent": true, 
-                "enableAutomaticUpdates": true, 
-                "patchSettings": { 
-                    "patchMode": "AutomaticByOS", 
-                    "assessmentMode": "ImageDefault", 
-                    "enableHotpatching": false 
-                } 
-            }, 
-            "secrets": [], 
-            "allowExtensionOperations": true, 
-            "requireGuestProvisionSignal": true 
-        }, 
-        "networkProfile": { 
-            "networkInterfaces": [ 
-                { 
-                   "id": "/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Network/networkInterfaces/nic336", 
-                   "properties": { 
-                     "deleteOption": "Delete" 
-                    } 
-                } 
-            ] 
-        } 
-    } 
-} 
+{
+    "properties": {
+        "hardwareProfile": {
+            "vmSize": "Standard_D2s_v3"
+        },
+        "storageProfile": {
+            "imageReference": {
+                "publisher": "MicrosoftWindowsServer",
+                "offer": "WindowsServer",
+                "sku": "2019-Datacenter",
+                "version": "latest",
+                "exactVersion": "17763.3124.2111130129"
+            },
+            "osDisk": {
+                "osType": "Windows",
+                "name": "OsDisk_1",
+                "createOption": "FromImage",
+                "caching": "ReadWrite",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS",
+                    "id": "/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/disks/OsDisk_1"
+                },
+                "deleteOption": "Delete",
+                "diskSizeGB": 127
+            },
+            "dataDisks": [
+                {
+                    "lun": 0,
+                    "name": "DataDisk_0",
+                    "createOption": "Attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "managedDisk": {
+                        "storageAccountType": "Premium_LRS",
+                        "id": "/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/disks/DataDisk_0"
+                    },
+                    "deleteOption": "Delete",
+                    "diskSizeGB": 1024,
+                    "toBeDetached": false
+                },
+                {
+                    "lun": 1,
+                    "name": "DataDisk_1",
+                    "createOption": "Attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "managedDisk": {
+                        "storageAccountType": "Premium_LRS",
+                        "id": "/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Compute/disks/DataDisk_1"
+                    },
+                    "deleteOption": "Delete",
+                    "diskSizeGB": 1024,
+                    "toBeDetached": false
+                }
+            ]
+        },
+        "osProfile": {
+            "computerName": "testvm",
+            "adminUsername": "azureuser",
+            "windowsConfiguration": {
+                "provisionVMAgent": true,
+                "enableAutomaticUpdates": true,
+                "patchSettings": {
+                    "patchMode": "AutomaticByOS",
+                    "assessmentMode": "ImageDefault",
+                    "enableHotpatching": false
+                }
+            },
+            "secrets": [],
+            "allowExtensionOperations": true,
+            "requireGuestProvisionSignal": true
+        },
+        "networkProfile": {
+            "networkInterfaces": [
+                {
+                   "id": "/subscriptions/subID/resourceGroups/resourcegroup/providers/Microsoft.Network/networkInterfaces/nic336",
+                   "properties": {
+                     "deleteOption": "Delete"
+                    }
+                }
+            ]
+        }
+    }
+}
 ```
 ---
 
@@ -299,17 +299,17 @@ Force delete allows you to forcefully delete your virtual machine, reducing dele
 
 ### [Portal](#tab/portal4)
 
-When you go to delete an existing VM, you'll find an option to apply force delete in the delete pane.  
+When you go to delete an existing VM, you'll find an option to apply force delete in the delete pane.
 
 1. Open the [portal](https://portal.azure.com).
 1. Navigate to your virtual machine.
-1. On the **Overview** page, select **Delete**. 
-1. In the **Delete virtual machine** pane, select the checkbox for **Apply force delete**. 
-1. Select **Ok**.  
+1. On the **Overview** page, select **Delete**.
+1. In the **Delete virtual machine** pane, select the checkbox for **Apply force delete**.
+1. Select **Ok**.
 
 ### [CLI](#tab/cli4)
 
-Use the `--force-deletion` parameter for [az vm delete](/cli/azure/vm#az-vm-delete). 
+Use the `--force-deletion` parameter for [az vm delete](/cli/azure/vm#az-vm-delete).
 
 ```azurecli-interactive
 az vm delete \
@@ -320,7 +320,7 @@ az vm delete \
 
 ### [PowerShell](#tab/powershell4)
 
-Use the `-ForceDeletion` parameter for [Remove-AzVm](/powershell/module/az.compute/remove-azvm). 
+Use the `-ForceDeletion` parameter for [Remove-AzVm](/powershell/module/az.compute/remove-azvm).
 
 ```azurepowershell
 Remove-AzVm `
@@ -337,21 +337,21 @@ You can use the Azure REST API to apply force delete to your virtual machines. U
 
 ## Force Delete for scale sets
 
-Force delete allows you to forcefully delete your **Uniform** Virtual Machine Scale Set, reducing delete latency and immediately freeing up attached resources. Force Delete won't immediately free the MAC address associated with a VM, as this is a physical resource that may take up to 10 min to free. If you need to immediately reuse the MAC address on a new VM, Force Delete is not recommended. Force delete should only be used when you are not intending to reuse virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
+Force delete allows you to forcefully delete your Virtual Machine Scale Set, reducing delete latency and immediately freeing up attached resources. Force Delete won't immediately free the MAC address associated with a VM, as this is a physical resource that may take up to 10 min to free. If you need to immediately reuse the MAC address on a new VM, Force Delete is not recommended. Force delete should only be used when you are not intending to reuse virtual hard disks. You can use force delete through Portal, CLI, PowerShell, and REST API.
 
 ### [Portal](#tab/portal5)
 
-When you go to delete an existing scale set, you'll find an option to apply force delete in the delete pane.  
+When you go to delete an existing scale set, you'll find an option to apply force delete in the delete pane.
 
 1. Open the [portal](https://portal.azure.com).
 1. Navigate to your Virtual Machine Scale Set.
-1. On the **Overview** page, select **Delete**. 
-1. In the **Delete Virtual Machine Scale Set** pane, select the checkbox for **Apply force delete**. 
-1. Select **Ok**.  
+1. On the **Overview** page, select **Delete**.
+1. In the **Delete Virtual Machine Scale Set** pane, select the checkbox for **Apply force delete**.
+1. Select **Ok**.
 
 ### [CLI](#tab/cli5)
 
-Use the `--force-deletion` parameter for [`az vmss delete`](/cli/azure/vmss#az-vmss-delete). 
+Use the `--force-deletion` parameter for [`az vmss delete`](/cli/azure/vmss#az-vmss-delete).
 
 ```azurecli-interactive
 az vmss delete \
@@ -362,7 +362,7 @@ az vmss delete \
 
 ### [PowerShell](#tab/powershell5)
 
-Use the `-ForceDeletion` parameter for [Remove-AzVmss](/powershell/module/az.compute/remove-azvmss). 
+Use the `-ForceDeletion` parameter for [Remove-AzVmss](/powershell/module/az.compute/remove-azvmss).
 
 ```azurepowershell
 Remove-AzVmss `
@@ -396,7 +396,7 @@ A: No, this feature is only available on disks and NICs associated with a VM.
 
 ### Q:	How does this feature work with Flexible Virtual Machine Scale Set?
 
-A: For Flexible Virtual Machine Scale Set the disks, NICs, and PublicIPs have `deleteOption` set to `Delete` by default so these resources are automatically cleaned up when the VMs are deleted. 
+A: For Flexible Virtual Machine Scale Set the disks, NICs, and PublicIPs have `deleteOption` set to `Delete` by default so these resources are automatically cleaned up when the VMs are deleted.
 
 For data disks that were explicitly created and attached to the VMs, you can modify this property to ‘Detach’ instead of ‘Delete’ if you want the disks to persist after the VM is deleted.
 
@@ -406,7 +406,7 @@ For data disks that were explicitly created and attached to the VMs, you can mod
 A: Yes, you can use this feature for Spot VMs just the way you would for on-demand VMs.
 
 
-### Q: How do I persist the disks, NIC, and Public IPs associated with a VM? 
+### Q: How do I persist the disks, NIC, and Public IPs associated with a VM?
 
 A: By default, disks, NICs, and Public IPs associated with a VM are persisted when the VM is deleted. If you configure these resources to be automatically deleted, you can update the settings so that the resources remain after the VM is deleted. To keep these resources, set the `deleteOption` property to `Detach`.
 

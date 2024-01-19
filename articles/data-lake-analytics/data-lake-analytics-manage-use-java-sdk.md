@@ -4,7 +4,7 @@ description: This article describes how to use the Azure Java SDK to write apps 
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 01/27/2023
+ms.date: 12/20/2023
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -31,7 +31,7 @@ The code following snippet provides code for **non-interactive** authentication,
 ## Create a Java application
 
 1. Open IntelliJ and create a Java project using the **Command-Line App** template.
-2. Right-click on the project on the left-hand side of your screen and click **Add Framework Support**. Choose **Maven** and select **OK**.
+2. Right-click on the project on the left-hand side of your screen and select **Add Framework Support**. Choose **Maven** and select **OK**.
 3. Open the newly created **"pom.xml"** file and add the following snippet of text between the **\</version>** tag and the **\</project>** tag:
 
 ```xml

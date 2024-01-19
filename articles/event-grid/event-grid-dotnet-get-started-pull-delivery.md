@@ -317,3 +317,6 @@ In this section, you add code to retrieve messages from the queue.
 ## Clean up resources
 
 Navigate to your Event Grid namespace in the Azure portal, and select **Delete** on the Azure portal to delete the Event Grid namespace and the topic in it.
+
+## Related topics
+See [.NET API reference](/dotnet/api/overview/azure/messaging.eventgrid-readme?view=azure-dotnet-preview&preserve-view=true).

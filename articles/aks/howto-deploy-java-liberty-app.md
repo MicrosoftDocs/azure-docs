@@ -5,7 +5,7 @@ description: Deploy a Java application with Open Liberty/WebSphere Liberty on an
 ms.topic: how-to
 ms.date: 12/21/2022
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, build-2023, devx-track-extended-java, devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, build-2023, devx-track-extended-java, devx-track-azurecli, linux-related-content
 ---
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
@@ -38,23 +38,24 @@ This article is intended to help you quickly get to deployment. Before going to 
   * Install a Java SE implementation, version 17 or later. (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-* Make sure you've been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
+* Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
 
 ## Create a Liberty on AKS deployment using the portal
 
-The following steps guide you to create a Liberty runtime on AKS. After completing these steps, you'll have an Azure Container Registry and an Azure Kubernetes Service cluster for the sample application.
+The following steps guide you to create a Liberty runtime on AKS. After completing these steps, you have an Azure Container Registry and an Azure Kubernetes Service cluster for deploying your containerized application.
 
 1. Visit the [Azure portal](https://portal.azure.com/). In the search box at the top of the page, type *IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service*. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section. If you prefer, you can go directly to the offer with this shortcut link: [https://aka.ms/liberty-aks](https://aka.ms/liberty-aks).
 1. Select **Create**.
-1. In the **Basics** pane, create a new resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0913-java-liberty-project-rg`.
-1. Select *East US* as **Region**.
-1. Select **Next: Configure cluster**.
-1. This section allows you to select an existing AKS cluster and Azure Container Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability enables you to use the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. Leave all other values at the defaults and select **Next: Networking**.
-1. Next to **Connect to Azure Application Gateway?** select **Yes**. This pane lets you customize the following deployment options.
+1. In the **Basics** pane, create a new resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0913-java-liberty-project-rg`. Select *East US* as **Region**. Select **Next** to **AKS** pane.
+1. This pane allows you to select an existing AKS cluster and Azure Container Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability enables you to use the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. Leave all other values at the defaults and select **Next** to **Load balancing** pane.
+1. Next to **Connect to Azure Application Gateway?** select **Yes**. This section lets you customize the following deployment options.
    1. You can customize the virtual network and subnet into which the deployment will place the resources. Leave these values at their defaults.
    1. You can provide the TLS/SSL certificate presented by the Azure Application Gateway. Leave the values at the default to cause the offer to generate a self-signed certificate. Don't go to production using a self-signed certificate. For more information about self-signed certificates, see [Create a self-signed public certificate to authenticate your application](../active-directory/develop/howto-create-self-signed-certificate.md).
    1. You can enable cookie based affinity, also known as sticky sessions. We want sticky sessions enabled for this article, so ensure this option is selected.
       ![Screenshot of the enable cookie-based affinity checkbox.](./media/howto-deploy-java-liberty-app/enable-cookie-based-affinity.png)
+1. Select **Next** to **Operator and application** pane. This quickstart uses all defaults in this pane. However, it lets you customize the following deployment options.
+   1. You can deploy WebSphere Liberty Operator by selecting **Yes** for option **IBM supported?**. Leaving the default **No** deploys Open Liberty Operator.
+   1. You can deploy an application for your selected Operator by selecting **Yes** for option **Deploy an application?**. Leaving the default **No** doesn't deploy any application.
 1. Select **Review + create** to validate your selected options.
 1. When you see the message **Validation Passed**, select **Create**. The deployment may take up to 20 minutes.
 
@@ -80,6 +81,11 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 These values will be used later in this article. Note that several other useful commands are listed in the outputs.
 
+> [!NOTE]
+> You may notice a similar output named **appDeploymentYaml**. The difference between output *appDeploymentTemplateYaml* and *appDeploymentYaml* is:
+> * *appDeploymentTemplateYaml* is populated if and only if the deployment **does not include** an application.
+> * *appDeploymentYaml* is populated if and only if the deployment **does include** an application.
+
 ## Create an Azure SQL Database
 
 The following steps guide you through creating an Azure SQL Database single database for use with your app.
@@ -92,10 +98,6 @@ The following steps guide you through creating an Azure SQL Database single data
    > At the **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
    >
    > ![Screenshot of configuring SQL database networking.](./media/howto-deploy-java-liberty-app/create-sql-database-networking.png)
-   >
-   > Also at the **Networking** step, under **Encrypted connections**, set the **Minimum TLS version** to **TLS 1.0**.
-   >
-   > ![Screenshot of configuring SQL database networking TLS 1.0.](./media/howto-deploy-java-liberty-app/sql-database-minimum-TLS-version.png)
 
 Now that the database and AKS cluster have been created, we can proceed to preparing AKS to host your Open Liberty application.
 
@@ -112,7 +114,7 @@ There are a few samples in the repository. We'll use *java-app/*. Here's the fil
 ```azurecli-interactive
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
-git checkout 20230830
+git checkout 20240109
 ```
 
 If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
@@ -123,6 +125,9 @@ java-app
 │  ├─ aks/
 │  │  ├─ db-secret.yaml
 │  │  ├─ openlibertyapplication-agic.yaml
+│  │  ├─ openlibertyapplication.yaml
+│  │  ├─ webspherelibertyapplication-agic.yaml
+│  │  ├─ webspherelibertyapplication.yaml
 │  ├─ docker/
 │  │  ├─ Dockerfile
 │  │  ├─ Dockerfile-wlp
@@ -136,7 +141,9 @@ java-app
 
 The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In the *aks* directory, we placed three deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication-agic.yaml* is used to deploy the application image. In the *docker* directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
+In the *aks* directory, there are five deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication-agic.yaml* is used in this quickstart to deploy the Open Liberty Application with AGIC. If desired, you can deploy the application without AGIC using the file *openlibertyapplication.yaml*. Use the file *webspherelibertyapplication-agic.yaml* or *webspherelibertyapplication.yaml* to deploy the WebSphere Liberty Application with or without AGIC if you deployed WebSphere Liberty Operator in section [Create a Liberty on AKS deployment using the portal](#create-a-liberty-on-aks-deployment-using-the-portal).
+
+In the *docker* directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty. These files are *Dockerfile* and *Dockerfile-wlp*, respectively. You use the file *Dockerfile* to build the application image with Open Liberty in this quickstart. Similarly, use the file *Dockerfile-wlp* to build the application image with WebSphere Liberty if you deployed WebSphere Liberty Operator in section [Create a Liberty on AKS deployment using the portal](#create-a-liberty-on-aks-deployment-using-the-portal).
 
 In directory *liberty/config*, the *server.xml* file is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
 
@@ -178,16 +185,12 @@ You can now run and test the project locally before deploying to Azure. For conv
 
 ### Build image for AKS deployment
 
-You can now run the `docker build` command to build the image. 
+You can now run the `docker build` command to build the image.
 
 ```bash
 cd <path-to-your-repo>/java-app/target
 
-# If you're running with Open Liberty
 docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
-
-# If you're running with WebSphere Liberty
-docker build -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
 ```
 
 ### (Optional) Test the Docker image locally
@@ -234,7 +237,7 @@ The following steps deploy and test the application.
    kubectl apply -f db-secret.yaml
    ```
 
-   You'll see the output `secret/db-secret-postgres created`.
+   You'll see the output `secret/db-secret-sql created`.
 
 1. Apply the deployment file.
 
@@ -268,9 +271,9 @@ The following steps deploy and test the application.
       ```
 
       Copy the value of **ADDRESS** from the output, this is the frontend public IP address of the deployed Azure Application Gateway.
-      
+
    1. Go to `https://<ADDRESS>` to test the application. For your convenience, this shell command will create an environment variable whose value you can paste straight into the browser.
-      
+
       ```bash
       export APP_URL=https://$(kubectl get ingress | grep javaee-cafe-cluster-agic-ingress | cut -d " " -f14)/
       echo $APP_URL
@@ -288,6 +291,8 @@ az group delete --name <db-resource-group> --yes --no-wait
 ```
 
 ## Next steps
+
+You can learn more from the following references:
 
 * [Azure Kubernetes Service](https://azure.microsoft.com/free/services/kubernetes-service/)
 * [Open Liberty](https://openliberty.io/)

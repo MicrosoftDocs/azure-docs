@@ -1,6 +1,6 @@
 ---
-title:  Major Version Upgrade of a flexible server - Azure CLI 
-description: This article describes how to perform major version upgrade in Azure Database for PostgreSQL through Azure CLI.
+title:  Major version upgrade - Azure CLI 
+description: This article describes how to perform a major version upgrade in Azure Database for PostgreSQL - Flexible Server through the Azure CLI.
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: devx-track-azurecli
@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 02/13/2023
 ---
 
-#  Major Version Upgrade of a flexible server - Flexible Server with Azure CLI
+#  Major version upgrade of Azure Database for PostgreSQL - Flexible Server with Azure CLI
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article provides step-by-step procedure to perform Major Version Upgrade in flexible server using Azure CLI.
+This article provides step-by-step procedure to perform a major version upgrade in Azure Database for PostgreSQL flexible server using Azure CLI.
 
 ## Prerequisites
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -32,7 +32,7 @@ This article provides step-by-step procedure to perform Major Version Upgrade in
     az account set --subscription <subscription id>
     ```
 
-- Create a PostgreQL Flexible Server if you haven't already created one using the ```az postgres flexible-server create``` command.
+- Create an Azure Database for PostgreSQL flexible server instance if you haven't already created one using the `az postgres flexible-server create` command.
 
     ```azurecli
     az postgres flexible-server create --resource-group myresourcegroup --name myservername

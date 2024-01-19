@@ -4,7 +4,7 @@ description: Use Azure Container Registry commands to quickly build, push, and r
 ms.topic: quickstart
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.service: container-registry
 ms.custom: contperf-fy21q1, devx-track-azurecli, mode-other
 ---

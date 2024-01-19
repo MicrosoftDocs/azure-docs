@@ -6,7 +6,7 @@ ms.topic: reference
 author: SudheeshGH
 ms.author: sunaray
 ms.custom: subject-policy-reference
-ms.date: 12/13/2023
+ms.date: 01/02/2024
 ---
 # Azure Policy built-in definitions for Azure Database for MariaDB
 

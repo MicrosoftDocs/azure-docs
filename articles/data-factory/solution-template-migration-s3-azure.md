@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 ---
 
 # Migrate data from Amazon S3 to Azure Data Lake Storage Gen2

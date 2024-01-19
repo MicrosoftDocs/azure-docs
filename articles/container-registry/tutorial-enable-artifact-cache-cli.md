@@ -3,7 +3,7 @@ title: Enable Artifact Cache - Azure CLI
 description: Learn how to enable Registry Cachein your Azure Container Registry using Azure CLI.
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 06/17/2022
+ms.date: 10/31/2023
 ms.author: tejaswikolli
 ms.service: container-registry
 ---

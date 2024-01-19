@@ -186,6 +186,7 @@ Administrative flags in NFSv4.x ACLs are special flags that are used only with A
 
 This Audit ACL is an example of that, where `user1` is audited for failed access attempts for any permission level: `U:F:user1@contoso.com:rwatTnNcCy`.
 
+<!-- NEEDS UPDATE FOR ACCESS LOGS -->
 Azure NetApp Files only supports setting administrative flags for Audit ACEs. File access logging isn't currently supported. Alarm ACEs aren't supported in Azure NetApp Files.
 
 ## NFSv4.x user and group principals

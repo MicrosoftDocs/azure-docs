@@ -44,6 +44,7 @@ Standard storage with cool access is supported for the following regions:
 * Australia East 
 * Australia Southeast
 * Brazil South 
+* Brazil Southeast
 * Canada Central 
 * Canada East
 * Central India 
@@ -52,9 +53,13 @@ Standard storage with cool access is supported for the following regions:
 * France Central
 * North Central US 
 * North Europe  
+* Southeast Asia
 * Switzerland North 
 * Switzerland West 
 * UAE North 
+* US Gov Arizona
+* US Gov Virginia 
+* West US
 
 ## Effects of cool access on data
 
