@@ -12,7 +12,7 @@ ms.custom:
 
 # Enable the API Center portal
 
-This article shows how to enable the *API Center portal*, an automatically generated website that developers can you to discover the APIs in your API center. The portal is hosted by Azure at a unique URL and restricts access to data in yur API center using Azure role-based access control.
+This article shows how to enable the *API Center portal*, an automatically generated website that developers can you to discover the APIs in your API center. The portal is hosted by Azure at a unique URL and restricts access to data in your API center using Azure role-based access control.
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
@@ -52,7 +52,7 @@ First configure an app registration in your Microsoft Entra ID tenant for the AP
         Example: `https://contoso-apic.portal.westeurope.azure-apicenter.ms`
 
     * Select **Register**.
-1. On the **Overview** page, copy the **Application (client) ID** and the **Directory (tenant) ID**. You'll use these values when you configure settings for the portal in your API center.
+1. On the **Overview** page, copy the **Application (client) ID** and the **Directory (tenant) ID**. You use these values when you configure the identity provider for the portal in your API center.
       
 1. On the **API permissions** page, select **+ Add a permission**. 
     1. On the **Request API permissions** page, select the **APIs my organization uses** tab. Search for and select **Azure API Center**. 

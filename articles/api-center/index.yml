@@ -52,5 +52,5 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable API Center portal
+          - text: Enable the API Center portal
             url: enable-api-center-portal.md
