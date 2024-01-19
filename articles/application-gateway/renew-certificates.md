@@ -126,12 +126,11 @@ resource "azurerm_application_gateway" "main" {
 
 ![oldsslcert](media/renew-certificate/oldsslcertlink.png)
 
-<span style="background-color: #ffeeba; padding: 10px; border: 1px solid #ffc107; display: block;">
->[!NOTE]
+> :memo: **Note:**
 > * The certificate added to the application gateway, as shown in the screenshot above, is tied to a **secret version**.
 > * Renewing the above certificate in **KeyVault** doesn't automatically make the application gateway listener select the updated certificate.
 > * To reflect the changes, the certificate in the application gateway must be **manually** updated.
-</span>
+
 
 *To add versionless keyvault certificates, we can leverage the Terraform "**replace**" function. By using this function, we can replace the entire KeyVault URL, which includes the secret version, with just the secret name, excluding the version.*
 
