@@ -16,7 +16,7 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 
 # Network traffic flow when using a secured workspace
 
-When you put your Azure Machine Learning workspace and associated resources in an Azure virtual network, it changes the network traffic between resources. Without a virtual network, network traffic flows over the public internet or within an Azure datacenter. After you introduct a virtual network, you might also want to harden network security. For example, you might want to block inbound and outbound communications between the virtual network and the public internet. However, Azure Machine Learning requires access to some resources on the public internet. For example, Azure Resource Management is used for deployments and management operations.
+When you put your Azure Machine Learning workspace and associated resources in an Azure virtual network, it changes the network traffic between resources. Without a virtual network, network traffic flows over the public internet or within an Azure datacenter. After you introduce a virtual network, you might also want to harden network security. For example, you might want to block inbound and outbound communications between the virtual network and the public internet. However, Azure Machine Learning requires access to some resources on the public internet. For example, Azure Resource Manager is used for deployments and management operations.
 
 This article lists the required traffic to and from the public internet. It also explains how network traffic flows between your client development environment and a secured Azure Machine Learning workspace in the following scenarios:
 
@@ -27,7 +27,7 @@ This article lists the required traffic to and from the public internet. It also
   * Designer
   * Datasets and datastores
 
-  Azure Machine Learning studio is a web-based UI that runs partially in your web browser. It makes calls to Azure services to perform tasks such as training a model, using designer, or viewing datasets. Some of these calls use a different communication flow than if you're using the SDK, the CLI, the REST API, or Visual Studio Code.
+  Azure Machine Learning studio is a web-based UI that runs partially in your web browser. It makes calls to Azure services to perform tasks such as training a model, using the designer, or viewing datasets. Some of these calls use a different communication flow than if you're using the SDK, the CLI, the REST API, or Visual Studio Code.
 
 * Using Azure Machine Learning studio, the SDK, the CLI, or the REST API to work with:
 
@@ -49,19 +49,19 @@ This article assumes the following configuration:
 
 | Scenario | Required inbound | Required outbound | Additional configuration |
 | ----- | ----- | ----- | ----- |
-| [Access a workspace from the studio](#scenario-access-a-workspace-from-the-studio) | Not applicable | <ul><li>Microsoft Entra ID</li><li>Azure Front Door</li><li>Azure Machine Learning</li></ul> | You may need to use a custom DNS server. For more information, see [Use your workspace with a custom DNS server](how-to-custom-dns.md). |
+| [Access a workspace from the studio](#scenario-access-a-workspace-from-the-studio) | Not applicable | <ul><li>Microsoft Entra ID</li><li>Azure Front Door</li><li>Azure Machine Learning</li></ul> | You might need to use a custom DNS server. For more information, see [Use your workspace with a custom DNS server](how-to-custom-dns.md). |
 | [Use AutoML, the designer, the dataset, and the datastore from the studio](#scenario-use-automl-the-designer-the-dataset-and-the-datastore-from-the-studio) | Not applicable | Not applicable | <ul><li>Workspace service principal configuration</li><li>Allow access from trusted Azure services</li></ul>For more information, see [Secure an Azure Machine Learning workspace with virtual networks](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). |
 | [Use a compute instance and a compute cluster](#scenario-use-a-compute-instance-and-a-compute-cluster) | <ul><li>Azure Machine Learning on port 44224</li><li>Azure Batch on ports 29876-29877</li></ul> | <ul><li>Microsoft Entra ID</li><li>Azure Resource Manager</li><li>Azure Machine Learning</li><li>Azure Storage</li><li>Azure Key Vault</li></ul> | If you use a firewall, create user-defined routes. For more information, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md). |
 | [Use Azure Kubernetes Service](#scenario-use-azure-kubernetes-service) | Not applicable | For information on the outbound configuration for AKS, see [Secure Azure Kubernetes Service inferencing environment](how-to-secure-kubernetes-inferencing-environment.md). | |
-| [Use Docker images managed by Azure Machine Learning](#scenario-use-docker-images-managed-by-azure-machine-learning) | Not applicable | <ul><li>Azure Container Registry</li><li>`viennaglobal.azurecr.io` global container registry</li></ul> | If the container registry for your workspace is behind the virtual network, configure the workspace to use a compute cluster to build images. For more information, see [Secure an Azure Machine Learning workspace with virtual networks](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr). |
+| [Use Docker images managed by Azure Machine Learning](#scenario-use-docker-images-managed-by-azure-machine-learning) | Not applicable | <ul><li>Microsoft Artifact Registry</li><li>`viennaglobal.azurecr.io` global container registry</li></ul> | If the container registry for your workspace is behind the virtual network, configure the workspace to use a compute cluster to build images. For more information, see [Secure an Azure Machine Learning workspace with virtual networks](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr). |
 
 ## Purposes of storage accounts
 
 Azure Machine Learning uses multiple storage accounts. Each stores different data and has a different purpose:
 
-* __Your storage__: The storage accounts in your Azure subscription are used to store your data and artifacts, such as models, training data, training logs, and Python scripts. For example, the _default_ storage account for your workspace is in your subscription. The Azure Machine Learning compute instance and compute clusters access file and blob data in this storage over ports 445 (SMB) and 443 (HTTPS).
+* __Your storage__: The storage accounts in your Azure subscription store your data and artifacts, such as models, training data, training logs, and Python scripts. For example, the _default_ storage account for your workspace is in your subscription. The Azure Machine Learning compute instance and compute clusters access file and blob data in this storage over ports 445 (SMB) and 443 (HTTPS).
 
-  When you're using a compute instance or compute cluster, your storage account is mounted as a file share via the SMB protocol. The compute instance and cluster use this file share to store items like the data, models, Jupyter notebooks, and datasets. The compute instance and cluster use the private endpoint when they're accessing the storage account.
+  When you're using a compute instance or compute cluster, your storage account is mounted as a file share via the SMB protocol. The compute instance and cluster use this file share to store items like the data, models, Jupyter notebooks, and datasets. The compute instance and cluster use the private endpoint when they access the storage account.
 
 * __Microsoft storage__: The Azure Machine Learning compute instance and compute clusters rely on Azure Batch. They access storage located in a Microsoft subscription. This storage is used only for the management of the compute instance or cluster. None of your data is stored here. The compute instance and compute cluster access the blob, table, and queue data in this storage, by using port 443 (HTTPS).
 
@@ -72,9 +72,9 @@ Machine Learning also stores metadata in an Azure Cosmos DB instance. By default
 > [!NOTE]
 > The information in this section is specific to using the workspace from Azure Machine Learning studio. If you use the Azure Machine Learning SDK, the REST API, the CLI, or Visual Studio Code, the information in this section doesn't apply to you.
 
-When you're accessing your workspace from the studio, the network traffic flows are as follows:
+When you access your workspace from the studio, the network traffic flows are as follows:
 
-* To authenticate to resources, the configuration uses Azure Active Directory.
+* To authenticate to resources, the configuration uses Microsoft Entra ID.
 * For management and deployment operations, the configuration uses Azure Resource Manager.
 * For tasks that are specific to Azure Machine Learning, the configuration uses the Azure Machine Learning service.
 * For access to [Azure Machine Learning studio](https://ml.azure.com), the configuration uses Azure Front Door.
@@ -95,7 +95,7 @@ The following features of Azure Machine Learning studio use _data profiling_:
 Data profiling depends on the ability of the Azure Machine Learning managed service to access the default Azure storage account for your workspace. The managed service _doesn't exist in your virtual network_, so it can't directly access the storage account in the virtual network. Instead, the workspace uses a service principal to access storage.
 
 > [!TIP]
-> You can provide a service principal when you're creating the workspace. If you don't, one is created for you and will have the same name as your workspace.
+> You can provide a service principal when you're creating the workspace. If you don't, one is created for you and has the same name as your workspace.
 
 To allow access to the storage account, configure the storage account to allow a resource instance for your workspace or select __Allow Azure services on the trusted services list to access this storage account__. This setting allows the managed service to access storage through the Azure datacenter network.
 
@@ -107,14 +107,14 @@ For more information, see the "Secure Azure storage accounts" section of [Secure
 
 ## Scenario: Use a compute instance and a compute cluster
 
-An Azure Machine Learning compute instance and compute cluster are managed services hosted by Microsoft. They're built on top of the Azure Batch service. Although they exist in a Microsoft managed environment, they're also injected into your virtual network.
+An Azure Machine Learning compute instance and compute cluster are managed services that Microsoft hosts. They're built on top of the Azure Batch service. Although they exist in a Microsoft managed environment, they're also injected into your virtual network.
 
 When you create a compute instance or compute cluster, the following resources are also created in your virtual network:
 
 * A network security group with required outbound rules. These rules allow _inbound_ access from Azure Machine Learning (TCP on port 44224) and Azure Batch (TCP on ports 29876-29877).
 
-    > [!IMPORTANT]
-    > If you use a firewall to block internet access into the virtual network, you must configure the firewall to allow this traffic. For example, with Azure Firewall, you can create user-defined routes. For more information, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
+  > [!IMPORTANT]
+  > If you use a firewall to block internet access into the virtual network, you must configure the firewall to allow this traffic. For example, with Azure Firewall, you can create user-defined routes. For more information, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
 
 * A load balancer with a public IP address.
 
@@ -160,17 +160,17 @@ If your model requires extra inbound or outbound connectivity, such as to an ext
 
 ## Scenario: Use Docker images managed by Azure Machine Learning
 
-Azure Machine Learning provides Docker images that you can use to train models or perform inference. If you don't specify your own images, the ones that Azure Machine Learning provides are used. These images are hosted on the Microsoft Container Registry (MCR). They're also hosted on a geo-replicated Azure Container Registry named `viennaglobal.azurecr.io`.
+Azure Machine Learning provides Docker images that you can use to train models or perform inference. These images are hosted on Microsoft Artifact Registry. They're also hosted on a geo-replicated Azure Container Registry instance named `viennaglobal.azurecr.io`.
 
-If you provide your own Docker images, such as on an Azure Container Registry that you provide, you don't need the outbound communication with MCR or `viennaglobal.azurecr.io`.
+If you provide your own Docker images, such as on a container registry that you provide, you don't need the outbound communication with Artifact Registry or `viennaglobal.azurecr.io`.
 
 > [!TIP]
-> If your Azure Container Registry is secured in the virtual network, it cannot be used by Azure Machine Learning to build Docker images. Instead, you must designate an Azure Machine Learning compute cluster to build images. For more information, see [How to secure a workspace in a virtual network](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+> If your container registry is secured in the virtual network, Azure Machine Learning can't use it to build Docker images. Instead, you must designate an Azure Machine Learning compute cluster to build images. For more information, see [Secure an Azure Machine Learning workspace with virtual networks](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 :::image type="content" source="./media/concept-secure-network-traffic-flow/azure-machine-learning-docker-images.png" alt-text="Diagram of traffic flow when you use provided Docker images.":::
 
 ## Next steps
 
-Now that you've learned how network traffic flows in a secured configuration, learn more about securing Azure Machine Learning in a virtual network by reading the [Virtual network isolation and privacy overview](how-to-network-security-overview.md) article.
+Now that you've learned how network traffic flows in a secured configuration, learn more about securing Azure Machine Learning in a virtual network by reading the [overview article about virtual network isolation and privacy](how-to-network-security-overview.md).
 
 For information on best practices, see the [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) article.

@@ -1,7 +1,7 @@
 ---
 title: Data encryption with Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: 'Learn how Azure Machine Learning computes and data stores provides data encryption at rest and in transit.'
+description: 'Learn how Azure Machine Learning computes and data stores provide data encryption at rest and in transit.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -16,82 +16,83 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 
 # Data encryption with Azure Machine Learning
 
-Azure Machine Learning relies on a various of Azure data storage services and compute resources when training models and performing inferences. In this article, learn about the data encryption for each service both at rest and in transit.
+Azure Machine Learning relies on a variety of Azure data storage services and compute resources when it's training models and performing inferences. In this article, learn about the data encryption for each service both at rest and in transit.
 
-> [!IMPORTANT]
-> For production grade encryption during __training__, Microsoft recommends using Azure Machine Learning compute cluster. For production grade encryption during __inference__, Microsoft recommends using Azure Kubernetes Service.
->
-> Azure Machine Learning compute instance is a dev/test environment. When using it, we recommend that you store your files, such as notebooks and scripts, in a file share. Your data should be stored in a datastore.
+For production-grade encryption during training, we recommend that you use an Azure Machine Learning compute cluster. For production-grade encryption during inference, we recommend that you use Azure Kubernetes Service (AKS).
+
+An Azure Machine Learning compute instance is a dev/test environment. When you use it, we recommend that you store your files, such as notebooks and scripts, in a file share. Store your data in a datastore.
 
 ## Encryption at rest
 
-Azure Machine Learning end to end projects integrates with services like Azure Blob Storage, Azure Cosmos DB, Azure SQL Database etc. The article describes encryption method of such services.
+Azure Machine Learning end-to-end projects integrate with services like Azure Blob Storage, Azure Cosmos DB, and Azure SQL Database. This article describes encryption methods for such services.
 
-### Azure Blob storage
+### Azure Blob Storage
 
-Azure Machine Learning stores snapshots, output, and logs in the Azure Blob storage account (default storage account) that's tied to the Azure Machine Learning workspace and your subscription. All the data stored in Azure Blob storage is encrypted at rest with Microsoft-managed keys.
+Azure Machine Learning stores snapshots, output, and logs in the Azure Blob Storage account (default storage account) that's tied to the Azure Machine Learning workspace and your subscription. All the data stored in Azure Blob Storage is encrypted at rest with Microsoft-managed keys.
 
 For information on how to use your own keys for data stored in Azure Blob storage, see [Azure Storage encryption with customer-managed keys in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md).
 
-Training data is typically also stored in Azure Blob storage so that it's accessible to training compute targets. This storage isn't managed by Azure Machine Learning but mounted to compute targets as a remote file system.
+Training data is typically also stored in Azure Blob Storage so that training compute targets can access it. This storage isn't managed by Azure Machine Learning but mounted to compute targets as a remote file system.
 
-If you need to __rotate or revoke__ your key, you can do so at any time. When rotating a key, the storage account will start using the new key (latest version) to encrypt data at rest. When revoking (disabling) a key, the storage account takes care of failing requests. It usually takes an hour for the rotation or revocation to be effective.
+If you need to _rotate or revoke_ your key, you can do so at any time. When you rotate a key, the storage account starts using the new key (latest version) to encrypt data at rest. When you revoke (disable) a key, the storage account takes care of failing requests. It usually takes an hour for the rotation or revocation to be effective.
 
-For information on regenerating the access keys, see [Regenerate storage access keys](how-to-change-storage-access-key.md).
+For information on regenerating the access keys, see [Regenerate storage account access keys](how-to-change-storage-access-key.md).
 
 ### Azure Data Lake Storage
 
 [!INCLUDE [Note](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-**ADLS Gen2**
-Azure Data Lake Storage Gen 2 is built on top of Azure Blob Storage and is designed for enterprise big data analytics. ADLS Gen2 is used as a datastore for Azure Machine Learning. Same as Azure Blob Storage the data at rest is encrypted with Microsoft-managed keys.
+Azure Data Lake Storage Gen2 is built on top of Azure Blob Storage and is designed for enterprise big data analytics. Data Lake Storage Gen2 is used as a datastore for Azure Machine Learning. Like Azure Blob Storage, the data at rest is encrypted with Microsoft-managed keys.
 
 For information on how to use your own keys for data stored in Azure Data Lake Storage, see [Azure Storage encryption with customer-managed keys in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md).
 
-### Azure Relational Databases
+### Azure relational databases
 
-Azure Machine Learning services support data from different data sources such as Azure SQL Database, Azure PostgreSQL and Azure MYSQL. 
+The Azure Machine Learning service supports data from the following data sources.
 
-**Azure SQL Database**
-Transparent Data Encryption protects Azure SQL Database against threat of malicious offline activity by encrypting data at rest. By default, TDE is enabled for all newly deployed SQL Databases with Microsoft managed keys.
+#### Azure SQL Database
 
-For information on how to use customer managed keys for transparent data encryption, see [Azure SQL Database Transparent Data Encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview) . 
+Transparent data encryption helps protect Azure SQL Database against the threat of malicious offline activity by encrypting data at rest. By default, transparent data encryption is enabled for all newly deployed SQL databases that use Microsoft-managed keys.
 
-**Azure Database for PostgreSQL**
-Azure PostgreSQL uses Azure Storage encryption to encrypt data at rest by default using Microsoft managed keys. It is similar to Transparent Data Encryption (TDE) in other databases such as SQL Server.
+For information on how to use customer-managed keys for transparent data encryption, see [Azure SQL Database transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview).
 
-For information on how to use customer managed keys for transparent data encryption, see [Azure Database for PostgreSQL Single server data encryption with a customer-managed key](../postgresql/single-server/concepts-data-encryption-postgresql.md).
+#### Azure Database for PostgreSQL
 
-**Azure Database for MySQL**
-Azure Database for MySQL is a relational database service in the Microsoft cloud based on the MySQL Community Edition database engine. The Azure Database for MySQL service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. 
+By default, Azure Database for PostgreSQL uses Azure Storage encryption to encrypt data at rest by using Microsoft managed keys. It's similar to transparent data encryption in other databases, such as SQL Server.
 
-To encrypt data using customer managed keys, see [Azure Database for MySQL data encryption with a customer-managed key](../mysql/single-server/concepts-data-encryption-mysql.md) .
+For information on how to use customer-managed keys for transparent data encryption, see [Azure Database for PostgreSQL Single Server data encryption with a customer-managed key](../postgresql/single-server/concepts-data-encryption-postgresql.md).
 
+#### Azure Database for MySQL
+
+Azure Database for MySQL is a relational database service in the Microsoft Cloud based on the MySQL Community Edition database engine. The Azure Database for MySQL service uses the FIPS 140-2 validated cryptographic module for Azure Storage encryption of data at rest.
+
+To encrypt data by using customer-managed keys, see [Azure Database for MySQL data encryption with a customer-managed key](../mysql/single-server/concepts-data-encryption-mysql.md).
 
 ### Azure Cosmos DB
 
 Azure Machine Learning stores metadata in an Azure Cosmos DB instance. This instance is associated with a Microsoft subscription managed by Azure Machine Learning. All the data stored in Azure Cosmos DB is encrypted at rest with Microsoft-managed keys.
 
-When using your own (customer-managed) keys to encrypt the Azure Cosmos DB instance, a Microsoft managed Azure Cosmos DB instance is created in your subscription. This instance is created in a Microsoft-managed resource group, which is different than the resource group for your workspace. For more information, see [Customer-managed keys](concept-customer-managed-keys.md).
+When using your own (customer-managed) keys to encrypt the Azure Cosmos DB instance, a Microsoft-managed Azure Cosmos DB instance is created in your subscription. This instance is created in a Microsoft-managed resource group, which is different from the resource group for your workspace. For more information, see [Customer-managed keys for Azure Machine Learning](concept-customer-managed-keys.md).
 
 ### Azure Container Registry
 
-All container images in your registry (Azure Container Registry) are encrypted at rest. Azure automatically encrypts an image before storing it and decrypts it when Azure Machine Learning pulls the image.
+All container images in your container registry (an instance of Azure Container Registry) are encrypted at rest. Azure automatically encrypts an image before storing it and decrypts it when Azure Machine Learning pulls the image.
 
-To use customer-managed keys to encrypt your Azure Container Registry, you need to create your own ACR and attach it while provisioning the workspace. You can encrypt the default instance that gets created at the time of workspace provisioning.
+To use customer-managed keys to encrypt your container registry, you need to create and attach the container registry while you're provisioning the workspace. You can encrypt the default instance that's created at the time of workspace provisioning.
 
 > [!IMPORTANT]
-> Azure Machine Learning requires the admin account be enabled on your Azure Container Registry. By default, this setting is disabled when you create a container registry. For information on enabling the admin account, see [Admin account](../container-registry/container-registry-authentication.md#admin-account).
+> Azure Machine Learning requires you to enable the admin account on your container registry. By default, this setting is disabled when you create a container registry. For information on enabling the admin account, see [Admin account](../container-registry/container-registry-authentication.md#admin-account) later in this article.
 >
-> Once an Azure Container Registry has been created for a workspace, do not delete it. Doing so will break your Azure Machine Learning workspace.
+> After you create a container registry for a workspace, don't delete it. Doing so will break your Azure Machine Learning workspace.
 
-For an example of creating a workspace using an existing Azure Container Registry, see the following articles:
+For examples of creating a workspace by using an existing container registry, see the following articles:
 
-* [Create a workspace for Azure Machine Learning with Azure CLI](how-to-manage-workspace-cli.md).
-* [Create a workspace with Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace).
+* [Create a workspace for Azure Machine Learning by using the Azure CLI](how-to-manage-workspace-cli.md).
+* [Create a workspace with the Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace).
 * [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md)
 
 :::moniker range="azureml-api-1"
+
 ### Azure Container Instance
 
 > [!IMPORTANT]
@@ -118,7 +119,7 @@ For more information on using a customer-managed key with ACI, see [Encrypt depl
 
 ### Azure Kubernetes Service
 
-You may encrypt a deployed Azure Kubernetes Service resource using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](../aks/azure-disk-customer-managed-keys.md). 
+You may encrypt a deployed Azure Kubernetes Service resource using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](../aks/azure-disk-customer-managed-keys.md).
 
 This process allows you to encrypt both the Data and the OS Disk of the deployed virtual machines in the Kubernetes cluster.
 
@@ -128,7 +129,7 @@ This process allows you to encrypt both the Data and the OS Disk of the deployed
 ### Machine Learning Compute
 
 **Compute cluster**
-The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when no jobs are queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption is not enabled for workspaces by default. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, then the OS disk is encrypted. 
+The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when no jobs are queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption is not enabled for workspaces by default. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, then the OS disk is encrypted.
 
 Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, the temporary disk is encrypted. This environment is short-lived (only during your job,) and encryption support is limited to system-managed keys only.
 
@@ -141,10 +142,9 @@ For more information, see [Customer-managed keys](concept-customer-managed-keys.
 
 ### Azure Data Factory
 
-The Azure Data Factory pipeline is used to ingest data for use with Azure Machine Learning. Azure Data Factory encrypts data at rest, including entity definitions and any data cached while runs are in progress. By default, data is encrypted with a randomly generated Microsoft-managed key that is uniquely assigned to your data factory. 
+The Azure Data Factory pipeline is used to ingest data for use with Azure Machine Learning. Azure Data Factory encrypts data at rest, including entity definitions and any data cached while runs are in progress. By default, data is encrypted with a randomly generated Microsoft-managed key that is uniquely assigned to your data factory.
 
-For information on how to use customer managed keys for encryption use [Encrypt Azure Data Factory with customer managed keys](../data-factory/enable-customer-managed-key.md) .
-
+For information on how to use customer managed keys for encryption use [Encrypt Azure Data Factory with customer managed keys](../data-factory/enable-customer-managed-key.md).
 
 ### Azure Databricks
 
