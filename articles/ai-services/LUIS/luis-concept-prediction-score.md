@@ -7,7 +7,7 @@ ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 01/19/2024
 ---
 
 # Prediction scores indicate prediction accuracy for intent and entities

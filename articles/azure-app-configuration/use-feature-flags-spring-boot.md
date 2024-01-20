@@ -2,14 +2,9 @@
 title: Tutorial for using feature flags in a Spring Boot app - Azure App Configuration | Microsoft Docs
 description: In this tutorial, you learn how to implement feature flags in Spring Boot apps.
 services: azure-app-configuration
-documentationcenter: ''
 author: mrm9084
 manager: zhenlan
-editor: ''
-
-ms.assetid: 
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 09/27/2023
