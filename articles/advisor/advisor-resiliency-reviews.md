@@ -70,13 +70,13 @@ If there's a new review available to you, you see a notification banner on top o
 Select **Manage** (->) Reviews in the left navigation pane. A list of reviews opens. At the top of the page, you see the number of **Total Reviews** and review **Recommendations**, and a graph of **Reviews by status**. 
 1. Use search, filters, and sorting to find the review you need. You can filter reviews by one of the **Status equals** states below, or choose *All* (the default) to see all reviews:
 
-* *New*: No recommendations have been triaged (accepted or rejected)
+* *New*: No recommendations are triaged (accepted or rejected)
 
-* *In progress*: Some recommendations have not been triaged
+* *In progress*: Some recommendations are not triaged
 
-* *Triaged*: All recommendations have been accepted or rejected
+* *Triaged*: All recommendations are triaged (accepted or rejected)
 
-* *Completed*: All accepted recommendations have been implemented, postponed, or dismissed
+* *Completed*: All accepted-state recommendations are implemented, postponed, or dismissed
 
 :::image type="content" source="./media/resiliency-reviews/resiliency-reviews-main-m-2.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews opening page." lightbox="./media/resiliency-reviews/resiliency-reviews-main-m-2.png":::
 
@@ -89,17 +89,17 @@ At the top of the reviews page:
 
 The triage process includes reviewing recommendations and making decisions on which to implement. Use *Accept* and *Reject* actions to capture your decision. Accepted recommendations are available to your engineering team under the Advisor **Reliability** menu item.
 
-1. From the **Reviews** page, select a review name to open the recommendations list page. For new reviews recommendations are in *Pending* state.
+1. From the **Reviews** page, select a review name to open the recommendations list page. For new reviews, recommendations are in *Pending* state.
 
 1. Take a note of recommendations priority. **Priority** is defined by your account team to help you decide which recommendations should be implemented first.
 
 :::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-pending-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendation list with pending recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-pending-m.png":::
 
-3. Click a recommendation *Title* or the *Impacted subscriptions* view link to get detailed information. A pane opens with details – description, potential benefits, and notes from your account team along with the list of impacted subscriptions.
+3. Select a recommendation *Title* or the *Impacted subscriptions* view link to get detailed information. A pane opens with details – description, potential benefits, and notes from your account team along with the list of impacted subscriptions.
 
 :::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-detail-pane-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendation list page with the details pane of a selected recommendation." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-detail-pane-m.png":::
 
-4. If all recommendations for that review have been triaged, none appear in the **Pending** view; select the **Accepted** or **Rejected** tabs to view those recommendations.
+4. If all recommendations for that review are triaged, none appear in the **Pending** view; select the **Accepted** or **Rejected** tabs to view those recommendations.
 
 ### Recommendation priority
 
