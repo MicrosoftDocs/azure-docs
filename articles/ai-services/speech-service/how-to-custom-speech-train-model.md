@@ -57,7 +57,7 @@ After you upload [training datasets](./how-to-custom-speech-test-and-train.md), 
 
 To create a model with datasets for training, use the `spx csr model create` command. Construct the request parameters according to the following instructions:
 
-- Set the `project` parameter to the ID of an existing project. This parameteris recommended so that you can also view and manage the model in Speech Studio. You can run the `spx csr project list` command to get available projects.
+- Set the `project` parameter to the ID of an existing project. This parameter is recommended so that you can also view and manage the model in Speech Studio. You can run the `spx csr project list` command to get available projects.
 - Set the required `dataset` parameter to the ID of a dataset that you want used for training. To specify multiple datasets, set the `datasets` (plural) parameter and separate the IDs with a semicolon.
 - Set the required `language` parameter. The dataset locale must match the locale of the project. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
 - Set the required `name` parameter. This parameter is the name that is displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
