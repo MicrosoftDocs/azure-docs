@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 12/20/2023
+ms.date: 1/19/2024
 ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 show_latex: true
@@ -46,12 +46,12 @@ Follow these steps to create a test:
 
 To create a test, use the `spx csr evaluation create` command. Construct the request parameters according to the following instructions:
 
-- Set the `project` parameter to the ID of an existing project. This is recommended so that you can also view the test in Speech Studio. You can run the `spx csr project list` command to get available projects.
+- Set the `project` parameter to the ID of an existing project. This parameter is recommended so that you can also view the test in Speech Studio. You can run the `spx csr project list` command to get available projects.
 - Set the required `model1` parameter to the ID of a model that you want to test.
 - Set the required `model2` parameter to the ID of another model that you want to test. If you don't want to compare two models, use the same model for both `model1` and `model2`.
 - Set the required `dataset` parameter to the ID of a dataset that you want to use for the test.
-- Set the `language` parameter, otherwise the Speech CLI will set "en-US" by default. This should be the locale of the dataset contents. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
-- Set the required `name` parameter. This is the name that will be displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
+- Set the `language` parameter, otherwise the Speech CLI sets "en-US" by default. This parameter should be the locale of the dataset contents. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
+- Set the required `name` parameter. This parameter is the name that is displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
 
 Here's an example Speech CLI command that creates a test:
 
@@ -126,13 +126,13 @@ spx help csr evaluation
 
 To create a test, use the [Evaluations_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
-- Set the `project` property to the URI of an existing project. This is recommended so that you can also view the test in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
+- Set the `project` property to the URI of an existing project. This property is recommended so that you can also view the test in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
 - Set the `testingKind` property to `Evaluation` within `customProperties`. If you don't specify `Evaluation`, the test is treated as a quality inspection test. Whether the `testingKind` property is set to `Evaluation` or `Inspection`, or not set, you can access the accuracy scores via the API, but not in the Speech Studio.
 - Set the required `model1` property to the URI of a model that you want to test.
 - Set the required `model2` property to the URI of another model that you want to test. If you don't want to compare two models, use the same model for both `model1` and `model2`.
 - Set the required `dataset` property to the URI of a dataset that you want to use for the test.
-- Set the required `locale` property. This should be the locale of the dataset contents. The locale can't be changed later.
-- Set the required `displayName` property. This is the name that will be displayed in the Speech Studio.
+- Set the required `locale` property. This property should be the locale of the dataset contents. The locale can't be changed later.
+- Set the required `displayName` property. This property is the name that is displayed in the Speech Studio.
 
 Make an HTTP POST request using the URI as shown in the following example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
@@ -232,7 +232,7 @@ Follow these steps to get test results:
 1. Select the link by test name.
 1. After the test is complete, as indicated by the status set to *Succeeded*, you should see results that include the WER number for each tested model.
 
-This page lists all the utterances in your dataset and the recognition results, alongside the transcription from the submitted dataset. You can toggle various error types, including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, you can decide which model meets your needs and determine where additional training and improvements are required.
+This page lists all the utterances in your dataset and the recognition results, alongside the transcription from the submitted dataset. You can toggle various error types, including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, you can decide which model meets your needs and determine where more training and improvements are required.
 
 ::: zone-end
 
@@ -416,11 +416,11 @@ If you want to replicate WER measurements locally, you can use the sclite tool f
 
 ## Resolve errors and improve WER
 
-You can use the WER calculation from the machine recognition results to evaluate the quality of the model you're using with your app, tool, or product. A WER of 5-10% is considered to be good quality and is ready to use. A WER of 20% is acceptable, but you might want to consider additional training. A WER of 30% or more signals poor quality and requires customization and training.
+You can use the WER calculation from the machine recognition results to evaluate the quality of the model you're using with your app, tool, or product. A WER of 5-10% is considered to be good quality and is ready to use. A WER of 20% is acceptable, but you might want to consider more training. A WER of 30% or more signals poor quality and requires customization and training.
 
-How the errors are distributed is important. When many deletion errors are encountered, it's usually because of weak audio signal strength. To resolve this issue, you need to collect audio data closer to the source. Insertion errors mean that the audio was recorded in a noisy environment and crosstalk might be present, causing recognition issues. Substitution errors are often encountered when an insufficient sample of domain-specific terms has been provided as either human-labeled transcriptions or related text.
+How the errors are distributed is important. When many deletion errors are encountered, it's usually because of weak audio signal strength. To resolve this issue, you need to collect audio data closer to the source. Insertion errors mean that the audio was recorded in a noisy environment and crosstalk might be present, causing recognition issues. Substitution errors are often encountered when an insufficient sample of domain-specific terms is provided as either human-labeled transcriptions or related text.
 
-By analyzing individual files, you can determine what type of errors exist, and which errors are unique to a specific file. Understanding issues at the file level will help you target improvements.
+By analyzing individual files, you can determine what type of errors exist, and which errors are unique to a specific file. Understanding issues at the file level helps you target improvements.
 
 ## Evaluate token error rate (TER)
 
@@ -432,12 +432,12 @@ $$
 TER = {{I+D+S}\over N} \times 100
 $$
 
-The formula of TER calculation is also very similar to WER. The only difference is that TER is calculated based on the token level instead of word level.
+The formula of TER calculation is also similar to WER. The only difference is that TER is calculated based on the token level instead of word level.
 * Insertion (I): Tokens that are incorrectly added in the hypothesis transcript
 * Deletion (D): Tokens that are undetected in the hypothesis transcript
 * Substitution (S): Tokens that were substituted between reference and hypothesis
 
-In a real-world case, you may analyze both WER and TER results to get the desired improvements. 
+In a real-world case, you can analyze both WER and TER results to get the desired improvements. 
 
 > [!NOTE]
 > To measure TER, you need to make sure the [audio + transcript testing data](./how-to-custom-speech-test-and-train.md#audio--human-labeled-transcript-data-for-training-or-testing) includes transcripts with display formatting such as punctuation, capitalization, and ITN.

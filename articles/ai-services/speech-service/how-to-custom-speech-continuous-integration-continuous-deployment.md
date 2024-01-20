@@ -6,7 +6,7 @@ author: nitinme
 manager: cmayomsft
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 05/08/2022
+ms.date: 1/19/2024
 ms.author: nitinme
 ---
 
@@ -24,22 +24,22 @@ Custom CI/CD solutions are possible, but for a robust, pre-built solution, use t
 
 The purpose of these workflows is to ensure that each Custom Speech model has better recognition accuracy than the previous build. If the updates to the testing and/or training data improve the accuracy, these workflows create a new Custom Speech endpoint.
 
-Git servers such as GitHub and Azure DevOps can run automated workflows when specific Git events happen, such as merges or pull requests. For example, a CI workflow can be triggered when updates to testing data are pushed to the *main* branch. Different Git Servers will have different tooling, but will allow scripting command-line interface (CLI) commands so that they can execute on a build server.
+Git servers such as GitHub and Azure DevOps can run automated workflows when specific Git events happen, such as merges or pull requests. For example, a CI workflow can be triggered when updates to testing data are pushed to the *main* branch. Different Git Servers have different tooling, but allow scripting command-line interface (CLI) commands so that they can execute on a build server.
 
-Along the way, the workflows should name and store data, tests, test files, models, and endpoints such that they can be traced back to the commit or version they came from. It is also helpful to name these assets so that it is easy to see which were created after updating testing data versus training data.
+Along the way, the workflows should name and store data, tests, test files, models, and endpoints such that they can be traced back to the commit or version they came from. It's also helpful to name these assets so that it's easy to see which were created after updating testing data versus training data.
 
 ### CI workflow for testing data updates
 
-The principal purpose of the CI/CD workflows is to build a new model using the training data, and to test that model using the testing data to establish whether the [Word Error Rate](how-to-custom-speech-evaluate-data.md#evaluate-word-error-rate-wer) (WER) has improved compared to the previous best-performing model (the "benchmark model"). If the new model performs better, it becomes the new benchmark model against which future models are compared.
+The principal purpose of the CI/CD workflows is to build a new model using the training data, and to test that model using the testing data to establish whether the [Word Error Rate](how-to-custom-speech-evaluate-data.md#evaluate-word-error-rate-wer) (WER) improved compared to the previous best-performing model (the "benchmark model"). If the new model performs better, it becomes the new benchmark model against which future models are compared.
 
-The CI workflow for testing data updates should retest the current benchmark model with the updated test data to calculate the revised WER. This ensures that when the WER of a new model is compared to the WER of the benchmark, both models have been tested against the same test data and you're comparing like with like.
+The CI workflow for testing data updates should retest the current benchmark model with the updated test data to calculate the revised WER. This ensures that when the WER of a new model is compared to the WER of the benchmark, both models were tested against the same test data and you're comparing like with like.
 
 This workflow should trigger on updates to testing data and:
 
 - Test the benchmark model against the updated testing data.
 - Store the test output, which contains the WER of the benchmark model, using the updated data.
 - The WER from these tests will become the new benchmark WER that future models must beat.
-- The CD workflow does not execute for updates to testing data.
+- The CD workflow doesn't execute for updates to testing data.
 
 ### CI workflow for training data updates
 
@@ -51,7 +51,7 @@ This workflow should trigger on updates to training data and:
 - Test the new model against the testing data.
 - Store the test output, which contains the WER.
 - Compare the WER from the new model to the WER from the benchmark model.
-- If the WER does not improve, stop the workflow.
+- If the WER doesn't improve, stop the workflow.
 - If the WER improves, execute the CD workflow to create a Custom Speech endpoint.
 
 ### CD workflow
