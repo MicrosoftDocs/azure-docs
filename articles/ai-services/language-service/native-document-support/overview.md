@@ -64,4 +64,6 @@ An AI system includes not only technology, but human users and the deployment en
 You can get started with our quickstart. You need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
 
 > [!div class="nextstepaction"]
-> [Start here](quickstart.md "Learn how to process and analyze native documents.")
+> [Start here PII native document quickstart](pii-quickstart.mdquickstart.md "Learn how to process and analyze native documents.")
+>
+>[Start here summarization native document quickstart](summarization-quickstart.md "Learn how to process and analyze native documents.")

@@ -129,4 +129,6 @@ That's it! You learned how to create SAS tokens to authorize how clients access 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Try the native document support quickstart](quickstart.md)
+> [Try the PII native document quickstart](pii-quickstart.mdquickstart.md "Learn how to process and analyze native documents.")
+>
+>[Try the summarization native document quickstart](summarization-quickstart.md "Learn how to process and analyze native documents.")
