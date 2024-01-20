@@ -89,7 +89,7 @@ The script creates the following resources:
     virtual_network_name=$(terraform output -raw virtual_network_name)
     ```
 
-1. Run [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to display the details of your newly created virtual network.
+1. Use [`az network vnet show`](/cli/azure/network/vnet#az-network-vnet-show) to display the details of your newly created virtual network.
 
     ```azurecli
     az network vnet show \
