@@ -120,6 +120,15 @@ Resolution:
 - Confirm success by running ```az provider show -n Microsoft.HybridConnectivity```, verify that `registrationState` is set to `Registered`
 - Restart the hybrid agent on the Arc-enabled server
 
+### Cannot connect after updating CLI tool and Arc agent
+
+This issue occurs when the updated command creates a new service configuration before the Arc agent is updated. Error:
+
+- Connection closed by UNKNOWN port 65535
+
+  Resolution:
+
+  - Delete the existing service configuration and allow it to be recreated. Run ```az rest --method delete --uri https://management.azure.com/subscriptions/<SUB_ID>/resourceGroups/<RG_NAME>/providers/Microsoft.HybridCompute/machines/<VM_NAME>/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/SSH?api-version=2023-03-15```
 
  ## Disable SSH to Arc-enabled servers
  
