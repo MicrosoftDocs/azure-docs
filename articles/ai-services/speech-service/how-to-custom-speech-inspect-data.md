@@ -1,7 +1,7 @@
 ---
-title: Test recognition quality of a Custom Speech model - Speech service
+title: Test recognition quality of a custom speech model - Speech service
 titleSuffix: Azure AI services
-description: Custom Speech lets you qualitatively inspect the recognition quality of a model. You can play back uploaded audio and determine if the provided recognition result is correct.
+description: Custom speech lets you qualitatively inspect the recognition quality of a model. You can play back uploaded audio and determine if the provided recognition result is correct.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -11,9 +11,9 @@ ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 ---
 
-# Test recognition quality of a Custom Speech model
+# Test recognition quality of a custom speech model
 
-You can inspect the recognition quality of a Custom Speech model in the [Speech Studio](https://aka.ms/speechstudio/customspeech). You can play back uploaded audio and determine if the provided recognition result is correct. After a test is successfully created, you can see how a model transcribed the audio dataset, or compare results from two models side by side.
+You can inspect the recognition quality of a custom speech model in the [Speech Studio](https://aka.ms/speechstudio/customspeech). You can play back uploaded audio and determine if the provided recognition result is correct. After a test is successfully created, you can see how a model transcribed the audio dataset, or compare results from two models side by side.
 
 Side-by-side model testing is useful to validate which speech recognition model is best for an application. For an objective measure of accuracy, which requires transcription datasets input, see [Test model quantitatively](how-to-custom-speech-evaluate-data.md).
 
@@ -26,7 +26,7 @@ Side-by-side model testing is useful to validate which speech recognition model 
 Follow these instructions to create a test:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
-1. Navigate to **Speech Studio** > **Custom Speech** and select your project name from the list.
+1. Navigate to **Speech Studio** > **Custom speech** and select your project name from the list.
 1. Select **Test models** > **Create new test**.
 1. Select **Inspect quality (Audio-only data)** > **Next**. 
 1. Choose an audio dataset that you'd like to use for testing, and then select **Next**. If there aren't any datasets available, cancel the setup, and then go to the **Speech datasets** menu to [upload datasets](how-to-custom-speech-upload-data.md).
@@ -219,7 +219,7 @@ You should get the test results and [inspect](#compare-transcription-with-audio)
 Follow these steps to get test results:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
-1. Select **Custom Speech** > Your project name > **Test models**.
+1. Select **Custom speech** > Your project name > **Test models**.
 1. Select the link by test name.
 1. After the test is complete, as indicated by the status set to *Succeeded*, you should see results that include the WER number for each tested model.
 
@@ -378,7 +378,7 @@ You can inspect the transcription output by each model tested, against the audio
 To review the quality of transcriptions:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
-1. Select **Custom Speech** > Your project name > **Test models**.
+1. Select **Custom speech** > Your project name > **Test models**.
 1. Select the link by test name.
 1. Play an audio file while the reading the corresponding transcription by a model. 
 

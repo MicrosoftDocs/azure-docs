@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Migrate code from v3.1 to v3.2 of the REST API
 
-The Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). Changes from version 3.1 to 3.2 are described in the sections below.
+The Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [custom speech](custom-speech-overview.md). Changes from version 3.1 to 3.2 are described in the sections below.
 
 > [!IMPORTANT]
 > Speech to text REST API v3.2 is available in preview. 
@@ -48,7 +48,7 @@ Azure AI Speech now supports OpenAI's Whisper model via Speech to text REST API 
 > [!NOTE]
 > Azure OpenAI Service also supports OpenAI's Whisper model for speech to text with a synchronous REST API. To learn more, check out the [quickstart](../openai/whisper-quickstart.md). Check out [What is the Whisper model?](./whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
 
-## Custom Speech
+## Custom speech
 
 > [!IMPORTANT]
 > You'll be charged for custom speech model training if the base model was created on October 1, 2023 and later. You are not charged for training if the base model was created prior to October 2023. For more information, see [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).

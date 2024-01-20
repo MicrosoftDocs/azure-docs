@@ -1,7 +1,7 @@
 ---
-title: Model lifecycle of Custom Speech - Speech service
+title: Model lifecycle of custom speech - Speech service
 titleSuffix: Azure AI services
-description: Custom Speech provides base models for training and lets you create custom models from your data. This article describes the timelines for models and for endpoints that use these models.
+description: Custom speech provides base models for training and lets you create custom models from your data. This article describes the timelines for models and for endpoints that use these models.
 author: heikora
 manager: dongli
 ms.service: azure-ai-speech
@@ -11,9 +11,9 @@ ms.author: heikora
 zone_pivot_groups: speech-studio-cli-rest
 ---
 
-# Custom Speech model lifecycle
+# Custom speech model lifecycle
 
-You can use a Custom Speech model for some time after you deploy it to your custom endpoint. But when new base models are made available, the older models are expired. You must periodically recreate and train your custom model from the latest base model to take advantage of the improved accuracy and quality.
+You can use a custom speech model for some time after you deploy it to your custom endpoint. But when new base models are made available, the older models are expired. You must periodically recreate and train your custom model from the latest base model to take advantage of the improved accuracy and quality.
 
 Here are some key terms related to the model lifecycle:
 
@@ -40,7 +40,7 @@ When a custom model or base model expires, it's no longer available for transcri
 
 |Transcription route  |Expired model result  |Recommendation  |
 |---------|---------|---------|
-|Custom endpoint|Speech recognition requests fall back to the most recent base model for the same [locale](language-support.md?tabs=stt). You get results, but recognition might not accurately transcribe your domain data.  |Update the endpoint's model as described in the [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md) guide. |
+|Custom endpoint|Speech recognition requests fall back to the most recent base model for the same [locale](language-support.md?tabs=stt). You get results, but recognition might not accurately transcribe your domain data.  |Update the endpoint's model as described in the [Deploy a custom speech model](how-to-custom-speech-deploy-model.md) guide. |
 |Batch transcription |[Batch transcription](batch-transcription.md) requests for expired models fail with a 4xx error. |In each [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) REST API request body, set the `model` property to a base model or custom model that isn't expired. Otherwise don't include the `model` property to always use the latest base model. |
 
 
@@ -48,12 +48,12 @@ When a custom model or base model expires, it's no longer available for transcri
 
 ::: zone pivot="speech-studio"
 
-The last date that you could use the base model for training was shown when you created the custom model. For more information, see [Train a Custom Speech model](how-to-custom-speech-train-model.md).
+The last date that you could use the base model for training was shown when you created the custom model. For more information, see [Train a custom speech model](how-to-custom-speech-train-model.md).
 
 Follow these instructions to get the transcription expiration date for a base model:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
-1. Select **Custom Speech** > Your project name > **Deploy models**.
+1. Select **Custom speech** > Your project name > **Deploy models**.
 1. The expiration date for the model is shown in the **Expiration** column. This date is the last date that you can use the model for transcription.
 
     :::image type="content" source="media/custom-speech/custom-speech-model-expiration.png" alt-text="Screenshot of the deploy models page that shows the transcription expiration date.":::
@@ -153,7 +153,7 @@ You should receive a response body in the following format:
 Follow these instructions to get the transcription expiration date for a custom model:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
-1. Select **Custom Speech** > Your project name > **Train custom models**.
+1. Select **Custom speech** > Your project name > **Train custom models**.
 1. The expiration date the custom model is shown in the **Expiration** column. This date is the last date that you can use the custom model for transcription. Base models aren't shown on the **Train custom models** page. 
 
     :::image type="content" source="media/custom-speech/custom-speech-custom-model-expiration.png" alt-text="Screenshot of the train custom models page that shows the transcription expiration date.":::
@@ -161,7 +161,7 @@ Follow these instructions to get the transcription expiration date for a custom 
 You can also follow these instructions to get the transcription expiration date for a custom model:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
-1. Select **Custom Speech** > Your project name > **Deploy models**.
+1. Select **Custom speech** > Your project name > **Deploy models**.
 1. The expiration date for the model is shown in the **Expiration** column. This date is the last date that you can use the model for transcription.
 
     :::image type="content" source="media/custom-speech/custom-speech-model-expiration.png" alt-text="Screenshot of the deploy models page that shows the transcription expiration date.":::
@@ -278,4 +278,4 @@ You should receive a response body in the following format:
 ## Next steps
 
 - [Train a model](how-to-custom-speech-train-model.md)
-- [CI/CD for Custom Speech](how-to-custom-speech-continuous-integration-continuous-deployment.md)
+- [CI/CD for custom speech](how-to-custom-speech-continuous-integration-continuous-deployment.md)

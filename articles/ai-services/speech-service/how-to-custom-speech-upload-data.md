@@ -1,7 +1,7 @@
 ---
-title: "Upload training and testing datasets for Custom Speech - Speech service"
+title: "Upload training and testing datasets for custom speech - Speech service"
 titleSuffix: Azure AI services
-description: Learn about how to upload data to test or train a Custom Speech model.
+description: Learn about how to upload data to test or train a custom speech model.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -11,7 +11,7 @@ ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 ---
 
-# Upload training and testing datasets for Custom Speech 
+# Upload training and testing datasets for custom speech 
 
 You need audio or text data for testing the accuracy of speech recognition or training your custom models. For information about the data types supported for testing or training your model, see [Training and testing datasets](how-to-custom-speech-test-and-train.md).
 
@@ -25,7 +25,7 @@ You need audio or text data for testing the accuracy of speech recognition or tr
 To upload your own datasets in Speech Studio, follow these steps:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
-1. Select **Custom Speech** > Your project name > **Speech datasets** > **Upload data**.
+1. Select **Custom speech** > Your project name > **Speech datasets** > **Upload data**.
 1. Select the **Training data** or **Testing data** tab.
 1. Select a dataset type, and then select **Next**.
 1. Specify the dataset location, and then select **Next**. You can choose a local file or enter a remote location such as Azure Blob URL. If you select remote location, and you don't use trusted Azure services security mechanism, then the remote location should be a URL that can be retrieved with a simple anonymous GET request. For example, a [SAS URL](/azure/storage/common/storage-sas-overview) or a publicly accessible URL. URLs that require extra authorization, or expect user interaction aren't supported.
@@ -160,7 +160,7 @@ The top-level `self` property in the response body is the dataset's URI. Use thi
 ::: zone-end
 
 > [!IMPORTANT] 
-> Connecting a dataset to a Custom Speech project isn't required to train and test a custom model using the REST API or Speech CLI. But if the dataset is not connected to any project, you can't select it for training or testing in the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
+> Connecting a dataset to a custom speech project isn't required to train and test a custom model using the REST API or Speech CLI. But if the dataset is not connected to any project, you can't select it for training or testing in the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
-title: Train a Custom Speech model - Speech service
+title: Train a custom speech model - Speech service
 titleSuffix: Azure AI services
-description: Learn how to train Custom Speech models. Training a speech to text model can improve recognition accuracy for the Microsoft base model or a custom model.
+description: Learn how to train custom speech models. Training a speech to text model can improve recognition accuracy for the Microsoft base model or a custom model.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -12,12 +12,12 @@ ms.custom: ignite-fall-2021
 zone_pivot_groups: speech-studio-cli-rest
 ---
 
-# Train a Custom Speech model
+# Train a custom speech model
 
-In this article, you learn how to train a custom model to improve recognition accuracy from the Microsoft base model. The speech recognition accuracy and quality of a Custom Speech model remains consistent, even when a new base model is released.
+In this article, you learn how to train a custom model to improve recognition accuracy from the Microsoft base model. The speech recognition accuracy and quality of a custom speech model remains consistent, even when a new base model is released.
 
 > [!NOTE]
-> You pay for Custom Speech model usage and [endpoint hosting](how-to-custom-speech-deploy-model.md). You'll also be charged for custom speech model training if the base model was created on October 1, 2023 and later. You are not charged for training if the base model was created prior to October 2023. For more information, see  [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) and the [Charge for adaptation section in the speech to text 3.2 migration guide](./migrate-v3-1-to-v3-2.md#charge-for-adaptation).
+> You pay for custom speech model usage and [endpoint hosting](how-to-custom-speech-deploy-model.md). You'll also be charged for custom speech model training if the base model was created on October 1, 2023 and later. You are not charged for training if the base model was created prior to October 2023. For more information, see  [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) and the [Charge for adaptation section in the speech to text 3.2 migration guide](./migrate-v3-1-to-v3-2.md#charge-for-adaptation).
 
 Training a model is typically an iterative process. You first select a base model that is the starting point for a new model. You train a model with [datasets](./how-to-custom-speech-test-and-train.md) that can include text and audio, and then you test. If the recognition quality or accuracy doesn't meet your requirements, you can create a new model with more or modified training data, and then test again.
 
@@ -26,7 +26,7 @@ You can use a custom model for a limited time after it was trained. You must per
 > [!IMPORTANT]
 > If you will train a custom model with audio data, choose a Speech resource region with dedicated hardware for training audio data. After a model is trained, you can [copy it to a Speech resource](#copy-a-model) in another region as needed. 
 > 
-> In regions with dedicated hardware for Custom Speech training, the Speech service will use up to 20 hours of your audio training data, and can process about 10 hours of data per day. In other regions, the Speech service uses up to 8 hours of your audio data, and can process about 1 hour of data per day. See footnotes in the [regions](regions.md#speech-service) table for more information.  
+> In regions with dedicated hardware for custom speech training, the Speech service will use up to 20 hours of your audio training data, and can process about 10 hours of data per day. In other regions, the Speech service uses up to 8 hours of your audio data, and can process about 1 hour of data per day. See footnotes in the [regions](regions.md#speech-service) table for more information.  
 
 ## Create a model
 
@@ -35,7 +35,7 @@ You can use a custom model for a limited time after it was trained. You must per
 After you upload [training datasets](./how-to-custom-speech-test-and-train.md), follow these instructions to start training your model:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
-1. Select **Custom Speech** > Your project name > **Train custom models**.
+1. Select **Custom speech** > Your project name > **Train custom models**.
 1. Select **Train a new model**.
 1. On the **Select a baseline model** page, select a base model, and then select **Next**. If you aren't sure, select the most recent model from the top of the list. The name of the base model corresponds to the date when it was released in YYYYMMDD format. The customization capabilities of the base model are listed in parenthesis after the model name in Speech Studio. 
 
@@ -208,7 +208,7 @@ You can copy a model to another project that uses the same locale. For example, 
 Follow these instructions to copy a model to a project in another region:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
-1. Select **Custom Speech** > Your project name > **Train custom models**.
+1. Select **Custom speech** > Your project name > **Train custom models**.
 1. Select **Copy to**.
 1. On the **Copy speech model** page, select a target region where you want to copy the model.
     :::image type="content" source="./media/custom-speech/custom-speech-copy-to-zoom.png" alt-text="Screenshot of a phrase list applied in Speech Studio." lightbox="./media/custom-speech/custom-speech-copy-to-full.png":::
