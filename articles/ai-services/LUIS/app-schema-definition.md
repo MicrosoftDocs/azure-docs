@@ -7,7 +7,7 @@ ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: reference
-ms.date: 08/22/2020
+ms.date: 01/19/2024
 ---
 
 # App schema definition

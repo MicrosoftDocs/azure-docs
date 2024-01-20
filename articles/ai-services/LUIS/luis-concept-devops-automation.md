@@ -4,7 +4,7 @@ description: How to implement CI/CD workflows for DevOps for Language Understand
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 01/19/2024
 ms.author: aahi
 author: aahill
 ms.manager: nitinme
