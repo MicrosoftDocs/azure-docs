@@ -6,14 +6,14 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 1/19/2024
 ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 ---
 
 # Deploy a Custom Speech model
 
-In this article, you'll learn how to deploy an endpoint for a Custom Speech model. With the exception of [batch transcription](batch-transcription.md), you must deploy a custom endpoint to use a Custom Speech model.
+In this article, you learn how to deploy an endpoint for a Custom Speech model. Except for [batch transcription](batch-transcription.md), you must deploy a custom endpoint to use a Custom Speech model.
 
 > [!TIP]
 > A hosted deployment endpoint isn't required to use Custom Speech with the [Batch transcription API](batch-transcription.md). You can conserve resources if the [custom speech model](how-to-custom-speech-train-model.md) is only used for batch transcription. For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -32,7 +32,7 @@ To create a custom endpoint, follow these steps:
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
 1. Select **Custom Speech** > Your project name > **Deploy models**.
 
-   If this is your first endpoint, you'll notice that there are no endpoints listed in the table. After you create an endpoint, you use this page to track each deployed endpoint.
+   If this is your first endpoint, you notice that there are no endpoints listed in the table. After you create an endpoint, you use this page to track each deployed endpoint.
 
 1. Select **Deploy model** to start the new endpoint wizard.
 
@@ -62,7 +62,7 @@ To create an endpoint and deploy a model, use the `spx csr endpoint create` comm
 - Set the `project` parameter to the ID of an existing project. This is recommended so that you can also view and manage the endpoint in Speech Studio. You can run the `spx csr project list` command to get available projects.
 - Set the required `model` parameter to the ID of the model that you want deployed to the endpoint. 
 - Set the required `language` parameter. The endpoint locale must match the locale of the model. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
-- Set the required `name` parameter. This is the name that will be displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
+- Set the required `name` parameter. This is the name that is displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
 - Optionally, you can set the `logging` parameter. Set this to `enabled` to enable audio and diagnostic [logging](#view-logging-data) of the endpoint's traffic. The default is `false`. 
 
 Here's an example Speech CLI command to create an endpoint and deploy a model:
@@ -120,7 +120,7 @@ To create an endpoint and deploy a model, use the [Endpoints_Create](https://eas
 - Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the endpoint in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
 - Set the required `model` property to the URI of the model that you want deployed to the endpoint. 
 - Set the required `locale` property. The endpoint locale must match the locale of the model. The locale can't be changed later.
-- Set the required `displayName` property. This is the name that will be displayed in the Speech Studio.
+- Set the required `displayName` property. This is the name that is displayed in the Speech Studio.
 - Optionally, you can set the `loggingEnabled` property within `properties`. Set this to `true` to enable audio and diagnostic [logging](#view-logging-data) of the endpoint's traffic. The default is `false`. 
 
 Make an HTTP POST request using the URI as shown in the following [Endpoints_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Create) example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
@@ -297,7 +297,7 @@ You should receive a response body in the following format:
 
 ::: zone-end
 
-The redeployment takes several minutes to complete. In the meantime, your endpoint will use the previous model without interruption of service. 
+The redeployment takes several minutes to complete. In the meantime, your endpoint uses the previous model without interruption of service. 
 
 ## View logging data
 
@@ -326,7 +326,7 @@ Here's an example Speech CLI command that gets logs for an endpoint:
 spx csr endpoint list --api-version v3.1 --endpoint YourEndpointId
 ```
 
-The location of each log file with more details are returned in the response body.
+The locations of each log file with more details are returned in the response body.
 
 ::: zone-end
 
@@ -379,11 +379,11 @@ Make an HTTP GET request using the "logs" URI from the previous response body. R
 curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/YourEndpointId/files/logs" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
 
-The location of each log file with more details are returned in the response body.
+The locations of each log file with more details are returned in the response body.
 
 ::: zone-end
 
-Logging data is available on Microsoft-owned storage for 30 days, after which it will be removed. If your own storage account is linked to the Azure AI services subscription, the logging data won't be automatically deleted.
+Logging data is available on Microsoft-owned storage for 30 days, and then it's removed. If your own storage account is linked to the Azure AI services subscription, the logging data isn't automatically deleted.
 
 ## Next steps
 

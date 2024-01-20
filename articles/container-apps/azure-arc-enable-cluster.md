@@ -4,7 +4,7 @@ description: 'Tutorial: learn how to set up Azure Container Apps in your Azure A
 services: container-apps
 author: v-jaswel
 ms.service: container-apps
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: tutorial
 ms.date: 3/24/2023
 ms.author: v-wellsjason
@@ -26,7 +26,7 @@ This tutorial will show you how to enable Azure Container Apps on your Arc-enabl
 > [!NOTE]
 > During the preview, Azure Container Apps on Arc are not supported in production configurations. This article provides an example configuration for evaluation purposes only.
 >
-> This tutorial uses [Azure Kubernetes Service (AKS)](../aks/index.yml) to provide concrete instructions for setting up an environment from scratch. However, for a production workload, you may not want to enable Azure Arc on an AKS cluster as it is already managed in Azure. 
+> This tutorial uses [Azure Kubernetes Service (AKS)](../aks/index.yml) to provide concrete instructions for setting up an environment from scratch. However, for a production workload, you may not want to enable Azure Arc on an AKS cluster as it is already managed in Azure.
 
 
 
@@ -92,8 +92,8 @@ Set environment variables based on your Kubernetes cluster deployment.
 ```bash
 GROUP_NAME="my-arc-cluster-group"
 AKS_CLUSTER_GROUP_NAME="my-aks-cluster-group"
-AKS_NAME="my-aks-cluster" 
-LOCATION="eastus" 
+AKS_NAME="my-aks-cluster"
+LOCATION="eastus"
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -101,8 +101,8 @@ LOCATION="eastus"
 ```azurepowershell-interactive
 $GROUP_NAME="my-arc-cluster-group"
 $AKS_CLUSTER_GROUP_NAME="my-aks-cluster-group"
-$AKS_NAME="my-aks-cluster" 
-$LOCATION="eastus" 
+$AKS_NAME="my-aks-cluster"
+$LOCATION="eastus"
 ```
 
 ---
@@ -125,7 +125,7 @@ The following steps help you get started understanding the service, but for prod
     ```
 
     # [PowerShell](#tab/azure-powershell)
-    
+
     ```azurepowershell-interactive
     az group create --name $AKS_CLUSTER_GROUP_NAME --location $LOCATION
     az aks create `
@@ -141,11 +141,11 @@ The following steps help you get started understanding the service, but for prod
 
     ```azurecli-interactive
     az aks get-credentials --resource-group $AKS_CLUSTER_GROUP_NAME --name $AKS_NAME --admin
-    
+
     kubectl get ns
     ```
 
-1. Create a resource group to contain your Azure Arc resources. 
+1. Create a resource group to contain your Azure Arc resources.
 
     # [Azure CLI](#tab/azure-cli)
 
@@ -167,7 +167,7 @@ The following steps help you get started understanding the service, but for prod
 
      ```azurecli-interactive
     CLUSTER_NAME="${GROUP_NAME}-cluster" # Name of the connected cluster resource
-    
+
     az connectedk8s connect --resource-group $GROUP_NAME --name $CLUSTER_NAME
     ```
 
@@ -175,7 +175,7 @@ The following steps help you get started understanding the service, but for prod
 
     ```azurepowershell-interactive
     $CLUSTER_NAME="${GROUP_NAME}-cluster" # Name of the connected cluster resource
-    
+
     az connectedk8s connect --resource-group $GROUP_NAME --name $CLUSTER_NAME
     ```
 
@@ -197,7 +197,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
 
     ```azurecli-interactive
     WORKSPACE_NAME="$GROUP_NAME-workspace" # Name of the Log Analytics workspace
-    
+
     az monitor log-analytics workspace create \
         --resource-group $GROUP_NAME \
         --workspace-name $WORKSPACE_NAME
@@ -260,7 +260,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
     # [Azure CLI](#tab/azure-cli)
 
     ```bash
-    EXTENSION_NAME="appenv-ext" 
+    EXTENSION_NAME="appenv-ext"
     NAMESPACE="appplat-ns"
     CONNECTED_ENVIRONMENT_NAME="<connected-environment-name>"
     ```
@@ -269,8 +269,8 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
 
     ```azurepowershell-interactive
     $EXTENSION_NAME="appenv-ext"
-    $NAMESPACE="appplat-ns" 
-    $CONNECTED_ENVIRONMENT_NAME="<connected-environment-name>" 
+    $NAMESPACE="appplat-ns"
+    $CONNECTED_ENVIRONMENT_NAME="<connected-environment-name>"
     ```
 
     ---

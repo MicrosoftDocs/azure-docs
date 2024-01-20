@@ -3,15 +3,11 @@ title: Learn about the latest Azure Guest OS Releases | Microsoft Docs
 description: The latest release news and SDK compatibility for Azure Cloud Services Guest OS.
 services: cloud-services
 ms.subservice: auto-os-updates
-documentationcenter: na
 author: gunnarc
-editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 12/08/2023
+ms.date: 01/16/2024
 ms.author: gunnarc
 ms.custom: compute-evergreen
 ---
@@ -37,6 +33,9 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
+
+###### **January 16, 2023**
+The December Guest OS has released. 
 
 ###### **December 8, 2023**
 The November Guest OS has released. 
@@ -239,9 +238,10 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-7.36_202312-01 |  January 16, 2024  |  Post 7.39  |
 |  WA-GUEST-OS-7.35_202311-01 |  December 8, 2023  |  Post 7.38  |
 |  WA-GUEST-OS-7.34_202310-01 |  October 23, 2023  |  Post 7.37  |
-|  WA-GUEST-OS-7.32_202309-01 |  September 25, 2023  |  Post 7.36  |
+|~~WA-GUEST-OS-7.32_202309-01~~|  September 25, 2023  |  Post 7.36  |
 |~~WA-GUEST-OS-7.30_202308-01~~|  August 21, 2023  |  October 23, 2023  |
 |~~WA-GUEST-OS-7.28_202307-01~~|  July 27, 2023  |  September 25, 2023  |
 |~~WA-GUEST-OS-7.27_202306-02~~|  July 8, 2023  |  August 21, 2023  |
@@ -279,9 +279,10 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.66_202312-01 |  January 16, 2024  |  Post 6.69  |
 |  WA-GUEST-OS-6.65_202311-01 |  December 8, 2023  |  Post 6.68  |
 |  WA-GUEST-OS-6.64_202310-01 |  October 23, 2023  |  Post 6.67  |
-|  WA-GUEST-OS-6.62_202309-01 |  September 25, 2023  |  Post 6.66  |
+|~~WA-GUEST-OS-6.62_202309-01~~|  September 25, 2023  |  Post 6.66  |
 |~~WA-GUEST-OS-6.61_202308-01~~|  August 21, 2023  |  October 23, 2023  |
 |~~WA-GUEST-OS-6.60_202307-01~~|  July 27, 2023  |  September 25, 2023  |
 |~~WA-GUEST-OS-6.59_202306-02~~|  July 8, 2023  |  August 21, 2023  |
@@ -353,9 +354,10 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.90_202312-01 |  January 16, 2024  |  Post 5.93  |
 |  WA-GUEST-OS-5.89_202311-01 |  December 8, 2023  |  Post 5.92  |
 |  WA-GUEST-OS-5.88_202310-01  |  October 23, 2023  |  Post 5.91  |
-|  WA-GUEST-OS-5.86_202309-01  |  September 25, 2023  |  Post 5.90  |
+|~~WA-GUEST-OS-5.86_202309-01~~|  September 25, 2023  |  Post 5.90  |
 |~~WA-GUEST-OS-5.85_202308-01~~|  August 21, 2023   |  October 23, 2023  | 
 |~~WA-GUEST-OS-5.84_202307-01~~|  July 27, 2023   |  September 25, 2023  | 
 |~~WA-GUEST-OS-5.83_202306-02~~|  July 8, 2023   |  August 21, 2023  | 
@@ -424,9 +426,10 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.126_202312-01 |  January 16, 2024  |  Post 4.129  |
 |  WA-GUEST-OS-4.125_202311-01 |  December 8, 2023  |  Post 4.128  |
 |  WA-GUEST-OS-4.124_202310-01 |  October 23, 2023  |  Post 4.127  |
-|  WA-GUEST-OS-4.122_202309-01 |  September 25, 2023  |  Post 4.126  |
+|~~WA-GUEST-OS-4.122_202309-01~~|  September 25, 2023  |  Post 4.126  |
 |~~WA-GUEST-OS-4.121_202308-01~~|  August 21, 2023  |  October 23, 2023  |
 |~~WA-GUEST-OS-4.120_202307-01~~|  July 27, 2023  |  September 25, 2023  |
 |~~WA-GUEST-OS-4.119_202306-02~~|  July 8, 2023  |  August 21, 2023  |
@@ -495,9 +498,10 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.134_202312-01 |  January 16, 2024  |  Post 3.137  |
 |  WA-GUEST-OS-3.133_202311-01 |  December 8, 2023  |  Post 3.136  |
 |  WA-GUEST-OS-3.132_202310-01  |  October 23, 2023  |  Post 3.135  |
-|  WA-GUEST-OS-3.130_202309-01  |  September 25, 2023  |  Post 3.134  |
+|~~WA-GUEST-OS-3.130_202309-01~~|  September 25, 2023  |  Post 3.134  |
 |~~WA-GUEST-OS-3.129_202308-01~~|  August 21, 2023  |  October 23, 2023  |
 |~~WA-GUEST-OS-3.128_202307-01~~|  July 27, 2023  |  September 25, 2023  |
 |~~WA-GUEST-OS-3.127_202306-02~~|  July 8, 2023  |  August 21, 2023  |
@@ -566,9 +570,10 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.146_202312-01 |  January 16, 2024  |  Post 2.149  |
 |  WA-GUEST-OS-2.145_202311-01 |  December 8, 2023  |  Post 2.148  |
 |  WA-GUEST-OS-2.144_202310-01  |  October 23, 2023  |  Post 2.146  |
-|  WA-GUEST-OS-2.142_202309-01  |  September 25, 2023  |  Post 2.144  |
+|~~WA-GUEST-OS-2.142_202309-01~~|  September 25, 2023  |  Post 2.144  |
 |~~WA-GUEST-OS-2.141_202308-01~~|  August 21, 2023  |  October 23, 2023  |
 |~~WA-GUEST-OS-2.140_202307-01~~|  July 27, 2023  |  September 25, 2023  |
 |~~WA-GUEST-OS-2.139_202306-02~~|  July 8, 2023  |  August 21, 2023  |
