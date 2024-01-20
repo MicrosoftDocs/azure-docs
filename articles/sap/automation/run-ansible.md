@@ -164,7 +164,7 @@ Run the `configuration_menu` script.
 ${HOME}/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/configuration_menu.sh
 ```
 
-:::image type="content" source="./media/tutorial/configuration-menu.png" alt-text="Diagram that shows the SAP Deployment Automation Ansible configuration menu.":::
+:::image type="content" source="./media/tutorial/configuration-menu.png" alt-text="Diagram that shows the SAP Deployment Automation Ansible configuration menu." lightbox="./media/tutorial/configuration-menu.png":::
 
 
 To run a playbook or multiple playbooks, use the following `ansible-playbook` command. This example runs the operating system configuration playbook.
