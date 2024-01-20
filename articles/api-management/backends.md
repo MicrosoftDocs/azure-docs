@@ -2,10 +2,7 @@
 title: Azure API Management backends | Microsoft Docs
 description: Learn about custom backends in Azure API Management
 services: api-management
-documentationcenter: ''
 author: dlepow
-editor: ''
-
 ms.service: api-management
 ms.topic: article
 ms.date: 01/09/2024

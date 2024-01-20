@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: whats-new
-ms.date: 11/21/2023
+ms.date: 01/19/2024
 ms.author: lajanuar
 ms.custom:
   - references_regions
@@ -23,6 +23,9 @@ ms.custom:
 [!INCLUDE [applies to v4.0, v3.1, v3.0, and v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 
 Document Intelligence service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and our newest documentation.
+
+> [!IMPORTANT]
+> Preview API versions are retured once the GA API is released. The 2023-02-28-preview API version is being retired, if you are still using the preview API or the associated SDK versions, please update your code to target the 2023-07-31 API version.
 
 ## December 2023
 
