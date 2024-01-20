@@ -348,7 +348,7 @@ Recommendations for the management of chat ID:
     addParticipant(participant: MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)
     ```
 - Start group call with single Microsoft 365 user and multiple phone participants:
-  * (Optional way) Use startCall API on web calling SDK without providing chat thread ID to create a group chat for participants. You only need to provide identifier for all the participants when leveraging API.
+  * Method `startCall` API allows you to start a group call with multiple participants and optionally provide thread ID. If the parameter isn't provided, then a new group chat is created, and all Microsoft 365 participants are added to the call and chat participants list. If the parameter is provided, then Teams users can see ongoing call associated to this group chat in Teams app. You can create new group chat via Graph API.
     ```js
     startCall(MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)[])
     ```
