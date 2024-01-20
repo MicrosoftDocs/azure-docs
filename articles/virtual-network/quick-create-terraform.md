@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create virtual network and subnets using Terraform'
 titleSuffix: Azure Virtual Network
-description: In this quickstart, you'll create an Azure Virtual Network and Subnets using Terraform. You'll use Azure CLI to verify the resources.
+description: In this quickstart, you create an Azure Virtual Network and Subnets using Terraform. You use Azure CLI to verify the resources.
 ms.topic: quickstart
 ms.date: 1/19/2024
 ms.custom: devx-track-terraform
@@ -15,17 +15,17 @@ content_well_notification:
 
 # Quickstart: Create an Azure Virtual Network and Subnets using Terraform
 
-In this quickstart you will learn about a Terraform script that creates an Azure resource group and a virtual network with two subnets. The names of the resource group and the virtual network are generated using a random pet name with a prefix. The script also outputs the names of the created resources. 
+In this quickstart, you learn about a Terraform script that creates an Azure resource group and a virtual network with two subnets. The names of the resource group and the virtual network are generated using a random pet name with a prefix. The script also outputs the names of the created resources. 
 
 The script uses the Azure Resource Manager (azurerm) and Random (random) providers. The azurerm provider is used to interact with Azure resources, while the random provider is used to generate random pet names for the resources. 
 
 The script creates the following resources:
 
-- A resource group: This is a container that holds related resources for an Azure solution. 
+- A resource group: A container that holds related resources for an Azure solution. 
 
-- A virtual network: This is the fundamental building block for your private network in Azure. 
+- A virtual network: A fundamental building block for your private network in Azure. 
 
-- Two subnets: These are segments of a virtual network's IP address range where you can place groups of isolated resources.
+- Two subnets: Segments of a virtual network's IP address range where you can place groups of isolated resources.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
