@@ -162,31 +162,31 @@ You might also want to encrypt [diagnostic information that's logged from your d
 
 ## Encryption in transit
 
-Azure Machine Learning uses TLS to secure internal communication between various Azure Machine Learning microservices. All Azure Storage access also occurs over a secure channel.
+Azure Machine Learning uses Transport Layer Security (TLS) to help secure internal communication between various Azure Machine Learning microservices. All Azure Storage access also occurs over a secure channel.
 
 :::moniker range="azureml-api-1"
-To secure external calls made to the scoring endpoint, Azure Machine Learning uses TLS. For more information, see [Use TLS to secure a web service through Azure Machine Learning](./v1/how-to-secure-web-service.md).
+To help secure external calls made to the scoring endpoint, Azure Machine Learning uses TLS. For more information, see [Use TLS to secure a web service through Azure Machine Learning](./v1/how-to-secure-web-service.md).
 :::moniker-end
 
 ## Data collection and handling
 
-### Microsoft collected data
+### Microsoft-collected data
 
-Microsoft may collect non-user identifying information like resource names (for example the dataset name, or the machine learning experiment name), or job environment variables for diagnostic purposes. All such data is stored using Microsoft-managed keys in storage hosted in Microsoft owned subscriptions and follows [Microsoft's standard Privacy policy and data handling standards](https://privacy.microsoft.com/privacystatement). This data is kept within the same region as your workspace.
+Microsoft might collect information that doesn't identify users, like resource names (for example, the dataset name or the machine learning experiment name) or job environment variables, for diagnostic purposes. All such data is stored through Microsoft-managed keys in storage hosted in Microsoft-owned subscriptions and follows [Microsoft's standard privacy policy and data-handling standards](https://privacy.microsoft.com/privacystatement). This data stays within the same region as your workspace.
 
-Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Environment variables are logged, encrypted, and stored by us. Similarly when naming your jobs, avoid including sensitive information such as user names or secret project names. This information may appear in telemetry logs accessible to Microsoft Support engineers.
+Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Microsoft logs, encrypts, and stores environment variables. Similarly, when you name your jobs, avoid including sensitive information such as user names or secret project names. This information might appear in telemetry logs that Microsoft Support engineers can access.
 
-You may opt out from diagnostic data being collected by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when using the Azure Machine Learning Python SDK, the Azure CLI, REST APIs, or Azure Resource Manager templates.
+You can opt out from the collection of diagnostic data by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when you use the Azure Machine Learning Python SDK, the Azure CLI, REST APIs, or Azure Resource Manager templates.
 
 ## Using Azure Key Vault
 
-Azure Machine Learning uses the Azure Key Vault instance associated with the workspace to store credentials of various kinds:
+Azure Machine Learning uses the Azure Key Vault instance that's associated with the workspace to store credentials of various kinds:
 
 * The associated storage account connection string
 * Passwords to Azure Container Repository instances
 * Connection strings to data stores
 
-SSH passwords and keys to compute targets like Azure HDInsight and VMs are stored in a separate key vault that's associated with the Microsoft subscription. Azure Machine Learning doesn't store any passwords or keys provided by users. Instead, it generates, authorizes, and stores its own SSH keys to connect to VMs and HDInsight to run the experiments.
+Secure Shell (SSH) passwords and keys to compute targets like Azure HDInsight and VMs are stored in a separate key vault that's associated with the Microsoft subscription. Azure Machine Learning doesn't store any passwords or keys that users provide. Instead, it generates, authorizes, and stores its own SSH keys to connect to VMs and HDInsight to run the experiments.
 
 Each workspace has an associated system-assigned managed identity that has the same name as the workspace. This managed identity has access to all keys, secrets, and certificates in the key vault.
 
