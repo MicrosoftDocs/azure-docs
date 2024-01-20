@@ -13,7 +13,7 @@ content_well_notification:
 # Customer intent: As a Network Administrator, I want to create a virtual network and subnets using Terraform.
 ---
 
-# Quickstart: Create an Azure Virtual Network and Subnets using Terraform
+# Quickstart: Create an Azure Virtual Network and subnets using Terraform
 
 In this quickstart, you learn about a Terraform script that creates an Azure resource group and a virtual network with two subnets. The names of the resource group and the virtual network are generated using a random pet name with a prefix. The script also outputs the names of the created resources. 
 
@@ -89,7 +89,7 @@ The script creates the following resources:
     virtual_network_name=$(terraform output -raw virtual_network_name)
     ```
 
-1. Run [/cli/azure/network/vnet#az-network-vnet-show] to display the details of your newly created virtual network.
+1. Run [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to display the details of your newly created virtual network.
 
     ```azurecli
     az network vnet show \
