@@ -20,7 +20,7 @@ There are two components to the Azure Virtual Desktop service that need to be au
 
 This article will show you how to configure the feed in the Azure Virtual Desktop client in the Azure portal. If you want to learn how to configure the RD Gateway role, see [Deploy the RD Gateway role](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
 
-## Requirements
+## Prerequisites
 
 To configure an Azure Virtual Desktop session host with a KDC proxy, you'll need the following things:
 

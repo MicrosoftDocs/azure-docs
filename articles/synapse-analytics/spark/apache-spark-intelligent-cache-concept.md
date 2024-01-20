@@ -1,7 +1,6 @@
 ---
 title: Intelligent Cache for Apache Spark 3.x in Azure Synapse Analytics 
 description: This article provides an overview of the Intelligent Cache feature in Azure Synapse Analytics.
-services: synapse-analytics
 author: avinandaMS
 ms.service: synapse-analytics
 ms.topic: conceptual

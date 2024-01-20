@@ -2,7 +2,6 @@
 title: Create a user defined restore point for a dedicated SQL pool
 description: Learn how to use the Azure portal to create a user-defined restore point for dedicated SQL pool in Azure Synapse Analytics.
 author: joannapea
-manager: 
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql

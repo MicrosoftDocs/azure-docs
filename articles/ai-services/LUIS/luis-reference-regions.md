@@ -6,7 +6,7 @@ ms.subservice: azure-ai-luis
 author: aahill
 ms.author: aahi
 ms.topic: reference
-ms.date: 02/08/2022
+ms.date: 01/19/2024
 ms.custom: references_regions
 ---
 

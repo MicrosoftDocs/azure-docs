@@ -5,7 +5,6 @@ description: Soft delete allows you to recover workspace data after accidental d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: 
 ms.topic: conceptual
 ms.author: deeikele
 author: deeikele
