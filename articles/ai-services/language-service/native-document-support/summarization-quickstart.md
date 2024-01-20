@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: quickstart
-ms.date: 01/16/2024
+ms.date: 01/31/2024
 ms.author: lajanuar
 ---
 
@@ -15,6 +15,8 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD049 -->
+<!-- markdownlint-disable MD001 -->
+
 
 # Quickstart: Native document support (preview)
 
@@ -115,67 +117,7 @@ For this project, we authenticate access to the `sourceUrl` and `targetUrl`with 
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values. Try analyzing native documents by selecting the `Personally Identifiable Information (PII)` or `Document Summarization` code sample project:
 
-### [Personally Identifiable Information (PII)](#tab/pii)
-
-#### PII Sample document
-
-For this quickstart, you need a **source document** uploaded to your **source container**. You can download our [Microsoft Word sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-pii.docx) or [Adobe PDF](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl//Language/native-document-pii.pdf) for this project. The source language is English.
-
-### Build the POST request
-
-1. Using your preferred editor or IDE, create a new directory for your app named `native-document`.
-
-1. Create a new json file called **pii-detection.json** in your **native-document** directory.
-
-1. Copy and paste the following Personally Identifiable Information (PII) **request sample** into your `pii-detection.json` file. Replace **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance:
-
-  `**Request sample**`
-
-  ```json
-  {
-    "kind": "PiiEntityRecognition",
-    "parameters": {
-        "modelVersion": "latest"
-    },
-    "analysisInput":{
-        "documents":[
-            {
-          "source":{
-            "sourceUrl":"{your-source-container-SAS-URL}"
-          },
-          "targets":
-            {
-              "targetUrl":"{your-target-container-SAS-URL}",
-            }
-            }
-        ]
-    }
-  }
-
-  ```
-
-### Run the POST request
-
-1. Before you run the **POST** request, replace `{your-language-resource-endpoint}` and `{your-key}` with the values from your Azure portal Language service instance.
-
-    > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information, *see* Azure AI services [security](/azure/ai-services/security-features).
-
-    ***PowerShell***
-
-    ```powershell
-    cmd /c curl "{your-language-resource-endpoint}/language/:analyze-text?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@pii-detection.json"
-    ```
-
-    ***command prompt / terminal***
-
-    ```curl
-    curl "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@pii-detection.json"
-    ```
-
-### [Document Summarization](#tab/summarization)
-
-### Summarization sample document
+##### Summarization sample document
 
 For this project, you need a **source document** uploaded to your **source container**. You can download our [Microsoft Word sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-summarization.docx) or [Adobe PDF](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-summarization.pdf) for this quickstart. The source language is English.
 
@@ -229,8 +171,6 @@ Before you run the **POST** request, replace `{your-language-resource-endpoint}`
   curl "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-summarization.json"
   ```
 
----
-
 **Upon successful completion**:
 
 * The analyzed documents can be found in your target container.
@@ -243,4 +183,3 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 
 * [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
-

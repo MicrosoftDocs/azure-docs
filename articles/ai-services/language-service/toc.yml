@@ -434,6 +434,12 @@ items:
       href: personally-identifiable-information/quickstart.md
     - name: PII language support
       href: personally-identifiable-information/language-support.md
+    - name: PII native document support
+      items:
+        - name: PII native document support overview
+          href: native-document-support/overview.md
+        - name: PII native document support quickstart
+          href: native-document-support/pii-quickstart.md
     - name: Responsible use of AI
       items:
       - name: Transparency note for PII
@@ -745,6 +751,12 @@ items:
       href: summarization/region-support.md
     - name: Summarization language support
       href: summarization/language-support.md
+    - name: Summarization native document support
+      items:
+        - name: Summarization native document support overview
+          href: native-document-support/overview.md
+        - name: Summarization native document support quickstart
+          href: native-document-support/summarization-quickstart.md
     - name: Prebuilt
       items:
       - name: Summarization quickstart
