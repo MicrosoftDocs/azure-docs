@@ -4,10 +4,7 @@ description: Azure CLI Script Sample - restore a disk from a snapshot and learn 
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-
 tags: azure-service-management
-
-ms.assetid:
 ms.service: azure-disk-storage
 ms.devlang: azurecli
 ms.topic: sample

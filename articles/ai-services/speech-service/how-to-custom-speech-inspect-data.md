@@ -6,14 +6,14 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 1/19/2024
 ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 ---
 
 # Test recognition quality of a Custom Speech model
 
-You can inspect the recognition quality of a Custom Speech model in the [Speech Studio](https://aka.ms/speechstudio/customspeech). You can play back uploaded audio and determine if the provided recognition result is correct. After a test has been successfully created, you can see how a model transcribed the audio dataset, or compare results from two models side by side.
+You can inspect the recognition quality of a Custom Speech model in the [Speech Studio](https://aka.ms/speechstudio/customspeech). You can play back uploaded audio and determine if the provided recognition result is correct. After a test is successfully created, you can see how a model transcribed the audio dataset, or compare results from two models side by side.
 
 Side-by-side model testing is useful to validate which speech recognition model is best for an application. For an objective measure of accuracy, which requires transcription datasets input, see [Test model quantitatively](how-to-custom-speech-evaluate-data.md).
 
@@ -43,12 +43,12 @@ Follow these instructions to create a test:
 
 To create a test, use the `spx csr evaluation create` command. Construct the request parameters according to the following instructions:
 
-- Set the `project` parameter to the ID of an existing project. This is recommended so that you can also view the test in Speech Studio. You can run the `spx csr project list` command to get available projects.
+- Set the `project` parameter to the ID of an existing project. This parameter is recommended so that you can also view the test in Speech Studio. You can run the `spx csr project list` command to get available projects.
 - Set the required `model1` parameter to the ID of a model that you want to test.
 - Set the required `model2` parameter to the ID of another model that you want to test. If you don't want to compare two models, use the same model for both `model1` and `model2`.
 - Set the required `dataset` parameter to the ID of a dataset that you want to use for the test.
-- Set the `language` parameter, otherwise the Speech CLI will set "en-US" by default. This should be the locale of the dataset contents. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
-- Set the required `name` parameter. This is the name that will be displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
+- Set the `language` parameter, otherwise the Speech CLI sets "en-US" by default. This parameter should be the locale of the dataset contents. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
+- Set the required `name` parameter. This parameter is the name that is displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
 
 Here's an example Speech CLI command that creates a test:
 
@@ -123,12 +123,12 @@ spx help csr evaluation
 
 To create a test, use the [Evaluations_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
-- Set the `project` property to the URI of an existing project. This is recommended so that you can also view the test in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
+- Set the `project` property to the URI of an existing project. This property is recommended so that you can also view the test in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
 - Set the required `model1` property to the URI of a model that you want to test.
 - Set the required `model2` property to the URI of another model that you want to test. If you don't want to compare two models, use the same model for both `model1` and `model2`.
 - Set the required `dataset` property to the URI of a dataset that you want to use for the test.
-- Set the required `locale` property. This should be the locale of the dataset contents. The locale can't be changed later.
-- Set the required `displayName` property. This is the name that will be displayed in the Speech Studio.
+- Set the required `locale` property. This property should be the locale of the dataset contents. The locale can't be changed later.
+- Set the required `displayName` property. This property is the name that is displayed in the Speech Studio.
 
 Make an HTTP POST request using the URI as shown in the following example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
@@ -223,7 +223,7 @@ Follow these steps to get test results:
 1. Select the link by test name.
 1. After the test is complete, as indicated by the status set to *Succeeded*, you should see results that include the WER number for each tested model.
 
-This page lists all the utterances in your dataset and the recognition results, alongside the transcription from the submitted dataset. You can toggle various error types, including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, you can decide which model meets your needs and determine where additional training and improvements are required.
+This page lists all the utterances in your dataset and the recognition results, alongside the transcription from the submitted dataset. You can toggle various error types, including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, you can decide which model meets your needs and determine where more training and improvements are required.
 
 ::: zone-end
 
@@ -382,7 +382,7 @@ To review the quality of transcriptions:
 1. Select the link by test name.
 1. Play an audio file while the reading the corresponding transcription by a model. 
 
-If the test dataset included multiple audio files, you'll see multiple rows in the table. If you included two models in the test,  transcriptions are shown in side-by-side columns. Transcription differences between models are shown in blue text font. 
+If the test dataset included multiple audio files, you see multiple rows in the table. If you included two models in the test,  transcriptions are shown in side-by-side columns. Transcription differences between models are shown in blue text font. 
 
 :::image type="content" source="media/custom-speech/custom-speech-inspect-compare.png" alt-text="Screenshot of comparing transcriptions by two models":::
 
@@ -390,7 +390,7 @@ If the test dataset included multiple audio files, you'll see multiple rows in t
 
 ::: zone pivot="speech-cli"
 
-The audio test dataset, transcriptions, and models tested are returned in the [test results](#get-test-results). If only one model was tested, the `model1` value will match `model2`, and the `transcription1` value will match `transcription2`. 
+The audio test dataset, transcriptions, and models tested are returned in the [test results](#get-test-results). If only one model was tested, the `model1` value matches `model2`, and the `transcription1` value matches `transcription2`. 
 
 To review the quality of transcriptions:
 1. Download the audio test dataset, unless you already have a copy.
@@ -404,7 +404,7 @@ If you're comparing quality between two models, pay particular attention to diff
 ::: zone pivot="rest-api"
 
 
-The audio test dataset, transcriptions, and models tested are returned in the [test results](#get-test-results). If only one model was tested, the `model1` value will match `model2`, and the `transcription1` value will match `transcription2`. 
+The audio test dataset, transcriptions, and models tested are returned in the [test results](#get-test-results). If only one model was tested, the `model1` value matches `model2`, and the `transcription1` value matches `transcription2`. 
 
 To review the quality of transcriptions:
 1. Download the audio test dataset, unless you already have a copy.
