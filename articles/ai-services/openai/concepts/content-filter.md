@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.date: 11/06/2023
 ms.custom: template-concept
 manager: nitinme
-keywords: 
 ---
 
 # Content filtering

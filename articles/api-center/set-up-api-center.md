@@ -6,7 +6,6 @@ ms.service: api-center
 ms.topic: quickstart
 ms.date: 11/07/2023
 ms.author: danlep 
-ms.custom: 
 ---
 
 # Quickstart: Create your API center
