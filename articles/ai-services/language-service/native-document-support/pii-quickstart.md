@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Azure AI Language Native document support preview"
+title: "Quickstart: Azure AI Language Native document PII support preview"
 titleSuffix: Azure AI services
-description: "Learn to process native documents with the Language service preview REST APIs."
+description: "Learn native document PII processing with the Language service preview REST APIs."
 author: laujan
 manager: nitinme
 ms.service: azure-ai-language
@@ -17,7 +17,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD049 -->
 <!-- markdownlint-disable MD001 -->
 
-# Quickstart: Native document support (preview)
+# Quickstart: PII native document support (preview)
 
 > [!IMPORTANT]
 >
