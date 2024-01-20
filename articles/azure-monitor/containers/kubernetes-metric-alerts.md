@@ -171,11 +171,11 @@ The following table lists the details of each Prometheus alert rule. Source code
 | CPUThrottlingHigh | Processes experience elevated CPU throttling | NA | Cluster |
 | KubeletPlegDurationHigh | The Kubelet Pod Lifecycle Event Generator has a 99th percentile duration of {{ $value }} seconds on node {{ $labels.node }}. | 10 | Node |
 | Average Memory usage per container is greater than 95% | Average Memory usage per container is greater than 95% | 95 | Pod |
-| KubePersistentVolumeFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} is only {{ $value | humanizePercentage }} free. | NA | Cluster |
-| KubeletClientCertificateExpiratioNode | Client certificate for Kubelet on node {{ $labels.node }} expires in {{ $value | humanizeDuration }}. | NA | Node |
-| KubeletPodStartUpLatencyHigh | Kubelet Pod startup 99th percentile latency is {{ $value }} seconds on node {{ $labels.node }}. | 60 | Pod |
-| KubePersistentVolumeInodesFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} only has {{ $value | humanizePercentage }} free inodes. | NA | Cluster |
-| KubeletServerCertificateExpiratioNode | Server certificate for Kubelet on node {{ $labels.node }} expires in {{ $value | humanizeDuration }}. | NA | Node |
+| KubePersistentVolumeFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} is only {{ $value \| humanizePercentage }} free. | NA | Cluster |
+| KubeletClientCertificateExpiratioNode | Client certificate for Kubelet on node {{ $labels.node }} expires in {{ $value \| humanizeDuration }}. | NA | Node |
+| KubeletPodStartUpLatencyHigh | Kubelet Pod startup 99th percentile latency is {{ $value }} seconds on node {{ $labels.node }}. \| 60 | Pod |
+| KubePersistentVolumeInodesFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} only has {{ $value \| humanizePercentage }} free inodes. | NA | Cluster |
+| KubeletServerCertificateExpiratioNode | Server certificate for Kubelet on node {{ $labels.node }} expires in {{ $value \| humanizeDuration }}. | NA | Node |
 | KubePersistentVolumeErrors | The persistent volume {{ $labels.persistentvolume }} has status {{ $labels.phase }} | 0 | Cluster |
 | KubeletClientCertificateRenewalErrors | Kubelet has failed to renew its client certificate. | 0 | Node |
 | KubeletServerCertificateRenewalErrors | Kubelet has failed to renew its server certificate. | 0 | Node |
