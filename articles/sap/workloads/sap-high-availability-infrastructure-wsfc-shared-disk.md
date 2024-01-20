@@ -143,7 +143,7 @@ To apply the changes, restart both cluster nodes.
 
 After you assign static IP addresses to the virtual machines, add the virtual machines to the domain.
 
-## Install and configure  Windows failover cluster
+## Install and configure Windows failover cluster
 
 ### Install the Windows failover cluster feature
 

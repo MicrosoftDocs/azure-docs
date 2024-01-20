@@ -3,8 +3,6 @@ title: SAP NetWeaver high availability installation on a Windows failover cluste
 description: SAP NetWeaver high availability installation on a Windows failover cluster and file share for SAP ASCS/SCS instances
 services: virtual-machines-windows,virtual-network,storage
 author: rdeltcheva
-tags: azure-resource-manager
-ms.assetid: 71296618-673b-4093-ab17-b7a80df6e9ac
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
