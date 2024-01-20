@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Advisor
-description: Get started with Azure Advisor.
+title: Well Architected Framework assessments in Azure Advisor
+description: Azure Advisor offers Well Architected Framework assessments (curated and focused Advisor optimization reports) through the Assessments entry in the left menu of the Azure Advisor Portal.
 author: mabrahms
 ms.author: v-mabrahms
 ms.service: azure
@@ -85,7 +85,7 @@ You can choose to:
 
 1.	On that page, select a workload type. To know more about workload types, see [Well-Architected Branches for Assessing Workload-Types - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-architecture-blog/well-architected-branches-for-assessing-workload-types/ba-p/3267234).
   * Core Well-Architected Review: Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of your workload’s design. To learn more, see [Azure Well-Architected Review](/assessments/azure-architecture-review/)
-  * Azure Machine Learning: Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of your machine learning models. The Compute targets and Instance types are two key concepts in Azure Machine Learning. To learn more, see [Assessing your machine learning workloads](/azure-enablement/assessing-your-machine-learning-workloads)
+  * Azure Machine Learning: Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of your machine learning models. The Compute targets and Instance types are two key concepts in Azure Machine Learning. To learn more, see [Assessing your machine learning workloads](/shows/azure-enablement/assessing-your-machine-learning-workloads)
   * Internet of Things: Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of your IoT solution. The IoT workload assessment evaluates your IoT solution through the lenses of the Well-Architected Framework Security and Reliability pillars. After the assessment identifies key recommendations for your IoT solution, you can use the following content to help implement the recommendations:
     a. [Reliability](/azure/well-architected/iot/iot-reliability): Complete the reliability questions for IoT workloads in the Azure Well-Architected Review.
     b. [Security](/azure/well-architected/iot/iot-security): Complete the security questions for IoT workloads in the Azure Well-Architected Review.
