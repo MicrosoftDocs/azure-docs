@@ -19,8 +19,39 @@ The Azure Monitor Agent Troubleshooter (AMA) is designed to help identify issues
 
 ## Prerequisites
 
-### Python
-The linux Troubleshooter requires Python 2.6+ or any Python 3 installed on the machine. In addition, the following Python packages are required to run (all should be present on a default install of Python 2 or Python 3):
+### Python requirement
+The linux Troubleshooter requires **Python 2.6+** or any **Python 3** installed on the machine.
+
+To check if python has been installed on your machine, copy the following command and run in Bash as root:
+```Bash
+sudo python -V
+sudo python3 -V
+```
+
+Multiple versions of Python can be installed and aliased – if multiple versions are installed, this can be used:
+
+```Bash
+ls -ls /usr/bing/python*
+```
+
+If your virtual machine is using a distro that doesn't include Python 3 by default, then you must install it. The following sample commands will install Python 3 on different distros:
+
+# [Red Hat, CentOS, Oracle](#tab/redhat)
+```Bash
+sudo yum install -y python3
+```
+# [Ubuntu, Debian](#tab/ubuntu)
+```Bash
+sudo apt-get update
+sudo apt-get install -y python3
+```
+# [Suse](#tab/suse)
+```Bash
+sudo zypper install -y python3
+```
+
+
+In addition, the following Python packages are required to run (all should be present on a default install of Python 2 or Python 3):
 
 |Python Package|Required for Python 2?|Required for Python 3?|
 |:---|:---|:---|
@@ -36,10 +67,12 @@ The linux Troubleshooter requires Python 2.6+ or any Python 3 installed on the m
 |url lib|yes|no|
 |xml.dom.minidom|yes|yes|
 
-On the machine to be diagnosed, does this directory exist:
+### Directory Existence Check
+On the machine to be diagnosed, verify directory exist:
 ***/var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-{version}***
 
-To verify the Agent Troubleshooter is present, copy the following command and run in Bash as root:
+### Troubleshooter Existence Check
+To verify the Azure Monitor Agent Troubleshooter is present, copy the following command and run in Bash as root:
 
 ```Bash
 ls -ltr /var/lib/waagent | grep "Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-*"
@@ -52,7 +85,11 @@ If not, the directory doesn't exist and the installation failed. In this case, f
 Yes, the directory exists. Proceed to [Run the Troubleshooter](#run-the-troubleshooter).
 
 ## Run the Troubleshooter
-On the machine to be diagnosed, run the Agent Troubleshooter.
+On the machine to be diagnosed, run the Agent Troubleshooter. 
+
+**Log Mode** enables the collection of logs, which can then be compressed into .tgz format for export or review. 
+
+**Interactive Mode** allows users to actively engage in troubleshooting scenarios and view the output directly within the shell.
 
 # [Log Mode](#tab/GenerateLogs)
 
