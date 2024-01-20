@@ -2,11 +2,11 @@
 title: HX-series - Azure Virtual Machines
 description: Specifications for the HX-series VMs.
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: hpc
 author: Padmalathas
 ms.author: padmalathas
 ms.topic: conceptual
-ms.date: 05/25/2023
+ms.date: 12/7/2023
 ms.reviewer: wwilliams
 ---
 

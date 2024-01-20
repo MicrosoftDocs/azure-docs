@@ -2,7 +2,6 @@
 title: 'Speech SDK for C# .NET Core platform setup - Speech service'
 titleSuffix: Azure AI services
 description: 'Use this guide to set up your platform for C# under .NET Core on Windows or macOS with the Speech SDK.'
-#services: cognitive-services
 author: markamos
 manager: nitinme
 ms.service: azure-ai-speech

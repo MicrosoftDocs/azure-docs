@@ -27,7 +27,7 @@ Key vault is a secure place to store keys. Enterprise users need to store creden
 To generate a key to access the key vault, execute command below on your local machine:
 
 ```azurecli
-az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT> --sdk-auth
+az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT> --json-auth
 ```
 
 The scope specified by the `--scopes` parameter limits the key access to the resource.  It can only access the strong box.
@@ -69,7 +69,7 @@ Select the **Add** button in the **Add access policy** dialog, then select **Sav
 This is the master key to open all doors in the building. The procedure is similar to the previous step, but here we change the scope to generate the master key:
 
 ```azurecli
-az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
+az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --json-auth
 ```
 
 Again, results:

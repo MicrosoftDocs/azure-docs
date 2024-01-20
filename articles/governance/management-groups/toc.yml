@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: Azure Management
-    href: ../azure-management.md
+    href: ./azure-management.md
   - name: Management groups
     href: ./overview.md
 - name: Quickstarts

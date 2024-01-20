@@ -29,6 +29,11 @@
             "source_path_from_root": "/articles/confidential-computing/quick-create-confidential-vm-azure-cli-amd.md",
             "redirect_url": "/azure/confidential-computing/quick-create-confidential-vm-azure-cli",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/confidential-computing/tdx-confidential-vm-overview.md",
+            "redirect_url": "/azure/virtual-machines/dcesv5-dcedsv5-series",
+            "redirect_document_id": true
         }
     ]
 }

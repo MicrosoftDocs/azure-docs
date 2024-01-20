@@ -7,7 +7,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.date: 12/07/2023
-ms.custom: devx-track-azurecli, build-2023, devx-track-linux
+ms.custom: devx-track-azurecli, build-2023, linux-related-content
 ---
 
 # Use dual-stack kubenet networking in Azure Kubernetes Service (AKS)
@@ -48,7 +48,7 @@ AKS configures the required supporting services for dual-stack networking. This 
 * Load balancer setup for IPv4 and IPv6 services.
 
 > [!NOTE]
-> When using Dualstack with an [outbound type][outbound-type] of user-defined routing, you can choose to have a default route for IPv6 depending on if you need your IPv6 traffic to reach the internet or not. If you don't have a default route for IPv6, a warning will surface when creating a cluster but will not prevent cluster creation.  
+> When using Dualstack with an [outbound type][outbound-type] of user-defined routing, you can choose to have a default route for IPv6 depending on if you need your IPv6 traffic to reach the internet or not. If you don't have a default route for IPv6, a warning will surface when creating a cluster but will not prevent cluster creation.
 
 ## Deploying a dual-stack cluster
 

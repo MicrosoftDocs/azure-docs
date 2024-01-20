@@ -1,14 +1,13 @@
 ---
 title: 'Easv5 and Eadsv5-series - Azure Virtual Machines'
 description: Specifications for the Easv5 and Eadsv5-series VMs.
-author: mamccrea 
-ms.author: mamccrea
+author: ju-shim
+ms.author: jushiman
 ms.reviewer: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 10/8/2021
-
 ---
 
 # Easv5 and Eadsv5-series

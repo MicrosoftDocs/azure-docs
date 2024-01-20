@@ -7,7 +7,8 @@ ms.subservice: nosql
 ms.topic: how-to
 ms.date: 06/02/2022
 ms.author: jucocchi
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-js, kr2b-contr-experiment, ignite-2022, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ---
 

@@ -122,6 +122,7 @@ The following ARM template creates an Automanage custom profile. Details on the 
               "LogAnalytics/Enable": true,
               "LogAnalytics/Reprovision": "[parameters('LogAnalyticsBehavior')]",
               "LogAnalytics/Workspace": "[parameters('logAnalyticsWorkspace')]",
+              "LogAnalytics/UseAma": true,
               "UpdateManagement/Enable": true,
               "VMInsights/Enable": true,
               "WindowsAdminCenter/Enable": true,
@@ -156,6 +157,8 @@ The `azureSecurityBaselineAssignmentType` is the audit mode that you can choose 
 * ApplyAndAutoCorrect : This setting applies the Azure security baseline through the Guest Configuration extension, and if any setting within the baseline drifts, we'll auto-remediate the setting so it stays compliant.
 * ApplyAndMonitor : This setting applies the Azure security baseline through the Guest Configuration extention when you first assign this profile to each machine. After it's applied, the Guest Configuration service will monitor the server baseline and report any drift from the desired state. However, it will not auto-remdiate.
 * Audit : This setting installs the Azure security baseline using the Guest Configuration extension. You're able to see where your machine is out of compliance with the baseline, but noncompliance isn't automatically remediated.
+
+The `LogAnalytics/UseAma` value is where you can specify to use Azure Monitor Agent or not.
 
 You can also specify an existing log analytics workspace by adding this setting to the configuration section of properties below:
 * "LogAnalytics/Workspace": "/subscriptions/**subscriptionId**/resourceGroups/**resourceGroupName**/providers/Microsoft.OperationalInsights/workspaces/**workspaceName**"

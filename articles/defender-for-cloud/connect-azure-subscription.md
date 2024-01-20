@@ -2,7 +2,7 @@
 title: Connect your Azure subscriptions
 description: Learn how to connect your Azure subscriptions to Microsoft Defender for Cloud 
 ms.topic: install-set-up-deploy
-ms.date: 11/23/2023
+ms.date: 01/03/2024
 ms.custom: mode-other
 ---
 
@@ -95,7 +95,7 @@ If you want to disable any of the plans, toggle the individual plan to **off**. 
 > [!TIP]
 > To enable Defender for Cloud on all subscriptions within a management group, see [Enable Defender for Cloud on multiple Azure subscriptions](onboard-management-group.md).
 
-## Integrate with Microsoft Defender XDR (Preview)
+## Integrate with Microsoft Defender XDR
 
 When you enable Defender for Cloud, Defender for Cloud's alerts are automatically integrated into the Microsoft Defender Portal. No further steps are needed.
 

@@ -3,12 +3,11 @@ title: Capture changed data by using a change data capture resource
 description: Get step-by-step instructions on how to capture changed data from Azure Data Lake Storage Gen2 to Azure SQL Database by using a change data capture (CDC) resource.
 author: n0elleli
 ms.author: noelleli
-ms.reviewer: 
 ms.service: data-factory
 ms.subservice:
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/06/2023
+ms.date: 01/05/2024
 ---
 
 # Capture changed data from Azure Data Lake Storage Gen2 to Azure SQL Database by using a change data capture resource

@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 01/10/2024
 ---
 
 # Encode and decode flat files in Azure Logic Apps

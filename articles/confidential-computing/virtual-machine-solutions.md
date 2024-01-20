@@ -1,8 +1,8 @@
 ---
 title: Confidential VM solutions
-description: Azure Confidential Computing offers multiple options for confidential virtual machines on AMD and Intel processors. 
-author: mamccrea
-ms.author: mamccrea
+description: Azure Confidential Computing offers multiple options for confidential virtual machines on AMD and Intel processors.
+author: ju-shim
+ms.author: jushiman
 ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: confidential-computing
@@ -133,3 +133,5 @@ Make sure to specify the following properties for your VM in the parameters sect
 
 > [!div class="nextstepaction"]
 > [Deploy a confidential VM from the Azure portal](quick-create-confidential-vm-portal.md)
+
+For more information see our [Confidential VM FAQ](confidential-vm-faq.yml).

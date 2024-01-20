@@ -311,6 +311,10 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    > The utility `jq` may not be installed on every installation. You can get instructions in [this link](https://stedolan.github.io/jq/download/).
    
    # [Python](#tab/python)
+
+   > [!TIP]
+   > [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
+
    
    ```python
    input = Input(type=AssetTypes.URI_FOLDER, path=imagenet_sample.id)

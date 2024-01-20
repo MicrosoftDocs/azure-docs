@@ -8,7 +8,7 @@ ms.custom:
 ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
-
+ms.subservice: mqtt
 ---
 
 # How to establish multiple sessions for a single client

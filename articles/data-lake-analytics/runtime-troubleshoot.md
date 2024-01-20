@@ -4,8 +4,9 @@ description: 'Learn how to troubleshoot U-SQL runtime failures.'
 ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
-ms.date: 01/27/2023
+ms.date: 12/20/2023
 ---
+
 # Learn how to troubleshoot U-SQL runtime failures due to runtime changes
 
 [!INCLUDE [retirement-flag](includes/retirement-flag.md)]
@@ -21,7 +22,7 @@ You can also choose a custom runtime version; either because you want to try out
 > [!CAUTION]
 > Choosing a runtime that is different from the default has the potential to break your U-SQL jobs. Use these other versions for testing only.
 
-In rare cases, Microsoft Support may pin a different version of a runtime as the default for your account. Ensure that you revert this pin as soon as possible. If you remain pinned to that version, it will expire at some later date.
+In rare cases, Microsoft Support can pin a different version of a runtime as the default for your account. Ensure that you revert this pin as soon as possible. If you remain pinned to that version, it will expire at some later date.
 
 ### Monitoring your jobs U-SQL runtime version
 
@@ -43,11 +44,11 @@ For example, release_20190318_adl_3394512_2 means the second version of the buil
 
 ## Troubleshooting U-SQL runtime version issues
 
-There are two possible runtime version issues that you may encounter:
+There are two possible runtime version issues that you could encounter:
 
 1. A script or some user-code is changing behavior from one release to the next. Such breaking changes are normally communicated ahead of time with the publication of release notes. If you encounter such a breaking change, contact Microsoft Support to report this breaking behavior (in case it hasn't been documented yet) and submit your jobs against the older runtime version.
 
-2. You have been using a non-default runtime either explicitly or implicitly when it has been pinned to your account, and that runtime has been removed after some time. If you encounter missing runtimes, upgrade your scripts to run with the current default runtime. If you need more time, contact Microsoft Support
+2. You have been using a nondefault runtime either explicitly or implicitly when it has been pinned to your account, and that runtime has been removed after some time. If you encounter missing runtimes, upgrade your scripts to run with the current default runtime. If you need more time, contact Microsoft Support
 
 ## Known issues
 

@@ -23,13 +23,13 @@ Testing Microsoft Teams Direct Routing requires some test numbers in a Microsoft
 
 You must have a Microsoft 365 tenant that you can use as a test customer. You must have at least one number that you can allocate to this test customer.
 
-You must have completed the following procedures.
+You must complete the following procedures.
 
 - [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md)
 - [Deploy Azure Communications Gateway](deploy.md)
 - [Connect Azure Communications Gateway to Microsoft Teams Direct Routing](connect-teams-direct-routing.md)
 
-Your organization must have integrated with Azure Communications Gateway's Provisioning API. Someone in your organization must be able to make requests using the Provisioning API during this procedure.
+Your organization must [integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md). Someone in your organization must be able to make requests using the Provisioning API during this procedure.
 
 You must be able to sign in to the Microsoft 365 admin center for your test customer tenant as a Global Administrator.
 
@@ -74,6 +74,8 @@ Azure Communications Gateway includes a DNS server. You must use Azure Communica
     - Specify the label for the subdomain that you chose (for example, `test`).
     - Specify the DNS TXT values from [Start registering the subdomains in the customer tenant and get DNS TXT values](#start-registering-the-subdomains-in-the-customer-tenant-and-get-dns-txt-values). These values allow Azure Communications Gateway to generate DNS records for the subdomain.
 2. Use the Provisioning API to confirm that the DNS records have been generated, by checking the `direct_routing_provisioning_state` for the account.
+
+For example API requests, see [Create an account to represent a customer](/rest/api/voiceservices/#create-an-account-to-represent-a-customer) and [View the details of the account](/rest/api/voiceservices/#view-the-details-of-the-account) in the _API Reference_ for the Provisioning API.
 
 ## Finish verifying the domains in the customer tenant
 

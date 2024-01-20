@@ -2,7 +2,6 @@
 title: Create a Custom Speech project - Speech service
 titleSuffix: Azure AI services
 description: Learn about how to create a project for Custom Speech. 
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -138,7 +137,7 @@ There are a few approaches to using Custom Speech models:
 - A custom model augments the base model to include domain-specific vocabulary shared across all areas of the custom domain.
 - Multiple custom models can be used when the custom domain has multiple areas, each with a specific vocabulary.
 
-One recommended way to see if the base model will suffice is to analyze the transcription produced from the base model and compare it with a human-generated transcript for the same audio. You can compare the transcripts and obtain a [word error rate (WER)](how-to-custom-speech-evaluate-data.md#evaluate-word-error-rate) score. If the WER score is high, training a custom model to recognize the incorrectly identified words is recommended.
+One recommended way to see if the base model will suffice is to analyze the transcription produced from the base model and compare it with a human-generated transcript for the same audio. You can compare the transcripts and obtain a [word error rate (WER)](how-to-custom-speech-evaluate-data.md#evaluate-word-error-rate-wer) score. If the WER score is high, training a custom model to recognize the incorrectly identified words is recommended.
 
 Multiple models are recommended if the vocabulary varies across the domain areas. For instance, Olympic commentators report on various events, each associated with its own vernacular. Because each Olympic event vocabulary differs significantly from others, building a custom model specific to an event increases accuracy by limiting the utterance data relative to that particular event. As a result, the model doesn't need to sift through unrelated data to make a match. Regardless, training still requires a decent variety of training data. Include audio from various commentators who have different accents, gender, age, etcetera. 
 
