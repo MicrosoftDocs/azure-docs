@@ -78,7 +78,7 @@ Select **Manage** (->) Reviews in the left navigation pane. A list of reviews op
 
 * *Completed*: All accepted recommendations have been implemented, postponed, or dismissed
 
-:::image type="content" source="./media/resiliency-reviews/resiliency-reviews-main-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews opening page." lightbox="./media/resiliency-reviews/resiliency-reviews-main-m.png":::
+:::image type="content" source="./media/resiliency-reviews/resiliency-reviews-main-m-2.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews opening page." lightbox="./media/resiliency-reviews/resiliency-reviews-main-m-2.png":::
 
 At the top of the reviews page: 
 
