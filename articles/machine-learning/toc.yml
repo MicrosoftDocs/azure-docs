@@ -690,6 +690,8 @@
               href: ./prompt-flow/tools-reference/vector-index-lookup-tool.md
             - name: Content Safety (text) tool
               href: ./prompt-flow/tools-reference/content-safety-text-tool.md
+            - name: Index Lookup tool
+              href: ./prompt-flow/tools-reference/index-lookup-tool.md
             - name: Faiss Index Lookup tool
               href: ./prompt-flow/tools-reference/faiss-index-lookup-tool.md
             - name: Vector DB Lookup tool
