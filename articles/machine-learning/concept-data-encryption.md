@@ -93,16 +93,16 @@ For examples of creating a workspace by using an existing container registry, se
 
 :::moniker range="azureml-api-1"
 
-### Azure Container Instance
+### Azure Container Instances
 
 > [!IMPORTANT]
-> Deployments to ACI rely on the Azure Machine Learning Python SDK and CLI v1.
+> Deployments to Azure Container Instances rely on the Azure Machine Learning Python SDK and CLI v1.
 
-You may encrypt a deployed Azure Container Instance (ACI) resource using customer-managed keys. The customer-managed key used for ACI can be stored in the Azure Key Vault for your workspace. For information on generating a key, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
+You can encrypt a deployed Azure Container Instances resource by using customer-managed keys. The customer-managed keys that you use for Container Instances can be stored in the key vault for your workspace.
 
 [!INCLUDE [sdk v1](includes/machine-learning-sdk-v1.md)]
 
-To use the key when deploying a model to Azure Container Instance, create a new deployment configuration using `AciWebservice.deploy_configuration()`. Provide the key information using the following parameters:
+To use the key when you're deploying a model to Container Instances, create a new deployment configuration by using `AciWebservice.deploy_configuration()`. Provide the key information by using the following parameters:
 
 * `cmk_vault_base_url`: The URL of the key vault that contains the key.
 * `cmk_key_name`: The name of the key.
@@ -114,47 +114,51 @@ For more information on creating and using a deployment configuration, see the f
 
 * [Where and how to deploy](./v1/how-to-deploy-and-where.md)
 
-For more information on using a customer-managed key with ACI, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md).
+For more information on using a customer-managed key with Container Instances, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md).
 :::moniker-end
 
 ### Azure Kubernetes Service
 
-You may encrypt a deployed Azure Kubernetes Service resource using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](../aks/azure-disk-customer-managed-keys.md).
+You can encrypt a deployed Azure Kubernetes Service resource by using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](../aks/azure-disk-customer-managed-keys.md).
 
-This process allows you to encrypt both the Data and the OS Disk of the deployed virtual machines in the Kubernetes cluster.
+This process allows you to encrypt both the data and the OS disk of the deployed virtual machines in the Kubernetes cluster.
 
 > [!IMPORTANT]
-> This process only works with AKS K8s version 1.17 or higher. Azure Machine Learning added support for AKS 1.17 on Jan 13, 2020.
+> This process works with only AKS version 1.17 or later. Azure Machine Learning added support for AKS 1.17 on Jan 13, 2020.
 
-### Machine Learning Compute
+### Machine Learning compute
 
-**Compute cluster**
-The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when no jobs are queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption is not enabled for workspaces by default. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, then the OS disk is encrypted.
+#### Compute cluster
 
-Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, the temporary disk is encrypted. This environment is short-lived (only during your job,) and encryption support is limited to system-managed keys only.
+The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when no jobs are queued. The underlying virtual machine is deprovisioned, and the OS disk is deleted.
 
-Managed online endpoint and batch endpoint use machine learning compute in the backend, and follows the same encryption mechanism.
+Azure Disk Encryption is not enabled for workspaces by default. If you create the workspace with the `hbi_workspace` parameter set to `TRUE`, the OS disk is encrypted.
 
-**Compute instance**
-The OS disk for compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, the local OS and temporary disks on compute instance are encrypted with Microsoft managed keys. Customer managed key encryption is not supported for OS and temporary disks.
+Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. If you create the workspace with the `hbi_workspace` parameter set to `TRUE`, the temporary disk is encrypted. This environment is short lived (only during your job), and encryption support is limited to system-managed keys only.
 
-For more information, see [Customer-managed keys](concept-customer-managed-keys.md).
+Managed online endpoints and batch endpoints use Machine Learning compute in the back end, and they follow the same encryption mechanism.
+
+#### Compute instance
+
+The OS disk for a compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. If you create the workspace with the `hbi_workspace` parameter set to `TRUE`, the local OS and temporary disks on compute instance are encrypted with Microsoft-managed keys. Customer-managed key encryption is not supported for OS and temporary disks.
+
+For more information, see [Customer-managed keys for Azure Machine Learning](concept-customer-managed-keys.md).
 
 ### Azure Data Factory
 
-The Azure Data Factory pipeline is used to ingest data for use with Azure Machine Learning. Azure Data Factory encrypts data at rest, including entity definitions and any data cached while runs are in progress. By default, data is encrypted with a randomly generated Microsoft-managed key that is uniquely assigned to your data factory.
+The Azure Data Factory pipeline ingests data for use with Azure Machine Learning. Azure Data Factory encrypts data at rest, including entity definitions and any data that's cached while runs are in progress. By default, data is encrypted with a randomly generated Microsoft-managed key that's uniquely assigned to your data factory.
 
-For information on how to use customer managed keys for encryption use [Encrypt Azure Data Factory with customer managed keys](../data-factory/enable-customer-managed-key.md).
+For information on how to use customer-managed keys for encryption, see [Encrypt Azure Data Factory with customer-managed keys](../data-factory/enable-customer-managed-key.md).
 
 ### Azure Databricks
 
-Azure Databricks can be used in Azure Machine Learning pipelines. By default, the Databricks File System (DBFS) used by Azure Databricks is encrypted using a Microsoft-managed key. To configure Azure Databricks to use customer-managed keys, see [Configure customer-managed keys on default (root) DBFS](/azure/databricks/security/customer-managed-keys-dbfs).
+You can use Azure Databricks in Azure Machine Learning pipelines. By default, the Databricks File System (DBFS) that Azure Databricks uses is encrypted through a Microsoft-managed key. To configure Azure Databricks to use customer-managed keys, see [Configure customer-managed keys on default (root) DBFS](/azure/databricks/security/customer-managed-keys-dbfs).
 
 ### Microsoft-generated data
 
-When using services such as Automated Machine Learning, Microsoft may generate a transient, pre-processed data for training multiple models. This data is stored in a datastore in your workspace, which allows you to enforce access controls and encryption appropriately.
+When you use services like Azure Machine Learning, Microsoft might generate transient, pre-processed data for training multiple models. This data is stored in a datastore in your workspace, so you can enforce access controls and encryption appropriately.
 
-You may also want to encrypt [diagnostic information logged from your deployed endpoint](how-to-enable-app-insights.md) into your Azure Application Insights instance.
+You might also want to encrypt [diagnostic information that's logged from your deployed endpoint](how-to-enable-app-insights.md) into Application Insights.
 
 ## Encryption in transit
 
