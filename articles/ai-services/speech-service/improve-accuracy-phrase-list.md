@@ -28,7 +28,7 @@ Phrase lists are simple and lightweight:
 
 You can use phrase lists with the [Speech Studio](speech-studio-overview.md), [Speech SDK](quickstarts/setup-platform.md), or [Speech Command Line Interface (CLI)](spx-overview.md). The [Batch transcription API](batch-transcription.md) doesn't support phrase lists.
 
-You can use phrase lists with both standard and [custom speech](custom-speech-overview.md). There are some situations where training a custom model that includes phrases is likely the best option to improve accuracy. For example, in the following cases you would use Custom Speech: 
+You can use phrase lists with both standard and [custom speech](custom-speech-overview.md). There are some situations where training a custom model that includes phrases is likely the best option to improve accuracy. For example, in the following cases you would use custom speech: 
 - If you need to use a large list of phrases. A phrase list shouldn't have more than 500 phrases. 
 - If you need a phrase list for languages that are not currently supported.
 
@@ -160,4 +160,4 @@ Allowed characters include locale-specific letters and digits, white space chara
 Check out more options to improve recognition accuracy.
 
 > [!div class="nextstepaction"]
-> [Custom Speech](custom-speech-overview.md)
+> [Custom speech](custom-speech-overview.md)
