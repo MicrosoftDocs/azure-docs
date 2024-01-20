@@ -61,11 +61,11 @@ sections:
 
       - question: How can I store my NAT gateway metrics long-term?
         answer: |
-          NAT gateway metrics can be retrived by using the [metrics REST API](../rest/api/monitor/metrics/list.yml). Alternatively, you can select Share and then Download to Excel from the NAT gateway metrics page in the Azure portal.
+          NAT gateway metrics can be retrived by using the [metrics REST API](/rest/api/monitor/metrics/list). Alternatively, you can select Share and then Download to Excel from the NAT gateway metrics page in the Azure portal.
 
       - question: Can NAT gateway metrics be retrieved using diagnostic settings?
         answer: |
-          No, NAT gateway metrics can't be exported using [diagnostic settings](../azure-monitor/reference/supported-metrics/microsoft-network-natgateways-metrics.md). NAT gateway metrics are multi-dimensional. Diagnostic settings doesn't support the export of [multi-dimensional metrics](../azure-monitor/reference/supported-metrics/metrics-index.md#exporting-platform-metrics-to-other-locations).
+          No, NAT gateway metrics can't be exported using [diagnostic settings](/azure/azure-monitor/reference/supported-metrics/microsoft-network-natgateways-metrics). NAT gateway metrics are multi-dimensional. Diagnostic settings doesn't support the export of [multi-dimensional metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index#exporting-platform-metrics-to-other-locations).
       
   - name: Outbound connectivity with NAT gateway
     questions:
