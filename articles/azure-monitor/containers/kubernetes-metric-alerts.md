@@ -90,7 +90,7 @@ Once the rule group has been created, you can't use the same page in the portal 
    1. select **Rules** to view the alert rules in the group. 
    2. Click the **Edit** icon next a rule that you want to modify. Use the guidance in [Create an alert rule](../essentials/prometheus-rule-groups.md#configure-the-rules-in-the-group) to modify the rule.
 
-        :::image type="content" source="media/kubernetes-metric-alerts/edit-prometheus-rule.png" lightbox="media/kubernetes-metric-alerts/edit-prometheus-rule.png" alt-text="Screenshot of option to edit platform metric rule.":::
+        :::image type="content" source="media/kubernetes-metric-alerts/edit-prometheus-rule.png" lightbox="media/kubernetes-metric-alerts/edit-prometheus-rule.png" alt-text="Screenshot of option to edit Prometheus alert rules.":::
 
     3. When you're done editing rules in the group, click **Save** to save the rule group.
 
@@ -124,7 +124,7 @@ Disable the rule group to stop receiving alerts from the rules in it.
 
 2. From the **Overview** menu, select **Disable**.
 
-    :::image type="content" source="media/kubernetes-metric-alerts/disable-prometheus-rule-group.png" lightbox="media/kubernetes-metric-alerts/disable-prometheus-rule-group.png" alt-text="Screenshot of option to edit rule group scope.":::
+    :::image type="content" source="media/kubernetes-metric-alerts/disable-prometheus-rule-group.png" lightbox="media/kubernetes-metric-alerts/disable-prometheus-rule-group.png" alt-text="Screenshot of option to disable a rule group.":::
 
 ### [ARM template](#tab/arm)
 
@@ -136,7 +136,7 @@ Set the **enabled** flag to false for the rule group in the ARM template describ
 
 The following table lists the details of each Prometheus alert rule. Source code for each is available in [GitHub](https://aka.ms/azureprometheus-communityalerts).
 
-| Alert name | Description | Default threshold | Level|
+| Alert name | Description | Default threshold | Level |
 |:---|:---|:---|:---|
 | KubePodCrashLooping | Pod is in CrashLoop which means the app dies or is unresponsive and Kubernetes tries to restart it automatically. | NA | Pod |
 | KubePodNotReadyByController | Pod has been in a non-ready state for more than 15 minutes. | NA | Pod |
@@ -179,8 +179,8 @@ The following table lists the details of each Prometheus alert rule. Source code
 | KubePersistentVolumeErrors | The persistent volume {{ $labels.persistentvolume }} has status {{ $labels.phase }} | 0 | Cluster |
 | KubeletClientCertificateRenewalErrors | Kubelet has failed to renew its client certificate. | 0 | Node |
 | KubeletServerCertificateRenewalErrors | Kubelet has failed to renew its server certificate. | 0 | Node |
-| KubeQuotaFullyUsed | Namespace {{ $labels.namespace }} is using {{ $value | humanizePercentage }} of its {{ $labels.resource }} quota | 1 | Node |
-| KubeQuotaExceeded | Namespace {{ $labels.namespace }} is using {{ $value | humanizePercentage }} of its {{ $labels.resource }} quota. | 1 | Node |
+| KubeQuotaFullyUsed | Namespace {{ $labels.namespace }} is using {{ $value \| humanizePercentage }} of its {{ $labels.resource }} quota | 1 | Node |
+| KubeQuotaExceeded | Namespace {{ $labels.namespace }} is using {{ $value \| humanizePercentage }} of its {{ $labels.resource }} quota. | 1 | Node |
 
 ## Legacy Container insights metric alerts (preview)
 
