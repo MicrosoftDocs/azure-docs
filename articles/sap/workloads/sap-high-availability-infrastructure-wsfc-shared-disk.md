@@ -92,7 +92,7 @@ The steps mentioned in the document remain same for both deployment type. But if
 
 ## Create Azure internal load balancer
 
-During VM configuration, you can create or select exiting load balancer in networking section. For the ENSA1 architecture on Windows, you would need only one virtual IP address for SAP ASCS/SCS. On the other hand, the ENSA2 architecture necessitates two virtual IP addresses - one for SAP ASCS/SCS and another for ERS2. When configuring a [standard internal load balancer](../articles/load-balancer/quickstart-load-balancer-standard-internal-portal.md#create-load-balancer) for the HA setup of SAP ASCS/SCS on Windows, follow below guidelines.
+During VM configuration, you can create or select exiting load balancer in networking section. For the ENSA1 architecture on Windows, you would need only one virtual IP address for SAP ASCS/SCS. On the other hand, the ENSA2 architecture necessitates two virtual IP addresses - one for SAP ASCS/SCS and another for ERS2. When configuring a [standard internal load balancer](../../load-balancer/quickstart-load-balancer-standard-internal-portal.md#create-load-balancer) for the HA setup of SAP ASCS/SCS on Windows, follow below guidelines.
 
 1. **Frontend IP Configuration:** Create frontend IP (example: 10.0.0.43). Select the same virtual network and subnet as your ASCS/ERS virtual machines.
 2. **Backend Pool:** Create backend pool and add ASCS and ERS VMs. In this example, VMs are pr1-ascs-10 and pr1-ascs-11.

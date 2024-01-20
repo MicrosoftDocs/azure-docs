@@ -5,6 +5,7 @@ services: virtual-machines-windows,virtual-network,storage
 author: rdeltcheva
 manager: juergent
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
+ms.topic: article
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.date: 01/19/2024
