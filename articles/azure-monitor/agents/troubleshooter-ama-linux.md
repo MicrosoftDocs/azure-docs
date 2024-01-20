@@ -68,7 +68,7 @@ In addition, the following Python packages are required to run (all should be pr
 |xml.dom.minidom|yes|yes|
 
 ### Directory Existence Check
-On the machine to be diagnosed, verify directory exist:
+On the machine to be diagnosed, verify directory exists:
 ***/var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-{version}***
 
 ### Troubleshooter Existence Check
