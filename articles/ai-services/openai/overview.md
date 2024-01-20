@@ -10,7 +10,6 @@ ms.topic: overview
 ms.date: 10/16/2023
 ms.custom: event-tier1-build-2022, build-2023, build-2023-dataai
 recommendations: false
-keywords:  
 ---
 
 # What is Azure OpenAI Service?
