@@ -1,7 +1,6 @@
 ---
 title: include file
 description: include file
-documentationcenter: dev-center-name
 author: CelesteDG
 ms.service: active-directory
 ms.topic: include
