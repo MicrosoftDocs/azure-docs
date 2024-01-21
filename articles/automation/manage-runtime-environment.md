@@ -151,7 +151,7 @@ To view all the component packages of *Az PowerShell package*, run `Get-Module -
 
 Job output would show all the component packages and their versions.
 
-:::image type="content" source="./media/manage-runtime-environment/view-components-powershell-package.png" alt-text="Screenshot shows the components of powershell package." lightbox="./media/manage-runtime-environment/view-components-powershell-package.png":::
+:::image type="content" source="./media/manage-runtime-environment/view-components-powershell-package.png" alt-text="Screenshot shows the components of PowerShell package." lightbox="./media/manage-runtime-environment/view-components-powershell-package.png":::
 
 
 ### Delete Runtime environment
