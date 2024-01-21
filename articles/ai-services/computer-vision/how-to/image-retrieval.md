@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 01/19/2024
 ms.author: pafarley
 ms.custom: references_regions
 ---
@@ -51,7 +51,7 @@ curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeImage?
 }"
 ```
 
-To vectorize a local image, you'd put the binary image data in the HTTP request body.
+To vectorize a local image, you'd put the binary data in the HTTP request body.
 
 The API call returns a **vector** JSON object, which defines the image's coordinates in the high-dimensional vector space.
 

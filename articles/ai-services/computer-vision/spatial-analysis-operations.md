@@ -7,24 +7,24 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 01/19/2024
 ms.author: pafarley
 ms.custom: ignite-fall-2021
 ---
 
 # Spatial Analysis operations
 
-Spatial Analysis lets you analyze video streams from camera devices in real time. For each camera device you configure, the Spatial Analysis operations will generate an output stream of JSON messages sent to your instance of Azure IoT Hub. 
+Spatial Analysis lets you analyze video streams from camera devices in real time. For each camera device you configure, the Spatial Analysis operations will generate an output stream of JSON messages sent to your instance of Azure IoT Hub.
 
 The Spatial Analysis container implements the following operations. You can configure these operations in the deployment manifest of your container.
 
 | Operation Identifier| Description|
 |---------|---------|
-| cognitiveservices.vision.spatialanalysis-personcount | Counts people in a designated zone in the camera's field of view. The zone must be fully covered by a single camera in order for **PersonCount** to record an accurate total. <br> Emits an initial _personCountEvent_ event and then _personCountEvent_ events when the count changes.  |
-| cognitiveservices.vision.spatialanalysis-personcrossingline | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crosses the line and provides directional info. 
-| cognitiveservices.vision.spatialanalysis-personcrossingpolygon | Emits a _personZoneEnterExitEvent_ event when a person enters or exits the designated zone and provides directional info with the side of the zone that was crossed. Emits a _personZoneDwellTimeEvent_ when the person exits the zone and provides directional info as well as the number of milliseconds the person spent inside the zone. |
-| cognitiveservices.vision.spatialanalysis-persondistance | Tracks when people violate a minimum-distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
-| cognitiveservices.vision.spatialanalysis | The generic operation, which can be used to run all scenarios mentioned above. This option is more useful when you want to run multiple scenarios on the same camera or use system resources (the GPU, for example) more efficiently. |
+| `cognitiveservices.vision.spatialanalysis-personcount` | Counts people in a designated zone in the camera's field of view. The zone must be fully covered by a single camera in order for **PersonCount** to record an accurate total. <br> Emits an initial _personCountEvent_ event and then _personCountEvent_ events when the count changes.  |
+| `cognitiveservices.vision.spatialanalysis-personcrossingline` | Tracks when a person crosses a designated line in the camera's field of view. <br>Emits a _personLineEvent_ event when the person crosses the line and provides directional info. 
+| `cognitiveservices.vision.spatialanalysis-personcrossingpolygon` | Emits a _personZoneEnterExitEvent_ event when a person enters or exits the designated zone and provides directional info with the side of the zone that was crossed. Emits a _personZoneDwellTimeEvent_ when the person exits the zone and provides directional info as well as the number of milliseconds the person spent inside the zone. |
+| `cognitiveservices.vision.spatialanalysis-persondistance` | Tracks when people violate a minimum-distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
+| `cognitiveservices.vision.spatialanalysis` | The generic operation, which can be used to run all scenarios mentioned above. This option is more useful when you want to run multiple scenarios on the same camera or use system resources (the GPU, for example) more efficiently. |
 
 All of the above operations are also available in the `.debug` version of the service (for example, `cognitiveservices.vision.spatialanalysis-personcount.debug`). Debug has the capability to visualize video frames as they're being processed. You'll need to run `xhost +` on the host computer to enable the visualization of video frames and events.
 
@@ -222,7 +222,7 @@ You can configure the speed computation through the tracker node parameter setti
 
 ## Spatial Analysis operations configuration and output
 
-### Zone configuration for cognitiveservices.vision.spatialanalysis-personcount
+### Zone configuration for personcount
 
 The following is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that configures a zone. You may configure multiple zones for this operation.
 
@@ -257,7 +257,7 @@ The following is an example of a JSON input for the SPACEANALYTICS_CONFIG parame
 | `output_frequency` | int | The rate at which events are egressed. When `output_frequency` = X, every X event is egressed, ex. `output_frequency` = 2 means every other event is output. The `output_frequency` is applicable to both `event` and `interval`. |
 | `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box).|
 
-### Line configuration for cognitiveservices.vision.spatialanalysis-personcrossingline
+### Line configuration for personcrossingline
 
 The following is an example of a JSON input for the `SPACEANALYTICS_CONFIG` parameter that configures a line. You may configure multiple crossing lines for this operation.
 
@@ -302,7 +302,7 @@ The following is an example of a JSON input for the `SPACEANALYTICS_CONFIG` para
 |`trigger`|string|The type of trigger for sending an event.<br>Supported Values: "event": fire when someone crosses the line.|
 | `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box). The default value is footprint.|
 
-### Zone configuration for cognitiveservices.vision.spatialanalysis-personcrossingpolygon
+### Zone configuration for personcrossingpolygon
 
 This is an example of a JSON input for the `SPACEANALYTICS_CONFIG` parameter that configures a zone. You may configure multiple zones for this operation.
 
@@ -345,7 +345,7 @@ This is an example of a JSON input for the `SPACEANALYTICS_CONFIG` parameter tha
 | `trigger`|string|The type of trigger for sending an event<br>Supported Values: "event": fire when someone enters or exits the zone.|
 | `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box). The default value is footprint.|
 
-### Zone configuration for cognitiveservices.vision.spatialanalysis-persondistance
+### Zone configuration for persondistance
 
 This is an example of a JSON input for the `SPACEANALYTICS_CONFIG` parameter that configures a zone for **cognitiveservices.vision.spatialanalysis-persondistance**. You may configure multiple zones for this operation.
 
@@ -383,7 +383,7 @@ This is an example of a JSON input for the `SPACEANALYTICS_CONFIG` parameter tha
 | `aggregation_method` | string| The method for aggregate `persondistance` result. The aggregation_method is applicable to both `mode` and `average`.|
 | `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box).|
 
-### Configuration for cognitiveservices.vision.spatialanalysis
+### Configuration for spatialanalysis
 The following is an example of a JSON input for the `SPACEANALYTICS_CONFIG` parameter that configures a line and zone for **cognitiveservices.vision.spatialanalysis**. You may configure multiple lines/zones for this operation and each line/zone can have different events.
 
 ```json
@@ -461,7 +461,7 @@ See the [camera placement](spatial-analysis-camera-placement.md) guidelines to l
 
 The events from each operation are egressed to Azure IoT Hub on JSON format.
 
-### JSON format for cognitiveservices.vision.spatialanalysis-personcount AI Insights
+### JSON format for personcount AI Insights
 
 Sample JSON for an event output by this operation.
 
@@ -604,7 +604,7 @@ Sample JSON for an event output by this operation.
 | `tiltUpAngle` | float | The camera tilt angle from vertical. This is inferred from autocalibration.|
 
 
-### JSON format for cognitiveservices.vision.spatialanalysis-personcrossingline AI Insights
+### JSON format for personcrossingline AI Insights
 
 Sample JSON for detections output by this operation.
 
@@ -710,7 +710,7 @@ Sample JSON for detections output by this operation.
 > [!IMPORTANT]
 > The AI model detects a person irrespective of whether the person is facing towards or away from the camera. The AI model doesn't run face recognition and doesn't emit any biometric information. 
 
-### JSON format for cognitiveservices.vision.spatialanalysis-personcrossingpolygon AI Insights
+### JSON format for personcrossingpolygon AI Insights
 
 Sample JSON for detections output by this operation with `zonecrossing` type SPACEANALYTICS_CONFIG.
 
@@ -874,7 +874,7 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
 | `confidence (attribute)` | float| The attribute confidence value with range of 0 to 1 (for example, `{confidence: 0.9, label: face_nomask}` indicates the detected person is *not* wearing a face mask) |
 | `task` | string | The attribute classification task/class |
 
-### JSON format for cognitiveservices.vision.spatialanalysis-persondistance AI Insights
+### JSON format for persondistance AI Insights
 
 Sample JSON for detections output by this operation.
 
@@ -1015,7 +1015,7 @@ In this example, `centerGroundPoint` is `{centerGroundPointX: 4, centerGroundPoi
 | `focalLength` | float | The focal length of the camera in pixels. This is inferred from autocalibration. |
 | `tiltUpAngle` | float | The camera tilt angle from vertical. This is inferred from autocalibration.|
 
-### JSON format for cognitiveservices.vision.spatialanalysis AI Insights
+### JSON format for spatialanalysis AI Insights
 
 Output of this operation depends on configured `events`, for example if there's a `zonecrossing` event configured for this operation then output will be same as `cognitiveservices.vision.spatialanalysis-personcrossingpolygon`.
 
@@ -1231,6 +1231,7 @@ In order to get the best performance and utilization of the GPUs, you can deploy
       }
   }
   ```
+
 | Name | Type| Description|
 |---------|---------|---------|
 | `batch_size` | int | If all of the cameras have the same resolution, set `batch_size` to the number of cameras that will be used in that operation, otherwise, set `batch_size` to 1 or leave it as default (1), which indicates no batch is supported. |

@@ -7,7 +7,7 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: overview
-ms.date: 12/27/2022
+ms.date: 01/19/2024
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 ---
@@ -16,7 +16,7 @@ ms.custom: cog-serv-seo-aug-2020
 
 [Vision Studio](https://portal.vision.cognitive.azure.com/) is a set of UI-based tools that lets you explore, build, and integrate features from Azure AI Vision.
 
-Vision Studio provides you with a platform to try several service features and sample their returned data in a quick, straightforward manner. Using Studio, you can start experimenting with the services and learning what they offer without needing to write any code. Then, use the available client libraries and REST APIs to get started embedding these services into your own applications.
+Vision Studio lets you try several service features and sample their returned data in a quick, straightforward manner. Using Vision Studio, you can start experimenting with the services and learning what they offer without needing to write any code. Then, use the available client libraries and REST APIs to get started embedding these services into your own applications.
 
 ## Get started using Vision Studio
 

@@ -10,7 +10,7 @@ ms.custom:
   - build-2023
   - ignite-2023
 ms.topic: whats-new
-ms.date: 12/27/2022
+ms.date: 01/19/2024
 ms.author: pafarley
 ---
 
@@ -22,7 +22,7 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 ## Analyze Image 4.0 GA
 
-The Analyze 4.0 REST API is now in General Availability. Follow the [Analyze Image 4.0 quickstart](./quickstarts-sdk/image-analysis-client-library-40.md) to get started.
+The Analyze Image 4.0 REST API is now in General Availability. Follow the [Analyze Image 4.0 quickstart](./quickstarts-sdk/image-analysis-client-library-40.md) to get started.
 
 The other features of Image Analysis, such as model customization, background removal, and multi-modal embeddings, remain in public preview. 
 
@@ -51,13 +51,13 @@ The Product Recognition APIs let you analyze photos of shelves in a retail store
 
 ### Face limited access tokens
 
-Independent software vendors (ISVs) can manage the Face API usage of their clients by issuing access tokens that grant access to Face features which are normally gated. This allows client companies to use the Face API without having to go through the formal approval process. [Use limited access tokens](how-to/identity-access-token.md).
+Independent software vendors (ISVs) can manage the Face API usage of their clients by issuing access tokens that grant access to Face features that are normally gated. This allows client companies to use the Face API without having to go through the formal approval process. [Use limited access tokens](how-to/identity-access-token.md).
 
 ## March 2023
 
 ### Azure AI Vision Image Analysis 4.0 SDK public preview
 
-The [Florence foundation model](https://www.microsoft.com/en-us/research/project/projectflorence/) is now integrated into Azure AI Vision. The improved Vision Services enable developers to create market-ready, responsible Azure AI Vision applications across various industries. Customers can now seamlessly digitize, analyze, and connect their data to natural language interactions, unlocking powerful insights from their image and video content to support accessibility, drive acquisition through SEO, protect users from harmful content, enhance security, and improve incident response times. For more information, see [Announcing Microsoft's Florence foundation model](https://aka.ms/florencemodel).
+The [Florence foundation model](https://www.microsoft.com/en-us/research/project/projectflorence/) is now integrated into Azure AI Vision. The improved Vision services enable developers to create market-ready, responsible Azure AI Vision applications across various industries. Customers can now seamlessly digitize, analyze, and connect their data to natural language interactions, unlocking powerful insights from their image and video content to support accessibility, drive acquisition through SEO, protect users from harmful content, enhance security, and improve incident response times. For more information, see [Announcing Microsoft's Florence foundation model](https://aka.ms/florencemodel).
 
 ### Image Analysis 4.0 SDK (public preview)
 
