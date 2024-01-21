@@ -16,6 +16,14 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+### L60 hardware profile sensor /device is no longer supported
+
+The L60 hardware profile is no longer supported and is removed from . Hardware profiles now require a minimum of 100GB. Migration steps from the L60 profile can be found .....
+Hardware profiles have been removed from [Production line monitoring (medium and small deployments)](/ot-appliance-sizing.md#production-line-monitoring-medium-and-small-deployments) , [Configure OT sensor backup settings](/defender-for-iot/organizations/legacy-central-management/back-up-sensors-from-management.md#configure-ot-sensor-backup-settings) and [OT network sensor VM requirements](/azure/defender-for-iot/organizations/ot-virtual-appliances.md#ot-network-sensor-vm-requirements).
+<!-- as per /azure/defender-for-iot/organizations/ot-appliance-sizing#production-line-monitoring-medium-and-small-deployments -->
+
+For more infomation .....??
+
 ## December 2023
 
 |Service area  |Updates  |
