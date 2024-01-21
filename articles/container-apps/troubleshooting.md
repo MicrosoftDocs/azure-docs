@@ -97,14 +97,17 @@ If you receive an error message when you try to deploy a new revision, verify th
 
 - Ensure your container environment firewall isn't blocking access to the container registry. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
 - If your existing VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry doesn't fail. For more information, see [DNS](./networking.md#dns).
-- For a Docker container that can run as a console application, run:
+- For a Docker container that can run as a console application, verify that your image is publicly accessible by running the following command in an elevated command prompt.
     ```
     docker run --rm <YOUR_CONTAINER_IMAGE>
     ```
+	Docker should be able to pull your image and run it without error. If you are running [Docker on Windows](https://docs.docker.com/desktop/install/windows-install/), make sure you have the Docker Engine running.
 
 For more information, see [Networking in Azure Container Apps environment](./networking.md).
 
 ## Review ingress configuration
+
+Your container app's ingress settings are enforced through a set of rules that control the routing of external and internal traffic to your container app. If you are unable to connect to your container app, review these ingress settings to make sure they are not blocking requests that you want to allow.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the *Search* bar, enter your container app's name.
@@ -190,6 +193,8 @@ If your container app takes an extended amount of time to start (which is common
 For more information, see [Use Health Probes](./health-probes.md).
 
 ## Verify traffic is routed to the correct revision
+
+If your container app does not behave as expected, the issue might be that requests are being routed to an outdated revision.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Search** bar, enter your container app's name.
