@@ -5,9 +5,9 @@ ms.topic: install-set-up-deploy
 ms.date: 01/21/2024
 ---
 
-# Configure monitoring coverage
+# Configure monitoring coverage for Defender for Servers
 
-Microsoft Defender for Cloud's Defender for Servers plan 2 has components that can be enabled and configured to provide extra protections to your environments. 
+Microsoft Defender for Cloud's Defender for Servers plan 2 has components that monitor your environments to provide extended coverage to your servers. Each of these components can be enabled, disabled or configured to your requirements. 
 
 | Component | Description | Learn more |
 |:--:|:--:|:--:|
@@ -16,7 +16,7 @@ Microsoft Defender for Cloud's Defender for Servers plan 2 has components that c
 | [Endpoint protection](integration-defender-for-endpoint.md) | Enables protection powered by Microsoft Defender for Endpoint, including automatic agent deployment to your servers, and security data integration with Defender for Cloud | [Learn more](integration-defender-for-endpoint.md) about endpoint protection |
 | [Agentless scanning for machines](concept-agentless-data-collection.md) | Scans your machines for installed software and vulnerabilities without relying on agents or impacting machine performance. | [Learn more](concept-agentless-data-collection.md) about agentless scanning for machines. |
 
-By default, When you enable Defender for Servers plan 2, all of these components will be toggled to **On**.
+When you enable Defender for Servers plan 2, all of these components are toggled to **On** by default.
 
 ## Configure Log Analytics agent
 
