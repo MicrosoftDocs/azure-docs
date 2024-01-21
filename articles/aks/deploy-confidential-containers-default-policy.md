@@ -245,9 +245,8 @@ For this preview release, we recommend for test and evaluation purposes to eithe
    echo $MAA_ENDPOINT
    ```
    
-  > [!NOTE]
-  > To set up Microsoft Azure Attestation, see [Quickstart: Set up Azure Attestation with Azure CLI][attestation-quickstart-azure-cli].
-
+    > [!NOTE]
+    > To set up Microsoft Azure Attestation, see [Quickstart: Set up Azure Attestation with Azure CLI][attestation-quickstart-azure-cli].
   
 1. Copy the following YAML manifest and save it as `consumer.yaml`.
 
