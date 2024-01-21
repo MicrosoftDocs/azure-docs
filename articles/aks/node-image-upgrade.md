@@ -2,7 +2,7 @@
 title: Upgrade Azure Kubernetes Service (AKS) node images
 description: Learn how to upgrade the images on AKS cluster nodes and node pools.
 ms.topic: article
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ms.date: 03/28/2023
 ---
 
@@ -14,7 +14,7 @@ This article shows you how to upgrade AKS cluster node images and how to update 
 
 > [!NOTE]
 > The AKS cluster must use virtual machine scale sets for the nodes.
-> 
+>
 > It's not possible to downgrade a node image version (for example *AKSUbuntu-2204 to AKSUbuntu-1804*, or *AKSUbuntu-2204-202308.01.0 to AKSUbuntu-2204-202307.27.0*).
 
 ## Check for available node image upgrades

@@ -28,7 +28,10 @@ This article describes how to use the Azure IoT Operations (preview) portal to:
 
 These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQ broker and Azure IoT Data Processor (preview) pipelines.
 
-You can also use the Azure CLI to manage assets. To learn more, see [az iot ops asset](/cli/azure/iot/ops/asset). Currently, it's not possible to use the Azure CLI to manage asset endpoints.
+You can also use the Azure CLI to manage assets and asset endpoints. To learn more, see:
+
+- [az iot ops asset](/cli/azure/iot/ops/asset)
+- [az iot ops asset endpoint](/cli/azure/iot/ops/asset/endpoint).
 
 ## Prerequisites
 

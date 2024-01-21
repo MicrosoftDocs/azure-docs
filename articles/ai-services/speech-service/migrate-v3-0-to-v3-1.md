@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Migrate code from v3.0 to v3.1 of the REST API
 
-The Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). Changes from version 3.0 to 3.1 are described in the sections below.
+The Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [custom speech](custom-speech-overview.md). Changes from version 3.0 to 3.1 are described in the sections below.
 
 > [!IMPORTANT]
 > Speech to text REST API v3.2 is available in preview. 
@@ -46,7 +46,7 @@ The `filter` property is added to the [Transcriptions_List](https://eastus.dev.c
 
 If you use webhook to receive notifications about transcription status, please note that the webhooks created via V3.0 API cannot receive notifications for V3.1 transcription requests. You need to create a new webhook endpoint via V3.1 API in order to receive notifications for V3.1 transcription requests.
 
-## Custom Speech
+## Custom speech
 
 ### Datasets
 

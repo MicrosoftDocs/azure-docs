@@ -19,7 +19,7 @@ Run the following curl command in Azure Cloud Shell to create a new data group, 
 **Request format**
 
 ```bash
-    curl --location --request POST "https://<URI>/api/entitlements/v2/groups/" \
+    curl --location --request POST "https://<adme-url>/api/entitlements/v2/groups/" \
     --header 'data-partition-id: <data-partition>' \
     --header 'Authorization: Bearer <access_token>'
     --data-raw '{
@@ -37,7 +37,7 @@ In case, a data record has 2 ACLs, ACL_1 and ACL_2, and a given user is member o
 **Request format**
 
 ```bash
-curl --location --request PUT 'https://osdu-ship.msft-osdu-test.org/api/storage/v2/records/' \
+curl --location --request PUT 'https://<adme-url>/api/storage/v2/records/' \
 --header 'data-partition-id: opendes' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer <token>’ \
@@ -98,7 +98,7 @@ Keep the record ID from the response handy for future references.
 **Request format**
 
 ```bash
-curl --location 'https://osdu-ship.msft-osdu-test.org/api/storage/v2/records/opendes:master-data--Well:999736019023' \
+curl --location 'https://<adme-url>/api/storage/v2/records/opendes:master-data--Well:999736019023' \
 --header 'data-partition-id: opendes' \
 --header 'Authorization: Bearer <token>’
 ```
@@ -147,7 +147,7 @@ The first `/acl/owners/0` operation removes ACL from 0th position in the array o
 **Request format**
 
 ```bash
-curl --location --request PATCH 'https://osdu-ship.msft-osdu-test.org/api/storage/v2/records/' \
+curl --location --request PATCH 'https://<adme-url>/api/storage/v2/records/' \
 --header 'data-partition-id: opendes' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer <token>’\

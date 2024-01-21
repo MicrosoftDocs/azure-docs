@@ -2,7 +2,6 @@
 title: Log Analytics workspace overview
 description: Overview of Log Analytics workspace, which stores data for Azure Monitor Logs.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.date: 10/24/2023
 ---
 

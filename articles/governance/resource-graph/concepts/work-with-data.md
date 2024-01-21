@@ -203,21 +203,6 @@ Here's a sample of a query result with the _ObjectArray_ formatting:
 }
 ```
 
-Here are some examples of setting **resultFormat** to use the _ObjectArray_ format:
-
-```csharp
-var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
-var request = new QueryRequest(subscriptions, "Resources | limit 1", options: requestOptions);
-```
-
-```python
-request_options = QueryRequestOptions(
-    result_format=ResultFormat.object_array
-)
-request = QueryRequest(query="Resources | limit 1", subscriptions=subs_list, options=request_options)
-response = client.resources(request)
-```
-
 ## Next steps
 
 - See the language in use in [Starter queries](../samples/starter.md).

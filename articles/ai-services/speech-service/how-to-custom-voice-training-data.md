@@ -90,7 +90,7 @@ It’s important that the transcripts are 100% accurate transcriptions of the co
 
 In some cases, you may not have segmented audio available. The Speech Studio can help you segment long audio files and create transcriptions. The long-audio segmentation service will use the [Batch Transcription API](batch-transcription.md) feature of speech to text.
 
-During the processing of the segmentation, your audio files and the transcripts will also be sent to the Custom Speech service to refine the recognition model so the accuracy can be improved for your data. No data will be retained during this process. After the segmentation is done, only the utterances segmented and their mapping transcripts will be stored for your downloading and training.
+During the processing of the segmentation, your audio files and the transcripts will also be sent to the custom speech service to refine the recognition model so the accuracy can be improved for your data. No data will be retained during this process. After the segmentation is done, only the utterances segmented and their mapping transcripts will be stored for your downloading and training.
 
 > [!NOTE]
 > This service will be charged toward your speech to text subscription usage. The long-audio segmentation service is only supported with standard (S0) Speech resources. 
