@@ -75,7 +75,8 @@ You can save up to 10 views of the alerts timeline. The **default** view is the 
 
 The **Alert details** page provides more information about the selected alert:
 
- - To change the user response to the alert, select **Change user response**.
+ - To change the user response to the alert, select the pencil near **User response**.
+ - To see the details of the alert, expand the **Additional details** section.
  - To see all closed alerts, select the **History** tab.  
 
 :::image type="content" source="media/alerts-managing-alert-instances/alerts-details-page.png" alt-text="Screenshot that shows the Alerts details page in the Azure portal.":::
