@@ -21,7 +21,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Sensor update in Azure portal now supports selecting a specific version](#sensor-update-in-azure-portal-now-supports-selecting-a-specific-version) <br> |
+| **OT networks** | - [Sensor update in Azure portal now supports selecting a specific version](#sensor-update-in-azure-portal-now-supports-selecting-a-specific-version) <br> - [L60 hardware profile sensor /device is no longer supported](#l60-hardware-profile-sensor-device-is-no-longer-supported)|
 
 ### Sensor update in Azure portal now supports selecting a specific version
 
