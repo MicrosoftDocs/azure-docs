@@ -4,9 +4,9 @@ description: This quickstart provides several PHP code samples you can use to co
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-author: shreyaaithal 
-ms.author: shaithal 
-ms.custom: mvc, mode-other, devx-track-linux
+author: shreyaaithal
+ms.author: shaithal
+ms.custom: mvc, mode-other, linux-related-content
 ms.date: 05/03/2023
 ---
 

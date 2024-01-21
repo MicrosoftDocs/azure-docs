@@ -8,13 +8,13 @@ ms.author: mbender
 ms.date: 08/24/2023
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: conceptual
 ---
 
 # Public IP address prefix
 
-A public IP address prefix is a reserved range of [public IP addresses](public-ip-addresses.md#public-ip-addresses) in Azure. Public IP prefixes are assigned from a pool of addresses in each Azure region. 
+A public IP address prefix is a reserved range of [public IP addresses](public-ip-addresses.md#public-ip-addresses) in Azure. Public IP prefixes are assigned from a pool of addresses in each Azure region.
 You create a public IP address prefix in an Azure region and subscription by specifying a name and prefix size. The prefix size is the number of addresses available for use. Public IP address prefixes consist of IPv4 or IPv6 addresses.  In regions with Availability Zones, Public IP address prefixes can be created as zone-redundant or associated with a specific availability zone.  After the public IP prefix is created, you can create public IP addresses.
 
 ## Benefits
@@ -76,14 +76,14 @@ Resource|Scenario|Steps|
 
 - You can't delete a prefix if any addresses within it are assigned to public IP address resources associated to a resource. Dissociate all public IP address resources that are assigned IP addresses from the prefix first. For more information on disassociating public IP addresses, see [Manage public IP addresses](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
 
-- IPv6 is supported on basic public IPs with **dynamic** allocation only. Dynamic allocation means the IPv6 address changes if you delete and redeploy your resource in Azure. 
+- IPv6 is supported on basic public IPs with **dynamic** allocation only. Dynamic allocation means the IPv6 address changes if you delete and redeploy your resource in Azure.
 
-- Standard IPv6 public IPs support static (reserved) allocation. 
+- Standard IPv6 public IPs support static (reserved) allocation.
 
 - Standard internal load balancers support dynamic allocation from within the subnet to which they're assigned.
 
 ## Pricing
- 
+
 For costs associated with using Azure Public IPs, both individual IP addresses and IP ranges, see [Public IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Next steps
