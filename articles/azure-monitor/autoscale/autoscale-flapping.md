@@ -6,7 +6,7 @@ ms.author: edbaynash
 ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: conceptual
-ms.date: 01/213/2024
+ms.date: 01/21/2024
 ms.reviewer: akkumari
 
 #Customer intent: As a cloud administrator, I want understand flapping so that I can configure autoscale correctly.
