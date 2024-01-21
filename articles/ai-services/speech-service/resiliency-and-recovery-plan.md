@@ -17,7 +17,7 @@ The Speech service is [available in various regions](./regions.md). Speech resou
 
 Datasets for customer-created data assets, such as customized speech models, custom voice fonts and speaker recognition voice profiles, are also **available only within the service-deployed region**. Such assets are:
 
-**Custom Speech**
+**Custom speech**
 -   Training audio/text data
 -   Test audio/text data
 -   Customized speech models
@@ -64,13 +64,13 @@ Data assets, models or deployments in one region can't be made visible or access
 
 You should create Speech service resources in both a main and a secondary region by following the same steps as used for default endpoints.
 
-### Custom Speech
+### Custom speech
 
-Custom Speech service doesn't support automatic failover. We suggest the following steps to prepare for manual or automatic failover implemented in your client code. In these steps, you replicate custom models in a secondary region. With this preparation, your client code can switch to a secondary region when the primary region fails.
+Custom speech service doesn't support automatic failover. We suggest the following steps to prepare for manual or automatic failover implemented in your client code. In these steps, you replicate custom models in a secondary region. With this preparation, your client code can switch to a secondary region when the primary region fails.
 
 1.  Create your custom model in one main region (Primary).
 2.  Run the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) operation to replicate the custom model to all prepared regions (Secondary).
-3.  Go to Speech Studio to load the copied model and create a new endpoint in the secondary region. See how to deploy a new model in [Deploy a Custom Speech model](./how-to-custom-speech-deploy-model.md).
+3.  Go to Speech Studio to load the copied model and create a new endpoint in the secondary region. See how to deploy a new model in [Deploy a custom speech model](./how-to-custom-speech-deploy-model.md).
     -  If you have set a specific quota, also consider setting the same quota in the backup regions. See details in [Speech service Quotas and Limits](./speech-services-quotas-and-limits.md).
 4.  Configure your client to fail over on persistent errors as with the default endpoints usage.
 
