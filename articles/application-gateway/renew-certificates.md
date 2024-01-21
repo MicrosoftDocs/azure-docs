@@ -127,6 +127,9 @@ resource "azurerm_application_gateway" "main" {
 
 *The piece of code above will add a SSL certificate in the application gateway but it will be pointed to the secret version of the certificate.*
 
+Navigate to Application gateway listener settings and click on the tab Listener TLS Certificates Preview
+
+![oldsslcert](media/renew-certificate/listener-navigation.png)
 ![oldsslcert](media/renew-certificate/oldsslcertlink.png)
 
 > [!NOTE]
