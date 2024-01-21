@@ -188,6 +188,10 @@ resource "azurerm_application_gateway" "main" {
 
 **Final-Result**:
 
+
+- Navigate to Application gateway listener settings and and select the "Listener TLS Certificates Preview" tab.
+
+![listener](media/renew-certificate/listener-navigation.png)
 ![newsslcert](media/renew-certificate/newsslcertlink.png)
 
 ## Next steps
