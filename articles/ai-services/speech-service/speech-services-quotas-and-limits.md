@@ -54,7 +54,7 @@ You can use real-time speech to text with the [Speech SDK](speech-sdk.md) or the
 
 #### Model customization
 
-The limits in this table apply per Speech resource when you create a Custom Speech model. 
+The limits in this table apply per Speech resource when you create a custom speech model. 
 
 | Quota | Free (F0) | Standard (S0) |
 |--|--|--|
@@ -198,7 +198,7 @@ How to get information for the base model:
 How to get information for the custom model:
 
 1. Go to the [Speech Studio](https://aka.ms/speechstudio/customspeech) portal.
-1. Sign in if necessary, and go to **Custom Speech**.
+1. Sign in if necessary, and go to **Custom speech**.
 1. Select your project, and go to **Deployment**.
 1. Select the required endpoint.
 1. Copy and save the values of the following fields:

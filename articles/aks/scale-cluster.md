@@ -36,7 +36,6 @@ Review the [AKS service quotas and limits][service-quotas] to ensure your cluste
         "name": "nodepool1",
         "osDiskSizeGb": 30,
         "osType": "Linux",
-        "storageProfile": "ManagedDisks",
         "vmSize": "Standard_DS2_v2"
       }
     ]
@@ -61,7 +60,6 @@ Review the [AKS service quotas and limits][service-quotas] to ensure your cluste
           "name": "nodepool1",
           "osDiskSizeGb": 30,
           "osType": "Linux",
-          "storageProfile": "ManagedDisks",
           "vmSize": "Standard_DS2_v2",
           "vnetSubnetId": null
         }

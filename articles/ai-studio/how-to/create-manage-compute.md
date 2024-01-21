@@ -111,7 +111,6 @@ You can start or stop a compute instance from the Azure AI Studio.
 
     :::image type="content" source="../media/compute/compute-start-stop.png" alt-text="Screenshot of the option to start or stop a compute instance." lightbox="../media/compute/compute-start-stop.png":::
 
-
 ## Next steps
 
 - [Create and manage prompt flow runtimes](./create-manage-runtime.md)

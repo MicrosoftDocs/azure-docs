@@ -3,7 +3,7 @@ title: Concepts - Private clouds and clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined data centers and VMware vSphere clusters. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 1/8/2024
+ms.date: 1/16/2024
 ms.custom: engagement-fy23
 ---
 
@@ -70,7 +70,7 @@ The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tag
 | East US | AZ01 | AV36P | No |
 | East US | AZ02 | AV36P | No |
 | East US | AZ03 | AV36, AV36P, AV64 | No |
-| East US 2 | AZ01 | AV36 | No |
+| East US 2 | AZ01 | AV36, AV64 | No |
 | East US 2 | AZ02 | AV36P, AV52, AV64 | No |
 | France Central | AZ01 | AV36 | No |
 | Germany West Central | AZ02 | AV36 | Yes |

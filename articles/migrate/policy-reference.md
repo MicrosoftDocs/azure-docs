@@ -5,7 +5,6 @@ ms.date: 01/02/2024
 ms.topic: reference
 ms.service: azure-migrate
 author: MaggiePucciEvans
-ms.author: evansma
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Migrate
