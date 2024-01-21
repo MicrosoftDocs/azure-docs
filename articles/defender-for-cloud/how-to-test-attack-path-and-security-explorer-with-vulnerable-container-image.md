@@ -1,12 +1,12 @@
 ---
-title: Test attack paths and cloud security explorer in Microsoft Defender for Cloud
-description: Learn how to test attack paths and cloud security explorer in Microsoft Defender for Cloud
+title: Test attack paths and find vulnerable Kubernetes pods
+description: Learn how to test attack paths and find vulnerable Kubernetes pods with cloud security explorer in Microsoft Defender for Cloud
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 01/21/2024
 ---
 
-# Test attack paths and cloud security explorer
+# Test attack paths and find vulnerable Kubernetes pods
 
 Attack path analysis is a graph-based algorithm that scans the cloud security graph. The scans expose exploitable paths that attackers might use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations as to how best remediate issues that break the attack path and prevent successful breach.
 
@@ -117,7 +117,7 @@ The Helm chart deploys resources onto your cluster that can be used to infer att
 
 Allow some time to ensure the new configuration collection.
 
-## Investigate internet exposed Kubernetes pods
+## Find vulnerable Kubernetes pods
 
 You can build queries in one of the following ways:
 
