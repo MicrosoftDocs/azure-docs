@@ -76,7 +76,6 @@ If you're using Terraform to manage the application gateway, the Azure Terraform
 
 *The below piece of terraform code is okay, but there's a problem with the data source called "azurerm_key_vault_secret." It fetches the Key Vault secret ID, but it includes the version of the secret in the complete Keyvault URL.*
 
-**Reference**:
 
 ```
 data "azurerm_key_vault_secret" "vault" {    
@@ -84,6 +83,7 @@ data "azurerm_key_vault_secret" "vault" {
    key_vault_id = "<resource-id-key-vault>"
 }
 ```
+
 
 where:
 - **data**:                      Indicates that you are retrieving information from an existing resource rather than creating a new one. <br>
@@ -93,7 +93,7 @@ where:
 
 **The data source "**azurerm_key_vault_secret**" will be used within the `**ssl_certificate**` block under the application gateway section.**
 
-**Reference-1**:
+
 ```
 data "azurerm_key_vault_secret" "vault" {    
    name         = "<certificate-name>"          
@@ -122,6 +122,7 @@ resource "azurerm_application_gateway" "main" {
     }
 ```
 
+
 - where, **key_vault_secret_id** is Certificate object stored in Azure KeyVault.
 
 *The piece of code above will add a SSL certificate in the application gateway but it will be pointed to the secret version of the certificate.*
@@ -133,14 +134,13 @@ resource "azurerm_application_gateway" "main" {
 > * Renewing the above certificate in **KeyVault** doesn't automatically make the application gateway listener select the updated certificate.
 > * To reflect the changes, the certificate in the application gateway must be **manually** updated.
 
+
 *To add versionless keyvault certificates, we can leverage the Terraform "**replace**" function. By using this function, we can replace the entire KeyVault URL, which includes the secret version, with just the secret name, excluding the version.*
 
-- **Here's how**:
 
-1. We will modify the existing "**ssl_certificate**" block under the application gateway block of the terraform to use the replace function.
+- Modify the existing "**ssl_certificate**" block under the application gateway block of the terraform to use the replace function.
 
-**Reference-2**:
-<pre>
+
 ```
 resource "azurerm_application_gateway" "main" {
   name                = "myAppGateway"
@@ -164,7 +164,7 @@ resource "azurerm_application_gateway" "main" {
       <span style="background-color: yellow; color: black">key_vault_secret_id = replace(data.azurerm_key_vault_secret.vault.id, "/secrets/(.*)/[^/]+/", "secrets/$1")</span>
     }
 ```
-</pre>
+
 
 - We use the same data source "**data.azurerm_key_vault_secret.vault.id**" which we used earlier in “**Reference-1**”, but we will use that data source along with the replace function and then compare the value in the data source “**data.azurerm_key_vault_secret.vault.id**” with regex “/secrets/(.*)/[^/]+/",” and then just use /secrets/group1.
 
@@ -181,6 +181,7 @@ resource "azurerm_application_gateway" "main" {
 - **secret_value_new**: https://dummy.vault.azure.net/afdpremium [after replace function]
 
 > Note: Please add a forward “**/**” in terraform regex otherwise it will not work. This is because Terraform uses forward slashes as separators in certain syntax constructs to organize resources or data sources hierarchically.
+
 
 **Final-Result**:
 
