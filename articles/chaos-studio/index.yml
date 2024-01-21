@@ -48,6 +48,32 @@ landingContent:
           url: chaos-studio-quickstart-azure-portal.md
 
   # Card
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+        - text: Run and manage an experiment
+          url: chaos-studio-run-experiment.md
+        - text: Schedule an experiment
+          url: tutorial-schedule.md
+
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+        - text: Fault library
+          url: chaos-studio-fault-library.md
+        - text: Fault providers
+          url: chaos-studio-fault-providers.md
+        - text: REST API documentation
+          url: /rest/api/chaosstudio
+        - text: Python SDK
+          url: /python/api/azure-mgmt-chaos/?view=azure-python-preview
+        - text: .NET
+          url: /dotnet/api/overview/azure/resourcemanager.chaos-readme?view=azure-dotnet-preview
+
+  # Card
   - title: How-to guides
     linkLists:
      - linkListType: how-to-guide
@@ -69,16 +95,6 @@ landingContent:
         - text: Emit Experiment Fault Events to App Insights
           url: chaos-studio-set-up-app-insights.md
 
-  # Card
-  - title: Tutorials
-    linkLists:
-      - linkListType: tutorial
-        links:
-        - text: Run and manage an experiment
-          url: chaos-studio-run-experiment.md
-        - text: Schedule an experiment
-          url: tutorial-schedule.md
-
 # Card
   - title: Troubleshooting
     linkLists:
@@ -87,21 +103,6 @@ landingContent:
         - text: Troubleshoot common issues
           url: troubleshooting.md
 
-  # Card
-  - title: Reference
-    linkLists:
-      - linkListType: reference
-        links:
-        - text: Fault library
-          url: chaos-studio-fault-library.md
-        - text: Fault providers
-          url: chaos-studio-fault-providers.md
-        - text: REST API documentation
-          url: /rest/api/chaosstudio
-        - text: Python SDK
-          url: /python/api/azure-mgmt-chaos/?view=azure-python-preview
-        - text: .NET
-          url: /dotnet/api/overview/azure/resourcemanager.chaos-readme?view=azure-dotnet-preview
 
   # Card
   - title: Samples
