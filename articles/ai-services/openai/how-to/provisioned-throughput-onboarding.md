@@ -4,12 +4,10 @@ description: Learn about provisioned throughput units onboarding and Azure OpenA
 ms.service: azure-ai-openai
 ms.topic: conceptual 
 ms.date: 01/15/2024
-ms.custom: 
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
 recommendations: false
-keywords: 
 ---
 
 # Provisioned throughput units onboarding

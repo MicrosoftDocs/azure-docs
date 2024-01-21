@@ -146,7 +146,6 @@ You can either [manually upgrade your cluster](#manually-upgrade-cluster) or [co
           "maxPods": 110,
           "name": "nodepool1",
           "osType": "Linux",
-          "storageProfile": "ManagedDisks",
           "vmSize": "Standard_DS1_v2",
         }
       ],

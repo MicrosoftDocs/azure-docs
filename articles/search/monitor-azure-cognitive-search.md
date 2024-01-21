@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/20/2022
+ms.date: 01/18/2024
 ms.custom:
   - subject-monitoring
   - ignite-2023
@@ -15,7 +15,7 @@ ms.custom:
 
 # Monitoring Azure AI Search
 
-[Azure Monitor](../azure-monitor/overview.md) is enabled with every subscription to provide monitoring capabilities over all Azure resources, including Azure AI Search. When you sign up for search, Azure Monitor collects [**activity logs**](../azure-monitor/data-sources.md#azure-activity-log) and [**platform metrics**](../azure-monitor/essentials/data-platform-metrics.md) as soon as you start using the service. 
+[Azure Monitor](../azure-monitor/overview.md) is enabled with every subscription to provide uniform monitoring capabilities over all Azure resources, including Azure AI Search. When you create a search service, Azure Monitor collects [**activity logs**](../azure-monitor/data-sources.md#azure-activity-log) and [**platform metrics**](../azure-monitor/essentials/data-platform-metrics.md) as soon as you start using the service. 
 
 Optionally, you can enable diagnostic settings to collect [**resource logs**](../azure-monitor/essentials/resource-logs.md). Resource logs contain detailed information about search service operations that's useful for deeper analysis and investigation. 
 

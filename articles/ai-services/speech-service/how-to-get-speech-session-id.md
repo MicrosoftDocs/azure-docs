@@ -116,7 +116,7 @@ The following is and example response body of a [Transcriptions_Create](https://
 }
 ```
 > [!NOTE]
-> Use the same technique to determine different IDs required for debugging issues related to [Custom Speech](custom-speech-overview.md), like uploading a dataset using [Datasets_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Create) request.
+> Use the same technique to determine different IDs required for debugging issues related to [custom speech](custom-speech-overview.md), like uploading a dataset using [Datasets_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Create) request.
 
 > [!NOTE]
 > You can also see all existing transcriptions and their Transcription IDs for a given Speech resource by using [Transcriptions_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Get) request.

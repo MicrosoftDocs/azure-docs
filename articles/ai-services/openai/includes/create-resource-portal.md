@@ -7,7 +7,6 @@ manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 08/25/2023
-keywords: 
 ---
 
 ## Prerequisites
