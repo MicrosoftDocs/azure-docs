@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/11/2024
+ms.date: 01/21/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -32,7 +32,6 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Retirement of the Defender for Cloud Containers Vulnerability Assessment powered by Qualys](#retirement-of-the-defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys) | January 9, 2023 | March 2024 |
 | [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) | January 4, 2024 | February 2024 |
 | [Upcoming change for the Defender for Cloud’s multicloud network requirements](#upcoming-change-for-the-defender-for-clouds-multicloud-network-requirements) | January 3, 2024 | May 2024 |
-| [Deprecation and severity changes to security alerts](#deprecation-and-severity-changes-to-security-alerts) | December 27, 2023 | January 2024 |
 | [Deprecation of two DevOps security recommendations](#deprecation-of-two-devops-security-recommendations) | November 30, 2023 | January 2024 |
 | [Consolidation of Defender for Cloud's Service Level 2 names](#consolidation-of-defender-for-clouds-service-level-2-names) | November 1, 2023 | December 2023 |
 | [Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management](#changes-to-how-microsoft-defender-for-clouds-costs-are-presented-in-microsoft-cost-management) | October 25, 2023 | November 2023 |
@@ -135,69 +134,6 @@ The list is applicable to all plans and sufficient for full capability of the CS
 - North Europe (neu): 13.69.233.80/28
 - Central US (cus): 20.44.10.240/28
 - East US 2 (eus2): 20.44.19.128/28
-
-## Deprecation and severity changes to security alerts
-
-**Announcement date: December 27, 2023**
-
-**Estimated date for change: January 2024**
-
-The following security alerts are set for deprecation or are set for update to the **informational** severity level.
-
-- The following container security alerts are set for deprecation:
-
-  - `Anomalous pod deployment (Preview) (K8S_AnomalousPodDeployment)`
-  - `Excessive role permissions assigned in Kubernetes cluster (Preview) (K8S_ServiceAcountPermissionAnomaly)`
-  - `Anomalous access to Kubernetes secret (Preview) (K8S_AnomalousSecretAccess)`
-
-- The following security alerts are set to be updated to the **informational** severity level:
-
-  - **Alerts for Windows machines**:
-  
-    - `Adaptive application control policy violation was audited (VM_AdaptiveApplicationControlWindowsViolationAudited)`
-    - `Adaptive application control policy violation was audited (VM_AdaptiveApplicationControlLinuxViolationAudited)`
-  
-  - **Alerts for containers**:
-  
-    - `Attempt to create a new Linux namespace from a container detected (K8S.NODE_NamespaceCreation)`
-    - `Attempt to stop apt-daily-upgrade.timer service detected (K8S.NODE_TimerServiceDisabled)`
-    - `Command within a container running with high privileges (K8S.NODE_PrivilegedExecutionInContainer)`
-    - `Container running in privileged mode (K8S.NODE_PrivilegedContainerArtifacts)`
-    - `Container with a sensitive volume mount detected (K8S_SensitiveMount)`
-    - `Creation of admission webhook configuration detected (K8S_AdmissionController)`
-    - `Detected suspicious file download (K8S.NODE_SuspectDownloadArtifacts)`
-    - `Docker build operation detected on a Kubernetes node (K8S.NODE_ImageBuildOnNode)`
-    - `New container in the kube-system namespace detected (K8S_KubeSystemContainer)`
-    - `New high privileges role detected (K8S_HighPrivilegesRole)`
-    - `Privileged container detected (K8S_PrivilegedContainer)`
-    - `Process seen accessing the SSH authorized keys file in an unusual way (K8S.NODE_SshKeyAccess)`
-    - `Role binding to the cluster-admin role detected (K8S_ClusterAdminBinding)`
-    - `SSH server is running inside a container (K8S.NODE_ContainerSSH)`
-  
-  - **Alerts for DNS**:
-
-    - `Communication with suspicious algorithmically generated domain (AzureDNS_DomainGenerationAlgorithm)`
-    - `Communication with suspicious algorithmically generated domain (DNS_DomainGenerationAlgorithm)`
-    - `Communication with suspicious random domain name (Preview) (DNS_RandomizedDomain)`
-    - `Communication with suspicious random domain name (AzureDNS_RandomizedDomain)`
-    - `Communication with possible phishing domain (AzureDNS_PhishingDomain)`
-    - `Communication with possible phishing domain (Preview) (DNS_PhishingDomain)`
-  
-  - **Alerts for Azure App Service**:
-
-    - `NMap scanning detected (AppServices_Nmap)`
-    - `Suspicious User Agent detected (AppServices_UserAgentInjection)`
-  
-  - **Alerts for Azure network layer**
-  
-    - `Possible incoming SMTP brute force attempts detected (Generic_Incoming_BF_OneToOne)`
-    - `Traffic detected from IP addresses recommended for blocking (Network_TrafficFromUnrecommendedIP)`
-
-  - **Alerts for Azure Resource Manager**:
-
-    - `Privileged custom role created for your subscription in a suspicious way (Preview)(ARM_PrivilegedRoleDefinitionCreation)`
-  
-See the full [list of security alerts](alerts-reference.md).
 
 ## Deprecation of two DevOps security recommendations
 
