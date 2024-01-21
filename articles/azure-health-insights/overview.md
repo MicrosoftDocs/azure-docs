@@ -25,7 +25,7 @@ Azure AI Health Insights is a Cognitive Service that provides prebuilt models th
 
 ## Available models
 
-There are currently there models available in Azure AI Health Insights: 
+There are currently three models available in Azure AI Health Insights: 
 
 The [Trial Matcher](./trial-matcher/overview.md) model receives patients' data and clinical trials protocols, and provides relevant clinical trials based on eligibility criteria.
 
