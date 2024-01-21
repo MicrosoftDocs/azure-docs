@@ -26,8 +26,6 @@ landingContent:
             url: chaos-studio-overview.md
           - text: What is chaos engineering?
             url: chaos-studio-chaos-engineering-overview.md
-      - linkListType: concept
-        links:
           - text: Chaos experiments
             url: chaos-studio-chaos-experiments.md
           - text: Fault and actions
@@ -38,40 +36,6 @@ landingContent:
             url: chaos-studio-permissions-security.md
           - text: Private networking
             url: chaos-studio-private-networking.md
-
-  # Card
-  - title: Quickstart
-    linkLists:
-      - linkListType: quickstart
-        links:
-        - text: Create and run a chaos experiment using Azure Chaos Studio
-          url: chaos-studio-quickstart-azure-portal.md
-
-  # Card
-  - title: Tutorials
-    linkLists:
-      - linkListType: tutorial
-        links:
-        - text: Run and manage an experiment
-          url: chaos-studio-run-experiment.md
-        - text: Schedule an experiment
-          url: tutorial-schedule.md
-
-  # Card
-  - title: Reference
-    linkLists:
-      - linkListType: reference
-        links:
-        - text: Fault library
-          url: chaos-studio-fault-library.md
-        - text: Fault providers
-          url: chaos-studio-fault-providers.md
-        - text: REST API documentation
-          url: /rest/api/chaosstudio
-        - text: Python SDK
-          url: /python/api/azure-mgmt-chaos/?view=azure-python-preview
-        - text: .NET
-          url: /dotnet/api/overview/azure/resourcemanager.chaos-readme?view=azure-dotnet-preview
 
   # Card
   - title: How-to guides
@@ -95,14 +59,29 @@ landingContent:
         - text: Emit Experiment Fault Events to App Insights
           url: chaos-studio-set-up-app-insights.md
 
-# Card
-  - title: Troubleshooting
+  # Card
+  - title: Reference
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: reference
         links:
-        - text: Troubleshoot common issues
-          url: troubleshooting.md
+        - text: Fault library
+          url: chaos-studio-fault-library.md
+        - text: Fault providers
+          url: chaos-studio-fault-providers.md
+        - text: REST API documentation
+          url: /rest/api/chaosstudio
+        - text: Python SDK
+          url: /python/api/azure-mgmt-chaos/?view=azure-python-preview
+        - text: .NET
+          url: /dotnet/api/overview/azure/resourcemanager.chaos-readme?view=azure-dotnet-preview
 
+  # Card
+  - title: Quickstart
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Create and run a chaos experiment using Azure Chaos Studio
+          url: chaos-studio-quickstart-azure-portal.md
 
   # Card
   - title: Samples
@@ -115,4 +94,24 @@ landingContent:
           url: sample-template-targets.md
         - text: REST API samples
           url: chaos-studio-samples-rest-api.md
+
+  # Card
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+        - text: Run and manage an experiment
+          url: chaos-studio-run-experiment.md
+        - text: Schedule an experiment
+          url: tutorial-schedule.md
+
+
+# Card
+  - title: Troubleshooting
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Troubleshoot common issues
+          url: troubleshooting.md
+
 
