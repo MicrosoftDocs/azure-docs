@@ -6,6 +6,11 @@
     "redirect_document_id": false
   },
   {
+    "source_path_from_root": "/articles/azure-relay/relay-migrate-acs-sas.md",
+    "redirect_url": "/azure/azure-relay/relay-authentication-and-authorization",
+    "redirect_document_id": false
+  },
+  {
     "source_path_from_root": "/articles/service-bus-relay/diagnostic-logs.md",
     "redirect_url": "/azure/azure-relay/diagnostic-logs",
     "redirect_document_id": false

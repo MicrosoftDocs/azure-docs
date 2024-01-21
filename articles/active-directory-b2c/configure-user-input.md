@@ -2,15 +2,11 @@
 title: Add user attributes and customize user input 
 titleSuffix: Azure AD B2C
 description: Learn how to customize user input and add user attributes to the sign-up or sign-in journey in Azure Active Directory B2C.
-
 author: garrodonnell
 manager: CelesteDG
-
 ms.service: active-directory
-
 ms.topic: how-to
 ms.date: 12/13/2023
-ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
