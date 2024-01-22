@@ -284,7 +284,7 @@ To view the newly published accelerator, refresh Dev Tools Portal.
 
 Writing and maintaining accelerators can become repetitive and verbose as new accelerators are added. Some people create new projects by copying existing ones and making modifications, but this process can be tedious and error prone. To make the creation and maintenance of accelerators easier, Application Accelerator supports a feature named Composition that allows the reuse of parts of an accelerator, called *fragments*.
 
-Use following steps to reference a fragment in your accelerator:
+Use the following steps to reference a fragment in your accelerator:
 
 1. Publish the new accelerator of type `Fragment` using the Azure portal or the Azure CLI.
 
@@ -517,9 +517,7 @@ Use the following steps to view the list of App Accelerators in an Azure Spring 
 
 ### Troubleshoot App Accelerator issues
 
-If you try to open App Accelerator for a service instance that hasn't enabled App Accelerator or exposed a public endpoint, you see the following error message:
-
-  :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-not-enabled.png" alt-text="Screenshot of the error message that shows Application Accelerator not enabled and public endpoint not accessible." lightbox="media/how-to-use-accelerator/visual-studio-code-not-enabled.png":::
+If you try to open App Accelerator for a service instance that hasn't enabled App Accelerator or exposed a public endpoint, you see the following error message: `Application Accelerator of Spring Apps <instance-name> is not enabled or publically accessible`.
 
 To enable App Accelerator and expose public endpoints, use the following steps. For more information, see the [Manage App Accelerator in an existing Enterprise plan instance](./how-to-use-accelerator.md#manage-app-accelerator-in-an-existing-enterprise-plan-instance) section.
 
@@ -531,9 +529,7 @@ To enable App Accelerator and expose public endpoints, use the following steps. 
 
    :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png" alt-text="Screenshot of VS Code that shows the list of App Accelerator extensions." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png":::
 
-Sometimes, you might get an error message similar to the following example:
-
-AADSTS50011: The redirect URI 'vscode://VMware.tanzu-app-accelerator' specified in the request does not match the redirect URIs configured for the application 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'. Make sure the redirect URI sent in the request matches one added to your application in the Azure portal. Navigate to https://aka.ms/redirectUriMismatchError to learn more about how to fix this.
+Sometimes, you might get an error message similar to the following example: `AADSTS50011: The redirect URI 'vscode://VMware.tanzu-app-accelerator' specified in the request does not match the redirect URIs configured for the application 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'. Make sure the redirect URI sent in the request matches one added to your application in the Azure portal. Navigate to https://aka.ms/redirectUriMismatchError to learn more about how to fix this.`
 
 To address this issue, add redirect URIs `vscode://VMware.tanzu-app-accelerator` to relevant IdP. In Microsoft Entra ID, go to the **Authentication** menu, and add redirect URIs to mobile and desktop applications in platform configurations.
 
