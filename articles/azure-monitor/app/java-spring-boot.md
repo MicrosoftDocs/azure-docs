@@ -102,7 +102,7 @@ to change the location for a file outside the classpath.
 
 #### Programmatic configuration examples: Application Insights JSON file
 
-By default, the programmatic Application Insights attachment uses an `applicationinsights.json` contains in the classpath (_src/main/resources_).
+By default, the Application Insights Runtime Attach uses an `applicationinsights.json` in the classpath (_src/main/resources_).
 
 You can programmatically use another file contained in the classpath:
 
