@@ -7,12 +7,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
 ms.topic: reference
-ms.date: 01/19/2024
+ms.date: 01/22/2024
 ms.author: eur
 ms.reviewer: lagayhar
 ---
 
-# Index Lookup tool for Azure Machine Learning
+# Index Lookup tool for Azure Machine Learning (Preview)
 
 
 
