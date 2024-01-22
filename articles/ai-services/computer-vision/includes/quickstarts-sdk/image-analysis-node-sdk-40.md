@@ -56,6 +56,12 @@ Use the Image Analysis client SDK for JavaScript to analyze an image to read tex
     npm install @azure-rest/ai-vision-image-analysis
     ```
 
+    Also install the dotenv package:
+
+    ```console
+    npm install dotenv
+    ```
+
     Your app's `package.json` file will be updated with the dependencies.
 
 1. Create a new file, *index.js*. Open it in a text editor and paste in the following code.
