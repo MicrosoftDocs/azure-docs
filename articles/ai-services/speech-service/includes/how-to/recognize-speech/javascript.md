@@ -91,7 +91,7 @@ function fromStream() {
 fromStream();
 ```
 
-Using a push stream as input assumes that the audio data is a raw pulse-code modulation (PCM) data that skips any headers. The API still works in certain cases if the header hasn't been skipped. For the best results, consider implementing logic to read off the headers so that `fs` begins at the *start of the audio data*.
+Using a push stream as input assumes that the audio data is a raw pulse-code modulation (PCM) data that skips any headers. The API still works in certain cases if the header wasn't skipped. For the best results, consider implementing logic to read off the headers so that `fs` begins at the *start of the audio data*.
 
 ## Handle errors
 
