@@ -3,7 +3,8 @@ title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
 ms.topic: how-to
-ms.date: 09/05/2023
+ms.date: 01/22/2024
+ms.date: 01/22/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -263,7 +264,7 @@ In summary, the **Availability Zone** will only appear when
 
     ![Backup jobs filtered](./media/backup-azure-arm-restore-vms/secbackupjobs.png)
 
-## Cross Subscription Restore (preview)
+## Cross Subscription Restore for Azure VM
 
 Azure Backup now allows you to perform Cross Subscription Restore (CSR), which helps you to restore Azure VMs in a subscription that is different from the default one. Default subscription contains the recovery points.
 
