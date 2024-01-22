@@ -1,7 +1,7 @@
 ---
-title: Radiology Insights Inference Example agemismatch input
+title: Radiology Insights Inference Example age mismatch input
 titleSuffix: Azure AI Health Insights
-description: Radiology Insights Inference Example agemismatch input
+description: Radiology Insights Inference Example age mismatch input
 services: azure-health-insights
 author: JanSchietse
 manager: JoeriVDV
