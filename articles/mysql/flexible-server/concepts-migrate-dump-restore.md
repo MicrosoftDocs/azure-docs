@@ -3,7 +3,7 @@ title: Migrate using dump and restore
 description: This article explains two common ways to back up and restore databases in Azure Database for MySQL - Flexible Server, using tools such as mysqldump, MySQL Workbench, and PHPMyAdmin.
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: conceptual
 author: aditivgupta
 ms.author: adig
@@ -40,7 +40,7 @@ Most common use-cases are:
 
 - **Moving from other managed service provider** - Most managed service provider may not provide access to the physical storage file for security reasons so logical backup and restore is the only option to migrate.
 - **Migrating from on-premises environment or Virtual machine** - Azure Database for MySQL flexible server doesn't support restore of physical backups, which makes logical backup and restore as the ONLY approach.
-- **Moving your backup storage from locally redundant to geo-redundant storage** - Azure Database for MySQL flexible server allows configuring locally redundant or geo-redundant storage for backup is only allowed during server create. Once the server is provisioned, you can't change the backup storage redundancy option. In order to move your backup storage from locally redundant storage to geo-redundant storage, dump and restore is the ONLY option. 
+- **Moving your backup storage from locally redundant to geo-redundant storage** - Azure Database for MySQL flexible server allows configuring locally redundant or geo-redundant storage for backup is only allowed during server create. Once the server is provisioned, you can't change the backup storage redundancy option. In order to move your backup storage from locally redundant storage to geo-redundant storage, dump and restore is the ONLY option.
 - **Migrating from alternative storage engines to InnoDB** - Azure Database for MySQL flexible server supports only InnoDB Storage engine, and therefore doesn't support alternative storage engines. If your tables are configured with other storage engines, convert them into the InnoDB engine format before migration to Azure Database for MySQL flexible server.
 
     For example, if you have a WordPress or WebApp using the MyISAM tables, first convert those tables by migrating into InnoDB format before restoring to Azure Database for MySQL flexible server. Use the clause `ENGINE=InnoDB` to set the engine used when creating a new table, then transfer the data into the compatible table before the restore.
@@ -50,7 +50,7 @@ Most common use-cases are:
    ```
 
 > [!Important]
-> - To avoid any compatibility issues, ensure the same version of MySQL is used on the source and destination systems when dumping databases. For example, if your existing MySQL server is version 5.7, then you should migrate to an Azure Database for MySQL flexible server instance configured to run version 5.7. The `mysql_upgrade` command does not function in an Azure Database for MySQL flexible server instance, and is not supported. 
+> - To avoid any compatibility issues, ensure the same version of MySQL is used on the source and destination systems when dumping databases. For example, if your existing MySQL server is version 5.7, then you should migrate to an Azure Database for MySQL flexible server instance configured to run version 5.7. The `mysql_upgrade` command does not function in an Azure Database for MySQL flexible server instance, and is not supported.
 > - If you need to upgrade across MySQL versions, first dump or export your lower version database into a higher version of MySQL in your own environment. Then run `mysql_upgrade` before attempting migration into an Azure Database for MySQL flexible server instance.
 
 ## Performance considerations

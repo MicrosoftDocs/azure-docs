@@ -12,7 +12,6 @@ ms.custom:
 ms.topic: whats-new
 ms.date: 11/30/2023
 recommendations: false
-keywords:
 ---
 
 # What's new in Azure OpenAI Service

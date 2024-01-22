@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: FastTrack for Azure
   description: Expertise and custom technical guidance you can trust, directly from Azure engineers to help accelerate your Azure deployments securely.
-  ms.prod: azure 
+  ms.service: azure 
   ms.topic: hub-page
   author: alricha
   ms.author: kimberlm, nwiddup, alricha

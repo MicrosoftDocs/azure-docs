@@ -3,7 +3,6 @@ title: Desired State Configuration for Azure overview
 description: Learn how to use the Microsoft Azure extension handler for PowerShell Desired State Configuration (DSC), including prerequisites, architecture, and cmdlets.
 services: virtual-machines
 author: mgoedtel
-manager: evansma
 tags: azure-resource-manager
 keywords: 'dsc'
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
@@ -12,7 +11,6 @@ ms.subservice: extensions
 ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: na
 ms.date: 03/28/2023
 ms.author: magoedte
 ms.custom: devx-track-azurecli, devx-track-arm-template

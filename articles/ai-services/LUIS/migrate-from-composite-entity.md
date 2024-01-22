@@ -7,7 +7,7 @@ ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: how-to
-ms.date: 05/04/2020
+ms.date: 01/19/2024
 ---
 
 # Upgrade composite entity to machine-learning entity
