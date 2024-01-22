@@ -96,7 +96,7 @@ To discover Kubernetes applications in the Azure Marketplace from within the Azu
 
    :::image type="content" source="media/deploy-marketplace/marketplace-see-more.png" alt-text="Screenshot showing the See more link for the Containers category in Azure Marketplace." lightbox="media/deploy-marketplace/marketplace-see-more.png":::
 
-1. Alternately, if you [used Azure CLI to discover Kubernetes applications](#discover-kubernetes-applications-that-supports-azure-arc-enabled-clusters?tabs=azure-cli), you can note the `publisherId`, then search using that term to view that publisher's Kubernetes applications in Azure Marketplace.
+1. Alternately, you can search for a specific `publisherId` to view that publisher's Kubernetes applications in Azure Marketplace. For details on how to find publisher IDs, see the Azure CLI tab for this article.
 
    :::image type="content" source="media/deploy-marketplace/marketplace-search-by-publisher.png" alt-text="Screenshot showing the option to search by publisher in Azure Marketplace." lightbox="media/deploy-marketplace/marketplace-search-by-publisher.png":::
 
