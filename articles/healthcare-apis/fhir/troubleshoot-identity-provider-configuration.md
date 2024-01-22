@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services
-description: Learn how to troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services, including Azure Active Directory B2C. Use API version 2023-12-01 to configure two non-Microsoft identity identity providers for scoped access.
+description: Learn how to troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services, including Azure Active Directory B2C. Use API version 2023-12-01 to configure two non-Microsoft identity providers for scoped access.
 services: healthcare-apis
 author: namalu
 ms.service: healthcare-apis
@@ -51,23 +51,13 @@ Follow these steps to verify the correct configuration of the `smartIdentityProv
 
    ```
 
----
-
 4. **Verify the `clientId` string is correct**. Ensure the `clientId` string matches the client ID (or application ID) of the resource application defined in the identity provider.
-
----
 
 5. **Verify the request method is GET**. The only supported request type is `GET`, because the `allowedDataActions` values only supports `Read`.
 
-   
-
----
-
 6. **Verify the JSON web token (JWT) claims**. If the access token is available, decode it by using online tools such as [jwt.ms](https://jwt.ms). After the token is decoded, the claims can be inspected for correctness.
 
-   :::image type="content" source="media/troubleshoot-identity-provider-configuration/json-web-token-claims.png" alt-text="Screenshot showing jwt web token claims" lightbox="media/troubleshoot-identity-provider-configuration/json-web-token-claims.png":::
-
----
+   :::image type="content" source="media/troubleshoot-identity-provider-configuration/json-web-token-claims.png" alt-text="Screenshot showing jwt web token claims." lightbox="media/troubleshoot-identity-provider-configuration/json-web-token-claims.png":::
 
 7. **Verify the iss (issuer claim)**. Make sure the `iss` claim exactly matches the `issuer` value in your identity providers OpenId Configuration.
  
@@ -79,24 +69,16 @@ Follow these steps to verify the correct configuration of the `smartIdentityProv
    https://<YOUR_IDENTITY_PROVIDER_AUTHORITY>/authority/v2.0/.well-known/openid-configuration
    ```
 
----
-
 8. **Verify the azp or appId (authorized party or appId claim)**. The `azp` or `appId` claim must exactly match the `clientId` value provided in the `smartIdentityProvider` identity provider configuration.
-
----
 
 9. **Verify the aud (audience claim)**. The `aud` claim must exactly match the `audience` value provided in the `smartIdentityProvider` identity provider configuration.
 
----
-
 10. **Verify the scp (scope claim)**. The `scp` claim is required. If it's missing, the request fails. The format of the scp claim must conform to [SMART on FHIR v1 Scopes](https://www.hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-clinical-data). It's important to note that the FHIR service currently only supports Read scopes. An acceptable variation of SMART on FHIR v1 Scopes replaces any forward slash (/) with a period (.) and asterisk (*) with `all`. For example, an acceptable version of the SMART on FHIR scope `patient/*.read` is `patient.all.read`.
 
-NOTE: At this time, only `read` scopes are supported.
-
----
+> [!NOTE]
+> Only `read` scopes are supported.
 
 11. **Verify the fhirUser or extension_fhirUser (FHIR user claim)**. The `fhirUser` or `extension_fhirUser` claim is required. If it's missing, the request fails. This claim links the user in the identity provider with a user resource in the FHIR service. The value must be the fully qualified URL of a resource in the FHIR service that represents the individual that the access token is issued to. For example, the access token issued to a patient that logged in should have a `fhirUser` or `extension_fhirUser` claim that has the fully qualified URL of a [patient](https://build.fhir.org/patient.html) resource in the FHIR service.
-
 
 ## Schema for configuring identity providers
 
@@ -160,7 +142,6 @@ The `application configuration` consists of:
   "audience": "string"
 }
 ```
-
 
 ## Next steps
 
