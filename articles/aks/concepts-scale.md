@@ -2,7 +2,7 @@
 title: Concepts - Scale applications in Azure Kubernetes Services (AKS)
 description: Learn about scaling in Azure Kubernetes Service (AKS), including the horizontal pod autoscaler, cluster autoscaler, and Azure Container Instances.
 ms.topic: conceptual
-ms.date: 04/04/2023
+ms.date: 01/22/2024
 ---
 
 # Scaling options for applications in Azure Kubernetes Service (AKS)
@@ -17,7 +17,7 @@ You can manually scale replicas, or pods, and nodes to test how your application
 
 When scaling down nodes, the Kubernetes API calls the relevant Azure Compute API tied to the compute type used by your cluster. For example, for clusters built on Virtual Machine Scale Sets, the logic for selecting which nodes to remove is determined by the Virtual Machine Scale Sets API. To learn more about how nodes are selected for removal on scale down, see the [Virtual Machine Scale Sets FAQ](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#if-i-reduce-my-scale-set-capacity-from-20-to-15--which-vms-are-removed-).
 
-To get started with manually scaling pods and nodes see [Scale applications in AKS][aks-scale].
+To get started with manually scaling nodes, see [manually scale nodes in an AKS cluster][aks-nodes-scale]. To manually scale the number of pods, see [kubectl scale command][kubectl-scale-reference].
 
 ## Horizontal pod autoscaler
 
@@ -73,9 +73,9 @@ Virtual nodes are deployed to an additional subnet in the same virtual network a
 
 ## Next steps
 
-To get started with scaling applications, follow the [quickstart to create an AKS cluster with the Azure CLI][aks-quickstart]. You can then start manually or automatically scaling applications in your AKS clusters using the following resources:
+To get started with scaling applications, see the following resources:
 
-- Manually scale [pods][aks-manually-scale-pods] or [nodes][aks-manually-scale-nodes]
+- Manually scale [pods][kubectl-scale-reference] or [nodes][aks-manually-scale-nodes]
 - Use the [horizontal pod autoscaler][aks-hpa]
 - Use the [cluster autoscaler][aks-cluster-autoscaler]
 
@@ -89,13 +89,12 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 
 <!-- LINKS - external -->
 [virtual-kubelet]: https://virtual-kubelet.io/
+[kubectl-scale-reference]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_scale/
 
 <!-- LINKS - internal -->
-[aks-quickstart]: ./learn/quick-kubernetes-deploy-cli.md
 [aks-hpa]: tutorial-kubernetes-scale.md#autoscale-pods
-[aks-scale]: tutorial-kubernetes-scale.md
-[aks-manually-scale-pods]: tutorial-kubernetes-scale.md#manually-scale-pods
-[aks-manually-scale-nodes]: tutorial-kubernetes-scale.md#manually-scale-aks-nodes
+[aks-nodes-scale]: scale-cluster.md
+[aks-manually-scale-nodes]: scale-cluster.md
 [aks-cluster-autoscaler]: ./cluster-autoscaler.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md

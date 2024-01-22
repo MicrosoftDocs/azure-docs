@@ -1,21 +1,28 @@
 ---
-title: Scale an Azure Kubernetes Service (AKS) cluster
-description: Learn how to scale the number of nodes in an Azure Kubernetes Service (AKS) cluster.
+title: Manually scale nodes in an Azure Kubernetes Service (AKS) cluster
+description: Learn how to manually scale the number of nodes in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 03/27/2023
+ms.date: 01/22/2024
 ---
 
-# Scale the node count in an Azure Kubernetes Service (AKS) cluster
+# Manually scale the node count in an Azure Kubernetes Service (AKS) cluster
 
 If the resource needs of your applications change, your cluster performance may be impacted due to low capacity on CPU, memory, PID space, or disk sizes. To address these changes, you can manually scale your AKS cluster to run a different number of nodes. When you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications. When you scale up, AKS waits until nodes are marked **Ready** by the Kubernetes cluster before pods are scheduled on them.
 
+This article describes how to manually increase or decrease the number of nodes in an AKS cluster.
+
 ## Before you begin
 
-Review the [AKS service quotas and limits][service-quotas] to ensure your cluster can scale to your desired number of nodes.
+* Review the [AKS service quotas and limits][service-quotas] to verify your cluster can scale to your desired number of nodes.
+
+* The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter.
+
+   * For Linux node pools, the length must be between 1-11 characters.
+   * For Windows node pools, the length must be between 1-6 characters.
 
 ## Scale the cluster nodes
 
-> [!NOTE]
+> [!IMPORTANT]
 > Removing nodes from a node pool using the kubectl command is not supported. Doing so can create scaling issues with your AKS cluster.
 
 ### [Azure CLI](#tab/azure-cli)
