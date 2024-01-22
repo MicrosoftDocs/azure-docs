@@ -6,7 +6,7 @@ ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 09/19/2023
+ms.date: 01/17/2024
 ---
 # Connect with Managed Identity to Azure Cosmos DB for PostgreSQL
 
