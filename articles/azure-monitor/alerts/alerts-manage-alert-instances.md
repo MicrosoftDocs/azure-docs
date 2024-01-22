@@ -27,22 +27,22 @@ The **Alerts** summary pane summarizes the alerts fired in the last 24 hours. Yo
 
 To see more information about a specific alert instance, select the alert instance to open the **Alert details** page.
 
-  :::image type="content" source="media/alerts-managing-alert-instances/alerts-page.png" alt-text="Screenshot that shows the Alerts summary page in the Azure portal.":::
+  :::image type="content" source="media/alerts-managing-alert-instances/alerts-page.png" lightbox="media/alerts-managing-alert-instances/alerts-page.png" alt-text="Screenshot that shows the Alerts summary page in the Azure portal.":::
 
 
 ## View alerts as a timeline (preview)
 
 You can see your alerts in a timeline view. In this view, you can see the number of alerts fired in a specific time range. The timeline shows you which resource the alerts were fired on to give you context of the alert in your Azure hierarchy. The alerts are grouped by the time they were fired. You can filter the alerts by severity, resource, and more. You can also select a specific time range to see the alerts fired in that time range.
 
-  :::image type="content" source="media/alerts-managing-alert-instances/alerts-timeline.png" alt-text="Screenshot that shows the Alerts timeline page in the Azure portal.":::
+  :::image type="content" source="media/alerts-managing-alert-instances/alerts-timeline.png" lightbox="media/alerts-managing-alert-instances/alerts-timeline.png" alt-text="Screenshot that shows the Alerts timeline page in the Azure portal.":::
 
 To see the alerts in a timeline view, select **View as timeline** at the top of the Alerts summary page. You can choose to see the alerts timeline in with the severity of the alerts indicated by color, or a simplified view with critical or noncritical alerts.
 
-  :::image type="content" source="media/alerts-managing-alert-instances/alerts-view-timeline.png" alt-text="Screenshot that shows the view timeline button in the Alerts summary page in the Azure portal.":::
+  :::image type="content" source="media/alerts-managing-alert-instances/alerts-view-timeline.png" lightbox="media/alerts-managing-alert-instances/alerts-view-timeline.png" alt-text="Screenshot that shows the view timeline button in the Alerts summary page in the Azure portal.":::
 
 You can drill down into a specific time range. Select one of the cards in the timeline to see the alerts fired in that time range.
 
-  :::image type="content" source="media/alerts-managing-alert-instances/alerts-timeline-details.png" alt-text="Screenshot that shows the drilldown into a specific time range in the Alerts timeline page in the Azure portal.":::
+  :::image type="content" source="media/alerts-managing-alert-instances/alerts-timeline-details.png" lightbox="media/alerts-managing-alert-instances/alerts-view-timeline-details.png" alt-text="Screenshot that shows the drilldown into a specific time range in the Alerts timeline page in the Azure portal.":::
 
 
 ### Customize the timeline view
@@ -58,7 +58,7 @@ You can customize the timeline view to suit your needs by changing the grouping 
     For AKS clusters, we provide suggested views based on popular groupings.
 1. Select **Save**.
 
-    :::image type="content" source="media/alerts-managing-alert-instances/alerts-edit-timeline-view.png" alt-text="Screenshot that shows the edit group pane in the timeline view of the alerts page in the Azure portal.":::
+    :::image type="content" source="media/alerts-managing-alert-instances/alerts-edit-timeline-view.png" lightbox="media/alerts-managing-alert-instances/alerts-edit-timeline-view.png" alt-text="Screenshot that shows the edit group pane in the timeline view of the alerts page in the Azure portal.":::
 1. The timeline displays the alerts grouped by the fields you selected. Alerts that don't logically belong in the grouping you selected are listed in a group called **Other**.
 1. When you have the grouping you want, select **Save view** to save the view.
 
@@ -79,7 +79,7 @@ The **Alert details** page provides more information about the selected alert:
  - To see the details of the alert, expand the **Additional details** section.
  - To see all closed alerts, select the **History** tab.  
 
-:::image type="content" source="media/alerts-managing-alert-instances/alerts-details-page.png" alt-text="Screenshot that shows the Alerts details page in the Azure portal.":::
+:::image type="content" source="media/alerts-managing-alert-instances/alerts-details-page.png" lightbox="media/alerts-managing-alert-instances/alerts-details-page.png" alt-text="Screenshot that shows the Alerts details page in the Azure portal.":::
 
 ## Manage your alerts programmatically
 
