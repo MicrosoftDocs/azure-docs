@@ -129,7 +129,7 @@ Once you have removed the resources, you can redeploy Cloud Shell by following t
 
 You can find these resources by viewing the resource group in the Azure portal.
 
-[![Screenshot of resources created by the deployment.][ss02]][ss02x]
+[![Screenshot of resources created by the deployment.][ss02a]][ss02x]
 
 <!-- link references -->
 [01]: /azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription
