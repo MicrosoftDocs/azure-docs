@@ -201,7 +201,7 @@ Finally, you can use the SAS token to authenticate the client:
 
 ## Geocoding
 
-The following code snippet demonstrates how, in a simple console application, to import the `@azure-rest/maps-search` package and get the coordinates of an address using [geocode] query:
+The following code snippet demonstrates how, in a simple console application, to import the `@azure-rest/maps-search` package and get the coordinates of an address using [GetGeocoding] query:
 
 ```JavaScript
 const MapsSearch = require("@azure-rest/maps-search").default;
@@ -424,7 +424,6 @@ main().catch((err) => {
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential
 [azureMapsManagementClient]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/arm-maps#create-and-authenticate-a-azuremapsmanagementclient
-[geocode]: /javascript/api/@azure-rest/maps-search/geocode
 [GetGeocoding]: /javascript/api/@azure-rest/maps-search/getgeocoding 
 [GeocodingResponseOutput]: /javascript/api/@azure-rest/maps-search/geocodingresponseoutput
 [dotenv]: https://github.com/motdotla/dotenv#readme
