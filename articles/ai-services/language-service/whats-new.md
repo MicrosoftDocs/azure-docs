@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: whats-new
-ms.date: 04/14/2023
+ms.date: 01/22/2024
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -15,6 +15,10 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 # What's new in Azure AI Language?
 
 Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## January 2024
+
+* [Native document support](native-document-support/native-document-support.md) is now available in `2023-11-15-preview` public preview.
 
 ## November 2023
 

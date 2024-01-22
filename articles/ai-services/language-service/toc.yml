@@ -422,18 +422,6 @@ items:
       href: personally-identifiable-information/quickstart.md
     - name: PII language support
       href: personally-identifiable-information/language-support.md
-    - name: 🆕 PII native document support (preview)
-      items:
-        - name: PII native document support overview
-          href: native-document-support/overview.md
-        - name: PII native document support quickstart
-          href: native-document-support/pii-quickstart.md
-        - name: Authentication
-          items:
-            - name: Role- based access control
-              href: concepts/role-based-access-control.md
-            - name: Shared access signature (SAS) tokens
-              href: native-document-support/shared-access-signature.md
     - name: Responsible use of AI
       items:
       - name: Transparency note for PII
@@ -745,18 +733,6 @@ items:
       href: summarization/region-support.md
     - name: Summarization language support
       href: summarization/language-support.md
-    - name: 🆕 Summarization native document support (preview)
-      items:
-        - name: Summarization native document support overview
-          href: native-document-support/overview.md
-        - name: Summarization native document support quickstart
-          href: native-document-support/summarization-quickstart.md
-        - name: Authentication
-          items:
-            - name: Role- based access control
-              href: concepts/role-based-access-control.md
-            - name: Shared access signature (SAS) tokens
-              href: native-document-support/shared-access-signature.md
     - name: Prebuilt
       items:
       - name: Summarization quickstart
@@ -839,6 +815,10 @@ items:
     href: tutorials/use-kubernetes-service.md
   - name: Use language in power automate flows
     href: tutorials/power-automate.md
+  - name: 🆕 Use native documents for language processing
+    href: native-document-support/native-document-support.md
+  - name: Create SAS tokens for storage containers
+    href: native-document-support/shared-access-signature.md
   - name: Scenario deep-dives
     items:
       - name: Call Center

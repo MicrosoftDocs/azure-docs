@@ -1,11 +1,11 @@
 ---
-title: "Quickstart: Azure AI Language summarization native document support preview"
+title: Native document support for Azure AI Language (preview)?
 titleSuffix: Azure AI services
-description: "Learn native document summarization processing with the Language service preview REST APIs."
+description: How to use native document with Azure AI Languages Personally Identifiable Information and Summarization capabilities.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-language
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 01/31/2024
 ms.author: lajanuar
 ---
@@ -17,16 +17,54 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD049 -->
 <!-- markdownlint-disable MD001 -->
 
-# Quickstart: summarization Native document support (preview)
+# Native document support for Azure AI Language (preview)
 
 > [!IMPORTANT]
 >
 > * Azure AI Language public preview releases provide early access to features that are in active development.
 > * Features, approaches, and processes may change, prior to General Availability (GA), based on user feedback.
 
-Azure AI Language is a cloud-based service that applies Natural Language Processing (NLP) features to analyze text-based data.  Native document support extends the accepted plain text (.txt) input for the [Personally Identifiable Information (PII)](../personally-identifiable-information/overview.md) and [`Document Summarization`](../summarization/overview.md) features to include Word and PDF native documents.
+Azure AI Language is a cloud-based service that applies Natural Language Processing (NLP) features to text-based data. Native document support eliminates the need for text preprocessing prior to using Azure AI Language resource capabilities.  Currently, native document support is available for the following capabilities:
 
-Let's get started:
+* [Personally Identifiable Information (PII)](../personally-identifiable-information/overview.md). The PII detection feature can identify, categorize, and redact sensitive information in unstructured text. The `PiiEntityRecognition` API supports native document processing.
+
+* [Document Summarization](../summarization/overview.md). Document summarization uses natural language processing to generate extractive (salient sentence extraction) or abstractive (contextual word extraction) summaries for documents. Both `AbstractiveSummarization` and `ExtractiveSummarization` APIs support native document processing.
+
+## Development options
+
+Native document support can be integrated into your applications using the [Azure AI Language REST API](/rest/api/language/). The REST API is a language agnostic interface that enables you to create HTTP requests for text-based data analysis.
+
+|Service|Description|API Reference (Latest GA version)|API Reference (Latest Preview version)|
+|--|--|--|--|
+| Text analysis - runtime | &bullet; Runtime prediction calls to extract **Personally Identifiable Information (PII)**.</br>&bullet; Custom redaction for native documents is supported in the latest **2023-04-14-preview**.|[`2023-04-01`](/rest/api/language/2023-04-01/text-analysis-runtime)|[`2023-04-15-preview`.](/rest/api/language/2023-04-15-preview/text-analysis-runtime)|
+| Summarization for documents - runtime|Runtime prediction calls to **query summarization for documents models**.|[`2023-04-01`](/rest/api/language/2023-04-01/text-analysis-runtime/submit-job)|[`2023-04-15-preview`](/rest/api/language/2023-04-15-preview/text-analysis-runtime)|
+
+## Supported document formats
+
+A native document refers to the file format used to create the original document such as Microsoft Word (.docx) or a portable document file (.pdf).  Applications employ native file formats to create, save, or open native documents.  Currently Azure AI Language service supports the following native document formats:
+
+|File type|File extension|Description|
+|---------|--------------|-----------|
+|Text| `.txt`|An unformatted text document.|
+|Adobe PDF| `.pdf`       |A portable document file formatted document.|
+|Microsoft Word| `.doc` `.docx`|A text document file.|
+
+## Input guidelines
+
+***Supported file formats***
+
+|Type|support and limitations|
+|---|---|
+|**PDFs**| Fully digital and fully scanned PDFs aren't supported.|
+|**Text within images**| Digital images with imbedded text aren't supported.|
+|**Digital tables**| Tables in digital documents are supported, however scanned table quality isn't guaranteed.|
+
+***Document Size Limitations***
+
+✔️ Maximum document count per request: 20
+✔️ Maximum document size per request: 1MB
+
+***Let's get started:***
 
 * For this project, we use the cURL command line tool to make REST API calls.
 
@@ -36,7 +74,7 @@ Let's get started:
     > macOS `curl -V`
     > Linux: `curl --version`
 
-    If cURL isn't installed, here are installation links for your platform:
+* If cURL isn't installed, here are installation links for your platform:
 
   * [Windows](https://curl.haxx.se/windows/).
   * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows).
@@ -92,7 +130,7 @@ Your Language resource needs granted access to your storage account before it ca
 1. **Shared access signature (SAS) tokens**. User delegation SAS tokens are secured with Microsoft Entra credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 1. [**Managed identity role-based access control (RBAC)**](../concepts/role-based-access-control.md). Managed identities for Azure resources are service principals that create a Microsoft Entra identity and specific permissions for Azure managed resources
 
-For this project, we authenticate access to the `sourceUrl` and `targetUrl`with Shared Access Signature (SAS) tokens appended as query strings. Tokens are assigned to a specific blob (file).
+For this project, we authenticate access to the `source location` and `target location` URLs with Shared Access Signature (SAS) tokens appended as query strings. Tokens are assigned to a specific blob (file).
 
 :::image type="content" source="media/sas-url-token.png" alt-text="Screenshot of a storage url with SAS token appended.":::
 
@@ -101,22 +139,80 @@ For this project, we authenticate access to the `sourceUrl` and `targetUrl`with 
 
 > [!TIP]
 >
-> **Delegate SAS access at the blob level**.
->
-> * As an alternative to SAS tokens, you can use a system-assigned managed identity for [**Role-based access control**](../concepts/role-based-access-control.md) (managed identities) for authentication.
+> * Since we're processing a single file (blob) **delegate SAS access at the blob level**.
 
 ## Request headers and parameters
 
 |parameter  |Description  |
 |---------|---------|
 |`-X POST <endpoint>`     | Specifies your Language resource endpoint for accessing the API.        |
-|`-H Content-Type: application/json`     | The content type for sending JSON data.          |
-|`-H "Ocp-Apim-Subscription-Key:<key>`    | Specifies the Language resource key for accessing the API.        |
-|`-d`     | The JSON file containing the data you want to pass with your request.         |
+|`--header Content-Type: application/json`     | The content type for sending JSON data.          |
+|`--header "Ocp-Apim-Subscription-Key:<key>`    | Specifies the Language resource key for accessing the API.        |
+|`-data`     | The JSON file containing the data you want to pass with your request.         |
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values. Try analyzing native documents by selecting the `Personally Identifiable Information (PII)` or `Document Summarization` code sample project:
 
-##### Summarization sample document
+### [Personally Identifiable Information (PII)](#tab/pii)
+
+#### PII Sample document
+
+For this quickstart, you need a **source document** uploaded to your **source container**. You can download our [Microsoft Word sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-pii.docx) or [Adobe PDF](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl//Language/native-document-pii.pdf) for this project. The source language is English.
+
+### Build the POST request
+
+1. Using your preferred editor or IDE, create a new directory for your app named `native-document`.
+
+1. Create a new json file called **pii-detection.json** in your **native-document** directory.
+
+1. Copy and paste the following Personally Identifiable Information (PII) **request sample** into your `pii-detection.json` file. Replace **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance:
+
+  `**Request sample**`
+
+  ```json
+  {
+    "kind": "PiiEntityRecognition",
+    "parameters": {
+        "modelVersion": "latest"
+    },
+    "analysisInput":{
+        "documents":[
+            {
+          "source":{
+            "location":"{your-source-container-SAS-URL}"
+          },
+          "targets":
+            {
+              "location":"{your-target-container-SAS-URL}",
+            }
+            }
+        ]
+    }
+  }
+
+  ```
+
+### Run the POST request
+
+1. Before you run the **POST** request, replace `{your-language-resource-endpoint}` and `{your-key}` with the values from your Azure portal Language service instance.
+
+    > [!IMPORTANT]
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information, *see* Azure AI services [security](/azure/ai-services/security-features).
+
+    ***PowerShell***
+
+    ```powershell
+    cmd /c curl "{your-language-resource-endpoint}/language/:analyze-text?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@pii-detection.json"
+    ```
+
+    ***command prompt / terminal***
+
+    ```curl
+    curl "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@pii-detection.json"
+    ```
+
+### [Document Summarization](#tab/summarization)
+
+***Summarization sample document***
 
 For this project, you need a **source document** uploaded to your **source container**. You can download our [Microsoft Word sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-summarization.docx) or [Adobe PDF](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-summarization.pdf) for this quickstart. The source language is English.
 
@@ -139,11 +235,11 @@ For this project, you need a **source document** uploaded to your **source conta
         "documents":[
             {
           "source":{
-            "sourceUrl":"{your-source-container-SAS-URL}"
+            "location":"{your-source-container-SAS-URL}"
           },
           "targets":
             {
-              "targetUrl":"{your-target-container-SAS-URL}",
+              "location":"{your-target-container-SAS-URL}",
             }
             }
         ]
@@ -170,15 +266,26 @@ Before you run the **POST** request, replace `{your-language-resource-endpoint}`
   curl "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-summarization.json"
   ```
 
-**Upon successful completion**:
+---
+
+***Upon successful completion***:
 
 * The analyzed documents can be found in your target container.
 * The successful POST method returns a `202 Accepted` response code indicating that the service created the batch request.
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
-## Next step
+## Clean up resources
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 * [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
+
+## Next steps
+
+You can get started with our quickstart. You need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
+
+> [!div class="nextstepaction"]
+> [PII detection overview](../personally-identifiable-information/overview.md "Learn more about Personally Identifiable Information detection.")
+>
+>[Document Summarization overview](../summarization/overview.md "Learn more about automatic document summarization.")
