@@ -35,7 +35,8 @@ Also note that some commands begin with `nc-toolbox nc-toolbox-runread` and must
 `nc-toolbox-runread` is a special container image that includes more tools that aren't installed on the
 baremetal host, such as `ipmitool` and `racadm`.
 
-The current list of supported commands is as follows. Commands in *`italics`* don't allow `arguments`; all others do.
+The current list of supported commands is as follows. Each column is a different category of commands, and
+each row in the table is an individual command. Commands in *`italics`* don't allow `arguments`; all others do.
 
 | Standard commands       | nc-toolbox-runread ipmitool commands                                                  | nc-toolbox-runread racadm commands                                                           | nc-toolbox-runread Mellanox troubleshooting commands |
 | ----------------------- | --------------------------------------------------------------------------------------| -------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
@@ -155,6 +156,16 @@ When an optional argument `--output-directory` is provided, the output result is
 az networkcloud baremetalmachine run-read-command --name "bareMetalMachineName" \
     --limit-time-seconds 60 \
     --commands '[{"command":"hostname"},{"command":"ping","arguments":["198.51.102.1","-c","3"]}]' \
+    --resource-group "resourceGroupName" \
+    --subscription "<subscription>"
+```
+
+### This example executes the `racadm getsysinfo -c` command.
+
+```azurecli
+az networkcloud baremetalmachine run-read-command --name "bareMetalMachineName" \
+    --limit-time-seconds 60 \
+    --commands '[{"command":"nc-toolbox nc-toolbox-runread racadm getsysinfo","arguments":["-c"]}]' \
     --resource-group "resourceGroupName" \
     --subscription "<subscription>"
 ```
