@@ -4,7 +4,7 @@ description: This tutorial walks through setting up your development machine and
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 05/02/2023
+ms.date: 01/19/2024
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -287,6 +287,8 @@ The latest stable IoT Edge system module version is 1.4. Set your system modules
 
 ::: zone-end
 
+::: zone pivot="iotedge-dev-ext"
+
 ### Provide your registry credentials to the IoT Edge agent
 
 The environment file stores the credentials for your container registry and shares them with the IoT Edge runtime. The runtime needs these credentials to pull your container images onto the IoT Edge device.
@@ -312,6 +314,8 @@ Check to see if your credentials exist. If not, add them now:
 
 > [!NOTE]
 > This tutorial uses administrator login credentials for Azure Container Registry that are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals or repository-scoped tokens. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
+
+::: zone-end
 
 ### Target architecture
 
