@@ -1,7 +1,7 @@
 ---
-title: Radiology Insights Inference Example
+title: Radiology Insights Inference Example lateralityDiscrepancy input
 titleSuffix: Azure AI Health Insights
-description: Radiology Insights Inference Example
+description: Radiology Insights Inference Example lateralityDiscrepancy input
 services: azure-health-insights
 author: JanSchietse
 manager: JoeriVDV
@@ -11,7 +11,7 @@ ms.date: 12/06/2023
 ms.author: janschietse
 ---
 
-# Inference example
+# Inference example lateralityDiscrepancy input
 
 ```json
 {
