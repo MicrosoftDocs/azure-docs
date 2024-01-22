@@ -15,6 +15,9 @@ ms.custom: devx-track-js
 ---
 # Calling SDK overview
 
+[!INCLUDE [Survey Request](../../includes/survey-request.md)]
+
+
 The Calling SDK enables end-user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To get started right away, check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md).
 
 Once you've started development, check out the [known issues page](../known-issues.md) to find bugs we're working on.
@@ -150,11 +153,13 @@ Running JavaScript Calling SDK on these platforms isn't actively tested, it migh
 - Support for Android API Level 21 or Higher
 - Support for Java 7 or higher
 - Support for Android Studio 2.0
+- **Android Auto** and **IoT devices running Android** are currently not supported
 
 ## iOS Calling SDK support
 
 - Support for iOS 10.0+ at build time, and iOS 12.0+ at run time
 - Xcode 12.0+
+- Support for **iPadOS** 13.0+
 
 ## Calling client - browser security model
 

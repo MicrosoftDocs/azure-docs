@@ -4,7 +4,7 @@ description: Learn about the capacity, IOPS, and throughput rates for Azure Elas
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 01/22/2024
 ms.author: rogarana
 ms.custom: references_regions, ignite-2022
 ---
@@ -51,7 +51,7 @@ The following regions are regions with higher base storage capacity available, a
 |Maximum base capacity units (TiB)     | 400         |
 |Minimum total SAN capacity (TiB)     | 1         |
 |Maximum total IOPS     |2,000,000         |
-|Maximum total throughput (MB/s)     |32,000         |
+|Maximum total throughput (MB/s)     |80,000         |
 
 
 ##### Lower available base storage capacity
@@ -67,7 +67,7 @@ The following regions are regions with higher base storage capacity available, a
 |Maximum base capacity units (TiB)     | 100         |
 |Minimum total SAN capacity (TiB)     | 1         |
 |Maximum total IOPS     |500,000         |
-|Maximum total throughput (MB/s)     |8,000         |
+|Maximum total throughput (MB/s)     |20,000         |
 
 #### ZRS
 
@@ -80,10 +80,12 @@ ZRS is only available in France Central, North Europe, West Europe and West US 2
 |Maximum base capacity units (TiB)    |100         |100        |100        |100        |
 |Minimum total SAN capacity (TiB)    |1         |1        |1        |1        |
 |Maximum total IOPS     |500,000         |500,000        |500,000        |500,000        |
-|Maximum total throughput (MB/s)    |8,000         |8,000        |8,000        |8,000        |
+|Maximum total throughput (MB/s)    |20,000         |20,000        |20,000        |20,000        |
 
-#### Quota Increases
+#### Quota and capacity increases
 To increase quota, raise a support ticket with the subscription ID and region information to request for an increase in quota for the “Maximum number of Elastic SAN that can be deployed per subscription per region”.
+
+For capacity increase requests, raise a support ticket with the subscription ID and the region information and it will be evaluated.
 
 ## Volume group
 

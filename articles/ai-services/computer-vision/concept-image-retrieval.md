@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 03/06/2023
+ms.date: 01/19/2024
 ms.author: pafarley
 ---
 
@@ -20,19 +20,19 @@ Image retrieval systems have traditionally used features extracted from the imag
 
 ## What's the difference between vector search and keyword-based search? 
 
-Keyword search is the most basic and traditional method of information retrieval. In this approach, the search engine looks for the exact match of the keywords or phrases entered by the user in the search query and compares with labels and tags provided for the images. The search engine then returns images that contain those exact keywords as content tags and image labels. Keyword search relies heavily on the user's ability to input relevant and specific search terms.
+Keyword search is the most basic and traditional method of information retrieval. In that approach, the search engine looks for the exact match of the keywords or phrases entered by the user in the search query and compares it with the labels and tags provided for the images. The search engine then returns images that contain those exact keywords as content tags and image labels. Keyword search relies heavily on the user's ability to use relevant and specific search terms.
 
-Vector search, on the other hand, searches large collections of vectors in high-dimensional space to find vectors that are similar to a given query. Vector search looks for semantic similarities by capturing the context and meaning of the search query. This approach is often more efficient than traditional image retrieval techniques, as it can reduce search space and improve the accuracy of the results.
+Vector search searches large collections of vectors in high-dimensional space to find vectors that are similar to a given query. Vector search looks for semantic similarities by capturing the context and meaning of the search query. This approach is often more efficient than traditional image retrieval techniques, as it can reduce search space and improve the accuracy of the results.
 
 ## Business applications
 
 Multi-modal embedding has a variety of applications in different fields, including: 
 
-- Digital asset management: Multi-modal embedding can be used to manage large collections of digital images, such as in museums, archives, or online galleries. Users can search for images based on visual features and retrieve the images that match their criteria.
-- Security and surveillance: Vectorization can be used in security and surveillance systems to search for images based on specific features or patterns, such as in, people & object tracking, or threat detection. 
-- Forensic image retrieval: Vectorization can be used in forensic investigations to search for images based on their visual content or metadata, such as in cases of cyber-crime.
-- E-commerce: Vectorization can be used in online shopping applications to search for similar products based on their features or descriptions or provide recommendations based on previous purchases.
-- Fashion and design: Vectorization can be used in fashion and design to search for images based on their visual features, such as color, pattern, or texture. This can help designers or retailers to identify similar products or trends.
+- **Digital asset management**: Multi-modal embedding can be used to manage large collections of digital images, such as in museums, archives, or online galleries. Users can search for images based on visual features and retrieve the images that match their criteria.
+- **Security and surveillance**: Vectorization can be used in security and surveillance systems to search for images based on specific features or patterns, such as in, people & object tracking, or threat detection. 
+- **Forensic image retrieval**: Vectorization can be used in forensic investigations to search for images based on their visual content or metadata, such as in cases of cyber-crime.
+- **E-commerce**: Vectorization can be used in online shopping applications to search for similar products based on their features or descriptions or provide recommendations based on previous purchases.
+- **Fashion and design**: Vectorization can be used in fashion and design to search for images based on their visual features, such as color, pattern, or texture. This can help designers or retailers to identify similar products or trends.
 
 > [!CAUTION]
 > Multi-modal embedding is not designed analyze medical images for diagnostic features or disease patterns. Please do not use Multi-modal embedding for medical purposes.
@@ -46,6 +46,8 @@ Vector embeddings are a way of representing content&mdash;text or images&mdash;a
 
 ## How does it work? 
 
+The following are the main steps of the image retrieval process using Multi-modal embeddings.
+
 :::image type="content" source="media/image-retrieval.png" alt-text="Diagram of image retrieval process.":::
 
 1. Vectorize Images and Text: the Multi-modal embeddings APIs, **VectorizeImage** and **VectorizeText**, can be used to extract feature vectors out of an image or text respectively. The APIs return a single feature vector representing the entire input.
@@ -57,7 +59,7 @@ Vector embeddings are a way of representing content&mdash;text or images&mdash;a
 
 ### Relevance score 
 
-The image and video retrieval services return a field called "relevance." The term "relevance" denotes a measure of similarity score between a query and image or video frame embeddings. The relevance score is comprised of two components:
+The image and video retrieval services return a field called "relevance." The term "relevance" denotes a measure of similarity score between a query and image or video frame embeddings. The relevance score is composed of two parts:
 1. The cosine similarity (that falls in the range of [0,1]) between the query and image or video frame embeddings.
 1. A metadata score, which reflects the similarity between the query and the metadata associated with the image or video frame.
 
