@@ -5,10 +5,7 @@ services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-
 tags: azure-service-management
-
-ms.assetid:
 ms.service: azure-disk-storage
 ms.devlang: azurecli
 ms.topic: sample
