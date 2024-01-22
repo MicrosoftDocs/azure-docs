@@ -83,7 +83,7 @@ You can't edit these Runtime environments. However, any changes that are made in
 - RBAC permissions cannot be assigned to Runtime environment.
 - Runtime environment can't be configured through Azure Automation extension for Visual Studio Code.
 - Deleted Runtime environments cannot be recovered.  
-- The feature is only supported through Azure portal and [REST API](https://review.learn.microsoft.com/rest/api/automation/operation-groups?view=rest-automation-2023-05-15-preview&branch=automation202305).
+- The feature is only supported through Azure portal and [REST API](/rest/api/automation/operation-groups?view=rest-automation-2023-05-15-preview).
 
 ## Switch between new and old experience
 
