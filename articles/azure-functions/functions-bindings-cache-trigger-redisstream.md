@@ -77,7 +77,7 @@ public static void StreamsTrigger(
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
-### [v3](#tab/node-v3)
+### [Model v3](#tab/node-v3)
 
 This sample uses the same `index.js` file, with binding data in the `function.json` file.
 
@@ -110,9 +110,9 @@ From `function.json`, here's the binding data:
 }
 ```
 
-### [v4](#tab/node-v4)
+### [Model v4](#tab/node-v4)
 
-The JavaScript v4 programming model example isn't available in preview.
+The Node.js v4 programming model example isn't available in preview.
 
 ---
 
@@ -130,7 +130,7 @@ Write-Host ($entry | ConvertTo-Json)
 
 From `function.json`, here's the binding data:
 
-```powershell
+```json
 {
   "bindings": [
     {
@@ -252,16 +252,11 @@ The `RedisStreamTrigger` Azure Function reads new entries from a stream and surf
 
 The trigger polls Redis at a configurable fixed interval, and uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/) to read elements from the stream.
 
-The consumer group for all function instances is the `ID` of the function. For example, `Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisSamples.StreamTrigger`  for the `StreamTrigger` sample. Each function creates a new random GUID to use as its consumer name within the group to ensure that scaled out instances of the function don't read the same messages from the stream.
-
-### Output
+The consumer group of the function is the function name, that is, `StreamTrigger`. Each function creates a new random GUID to use as its consumer name within the group to ensure that scaled out instances of the function don't read the same messages from the stream.
 
 ::: zone pivot="programming-language-csharp"
 
-> [!NOTE]
-> Once the `RedisStreamTrigger` becomes generally available, the following information will be moved to a dedicated Output page.
-
-| Output Type                                                                                                                                           | Description                                                                                                                                                                             |
+|  Type                                                                                                                                           | Description                                                                                                                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs) | The value returned by `StackExchange.Redis`.                                                                                                                                            |
 | `StackExchange.Redis.NameValueEntry[]`, `Dictionary<string, string>`                                                                                  | The values contained within the entry.                                                                                                                                                  |
@@ -272,10 +267,7 @@ The consumer group for all function instances is the `ID` of the function. For e
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
-> [!NOTE]
-> Once the `RedisStreamTrigger` becomes generally available, the following information will be moved to a dedicated Output page.
-
-| Output Type | Description                                                                                                     |
+|  Type | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|
 | `byte[]`    | The message from the channel.                                                                                    |
 | `string`    | The message from the channel.                                                                                   |

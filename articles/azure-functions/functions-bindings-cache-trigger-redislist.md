@@ -74,7 +74,7 @@ The following sample polls the key `listTest` at a localhost Redis instance at `
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
-### [v3](#tab/node-v3)
+### [Model v3](#tab/node-v3)
 
 This sample uses the same `index.js` file, with binding data in the `function.json` file.
 
@@ -88,7 +88,7 @@ module.exports = async function (context, entry) {
 
 From `function.json`, here's the binding data:
 
-```javascript
+```json
 {
   "bindings": [
     {
@@ -107,9 +107,9 @@ From `function.json`, here's the binding data:
 }
 ```
 
-### [v4](#tab/node-v4)
+### [Model v4](#tab/node-v4)
 
-The JavaScript v4 programming model example isn't available in preview.
+The Node.js v4 programming model example isn't available in preview.
 
 ---
 
@@ -128,7 +128,7 @@ Write-Host $entry
 
 From `function.json`, here's the binding data:
 
-```powershell
+```json
 {
   "bindings": [
     {
@@ -248,16 +248,9 @@ See the Example section for complete examples.
 
 The `RedisListTrigger` pops new elements from a list and surfaces those entries to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/) and [`RPOP`](https://redis.io/commands/rpop/) to pop entries from the lists.
 
-### Output
-
 ::: zone pivot="programming-language-csharp"
 
-> [!NOTE]
-> Once the `RedisListTrigger` becomes generally available, the following information will be moved to a dedicated Output page.
-
-StackExchange.Redis.RedisValue
-
-| Output Type                                                                                                                              | Description                                                                                                   |
+| Type                                                                                                                              | Description                                                                                                   |
 |------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
 | [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs) | `string`, `byte[]`, `ReadOnlyMemory<byte>`: The entry from the list.                                          |
 | `Custom`                                                                                                                                 | The trigger uses Json.NET serialization to map the message from the channel from a `string` to a custom type. |
@@ -266,10 +259,7 @@ StackExchange.Redis.RedisValue
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
-> [!NOTE]
-> Once the `RedisListTrigger` becomes generally available, the following information will be moved to a dedicated Output page.
-
-| Output Type | Description                                                                                                     |
+|  Type | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|
 | `byte[]`    | The message from the channel.                                                                                    |
 | `string`    | The message from the channel.                                                                                   |

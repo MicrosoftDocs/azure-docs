@@ -131,7 +131,7 @@ This sample listens to any `keyevent` notifications for the delete command [`DEL
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
-### [v3](#tab/node-v3)
+### [Model v3](#tab/node-v3)
 
 This sample uses the same `index.js` file, with binding data in the `function.json` file determining on which channel the trigger occurs.
 
@@ -195,9 +195,9 @@ Here's binding data to listen to `keyevent` notifications for the delete command
   "scriptFile": "index.js"
 }
 ```
-### [v4](#tab/node-v4)
+### [Model v4](#tab/node-v4)
 
-The JavaScript v4 programming model example isn't available in preview.
+The Node.js v4 programming model example isn't available in preview.
 
 ---
 ::: zone-end
@@ -413,15 +413,9 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 > [!IMPORTANT]
 > In Azure Cache for Redis, `keyspace` events must be enabled before notifications are published. For more information, see [Advanced Settings](/azure/azure-cache-for-redis/cache-configure#keyspace-notifications-advanced-settings).
 
-## Output
-
 ::: zone pivot="programming-language-csharp"
 
-> [!NOTE]
-> Once the `RedisPubSubTrigger` becomes generally available, the following information will be moved to a dedicated Output page.
-
-
-| Output Type | Description|
+| Type | Description|
 |---|---|
 | [`StackExchange.Redis.ChannelMessage`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/ChannelMessageQueue.cs)| The value returned by `StackExchange.Redis`. |
 | [`StackExchange.Redis.RedisValue`](https://github.com/StackExchange/StackExchange.Redis/blob/main/src/StackExchange.Redis/RedisValue.cs)| `string`, `byte[]`, `ReadOnlyMemory<byte>`: The message from the channel. |
@@ -431,10 +425,7 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
-> [!NOTE]
-> Once the `RedisPubSubTrigger` becomes generally available, the following information will be moved to a dedicated Output page.
-
-| Output Type | Description                                                                                                     |
+| Type | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|
 | `byte[]`    | The message from the channel.                                                                                    |
 | `string`    | The message from the channel.                                                                                   |
