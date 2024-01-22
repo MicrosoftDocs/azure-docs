@@ -114,6 +114,15 @@ public static void main(String[] args) {
 }
 ```
 
+You can also configure a file not in the classpath (outside the JAR or WAR):
+```java
+public static void main(String[] args) {
+    System.setProperty("applicationinsights.configuration.file", "{path}/applicationinsights-dev.json");
+    ApplicationInsights.attach();
+    SpringApplication.run(PetClinicApplication.class, args);
+}
+```
+
 #### Programmatically configure the connection string
 
 First, add the `applicationinsights-core` dependency:
