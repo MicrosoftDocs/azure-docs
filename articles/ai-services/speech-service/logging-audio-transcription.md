@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 1/21/2024
 ms.author: alexeyo 
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
@@ -21,7 +21,7 @@ Audio and transcription logs can be used as input for [custom speech](custom-spe
 > [!WARNING]
 > Don't depend on audio and transcription logs when the exact record of input audio is required. In the periods of peak load, the service prioritizes hardware resources for transcription tasks. This may result in minor parts of the audio not being logged. Such occasions are rare, but nevertheless possible. 
 
-Logging is done asynchronously for both base and custom model endpoints. Audio and transcription logs are stored by the Speech service in its internal storage and not written locally. The logs are retained for 30 days. After this period, the logs are automatically deleted. However you can [delete](#delete-audio-and-transcription-logs) specific logs or a range of available logs at any time.
+Logging is done asynchronously for both base and custom model endpoints. The Speech service stores audio and transcription logs in its internal storage and not written locally. The logs are retained for 30 days. After this period, the logs are automatically deleted. However you can [delete](#delete-audio-and-transcription-logs) specific logs or a range of available logs at any time.
 
 You can also store audio and transcription logs within an Azure Storage account you own and control instead of Speech service premises using [Bring-your-own-storage (BYOS)](bring-your-own-storage-speech-resource.md) technology. See details on how to use BYOS-enabled Speech resource in [this article](bring-your-own-storage-speech-resource-speech-to-text.md).
 
@@ -356,16 +356,16 @@ With this approach, you can download all available log sets at once. There's no 
 You can download all or a subset of available log sets.
 
 This method is applicable for base and [custom model](how-to-custom-speech-deploy-model.md) endpoints. To list and download audio and transcription logs:
-- Base models: Use the [Endpoints_ListBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) operation of the [Speech to text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that have been stored when using the default base model of a given language.
-- Custom model endpoints: Use the [Endpoints_ListLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListLogs) operation of the [Speech to text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that have been stored for a given endpoint.
+- Base models: Use the [Endpoints_ListBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) operation of the [Speech to text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that are stored when using the default base model of a given language.
+- Custom model endpoints: Use the [Endpoints_ListLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListLogs) operation of the [Speech to text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that are stored for a given endpoint.
 
 ### Get log IDs with Speech to text REST API
 
-In some scenarios, you may need to get IDs of the available logs. For example, you may want to delete a specific log as described [later in this article](#delete-specific-log).
+In some scenarios, you might need to get IDs of the available logs. For example, you might want to delete a specific log as described [later in this article](#delete-specific-log).
 
 To get IDs of the available logs:
-- Base models: Use the [Endpoints_ListBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) operation of the [Speech to text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that have been stored when using the default base model of a given language.
-- Custom model endpoints: Use the [Endpoints_ListLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListLogs) operation of the [Speech to text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that have been stored for a given endpoint.
+- Base models: Use the [Endpoints_ListBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListBaseModelLogs) operation of the [Speech to text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that are stored when using the default base model of a given language.
+- Custom model endpoints: Use the [Endpoints_ListLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListLogs) operation of the [Speech to text REST API](rest-speech-to-text.md). This operation gets the list of audio and transcription logs that are stored for a given endpoint.
 
 Here's a sample output of [Endpoints_ListLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_ListLogs). For simplicity, only one log set is shown:
 

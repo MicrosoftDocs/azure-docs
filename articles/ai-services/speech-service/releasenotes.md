@@ -7,7 +7,7 @@ author: eric-urban
 ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: release-notes
-ms.date: 09/15/2023
+ms.date: 1/21/2024
 ms.custom: ignite-fall-2021, references_regions
 ---
 
