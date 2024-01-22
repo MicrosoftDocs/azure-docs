@@ -31,9 +31,9 @@ To use the SAP CDC capabilities in Azure Data Factory, be able to complete these
 
 To set up your SAP systems to use the SAP ODP framework, follow the guidelines that are described in the following sections.
 
-### SAP system requirements
+### Verify SAP system requirements
 
-The SAP CDC connector uses the ODP 2.0 framework, which is part of many SAP systems. For example it's included in up-to-date releases of SAP ECC and SAP S/4HANA, SAP BW and SAP BW/4HANA and SAP SLT. To ensure that your SAP releases have ODP 2.0, see the following SAP documentation or support notes. Even though the guidance primarily refers to SAP BW and SAP Data Services, the information also applies to Data Factory.
+The SAP CDC connector uses the ODP 2.0 framework, which is part of many SAP systems. For example it comes with all up-to-date releases of SAP ECC and SAP S/4HANA, SAP BW and SAP BW/4HANA and SAP SLT. To ensure that your SAP releases have ODP 2.0, see the following SAP documentation or support notes. Even though the guidance primarily refers to SAP BW and SAP Data Services, the information also applies to Data Factory.
 
 - [1931427 - ODP Data Replication API 2.0](https://launchpad.support.sap.com/#/notes/1931427)
 - [2481315 - Operational Data Provisioning: Availability and Limitations](https://launchpad.support.sap.com/#/notes/2481315)
