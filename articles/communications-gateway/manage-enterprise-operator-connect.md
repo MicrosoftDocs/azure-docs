@@ -54,11 +54,11 @@ If you're uploading new numbers for an enterprise customer:
 
 ## Select an enterprise customer to manage
 
-When an enterprise customer uses the Teams Admin Center to request service, the Operator Connect APIs create a *Request for information*. The Request for information represents the relationship between you and the enterprise.
+When an enterprise customer uses the Teams Admin Center to request service, the Operator Connect APIs create a *consent*. The consent represents the relationship between you and the enterprise.
 
-The Number Management Portal allows you to update the status of the Requests for information. Finding the Request for information for an enterprise is also the easiest way to manage numbers for an enterprise.
+The Number Management Portal displays a consent as a *Request for Information* and allows you to update the status. Finding the Request for Information for an enterprise is also the easiest way to manage numbers for an enterprise.
 
-1. From the overview page for your Communications Gateway resource, find the **Unified Number Management** section in the sidebar. Select **Requests for information**.
+1. From the overview page for your Communications Gateway resource, find the **Unified Number Management** section in the sidebar. Select **Requests for Information**.
 1. Find the enterprise that you want to manage. You can use the **Add filter** options to search for the enterprise.
 1. If you need to change the status of the relationship, select the enterprise **Tenant ID** then select **Update relationship status**. Use the drop-down to select the new status. For example, if you're agreeing to provide service to a customer, set the status to **Agreement signed**. If you set the status to **Consent declined** or **Contract terminated**, you must provide a reason.
 
@@ -87,6 +87,15 @@ You can view civic addresses for an enterprise. The enterprise configures the de
 1. Select **Civic addresses** to view the **Unified civic addresses** page for the enterprise.
 1. You can see the address, the company name, the description, and whether the address was validated when the enterprise configured the address.
 1. Optionally, select an individual address to view additional information provided by the enterprise, for example the Emergency Location Identification Number (ELIN).
+
+## Configure a custom header for a number
+
+You can specify a custom SIP header value for an enterprise telephone number, which applies to all SIP messages sent and received by that number.
+
+1. In the sidebar, locate the **Unified Number Management** section and select **Numbers**.
+1. Select the **Phone number** checkbox then select **Manage number**.
+1. Specify a **Custom SIP header value**.
+1. Select **Review and upload** then **Upload**.
 
 ## Next steps
 
