@@ -224,7 +224,7 @@ Consider re-recording any utterances with low pronunciation scores or poor signa
 
 ### Typical audio errors
 
-For high-quality training results, avoiding audio errors is highly recommended. Audio errors can are usually within following categories:
+For high-quality training results, avoiding audio errors is highly recommended. Audio errors are usually within following categories:
 
 - Audio file name doesn't match the script ID.
 - WAR file has an invalid format and can't be read.
