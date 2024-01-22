@@ -42,7 +42,7 @@ To see the alerts in a timeline view, select **View as timeline** at the top of 
 
 You can drill down into a specific time range. Select one of the cards in the timeline to see the alerts fired in that time range.
 
-  :::image type="content" source="media/alerts-managing-alert-instances/alerts-timeline-details.png" lightbox="media/alerts-managing-alert-instances/alerts-view-timeline-details.png" alt-text="Screenshot that shows the drilldown into a specific time range in the Alerts timeline page in the Azure portal.":::
+  :::image type="content" source="media/alerts-managing-alert-instances/alerts-timeline-details.png" lightbox="media/alerts-managing-alert-instances/alerts-timeline-details.png" alt-text="Screenshot that shows the drilldown into a specific time range in the Alerts timeline page in the Azure portal.":::
 
 
 ### Customize the timeline view
