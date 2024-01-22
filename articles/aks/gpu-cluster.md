@@ -66,7 +66,7 @@ AKS has automatic GPU driver installation enabled by default. In some cases, suc
 
 ### NVIDIA device plugin installation
 
-NVIDIA device plugin installation is required when using GPUs on AKS. In some cases, the this will be handled automatically, such as when using the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/microsoft-aks.html) or the [AKS GPU image (preview)](#update-your-cluster-to-use-the-aks-gpu-image-preview). Alternatively, you can manually install the NVIDIA device plugin.
+NVIDIA device plugin installation is required when using GPUs on AKS. In some cases, the this will be handled automatically, such as when using the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/microsoft-aks.html) or the [AKS GPU image (preview)](#use-the-aks-gpu-image-preview). Alternatively, you can manually install the NVIDIA device plugin.
 
 #### Manually install the NVIDIA device plugin
 
