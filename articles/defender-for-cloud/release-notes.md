@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 01/16/2024
+ms.date: 01/22/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -34,7 +34,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 January 22, 2024
 
-This announcement lists container security alerts that are deprecated, and other security alerts whose severity level is updated to **Informational**.
+This announcement includes container security alerts that are deprecated, and security alerts whose severity level is updated to **Informational**.
 
 - The following container security alerts are deprecated:
 
