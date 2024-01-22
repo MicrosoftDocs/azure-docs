@@ -51,7 +51,7 @@ You'll deploy Defender for Endpoint to your Windows machines in one of two ways 
 
 If you've already enabled the integration with **Defender for Endpoint**, you have complete control over when and whether to deploy the Defender for Endpoint unified solution to your **Windows** machines.
 
-To deploy the Defender for Endpoint unified solution, you need to use the [REST API call](#enable-the-mde-unified-solution-at-scale) or the Azure portal:
+To deploy the Defender for Endpoint unified solution, you need to use the [REST API call](#enable-the-microsoft-defender-for-endpoint-unified-solution-at-scale) or the Azure portal:
 
 1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the Windows machines that you want to receive Defender for Endpoint.
 
@@ -86,7 +86,7 @@ Microsoft Defender for Cloud will automatically onboard your machines to Microso
 
 If you've never enabled the integration for Windows, Endpoint protection enables Defender for Cloud to deploy Defender for Endpoint to *both* your Windows and Linux machines.
 
-To deploy the Defender for Endpoint unified solution, you'll need to use the [REST API call](#enable-the-mde-unified-solution-at-scale) or the Azure portal:
+To deploy the Defender for Endpoint unified solution, you'll need to use the [REST API call](#enable-the-microsoft-defender-for-endpoint-unified-solution-at-scale) or the Azure portal:
 
 1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the machines that you want to receive Defender for Endpoint.
 
@@ -103,7 +103,7 @@ You'll deploy Defender for Endpoint to your Linux machines in one of these ways,
 - Enable for a specific subscription in the Azure portal environment settings
   - [Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows](#existing-users-with-defender-for-clouds-enhanced-security-features-enabled-and-microsoft-defender-for-endpoint-for-windows)
   - [New users who never enabled the integration with Microsoft Defender for Endpoint for Windows](#new-users-who-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
-- [Enable for multiple subscriptions in the Azure portal dashboard](#enable-for-multiple-subscriptions-in-the-azure-portal-dashboard)
+- [Enable for multiple subscriptions in the Azure portal dashboard](#enable-on-multiple-subscriptions-in-the-azure-portal-dashboard)
 - Enable for multiple subscriptions with a PowerShell script
 
 > [!NOTE]

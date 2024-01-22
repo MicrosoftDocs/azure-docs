@@ -564,9 +564,6 @@
       - name: Enable and manage adaptive application controls
         displayName: aac, allowlist, reviewgroup
         href: enable-adaptive-application-controls.md
-    - name: Define lists of safe applications for machines
-      displayName: aac, allowlist, reviewgroup, adaptive application controls
-      href: adaptive-application-controls.md
     - name: Review server protection
       items:
         - name: Review hardening recommendations
