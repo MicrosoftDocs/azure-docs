@@ -181,6 +181,18 @@ sections:
           
           To select other labels and your Spring profile(s), you can use a label filter like `',${spring.profiles.active}'`, which will select all keys without a label and the ones matching your Spring profiles. The rightmost label(s) take priority when duplicate keys are found.
 
+      - question: How to use Feature Management in Blazor applications or as scoped services in .NET?
+        answer: |
+          The .NET Feature Management library provides the API `AddFeatureManagement` method which adds feature management services as singletons within the application, but there are scenarios where it may be necessary for feature management services to be added as scoped services instead. For example, users may want to use feature filters which consume scoped services for context information. This issue will occur while using the built-in targeting filter in Blazor server applications.
+
+          In regular ASP.NET web application, the singleton `IHttpContextAccessor` [pattern](https://learn.microsoft.com/en-us/azure/azure-app-configuration/howto-targetingfilter-aspnet-core#update-the-web-application-code-to-use-targetingfilter) is used to obtain the targeting context from `HttpContext`. However, this pattern does not work for Blazor server applications, because `HttpContext` is unavailable. [The recommended approach](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/server/interactive-server-side-rendering?view=aspnetcore-7.0#ihttpcontextaccessorhttpcontext-in-razor-components) for passing http context in Blazor apps is to copy the data into a scoped service.
+
+          To consume scoped services for context information, the feature management services need to be registered as scoped services. In this case, the API `AddScopedFeatureManagement` should be used instead. This will ensure that feature management services, including feature filters, are added as scoped services.
+
+          ```C#
+          services.AddScopedFeatureManagement();
+          ```
+
       - question: How can I receive announcements on new releases and other information related to App Configuration?
         answer: |
           Subscribe to our [GitHub announcements repo](https://github.com/Azure/AppConfiguration-Announcements).
