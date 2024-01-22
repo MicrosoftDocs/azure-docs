@@ -111,6 +111,7 @@ You can run GPU workloads on Windows nodepools after manual NVIDIA device plugin
 Limitations:
 - Supported on k8s 1.29 and above
 - Not supported on Windows Server 2019
+- Minimum CLI version of 1.0.0b2
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
