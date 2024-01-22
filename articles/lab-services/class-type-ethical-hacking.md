@@ -71,6 +71,8 @@ Invoke-WebRequest ' https://aka.ms/azlabs/scripts/EthicalHacking-powershell' -Ou
 
 # [Windows tools](#tab/windows)
 
+### Prepare template machine for nested virtualization
+
 Follow the instructions to [enable nested virtualization](how-to-enable-nested-virtualization-template-vm.md) to prepare your template VM for nested virtualization.
 
 ### Set up a nested virtual machine with Kali Linux image
@@ -79,8 +81,8 @@ Kali is a Linux distribution that includes tools for penetration testing and sec
 
 1. Connect to the template VM by using remote desktop.
 
-1. Download the image from [Offensive Security Kali Linux VM images](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/).  Remember the default username and password noted on the download page.
-    1. Download the **Kali Linux Hyper-V 64-Bit (7z)** image for VMware.
+1. Download the image from [Offensive Security Kali Linux VM images](https://www.kali.org/get-kali/#kali-virtual-machines).  Remember the default username and password are noted on the download page.
+    1. Download the **Kali Linux Hyper-V 64-Bit (7z)** image for Hyper-V.
     1. Extract the .7z file.  If you don’t already have 7-zip, download it from [https://www.7-zip.org/download.html](https://www.7-zip.org/download.html).
 
 1. Follow the instructions to [import premade Kali Linux image(https://www.kali.org/docs/virtualization/import-premade-hyperv/) into Hyper-V.
