@@ -2,12 +2,9 @@
 title: Integrating Azure with SAP RISE| Microsoft Docs
 description: Describes integrating SAP RISE managed virtual network with customer's own Azure environment
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msftrobiro
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
