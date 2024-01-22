@@ -118,7 +118,7 @@ public static void main(String[] args) {
 
 To programmatically configure the connection string:
 
-First add the `applicationinsights-core` dependency:
+First, add the `applicationinsights-core` dependency:
 
 ```xml
 <dependency>
