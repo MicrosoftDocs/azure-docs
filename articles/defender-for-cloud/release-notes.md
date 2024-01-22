@@ -24,7 +24,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |----------|----------|
-| January 21 | [Deprecation of security alerts and update of security alerts to informational severity level](#deprecation-of-security-alerts-and-update-of-security-alerts-to-informational-severity-level) |
+| January 22 | [Deprecation of security alerts and update of security alerts to informational severity level](#deprecation-of-security-alerts-and-update-of-security-alerts-to-informational-severity-level) |
 | January 16 | [Public preview of agentless malware scanning for servers](#public-preview-of-agentless-malware-scanning-for-servers)|
 | January 15 | [General availability of Defender for Cloud's integration with Microsoft Defender XDR](#general-availability-of-defender-for-clouds-integration-with-microsoft-defender-xdr) |
 | January 12 | [DevOps security Pull Request annotations are now enabled by default for Azure DevOps connectors](#devops-security-pull-request-annotations-are-now-enabled-by-default-for-azure-devops-connectors) |
@@ -32,17 +32,15 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ### Deprecation of security alerts and update of security alerts to informational severity level
 
-January 21, 2024
+January 22, 2024
 
-#### Deprecated security alerts
+This announcement lists container security alerts that are deprecated, and other security alerts whose severity level is updated to **Informational**.
 
 - The following container security alerts are deprecated:
 
   - `Anomalous pod deployment (Preview) (K8S_AnomalousPodDeployment)`
   - `Excessive role permissions assigned in Kubernetes cluster (Preview) (K8S_ServiceAcountPermissionAnomaly)`
   - `Anomalous access to Kubernetes secret (Preview) (K8S_AnomalousSecretAccess)`
-
-#### Security alerts updated to the **informational** severity level
 
 The following security alerts are updated to the **informational** severity level:
 
