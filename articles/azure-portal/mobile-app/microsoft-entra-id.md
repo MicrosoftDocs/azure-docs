@@ -1,7 +1,7 @@
 ---
 title: Use Microsoft Entra ID with the Azure mobile app
 description: Use the Azure mobile app to manage users and groups with Microsoft Entra ID.
-ms.date: 01/16/2024
+ms.date: 01/22/2024
 ms.topic: conceptual
 ---
 
@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 The Azure mobile app provides access to Microsoft Entra ID. You can perform tasks such as managing users and updating group memberships from within the app.
 
-To acsess Microsoft Entra ID, open the Azure mobile app and sign in with your Azure account. From **Home**, scroll down to select the **Microsoft Entra ID** card.
+To access Microsoft Entra ID, open the Azure mobile app and sign in with your Azure account. From **Home**, scroll down to select the **Microsoft Entra ID** card.
 
 > [!NOTE]
 > Your account must have the appropriate permissions in order to perform these tasks. For example, to invite a user to your tenant, you must have a role that includes this permission, such as [Guest Inviter](/entra/identity/role-based-access-control/permissions-reference) role or [User Administrator](/entra/identity/role-based-access-control/permissions-reference).
