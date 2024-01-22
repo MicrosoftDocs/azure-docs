@@ -392,6 +392,7 @@ After you retrieve the required values:
 
 |Field  |Description  |Default value |
 |---------|---------|---------|
+|`azure_cloud` |Used to specify the name of the Azure cloud that is being used, 'AzureCloud' is set as default. Available values are: 'AzureCloud', 'AzureChinaCloud' and 'AzureUSGovernment'. |None (field is empty) |
 |`key_names` |An array of strings. Provide this field if you want to send a subset of the columns to Log Analytics. |None (field is empty) |
 |`plugin_flush_interval` |Defines the maximal time difference (in seconds) between sending two messages to Log Analytics.  |`5` |
 |`retransmission_time` |Sets the amount of time in seconds for retransmitting messages once sending failed. |`10` |
@@ -399,6 +400,8 @@ After you retrieve the required values:
 |`proxy` |Specify which proxy URL to use for all API calls. |None (field is empty) |
 |`proxy_aad` |Specify which proxy URL to use for API calls to Microsoft Entra ID. |Same value as 'proxy' (field is empty) |
 |`proxy_endpoint` |Specify which proxy URL to use for API calls to the Data Collection Endpoint. |Same value as 'proxy' (field is empty) |
+
+#### Firewall configurations
 
 #### Example: Output plugin configuration section
 
