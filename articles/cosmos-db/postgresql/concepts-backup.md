@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022, references_regions
 ms.topic: conceptual
-ms.date: 12/20/2023
+ms.date: 01/21/2024
 ---
 
 # Backup and restore in Azure Cosmos DB for PostgreSQL
@@ -41,36 +41,10 @@ Azure Cosmos DB for PostgreSQL supports the following backup redundancy options.
 
     * Locally redundant backup storage: This option is automatically chosen for regions that don't support availability zones. When the backups are stored in locally redundant backup storage, multiple copies of backups are stored in the same region.
 
-* Cross-region backup (in preview)
+* Cross-region backup
     * Geo-redundant backup storage: You can choose this option at the time of cluster creation. When the backups are stored in another region, in addition to three copies of data stored within the region where your cluster is hosted, the data is replicated to another region.
 
-Geo-redundant backup is supported in the following Azure regions.
-
-| Cluster's region      | Geo-backup stored in           |
-|-----------------------|--------------------------------|
-| Canada Central        | Canada East                    |
-| Central US            | East US 2                      |
-| East Asia             | Southeast Asia                 |
-| East US               | West US                        |
-| East US 2             | Central US                     |
-| Japan East            | Japan West                     |
-| Japan West            | Japan East                     |
-| North Central US      | South Central US               |
-| North Europe          | West Europe                    |
-| South Central US      | North Central US               |
-| Southeast Asia        | East Asia                      |
-| Switzerland North     | Switzerland West               |
-| Switzerland West      | Switzerland North              |
-| West Central US       | West US 2                      |
-| West Europe           | North Europe                   |
-| West US               | East US                        |
-| West US 2             | West Central US                |
-
-> [!IMPORTANT]
-> Geo-redundant backup and restore in Azure Cosmos DB for PostgreSQL is currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended
-> for production workloads. Certain features might not be supported or might have constrained 
-> capabilities.
+[Azure region wehre geo-redundant backup is stored](./resources-regions.md#regional-availability-for-azure-cosmos-db-for-postgresql) depends on the Azure region where Azure Cosmos DB for PostgreSQL cluster is located. 
 
 ### Backup storage cost
 
@@ -87,7 +61,7 @@ database, or if an application accidentally overwrites good data with bad data.
 > [!NOTE]
 > While cluster backups are always stored for 35 days, you might need to 
 > open a support request to restore the cluster to a point that is earlier
-> than the latest failover time. Maintenance and compute / storage scaling operations use
+> than the latest failover time. In addition to [high availability (HA)](./concepts-high-availability.md), [maintenance](./concepts-maintenance.md) and compute / storage scaling operations use
 > failovers to minimize downtime during these operations.  
 
 For same-region restore, when all nodes are up and running, you can restore cluster without any data loss. In an extremely rare case of a node experiencing a catastrophic event (and [high availability](./concepts-high-availability.md) isn't enabled on the cluster), you might lose up to 5 minutes of data.
