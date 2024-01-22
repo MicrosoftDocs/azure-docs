@@ -91,8 +91,7 @@ By default, when enabling Application Insights Java programmatically, the config
 will be read from the classpath (`src/main/resources`, `src/test/resources`).
 
 From 3.4.3, you can configure the name of a JSON file in the classpath with the `applicationinsights.runtime-attach.configuration.classpath.file` system property.
-For example, with `-Dapplicationinsights.runtime-attach.configuration.classpath.file=applicationinsights-dev.json`, Application Insights will use `applicationinsights-dev.json` file for configuration.
-
+For example, with `-Dapplicationinsights.runtime-attach.configuration.classpath.file=applicationinsights-dev.json`, Application Insights will use `applicationinsights-dev.json` file for configuration. 
 You can programmatically configure another file in the classpath:
 
 ```java
@@ -110,7 +109,7 @@ public static void main(String[] args) {
 See [configuration file path configuration options](./java-standalone-config.md#configuration-file-path)
 to change the location for a file outside the classpath.
 
-You can also configure a file outside the classpath:
+To programmatically configure configure a file outside the classpath:
 ```java
 public static void main(String[] args) {
     System.setProperty("applicationinsights.configuration.file", "{path}/applicationinsights-dev.json");
