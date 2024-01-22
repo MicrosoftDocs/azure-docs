@@ -160,7 +160,6 @@ The following example increases the number of nodes to three in the Kubernetes c
         "osDiskSizeGb": null,
         "osType": "Linux",
         "ports": null,
-        "storageProfile": "ManagedDisks",
         "vmSize": "Standard_D2_v2",
         "vnetSubnetId": null
       }

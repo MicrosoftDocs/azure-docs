@@ -3,7 +3,6 @@ title: include file
 description: include file
 ms.topic: include
 ms.custom: include file
-services: time-series-insights
 ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
