@@ -557,7 +557,11 @@ items:
       href: connector-rest.md
       displayName: timeout
     - name: Salesforce
-      href: connector-salesforce.md
+      items:
+      - name: Salesforce
+        href: connector-salesforce.md
+      - name: Salesforce (legacy)
+        href: connector-salesforce-legacy.md
     - name: Salesforce Service Cloud
       href: connector-salesforce-service-cloud.md
     - name: Salesforce Marketing Cloud
