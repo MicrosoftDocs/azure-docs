@@ -9,7 +9,7 @@ title: Get started with Azure Cloud Shell using existing storage
 # Get started with Azure Cloud Shell existing sessions
 
 The first time you start Cloud Shell you have the choice to continue with or without storage. This
-articles shows you how to start Cloud Shell using an existing storage account for persistent file
+article shows you how to start Cloud Shell using an existing storage account for persistent file
 storage.
 
 ## Start Cloud Shell
@@ -29,9 +29,8 @@ storage.
 
    ![Screenshot showing the select subscription and optional storage prompt.][06]
 
-1. In the **Mount storage account** pane, select **Select existing storage account**, then select
-   the **Next** button. This creates a new resource group and storage account for you to use with
-   Cloud Shell.
+1. In the **Mount storage account** pane, select **Select existing storage account**. Select the
+   **Next** button to create a new resource group and storage account.
 
    ![Screenshot showing the create storage account prompt.][08]
 

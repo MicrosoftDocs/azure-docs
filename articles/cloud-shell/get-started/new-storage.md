@@ -9,8 +9,8 @@ title: Get started with Azure Cloud Shell using persistent storage
 # Get started with Azure Cloud Shell using persistent storage
 
 The first time you start Cloud Shell you have the choice to continue with or without storage.
-Creating a storage account allows you to create file that are persisted across sessions. This
-articles shows you how to start Cloud Shell with a newly storage account for persistent file
+Creating a storage account allows you to create files that are persisted across sessions. This
+article shows you how to start Cloud Shell with a newly created storage account for persistent file
 storage.
 
 ## Start Cloud Shell
@@ -30,9 +30,8 @@ storage.
 
    ![Screenshot showing the select subscription and optional storage prompt.][06]
 
-1. In the **Mount storage account** pane, select **We will create a storage account for you**, then
-   select the **Next** button. This creates a new resource group and storage account for you to use
-   with Cloud Shell.
+1. In the **Mount storage account** pane, select **We will create a storage account for you**.
+   Select the **Next** button to create a new resource group and storage account.
 
    ![Screenshot showing the create storage account prompt.][08]
 
