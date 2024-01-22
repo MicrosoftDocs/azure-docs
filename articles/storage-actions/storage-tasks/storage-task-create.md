@@ -7,7 +7,7 @@ ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: how-to
 ms.author: normesta
-ms.date: 01/17/2024
+ms.date: 01/22/2024
 ---
 
 # Create a storage task
@@ -40,7 +40,7 @@ On the **Basics** tab, provide the essential information for your storage task. 
 |--|--|--|--|
 | Project details | Subscription | Required | Select the subscription for the new storage task. |
 | Project details | Resource group | Required | Create a new resource group for this storage task, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/overview.md#resource-groups). |
-| Instance details | Storage task name | Required | Choose a unique name for your storage task. storage task names must be between 3 and 18 characters in length and may contain only lowercase letters and numbers. |
+| Instance details | Storage task name | Required | Choose a unique name for your storage task. storage task names must be between 3 and 18 characters in length and might contain only lowercase letters and numbers. |
 | Instance details | Region | Required | Select the appropriate region for your storage task. For more information, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md). |
 
 The following image shows an example of the **Basics** tab.
@@ -58,7 +58,7 @@ The following table describes the fields on the **Conditions** tab.
 
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
-| If | And/Or | Required | An operator which combines two or more predicates to form a logical-AND or logical-OR expression. |
+| If | And/Or | Required | An operator that combines two or more predicates to form a logical-AND or logical-OR expression. |
 | If | Blob property | Required | The blob or container property that you like to use in the clause. See [Supported blob properties](storage-task-properties-operators-operations.md#supported-properties-in-a-clause)|
 | If | Operator | Required | The operator that defines how each property in the clause must relate to the corresponding value. See [Supported operators](storage-task-properties-operators-operations.md#supported-operators-in-a-clause)|
 | If| Property value | Required | The value that relates to the corresponding property.  |
