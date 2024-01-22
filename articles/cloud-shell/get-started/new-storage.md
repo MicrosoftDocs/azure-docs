@@ -1,5 +1,5 @@
 ---
-description: Learn how to start using Azure Cloud Shell.
+description: Learn how to start using Azure Cloud Shell with persistent storage.
 ms.contributor: jahelmic
 ms.date: 01/22/2024
 ms.topic: article
