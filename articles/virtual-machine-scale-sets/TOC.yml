@@ -139,6 +139,8 @@
       href: virtual-machine-scale-sets-configure-rolling-upgrades.md 
     - name: Performing Manual Upgrades
       href: virtual-machine-scale-sets-perform-manual-upgrades.md
+    - name: Reimage a virtual machine
+      href: virtual-machine-scale-sets-reimage-virtual-machine.md
   - name: Common management tasks
     items:
     - name: Use the Azure CLI
