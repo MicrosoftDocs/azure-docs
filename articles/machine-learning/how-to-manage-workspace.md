@@ -29,6 +29,8 @@ As your needs change or requirements for automation increase you can also manage
    1. Install azure-identity: `pip install azure-identity`.  If in a notebook cell, use `%pip install azure-identity`.
    1. Provide your subscription details
 
+      [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+
       [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=subscription_id)]
 
    1. Get a handle to the subscription.  `ml_client` is used in all the Python code in this article.
@@ -217,6 +219,19 @@ ml_client.workspaces.begin_create(ws)
 
 ---
 
+### Identity
+
+#### Managed identity
+
+A workspace can be given either a system assigned identity or a user assigned identity. This identity is used to access resources in your subscription.  For more information, see [Set up authentication between Azure Machine Learning and other services](how-to-identity-based-service-authentication.md).
+
+#### Storage account access
+
+Choose between **Credential-based access** or **Identity-based access** when connecting to the default storage account. When using identity-based authentication, the Storage Blob Data Contributor role must be granted to the workspace managed identity on the storage account.
+
+#### Data impact
+
+If your workspace contains sensitive data, select **High business impact workspace**. This will control the amount of data Microsoft collects for diagnostic purposes and enables additional encryption in Microsoft managed environments.​
 
 ### Tags
 
