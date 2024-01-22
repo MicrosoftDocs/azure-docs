@@ -3,7 +3,7 @@ title: Radiology Insight inference information
 titleSuffix: Azure AI Health Insights
 description: This article provides RI inference information.
 services: azure-health-insights
-author: Jan Schietse
+author: JanSchietse
 manager: JoeriVDV
 ms.service: azure-health-insights
 ms.topic: overview
@@ -97,9 +97,9 @@ A mismatch with discrepancy type “textLaterityMissing” has no token extensio
 
 
 
-[Example input json](example-inference-lateralitydiscrepancy.jsonrequest.md)
+[Example input json](example-inference-lateralitydiscrepancy-jsonrequest.md)
 
-[Example output json](example-inference-lateralitydiscrepancy.jsonresponse.md)
+[Example output json](example-inference-lateralitydiscrepancy-jsonresponse.md)
 
 
 
@@ -344,7 +344,7 @@ This type has the following fields, the first 2 of which are always filled:
 
 
 [Example  input json](example1-inference-followuprecommendation-jsonrequest.md)
-[Example output json](example1-inference_followuprecommendation-jsonresponse.md)
+[Example output json](example1-inference-followuprecommendation-jsonresponse.md)
 
 **follow up Communication**
 
