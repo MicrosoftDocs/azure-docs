@@ -1,6 +1,6 @@
 ---
 title: Regional availability – Azure Cosmos DB for PostgreSQL
-description: Azure regions where you can run a cluster, configure geo-redundant backup, and can be protected by AZ outage resiliency
+description: Azure regions where you can run an Azure Cosmos DB for PostgreSQL cluster, configure geo-redundant backup, and can get AZ outage resiliency protection
 ms.author: nlarin
 author: niklarin
 ms.service: cosmos-db

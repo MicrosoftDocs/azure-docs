@@ -44,7 +44,7 @@ Azure Cosmos DB for PostgreSQL supports the following backup redundancy options.
 * Cross-region backup
     * Geo-redundant backup storage: You can choose this option at the time of cluster creation. When the backups are stored in another region, in addition to three copies of data stored within the region where your cluster is hosted, the data is replicated to another region.
 
-[Azure region wehre geo-redundant backup is stored](./resources-regions.md#regional-availability-for-azure-cosmos-db-for-postgresql) depends on the Azure region where Azure Cosmos DB for PostgreSQL cluster is located. 
+[Azure region where cluster's geo-redundant backup is stored](./resources-regions.md#regional-availability-for-azure-cosmos-db-for-postgresql) depends on the Azure region where the Azure Cosmos DB for PostgreSQL cluster is located.
 
 ### Backup storage cost
 
@@ -89,4 +89,4 @@ In most cases, cluster restore takes up to 1 hour.
 * See the steps to [restore a cluster](howto-restore-portal.md)
   in the Azure portal.
 * See [backup and restore limits and limitations](./reference-limits.md#backup-and-restore).
-* Learn about [Azure availability zones](../../availability-zones/az-overview.md).
+* Learn about  [Azure availability zones](../../availability-zones/az-overview.md).
