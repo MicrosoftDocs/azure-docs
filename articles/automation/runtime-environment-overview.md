@@ -3,7 +3,7 @@ title: Runtime environment in Azure Automation
 description: This article provides an overview on Runtime environment in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/17/2024
+ms.date: 01/22/2024
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -76,7 +76,9 @@ You can't edit these Runtime environments. However, any changes that are made in
 ## Limitations
 
 - Runtime environment is currently supported in all Public regions except Central India, Germany North, Italy North, Israel Central, Poland Central, UAE Central, and Government clouds.
-- Currently only cloud jobs are supported for runbooks linked to Runtime environment. For Hybrid jobs, ensure to install the modules required for runbook execution on Hybrid Runbook Worker
+- Currently only cloud jobs are supported for newly created runbooks linked to user-created Runtime environments. However, you can link the newly created runbook to system generated Automation Runtime Environment to execute it as a hybrid job.
+- Existing runbooks that are automatically moved from old experience to Runtime environment experience would be able to execute as both cloud and hybrid job. 
+- When the runbook is [updated](manage-runtime-environment.md) and linked to a different Runtime environment, it can be executed as cloud job only.
 - PowerShell Workflow, Graphical PowerShell, and Graphical PowerShell Workflow runbooks only work with System-generated PowerShell-5.1 Runtime environment.
 - RBAC permissions cannot be assigned to Runtime environment.
 - Runtime environment can't be configured through Azure Automation extension for Visual Studio Code.
