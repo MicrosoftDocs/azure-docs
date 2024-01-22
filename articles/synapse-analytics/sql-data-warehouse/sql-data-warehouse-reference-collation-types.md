@@ -24,9 +24,10 @@ Collations provide the locale, code page, sort order and character sensitivity r
 
 ## Changing collation
 
-To change the default collation, update to the **Collation** field in the provisioning experience.
+To change the default collation, update the Collation field in the provisioning experience during the SQL pool creation. For example, if you want to change the default collation to be case-sensitive, modify the collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS within the portal provisioning experience. Alternatively, you can modify the collation within your ARM template.
 
-For example, if you wanted to change the default collation to case sensitive, change the collation from `SQL_Latin1_General_CP1_CI_AS` to `SQL_Latin1_General_CP1_CS_AS`.
+> [!NOTE]
+> Collation cannot be changed on an existing database. If you need to have a different collation at the SQL pool level, you need to provision a new SQL pool with the required collation
 
 ## Collation support
 
