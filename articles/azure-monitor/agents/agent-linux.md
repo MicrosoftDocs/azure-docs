@@ -56,13 +56,13 @@ If you're using an older version of the agent, you must have the virtual machine
  ```bash
     sudo yum install -y python2
  ```
- - **Ubuntu, Debian**:
+- **Ubuntu, Debian**:
 
  ```bash
     sudo apt-get update
     sudo apt-get install -y python2
  ```
- - **SUSE**:
+- **SUSE**:
 
  ```bash
     sudo zypper install -y python2

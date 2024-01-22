@@ -16,22 +16,22 @@ ms.date: 01/19/2024
 
 Get started with vector search in Azure AI Search using the **2023-11-01** REST APIs that create, load, and query a search index. 
 
-Search indexes can have vector and non-vector fields. You can create pure vector queries, or hybrid queries targeting both vector *and* textual fields configured for filters, sorts, facets, and semantic reranking.
+Search indexes can have vector and nonvector fields. You can execute pure vector queries, or hybrid queries targeting both vector *and* textual fields configured for filters, sorts, facets, and semantic reranking.
 
 > [!NOTE]
-> Looking for [built-in data chunking and vectorization public preview](vector-search-integrated-vectorization.md)? Try the [**Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) instead.
+> The stable REST API version depends on external modules for data chunking and embedding. If you want test-drive the [built-in data chunking and vectorization (public preview)](vector-search-integrated-vectorization.md) features, try the [**Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) for an end-to-end walkthrough.
 
 ## Prerequisites
 
 + [Postman app](https://www.postman.com/downloads/)
 
++ [Sample Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart-vectors), with requests targeting the **2023-11-01** API version of Azure AI Search.
+
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
 + Azure AI Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
-  For the optional [semantic ranking](semantic-search-overview.md) shown in the last example, your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
-
-+ [Sample Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart-vectors), with requests targeting the **2023-11-01** API version of Azure AI Search.
++ Optionally, for [semantic reranking](semantic-search-overview.md) shown in the last example, your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
 + Optionally, an [Azure OpenAI](https://aka.ms/oai/access) resource with a deployment of **text-embedding-ada-002**. The quickstart includes an optional step for generating new text embeddings, but we provide existing embeddings so that you can skip this step.
 
@@ -233,7 +233,7 @@ You should get a status HTTP 201 success.
 
 **Key points:**
 
-+ The `"fields"` collection includes a required key field, text and vector fields (such as `"Description"`, `"DescriptionVector"`) for keyword and vector search. Colocating vector and non-vector fields in the same index enables hybrid queries. For instance, you can combine filters, keyword search with semantic ranking, and vectors into a single query operation.
++ The `"fields"` collection includes a required key field, text and vector fields (such as `"Description"`, `"DescriptionVector"`) for keyword and vector search. Colocating vector and nonvector fields in the same index enables hybrid queries. For instance, you can combine filters, keyword search with semantic ranking, and vectors into a single query operation.
 
 + Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchProfile"` properties. See [Create or Update Index](/rest/api/searchservice/indexes/create-or-update) for property descriptions.
 
@@ -476,7 +476,7 @@ The response for the vector equivalent of "classic lodging near running trails, 
 
 ### Single vector search with filter
 
-You can add filters, but the filters are applied to the non-vector content in your index. In this example, the filter applies to the `"Tags"` field, filtering out any hotels that don't provide free WIFI.
+You can add filters, but the filters are applied to the nonvector content in your index. In this example, the filter applies to the `"Tags"` field, filtering out any hotels that don't provide free WIFI.
 
 This example sets `vectorFilterMode` to pre-query filtering, which is the default, so you don't need to set it. It's listed here for awareness because it's a newer feature.
 
