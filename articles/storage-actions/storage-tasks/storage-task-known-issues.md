@@ -66,7 +66,7 @@ Storage tasks are supported on new storage accounts created after the subscripti
 
 ## Monitoring data doesn't appear unless the storage task and the storage account are in the same resource group
 
-If the storage task and the storage account specified in the task assignment are in different resource groups, the aggregated monitoring data for the storage account doesn't show up correctly in the monitoring tab of the storage task blade.
+If the storage task and the storage account specified in the task assignment are in different resource groups, the aggregated monitoring data for the storage account doesn't show up correctly in the monitoring tab of the storage task pane.
 
 ## Storage tasks assignment execution gets stuck in an in-progress state with no blobs processed
 
