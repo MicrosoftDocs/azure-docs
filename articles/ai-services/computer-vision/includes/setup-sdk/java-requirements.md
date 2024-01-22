@@ -6,7 +6,7 @@ ms.date: 08/01/2023
 ms.author: pafarley
 ---
 
-The Image Analysis SDK for Java is compatible with Windows, Linux, and MacOS.
+The Image Analysis SDK for Java is compatible with Windows, Linux, and macOS.
 - [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 or above installed.
 
 # [Windows](#tab/windows)

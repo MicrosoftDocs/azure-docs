@@ -33,10 +33,10 @@ The Image Analysis SDK supports the following languages and platforms:
 
 | Programming language | Quickstart | API Reference | Platform support |
 |----------------------|------------|-----------|------------------|
-| C# <sup>1</sup> | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)  | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/csharp) | Windows, Linux, MacOS |
-| Python | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-python) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/python) | Windows, Linux, MacOS |
-| Java | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-java) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/java) | Windows, Linux, MacOS |
-| JavaScript | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-js) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/js) | Windows, Linux, MacOS |
+| C# <sup>1</sup> | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)  | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/csharp) | Windows, Linux, macOS |
+| Python | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-python) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/python) | Windows, Linux, [macOS](url) |
+| Java | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-java) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/java) | Windows, Linux, macOS |
+| JavaScript | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-js) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/js) | Windows, Linux, macOS |
 
 
 ## GitHub samples

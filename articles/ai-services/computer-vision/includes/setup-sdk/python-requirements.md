@@ -6,7 +6,7 @@ ms.date: 08/01/2023
 ms.author: pafarley
 ---
 
-The Image Analysis SDK for Python is compatible with Windows, Linux, and MacOS.
+The Image Analysis SDK for Python is compatible with Windows, Linux, and macOS.
 
 <!--
 # [Windows](#tab/windows)

@@ -6,7 +6,7 @@ ms.date: 08/01/2023
 ms.author: pafarley
 ---
 
-The Image Analysis SDK for C# is compatible with Windows, Linux, and MacOS.
+The Image Analysis SDK for C# is compatible with Windows, Linux, and macOS.
 - [.NET](https://dotnet.microsoft.com/download/dotnet) installed. This installation also includes the [.NET CLI](/dotnet/core/tools/).
 
 <!--
