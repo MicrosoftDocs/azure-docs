@@ -93,7 +93,7 @@ Each replica you create has its dedicated endpoint. If your application resides 
 
 When geo-replication is enabled, and if one replica isn't accessible, you can let your application failover to another replica for improved resiliency. App Configuration provider libraries have built-in failover support by accepting multiple replica endpoints. You can provide a list of your replica endpoints in the order of the most preferred to the least preferred endpoint. When the current endpoint isn't accessible, the provider library will fail over to a less preferred endpoint, but it will try to connect to the more preferred endpoints from time to time. When a more preferred endpoint becomes available, it will switch to it for future requests.
 
-Assuming you have an application using Azure App Configuration, you can update it as the following sample code to take advantage of the failover feature. You can either provide a list of endpoints for Microsoft Entra ID authentication or a list of connection strings for access key-based authentication.
+Assuming you have an application using Azure App Configuration, you can update it as the following sample code to take advantage of the failover feature. You can either provide a list of endpoints for Microsoft Entra authentication or a list of connection strings for access key-based authentication.
 
 ### [.NET](#tab/dotnet)
 
@@ -109,7 +109,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
         new Uri("<first-replica-endpoint>"),
         new Uri("<second-replica-endpoint>") };
     
-    // Connect to replica endpoints using Microsoft Entra ID authentication
+    // Connect to replica endpoints using Microsoft Entra authentication
     options.Connect(endpoints, new DefaultAzureCredential());
 
     // Other changes to options
@@ -172,19 +172,15 @@ The failover may occur if the App Configuration provider observes the following 
 
 The failover won't happen for client errors like authentication failures.
 
-## Replica discovery
+## Automatic replica discovery
 
-Other than provide a list of your replica endpoints，provider library failover amongst them, App Configuration .NET provider also supports automatic replica discovery. It will discover all replicas behind the endpoint you provided. You don't have to know how many replicas you have or what's their endpoint. The .NET provider library will discover them for you by default, and failover amongst the provided and discovered endpoints.
+You can specify one or more endpoints of a geo-replication-enabled App Configuration store that you want your application to connect or failover to. However, if none of these endpoints are accessible, the App Configuration provider libraries can automatically discover any additional replicas and attempt to connect to them. This feature allows you to benefit from geo-replication without having to change your code or redeploy your application. This means you can enable geo-replication or add extra replicas even after your application has been deployed.
 
-You can still provide a list of endpoints for Microsoft Entra ID authentication or a list of connection strings for access key-based authentication. The .NET provider library will use the provided endpoints as the higher preferred for failover, honer with the order in the list, and discover the rest of the replicas and use them as the lower preferred for failover.
-
-This feature can be disabled by setting the `ReplicaDiscoveryEnabled` option to `false`.
+The automatically discovered replicas will be selected and used randomly. If you have a preference for specific replicas, you can explicitly specify their endpoints. This feature is enabled by default, but you can refer to the following sample code to disable it.
 
 ### [.NET](#tab/dotnet)
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
-
-**Disable replica discovery**
 
 ```csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
@@ -197,7 +193,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 ```
 
 > [!NOTE]
-> The failover support is available if you use version **7.1.0** or later of any of the following packages.
+> The automatic replica discovery support is available if you use version **7.1.0-preview** or later of any of the following packages.
 > - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
