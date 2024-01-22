@@ -752,7 +752,7 @@
         "articles/playwright-testing/**/*": "Standard",
         "articles/virtual-machines/linux/classic/**/*": "None",
         "articles/virtual-machines/windows/classic/**/*": "None",
-        "articles/iot-operations/**/*": "Standard"
+        "articles/iot-operations/**/*": "GitHub"
       },
       "feedback_help_link_url": {
         "articles/deployment-environments/**/*": "https://developercommunity.microsoft.com/deploymentenvironments",
