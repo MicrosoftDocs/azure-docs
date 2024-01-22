@@ -4,7 +4,6 @@ description: Use Apache Spark in Azure Synapse Analytics to train machine learni
 author: midesa
 ms.author: midesa
 ms.reviewer: euang
-services: synapse-analytics 
 ms.service:  synapse-analytics 
 ms.topic: conceptual
 ms.subservice: machine-learning

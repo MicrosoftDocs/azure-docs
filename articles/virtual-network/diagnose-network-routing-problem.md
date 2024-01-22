@@ -3,7 +3,7 @@ title: Diagnose an Azure virtual machine routing problem
 description: Learn how to diagnose a virtual machine routing problem by viewing the effective routes for a virtual machine.
 services: virtual-network
 author: asudbring    
-manager: twooley
+
 tags: azure-resource-manager
 ms.service: virtual-network
 ms.topic: troubleshooting
