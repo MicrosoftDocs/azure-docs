@@ -3,15 +3,13 @@ metadata:
   title: "Frequently asked questions - Custom Vision"
   titleSuffix: Azure AI services
   description: Get answers to frequently asked questions about the Custom Vision Service in Azure AI services.
-  #services: cognitive-services
   author: PatrickFarley
   manager: nitinme
-  
   ms.service: azure-ai-custom-vision
   ms.topic: faq
   ms.date: 01/22/2024
   ms.author: pafarley
-  ms.custom: 
+  
 title: Custom Vision frequently asked questions
 summary: |
   > [!TIP]

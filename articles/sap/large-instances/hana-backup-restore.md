@@ -2,10 +2,8 @@
 title: HANA backup and restore on SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn how to back up and restore SAP HANA on HANA Large Instances.
 services: virtual-machines-linux
-documentationcenter:
 author: ju-shim
 manager: gwallace
-editor:
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
