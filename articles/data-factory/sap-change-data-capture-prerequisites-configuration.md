@@ -33,7 +33,7 @@ To set up your SAP systems to use the SAP ODP framework, follow the guidelines t
 
 ### SAP system requirements
 
-The SAP CDC connector leverages the ODP 2.0 framework, which is part of many SAP systems. For example it is included in up-to-date releases of SAP ECC and SAP S/4HANA, SAP BW and SAP BW/4HANA and SAP SLT. To ensure that your SAP releases have ODP 2.0, see the following SAP documentation or support notes. Even though the guidance primarily refers to SAP BW and SAP Data Services, the information also applies to Data Factory.
+The SAP CDC connector uses the ODP 2.0 framework, which is part of many SAP systems. For example it's included in up-to-date releases of SAP ECC and SAP S/4HANA, SAP BW and SAP BW/4HANA and SAP SLT. To ensure that your SAP releases have ODP 2.0, see the following SAP documentation or support notes. Even though the guidance primarily refers to SAP BW and SAP Data Services, the information also applies to Data Factory.
 
 - [1931427 - ODP Data Replication API 2.0](https://launchpad.support.sap.com/#/notes/1931427)
 - [2481315 - Operational Data Provisioning: Availability and Limitations](https://launchpad.support.sap.com/#/notes/2481315)
@@ -41,7 +41,7 @@ The SAP CDC connector leverages the ODP 2.0 framework, which is part of many SAP
 
 ### Set up the SAP user
 
-Data extractions via ODP require a properly configured user on SAP systems. The user must be authorized for ODP API invocations over Remote Function Call (RFC) modules. The user configuration is the same configuration that's required for data extractions via ODP from SAP source systems into BW or BW/4HANA. For more information, see these SAP support notes:
+Data extractions via ODP require a properly configured user on SAP systems. The user must be authorized for ODP API invocations over Remote Function Call (RFC) modules. The user configuration is the same configuration as for data extractions via ODP from SAP source systems into BW or BW/4HANA. For more information, see these SAP support notes:
 
 - [2855052 - To authorize ODP API usage](https://launchpad.support.sap.com/#/notes/2855052)
 - [460089 - To authorize ODP RFC invocations](https://launchpad.support.sap.com/#/notes/460089)
