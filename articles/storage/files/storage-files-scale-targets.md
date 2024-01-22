@@ -4,7 +4,7 @@ description: Learn about the capacity, IOPS, and throughput rates for Azure file
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 01/17/2024
+ms.date: 01/22/2024
 ms.author: kendownie
 ---
 
@@ -107,21 +107,27 @@ If you're using [FSLogix with Azure Virtual Desktop](../../virtual-desktop/fslog
 If you're hitting the limit of 10,000 concurrent handles for the root directory or users are seeing poor performance, try using an additional Azure file share and distributing the containers between the shares.
 
 > [!WARNING]
-> While Azure Files can support up to 10,000 users from a single file share, it's critical to properly test your workloads against the size and type of file share you've created. Your requirements might vary based on users, profile size, and workload.
+> While Azure Files can support up to 10,000 concurrent users from a single file share, it's critical to properly test your workloads against the size and type of file share you've created. Your requirements might vary based on users, profile size, and workload.
+
+For example, if you have 2,400 concurrent users, you'd need 2,400 handles on the root directory (one for each user), which is below the limit of 10,000 open handles. For FSLogix users, reaching the limit of 2,000 open file and directory handles is extremely unlikely. If you have a single FSLogix profile container per user, you'd only consume two file/directory handles: one for the profile directory and one for the profile container file. If users have two containers each (profile and ODFC), you'd need one additional handle for the ODFC file.
 
 #### App attach with CimFS
 
-If you're using [MSIX App attach or App attach](../../virtual-desktop/app-attach-overview.md) to dynamically attach applications, you can use Composite Image File System (CimFS) or VHD/VHDX files for [disk images](../../virtual-desktop/app-attach-overview.md#application-images). Either way, the scale limits are per VM mounting the image, not per user.
+If you're using [MSIX App attach or App attach](../../virtual-desktop/app-attach-overview.md) to dynamically attach applications, you can use Composite Image File System (CimFS) or VHD/VHDX files for [disk images](../../virtual-desktop/app-attach-overview.md#application-images). Either way, the scale limits are per VM mounting the image, not per user. The number of users is irrelevant when calculating scale limits. When a VM is booted, it mounts the disk image, even if there are zero users.
 
-If you're using App attach with CimFS, the disk images only consume handles on the disk image files. They don't consume handles on the root directory or the directory containing the disk image. However, you might run out of handles on the disk image file if the number of VMs per app exceeds 2,000. In this case, use an additional Azure file share.
+If you're using App attach with CimFS, the disk images only consume handles on the disk image files. They don't consume handles on the root directory or the directory containing the disk image. However, because a CimFS image is a combination of the .cim file and at least two other files, for every VM mounting the disk image, you'll need one handle each for three files in the directory. So if you have 100 VMs, you'll need 300 file handles.
+
+You might run out of file handles if the number of VMs per app exceeds 2,000. In this case, use an additional Azure file share.
 
 #### App attach with VHD/VHDX
 
 If you're using App attach with VHD/VHDX files, the files are mounted in a system context, not a user context, and they are shared and read-only. More than one handle on the VHDX file can be consumed by a connecting system. To stay within Azure Files scale limits, the number of VMs multiplied by the number of apps must be less than 10,000, and the number of VMs per app can't exceed 2,000. So the constraint is whichever you hit first.
 
-In this scenario, you could hit the per file/directory constraint with 2,000 mounts of a single VHD/VHDX. Or, if the share contains multiple VHD/VHDX files, you could hit the root directory constraint first. For example, 100 VMs mounting 100 shared VHDX files will hit the 10,000 handle root directory limit.
+In this scenario, you could hit the per file/directory limit with 2,000 mounts of a single VHD/VHDX. Or, if the share contains multiple VHD/VHDX files, you could hit the root directory limit first. For example, 100 VMs mounting 100 shared VHDX files will hit the 10,000 handle root directory limit.
 
-If you're hitting the limits on maximum concurrent handles, use an additional Azure file share.
+In another example, 100 VMs accessing 20 apps will require 2,000 root directory handles (100 x 20 = 2,000), which is well within the 10,000 limit for root directory handles. You'll also need a file handle and a directory/folder handle for every VM mounting the VHD(X) image, so 200 handles in this case (100 file handles + 100 directory handles), which is comfortably below the 2,000 handle limit per file/directory.
+
+If you're hitting the limits on maximum concurrent handles for the root directory or per file/directory, use an additional Azure file share.
 
 ## Azure File Sync scale targets
 
