@@ -1,5 +1,5 @@
 ---
-title: Test accuracy of a Custom Speech model - Speech service
+title: Test accuracy of a custom speech model - Speech service
 titleSuffix: Azure AI services
 description: In this article, you learn how to quantitatively measure and improve the quality of our speech to text model or your custom model.
 author: eric-urban
@@ -13,7 +13,7 @@ show_latex: true
 no-loc: [$$, '\times', '\over']
 ---
 
-# Test accuracy of a Custom Speech model
+# Test accuracy of a custom speech model
 
 In this article, you learn how to quantitatively measure and improve the accuracy of the base speech to text model or your own custom models. [Audio + human-labeled transcript](how-to-custom-speech-test-and-train.md#audio--human-labeled-transcript-data-for-training-or-testing) data is required to test accuracy. You should provide from 30 minutes to 5 hours of representative audio. 
 
@@ -28,7 +28,7 @@ You can test the accuracy of your custom model by creating a test. A test requir
 Follow these steps to create a test:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
-1. Select **Custom Speech** > Your project name > **Test models**.
+1. Select **Custom speech** > Your project name > **Test models**.
 1. Select **Create new test**.
 1. Select **Evaluate accuracy** > **Next**. 
 1. Select one audio + human-labeled transcription dataset, and then select **Next**. If there aren't any datasets available, cancel the setup, and then go to the **Speech datasets** menu to [upload datasets](how-to-custom-speech-upload-data.md).
@@ -228,7 +228,7 @@ You should get the test results and [evaluate](#evaluate-word-error-rate-wer) th
 Follow these steps to get test results:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
-1. Select **Custom Speech** > Your project name > **Test models**.
+1. Select **Custom speech** > Your project name > **Test models**.
 1. Select the link by test name.
 1. After the test is complete, as indicated by the status set to *Succeeded*, you should see results that include the WER number for each tested model.
 
