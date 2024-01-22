@@ -1,3 +1,4 @@
+```json
 {
   "configuration" : {
     "inferenceOptions" : {
@@ -71,3 +72,4 @@
     } ]
   } ]
 }
+```
