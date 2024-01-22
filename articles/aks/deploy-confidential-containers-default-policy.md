@@ -139,7 +139,7 @@ Use the following command to enable Confidential Containers (preview) by creatin
    * **--cluster-name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
    * **--name**: Enter a unique name for your clusters node pool, such as *nodepool2*.
    * **--workload-runtime**: Specify *KataCcIsolation* to enable the feature on the node pool. Along with the `--workload-runtime` parameter, these other parameters shall satisfy the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
-   * **--os-sku**: **AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
+   * **--os-sku**: *AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
    * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Standard_DC8as_cc_v5][DC8as-series] VMs.
 
    The following example adds a user node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup*:
@@ -176,7 +176,7 @@ To configure the workload identity, perform the following steps described in the
 * Establish federated identity credential
 
 >[!IMPORTANT]
->For the step to **Export environmental variables**, set the value for the variable `SERVICE_ACCOUNT_NAMESPACE` to `kafka`.
+>For the step to **Export environment variables**, set the value for the variable `SERVICE_ACCOUNT_NAMESPACE` to `kafka`.
 
 ## Deploy a trusted application with kata-cc and attestation container
 
@@ -193,7 +193,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 1. Grant the managed identity you created earlier, and your account, access to the key vault. [Assign][assign-key-vault-access-cli] both identities the **Key Vault Crypto Officer** and **Key Vault Crypto User** Azure RBAC roles.
 
    >[!NOTE]
-   >The managed identity is the value you assigned to the `USER_ASSIGNED_IDENTITY_NAME` variable.
+   >The managed identity is the value you assign to the `USER_ASSIGNED_IDENTITY_NAME` variable.
 
    >[!NOTE]
    >To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac], or [Owner][owner-rbac].
@@ -338,7 +338,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 
     ```
 
-1. Prepare the RSA Encryption/Decryption key by the [bash script](https://github.com/microsoft/confidential-container-demos/raw/main/kafka/setup-key.sh) for the workload from GitHub. Save the file as `setup-key.sh`.
+1. Prepare the RSA Encryption/Decryption key using the [bash script](https://github.com/microsoft/confidential-container-demos/raw/main/kafka/setup-key.sh) for the workload from GitHub. Save the file as `setup-key.sh`.
 
 1. Set the `MAA_ENDPOINT` environmental variable to match the value for the `SkrClientMAAEndpoint` from the `consumer.yaml` manifest file by running the following command.
 
@@ -379,7 +379,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 
 1. Copy and paste the external IP address of the consumer service into your browser and observe the decrypted message.
 
-    The following resembles the output of the command:
+    The following example resembles the output of the command:
 
     ```output
     Welcome to Confidential Containers on AKS!

@@ -10,7 +10,6 @@ ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 04/06/2023
 ms.author: pafarley
-keywords: 
 ---
 
 
@@ -47,7 +46,10 @@ Every harm category the service applies also comes with a severity level rating.
 - [4,5] -> 4
 - [6,7] -> 6
 
-[!INCLUDE [severity-levels](../includes/severity-levels.md)]
+[!INCLUDE [severity-levels text](../includes/severity-levels-text.md)]
+
+[!INCLUDE [severity-levels image](../includes/severity-levels-image.md)]
+
 
 ## Next steps
 
