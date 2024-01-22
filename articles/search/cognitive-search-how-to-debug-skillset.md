@@ -27,7 +27,7 @@ A debug session is a cached indexer and skillset execution, scoped to a single d
 
 + An Azure Storage account, used to save session state.
 
-+ A **Storage Blob Data Contributor** role assignment in Azure Storage if you're using managed identities. 
++ A **Storage Blob Data Contributor** role assignment in Azure Storage if you're using a system managed identity. Otherwise, plan on using a full access connection string for the debug session connection to Azure Storage.
 
 + If the Azure Storage account is behind a firewall, configure it to [allow search service access](search-indexer-howto-access-ip-restricted.md).
 
@@ -41,7 +41,7 @@ Debug sessions work with all generally available [indexer data sources](search-d
 
 + For the SQL API of Azure Cosmos DB, if a partitioned collection was previously non-partitioned, the debug session won't find the document.
 
-+ For custom skills, you can't use a *user-assigned managed identity* to connect over a private endpoint in a debug session, but a system managed identity is supported. For more information, see [Connect a search service to other Azure resources using a managed identity](search-howto-managed-identities-data-sources.md).
++ For custom skills, a user-assigned managed identity isn't supported for a debug session connection to Azure Storage. As stated in the prerequisites, you can use a system managed identity, or specify a full access connection string that includes a key. For more information, see [Connect a search service to other Azure resources using a managed identity](search-howto-managed-identities-data-sources.md).
 
 ## Create a debug session
 
@@ -77,7 +77,7 @@ The debug session begins by executing the indexer and skillset on the selected d
 
 A debug session can be canceled while it's executing using the **Cancel** button. If you hit the **Cancel** button you should be able to analyze partial results.
 
-It is expected for a debug session to take longer to execute than the indexer since it goes through extra processing. 
+It's expected for a debug session to take longer to execute than the indexer since it goes through extra processing. 
 
 ## Start with errors and warnings
 
@@ -117,7 +117,7 @@ Enriched documents are internal, but a debug session gives you access to the con
 
 If the field mappings are correct, check individual skills for configuration and content. If a skill fails to produce output, it might be missing a property or parameter, which can be determined through error and validation messages. 
 
-Other issues, such as an invalid context or input expression, can be harder to resolve because the error will tell you what is wrong, but not how to fix it. For help with context and input syntax, see [Reference annotations in an Azure AI Search skillset](cognitive-search-concept-annotations-syntax.md#background-concepts). For help with individual messages, see [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md).
+Other issues, such as an invalid context or input expression, can be harder to resolve because the error will tell you what is wrong, but not how to fix it. For help with context and input syntax, see [Reference enrichments in an Azure AI Search skillset](cognitive-search-concept-annotations-syntax.md#background-concepts). For help with individual messages, see [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md).
 
 The following steps show you how to get information about a skill.
 
@@ -203,7 +203,7 @@ You can edit the skill definition in the portal.
 
 ### Test your code
 
-At this point, new requests from your debug session should now be sent to your local Azure Function. You can use breakpoints in your Visual Studio code to debug your code or run step by step.
+At this point, new requests from your debug session should now be sent to your local Azure Function. You can use breakpoints in your Visual Studio Code to debug your code or run step by step.
 
 ## Next steps
 

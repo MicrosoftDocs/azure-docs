@@ -59,6 +59,7 @@ items:
       href: ./concepts/advanced-prompt-engineering.md
     - name: Provisioned throughput units (PTU)
       href: ./concepts/provisioned-throughput.md
+      displayName: PTU, provisioned, provisioned throughput units
     - name: System message templates
       href: ./concepts/system-message.md
     - name: Using your data - text (preview)
@@ -128,8 +129,12 @@ items:
         href: ./how-to/quota.md
       - name: Monitor Azure OpenAI
         href: ./how-to/monitoring.md
+      - name: Onboarding to Provisioned Throughput Units (PTU)
+        href: ./how-to/provisioned-throughput-onboarding.md
+        displayName: PTU, provisioned, provisioned throughput units
       - name: Get started with Provisioned Deployments
         href: ./how-to/provisioned-get-started.md
+        displayName: PTU, provisioned, provisioned throughput units
       - name: Plan and manage costs
         href: ./how-to/manage-costs.md
       - name: Performance & latency

@@ -6,7 +6,8 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 04/20/2022
 ms.author: lianwei
-ms.devlang: csharp, javascript
+ms.devlang: csharp
+# ms.devlang: csharp, javascript
 ms.custom: devx-track-csharp
 ---
 

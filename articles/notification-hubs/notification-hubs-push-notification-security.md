@@ -7,7 +7,6 @@ author: sethmanheim
 manager: femila
 editor: jwargo
 
-ms.assetid: 
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
