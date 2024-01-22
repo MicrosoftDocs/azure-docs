@@ -38,7 +38,7 @@ To create an HDInsight cluster by using Azure PowerShell, you must complete the 
 
 The following script demonstrates how to create a new cluster:
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-71)]
+[!code-powershell[main](../../azure_powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-82)]
 
 The values you specify for the cluster login are used to create the Hadoop user account for the cluster. Use this account to connect to services hosted on the cluster such as web UIs or REST APIs.
 

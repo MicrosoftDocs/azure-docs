@@ -213,7 +213,7 @@ Now that both the Node.js and Python applications are deployed, you watch messag
 
 ### [Azure CLI](#tab/azure-cli)
 
-* Remove the resource group, cluster, namespace, and all related resources using the [`az group delete`][az-group-delete] command.
+* Remove the resource group, cluster, namespace, and all related resources using the [az group delete][az-group-delete] command.
 
     ```azurecli-interactive
     az group delete --name MyResourceGroup
@@ -221,7 +221,7 @@ Now that both the Node.js and Python applications are deployed, you watch messag
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* Remove the resource group, cluster, namespace, and all related resources using the [`Remove-AzResourceGroup`][remove-azresourcegroup] command.
+* Remove the resource group, cluster, namespace, and all related resources using the [Remove-AzResourceGroup][remove-azresourcegroup] command.
 
     ```azurepowershell-interactive
     Remove-AzResourceGroup -Name MyResourceGroup
