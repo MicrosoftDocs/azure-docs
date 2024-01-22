@@ -54,7 +54,7 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace. Alternatively, your account can be assigned a custom role that has the following permissions:
 
-    - On the Azure subscription (needed to subscribe the workspace to the Azure Marketplace offer, once for each workspace, per offering):
+    - On the Azure subscription (needed to subscribe the workspace to the Azure Marketplace offering, once for each workspace, per offering):
       - `Microsoft.MarketplaceOrdering/agreements/offers/plans/read`
       - `Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action`
       - `Microsoft.MarketplaceOrdering/offerTypes/publishers/offers/plans/agreements/read`
@@ -89,7 +89,7 @@ To create a deployment:
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png":::
 
 1. On the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
-1. If this is your first time deploying the model in the workspace, you have to subscribe your workspace for the particular offering (eg. Llama-2-70b) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each workspace has its own subscription to the particular Azure Marketplace offer, which allows you to control and monitor spending. Select **Subscribe and Deploy**.
+1. If this is your first time deploying the model in the workspace, you have to subscribe your workspace for the particular offering (eg. Llama-2-70b) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each workspace has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and Deploy**.
 
     > [!NOTE]
     > Subscribing a project to a particular Azure Marketplace offering (in this case, Llama-2-70b) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
@@ -469,9 +469,10 @@ For reference about how to invoke Llama 2 models deployed to real-time endpoints
 Llama models deployed as a service are offered by Meta through Azure Marketplace and integrated with Azure Machine Learning studio for use. You can find Azure Marketplace pricing when deploying or fine-tuning models.
 
 Each time a workspace subscribes to a given model offering from Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
+
 For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](../ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
-:::image type="content" source="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters." lightbox="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png":::
+:::image type="content" source="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offerings and their associated meters." lightbox="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png":::
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
@@ -487,3 +488,4 @@ Models deployed as a service with pay-as-you-go are protected by Azure AI conten
 
 - [Model Catalog and Collections](concept-model-catalog.md)
 - [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
+- [Plan and manage costs for Azure AI Studio](../ai-studio/how-to/costs-plan-manage.md)
