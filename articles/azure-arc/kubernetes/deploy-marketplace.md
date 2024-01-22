@@ -80,7 +80,7 @@ The command will return a list of extension types that can be deployed on the co
 
 When you find an application that you want to deploy, note the following values from the response received: `planId`, `publisherId`, `offerID`, and `extensionType`. You'll need these values to accept the application's terms and deploy the application.
 
-### [Azure portal](#tab/portal)
+### [Azure portal](#tab/azure-portal)
 
 To discover Kubernetes applications in the Azure Marketplace from within the Azure portal:
 
@@ -96,7 +96,7 @@ To discover Kubernetes applications in the Azure Marketplace from within the Azu
 
    :::image type="content" source="media/deploy-marketplace/marketplace-see-more.png" alt-text="Screenshot showing the See more link for the Containers category in Azure Marketplace." source="media/deploy-marketplace/marketplace-see-more.png":::
 
-1. Alternately, if you [used Azure CLI to discover Kubernetes applications](#discover-kubernetes-applications-that-supports-azure-arc-enabled-clusters??tabs=azure-cli), you can note the `publisherId`, then search using that term to view that publisher's Kubernetes applications in Azure Marketplace.
+1. Alternately, if you [used Azure CLI to discover Kubernetes applications](#discover-kubernetes-applications-that-supports-azure-arc-enabled-clusters?tabs=azure-cli), you can note the `publisherId`, then search using that term to view that publisher's Kubernetes applications in Azure Marketplace.
 
    :::image type="content" source="media/deploy-marketplace/marketplace-search-by-publisher.png" alt-text="Screenshot showing the option to search by publisher in Azure Marketplace." lightbox="media/deploy-marketplace/marketplace-search-by-publisher.png":::
 
@@ -135,7 +135,7 @@ To deploy the application (extension) through Azure CLI, follow the steps outlin
 az k8s-extension create --name <offerID> --extension-type <extensionType> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type connectedClusters --plan-name <planId> --plan-product <offerID> --plan-publisher <publisherId>  
 ```
 
-### [Azure portal](#tab/portal)
+### [Azure portal](#tab/azure-portal)
 
 Once you've identified an offer you want to deploy, follow these steps:
 
@@ -143,7 +143,7 @@ Once you've identified an offer you want to deploy, follow these steps:
 
    :::image type="content" source="media/deploy-marketplace/marketplace-plans-pricing.png" alt-text="Screenshot of the Plans + Pricing page for a Kubernetes offer in Azure Marketplace." lightbox="media/deploy-marketplace/marketplace-plans-pricing.png":::
 
-1. Select the resource group and Arc-enabled cluster to which you want to deploy the application. 
+1. Select the resource group and Arc-enabled cluster to which you want to deploy the application.
 
    :::image type="content" source="media/deploy-marketplace/marketplace-select-cluster.png" alt-text="Screenshot showing the option to select a resource group and cluster for the Marketplace offer.":::
 
@@ -167,33 +167,45 @@ Verify the deployment by using the following command to list the extensions that
 az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type connectedClusters
 ```
 
+If the deployment was successful, `provisioningState` is `Succeeded`. If `provisioningState` is `Creating`, the deployment is still in progress. Wait a few minutes then check again.
+
+If the deployment fails, see [Troubleshoot the failed deployment of a Kubernetes application offer](/troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer).
+
 To view the extension instance from the cluster, run the following command:
 
 ```azurecli-interactive
 az k8s-extension show --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type connectedClusters
 ```
 
-### [Azure portal](#tab/portal)
+### [Azure portal](#tab/azure-portal)
 
-Verify the deployment navigating to the cluster you recently installed the extension on, then navigate to **Extensions**, where you'll see the extension status:
+Verify the deployment navigating to the cluster you recently installed the extension on, then navigate to **Extensions**, where you'll see the extension status.
+
+:::image type="content" source="media/deploy-marketplace/extension-status.png" alt-text="Screenshot showing the status of deployed extensions in the Azure portal." lightbox="media/deploy-marketplace/extension-status.png":::
+
+If the deployment was successful, the **Status** will be **Succeeded**. If the status is **Creating**, the deployment is still in progress. Wait a few minutes then check again.
+
+If the deployment fails, see [Troubleshoot the failed deployment of a Kubernetes application offer](/troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer).
 
 ---
 
 ## Monitor billing and usage information
 
-To monitor billing and usage information for the offer that you deployed:
+You can monitor billing and usage information for a deployed extension in the Azure portal.
 
-1. In the Azure portal, go to the page for your cluster's resource group.
+1. In the Azure portal, navigate to your cluster's resource group.
 
 1. Select **Cost Management** > **Cost analysis**. Under **Product**, you can see a cost breakdown for the plan that you selected.
 
-   :::image type="content" source="./media/deploy-marketplace/billing-inline.png" alt-text="Screenshot of the Azure portal page for a resource group, with billing information broken down by offer plan." lightbox="./media/deploy-marketplace/billing-full.png":::
+   :::image type="content" source="media/deploy-marketplace/extension-cost-analysis.png" alt-text="Screenshot of the Azure portal page for a resource group, with billing information broken down by offer plan." lightbox="media/deploy-marketplace/extension-cost-analysis.png":::
 
-## Remove an offer
+## Remove an application
 
-You can delete a purchased plan for an Azure container offer by deleting the extension instance on the cluster.
+You can delete a purchased plan for a Kubernetes offer by deleting the extension instance on the cluster.
 
 ### [Azure CLI](#tab/azure-cli)
+
+The following command deletes an extension from the cluster:
 
 ```azurecli-interactive
 az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type connectedClusters
@@ -201,9 +213,9 @@ az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --r
 
 ### [Azure portal](#tab/azure-portal)
 
-Select an application, then select the uninstall button to remove the extension from your cluster:
+To delete the extension instance in the Azure portal, select **Extensions** within your cluster. Select the application you want to remove, then select **Uninstall**.
 
-:::image type="content" source="./media/deploy-marketplace/uninstall-inline.png" alt-text="The Azure portal page for the A K S cluster is shown. The deployed extension is listed with the 'uninstall' button highlighted." lightbox="./media/deploy-marketplace/uninstall.png":::
+:::image type="content" source="media/deploy-marketplace/extension-delete.png" alt-text="Screenshot of the Extensions page for a cluster, showing the option to delete an extension." lightbox="media/deploy-marketplace/extension-delete.png":::
 
 ---
 
