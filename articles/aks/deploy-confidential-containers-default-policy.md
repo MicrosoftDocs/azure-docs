@@ -175,7 +175,7 @@ To configure the workload identity, perform the following steps described in the
 * Create Kubernetes service account
 * Establish federated identity credential
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > You need to set the *environment variables* from the section **Export environmental variables** in the [Deploy and configure workload identity][deploy-and-configure-workload-identity] article to continue completing this tutorial. Remember to set the variable `SERVICE_ACCOUNT_NAMESPACE` to `kafka`, and execute the command `kubectl create namespace kafka` before configuring workload identity.
 
 ## Deploy a trusted application with kata-cc and attestation container
@@ -192,13 +192,13 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 
 1. Grant the managed identity you created earlier, and your account, access to the key vault. [Assign][assign-key-vault-access-cli] both identities the **Key Vault Crypto Officer** and **Key Vault Crypto User** Azure RBAC roles.
 
-   >[!NOTE]
-   >The managed identity is the value you assign to the `USER_ASSIGNED_IDENTITY_NAME` variable.
+   > [!NOTE]
+   > The managed identity is the value you assign to the `USER_ASSIGNED_IDENTITY_NAME` variable.
 
-   >[!NOTE]
-   >To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac], or [Owner][owner-rbac].
+   > [!NOTE]
+   > To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac], or [Owner][owner-rbac].
    
-   >[!NOTE]
+   > [!NOTE]
    > You must use the Key Vault Premium SKU to support HSM-protected keys. 
 
    Run the following command to set the scope:
@@ -316,8 +316,8 @@ For this preview release, we recommend for test and evaluation purposes to eithe
     ```
 
     > [!NOTE]
-    > Update the value for the pod environmental variable `SkrClientAKVEndpoint` to match the URL of your Azure Key Vault, excluding the protocol value `https://`. The current value placeholder value is `myKeyVault.vault.azure.net`. 
-    > Update the value for the pod environmental variable `SkrClientMAAEndpoint` with the value of `MAA_ENDPOINT`. You can find the value of `MAA_ENDPOINT` by running the command `echo $MAA_ENDPOINT` or the command `az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup" --query 'attestUri' -o tsv | cut -c 9-`.
+    > Update the value for the pod environment variable `SkrClientAKVEndpoint` to match the URL of your Azure Key Vault, excluding the protocol value `https://`. The current value placeholder value is `myKeyVault.vault.azure.net`. 
+    > Update the value for the pod environment variable `SkrClientMAAEndpoint` with the value of `MAA_ENDPOINT`. You can find the value of `MAA_ENDPOINT` by running the command `echo $MAA_ENDPOINT` or the command `az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup" --query 'attestUri' -o tsv | cut -c 9-`.
 
 1. Generate the security policy for the Kafka consumer YAML manifest and obtain the hash of the security policy stored in the `WORKLOAD_MEASUREMENT` variable by running the following command:
 
