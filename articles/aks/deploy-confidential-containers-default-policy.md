@@ -199,7 +199,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
    >To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac], or [Owner][owner-rbac].
    
    >[!NOTE]
-   >The Key Vault SKU must be Premium to support for HSM backed keys.  
+   > You must use the Key Vault Premium SKU to support HSM-protected keys. 
 
    Run the following command to set the scope:
 
@@ -233,7 +233,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 
 1. Prepare the RSA Encryption/Decryption key using the [bash script](https://github.com/microsoft/confidential-container-demos/raw/main/kafka/setup-key.sh) for the workload from GitHub. Save the file as `setup-key.sh`.
 
-1. Set the `MAA_ENDPOINT` environmental variable with the FQDN of Attest URI by running the following command.
+1. Set the `MAA_ENDPOINT` environment variable with the FQDN of Attest URI by running the following command.
 
    ```bash
    export MAA_ENDPOINT="$(az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup" --query 'attestUri' -o tsv | cut -c 9-)"
@@ -317,7 +317,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 
     > [!NOTE]
     > Update the value for the pod environmental variable `SkrClientAKVEndpoint` to match the URL of your Azure Key Vault, excluding the protocol value `https://`. The current value placeholder value is `myKeyVault.vault.azure.net`. 
-    > Also, update the value for the pod environmental variable `SkrClientMAAEndpoint` with the value of `MAA_ENDPOINT`. You can find the value of `MAA_ENDPOINT` by the command `echo $MAA_ENDPOINT` or the command `az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup" --query 'attestUri' -o tsv | cut -c 9-`.
+    > Update the value for the pod environmental variable `SkrClientMAAEndpoint` with the value of `MAA_ENDPOINT`. You can find the value of `MAA_ENDPOINT` by running the command `echo $MAA_ENDPOINT` or the command `az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup" --query 'attestUri' -o tsv | cut -c 9-`.
 
 1. Generate the security policy for the Kafka consumer YAML manifest and obtain the hash of the security policy stored in the `WORKLOAD_MEASUREMENT` variable by running the following command:
 
@@ -337,7 +337,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
     > The public key will be saved as `kafka-encryption-demo-pub.pem` after executing the bash script. 
 
     > [!IMPORTANT]
-    > If you hit the error `ForbiddenByRbac`, you might need to wait up to 24 hours since the back-end services for managed identities maintain a cache per resource URI for around 24 hours. See also: [Troubleshoot Azure RBAC][symptom-role-assignment-changes-are-not-being-detected].
+    >  If you receive the error `ForbiddenByRbac`,you might need to wait up to 24 hours as the backend services for managed identities maintain a cache per resource URI for up to 24 hours. See also: [Troubleshoot Azure RBAC][symptom-role-assignment-changes-are-not-being-detected].
 
 
 1. To verify the keys have been successfully uploaded to the key vault, run the following commands:
@@ -378,7 +378,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
     ```
 
     > [!NOTE]
-    > Update the value which begin with `-----BEGIN PUBLIC KEY-----` and ends with `-----END PUBLIC KEY-----` strings with the content from `kafka-encryption-demo-pub.pem` which is created in the previous step. 
+    > Update the value which begin with `-----BEGIN PUBLIC KEY-----` and ends with `-----END PUBLIC KEY-----` strings with the content from `kafka-encryption-demo-pub.pem` which was created in the previous step. 
   
 
 1. Deploy the `consumer` and `producer` YAML manifests using the files you saved earlier.
