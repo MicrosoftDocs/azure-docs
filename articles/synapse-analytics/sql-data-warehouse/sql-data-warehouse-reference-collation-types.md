@@ -31,7 +31,7 @@ To check the current collation for the database, you can run the following T-SQL
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 ```
 
-When passed 'Collation' as the property parameter, the DatabasePropertyEx function returns the current collation for the database specified. For more information, see [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+When passed `'Collation'` as the property parameter, the `DatabasePropertyEx` function returns the current collation for the database specified. For more information, see [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a id="changing-collation"></a> Choose collation
 
@@ -48,10 +48,10 @@ The following table shows which collation types are supported by which service.
 |:-----------------------------------------:|:-------------------:|:-----------------------:|:------------------:|:------------------:|
 | Non-UTF-8 Collations                      | Yes                 | Yes                     | Yes                | Yes                |
 | UTF-8                                     | Yes                 | Yes                     | No                 | No                 |
-| Japanese_Bushu_Kakusu_140_*               | Yes                 | Yes                     | No                 | No                 |
-| Japanese_XJIS_140_*                       | Yes                 | Yes                     | No                 | No                 |
-| SQL_EBCDIC1141_CP1_CS_AS                  | No                  | No                      | No                 | No                 |
-| SQL_EBCDIC277_2_CP1_CS_AS                 | No                  | No                      | No                 | No                 |
+| `Japanese_Bushu_Kakusu_140_*`               | Yes                 | Yes                     | No                 | No                 |
+| `Japanese_XJIS_140_*`                       | Yes                 | Yes                     | No                 | No                 |
+| `SQL_EBCDIC1141_CP1_CS_AS`                  | No                  | No                      | No                 | No                 |
+| `SQL_EBCDIC277_2_CP1_CS_AS`                 | No                  | No                      | No                 | No                 |
 
 ## Related content
 
