@@ -32,7 +32,7 @@ Beyond the efficiency gains, the bulk update capability preserves a record of th
 
 Learn more:
 
-- [Bulk update DICOM files](update-files.md)
+- [Bulk update DICOM files](../dicom/update-files.md)
 
 ### FHIR service
 
