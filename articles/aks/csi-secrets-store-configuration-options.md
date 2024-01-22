@@ -204,7 +204,7 @@ Metrics are served from port 8095, but this port isn't exposed outside the pod b
 
 ## Troubleshooting
 
-For troubleshooting steps, see [Azure Key Vault provider for Secrets Store CSI Driver troubleshooting][troubleshoot-csi].
+For troubleshooting steps, see [Troubleshoot Azure Key Vault Provider for Secrets Store CSI Driver][troubleshoot-csi].
 
 ## Next steps
 
