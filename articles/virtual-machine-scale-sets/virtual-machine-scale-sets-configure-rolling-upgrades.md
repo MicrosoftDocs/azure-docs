@@ -26,18 +26,6 @@ When using a Rolling Upgrade Policy, the scale set must also have a [health prob
 
 Virtual Machine Scale Sets using Uniform Orchestration Mode can use either a health probe or the Application Health Extension. If using Virtual Machine Scale Sets with Flexible Orchestration Mode, Application Health Extension is required as Health probes aren't supported on Flexible Orchestration Mode. 
 
-## Exceptions to Rolling Upgrade Policy
-When configuring the rolling upgrade batch size, scale sets ensure that upgrades don't occur on multiple fault domains at the same time. Even if you were to select 100% batch size, the actual batch size would be limited to prevent updates occurring in multiple fault domains at once. 
-
-If you wish to bypass this protection, you can override the default fault domain policies using the Rolling Upgrade Policy Override feature.
-
-> [!IMPORTANT]
-> Overriding the default behavior of rolling upgrades to ignore fault domains is not suggested for production workloads. By enabling this feature you're forfitting any associated SLAs that would normally come with Rolling Upgrades. 
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName RollingUpgradePolicyOverride -ProviderNamespace Microsoft.Compute
-```
-
 ## Concepts
 
 |Setting | Description |
