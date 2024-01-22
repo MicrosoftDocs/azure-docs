@@ -77,7 +77,7 @@ The portal is published at the following URL that you can share with developers 
 
 ## Enable access to portal data by Microsoft Entra users and groups 
 
-While the portal URL is publicly accessible, users must sign in to see the APIs in your API center. To enable sign in, you must assign the **Azure API Center Data Reader** role to users or groups in your organization, scoped to your API center.
+While the portal URL is publicly accessible, users must sign in to see the APIs in your API center. To enable sign-in, you must assign the **Azure API Center Data Reader** role to users or groups in your organization, scoped to your API center.
 
 > [!IMPORTANT]
 > You must also configure access for yourself and others who are responsible for managing the API center.  
@@ -93,13 +93,15 @@ For detailed prerequisites and steps to assign the **Azure API Center Data Reade
     * on the **Select members** page, search for and select the users or groups to assign the role to. Click **Select** and then **Next**.
     * Review the role assignment, and select **Review + assign**.
 
-After you configure access to the portal, configured users can sign in to the portal and view the APIs in your API center.
+After you configure access to the portal, configured users can sign-in to the portal and view the APIs in your API center.
+
+:::image type="content" source="media/enable-api-center-portal/api-center-portal-signed-in.png" alt-text="Screenshot of the API Center portal after user sign-in.":::
 
 ## Troubleshooting
 
 ### Error: "You are not authorized to access this portal"
 
-Under certain conditions, you might encounter the following error message when attempting to sign in to the API Center portal after following the steps in this article:
+Under certain conditions, you might encounter the following error message after signing into the API Center portal with a configured user account:
 
 `You are not authorized to access this portal. Please contact your portal administrator for assistance.`
 `
@@ -110,7 +112,7 @@ You might need to re-register the **Microsoft.ApiCenter** resource provider in y
 az provider register --namespace Microsoft.ApiCenter
 ```
 
-For more information and steps to register the resource provider using other tools, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+For more information and steps to register the resource provider using other tools, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types#register-resource-provider.md).
 
 
 ## Related content
