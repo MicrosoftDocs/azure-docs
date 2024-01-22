@@ -126,7 +126,7 @@ First, add the `applicationinsights-core` dependency:
 </dependency>
 ```
 
-Than, call the `ConnectionString.configure` method after `ApplicationInsights.attach()`:
+Then, call the `ConnectionString.configure` method after `ApplicationInsights.attach()`:
 
 ```java
 public static void main(String[] args) {
