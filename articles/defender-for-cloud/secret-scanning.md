@@ -203,9 +203,9 @@ The [cloud security explorer](concept-attack-path.md#what-is-cloud-security-expl
 
     - **VM with plaintext secret that can authenticate to another VM** - Returns all Azure VMs, AWS EC2 instances, or GCP VM instances with plaintext secret that can access other VMs or EC2s.
     - **VM with plaintext secret that can authenticate to a storage account** - Returns all Azure VMs, AWS EC2 instances, or GCP VM instances with plaintext secret that can access storage accounts.
-    - **VM with plaintext secret that can authenticate to a SQL database** - Returns all Azure VMs, AWS EC2 instances, or GCP VM instances with plaintext secret that can access SQL databases.
+    - **VM with plaintext secret that can authenticate to an SQL database** - Returns all Azure VMs, AWS EC2 instances, or GCP VM instances with plaintext secret that can access SQL databases.
 
-If you don't want to use any of the available templates, you can also [build your own query](how-to-manage-cloud-security-explorer.md) on the cloud security explorer.
+If you don't want to use any of the available templates, you can also [build your own query](how-to-manage-cloud-security-explorer.md) in the cloud security explorer.
 
 ## Remediate secrets from your asset inventory
 
