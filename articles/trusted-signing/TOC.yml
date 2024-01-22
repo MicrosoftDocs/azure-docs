@@ -1,0 +1,28 @@
+- name: Trusted Signing Documentation 
+  href: ./index.yml
+  expanded: true
+  items:
+  - name: Overview
+    items:
+    - name: What is the Trusted Signing service?
+      href: overview.md
+  - name: How-To
+    items:
+    - name: How-To Sign with Trusted Signing
+      href: how-to.md
+  - name: Quickstart
+    items:
+    - name: Quickstart Onboarding
+      href: quickstart.md
+  - name: Tutorial
+    items:
+    - name: Trusted Signing Tutorial
+      href: tutorial.md
+  - name: FAQ
+    items:
+    - name: FAQ about Trusted Signing
+      href: faq.yml
+  - name: Concept
+    items:
+    - name: Signing Concepts
+      href: concept.md
