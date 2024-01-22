@@ -4,7 +4,7 @@ description: Enable the API Center portal, an automatically generated website th
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 01/19/2024
+ms.date: 01/22/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API program manager, I want to enable a portal for developers in my organization to discover the APIs in my organization's API center.
@@ -12,7 +12,7 @@ ms.custom:
 
 # Enable the API Center portal
 
-This article shows how to enable the *API Center portal*, an automatically generated website that developers can you to discover the APIs in your API center. The portal is hosted by Azure at a unique URL and restricts access to data in your API center using Azure role-based access control.
+This article shows how to enable the *API Center portal*, an automatically generated website that developers in your organization can use to discover the APIs in your API center. The portal is hosted by Azure at a unique URL and restricts user access based on Azure role-based access control.
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
@@ -20,24 +20,11 @@ This article shows how to enable the *API Center portal*, an automatically gener
 
 * An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
 
-* Permissions to create an app registration in a Microsoft Entra tenant associated with your Azure subscription. 
-
-* For Azure CLI:
-    [!INCLUDE [include](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
-    > [!NOTE]
-    > `az apic` commands require the `apic-extension` Azure CLI extension. If you haven't used `az apic` commands, the extension is installed dynamically when you run your first `az apic` command. Learn more about [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
-
-    > [!TIP]
-    > Azure CLI command examples in this article are formatted for the bash shell. If you're using PowerShell or another shell environment, you might need to adjust the examples for your environment.
-
+* Permissions to create an app registration in a Microsoft Entra tenant associated with your Azure subscription and to grant access to data in your API center. 
 
 ## Create Microsoft Entra app registration
 
-First configure an app registration in your Microsoft Entra ID tenant for the API Center portal. The app registration enables the portal to access data from your API center on behalf of a signed-in user.
-
-
-#### [Portal](#tab/portal)
+First configure an app registration in your Microsoft Entra ID tenant. The app registration enables the API Center portal to access data from your API center on behalf of a signed-in user.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to **App registrations** to register an app in the Microsoft identity platform.
 1. Select **+ New registration**. 
@@ -45,7 +32,7 @@ First configure an app registration in your Microsoft Entra ID tenant for the AP
     
     * Set **Name** to a meaningful name such as *api-center-portal*
     * Under **Supported account types**, make a selection for your scenario, such as **Accounts in any organizational directory**. 
-    * In **Redirect URI**, select **Single-page application (SPA)** and enter the following URL, substituting your API center name and region where indicated:
+    * In **Redirect URI**, select **Single-page application (SPA)** and enter the following URI, substituting your API center name and region where indicated:
 
         `https://<apiCenterName>.portal.<region>.azure-apicenter.ms`
 
@@ -63,47 +50,10 @@ First configure an app registration in your Microsoft Entra ID tenant for the AP
 
     :::image type="content" source="media/enable-api-center-portal/configure-app-permissions.png" alt-text="Screenshot of required permissions in Microsoft Entra app registration in the portal." lightbox="media/enable-api-center-portal/configure-app-permissions.png":::
 
-#### [Azure CLI](#tab/cli)
-
-Use the [az ad app create](/cli/azure/ad/app#az-ad-app-create) command to create an app registration in your Microsoft Entra tenant.
-
-1. Create a file named `manifest.json` with the following content. This specifies the required permissions for the API Center portal:
-
-    ```json
-    [
-      {
-        "resourceAccess": [
-          {
-            "id": "44327351-3395-414e-882e-7aa4a9c3b25d",
-            "type": "Scope"
-          }
-        ],
-        "resourceAppId": "c3ca1a77-7a87-4dba-b8f8-eea115ae4573"
-      }
-    ]
-    ```
-
-1. Run the following command to create the app registration in your Microsoft Entra tenant, substituting `<name>` with a meaningful name for the app registration, such as *api-center-portal*:
-
-    ```azurecli
-    # Create the app registration and get the object ID for use in next step
-    objectID=$(az ad app create \
-        --display-name <name> --required-resource-accesses @manifest.json \
-        --query 'id' --output tsv)
-    ```    
-
-1. Run the [az rest](/cli/azure/reference-index#az-rest) command to set the SPA redirect URI for the app registration, substituting `<apiCenterName>` and `<region>` with your API center name and region:
-
-    ```azurecli
-    az rest --method PATCH \
-        --uri 'https://graph.microsoft.com/v1.0/applications/'$objectID \
-         --body '{"spa":{"redirectUris":["https://<apiCenterName>.<region>.azure-apicenter.ms"]}}'
-    ```
----
 
 ## Configure Microsoft Entra ID provider for API Center portal
 
-#### [Portal](#tab/portal)
+In your API center, configure the identity provider for the portal to use the app registration you created in the previous section.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
 1. In the left menu, under **API Center portal**, select **Portal settings**.
@@ -117,32 +67,20 @@ Use the [az ad app create](/cli/azure/ad/app#az-ad-app-create) command to create
 
 1. To view the API Center portal, on the **Portal settings** page, select **View API Center portal**.
 
-
-#### [Azure CLI](#tab/cli)
-
-```azurecli
-
-```
-
----
-
-After you configure the identity provider, the portal is published at the following URL that you can share with developers in your organization: `https://<apiCenterName>.<region>.azure-apicenter.ms`.
+The portal is published at the following URL that you can share with developers in your organization: `https://<apiCenterName>.<region>.azure-apicenter.ms`.
 
 :::image type="content" source="media/enable-api-center-portal/api-center-portal-home.png" alt-text="Screenshot of the API Center portal home page.":::
 
-While the portal URL is publicly accessible, users must sign in to see the APIs in your API center. To enable access for users and groups, see the following section.
-
-> [!NOTE]
-> You must also configure access for yourself and others who are responsible for managing the API center.  
 
 > [!TIP]
-> By default, the name of the portal is based on the name of your API center. You can customize the website name in the **Portal settings** > **Site settings** page in the Azure portal.
+> The name that appears on the upper left of the portal is based by default on the name of your API center. To customize the website name, go to the **Portal settings** > **Site settings** page in the Azure portal.
 
 ## Enable access to portal data by Microsoft Entra users and groups 
 
-Access to the data in the API Center portal is controlled by Azure role-based access control. Enable access for users and groups by assigning them the **Azure API Center Data Reader** role, scoped to your API center.
+While the portal URL is publicly accessible, users must sign in to see the APIs in your API center. To enable sign in, you must assign the **Azure API Center Data Reader** role to users or groups in your organization, scoped to your API center.
 
-#### [Portal](#tab/portal)
+> [!IMPORTANT]
+> You must also configure access for yourself and others who are responsible for managing the API center.  
 
 For detailed prerequisites and steps to assign the **Azure API Center Data Reader** role to users and groups, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). Brief steps follow:
 
@@ -155,35 +93,28 @@ For detailed prerequisites and steps to assign the **Azure API Center Data Reade
     * on the **Select members** page, search for and select the users or groups to assign the role to. Click **Select** and then **Next**.
     * Review the role assignment, and select **Review + assign**.
 
+After you configure access to the portal, configured users can sign in to the portal and view the APIs in your API center.
 
-#### [Azure CLI](#tab/cli)
+## Troubleshooting
 
-For detailed prerequisites and steps to assign the **Azure API Center Data Reader** role to users and groups, see [Assign Azure roles using Azure CLI](../role-based-access-control/role-assignments-cli.md). The following commands assign the role to a user or group:
+### Error: "You are not authorized to access this portal"
 
+Under certain conditions, you might encounter the following error message when attempting to sign in to the API Center portal after following the steps in this article:
+
+`You are not authorized to access this portal. Please contact your portal administrator for assistance.`
+`
+
+You might need to re-register the **Microsoft.ApiCenter** resource provider in your subscription. To do this, run the following command in the Azure CLI:
 
 ```azurecli
-# Get resource ID of the API center
-apicID=$(az apic service show --name <apiCenterName> \
-    --resource-group <resourceGroupName> \
-    --query 'id' --output tsv)
-
-# Set variable for user or group to assign role to.
-Example: "denise@contoso.com", or principal ID of a security group
-assignee="<userNameOrGroupPrincipalID>"
-
-
-# Assign the role to the user or group, scoped to API center
-az role assignment create --assignee $assignee \
-    --role "Azure API Center Data Reader" \
-    --scope "${apicID:1}"
+az provider register --namespace Microsoft.ApiCenter
 ```
----
 
-After you configure access to the portal, users and groups can sign in to the portal and view the APIs in your API center.
+For more information and steps to register the resource provider using other tools, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
 
 
 ## Related content
 
 * [Azure CLI reference for API Center](/cli/azure/apic) 
 * [What is Azure role-based access control (RBAC)?](../role-based-access-control/overview.md)
-* To learn about rules to determine group membership in Microsoft Entra ID, see [Create or update a dynamic group in Microsoft Entra ID](/entra/identity/users/groups-create-rule)
+* To learn about rules for dynamic group membership, see [Create or update a dynamic group in Microsoft Entra ID](/entra/identity/users/groups-create-rule)
