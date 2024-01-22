@@ -116,7 +116,7 @@ public static void main(String[] args) {
 
 #### Programmatic configuration examples: connection string
 
-To programmatically configure the connection string, tou have three things to do.
+To programmatically configure the connection string:
 
 First add the `applicationinsights-core` dependency:
 
