@@ -229,7 +229,7 @@ To copy data from and to Salesforce, set the type property of the dataset to **S
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
 
-:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name.png" alt-text="Salesforce connection API Name":::
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name.png" alt-text="Screenshot showing Salesforce connection API Name.":::
 
 **Example:**
 
@@ -275,7 +275,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
 
-:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png" alt-text="Salesforce connection API Name list":::
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png" alt-text="Screenshot showing Salesforce connection API Name list.":::
 
 **Example:**
 
@@ -375,7 +375,7 @@ To query the soft deleted records from the Salesforce Recycle Bin, you can speci
 
 ### Difference between SOQL and SQL query syntax
 
-When copying data from Salesforce, you can use either SOQL query or SQL query. Note that these two has different syntax and functionality support, do not mix it. You are suggested to use the SOQL query, which is natively supported by Salesforce. The following table lists the main differences:
+When copying data from Salesforce, you can use either SOQL query or SQL query. Note that these two have different syntax and functionality support, do not mix it. You are suggested to use the SOQL query, which is natively supported by Salesforce. The following table lists the main differences:
 
 | Syntax | SOQL Mode | SQL Mode |
 |:--- |:--- |:--- |
