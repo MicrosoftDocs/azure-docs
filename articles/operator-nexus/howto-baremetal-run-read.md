@@ -24,18 +24,18 @@ The command execution produces an output file containing the results that can be
 
 ## Executing a run-read command
 
-The run-read command executes a read-only command on the specified BMM. Note that some commands consist of
-more than one word, or include a mandatory argument as part of the command. These are defined this way to
-differentiate a read-only version of the command from one that is not read-only. For instance, run-read-command
-allows use of `kubectl get` but not `kubectl apply`. In such cases, all words of the command are entered in the
-"command" field, as shown below. For instance, `{"command":"kubectl get","arguments":["nodes"]}` is correct;
-`{"command":"kubectl","arguments":["get","nodes"]}` is not.
+The run-read command executes a read-only command on the specified BMM. Some commands consist of more than one
+word, or include a mandatory argument as part of the command. These commands are defined this way to differentiate
+a read-only version of the command from one that isn't read-only. For instance, run-read-command allows use of
+`kubectl get` but not `kubectl apply`. In such cases, all words of the command are entered in the "command" field.
+For instance, `{"command":"kubectl get","arguments":["nodes"]}` is correct; `{"command":"kubectl","arguments":["get","nodes"]}`
+isn't.
 
 Also note that some commands begin with `nc-toolbox nc-toolbox-runread` and must be entered as shown.
-`nc-toolbox-runread` is a special container image which includes additional tools that are not installed on the
-baremetal host, such as ipmitool and racadm.
+`nc-toolbox-runread` is a special container image that includes more tools that aren't installed on the
+baremetal host, such as `ipmitool` and `racadm`.
 
-The current list of supported commands is as follows. Commands in *`italics`* do not allow `arguments`; all others do.
+The current list of supported commands is as follows. Commands in *`italics`* don't allow `arguments`; all others do.
 
 | Standard commands       | nc-toolbox-runread ipmitool commands                                                  | nc-toolbox-runread racadm commands                                                           | nc-toolbox-runread Mellanox troubleshooting commands |
 | ----------------------- | --------------------------------------------------------------------------------------| -------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
@@ -163,7 +163,7 @@ In the response, an HTTP status code of 202 is returned as the operation is perf
 
 ## Checking command status and viewing output
 
-Sample output is shown below. It prints the top 4,000 characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz).
+Sample output is shown. It prints the top 4,000 characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz).
 
 ```output
   ====Action Command Output====
