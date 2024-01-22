@@ -80,7 +80,7 @@ The portal is published at the following URL that you can share with developers 
 While the portal URL is publicly accessible, users must sign in to see the APIs in your API center. To enable sign-in, you must assign the **Azure API Center Data Reader** role to users or groups in your organization, scoped to your API center.
 
 > [!IMPORTANT]
-> You must also configure access for yourself and others who are responsible for managing the API center.  
+> By default, you and others who are responsible for managing the API center don't have access to APIs in the API Center portal. Be sure to assign the **Azure API Center Data Reader** role to yourself and other administrators.  
 
 For detailed prerequisites and steps to assign the **Azure API Center Data Reader** role to users and groups, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). Brief steps follow:
 
@@ -112,11 +112,11 @@ You might need to re-register the **Microsoft.ApiCenter** resource provider in y
 az provider register --namespace Microsoft.ApiCenter
 ```
 
-For more information and steps to register the resource provider using other tools, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types#register-resource-provider.md).
+For more information and steps to register the resource provider using other tools, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 
 ## Related content
 
 * [Azure CLI reference for API Center](/cli/azure/apic) 
-* [What is Azure role-based access control (RBAC)?](../role-based-access-control/overview.md)
+* [What is Azure role-based access control (RBAC)?](../role-based-access-cgontrol/overview.md)
 * To learn about rules for dynamic group membership, see [Create or update a dynamic group in Microsoft Entra ID](/entra/identity/users/groups-create-rule)
