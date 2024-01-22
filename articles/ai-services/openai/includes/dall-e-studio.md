@@ -9,7 +9,6 @@ ms.custom:
   - ignite-2023
 ms.topic: include
 ms.date: 08/08/2023
-keywords:
 ---
 
 Use this guide to get started generating images with Azure OpenAI in your browser.

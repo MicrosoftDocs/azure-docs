@@ -42,7 +42,7 @@ conceptualContent:
           text: Get started with speech to text
           url: get-started-speech-to-text.md
         - itemType: overview
-          text: Improve accuracy with Custom Speech
+          text: Improve accuracy with custom speech
           url: custom-speech-overview.md
         - itemType: how-to-guide
           text: Use batch transcription

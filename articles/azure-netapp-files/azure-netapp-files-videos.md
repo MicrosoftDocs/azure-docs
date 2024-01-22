@@ -2,15 +2,9 @@
 title: Azure NetApp Files videos | Microsoft Docs
 description: Provides references to videos that contain discussions about using Azure NetApp Files. 
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2023
 ms.author: anfdocs

@@ -2,13 +2,11 @@
 title: Introduction to Microsoft Spark utilities
 description: "Tutorial: MSSparkutils in Azure Synapse Analytics notebooks"
 author: ruixinxu
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 09/10/2020
 ms.author: ruxu
-ms.reviewer:
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.custom: subject-rbac-steps, devx-track-python
 ---

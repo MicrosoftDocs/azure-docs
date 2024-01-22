@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 11/07/2023
 author: PatrickFarley
 ms.author: pafarley
-keywords: 
 ---
 
 # Use a blocklist in Azure OpenAI

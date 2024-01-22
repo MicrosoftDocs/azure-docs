@@ -171,40 +171,15 @@ Review your asset and tag details and make any adjustments you need before you s
 
 ## Verify data is flowing
 
-To verify data is flowing from your assets by using the **mqttui** tool. In this quickstart you run the **mqttui** tool inside your Kubernetes cluster:
+[!INCLUDE [deploy-mqttui](../includes/deploy-mqttui.md)]
 
-1. Run the following command to deploy a pod that includes the **mqttui** and **mosquitto** tools that are useful for interacting with the MQ broker in the cluster:
+To verify that the thermostat asset you added is publishing data, view the telemetry in the `azure-iot-operations/data` topic:
 
-    ```console
-    kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/mqtt-client.yaml
-    ```
+:::image type="content" source="media/quickstart-add-assets/mqttui-output.png" alt-text="Screenshot of the mqttui topic display showing the temperature telemetry.":::
 
-    The following snippet shows the YAML file that you applied:
+If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod:
 
-    :::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/mqtt-client.yaml":::
-
-    > [!CAUTION]
-    > This configuration isn't secure. Don't use this configuration in a production environment.
-
-1. When the **mqtt-client** pod is running, run the following command to create a shell environment in the pod you created:
-
-    ```console
-    kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
-    ```
-
-1. At the shell in the **mqtt-client** pod, run the following command to connect to the MQ broker using the **mqttui** tool:
-
-    ```console
-    mqttui -b mqtts://aio-mq-dmqtt-frontend:8883 -u '$sat' --password $(cat /var/run/secrets/tokens/mq-sat) --insecure
-    ```
-
-1. Verify that the thermostat asset you added is publishing data. You can find the telemetry in the `azure-iot-operations/data` topic.
-
-    :::image type="content" source="media/quickstart-add-assets/mqttui-output.png" alt-text="Screenshot of the mqttui topic display showing the temperature telemetry.":::
-
-    If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod.
-
-    First, find the name of your `aio-opc-opc.tcp-1` pod by using the following command:
+1. Find the name of your `aio-opc-opc.tcp-1` pod by using the following command:
 
     ```console
     kubectl get pods -n azure-iot-operations
@@ -212,7 +187,7 @@ To verify data is flowing from your assets by using the **mqttui** tool. In this
 
     The name of your pod looks like `aio-opc-opc.tcp-1-849dd78866-vhmz6`.
 
-    Then restart the `aio-opc-opc.tcp-1` pod by using a command that looks like the following example. Use the `aio-opc-opc.tcp-1` pod name from the previous step:
+1. Restart the `aio-opc-opc.tcp-1` pod by using a command that looks like the following example. Use the `aio-opc-opc.tcp-1` pod name from the previous step:
 
     ```console
     kubectl delete pod aio-opc-opc.tcp-1-849dd78866-vhmz6 -n azure-iot-operations
