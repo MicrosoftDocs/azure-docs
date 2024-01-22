@@ -84,23 +84,23 @@ The example shown in this article to describe deployment uses following system i
 
 ## Prerequisites
 
-The configuration described in this article is an addition to your already configured SAP HANA cluster setup. In this configuration, SAP ASCS/SCS and ERS will be installed on a virtual hostname and its instance directory is managed by the cluster.
+The configuration described in this article is an addition to your already configured SAP HANA cluster setup. In this configuration, SAP ASCS/SCS and ERS instance are installed on a virtual hostname and the instance directory is managed by the cluster.
 
 Install HANA database, set up HSR and Pacemaker cluster by following the documentation [High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux](sap-hana-high-availability-rhel.md) or [High availability of SAP HANA Scale-up with Azure NetApp Files on Red Hat Enterprise Linux](sap-hana-high-availability-netapp-files-red-hat.md) depending on what storage option you're using.
 
-Once you've Installed, configured and set-up the **HANA Cluster**, follow the steps below to install ASCS and ERS instances.
+Once you've installed, configured and set-up the **HANA Cluster**, follow the steps below to install ASCS and ERS instances.
 
 ## Configure Azure Load Balancer for ASCS and ERS
 
-This document assumes that you’ve already configured the load balancer for HANA cluster setup as described in [configure Azure load balancer](./sap-hana-high-availability-rhel.md#configure-azure-load-balancer). In the same Azure load balancer, follow below steps to create additional frontend IPs and load balancing rules for ASCS and ERS.
+This document assumes that you already configured the load balancer for HANA cluster setup as described in [configure Azure load balancer](./sap-hana-high-availability-rhel.md#configure-azure-load-balancer). In the same Azure load balancer, follow below steps to create additional frontend IPs and load balancing rules for ASCS and ERS.
 
-1. Open the internal load balancer that had been created for SAP HANA cluster setup.
+1. Open the internal load balancer that was created for SAP HANA cluster setup.
 2. Frontend IP Configuration: Create two frontend IP, one for ASCS and another for ERS (for example: 10.66.0.20 and 10.66.0.30).
 3. Backend Pool: Backend Pool remains same, as we're deploying ASCS and ERS on the same backend pool.
 4. Inbound rules: Create two load balancing rule, one for ASCS and another for ERS. Follow the same steps for both load balancing rules.
 5. Frontend IP address: Select frontend IP
-   1. Backend pool: Select backend pool.
-   2. Check "High availability ports".
+   1. Backend pool: Select backend pool
+   2. Check "High availability ports"
    3. Protocol: TCP
    4. Health Probe: Create health probe with below details (applies for both ASCS and ERS)
       1. Protocol: TCP

@@ -96,15 +96,15 @@ Once you have installed **ASCS**, **ERS** and **Database** instance using SWPM, 
 
 ## Configure Azure Load Balancer for PAS and AAS
 
-This document assumes that you’ve already configured the load balancer for SAP ASCS/SCS cluster setup as described in [configure Azure load balancer](./high-availability-guide-rhel-nfs-azure-files.md#configure-azure-load-balancer). In the same Azure load balancer, follow below steps to create additional frontend IPs and load balancing rules for PAS and AAS.
+This document assumes that you already configured the load balancer for SAP ASCS/SCS cluster setup as described in [configure Azure load balancer](./high-availability-guide-rhel-nfs-azure-files.md#configure-azure-load-balancer). In the same Azure load balancer, follow below steps to create additional frontend IPs and load balancing rules for PAS and AAS.
 
-1. Open the internal load balancer that had been created for SAP ASCS/SCS cluster setup.
+1. Open the internal load balancer that was created for SAP ASCS/SCS cluster setup.
 2. Frontend IP Configuration: Create two frontend IP, one for PAS and another for AAS (for example: 10.90.90.30 and 10.90.90.31).
 3. Backend Pool: Backend Pool remains same, as we're deploying PAS and AAS on the same backend pool.
 4. Inbound rules: Create two load balancing rule, one for PAS and another for AAS. Follow the same steps for both load balancing rules.
 5. Frontend IP address: Select frontend IP
-   1. Backend pool: Select backend pool.
-   2. Check "High availability ports".
+   1. Backend pool: Select backend pool
+   2. Check "High availability ports"
    3. Protocol: TCP
    4. Health Probe: Create health probe with below details (applies for both PAS and AAS)
       1. Protocol: TCP
