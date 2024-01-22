@@ -3,10 +3,10 @@ title: Actions in the Standard rules engine for Azure CDN | Microsoft Docs
 description: Reference documentation for actions in the Standard rules engine for Azure Content Delivery Network (Azure CDN).
 services: cdn
 author: duongau
-
+manager: kumudd
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 02/27/2023
 ms.author: duau
 
 ---
@@ -29,11 +29,11 @@ Use this action to overwrite the time to live (TTL) value of the endpoint for re
 
 Cache behavior |  Description              
 ---------------|----------------
-Bypass cache | When this option is selected and the rule matches, the content is not cached.
-Override | When this option is selected and the rule matches, the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action will not be applicable.
-Set if missing | When this option is selected and the rule matches, if no TTL value was returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action will not be applicable.
+Bypass cache | When this option is selected and the rule matches, the content isn't cached.
+Override | When this option is selected and the rule matches, the TTL value returned from your origin is overwritten with the value specified in the action. This behavior is only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action isn't applicable.
+Set if missing | When this option gets selected and the rule matches, if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior only gets applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action isn't applicable.
 
-#### Additional fields
+#### Extra fields
 
 Days | Hours | Minutes | Seconds
 -----|-------|---------|--------
@@ -47,9 +47,9 @@ Use this action to modify the cache key based on query strings.
 
 Behavior | Description
 ---------|------------
-Include | When this option is selected and the rule matches, query strings specified in the parameters are included when the cache key is generated. 
+Include | When this option gets selected and the rule matches, query strings specified in the parameters get included when the cache key gets generated. 
 Cache every unique URL | When this option is selected and the rule matches, each unique URL has its own cache key. 
-Exclude | When this option is selected and the rule matches, query strings specified in the parameters are excluded when the cache key is generated.
+Exclude | When this option is selected and the rule matches, query strings specified in the parameters get excluded when the cache key gets generated.
 Ignore query strings | When this option is selected and the rule matches, query strings aren't considered when the cache key is generated. 
 
 ### Modify request header

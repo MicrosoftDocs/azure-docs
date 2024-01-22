@@ -2,11 +2,11 @@
 title: Resource Manager template samples for agents
 description: Sample Azure Resource Manager templates to deploy and configure virtual machine agents in Azure Monitor.
 ms.topic: sample
-author: bwren
-ms.author: bwren
-ms.date: 04/26/2022
-ms.reviewer: shseth
-
+ms.custom: devx-track-arm-template
+author: guywi-ms
+ms.author: guywild
+ms.date: 07/19/2023
+ms.reviewer: jeffwo
 ---
 
 # Resource Manager template samples for agents in Azure Monitor
@@ -56,8 +56,8 @@ resource windowsAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' 
     settings: {
       authentication: {
         managedIdentity: {
-          identifier-name: 'mi_res_id'
-          identifier-value: userAssignedManagedIdentity
+          'identifier-name': 'mi_res_id'
+          'identifier-value': userAssignedManagedIdentity
         }
       }
     }
@@ -231,8 +231,8 @@ resource linuxAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = 
     settings: {
       authentication: {
         managedIdentity: {
-          identifier-name: 'mi_res_id'
-          identifier-value: userAssignedManagedIdentity
+          'identifier-name': 'mi_res_id'
+          'identifier-value': userAssignedManagedIdentity
         }
       }
     }
@@ -666,7 +666,7 @@ resource logAnalyticsAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11
 
 ### Linux
 
-The following sample installs the Log Analytics agent on a Linux Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Windows](../../virtual-machines/extensions/oms-linux.md).
+The following sample installs the Log Analytics agent on a Linux Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Linux](../../virtual-machines/extensions/oms-linux.md).
 
 #### Template file
 

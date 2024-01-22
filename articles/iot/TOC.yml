@@ -1,0 +1,90 @@
+items:
+  - name: Azure Internet of Things documentation
+    href: index.yml
+
+  - name: Overview
+    items:
+    - name: Introduction
+      href: iot-introduction.md
+    - name: IoT solution components
+      items:
+      - name: Device development
+        href: iot-overview-device-development.md
+      - name: Device connectivity
+        href: iot-overview-device-connectivity.md
+      - name: Device management and control
+        href: iot-overview-device-management.md
+      - name: Process and route messages
+        href: iot-overview-message-processing.md
+      - name: Extend your IoT solution
+        href: iot-overview-solution-extensibility.md
+      - name: Analyze and visualize your IoT data
+        href: iot-overview-analyze-visualize.md
+      - name: Manage your solution
+        href: iot-overview-solution-management.md
+      - name: Secure your solution
+        href: iot-overview-security.md
+      - name: Scalability, high availability
+        href: iot-overview-scalability-high-availability.md
+    - name: Azure IoT services and technologies
+      href: iot-services-and-technologies.md
+
+  - name: How-to guides
+    items:
+      - name: Use smartphone device app
+        href: iot-phone-app-how-to.md
+      - name: Use IoT Explorer
+        href: howto-use-iot-explorer.md
+
+  - name: Concepts
+    items:
+      - name: Security architecture
+        href: iot-security-architecture.md    
+      - name: MQTT support
+        items: 
+        - name: Use MQTT with IoT Hub
+          href: iot-mqtt-connect-to-iot-hub.md
+        - name: Use MQTT with DPS
+          href: iot-mqtt-connect-to-iot-dps.md
+        - name: MQTT 5 support (preview)
+          items: 
+          - name: MQTT 5 overview
+            href: iot-mqtt-5-preview.md
+          - name: MQTT 5 API reference
+            href: iot-mqtt-5-preview-reference.md         
+
+  - name: Resources
+    items:
+    - name: Support and help options
+      href: iot-support-help.md  
+    - name: IoT glossary
+      href: iot-glossary.md
+    - name: Azure IoT services
+      items:
+      - name: IoT Hub
+        href: ../iot-hub/index.yml
+      - name: IoT Hub Device Provisioning Service
+        href: ../iot-dps/index.yml
+      - name: IoT Central
+        href: ../iot-central/index.yml
+      - name: IoT Edge
+        href: ../iot-edge/index.yml
+      - name: Azure Maps
+        href: ../azure-maps/index.yml
+      - name: Time Series Insights
+        href: ../time-series-insights/index.yml
+    - name: IoT device developer
+      href: ../iot-develop/index.yml
+    - name: Azure IoT SDKs
+      items:
+      - name: Device and Service SDKs
+        href: iot-sdks.md
+      - name: Device SDKs lifecycle and support
+        href: iot-device-sdks-lifecycle-and-support.md
+    - name: Azure Certified for IoT device catalog
+      href: https://catalog.azureiotsolutions.com/
+    - name: Azure IoT Tools for VS Code
+      href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
+    - name: Azure IoT Explorer tool
+      href: https://github.com/Azure/azure-iot-explorer
+

@@ -7,7 +7,6 @@ ms.topic: how-to
 ms.date: 03/17/2022
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.custom: 
 ---
 
 # Create virtual machines in an availability zone using the Azure portal
@@ -24,7 +23,7 @@ Some users will now see the option to create VMs in multiple zones. If you see t
 
 ### [Standard](#tab/standard)
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Click **Create a resource** > **Compute** > **Virtual machine**. 
 
@@ -47,7 +46,7 @@ Some users will now see the option to create VMs in multiple zones. If you see t
 
 ### [Preview](#tab/preview)
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Click **Create a resource** > **Compute** > **Virtual machine**. 
 

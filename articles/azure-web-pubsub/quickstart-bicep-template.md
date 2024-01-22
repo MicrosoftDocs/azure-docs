@@ -6,7 +6,7 @@ ms.author: lianwei
 ms.date: 06/15/2022
 ms.topic: quickstart
 ms.service: azure-web-pubsub
-ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurecli, devx-track-bicep
 ---
 
 # Quickstart: Use Bicep to deploy Azure Web PubSub service
@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the Bicep file
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-web-pubsub/).
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/azure-web-pubsub/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.web/azure-web-pubsub/main.bicep":::
 

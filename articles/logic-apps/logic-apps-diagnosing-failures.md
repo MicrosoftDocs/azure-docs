@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/02/2022
+ms.custom: engagement-fy23
+ms.date: 01/04/2024
 ---
 
 # Troubleshoot and diagnose workflow failures in Azure Logic Apps

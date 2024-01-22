@@ -62,10 +62,10 @@ Most of the software that's used in the earlier-mentioned PLTW classes *don't* r
 
 To use network licensing with Autodesk software, [PLTW provides detailed steps](https://www.pltw.org/pltw-software) to install Autodesk Network License Manager on your license server. This license server is ordinarily located in either your on-premises network or hosted on an Azure virtual machine (VM) within Azure virtual network.
 
-After your license server is set up, you need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) when creating your [lab plan](./tutorial-setup-lab-plan.md).
+After your license server is set up, you need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) when creating your [lab plan](./quick-create-resources.md).
 
 > [!IMPORTANT]
-> [Advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) must be enabled during the creation of your lab plan. It can't be added later.
+> [Advanced networking](how-to-connect-vnet-injection.md) must be enabled during the creation of your lab plan. It can't be added later.
 
 Autodesk-generated license files embed the MAC address of the license server. If you decide to host your license server by using an Azure VM, it’s important to ensure that your license server’s MAC address doesn’t change. If the MAC address changes, you'll need to regenerate your licensing files. Following are the steps to prevent your MAC address from changing:
 
@@ -76,9 +76,9 @@ For more information, see [Set up a license server as a shared resource](./how-t
 
 ## Lab configuration
 
-Once you have Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md).
+Once you have Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./quick-create-resources.md).
 
-After you set up a lab plan, create a separate lab for each PLTW class session that your school offers. We also recommend that you create separate images for each type of PLTW class. For more information about how to structure your labs and images, see the blog post [Moving from a Physical Lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
+After you set up a lab plan, create a separate lab for each PLTW class session that your school offers. We also recommend that you create separate images for each type of PLTW class. For more information about how to structure your labs and images, see [Moving from a Physical Lab to Azure Lab Services](./concept-migrating-physical-labs.md).
 
 ### Lab plan settings
 
@@ -113,7 +113,8 @@ As you follow this recommendation, note the major tasks for setting up a lab:
     > When you install the Autodesk applications, the computer that you're installing them on needs to be able to communicate with your license server. The Autodesk installation wizard will prompt you to specify the computer name of the machine that the license server is hosted on. If you're hosting your license server on an Azure VM, you might need to wait to install Autodesk on the lab template VM so that the installation wizard can access your license server.
 
     b. [Install and configure OneDrive](./how-to-prepare-windows-template.md#install-and-configure-onedrive) or other backup options that your school might use.
-    c. [Install and configure Windows updates](./how-to-prepare-windows-template.md#install-and-configure-updates).
+
+    c. [Install and configure Windows updates](./how-to-prepare-windows-template.md#install-and-configure-windows-updates).
 
 1. Upload the custom image to the [compute gallery that's attached to your lab account](./how-to-attach-detach-shared-image-gallery.md).
 1. Create a lab, and then select the custom image that you uploaded in the preceding step.

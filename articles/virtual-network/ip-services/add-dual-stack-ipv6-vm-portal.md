@@ -2,24 +2,24 @@
 title: Add a dual-stack network to an existing virtual machine - Azure portal
 titleSuffix: Azure Virtual Network
 description: Learn how to add a dual stack network to an existing virtual machine using the Azure portal.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 08/19/2022
+ms.date: 08/24/2023
 ms.custom: template-how-to
 ---
 
 # Add a dual-stack network to an existing virtual machine using the Azure portal
 
-In this article, you'll add IPv6 support to an existing virtual network. You'll configure an existing virtual machine with both IPv4 and IPv6 addresses. When completed, the existing virtual network will support private IPv6 addresses. The existing virtual machine network configuration will contain a public and private IPv4 and IPv6 address.
+In this article, you add IPv6 support to an existing virtual network. You configure an existing virtual machine with both IPv4 and IPv6 addresses. When completed, the existing virtual network supports private IPv6 addresses. The existing virtual machine network configuration contains a public and private IPv4 and IPv6 address.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An existing virtual network, public IP address and virtual machine in your subscription that is configured for IPv4 support only. For more information about creating a virtual network, public IP address and a virtual machine, see [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal).
+- An existing virtual network, public IP address and virtual machine in your subscription that is configured for IPv4 support only. For more information about creating a virtual network, public IP address and a virtual machine, see [Quickstart: Create a Linux virtual machine in the Azure portal](../../virtual-machines/linux/quick-create-portal.md).
 
     - The example virtual network used in this article is named **myVNet**. Replace this value with the name of your virtual network.
     
@@ -29,7 +29,7 @@ In this article, you'll add IPv6 support to an existing virtual network. You'll 
 
 ## Add IPv6 to virtual network
 
-In this section, you'll add an IPv6 address space and subnet to your existing virtual network.
+In this section, you add an IPv6 address space and subnet to your existing virtual network.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -55,7 +55,7 @@ In this section, you'll add an IPv6 address space and subnet to your existing vi
 
 ## Create IPv6 public IP address
 
-In this section, you'll create a IPv6 public IP address for the virtual machine.
+In this section, you create a IPv6 public IP address for the virtual machine.
 
 1. In the search box at the top of the portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
 
@@ -79,7 +79,7 @@ In this section, you'll create a IPv6 public IP address for the virtual machine.
 
 ## Add IPv6 configuration to virtual machine
 
-The virtual machine must be stopped to add the IPv6 configuration to the existing virtual machine. You'll stop the virtual machine and add the IPv6 configuration to the existing virtual machine's network interface.
+The virtual machine must be stopped to add the IPv6 configuration to the existing virtual machine. You stop the virtual machine and add the IPv6 configuration to the existing virtual machine's network interface.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 

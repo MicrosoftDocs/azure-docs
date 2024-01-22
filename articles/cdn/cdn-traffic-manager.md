@@ -4,11 +4,11 @@ titleSuffix: Azure Content Delivery Network
 description: Learn how to configure failover across multiple Azure Content Delivery Network endpoints by using Azure Traffic Manager.
 services: cdn
 author: duongau
+manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 02/27/2023
 ms.author: duau
-ms.custom: 
 
 ---
 # Failover across multiple endpoints with Azure Traffic Manager
@@ -34,17 +34,15 @@ Using Azure Traffic Manager in this way ensures your web application is always a
 
 This article provides guidance and an example of how to configure failover with profiles from: 
 
-* **Azure CDN Standard from Verizon**
-* **Azure CDN Standard from Akamai**
-
-**Azure CDN from Microsoft** is also supported.
+* **Azure CDN Standard from Edgio**
+* **Azure CDN from Microsoft**
 
 ## Create Azure CDN profiles
 Create two or more Azure CDN profiles and endpoints with different providers.
 
 1. Create two CDN profiles:
-    * **Azure CDN Standard from Verizon**
-    * **Azure CDN Standard from Akamai** 
+    * **Azure CDN Standard from Edgio**
+    * **Azure CDN from Microsoft** 
 
     Create the profiles by following the steps in [Create a new CDN profile](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
  
@@ -64,7 +62,7 @@ Create an Azure Traffic Manager profile and configure load balancing across your
     * **Type**, select **External endpoints**.
     * **Priority**, enter a number.
 
-    For example, create **cdndemo101akamai.azureedge.net** with a priority of **1** and **cdndemo101verizon.azureedge.net** with a priority of **2**.
+    For example, create **cdndemo101microsoft.azureedge.net** with a priority of **1** and **cdndemo101verizon.azureedge.net** with a priority of **2**.
 
    ![CDN traffic manager endpoints](./media/cdn-traffic-manager/cdn-traffic-manager-endpoints.png)
 
@@ -78,7 +76,7 @@ After you configure your CDN and Traffic Manager profiles, follow these steps to
 
       For example: 
 
-      `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101akamai.azureedge.net`  
+      `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101microsoft.azureedge.net`  
 
     b. For the second CNAME entry, map your custom domain, without the cdnverify subdomain, to your CDN endpoint. This entry maps the custom domain to Traffic Manager. 
 
@@ -94,12 +92,12 @@ After you configure your CDN and Traffic Manager profiles, follow these steps to
     > For implementing this fail over scenario both endpoints need to be in different profiles, and the different profiles should be by different CDN providers to avoid domain name conflicts.
     > 
 
-2.	From your Azure CDN profile, select the first CDN endpoint (Akamai). Select **Add custom domain** and input **cdndemo101.dustydogpetcare.online**. Verify that the checkmark to validate the custom domain is green. 
+2.	From your Azure CDN profile, select the first CDN endpoint (Microsoft). Select **Add custom domain** and input **cdndemo101.dustydogpetcare.online**. Verify that the checkmark to validate the custom domain is green. 
 
     Azure CDN uses the **cdnverify** subdomain to validate the DNS mapping to complete this registration process. For more information, see [Create a CNAME DNS record](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). This step enables Azure CDN to recognize the custom domain so that it can respond to its requests.
     
     > [!NOTE]
-    > To enable TLS on an **Azure CDN from Akamai** profiles, you must directly cname the custom domain to your endpoint. cdnverify for enabling TLS is not yet supported. 
+    > To enable TLS on an **Azure CDN from Microsoft** profiles, you must directly cname the custom domain to your endpoint. cdnverify for enabling TLS is not yet supported. 
     >
 
 3.	Return to the web site for the domain provider of your custom domain. Update the first DNS mapping you created. Map the custom domain to your second CDN endpoint.
@@ -108,7 +106,7 @@ After you configure your CDN and Traffic Manager profiles, follow these steps to
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. From your Azure CDN profile, select the second CDN endpoint (Verizon) and repeat step 2. Select **Add custom domain**, and enter **cdndemo101.dustydogpetcare.online**.
+4. From your Azure CDN profile, select the second CDN endpoint (Edgio) and repeat step 2. Select **Add custom domain**, and enter **cdndemo101.dustydogpetcare.online**.
  
 After you complete these steps, your multi-CDN service with failover capabilities is configured with Azure Traffic Manager. 
 

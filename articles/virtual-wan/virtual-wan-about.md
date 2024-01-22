@@ -5,7 +5,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 09/22/2022
+ms.date: 01/09/2024
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -24,13 +24,13 @@ Azure Virtual WAN is a networking service that brings many networking, security,
 
 You don't have to have all of these use cases to start using Virtual WAN. You can get started with just one use case, and then adjust your network as it evolves.
 
-The Virtual WAN architecture is a hub and spoke architecture with scale and performance built in for branches (VPN/SD-WAN devices), users (Azure VPN/OpenVPN/IKEv2 clients), ExpressRoute circuits, and virtual networks. It enables a [global transit network architecture](virtual-wan-global-transit-network-architecture.md), where the cloud hosted network 'hub' enables transitive connectivity between endpoints that may be distributed across different types of 'spokes'.
+The Virtual WAN architecture is a hub and spoke architecture with scale and performance built in for branches (VPN/SD-WAN devices), users (Azure VPN/OpenVPN/IKEv2 clients), ExpressRoute circuits, and virtual networks. It enables a [global transit network architecture](virtual-wan-global-transit-network-architecture.md), where the cloud hosted network 'hub' enables transitive connectivity between endpoints that might be distributed across different types of 'spokes'.
 
 Azure regions serve as hubs that you can choose to connect to. All hubs are connected in full mesh in a Standard Virtual WAN making it easy for the user to use the Microsoft backbone for any-to-any (any spoke) connectivity.
 
 For spoke connectivity with SD-WAN/VPN devices, users can either manually set it up in Azure Virtual WAN, or use the Virtual WAN CPE (SD-WAN/VPN) partner solution to set up connectivity to Azure. We have a list of partners that support connectivity automation (ability to export the device info into Azure, download the Azure configuration and establish connectivity) with Azure Virtual WAN. For more information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
 
-![Virtual WAN diagram](./media/virtual-wan-about/virtualwan1.png)
+:::image type="content" source="./media/virtual-wan-about/virtual-wan-diagram.png" alt-text="Virtual WAN diagram." lightbox="./media/virtual-wan-about/virtual-wan-diagram.png":::
 
  Virtual WAN offers the following advantages:
 
@@ -53,7 +53,7 @@ For available regions and locations, see [Virtual WAN partners, regions, and loc
 
 To configure an end-to-end virtual WAN, you create the following resources:
 
-* **Virtual WAN:** The virtualWAN resource represents a virtual overlay of your Azure network and is a collection of multiple resources. It contains links to all your virtual hubs that you would like to have within the virtual WAN. Virtual WAN resources are isolated from each other and can't contain a common hub. Virtual hubs across Virtual WAN don't communicate with each other.
+* **Virtual WAN:** The *virtualWAN* resource represents a virtual overlay of your Azure network and is a collection of multiple resources. It contains links to all your virtual hubs that you would like to have within the virtual WAN. Virtual WANs are isolated from each other and can't contain a common hub. Virtual hubs in different virtual WANs don't communicate with each other.
 
 * **Hub:** A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity. From your on-premises network (vpnsite), you can connect to a VPN gateway inside the virtual hub, connect ExpressRoute circuits to a virtual hub, or even connect mobile users to a point-to-site gateway in the virtual hub. The hub is the core of your network in a region. Multiple virtual hubs can be created in the same region.
 

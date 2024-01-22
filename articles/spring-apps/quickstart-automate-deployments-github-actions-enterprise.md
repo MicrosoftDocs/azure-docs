@@ -1,13 +1,13 @@
 ---
 title: "Quickstart - Automate deployments"
-titleSuffix: Azure Spring Apps Enterprise tier
-description: Explains how to automate deployments to Azure Spring Apps Enterprise tier by using GitHub Actions and Terraform.
+titleSuffix: Azure Spring Apps Enterprise plan
+description: Explains how to automate deployments to the Azure Spring Apps Enterprise plan by using GitHub Actions and Terraform.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 05/31/2022
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-terraform
 ---
 
 # Quickstart: Automate deployments
@@ -15,15 +15,15 @@ ms.custom: devx-track-java
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This quickstart shows you how to automate deployments to Azure Spring Apps Enterprise tier by using GitHub Actions and Terraform.
+This quickstart shows you how to automate deployments to the Azure Spring Apps Enterprise plan by using GitHub Actions and Terraform.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A license for Azure Spring Apps Enterprise tier. For more information, see [View Azure Spring Apps Enterprise tier Offer in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
-- [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
+- Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
+- [The Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
@@ -68,7 +68,7 @@ The automation associated with the sample application requires a Storage account
    az ad sp create-for-rbac \
        --role contributor \
        --scopes /subscriptions/<SUBSCRIPTION_ID> \
-       --sdk-auth
+       --json-auth
    ```
 
    The command should output a JSON object:
@@ -95,10 +95,10 @@ The automation associated with the sample application requires a Storage account
 
    - `TF_PROJECT_NAME`: Use a value of your choosing. This value will be the name of your Terraform Project.
    - `AZURE_LOCATION`: The Azure Region your resources will be created in.
-   - `OIDC_JWK_SET_URI`: Use the `JWK_SET_URI` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md).
-   - `OIDC_CLIENT_ID`: Use the `CLIENT_ID` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md).
-   - `OIDC_CLIENT_SECRET`: Use the `CLIENT_SECRET` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md).
-   - `OIDC_ISSUER_URI`: Use the `ISSUER_URI` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md).
+   - `OIDC_JWK_SET_URI`: Use the `JWK_SET_URI` defined in [Quickstart: Configure single sign-on for applications using the Azure Spring Apps Enterprise plan](quickstart-configure-single-sign-on-enterprise.md).
+   - `OIDC_CLIENT_ID`: Use the `CLIENT_ID` defined in [Quickstart: Configure single sign-on for applications using the Azure Spring Apps Enterprise plan](quickstart-configure-single-sign-on-enterprise.md).
+   - `OIDC_CLIENT_SECRET`: Use the `CLIENT_SECRET` defined in [Quickstart: Configure single sign-on for applications using the Azure Spring Apps Enterprise plan](quickstart-configure-single-sign-on-enterprise.md).
+   - `OIDC_ISSUER_URI`: Use the `ISSUER_URI` defined in [Quickstart: Configure single sign-on for applications using the Azure Spring Apps Enterprise plan](quickstart-configure-single-sign-on-enterprise.md).
 
 1. Add the secret `TF_BACKEND_CONFIG` to GitHub Actions with the following value:
 
@@ -111,15 +111,15 @@ The automation associated with the sample application requires a Storage account
 
 ## Automate with GitHub Actions
 
-Now you can run GitHub Actions in your repository. The [provision workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/provision.yml) provisions all resources necessary to run the example application. The following screenshot shows an example run:
+Now you can run GitHub Actions in your repository. The [provision workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/HEAD/.github/workflows/provision.yml) provisions all resources necessary to run the example application. The following screenshot shows an example run:
 
 :::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/provision.png" alt-text="Screenshot of GitHub showing output from the provision workflow." lightbox="media/quickstart-automate-deployments-github-actions-enterprise/provision.png"
 
-Each application has a [deploy workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/catalog.yml) that will redeploy the application when changes are made to that application. The following screenshot shows some example output from the catalog service:
+Each application has a [deploy workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/HEAD/.github/workflows/catalog.yml) that will redeploy the application when changes are made to that application. The following screenshot shows some example output from the catalog service:
 
 :::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/deploy-catalog.png" alt-text="Screenshot of GitHub showing output from the Deploy Catalog workflow." lightbox="media/quickstart-automate-deployments-github-actions-enterprise/deploy-catalog.png"
 
-The [cleanup workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/cleanup.yml) can be manually run to delete all resources created by the `provision` workflow. The following screenshot shows the output:
+The [cleanup workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/HEAD/.github/workflows/cleanup.yml) can be manually run to delete all resources created by the `provision` workflow. The following screenshot shows the output:
 
 :::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/cleanup.png" alt-text="Screenshot of GitHub showing output from the cleanup workflow." lightbox="media/quickstart-automate-deployments-github-actions-enterprise/cleanup.png"
 
@@ -143,3 +143,4 @@ Continue on to any of the following optional quickstarts:
 - [Load application secrets using Key Vault](quickstart-key-vault-enterprise.md)
 - [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
 - [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
+- [Integrate Azure Open AI](quickstart-fitness-store-azure-openai.md)

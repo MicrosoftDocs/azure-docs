@@ -1,0 +1,77 @@
+### YamlMime:Landing
+
+title: Queries in Azure Cosmos DB for NoSQL
+summary: Azure Cosmos DB for NoSQL provides the ability to query data by writing queries using the Structured Query Language (SQL) as a JSON query language.
+
+metadata:
+  title: NoSQL queries
+  titleSuffix: Azure Cosmos DB for NoSQL
+  description: Azure Cosmos DB for NoSQL provides the ability to query data by writing queries using the Structured Query Language (SQL) as a JSON query language.
+  author: jcodella
+  ms.author: jacodel
+  ms.reviewer: sidandrews
+  ms.service: cosmos-db
+  ms.subservice: nosql
+  ms.topic: landing-page
+  ms.date: 07/01/2023
+  ms.custom: query-reference
+
+landingContent:
+  - title: Concepts
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Subqueries
+            url: subquery.md
+          - text: Joins
+            url: join.md
+          - text: Keywords
+            url: keywords.md
+          - text: Constants
+            url: constants.md
+  - title: Aggregate functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: AVG
+            url: average.md
+          - text: COUNT
+            url: count.md
+          - text: MAX
+            url: max.md
+          - text: MIN
+            url: min.md
+          - text: SUM
+            url: sum.md
+  - title: Array functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: ARRAY_CONCAT
+            url: array-concat.md
+          - text: ARRAY_CONTAINS
+            url: array-contains.md
+          - text: ARRAY_LENGTH
+            url: array-length.md
+          - text: ARRAY_SLICE
+            url: array-slice.md
+  - title: Date and time functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: GetCurrentDateTime
+            url: getcurrentdatetime.md
+          - text: GetCurrentTicks
+            url: getcurrentticks.md
+          - text: GetCurrentTimestamp
+            url: getcurrenttimestamp.md  
+  - title: Mathematical functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: ABS
+            url: abs.md
+          - text: EXP
+            url: exp.md
+          - text: SIN
+            url: sin.md

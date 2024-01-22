@@ -13,7 +13,7 @@ manager: femila
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.
 
-Service principals are identities that you can create in Azure Active Directory to assign roles and permissions for a specific purpose. In Azure Virtual Desktop, you can create a service principal to:
+Service principals are identities that you can create in Microsoft Entra ID to assign roles and permissions for a specific purpose. In Azure Virtual Desktop, you can create a service principal to:
 
 - Automate specific Azure Virtual Desktop management tasks.
 - Use as credentials in place of MFA-required users when running any Azure Resource Manager template for Azure Virtual Desktop.
@@ -21,50 +21,50 @@ Service principals are identities that you can create in Azure Active Directory 
 In this tutorial, learn how to:
 
 > [!div class="checklist"]
-> * Create a service principal in Azure Active Directory.
+> * Create a service principal in Microsoft Entra ID.
 > * Create a role assignment in Azure Virtual Desktop.
 > * Sign in to Azure Virtual Desktop by using the service principal.
 
 ## Prerequisites
 
-Before you can create service principals and role assignments, you need to do three things:
+Before you can create service principals and role assignments, you need to do the following:
 
-1. Install the AzureAD module. To install the module, run PowerShell as an administrator and run the following cmdlet:
-
-    ```powershell
-    Install-Module AzureAD
-    ```
+1. Follow the steps to [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 2. [Download and import the Azure Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/).
 
-3. Follow all instructions in this article in the same PowerShell session. The process might not work if you interrupt your PowerShell session by closing the window and reopening it later.
+> [!IMPORTANT]
+> Follow all instructions in this article in the same PowerShell session. The process might not work if you interrupt your PowerShell session by closing the window and reopening it later.
 
-## Create a service principal in Azure Active Directory
+<a name='create-a-service-principal-in-azure-active-directory'></a>
+
+## Create a service principal in Microsoft Entra ID
 
 After you've fulfilled the prerequisites in your PowerShell session, run the following PowerShell cmdlets to create a multitenant service principal in Azure.
 
 ```powershell
-Import-Module AzureAD
-$aadContext = Connect-AzureAD
-$svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayName "Azure Virtual Desktop Svc Principal"
-$svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrincipal.ObjectId
+Import-Module Az.Resources
+Connect-AzConnect
+$aadContext = Get-AzContext
+$svcPrincipal = New-AzADApplication -AvailableToOtherTenants $true -DisplayName "Azure Virtual Desktop Svc Principal"
+$svcPrincipalCreds = New-AzADAppCredential -ObjectId $svcPrincipal.Id
 ```
 ## View your credentials in PowerShell
 
 Before you create the role assignment for your service principal, view your credentials and write them down for future reference. The password is especially important because you won't be able to retrieve it after you close this PowerShell session.
 
-Here are the three credentials you should write down and the cmdlets you need to run to get them:
+Here are the three values you should write down and the cmdlets you need to run to get them:
 
 - Password:
 
     ```powershell
-    $svcPrincipalCreds.Value
+    $svcPrincipalCreds.SecretText
     ```
 
 - Tenant ID:
 
     ```powershell
-    $aadContext.TenantId.Guid
+    $aadContext.Tenant.Id
     ```
 
 - Application ID:
@@ -99,10 +99,10 @@ After you create a role assignment for the service principal, make sure the serv
 
 ```powershell
 $creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.Tenant.Id
 ```
 
-After you've signed in, make sure everything works by testing a few Azure Virtual Desktop PowerShell cmdlets with the service principal.
+If you can sign in successfully, your service principal is configured correctly.
 
 ## Next steps
 

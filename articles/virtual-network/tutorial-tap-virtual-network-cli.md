@@ -2,19 +2,14 @@
 title: Create, change, or delete a VNet TAP - Azure CLI
 description: Learn how to create, change, or delete a virtual network TAP using the Azure CLI.
 services: virtual-network
-documentationcenter: na
-author: karthikananth
+author: asudbring
 manager: ganesr
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
-ms.author: kaanan 
+ms.author: allensu 
 ms.custom: devx-track-azurecli
 ---
 

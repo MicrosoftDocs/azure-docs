@@ -3,7 +3,7 @@ title: Azure Relay API overview | Microsoft Docs
 description: This article provides an overview of available Azure Relay APIs (.NET Standard, .NET Framework, Node.js, etc.)
 ms.topic: article
 ms.custom: devx-track-dotnet
-ms.date: 06/21/2022
+ms.date: 08/10/2023
 ---
 
 # Available Relay APIs
@@ -44,7 +44,7 @@ Hybrid Connections with ASP.NET Core for web services.
 
 #### Node.js
 
-The Hybrid Connections modules listed in the table above replace or amend
+The Hybrid Connections modules replace or amend
 existing Node.js modules with alternative implementations that listen on
 the Azure Relay service instead of the local networking stack.
 

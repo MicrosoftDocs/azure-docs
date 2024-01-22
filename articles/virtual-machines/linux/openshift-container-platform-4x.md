@@ -21,16 +21,16 @@ Deployment of OpenShift Container Platform (OCP) 4.2 is now supported in Azure v
 
 ## Notes 
 
- - An Azure Active Directory (AAD) Service Principal (SP) is required to install and run OCP 4.x in Azure
+ - A Microsoft Entra service principal (SP) is required to install and run OCP 4.x in Azure
      - The SP must be granted the API permission of **Application.ReadWrite.OwnedBy** for Azure Active Directory Graph
-     - An AAD Tenant Administrator must grant Admin Consent for this API permission to take effect
+     - A Microsoft Entra tenant administrator must grant Admin Consent for this API permission to take effect
      - The SP must be granted **Contributor** and **User Access Administrator** roles to the subscription
  - The installation model for OCP 4.x is different than 3.x and there are no Azure Resource Manager templates available for deploying OCP 4.x in Azure
  - If issues are encountered during the installation process, contact the appropriate company (Microsoft or Red Hat)
 
 | Issue Description | Contact Point |
 |-------------------|---------------|
-| Azure specific issues (AAD, SP, Azure Subscription, etc.)                              | Microsoft |
+| Azure specific issues (Microsoft Entra ID, SP, Azure Subscription, etc.)                              | Microsoft |
 | OpenShift-specific issues (Installation failures / errors, Red Hat subscription, etc.) |  Red Hat  |
 
 

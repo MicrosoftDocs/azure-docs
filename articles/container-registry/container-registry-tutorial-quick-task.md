@@ -2,7 +2,10 @@
 title: Tutorial - Quick container image build
 description: In this tutorial, you learn how to build a Docker container image in Azure with Azure Container Registry Tasks (ACR Tasks), then deploy it to Azure Container Instances.
 ms.topic: tutorial
-ms.date: 07/20/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/31/2023
+ms.service: container-registry
 ms.custom: "seodec18, mvc, devx-track-azurecli"
 # Customer intent: As a developer or devops engineer, I want to quickly build container images in Azure, without having to install dependencies like Docker Engine, so that I can simplify my inner-loop development pipeline.
 ---
@@ -58,7 +61,7 @@ cd acr-build-helloworld-node
 
 The commands in this tutorial series are formatted for the Bash shell. If you prefer to use PowerShell, Command Prompt, or another shell, you may need to adjust the line continuation and environment variable format accordingly.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ## Build in Azure with ACR Tasks
 
@@ -84,7 +87,7 @@ Now that you have a registry, use ACR Tasks to build a container image from the 
 [!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
 
 ```azurecli
-az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
+az acr build --registry $ACR_NAME --image helloacrtasks:v1 --file /path/to/Dockerfile /path/to/build/context.
 ```
 
 Output from the [az acr build][az-acr-build] command is similar to the following. You can see the upload of the source code (the "context") to Azure, and the details of the `docker build` operation that the ACR task runs in the cloud. Because ACR tasks use `docker build` to build your images, no changes to your Dockerfiles are required to start using ACR Tasks immediately.

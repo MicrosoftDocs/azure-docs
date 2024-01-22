@@ -4,8 +4,8 @@ description: How to create and deploy a Consumption logic app workflow with Bice
 services: logic-apps
 ms.suite: integration
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 08/20/2022
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep
+ms.date: 01/04/2024
 #Customer intent: As a developer, I want to create and deploy an automated workflow in multi-tenant Azure Logic Apps with Bicep.
 ---
 

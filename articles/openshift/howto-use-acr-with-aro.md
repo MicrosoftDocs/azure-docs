@@ -1,16 +1,16 @@
 ---
 title: Use Azure Container Registry with Azure Red Hat OpenShift
 description:  Learn how to pull and run a container from Azure Container Registry in your Azure Red Hat OpenShift cluster.
-author: sakthi-vetrivel
-ms.author: suvetriv
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 01/10/2021
+ms.date: 03/09/2023
 ---
 
 # Use Azure Container Registry with Azure Red Hat OpenShift (ARO)
 
-Azure Container Registry (ACR) is a managed container registry service that you can use to store private Docker container images with enterprise capabilities such as geo-replication. To access the ACR from an ARO cluster, the cluster can authenticate with ACR by storing Docker login credentials in a Kubernetes secret.  Likewise, an ARO  cluster can use an imagePullSecret in the pod spec to authenticate against the registry when pulling the image. In this article, you'll learn how to set up an Azure Container Registry with an Azure Red Hat OpenShift cluster to store and pull private Docker container images.
+Azure Container Registry (ACR) is a managed container registry service that you can use to store private Docker container images with enterprise capabilities such as geo-replication. To access the ACR from an ARO cluster, the cluster can authenticate with ACR by storing Docker login credentials in a Kubernetes secret. Likewise, an ARO  cluster can use an imagePullSecret in the pod spec to authenticate against the registry when pulling the image. In this article, you'll learn how to set up an Azure Container Registry with an Azure Red Hat OpenShift cluster to store and pull private Docker container images.
 
 ## Prerequisites
 
@@ -32,7 +32,6 @@ Instead, you can use the Azure CLI to get these credentials:
 ```azurecli
 az acr credential show -n <your registry name>
 ```
-
 ## Create the Kubernetes secret
 
 Now, we'll use these credentials to create a Kubernetes secret. Execute the following command with your ACR credentials:
@@ -48,6 +47,14 @@ oc create secret docker-registry \
 
 >[!NOTE]
 >This secret will be stored in the current OpenShift Project (Kubernetes Namespace) and will only be referenceable by pods created in that Project.  See this [document](https://docs.openshift.com/container-platform/4.4/openshift_images/managing_images/using-image-pull-secrets.html) for further instructions on creating a cluster wide pull secret.
+
+## Link the secret to the service account
+
+Next, link the secret to the service account that will be used by the pod, so the pod can reach the container registry. The name of the service account should match the name of the service account used by the pod. `default` is the default service account:
+
+```
+oc secrets link default <pull_secret_name> --for=pull
+```
 
 ## Create a pod using a private registry image
 

@@ -1,19 +1,20 @@
 ---
 title: 'Enable and work with Azure Bastion resource logs'
 description: Learn how to enable and work with Azure Bastion diagnostic logs.
-services: bastion
-author: charwen
-
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
-ms.author: charwen
+ms.author: cherylmc
 
 ---
 
 # Enable and work with Bastion resource logs
 
 As users connect to workloads using Azure Bastion, Bastion can log diagnostics of the remote sessions. You can then use the diagnostics to view which users connected to which workloads, at what time, from where, and other such relevant logging information. In order to use the diagnostics, you must enable diagnostics logs on Azure Bastion. This article helps you enable diagnostics logs, and then view the logs.
+
+>[!NOTE]
+>To view all resource logs available for Bastion, select each of the resource logs. If you exclude the 'All Logs' setting, you will not see all the available resource logs.
 
 ## <a name="enable"></a>Enable the resource log
 

@@ -1,12 +1,13 @@
 ---
 title: Avoid charges with your Azure free account
 description: Understand why you see charges for your Azure free account. Learn ways to avoid these charges.
-author: amberbhargava
+author: bandersmsft
+ms.reviewer: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 04/05/2023
 ms.author: banders
 ---
 
@@ -26,7 +27,7 @@ You get a limited quantity of free services each month with your Azure free acco
 
 ## You used some services that aren't free
 
-Once you've upgraded your account, you get charged pay-as-you-go rates for using services that aren't included for free with your Azure free account. Only certain tiers within a service are included for free. To learn about services included with your free account, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/). You can check your service usage in the Azure portal. To learn more, see [Plan and control expenses](../cost-management-billing-overview.md#plan-and-control-expenses).
+Once you've upgraded your account, you get charged pay-as-you-go rates for using services that aren't included for free with your Azure free account. Only certain tiers within a service are included for free. To learn about services included with your free account, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/). You can check your service usage in the Azure portal. To learn more, see [Report on and analyze costs](../cost-management-billing-overview.md#report-on-and-analyze-costs).
 
 ## You reached the end of your free 12 months
 

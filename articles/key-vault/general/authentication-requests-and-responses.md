@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 01/20/2023
 ms.author: mbaldwin
 
 ---
@@ -106,9 +106,9 @@ This topic covers specifics for the Azure Key Vault service. For general informa
 ```  
 
 ## Authentication  
- All requests to Azure Key Vault MUST be authenticated. Azure Key Vault supports Azure Active Directory access tokens that may be obtained using OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
+ All requests to Azure Key Vault MUST be authenticated. Azure Key Vault supports Microsoft Entra access tokens that may be obtained using OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
- For more information on registering your application and authenticating to use Azure Key Vault, see [Register your client application with Azure AD](/rest/api/azure/index#register-your-client-application-with-azure-ad).
+ For more information on registering your application and authenticating to use Azure Key Vault, see [Register your client application with Microsoft Entra ID](/rest/api/azure/index#register-your-client-application-with-azure-ad).
  
  Access tokens must be sent to the service using the HTTP Authorization header:  
 

@@ -81,4 +81,4 @@ In this section, you send breaking news as tagged template notifications from a 
 [Notification Hubs REST interface]: /previous-versions/azure/reference/dn223264(v=azure.100)
 [Add push notifications for Mobile Apps]: /previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push
 [How to use Notification Hubs from Java or PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
-[Microsoft.Azure.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
+[Microsoft.Azure.NotificationHubs]: https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/

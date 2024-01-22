@@ -3,12 +3,15 @@ title: Troubleshoot Azure Automation Start/Stop VMs during off-hours issues
 description: This article tells how to troubleshoot and resolve issues arising during the use of the Start/Stop VMs during off-hours feature.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/04/2019
-ms.topic: troubleshooting 
-ms.custom: devx-track-azurepowershell
+ms.date: 03/16/2023
+ms.topic: troubleshooting
+ms.custom: engagement-fy23
 ---
 
 # Troubleshoot Start/Stop VMs during off-hours issues
+
+> [!NOTE]
+> Start/Stop VM during off-hours version 1 is unavailable in the marketplace now as it will retire by 30 September 2023. We recommend you start using [version 2](../../azure-functions/start-stop-vms/overview.md), which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until 30 September 2023. The details of the announcement will be shared soon. 
 
 This article provides information on troubleshooting and resolving issues that arise when you deploy the Azure Automation Start/Stop VMs during off-hours feature on your VMs. 
 
@@ -70,7 +73,6 @@ Review the following fixes for potential resolutions:
 
    To learn more about errors when you register providers, see [Resolve errors for resource provider registration](../../azure-resource-manager/templates/error-register-resource-provider.md).
 * If you have a lock on your Log Analytics workspace, go to your workspace in the Azure portal and remove any locks on the resource.
-* If these resolutions don't solve your issue, follow the instructions under [Update the feature](../automation-solution-vm-management.md#update-the-feature) to redeploy Start/Stop VMs during off-hours.
 
 ## <a name="all-vms-fail-to-startstop"></a>Scenario: All VMs fail to start or stop
 
@@ -105,7 +107,7 @@ Review the following list for potential resolutions:
   * **ScheduledStartStop_Parent**
   * **SequencedStartStop_Parent**
 
-* Verify that your [Run As account](../automation-security-overview.md#run-as-accounts) has proper permissions to the VMs you're trying to start or stop. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the application ID for the service principal used by the Run As account. You can retrieve this value by going to your Automation account in the Azure portal. Select **Run as accounts** under **Account Settings**, and select the appropriate Run As account.
+* To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the application ID for the service principal used by the Run As account. You can retrieve this value by going to your Automation account in the Azure portal. Select **Run as accounts** under **Account Settings**, and select the appropriate Run As account.
 
 * VMs might not be started or stopped if they're being explicitly excluded. Excluded VMs are set in the `External_ExcludeVMNames` variable in the Automation account to which the feature is deployed. The following example shows how you can query that value with PowerShell.
 
@@ -197,9 +199,7 @@ This issue can be caused by an improperly configured or expired Run As account. 
 
 To verify that your Run As account is properly configured, go to your Automation account in the Azure portal and select **Run as accounts** under **Account Settings**. If a Run As account is improperly configured or expired, the status shows the condition.
 
-If your Run As account is misconfigured, delete and re-create your Run As account. For more information, see [Azure Automation Run As accounts](../automation-security-overview.md#run-as-accounts).
-
-If the certificate is expired for your Run As account, follow the steps in [Self-signed certificate renewal](../manage-runas-account.md#cert-renewal) to renew the certificate.
+If your Run As account is misconfigured, delete and re-create your Run As account.
 
 If there are missing permissions, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You must provide the application ID for the service principal used by the Run As account. You can retrieve this value by going to your Automation account in the Azure portal. Select **Run as accounts** under **Account Settings**, and select the appropriate Run As account.
 
@@ -218,7 +218,7 @@ Many times errors can be caused by using an old and outdated version of the feat
 
 ### Resolution
 
-To resolve many errors, remove and [update Start/Stop VMs during off-hours](../automation-solution-vm-management.md#update-the-feature). You also can check the [job streams](../automation-runbook-execution.md#job-statuses) to look for any errors. 
+You can check the [job streams](../automation-runbook-execution.md#job-statuses) to look for any errors. 
 
 ## Next steps
 

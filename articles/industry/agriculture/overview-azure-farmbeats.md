@@ -1,10 +1,10 @@
 ---
 title: What is Azure FarmBeats
 description: Provides an overview of Azure FarmBeats
-author: RiyazPishori
-ms.topic: overview
-ms.date: 11/04/2019
-ms.author: riyazp
+author: gourdsay
+ms.topic: article
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 
@@ -12,8 +12,10 @@ ms.author: riyazp
 
 Azure FarmBeats is a business-to-business offering available in Azure Marketplace. It enables aggregation of agriculture data sets across providers. Azure FarmBeats enables you to build artificial intelligence (AI) or machine learning (ML) models based on fused data sets. By using Azure FarmBeats, agriculture businesses can focus on core value-adds instead of the undifferentiated heavy lifting of data engineering.
 
-> [!NOTE]
-> We have built a new PaaS version of Azure FarmBeats as a fully managed service and currently in private preview. For more information on trying out the new Azure FarmBeats, write to us at FarmBeatsSupport@microsoft.com. 
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 ![Project Farm Beats](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
 
@@ -26,21 +28,19 @@ With the preview of Azure FarmBeats you can:
 - Gain actionable insights by building AI/ML models on top of aggregated datasets.
 - Build or augment your digital agriculture solution by providing farm health advisories.
 
-> [!NOTE]
-> Azure FarmBeats is currently in public preview. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats is provided without a service level agreement. Use the [Azure FarmBeats Support Forum](/answers/topics/azure-farmbeats.html) for support.
 
-## Datahub
+## Data hub
 
-The Azure FarmBeats Datahub is an API layer, which enables aggregation, normalization, and contextualization of various agriculture datasets across providers. You can use Azure FarmBeats to get:
+The Azure FarmBeats Data hub is an API layer, which enables aggregation, normalization, and contextualization of various agriculture datasets across providers. You can use Azure FarmBeats to get:
 - **Sensor data** from two sensor providers [Davis Instruments](https://www.davisinstruments.com/products/enviromonitor-gateway-us-lte), [Teralytic](https://teralytic.com/), [Pessl Instruments](https://metos.at/)
 - **Satellite imagery** from European Space Agency's [Sentinel-2](https://sentinel.esa.int/web/sentinel/home) satellite mission
 - **Drone imagery** from three drone imagery providers [senseFly](https://www.sensefly.com/) , [SlantRange](https://slantrange.com/) , [DJI](https://dji.com/)
 
-Datahub is designed as an extensible API platform. We are working with many more providers to integrate with Azure FarmBeats, so you have more choice while building your solution.
+Data hub is designed as an extensible API platform. We're working with many more providers to integrate with Azure FarmBeats, so you have more choice while building your solution.
 
 ## Accelerator
 
-The Azure FarmBeats Accelerator is a sample web application, that is built on top of Datahub. The Accelerator jump-starts your user interface and model development. The Azure FarmBeats accelerator uses Azure FarmBeats' APIs. It visualizes ingested sensor data as charts and  model outputs as maps. For example, you can use the accelerator to create a farm quickly and get a vegetation index map or a sensor placement map for that farm easily.
+The Azure FarmBeats Accelerator is a sample web application, that is built on top of Data hub. The Accelerator jump-starts your user interface and model development. The Azure FarmBeats accelerator uses Azure FarmBeats' APIs. It visualizes ingested sensor data as charts and  model outputs as maps. For example, you can use the accelerator to create a farm quickly and get a vegetation index map or a sensor placement map for that farm easily.
 
 ## Azure role-based access control (Azure RBAC)
 
@@ -62,7 +62,7 @@ An administrator can add multiple partners as data providers to Azure FarmBeats.
 
 ## Resources
 
-Azure FarmBeats is offered at no additional charge and you pay only for the Azure resources you use. You can use the below resources to know more about the offering:
+Azure FarmBeats is offered at no extra charge and you pay only for the Azure resources you use. You can use the below resources to know more about the offering:
 
 - Stay informed about the latest Azure FarmBeats news by visiting our [Azure FarmBeats blog](https://aka.ms/farmbeatsblog).
 - Seek help by posting a question on our [Azure FarmBeats support forum](/answers/topics/azure-farmbeats.html).

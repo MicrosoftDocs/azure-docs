@@ -7,6 +7,7 @@ ms.author: jduffney
 ms.date: 04/19/2022
 ms.topic: quickstart
 ms.devlang: golang
+ms.custom: devx-track-go
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (Go)
@@ -109,7 +110,8 @@ func SendMessageBatch(messages []string, client *azservicebus.Client) {
 	if err != nil {
 		panic(err)
 	}
-
+	defer sender.Close(context.TODO())
+	
 	batch, err := sender.NewMessageBatch(context.TODO(), nil)
 	if err != nil {
 		panic(err)
@@ -148,10 +150,7 @@ func GetMessage(count int, client *azservicebus.Client) {
 	}
 
 	for _, message := range messages {
-		body, err := message.Body()
-		if err != nil {
-			panic(err)
-		}
+		body := message.Body
 		fmt.Printf("%s\n", string(body))
 
 		err = receiver.CompleteMessage(context.TODO(), message, nil)
@@ -317,10 +316,7 @@ func GetMessage(count int, client *azservicebus.Client) {
 	}
 
 	for _, message := range messages {
-		body, err := message.Body()
-		if err != nil {
-			panic(err)
-		}
+		body := message.Body
 		fmt.Printf("%s\n", string(body))
 
 		err = receiver.CompleteMessage(context.TODO(), message, nil)

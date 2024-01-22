@@ -12,7 +12,7 @@ metadata:
   ms.workload: mobile
   ms.tgt_pltfrm: mobile-multiple
   ms.topic: faq
-  ms.date: 02/12/2021
+  ms.date: 06/05/2023
   ms.author: sethm
   ms.reviewer: thsomasu
   ms.lastreviewed: 11/13/2019
@@ -32,9 +32,9 @@ sections:
         answer: |
           The latest pricing details can be found on the [Notification Hubs Pricing](https://azure.microsoft.com/pricing/details/notification-hubs/) page. Notification Hubs is billed at the namespace level. (For the definition of a namespace, see "What is the resource structure of Notification Hubs?") Notification Hubs offers three tiers:
           
-          * **Free**: This tier is a good starting point for exploring push capabilities. It's not recommended for production apps. You get 500 devices and 1 million pushes included per namespace per month, with no service level agreement (SLA) guarantee.
-          * **Basic**: This tier (or the Standard tier) is recommended for smaller production apps. You get 200,000 devices and 10 million pushes included per namespace per month as a baseline.
-          * **Standard**: This tier is recommended for medium to large production apps. You get 10 million devices and 10 million pushes included per namespace per month as a baseline. Includes rich telemetry (additional data about push status provided).
+          * **Free**: This tier is a good starting point for exploring push capabilities. It's not recommended for production apps. You get 500 devices and 1 million pushes included per subscription per month, with no service level agreement (SLA) guarantee.
+          * **Basic**: This tier (or the Standard tier) is recommended for smaller production apps. You get 200,000 devices and 10 million pushes included per subscription per month as a baseline.
+          * **Standard**: This tier is recommended for medium to large production apps. You get 10 million devices and 10 million pushes included per subscription per month as a baseline. Includes rich telemetry (additional data about push status provided).
           
           Standard tier features:
           
@@ -172,20 +172,7 @@ sections:
       - question: |
           What support is provided for disaster recovery?
         answer: |
-          We provide metadata disaster recovery coverage on our end (the Notification Hubs name, the connection string, and other critical information). When a disaster recovery scenario is triggered, registration data is the *only segment* of the Notification Hubs infrastructure that is lost. You must implement a solution to repopulate this data into your new hub post-recovery:
-          
-          1. Create a secondary notifications hub in a different data center. We recommend creating one from the beginning to shield you from a disaster recovery event that might affect your management capabilities. You can also create one at the time of the disaster recovery event.
-          
-          2. Keep the secondary notification hub in sync with the primary notification hub using one of the following options:
-          
-             * Use an app backend that simultaneously creates and updates installations in both notification hubs. Installations allow you to specify your own unique device identifier, making it more suitable for the replication scenario. For more information, see this [sample code](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample).
-             * Use an app backend that gets a regular dump of registrations from the primary notification hub as a backup. It can then perform a bulk insert into the secondary notification hub.
-          
-          The secondary notification hub may end up with expired installations/registrations. When the push is made to an expired handle, Notification Hubs automatically cleans the associated installation/registration record based on the response received from the PNS server. To clean expired records from a secondary notification hub, add custom logic that processes feedback from each send. Then, expire installation/registration in the secondary notification hub.
-          
-          If you don’t have a backend, when the app starts on target devices, they perform a new registration in the secondary notification hub. Eventually the secondary notification hub will have all the active devices registered.
-          
-          There will be a time period when devices with unopened apps won't receive notifications.
+          See [High availability for Azure Notification Hubs](notification-hubs-high-availability.md).
           
       - question: |
           Is all of my data stored in encrypted form?

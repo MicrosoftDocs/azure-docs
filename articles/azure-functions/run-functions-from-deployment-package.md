@@ -51,6 +51,9 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` options
 + You can't use local cache when running from a deployment package.
 + If your project needs to use remote build, don't use the `WEBSITE_RUN_FROM_PACKAGE` app setting. Instead add the `SCM_DO_BUILD_DURING_DEPLOYMENT=true` deployment customization app setting. For Linux, also add the `ENABLE_ORYX_BUILD=true` setting. To learn more, see [Remote build](functions-deployment-technologies.md#remote-build).
 
+> [!NOTE]
+> WEBSITE_RUN_FROM_PACKAGE does not work with MSDeploy as described [here](https://github.com/projectkudu/kudu/wiki/MSDeploy-VS.-ZipDeploy). You will receive an error during deployment like `ARM-MSDeploy Deploy Failed`.  Change /MSDeploy to /ZipDeploy and this error will be resolved.
+
 ### Adding the WEBSITE_RUN_FROM_PACKAGE setting
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
@@ -85,7 +88,8 @@ This section provides information about how to run your function app from a pack
 + When running a function app on Windows, the app setting `WEBSITE_RUN_FROM_PACKAGE = <URL>` gives worse cold-start performance and isn't recommended.
 + When you specify a URL, you must also [manually sync triggers](functions-deployment-technologies.md#trigger-syncing) after you publish an updated package.
 + The Functions runtime must have permissions to access the package URL.
-+ You shouldn't deploy your package to Azure Blob Storage as a public blob. Instead, use a private container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) or [use a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) to enable the Functions runtime to access the package.
++ You shouldn't deploy your package to Azure Blob Storage as a public blob. Instead, use a private container with a [Shared Access Signature (SAS)](../storage/common/storage-sas-overview.md) or [use a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) to enable the Functions runtime to access the package.
++ You must maintain any SAS URLs used for deployment. When an SAS expires, the package can no longer be deployed. In this case, you must generate a new SAS and update the setting in your function app. You can eliminate this management burden by [using a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity).
 + When running on a Premium plan, make sure to [eliminate cold starts](functions-premium-plan.md#eliminate-cold-starts).
 + When running on a Dedicated plan, make sure you've enabled [Always On](dedicated-plan.md#always-on).
 + You can use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to blob containers in your storage account.

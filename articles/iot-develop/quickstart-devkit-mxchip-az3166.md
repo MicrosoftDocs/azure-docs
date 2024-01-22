@@ -6,8 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/02/2021
-ms.custom: mode-other
+ms.date: 10/21/2022
+ms.custom: mode-other, engagement-fy23
 ---
 
 # Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Central

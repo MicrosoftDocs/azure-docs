@@ -3,10 +3,10 @@ title: Container services documentation
 summary: Learn how to use Azure container services to manage and develop cloud-based container applications.
 brand: azure
 metadata:
-   title: Microsoft Azure container services documentation | Microsoft Docs
-   description: Learn how to use Azure container services to manage and develop cloud-based container applications.
-   ms.topic: hub-page
-   ms.service: azure
+  title: Microsoft Azure container services documentation | Microsoft Docs
+  description: Learn how to use Azure container services to manage and develop cloud-based container applications.
+  ms.topic: hub-page
+  ms.service: azure
 
 highlightedContent:
   items:
@@ -150,12 +150,12 @@ conceptualContent:
         - url: ../openshift/intro-openshift.md
           itemType: overview
           text: What is Azure Red Hat OpenShift?
-        - url: ../openshift/howto-setup-environment.md
-          itemType: how-to-guide
-          text: Set up your Azure Red Hat OpenShift dev environment
         - url: ../openshift/tutorial-create-cluster.md
           itemType: tutorial
           text: Create an Azure Red Hat OpenShift cluster
+        - url: ../openshift/tutorial-connect-cluster.md
+          itemType: tutorial
+          text: Connect to an Azure Red Hat OpenShift cluster
       # footerLink (optional)
       footerLink:
         url: ../openshift/index.yml

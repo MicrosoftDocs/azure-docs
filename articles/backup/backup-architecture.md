@@ -3,9 +3,9 @@ title: Architecture Overview
 description: Provides an overview of the architecture, components, and processes used by the Azure Backup service.
 ms.topic: conceptual
 ms.date: 12/24/2021
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Azure Backup architecture and components

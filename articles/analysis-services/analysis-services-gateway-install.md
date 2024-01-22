@@ -1,14 +1,13 @@
 ---
-title: Install On-premises data gateway for Azure Analysis Services | Microsoft Docs
+title: Learn how to install On-premises data gateway for Azure Analysis Services | Microsoft Docs
 description: Learn how to install and configure an On-premises data gateway to connect to on-premises data sources from an Azure Analysis Services server.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 01/31/2022
+ms.date: 08/25/2023
 ms.author: owend
 ms.reviewer: minewiskan 
-ms.custom: devx-track-azurepowershell
-
+ms.custom:
 ---
 # Install and configure an on-premises data gateway
 
@@ -37,7 +36,7 @@ To learn more about how Azure Analysis Services works with the gateway, see [Con
 * Install the gateway on a computer that remains on and does not go to sleep.
 * Do not install the gateway on a computer with a wireless only connection to your network. Performance can be diminished.
 * When installing the gateway, the user account you're signed in to your computer with must have Log on as service privileges. When install is complete, the On-premises data gateway service uses the NT SERVICE\PBIEgwService account to log on as a service. A different account can be specified during setup or in Services after setup is complete. Ensure Group Policy settings allow both the account you're signed in with when installing and the service account you choose have Log on as service privileges.
-* Sign in to Azure with an account in Azure AD for the same [tenant](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) as the subscription you are registering the gateway in. Azure B2B (guest) accounts are not supported when installing and registering a gateway.
+* Sign in to Azure with an account in Microsoft Entra ID for the same [tenant](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) as the subscription you are registering the gateway in. Azure B2B (guest) accounts are not supported when installing and registering a gateway.
 * If data sources are on an Azure Virtual Network (VNet), you must configure the [AlwaysUseGateway](analysis-services-vnet-gateway.md) server property.
 * If installing the gateway on an Azure Virtual Machine (VM), ensure optimal networking performance by configuring Accelerated networking. To learn more, see [Create a Windows VM with accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md).
 
@@ -52,18 +51,18 @@ To learn more about how Azure Analysis Services works with the gateway, see [Con
 
 2. Select **On-premises data gateway**.
 
-   ![Select](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
+   ![Screenshot showing gateway selection.](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
 
 2. Select a location, accept the terms, and then click **Install**.
 
-   ![Install location and license terms](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
+   ![Screenshot showing install location and license terms.](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. Sign in to Azure. The account must be in your tenant's Azure Active Directory. This account is used for the gateway administrator. Azure B2B (guest) accounts are not supported when installing and registering the gateway.
+3. Sign in to Azure. The account must be in your tenant's Microsoft Entra ID. This account is used for the gateway administrator. Azure B2B (guest) accounts are not supported when installing and registering the gateway.
 
-   ![Sign in to Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+   ![Screenshot showing sign in to Azure.](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
    > [!NOTE]
-   > If you sign in with a domain account, it's mapped to your organizational account in Azure AD. Your organizational account is used as the gateway administrator.
+   > If you sign in with a domain account, it's mapped to your organizational account in Microsoft Entra ID. Your organizational account is used as the gateway administrator.
 
 ## Register
 
@@ -78,7 +77,7 @@ In order to create a gateway resource in Azure, you must register the local inst
     > [!IMPORTANT]
     > Save your recovery key in a safe place. The recovery key is required in-order to takeover, migrate, or restore a gateway. 
 
-   ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+   ![Screenshot showing Register.](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## Create an Azure gateway resource
@@ -87,7 +86,7 @@ After you've installed and registered your gateway, you need to create a gateway
 
 1. In Azure portal, click **Create a resource**, then search for **On-premises data gateway**, and then click **Create**.
 
-   ![Create a gateway resource](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
+   ![Screenshot showing create a gateway resource.](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
 2. In **Create connection gateway**, enter these settings:
 
@@ -117,11 +116,11 @@ After you've installed and registered your gateway, you need to create a gateway
 
 1. In your Azure Analysis Services server overview, click **On-Premises Data Gateway**.
 
-   ![Connect server to gateway](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
+   ![Screenshot showing On-Premises Data Gateway in Settings.](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
 
 2. In **Pick an On-Premises Data Gateway to connect**, select your gateway resource, and then click **Connect selected gateway**.
 
-   ![Connect server to gateway resource](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
+   ![Screenshot showing Connect server to gateway resource](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 
     > [!NOTE]
     > If your gateway does not appear in the list, your server is likely not in the same region as the region you specified when registering the gateway.
@@ -129,11 +128,11 @@ After you've installed and registered your gateway, you need to create a gateway
     When connection between your server and gateway resource is successful, status will show **Connected**.
 
 
-    ![Connect server to gateway resource success](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
+    ![Screenshot showing connect server to gateway resource success.](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
 # [PowerShell](#tab/azure-powershell)
 
-Use [Get-AzResource](/powershell/module/az.resources/get-azresource) to get the the gateway ResourceID. Then connect the gateway resource to an existing or new server by specifying **-GatewayResourceID** in [Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) or [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver).
+Use [Get-AzResource](/powershell/module/az.resources/get-azresource) to get the gateway ResourceID. Then connect the gateway resource to an existing or new server by specifying **-GatewayResourceID** in [Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) or [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver).
 
 To get the gateway resource ID:
 

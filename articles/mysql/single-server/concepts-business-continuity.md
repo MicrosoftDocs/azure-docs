@@ -4,8 +4,8 @@ description: Learn about business continuity (point-in-time restore, data center
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 
@@ -13,13 +13,15 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 This article describes the capabilities that Azure Database for MySQL provides for business continuity and disaster recovery. Learn about options for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. Learn what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
 
 ## Features that you can use to provide business continuity
 
 As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your Recovery Time Objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - this is your Recovery Point Objective (RPO).
 
-Azure Database for MySQL Single Server provides business continuity and disaster recovery features that include geo-redundant backups with the ability to initiate geo-restore, and deploying read replicas in a different region. Each has different characteristics for the recovery time and the potential data loss. With [Geo-restore](concepts-backup.md) feature, a new server is created using the backup data that is replicated from another region. The overall time it takes to restore and recover depends on the size of the database and the amount of logs to recover. The overall time to establish the server varies from few minutes to few hours. With [read replicas](concepts-read-replicas.md), transaction logs from the primary are asynchronously streamed to the replica. In the event of a primary database outage due to a zone-level or a region-level fault, failing over to the replica provides a shorter RTO and reduced data loss.
+Azure Database for MySQL single server provides business continuity and disaster recovery features that include geo-redundant backups with the ability to initiate geo-restore, and deploying read replicas in a different region. Each has different characteristics for the recovery time and the potential data loss. With [Geo-restore](concepts-backup.md) feature, a new server is created using the backup data that is replicated from another region. The overall time it takes to restore and recover depends on the size of the database and the amount of logs to recover. The overall time to establish the server varies from few minutes to few hours. With [read replicas](concepts-read-replicas.md), transaction logs from the primary are asynchronously streamed to the replica. In the event of a primary database outage due to a zone-level or a region-level fault, failing over to the replica provides a shorter RTO and reduced data loss.
 
 > [!NOTE]
 > The lag between the primary and the replica depends on the latency between the sites, the amount of data to be transmitted and most importantly on the write workload of the primary server. Heavy write workloads can generate significant lag. 

@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # Filter transformation in mapping data flow
@@ -18,7 +18,7 @@ ms.date: 08/03/2022
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-The Filter transforms allows row filtering based upon a condition. The output stream includes all rows that matching the filtering condition. The filter transformation is similar to a WHERE clause in SQL.
+The Filter transforms allows row filtering based upon a condition. The output stream includes all rows that match the filtering condition. The filter transformation is similar to a WHERE clause in SQL.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xnxN]
 
@@ -57,6 +57,6 @@ CleanData
 
 ```
 
-## Next steps
+## Related content
 
 Filter out columns with the [select transformation](data-flow-select.md)

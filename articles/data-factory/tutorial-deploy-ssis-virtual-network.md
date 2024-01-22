@@ -6,7 +6,7 @@ ms.author: chugu
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 08/10/2023
 ---
 
 # Configure Azure-SSIS integration runtime to join a virtual network
@@ -65,7 +65,7 @@ After you've configured a virtual network, you can join your Azure-SSIS IR to th
 
    :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png" alt-text="List of data factories":::
 
-1. Select your ADF with Azure-SSIS IR in the list. You see the home page for your ADF. Select the **Author & Monitor** tile. You see ADF UI on a separate tab.
+1. Select your ADF with Azure-SSIS IR in the list. You see the home page for your ADF. Select the **Open Azure Data Factory Studio** tile. You see ADF UI on a separate tab.
 
    :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png" alt-text="Data factory home page":::
 
@@ -105,7 +105,7 @@ After you've configured a virtual network, you can join your Azure-SSIS IR to th
 
 1. Start your Azure-SSIS IR by selecting the **Start** button in **Actions** column for your Azure-SSIS IR. It takes about 5 minutes to start your Azure-SSIS IR that joins a virtual network with express injection method.
 
-## Next steps
+## Related content
 
 - [Configure a virtual network to inject Azure-SSIS IR](azure-ssis-integration-runtime-virtual-network-configuration.md)
 - [Express virtual network injection method](azure-ssis-integration-runtime-express-virtual-network-injection.md)

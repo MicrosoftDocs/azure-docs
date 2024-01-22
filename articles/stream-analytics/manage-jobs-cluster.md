@@ -1,13 +1,12 @@
 ---
 title: Add and delete jobs in an Azure Stream Analytics cluster
 description: Learn how to managed Stream Analytics jobs in an Azure Stream Analytics cluster
-author: sidramadoss
-ms.author: sidram
-
+author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/29/2021
+ms.date: 12/21/2022
 ---
 
 # Add and Remove jobs in an Azure Stream Analytics cluster
@@ -26,7 +25,7 @@ Only existing Stream Analytics jobs can be added to clusters. Follow the quickst
 
    ![Add job to cluster](./media/manage-jobs-cluster/add-job.png)
 
-1. After you have added the job to the cluster, navigate to the job resource and [start the job](start-job.md#azure-portal). The job will then start to run on your cluster.
+1. After you've added the job to the cluster, navigate to the job resource and [start the job](start-job.md#azure-portal). The job will then start to run on your cluster.
 
 You can do all other operations, such as monitoring, alerting, and diagnostic logs, from the Stream Analytics job resource page.
 

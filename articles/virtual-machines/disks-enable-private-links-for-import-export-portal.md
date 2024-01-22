@@ -2,11 +2,10 @@
 title: Azure portal - Restrict import/export access to managed disks
 description: Enable Private Link for your managed disks with Azure portal. This allows you to securely export and import disks within your virtual network.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 09/03/2021
+ms.date: 03/31/2023
 ms.author: rogarana
-ms.subservice: disks
 ---
 
 # Restrict import/export access for managed disks using Azure Private Link
@@ -23,11 +22,7 @@ To use Private Link to export and import managed disks, first you create a disk 
 
 ## Create a disk access resource
 
-1. Sign in to the Azure portal and navigate to **Disk Accesses** with [this link](https://aka.ms/disksprivatelinks).
-
-    > [!IMPORTANT]
-    > You must use the [provided link](https://aka.ms/disksprivatelinks) to navigate to the Disk Accesses pane. It is not currently visible in the public portal without using the link.
-
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Disk Accesses**.
 1. Select **+ Create** to create a new disk access resource.
 1. On the **Create a disk accesses** pane, select your subscription and a resource group. Under **Instance details**, enter a name and select a region.
 
@@ -88,5 +83,5 @@ You've now configured a private link that you can use to import and export your 
 
 - Upload a VHD to Azure or copy a managed disk to another region - [Azure CLI](linux/disks-upload-vhd-to-managed-disk-cli.md) or [Azure PowerShell module](windows/disks-upload-vhd-to-managed-disk-powershell.md)
 - Download a VHD - [Windows](windows/download-vhd.md) or [Linux](linux/download-vhd.md)
-- [FAQ for private links and managed disks](./faq-for-disks.yml)
+- [FAQ for private links and managed disks](./faq-for-disks.yml#private-links-for-managed-disks)
 - [Export/Copy managed snapshots as VHD to a storage account in different region with PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account)

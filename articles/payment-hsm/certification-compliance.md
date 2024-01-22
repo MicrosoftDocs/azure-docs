@@ -8,18 +8,37 @@ tags: azure-resource-manager
 ms.service: payment-hsm
 ms.workload: security
 ms.topic: article
-ms.date: 01/25/2022
+ms.date: 03/25/2023
 ms.author: mbaldwin
 ---
 
 # Certification and compliance
 
-The Azure Payment HSM service is PCI DSS and PCI 3DS compliant.
+Azure maintains the largest compliance portfolio in the industry. For details, see [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/), Each offering description provides an up to-date-scope statement and links to useful downloadable resources.
 
-- [Azure - PCI DSS - 2022 Package](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=b9cc20e0-38db-4953-aa58-9fb5cce26cc2&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_PCI_DSS) – Contains the official PCI DSS certification reports and shared responsibility matrices. The PCI DSS AOC includes the full list of PCI DSS certified Azure offerings and regions. Customers can leverage Azure’s PCI DSS AOC during their PCI DSS assessment.
-- [Azure - PCI 3DS - 2022 Package](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=45ade37c-753c-4392-8321-adc49ecad12c&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_PCI_DSS) – Contains the official PCI 3DS certification report, shared responsibility matrix, and whitepaper. The PCI 3DS AOC includes the full list of PCI 3DS certified Azure offerings and regions. Customers can leverage Azure’s PCI 3DS AOC during their PCI 3DS assessment.
+Azure payment HSM meets following compliance standards:
 
-Azure Payment HSMs can be deployed as part of a validated PCI P2PE and PCI PIN component or solution. Microsoft can provide evidence of proof for customer to meet their P2PE and PIN certification requirements.
+- PCI DSS
+- PCI PIN
+- PCI 3DS
+- CSA STAR Certification
+- CSA STAR Attestation
+- ISO 20000-1:2018
+- ISO 22301:2019
+- ISO 27001:2013
+- ISO 27017:2015
+- ISO 27018:2019
+- ISO 27701:2019
+- ISO 9001:2015
+- SOC 1, 2, 3
+- Germany C5
+
+To download latest certification and attestation reports, please go to [Service Trust Portal Home Page (microsoft.com)](https://servicetrust.microsoft.com/ViewPage/HomePageVNext)
+
+For example, the latest PCI certification reports and shared responsibility matrices are:
+- [Azure - PCI PIN 3.1 Package (September 2023)](https://servicetrust.microsoft.com/DocumentPage/8265dc10-540f-4178-b167-b333775ddc6b) (2023-09-14)
+- [Azure - PCI DSS v4.0 Package (2023)](https://servicetrust.microsoft.com/DocumentPage/3be58cb9-de55-426b-9c3d-0ba90dd29572) (2023-03-07)
+- [Azure - PCI 3DS v1.0 Package (2023)](https://servicetrust.microsoft.com/DocumentPage/a9fe4984-3c73-4abf-bf88-a197c3821690) (2023-03-07)
 
 Thales payShield 10K HSMs are certified to FIPS 140-2 Level 3 and PCI HSM v3.
 

@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 09/02/2022
+ms.date: 01/05/2024
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
@@ -123,18 +123,18 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-Cosmos-DeleteDataFailed
 
-- **Message**: Failed to delete data from cosmos after 3 times retry.
-- **Cause**: The throughput on the Cosmos collection is small and leads to meeting throttling or row data not existing in Cosmos.
+- **Message**: Failed to delete data from Azure Cosmos DB after 3 times retry.
+- **Cause**: The throughput on the Azure Cosmos DB collection is small and leads to meeting throttling or row data not existing in Azure Cosmos DB.
 - **Recommendation**: Please take the following actions to solve this problem:
-    - If the error is 404, make sure that the related row data exists in the Cosmos collection.
-    - If the error is throttling, please increase the Cosmos collection throughput or set it to the automatic scale.
-    - If the error is request timed out, please set 'Batch size' in the Cosmos sink to smaller value, for example 1000.
+    - If the error is 404, make sure that the related row data exists in the Azure Cosmos DB collection.
+    - If the error is throttling, please increase the Azure Cosmos DB collection throughput or set it to the automatic scale.
+    - If the error is request timed out, please set 'Batch size' in the Azure Cosmos DB sink to smaller value, for example 1000.
 
 ### Error code: DF-Cosmos-FailToResetThroughput
 
-- **Message**: Cosmos DB throughput scale operation cannot be performed because another scale operation is in progress, please retry after sometime.
+- **Message**: Azure Cosmos DB throughput scale operation cannot be performed because another scale operation is in progress, please retry after sometime.
 - **Cause**: The throughput scale operation of the Azure Cosmos DB can't be performed because another scale operation is in progress.
-- **Recommendation**: Login to Azure Cosmos DB account, and manually change container throughput to be auto scale or add a custom activity after mapping data flows to reset the throughput.
+- **Recommendation**: Log in to Azure Cosmos DB account, and manually change container throughput to be auto scale or add a custom activity after mapping data flows to reset the throughput.
 
 ### Error code: DF-Cosmos-IdPropertyMissed
 
@@ -146,7 +146,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Either accountName or accountEndpoint should be specified.
 - **Cause**: Invalid account information is provided.
-- **Recommendation**: In the Cosmos DB linked service, specify the account name or account endpoint.
+- **Recommendation**: In the Azure Cosmos DB linked service, specify the account name or account endpoint.
 
 ### Error code: DF-Cosmos-InvalidAccountKey
 
@@ -158,7 +158,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Invalid connection mode.
 - **Cause**: An invalid connection mode is provided.
-- **Recommendation**: Confirm that the supported mode is **Gateway** and **DirectHttps** in Cosmos DB settings.
+- **Recommendation**: Confirm that the supported mode is **Gateway** and **DirectHttps** in Azure Cosmos DB settings.
 
 ### Error code: DF-Cosmos-InvalidPartitionKey
 
@@ -167,13 +167,13 @@ This section lists common error codes and messages reported by mapping data flow
 - **Recommendation**: Use the providing partition key in the Azure Cosmos DB sink settings.
 - **Message**: Partition key is not mapped in sink for delete and update operations.
 - **Cause**: An invalid partition key is provided.
-- **Recommendation**: In Cosmos DB sink settings, use the right partition key that is same as your container's partition key.
+- **Recommendation**: In Azure Cosmos DB sink settings, use the right partition key that is same as your container's partition key.
 
 ### Error code: DF-Cosmos-InvalidPartitionKeyContent
 
 - **Message**: partition key should start with /.
 - **Cause**: An invalid partition key is provided.
-- **Recommendation**: Ensure that the partition key start with `/` in Cosmos DB sink settings, for example: `/movieId`.
+- **Recommendation**: Ensure that the partition key start with `/` in Azure Cosmos DB sink settings, for example: `/movieId`.
 
 ### Error code: DF-Cosmos-PartitionKeyMissed
 
@@ -189,9 +189,15 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-Cosmos-ShortTypeNotSupport
 
-- **Message**: Short data type is not supported in Cosmos DB.
-- **Cause**: The short data type is not supported in the Azure Cosmos DB.
+- **Message**: Short data type is not supported in Azure Cosmos DB.
+- **Cause**: The short data type is not supported in the Azure Cosmos DB instance.
 - **Recommendation**: Add a derived column transformation to convert related columns from short to integer before using them in the Azure Cosmos DB sink transformation.
+
+### Error code: DF-CSVWriter-InvalidQuoteSetting 
+
+- **Message**: Job failed while writing data with error: Quote character and escape character cannot be empty if column value contains column delimiter 
+- **Cause**: Both quote characters and escape characters are empty when the column value contains column delimiter. 
+- **Recommendation**: Set your quote character or escape character. 
 
 ### Error code: DF-Delimited-ColumnDelimiterMissed
 
@@ -228,6 +234,17 @@ This section lists common error codes and messages reported by mapping data flow
 - **Message**: Key column(s) should be specified for non-insertable operations.
 - **Cause**: Key column(s) are missed for non-insertable operations.
 - **Recommendation**: Specify key column(s) on delta sink to have non-insertable operations.
+
+### Error code: DF-Dynamics-InvalidNullAlternateKeyColumn 
+
+- **Message**: Any column value of alternate Key can't be NULL. 
+- **Cause**: Your alternate key column value can't be null. 
+- **Recommendation**: Confirm that your column value of your alternate key is not NULL. 
+
+### Error code: DF-Dynamics-TooMuchAlternateKey 
+
+- **Cause**: One lookup field with more than one alternate key reference is not valid. 
+- **Recommendation**: Check your schema mapping and confirm that each lookup field has a single alternate key. 
 
 ### Error code: DF-Excel-DifferentSchemaNotSupport
 
@@ -312,7 +329,7 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: Broadcast has a default timeout of 60 seconds in debug runs and 300 seconds in job runs. On the broadcast join, the stream chosen for broadcast is too large to produce data within this limit. If a broadcast join isn't used, the default broadcast by dataflow can reach the same limit.
 - **Recommendation**: Turn off the broadcast option or avoid broadcasting large data streams for which the processing can take more than 60 seconds. Choose a smaller stream to broadcast. Large Azure SQL Data Warehouse tables and source files aren't typically good choices. In the absence of a broadcast join, use a larger cluster if this error occurs.
 
-### Error code: DF-Executor-ColumnUnavailable
+### Error code: DF-Executor-ColumnNotFound
 
 - **Message**: Column name used in expression is unavailable or invalid.
 - **Cause**: An invalid or unavailable column name is used in an expression.
@@ -422,7 +439,7 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: The size of the data far exceeds the limit of the node memory.
 - **Recommendation**: Increase the core count and switch to the memory optimized compute type.
 
-### Error code: DF-Executor-ParseError
+### Error code: DF-Executor-ExpressionParseError
 
 - **Message**: Expression cannot be parsed.
 - **Cause**: An expression generated parsing errors because of incorrect formatting.
@@ -466,6 +483,12 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: Invalid store configuration is provided.
 - **Recommendation**: Check the parameter value assignment in the pipeline. A parameter expression may contain invalid characters.
 
+### Error code: DF-Executor-StringValueNotInQuotes
+
+- **Message**: Column operands are not allowed in literal expressions.
+- **Cause**: The value for a string parameter or an expected string value is not enclosed in single quotes.
+- **Recommendation**: Near the mentioned line number(s) in the data flow script, ensure the value for a string parameter or an expected string value is enclosed in single quotes.
+
 ### Error code: DF-Executor-SystemImplicitCartesian
 
 - **Message**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
@@ -478,6 +501,44 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: Possible problems with the JSON file: unsupported encoding, corrupt bytes, or using JSON source as a single document on many nested lines.
 - **Recommendation**: Verify that the JSON file's encoding is supported. On the source transformation that's using a JSON dataset, expand **JSON Settings** and turn on **Single Document**.
 
+### Error code: DF-Executor-UnauthorizedStorageAccess 
+
+- **Cause**: You are not permitted to access the storage account either due to missing roles for managed identity/service principal authentication or network firewall settings. 
+- **Recommendation**: When using managed identity/service principal authentication, 
+    1. For source: In Storage Explorer, grant the managed identity/service principal at least **Execute** permission for ALL upstream folders and the file system, along with **Read** permission for the files to copy. Alternatively, in Access control (IAM), grant the managed identity/service principal at least the **Storage Blob Data Reader** role. 
+    2. For sink: In Storage Explorer, grant the managed identity/service principal at least **Execute** permission for ALL upstream folders and the file system, along with **Write** permission for the sink folder. Alternatively, in Access control (IAM), grant the managed identity/service principal at least the **Storage Blob Data Contributor** role. <br>
+
+    Also please ensure that the network firewall settings in the storage account are configured correctly, as turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. 
+
+### Error code: DF-Executor-UnreachableStorageAccount 
+
+- **Message**: System is not able to resolve the IP address of the host. Please verify that your host name is correct or check if your DNS server is able to resolve the host to an IP address successfully 
+- **Cause**: Unable to reach the given storage account. 
+- **Recommendation**: Check the name of the storage account and make sure the storage account exists. 
+
+### Error code: DF-Executor-UserError 
+
+- **Message**: Job Failed due to reason: GetjobStatus, Job Failed - com.microsoft.dataflow.issues: DF-MICROSOFT365-CONSENTPENDING 
+- **Cause**: Privileged access approval is needed to copy data. It's a user configuration issue.
+- **Recommendation**: Ask the tenant admin to approve  your **Data Access Request** in Office365 in privileged access management (PAM) module.
+
+### Error code: DF-Executor-DSLParseError
+
+-	**Message**: Data flow script cannot be parsed.
+-	**Cause**: The data flow script has parsing errors.
+-	**Recommendation**: Check for errors (example: missing symbol(s), unwanted symbol(s)) near mentioned line number(s) in the data flow script.
+
+### Error code: DF-Executor-IncorrectQuery
+
+-	**Message**: Incorrect syntax. SQL Server error encountered while reading from the given table or while executing the given query.
+-	**Cause**: The query submitted was syntactically incorrect.
+-	**Recommendation**: Check the syntactical correctness of the given query. Ensure to have a non-quoted query string when it is referenced as a pipeline parameter.
+
+### Error code: DF-Executor-ParameterParseError
+-	**Message**: Parameter stream has parsing errors. Not honoring the datatype of parameter(s) could be one of the causes.
+-	**Cause**: Parsing errors in given parameter(s).
+-	**Recommendation**: Check the parameter(s) having errors, ensure the usage of appropriate function(s), and honor the datatype(s) given.
+
 ### Error code: DF-File-InvalidSparkFolder
 
 - **Message**: Failed to read footer for file.
@@ -486,7 +547,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-GEN2-InvalidAccountConfiguration
 
-- **Message**: Either one of account key or tenant/spnId/spnCredential/spnCredentialType or miServiceUri/miServiceToken should be specified.
+- **Message**: Either one of account key or SAS token or tenant/spnId/spnCredential/spnCredentialType or userAuth or miServiceUri/miServiceToken should be specified.
 - **Cause**: An invalid credential is provided in the ADLS Gen2 linked service.
 - **Recommendation**: Update the ADLS Gen2 linked service to have the right credential configuration.
 
@@ -550,9 +611,14 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-JSON-WrongDocumentForm
 
-- **Message**: Malformed records are detected in schema inference. Parse Mode: FAILFAST.
+- **Message**: Malformed records are detected in schema inference. Parse Mode: FAILFAST. It could be because of a wrong selection in document form to parse json file(s). Please try a different 'Document form' (Single document/Document per line/Array of documents) on the json source.
 - **Cause**: Wrong document form is selected to parse JSON file(s).
 - **Recommendation**: Try different **Document form** (**Single document**/**Document per line**/**Array of documents**) in JSON settings. Most cases of parsing errors are caused by wrong configuration.
+
+### Error code: DF-MICROSOFT365-CONSENTPENDING
+-	**Message**: Admin Consent is pending.
+-	**Cause**: Admin Consent is missing.
+-	**Recommendation**: Provide the consent and then rerun the pipeline. To provide consent, refer to [PAM requests](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-the-microsoft-365-admin-center).
 
 ### Error code: DF-MSSQL-ErrorRowsFound
 
@@ -595,11 +661,90 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: The SQL database's firewall setting blocks the data flow to access.
 - **Recommendation**: Please check the firewall setting for your SQL database, and allow Azure services and resources to access this server.
 
+### Error code: DF-MSSQL-InvalidCertificate
+
+- **Message**: SQL server configuration error, please either install a trusted certificate on your server or change 'encrypt' connection string setting to false and 'trustServerCertificate' connection string setting to true.
+- **Cause**: SQL server configuration error.
+- **Recommendations**: Install a trusted certificate on your SQL server, or change `encrypt` connection string setting to false and `trustServerCertificate` connection string setting to true.
+
 ### Error code: DF-PGSQL-InvalidCredential
 
 - **Message**: User/password should be specified.
 - **Cause**: The User/password is missed.
 - **Recommendation**: Make sure that you have right credential settings in the related PostgreSQL linked service.
+
+### Error code: DF-SAPODATA-InvalidRunMode
+
+- **Message**: Failed to execute dataflow with invalid run mode.
+- **Cause**: Possible causes are:
+    1. Only the read mode `fullLoad` can be specified when `enableCdc` is false.
+    1. Only the run mode `incrementalLoad` or `fullAndIncrementalLoad` can be specified when `enableCdc` is true.
+    1. Only `fullLoad`, `incrementalLoad` or `fullAndIncrementalLoad` can be specified.
+- **Recommendation**: Reconfigure the activity and run again. If the issue persists, contact Microsoft support for further assistance.
+
+### Error code: DF-SAPODATA-StageLinkedServiceMissed
+
+- **Message**: Failed to execute dataflow when Staging Linked Service is not existed in DSL. Please reconfigure the activity and run again. If issue persists, please contact Microsoft support for further assistance.
+- **Cause**: The staging linked service doesn't exist in DSL.
+- **Recommendation**: Reconfigure the activity and run again. If the issue persists, contact Microsoft support for further assistance.
+
+### Error code: DF-SAPOODATA-StageContainerMissed
+
+- **Message**: Container or file system is required for staging storage.
+- **Cause**: No container or file system is specified for the staging storage.
+- **Recommendation**: Specify the container and file system for your staging storage.
+
+### Error code: DF-SAPODATA-StageFolderPathMissed
+
+- **Message**: Folder path is required for staging storage.
+- **Cause**: No folder path is specified for the staging storage.
+- **Recommendation**: Specify the folder path for the staging storage.
+
+### Error code: DF-SAPODATA-ODataServiceOrEntityMissed
+
+- **Message**: Both SAP servicePath and entityName are required in import-schema, preview-data and read data operation.
+- **Cause**: **Service path** and **Entity name** can't be null when importing schema, previewing data or reading data.
+- **Recommendation**: Specify the **Service path** and **Entity name** when importing schema, previewing data or reading data.
+
+### Error code: DF-SAPODATA-TimeoutInvalid
+
+- **Message**: Timeout is invalid, it should be no more than 7 days.
+- **Cause**: The timeout can't exceed 7 days.
+- **Recommendation**: Specify the valid timeout.
+
+### Error code: DF-SAPODATA-ODataServiceMissed
+
+- **Message**: SAP servicePath is required when browsing entity name.
+- **Cause**: The **Service path** can't be null when browsing the entity name.
+- **Recommendation**: Specify the **Service path**.
+
+### Error code: DF-SAPODATA-SystemError
+
+- **Message**: System Error: Failed to get deltaToken from SAP. Please contact Microsoft support for further assistance.
+- **Cause**: Failed to get the delta token from SAP.
+- **Recommendation**: Contact Microsoft support for further assistance.
+
+### Error code: DF-SAPODATA-StageAuthInvalid
+
+- **Message**: Invalid client secret provided
+- **Cause**: The service principal credential of the staging storage is incorrect.
+- **Recommendation**: Test connection in your staging storage linked service, and confirm that the authentication settings in your staging storage are correct.
+
+### Error code: DF-SAPODATA-NotReached
+
+- **Causes and recommendations**: Failed to create OData connection to the request URL. Different causes may lead to this issue. Check the list below for possible causes and related recommendations.
+
+  | Cause analysis | Recommendation |
+  | :--- | :--- |
+  | Your SAP server is shut down. | Check if your SAP server is started. |
+  | Self-hosted integration runtime proxy issue. | Check your self-hosted integration runtime proxy. |
+  | Incorrect parameters input (for example, wrong SAP server name or password) |  Check your input parameters: SAP server name, password.|
+
+### Error code: DF-SAPODATA-NoneODPService
+
+- **Message**: Current odata service doesn't support extracting ODP data, please enable ODP for the service
+- **Cause**: The current OData service doesn't support extracting ODP data.
+- **Recommendation**: Enable ODP for the service.
 
 ### Error code: DF-SAPODP-AuthInvalid
 
@@ -621,6 +766,17 @@ This section lists common error codes and messages reported by mapping data flow
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
     | Your context value can't be empty when reading data. | Specify the context. |
     | Your context value can't be empty when browsing object names. | Specify the context. |
+
+### Error code: DF-SAPODP-DataflowSystemError 
+
+- **Recommendation**: Reconfigure the activity and run it again. If the issue persists, you can contact Microsoft support for further assistance. 
+
+### Error code: DF-SAPODP-DataParsingFailed 
+
+- **Cause**: Mostly you have hidden column settings in your SAP table. When you use SAP mapping data flow to read data from SAP server, it returns all the schema (columns, including hidden ones), but returned data do not contain related values. So, data misalignment happened and led to parse value issue or wrong data value issue.  
+- **Recommendation**: There are two recommendations for this issue： 
+    1. Remove hidden settings from the related column(s) through SAP GUI.   
+    2. If you want to keep existed SAP settings unchanged, use hidden feature (manually add DSL property `enableProjection:true` in script) in SAP mapping data flow to filter the hidden column(s) and continue to read data.  
 
 ### Error code: DF-SAPODP-ObjectInvalid
 
@@ -717,6 +873,65 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: This error is a data flow system error or SAP server system error.
 - **Recommendation**: Check the error message. If it contains SAP server related error stacktrace, contact SAP admin for assistance. Otherwise, contact Microsoft support for further assistance.
 
+### Error code: DF-SAPODP-NotReached
+
+- **Message**: partner '.*' not reached
+- **Causes and recommendations**: This is a connectivity issue. Different causes may lead to this issue. Check below list for possible cause analysis and related recommendation.
+
+  | Cause analysis | Recommendation |
+  | :--- | :--- |
+  | Your SAP server is shut down. | Check your SAP server is started. |
+  | Your IP or port of the self-hosted integration runtime is not in SAP network security rule. | Check your IP or port of self-hosted integration runtime is in your SAP network security rule. |
+  | Self-hosted integration runtime proxy issue. | Check your self-hosted integration runtime proxy. |
+  | Incorrect parameters input (e.g. wrong SAP server name or IP). | Check your input parameters: SAP server name, IP. |
+
+### Error code: DF-SAPODP-DependencyNotFound
+- **Message**: Could not load file or assembly 'sapnco, Version=*
+- **Cause**: You don't download and install SAP .NET connector on the machine of the self-hosted integration runtime.
+- **Recommendation**: Follow [Set up a self-hosted integration runtime](sap-change-data-capture-shir-preparation.md) to set up the self-hosted integration runtime for the SAP CDC connector.
+
+### Error code: DF-SAPODP-NoAuthForFunctionModule
+- **Message**: No REF authorization for function module RODPS_REPL_CONTEXT_GET_LIST
+- **Cause**: Lack of authorization to execute the related function module.
+- **Recommendation**: Follow this [SAP notes](https://launchpad.support.sap.com/#/notes/460089) to add the required authorization profile to your SAP account.
+
+### Error code: DF-SAPODP-OOM
+
+- **Message**: No more memory available to add rows to an internal table
+- **Cause**: SAP Table connector has its limitation for big table extraction. SAP Table underlying relies on an RFC which will read all the data from the table into the memory of SAP system, so out of memory (OOM) issue will happen when extracting big tables.
+- **Recommendation**: Use SAP CDC connector to do full load directly from your source system, then move delta to SAP Landscape Transformation Replication Server (SLT) after init without delta is released.
+
+### Error code: DF-SAPODP-SourceNotSupportDelta
+
+- **Message**: Source .* does not support deltas
+- **Cause**: The ODP context/ODP name you specified does not support delta.
+- **Recommendation**: Enable delta mode for your SAP source, or select **Full on every run** as run mode in data flow. For more information, see this [document](https://userapps.support.sap.com/sap/support/knowledge/2752413).
+
+### Error code: DF-SAPODP-SAPI-LIMITATION
+
+- **Message**: Error Number 518, Source .* not found, not released or not authorized
+- **cause**: Check if your context is SAPI. If so, in SAPI context, you can only extract the relevant extractors for SAP tables.
+- **Recommendations**: Refer to this [document](https://userapps.support.sap.com/sap/support/knowledge/2646092).
+
+### Error code: DF-SAPODP-KeyColumnsNotSpecified
+
+
+- **Message**: Key column(s) should be specified for non-insertable operations (updates/deletes)
+- **Cause**: This error occurs when you skip selecting **Key Columns** in the sink table.
+- **Recommendations**: Allowing delete, upsert and update options requires a key column to be specified. Specify one or more columns for the row matching in sink.
+
+### Error code: DF-SAPODP-InsufficientResource
+
+- **Message**: A short dump has occurred in a database operation
+- **Cause**: SAP system ran out of resources, which resulted in short dump in SAP server.
+- **Recommendations**: Contact your SAP administrator to address the problem in SAP instance and retry.
+
+### Error code: DF-SAPODP-ExecuteFuncModuleWithPointerFailed
+
+- **Message**: Execute function module .* with pointer .* failed
+- **Cause**: SAP system issue.
+- **Recommendations**: Go to SAP instance, and check ST22 (short dump, similar to windows dump) and review the code where the error happened. In most cases, SAP offers hints on various possibilities for further troubleshooting.
+
 ### Error code: DF-Snowflake-IncompatibleDataType
 
 - **Message**: Expression type does not match column data type, expecting VARIANT but got VARCHAR.
@@ -750,6 +965,13 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: An exception happened while writing error rows to the storage.
 - **Recommendation**: Please check your rejected data linked service configuration.
 
+### Error code: DF-SQLDW-IncorrectLinkedServiceConfiguration
+
+- **Message**: The linked service is incorrectly configured as type 'Azure Synapse Analytics' instead of 'Azure SQL Database'. Please create a new linked service of type 'Azure SQL Database'<br>
+Note: Please check that the given database is of type 'Dedicated SQL pool (formerly SQL DW)' for linked service type 'Azure Synapse Analytics'.
+- **Cause**: The linked service is incorrectly configured as type **Azure Synapse Analytics** instead of **Azure SQL Database**. 
+- **Recommendation**: Create a new linked service of type **Azure SQL Database**, and check that the given database is of type Dedicated SQL pool (formerly SQL DW) for linked service type **Azure Synapse Analytics**.
+
 ### Error code: DF-SQLDW-InternalErrorUsingMSI
 
 - **Message**: An internal error occurred while authenticating against Managed Service Identity in Azure Synapse Analytics instance. Please restart the Azure Synapse Analytics instance or contact Azure Synapse Analytics Dedicated SQL Pool support if this problem persists.
@@ -779,6 +1001,18 @@ This section lists common error codes and messages reported by mapping data flow
 - **Message**: Storage type can either be blob or gen2.
 - **Cause**: An invalid storage type is provided for staging.
 - **Recommendation**: Check the storage type of the linked service used for staging and make sure that it's Blob or Gen2.
+
+### Error code: DF-SQLDW-StagingStorageNotSupport
+
+- **Message**: Staging Storage with partition DNS enabled is not supported if enable staging. Please uncheck enable staging in sink using Synapse Analytics.
+- **Cause**: Staging storage with partition DNS enabled is not supported if you enable staging.
+- **Recommendations**: Uncheck **Enable staging** in sink when using Azure Synapse Analytics.
+
+### Error code: DF-SQLDW-DataTruncation
+
+- **Message**: Your target table has a column with (n)varchar or (n)varbinary type that has a smaller column length limitation than real data, please either adjust the column definition in your target table or change the source data.
+- **Cause**: Your target table has a column with varchar or varbinary type that has a smaller column length limitation than real data.
+- **Recommendations**: Adjust the column definition in your target table or change the source data.
 
 ### Error code: DF-Synapse-DBNotExist
 
@@ -867,6 +1101,11 @@ This section lists common error codes and messages reported by mapping data flow
 - **Message**: The pipeline expression cannot be evaluated.
 - **Cause**: The pipeline expression passed in the Data Flow activity isn't being processed correctly because of a syntax error.
 - **Recommendation**: Check data flow activity name. Check expressions in activity monitoring to verify the expressions. For example, data flow activity name can't have a space or a hyphen.
+
+### Error code: 127
+-	**Message**: The spark job of Dataflow completed, but the runtime state is either null or still InProgress..
+-	**Cause**: Transient issue with microservices involved in the execution can cause the run to fail.
+-	**Recommendation**: Refer to [scenario 3 transient issues](#scenario-3-transient-issues).
 
 ### Error code: 2011
 
@@ -1043,11 +1282,11 @@ You may encounter the following issues before the improvement, but after the imp
  After the improvement, the parsed column result should be:<br/>
   `A "" (empty string) B "" (empty string)`<br/>
 
-## Next steps
+## Related content
 
 For more help with troubleshooting, see these resources:
 
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)

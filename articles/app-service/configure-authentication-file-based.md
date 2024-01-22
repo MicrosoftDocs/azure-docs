@@ -3,11 +3,14 @@ title: File-based configuration of AuthN/AuthZ
 description: Configure authentication and authorization in App Service using a configuration file to enable certain preview capabilities. 
 ms.topic: article
 ms.date: 07/15/2021
+ms.custom: AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 
 # File-based configuration in Azure App Service authentication
 
-With [App Service authentication](overview-authentication-authorization.md), the authentication settings can be configured with a file. You may need to use file-based configuration to use certain preview capabilities of App Service authentication / authorization before they are exposed via [Azure Resource Manager](../azure-resource-manager/management/overview.md) APIs.
+With [App Service authentication](overview-authentication-authorization.md), the authentication settings can be configured with a file. You may need to use file-based configuration to use certain preview capabilities of App Service authentication / authorization before they're exposed via [Azure Resource Manager](../azure-resource-manager/management/overview.md) APIs.
 
 > [!IMPORTANT]
 > Remember that your app payload, and therefore this file, may move between environments, as with [slots](./deploy-staging-slots.md). It is likely you would want a different app registration pinned to each slot, and in these cases, you should continue to use the standard configuration method instead of using the configuration file.
@@ -16,7 +19,7 @@ With [App Service authentication](overview-authentication-authorization.md), the
 
 1. Create a new JSON file for your configuration at the root of your project (deployed to D:\home\site\wwwroot in your web / function app). Fill in your desired configuration according to the [file-based configuration reference](#configuration-file-reference). If modifying an existing Azure Resource Manager configuration, make sure to translate the properties captured in the `authsettings` collection into your configuration file.
 
-2. Modify the existing configuration, which is captured in the [Azure Resource Manager](../azure-resource-manager/management/overview.md) APIs under `Microsoft.Web/sites/<siteName>/config/authsettingsV2`. To modify this, you can use an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) or a tool like [Azure Resource Explorer](https://resources.azure.com/). Within the authsettingsV2 collection, you will need to set two properties (and may remove others):
+2. Modify the existing configuration, which is captured in the [Azure Resource Manager](../azure-resource-manager/management/overview.md) APIs under `Microsoft.Web/sites/<siteName>/config/authsettingsV2`. To modify it, you can use an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) or a tool like [Azure Resource Explorer](https://resources.azure.com/). Within the authsettingsV2 collection, set two properties (you may remove others):
 
     1. Set `platform.enabled` to "true"
     2. Set `platform.configFilePath` to the name of the file (for example, "auth.json")
@@ -28,7 +31,7 @@ Once you have made this configuration update, the contents of the file will be u
 
 ## Configuration file reference
 
-Any secrets that will be referenced from your configuration file must be stored as [application settings](./configure-common.md#configure-app-settings). You may name the settings anything you wish. Just make sure that the references from the configuration file uses the same keys.
+Any secrets that will be referenced from your configuration file must be stored as [application settings](./configure-common.md#configure-app-settings). You may name the settings anything you wish. Just make sure that the references from the configuration file use the same keys.
 
 The following exhausts possible configuration options within the file:
 

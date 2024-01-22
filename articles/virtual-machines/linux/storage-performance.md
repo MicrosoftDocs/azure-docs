@@ -39,11 +39,11 @@ Lasv3 and Lsv2-series VMs use AMD EPYC&trade; server processors based on the Zen
 * Avoid mixing NVMe admin commands (for example, NVMe SMART info query, etc.) with NVMe I/O commands during active workloads. Lsv3, Lasv3, and Lsv2 NVMe devices are backed by Hyper-V NVMe Direct technology, which switches into “slow mode” whenever any NVMe admin commands are pending. Lsv3, Lasv3, and Lsv2 users might see a dramatic performance drop in NVMe I/O performance if that happens. 
 * Lsv2 users aren't recommended to rely on device NUMA information (all 0) reported from within the VM for data drives to decide the NUMA affinity for their apps. The recommended way for better performance is to spread workloads across CPUs if possible. 
 * The maximum supported queue depth per I/O queue pair for Lsv3, Lasv3, and Lsv2 VM NVMe device is 1024. Lsv3, Lasv3, and Lsv2 users are recommended to limit their (synthetic) benchmarking workloads to queue depth 1024 or lower to avoid triggering queue full conditions, which can reduce performance. 
-*  The best performance is obtained when I/O is done directly to each of the raw NVMe devices with no partitioning, no file systems, no RAID config, etc. Before starting a testing session, ensure the configuration is in a known fresh/clean state by running `blkdiscard` on each of the NVMe devices.
+*  The best performance is obtained when I/O is done directly to each of the raw NVMe devices with no partitioning, no file systems, no RAID config, etc. Before starting a testing session, ensure the configuration is in a known fresh/clean state by running `blkdiscard` on each of the NVMe devices. To obtain the most consistent performance during benchmarking, it's recommended to precondition the NVMe devices before testing by issuing random writes to all of the devices' LBAs twice as defined in the SNIA Solid State Storage Enterprise Performance Test Specification.
 
 ## Utilizing local NVMe storage 
 
-Local storage on the 1.92 TB NVMe disk on all Lsv3, Lasv3, and Lsv2 VMs is ephemeral. During a successful standard reboot of the VM, the data on the local NVMe disk persists. The data doesn't persist on the NVMe if the VM is redeployed, de-allocated, or deleted. Data doesn't persist if another issue causes the VM, or the hardware it's running on, to become unhealthy. When scenario happens, any data on the old host is securely erased. 
+Local storage on the 1.92 TB NVMe disk on all Lsv3, Lasv3, and Lsv2 VMs is ephemeral. During a successful standard reboot of the VM, the data on the local NVMe disk persists. The data doesn't persist on the NVMe if the VM is redeployed, deallocated, or deleted. Data doesn't persist if another issue causes the VM, or the hardware it's running on, to become unhealthy. When scenario happens, any data on the old host is securely erased. 
 
 There are also cases when the VM needs to be moved to a different host machine, for example, during a planned maintenance operation. Planned maintenance operations and some hardware failures can be anticipated with [Scheduled Events](scheduled-events.md). Use Scheduled Events to stay updated on any predicted maintenance and recovery operations. 
 
@@ -68,12 +68,12 @@ Scenarios that maintain data on local NVMe disks include:
 
 - The VM is running and healthy. 
 - The VM is rebooted in place (by you or Azure). 
-- The VM is paused (stopped without de-allocation). 
+- The VM is paused (stopped without deallocation). 
 - Most the planned maintenance servicing operations. 
 
 Scenarios that securely erase data to protect the customer include: 
 
-- The VM is redeployed, stopped (de-allocated), or deleted (by you). 
+- The VM is redeployed, stopped (deallocated), or deleted (by you). 
 - The VM becomes unhealthy and has to service heal to another node due to a hardware issue. 
 - A few of the planned maintenance servicing operations that require the VM to be reallocated to another host for servicing. 
 
@@ -87,7 +87,7 @@ Much like any other VM, use the [Portal](quick-create-portal.md), [Azure CLI](qu
 
 ### Does a single NVMe disk failure cause all VMs on the host to fail?  
 
-If a disk failure is detected on the hardware node, the hardware is in a failed state. When this problem occurs, all VMs on the node are automatically de-allocated and moved to a healthy node. For Lsv3, Lasv3, and Lsv2-series VMs, this problem means that the customer's data on the failing node is also securely erased. The customer needs to recreate the data on the new node.
+If a disk failure is detected on the hardware node, the hardware is in a failed state. When this problem occurs, all VMs on the node are automatically deallocated and moved to a healthy node. For Lsv3, Lasv3, and Lsv2-series VMs, this problem means that the customer's data on the failing node is also securely erased. The customer needs to recreate the data on the new node.
 
 ### Do I need to change the blk_mq settings?
 

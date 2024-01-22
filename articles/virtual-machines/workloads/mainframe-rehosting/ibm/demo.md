@@ -4,15 +4,10 @@ description: Run an IBM Z Development and Test Environment (zD&T) environment on
 services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
-documentationcenter:
-author: njray
-manager: edprice
-ms.author: edprice
-editor: edprice
+author: swread
+ms.author: sread
 ms.topic: conceptual
 ms.date: 02/22/2019
-tags:
-keywords:
 ---
 # Set up an Application Developers Controlled Distribution (ADCD) in IBM zD&T v1
 
@@ -68,7 +63,7 @@ Now that you have the package(s), you must upload them to your VM on Azure.
 
 2. Select the **SSH** tab, and then copy the ssh command to the clipboard.
 
-3. Log on to your VM using your credentials and the [SSH client](../../../linux/use-remote-desktop.md) of choice. This demo uses the Linux extensions for Windows 10, which adds a bash shell to the Windows command prompt. PuTTY works just as well.
+3. Log on to your VM using your credentials and the [SSH client](../../../linux/use-remote-desktop.md) of choice. This demo uses the Linux extensions for Windows 10, which adds a bash shell to the Windows command prompt.
 
 4. When logged on, create a directory to upload the IBM packages. Keep in mind Linux is case sensitive. For example, this demo assumes the packages are uploaded to:
 
@@ -187,7 +182,6 @@ Congratulations! You are now running an IBM mainframe environment on Azure.
 - [Mainframe migration: myths and facts](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [IBM DB2 pureScale on Azure](ibm-db2-purescale-azure.md)
 - [Troubleshooting](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
-- [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

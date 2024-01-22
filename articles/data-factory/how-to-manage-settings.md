@@ -3,12 +3,11 @@ title: Managing Azure Data Factory settings and preferences
 description: Learn how to manage Azure Data Factory settings and preferences.
 author: n0elleli
 ms.author: noelleli
-ms.reviewer: 
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 08/10/2022
+ms.date: 01/05/2024
 ---
 
 # Manage Azure Data Factory settings and preferences
@@ -25,6 +24,21 @@ Clicking the **Settings** gear button will open a flyout.
 :::image type="content" source="media/how-to-manage-settings/adf-settings-2.png" alt-text="Screenshot of settings flyout with three setting options.":::
 
 Here you can find the settings and preferences that you can set for your data factory. 
+
+## Theme
+
+Choose your theme to change the look of the Azure Data Factory studio.
+
+:::image type="content" source="media/how-to-manage-settings/adf-settings-7.png" alt-text="Screenshot of settings flyout with the Theme section highlighted.":::
+
+Use the toggle button to select your data factory theme. This setting controls the look of your data factory. 
+
+:::image type="content" source="media/how-to-manage-settings/adf-settings-8.png" alt-text="Screenshot of settings flyout with the Theme switched to Dark theme.":::
+
+To apply changes, select your **Theme** and make sure to hit the **Ok** button. Your page will reflect the changes made. 
+
+> [!NOTE]
+> The new Dark theme is currently in public preview and is only available in Azure Data Factory.
 
 ## Language and Region
 
@@ -60,7 +74,8 @@ To apply changes, select a **Regional format** and make sure to hit the **Apply*
 > [!NOTE]
 > Applying regional format changes will discard any unsaved changes in your data factory. 
 
-## Next steps
+## Related content
+- [Manage the ADF preview experience](how-to-manage-studio-preview-exp.md)
 - [Introduction to Azure Data Factory](introduction.md)
 - [Build a pipeline with a copy activity](quickstart-create-data-factory-powershell.md)
 - [Build a pipeline with a data transformation activity](tutorial-transform-data-spark-powershell.md)

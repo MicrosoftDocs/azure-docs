@@ -7,7 +7,7 @@ ms.author: spelluru
 ms.date: 09/27/2021
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.custom: devx-track-azurepowershell, mode-other, devx-track-azurecli 
+ms.custom: mode-other, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 

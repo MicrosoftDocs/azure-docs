@@ -59,7 +59,9 @@ can be rewritten as follows:
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "eastus2",
+        "defaultValue": [
+            "eastus2"
+        ],
         "allowedValues": [
             "eastus2",
             "eastus",
@@ -334,7 +336,7 @@ of `stringArray` are equal to '"value"'.
 }
 ```
 
-If the array contains objects, a `[*]` alias can be used to select the value of a specific property
+If the array is empty, the condition will evaluate to true because no member of the array is in violation. In this scenario, it is recommended to use the [count expression](../concepts/definition-structure.md#count) instead. If the array contains objects, a `[*]` alias can be used to select the value of a specific property
 from each array member. Example:
 
 ```json

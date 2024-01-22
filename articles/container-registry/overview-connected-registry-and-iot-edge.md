@@ -5,7 +5,7 @@ author: toddysm
 ms.author: memladen
 ms.service: container-registry
 ms.topic: overview
-ms.date: 08/24/2021
+ms.date: 10/31/2023
 ms.custom: ignite-fall-2021
 ---
 

@@ -2,12 +2,12 @@
 title: Azure Key Vault as Event Grid source
 description: Describes the properties and schema provided for Azure Key Vault events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 01/17/2024
 ---
 
 # Azure Key Vault as Event Grid source
 
-This article provides the properties and schema for events in [Azure Key Vault](../key-vault/index.yml). For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for events in [Azure Key Vault](../key-vault/index.yml). For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md) and [Cloud event schema](cloud-event-schema.md).
 
 
 ## Available event types

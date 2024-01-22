@@ -1,0 +1,102 @@
+### YamlMime:FAQ
+metadata:
+  title: Common questions - Defender for Databases
+  description: Get answers to frequently asked questions about Microsoft Defender for Databases.
+  ms.topic: faq
+  ms.service: defender-for-cloud
+  author: dcurwin
+  ms.author: dacurwin
+  ms.date: 06/20/2023
+title: Common questions about Defender for Databases
+summary: Get answers to common questions about Microsoft Defender for Databases.
+
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          If I enable this Microsoft Defender plan on my subscription, are all SQL servers on the subscription protected?
+        answer: |
+          No. To defend a SQL Server deployment on an Azure virtual machine, or a SQL Server running on an Azure Arc-enabled machine, Defender for Cloud requires:
+
+          - a Log Analytics agent on the machine
+          - the relevant Log Analytics workspace to have the Microsoft Defender for SQL solution enabled
+
+          The subscription *status*, shown in the SQL server page in the Azure portal, reflects the default workspace status and applies to all connected machines. Only the SQL servers on hosts with a Log Analytics agent reporting to that workspace are protected by Defender for Cloud.Y
+
+      - question: |
+          Is there a performance effect from deploying Microsoft Defender for Azure SQL on machines?
+        answer: |
+          The focus of **Microsoft Defender for SQL on machines** is obviously security. But we also care about your business and so we've prioritized performance to ensure the minimal effect on your SQL servers.
+
+          The service has a split architecture to balance data uploading and speed with performance:
+
+          - Some of our detectors, including an [extended events trace](/azure/azure-sql/database/xevent-db-diff-from-svr) named `SQLAdvancedThreatProtectionTraffic`, run on the machine for real-time speed advantages.
+          - Other detectors run in the cloud to spare the machine from heavy computational loads.
+
+          Lab tests of our solution showed CPU usage averaging 3% for peak slices, comparing it against benchmark loads. An analysis of our current user data shows a negligible effect on CPU and memory usage.
+
+          Performance always varies between environments, machines, and loads. The statements are provided as a general guideline, not a guarantee for any individual deployment.
+
+      - question: |
+          What happens to the old scan results and baselines after I switch to express configuration?
+        answer: |
+          Old results and baselines settings remain available on your storage account, but won't be updated or used by the system. You don't need to maintain these files for SQL vulnerability assessment to work after you switch to express configuration, but you can keep your old baseline definitions for future reference.
+
+          When express configuration is enabled, you don't have direct access to the result and baseline data because it's stored on internal Microsoft storage.
+
+      - question: |
+          Can I set up recurring scans with express configuration?
+        answer: |
+          Express configuration automatically sets up recurring scans for all databases under your server. This is the default and isn't configurable at server or database level.
+
+      - question: |
+          Is there a way with express configuration to get the weekly email report that is provided in the classic configuration?
+        answer: |
+          You can use workflow automation and Logic Apps email scheduling, following the Microsoft Defender for Cloud processes:
+
+          - Time based triggers
+          - Scan based triggers
+          - Support for disabled rules
+
+      - question: |
+          Why can’t I set database policies anymore?
+        answer: |
+          SQL vulnerability assessment reports all vulnerabilities and misconfigurations in your environment, so it helps to have all databases included. Defender for SQL is billed per server, not per database.
+
+      - question: |
+          Can I revert back to the classic configuration?
+        answer: |
+          Yes. You can revert back to the classic configuration using the existing REST APIs and PowerShell cmdlets. When you revert back to the classic configuration, you see a notification in the Azure portal to change to the express configuration.
+
+      - question: |
+          Will we see express configuration for other types of SQL?
+        answer: |
+          Stay tuned for updates!
+
+      - question: |
+          Can I choose which experience is the default?
+        answer: |
+          No. Express configuration is the default for every new supported Azure SQL database.
+
+      - question: |
+          Does express configuration change scan behavior?
+        answer: |
+          No, express configuration provides the same scanning behavior and performance.
+
+      - question: |
+          Does express configuration have any effect on pricing?
+        answer: |
+          Express configuration doesn't require a storage account, so you don't need to pay extra storage fees unless you choose to keep old scan and baseline data.
+
+      - question: |
+          What does the 1-MB cap per rule mean?
+        answer: |
+          Any individual rule can't produce results that are more than 1 MB. When that limit is reached, the results for the rule are stopped. You can't set a baseline for the rule, the rule isn't included in the overall recommendation health, and the results are shown as "Not applicable".
+
+additionalContent: |
+
+  ## Next steps
+  
+  [Learn about Defender for Databases](quickstart-enable-database-protections.md)
+  

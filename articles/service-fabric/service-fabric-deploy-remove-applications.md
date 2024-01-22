@@ -54,7 +54,7 @@ Before you run any PowerShell commands in this article, always start by using [C
 Connect-ServiceFabricCluster
 ```
 
-For examples of connecting to a remote cluster or cluster secured using Azure Active Directory, X509 certificates, or Windows Active Directory see [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md).
+For examples of connecting to a remote cluster or cluster secured using Microsoft Entra ID, X509 certificates, or Windows Active Directory see [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md).
 
 ## Upload the application package
 

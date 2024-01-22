@@ -4,7 +4,8 @@ description: Learn about DevTest Labs storage accounts, encryption, customer-man
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/15/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Manage Azure DevTest Labs storage accounts

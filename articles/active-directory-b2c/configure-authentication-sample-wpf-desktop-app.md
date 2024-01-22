@@ -1,21 +1,25 @@
 ---
 title: Configure authentication in a sample WPF desktop application by using Azure Active Directory B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in a WPF desktop application.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 08/04/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer creating a WPF desktop app, I want to configure authentication using Azure AD B2C, so that I can securely sign users into my application and call a protected web API.
+
 ---
 
 # Configure authentication in a sample WPF desktop app by using Azure AD B2C
 
-This article uses a sample [Windows Presentation Foundation (WPF) desktop](/visualstudio/designers/getting-started-with-wpf) application to illustrate how to add Azure Active Directory B2C (Azure AD B2C) authentication to your desktop apps.
+This article uses a sample [Windows Presentation Foundation (WPF) desktop](/visualstudio/get-started/csharp/tutorial-wpf) application to illustrate how to add Azure Active Directory B2C (Azure AD B2C) authentication to your desktop apps.
 
 ## Overview
 
@@ -54,7 +58,7 @@ The application registration and architecture are illustrated in the following d
 
 ## Prerequisites
 
-A computer that's running [Visual Studio 2019](https://www.visualstudio.com/downloads/) with .NET desktop development.
+A computer that's running [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with .NET desktop development.
 
 ## Step 1: Configure your user flow
 
@@ -81,7 +85,7 @@ To create the desktop app registration, do the following:
 1. Select **App registrations**, and then select **New registration**.
 1. Under **Name**, enter a name for the application (for example, *desktop-app1*).
 1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. 
-1. Under **Redirect URI**, select **Public client/native (desktop & desktop)** and then, in the URL box, enter `https://your-tenant-name.b2clogin.com/oauth2/nativeclient`. Replace `your-tenant-name` with your [tenant name](tenant-management.md#get-your-tenant-name). For more options, see [Configure redirect URI](enable-authentication-wpf-desktop-app-options.md#configure-the-redirect-uri).
+1. Under **Redirect URI**, select **Public client/native (desktop & desktop)** and then, in the URL box, enter `https://your-tenant-name.b2clogin.com/oauth2/nativeclient`. Replace `your-tenant-name` with your [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). For more options, see [Configure redirect URI](enable-authentication-wpf-desktop-app-options.md#configure-the-redirect-uri).
 1. Select **Register**.
 1. After the app registration is completed, select **Overview**.
 1. Record the **Application (client) ID** for later use, when you configure the desktop application.
@@ -103,7 +107,7 @@ This sample acquires an access token with the relevant scopes that the desktop a
 
 ## Step 4: Get the WPF desktop app sample
 
-1. [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git), or clone the sample web application from the [GitHub repo](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git). 
+1. [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop), or clone the sample web application from the [GitHub repo](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop). 
 
     ```bash
     git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
@@ -121,7 +125,7 @@ Update the following class members:
 
 |Key  |Value  |
 |---------|---------|
-|`TenantName`|The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.b2clogin.com`).|
+|`TenantName`|The first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.b2clogin.com`).|
 |`ClientId`|The desktop application ID from [step 2.3](#step-23-register-the-desktop-app).|
 |`PolicySignUpSignIn`| The sign-up or sign-in user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow).|
 |`PolicyEditProfile`|The edit profile user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow).|

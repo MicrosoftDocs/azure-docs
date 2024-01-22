@@ -3,14 +3,12 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 11/17/2022
 ---
-
-This tutorial shows you how to build a multiple component sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure CLI to view the telemetry it sends. The sample application is written in Java and is included in the Azure IoT device SDK for Java. A solution builder can use the Azure CLI to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 This tutorial shows you how to build a sample IoT Plug and Play device application with components, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in Java and is included in the Azure IoT device SDK for Java. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
-[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/pnp-device-sample)
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples/pnp-device-sample)
 
 In this tutorial, you:
 
@@ -24,14 +22,16 @@ In this tutorial, you:
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
-To complete this tutorial on Windows, install the following software on your local Windows environment:
+You can run this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
 
-* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/), under **Long-term support**, select **Java 8**.
+To complete this tutorial, install the following software in your local development environment:
+
+* [Java SE Development Kit 8 or later](/java/openjdk/install).
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ## Download the code
 
-If you completed [Tutorial: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Java)](../articles/iot-develop/tutorial-connect-device.md), you've already cloned the repository.
+If you completed [Tutorial: Connect a sample IoT Plug and Play device application to IoT Hub (Java)](../articles/iot-develop/tutorial-connect-device.md), you've already cloned the repository.
 
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT Java SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-java) GitHub repository into this location:
 
@@ -43,17 +43,18 @@ Expect this operation to take several minutes to complete.
 
 ## Build the code
 
-On Windows, navigate to the root folder of the cloned Java SDK repository. Run the following command to build the dependencies:
+Navigate to the root folder of the temperature controller sample in the cloned Java SDK repository and build it:
 
-```cmd/sh
-mvn install -T 2C -DskipTests
+```cmd
+cd azure-iot-sdk-java/device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample
+mvn clean package
 ```
 
 ## Run the device sample
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-To run the sample application, navigate to the *\device\iot-device-samples\pnp-device-sample\temperature-controller-device-sample* folder and run the following command:
+To run the sample application, navigate to the */device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample* folder and run the following command:
 
 ```cmd/sh
 mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
@@ -69,7 +70,7 @@ After the device client sample starts, use the Azure IoT explorer tool to verify
 
 ## Review the code
 
-This sample implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
+This sample implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins Definition Language (DTDL) V2 model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
 The device code uses the standard `DeviceClient` class to connect to your IoT hub. The device sends the model ID of the DTDL model it implements in the connection request. A device that sends a model ID is an IoT Plug and Play device:
 

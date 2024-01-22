@@ -5,12 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, shahparth, laveeshb, azla
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 01/04/2024
 ms.custom: references_regions
 #Customer intent: As a developer, I want to protect logic apps from regional failures by setting up availability zones.
 ---
 
 # Protect logic apps from region failures with zone redundancy and availability zones
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 In each Azure region, *availability zones* are physically separate locations that are tolerant to local failures. Such failures can range from software and hardware failures to events such as earthquakes, floods, and fires. These zones achieve tolerance through the redundancy and logical isolation of Azure services.
 
@@ -22,7 +24,7 @@ This article provides a brief overview, considerations, and information about ho
 
 ### [Standard](#tab/standard)
 
-Availability zone redundancy is available for Standard logic apps, which are powered by Azure Functions extensibility. For more information, review [Azure Functions support for availability zone redundancy](../azure-functions/azure-functions-az-redundancy.md#overview).
+Availability zone support is available for Standard logic apps, which are powered by Azure Functions extensibility. For more information, see [What is reliability in Azure Functions?](../reliability/reliability-functions.md#availability-zone-support).
 
 * You can enable availability zone redundancy *only when you create* Standard logic apps, either in a [supported Azure region](../azure-functions/azure-functions-az-redundancy.md#requirements) or in an [App Service Environment v3 (ASE v3) - Windows plans only](../app-service/environment/overview-zone-redundancy.md). Currently, this capability supports only built-in connector operations, not Azure (managed) connector operations.
 
@@ -98,7 +100,7 @@ With HTTP-based actions, certificates exported or created with AES256 encryption
 
    ![Screenshot showing Azure portal, "Create Logic App" page, Standard logic app details, and the "Enabled" option under "Zone redundancy" selected.](./media/set-up-zone-redundancy-availability-zones/enable-zone-redundancy-standard.png)
 
-1. Finish creating your logic app.
+1. Finish creating your logic app workflow.
 
 1. If you use a firewall and haven't set up access for traffic through the required IP addresses, make sure to complete that [requirement](#prerequisites).
 
@@ -108,7 +110,7 @@ With HTTP-based actions, certificates exported or created with AES256 encryption
 
    ![Screenshot showing Azure portal, "Create Logic App" page, logic app details, and the "Consumption" plan type selected.](./media/set-up-zone-redundancy-availability-zones/select-consumption-plan.png)
 
-   For a quick tutorial, review [Quickstart: Create your first integration workflow with multi-tenant Azure Logic Apps and the Azure portal](quickstart-create-first-logic-app-workflow.md).
+   For a quick tutorial, see [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps using the Azure portal](quickstart-create-example-consumption-workflow.md).
 
    After you select **Consumption**, the **Zone redundancy** section and options become available.
 
@@ -118,7 +120,7 @@ With HTTP-based actions, certificates exported or created with AES256 encryption
 
    ![Screenshot showing Azure portal, "Create Logic App" page, Consumption logic app details, and the "Enabled" option under "Zone redundancy" selected.](./media/set-up-zone-redundancy-availability-zones/enable-zone-redundancy-consumption.png)
 
-1. Finish creating your logic app.
+1. Finish creating your logic app workflow.
 
 1. If you use a firewall and haven't set up access for traffic through the required IP addresses, make sure to complete that [requirement](#prerequisites).
 
@@ -127,4 +129,3 @@ With HTTP-based actions, certificates exported or created with AES256 encryption
 ## Next steps
 
 * [Business continuity and disaster recovery for Azure Logic Apps](business-continuity-disaster-recovery-guidance.md)
-* [Connectors in Azure Logic Apps](../connectors/apis-list.md)

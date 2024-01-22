@@ -4,6 +4,7 @@ description: Describes how to create an AVS assessment with Azure Migrate
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 04/06/2022
 ---
@@ -74,7 +75,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
     - If you select to use a reserved instance, you can't specify '**Discount (%)**
     - [Learn more](../azure-vmware/reserved-instance.md)
 1. In **VM Size**:
-    - The **Node type** is defaulted to **AV36**. Azure Migrate recommends the node of nodes needed to migrate the servers to Azure VMware Solution.
+    - The **Node type** is defaulted to **AV36**. Azure Migrate recommends the number of nodes needed to migrate the servers to Azure VMware Solution.
     - In **FTT setting, RAID level**, select the Failure to Tolerate and RAID combination.  The selected FTT option, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
     - In **CPU Oversubscription**, specify the ratio of virtual cores associated with one physical core in the AVS node. Oversubscription of greater than 4:1 might cause performance degradation, but can be used for web server type workloads.
     - In **Memory overcommit factor**, specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5 for example is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.

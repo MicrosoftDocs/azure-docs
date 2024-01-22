@@ -26,7 +26,7 @@ You must have an Azure account linked with education hub.
 
 ## Sign in to Azure
 
-* Sign in to the Azure portal at https://portal.azure.com.
+* Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Navigate to Cost Management + Billing
 

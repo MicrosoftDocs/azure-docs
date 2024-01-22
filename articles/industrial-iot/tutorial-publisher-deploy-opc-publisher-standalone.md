@@ -1,8 +1,8 @@
 ---
 title: Deploy the Microsoft OPC Publisher
-description: In this tutorial you learn how to deploy the OPC Publisher in standalone mode.
-author: jehona-m
-ms.author: jemorina
+description: In this tutorial, you learn how to deploy the OPC Publisher in standalone mode.
+author: hansgschossmann
+ms.author: johanng
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
@@ -53,7 +53,7 @@ A typical set of IoT Edge Module Container Create Options for OPC Publisher is:
 {
     "Hostname": "opcpublisher",
     "Cmd": [
-        "--pf=./pn.json",
+        "--pf=/appdata/pn.json",
         "--aa"
     ],
     "HostConfig": {
@@ -80,7 +80,7 @@ A connection to an OPC UA server using its hostname without a DNS server configu
 ```
 
 ## Next steps 
-Now that you have deployed the OPC Publisher IoT Edge module, the next step is to configure it:
+Now that you've deployed the OPC Publisher IoT Edge module, the next step is to configure it:
 
 > [!div class="nextstepaction"]
 > [Configure the OPC Publisher](tutorial-publisher-configure-opc-publisher.md)

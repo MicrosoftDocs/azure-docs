@@ -64,6 +64,7 @@ Use these end points to:
 - Access the Grafana and Kibana dashboards from your browser
 
 For example, you can use the end point named _PostgreSQL Instance_ to connect with psql to your server group:
+
 ```console
 psql postgresql://postgres:MyPassworkd@12.345.567.89:5432
 psql (10.14 (Ubuntu 10.14-0ubuntu0.18.04.1), server 12.4 (Ubuntu 12.4-1.pgdg16.04+1))
@@ -80,6 +81,7 @@ postgres=#
 
 
 ## From CLI with kubectl
+
 ```console
 kubectl get postgresqls/<server name> -n <namespace name>
 ```
@@ -99,6 +101,9 @@ postgres01   Ready   3/3          12.345.567.89:5432   9d
 ## Form connection strings
 
 Use the connections string examples below for your server group. Copy, paste, and customize them as needed:
+
+> [!IMPORTANT]
+> SSL is required for client connections. In connection string, the SSL mode parameter should not be disabled. For more information, review [https://www.postgresql.org/docs/14/runtime-config-connection.html](https://www.postgresql.org/docs/14/runtime-config-connection.html).
 
 ### ADO.NET
 
@@ -148,5 +153,5 @@ dbname='postgres' user='postgres' host='192.168.1.121' password='{your_password_
 host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} port=24276 sslmode=require
 ```
 
-## Next steps
+## Related content
 - Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-server-using-cli.md) your server group

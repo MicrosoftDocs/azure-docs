@@ -8,15 +8,10 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/02/2022
+ms.date: 01/05/2024
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory or Azure Synapse Analytics
-
-> [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
->
-> - [Version 1](v1/data-factory-azure-sql-connector.md)
-> - [Current version](connector-azure-sql-database.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -35,11 +30,11 @@ This Azure SQL Database connector is supported for the following capabilities:
 |[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ |
 |[Stored procedure activity](transform-data-using-stored-procedure.md)|&#9312; &#9313;|✓ |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For Copy activity, this Azure SQL Database connector supports these functions:
 
-- Copying data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
+- Copying data by using SQL authentication and Microsoft Entra Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieving data by using a SQL query or a stored procedure. You can also choose to parallel copy from an Azure SQL Database source, see the [Parallel copy from SQL database](#parallel-copy-from-sql-database) section for details.
 - As a sink, automatically creating destination table if not exists based on the source schema; appending data to a table or invoking a stored procedure with custom logic during the copy.
 
@@ -90,7 +85,7 @@ These generic properties are supported for an Azure SQL Database linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureSqlDatabase**. | Yes |
 | connectionString | Specify information needed to connect to the Azure SQL Database instance for the **connectionString** property. <br/>You also can put a password or service principal key in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
 | alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is located in a private network. If not specified, the default Azure integration runtime is used. | No |
 
@@ -190,15 +185,15 @@ To use service principal authentication, in addition to the generic properties t
 
 You also need to follow the steps below:
 
-1. [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) from the Azure portal. Make note of the application name and the following values that define the linked service:
+1. [Create a Microsoft Entra application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) from the Azure portal. Make note of the application name and the following values that define the linked service:
 
     - Application ID
     - Application key
     - Tenant ID
 
-2. [Provision an Azure Active Directory administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database) for your server on the Azure portal if you haven't already done so. The Azure AD administrator must be an Azure AD user or Azure AD group, but it can't be a service principal. This step is done so that, in the next step, you can use an Azure AD identity to create a contained database user for the service principal.
+2. [Provision a Microsoft Entra administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database) for your server on the Azure portal if you haven't already done so. The Microsoft Entra administrator must be a Microsoft Entra user or Microsoft Entra group, but it can't be a service principal. This step is done so that, in the next step, you can use a Microsoft Entra identity to create a contained database user for the service principal.
 
-3. [Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) for the service principal. Connect to the database from or to which you want to copy data by using tools like SQL Server Management Studio, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
+3. [Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) for the service principal. Connect to the database from or to which you want to copy data by using tools like SQL Server Management Studio, with a Microsoft Entra identity that has at least ALTER ANY USER permission. Run the following T-SQL:
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
@@ -242,9 +237,9 @@ A data factory or Synapse workspace can be associated with a [system-assigned ma
 
 To use system-assigned managed identity authentication, specify the generic properties that are described in the preceding section, and follow these steps.
 
-1. [Provision an Azure Active Directory administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database) for your server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or an Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator has full access to the database.
+1. [Provision a Microsoft Entra administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database) for your server on the Azure portal if you haven't already done so. The Microsoft Entra administrator can be a Microsoft Entra user or a Microsoft Entra group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator has full access to the database.
 
-2. [Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) for the managed identity. Connect to the database from or to which you want to copy data by using tools like SQL Server Management Studio, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
+2. [Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) for the managed identity. Connect to the database from or to which you want to copy data by using tools like SQL Server Management Studio, with a Microsoft Entra identity that has at least ALTER ANY USER permission. Run the following T-SQL:
   
     ```sql
     CREATE USER [your_resource_name] FROM EXTERNAL PROVIDER;
@@ -288,9 +283,9 @@ To use user-assigned managed identity authentication, in addition to the generic
 
 You also need to follow the steps below:
 
-1. [Provision an Azure Active Directory administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database) for your server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or an Azure AD group. If you grant the group with user-assigned managed identity an admin role, skip steps 3. The administrator has full access to the database.
+1. [Provision a Microsoft Entra administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database) for your server on the Azure portal if you haven't already done so. The Microsoft Entra administrator can be a Microsoft Entra user or a Microsoft Entra group. If you grant the group with user-assigned managed identity an admin role, skip steps 3. The administrator has full access to the database.
 
-2. [Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) for the user-assigned managed identity. Connect to the database from or to which you want to copy data by using tools like SQL Server Management Studio, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
+2. [Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) for the user-assigned managed identity. Connect to the database from or to which you want to copy data by using tools like SQL Server Management Studio, with a Microsoft Entra identity that has at least ALTER ANY USER permission. Run the following T-SQL:
   
     ```sql
     CREATE USER [your_resource_name] FROM EXTERNAL PROVIDER;
@@ -763,6 +758,8 @@ The following sample shows how to use a stored procedure to do an upsert into a 
     }
     ```
 
+When writing data to into Azure SQL Database using stored procedure, the sink splits the source data into mini batches then do the insert, so the extra query in stored procedure can be executed multiple times. If you have the query for the copy activity to run before writing data into Azure SQL Database, it's not recommended to add it to the stored procedure, add it in the **Pre-copy script** box.
+
 ## Mapping data flow properties
 
 When transforming data in mapping data flow, you can read and write to tables from Azure SQL Database. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows.
@@ -806,9 +803,11 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 
 :::image type="content" source="media/data-flow/isolationlevel.png" alt-text="Isolation Level":::
 
-**Enable incremental extract**: Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed.
+**Enable incremental extract**: Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed.To enable incremental extract with schema drift, choose tables based on Incremental / Watermark columns rather than tables that are enabled for Native Change Data Capture.
 
-**Incremental date column**: When using the incremental extract feature, you must choose the date/time column that you wish to use as the watermark in your source table.
+**Incremental column**: When using the incremental extract feature, you must choose the date/time or numeric column that you wish to use as the watermark in your source table.
+
+**Enable native change data capture(Preview)**: Use this option to tell ADF to only process delta data captured by [SQL change data capture technology](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) since the last time that the pipeline executed. With this option, the delta data including row insert, update and deletion will be loaded automatically without any incremental column required. You need to [enable change data capture](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) on Azure SQL DB before using this option in ADF. For more information about this option in ADF, see [native change data capture](#native-change-data-capture).
 
 **Start reading from beginning**: Setting this option with incremental extract will instruct ADF to read all rows on first execution of a pipeline with incremental extract turned on.
 
@@ -932,6 +931,73 @@ When you copy data from/to Azure SQL Database with [Always Encrypted](/sql/relat
 >[!NOTE]
 > Currently, Azure SQL Database [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) is only supported for source transformation in mapping data flows.
 
-## Next steps
+## Native change data capture
+
+Azure Data Factory can support native change data capture capabilities for SQL Server, Azure SQL DB and Azure SQL MI. The changed data including row insert, update and deletion in SQL stores can be automatically detected and extracted by ADF mapping dataflow. With the no code experience in mapping dataflow, users can easily achieve data replication scenario from SQL stores by appending a database as destination store.  What is more, users can also compose any data transform logic in between to achieve incremental ETL scenario from SQL stores.
+
+Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can be recorded by ADF for you to get changed data from the last run automatically. If you change your pipeline name or activity name, the checkpoint will be reset, which leads you to start from beginning or get changes from now in the next run. If you do want to change the pipeline name or activity name but still keep the checkpoint to get changed data from the last run automatically, please use your own Checkpoint key in dataflow activity to achieve that.
+
+When you debug the pipeline, this feature works the same. Be aware that the checkpoint will be reset when you refresh your browser during the debug run. After you are satisfied with the pipeline result from debug run, you can go ahead to publish and trigger the pipeline. At the moment when you first time trigger your published pipeline, it automatically restarts from the beginning or gets changes from now on.
+
+In the monitoring section, you always have the chance to rerun a pipeline. When you are doing so, the changed data is always captured from the previous checkpoint of your selected pipeline run.
+
+### Example 1:
+
+When you directly chain a source transform referenced to SQL CDC enabled dataset with a sink transform referenced to a database in a mapping dataflow, the changes happened on SQL source will be automatically applied to the target database, so that you will easily get data replication scenario between databases. You can use update method in sink transform to select whether you want to allow insert, allow update or allow delete on target database. The example script in mapping dataflow is as below.
+
+```json
+source(output(
+		id as integer,
+		name as string
+	),
+	allowSchemaDrift: true,
+	validateSchema: false,
+	enableNativeCdc: true,
+	netChanges: true,
+	skipInitialLoad: false,
+	isolationLevel: 'READ_UNCOMMITTED',
+	format: 'table') ~> source1
+source1 sink(allowSchemaDrift: true,
+	validateSchema: false,
+	deletable:true,
+	insertable:true,
+	updateable:true,
+	upsertable:true,
+	keys:['id'],
+	format: 'table',
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true,
+	errorHandlingOption: 'stopOnFirstError') ~> sink1
+```
+
+### Example 2:
+
+If you want to enable ETL scenario instead of data replication between database via SQL CDC, you can use expressions in mapping dataflow including isInsert(1), isUpdate(1) and isDelete(1) to differentiate the rows with different operation types.  The following is one of the example scripts for mapping dataflow on deriving one column with the value: 1 to indicate inserted rows, 2 to indicate updated rows and 3 to indicate deleted rows for downstream transforms to process the delta data.
+
+```json
+source(output(
+		id as integer,
+		name as string
+	),
+	allowSchemaDrift: true,
+	validateSchema: false,
+	enableNativeCdc: true,
+	netChanges: true,
+	skipInitialLoad: false,
+	isolationLevel: 'READ_UNCOMMITTED',
+	format: 'table') ~> source1
+source1 derive(operationType = iif(isInsert(1), 1, iif(isUpdate(1), 2, 3))) ~> derivedColumn1
+derivedColumn1 sink(allowSchemaDrift: true,
+	validateSchema: false,
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> sink1
+```
+
+### Known limitation:
+
+*    Only **net changes** from SQL CDC will be loaded by ADF via [cdc.fn_cdc_get_net_changes_](/sql/relational-databases/system-functions/cdc-fn-cdc-get-net-changes-capture-instance-transact-sql?source=recommendations).
+
+
+## Related content
 
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

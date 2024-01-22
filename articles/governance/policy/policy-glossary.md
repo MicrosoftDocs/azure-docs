@@ -1,8 +1,8 @@
 ---
 title: Azure Policy glossary
 description: A glossary defining the terminology used throughout Azure Policy
-author: timwarner-msft
-ms.author: timwarner
+author: davidsmatlak
+ms.author: davidsmatlak
 ms.topic: conceptual
 ms.date: 07/13/2022
 ---

@@ -4,7 +4,6 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/18/2020
 ms.author: glenga 
-ms.custom: devx-track-azurepowershell
 ---
 
 ## Clean up resources

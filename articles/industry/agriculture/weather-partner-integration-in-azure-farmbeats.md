@@ -1,10 +1,10 @@
 ---
 title: Weather partner integration
 description: Learn about how a weather data provider can integrate with FarmBeats.
-author: sunasing
+author: gourdsay
 ms.topic: article
-ms.date: 07/09/2020
-ms.author: sunasing
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Weather partner integration with FarmBeats
@@ -12,8 +12,10 @@ ms.author: sunasing
 This article provides information about the Azure FarmBeats Connector Docker component. As a weather data provider, you can use the Connector Docker to integrate with FarmBeats. Use its APIs to send weather data to 
 FarmBeats. In FarmBeats, the data can be used for data fusion and for building machine learning models or artificial intelligence models.
 
- > [!NOTE]
- > In this article, we use a [reference implementation](https://github.com/azurefarmbeats/noaa_docker) that was built by using Azure Open Datasets and weather data from National Oceanic and Atmospheric Administration (NOAA). We also use the corresponding [Docker image](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa).
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 You must provide a [suitable Docker image or program](#docker-specifications)
 and host the docker image in a container registry that customers can access. Provide the following information to your customers:
@@ -30,8 +32,7 @@ Customers use this Docker information to register a weather partner in their Far
 
 **REST API-based integration**
 
-The FarmBeats APIs contain Swagger technical documentation. For more information about the APIs and their
-corresponding requests or responses, see the [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
+The FarmBeats APIs contain Swagger technical documentation. 
 
 If you've already installed FarmBeats, access your FarmBeats Swagger at `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
@@ -127,7 +128,7 @@ If you customize the *bootstrap_manifest.json* file, then the reference bootstra
 
 - /**WeatherDataModel**: The WeatherDataModel metadata represents weather data. It corresponds to data sets that the source provides. For example, a DailyForecastSimpleModel might provide average temperature, humidity, and precipitation information once a day. By contrast, a DailyForecastAdvancedModel might provide much more information at hourly granularity. You can create any number of weather data models.
 - /**JobType**: FarmBeats has an extensible job management system. As a weather data provider, you'll have various datasets and APIs (for example, GetDailyForecasts). You can enable these datasets and APIs in FarmBeats by using JobType. After a job type is created, a customer can
-trigger jobs of that type to get weather data for their location or their farm of interest. For more information, see JobType and Job APIs in the [FarmBeats Swagger](https://aka.ms/farmbeatsswagger).
+trigger jobs of that type to get weather data for their location or their farm of interest.
 
 ### Jobs
 
@@ -172,8 +173,6 @@ Name | Name of the object. |
 Description | Description of the weather data location. |
 farmId | (Optional) ID of the farm. The customer provides this ID as part of the job parameter. |
 Properties  | Additional properties from the manufacturer.
-
-For more information about the objects and their properties, see the [FarmBeats Swagger](https://aka.ms/FarmBeatsSwagger).
 
 > [!NOTE]
 > The APIs return unique IDs for each instance that's created. The translator for device management and metadata sync needs to retain this ID.
@@ -275,8 +274,6 @@ Follow these steps to add a new WeatherMeasure type, for example, PrecipitationD
 1. Make a `GET` request on /ExtendedType by using the query `filter - key = WeatherMeasureType`.
 2. Note the ID of the returned object.
 3. Add the new type to the list in the returned object. Make a `PUT` request on the /ExtendedType{ID} with the following new list. The input payload should be the same as the response that you received earlier. The new unit should be appended at the end of the list of values.
-
-For more information about the /ExtendedType API, see the [FarmBeats Swagger](https://aka.ms/FarmBeatsSwagger).
 
 ## Next steps
 

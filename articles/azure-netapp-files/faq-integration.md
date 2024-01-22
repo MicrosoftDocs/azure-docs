@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 07/27/2022
+ms.date: 02/13/2023
 ---
 # Integration FAQs for Azure NetApp Files
 
@@ -22,9 +22,9 @@ Using Azure NetApp Files NFS or SMB volumes with AVS for *Guest OS mounts* is su
 
 ## Which Unicode Character Encoding is supported by Azure NetApp Files for the creation and display of file and directory names?   
 
-Azure NetApp Files only supports file and directory names that are encoded with the UTF-8 Unicode Character Encoding format for both NFS and SMB volumes.
+Azure NetApp Files only supports file and directory names that are encoded with the [UTF-8 Unicode Character Encoding](https://en.wikipedia.org/wiki/UTF-8), *C locale* (or _C.UTF-8_) format for both NFS and SMB volumes. As such only strict ASCII characters are valid.
 
-If you try to create files or directories with names that use supplementary characters or surrogate pairs such as non-regular characters and emoji that are not supported by UTF-8, the operation will fail. In this case, an error from a Windows client might read “The file name you specified is not valid or too long. Specify a different file name.” 
+If you try to create files or directories with names that use supplementary characters or surrogate pairs such as non-regular characters and emoji that are not supported by C.UTF-8, the operation will fail. In this case, an error from a Windows client might read “The file name you specified is not valid or too long. Specify a different file name.” 
 
 ## Next steps  
 

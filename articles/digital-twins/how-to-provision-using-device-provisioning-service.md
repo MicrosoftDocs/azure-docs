@@ -1,17 +1,16 @@
 ---
-# Mandatory fields.
 title: Automanage devices using Device Provisioning Service
 titleSuffix: Azure Digital Twins
 description: Learn how to set up an automated process to provision and retire IoT devices in Azure Digital Twins using Device Provisioning Service (DPS).
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 06/21/2022
+ms.date: 11/18/2022
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
@@ -30,13 +29,13 @@ Before you can set up the provisioning, you'll need to set up the following reso
 * An IoT hub. For instructions, see the "Create an IoT Hub" section of [the IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
 * An [Azure function](../azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Follow the instructions in [Ingest IoT hub data](how-to-ingest-iot-hub-data.md) to create this Azure function. Gather the function **name** to use it in this article.
 
-This sample also uses a *device simulator* that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the **Browse code** button underneath the title. This button will take you to the GitHub repo for the sample, which you can download as a .zip file by selecting the **Code** button and **Download ZIP**. 
+This sample also uses a *device simulator* that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](https://github.com/Azure-Samples/digital-twins-iothub-integration). Get the sample project on your machine by navigating to the GitHub repo for the sample, which you can download as a .zip file by selecting the **Code** button and **Download ZIP**.
 
 :::image type="content" source="media/how-to-provision-using-device-provisioning-service/download-repo-zip.png" alt-text="Screenshot of the digital-twins-iothub-integration repo on GitHub, highlighting the steps to download it as a zip." lightbox="media/how-to-provision-using-device-provisioning-service/download-repo-zip.png":::
 
 Unzip the downloaded folder.
 
-You'll need [Node.js](https://nodejs.org/download) installed on your machine. The device simulator is based on Node.js, version 10.0.x or later.
+You'll need [Node.js](https://nodejs.org) installed on your machine. The device simulator is based on Node.js, version 10.0.x or later.
 
 ## Solution architecture
 
@@ -110,23 +109,23 @@ Next, you'll need to create an enrollment in Device Provisioning Service using a
 While going through that flow, make sure you select the following options to link the enrollment to the function you created.
 
 * **Select how you want to assign devices to hubs**: Custom (Use Azure Function).
-* **Select the IoT hubs this group can be assigned to:** Choose your IoT hub name or select the **Link a new IoT hub** button, and choose your IoT hub from the dropdown.
+* **Select the IoT hubs this group can be assigned to:** Choose your IoT hub name or select the **Link a new IoT hub** button, and choose your IoT hub from the options.
 
 Next, choose the **Select a new function** button to link your function app to the enrollment group. Then, fill in the following values:
 
 * **Subscription**: Your Azure subscription is autopopulated. Make sure it's the right subscription.
 * **Function App**: Choose your function app name.
-* **Function**: Choose DpsAdtAllocationFunc.
+* **Function**: Choose *DpsAdtAllocationFunc*.
 
 Save your details.                  
 
 :::image type="content" source="media/how-to-provision-using-device-provisioning-service/link-enrollment-group-to-iot-hub-and-function-app.png" alt-text="Screenshot of the Customs enrollment group details window in the Azure portal." lightbox="media/how-to-provision-using-device-provisioning-service/link-enrollment-group-to-iot-hub-and-function-app.png":::
 
-After creating the enrollment, the **Primary Key** for the enrollment will be used later to configure the device simulator for this article.
+After creating the enrollment, select it to view its settings. Copy the **Primary Key** for the enrollment, which will be used later in this article to configure the device simulator.
 
 ### Set up the device simulator
 
-This sample uses a device simulator that includes provisioning using the Device Provisioning Service. The device simulator is located in the [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/) that you downloaded in the [Prerequisites section](#prerequisites).
+This sample uses a device simulator that includes provisioning using the Device Provisioning Service. The device simulator is located in the [Azure Digital Twins and IoT Hub Integration Sample](https://github.com/Azure-Samples/digital-twins-iothub-integration) that you downloaded in the [Prerequisites section](#prerequisites).
 
 #### Upload the model
 
@@ -138,7 +137,7 @@ For more information about models, see [Manage models](how-to-manage-model.md#up
 
 #### Configure and run the simulator
 
-In your command window, navigate to the downloaded sample *Azure Digital Twins and IoT Hub Integration* that you unzipped earlier, and then into the *device-simulator* directory. Next, install the dependencies for the project using the following command:
+In a command window on your local machine, navigate to the downloaded sample *Azure Digital Twins and IoT Hub Integration* that you unzipped earlier, and then into the *device-simulator* directory. Next, install the dependencies for the project using the following command:
 
 ```cmd
 npm install

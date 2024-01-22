@@ -6,7 +6,7 @@ metadata:
   ms.author: v-szuber
   ms.date: 08/15/2019 
   ms.topic: faq
-  ms.service: azure-vmware-cloudsimple 
+  ms.service: azure-vmware
   ms.reviewer: cynthn 
   manager: dikamath
   ms.custom: references_regions
@@ -175,7 +175,7 @@ sections:
         answer: |
           CloudSimple provides an Azure ExpressRoute connection to your subscription on Azure.  All services running in your subscription can connect to your Private Cloud.  Examples include:
           
-          * **Azure Active Directory** as an identity source for your CloudSimple vCenter.
+          * **Microsoft Entra ID** as an identity source for your CloudSimple vCenter.
           * **Azure storage** for storing backups, images, and other data from your Private Cloud.
           * **Hybrid applications** with an application architecture that spans public and Private Clouds.  For example, you can create webservers in Azure that access application and database servers on your Private Cloud.
           * **Azure monitor** and **Azure security center** for workloads running on VMware support logging, performance metrics, and security management.

@@ -17,7 +17,7 @@ Typically, you send events to an endpoint that processes the event data and take
 
 ## Setup
 
-This quickstart requires that you're running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+This quickstart requires that you're running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Sign in to Azure
 
@@ -82,7 +82,7 @@ $sitename="<your-site-name>"
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName $resourceGroup `
-  -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/main/azuredeploy.json" `
   -siteName $sitename `
   -hostingPlanName viewerhost
 ```

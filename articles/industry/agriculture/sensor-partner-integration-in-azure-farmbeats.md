@@ -1,15 +1,20 @@
 ---
 title: Sensor partner integration
 description: This article describes sensor partner integration.
-author: RiyazPishori
+author: gourdsay
 ms.topic: article
-ms.date: 11/04/2019
-ms.author: riyazp
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Sensor partner integration
 
 This article provides information about the Azure FarmBeats **Translator** component, which enables sensor partner integration.
+
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 Using this component, partners can integrate with FarmBeats using FarmBeats Datahub APIs and send customer device data and telemetry to FarmBeats Datahub. Once the data is available in FarmBeats, it is visualized using the FarmBeats Accelerator and can be used for data fusion and for building machine learning/artificial intelligence models.
 
@@ -37,13 +42,13 @@ The telemetry data is mapped to a canonical message that's published on Azure Ev
 
 **API development**
 
-The APIs contain Swagger technical documentation. For more information on the APIs and their corresponding requests or responses, see [Swagger](https://aka.ms/FarmBeatsSwagger).
+The APIs contain Swagger technical documentation.
 
 **Authentication**
 
-FarmBeats uses Microsoft Azure Active Directory authentication. Azure App Service provides built-in authentication and authorization support.
+FarmBeats uses Microsoft Entra authentication. Azure App Service provides built-in authentication and authorization support.
 
-For more information, see [Azure Active Directory](../../app-service/overview-authentication-authorization.md).
+For more information, see [Microsoft Entra ID](../../app-service/overview-authentication-authorization.md).
 
 FarmBeats Datahub uses bearer authentication, which needs the following credentials:
    - Client ID
@@ -168,8 +173,6 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
   Description  | Provide a meaningful description.
   Properties  | Additional properties from the manufacturer.
 
- For information on each of the objects and their properties, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
-
  > [!NOTE]
  > The APIs return unique IDs for each instance created. This ID needs to be retained by the Translator for device management and metadata sync.
 
@@ -188,7 +191,7 @@ The Translator should have the ability to add new devices or sensors that were i
 
 ### Add new types and units
 
-FarmBeats supports adding new sensor measure types and units. For more information about the /ExtendedType API, see [Swagger](https://aka.ms/FarmBeatsSwagger).
+FarmBeats supports adding new sensor measure types and units.
 
 ## Telemetry specifications
 

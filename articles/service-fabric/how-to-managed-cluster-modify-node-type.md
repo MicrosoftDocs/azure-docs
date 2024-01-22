@@ -180,17 +180,16 @@ To adjust the node count for a node type using an ARM Template, adjust the `vmIn
 > The managed cluster provider will block scale adjustments and return an error if the scaling request violates required minimums.
 
 ```json
-     {
-            "apiVersion": "[variables('sfApiVersion')]",
-            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-            "location": "[resourcegroup().location]",
-            "properties": {
-                ...
-                "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
-                ...
-            }
-        }
+{
+  "apiVersion": "[variables('sfApiVersion')]",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+  "location": "[resourcegroup().location]",
+  "properties": {
+    ...
+    "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
+    ...
+  }
 }
 ```
 
@@ -281,20 +280,19 @@ To modify the OS image used for a node type using an ARM Template, adjust the `v
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
 
 ```json
-     {
-            "apiVersion": "[variables('sfApiVersion')]",
-            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-            "location": "[resourcegroup().location]",
-            "properties": {
-                ...
-                "vmImagePublisher": "[parameters('vmImagePublisher')]",
-                "vmImageOffer": "[parameters('vmImageOffer')]",
-                "vmImageSku": "[parameters('vmImageSku')]",
-                "vmImageVersion": "[parameters('vmImageVersion')]",
-                ...
-            }
-        }
+{
+  "apiVersion": "[variables('sfApiVersion')]",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+  "location": "[resourcegroup().location]",
+  "properties": {
+    ...
+    "vmImagePublisher": "[parameters('vmImagePublisher')]",
+    "vmImageOffer": "[parameters('vmImageOffer')]",
+    "vmImageSku": "[parameters('vmImageSku')]",
+    "vmImageVersion": "[parameters('vmImageVersion')]",
+    ...
+  }
 }
 ```
 
@@ -328,18 +326,18 @@ To adjust the placement properties for a node type using an ARM Template, adjust
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
 
 ```json
-     {
-            "apiVersion": "[variables('sfApiVersion')]",
-            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-            "location": "[resourcegroup().location]",
-            "properties": {
-                "placementProperties": {
-                    "PremiumSSD": "true",
-                    "NodeColor": "green",
-                    "SomeProperty": "5"
-            }
-        }
+{
+  "apiVersion": "[variables('sfApiVersion')]",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+  "location": "[resourcegroup().location]",
+  "properties": {
+    "placementProperties": {
+      "PremiumSSD": "true",
+      "NodeColor": "green",
+      "SomeProperty": "5"
+    }
+  }
 }
 ```
 
@@ -356,13 +354,24 @@ Set-AzServiceFabricManagedNodeType -ResourceGroupName $rgName -ClusterName $clus
 
 ## Modify the VM SKU for a node type
 
-Service Fabric managed cluster does not support in-place modification of the VM SKU, but is simpler than classic. In order to accomplish this you'll need to do the following:
-* [Create a new node type via portal, ARM template, or PowerShell](how-to-managed-cluster-modify-node-type.md#add-a-node-type) with the required VM SKU. You'll need to use a template or PowerShell for adding a primary or stateless node type.
-* Migrate your workload over. One way is to use a [placement property to ensure that certain workloads run only on certain types of nodes in the cluster](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). 
-* [Delete old node type via portal or PowerShell](how-to-managed-cluster-modify-node-type.md#remove-a-node-type). To remove a primary node type you will have to use PowerShell.
+To modify the VM SKU size used for a node type using an ARM Template, adjust the `vmSize` property with the new value and do a cluster deployment for the setting to take effect. The managed cluster provider will reimage each instance by upgrade domain.  For a list of SKU options, please refer to the [VM sizes - Azure Virtual Machines | Microsoft Learn](../virtual-machines/sizes.md).  
 
+```json
+{
+  "apiVersion": "[variables('sfApiVersion')]",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+  "location": "[resourcegroup().location]",
+  "properties": {
+    ...
+    "vmSize": "[parameters('vmImageVersion')]",
+    ...
+  }
+}
+```
 
 ## Configure multiple managed disks
+
 Service Fabric managed clusters by default configure one managed disk. By configuring the following optional property and values, you can add more managed disks to node types within a cluster. You are able to specify the drive letter, disk type, and size per disk.
 
 Configure more managed disks by declaring `additionalDataDisks` property and required parameters in your Resource Manager template as follows:
@@ -374,20 +383,20 @@ Configure more managed disks by declaring `additionalDataDisks` property and req
 * The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 
 ```json
-     {
-            "apiVersion": "[variables('sfApiVersion')]",
-            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-            "location": "[resourcegroup().location]",
-            "properties": {
-                "additionalDataDisks": {
-                    "lun": "1",
-                    "diskSizeGB": "50",
-                    "diskType": "Standard_LRS",
-                    "diskLetter": "S" 
-            }
-        }
-     }
+{
+  "apiVersion": "[variables('sfApiVersion')]",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+  "location": "[resourcegroup().location]",
+  "properties": {
+    "additionalDataDisks": {
+      "lun": "1",
+      "diskSizeGB": "50",
+      "diskType": "Standard_LRS",
+      "diskLetter": "S" 
+    }
+  }
+}
 ```
 
 See [full list of parameters available](/azure/templates/microsoft.servicefabric/2021-11-01-preview/managedclusters)
@@ -400,16 +409,17 @@ Service Fabric managed clusters by default configure a Service Fabric data disk 
 * The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 
 ```json
-     {
-            "apiVersion": "[variables('sfApiVersion')]",
-            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-            "location": "[resourcegroup().location]",
-            "properties": {
-                "dataDiskLetter": "S"      
-            }
-        }
-     }
+{
+  {
+    "apiVersion": "[variables('sfApiVersion')]",
+    "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+    "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+    "location": "[resourcegroup().location]",
+    "properties": {
+      "dataDiskLetter": "S"
+    }
+  }
+}
 ```
 
 ## Next steps

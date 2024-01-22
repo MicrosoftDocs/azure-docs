@@ -2,7 +2,8 @@
 title: Variables in templates
 description: Describes how to define variables in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 01/19/2022
+ms.custom: devx-track-arm-template
+ms.date: 09/28/2022
 ---
 
 # Variables in ARM templates
@@ -13,6 +14,8 @@ Resource Manager resolves variables before starting the deployment operations. W
 
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [variables](../bicep/variables.md).
+
+You are limited to 256 variables in a template. For more information, see [Template limits](./best-practices.md#template-limits).
 
 ## Define variable
 

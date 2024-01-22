@@ -1,16 +1,11 @@
 ---
 title: Error handling in Azure API Management policies | Microsoft Docs
 description: Learn how to respond to error conditions that may occur during the processing of requests in Azure API Management.
-services: api-management
-documentationcenter: ''
 author: dlepow
 manager: erikre
-editor: ''
-
 ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: danlep
@@ -55,22 +50,22 @@ The `on-error` policy section can be used at any scope. API publishers can confi
 
 The following policies can be used in the `on-error` policy section.
 
--   [choose](api-management-advanced-policies.md#choose)
--   [set-variable](api-management-advanced-policies.md#set-variable)
--   [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody)
--   [return-response](api-management-advanced-policies.md#ReturnResponse)
--   [set-header](api-management-transformation-policies.md#SetHTTPheader)
--   [set-method](api-management-advanced-policies.md#SetRequestMethod)
--   [set-status](api-management-advanced-policies.md#SetStatus)
--   [send-request](api-management-advanced-policies.md#SendRequest)
--   [send-one-way-request](api-management-advanced-policies.md#SendOneWayRequest)
--   [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub)
--   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)
--   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)
--   [limit-concurrency](api-management-advanced-policies.md#LimitConcurrency)
--   [mock-response](api-management-advanced-policies.md#mock-response)
--   [retry](api-management-advanced-policies.md#Retry)
--   [trace](api-management-advanced-policies.md#Trace)
+-   [choose](choose-policy.md)
+-   [set-variable](set-variable-policy.md)
+-   [find-and-replace](find-and-replace-policy.md)
+-   [return-response](return-response-policy.md)
+-   [set-header](set-header-policy.md)
+-   [set-method](set-method-policy.md)
+-   [set-status](set-status-policy.md)
+-   [send-request](send-request-policy.md)
+-   [send-one-way-request](send-one-way-request-policy.md)
+-   [log-to-eventhub](log-to-eventhub-policy.md)
+-   [json-to-xml](json-to-xml-policy.md)
+-   [xml-to-json](xml-to-json-policy.md)
+-   [limit-concurrency](limit-concurrency-policy.md)
+-   [mock-response](mock-response-policy.md)
+-   [retry](retry-policy.md)
+-   [trace](trace-policy.md)
 
 ## LastError
 

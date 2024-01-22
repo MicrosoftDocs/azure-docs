@@ -18,7 +18,7 @@ Key capabilities include:
 - **Native Threat Detection**: Microsoft Defender for Cloud provides high-quality threat detection and response capabilities, also called Extended Detection and Response (XDR). This helps you:
   - Avoid wasting time and talent of scarce security resources to build custom alerts using raw activity logs.
   - Ensure effective security monitoring, which often enables security teams to rapidly approve use of Azure services.
-- **Passwordless and Multi-factor authentication**: Azure Active Directory MFA, Azure AD Authenticator App, and Windows Hello provide these capabilities. This helps protect accounts against commonly seen password attacks (which account for 99.9% of the volume of identity attacks we see in Azure AD). While no security is perfect, eliminating password-only attack vectors dramatically lowers the ransomware attack risk to Azure resources. 
+- **Passwordless and multifactor authentication**: Microsoft Entra multifactor authentication, Microsoft Entra Authenticator App, and Windows Hello provide these capabilities. This helps protect accounts against commonly seen password attacks (which account for 99.9% of the volume of identity attacks we see in Microsoft Entra ID). While no security is perfect, eliminating password-only attack vectors dramatically lowers the ransomware attack risk to Azure resources. 
 - **Native Firewall and Network Security**: Microsoft built native DDoS attack mitigations, Firewall, Web Application Firewall, and many other controls into Azure. These security 'as a service' help simplify the configuration and implementation of security controls. These give organizations the choice of using native services or virtual appliances versions of familiar vendor capabilities to simplify their Azure security. 
 
 ## Microsoft Defender for Cloud
@@ -113,9 +113,9 @@ Key Features:
 - [Zero Trust Guidance Center](/security/zero-trust/)
 - [Azure Web Application Firewall](../../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md?tabs=owasp32)
 - [Azure VPN gateway](../../vpn-gateway/openvpn-azure-ad-tenant.md#enable-authentication)
-- [Azure Active Directory Multi-Factor Authentication (MFA)](../../active-directory/authentication/howto-mfa-userstates.md)
-- [Azure AD Identity Protection](../../active-directory/authentication/concept-password-ban-bad.md)
-- [Azure AD Conditional Access](../../active-directory/conditional-access/overview.md)
+- [Microsoft Entra multifactor authentication (MFA)](../../active-directory/authentication/howto-mfa-userstates.md)
+- [Microsoft Entra ID Protection](../../active-directory/authentication/concept-password-ban-bad.md)
+- [Microsoft Entra Conditional Access](../../active-directory/conditional-access/overview.md)
 - [Microsoft Defender for Cloud documentation](../../defender-for-cloud/index.yml)
 
 ## Conclusion
@@ -125,7 +125,7 @@ Microsoft focuses heavily on both security of our cloud and providing you the se
 We look forward to partnering with you in addressing ransomware protection, detection, and prevention in a holistic manner.
 
 Connect with us:
-- [AskAzureSecurity@microsoft.com](mailto:AskAzureSecurity&#64;microsoft.com) 
+- [AskAzureSecurity@microsoft.com](mailto:AskAzureSecurity@microsoft.com)
 - [www.microsoft.com/services](https://www.microsoft.com/en-us/msservices)
 
 For detailed information on how Microsoft secures our cloud, visit the [service trust portal](https://servicetrust.microsoft.com/).

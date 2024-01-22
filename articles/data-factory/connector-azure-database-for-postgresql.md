@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/04/2022
+ms.date: 01/05/2024
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -29,7 +29,7 @@ This Azure Database for PostgreSQL connector is supported for the following capa
 |[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 The three activities work on all Azure Database for PostgreSQL deployment options:
 
@@ -41,7 +41,7 @@ The three activities work on all Azure Database for PostgreSQL deployment option
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a linked service to Azure database for PostgreSQL using UI
+## Create a linked service to Azure Database for PostgreSQL using UI
 
 Use the following steps to create a linked service to Azure database for PostgreSQL in the Azure portal UI.
 
@@ -311,7 +311,7 @@ The below table lists the properties supported by Azure Database for PostgreSQL 
 | Stored procedure | If you select Stored procedure as input, specify a name of the stored procedure to read data from the source table, or select Refresh to ask the service to discover the procedure names.| Yes (if you select Stored procedure as input) | String | procedureName |
 | Procedure parameters | If you select Stored procedure as input, specify any input parameters for the stored procedure in the order set in the procedure, or select Import to import all procedure parameters using the form `@paraName`. | No | Array | inputs |
 | Batch size | Specify a batch size to chunk large data into batches. | No | Integer | batchSize |
-| Isolation Level | Choose one of the following isolation levels:<br>- Read Committed<br>- Read Uncommitted (default)<br>- Repeatable Read<br>- Serializable<br>- None (ignore isolation level) | No | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE</small> |isolationLevel |
+| Isolation Level | Choose one of the following isolation levels:<br>- Read Committed<br>- Read Uncommitted (default)<br>- Repeatable Read<br>- Serializable<br>- None (ignore isolation level) | No | READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE |isolationLevel |
 
 #### Azure Database for PostgreSQL source script example
 
@@ -346,7 +346,7 @@ The below table lists the properties supported by Azure Database for PostgreSQL 
 
 * Enable incremental extract: Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed.
 
-* Incremental date column: When using the incremental extract feature, you must choose the date/time column that you wish to use as the watermark in your source table.
+* Incremental column: When using the incremental extract feature, you must choose the date/time or numeric column that you wish to use as the watermark in your source table.
 
 * Start reading from beginning: Setting this option with incremental extract will instruct ADF to read all rows on first execution of a pipeline with incremental extract turned on.
 
@@ -371,5 +371,5 @@ IncomingStream sink(allowSchemaDrift: true,
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

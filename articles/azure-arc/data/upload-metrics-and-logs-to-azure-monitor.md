@@ -4,6 +4,7 @@ description: Upload resource inventory, usage data, metrics, and logs to Azure
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: devx-track-azurecli
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
@@ -14,9 +15,6 @@ ms.topic: how-to
 # Upload usage data, metrics, and logs to Azure
 
 Periodically, you can export out usage information for billing purposes, monitoring metrics, and logs and then upload it to Azure. The export and upload of any of these three types of data will also create and update the data controller, and SQL managed instance resources in Azure.
-
-> [!NOTE]
-> At this time, you can't upload usage data, metrics, or logs for Azure Arc-enabled PostgreSQL server preview.
 
 Before you can upload usage data, metrics, or logs you need to:
 
@@ -191,7 +189,7 @@ Upload the usage only once per day. When usage information is exported and uploa
 
 For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes, you may not see any data in the portal. 
 
-## Next steps
+## Related content
 
 [Learn about service principals](/powershell/azure/azurerm/create-azure-service-principal-azureps#what-is-a-service-principal)
 

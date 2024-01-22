@@ -1,21 +1,27 @@
 ---
-title: Migrate endpoints from SDK v1 to SDK v2
+title: Upgrade deployment endpoints to SDK v2
 titleSuffix: Azure Machine Learning
-description: Migrate deployment endpoints from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade deployment endpoints from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: shohei1029
-ms.author: shnagata
+author: dem108
+ms.author: sehan
 ms.date: 09/16/2022
 ms.reviewer: sgilley
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
-# Migrate deployment endpoints from SDK v1 to SDK v2
+# Upgrade deployment endpoints to SDK v2
 
-We newly introduced [online endpoints](concept-endpoints.md) and batch endpoints as v2 concepts. There are several deployment funnels such as managed online endpoints, [kubernetes online endpoints](how-to-attach-kubernetes-anywhere.md) (including AKS and Arch-enabled Kubernetes) in v2, and ACI and AKS webservices in v1. In this article, we'll focus on the comparison of deploying to ACI webservices (v1) and managed online endpoints (v2).
+With SDK/CLI v1, you can deploy models on ACI or AKS as web services. Your existing v1 model deployments and web services will continue to function as they are, but Using SDK/CLI v1 to deploy models on ACI or AKS as web services is now considered as **legacy**. For new model deployments, we recommend upgrading to v2. 
+
+In v2, we offer [managed endpoints or Kubernetes endpoints](./concept-endpoints.md?view=azureml-api-2&preserve-view=true). For a comparison of v1 and v2, see [Endpoints and deployment](./how-to-migrate-from-v1.md#endpoint-and-deployment-endpoint-and-web-service-in-v1).
+
+There are several deployment funnels such as managed online endpoints, [kubernetes online endpoints](how-to-attach-kubernetes-anywhere.md) (including Azure Kubernetes Services and Arc-enabled Kubernetes) in v2, and Azure Container Instances (ACI) and Kubernetes Services (AKS) webservices in v1. In this article, we'll focus on the comparison of deploying to ACI webservices (v1) and managed online endpoints (v2).
+
 
 Examples in this article show how to:
 
@@ -138,7 +144,7 @@ For more information on registering models, see [Register a model from a local f
         ml_client.begin_create_or_update(endpoint)
         ```
 
-For more information on concepts for endpoints and deployments, see [What are online endpoints?](concept-endpoints.md#what-are-online-endpoints)
+For more information on concepts for endpoints and deployments, see [What are online endpoints?](concept-endpoints-online.md)
 
 
 ## Submit a request
@@ -191,13 +197,13 @@ For more information on concepts for endpoints and deployments, see [What are on
 
 |Functionality in SDK v1|Rough mapping in SDK v2|
 |-|-|
-|[azureml.core.model.Model class](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true)|[azure.ai.ml.entities.Model class](/python/api/azure-ai-ml/azure.ai.ml.entities.model?view=azure-python-preview&preserve-view=true)|
-|[azureml.core.Environment class](/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true)|[azure.ai.ml.entities.Environment class](/python/api/azure-ai-ml/azure.ai.ml.entities.environment?view=azure-python-preview&preserve-view=true)|
-|[azureml.core.model.InferenceConfig class](/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true)|[azure.ai.ml.entities.CodeConfiguration class](/python/api/azure-ai-ml/azure.ai.ml.entities.codeconfiguration?view=azure-python-preview&preserve-view=true)|
-|[azureml.core.webservice.AciWebservice class](/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py&preserve-view=true#azureml-core-webservice-aciwebservice-deploy-configuration)|[azure.ai.ml.entities.OnlineDeployment class](/python/api/azure-ai-ml/azure.ai.ml.entities.onlinedeployment?view=azure-python-&preserve-view=true) (and [azure.ai.ml.entities.ManagedOnlineEndpoint class](/en-us/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint?view=azure-python-preview&preserve-view=true))|
-|[Model.deploy](/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py&preserve-view=true#azureml-core-model-deploy) or [Webservice.deploy](/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#azureml-core-webservice-deploy) |[ml_client.begin_create_or_update(online_deployment)](/python/api/azure-ai-ml/azure.ai.ml.mlclient?view=azure-python-preview&preserve-view=true#azure-ai-ml-mlclient-begin-create-or-update)|
-[Webservice.run](/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#azureml-core-webservice-run)|[ml_client.online_endpoints.invoke](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations?view=azure-python-preview&preserve-view=true#azure-ai-ml-operations-onlineendpointoperations-invoke)|
-[Webservice.delete](/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#azureml-core-webservice-delete)|[ml_client.online_endpoints.delete](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations?view=azure-python-preview&preserve-view=true#azure-ai-ml-operations-onlineendpointoperations-begin-delete)|
+|[azureml.core.model.Model class](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true)|[azure.ai.ml.entities.Model class](/python/api/azure-ai-ml/azure.ai.ml.entities.model)|
+|[azureml.core.Environment class](/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true)|[azure.ai.ml.entities.Environment class](/python/api/azure-ai-ml/azure.ai.ml.entities.environment)|
+|[azureml.core.model.InferenceConfig class](/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true)|[azure.ai.ml.entities.CodeConfiguration class](/python/api/azure-ai-ml/azure.ai.ml.entities.codeconfiguration)|
+|[azureml.core.webservice.AciWebservice class](/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py&preserve-view=true#azureml-core-webservice-aciwebservice-deploy-configuration)|[azure.ai.ml.entities.OnlineDeployment class](/python/api/azure-ai-ml/azure.ai.ml.entities.onlinedeployment?view=azure-python-&preserve-view=true) (and [azure.ai.ml.entities.ManagedOnlineEndpoint class](/en-us/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint))|
+|[Model.deploy](/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py&preserve-view=true#azureml-core-model-deploy) or [Webservice.deploy](/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#azureml-core-webservice-deploy) |[ml_client.begin_create_or_update(online_deployment)](/python/api/azure-ai-ml/azure.ai.ml.mlclient#azure-ai-ml-mlclient-begin-create-or-update)|
+[Webservice.run](/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#azureml-core-webservice-run)|[ml_client.online_endpoints.invoke](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-invoke)|
+[Webservice.delete](/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#azureml-core-webservice-delete)|[ml_client.online_endpoints.delete](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-begin-delete)|
 
 ## Related documents
 

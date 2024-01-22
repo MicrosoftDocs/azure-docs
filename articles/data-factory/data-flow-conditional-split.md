@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # Conditional split transformation in mapping data flow
@@ -63,6 +63,6 @@ CleanData
     ) ~> SplitByYear@(moviesBefore1960, moviesAfter1980, AllOtherMovies)
 ```
 
-## Next steps
+## Related content
 
 Common data flow transformations used with conditional split are the [join transformation](data-flow-join.md), [lookup transformation](data-flow-lookup.md), and the [select transformation](data-flow-select.md)

@@ -14,7 +14,7 @@ ms.custom: ['Role: Cloud Development','Role: IoT Device','Role: Technical Suppor
 
 Azure IoT Hub *device streams* facilitate the creation of secure bi-directional TCP tunnels for a variety of cloud-to-device communication scenarios. A device stream is mediated by an IoT Hub *streaming endpoint* which acts as a proxy between your device and service endpoints. This setup, depicted in the diagram below, is especially useful when devices are behind a network firewall or reside inside of a private network. As such, IoT Hub device streams help address customers' need to reach IoT devices in a firewall-friendly manner and without the need to broadly opening up incoming or outgoing network firewall ports.
 
-!["IoT Hub device streams overview"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-overview.png )
+!["IoT Hub device streams overview"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-overview.png)
 
 Using IoT Hub device streams, devices remain secure and will only need to open up outbound TCP connections to IoT hub's streaming endpoint over port 443. Once a stream is established, the service-side and device-side applications will each have programmatic access to a WebSocket client object to send and receive raw bytes to one another. The reliability and ordering guarantees provided by this tunnel is on par with TCP.
 

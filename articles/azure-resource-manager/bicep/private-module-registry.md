@@ -2,7 +2,8 @@
 title: Create private registry for Bicep module
 description: Learn how to set up an Azure container registry for private Bicep modules
 ms.topic: conceptual
-ms.date: 04/01/2022
+ms.custom: devx-track-bicep
+ms.date: 04/18/2023
 ---
 
 # Create private registry for Bicep modules
@@ -45,19 +46,21 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 
 1. To publish modules to a registry, you must have permission to **push** an image. To deploy a module from a registry, you must have permission to **pull** the image. For more information about the roles that grant adequate access, see [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md).
 
-1. Depending on the type of account you use to deploy the module, you may need to customize which credentials are used. These credentials are needed to get the modules from the registry. By default, credentials are obtained from Azure CLI or Azure PowerShell. You can customize the precedence for getting the credentials in the **bicepconfig.json** file. For more information, see [Credentials for restoring modules](bicep-config-modules.md#credentials-for-publishingrestoring-modules).
+1. Depending on the type of account you use to deploy the module, you may need to customize which credentials are used. These credentials are needed to get the modules from the registry. By default, credentials are obtained from Azure CLI or Azure PowerShell. You can customize the precedence for getting the credentials in the **bicepconfig.json** file. For more information, see [Credentials for restoring modules](bicep-config-modules.md#configure-profiles-and-credentials).
 
 > [!IMPORTANT]
 > The private container registry is only available to users with the required access. However, it's accessed through the public internet. For more security, you can require access through a private endpoint. See [Connect privately to an Azure container registry using Azure Private Link](../../container-registry/container-registry-private-link.md).
+> 
+> The private container registry must have the policy `azureADAuthenticationAsArmPolicy` set to `enabled`. If `azureADAuthenticationAsArmPolicy` is set to `disabled`, you'll get a 401 (Unauthorized) error message when publishing modules. See [Azure Container Registry introduces the Conditional Access policy](../../container-registry/container-registry-configure-conditional-access.md).
 
 ## Publish files to registry
 
-After setting up the container registry, you can publish files to it. Use the [publish](bicep-cli.md#publish) command and provide any Bicep files you intend to use as modules. Specify the target location for the module in your registry.
+After setting up the container registry, you can publish files to it. Use the [publish](bicep-cli.md#publish) command and provide any Bicep files you intend to use as modules. Specify the target location for the module in your registry. The publish command will create an ARM template which will be stored in the registry. This means if publishing a Bicep file that references other local modules, these modules will be fully expanded as one JSON file and published to the registry.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
+Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 -DocumentationUri https://www.contoso.com/exampleregistry.html
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -65,7 +68,7 @@ Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azure
 To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
 
 ```azurecli
-az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
+az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 --documentationUri https://www.contoso.com/exampleregistry.html
 ```
 
 ---
@@ -85,6 +88,40 @@ To see the published module in the portal:
    ![Bicep module registry artifact reference](./media/private-module-registry/bicep-module-registry-artifact-reference.png)
 
 You're now ready to reference the file in the registry from a Bicep file. For examples of the syntax to use for referencing an external module, see [Bicep modules](modules.md).
+
+---
+## Working with Bicep registry files
+
+When leveraging bicep files that are hosted in a remote registry, it's important to understand how your local machine will interact with the registry. When you first declare the reference to the registry, your local editor will try to communicate with the Azure Container Registry and download a copy of the registry to your local cache.
+
+The local cache is found in:
+
+- On Windows
+
+    ```path
+    %USERPROFILE%\.bicep\br\<registry-name>.azurecr.io\<module-path\<tag>
+    ```
+
+- On Linux
+
+    ```path
+    /home/<username>/.bicep
+    ```
+
+- On Mac
+
+    ```path
+    ~/.bicep
+    ```
+
+Any changes made to the remote registry will not be recognized by your local machine until a `restore` has been ran with the specified file that includes the registry reference.
+
+```azurecli
+az bicep restore --file <bicep-file> [--force]
+```
+
+For more information refer to the [`restore` command.](bicep-cli.md#restore)
+
 
 ## Next steps
 

@@ -2,6 +2,7 @@
 title: Azure DevTest Labs usage across multiple labs and subscriptions
 description: Learn how to report Azure DevTest Labs usage across multiple labs and subscriptions.
 ms.topic: how-to
+ms.custom: ignite-2022, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020
@@ -62,7 +63,7 @@ The long-term storage can be used to do any text manipulation, for example:
 * Creating complex groupings
 * Aggregating the data
 
-Some common storage solutions are: [SQL Server](https://azure.microsoft.com/services/sql-database/), [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/), and [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). The long-term storage solution you choose depends on preference. You might consider choosing the tool depending what it offers for interaction availability when visualizing the data.
+Some common storage solutions are: [SQL Server](https://azure.microsoft.com/services/sql-database/), [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/), and [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). The long-term storage solution you choose depends on preference. You might consider choosing the tool depending what it offers for interaction availability when visualizing the data.
 
 ## Visualizing data and gathering insights
 

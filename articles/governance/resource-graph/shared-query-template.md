@@ -3,7 +3,7 @@ title: 'Quickstart: Create a shared query with templates'
 description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a Resource Graph shared query that counts virtual machines by OS.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 # Quickstart: Create a shared query by using an ARM template
 
@@ -29,7 +29,7 @@ before you begin.
 
 In this quickstart, you create a shared query called _Count VMs by OS_. To try this query in SDK or
 in portal with Resource Graph Explorer, see
-[Samples - Count virtual machines by OS type](./samples/starter.md#count-os).
+[Samples - Count virtual machines by OS type](./samples/starter.md#count-virtual-machines-by-os-type).
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 

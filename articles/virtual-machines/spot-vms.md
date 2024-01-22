@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 8/30/2022
+ms.date: 03/09/2023
 ms.reviewer: cynthn
 ---
 
@@ -20,6 +20,7 @@ Using Azure Spot Virtual Machines allows you to take advantage of our unused cap
 
 The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Spot Virtual Machines, Azure will allocate the VMs if there's capacity available, but there's no SLA for these VMs. An Azure Spot Virtual Machine offers no high availability guarantees. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines with 30-seconds notice. 
 
+:::image type="content" source="media/spot-vms/azure-spot-virtual-machines-thumbnail.jpg" alt-text="YouTube video about Spot VMs and reducing operational costs of stateless workloads." link="https://youtu.be/GFRA91FTqAE":::
 
 ## Eviction policy
 
@@ -52,7 +53,7 @@ The following VM sizes aren't supported for Azure Spot Virtual Machines:
  - B-series
  - Promo versions of any size (like Dv2, NV, NC, H promo sizes)
 
-Azure Spot Virtual Machines can be deployed to any region, except Microsoft Azure China 21Vianet.
+Azure Spot Virtual Machines can be deployed to any region, except Microsoft Azure operated by 21Vianet.
 
 <a name="channel"></a>
 
@@ -76,7 +77,10 @@ With variable pricing, you have option to set a max price, in US dollars (USD), 
 
 ### Portal
 
-You can see historical pricing and eviction rates per size in a region in the portal. Select **View pricing history and compare prices in nearby regions** to see a table or graph of pricing for a specific size.  The pricing and eviction rates in the following images are only examples. 
+You can see historical pricing and eviction rates per size in a region in the portal while you are creating the VM. After selecting the checkbox to **Run with Azure Spot discount**, a link will appear under the size selection of the VM titled **View pricing history and compare prices in nearby regions**. By selecting that link you will be able to see a table or graph of spot pricing for the specified VM size.   The pricing and eviction rates in the following images are only examples. 
+
+> [!TIP]
+> Eviction rates are quoted _per hour_. For example, an eviction rate of 10% means a VM has a 10% chance of being evicted within the next hour, based on historical eviction data of the last 28 days.
 
 **Chart**:
 
@@ -88,15 +92,15 @@ You can see historical pricing and eviction rates per size in a region in the po
 
 ### Azure Resource Graph
 
-You can programmatically access relevant Spot VM SKU data through [Azure Resource Graph](/azure/governance/resource-graph/overview). Get pricing history in the last 90 days and eviction rates for the last 28 trailing days to identify SKUs that better meet your specific needs. 
+You can programmatically access relevant Spot VM SKU data through [Azure Resource Graph](../governance/resource-graph/overview.md). Get pricing history in the last 90 days and eviction rates for the last 28 trailing days to identify SKUs that better meet your specific needs. 
 
 Key benefits: 
-- Query Spot eviction rates and the last few months of Spot prices programmatically through ARM or the [ARG Explorer in Azure portal](/azure/governance/resource-graph/first-query-portal)  
+- Query Spot eviction rates and the last few months of Spot prices programmatically through ARM or the [ARG Explorer in Azure portal](../governance/resource-graph/first-query-portal.md)  
 - Create a custom query to extract the specific data relevant to your scenario with the ability to filter across a variety of parameters, such as SKU and region  
 - Easily compare data across multiple regions and SKUs  
 - Find a different Spot SKU or region with a lower price and/or eviction rate  
 
-Try out the following sample queries for Spot pricing history and eviction rates using the [ARG Explorer in Azure portal](/azure/governance/resource-graph/first-query-portal). Spot pricing history and eviction rates data are available in the `SpotResources` table. 
+Try out the following sample queries for Spot pricing history and eviction rates using the [ARG Explorer in Azure portal](../governance/resource-graph/first-query-portal.md). Spot pricing history and eviction rates data are available in the `SpotResources` table. 
 
 **Spot pricing history sample query**:
 

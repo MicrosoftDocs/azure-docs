@@ -90,7 +90,7 @@ Service proxy creation is a lightweight operation, so you can create as many as 
 ### Service proxy factory lifetime
 
 [ServiceProxyFactory](/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is a factory that creates proxy instances for different remoting interfaces. If you use the API `ServiceProxyFactory.CreateServiceProxy` to create a proxy, the framework creates a singleton service proxy.
-It is useful to create one manually when you need to override [IServiceRemotingClientFactory](/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) properties.
+It is useful to create one manually when you need to override IServiceRemotingClientFactory properties.
 Factory creation is an expensive operation. A service proxy factory maintains an internal cache of the communication client.
 A best practice is to cache the service proxy factory for as long as possible.
 
@@ -313,9 +313,7 @@ Follow these steps:
 To upgrade from V1 to V2 (interface compatible, known as V2_1), two-step upgrades are required. Follow the steps in this sequence.
 
 > [!NOTE]
-> When upgrading from V1 to V2, ensure the `Remoting` namespace is updated to use V2. Example: 'Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client`
->
->
+> When upgrading from V1 to V2, ensure the `Remoting` namespace is updated to use V2. Example: `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client`
 
 1. Upgrade the V1 service to V2_1 service by using the following attribute.
 This change makes sure that the service is listening on the V1 and the V2_1 listener.

@@ -2,7 +2,11 @@
 title: Azure Backup glossary
 description: This article defines terms helpful for use with Azure Backup.
 ms.topic: conceptual
-ms.date: 12/21/2020
+ms.service: backup
+ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli, engagement-fy24
+ms.date: 01/22/2024
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Azure Backup glossary
@@ -20,7 +24,7 @@ Refer to [Azure Files documentation](../storage/files/storage-files-introduction
 
 ## Alternate location recovery
 
-A recovery done from the recovery point to a location other than the original location where the backups were taken. When using Azure VM backup, this would mean restoring the VM to a server other than the original server where the backups were taken. When using Azure File share backup, this would mean restoring data to a file share that is different from the backed-up file share.
+A recovery done from the recovery point to a location other than the original location where the backups were taken. When you use Azure VM backup, this would mean to restore the VM to a server other than the original server where the backups were taken. When you use Azure File share backup, this would mean to restore data to a file share that is different from the backed-up file share.
 
 ## Application consistent backup
 
@@ -197,7 +201,7 @@ Refer to the [Managed disks documentation](../virtual-machines/managed-disks-ove
 
 (Workload-specific term)
 
-Also known as **Azure Backup agent** or **Recovery Services agent**, the MARS agent is used by Azure Backup to back up data from on-premises machines and Azure VMs to a backup Recovery Services vault in Azure. [Learn more](backup-support-matrix-mars-agent.md).
+This is also known as **Azure Backup agent** or **Recovery Services agent**, the MARS agent is used by Azure Backup to back up data from on-premises machines and Azure VMs to a backup Recovery Services vault in Azure. [Learn more](backup-support-matrix-mars-agent.md).
 
 ## NSG (Network Security Group)
 
@@ -213,7 +217,7 @@ A backup job that is triggered by a user on a one-time need basis, and not based
 
 ## Original location recovery (OLR)
 
-A recovery done from the restore point to the source location from where the backups were taken, replacing it with the state stored in the recovery point. When using Azure VM backup, this would mean restoring the VM to the original server where the backups were taken. When using Azure File share backup, this would mean restoring data to the backed-up file share.
+A recovery done from the restore point to the source location from where the backups were taken, replacing it with the state stored in the recovery point. When you use Azure VM backup, this would mean to restore the VM to the original server where the backups were taken. When you use Azure File share backup, this would mean to restore data to the backed-up file share.
 
 ## Passphrase
 
@@ -293,7 +297,7 @@ Backs up operating system files. This backup allows you to recover when a comput
 
 ## Tenant
 
-A tenant is a representation of an organization. It's a dedicated instance of Azure AD that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft, like signing up for Azure, Microsoft Intune, or Microsoft 365.
+A tenant is a representation of an organization. It's a dedicated instance of Microsoft Entra ID that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft, like signing up for Azure, Microsoft Intune, or Microsoft 365.
 
 ## Tier
 
@@ -306,6 +310,10 @@ Currently, Azure Backup supports the following backup storage tiers:
 ### Vault-Standard tier
 
 Backup data for all workloads supported by Azure Backup is stored in vaults which hold backup storage, an auto-scaling set of storage accounts managed by Azure Backup. The Vault-Standard tier is an online storage tier that enables you to store an isolated copy of backup data in a Microsoft managed tenant, thus creating an additional layer of protection. For workloads where snapshot tier is supported, there is a copy of the backup data in both the snapshot tier and the vault-standard tier. Vault-standard tier ensures that backup data is available even if the datasource being backed up is deleted or compromised.
+
+## Trusted Access
+
+Many Azure services depend on clusterAdmin kubeconfig and the publicly accessible kube-apiserver endpoint to access AKS clusters. The AKS Trusted Access feature enables you to bypass the private endpoint restriction. Without using Microsoft Entra application, this feature enables you to give explicit consent to your system-assigned identity of allowed resources to access your AKS clusters using an Azure resource RoleBinding. The Trusted Access feature allows you to access AKS clusters with different configurations, which aren't limited to private clusters, clusters with local accounts disabled, Microsoft Entra ID clusters, and authorized IP range clusters. [Learn more](azure-kubernetes-service-cluster-backup-concept.md#trusted-access).
 
 ## Unmanaged disk
 

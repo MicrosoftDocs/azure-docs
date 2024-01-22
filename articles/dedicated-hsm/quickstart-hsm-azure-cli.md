@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.topic: quickstart
 ms.service: dedicated-hsm
 ms.devlang: azurecli
-ms.date: 01/06/2021
+ms.date: 11/14/2022
 ms.custom: devx-track-azurecli, mode-api
 ---
 
@@ -24,7 +24,7 @@ This article describes how to create and manage an Azure Dedicated HSM by using 
   ```azurecli-interactive
   az account set --subscription 00000000-0000-0000-0000-000000000000
   ```
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]  
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]  
   
 - All requirements met for a dedicated HSM, including registration, approval, and a virtual network and virtual machine to use for provisioning. For more information about dedicated HSM requirements and prerequisites, see [Tutorial: Deploying HSMs into an existing virtual network using the Azure CLI](tutorial-deploy-hsm-cli.md).
   

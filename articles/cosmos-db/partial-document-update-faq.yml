@@ -5,12 +5,12 @@ metadata:
   author: abhirockzz
   ms.author: abhishgu
   ms.service: cosmos-db
+  ms.custom: ignite-2022
   ms.topic: faq
   ms.date: 09/16/2021
-
 title: Frequently asked questions about partial document update in Azure Cosmos DB
 summary: |
-  [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+  [!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
   Partial Document Update allows you to modify specific properties or fields on an item without the need to perform a full document replace operation. This article answers commonly asked questions about Azure Cosmos DB Partial Document Update.
 
@@ -20,7 +20,7 @@ sections:
       - question: |
           Is this an implementation of JSON Patch RFC 6902?
         answer: |
-          Azure Cosmos DB partial document update is *inspired* by [JSON Patch RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902). There are other features such as [Conditional Patch](partial-document-update.md#supported-modes) while some of the features of JSON Patch RFC 6902 such as (`Copy`, `Move`, `Test`) have not been implemented.
+          Azure Cosmos DB partial document update is *inspired* by [JSON Patch RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902). There are other features such as [Conditional Patch](partial-document-update.md#supported-modes) while some of the features of JSON Patch RFC 6902 such as (`Copy`, `Test`) have not been implemented.
 
       - question: |
           Is partial document update compatible with serverless, provisioned throughput and autoscale modes of billing?

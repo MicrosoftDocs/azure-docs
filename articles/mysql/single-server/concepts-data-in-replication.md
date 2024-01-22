@@ -4,14 +4,16 @@ description: Learn about using Data-in Replication to synchronize from an extern
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 
 # Replicate data into Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Data-in Replication allows you to synchronize data from an external MySQL server into the Azure Database for MySQL service. The external server can be on-premises, in virtual machines, or a database service hosted by other cloud providers. Data-in Replication is based on the binary log (binlog) file position-based or GTID-based replication native to MySQL. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
@@ -44,7 +46,7 @@ Data-in Replication is only supported in General Purpose and Memory Optimized pr
 
 The private link for Azure database for MySQL support only inbound connections. As data-in replication requires outbound connection from service private link is not supported for the data-in traffic.
 
->[!Note]
+>[!NOTE]
 >GTID is supported on versions 5.7 and 8.0 and only on servers that support storage up to 16 TB (General purpose storage v2).
 
 ### Requirements

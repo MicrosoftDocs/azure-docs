@@ -5,10 +5,10 @@ titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service using the Azure portal
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/24/2022
+ms.date: 11/17/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy21q2, subject-rbac-steps
+ms.custom: contperf-fy21q2, subject-rbac-steps, engagement-fy23
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -49,7 +49,7 @@ This version of this article goes through these steps manually, one by one, usin
 Here are the additional options you can configure during setup, using the other tabs in the **Create Resource** process.
 
 * **Networking**: In this tab, you can enable private endpoints with [Azure Private Link](../private-link/private-link-overview.md) to eliminate public network exposure to your instance. For instructions, see [Enable private access with Private Link](./how-to-enable-private-link.md?tabs=portal#add-a-private-endpoint-during-instance-creation).
-* **Advanced**: In this tab, you can enable a system-managed identity for your instance that can be used when forwarding events along [event routes](concepts-route-events.md). For more information about using system-managed identities with Azure Digital Twins, see [Security for Azure Digital Twins solutions](concepts-security.md#managed-identity-for-accessing-other-resources).
+* **Advanced**: In this tab, you can enable a system-assigned [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) for your instance. When this is enabled, Azure automatically creates an identity for the instance in [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md), which can be used to authenticate to other services. You can enable that system-assigned managed identity while you're creating the instance here, or [later on an existing instance](#enabledisable-managed-identity-for-the-instance). If you want to enable a user-assigned managed identity instead, you'll need to do it later on an existing instance.
 * **Tags**: In this tab, you can add tags to your instance to help you organize it among your Azure resources. For more about Azure resource tags, see [Tag resources, resource groups, and subscriptions for logical organization](../azure-resource-manager/management/tag-resources.md).
 
 ### Verify success and collect important values
@@ -122,6 +122,35 @@ You can view the role assignment you've set up under **Access control (IAM) > Ro
 :::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Screenshot of the role assignments for an Azure Digital Twins instance in the Azure portal.":::
 
 You now have an Azure Digital Twins instance ready to go, and have assigned permissions to manage it.
+
+## Enable/disable managed identity for the instance
+
+This section shows you how to add a managed identity (either system-assigned or user-assigned) to an existing Azure Digital Twins instance. You can also use this page to disable managed identity on an instance that has it already.
+
+Start by opening the [Azure portal](https://portal.azure.com) in a browser.
+
+1. Search for the name of your instance in the portal search bar, and select it to view its details.
+
+1. Select **Identity** in the left-hand menu.
+
+1. Use the tabs to select which type of managed identity you want to add or remove.
+    1. **System-assigned**: After selecting this tab, select the **On** option to turn on this feature, or **Off** to remove it.
+
+       :::image type="content" source="media/how-to-set-up-instance/portal/identity-system-assigned.png" alt-text="Screenshot of the Azure portal showing the Identity page and system-assigned options for an Azure Digital Twins instance." lightbox="media/how-to-set-up-instance/portal/identity-system-assigned.png":::
+
+        Select the **Save** button, and **Yes** to confirm. After system-assigned identity is turned on, more fields will be displayed on this page showing the new identity's **Object ID** and **Permissions** (Azure role assignments).
+
+    1. **User-assigned (preview)**: After selecting this tab, select **Associate a user-assigned managed identity** and follow the prompts to choose an identity to associate with the instance.
+
+       :::image type="content" source="media/how-to-set-up-instance/portal/identity-user-assigned.png" alt-text="Screenshot of the Azure portal showing the Identity page and user-assigned options for an Azure Digital Twins instance." lightbox="media/how-to-set-up-instance/portal/identity-user-assigned.png":::
+
+        Or, if there is already an identity listed here that you want to disable, you can check the box next to it in the list and **Remove** it.
+
+        Once an identity has been added, you can select its name from the list here to open its details. From its details page, you can view its **Object ID** and use the left menu to see its **Azure role assignments**.
+
+### Considerations for disabling managed identities
+
+It's important to consider the effects that any changes to the identity or its roles can have on the resources that use it. If you're [using managed identities with your Azure Digital Twins endpoints](how-to-create-endpoints.md#endpoint-options-identity-based-authentication) or for [data history](how-to-create-data-history-connection.md) and the identity is disabled, or a necessary role is removed from it, the endpoint or data history connection can become inaccessible and the flow of events will be disrupted.
 
 ## Next steps
 

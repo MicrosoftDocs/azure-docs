@@ -1,12 +1,13 @@
 ---
-title: Azure IoT Hub Device Provisioning Service - X.509 certificate attestation
+title: X.509 certificate attestation with Azure DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Describes concepts specific to using X.509 certificate attestation with Device Provisioning Service (DPS) and IoT Hub
 author: kgremban
+
 ms.author: kgremban
 ms.date: 09/14/2020
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-dps
-services: iot-dps
 ---
 
 # X.509 certificate attestation
@@ -43,7 +44,7 @@ An intermediate certificate is an X.509 certificate, which has been signed by th
 
 Intermediate certificates are used in a variety of ways. For example, intermediate certificates can be used to group devices by product lines, customers purchasing devices, company divisions, or factories. 
 
-Imagine that Contoso is a large corporation with its own Public Key Infrastructure (PKI) using the root certificate named *ContosoRootCert*. Each subsidiary of Contoso has their own intermediate certificate that is signed by *ContosoRootCert*. Each subsidiary will then use their intermediate certificate to sign their leaf certificates for each device. In this scenario, Contoso can use a single DPS instance where *ContosoRootCert* has been verified with [proof-of-possession](./how-to-verify-certificates.md). They can have an enrollment group for each subsidiary. This way each individual subsidiary will not have to worry about verifying certificates.
+Imagine that Contoso is a large corporation with its own Public Key Infrastructure (PKI) using the root certificate named *ContosoRootCert*. Each subsidiary of Contoso has their own intermediate certificate that is signed by *ContosoRootCert*. Each subsidiary will then use their intermediate certificate to sign their leaf certificates for each device. In this scenario, Contoso can use a single DPS instance where *ContosoRootCert* is a [verified certificate](./how-to-verify-certificates.md). They can have an enrollment group for each subsidiary. This way each individual subsidiary will not have to worry about verifying certificates.
 
 ### End-entity "leaf" certificate
 
@@ -60,7 +61,9 @@ To learn more, see [Authenticate devices signed with X.509 CA certificates](../i
 The provisioning service exposes two enrollment types that you can use to control device access with the X.509 attestation mechanism:  
 
 - [Individual enrollment](./concepts-service.md#individual-enrollment) entries are configured with the device certificate associated with a specific device. These entries control enrollments for specific devices.
-- [Enrollment group](./concepts-service.md#enrollment-group) entries are associated with a specific intermediate or root CA certificate. These entries control enrollments for all devices that have that intermediate or root certificate in their certificate chain. 
+- [Enrollment group](./concepts-service.md#enrollment-group) entries are associated with a specific intermediate or root CA certificate. These entries control enrollments for all devices that have that intermediate or root certificate in their certificate chain.
+
+A certificate can be specified in only one enrollment entry in your DPS instance.
 
 ### Mutual TLS support
 
@@ -68,7 +71,7 @@ When DPS enrollments are configured for X.509 attestation, mutual TLS (mTLS) is 
 
 ### DPS device chain requirements
 
-When a device is attempting registration through DPS using an enrollment group, the device must send the certificate chain from the leaf certificate to a certificate verified with [proof-of-possession](how-to-verify-certificates.md). Otherwise, authentication will fail.
+When a device is attempting registration through DPS using an enrollment group, the device must send the certificate chain from the leaf certificate to a [verified certificate](how-to-verify-certificates.md). Otherwise, authentication will fail.
 
 For example, if only the root certificate is verified and an intermediate certificate is uploaded to the enrollment group, the device should present the certificate chain from leaf certificate all the way to the verified root certificate. This certificate chain would include any intermediate certificates in-between. Authentication will fail if DPS cannot traverse the certificate chain to a verified certificate.
 
@@ -76,7 +79,7 @@ For example, consider a corporation using the following device chain for a devic
 
 ![Example device certificate chain](./media/concepts-x509-attestation/example-device-cert-chain.png) 
 
-Only the root certificate is verified, and *intermediate2* certificate is uploaded on the enrollment group.
+In this example, only the root certificate is verified, and *intermediate2* certificate is uploaded on the enrollment group.
 
 ![Example root verified](./media/concepts-x509-attestation/example-root-verified.png) 
 
@@ -88,18 +91,19 @@ If the device sends the full device chain as follows during provisioning, then D
 
 ![Example device certificate chain](./media/concepts-x509-attestation/example-device-cert-chain.png) 
 
-> [!NOTE]
-> Intermediate certificates can also be verified with [proof-of-possession](how-to-verify-certificates.md)..
-
 ### DPS order of operations with certificates
 
-When a device connects to the provisioning service, the service prioritizes more specific enrollment entries over less specific enrollment entries. That is, if an individual enrollment for the device exists, the provisioning service applies that entry. If there is no individual enrollment for the device and an enrollment group for the first intermediate certificate in the device's certificate chain exists, the service applies that entry, and so on, down the chain to the root. The service applies the first applicable entry that it finds, such that:
+When a device connects to the provisioning service, the service walks its certificate chain beginning with the device (leaf) certificate and looks for a corresponding enrollment entry. It uses the first entry that it finds in the chain to determine whether to provision the device. That is, if an individual enrollment for the device (leaf) certificate exists, the provisioning service applies that entry. If there isn't an individual enrollment for the device, the service looks for an enrollment group that corresponds to the first intermediate certificate. If it finds one, it applies that entry; otherwise, it looks for an enrollment group for the next intermediate certificate, and so on down the chain to the root.  
+
+The service applies the first entry that it finds, such that:
 
 - If the first enrollment entry found is enabled, the service provisions the device.
-- If the first enrollment entry found is disabled, the service does not provision the device.  
-- If no enrollment entry is found for any of the certificates in the device's certificate chain, the service does not provision the device. 
+- If the first enrollment entry found is disabled, the service doesn't provision the device.  
+- If no enrollment entry is found for any of the certificates in the device's certificate chain, the service doesn't provision the device.
 
-This mechanism and the hierarchical structure of certificate chains provides powerful flexibility in how you can control access for individual devices as well as for groups of devices. For example, imagine five devices with the following certificate chains: 
+Note that each certificate in a device's certificate chain can be specified in an enrollment entry, but it can be specified in only one entry in the DPS instance.
+
+This mechanism and the hierarchical structure of certificate chains provides powerful flexibility in how you can control access for individual devices as well as for groups of devices. For example, imagine five devices with the following certificate chains:
 
 - *Device 1*: root certificate -> certificate A -> device 1 certificate
 - *Device 2*: root certificate -> certificate A -> device 2 certificate

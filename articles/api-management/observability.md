@@ -2,12 +2,10 @@
 title: Observability in Azure API Management | Microsoft Docs
 description: Overview of all API observability and monitoring options in Azure API Management.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
 ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.author: danlep
@@ -50,3 +48,4 @@ The table below summarizes all the observability capabilities supported by API M
 - Get started with [Azure Monitor metrics and logs](api-management-howto-use-azure-monitor.md)
 - Learn how to log requests with [Application Insights](api-management-howto-app-insights.md)
 - Learn how to log events through [Event Hubs](api-management-howto-log-event-hubs.md) 
+- Learn about visualizing Azure Monitor data using [Azure Managed Grafana](visualize-using-managed-grafana-dashboard.md)

@@ -3,10 +3,9 @@ title: Azure Monitor workbook text parameters
 description: Simplify complex reporting with prebuilt and custom parameterized workbooks. Learn more about workbook text parameters.
 services: azure-monitor
 
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.date: 06/21/2023
 ---
 
 # Workbook text parameters
@@ -129,4 +128,4 @@ If data is coming from a query, you can select the option to pre-format the JSON
 
 ## Next steps
 
-[Get started with Azure Workbooks](workbooks-getting-started.md)
+[Get started with Azure Workbooks](workbooks-overview.md)

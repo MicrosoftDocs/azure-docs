@@ -4,8 +4,8 @@ description: Use Azure PowerShell or Azure CLI command lines and scripts to star
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/29/2022
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.date: 09/30/2023
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, UpdateFrequency2 
 ms.devlang: azurecli
 ---
 
@@ -24,7 +24,7 @@ When you want to script or automate start or stop for lab VMs, use PowerShell or
 ## Prerequisites
 
 - A [lab VM in DevTest Labs](devtest-lab-add-vm.md).
-- For Azure PowerShell, the [Az module](/powershell/azure/new-azureps-module-az) installed on your workstation. Make sure you have the latest version. If necessary, run `Update-Module -Name Az` to update the module.
+- For Azure PowerShell, the [Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your workstation. Make sure you have the latest version. If necessary, run `Update-Module -Name Az` to update the module.
 - For Azure CLI, [Azure CLI ](/cli/azure/install-azure-cli) installed on your workstation.
 
 ## Azure PowerShell script
@@ -76,12 +76,12 @@ The following PowerShell script starts or stops a VM in a lab by using [Invoke-A
 
 ## Azure CLI script
 
-The following script provides [Azure CLI](/cli/azure/get-started-with-azure-cli) commands for starting or stopping a lab VM. The variables in this script are for a Windows environment. Bash or other environments have slight variations.
+The following script provides [Azure CLI](/cli/azure/get-started-with-azure-cli) commands for starting or stopping a lab VM. The variables in this script are for a Windows environment, like a command prompt. Bash or other environments have slight variations.
 
 1. Provide appropriate values for *`<Subscription ID>`*, *`<lab name>`*, *`<VM name>`*, and the *`<Start or Stop>`* action to take.
 
    ```azurecli
-   set SUBSCIPTIONID=<Subscription ID>
+   set SUBSCRIPTIONID=<Subscription ID>
    set DEVTESTLABNAME=<lab name>
    set VMNAME=<VM name>
    set ACTION=<Start or Stop>
@@ -92,7 +92,7 @@ The following script provides [Azure CLI](/cli/azure/get-started-with-azure-cli)
    ```azurecli
    az login
    
-   REM az account set --subscription %SUBSCIPTIONID%
+   REM az account set --subscription %SUBSCRIPTIONID%
    ```
 
 1. Get the name of the resource group that contains the lab.

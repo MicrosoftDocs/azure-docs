@@ -62,13 +62,13 @@ For more information, read [Node-to-node security](service-fabric-cluster-securi
 ### Client-to-node security
 Client-to-node security authenticates clients and helps secure communication between a client and individual nodes in the cluster. This type of security helps ensure that only authorized users can access the cluster and the applications that are deployed on the cluster. Clients are uniquely identified through either their X.509 certificate security credentials. Any number of optional client certificates can be used to authenticate admin or user clients with the cluster.
 
-In addition to client certificates, Azure Active Directory can also be configured to authenticate clients with the cluster.
+In addition to client certificates, Microsoft Entra ID can also be configured to authenticate clients with the cluster.
 
 For more information, read [Client-to-node security](service-fabric-cluster-security.md#client-to-node-security)
 
 ### Role-based access control
 
-Azure role-based access control (Azure RBAC) allows you to assign fine-grained access controls on Azure resources.  You can assign different access rules to subscriptions, resource groups, and resources.  Azure RBAC rules are inherited along the resource hierarchy unless overridden at a lower level.  You can assign any user or user groups on your Azure AD with Azure RBAC rules so that designated users and groups can modify your cluster.  For more information, read the [Azure RBAC overview](../role-based-access-control/overview.md).
+Azure role-based access control (Azure RBAC) allows you to assign fine-grained access controls on Azure resources.  You can assign different access rules to subscriptions, resource groups, and resources.  Azure RBAC rules are inherited along the resource hierarchy unless overridden at a lower level.  You can assign any user or user groups on your Microsoft Entra ID with Azure RBAC rules so that designated users and groups can modify your cluster.  For more information, read the [Azure RBAC overview](../role-based-access-control/overview.md).
 
 Service Fabric also supports access control to limit access to certain cluster operations for different groups of users. This helps make the cluster more secure. Two access control types are supported for clients that connect to a cluster: Administrator role and User role.  
 

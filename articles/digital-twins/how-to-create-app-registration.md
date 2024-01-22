@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Create an app registration with Azure Digital Twins access
 titleSuffix: Azure Digital Twins
-description: Create an Azure Active Directory app registration that can access Azure Digital Twins resources.
+description: Create a Microsoft Entra app registration that can access Azure Digital Twins resources.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 5/25/2022
+ms.date: 01/11/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q4
@@ -18,7 +18,7 @@ ms.custom: contperf-fy22q4
 
 # Create an app registration to use with Azure Digital Twins
 
-This article describes how to create an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) *app registration* that can access Azure Digital Twins. This article includes steps for the [Azure portal](https://portal.azure.com) and the [Azure CLI](/cli/azure/what-is-azure-cli).
+This article describes how to create an [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) *app registration* that can access Azure Digital Twins. This article includes steps for the [Azure portal](https://portal.azure.com) and the [Azure CLI](/cli/azure/what-is-azure-cli).
 
 When working with Azure Digital Twins, it's common to interact with your instance through client applications. Those applications need to authenticate with Azure Digital Twins, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an app registration.
 
@@ -33,18 +33,18 @@ Start by selecting the tab below for your preferred interface.
 
 # [Portal](#tab/portal) 
 
-Navigate to [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) in the Azure portal (you can use this link or find it with the portal search bar). Select **App registrations** from the service menu, and then **+ New registration**.
+Navigate to [Microsoft Entra ID](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) in the Azure portal (you can use this link or find it with the portal search bar). Select **App registrations** from the service menu, and then **+ New registration**.
 
-:::image type="content" source="media/how-to-create-app-registration/new-registration.png" alt-text="Screenshot of the Azure AD service page in the Azure portal, showing the steps to create a new registration in the 'App registrations' page.":::
+:::image type="content" source="media/how-to-create-app-registration/new-registration.png" alt-text="Screenshot of the Microsoft Entra service page in the Azure portal, showing the steps to create a new registration in the 'App registrations' page." lightbox="media/how-to-create-app-registration/new-registration.png":::
 
 In the **Register an application** page that follows, fill in the requested values:
-* **Name**: An Azure AD application display name to associate with the registration
+* **Name**: a Microsoft Entra application display name to associate with the registration
 * **Supported account types**: Select **Accounts in this organizational directory only (Default Directory only - Single tenant)**
-* **Redirect URI**: An **Azure AD application reply URL** for the Azure AD application. Add a **Public client/native (mobile & desktop)** URI for `http://localhost`.
+* **Redirect URI**: An **Microsoft Entra application reply URL** for the Microsoft Entra application. Add a **Public client/native (mobile & desktop)** URI for `http://localhost`.
 
 When you're finished, select the **Register** button.
 
-:::image type="content" source="media/how-to-create-app-registration/register-an-application.png" alt-text="Screenshot of the 'Register an application' page in the Azure portal with the described values filled in.":::
+:::image type="content" source="media/how-to-create-app-registration/register-an-application.png" alt-text="Screenshot of the 'Register an application' page in the Azure portal with the described values filled in." lightbox="media/how-to-create-app-registration/register-an-application.png":::
 
 When the registration is finished setting up, the portal will redirect you to its details page.
 
@@ -158,23 +158,17 @@ Start on your app registration page in the Azure portal.
 
 1. Select **Certificates & secrets** from the registration's menu, and then select **+ New client secret**.
 
-    :::image type="content" source="media/how-to-create-app-registration/client-secret.png" alt-text="Screenshot of the Azure portal showing an Azure AD app registration and a highlight around 'New client secret'.":::
+    :::image type="content" source="media/how-to-create-app-registration/client-secret.png" alt-text="Screenshot of the Azure portal showing a Microsoft Entra app registration and a highlight around 'New client secret'.":::
 
 1. Enter whatever values you want for Description and Expires, and select **Add**.
 
-    :::row:::
-        :::column:::
-            :::image type="content" source="media/how-to-create-app-registration/add-client-secret.png" alt-text="Screenshot of the Azure portal while adding a client secret.":::
-        :::column-end:::
-        :::column:::
-        :::column-end:::
-    :::row-end:::
+   :::image type="content" source="media/how-to-create-app-registration/add-client-secret.png" alt-text="Screenshot of the Azure portal while adding a client secret." lightbox="media/how-to-create-app-registration/add-client-secret-large.png":::
 
 1. Verify that the client secret is visible on the **Certificates & secrets** page with Expires and Value fields. 
 
 1. Take note of its **Secret ID** and **Value** to use later (you can also copy them to the clipboard with the Copy icons).
 
-    :::image type="content" source="media/how-to-create-app-registration/client-secret-value.png" alt-text="Screenshot of the Azure portal showing how to copy the client secret value.":::
+    :::image type="content" source="media/how-to-create-app-registration/client-secret-value.png" alt-text="Screenshot of the Azure portal showing how to copy the client secret value." lightbox="media/how-to-create-app-registration/client-secret-value.png":::
 
 >[!IMPORTANT]
 >Make sure to copy the values now and store them in a safe place, as they can't be retrieved again. If you can't find them later, you'll have to create a new secret.
@@ -225,16 +219,20 @@ Use these steps to create the role assignment for your registration.
     | Setting | Value |
     | --- | --- |
     | Role | Select as appropriate |
-    | Assign access to | User, group, or service principal |
-    | Members | Search for the name or [client ID](#collect-client-id-and-tenant-id) of the app registration |
+    | Members > Assign access to | User, group, or service principal |
+    | Members > Members | **+ Select members**, then search for the name or [client ID](#collect-client-id-and-tenant-id) of the app registration |
     
-    ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of the Roles tab in the Add role assignment page." lightbox="../../includes/role-based-access-control/media/add-role-assignment-page.png":::
+
+   :::image type="content" source="media/how-to-create-app-registration/add-role.png" alt-text="Screenshot of the Members tab in the Add role assignment page." lightbox="media/how-to-create-app-registration/add-role.png":::
+
+    Once the role has been selected, **Review + assign** it.
 
 #### Verify role assignment
 
 You can view the role assignment you've set up under **Access control (IAM) > Role assignments**.
 
-:::image type="content" source="media/how-to-create-app-registration/verify-role-assignment.png" alt-text="Screenshot of the Role Assignments page for an Azure Digital Twins instance in the Azure portal.":::
+:::image type="content" source="media/how-to-create-app-registration/verify-role-assignment.png" alt-text="Screenshot of the Role Assignments page for an Azure Digital Twins instance in the Azure portal." lightbox="media/how-to-create-app-registration/verify-role-assignment.png":::
 
 The app registration should show up in the list along with the role you assigned to it. 
 
@@ -282,7 +280,7 @@ Select **Add permissions** when finished.
 
 On the **API permissions** page, verify that there's now an entry for Azure Digital Twins reflecting **Read.Write** permissions:
 
-:::image type="content" source="media/how-to-create-app-registration/verify-api-permissions.png" alt-text="Screenshot of the API permissions for the Azure AD app registration in the Azure portal, showing 'Read/Write Access' for Azure Digital Twins.":::
+:::image type="content" source="media/how-to-create-app-registration/verify-api-permissions.png" alt-text="Screenshot of the API permissions for the Microsoft Entra app registration in the Azure portal, showing 'Read/Write Access' for Azure Digital Twins." lightbox="media/how-to-create-app-registration/verify-api-permissions.png":::
 
 You can also verify the connection to Azure Digital Twins within the app registration's *manifest.json*, which was automatically updated with the Azure Digital Twins information when you added the API permissions.
 
@@ -292,7 +290,7 @@ To do so, select **Manifest** from the menu to view the app registration's manif
 
 These values are shown in the screenshot below:
 
-:::image type="content" source="media/how-to-create-app-registration/verify-manifest.png" alt-text="Screenshot of the manifest for the Azure AD app registration in the Azure portal.":::
+:::image type="content" source="media/how-to-create-app-registration/verify-manifest.png" alt-text="Screenshot of the manifest for the Microsoft Entra app registration in the Azure portal." lightbox="media/how-to-create-app-registration/verify-manifest.png":::
 
 If these values are missing, retry the steps in the [section for adding the API permission](#provide-api-permissions).
 
@@ -310,13 +308,15 @@ It's possible that your organization requires more actions from subscription own
 
 # [Portal](#tab/portal) 
 
-Here are some common potential activities that an owner or administrator on the subscription may need to do. These and other operations can be performed from the [Azure AD App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
-* Grant admin consent for the app registration. Your organization may have **Admin Consent Required** globally turned on in Azure AD for all app registrations within your subscription. If so, the owner/administrator will need to select this button for your company on the app registration's **API permissions** page for the app registration to be valid:
+Here are some common potential activities that an owner or administrator on the subscription may need to do. These and other operations can be performed from the [Microsoft Entra App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
+* Grant admin consent for the app registration. Your organization may have **Admin Consent Required** globally turned on in Microsoft Entra ID for all app registrations within your subscription. If so, the owner/administrator will need to select this button for your company on the app registration's **API permissions** page for the app registration to be valid:
 
-    :::image type="content" source="media/how-to-create-app-registration/grant-admin-consent.png" alt-text="Screenshot of the Azure portal showing the 'Grant admin consent' button under API permissions.":::
-  - If consent was granted successfully, the entry for Azure Digital Twins should then show a **Status** value of **Granted for (your company)**
+   :::image type="content" source="media/how-to-create-app-registration/grant-admin-consent.png" alt-text="Screenshot of the Azure portal showing the 'Grant admin consent' button under API permissions." lightbox="media/how-to-create-app-registration/grant-admin-consent.png":::
+
+   - If consent was granted successfully, the entry for Azure Digital Twins should then show a **Status** value of **Granted for (your company)**
    
-    :::image type="content" source="media/how-to-create-app-registration/granted-admin-consent-done.png" alt-text="Screenshot of the Azure portal showing the admin consent granted for the company under API permissions.":::
+   :::image type="content" source="media/how-to-create-app-registration/granted-admin-consent-done.png" alt-text="Screenshot of the Azure portal showing the admin consent granted for the company under API permissions." lightbox="media/how-to-create-app-registration/granted-admin-consent-done.png":::
+
 * Activate public client access
 * Set specific reply URLs for web and desktop access
 * Allow for implicit OAuth2 authentication flows
@@ -324,7 +324,7 @@ Here are some common potential activities that an owner or administrator on the 
 # [CLI](#tab/cli)
 
 Here are some common potential activities that an owner or administrator on the subscription may need to do.
-* Grant admin consent for the app registration. Your organization may have **Admin Consent Required** globally turned on in Azure AD for all app registrations within your subscription. If so, the owner/administrator may need to grant additional delegated or application permissions.
+* Grant admin consent for the app registration. Your organization may have **Admin Consent Required** globally turned on in Microsoft Entra ID for all app registrations within your subscription. If so, the owner/administrator may need to grant additional delegated or application permissions.
 * Activate public client access by appending `--set publicClient=true` to a create or update command for the registration.
 * Set specific reply URLs for web and desktop access using the `--reply-urls` parameter. For more information on using this parameter with `az ad` commands, see the [az ad app documentation](/cli/azure/ad/app).
 * Allow for implicit OAuth2 authentication flows using the `--oauth2-allow-implicit-flow` parameter. For more information on using this parameter with `az ad` commands, see the [az ad app documentation](/cli/azure/ad/app).
@@ -335,7 +335,7 @@ For more information about app registration and its different setup options, see
 
 ## Next steps
 
-In this article, you set up an Azure AD app registration that can be used to authenticate client applications with the Azure Digital Twins APIs.
+In this article, you set up a Microsoft Entra app registration that can be used to authenticate client applications with the Azure Digital Twins APIs.
 
 Next, read about authentication mechanisms, including one that uses app registrations and others that don't:
 * [Write app authentication code](how-to-authenticate-client.md)

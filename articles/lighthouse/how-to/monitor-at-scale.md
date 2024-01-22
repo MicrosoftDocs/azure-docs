@@ -1,9 +1,9 @@
 ---
 title: Monitor delegated resources at scale
 description: Azure Lighthouse helps you use Azure Monitor Logs in a scalable way across customer tenants.
-ms.date: 08/02/2022
+ms.date: 05/23/2023
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Monitor delegated resources at scale

@@ -1,45 +1,47 @@
 ---
-title: Onboard a root or apex domain to an existing Front Door - Azure portal
+title: Onboard a root or apex domain to Azure Front Door
 description: Learn how to onboard a root or apex domain to an existing Front Door using the Azure portal.
 services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 05/31/2022
+ms.date: 02/07/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
-# Onboard a root or apex domain on your Front Door
-
-::: zone pivot="front-door-standard-premium"
-
-Azure Front Door supports adding custom domain to Front Door profile. This is done by adding DNS TXT record for domain ownership validation and creating a CNAME record in your DNS configuration to route DNS queries for the custom domain to Azure Front Door endpoint. For apex domain, DNS TXT will continue to be used for domain validation. However, the DNS protocol prevents the assignment of CNAME records at the zone apex. For example, if your domain is `contoso.com`; you can create CNAME records for `somelabel.contoso.com`; but you can't create CNAME for `contoso.com` itself. Front Door doesn't expose the frontend IP address associated with your Front Door profile. So you can't map your apex domain to an IP address if your intent is to onboard it to Azure Front Door. 
-
-::: zone-end
+# Onboard a root or apex domain to Azure Front Door
 
 ::: zone pivot="front-door-classic"
 
-Azure Front Door uses CNAME records to validate domain ownership for onboarding of custom domains. Front Door doesn't expose the frontend IP address associated with your Front Door profile. So you can't map your apex domain to an IP address if your intent is to onboard it to Azure Front Door.
+Azure Front Door uses CNAME records to validate domain ownership for the onboarding of custom domains. Azure Front Door doesn't expose the frontend IP address associated with your Front Door profile. So you can't map your apex domain to an IP address if your intent is to onboard it to Azure Front Door.
 
 The DNS protocol prevents the assignment of CNAME records at the zone apex. For example, if your domain is `contoso.com`; you can create CNAME records for `somelabel.contoso.com`; but you can't create CNAME for `contoso.com` itself. This restriction presents a problem for application owners who have load-balanced applications behind Azure Front Door. Since using a Front Door profile requires creation of a CNAME record, it isn't possible to point at the Front Door profile from the zone apex.
 
-::: zone-end
-
 This problem can be resolved by using alias records in Azure DNS. Unlike CNAME records, alias records are created at the zone apex. Application owners can use it to point their zone apex record to a Front Door profile that has public endpoints. Application owners point to the same Front Door profile that's used for any other domain within their DNS zone. For example, `contoso.com` and `www.contoso.com` can point to the same Front Door profile. 
 
-Mapping your apex or root domain to your Front Door profile basically requires CNAME flattening or DNS chasing. A mechanism where the DNS provider recursively resolves the CNAME entry until it hits an IP address. This functionality is supported by Azure DNS for Front Door endpoints. 
+Mapping your apex or root domain to your Front Door profile requires *CNAME flattening* or *DNS chasing*, which is where the DNS provider recursively resolves CNAME entries until it resolves an IP address. This functionality is supported by Azure DNS for Azure Front Door endpoints.
 
 > [!NOTE]
-> There are other DNS providers as well that support CNAME flattening or DNS chasing, however, Azure Front Door recommends using Azure DNS for its customers for hosting their domains.
+> There are other DNS providers as well that support CNAME flattening or DNS chasing. However, Azure Front Door recommends using Azure DNS for its customers for hosting their domains.
 
-You can use the Azure portal to onboard an apex domain on your Front Door and enable HTTPS on it by associating it with a certificate for TLS termination. Apex domains are also referred as root or naked domains.
+You can use the Azure portal to onboard an apex domain on your Azure Front Door and enable HTTPS on it by associating it with a TLS certificate. Apex domains are also referred as *root* or *naked* domains.
+
+::: zone-end
 
 ::: zone pivot="front-door-standard-premium"
 
-## Onboard the custom domain to your Front Door
+Apex domains are at the root of a DNS zone and don't contain subdomains. For example, `contoso.com` is an apex domain. Azure Front Door supports adding apex domains when you use Azure DNS. For more information about apex domains, see [Domains in Azure Front Door](domain.md).
 
-1. Select **Domains** from under *Settings* on the left side pane for your Front Door profile and then select **+ Add** to add a new custom domain.
+You can use the Azure portal to onboard an apex domain on your Azure Front Door profile, and you can enable HTTPS on it by associating it with a TLS certificate.
+
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
+
+## Onboard the custom domain to your Azure Front Door profile
+
+1. Select **Domains** from under *Settings* on the left side pane for your Azure Front Door profile and then select **+ Add** to add a new custom domain.
 
     :::image type="content" source="./media/front-door-apex-domain/add-domain.png" alt-text="Screenshot of adding a new domain to Front Door profile.":::
 
@@ -61,7 +63,7 @@ You can use the Azure portal to onboard an apex domain on your Front Door and en
 
     - If you're using another DNS provider, manually create a new TXT record of name `_dnsauth.<your_subdomain>` with the record value as shown on the page.
 
-1. Close the *Validate the custom domain* page and return to the *Domains* page for the Front Door profile. You should see the *Validation state* change from **Pending** to **Approved**. If not, wait up to 10 minutes for changes to reflect. If your validation doesn't get approved make sure your TXT record is correct and name servers are configured correctly if you're using Azure DNS.
+1. Close the *Validate the custom domain* page and return to the *Domains* page for the Front Door profile. You should see the *Validation state* change from **Pending** to **Approved**. If not, wait up to 10 minutes for changes to reflect. If your validation doesn't get approved, make sure your TXT record is correct and name servers are configured correctly if you're using Azure DNS.
 
     :::image type="content" source="./media/front-door-apex-domain/validation-approved.png" alt-text="Screenshot of new custom domain passing validation.":::
 
@@ -86,15 +88,13 @@ You can use the Azure portal to onboard an apex domain on your Front Door and en
    :::image type="content" source="./media/front-door-apex-domain/cname-record-added.png" alt-text="Screenshot of completed APEX domain configuration.":::
 
 > [!NOTE]
-> **DNS state** column is meant for CNAME mapping check. Because apex domain doesn’t support CNAME record, the DNS state will show 'CNAME record is currently not detected' even after you added the alias record to the DNS provider.
+> * The **DNS state** column is used for CNAME mapping check. Since an apex domain doesn’t support a CNAME record, the DNS state will show 'CNAME record is currently not detected' even after you add the alias record to the DNS provider.
+> * When placing service like an Azure Web App behind Azure Front Door, you need to configure with the web app with the same domain name as the root domain in Front Door. You also need to configure the backend host header with that domain name to prevent a redirect loop.
+> * Apex domains don't have CNAME records pointing to the Azure Front Door profile, therefore managed certificate autorotation will always fail unless domain validation is completed between rotations.  
 
 ## Enable HTTPS on your custom domain
 
 Follow the guidance for [configuring HTTPS for your custom domain](standard-premium/how-to-configure-https-custom-domain.md) to enable HTTPS for your apex domain.
-
-## Managed certificate renewal for apex domain
-
-Front Door managed certificates will automatically rotate certificates only if the domain CNAME is pointed to Front Door endpoint. If the APEX domain doesn’t have a CNAME record pointing to Front Door endpoint, the auto-rotation for managed certificate will fail until domain ownership is re-validated. The validation column will become `Pending-revalidation` 45 days before the managed certificate expires. Select the **Pending-revalidation** link and then select the **Regenerate** button to regenerate the TXT token. After that, add the TXT token to the DNS provider settings.
 
 ::: zone-end
 

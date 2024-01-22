@@ -18,12 +18,15 @@ This article discusses the reasons for migrating from a legacy SIEM, and describ
 
 In this guide, you learn how to migrate your legacy SIEM to Microsoft Sentinel. Follow your migration process through this series of articles, in which you'll learn how to navigate different steps in the process.
 
+> [!NOTE]
+> For a guided migration process, join the Microsoft Sentinel Migration and Modernization Program. The program allows you to simplify and accelerate the migration, including best practice guidance, resources, and expert help at every stage. To learn more, reach out to your account team.
+
 |Step  |Article  |
 |---------|---------|
 |Plan your migration     |**You are here**         |
 |Track migration with a workbook     |[Track your Microsoft Sentinel migration with a workbook](migration-track.md)         |
 |Migrate from ArcSight     |• [Migrate detection rules](migration-arcsight-detection-rules.md)<br>• [Migrate SOAR automation](migration-arcsight-automation.md)<br>• [Export historical data](migration-arcsight-historical-data.md)          |
-|Migrate from Splunk     |• [Migrate detection rules](migration-splunk-detection-rules.md)<br>• [Migrate SOAR automation](migration-splunk-automation.md)<br>• [Export historical data](migration-splunk-historical-data.md)          |
+|Migrate from Splunk     |• [Migrate detection rules](migration-splunk-detection-rules.md)<br>• [Migrate SOAR automation](migration-splunk-automation.md)<br>• [Export historical data](migration-splunk-historical-data.md)<br><br>If you want to migrate your Splunk Observability deployment, learn more about how to [migrate from Splunk to Azure Monitor Logs](../azure-monitor/logs/migrate-splunk-to-azure-monitor-logs.md).      |
 |Migrate from QRadar     |• [Migrate detection rules](migration-qradar-detection-rules.md)<br>• [Migrate SOAR automation](migration-qradar-automation.md)<br>• [Export historical data](migration-qradar-historical-data.md)          |
 |Ingest historical data |• [Select a target Azure platform to host the exported historical data](migration-ingestion-target-platform.md)<br>• [Select a data ingestion tool](migration-ingestion-tool.md)<br>• [Ingest historical data into your target platform](migration-export-ingest.md) |
 |Convert dashboards to workbooks |[Convert dashboards to Azure Workbooks](migration-convert-dashboards.md) |
@@ -82,7 +85,7 @@ Before you begin migration, identify key use cases, detection rules, data, and a
 When planning the discover phase, use the following guidance to identify your use cases.
 - Identify and analyze your current use cases by threat, operating system, product, and so on.
 - What’s the scope? Do you want to migrate all use cases, or use some prioritization criteria?
-- Conduct a [Crown Jewel Analysis](https://www.mitre.org/research/technology-transfer/technology-licensing/crown-jewels-analysis).
+- Identify which security assets are most critical to your migration.
 - What use cases are effective? A good starting place is to look at which detections have produced results within the last year (false positive versus positive rate). 
 - What are the business priorities that affect use case migration? What are the biggest risks to your business? What type of issues put your business most at risk?
 - Prioritize by use case characteristics.

@@ -2,14 +2,16 @@
 title: Configure server parameters - Azure CLI - Azure Database for MariaDB
 description: This article describes how to configure the service parameters in Azure Database for MariaDB using the Azure CLI command line utility.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: azurecli
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 06/24/2022
 ---
 # Configure server parameters in Azure Database for MariaDB using the Azure CLI
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 You can list, show, and update configuration parameters for an Azure Database for MariaDB server by using Azure CLI, the Azure command-line utility. A subset of engine configurations is exposed at the server-level and can be modified.
 

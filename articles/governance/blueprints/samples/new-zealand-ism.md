@@ -1,10 +1,12 @@
 ---
 title: New Zealand ISM Restricted blueprint sample
 description: Overview of the New Zealand ISM Restricted blueprint sample. This blueprint sample helps customers assess specific controls.
-ms.date: 09/08/2021
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # New Zealand ISM Restricted blueprint sample
+
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
 
 The New Zealand ISM Restricted blueprint sample provides governance guardrails using
 [Azure Policy](../../policy/overview.md) that help you assess specific
@@ -186,7 +188,7 @@ The following table provides a list of the blueprint artifact parameters:
 |New Zealand ISM Restricted|Policy Assignment|Effect for policy: MFA should be enabled accounts with write permissions on your subscription|For more information about effects, visit [https://aka.ms/policyeffects](../../policy/concepts/effects.md)|
 |New Zealand ISM Restricted|Policy Assignment|Effect for policy: Microsoft IaaSAntimalware extension should be deployed on Windows servers|For more information about effects, visit [https://aka.ms/policyeffects](../../policy/concepts/effects.md)|
 |New Zealand ISM Restricted|Policy Assignment|Effect for policy: Web Application should only be accessible over HTTPS|For more information about effects, visit [https://aka.ms/policyeffects](../../policy/concepts/effects.md)|
-|New Zealand ISM Restricted|Policy Assignment|Effect for policy: Azure DDoS Protection Standard should be enabled|For more information about effects, visit [https://aka.ms/policyeffects](../../policy/concepts/effects.md)|
+|New Zealand ISM Restricted|Policy Assignment|Effect for policy: Azure DDoS Protection should be enabled|For more information about effects, visit [https://aka.ms/policyeffects](../../policy/concepts/effects.md)|
 |New Zealand ISM Restricted|Policy Assignment|Effect for policy: MFA should be enabled on accounts with owner permissions on your subscription|For more information about effects, visit [https://aka.ms/policyeffects](../../policy/concepts/effects.md)|
 |New Zealand ISM Restricted|Policy Assignment|Effect for policy: Advanced data security should be enabled on your SQL servers|For more information about effects, visit [https://aka.ms/policyeffects](../../policy/concepts/effects.md)|
 |New Zealand ISM Restricted|Policy Assignment|Effect for policy: Advanced data security should be enabled on SQL Managed Instance|For more information about effects, visit [https://aka.ms/policyeffects](../../policy/concepts/effects.md)|

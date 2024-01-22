@@ -1,23 +1,24 @@
 ---
 title: Subscribe to Azure Kubernetes Service events with Azure Event Grid
 description: Use Azure Event Grid to subscribe to Azure Kubernetes Service events
-services: container-service
-author: zr-msft
 ms.topic: article
-ms.date: 07/12/2021
-ms.author: zarhoads
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 06/22/2023
 ---
 
 # Quickstart: Subscribe to Azure Kubernetes Service (AKS) events with Azure Event Grid
 
 Azure Event Grid is a fully managed event routing service that provides uniform event consumption using a publish-subscribe model.
 
-In this quickstart, you'll create an AKS cluster and subscribe to AKS events.
+In this quickstart, you create an AKS cluster and subscribe to AKS events.
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] installed.
+
+> [!NOTE]
+> In case there are issues specifically with EventGrid notifications, as can be seen here [Service Outages](https://azure.status.microsoft/status), please note that AKS operations wont be impacted and they are independent of Event Grid outages. 
 
 ## Create an AKS cluster
 
@@ -91,7 +92,7 @@ The following example output shows you're subscribed to events from the *MyAKS* 
       "advancedFilters": null,
       "enableAdvancedFilteringOnArrays": null,
       "includedEventTypes": [
-        "Microsoft.ContainerService.NewKubernetesVersionAvailable"
+        "Microsoft.ContainerService.NewKubernetesVersionAvailable","Microsoft.ContainerService.ClusterSupportEnded","Microsoft.ContainerService.ClusterSupportEnding","Microsoft.ContainerService.NodePoolRollingFailed","Microsoft.ContainerService.NodePoolRollingStarted","Microsoft.ContainerService.NodePoolRollingSucceeded"
       ],
       "isSubjectCaseSensitive": null,
       "subjectBeginsWith": "",
@@ -166,7 +167,7 @@ Endpoint              : /subscriptions/SUBSCRIPTION_ID/resourceGroups/MyResource
 
 ---
 
-When AKS events occur, you'll see those events appear in your event hub. For example, when the list of available Kubernetes versions for your clusters changes, you'll see a `Microsoft.ContainerService.NewKubernetesVersionAvailable` event. For more information on the events AKS emits, see [Azure Kubernetes Service (AKS) as an Event Grid source][aks-events].
+When AKS events occur, you see those events appear in your event hub. For example, when the list of available Kubernetes versions for your clusters changes, you see a `Microsoft.ContainerService.NewKubernetesVersionAvailable` event. There are also new events available now for upgrades and cluster within support. For more information on the events AKS emits, see [Azure Kubernetes Service (AKS) as an Event Grid source][aks-events].
 
 ## Delete the cluster and subscriptions
 
@@ -189,7 +190,7 @@ Remove-AzResourceGroup -Name MyResourceGroup
 ---
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
+> When you delete the cluster, the Microsoft Entra service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
 > 
 > If you used a managed identity, the identity is managed by the platform and does not require removal.
 

@@ -1,8 +1,8 @@
 ---
 title: Deploy Unity sample to HoloLens
 description: Quickstart that shows how to get the Unity sample onto the HoloLens
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/14/2020
 ms.topic: quickstart
 ms.custom: mode-other

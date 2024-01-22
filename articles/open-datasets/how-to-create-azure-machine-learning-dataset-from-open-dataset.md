@@ -3,8 +3,8 @@ title: Create datasets with Azure Open Datasets
 description: Learn how to create an Azure Machine Learning dataset from Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: conceptual
-ms.author: larryfr
-author: blackmist
+ms.author: franksolomon 
+author: fbsolo-ms1
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I want to use Azure Open Datasets in my ML workflows for improved model accuracy.
@@ -42,7 +42,7 @@ For this article, you need:
 
 * The [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install), which includes the `azureml-datasets` package.
 
-    * Create an [Azure Machine Learning compute instance](../machine-learning/how-to-create-manage-compute-instance.md), which is a fully configured and managed development environment that includes integrated notebooks and the SDK already installed.
+    * Create an [Azure Machine Learning compute instance](../machine-learning/how-to-create-compute-instance.md), which is a fully configured and managed development environment that includes integrated notebooks and the SDK already installed.
 
     **OR**
 
@@ -115,7 +115,7 @@ You can also create Azure Machine Learning datasets from Azure Open Datasets wit
 
 ## Access datasets for your experiments
 
-Use your datasets in your machine learning experiments for training ML models. [Learn more about how to train with datasets](../machine-learning/how-to-train-with-datasets.md).
+Use your datasets in your machine learning experiments for training ML models. [Learn more about how to train with datasets](../machine-learning/v1/how-to-train-with-datasets.md).
 
 ## Example notebooks
 
@@ -125,6 +125,6 @@ For examples and demonstrations of Open Datasets functionality,  see these [samp
 
 * [Train your first ML model](../machine-learning/tutorial-1st-experiment-sdk-train.md).
 
-* [Train with datasets](../machine-learning/how-to-train-with-datasets.md).
+* [Train with datasets](../machine-learning/v1/how-to-train-with-datasets.md).
 
 * [Create an Azure machine learning dataset](../machine-learning/v1/how-to-create-register-datasets.md).

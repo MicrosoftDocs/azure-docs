@@ -7,7 +7,7 @@ ms.date: 06/30/2022
 ms.author: cephalin
 ---
 
-[Azure App Service](../../overview.md) provides a highly scalable, self-patching web hosting service. This quickstart tutorial shows how to deploy a Java SE app to Azure App Service on Windows using the Azure portal. To follow a quickstart that deploys to Tomcat or JBoss EAP, select one of the Maven options above.
+[Azure App Service](../../overview.md) provides a highly scalable, self-patching web app hosting service. This quickstart tutorial shows how to deploy a Java SE app to Azure App Service on Windows using the Azure portal. To follow a quickstart that deploys to Tomcat or JBoss EAP, select one of the Maven options above.
 
 This quickstart configures an App Service app in the **Free** tier and incurs no cost for your Azure subscription.
 
@@ -64,7 +64,7 @@ To complete this quickstart you need:
     ![Screenshot of the Create a new fork page in GitHub for creating a new fork of Azure-Samples/java-docs-spring-hello-world.](../../media/quickstart-java/fork-details-java-docs-spring-hello-world-repo.png)
 
     >[!NOTE]
-    > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/java-docs-spring-hello-world
+    > This should take you to the new fork. Your fork URL will look something like this: `https://github.com/YOUR_GITHUB_ACCOUNT_NAME/java-docs-spring-hello-world`
 
 # [JBoss EAP](#tab/jbosseap)
 
@@ -198,9 +198,9 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 
     ```java
     @RequestMapping("/")
-	String sayHello() {
-		return "Hello Azure!";
-	}
+    String sayHello() {
+        return "Hello Azure!";
+    }
     ```
 
 1. From the **Source Control** pane, select the **Stage Changes** button to stage the change.

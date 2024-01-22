@@ -4,8 +4,8 @@ description: Understand VM reboots - maintenance vs downtime
 author: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.author: mimckitt
+ms.date: 02/28/2023
+ms.author: mattmcinnes
 ms.reviewer: cynthn
 
 ---
@@ -17,11 +17,11 @@ ms.reviewer: cynthn
 There are three scenarios that can lead to virtual machines in Azure being impacted: unplanned hardware maintenance, unexpected downtime, and planned maintenance.
 
 ## Unplanned hardware maintenance event
-Unplanned hardware maintenance occurs when the Azure platform predicts that the hardware or any platform component associated to a physical machine, is about to fail. When the platform predicts a failure, it will issue an unplanned hardware maintenance event to reduce the impact to the virtual machines hosted on that hardware. Azure uses [Live Migration](./maintenance-and-updates.md) technology to migrate the Virtual Machines from the failing hardware to a healthy physical machine. Live Migration is a VM preserving operation that only pauses the Virtual Machine for a short time. Memory, open files, and network connections are maintained, but performance might be reduced before and/or after the event. In cases where Live Migration cannot be used, the VM will experience Unexpected Downtime, as described below.
+Unplanned hardware maintenance occurs when the Azure platform predicts that the hardware or any platform component associated to a physical machine, is about to fail. When the platform predicts a failure, it issues an unplanned hardware maintenance event to reduce the impact to the virtual machines hosted on that hardware. Azure uses [Live Migration](./maintenance-and-updates.md) technology to migrate the Virtual Machines from the failing hardware to a healthy physical machine. Live Migration is a VM preserving operation that only pauses the Virtual Machine for a short time. Memory, open files, and network connections are maintained, but performance might be reduced before and/or after the event. In cases where Live Migration can't be used, the VM experiences Unexpected Downtime.
 
 
 ## Unexpected downtime
-Unexpected downtime is when the hardware or the physical infrastructure for the virtual machine fails unexpectedly. This can include local network failures, local disk failures, or other rack level failures. When detected, the Azure platform automatically migrates (heals) your virtual machine to a healthy physical machine in the same data center. During the healing procedure, virtual machines experience downtime (reboot) and in some cases loss of the temporary drive. The attached OS and data disks are always preserved.
+Unexpected downtime is when the hardware or the physical infrastructure for the virtual machine encounters an issue and fails unexpectedly. Issues can include local network failures, local disk failures, or other rack level failures. When detected, the Azure platform automatically migrates (heals) your virtual machine to a healthy physical machine in the same data center. During the healing procedure, virtual machines experience downtime (reboot) and in some cases loss of the temporary drive. The attached OS and data disks are always preserved.
 
 Virtual machines can also experience downtime in the unlikely event of an outage or disaster that affects an entire data center, or even an entire region. For these scenarios, Azure provides protection options including  [availability zones](../availability-zones/az-overview.md) and [paired regions](regions.md#region-pairs).
 

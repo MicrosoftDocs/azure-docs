@@ -98,7 +98,7 @@ These APIs have a similar set of functionality and can answer the same broad set
 
 - Enterprise Reporting APIs are available to customers who have signed an Enterprise Agreement with Microsoft that grants them access to negotiated Azure Prepayment (previously called monetary commitment) and custom pricing. The APIs require a key that you can get from the [Enterprise Portal](https://ea.azure.com). For a description of these APIs, see [Overview of Reporting APIs for Enterprise customers](enterprise-api.md).
 
-- Consumption APIs are available to all customers, with a few exceptions. For more information, see [Azure consumption API overview](consumption-api-overview.md) and the [Azure Consumption API reference](/rest/api/consumption/). We recommend the provided APIs as the solution for the latest development scenarios.
+- Consumption APIs are available to all customers, with a few exceptions. For more information, see [Cost Management automation overview](../automate/automation-overview.md). We recommend the provided APIs as the solution for the latest development scenarios.
 
 ### What's the difference between the Invoice API and the Usage Details API?
 These APIs provide a different view of the same data:

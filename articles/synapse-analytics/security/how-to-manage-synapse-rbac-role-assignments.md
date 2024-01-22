@@ -1,6 +1,6 @@
 ---
 title: How to manage Azure Synapse RBAC assignments in Synapse Studio
-description: This article describes how to assign and revoke Azure Synapse RBAC roles to Azure AD security principals
+description: This article describes how to assign and revoke Azure Synapse RBAC roles to Microsoft Entra security principals
 author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: how-to
@@ -24,7 +24,7 @@ This article shows how to add and delete Synapse RBAC role assignments.
 
 >[!important]
 >- Changes made to Synapse RBAC role assignments may take 2-5 minutes to take effect. 
->- If you are managing Synapse RBAC permissions by modifying membership of security groups, then changes to membership are managed using Azure Active Directory.  Changes to group memberships may take 10-15 minutes or longer to take effect.
+>- If you are managing Synapse RBAC permissions by modifying membership of security groups, then changes to membership are managed using Microsoft Entra ID.  Changes to group memberships may take 10-15 minutes or longer to take effect.
 
 ## Open Synapse Studio  
 

@@ -2,6 +2,7 @@
 title: Recommended configurations for Apache Kafka clients - Azure Event Hubs
 description: This article provides recommended Apache Kafka configurations for clients interacting with Azure Event Hubs for Apache Kafka. 
 ms.topic: reference
+ms.custom: devx-track-extended-java
 ms.date: 03/30/2022
 ---
 

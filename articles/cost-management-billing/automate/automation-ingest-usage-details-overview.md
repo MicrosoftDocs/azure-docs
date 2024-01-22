@@ -1,19 +1,19 @@
 ---
 title: Ingest cost details data
 titleSuffix: Microsoft Cost Management
-description: This article explains how to use cost details records to correlate meter-based charges with the specific resources responsible for the charges so that you can properly reconcile your bill.
+description: This article explains how to use cost details records to correlate meter-based charges with the specific resources responsible for the charges. Then you can properly reconcile your bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2022
+ms.date: 12/11/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Ingest cost details data
 
-Cost details (formerly referred to as usage details) are the most granular cost records that are available across Microsoft. Cost details records allow you to correlate Azure meter-based charges with the specific resources responsible for the charges so that you can properly reconcile your bill. The data also includes charges associated with New Commerce products like Microsoft 365 and Dynamics 365 that are invoiced along with Azure. Currently, only Partners can purchase New Commerce non-Azure products. To learn more, see [Understand cost management data](../costs/understand-cost-mgt-data.md).
+Cost details (formerly referred to as usage details) are the most granular cost records that are available across Microsoft. Cost details records allow you to correlate Azure meter-based charges with the specific resources responsible for the charges so that you can properly reconcile your bill. The data also includes charges associated with New Commerce products like Microsoft 365 and Dynamics 365 that are invoiced along with Azure. Currently, only Partners can purchase New Commerce non-Azure products. To learn more, see [Understand cost management data](../costs/understand-cost-mgt-data.md). 
 
 This document outlines the main solutions available to you as you work with cost details data. You might need to download your cost data to merge it with other datasets. Or you might need to integrate cost data into your own systems. There are different options available depending on the amount of data involved.
 
@@ -21,13 +21,13 @@ You must have Cost Management permissions at the appropriate scope to use APIs a
 
 ## How to get cost details
 
-You can use [exports](../costs/tutorial-export-acm-data.md) or the [Cost Details](/rest/api/cost-management/generate-cost-details-report) report to get cost details programmatically. To learn more about which solutions are best for your scenarios, see [Choose a cost details solution](usage-details-best-practices.md).
+You can get cost details programmatically with [exports](../costs/tutorial-export-acm-data.md) or the [Cost Details](/rest/api/cost-management/generate-cost-details-report) report. To learn more about which solutions are best for your scenarios, see [Choose a cost details solution](usage-details-best-practices.md).
 
 For Azure portal download instructions, see [How to get your Azure billing invoice and daily usage data](../manage/download-azure-invoice-daily-usage-date.md). If you have a small cost details dataset that you maintain from one month to another, you can open your CSV file in Microsoft Excel or another spreadsheet application.
 
 ## Cost details data format
 
-The Azure billing system uses cost details records at the end of the month to generate your bill. Your bill is based on the net charges that were accrued by meter. Cost records contain daily rated usage based on negotiated rates, purchases (for example, reservations, Marketplace fees), and refunds for the specified period. Fees don't include credits, taxes, or other charges or discounts.
+The Azure billing system uses cost details records at the end of the month to generate your bill. Your bill is based on the net charges that were accrued, by meter. Cost records contain daily rated usage based on negotiated rates, purchases (for example, reservations, Marketplace fees), and refunds for the specified period. Fees don't include credits, taxes, or other charges or discounts.
 
 The following table shows the charges that are included in your cost details dataset for each account type.
 
@@ -37,7 +37,7 @@ The following table shows the charges that are included in your cost details dat
 | Microsoft Customer Agreement (MCA) | ✔ | ✔ | ✔ | ✔ |
 | Pay-as-you-go (PAYG) | ✔ | ✔ | ✘ | ✘ |
 
-A single Azure resource often has multiple meters emitting charges. For example, a VM may have both Compute and Networking related meters.
+A single Azure resource often has multiple meters emitting charges. For example, a VM might have both Compute and Networking related meters.
 
 To understand the fields that are available in cost details records, see [Understand cost details fields](understand-usage-details-fields.md).
 
@@ -49,31 +49,57 @@ Azure resource providers emit usage and charges to the billing system and popula
 
 ### Pricing behavior in cost details
 
-The cost details file exposes multiple price points today. These are outlined below.
+The cost details file exposes multiple price points. They're outlined as follows.
 
-- **PAYGPrice:** This is the list price for a given product or service that is determined based on the customer agreement. For customers who have an Enterprise Agreement, the pay-as-you-go price represents the EA baseline price.
+**PAYGPrice:** It's the market price, also referred to as retail or list price, for a given product or service.
+  - In all consumption usage records, `UnitPrice` reflects the market price of the meter, regardless of the benefit plan such as reservations or savings plan.
+  - Purchases and refunds have the market price for that transaction.
 
-- **UnitPrice:** This is the price for a given product or service inclusive of any negotiated discounts on top of the pay-as-you-go price.
+When you deal with benefit-related records, where the `PricingModel` is `Reservations` or `SavingsPlan`, *PayGPrice* reflects the market price of the meter.
 
-- **EffectivePrice** This is the price for a given product or service that represents the actual rate that you end up paying per unit. It's the price that should be used with the Quantity to do Price \* Quantity calculations to reconcile charges. The price takes into account the following scenarios:
-  - *Tiered pricing:* For example: $10 for the first 100 units, $8 for the next 100 units.
-  - *Included quantity:* For example: The first 100 units are free and then $10 for each unit.
-  - *Reservations:* For example, a VM that got a reservation benefit on a given day. In amortized data for reservations, the effective price is the prorated hourly reservation cost. The cost is the total cost of reservation usage by the resource on that day.
-  - *Rounding that occurs during calculation:* Rounding takes into account the consumed quantity, tiered/included quantity pricing, and the scaled unit price.
+**UnitPrice:** It's the price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract.
+  - In all consumption usage records, `UnitPrice` reflects the negotiated meter price that you have on your contract, regardless of the benefit plan such as reservations or savings plan.
+  - Purchases and refunds have the negotiated price for that transaction.
 
-- **Quantity:** This is the number of units used by the given product or service for a given day and is aligned to the unit of measure used in actual resource usage.
+**EffectivePrice** It's the price for a given product or service that represents the actual rate that you end up paying per unit. It's the price that should be used with the quantity to do `price * quantity` calculations to reconcile charges. The price considers the following scenarios:
+  - Tiered pricing: For example: USD 10 for the first 100 units, USD 8 for the next 100 units.
+  - Reservation/savings plan actual cost record: In the actual cost report, the effective price for a usage record is 0 because the resource, for example VM, is covered by prepaid commitment. The effective price for a purchase record shows the price of the purchase transaction.
+  - Reservation/savings plan amortized cost record: In the amortized cost report, the effective price for a usage record is the prorated hourly price of the reservation/savings plan.
+
+**Quantity:** It's the number of units used by the given product or service for a given day. It aligns to the unit of measure used in actual resource usage.
 
 If you want to reconcile costs with your price sheet or invoice, note the following information about unit of measure.
 
-**Price Sheet unit of measure behavior** - The prices shown on the price sheet are the prices that you receive from Azure. They're scaled to a specific unit of measure. 
+**Price Sheet unit of measure behavior** - The prices shown on the price sheet are the prices that you receive from Azure. They're scaled to a specific unit of measure.
 
 **Cost details unit of measure behavior** - The unit of measure associated with the usage quantities and pricing seen in cost details aligns with actual resource usage.
 
 #### Example pricing scenarios seen in cost details for a resource
 
-| **MeterId** | **Quantity** | **PAYGPrice** | **UnitPrice** | **EffectivePrice** | **UnitOfMeasure** | **Notes** |
-| --- | --- | --- | --- | --- | --- | --- |
-| 00000000-0000-0000-0000-00000000000 | 24 | 1 | 0.8 | 0.76 | 1 hour | Manual calculation of the actual charge: multiply 24 * 0.76 * 1 hour. |
+Here are some example scenarios that show how an actual cost report or amortized cost report might look like.
+
+Sample actual cost report:
+
+| **MeterId** | **PricingModel** | **ChargeType** | **Quantity** | **PAYGPrice** | **UnitPrice** | **EffectivePrice** | **UnitOfMeasure** | **Cost** | **Notes** |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| xxxxxxxx-xxxx- xxxx - xxxx -xxxxxxxxxxx | OnDemand | Usage | 24 | 1 | 0.8 | 0.8 | 1 hour | 19.2 | Manual calculation of the actual charge: multiply 24 \* 0.8 \* 1 hour. |
+| xxxxxxxx-xxxx- xxxx - xxxx -xxxxxxxxxxx | Reservations/SavingsPlan | Usage | 24 | 1 | 0.8 | 0 | 1 hour | 0 | Manual calculation of the actual charge: multiply 24 \* 0 \* 1 hour. |
+| xxxxxxxx-xxxx- xxxx - xxxx -xxxxxxxxxxx | Reservations | Purchase | 15 | 120 | 0.8 | 120 | 1 hour | 1800 | Manual calculation of the actual charge: multiply 15 \* 120 \* 1 hour. |
+
+Sample amortized cost report:
+
+| **MeterId** | **PricingModel** | **ChargeType** | **Quantity** | **PAYGPrice** | **UnitPrice** | **EffectivePrice** | **UnitOfMeasure** | **Cost** | **Notes** |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| xxxxxxxx-xxxx- xxxx - xxxx -xxxxxxxxxxx | OnDemand | Usage | 24 | 1 | 0.8 | 0.8 | 1 hour | 19.2 | Manual calculation of the actual charge: multiply 24 \* 0.8 \* 1 hour. |
+| xxxxxxxx-xxxx- xxxx - xxxx -xxxxxxxxxxx | Reservations/SavingsPlan | Usage | 24 | 1 | 0.8 | 0.3 | 1 hour | 7.2 | Manual calculation of the actual charge: multiply 24 \* 0.3 \* 1 hour. |
+
+>[!NOTE]
+> - Limitations on `PayGPrice`
+>    - For EA customers `PayGPrice` isn't populated when `PricingModel` = `Reservations`, `Spot`, `Marketplace`, or `SavingsPlan`.
+>    - For MCA customers, `PayGPrice` isn't populated when `PricingModel` = `Reservations`, `Spot`, or `Marketplace`.
+>- Limitations on `UnitPrice`
+>    - For EA customers, `UnitPrice` isn't populated when `PricingModel` = `Spot`, or `MarketPlace`.
+>    - For MCA customers, `UnitPrice` isn't populated when `PricingModel` = `Reservations`, `Spot`, or `SavingsPlan`.
 
 ## Unexpected charges
 

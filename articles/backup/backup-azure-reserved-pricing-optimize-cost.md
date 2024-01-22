@@ -3,9 +3,10 @@ title: Optimize costs for Azure Backup Storage with reserved capacity
 description: This article explains about how to optimize costs for Azure Backup Storage with reserved capacity.
 ms.topic: how-to
 ms.service: backup
-ms.date: 09/03/2022
-author: v-amallick
-ms.author: v-amallick
+ms.date: 11/01/2023
+ms.custom: engagement-fy24
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Optimize costs for Azure Backup Storage with reserved capacity
@@ -40,7 +41,7 @@ An Azure Backup Storage reservation covers only the amount of data that's stored
 
 Azure Backup Storage reserved capacity is available for backup data stored in the vault-standard tier.
 
-LRS, GRS, and RA-GRS redundancies are supported for reservations. For more information about redundancy options, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
+LRS, GRS, RA-GRS, and ZRS redundancies are supported for reservations. For more information about redundancy options, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
 
 >[!Note]
 >Azure Backup Storage reserved capacity isn't applicable for Protected Instance cost. It's also not applicable to vault-archive tier.
@@ -81,7 +82,7 @@ To purchase reserved capacity, follow these steps:
    | Subscription | The subscription that's used to pay for the Azure Backup Storage reservation. The payment method on the selected subscription is used in charging the costs. The subscription must be one of the following types:  <br><br> - **Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P)**: For an Enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage. <br><br> - **Individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P)**: For an individual subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription. <br><br> - Microsoft Customer Agreement subscriptions <br><br> - CSP subscriptions. |
    | Region | The region where the reservation is in effect. |
    | Vault tier | The vault tier for which the reservation is in effect. Currently, only reservations for vault-standard tier are supported. |
-   | Redundancy | The redundancy option for the reservation. Options include LRS,  GRS,  and RA-GRS. For more information about redundancy options, see [Azure Storage redundancy](../storage/common/storage-redundancy.md). |
+   | Redundancy | The redundancy option for the reservation. Options include LRS,  GRS, RA-GRS and ZRS. For more information about redundancy options, see [Azure Storage redundancy](../storage/common/storage-redundancy.md). |
    | Billing frequency | Indicates how often the account is billed for the reservation. Options include Monthly or Upfront. |
    | Size | The amount of capacity to reserve. |
    | Term | One year or three years. |

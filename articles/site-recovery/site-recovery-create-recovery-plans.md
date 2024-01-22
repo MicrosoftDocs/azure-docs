@@ -2,7 +2,10 @@
 title: Create/customize recovery plans in Azure Site Recovery 
 description: Learn how to create and customize recovery plans for disaster recovery using the Azure Site Recovery service.
 ms.topic: how-to
+ms.service: site-recovery
 ms.date: 01/23/2020
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Create and customize recovery plans

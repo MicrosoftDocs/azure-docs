@@ -3,7 +3,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 11/17/2022
 ---
 
 This tutorial shows you how to build a sample IoT Plug and Play device application with components, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C and is included in the Azure IoT device SDK for C. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
@@ -62,13 +62,13 @@ In this tutorial, you prepare a development environment you can use to clone and
 
 Open a command prompt in a folder of your choice. Execute the following command to clone the [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c) GitHub repository into this location:
 
-```cmd/bash
+```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-c.git
 cd azure-iot-sdk-c
 git submodule update --init
 ```
 
-You should expect this operation to take several minutes to complete.
+Expect this operation to take several minutes to complete.
 
 ## Build and run the code
 
@@ -114,7 +114,7 @@ To build the sample:
 
 1. Create a _cmake_ subfolder in the root folder of the cloned device SDK, and navigate to that folder:
 
-    ```cmd/bash
+    ```cmd/sh
     cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
@@ -122,7 +122,7 @@ To build the sample:
 
 1. Run the following commands to generate and build the project files for SDK and samples:
 
-    ```cmd/bash
+    ```cmd/sh
     cmake ..
     cmake --build .
     ```
@@ -137,7 +137,7 @@ To run the sample:
 
     ```bash
     # Bash
-    cd iothub_client/samples/pnp/pnp_temperature_controller/
+    cd iothub_client/samples/pnp/pnp_temperature_controller
     ./pnp_temperature_controller
     ```
 
@@ -157,7 +157,7 @@ After the device client sample starts, use the Azure IoT explorer tool to verify
 
 ## Review the code
 
-This sample implements an IoT Plug and Play temperature controller device. This sample implements a model with [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
+This sample implements an IoT Plug and Play temperature controller device. This sample implements a model with [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins Definition Language (DTDL) V2 model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
 ### IoT Plug and Play helper functions
 

@@ -1,12 +1,12 @@
 ---
 title: FHIR REST API capabilities for Azure Health Data Services FHIR service
 description: This article describes the RESTful interactions and capabilities for Azure Health Data Services FHIR service.
-author: stevewohl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 06/06/2022
-ms.author: mikaelw
+ms.author: kesheth
 ---
 
 # FHIR REST API capabilities for Azure Health Data Services FHIR service
@@ -20,6 +20,8 @@ The FHIR service supports create, conditional create, update, and conditional up
 ## Delete and Conditional Delete
 
 FHIR service offers two delete types. There's [Delete](https://www.hl7.org/fhir/http.html#delete), which is also know as Hard + Soft Delete, and [Conditional Delete](https://www.hl7.org/fhir/http.html#3.1.0.7.1).
+
+**Delete can be performed for individual resource id or in bulk. To learn more on deleting resources in bulk, visit [$bulk-delete operation](fhir-bulk-delete.md).**
 
 ### Delete (Hard + Soft Delete)
 
@@ -64,6 +66,8 @@ After you've found the record you want to restore, use the `PUT` operation to re
  
 > [!NOTE]
 > There is no time-based expiration for history/soft delete data. The only way to remove history/soft deleted data is with a hard delete or the purge history operation.
+
+[!INCLUDE [Bundle details](~/includes/fhir-rest-api-bundle.md)]
 
 ## Patch and Conditional Patch
 

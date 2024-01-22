@@ -3,7 +3,7 @@ title: Apache Phoenix connectivity issues in Azure HDInsight
 description: Connectivity issues between Apache HBase and Apache Phoenix in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 04/08/2022
+ms.date: 05/11/2023
 ---
 
 # Scenario: Apache Phoenix connectivity issues in Azure HDInsight

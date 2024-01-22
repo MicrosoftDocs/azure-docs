@@ -1,9 +1,12 @@
 ---
 title: 'Securely connect to Azure resources'
 description: Your app service may need to connect to other Azure services such as a database, storage, or another app. This overview recommends the more secure method for connecting.
+author: cephalin
+ms.author: cephalin
 
 ms.topic: tutorial
 ms.date: 02/16/2022
+ms.custom: AppServiceConnectivity
 ---
 # Securely connect to Azure services and databases from Azure App Service
 
@@ -11,7 +14,7 @@ Your app service may need to connect to other Azure services such as a database,
 
 |Connection method|When to use|
 |--|--|
-|[Direct connection from App Service managed identity](#connect-to-azure-services-with-managed-identity)|Dependent service [supports managed identity](../active-directory/managed-identities-azure-resources/managed-identities-status.md)<br><br>* Best for enterprise-level security.<br>* Connection to dependent service is secured with managed identity.<br>* Large team or automated connection string and secret management.<br>* Don't manage credentials manually.<br>* Credentials aren’t accessible to you.<br>* An Azure Active Directory Identity is required to access. Services include Microsoft Graph or Azure management SDKs.|
+|[Direct connection from App Service managed identity](#connect-to-azure-services-with-managed-identity)|Dependent service [supports managed identity](../active-directory/managed-identities-azure-resources/managed-identities-status.md)<br><br>* Best for enterprise-level security.<br>* Connection to dependent service is secured with managed identity.<br>* Large team or automated connection string and secret management.<br>* Don't manage credentials manually.<br>* Credentials aren’t accessible to you.<br>* a Microsoft Entra identity is required to access. Services include Microsoft Graph or Azure management SDKs.|
 |[Connect using Key Vault secrets from App Service managed identity](#connect-to-key-vault-with-managed-identity)|Dependent service doesn't support managed identity.<br><br>* Best for enterprise-level security.<br>* Connection includes non-Azure services such as GitHub, Twitter, Facebook, Google<br>* Large team or automated connection string and secret management<br>* Don't manage credentials manually.<br>* Credentials aren’t accessible to you.<br>* Manage connection information with environment variables.|
 |[Connect with app settings](#connect-with-app-settings)|* Best for small team or individual owner of Azure resources.<br>* Stage 1 of multi-stage migration to Azure.<br>* Temporary or proof-of-concept applications.<br>* Manually manage connection information with environment variables.|
 
@@ -52,7 +55,7 @@ Secrets include:
 |Keys and access tokens|Cognitive service API Key<br>GitHub personal access token<br>Twitter consumer keys and authentication tokens|
 |Connection strings|Database connection strings such as SQL server or MongoDB|
 
-:::image type="content" source="media/tutorial-connect-overview/app-service-connect-key-vault-managed-identity.png" alt-text="Image showing app service using a secret stored in Key Vault and managed with Managed identity to connect to Cognitive Services."::: 
+:::image type="content" source="media/tutorial-connect-overview/app-service-connect-key-vault-managed-identity.png" alt-text="Image showing app service using a secret stored in Key Vault and managed with Managed identity to connect to Azure AI services."::: 
 
 Benefits of managed identity integrated with Key Vault include:
 
@@ -74,7 +77,7 @@ The App Service provides [App settings](configure-common.md?tabs=portal#configur
 **App Service** managed identity to another Azure service best when:
 
 * You don't need to manage Azure credentials. Credentials aren’t even accessible to you.
-* You can use managed identities to authenticate to any resource that supports Azure Active Directory authentication including your own applications.
+* You can use managed identities to authenticate to any resource that supports Microsoft Entra authentication including your own applications.
 * Managed identities can be used without any additional cost.
 
 **Key Vault** integration from App Service with managed identity best used when:

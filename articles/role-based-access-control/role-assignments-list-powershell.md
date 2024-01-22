@@ -2,14 +2,12 @@
 title: List Azure role assignments using Azure PowerShell - Azure RBAC
 description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure PowerShell and Azure role-based access control (Azure RBAC).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: amycolannino
 
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/28/2020
 ms.author: rolyon
@@ -23,11 +21,11 @@ ms.custom: devx-track-azurepowershell
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> If your organization has outsourced management functions to a service provider who uses [Azure Lighthouse](../lighthouse/overview.md), role assignments authorized by that service provider won't be shown here.
+> If your organization has outsourced management functions to a service provider who uses [Azure Lighthouse](../lighthouse/overview.md), role assignments authorized by that service provider won't be shown here. Similarly, users in the service provider tenant won't see role assignments for users in a customer's tenant, regardless of the role they've been assigned.
 
 ## Prerequisites
 
-- [PowerShell in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-az-ps)
+- [PowerShell in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## List role assignments for the current subscription
 

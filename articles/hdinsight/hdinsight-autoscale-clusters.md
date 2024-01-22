@@ -4,7 +4,7 @@ description: Use the Autoscale feature to automatically scale Azure HDInsight cl
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1, contperf-fy21q2
-ms.date: 02/11/2022
+ms.date: 04/13/2023
 ---
 
 # Automatically scale Azure HDInsight clusters
@@ -15,7 +15,7 @@ Azure HDInsight's free Autoscale feature can automatically increase or decrease 
 
 The Autoscale feature uses two types of conditions to trigger scaling events: thresholds for various cluster performance metrics (called *load-based scaling*) and time-based triggers (called *schedule-based scaling*). Load-based scaling changes the number of nodes in your cluster, within a range that you set, to ensure optimal CPU usage and minimize running cost. Schedule-based scaling changes the number of nodes in your cluster based on a schedule of scale-up and scale-down operations.
 
-The following video provides an overview of the challenges which Autoscale solves and how it can help you to control costs with HDInsight.
+The following video provides an overview of the challenges, which Autoscale solves and how it can help you to control costs with HDInsight.
 
 > [!VIDEO https://www.youtube.com/embed/UlZcDGGFlZ0?WT.mc_id=dataexposed-c9-niner]
 
@@ -25,9 +25,9 @@ Schedule-based scaling can be used:
 
 * When your jobs are expected to run on fixed schedules and for a predictable duration or When you anticipate low usage during specific times of the day For example, test and dev environments in post-work hours, end-of day jobs.
 
-Load based scaling can be used : 
+Load based scaling can be used: 
 
-* When the load patterns fluctuate substantially and unpredictably during the day. For example, Order data processing with random fluctuations in load patterns based on a variety of factors
+* When the load patterns fluctuate substantially and unpredictably during the day. For example, Order data processing with random fluctuations in load patterns based on various factors
 
 ### Cluster metrics
 
@@ -46,16 +46,20 @@ The above metrics are checked every 60 seconds. Autoscale makes scale-up and sca
 
 ### Load-based scale conditions
 
-When the following conditions are detected, Autoscale will issue a scale request:
+When the following conditions are detected, Autoscale issues a scale request:
 
 |Scale-up|Scale-down|
 |---|---|
-|Total pending CPU is greater than total free CPU for more than 3-5 minutes.|Total pending CPU is less than total free CPU for more than 5-10 minutes.|
-|Total pending memory is greater than total free memory for more than 3-5 minutes.|Total pending memory is less than total free memory for more than 5-10 minutes.|
+|Total pending CPU is greater than total free CPU for more than 3-5 minutes.|Total pending CPU is less than total free CPU for more than 3-5 minutes.|
+|Total pending memory is greater than total free memory for more than 3-5 minutes.|Total pending memory is less than total free memory for more than 3-5 minutes.|
 
 For scale-up, Autoscale issues a scale-up request to add the required number of nodes. The scale-up is based on how many new worker nodes are needed to meet the current CPU and memory requirements.
 
-For scale-down, Autoscale issues a request to remove a certain number of nodes. The scale-down is based on the number of Application Master (AM) containers per node. And the current CPU and memory requirements. The service also detects which nodes are candidates for removal based on current job execution. The scale down operation first decommissions the nodes, and then removes them from the cluster.
+For scale-down, Autoscale issues a request to remove some nodes. The scale-down is based on the number of Application Master (AM) containers per node. And the current CPU and memory requirements. The service also detects which nodes are candidates for removal based on current job execution. The scale down operation first decommissions the nodes, and then removes them from the cluster.
+
+### Ambari DB sizing considerations for autoscaling
+
+It is recommended that Ambari DB is sized correctly to reap the benefits of autoscale. Customers should use the correct DB tier and use the custom Ambari DB for large size clusters. Please read the [Database and Headnode sizing recommendations](./hdinsight-custom-ambari-db.md#database-and-headnode-sizing).
 
 ### Cluster compatibility
 
@@ -66,12 +70,12 @@ For scale-down, Autoscale issues a request to remove a certain number of nodes. 
 
 The following table describes the cluster types and versions that are compatible with the Autoscale feature.
 
-| Version | Spark | Hive | Interactive Query | HBase | Kafka | Storm | ML |
-|---|---|---|---|---|---|---|---|
-| HDInsight 3.6 without ESP | Yes | Yes | Yes* | No | No | No | No |
-| HDInsight 4.0 without ESP | Yes | Yes | Yes* | No | No | No | No |
-| HDInsight 3.6 with ESP | Yes | Yes | Yes* | No | No | No | No |
-| HDInsight 4.0 with ESP | Yes | Yes | Yes* | No | No | No | No |
+| Version | Spark | Hive | Interactive Query | HBase | Kafka |
+|---|---|---|---|---|---|---|
+| HDInsight 4.0 without ESP | Yes | Yes | Yes* | No | No |
+| HDInsight 4.0 with ESP | Yes | Yes | Yes* | No | No |
+| HDInsight 5.0 without ESP | Yes | Yes | Yes* | No | No |
+| HDInsight 5.0 with ESP | Yes | Yes | Yes* | No | No |
 
 \* Interactive Query clusters can only be configured for schedule-based scaling, not load-based.
 
@@ -127,7 +131,7 @@ For more information on HDInsight cluster creation using the Azure portal, see [
 
 #### Load-based autoscaling
 
-You can create an HDInsight cluster with load-based Autoscaling an Azure Resource Manager template, by adding an `autoscale` node to the `computeProfile` > `workernode` section with the properties `minInstanceCount` and `maxInstanceCount` as shown in the json snippet below. For a complete Resource Manager template see [Quickstart template: Deploy Spark Cluster with load-based autoscale enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-autoscale-loadbased).
+You can create an HDInsight cluster with load-based Autoscaling an Azure Resource Manager template, by adding an `autoscale` node to the `computeProfile` > `workernode` section with the properties `minInstanceCount` and `maxInstanceCount` as shown in the json snippet. For a complete Resource Manager template, see [Quickstart template: Deploy Spark Cluster with load-based autoscale enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-autoscale-loadbased).
 
 ```json
 {
@@ -155,7 +159,7 @@ You can create an HDInsight cluster with load-based Autoscaling an Azure Resourc
 
 #### Schedule-based autoscaling
 
-You can create an HDInsight cluster with schedule-based Autoscaling an Azure Resource Manager template, by adding an `autoscale` node to the `computeProfile` > `workernode` section. The `autoscale` node contains a `recurrence` that has a `timezone` and `schedule` that describes when the change will take place. For a complete Resource Manager template, see [Deploy Spark Cluster with schedule-based Autoscale Enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-autoscale-schedulebased).
+You can create an HDInsight cluster with schedule-based Autoscaling an Azure Resource Manager template, by adding an `autoscale` node to the `computeProfile` > `workernode` section. The `autoscale` node contains a `recurrence` that has a `timezone` and `schedule` that describes when the change take place. For a complete Resource Manager template, see [Deploy Spark Cluster with schedule-based Autoscale Enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-autoscale-schedulebased).
 
 ```json
 {
@@ -201,7 +205,7 @@ To enable or disable Autoscale on a running cluster using the REST API, make a P
 https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{CLUSTERNAME}/roles/workernode/autoscale?api-version=2018-06-01-preview
 ```
 
-Use the appropriate parameters in the request payload. The json payload below could be used to enable Autoscale. Use the payload `{autoscale: null}` to disable Autoscale.
+Use the appropriate parameters in the request payload. The following json payload could be used to enable Autoscale. Use the payload `{autoscale: null}` to disable Autoscale.
 
 ```json
 { "autoscale": { "capacity": { "minInstanceCount": 3, "maxInstanceCount": 5 } } }
@@ -217,7 +221,7 @@ The cluster status listed in the Azure portal can help you monitor Autoscale act
 
 :::image type="content" source="./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png" alt-text="Enable worker node load-based autoscale cluster status":::
 
-All of the cluster status messages that you might see are explained in the list below.
+All of the cluster status messages that you might see are explained in the following list.
 
 | Cluster status | Description |
 |---|---|
@@ -245,7 +249,7 @@ It can take 10 to 20 minutes for the overall scaling operation to complete. When
 
 ### Prepare for scaling down
 
-During the cluster scaling down process, Autoscale decommissions the nodes to meet the target size. In case of load based autoscaling, If tasks are running on those nodes, Autoscale waits until the tasks are completed for Spark and Hadoop clusters. Since each worker node also serves a role in HDFS, the temporary data is shifted to the remaining worker nodes. Make sure there's enough space on the remaining nodes to host all temporary data.
+During the cluster scaling down process, Autoscale decommissions the nodes to meet the target size. In load based autoscaling, If tasks are running on those nodes, Autoscale waits until the tasks are completed for Spark and Hadoop clusters. Since each worker node also serves a role in HDFS, the temporary data is shifted to the remaining worker nodes. Make sure there's enough space on the remaining nodes to host all temporary data.
 
 > [!Note]
 > In case of schedule-based Autoscale scale-down, graceful decommission is not supported. This can cause job failures during a scale down operation, and it is recommended to plan schedules based on the anticipated job schedule patterns to include sufficient time for the ongoing jobs to conclude. You can set the schedules looking at historical spread of completion times so as to avoid job failures.
@@ -254,9 +258,9 @@ During the cluster scaling down process, Autoscale decommissions the nodes to me
 
 You need to understand your cluster usage pattern when you configure schedule based Autoscale. [Grafana dashboard](./interactive-query/hdinsight-grafana.md)  can help you understand your query load and execution slots. You can get the available executor slots and total executor slots from the dashboard.
 
-Here is a way you can estimate how many worker nodes will be needed. We recommend giving additional 10% buffer to handle the variation of the workload.
+Here is a way you can estimate how many worker nodes needed. We recommend giving another 10% buffer to handle the variation of the workload.
 
-Number of executor slots actually used = Total executor slots – Total available executor slots.
+Number of executor slots used = Total executor slots – Total available executor slots.
 
 Number of worker nodes required = Number of executor slots actually used / (hive.llap.daemon.num.executors + hive.llap.daemon.task.scheduler.wait.queue.size)
 
@@ -266,28 +270,29 @@ Number of worker nodes required = Number of executor slots actually used / (hive
 
 ### Custom Script Actions
 
-Custom Script Actions are mostly used for customizing the nodes (i.e HeadNode / WorkerNodes) which enable our customers to configure certain libraries and tools which are being used by them. One common use case is the job(s) that run on the cluster might have some dependencies on the 3rd party library which is owned by the Customer, and it should be available on nodes for the job to succeed. For Autoscale we currently support custom script actions which are persisted, hence every time the new nodes get added to the cluster as part of scale up operation, these persisted script actions would get executed and post that the containers or jobs would be allocated on them. Although have custom script actions helps bootstrapping the new nodes it's advisable to keep it minimal as it would add up to the overall scale up latency and can cause impact to the scheduled jobs. 
+Custom Script Actions are mostly used for customizing the nodes (i.e HeadNode / WorkerNodes) which enable our customers to configure certain libraries and tools, which are being used by them. One common use case is the job(s) that run on the cluster might have some dependencies on the third party library, which is owned by the Customer, and it should be available on nodes for the job to succeed. For Autoscale, we currently support custom script actions, which are persisted, hence every time the new nodes get added to the cluster as part of scale up operation, these persisted script actions would get executed and post that the containers or jobs would be allocated on them. Although have custom script actions helps bootstrapping the new nodes, it's advisable to keep it minimal as it would add up to the overall scale up latency and can cause impact to the scheduled jobs. 
 
 ### Be aware of the minimum cluster size
 
 Don't scale your cluster down to fewer than three nodes. Scaling your cluster to fewer than three nodes can result in it getting stuck in safe mode because of insufficient file replication. For more information, see [getting stuck in safe mode](hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
-### Azure Active Directory Domain Services (Azure AD DS) & Scaling Operations 
+<a name='azure-active-directory-domain-services-azure-ad-ds--scaling-operations'></a>
 
-If you use an HDInsight cluster with Enterprise Security Package (ESP) that is joined to an Azure Active Directory Domain Services (Azure AD DS) managed domain, we recommend to throttle load on the Azure AD DS. In case of complex directory structures [scoped sync](../active-directory-domain-services/scoped-synchronization.md) we recommend to avoid impact to scaling operations.
+### Microsoft Entra Domain Services & Scaling Operations 
+
+If you use an HDInsight cluster with Enterprise Security Package (ESP) that is joined to a Microsoft Entra Domain Services managed domain, we recommend throttling load on the Microsoft Entra Domain Services. In complex directory structures [scoped sync](../active-directory-domain-services/scoped-synchronization.md) we recommend avoiding impact to scaling operations.
 
 ### Set the Hive configuration Maximum Total Concurrent Queries for the peak usage scenario
 
-Autoscale events don't change the Hive configuration *Maximum Total Concurrent Queries* in Ambari. This means that the Hive Server 2 Interactive Service can handle only the given number of concurrent queries at any point of time even if the Interactive Query daemons count are scaled up and down based on load and schedule. The general recommendation is to set this configuration for the peak usage scenario to avoid manual intervention.
+Autoscale events don't change the Hive configuration *Maximum Total Concurrent Queries* in Ambari. This means that the Hive Server 2 Interactive Service can handle only the given number of concurrent queries at any point of time even if the Interactive Query daemons count is scaled up and down based on load and schedule. The general recommendation is to set this configuration for the peak usage scenario to avoid manual intervention.
 
-However, you may experience a Hive Server 2 restart failure if there are only a small number of worker nodes and the value for maximum total concurrent queries is configured too high. At a minimum, you need the minimum number of worker nodes that can accommodate the given number of Tez Ams (equal to the Maximum Total Concurrent Queries configuration).
+However, you may experience a Hive Server 2 restart failure if there are only a few worker nodes and the value for maximum total concurrent queries is configured too high. At a minimum, you need the minimum number of worker nodes that can accommodate the given number of Tez Ams (equal to the Maximum Total Concurrent Queries configuration).
 
 ## Limitations
 
-
 ### Interactive Query Daemons count
 
-In case of autoscale-enabled Interactive Query clusters, an autoscale up/down event also scales up/down the number of Interactive Query daemons to the number of active worker nodes. The change in the number of daemons is not persisted in the `num_llap_nodes` configuration in Ambari. If Hive services are restarted manually, the number of Interactive Query daemons is reset as per the configuration in Ambari.
+If autoscale-enabled Interactive Query clusters, an autoscale up/down event also scales up/down the number of Interactive Query daemons to the number of active worker nodes. The change in the number of daemons is not persisted in the `num_llap_nodes` configuration in Ambari. If Hive services are restarted manually, the number of Interactive Query daemons is reset as per the configuration in Ambari.
 
 If the Interactive Query service is manually restarted, you need to manually change the `num_llap_node` configuration (the number of node(s) needed to run the Hive Interactive Query daemon) under *Advanced hive-interactive-env* to match the current active worker node count. Interactive Query Cluster supports only Schedule-Based Autoscale
 

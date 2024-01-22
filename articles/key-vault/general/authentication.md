@@ -11,15 +11,15 @@ ms.topic: conceptual
 ---
 # Authentication in Azure Key Vault
 
-Authentication with Key Vault works in conjunction with [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md), which is responsible for authenticating the identity of any given **security principal**.
+Authentication with Key Vault works in conjunction with [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md), which is responsible for authenticating the identity of any given **security principal**.
 
 A security principal is an object that represents a user, group, service, or application that's requesting access to Azure resources. Azure assigns a unique **object ID** to every security principal.
 
-* A **user** security principal identifies an individual who has a profile in Azure Active Directory.
+* A **user** security principal identifies an individual who has a profile in Microsoft Entra ID.
 
-* A **group** security principal identifies a set of users created in Azure Active Directory. Any roles or permissions assigned to the group are granted to all of the users within the group.
+* A **group** security principal identifies a set of users created in Microsoft Entra ID. Any roles or permissions assigned to the group are granted to all of the users within the group.
 
-* A **service principal** is a type of security principal that identifies an application or service, which is to say, a piece of code rather than a user or group. A service principal's object ID is known as its **client ID** and acts like its username. The service principal's **client secret** acts like its password.
+* A **service principal** is a type of security principal that identifies an application or service, which is to say, a piece of code rather than a user or group. A service principal's object ID acts like its username; the service principal's **client secret** acts like its password.
 
 For applications, there are two ways to obtain a service principal:
 
@@ -29,7 +29,7 @@ For applications, there are two ways to obtain a service principal:
 
     For more information, see the [Managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md). Also see [Azure services that support managed identity](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), which links to articles that describe how to enable managed identity for specific services (such as App Service, Azure Functions, Virtual Machines, etc.).
 
-* If you cannot use managed identity, you instead **register** the application with your Azure AD tenant, as described on [Quickstart: Register an application with the Azure identity platform](../../active-directory/develop/quickstart-register-app.md). Registration also creates a second application object that identifies the app across all tenants.
+* If you cannot use managed identity, you instead **register** the application with your Microsoft Entra tenant, as described on [Quickstart: Register an application with the Azure identity platform](../../active-directory/develop/quickstart-register-app.md). Registration also creates a second application object that identifies the app across all tenants.
 
 ## Configure the Key Vault firewall
 
@@ -41,11 +41,11 @@ For more information, see [Access Azure Key Vault behind a firewall](./access-be
 
 Key Vault authentication occurs as part of every request operation on Key Vault. Once token is retrieved, it can be reused for subsequent calls. Authentication flow example:
 
-1. A token requests to authenticate with Azure AD, for example:
+1. A token requests to authenticate with Microsoft Entra ID, for example:
     * An Azure resource such as a virtual machine or App Service application with a managed identity contacts the REST endpoint to get an access token.
     * A user logs into the Azure portal using a username and password.
 
-1. If authentication with Azure AD is successful, the security principal is granted an OAuth token.
+1. If authentication with Microsoft Entra ID is successful, the security principal is granted an OAuth token.
 
 1. A call to the Key Vault REST API through the Key Vault's endpoint (URI).
 
@@ -56,7 +56,7 @@ Key Vault authentication occurs as part of every request operation on Key Vault.
     * The caller is listed in the firewall by IP address, virtual network, or service endpoint.
     * The caller can reach Key Vault over a configured private link connection.    
 
-1. If the firewall allows the call, Key Vault calls Azure AD to validate the security principal’s access token.
+1. If the firewall allows the call, Key Vault calls Microsoft Entra ID to validate the security principal’s access token.
 
 1. Key Vault checks if the security principal has the necessary permission for requested operation. If not, Key Vault returns a forbidden response.
 

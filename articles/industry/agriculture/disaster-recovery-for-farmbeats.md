@@ -3,6 +3,7 @@ title: Disaster recovery for FarmBeats
 description: This article describes how data recovery protects from losing your data.
 author: RiyazPishori
 ms.topic: article
+ms.custom: ignite-2022
 ms.date: 04/13/2020
 ms.author: riyazp
 ---
@@ -12,7 +13,10 @@ ms.author: riyazp
 Data recovery protects you from losing your data in an event like collapse of Azure region. In such an event, you can start failover, and recover the data stored in your FarmBeats deployment.
 
 Data recovery is not a default feature in Azure FarmBeats. You can configure this feature manually by configuring the required Azure resources that are used by FarmBeats to store data in an Azure paired region. Use Active – Passive approach to enable recovery.
-
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 The following sections provide information about how you can configure data recovery in Azure FarmBeats:
 
 - [Enable data redundancy](#enable-data-redundancy)
@@ -24,28 +28,28 @@ The following sections provide information about how you can configure data reco
 FarmBeats stores data in three Azure first party services, which are **Azure storage**, **Cosmos DB** and **Time Series Insights**. Use the following steps to enable data redundancy for these services to a paired Azure region:
 
 1.	**Azure Storage** - Follow this guideline to enable data redundancy for each storage account in your FarmBeats deployment.
-2.	**Azure Cosmos DB** - Follow this guideline to enable data redundancy for Cosmos DB account your FarmBeats deployment.
+2.	**Azure Cosmos DB** - Follow this guideline to enable data redundancy for the Azure Cosmos DB account used for your FarmBeats deployment.
 3.	**Azure Time Series Insights (TSI)** - TSI currently doesn't offer data redundancy. To recover Time Series Insights data, go to your sensor/weather partner and push the data again to FarmBeats deployment.
 
 ## Restore service from online backup
 
-You can initiate failover and recover data stored for which, each of the above-mentioned data stores for your FarmBeats deployment. Once you've recovered the data for Azure storage and Cosmos DB, create another FarmBeats deployment in the Azure paired region and then configure the new deployment to use data from restored data stores (i.e. Azure Storage and Cosmos DB) by using the below steps:
+You can initiate failover and recover data stored for which, each of the above-mentioned data stores for your FarmBeats deployment. Once you've recovered the data for Azure Storage and Azure Cosmos DB, create another FarmBeats deployment in the Azure paired region and then configure the new deployment to use data from restored data stores (i.e. Azure Storage and Azure Cosmos DB) by using the below steps:
 
-1. [Configure Cosmos DB](#configure-cosmos-db)
+1. [Configure Azure Cosmos DB](#configure-azure-cosmos-db)
 2. [Configure Storage Account](#configure-storage-account)
 
 
-### Configure Cosmos DB
+### Configure Azure Cosmos DB
 
-Copy the access key of the restored Cosmos DB and update the new FarmBeats Datahub Key Vault.
+Copy the access key of the restored Azure Cosmos DB and update the new FarmBeats Datahub Key Vault.
 
 
   ![Screenshot that highlights where to get the copy of the access key.](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
 
 > [!NOTE]
-> Copy the URL of restored Cosmos DB and update it in the new FarmBeats Datahub App Service Configuration. You can now delete Cosmos DB account in the new FarmBeats deployment.
+> Copy the URL of restored Azure Cosmos DB and update it in the new FarmBeats Datahub App Service Configuration. You can now delete Azure Cosmos DB account in the new FarmBeats deployment.
 
-  ![Screenshot that shows where to copy the URL of restored Cosmos DB.](./media/disaster-recovery-for-farmbeats/configuration.png)
+  ![Screenshot that shows where to copy the URL of restored Azure Cosmos DB.](./media/disaster-recovery-for-farmbeats/configuration.png)
 
 ### Configure Storage Account
 

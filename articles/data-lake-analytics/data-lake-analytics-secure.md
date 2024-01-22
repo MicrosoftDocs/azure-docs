@@ -2,17 +2,20 @@
 title: Secure Azure Data Lake Analytics for multiple users
 description: Learn how to configure multiple users to run jobs in Azure Data Lake Analytics.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 05/30/2018
+ms.date: 12/20/2023
 ---
-# Configure user access to job information to job information in Azure Data Lake Analytics 
+
+# Configure user access to job information in Azure Data Lake Analytics 
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 In Azure Data Lake Analytics, you can use multiple user accounts or service principals to run jobs. 
 
 In order for those same users to see the detailed job information, the users need to be able to read the contents of the job folders. The job folders are located in `/system/` directory. 
 
-If the necessary permissions are not configured, the user may see an error: `Graph data not available - You don't have permissions to access the graph data.` 
+If the necessary permissions aren't configured, the user could see an error: `Graph data not available - You don't have permissions to access the graph data.` 
 
 ## Configure user access to job information
 
@@ -36,4 +39,5 @@ If you need more granular control, or need to script the permissions, then secur
    - /system/jobservice/jobs/Usql/2018/05/25/11/01/b074bd7a-1448-d879-9d75-f562b101bd3d
 
 ## Next steps
-[Add a new user](data-lake-analytics-manage-use-portal.md#add-a-new-user)
+
+* [Add a new user](data-lake-analytics-manage-use-portal.md#add-a-new-user)

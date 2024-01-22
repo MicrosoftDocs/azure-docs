@@ -12,7 +12,9 @@ ms.custom: mvc, seodec18, mode-other
 # Configure your App Service Environment with forced tunneling
 
 > [!IMPORTANT]
-> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-2/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+
+As of 15 January 2024, you can no longer create new App Service Environment v2 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
 >
 
 The App Service Environment (ASE) is a deployment of Azure App Service in a customer's Azure Virtual Network. Many customers configure their Azure virtual networks to be extensions of their on-premises networks with VPNs or Azure ExpressRoute connections. Forced tunneling is when you redirect internet bound traffic to your VPN or a virtual appliance instead. Virtual appliances are often used to inspect and audit outbound network traffic. 
@@ -68,7 +70,7 @@ After you configure the ASE subnet to ignore all BGP routes, your apps will no l
 
 To route all outbound traffic from your ASE, except that which goes to Azure SQL and Azure Storage, perform the following steps:
 
-1. Create a route table and assign it to your ASE subnet. Find the addresses that match your region here [App Service Environment management addresses][management]. Create routes for those addresses with a next hop of internet. These routes are needed because the App Service Environment inbound management traffic must reply from the same address it was sent to.   
+1. Create a route table and assign it to your ASE subnet. Find the addresses that match your region here [App Service Environment management addresses][management]. Create routes for those addresses or use the AppServiceManagement service tag with a next hop of internet. These routes are needed because the App Service Environment inbound management traffic must reply from the same address it was sent to.   
 
 2. Enable Service Endpoints with Azure SQL and Azure Storage with your ASE subnet.  After this step is completed, you can then configure your VNet with forced tunneling.
 

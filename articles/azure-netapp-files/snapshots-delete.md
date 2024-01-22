@@ -2,15 +2,9 @@
 title: Delete snapshots using Azure NetApp Files | Microsoft Docs
 description: Describes how to delete snapshots by using Azure NetApp Files. 
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.author: anfdocs
@@ -22,6 +16,11 @@ You can delete snapshots that you no longer need to keep.
 
 > [!IMPORTANT]
 > The snapshot deletion operation cannot be undone. A deleted snapshot cannot be recovered. 
+
+## Considerations 
+
+* You can't delete a snapshot if it is part of an active file-restore operation or if it is in the process of being cloned.
+* You can't delete a replication generated snapshot that is used for volume baseline data replication.
 
 ## Steps
 

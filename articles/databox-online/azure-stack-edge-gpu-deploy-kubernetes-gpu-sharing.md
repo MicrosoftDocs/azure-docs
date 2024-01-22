@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Deploy a Kubernetes workload using GPU sharing on your Azure Stack Edge Pro
 
-This article describes how containerized workloads can share the GPUs on your Azure Stack Edge Pro GPU device. In this article, you will run two jobs, one without the GPU context-sharing and one with the context-sharing enabled via the the Multi-Process Service (MPS) on the device. For more information, see the [Multi-Process Service](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf).
+This article describes how containerized workloads can share the GPUs on your Azure Stack Edge Pro GPU device. In this article, you will run two jobs, one without the GPU context-sharing and one with the context-sharing enabled via the Multi-Process Service (MPS) on the device. For more information, see the [Multi-Process Service](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf).
 
 ## Prerequisites
 
@@ -142,7 +142,7 @@ You'll run the first job to deploy an application on your device in the namespac
     kubectl apply -f <Path to the deployment .yaml> -n <Name of the namespace> 
     ```  
 
-    This job creates two containers and runs an n-body simulation on both the containers. The number of simulation iterations are specified in the `.yaml`. For more information, see [N-body simulation](https://physics.princeton.edu//~fpretori/Nbody/intro.htm).
+    This job creates two containers and runs an n-body simulation on both the containers. The number of simulation iterations are specified in the `.yaml`.
     
     Here is an example output:
 

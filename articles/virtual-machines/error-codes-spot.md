@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
-ms.date: 03/25/2020
+ms.date: 02/28/2023
 ms.author: jushiman
 #pmcontact: jagaveer
 ---

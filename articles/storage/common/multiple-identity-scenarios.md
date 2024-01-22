@@ -4,19 +4,21 @@ titleSuffix: Azure Storage
 description: Learn to work with user-assigned managed identities to configure passwordless connections between multiple Azure services.
 services: storage
 author: alexwolfmsft
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 09/23/2022
 ms.author: alexwolf
-ms.subservice: common
-ms.custom: devx-track-csharp
+ms.subservice: storage-common-concepts
+ms.devlang: csharp
+ms.custom: devx-track-csharp, ignite-2022, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
+
 ---
 
 # Configure passwordless connections between multiple Azure apps and services
 
 Applications often require secure connections between multiple Azure services simultaneously. For example, an enterprise Azure App Service instance might connect to several different storage accounts, an Azure SQL database instance, a service bus, and more.
 
-[Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) are the recommended authentication option for secure, passwordless connections between Azure resources. Developers do not have to manually track and manage many different secrets for managed identities, since most of these tasks are handled internally by Azure. This tutorial explores how to manage connections between multiple services using managed identities and the Azure Identity client library.
+[Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) are the recommended authentication option for secure, passwordless connections between Azure resources. Developers do not have to manually track and manage many different secrets for managed identities, since most of these tasks are handled internally by Azure. This tutorial explores how to manage connections between multiple services using managed identities and the Azure Identity client library.
 
 ## Compare the types of managed identities
 
@@ -25,7 +27,7 @@ Azure provides the following types of managed identities:
 * **System-assigned managed identities** are directly tied to a single Azure resource. When you enable a system-assigned managed identity on a service, Azure will create a linked identity and handle administrative tasks for that identity internally. When the Azure resource is deleted, the identity is also deleted.
 * **User-assigned managed identities** are independent identities that are created by an administrator and can be associated with one or more Azure resources. The lifecycle of the identity is independent of those resources.
 
-You can read more about best practices and when to use system-assigned identities versus user-assigned identities in the [identities best practice recommendations](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
+You can read more about best practices and when to use system-assigned identities versus user-assigned identities in the [identities best practice recommendations](../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md).
 
 ## Explore DefaultAzureCredential
 
@@ -79,10 +81,10 @@ You can also enable access to Azure resources for local development by assigning
 
 1) After assigning the **Storage Blob Data Contributor** role to your managed identity,  under **Assign access to**, this time select **User, group or service principal**. Choose **+ Select members** to open the flyout menu again.
 
-2) Search for the *user@domain* account or Azure AD security group you would like to grant access to by email address or name, and then select it. This should be the same account you use to sign-in to your local development tooling with, such as Visual Studio or the Azure CLI.
+2) Search for the *user@domain* account or Microsoft Entra security group you would like to grant access to by email address or name, and then select it. This should be the same account you use to sign-in to your local development tooling with, such as Visual Studio or the Azure CLI.
 
 > [!NOTE]
-> You can also assign these roles to an Azure Active Directory security group if you are working on a team with multiple developers. You can then place any developer inside that group who needs access to develop the app locally.
+> You can also assign these roles to a Microsoft Entra security group if you are working on a team with multiple developers. You can then place any developer inside that group who needs access to develop the app locally.
 
 ### Implement the application code
 
@@ -272,7 +274,7 @@ BlobServiceClient blobServiceClient2 = new BlobServiceClient(
 // Get the second user-assigned managed identity ID to connect to shared databases
 var clientIDdatabases = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Databases");
 
-// Create a Cosmos DB client
+// Create an Azure Cosmos DB client
 CosmosClient client = new CosmosClient(
     accountEndpoint: Environment.GetEnvironmentVariable("COSMOS_ENDPOINT", EnvironmentVariableTarget.Process),
     new DefaultAzureCredential()
@@ -355,7 +357,7 @@ class Demo {
         // Get the second user-assigned managed identity ID to connect to shared databases
         String clientIdDatabase = System.getenv("Managed_Identity_Client_ID_Databases");
 
-        // Create a Cosmos DB client
+        // Create an Azure Cosmos DB client
         CosmosClient cosmosClient = new CosmosClientBuilder()
             .endpoint("https://<cosmos-db-account>.documents.azure.com:443/")
             .credential(new DefaultAzureCredentialBuilder().managedIdentityClientId(clientIdDatabase).build())
@@ -480,13 +482,11 @@ You can also associate a user-assigned managed identity as well as a system-assi
 
 :::image type="content" lightbox="media/user-and-system-assigned-identities-small.png" source="media/user-and-system-assigned-identities.png" alt-text="Diagram showing user-assigned and system-assigned managed identities.":::
 
-These types of scenarios are explored in more depth in the [identities best practice recommendations](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
+These types of scenarios are explored in more depth in the [identities best practice recommendations](../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md).
 
 ## Next steps
 
 In this tutorial, you learned how to migrate an application to passwordless connections. You can read the following resources to explore the concepts discussed in this article in more depth:
 
-* For more information on authorizing access with managed identity, visit [Authorize access to blob data with managed identities for Azure resources](/azure/storage/blobs/authorize-managed-identity).
-* [Authorize with Azure roles](/azure/storage/blobs/authorize-access-azure-active-directory)
+* [Authorize access to blobs using Microsoft Entra ID](../blobs/authorize-access-azure-active-directory.md)
 * To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
-* To learn more about authorizing from a web application, visit [Authorize from a native or web application](/azure/storage/common/storage-auth-aad-app).

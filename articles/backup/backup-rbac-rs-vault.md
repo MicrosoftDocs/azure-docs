@@ -4,9 +4,9 @@ description: Use Azure role-based access control to manage access to backup mana
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 02/28/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Use Azure role-based access control to manage Azure Backup recovery points
@@ -92,7 +92,7 @@ The following table captures the Backup management actions and corresponding Azu
 | Enable backup from file share blade | Backup Contributor | Recovery Services vault |
 | | Storage account Contributor | Storage account Resource |
 | | Contributor | Subscription |
-| On-demand backup of VM | Backup Operator | Recovery Services vault |
+| On-demand backup of file share | Backup Operator | Recovery Services vault |
 | Restore File share | Backup Operator | Recovery Services vault |
 | | Storage Account Backup Contributor | Storage account resources where restore source and Target file shares are present |
 | Restore Individual Files | Backup Operator | Recovery Services vault |

@@ -1,31 +1,28 @@
 ---
 title: 'About Azure VPN Gateway'
 description: Learn what VPN Gateway is, and how to use a VPN gateway to connect to IPsec IKE Site-to-Site, VNet-to-VNet, and Point-to-Site VPN virtual networks.
-services: vpn-gateway
 author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 01/12/2022
+ms.date: 01/04/2024
 ms.author: cherylmc
 ms.custom: contperf-fy21q1, e2e-hybrid
 ---
 
-# What is VPN Gateway?
+# What is Azure VPN Gateway?
 
-VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use VPN Gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. A VPN gateway is a specific type of virtual network gateway. Each virtual network can have only one VPN gateway. However, you can create multiple connections to the same VPN gateway. When you create multiple connections to the same VPN gateway, all VPN tunnels share the available gateway bandwidth.
+Azure VPN Gateway is a service that uses a specific type of virtual network gateway to send encrypted traffic between an Azure virtual network and on-premises locations over the public Internet. You can also use VPN Gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. Multiple connections can be created to the same VPN gateway. When you create multiple connections, all VPN tunnels share the available gateway bandwidth.
 
-## <a name="whatis"></a>What is a virtual network gateway?
+## <a name="vpn"></a>About VPN gateways
 
-A virtual network gateway is composed of two or more VMs that are automatically configured and deployed to a specific subnet you create called the *gateway subnet*. The gateway VMs contain routing tables and run specific gateway services. You can't directly configure the VMs that are part of the virtual network gateway, although the settings that you select when configuring your gateway impact the gateway VMs that are created.
+A VPN gateway is a type of virtual network gateway. A virtual network gateway is composed of two or more Azure-managed VMs that are automatically configured and deployed to a specific subnet you create called the *GatewaySubnet*. The gateway VMs contain routing tables and run specific gateway services.
 
-### <a name="vpn"></a>What is a VPN gateway?
+One of the settings that you specify when creating a virtual network gateway is the "gateway type". The gateway type determines how the virtual network gateway will be used and the actions that the gateway takes. A virtual network can have two virtual network gateways; one VPN gateway and one ExpressRoute gateway. The gateway type 'Vpn' specifies that the type of virtual network gateway created is a **VPN gateway**. This distinguishes it from an ExpressRoute gateway, which uses a different gateway type. For more information, see [Gateway types](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
 
-When you configure a virtual network gateway, you configure a setting that specifies the gateway type. The gateway type determines how the virtual network gateway will be used and the actions that the gateway takes. The gateway type 'Vpn' specifies that the type of virtual network gateway created is a 'VPN gateway'. This distinguishes it from an ExpressRoute gateway, which uses a different gateway type. A virtual network can have two virtual network gateways; one VPN gateway and one ExpressRoute gateway. For more information, see [Gateway types](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
+When you create a VPN gateway, gateway VMs are deployed to the gateway subnet and configured with the settings that you specified. This process can take 45 minutes or more to complete, depending on the gateway SKU that you selected. After you create a VPN gateway, you can configure connections. For example, you can create an IPsec/IKE VPN tunnel connection between that VPN gateway and another VPN gateway (VNet-to-VNet), or create a cross-premises IPsec/IKE VPN tunnel connection between the VPN gateway and an on-premises VPN device (Site-to-Site). You can also create a Point-to-Site VPN connection (VPN over OpenVPN, IKEv2, or SSTP), which lets you connect to your virtual network from a remote location, such as from a conference or from home.
 
-When you create a VPN gateway, gateway VMs are deployed to the gateway subnet and configured with the settings that you specified. This process can take 45 minutes or more to complete, depending on the gateway SKU that you selected. After you create a VPN gateway, you can create an IPsec/IKE VPN tunnel connection between that VPN gateway and another VPN gateway (VNet-to-VNet), or create a cross-premises IPsec/IKE VPN tunnel connection between the VPN gateway and an on-premises VPN device (Site-to-Site). You can also create a Point-to-Site VPN connection (VPN over OpenVPN, IKEv2, or SSTP), which lets you connect to your virtual network from a remote location, such as from a conference or from home.
-
-## <a name="configuring"></a>Configuring a VPN Gateway
+## <a name="configuring"></a>Configuring VPN Gateway
 
 A VPN gateway connection relies on multiple resources that are configured with specific settings. Most of the resources can be configured separately, although some resources must be configured in a certain order.
 
@@ -45,7 +42,7 @@ The following table can help you decide the best connectivity option for your so
 
 ### <a name="settings"></a>Settings
 
-The settings that you chose for each resource are critical to creating a successful connection. For information about individual resources and settings for VPN Gateway, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md). The article contains information to help you understand gateway types, gateway SKUs, VPN types, connection types, gateway subnets, local network gateways, and various other resource settings that you may want to consider.
+The settings that you chose for each resource are critical to creating a successful connection. For information about individual resources and settings for VPN Gateway, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md) and [About gateway SKUs](about-gateway-skus.md). These articles contain information to help you understand gateway types, gateway SKUs, VPN types, connection types, gateway subnets, local network gateways, and various other resource settings that you might want to consider.
 
 ### <a name="tools"></a>Deployment tools
 
@@ -53,14 +50,10 @@ You can start out creating and configuring resources using one configuration too
 
 ## <a name="gwsku"></a>Gateway SKUs
 
-When you create a virtual network gateway, you specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughputs, features, and SLAs.
-
-* For more information about gateway SKUs, including supported features, production and dev-test, and configuration steps, see the [VPN Gateway Settings - Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article.
-* For Legacy SKU information, see [Working with Legacy SKUs](vpn-gateway-about-skus-legacy.md).
-
-### <a name="benchmark"></a>Gateway SKUs by tunnel, connection, and throughput
+When you create a virtual network gateway, you specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughputs, features, and SLAs. For more information about gateway SKUs, including supported features, performance tables, configuration steps, and production vs. dev-test workloads, see [About gateway SKUs](about-gateway-skus.md).
 
 [!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+(*) If you need more than 100 S2S VPN tunnels, use [Virtual WAN](../virtual-wan/virtual-wan-about.md) instead of VPN Gateway.
 
 ## <a name="availability"></a>Availability Zones
 
@@ -85,4 +78,4 @@ Subscribe to the RSS feed and view the latest VPN Gateway feature updates on the
 - [Tutorial: Create and manage a VPN Gateway](tutorial-create-gateway-portal.md).
 - [Learn module: Introduction to Azure VPN Gateway](/training/modules/intro-to-azure-vpn-gateway).
 - [Learn module: Connect your on-premises network to Azure with VPN Gateway](/training/modules/connect-on-premises-network-with-vpn-gateway/).
-- [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+- [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#vpn-gateway-limits).

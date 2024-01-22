@@ -5,8 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 08/20/2022
-ms.custom: devx-track-js
+ms.date: 12/12/2023
+ms.custom:
 ---
 
 # Schema reference guide for trigger and action types in Azure Logic Apps
@@ -79,8 +79,8 @@ Each trigger type has a different interface and inputs that define the trigger's
 
 | Trigger type | Description | 
 |--------------|-------------| 
-| [**ApiConnection**](#apiconnection-trigger) | Checks or *polls* an endpoint by using [Microsoft-managed APIs](../connectors/apis-list.md). | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Creates a callable endpoint for your logic app by calling [Microsoft-managed APIs](../connectors/apis-list.md) to subscribe and unsubscribe. | 
+| [**ApiConnection**](#apiconnection-trigger) | Checks or *polls* an endpoint by using [Microsoft-managed APIs or "connectors"](../connectors/introduction.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Creates a callable endpoint for your logic app workflow by calling [Microsoft-managed APIs or "connectors"](../connectors/introduction.md) to subscribe and unsubscribe. | 
 ||| 
 
 ## Triggers - Detailed reference
@@ -89,7 +89,7 @@ Each trigger type has a different interface and inputs that define the trigger's
 
 ### APIConnection trigger  
 
-This trigger checks or *polls* an endpoint by using [Microsoft-managed APIs](../connectors/apis-list.md) so the parameters for this trigger can differ based on the endpoint. Many sections in this trigger definition are optional. The trigger's behavior depends on whether or not sections are included.
+This trigger checks or *polls* an endpoint by using [Microsoft-managed APIs or "connectors"](../connectors/introduction.md) so the parameters for this trigger can differ based on the endpoint. Many sections in this trigger definition are optional. The trigger's behavior depends on whether or not sections are included.
 
 ```json
 "<APIConnection_trigger_name>": {
@@ -186,7 +186,7 @@ This trigger definition checks for email every day inside the inbox for a work o
 
 ### ApiConnectionWebhook trigger
 
-This trigger sends a subscription request to an endpoint by using a [Microsoft-managed API](../connectors/apis-list.md), provides a *callback URL* to where the endpoint can send a response, and waits for the endpoint to respond. For more information, see [Endpoint subscriptions](#subscribe-unsubscribe).
+This trigger sends a subscription request to an endpoint by using a [Microsoft-managed API](../connectors/introduction.md), provides a *callback URL* to where the endpoint can send a response, and waits for the endpoint to respond. For more information, see [Endpoint subscriptions](#subscribe-unsubscribe).
 
 ```json
 "<ApiConnectionWebhook_trigger_name>": {
@@ -842,8 +842,8 @@ Here are some commonly used action types:
 
 | Action type | Description | 
 |-------------|-------------|  
-| [**ApiConnection**](#apiconnection-action) | Calls an HTTP endpoint by using a [Microsoft-managed API](../connectors/apis-list.md). | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTP Webhook but uses a [Microsoft-managed API](../connectors/apis-list.md). | 
+| [**ApiConnection**](#apiconnection-action) | Calls an HTTP endpoint by using a [Microsoft-managed API](../connectors/introduction.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTP Webhook but uses a [Microsoft-managed API](../connectors/introduction.md). | 
 ||| 
 
 <a name="control-workflow-actions"></a>
@@ -867,7 +867,7 @@ These actions help you control workflow execution and include other actions. Fro
 
 ### APIConnection action
 
-This action sends an HTTP request to a [Microsoft-managed API](../connectors/apis-list.md) and requires information about the API and parameters plus a reference to a valid connection. 
+This action sends an HTTP request to a [Microsoft-managed API](../connectors/introduction.md) and requires information about the API and parameters plus a reference to a valid connection. 
 
 ``` json
 "<action-name>": {
@@ -938,7 +938,7 @@ This definition describes the **Send an email** action for Office 365 Outlook co
 
 ### APIConnectionWebhook action
 
-This action sends a subscription request over HTTP to an endpoint by using a [Microsoft-managed API](../connectors/apis-list.md), provides a *callback URL* to where the endpoint can send a response, 
+This action sends a subscription request over HTTP to an endpoint by using a [Microsoft-managed API](../connectors/introduction.md), provides a *callback URL* to where the endpoint can send a response, 
 and waits for the endpoint to respond. For more information, see [Endpoint subscriptions](#subscribe-unsubscribe).
 
 ```json
@@ -2402,7 +2402,7 @@ You can change the default behavior for triggers and actions with the `operation
 | Operation option | Type | Description | Trigger or action | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | String | Run HTTP-based actions synchronously, rather than asynchronously. <p><p>To set this option, see [Run actions synchronously](#disable-asynchronous-pattern). | Actions: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Response](#response-action) | 
-| `IncludeAuthorizationHeadersInOutputs` | String | For logic apps that [enable Azure Active Directory Open Authentication (Azure AD OAuth)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) to authorize access for inbound calls to a request-based trigger endpoint, include the `Authorization` header from the OAuth access token in the trigger outputs. For more information, see [Include 'Authorization' header in request trigger outputs](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Triggers: <p>[Request](#request-trigger), <br>[HTTP Webhook](#http-webhook-trigger) | 
+| `IncludeAuthorizationHeadersInOutputs` | String | For logic apps that [enable OAuth with Microsoft Entra ID](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) to authorize access for inbound calls to a request-based trigger endpoint, include the `Authorization` header from the OAuth access token in the trigger outputs. For more information, see [Include 'Authorization' header in request trigger outputs](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Triggers: <p>[Request](#request-trigger), <br>[HTTP Webhook](#http-webhook-trigger) | 
 | `Sequential` | String | Run "for each" loop iterations one at a time, rather than all at the same time in parallel. <p>This option works the same way as setting the `runtimeConfiguration.concurrency.repetitions` property to `1`. You can set either property, but not both. <p><p>To set this option, see [Run "for each" loops sequentially](#sequential-for-each).| Action: <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | Run the trigger for each logic app instance sequentially and wait for the previously active run to finish before triggering the next logic app instance. <p><p>This option works the same way as setting the `runtimeConfiguration.concurrency.runs` property to `1`. You can set either property, but not both. <p>To set this option, see [Trigger instances sequentially](#sequential-trigger). | All triggers | 
 | `SuppressWorkflowHeaders` | String | Don't send `x-ms-*` metadata headers in outbound requests. By default, the Azure Logic Apps service includes extra metadata headers with the `x-ms-` prefix in the header name as part of outbound requests. However, some legacy services won't accept requests with extra unknown headers, resulting in failed requests. | Actions: <p>[HTTP](#http-action), <br>[Function](#function-action), <br>APIManagement | 
@@ -2532,11 +2532,11 @@ For more information, see [Runtime configuration settings](#runtime-config-optio
 
 ### Change waiting runs limit
 
-By default, logic app workflow instances all run at the same time (concurrently or in parallel). This behavior means that each trigger instance fires before the previously active workflow instance finishes running. However, the number of concurrently running instances has a [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). When the number of concurrently running workflow instances reaches this limit, any other new instances must wait to run.
+By default, logic app workflow instances all run at the same time (concurrently or in parallel). This behavior means that each trigger instance fires before the previously active workflow instance finishes running. However, a [default limit](logic-apps-limits-and-config.md#looping-debatching-limits) exists on the number of concurrently running workflow instances. When the number of concurrent runs reaches this limit, any other new workflow instances must wait to run. A [default limit](logic-apps-limits-and-config.md#looping-debatching-limits) also exists on the number of waiting workflow instances. When the number of waiting instances reaches this limit, the Azure Logic Apps engine no longer accepts new workflow instances to run. Request and webhook triggers return [**429 - Too many requests** errors](handle-throttling-problems-429-errors.md), and recurring triggers start skipping polling attempts.
 
-The number of waiting runs also has a [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). When the number of waiting runs reaches this limit, the Logic Apps engine no longer accepts new runs. Request and webhook triggers return 429 errors, and recurring triggers start skipping polling attempts.
+You can [change the default limit on trigger concurrency](#change-trigger-concurrency) as well as the default limit on waiting runs. However, this change primarily slows down the trigger to relieve the pressure due to concurrency. For example, if you have polling trigger, and the waiting runs queue is full due to in-progress runs, Azure Logic Apps stops polling. If your workflow uses a request-based trigger, and the waiting runs queue is full, Azure Logic Apps starts returning the 429 error. Some scenarios exist where Azure Logic Apps can't stop the trigger from polling without introducing failures and opts to add such runs to the waiting runs queue anyway without failing the calling runs.
 
-Not only can you [change the default limit on trigger concurrency](#change-trigger-concurrency), but you can also change the default limit on waiting runs. In the underlying trigger definition, add the `runtimeConfiguration.concurrency.maximumWaitingRuns` property, which can have a value that ranges from `1` to `100`.
+In the underlying trigger definition, add the `runtimeConfiguration.concurrency.maximumWaitingRuns` property, which can have a value that ranges from `1` to `100`.
 
 ```json
 "<trigger-name>": {

@@ -2,17 +2,15 @@
 title: Manage server admins in Azure Analysis Services | Microsoft Docs
 description: This article describes how to manage server administrators for an Azure Analysis Services server by using the Azure portal, PowerShell, or REST APIs.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 02/02/2022
 ms.author: owend
 ms.reviewer: minewiskan 
-ms.custom: devx-track-azurepowershell
-
 ---
 # Manage server administrators
 
-Server administrators must be a valid user, service principal, or security group in the Azure Active Directory (Azure AD) for the tenant in which the server resides. You can use **Analysis Services Admins** for your server in Azure portal, Server Properties in SSMS, PowerShell, or REST API to manage server administrators. 
+Server administrators must be a valid user, service principal, or security group in the Microsoft Entra ID for the tenant in which the server resides. You can use **Analysis Services Admins** for your server in Azure portal, Server Properties in SSMS, PowerShell, or REST API to manage server administrators. 
 
 When adding a **security group**, use `obj:groupid@tenantid`. Service principals are not supported in security groups added to the server administrator role.
 
@@ -24,7 +22,7 @@ If server firewall is enabled, server administrator client computer IP addresses
 
 1. In the portal, for your server, click **Analysis Services Admins**.
 2. In **\<servername> - Analysis Services Admins**, click **Add**.
-3. In **Add Server Administrators**, select user accounts from your Azure AD or invite external users by email address.
+3. In **Add Server Administrators**, select user accounts from your Microsoft Entra ID or invite external users by email address.
 
     ![Server Admins in Azure portal](./media/analysis-services-server-admins/aas-manage-users-admins.png)
 
@@ -32,7 +30,7 @@ If server firewall is enabled, server administrator client computer IP addresses
 
 1. Right-click the server > **Properties**.
 2. In **Analysis Server Properties**, click **Security**.
-3. Click **Add**, and then enter the email address for a user or group in your Azure AD.
+3. Click **Add**, and then enter the email address for a user or group in your Microsoft Entra ID.
    
     ![Add server administrators in SSMS](./media/analysis-services-server-admins/aas-manage-users-ssms.png)
 

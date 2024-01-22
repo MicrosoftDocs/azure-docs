@@ -6,10 +6,8 @@ author: hirenshah1
 ms.author: hirshah
 ms.service: cloud-services
 ms.topic: troubleshooting
-ms.date: 06/06/2022 
-ms.custom:
-- devx-track-azurepowershell
-- kr2b-contr-experiment
+ms.date: 02/21/2023
+ms.custom: compute-evergreen devx-track-azurepowershell kr2b-contr-experiment
 ---
 
 # Troubleshoot LocationNotFoundForRoleSize when deploying a Cloud service to Azure

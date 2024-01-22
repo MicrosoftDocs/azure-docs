@@ -1,16 +1,20 @@
 ---
 title: Enable authentication in a web app by using Azure Active Directory B2C building blocks
 description: This article discusses how to use the building blocks of Azure Active Directory B2C to sign in and sign up users in an ASP.NET web app.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 06/11/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a web app developer, I want to enable Azure AD B2C authentication in my ASP.NET web application, so that I can provide secure access to my users and protect their data.
+
 ---
 
 # Enable authentication in your own web app by using Azure AD B2C
@@ -260,15 +264,15 @@ Azure AD B2C identity provider settings are stored in the *appsettings.json* fil
   "Instance": "https://<your-tenant-name>.b2clogin.com",
   "ClientId": "<web-app-application-id>",
   "Domain": "<your-b2c-domain>",
-  "SignedOutCallbackPath": "/signout/<your-sign-up-in-policy>",
+  "SignedOutCallbackPath": "/signout-oidc",
   "SignUpSignInPolicyId": "<your-sign-up-in-policy>"
 }
 ```
 
 The required information is described in the [Configure authentication in a sample web app](configure-authentication-sample-web-app.md) article. Use the following settings:
 
-* **Instance**: Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).
-* **Domain**: Replace `<your-b2c-domain>` with your Azure AD B2C full [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).
+* **Instance**: Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).
+* **Domain**: Replace `<your-b2c-domain>` with your Azure AD B2C full [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).
 * **Client ID**: Replace `<web-app-application-id>` with the Application ID from [Step 2](configure-authentication-sample-web-app.md#step-2-register-a-web-application).
 * **Policy name**: Replace `<your-sign-up-in-policy>` with the user flows you created in [Step 1](configure-authentication-sample-web-app.md#step-1-configure-your-user-flow).
 

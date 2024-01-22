@@ -4,6 +4,8 @@ description: In this article, learn how to troubleshoot issues in System State B
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot System State Backup
@@ -23,7 +25,7 @@ We recommend you perform the following validation steps, before you start troubl
 - Ensure your OS has the latest updates
 - [Ensure unsupported drives and files with unsupported attributes are excluded from backup](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
 - Ensure **System Clock** on the protected system is configured to correct time zone <br>
-- [Ensure that the server has at least .Net Framework version 4.5.2 and higher](https://www.microsoft.com/download/details.aspx?id=30653)<br>
+- [Ensure that the server has at least .NET Framework version 4.6.2 and higher](https://dotnet.microsoft.com/download/dotnet-framework)
 - If you're trying to **reregister your server** to a vault, then: <br>
   - Ensure the agent is uninstalled on the server and it's deleted from the portal <br>
   - Use the same passphrase that was initially used for registering the server <br>

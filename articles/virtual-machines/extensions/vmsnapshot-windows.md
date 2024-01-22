@@ -2,16 +2,15 @@
 title: VM Snapshot Windows extension for Azure Backup 
 description: Take application consistent backup of the virtual machine from Azure Backup using VM snapshot extension
 services: backup, virtual-machines
-documentationcenter: ''
 author: trinadhkotturu
 manager: gwallace
 ms.service: virtual-machines
 ms.subservice: extensions
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.collection: windows
 ms.topic: article
-ms.date: 10/15/2020
+ms.date: 03/09/2023
 ms.author: trinadhk
-
 ---
 # VM Snapshot Windows extension for Azure Backup
 

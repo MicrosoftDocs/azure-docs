@@ -1,7 +1,6 @@
 ---
 title: Intelligent Cache for Apache Spark 3.x in Azure Synapse Analytics 
 description: This article provides an overview of the Intelligent Cache feature in Azure Synapse Analytics.
-services: synapse-analytics
 author: avinandaMS
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -93,7 +92,7 @@ You won't see the benefit of this feature if:
 
 * Your workload requires large amounts of shuffle, then disabling the Intelligent Cache will free up available space to prevent your job from failing due to insufficient storage space.  
 
-* You're using a Spark 2.4 pool, you'll need to upgrade your pool to the latest version of Spark. 
+* You're using a Spark 3.1 pool, you'll need to upgrade your pool to the latest version of Spark. 
 
 
 ## Learn more

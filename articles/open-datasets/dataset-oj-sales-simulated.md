@@ -2,6 +2,7 @@
 title: OJ Sales Simulated 
 description: Learn how to use the OJ Sales Simulated  dataset in Azure Open Datasets.
 ms.service: open-datasets
+ms.custom: devx-track-python
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -14,7 +15,7 @@ This dataset is derived from the Dominick’s OJ dataset and includes extra simu
 
 The data contains weekly sales of orange juice over 121 weeks. There are 3,991 stores included and three brands of orange juice per store so that 11,973 models can be trained.
 
-[View the original dataset description](http://www.cs.unitn.it/~taufer/QMMA/L10-OJ-Data.html) or [download the dataset](http://www.cs.unitn.it/~taufer/Data/oj.csv).
+View the original dataset description or download the dataset.
 
 ## Columns
 
@@ -49,9 +50,6 @@ The data contains weekly sales of orange juice over 121 weeks. There are 3,991 s
 # [azureml-opendatasets](#tab/azureml-opendatasets)
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azureml-opendatasets&registryId=sample-oj-sales-simulated -->
-
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azureml-opendatasets&registryId=sample-oj-sales-simulated)**.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -103,6 +101,7 @@ datastore.upload(src_dir = oj_sales_path,
 We need to define the path of the data to create the [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset). 
 
 
+
 ```python
 from azureml.core.dataset import Dataset
 
@@ -116,12 +115,14 @@ input_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
 We want to register the dataset to our workspace so we can call it as an input into our Pipeline for forecasting. 
 
 
+
 ```python
 registered_ds = input_ds.register(ws, ds_name, create_new_version=True)
 named_ds = registered_ds.as_named_input(ds_name)
 ```
 
 <!-- nbend -->
+
 
 ---
 
@@ -130,9 +131,6 @@ named_ds = registered_ds.as_named_input(ds_name)
 # [azureml-opendatasets](#tab/azureml-opendatasets)
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureDatabricks&package=azureml-opendatasets&registryId=sample-oj-sales-simulated -->
-
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureDatabricks&package=azureml-opendatasets&registryId=sample-oj-sales-simulated)**.
 
 ```
 # This is a package in preview.
@@ -198,6 +196,7 @@ if sys.platform == 'linux':
 ```
 
 <!-- nbend -->
+
 
 ---
 

@@ -4,7 +4,9 @@ description: Learn how to configure Google authentication as an identity provide
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: article
 ms.date: 03/29/2021
-ms.custom: [seodec18, fasttrack-edit]
+ms.custom: seodec18, fasttrack-edit, AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 
 ---
 
@@ -18,7 +20,7 @@ To complete the procedure in this topic, you must have a Google account that has
 
 ## <a name="register"> </a>Register your application with Google
 
-1. Follow the Google documentation at [Google Sign-In for server-side apps](https://developers.google.com/identity/sign-in/web/server-side-flow) to create a client ID and client secret. There's no need to make any code changes. Just use the following information:
+1. Follow the Google documentation at [Sign In with Google for Web - Setup](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid) to create a client ID and client secret. There's no need to make any code changes. Just use the following information:
     - For **Authorized JavaScript Origins**, use `https://<app-name>.azurewebsites.net` with the name of your app in *\<app-name>*.
     - For **Authorized Redirect URI**, use `https://<app-name>.azurewebsites.net/.auth/login/google/callback`.
 1. Copy the App ID and the App secret values.

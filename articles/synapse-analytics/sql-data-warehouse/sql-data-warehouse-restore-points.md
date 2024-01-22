@@ -1,15 +1,15 @@
 ---
-title: User-defined restore points 
+title: User-defined restore points
 description: How to create a restore point for dedicated SQL pool (formerly SQL DW).
 author: WilliamDAssafMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 07/03/2019
 ms.author: wiassaf
-ms.reviewer: wiassaf
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.date: 07/03/2019
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - seo-lt-2019
+  - devx-track-azurepowershell
 ---
 
 # User-defined restore points for a dedicated SQL pool (formerly SQL DW)

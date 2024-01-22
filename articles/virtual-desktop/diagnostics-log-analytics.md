@@ -37,23 +37,21 @@ Connections that don't reach Azure Virtual Desktop won't show up in diagnostics 
 Azure Monitor lets you analyze Azure Virtual Desktop data and review virtual machine (VM) performance counters, all within the same tool. This article will tell you more about how to enable diagnostics for your Azure Virtual Desktop environment.
 
 >[!NOTE]
->To learn how to monitor your VMs in Azure, see [Monitoring Azure virtual machines with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md). Also, make sure to review the [Azure Monitor glossary](./azure-monitor-glossary.md) for a better understanding of your user experience on the session host.
+>To learn how to monitor your VMs in Azure, see [Monitoring Azure virtual machines with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md). Also, make sure to review the [Azure Virtual Desktop Insights glossary](./insights-glossary.md) for a better understanding of your user experience on the session host.
 
-## Before you get started
+## Prerequisites
 
-Before you can use Log Analytics, you'll need to create a workspace. To do that, follow the instructions in one of the following two articles:
+Before you can use Azure Virtual Desktop with Log Analytics, you need:
 
-- If you prefer using Azure portal, see [Create a Log Analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md).
-- If you prefer PowerShell, see [Create a Log Analytics workspace with PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
+- A Log Analytics workspace. For more information, see [Create a Log Analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md) or [Create a Log Analytics workspace with PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md). After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../azure-monitor/agents/agent-windows.md#workspace-id-and-key) to get the following information:
+   - The workspace ID
+   - The primary key of your workspace
 
-After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../azure-monitor/agents/agent-windows.md#workspace-id-and-key) to get the following information:
+   You'll need this information later in the setup process.
 
-- The workspace ID
-- The primary key of your workspace
+- Access to specific URLs from your session hosts for diagnostics to work. For more information, see [Required URLs for Azure Virtual Desktop](safe-url-list.md) where you'll see entries for **Diagnostic output**.
 
-You'll need this information later in the setup process.
-
-Make sure to review permission management for Azure Monitor to enable data access for those who monitor and maintain your Azure Virtual Desktop environment. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/roles-permissions-security.md).
+- Make sure to review permission management for Azure Monitor to enable data access for those who monitor and maintain your Azure Virtual Desktop environment. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/roles-permissions-security.md).
 
 ## Push diagnostics data to your workspace
 
@@ -63,7 +61,7 @@ To set up Log Analytics for a new object:
 
 1. Sign in to the Azure portal and go to **Azure Virtual Desktop**.
 
-2. Navigate to the object (such as a host pool, app group, or workspace) that you want to capture logs and events for.
+2. Navigate to the object (such as a host pool, application group, or workspace) that you want to capture logs and events for.
 
 3. Select **Diagnostic settings** in the menu on the left side of the screen.
 
@@ -71,7 +69,7 @@ To set up Log Analytics for a new object:
 
     The options shown in the Diagnostic Settings page will vary depending on what kind of object you're editing.
 
-    For example, when you're enabling diagnostics for an app group, you'll see options to configure checkpoints, errors, and management. For workspaces, these categories configure a feed to track when users subscribe to the list of apps. To learn more about diagnostic settings see [Create diagnostic setting to collect resource logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md).
+    For example, when you're enabling diagnostics for an application group, you'll see options to configure checkpoints, errors, and management. For workspaces, these categories configure a feed to track when users subscribe to the list of apps. To learn more about diagnostic settings see [Create diagnostic setting to collect resource logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md).
 
      >[!IMPORTANT]
      >Remember to enable diagnostics for each Azure Resource Manager object that you want to monitor. Data will be available for activities after diagnostics has been enabled. It might take a few hours after first set-up.
@@ -101,7 +99,7 @@ You can access Log Analytics workspaces on the Azure portal or Azure Monitor.
 
 ### Access Log Analytics on Azure Monitor
 
-1. Sign into the Azure portal
+1. Sign in to the Azure portal.
 
 2. Search for and select **Monitor**.
 

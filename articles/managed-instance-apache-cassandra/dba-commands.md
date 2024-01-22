@@ -3,6 +3,7 @@ title: How to run DBA commands for Azure Managed Instance for Apache Cassandra
 description: Learn how to run DBA commands 
 author: TheovanKraay
 ms.service: managed-instance-apache-cassandra
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/02/2022
 ms.author: thvankra
@@ -63,7 +64,7 @@ In most cases you might only need the commandOutput or the exitCode. Here is an 
 
 ## How to run an `sstable` command
 
-The `sstable` commands require read/write access to the cassandra data directory and the cassandra database to be stopped. To accommodate this, two extra parameters `--cassandra-stop-start true` and  `--readwrite true` need to be given:
+The `sstable` commands require read/write access to the Cassandra data directory and the Cassandra database to be stopped. To accommodate this, two extra parameters `--cassandra-stop-start true` and  `--readwrite true` need to be given:
 
 ```azurecli-interactive
     az managed-cassandra cluster invoke-command  --resource-group  <test-rg>   --cluster-name <test-cluster> --host <ip> --cassandra-stop-start true --readwrite true  --command-name sstableutil --arguments "system"="peers"
@@ -76,7 +77,24 @@ The `sstable` commands require read/write access to the cassandra data directory
     "exitCode": 0
     }
 ```
-
+## How to run other commands
+The `cassandra-reset-password` command lets a user change their password for the Cassandra user.
+```azurecli-interactive
+    az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name cassandra-reset-password --arguments password="<password>"
+```
+The `cassandra-reset-auth-replication` command lets a user change their schema for the Cassandra user. Separate the datacenter names by space.
+```azurecli-interactive
+    az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name cassandra-reset-auth-replication --arguments password="<datacenters>"
+```
+The `sstable-tree` command lets a user see their sstables.
+```azurecli-interactive
+    az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name sstable-tree
+```
+The `sstable-delete` command lets a user delete their sstables made before a certain time.
+```azurecli-interactive
+    az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name sstable-delete --arguments datetime="<YYYY-MM-DD hh:mm:ss>"
+```
+Datetime argument must be formatted as shown above. You can also add --dry-run="" as an argument to see which files will be deleted.
 ## List of supported `sstable` commands
 
 For more information on each command, see https://cassandra.apache.org/doc/latest/cassandra/tools/sstable/index.html

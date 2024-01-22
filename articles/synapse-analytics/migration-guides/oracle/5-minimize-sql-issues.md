@@ -3,8 +3,6 @@ title: "Minimize SQL issues for Oracle migrations"
 description: Learn how to minimize the risk of SQL issues when migrating from Oracle to Azure Synapse Analytics. 
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom:
-ms.devlang:
 ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
@@ -161,7 +159,7 @@ There are some SQL DML syntax differences between Oracle SQL and Azure Synapse T
 
 - Oracle outer join syntax: although more recent versions of Oracle support ANSI outer join syntax, older Oracle systems use a proprietary syntax for outer joins that uses a plus sign (`+`) within the SQL statement. If you're migrating an older Oracle environment, you might encounter the older syntax. For example:
 
-  ```SQL
+  ```sql
   SELECT
       d.deptno, e.job
   FROM
@@ -172,11 +170,11 @@ There are some SQL DML syntax differences between Oracle SQL and Azure Synapse T
       AND e.job (+) = 'CLERK'
   GROUP BY
       d.deptno, e.job;
-	```
+  ```
 
   The equivalent ANSI standard syntax is:
 
-  ```SQL
+  ```sql
   SELECT
       d.deptno, e.job
   FROM

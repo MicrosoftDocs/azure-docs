@@ -2,16 +2,16 @@
 title: Azure Monitor metrics for Application Gateway
 description: Learn how to use metrics to monitor performance of application gateway
 services: application-gateway
-author: azhar2005
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/19/2021
-ms.author: azhussai
+ms.date: 05/17/2023
+ms.author: greglin
 
 ---
 # Metrics for Application Gateway
 
-Application Gateway publishes data points, called metrics, to [Azure Monitor](../azure-monitor/overview.md) for the performance of your Application Gateway and backend instances. These metrics are numerical values in an ordered set of time-series data that describe some aspect of your application gateway at a particular time. If there are requests flowing through the Application Gateway, it measures and sends its metrics in 60-second intervals. If there are no requests flowing through the Application Gateway or no data for a metric, the metric is not reported. For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).
+Application Gateway publishes data points to [Azure Monitor](../azure-monitor/overview.md) for the performance of your Application Gateway and backend instances. These data points are called metrics, and are numerical values in an ordered set of time-series data. Metrics describe some aspect of your application gateway at a particular time. If there are requests flowing through the Application Gateway, it measures and sends its metrics in 60-second intervals. If there are no requests flowing through the Application Gateway or no data for a metric, the metric isn't reported. For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).
 
 ## Metrics supported by Application Gateway V2 SKU
 
@@ -27,34 +27,41 @@ Application Gateway provides several built‑in timing metrics related to the re
 
 - **Backend connect time**
 
-  Time spent establishing a connection with the backend application. 
+   *Aggregation type:Avg/Max*
 
-  This includes the network latency as well as the time taken by the backend server’s TCP stack to  establish new connections. In case of TLS, it also includes the time spent on handshake. 
+   Time spent establishing a connection with the backend application. 
+
+   This includes the network latency as well as the time taken by the backend server’s TCP stack to  establish new connections. For TLS, it also includes the time spent on handshake. 
 
 - **Backend first byte response time**
 
-  Time interval between start of establishing a connection to backend server and receiving the first byte of the response header. 
+   *Aggregation type:Avg/Max*
 
-  This approximates the sum of *Backend connect time*, time taken by the request to reach the backend from Application Gateway, time taken by backend application to respond (the time the server took to generate content, potentially fetch database queries), and the time taken by first byte
-  of the response to reach the Application Gateway from the backend.
+   Time interval between start of establishing a connection to backend server and receiving the first byte of the response header. 
+
+   This approximates the sum of *Backend connect time*, time taken by the request to reach the backend from Application Gateway, time taken by backend application to respond (the time the server took to generate content, potentially fetch database queries), and the time taken by first byte of the response to reach the Application Gateway from the backend.
 
 - **Backend last byte response time**
 
-  Time interval between start of establishing a connection to backend server and receiving the last byte of the response body. 
+   *Aggregation type:Avg/Max*
 
-  This approximates the sum of *Backend first byte response time* and data transfer time (this number may vary greatly depending on the size of objects requested and the latency of the server network).
+   Time interval between start of establishing a connection to backend server and receiving the last byte of the response body. 
+
+   This approximates the sum of *Backend first byte response time* and data transfer time (this number may vary greatly depending on the size of objects requested and the latency of the server network).
 
 - **Application gateway total time**
 
-  Average time that it takes for a request to be received, processed and its response to be sent. 
+   *Aggregation type:Avg/Max*
 
-  This is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. This includes the processing time taken by Application Gateway, the *Backend last byte response time*, and the time taken by Application Gateway to send all the response.
+   This metric captures either the Average/Max time taken for a request to be received, processed and its response to be sent. 
+
+   This is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. This includes the processing time taken by Application Gateway, the *Backend last byte response time*, and the time taken by Application Gateway to send all the response.
 
 - **Client RTT**
 
-  Average round trip time between clients and Application Gateway.
+   *Aggregation type:Avg/Max*
 
-
+   This metric captures the Average/Max round trip time between clients and Application Gateway.
 
 These metrics can be used to determine whether the observed slowdown is due to the client network, Application Gateway performance, the backend network and backend server TCP stack saturation, backend application performance, or large file size.
 
@@ -62,7 +69,7 @@ For example, If there’s a spike in *Backend first byte response time* trend bu
 
 If you notice a spike in *Backend last byte response time* but the *Backend first byte response time* is stable, then it can be deduced that the spike is because of a larger file being requested.
 
-Similarly, if the *Application gateway total time* has a spike but the *Backend last byte response time* is stable, then it can either be a sign of performance bottleneck at the Application Gateway or a bottleneck in the network between client and Application Gateway. Additionally, if the *client RTT* also has a corresponding spike, then it indicates that that the degradation is because of the network between client and Application Gateway.
+Similarly, if the *Application gateway total time* has a spike but the *Backend last byte response time* is stable, then it can either be a sign of performance bottleneck at the Application Gateway or a bottleneck in the network between client and Application Gateway. Additionally, if the *client RTT* also has a corresponding spike, then it indicates that the degradation is because of the network between client and Application Gateway.
 
 ### Application Gateway metrics
 
@@ -70,15 +77,15 @@ For Application Gateway, the following metrics are available:
 
 - **Bytes received**
 
-   Count of bytes received by the Application Gateway from the clients
+   Count of bytes received by the Application Gateway from the clients. (Reported based on the request "content size" only. It doesn't account for TLS negotiations overhead, TCP/IP packet headers, or retransmissions, and hence doesn't represent the complete bandwidth utilization.)
 
 - **Bytes sent**
 
-   Count of bytes sent by the Application Gateway to the clients
+   Count of bytes sent by the Application Gateway to the clients. (Reported based on the response "content size" only. It doesn't account for TCP/IP packet headers or retransmissions, and hence doesn't represent the complete bandwidth utilization.)
 
 - **Client TLS protocol**
 
-   Count of TLS and non-TLS requests initiated by the client that established connection with the Application Gateway. To view TLS protocol distribution, filter by the dimension TLS Protocol.
+   Count of TLS and non-TLS requests initiated by the client that established connection with the Application Gateway. To view TLS protocol distribution, filter by the dimension TLS Protocol. This metric includes requests served by the gateway, such as redirects.
 
 - **Current capacity units**
 
@@ -94,7 +101,7 @@ For Application Gateway, the following metrics are available:
    
 - **Estimated Billed Capacity units**
 
-  With the v2 SKU, the pricing model is driven by consumption. Capacity units measure consumption-based cost that is charged in addition to the fixed cost. *Estimated Billed Capacity units* indicates the number of capacity units using which the billing is estimated. This is calculated as the greater value between *Current capacity units* (capacity units required to load balance the traffic) and *Fixed billable capacity units* (minimum capacity units kept provisioned).
+  With the v2 SKU, the pricing model is driven by consumption. Capacity units measure consumption-based cost that is charged in addition to the fixed cost. *Estimated Billed Capacity units* indicate the number of capacity units using which the billing is estimated. This is calculated as the greater value between *Current capacity units* (capacity units required to load balance the traffic) and *Fixed billable capacity units* (minimum capacity units kept provisioned).
 
 - **Failed Requests**
 
@@ -115,11 +122,11 @@ For Application Gateway, the following metrics are available:
 
 - **Throughput**
 
-   Number of bytes per second the Application Gateway has served
+   Number of bytes per second the Application Gateway has served. (Reported based on the "content size" only. It doesn't account for TLS negotiations overhead, TCP/IP packet headers, or retransmissions, and hence doesn't represent the complete bandwidth utilization.)
 
 - **Total Requests**
 
-   Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
+   Count of successful requests that Application Gateway has served by the backend pool targets.  Pages served directly by the gateway, such as redirects, are not counted and should be found in the Client TLS protocol metric.  Total requests count metric can be further filtered to show count per each/specific backend pool-http setting combination.
 
 ### Backend metrics
 
@@ -127,7 +134,7 @@ For Application Gateway, the following metrics are available:
 
 - **Backend response status**
 
-  Count of HTTP response status codes returned by the backends. This does not include any response codes generated by the Application Gateway. The response status code distribution can be further categorized to show responses in 2xx, 3xx, 4xx, and 5xx categories.
+  Count of HTTP response status codes returned by the backends. This doesn't include any response codes generated by the Application Gateway. The response status code distribution can be further categorized to show responses in 2xx, 3xx, 4xx, and 5xx categories.
 
 - **Healthy host count**
 
@@ -161,7 +168,7 @@ For Application Gateway, the following metrics are available:
 
 - **Failed Requests**
 
-  Number of requests that failed due to connection issues. This count includes requests that failed due to exceeding the "Request time-out" HTTP setting and requests that failed due to connection issues between Application gateway and backend. This count does not include failures due to no healthy backend being available. 4xx and 5xx responses from the backend are also not considered as part of this metric.
+  Number of requests that failed due to connection issues. This count includes requests that failed due to exceeding the "Request time-out" HTTP setting and requests that failed due to connection issues between Application gateway and backend. This count doesn't include failures due to no healthy backend being available. 4xx and 5xx responses from the backend are also not considered as part of this metric.
 
 - **Response Status**
 
@@ -218,7 +225,7 @@ The following example walks you through creating an alert rule that sends an ema
 
    * In the **Period** selector, select a period from five minutes to six hours.
 
-   * If you select **Email owners, contributors, and readers**, the email can be dynamic based on the users who have access to that resource. Otherwise, you can provide a comma-separated list of users in the **Additional administrator email(s)** box.
+   * If you select **Email owners, contributors, and readers**, the email can be dynamic, based on the users who have access to that resource. Otherwise, you can provide a comma-separated list of users in the **Additional administrator email(s)** box.
 
    ![Add rule page][7]
 
@@ -236,7 +243,7 @@ To understand more about webhooks and how you can use them with alerts, visit [C
 
 ## Next steps
 
-* Visualize counter and event logs by using [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md).
+* Visualize counter and event logs by using [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
 * [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
 * [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
 

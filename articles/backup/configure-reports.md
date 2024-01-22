@@ -2,10 +2,10 @@
 title: Configure Azure Backup reports
 description: Configure and view reports for Azure Backup by using Log Analytics and Azure workbooks
 ms.topic: conceptual
-ms.date: 02/14/2022
-author: v-amallick
+ms.date: 04/18/2023
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Configure Azure Backup reports
 
@@ -19,13 +19,15 @@ Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs]
 
 ## Supported scenarios
 
-- Backup reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS), and System Center Data Protection Manager (DPM). For Azure File share backup, data is displayed for records created on or after June 1, 2020.
+- Backup reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS), System Center Data Protection Manager (DPM), Azure Database for PostgreSQL Server, Azure Blobs and Azure Disks. For Azure File share backup, data is displayed for records created on or after June 1, 2020.
 - For Azure File share backup, data on protected instances is displayed for records created after Feb 1st, 2021 (defaults to zero for older records).
 - For DPM workloads, Backup reports are supported for DPM Version 5.1.363.0 and above and Agent Version 2.0.9127.0 and above.
 - For MABS workloads, Backup reports are supported for MABS Version 13.0.415.0 and above and Agent Version 2.0.9170.0 and above.
 - Backup reports can be viewed across all backup items, vaults, subscriptions, and regions as long as their data is being sent to a Log Analytics workspace that the user has access to. To view reports for a set of vaults, you only need to have reader access to the Log Analytics workspace to which the vaults are sending their data. You don't need to have access to the individual vaults.
 - If you're an [Azure Lighthouse](../lighthouse/index.yml) user with delegated access to your customers' subscriptions, you can use these reports with Azure Lighthouse to view reports across all your tenants.
 - Currently, data can be viewed in Backup Reports across a maximum of 100 Log Analytics Workspaces (across tenants).
+  >[!Note]
+  >Depending on the complexity of queries and the volume of data processed, it's possible that you might see errors when selecting a large number of workspaces that are less than 100, in some cases. We recommend that you limit the number of workspaces being queried at a time.
 - Data for log backup jobs currently isn't displayed in the reports.
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
@@ -44,29 +46,34 @@ By default, the data in a Log Analytics workspace is retained for 30 days. To se
 
 ### 2. Configure diagnostics settings for your vaults
 
-Azure Resource Manager resources, such as Recovery Services vaults, record information about scheduled operations and user-triggered operations as diagnostics data.
+Azure Resource Manager resources, such as Recovery Services vaults, record information about scheduled operations and user-triggered operations as diagnostics data. To configure diagnostics settings for your vaults, follow these steps:
+
+**Choose a vault type**:
+
+# [Recovery Services vaults](#tab/recovery-services-vaults)
 
 In the monitoring section of your Recovery Services vault, select **Diagnostics settings** and specify the target for the Recovery Services vault's diagnostic data. To learn more about using diagnostic events, see [Use diagnostics settings for Recovery Services vaults](./backup-azure-diagnostic-events.md).
 
-![Diagnostics settings pane](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
+:::image type="content" source="./media/backup-azure-configure-backup-reports/recovery-services-vault-diagnostics-settings-inline.png" alt-text="Screenshot of the recovery services vault diagnostics settings." lightbox="./media/backup-azure-configure-backup-reports/recovery-services-vault-diagnostics-settings-expanded.png":::
 
-Azure Backup also provides a built-in Azure Policy definition, which automates the configuration of diagnostics settings for all vaults in a given scope. To learn how to use this policy, see [Configure vault diagnostics settings at scale](./azure-policy-configure-diagnostics.md).
+Azure Backup also provides a built-in Azure Policy definition, which automates the configuration of diagnostics settings for all Recovery Services vaults in a given scope. To learn how to use this policy, see [Configure vault diagnostics settings at scale](./azure-policy-configure-diagnostics.md).
+
+# [Backup vaults](#tab/backup-vaults)
+
+In the monitoring section of your Backup vault, select **Diagnostics settings** and specify the target for the Backup vault's diagnostic data.
+
+:::image type="content" source="./media/backup-azure-configure-backup-reports/backup-vault-diagnostics-settings.png" alt-text="Screenshot shows the backup vault diagnostics settings.":::   
+
+---
 
 > [!NOTE]
 > After you configure diagnostics, it might take up to 24 hours for the initial data push to complete. After data starts flowing into the Log Analytics workspace, you might not see data in the reports immediately because data for the current partial day isn't shown in the reports. For more information, see [Conventions used in Backup reports](#conventions-used-in-backup-reports). We recommend that you start viewing the reports two days after you configure your vaults to send data to Log Analytics.
 
 #### 3. View reports in the Azure portal
 
-After you've configured your vaults to send data to Log Analytics, view your Backup reports by going to any vault's pane and selecting **Backup Reports**.
+After you've configured your vaults to send data to Log Analytics, view your Backup reports by going to the Backup center and selecting **Backup Reports**. Select the relevant workspace(s) on the **Get started** tab.
 
-![Vault dashboard](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
-
-Select this link to open up the Backup report workbook.
-
-> [!NOTE]
->
-> - Currently, the initial load of the report might take up to 1 minute.
-> - The Recovery Services vault is merely an entry point for Backup reports. After the Backup report workbook opens up from a vault's pane, select the appropriate set of Log Analytics workspaces to see data aggregated across all your vaults.
+:::image type="content" source="./media/backup-azure-configure-backup-reports/backup-reports-entry-inline.png" alt-text="Screenshot of backup reports entry." lightbox="./media/backup-azure-configure-backup-reports/backup-reports-entry-expanded.png":::
 
 The report contains various tabs:
 
@@ -74,7 +81,7 @@ The report contains various tabs:
 
 Use this tab to get a high-level overview of your backup estate. You can get a quick glance of the total number of backup items, total cloud storage consumed, the number of protected instances, and the job success rate per workload type. For more detailed information about a specific backup artifact type, go to the respective tabs.
 
-   ![Summary tab](./media/backup-azure-configure-backup-reports/summary.png)
+:::image type="content" source="./media/backup-azure-configure-backup-reports/backup-reports-summary-tab-inline.png" alt-text="Screenshot of backup reports summary tab." lightbox="./media/backup-azure-configure-backup-reports/backup-reports-summary-tab-expanded.png":::
 
 ##### Backup Items
 
@@ -89,13 +96,17 @@ Use this tab to view key billing parameters for your backups. The information sh
    ![Usage tab](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
-> For DPM workloads, users might see a slight difference (of the order of 20 MB per DPM server) between the usage values shown in the reports as compared to the aggregate usage value as shown in the Recovery Services vault **Overview** tab. This difference is accounted for by the fact that every DPM server being registered for backup has an associated 'metadata' datasource which isn't surfaced as an artifact for reporting.
+>- For Azure File, Azure Blob and Azure Disk workloads, storage consumed shows as *zero*. This is because field refers to the storage consumed in the vault, and for Azure File, Azure Blob, and Azure Disk; only the snapshot-based backup solution is currently supported in the reports.
+>- For DPM workloads, users might see a slight difference (of the order of 20 MB per DPM server) between the usage values shown in the reports as compared to the aggregate usage value as shown on the Recovery Services vault **Overview** tab. This difference is accounted for by the fact that every DPM server being registered for backup has an associated 'metadata' datasource, which isn't surfaced as an artifact for reporting.
 
 ##### Jobs
 
 Use this tab to view long-running trends on jobs, such as the number of failed jobs per day and the top causes of job failure. You can view this information at both an aggregate level and at a Backup-item level. Select a particular Backup item in a grid to view detailed information on each job that was triggered on that Backup item in the selected time range.
 
    ![Jobs tab](./media/backup-azure-configure-backup-reports/jobs.png)
+
+> [!NOTE]
+> For Azure Database for PostgreSQL, Azure Blob, and Azure Disk workloads, data transferred field is currently not available in the *Jobs* table.
 
 ##### Policies
 
@@ -113,9 +124,12 @@ Using this view, you can identify those backup items that haven't had a successf
 
 To view inactive resources, navigate to the **Optimize** tab, and select the **Inactive Resources** tile. Select this tile displays a grid that contains details of all the inactive resources that exist in the selected scope. By default, the grid shows items that don't have a recovery point in the last seven days. To find inactive resources for a different time range, you can adjust the **Time Range** filter at the top of the tab.
 
-Once you've identified an inactive resource, you can investigate the issue further by navigating to the backup item dashboard or the Azure resource pane for that resource (wherever applicable). Depending on your scenario, you can choose to either stop backup for the machine (if it doesn't exist anymore) and delete unnecessary backups, which saves costs, or you can fix issues in the machine to ensure that backups are taken reliably.
+Once you've identified an inactive resource, you can investigate the issue further by navigating to the backup item dashboard or the Azure resource pane for that resource (wherever applicable). Depending on your scenario, you can choose to either stop backup for the machine (if it doesn't exist anymore) and delete unnecessary backups, which save costs, or you can fix issues in the machine to ensure that backups are taken reliably.
 
 ![Optimize tab - Inactive Resources](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
+
+> [!NOTE]
+> For Azure Database for PostgreSQL, Azure Blob, and Azure Disk workloads, Inactive Resources view is currently not supported.
 
 ###### Backup Items with a large retention duration
 
@@ -126,6 +140,9 @@ Selecting the **Policy Optimizations** tile followed by the **Retention Optimiza
 For database workloads like SQL and SAP HANA, the retention periods shown in the grid correspond to the retention periods of the full backup points and not the differential backup points. The same applies for the retention filters as well.  
 
 ![Optimize tab - Retention Optimizations](./media/backup-azure-configure-backup-reports/optimize-retention.png)
+
+> [!NOTE]
+> For backup instances that are using the vault-standard tier, the Retention Optimizations grid takes into consideration the retention duration in the vault-standard tier. For backup instances that aren't using the vault tier (for example, items protected by Azure Disk Backup solution), the grid takes into consideration the snapshot tier retention.
 
 ###### Databases configured for daily full backup
 

@@ -3,10 +3,10 @@ title: Match conditions in the Standard rules engine for Azure CDN | Microsoft D
 description: Reference documentation for match conditions in the Standard rules engine for Azure Content Delivery Network (Azure CDN).
 services: cdn
 author: duongau
-
+manager: kumudd
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 02/27/2023
 ms.author: duau
 
 ---
@@ -19,7 +19,7 @@ The first part of a rule is a match condition or set of match conditions. In the
 
 For example, you can use a match condition to:
 
-- Filter requests based on a specific IP address, country, or region.
+- Filter requests based on a specific IP address or country/region.
 - Filter requests by header information.
 - Filter requests from mobile devices or desktop devices.
 
@@ -64,7 +64,7 @@ String | [Standard operator list](#standard-operator-list) | String, Int | No tr
 - Cookie name comparisons are case-insensitive.
 - To specify multiple cookie values, use a single space between each cookie value. 
 - Cookie values can take advantage of wildcard values.
-- If a wildcard value hasn't been specified, only an exact match satisfies this match condition. For example, "Value" will match "Value" but not "Value1". 
+- If a wildcard value hasn't been specified, only an exact match satisfies this match condition. For example, "Value" matches "Value" but not "Value1". 
 
 ### Post argument
 

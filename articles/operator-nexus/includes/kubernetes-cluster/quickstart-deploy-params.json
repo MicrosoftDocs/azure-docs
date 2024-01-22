@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "kubernetesClusterName":{
+      "value": "myNexusK8sCluster"
+    },
+    "adminGroupObjectIds": {
+      "value": [
+        "00000000-0000-0000-0000-000000000000"
+      ]
+    },
+    "cniNetworkId": {
+      "value": "/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
+    },
+    "cloudServicesNetworkId": {
+      "value": "/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/cloudServicesNetworks/<csn-name>"
+    },
+    "extendedLocation": {
+      "value": "/subscriptions/<subscription_id>/resourceGroups/<managed_resource_group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
+    },
+    "location": {
+      "value": "eastus"
+    },
+    "sshPublicKey": {
+      "value": "ssh-rsa AAAAB...."
+    }
+  }
+}

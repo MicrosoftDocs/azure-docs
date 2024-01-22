@@ -38,7 +38,7 @@ Here are main scenarios where Closed Captions are useful:
 
 
 ## Availability
-Closed Captions are supported in Private Preview only in ACS to ACS calls on all platforms. 
+Closed Captions are supported in Private Preview only in Azure Communication Services to Azure Communication Services calls on all platforms. 
 - Android
 - iOS
 - Web
@@ -46,3 +46,4 @@ Closed Captions are supported in Private Preview only in ACS to ACS calls on all
 ## Next steps
 
 - Get started with a [Closed Captions Quickstart](../../quickstarts/voice-video-calling/get-started-with-closed-captions.md?pivots=platform-iosBD)
+- Learn more about using closed captions in [Teams interop](../interop/enable-closed-captions.md) scenarios.

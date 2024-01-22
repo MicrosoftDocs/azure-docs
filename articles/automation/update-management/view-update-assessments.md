@@ -15,7 +15,7 @@ In Update Management, you can view information about your machines, missing upda
 
 To view update assessment from an Azure VM:
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Virtual Machines** and select your virtual machine from the list. From the left menu, under **Operations**, select **Updates**, and select **Go to Update Management**. 
 
 In Update Management, you can view information about your machine, missing updates, update deployments, manage multiple machines, scheduled update deployments and so on.
@@ -24,8 +24,8 @@ In Update Management, you can view information about your machine, missing updat
 
 To view update assessment from an Azure Arc-enabled server:
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Navigate to **Servers - Azure Arc** and select your server from the list. From the left menu, under **Operation**, select **Guest + host updates** and select **Go to Updates using Update management center**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Navigate to **Servers - Azure Arc** and select your server from the list. From the left menu, under **Operation**, select **Guest + host updates** and select **Go to Updates using Update Manager**.
 
 In Update Management, you can view information about your Azure Arc-enabled machine, total updates, assess updates, scheduled update deployments, and so on.
 
@@ -33,7 +33,7 @@ In Update Management, you can view information about your Azure Arc-enabled mach
 
 To view update assessment across all machines, including Azure Arc-enabled servers from your Automation account:
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Automation accounts** and select your Automation account with Update Management enabled from the list. In your Automation account, select **Update management** from the left menu.
 
 The updates for your environment are listed on the **Update management** page. If any updates are identified as missing, a list of them appears in the **Missing updates** tab.

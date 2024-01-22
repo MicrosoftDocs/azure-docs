@@ -1,18 +1,18 @@
 ---
-title: Errors
+title: Azure Monitor Log Analytics API errors
 description: This section contains a non-exhaustive list of known common errors that can occur in the Azure Monitor Log Analytics API, their causes, and possible solutions.
-author: AbbyMSFT
-ms.author: abbyweisberg
 ms.date: 11/29/2021
+author: guywi-ms
+ms.author: guywild
 ms.topic: article
 ---
-# Azure Monitor Log Analytics API Errors
+# Azure Monitor Log Analytics API errors
 
-This section contains a non-exhaustive list of known common errors, their causes, and possible solutions. It also contains successful responses which often indicate an issue with the request (such as a missing header) or otherwise unexpected behavior.
+This section contains a non-exhaustive list of known common errors, their causes, and possible solutions. It also contains successful responses, which often indicate an issue with the request (such as a missing header) or otherwise unexpected behavior.
 
-## Query Syntax Error
+## Query syntax error
 
-Code: 400 Response:
+400 response:
 
 ```
     {
@@ -27,11 +27,11 @@ Code: 400 Response:
     }
 ```
 
-Details: The query string is malformed. Check for extra spaces, punctuation, or spelling errors.
+The query string is malformed. Check for extra spaces, punctuation, or spelling errors.
 
-## No Authentication Provided
+## No authentication provided
 
-Code: 401 Response:
+401 response:
 
 ```
     {
@@ -42,11 +42,11 @@ Code: 401 Response:
     }
 ```
 
-Details: Include a form of authentication with your request, such as the header "Authorization: Bearer \<token\>"
+Include a form of authentication with your request, such as the header `"Authorization: Bearer \<token\>"`.
 
-## Invalid Authentication Token
+## Invalid authentication token
 
-Code: 403 Response:
+403 response:
 
 ```
     {
@@ -57,11 +57,11 @@ Code: 403 Response:
     }
 ```
 
-Details: the token is malformed or otherwise invalid. This can occur if you manually copy-paste the token and add or cut characters to the payload. Verify that the token is exactly as received from Azure AD.
+The token is malformed or otherwise invalid. This error can occur if you manually copy and paste the token and add or cut characters to the payload. Verify that the token is exactly as received from Microsoft Entra ID.
 
-## Invalid Token Audience
+## Invalid token audience
 
-Code: 403 Response:
+403 response:
 
 ```
     {
@@ -72,11 +72,11 @@ Code: 403 Response:
     }
 ```
 
-Details: this occurs if you try to use the client credentials OAuth2 flow to obtain a token for the API and then use that token via the ARM endpoint. Use one of the indicated URLs as the resource in your token request if you want to use the ARM endpoint. Alternatively, you can use the direct API endpoint with a different OAuth2 flow for authorization.
+This error occurs if you try to use the client credentials OAuth2 flow to obtain a token for the API and then use that token via the Azure Resource Manager endpoint. Use one of the indicated URLs as the resource in your token request if you want to use the Azure Resource Manager endpoint. Alternatively, you can use the direct API endpoint with a different OAuth2 flow for authorization.
 
-## Client Credentials to Direct API
+## Client credentials to direct API
 
-Code: 403 Response:
+403 response:
 
 ```
     {
@@ -91,11 +91,11 @@ Code: 403 Response:
     }
 ```
 
-Details: This error can occur if you try to use client credentials via the direct API endpoint. If you are using the direct API endpoint, use a different OAuth2 flow for authorization. If you must use client credentials, use the ARM API endpoint.
+This error can occur if you try to use client credentials via the direct API endpoint. If you're using the direct API endpoint, use a different OAuth2 flow for authorization. If you must use client credentials, use the Azure Resource Manager API endpoint.
 
-## Insufficient Permissions
+## Insufficient permissions
 
-Code: 403 Response:
+403 response:
 
 ```
     {
@@ -106,15 +106,14 @@ Code: 403 Response:
     }
 ```
 
-Details: The token you have presented for authorization belongs to a user who does not have sufficient access to this privilege. Verify your workspace GUID and your token request are correct, and if necessary grant IAM privileges in your workspace to the Azure AD Application you created as Contributor.
+The token you've presented for authorization belongs to a user who doesn't have sufficient access to this privilege. Verify that your workspace GUID and your token request are correct. If necessary, grant IAM privileges in your workspace to the Microsoft Entra application you created as Contributor.
 
 > [!NOTE]
-> When using Azure AD authentication, it may take up to 60 minutes for the Azure Application Insights REST API to recognize new 
-> role-based access control (RBAC) permissions. While permissions are propagating, REST API calls may fail with error code 403. 
+> When you use Microsoft Entra authentication, it might take up to 60 minutes for the Application Insights REST API to recognize new role-based access control permissions. While permissions are propagating, REST API calls might fail with error code 403.
 
-## Bad Authorization Code
+## Bad authorization code
 
-Code: 403 Response:
+403 response:
 
 ```
     {
@@ -127,11 +126,11 @@ Code: 403 Response:
     }
 ```
 
-Details: The authorization code submitted in the token request was either stale or previously used. Reauthorize via the Azure AD authorize endpoint to get a new code.
+The authorization code submitted in the token request was either stale or previously used. Reauthorize via the Microsoft Entra authorize endpoint to get a new code.
 
-## Path Not Found
+## Path not found
 
-Code: 404 Response:
+404 response:
 
 ```
     {
@@ -142,12 +141,16 @@ Code: 404 Response:
     }
 ```
 
-Details: the requested query path does not exist. Verify the URL spelling of the endpoint you are hitting, and that you are using a supported HTTP verb.
+The requested query path doesn't exist. Verify the URL spelling of the endpoint you're hitting and that you're using a supported HTTP verb.
 
 ## Missing JSON or Content-Type
 
-Code: 200 Response: empty body. Details: If you send a POST request that is missing either JSON body or the "Content-Type: application/json" header, we will return an empty 200 response.
+200 response: Empty body
 
-## No Data in Workspace
+If you send a POST request that's missing either JSON body or the `"Content-Type: application/json"` header, we return an empty 200 response.
 
-Code: 204 Response: empty body. Details: If a workspace has no data in it, we return a 204 No Content.
+## No data in workspace
+
+204 response: Empty body
+
+If a workspace has no data in it, we return 204 No Content.

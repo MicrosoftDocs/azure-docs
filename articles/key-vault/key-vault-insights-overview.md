@@ -6,13 +6,15 @@ ms.author: mbaldwin
 services: azure-monitor 
 ms.topic: conceptual
 ms.service: key-vault
-ms.date: 09/10/2020
+ms.date: 01/20/2023
 ms.custom: subject-monitoring
 
 ---
 
 # Monitoring your key vault service with Key Vault insights
+
 Key Vault insights provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency.
+
 This article will help you understand how to onboard and customize the experience of Key Vault insights.
 
 ## Introduction to Key Vault insights
@@ -30,7 +32,7 @@ From Azure Monitor, you can view request, latency, and failure details from mult
 
 To view the utilization and operations of your key vaults across all your subscriptions, perform the following steps:
 
-1. Sign into the [Azure portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **Monitor** from the left-hand pane in the Azure portal, and under the Insights section, select **Key Vaults**.
 
@@ -42,19 +44,19 @@ On the Overview workbook for the selected subscription, the table displays inter
 
 * Subscriptions – only subscriptions that have key vaults are listed.
 
-* Key Vaults – by default only up to 5 key vaults are pre-selected. If you select all or multiple key vaults in the scope selector, up to 200 key vaults will be returned. For example, if you had a total of 573 key vaults across three subscriptions that you've selected, only 200 vaults will be displayed.
+* Key Vaults – by default only up to five key vaults are pre-selected. If you select all or multiple key vaults in the scope selector, up to 200 key vaults will be returned. For example, if you had a total of 573 key vaults across three subscriptions that you've selected, only 200 vaults will be displayed.
 
 * Time Range – by default, displays the last 24 hours of information based on the corresponding selections made.
 
-The counter tile, under the drop-down list, rolls-up the total number of key vaults in the selected subscriptions and reflects how many are selected. There are conditional color-coded heatmaps for the columns of the workbook that report request, failures, and latency metrics. The deepest color has the highest value and a lighter color is based on the lowest values.
+The counter tile, under the drop-down list, rolls-up the total number of key vaults in the selected subscriptions and reflects how many are selected. There are conditional, color-coded heatmaps for the columns of the workbook that report request, failures, and latency metrics. The deepest color has the highest value and a lighter color is based on the lowest values.
 
 ## Failures workbook
 
-Select **Failures** at the top of the page and the Failures tab opens. It shows you the API hits, frequency over time, along with the amount of certain response codes.
+Select **Failures** at the top of the page and the Failures tab opens. It shows you the API hits, frequency over time, and the number of certain response codes.
 
 ![Screenshot of failures workbook](./media/key-vaults-insights-overview/failures.png)
 
-There is conditional color-coding or heatmaps for columns in the workbook that report API hits metrics with a blue value. The deepest color has the highest value and a lighter color is based on the lowest values.
+There's conditional color-coding or heatmaps for columns in the workbook that report API hits metrics with a blue value. The deepest color has the highest value and a lighter color is based on the lowest values.
 
 The workbook displays Successes (2xx status codes), Authentication Errors (401/403 status codes), Throttling (429 status codes), and Other Failures (4xx status codes).
 
@@ -72,7 +74,7 @@ These views are also accessible by selecting the resource name of a key vault fr
 
 ![Screenshot of view from a key vault resource](./media/key-vaults-insights-overview/key-vault-resource-view.png)
 
-On the **Overview** workbook for the key vault, it shows several performance metrics that help you quickly assess:
+On the **Overview** workbook for the key vault, it shows:
 
 - Interactive performance charts showing the most essential details related to key vault transactions, latency, and availability.
 
@@ -90,7 +92,7 @@ The Operations workbook allows users to deep dive into the full details of all t
 
 ![Screenshot that shows the Operations workbook that contains full details of all transactions.](./media/key-vaults-insights-overview/info.png)
 
-Users can also scope out views based on specific transaction types in the upper table, which dynamically updates the lower table, where users can view full operation details in a pop up context pane.
+Users can also scope out views based on specific transaction types in the upper table, which dynamically updates the lower table, where users can view full operation details in a pop-up context pane.
 
 >[!NOTE]
 > Note that users must have the diagnostic settings enabled to view this workbook. To learn more about enabling diagnostic setting, read more about [Azure Key Vault Logging](./general/logging.md).
@@ -127,13 +129,13 @@ You can configure the multi-subscription and key vault Overview or Failures work
 2. On the **Overview** workbook, from the command bar select **Edit**.
 3. Select from the **Subscriptions** drop-down list one or more subscriptions you want yo use as the default. Remember, the workbook supports selecting up to a total of 10 subscriptions.
 4. Select from the **Key Vaults** drop-down list one or more accounts you want it to use as the default. Remember, the workbook supports selecting up to a total of 200 storage accounts.
-5. Select **Save as** from the command bar to save a copy of the workbook with your customizations, and then click **Done editing** to return to reading mode.
+5. Select **Save as** from the command bar to save a copy of the workbook with your customizations, and then select **Done editing** to return to reading mode.
 
 ## Troubleshooting
 
 For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](../azure-monitor/insights/troubleshoot-workbooks.md).
 
-This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Key Vault insights. Use the list below to locate the information relevant to your specific issue.
+This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Key Vault insights. 
 
 ### Resolving performance issues or failures
 
@@ -141,7 +143,7 @@ To help troubleshoot any key vault related issues you identify with Key Vault in
 
 ### Why can I only see 200 key vaults
 
-There is a limit of 200 key vaults that can be selected and viewed. Regardless of the number of selected subscriptions, the number of selected key vaults has a limit of 200.
+There's a limit of 200 key vaults that can be selected and viewed. Regardless of the number of selected subscriptions, the number of selected key vaults has a limit of 200.
 
 ### Why don't I see all my subscriptions in the subscription picker
 
@@ -149,7 +151,7 @@ We only show subscriptions that contain key vaults, chosen from the selected sub
 
 ![Screenshot of subscription filter](./media/key-vaults-insights-overview/Subscriptions.png)
 
-### I want to make changes or add additional visualizations to Key Vault Insights, how do I do so
+### I want to make changes or add more visualizations to Key Vault Insights, how do I do so
 
 To make changes, select the "Edit Mode" to modify the workbook, then you can save your work as a new workbook that is tied to a designated subscription and resource group.
 
@@ -163,7 +165,7 @@ The time range will depend on the dashboard settings.
 
 ### What if I want to see other data or make my own visualizations? How can I make changes to the Key Vault Insights
 
-You can edit the existing workbook, through the use of the edit mode, and then save your work as a new workbook that will have all your new changes.
+You can edit the existing workbook with edit mode, and then save your work as a new workbook that will have all your new changes.
 
 ## Next steps
 

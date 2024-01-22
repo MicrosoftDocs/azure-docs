@@ -2,29 +2,30 @@
 author: DaybreakQuip
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 12/09/2021
+ms.date: 07/20/2023
 ms.author: zehangzheng
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 
 ## Prerequisites
 
-- A working [Communication Services calling web app](../pstn-call.md).
+- A working [Communication Services calling web app](../pstn-call.md)
 
 ## Important considerations
--	The capability to dial 911 and receive a call-back may be a requirement for your application. Verify the E911 requirements with your legal counsel. 
-- Microsoft uses country codes according to ISO 3166-1 alpha-2 standard 
--	If the country ISO code is not provided to the SDK, the IP address will be used to determine the country of the caller. 
--	In case IP address cannot provide reliable geolocation, for example the user is on a Virtual Private Network, it is required to set the ISO Code of the calling country using the API in the Azure Communication Services Calling SDK. 
--	If users are dialing from a US territory (for example Guam, US Virgin Islands, Northern Marianas, or American Samoa), it is required to set the ISO code to the US   
--	Supported ISO codes are US and Puerto Rico only
--	Azure Communication Services direct routing is currently in public preview and not intended for production workloads. So E911 dialing is out of scope for Azure Communication Services direct routing.
--	The 911 service is temporarily free to use for Azure Communication Services customers within reasonable use, however billing for the service will be enabled in 2022.   
--	Calls to 911 are capped at 10 concurrent calls per Azure Resource.   
 
+- The capability to dial an emergency number and receive a callback might be a requirement for your application. Verify the emergency calling requirements with your legal counsel.
+- Microsoft uses country/region codes according to the ISO 3166-1 alpha-2 standard.
+- Supported ISO codes are US (United States), PR (Puerto Rico), CA (Canada), GB (United Kingdom), and DK (Denmark) only.
+- If you don't provide the country/region ISO code to the Azure Communication Services Calling SDK, Microsoft uses the IP address to determine the country or region of the caller.
 
-## Setting up
-Replace the code in **index.html** with following snippet. It will add a new button for testing emergency calls.
+  If the IP address can't provide reliable geolocation (for example, the user is on a virtual private network), you must set the ISO code of the calling country or region by using the API in the Calling SDK.
+- If users are dialing from a US territory (for example, Guam, US Virgin Islands, Northern Mariana Islands, or American Samoa), you must set the ISO code to US.
+- Azure Communication Services direct routing is currently in public preview and not intended for production workloads. Emergency dialing is out of scope for Azure Communication Services direct routing.
+- For information about billing for the emergency service in Azure Communication Services, see the [pricing page](https://azure.microsoft.com/pricing/details/communication-services/).
+
+## Set up a button for testing
+
+Replace the code in *index.html* with the following snippet. It adds a new button for testing emergency calls.
 
 ```html
 <!DOCTYPE html>
@@ -57,16 +58,18 @@ Replace the code in **index.html** with following snippet. It will add a new but
   </body>
 </html>
 ```
-## Emergency test call to phone 
-Specify the ISO code of the country where the caller is located. If the ISO code is not provided, the IP address will be used to determine the callers location.  Microsoft uses the ISO 3166-1 alpha-2 standard for country ISO codes, supported ISO codes are listed on the concept page for emergency calling. 
 
-In your **client.js**, add the following code to retrieve the emergency button you've created in index.html.
+## Specify the country or region
+
+Specify the ISO code of the country or region where the caller is located. For a list of supported ISO codes, see the [conceptual article about emergency calling](/azure/communication-services/concepts/telephony/emergency-calling-concept).
+
+In your *client.js* file, add the following code to retrieve the emergency button that you created in *index.html*:
 
 ```javascript
 const emergencyButton = document.getElementById("emergency-button");
 ```
 
-Replace your init function to add a field during callAgent creation to specify the emergency country:
+Replace your `init` function to add a field during `callAgent` creation to specify the emergency country or region:
 
 ```javascript
 async function init() {
@@ -77,14 +80,11 @@ async function init() {
             });
   //  callPhoneButton.disabled = false;
 }
-
 ```
-> [!WARNING]
-> Note Azure Communication Services supports enhanced emergency calling to 911 from the United States and Puerto Rico only, calling 911 from other countries is not supported.
 
-## Start a call to 933 test call service
+## Add functionality to the call button
 
-Add the following code to your **client.js** to add functionality to your emergency call button. For US only, a temporary Caller Id will be assigned for your emergency call despite of whether alternateCallerId param is provided or not. 
+Add functionality to your emergency call button by adding the following code to your *client.js* file. A temporary caller ID is assigned for your emergency call whether or not you provide the `alternateCallerId` parameter.
 
 ```javascript
 emergencyButton.addEventListener("click", () => {
@@ -96,20 +96,20 @@ emergencyButton.addEventListener("click", () => {
   callPhoneButton.disabled = true;
 });
 ```
+
 > [!IMPORTANT]
-> 933 is a test emergency call service, used to test emergency calling services without interrupting live production emergency calling handling 911 services.  911 must be dialled in actual emergency situations.
+> 933 is a test call service. You can use it to test emergency calling services without interrupting live 911 emergency call services. 911 must be dialed in actual emergency situations.
 
+## Run the app and place a call
 
-## Run the code
-
-Use the `webpack-dev-server` to build and run your app. Run the following command to bundle the application host on a local webserver:
+Use `webpack-dev-server` to build and run your app. Run the following command to bundle the application host on a local web server:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
-Open your browser and navigate to `http://localhost:8080/`. You should see the following:
+Open your browser and go to `http://localhost:8080/`. The completed web app appears.
 
-:::image type="content" source="../media/emergency-calling/emergency-calling-web-app.png" alt-text="Screenshot of the completed JavaScript application.":::
+:::image type="content" source="../media/emergency-calling/emergency-calling-web-app.png" alt-text="Screenshot of a completed JavaScript calling application.":::
 
-You can place a call to 933 by clicking the **933 Test Call** button.
+You can place a call to 933 by selecting the **933 Test Call** button.

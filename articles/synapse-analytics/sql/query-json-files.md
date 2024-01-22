@@ -27,7 +27,7 @@ The easiest way to see to the content of your JSON file is to provide the file U
 |{"date_rep":"2020-07-26","day":26,"month":7,"year":2020,"cases":4,"deaths":0,"geo_id":"AF"}|
 |{"date_rep":"2020-07-27","day":27,"month":7,"year":2020,"cases":8,"deaths":0,"geo_id":"AF"}|
 
-If the file is publicly available, or if your Azure AD identity can access this file, you should see the content of the file using the query like the one shown in the following examples.
+If the file is publicly available, or if your Microsoft Entra identity can access this file, you should see the content of the file using the query like the one shown in the following examples.
 
 ### Read JSON files
 
@@ -52,7 +52,7 @@ from openrowset(
     ) with (doc nvarchar(max)) as rows
 ```
 
-The JSON document in the preceding sample query includes an array of objects. The query returns each object as a separate row in the result set. Make sure that you can access this file. If your file is protected with SAS key or custom identity, you would need to set up [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
+The JSON document in the preceding sample query includes an array of objects. The query returns each object as a separate row in the result set. Make sure that you can access this file. If your file is protected with SAS key or custom identity, you would need to set up [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential). 
 
 ### Data source usage
 

@@ -1,8 +1,8 @@
 ---
 title: "Synapse implementation success methodology: Perform monitoring review"
 description: "Learn how to perform monitoring of your Azure Synapse solution."
-author: peter-myers
-ms.author: v-petermyers
+author: SnehaGunda
+ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual

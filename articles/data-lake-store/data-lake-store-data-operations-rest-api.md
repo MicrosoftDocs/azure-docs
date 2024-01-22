@@ -27,8 +27,10 @@ In this article, you learn how to use WebHDFS REST APIs and Data Lake Storage Ge
 
 * **[cURL](https://curl.haxx.se/)**. This article uses cURL to demonstrate how to make REST API calls against a Data Lake Storage Gen1 account.
 
-## How do I authenticate using Azure Active Directory?
-You can use two approaches to authenticate using Azure Active Directory.
+<a name='how-do-i-authenticate-using-azure-active-directory'></a>
+
+## How do I authenticate using Microsoft Entra ID?
+You can use two approaches to authenticate using Microsoft Entra ID.
 
 * For end-user authentication for your application (interactive), see [End-user authentication with Data Lake Storage Gen1 using .NET SDK](data-lake-store-end-user-authenticate-rest-api.md).
 * For service-to-service authentication for your application (non-interactive), see [Service-to-service authentication with Data Lake Storage Gen1 using .NET SDK](data-lake-store-service-to-service-authenticate-rest-api.md).

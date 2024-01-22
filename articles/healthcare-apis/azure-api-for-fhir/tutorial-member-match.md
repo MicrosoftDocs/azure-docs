@@ -5,13 +5,14 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
-ms.author: mikaelw
-author: mikaelweave
-ms.date: 06/03/2022
+ms.author: kesheth
+author: expekesheth
+ms.date: 09/27/2023
 ---
 
 # $member-match operation for Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 [$member-match](http://hl7.org/fhir/us/davinci-hrex/2020Sep/OperationDefinition-member-match.html) is an operation that is defined as part of the Da Vinci Health Record Exchange (HRex). In this guide, we'll walk through what $member-match is and how to use it.
 

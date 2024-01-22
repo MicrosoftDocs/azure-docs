@@ -120,7 +120,7 @@ Using the illustration above, the following transform is applied in :::no-loc te
 
 ### :::no-loc text="Local pose mode":::
 
-In this mode, the reprojection is split into two distinct steps: In the first step, the remote content is reprojected into local pose space, that is, the space that the local content is rendered with on VR/AR devices by default. After that, the local content is rendered on top of this pre-transformed image using the usual local pose. In the second step, the combined result is forwarded to the OS for the final reprojection. Since this second reprojection incurs only a small delta - in fact the same delta that would be used if ARR was not present - the distortion artifacts on local content are mitigated significantly.
+In this mode, the reprojection is split into two distinct steps: In the first step, the remote content is reprojected into local pose space, that is, the space that the local content is rendered with on VR/AR devices by default. After that, the local content is rendered on top of this pre-transformed image using the usual local pose. In the second step, the combined result is forwarded to the OS for the final reprojection. Since this second reprojection incurs only a small delta - in fact the same delta that would be used if ARR wasn't present - the distortion artifacts on local content are mitigated significantly.
 
 Accordingly, the illustration looks like this:
 
@@ -134,7 +134,7 @@ Conceptually, this mode can be compared to conventional cloud-streaming applicat
 
 ### Performance and quality considerations
 
-The choice of the pose mode has visual quality and performance implications. The additional runtime cost on the client side for doing the extra reprojection in :::no-loc text="Local pose mode"::: on a HoloLens 2 device amounts to about 1 millisecond per frame of GPU time. This extra cost needs to be put into consideration if the client application is already close to the frame budget of 16 milliseconds. On the other hand, there are types of applications with either no local content or local content that is not prone to distortion artifacts. In those cases :::no-loc text="Local pose mode"::: doesn't gain any visual benefit because the quality of the remote content reprojection is unaffected.
+The choice of the pose mode has visual quality and performance implications. The extra runtime cost on the client side for doing the extra reprojection in :::no-loc text="Local pose mode"::: on a HoloLens 2 device amounts to about 1 millisecond per frame of GPU time. This extra cost needs to be put into consideration if the client application is already close to the frame budget of 16 milliseconds. On the other hand, there are types of applications with either no local content or local content that isn't prone to distortion artifacts. In those cases :::no-loc text="Local pose mode"::: doesn't gain any visual benefit because the quality of the remote content reprojection is unaffected.
 
 The general advice would thus be to test the modes on a per use case basis and see whether the gain in visual quality justifies the extra performance overhead. It's also possible to toggle the mode dynamically, for instance enable local mode only when important UIs are shown.
 
@@ -166,12 +166,12 @@ public static void InitRemoteManager(Camera camera)
 }
 ```
 
-If `PoseMode.Remote` is specified, the graphics binding will be initialized with offscreen proxy textures and all rendering will be redirected from the Unity scene's main camera to a proxy camera. This code path is only recommended for usage if runtime pose mode changes to `PoseMode.Remote` are required. If no pose mode is specified, the ARR Unity runtime will select an appropriate default depending on the current platform.
+If `PoseMode.Remote` is specified, the graphics binding will be initialized with offscreen proxy textures, and all rendering will be redirected from the Unity scene's main camera to a proxy camera. This code path is only recommended for usage if runtime pose mode changes to `PoseMode.Remote` are required. If no pose mode is specified, the ARR Unity runtime will select an appropriate default depending on the current platform.
 
 > [!WARNING]
-> The proxy camera redirection might be incompatible with other Unity extensions, which expect scene rendering to take place with the main camera. The proxy camera can be retrieved via the `RemoteManagerUnity.ProxyCamera` property if it needs to be queried or registered elsewhere.
+> The proxy camera redirection might be incompatible with other Unity extensions, which expect scene rendering to take place with the main camera. The proxy camera can be retrieved via the `RemoteManagerUnity.ProxyCamera` property if it needs to be queried or registered elsewhere. Specifically for the `Cinemachine` plugin, refer to this troubleshooting entry: [The Unity `Cinemachine` plugin doesn't work in Remote pose mode](../../resources/troubleshoot.md#the-unity-cinemachine-plugin-doesnt-work-in-remote-pose-mode).
 
-If `PoseMode.Local` or `PoseMode.Passthrough` is used instead, the graphics binding won't be initialized with offscreen proxy textures and a fast path using the Unity scene's main camera to render will be used. If the respective use case requires remote pose mode at runtime, `PoseMode.Remote` should be specified on `RemoteManagerUnity` initialization. Directly rendering with Unity's main camera is more efficient and can prevent issues with other Unity extensions. Therefore, it's recommended to use the non-proxy rendering path.
+If `PoseMode.Local` or `PoseMode.Passthrough` is used instead, the graphics binding won't be initialized with offscreen proxy textures, and a fast path using the Unity scene's main camera to render will be used. If the respective use case requires remote pose mode at runtime, `PoseMode.Remote` should be specified on `RemoteManagerUnity` initialization. Directly rendering with Unity's main camera is more efficient and can prevent issues with other Unity extensions. Therefore, it's recommended to use the non-proxy rendering path.
 
 ## Next steps
 

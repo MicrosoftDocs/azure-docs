@@ -5,6 +5,7 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.topic: how-to
 ms.date: 06/26/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Connect an environment to your lab's virtual network in Azure DevTest Labs

@@ -1,9 +1,9 @@
 ---
-author: rayne-wiselman
+author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: raynew
+ms.author: ankitadutta
 ---
 |Parameter Name| Type | Description| Possible Values|
 |-|-|-|-|

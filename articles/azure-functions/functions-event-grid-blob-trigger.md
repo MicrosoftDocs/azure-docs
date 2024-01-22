@@ -1,17 +1,20 @@
 ---
 title: 'Tutorial: Trigger Azure Functions on blob containers using an event subscription'
-description: In this tutorial, you learn how to use an Event Grid event subscription to create a low-latency, event-driven trigger on an Azure Blob Storage container. 
+description: This tutorial shows how to create a low-latency, event-driven trigger on an Azure Blob Storage container using an Event Grid event subscription. 
 author: cachai2
 ms.topic: tutorial
-ms.date: 3/1/2021
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 8/22/2023
 ms.author: cachai
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want learn how to create an Event Grid-based trigger on a Blob Storage container so that I can get a more rapid response to changes in the container.
 ---
 
 # Tutorial: Trigger Azure Functions on blob containers using an event subscription
 
-Earlier versions of the Blob Storage trigger for Azure Functions polled the container for updates, which often resulted in delayed execution. By using the latest version of the extension, you can reduce latency by instead triggering on an event subscription to the same blob container. The event subscription uses Event Grid to forward changes in the blob container as events for your function to consume. This article demonstrates how to use Visual Studio Code to locally develop a function that runs based events raised when a blob is added to a container. You'll locally verify the function before deploying your project to Azure.
+If you're using earlier versions of the Blob Storage trigger with Azure Functions, you often get delayed executions because the trigger polls the blob container for updates. You can reduce latency by triggering your function using an event subscription to the same container. The event subscription forwards changes in the container as events that your function consumes by using Event Grid. You can implement this capability with Visual Studio Code with latest Azure Functions extension.
+
+This article shows how to create a function that runs based on events raised when a blob is added to a container. You'll use Visual Studio Code for local development and to check that the function works locally before deploying your project to Azure.
 
 > [!div class="checklist"]
 > * Create a general storage v2 account in Azure Storage.
@@ -21,167 +24,196 @@ Earlier versions of the Blob Storage trigger for Azure Functions polled the cont
 > * Debug locally using ngrok by uploading files.
 > * Deploy to Azure and create a filtered event subscription.
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
+
 ## Prerequisites
 
-::: zone pivot="programming-language-csharp"  
+::: zone pivot="programming-language-csharp"
 [!INCLUDE [functions-requirements-visual-studio-code-csharp](../../includes/functions-requirements-visual-studio-code-csharp.md)]
-::: zone-end  
-::: zone pivot="programming-language-javascript"  
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
 [!INCLUDE [functions-requirements-visual-studio-code-node](../../includes/functions-requirements-visual-studio-code-node.md)]
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
+::: zone-end
+::: zone pivot="programming-language-powershell"
 [!INCLUDE [functions-requirements-visual-studio-code-powershell](../../includes/functions-requirements-visual-studio-code-powershell.md)]
-::: zone-end  
-::: zone pivot="programming-language-python"  
+::: zone-end
+::: zone pivot="programming-language-python"
 [!INCLUDE [functions-requirements-visual-studio-code-python](../../includes/functions-requirements-visual-studio-code-python.md)]
-::: zone-end  
-::: zone pivot="programming-language-java"  
+::: zone-end
+::: zone pivot="programming-language-java"
 [!INCLUDE [functions-requirements-visual-studio-code-java](../../includes/functions-requirements-visual-studio-code-java.md)]
 ::: zone-end  
 + The [ngrok](https://ngrok.com/) utility, which provides a way for Azure to call into your locally running function.
 
-+ The [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code. 
++ [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for Visual Studio Code, minimally version 5.x.
 
 > [!NOTE]
-> The Storage Extension for Visual Studio Code is currently in preview.
+> The Azure Storage extension for Visual Studio Code is currently in preview.
 
 ## Create a storage account
 
-Using an event subscription to Azure Storage requires you to use a general-purpose v2 storage account. With the Azure Storage extension installed, you can create this kind of storage account by default from your Visual Studio Code project.
+To use an event subscription with Azure Storage, you'll need a general-purpose v2 storage account. By default, you can create this storage account from your Visual Studio Code project when you have the Azure Storage extension installed.
 
-1. In Visual Studio Code, open the command palette (press F1), type `Azure Storage: Create Storage Account...`, and then provide the following information at the prompts:
+1. In Visual Studio Code, open the command palette (press F1), enter `Azure Storage: Create Storage Account...`. At the prompts, provide the following information:
 
-    |Prompt|Selection|
-    |--|--|
-    |**Enter the name of the new storage account**| Type a globally unique name. Storage account names must be between 3 and 24 characters in length and can contain numbers and lowercase letters only. We'll use the same name for the resource group and the function app name, to make it easier. |
-    |**Select a location for new resources**| For better performance, choose a [region](https://azure.microsoft.com/regions/) near you.|
+   |Prompt|Action|
+   |--|--|
+   |**Enter the name of the new storage account**| Provide a globally unique name. Storage account names must have 3 to 24 characters in length with only lowercase letters and numbers. For easier identification, we'll use the same name for the resource group and the function app name. |
+   |**Select a location for new resources**| For better performance, choose a [region near you](https://azure.microsoft.com/regions/). |
 
-    The extension creates a new general-purpose v2 storage account with the name you provided. The same name is also used for the resource group in which the storage account is created.    
+   The extension creates a general-purpose v2 storage account with the name you provided. The same name is also used for the resource group that contains the storage account.
 
-1. After the storage account is created, open the command palette (press F1) and type `Azure Storage: Create Blob Container...`, and then provide the following information at the prompts:
+1. After you create the storage account, open the command palette (press F1), and enter `Azure Storage: Create Blob Container...`. At the prompts, provide the following information:
 
-    |Prompt|Selection|
-    |--|--|
-    |**Select a resource**| Choose the name of the storage account you created. |
-    |**Enter a name for the new blob container**| Type `samples-workitems`, which is the container name referenced in your code project.| 
+   |Prompt|Action|
+   |--|--|
+   |**Select a resource**| Select the storage account that you created. |
+   |**Enter a name for the new blob container**| Enter `samples-workitems`, which is the container name referenced in your code project. |
 
-Now that you have the blob container, you can create both the function that triggers on this container and the event subscription that delivers events to your function.
+Now that you created the blob container, you can create both the function that triggers on this container and the event subscription that delivers events to your function.
 
 ## Create a Blob triggered function 
 
-When you use Visual Studio Code to create a Blob Storage triggered function, you also create a new project. You'll then need to modify the function to consume an event subscription as the source instead of the regular polled container.
+When you create a Blob Storage-triggered function using Visual Studio Code, you also create a new project. You'll need to edit the function to consume an event subscription as the source, rather than use the regular polled container.
 
-1. Open your function app in Visual Studio Code.
+1. In Visual Studio Code, open your function app.
 
-1. Open the command palette (press F1) and type `Azure Functions: Create Function...` and select **Create new project**.  
+1. Open the command palette (press F1), enter `Azure Functions: Create Function...`, and select **Create new project**.  
 
-1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
+1. For your project workspace, select the directory location. Make sure that you either create a new folder or choose an empty folder for the project workspace.
 
-1. Provide the following information at the prompts:
+   Don't choose a project folder that's already part of a workspace. 
 
-    ::: zone pivot="programming-language-csharp" 
-    |Prompt|Selection|
-    |--|--| 
-    |**Select a language**|Choose `C#`.|
-    |**Select a .NET runtime**| Choose `.NET 6.0 LTS`. Event-driven blob triggers aren't yet supported when running in an isolated process. |
-    |**Select a template for your project's first function**|Choose `Azure Blob Storage trigger`.|
-    |**Provide a function name**|Type `BlobTriggerEventGrid`.|
-    |**Provide a namespace** | Type `My.Functions`. |
-    |**Select setting from "local.settings.json"**|Choose `Create new local app setting`.|
-    |**Select a storage account**|Choose the storage account you created from the list. |
+1. At the prompts, provide the following information:
+
+    ::: zone pivot="programming-language-csharp"
+    |Prompt|Action|
+    |--|--|
+    |**Select a language**| Select `C#`. |
+    |**Select a .NET runtime**| Select `.NET 6.0 Isolated LTS` for running in an [isolated worker process](dotnet-isolated-process-guide.md) or `.NET 6.0 LTS` for [in-process](functions-dotnet-class-library.md). |
+    |**Select a template for your project's first function**| Select `Azure Blob Storage trigger`. |
+    |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
+    |**Provide a namespace** | Enter `My.Functions`. |
+    |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
+    |**Select a storage account**| Select the storage account you created from the list. |
     |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
-    |**Select how you would like to open your project**|Choose `Add to workspace`.|
-    ::: zone-end  
-    ::: zone pivot="programming-language-python"  
-    |Prompt|Selection|
+    |**Select how you would like to open your project**| Select `Open in current window`. |
+    ::: zone-end
+    ::: zone pivot="programming-language-python"
+    |Prompt|Action|
     |--|--| 
-    |**Select a language**|Choose `Python`.|
-    |**Select a Python interpreter to create a virtual environment**| Choose your preferred Python interpreter. If an option isn't shown, type in the full path to your Python binary.|
-    |**Select a template for your project's first function**|Choose `Azure Blob Storage trigger`.|
-    |**Provide a function name**|Type `BlobTriggerEventGrid`.|
-    |**Select setting from "local.settings.json"**|Choose `Create new local app setting`.|
-    |**Select a storage account**|Choose the storage account you created from the list. |
+    |**Select a language**| Select `Python`. |
+    |**Select a Python interpreter to create a virtual environment**| Select your preferred Python interpreter. If an option isn't shown, enter the full path to your Python binary. |
+    |**Select a template for your project's first function**| Select `Azure Blob Storage trigger`. |
+    |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
+    |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
+    |**Select a storage account**| Select the storage account you created from the list. |
     |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
-    |**Select how you would like to open your project**|Choose `Add to workspace`.|    
-    ::: zone-end  
-    ::: zone pivot="programming-language-java"  
-    |Prompt|Selection|
-    |--|--| 
-    |**Select a language**|Choose `Java`.|
-    |**Select a version of Java**| Choose `Java 11` or `Java 8`, the Java version on which your functions run in Azure. Choose a Java version that you've verified locally. |
-    | **Provide a group ID** | Choose `com.function`. |
-    | **Provide an artifact ID** | Choose `BlobTriggerEventGrid`. |
-    | **Provide a version** | Choose `1.0-SNAPSHOT`. |
-    | **Provide a package name** | Choose `com.function`. |
+    |**Select how you would like to open your project**| Select `Open in current window`. |
+    ::: zone-end
+    ::: zone pivot="programming-language-java"
+    |Prompt|Action|
+    |--|--|
+    |**Select a language**| Select `Java`. |
+    |**Select a version of Java**| Select `Java 11` or `Java 8`, the Java version on which your functions run in Azure and that you've locally verified. |
+    | **Provide a group ID** | Select `com.function`. |
+    | **Provide an artifact ID** | Select `BlobTriggerEventGrid`. |
+    | **Provide a version** | Select `1.0-SNAPSHOT`. |
+    | **Provide a package name** | Select `com.function`. |
     | **Provide an app name** | Accept the generated name starting with `BlobTriggerEventGrid`. |
-    | **Select the build tool for Java project** | Choose `Maven`. |
-    |**Select how you would like to open your project**|Choose `Add to workspace`.|    
-    ::: zone-end  
-    ::: zone pivot="programming-language-javascript"  
-    |Prompt|Selection|
-    |--|--| 
-    |**Select a language for your function project**|Choose `JavaScript`.|
-    |**Select a template for your project's first function**|Choose `Azure Blob Storage trigger`.|
-    |**Provide a function name**|Type `BlobTriggerEventGrid`.|
-    |**Select setting from "local.settings.json"**|Choose `Create new local app setting`.|
-    |**Select a storage account**|Choose the storage account you created from the list. |
+    | **Select the build tool for Java project** | Select `Maven`. |
+    |**Select how you would like to open your project**| Select `Open in current window`. |
+    ::: zone-end
+    ::: zone pivot="programming-language-typescript"
+    |Prompt|Action|
+    |--|--|
+    |**Select a language for your function project**| Select `TypeScript`. |
+    |**Select a TypeScript programming model**| Select `Model V4`. |
+    |**Select a template for your project's first function**| Select `Azure Blob Storage trigger`. |
+    |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
+    |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
+    |**Select a storage account**| Select the storage account you created. |
     |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
-    |**Select how you would like to open your project**|Choose `Add to workspace`.|    
-    ::: zone-end  
-    ::: zone pivot="programming-language-powershell"  
-    |Prompt|Selection|
-    |--|--| 
-    |**Select a language for your function project**|Choose `PowerShell`.|
-    |**Select a template for your project's first function**|Choose `Azure Blob Storage trigger`.|
-    |**Provide a function name**|Type `BlobTriggerEventGrid`.|
-    |**Select setting from "local.settings.json"**|Choose `Create new local app setting`.|
-    |**Select a storage account**|Choose the storage account you created from the list. |
+    |**Select how you would like to open your project**| Select `Open in current window`. |
+    ::: zone-end
+    ::: zone pivot="programming-language-javascript"
+    |Prompt|Action|
+    |--|--|
+    |**Select a language for your function project**| Select `JavaScript`. |
+    |**Select a JavaScript programming model**| Select `Model V4`. |
+    |**Select a template for your project's first function**| Select `Azure Blob Storage trigger`. |
+    |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
+    |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
+    |**Select a storage account**| Select the storage account you created. |
     |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
-    |**Select how you would like to open your project**|Choose `Add to workspace`.|    
-    ::: zone-end  
+    |**Select how you would like to open your project**| Select `Open in current window`. |
+    ::: zone-end
+    ::: zone pivot="programming-language-powershell"
+    |Prompt|Action|
+    |--|--|
+    |**Select a language for your function project**| Select `PowerShell`. |
+    |**Select a template for your project's first function**| Select `Azure Blob Storage trigger`. |
+    |**Provide a function name**| Enter `BlobTriggerEventGrid`. |
+    |**Select setting from "local.settings.json"**| Select `Create new local app setting`. |
+    |**Select a storage account**| Select the storage account you created. |
+    |**This is the path within your storage account that the trigger will monitor**| Accept the default value `samples-workitems`. |
+    |**Select how you would like to open your project**| Select `Open in current window`. |
+    ::: zone-end
 
-1. When prompted, choose **Select storage account** and then **Add to workspace**. 
+1. After the prompt appears, select **Select storage account** > **Add to workspace**. 
 
-To simplify things, this tutorial reuses the same storage account with your function app. In production, you might want to use a separate storage account for your function app. For more information, see [Storage considerations for Azure Functions](storage-considerations.md).
+For simplicity, this tutorial reuses the same storage account with your function app. However, in production, you might want to use a separate storage account with your function app. For more information, see [Storage considerations for Azure Functions](storage-considerations.md).
 
-## Upgrade the Blob Storage extension
+## Upgrade the Storage extension
 
-To be able to use the Event Grid-based Blog Storage trigger, your function needs to be using version 5.x of the Blob Storage extension.
+To use the Event Grid-based Blob Storage trigger, your function requires at least version 5.x for the Storage extension.
 
-::: zone pivot="programming-language-csharp"  
-To upgrade your project to use the latest extension, run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window.
+::: zone pivot="programming-language-csharp"
+To upgrade your project with the required extension version, in the Terminal window, run the following command: [dotnet add package](/dotnet/core/tools/dotnet-add-package)
 
-<!---# [In-process](#tab/in-process) -->
+# [Isolated process](#tab/isolated-process)
 ```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 5.0.1 
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs --version 6.1.0
 ```
-<!---# [Isolated process](#tab/isolated-process)
+# [In-process](#tab/in-process)
 ```bash
-dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage --version 5.0.0
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 5.1.3 
 ```
 ---
--->
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java"  
 
-1. Open the host.json project file and inspect the `extensionBundle` element. 
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"  
 
-1. If `extensionBundle.version` isn't at least `3.3.0 `, replace `extensionBundle` with the following version:
+1. Open the host.json project file, and inspect the `extensionBundle` element. 
 
-    ```json
-        "extensionBundle": {
-          "id": "Microsoft.Azure.Functions.ExtensionBundle",
-          "version": "[3.3.0, 4.0.0)"
-      }
-    ```
+1. If `extensionBundle.version` isn't at least `3.3.0 `, replace `extensionBundle` with the latest:
+
+   ```json
+   "extensionBundle": {
+       "id": "Microsoft.Azure.Functions.ExtensionBundle",
+       "version": "[4.0.0, 5.0.0)"
+   }
+   ```
 
 ::: zone-end
 
 ## Update the function to use events
 
 ::: zone pivot="programming-language-csharp"
-Open the BlobTriggerEventGrid.cs file and, add `Source = BlobTriggerSource.EventGrid` to the parameters for the blob trigger attribute, as shown in the following example:
-    
+In the BlobTriggerEventGrid.cs file, add `Source = BlobTriggerSource.EventGrid` to the parameters for the Blob trigger attribute, for example:
+
+# [Isolated process](#tab/isolated-process)
+```csharp
+[Function("BlobTriggerCSharp")]
+public async Task Run([BlobTrigger("samples-workitems/{name}", Source = BlobTriggerSource.EventGrid, Connection = "<NAMED_STORAGE_CONNECTION>")] Stream myBlob, string name, FunctionContext executionContext)
+{
+    var logger = executionContext.GetLogger("BlobTriggerCSharp");
+    logger.LogInformation($"C# Blob trigger function Processed blob\n Name: {name} \n Size: {myBlob.Length} Bytes");
+}
+```
+# [In-process](#tab/in-process)
 ```csharp
 [FunctionName("BlobTriggerCSharp")]
 public static void Run([BlobTrigger("samples-workitems/{name}", Source = BlobTriggerSource.EventGrid, Connection = "<NAMED_STORAGE_CONNECTION>")]Stream myBlob, string name, ILogger log)
@@ -189,9 +221,11 @@ public static void Run([BlobTrigger("samples-workitems/{name}", Source = BlobTri
     log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }
 ```
-::: zone-end  
-::: zone pivot="programming-language-python"   
-After the function is created add `"source": "EventGrid"` to the `myBlob` binding in the function.json configuration file, as shown in the following example:
+---
+
+::: zone-end
+::: zone pivot="programming-language-python"
+After you create the function, in the function.json configuration file, add `"source": "EventGrid"` to the `myBlob` binding, for example:
     
 ```json
 {
@@ -208,53 +242,113 @@ After the function is created add `"source": "EventGrid"` to the `myBlob` bindin
   ]
 }
 ```
-::: zone-end  
-::: zone pivot="programming-language-java"  
-1. Replace contents of the generated `Function.java` file with the following code and rename the file to `BlobTriggerEventGrid.java`:
+::: zone-end
+::: zone pivot="programming-language-java"
+1. In the generated `Function.java` file, replace contents with the following code, and rename the file to `BlobTriggerEventGrid.java`:
 
-    ```java
-    package com.function;
+   ```java
+   package com.function;
 
-    import com.microsoft.azure.functions.annotation.*;
-    import com.microsoft.azure.functions.*;
+   import com.microsoft.azure.functions.annotation.*;
+   import com.microsoft.azure.functions.*;
 
-    /**
-    * Azure Functions with Azure Blob trigger.
-    */
-    public class BlobTriggerEventGrid {
-        /**
-        * This function will be invoked when a new or updated blob is detected at the specified path. The blob contents are provided as input to this function.
-        */
-        @FunctionName("BlobTriggerEventGrid")
-        @StorageAccount("glengatesteventgridblob_STORAGE")
-        public void run(
-            @BlobTrigger(name = "content", path = "samples-workitems/{name}", dataType = "binary", source = "EventGrid" ) byte[] content,
-            @BindingName("name") String name,
-            final ExecutionContext context
-        ) {
-            context.getLogger().info("Java Blob trigger function processed a blob. Name: " + name + "\n  Size: " + content.length + " Bytes");
-        }
+   /**
+   * Azure Functions with Azure Blob trigger.
+   */
+   public class BlobTriggerEventGrid {
+       /**
+       * This function will be invoked when a new or updated blob is detected at the specified path. The blob contents are provided as input to this function.
+       */
+       @FunctionName("BlobTriggerEventGrid")
+       @StorageAccount("glengatesteventgridblob_STORAGE")
+       public void run(
+           @BlobTrigger(name = "content", path = "samples-workitems/{name}", dataType = "binary", source = "EventGrid" ) byte[] content,
+           @BindingName("name") String name,
+           final ExecutionContext context
+       ) {
+             context.getLogger().info("Java Blob trigger function processed a blob. Name: " + name + "\n  Size: " + content.length + " Bytes");
+         }
     }
     ```
-2. Remove the associated unit test file, which is no longer relevant to the new trigger type.
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell"  
-After the function is created, add `"source": "EventGrid"` to the `myBlob` binding in the function.json configuration file, as shown in the following example:
-    
+1. Remove the associated unit test file, which no longer applies to the new trigger type.
+::: zone-end
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+After you create the function, add `source: "EventGrid"` to the `options` object in your TypeScript file, for example:
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobTriggerEventGrid1.ts" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+After you create the function, in the function.json configuration file, add `"source": "EventGrid"` to the `myBlob` binding, for example:
+
 ```json
 {
-  "bindings": [
-    {
-      "name": "myblob",
-      "type": "blobTrigger",
-      "direction": "in",
-      "path": "samples-workitems/{name}",
-      "source": "EventGrid",
-      "connection": "<NAMED_STORAGE_CONNECTION>"
-    }
-  ]
+    "bindings": [
+        {
+            "name": "myblob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "samples-workitems/{name}",
+            "source": "EventGrid",
+            "connection": "<NAMED_STORAGE_CONNECTION>"
+        }
+    ]
 }
-  ```
+```
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-javascript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+After you create the function, add `source: "EventGrid"` to the `options` object in your JavaScript file, for example:
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobTriggerEventGrid1.js" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+After you create the function, in the function.json configuration file, add `"source": "EventGrid"` to the `myBlob` binding, for example:
+
+```json
+{
+    "bindings": [
+        {
+            "name": "myblob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "samples-workitems/{name}",
+            "source": "EventGrid",
+            "connection": "<NAMED_STORAGE_CONNECTION>"
+        }
+    ]
+}
+```
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-powershell"
+After you create the function, in the function.json configuration file, add `"source": "EventGrid"` to the `myBlob` binding, for example:
+
+```json
+{
+    "bindings": [
+        {
+            "name": "myblob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "samples-workitems/{name}",
+            "source": "EventGrid",
+            "connection": "<NAMED_STORAGE_CONNECTION>"
+        }
+    ]
+}
+```
 ::: zone-end  
 
 ## Start local debugging
@@ -265,12 +359,19 @@ Event Grid validates the endpoint URL when you create an event subscription in t
 
 When your function runs locally, the default endpoint used for an event-driven blob storage trigger looks like the following URL:
 
-::: zone pivot="programming-language-csharp"  
+::: zone pivot="programming-language-csharp"
+# [Isolated process](#tab/isolated-process)
+```http
+http://localhost:7071/runtime/webhooks/blobs?functionName=Host.Functions.BlobTriggerEventGrid
+```
+# [In-process](#tab/in-process)
 ```http
 http://localhost:7071/runtime/webhooks/blobs?functionName=BlobTriggerEventGrid
 ```
+---
+
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java"   
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"   
 ```http
 http://localhost:7071/runtime/webhooks/blobs?functionName=Host.Functions.BlobTriggerEventGrid
 ```
@@ -312,14 +413,19 @@ The endpoint used in the event subscription is made up of three different parts,
 | --- | --- |
 | Prefix and server name |  When your function runs locally, the server name with an `https://` prefix comes from the **Forwarding** URL generated by *ngrok*. In the localhost URL, the *ngrok* URL replaces `http://localhost:7071`. When running in Azure, you'll instead use the published function app server, which is usually in the form `https://<FUNCTION_APP_NAME>.azurewebsites.net`. |
 | Path | The path portion of the endpoint URL comes from the localhost URL copied earlier, and looks like `/runtime/webhooks/blobs` for a Blob Storage trigger. The path for an Event Grid trigger would be `/runtime/webhooks/EventGrid` | 
-| Query string | The `functionName=BlobTriggerEventGrid` parameter in the query string sets the name of the function that handles the event. For functions other than C#, the function name is qualified by `Host.Functions.`. If you used a different name for your function, you'll need to change this value. An access key isn't required when running locally. When running in Azure, you'll also need to include a `code=` parameter in the URL, which contains a key that you can get from the portal. |
+| Query string | For all languages including .NET Isolated the `functionName=Host.Functions.BlobTriggerEventGrid` parameter, except for .NET In-process which should be `functionName=BlobTriggerEventGrid` in the query string sets the name of the function that handles the event. If you used a different name for your function, you'll need to change this value. An access key isn't required when running locally. When running in Azure, you'll also need to include a `code=` parameter in the URL, which contains a key that you can get from the portal. |
 
 The following screenshot shows an example of how the final endpoint URL should look when using a Blob Storage trigger named `BlobTriggerEventGrid`:
 
 ::: zone pivot="programming-language-csharp"  
+# [Isolated process](#tab/isolated-process)
+  ![Endpoint selection](./media/functions-event-grid-blob-trigger/functions-event-grid-local-dev-event-subscription-endpoint-selection-qualified.png)
+# [In-process](#tab/in-process)
   ![Endpoint selection](./media/functions-event-grid-blob-trigger/functions-event-grid-local-dev-event-subscription-endpoint-selection.png)
+---
+
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java"   
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"   
   ![Endpoint selection](./media/functions-event-grid-blob-trigger/functions-event-grid-local-dev-event-subscription-endpoint-selection-qualified.png)
 ::: zone-end  
 
@@ -335,10 +441,10 @@ With ngrok already running, start your local project as follows:
     Open a new terminal and run the following `mvn` command to start the debugging session.
 
     ```bash
-    mvn azure-functions:run
+    mvn azure-functions:run -DenableDebug
     ```
     ::: zone-end  
-    ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-csharp"   
+    ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-csharp"   
     Press **F5** to start a debugging session.
     ::: zone-end
 
@@ -363,7 +469,7 @@ An event subscription, powered by Azure Event Grid, raises events based on chang
     | **Name** | *myBlobLocalNgrokEventSub* | Name that identifies the event subscription. You can use the name to quickly find the event subscription. |
     | **Event Schema** | **Event Grid Schema** | Use the default schema for events. |
     | **System Topic Name** | *samples-workitems-blobs* | Name for the topic, which represents the container. The topic is created with the first subscription, and you'll use it for future event subscriptions. |
-    | **Filter to Event Types** | *Blob Created*<br/>*Blob Deleted*| 
+    | **Filter to Event Types** | *Blob Created*| 
     | **Endpoint Type** |  **Web Hook** | The blob storage trigger uses a web hook endpoint. You would use Azure Functions for an Event Grid trigger. |
     | **Endpoint** | Your ngrok-based URL endpoint | Use the ngrok-based URL endpoint that you determined earlier. |
 
@@ -444,11 +550,18 @@ You'll include this value in the query string of new endpoint URL.
 Create a new endpoint URL for the Blob Storage trigger based on the following example: 
 
 ::: zone pivot="programming-language-csharp"  
+# [Isolated process](#tab/isolated-process)
+```http
+https://<FUNCTION_APP_NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=Host.Functions.BlobTriggerEventGrid&code=<BLOB_EXTENSION_KEY>
+```
+# [In-process](#tab/in-process)
 ```http
 https://<FUNCTION_APP_NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=BlobTriggerEventGrid&code=<BLOB_EXTENSION_KEY>
 ```
+---
+
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"  
 ```http
 https://<FUNCTION_APP_NAME>.azurewebsites.net/runtime/webhooks/blobs?functionName=Host.Functions.BlobTriggerEventGrid&code=<BLOB_EXTENSION_KEY>
 ```
@@ -474,7 +587,7 @@ This time, you'll include the filter on the event subscription so that only JPEG
     | ------------ | ---------------- | ----------- |
     | **Name** | *myBlobAzureEventSub* | Name that identifies the event subscription. You can use the name to quickly find the event subscription. |
     | **Event Schema** | **Event Grid Schema** | Use the default schema for events. |
-    | **Filter to Event Types** | *Blob Created*<br/>*Blob Deleted*| 
+    | **Filter to Event Types** | *Blob Created*| 
     | **Endpoint Type** |  **Web Hook** | The blob storage trigger uses a web hook endpoint. You would use Azure Functions for an Event Grid trigger. |
     | **Endpoint** | Your new Azure-based URL endpoint | Use the URL endpoint that you built, which includes the key value. |
 

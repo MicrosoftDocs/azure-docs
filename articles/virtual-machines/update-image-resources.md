@@ -3,11 +3,11 @@ title: List, update, and delete resources
 description: List, update, and delete resources in your Azure Compute Gallery.
 author: sandeepraichura
 ms.author: saraic
-ms.reviewer: cynthn
+ms.reviewer: cynthn, mattmcinnes
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 03/23/2023
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 ---
@@ -220,7 +220,6 @@ Image version:
 - Exclusion from latest
 - End of life date
 
-If you plan on adding replica regions, don't delete the source managed image. The source managed image is needed for replicating the image version to additional regions. 
 
 ### [CLI](#tab/cli2)
 
@@ -394,6 +393,8 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> To publish a community gallery, you'll need to [set up preview features in your Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal). Creating VMs from community gallery images is open to all Azure users. 
 
 To list your own galleries, and output the public names for your community galleries:
 
@@ -475,4 +476,4 @@ az sig image-version list-shared \
 ## Next steps
 
 - Create an [image definition and an image version](image-version.md).
-- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-a-community-gallery-image) or [specialized](vm-specialized-image-version.md#create-a-vm-from-a-community-gallery-image) image in a direct shared gallery.
+- Create a VM from a [generalized](vm-generalized-image-version.md) or [specialized](vm-specialized-image-version.md) image in an Azure Compute Gallery.

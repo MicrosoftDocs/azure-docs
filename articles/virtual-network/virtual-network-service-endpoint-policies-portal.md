@@ -4,13 +4,13 @@ titlesuffix: Azure Virtual Network
 description: In this article, learn how to set up and associated service endpoint policies using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
-author: RDhillon
+author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 02/21/2020
-ms.author: rdhillon
+ms.author: allensu
 ---
 
 # Create, change, or delete service endpoint policy using the Azure portal
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure 
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a service endpoint policy
 

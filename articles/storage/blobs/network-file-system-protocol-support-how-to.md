@@ -1,14 +1,14 @@
 ---
-title: Mount Azure Blob Storage by using the NFS 3.0 protocol | Microsoft Docs
+title: Mount Azure Blob Storage by using the NFS 3.0 protocol
+titleSuffix: Azure Storage
 description: Learn how to mount a container in Blob Storage from an Azure virtual machine (VM) or a client that runs on-premises by using the NFS 3.0 protocol.
 author: normesta
-ms.subservice: blobs
-ms.service: storage
+
+ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 08/18/2023
 ms.author: normesta
-ms.reviewer: yzheng
-ms.custom: devx-track-azurepowershell
+
 ---
 
 # Mount Blob Storage by using the Network File System (NFS) 3.0 protocol
@@ -24,9 +24,12 @@ Your storage account must be contained within a virtual network. A virtual netwo
 
 ## Step 2: Configure network security
 
-Currently, the only way to secure the data in your storage account is by using a virtual network and other network security settings. Any other tools used to secure data, including account key authorization, Azure Active Directory (Azure AD) security, and access control lists (ACLs), are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them.
+Currently, the only way to secure the data in your storage account is by using a virtual network and other network security settings. See [Network security recommendations for Blob storage](security-recommendations.md#networking).
 
-To secure the data in your account, see these recommendations: [Network security recommendations for Blob storage](security-recommendations.md#networking).
+Any other tools used to secure data, including account key authorization, Microsoft Entra security, and access control lists (ACLs) can't be used to authorize an NFS 3.0 request. In fact, if you add an entry for a named user or group to the ACL of a blob or directory, that file becomes inaccessible on the client for non-root users. You would have to remove that entry to restore access to non-root users on the client.
+
+> [!IMPORTANT]
+> The NFS 3.0 protocol uses ports 111 and 2048. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through those ports. If you have granted access to specific VNets, make sure that any network security groups associated with those VNets don't contain security rules that block incoming communication through those ports.
 
 ## Step 3: Create and configure a storage account
 
@@ -68,9 +71,35 @@ The following image shows the squash options as they appear in the Azure portal.
 > [!div class="mx-imgBorder"]
 > ![Screenshot that shows squash options in the Azure portal.](./media/network-file-system-protocol-how-to/squash-options-azure-portal.png)
 
-## Step 5: Mount the container
+## Step 5: Install the AZNFS Mount Helper package
 
-Create a directory on your Linux system, and then mount the container in the storage account.
+The AZNFS Mount Helper package helps Linux NFS clients to reliably access Azure Blob NFS shares even when the IP address of the endpoint changes. This package runs a background job called `aznfswatchdog` which monitors changes to the endpoint IP address for the mounted shares. If a change is detected, this background job updates the Destination Network Address Translation (DNAT) rules. To learn more, see [AZNFS Mount Helper](https://github.com/Azure/AZNFS-mount/).
+
+1. Determine whether the AZNFS Mount Helper package is installed on your client.
+
+   ```
+   systemctl is-active --quiet aznfswatchdog && echo -e "\nAZNFS mounthelper is installed! \n"
+   ```
+
+   If the package is installed, then the message `AZNFS mounthelper is installed!` appears.
+
+2. If the package is not yet installed, then use the following command to install it. 
+
+   ```
+   wget -O - -q https://github.com/Azure/AZNFS-mount/releases/latest/download/aznfs_install.sh | bash
+   ```
+
+   > [!NOTE]
+   > AZNFS is supported on following Linux distributions:
+   > - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS)
+   > - Centos7, Centos8
+   > - RedHat7, RedHat8, RedHat9
+   > - Rocky8, Rocky9
+   > - SUSE (SLES 15)
+
+## Step 6: Mount the container
+
+Create a directory on your Linux system and then mount the container in the storage account.
 
 1. On your Linux system, create a directory:
 
@@ -85,10 +114,10 @@ Create a directory on your Linux system, and then mount the container in the sto
      1. Create an entry in the /etc/fstab file by adding the following line:
   
         ```
-        <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata    nfs defaults,sec=sys,vers=3,nolock,proto=tcp,nofail    0 0
+        <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata    aznfs defaults,sec=sys,vers=3,nolock,proto=tcp,nofail,_netdev    0 0
         ```
 
-     1. Run the following command to immediately process the /etc/fstab entries and attempt to mount the preceding path:
+     2. Run the following command to immediately process the /etc/fstab entries and attempt to mount the preceding path:
  
         ```
         mount /nfsdata
@@ -97,8 +126,16 @@ Create a directory on your Linux system, and then mount the container in the sto
    - For a temporary mount that doesn't persist across reboots, run the following command: 
     
      ```
-     mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata
-     ```
+     mount -t aznfs -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata
+     ``` 
+     
+     > [!TIP]
+     > By using the `-t aznfs` mount option, you ensure that the NFS client always remains correctly connected to the storage endpoint even if the endpoint IP changes after the mount. NFS shares that are mounted by using the `-t nfs` mount option might become disconnected from the storage endpoint if the IP address of that endpoint changes.
+
+     Other optional parameters are available with the mount command. Those parameters primarily affect client-side behavior. `sys` is the only value that is currently supported by the `sec` option.
+
+     > [!IMPORTANT]
+     > The `nconnect` mount option works only on clients that have **Azure nconnect support**. Using the `nconnect` option on an unsupported client will decrease throughput and cause commands to timeout or work incorrectly. To learn more about how to ensure that your client has Azure nconnect support, see [Increase the number of TCP connections](network-file-system-protocol-support-performance.md#increase-the-number-of-tcp-connections). 
 
 ## Resolve common errors
 
@@ -112,6 +149,12 @@ Create a directory on your Linux system, and then mount the container in the sto
 |`NFS3ERR_IO/EIO ("Input/output error"`) |This error can appear when a client attempts to read, write, or set attributes on blobs that are stored in the archive access tier. |
 |`OperationNotSupportedOnSymLink` error| This error can be returned during a write operation via a Blob Storage or Azure Data Lake Storage Gen2 API. Using these APIs to write or delete symbolic links that are created by using NFS 3.0 is not allowed. Make sure to use the NFS 3.0 endpoint to work with symbolic links. |
 |`mount: /nfsdata: bad option;`| Install the NFS helper program by using `sudo apt install nfs-common`.|
+|`Connection Timed Out`| Make sure that client allows outgoing communication through ports 111 and 2048. The NFS 3.0 protocol uses these ports. Makes sure to mount the storage account by using the Blob service endpoint and not the Data Lake Storage endpoint. |
+
+## Limitations and troubleshooting for AZNFS Mount Helper
+
+See [AZNFS Mount Helper](https://github.com/Azure/AZNFS-mount/).
+
 
 ## See also
 

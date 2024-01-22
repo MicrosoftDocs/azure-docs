@@ -4,14 +4,16 @@ description: Learn about the Query Store feature in Azure Database for MySQL to 
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 
 # Monitor Azure Database for MySQL performance with Query Store
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 **Applies to:** Azure Database for MySQL 5.7, 8.0
 
@@ -125,10 +127,10 @@ This view returns all the data in Query Store. There is one row for each distinc
 | `execution_count` | bigint(20)| NO| The number of times the query got executed for this timestamp ID / during the configured interval period|
 | `warning_count` | bigint(20)| NO| Number of warnings this query generated during the internal|
 | `error_count` | bigint(20)| NO| Number of errors this query generated during the interval|
-| `sum_timer_wait` | double| YES| Total execution time of this query during the interval|
-| `avg_timer_wait` | double| YES| Average execution time for this query during the interval|
-| `min_timer_wait` | double| YES| Minimum execution time for this query|
-| `max_timer_wait` | double| YES| Maximum execution time|
+| `sum_timer_wait` | double| YES| Total execution time of this query during the interval in milliseconds|
+| `avg_timer_wait` | double| YES| Average execution time for this query during the interval in milliseconds|
+| `min_timer_wait` | double| YES| Minimum execution time for this query in milliseconds|
+| `max_timer_wait` | double| YES| Maximum execution time in milliseconds|
 | `sum_lock_time` | bigint(20)| NO| Total amount of time spent for all the locks for this query execution during this time window|
 | `sum_rows_affected` | bigint(20)| NO| Number of rows affected|
 | `sum_rows_sent` | bigint(20)| NO| Number of rows sent to client|

@@ -49,9 +49,13 @@ In this section, you'll map the Private Link service to a private endpoint creat
     | Weight | 1000 (default). Assign weights to your different origin when you want to distribute traffic.|
     | Region | Select the region that is the same or closest to your origin. |
     | Target sub resource | The type of sub-resource for the resource selected above that your private endpoint will be able to access. You can select *blob* or *web*. |
-    | Request message | Customize message or choose the default. |
+    | Request message | Custom message to see while approving the Private Endpoint. |
 
 1. Then select **Add** to save your configuration. Then select **Update** to save the origin group settings.
+
+> [!NOTE]
+> Ensure the **origin path** in your routing rule is configured correctly with the storage container file path so file requests can be acquired.
+> 
 
 ## Approve private endpoint connection from the storage account
 

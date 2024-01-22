@@ -2,14 +2,11 @@
 title: Use Azure API Management with Microservices Deployed in Azure Kubernetes Service | Microsoft Docs
 description: This article describes the options of deploying API Management with AKS
 services: api-management
-documentationcenter: ''
 author: dlepow
 manager: cfowler
-editor: ''
  
 ms.service: api-management
 ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/14/2019
 ms.author: danlep
@@ -37,7 +34,7 @@ To solve this problem, Kubernetes introduced the concept of [Services](https://k
 
 When we are ready to publish our microservices as APIs through API Management, we need to think about how to map our Services in Kubernetes to APIs in API Management. There are no set rules. It depends on how you designed and partitioned your business capabilities or domains into microservices at the beginning. For instance, if the pods behind a Service are responsible for all operations on a given resource (e.g., Customer), the Service may be mapped to one API. If operations on a resource are partitioned into multiple microservices (e.g., GetOrder, PlaceOrder), then multiple Services may be logically aggregated into one single API in API management (See Fig. 1). 
 
-The mappings can also evolve. Since API Management creates a façade in front of the microservices, it allows us to refactor and right-size our microservices over time. 
+The mappings can also evolve. Since API Management creates a facade in front of the microservices, it allows us to refactor and right-size our microservices over time. 
 
 ![Map services to APIs](./media/api-management-aks/service-api-mapping.png)
 

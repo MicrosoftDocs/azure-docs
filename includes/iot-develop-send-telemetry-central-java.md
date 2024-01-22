@@ -9,12 +9,12 @@
  ms.custom: include file
 ---
 
-[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/pnp-device-sample)
+[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples/pnp-device-sample)
 
 In this quickstart, you learn a basic Azure IoT application development workflow. First you create an Azure IoT Central application for hosting devices. Then you use an Azure IoT device SDK sample to create a temperature controller, connect it securely to IoT Central, and send telemetry. The temperature controller sample application runs on your local machine and generates simulated sensor data to send to IoT Central.
 
 > [!TIP]
-> As a developer, you have some options for how to connect devices to Azure IoT. To learn about connection options, see [Overview: Connection options for Azure IoT device developers](../articles/iot-develop/concepts-overview-connection-options.md).
+> As a developer, you have some options for how to connect devices to Azure IoT. To learn about connection options, see [What is Azure IoT device and application development?](../articles/iot-develop/about-iot-develop.md#selecting-a-service).
 
 ## Prerequisites
 
@@ -177,7 +177,7 @@ In this section, you configure your local environment, install the Azure IoT Jav
 1. Run the following code sample from the SDK. The sample creates a temperature controller with thermostat sensors.
 
     ```console
-    mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
+    java -jar -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
     ```
 
     After your device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. After some initial provisioning details, the console start to output the telemetry for the temperature controller.

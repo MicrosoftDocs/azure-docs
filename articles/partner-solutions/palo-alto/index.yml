@@ -1,0 +1,39 @@
+### YamlMime:Landing
+
+title: Cloud NGFW by Palo Alto Networks
+summary: Cloud NGFW by Palo Alto Networks is part of Marketplace and combines the benefits of Cloud NGFW by Palo Alto Networks and the Azure cloud. 
+
+metadata:
+  title: Cloud NGFW by Palo Alto Networks 
+  description: Cloud NGFW by Palo Alto Networks integrates with Azure to combine the benefits of Palo Alto and the Azure cloud.
+  ms.topic: landing-page
+  ms.date: 01/18/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About Palo Alto Networks
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Cloud NGFW by Palo Alto Networks?
+            url: palo-alto-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your Cloud NGFW by Palo Alto Networks resource
+            url: palo-alto-manage.md
+
+  # Card
+  - title: Create a Cloud NGFW by Palo Alto Networks resource
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with Cloud NGFW by Palo Alto Networks
+            url: palo-alto-create.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting Cloud NGFW by Palo Alto Networks
+            url: palo-alto-troubleshoot.md
+
+  

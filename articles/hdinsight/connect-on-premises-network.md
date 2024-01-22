@@ -4,7 +4,7 @@ description: Learn how to create an HDInsight cluster in an Azure Virtual Networ
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/11/2022
+ms.date: 05/23/2023
 ---
 
 # Connect HDInsight to your on-premises network

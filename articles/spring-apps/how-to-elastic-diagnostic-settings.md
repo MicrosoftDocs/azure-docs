@@ -1,7 +1,7 @@
 ---
 title: Analyze logs with Elastic Cloud from Azure Spring Apps
 description: Learn how to analyze diagnostics logs in Azure Spring Apps using Elastic
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 12/07/2021
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to use the diagnostics functionality of Azure Spring Apps to analyze logs with Elastic (ELK).
 
@@ -35,7 +35,7 @@ To configure diagnostics settings, use the following steps:
 1. Enter a name for the setting, choose **Send to partner solution**, then select **Elastic** and an Elastic deployment where you want to send the logs.
 1. Select **Save**.
 
-:::image type="content" source="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png" alt-text="Screenshot of Azure portal showing 'Diagnostic setting' page." lightbox="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png":::
+:::image type="content" source="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png" alt-text="Screenshot of Azure portal showing the Diagnostic setting page with selected options and the name specified for the setting." lightbox="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png":::
 
 > [!NOTE]
 > There might be a gap of up to 15 minutes between when logs are emitted and when they appear in your Elastic deployment.

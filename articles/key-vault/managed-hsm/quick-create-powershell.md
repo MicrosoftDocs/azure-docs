@@ -3,7 +3,7 @@ title: Create and retrieve attributes of a managed key in Azure Key Vault – Az
 description: Quickstart showing how to set and retrieve a managed key from Azure Key Vault using Azure PowerShell
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/26/2021
+ms.date: 05/05/2023
 ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: keys
@@ -15,27 +15,23 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 In this quickstart, you will create and activate an Azure Key Vault Managed HSM (Hardware Security Module) with PowerShell. Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS  140-2 Level 3** validated HSMs. For more information on Managed HSM, you may review the [Overview](overview.md). 
 
-If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 1.0.0 or later. Type `$PSVersionTable.PSVersion` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 1.0.0 or later. Type `$PSVersionTable.PSVersion` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ```azurepowershell-interactive
-Login-AzAccount
+Connect-AzAccount
 ```
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Use the Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group named *myResourceGroup* in the *westus3* location. 
+A resource group is a logical container into which Azure resources are deployed and managed. Use the Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group named *myResourceGroup* in the *eastus2* location. 
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name "myResourceGroup" -Location "westus3"
+New-AzResourceGroup -Name "myResourceGroup" -Location "eastus2"
 ```
 
 ## Get your principal ID
 
-To create a Managed HSM, you will need your Azure Active Directory principal ID.  To obtain your ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, passing your email address to the "UserPrincipalName" parameter:
+To create a Managed HSM, you will need your Microsoft Entra principal ID.  To obtain your ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, passing your email address to the "UserPrincipalName" parameter:
 
 ```azurepowershell-interactive
 Get-AzADUser -UserPrincipalName "<your@email.address>"
@@ -59,11 +55,11 @@ Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvau
   > Each Managed HSM must have a unique name. Replace \<your-unique-managed-hsm-name\> with the name of your Managed HSM in the following examples.
 
 - Resource group name: **myResourceGroup**.
-- The location: **West US 3**.
-- Your principal ID: Pass the Azure Active Directory principal ID that you obtained in the last section to the "Administrator" parameter. 
+- The location: **East US 2**.
+- Your principal ID: Pass the Microsoft Entra principal ID that you obtained in the last section to the "Administrator" parameter. 
 
 ```azurepowershell-interactive
-New-AzKeyVaultManagedHsm -Name "<your-unique-managed-hsm-name>" -ResourceGroupName "myResourceGroup" -Location "westus3" -Administrator "<your-principal-ID>"
+New-AzKeyVaultManagedHsm -Name "your-unique-managed-hsm-name" -ResourceGroupName "myResourceGroup" -Location "eastus2" -Administrator "your-principal-ID" -SoftDeleteRetentionInDays "# of days to retain the managed hsm after softdelete"
 ```
 > [!NOTE]
 > The create command can take a few minutes. Once it returns successfully you are ready to activate your HSM.

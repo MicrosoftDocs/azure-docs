@@ -2,12 +2,12 @@
 title: Create a VM with a static public IP address - Azure CLI
 titlesuffix: Azure Virtual Network
 description: Create a virtual machine (VM) with a static public IP address using the Azure CLI. Static public IP addresses are addresses that never change.
-author: asudbring
-ms.author: allensu
+ms.date: 08/24/2023
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 10/01/2021
 ms.custom: template-how-to, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -18,7 +18,7 @@ In this article, you'll create a VM with a static public IP address. A public IP
 
 Public IP addresses have a [nominal charge](https://azure.microsoft.com/pricing/details/ip-addresses). There's a [limit](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of public IP addresses that you can use per subscription.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.

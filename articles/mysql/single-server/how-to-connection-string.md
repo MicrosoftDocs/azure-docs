@@ -3,17 +3,19 @@ title: Connection strings - Azure Database for MySQL
 description: This document lists the currently supported connection strings for applications to connect with Azure Database for MySQL, including ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python, and Ruby.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-j
+ms.custom: devx-track-python, devx-track-j, devx-track-js
 ms.date: 06/20/2022
-
 ---
 
 # How to connect applications to Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 This topic lists the connection string types that are supported by Azure Database for MySQL, together with templates and examples. You might have different parameters and settings in your connection string.
 
 - To obtain the certificate, see [How to configure SSL](./how-to-configure-ssl.md).
@@ -68,4 +70,4 @@ In the [Azure portal](https://portal.azure.com), go to your Azure Database for M
 The string provides details such as the driver, server, and other database connection parameters. Modify these examples to use your own parameters, such as database name, password, and so on. You can then use this string to connect to the server from your code and applications.
 
 ## Next steps
-- For more information about connection libraries, see [Concepts - Connection libraries](./concepts-connection-libraries.md).
+- For more information about connection libraries, see [Concepts - Connection libraries](../flexible-server/concepts-connection-libraries.md).

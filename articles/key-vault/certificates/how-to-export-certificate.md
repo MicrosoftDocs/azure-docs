@@ -2,15 +2,15 @@
 title: Export certificates from Azure Key Vault
 description: Learn how to export certificates from Azure Key Vault.
 services: key-vault
-author: sebansal
+author: msmbaldwin
 tags: azure-key-vault
 
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
-ms.custom: mvc, devx-track-azurepowershell
-ms.date: 08/11/2020
-ms.author: sebansal
+ms.custom: mvc
+ms.date: 11/14/2022
+ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
 ---
 # Export certificates from Azure Key Vault
@@ -63,7 +63,7 @@ View [examples and parameter definitions](/cli/azure/keyvault/certificate#az-key
 Downloading as certificate means getting the public portion. If you want both the private key and public metadata then you can download it as secret.
 
 ```azurecli
-az keyvault secret download -–file {nameofcert.pfx}
+az keyvault secret download --file {nameofcert.pfx}
                             [--encoding {ascii, base64, hex, utf-16be, utf-16le, utf-8}]
                             [--id]
                             [--name]
@@ -79,26 +79,23 @@ For more information, see [parameter definitions](/cli/azure/keyvault/secret#az-
 Use this command in Azure PowerShell to get the certificate named **TestCert01** from the key vault named **ContosoKV01**. To download the certificate as a PFX file, run following command. These commands access **SecretId**, and then save the content as a PFX file.
 
 ```azurepowershell
-$cert = Get-AzKeyVaultCertificate -VaultName "ContosoKV01" -Name "TestCert01"
-$secret = Get-AzKeyVaultSecret -VaultName "ContosoKV01" -Name $cert.Name
-$secretValueText = '';
-$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
-try {
-    $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
-} finally {
-    [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
-}
-$secretByte = [Convert]::FromBase64String($secretValueText)
-$x509Cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2
-$x509Cert.Import($secretByte, "", "Exportable,PersistKeySet")
-$type = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx
-$pfxFileByte = $x509Cert.Export($type, $password)
+$vaultName = '<YourVault>'
+$certificateName = '<YourCert>'
+$password = '<YourPwd>'
+
+$pfxSecret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $certificateName -AsPlainText
+$secretByte = [Convert]::FromBase64String($pfxSecret)
+$x509Cert = New-Object Security.Cryptography.X509Certificates.X509Certificate2
+$x509Cert.Import($secretByte, $null, [Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
+$pfxFileByte = $x509Cert.Export([Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $password)
 
 # Write to a file
-[System.IO.File]::WriteAllBytes("KeyVault.pfx", $pfxFileByte)
+[IO.File]::WriteAllBytes("KeyVaultcertificate.pfx", $pfxFileByte)
+
 ```
 
 This command exports the entire chain of certificates with private key (i.e. the same as it was imported). The certificate is password protected.
+
 For more information on the **Get-AzKeyVaultCertificate** command and parameters, see [Get-AzKeyVaultCertificate - Example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate).
 
 # [Portal](#tab/azure-portal)

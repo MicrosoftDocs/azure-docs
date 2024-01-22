@@ -8,8 +8,9 @@ ms.author: vlvinogr
 ## Append other APIs
 
 You can compose an API of APIs exposed by different services, including:
-* The OpenAPI Specification
+* An OpenAPI specification
 * A SOAP API
+* A GraphQL API
 * A Web App hosted in Azure App Service
 * Azure Function App
 * Azure Logic Apps

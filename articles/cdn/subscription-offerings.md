@@ -6,7 +6,7 @@ author: duongau
 manager: kumud
 ms.service: azure-cdn
 ms.topic: troubleshooting
-ms.date: 06/10/2021
+ms.date: 02/27/2023
 ms.author: duau
 ---
 
@@ -19,10 +19,8 @@ Some Azure CDNs offerings are only available to certain subscription types. Band
 Azure CDN from Microsoft is the only CDN offering that is available to trial subscriptions. Bandwidth throttling is applied for this type of subscription.  
  
 ## Pay-as-you-go
-
-Azure CDN from Akamai is unavailable for Pay-as-you-go subscriptions.   
  
-Bandwidth for Azure CDN from Microsoft and Verizon will be throttled until the subscription is determined to be in good standing and has a sufficient payment history. The process for determining the subscription status and having throttling removed happens automatically after the first payment has been received.   
+Bandwidth for Azure CDN from Microsoft and Edgio gets throttled until the subscription is determined to be in good standing and has a sufficient payment history. The process for determining the subscription status and having throttling removed happens automatically after the first payment has been received.   
  
 If you have made a payment and throttling hasn't been removed, you can request to do so by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
   

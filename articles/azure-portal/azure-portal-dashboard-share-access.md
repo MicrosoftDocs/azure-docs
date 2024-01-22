@@ -1,68 +1,78 @@
 ---
 title: Share Azure portal dashboards by using Azure role-based access control
 description: This article explains how to share a dashboard in the Azure portal by using Azure role-based access control.
-ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 09/05/2023
 ---
 
 # Share Azure dashboards by using Azure role-based access control
 
-After configuring a dashboard, you can publish it and share it with other users in your organization. You allow others to view your dashboard by using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Assign a single user or a group of users to a role. That role defines whether those users can view or modify the published dashboard.
+After configuring a dashboard, you can publish it and share it with other users in your organization. When you share a dashboard, you can control who can view it by using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) to assign roles to either a single user or a group of users. You can select a role that allows them only to view the published dashboard, or a role that also allows them to modify it.
 
-All published dashboards are implemented as Azure resources. They exist as manageable items within your subscription and are contained in a resource group. From an access control perspective, dashboards are no different from other resources, such as a virtual machine or a storage account. Individual tiles on the dashboard enforce their own access control requirements based on the resources they display. You can share a dashboard broadly while protecting the data on individual tiles.
+> [!TIP]
+> Within a dashboard, individual tiles enforce their own access control requirements based on the resources they display. You can share any dashboard broadly, even if some data on specific tiles might not be visible to all users.
 
-## Understanding access control for dashboards
+## Understand access control for dashboards
 
-With Azure role-based access control (Azure RBAC), you can assign users to roles at three different levels of scope:
+From an access control perspective, dashboards are no different from other resources, such as virtual machines or storage accounts. Published dashboards are implemented as Azure resources. Each dashboard exists as a manageable item contained in a resource group within your subscription.
 
-* subscription
-* resource group
-* resource
+Azure RBAC lets you assign users to roles at four different [levels of scope](/azure/role-based-access-control/scope-overview): management group, subscription, resource group, or resource. Azure RBAC permissions are inherited from higher levels down to the individual resource. In many cases, you may already have users assigned to roles for the subscription that will give them access to the published dashboard.
 
-The permissions you assign inherit from the subscription down to the resource. The published dashboard is a resource. You may already have users assigned to roles for the subscription that apply for the published dashboard.
+For example,  users who have the [Owner](/azure/role-based-access-control/built-in-roles#owner) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role for a subscription can list, view, create, modify, or delete dashboards within the subscription. Users with a [custom role](/azure/role-based-access-control/custom-roles) that includes the `Microsoft.Portal/Dashboards/Write` permission can also perform these tasks.
 
-Let's say you have an Azure subscription and various members of your team have been assigned the roles of *owner*, *contributor*, or *reader* for the subscription. Users who are owners or contributors can list, view, create, modify, or delete dashboards within the subscription. Users who are readers can list and view dashboards, but can't modify or delete them. Users with reader access can make local edits to a published dashboard, such as when troubleshooting an issue, but they can't publish those changes back to the server. They can make a private copy of the dashboard for themselves.
+Users with the [Reader](/azure/role-based-access-control/built-in-roles#reader) role for the subscription (or a custom role with `Microsoft.Portal/Dashboards/Read` permission) can list and view dashboards within that subscription, but they can't modify or delete them. These users are able to make private copies of dashboards for themselves. They can also make local edits to a published dashboard for their own use, such as when troubleshooting an issue, but they can't publish those changes back to the server.
 
-You could assign permissions to the resource group that contains several dashboards or to an individual dashboard. For example, you may decide that a group of users should have limited permissions across the subscription but greater access to a particular dashboard. Assign those users to a role for that dashboard.
+To expand access to a dashboard beyond the access granted at the subscription level, you can assign permissions to an individual dashboard, or to a resource group that contains several dashboards. For example, if a user should have limited permissions across the subscription, but needs to be able to edit one particular dashboard, you can assign a different role with more permissions (such as [Contributor](/azure/role-based-access-control/built-in-roles#contributor)) for that dashboard only.
+
+> [!IMPORTANT]
+> Since individual tiles within a dashboard can enforce their own access control requirements, some users with access to view or edit a dashboard may not be able to see information within specific tiles. To ensure that users can see data within a certain tile, be sure that they have the appropriate permissions for the underlying resources accessed by that tile.
 
 ## Publish a dashboard
 
-Let's suppose you configure a dashboard that you want to share with a group of users in your subscription. The following steps show how to share a dashboard to a group called Storage Managers. You can name your group whatever you like. For more information, see [Managing groups in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
-
-Before assigning access, you must publish the dashboard.
+To share access to a dashboard, you must first publish it. When you do so, other users in your organization will be able to access and modify the dashboard based on their Azure RBAC roles.
 
 1. In the dashboard, select **Share**.
 
-    ![select share for your dashboard](./media/azure-portal-dashboard-share-access/share-dashboard-for-access-control.png)
+   :::image type="content" source="media/azure-portal-dashboard-share-access/share-dashboard-for-access-control.png" alt-text="Screenshot showing the Share option for an Azure portal dashboard.":::
 
 1. In **Sharing + access control**, select **Publish**.
 
-    ![publish your dashboard](./media/azure-portal-dashboard-share-access/publish-dashboard-for-access-control.png)
+   :::image type="content" source="media/azure-portal-dashboard-share-access/publish-dashboard-for-access-control.png" alt-text="Screenshot showing how to publish an Azure portal dashboard.":::
 
-     By default, sharing publishes your dashboard to a resource group named **dashboards**. To select a different resource group, clear the checkbox.
+    By default, sharing publishes your dashboard to a resource group named **dashboards**. To select a different resource group, clear the checkbox.
 
-Your dashboard is now published. If the permissions inherited from the subscription are suitable, you don't need to do anything more. Other users in your organization can access and modify the dashboard based on their subscription level role.
+1. To [add optional tags](../azure-resource-manager/management/tag-resources.md) to the dashboard, enter one or more name/value pairs.
+
+1. Select **Publish**.
+
+Your dashboard is now published. If the permissions that users inherit from the subscription are sufficient, you don't need to do anything more. Otherwise, read on to learn how to expand access to specific users or groups.
 
 ## Assign access to a dashboard
 
-You can assign a group of users to a role for that dashboard.
+For each dashboard that you have published, you can assign Azure RBAC built-in roles to groups of users (or to individual users). This lets them use that role on the dashboard, even if their subscription-level permissions wouldn't normally allow it.
 
-1. After publishing the dashboard, select **Manage sharing**.
+1. After publishing the dashboard, select **Manage sharing**, then select **Access control**.
 
-1. In **Access Control** select **Role assignments** to see existing users that are already assigned a role for this dashboard.
+   :::image type="content" source="media/azure-portal-dashboard-share-access/manage-sharing-dashboard.png" alt-text="Screenshot showing the Access control option for an Azure portal dashboard.":::
+
+1. In **Access Control**, select **Role assignments** to see existing users that are already assigned a role for this dashboard.
 
 1. To add a new user or group, select **Add** then **Add role assignment**.
 
-    ![add a user for access to the dashboard](./media/azure-portal-dashboard-share-access/manage-users-existing-users.png)
+   :::image type="content" source="media/azure-portal-dashboard-share-access/manage-users-existing-users.png" alt-text="Screenshot showing how to add a role assignment for an Azure portal dashboard.":::
 
-1. Select the role that represents the permissions to grant, such as **Contributor**.
+1. Select the role you want to grant, such as [Contributor](/azure/role-based-access-control/built-in-roles#contributor) or [Reader](/azure/role-based-access-control/built-in-roles#reader), and then select **Next**.
 
-1. Select the user or group to assign to the role. If you don't see the user or group you're looking for in the list, use the search box. Your list of available groups depends on the groups you've created in Active Directory.
+1. Select **Select members**, then select one or more Microsoft Entra groups and/or users. If you don't see the user or group you're looking for in the list, use the search box. When you have finished, choose **Select**.
 
-1. When you've finished adding users or groups, select **Save**.
+1. Select **Review + assign** to complete the assignment.
+
+> [!TIP]
+> As noted above, individual tiles within a dashboard can enforce their own access control requirements based on the resources that the tile displays. If users need to see data for a specific tile, be sure that they have the appropriate permissions for the underlying resources accessed by that tile.
 
 ## Next steps
 
-* For a list of roles, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
-* To learn about managing resources, see [Manage Azure resources by using the Azure portal](../azure-resource-manager/management/manage-resources-portal.md).
+* View the list of [Azure built-in roles](../role-based-access-control/built-in-roles.md).
+* Learn about [managing groups in Microsoft Entra ID](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+* Learn more about [managing Azure resources by using the Azure portal](../azure-resource-manager/management/manage-resources-portal.md).
+* [Create a dashboard](azure-portal-dashboards.md) in the Azure portal.

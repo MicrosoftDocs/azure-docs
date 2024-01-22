@@ -1,16 +1,18 @@
 ---
-title: Comparing the costs of StorSimple to Azure File Sync | Microsoft Docs
+title: Comparing the costs of StorSimple to Azure File Sync
 description: Learn how you can save money and modernize your storage infrastructure by migrating from StorSimple to Azure File Sync.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 4/18/2022
+ms.date: 01/12/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Comparing the costs of StorSimple to Azure File Sync
-StorSimple is a discontinued physical and virtual appliance product offered by Microsoft to help customers manage their on-premises storage footprint by tiering data to Azure. The [StorSimple 8000 series appliance](/lifecycle/products/azure-storsimple-8000-series) and the [StorSimple 1200 series appliance](/lifecycle/products/azure-storsimple-1200-series) will reach their end of life on December 31, 2022. It is imperative that you begin planning and executing your migration from StorSimple now.
+StorSimple is a discontinued physical and virtual appliance product offered by Microsoft to help customers manage their on-premises storage footprint by tiering data to Azure. 
+
+> [!NOTE]
+> The StorSimple Service (including the StorSimple Device Manager for 8000 and 1200 series and StorSimple Data Manager) has reached the end of support. The end of support for StorSimple was published in 2019 on the [Microsoft LifeCycle Policy](/lifecycle/products/?terms=storsimple) and [Azure Communications](https://azure.microsoft.com/updates/storsimpleeol/) pages. Additional notifications were sent via email and posted on the Azure portal and in the [StorSimple overview](../../storsimple/storsimple-overview.md). Contact [Microsoft Support](https://azure.microsoft.com/support/create-ticket/) for additional details.
 
 For most use cases of StorSimple, Azure File Sync is the recommended migration target for file shares being used with StorSimple. Azure File Sync supports similar capabilities to StorSimple, such as the ability to tier to the cloud. However, it provides additional features that StorSimple does not have, such as:
 
@@ -60,7 +62,7 @@ Azure File Sync has the following pricing components you should consider in the 
 ### Translating quantities from StorSimple
 If you are trying to estimate the costs of Azure File Sync based on the expenses you see in StorSimple, be careful with the following items:
 
-- **Azure Files bills on logical size (standard file shares).** Unlike StorSimple, which encodes your data in the StorSimple proprietary format before storing it to Azure Blob storage, Azure Files stores the data from Azure File Sync in the same form as you see it on your Windows File Server. This means that if you are trying to figure out how much storage you will consume in Azure Files, you should look at the logical size of the data from StorSimple, rather than the amount stored in Azure Blob storage. Although this may look like it will cause you to pay more when using Azure File Sync, you need to do the complete analysis including all aspects of StorSimple costs to see the true comparison. Additionally, Azure Files offers capacity reservations that enable you to buy storage at an up-to 36% discount over the list price. See [Capacity reservations in Azure Files](../files/understanding-billing.md#reserve-capacity).
+- **Azure Files bills on logical size (standard file shares).** Unlike StorSimple, which encodes your data in the StorSimple proprietary format before storing it to Azure Blob storage, Azure Files stores the data from Azure File Sync in the same form as you see it on your Windows File Server. This means that if you are trying to figure out how much storage you will consume in Azure Files, you should look at the logical size of the data from StorSimple, rather than the amount stored in Azure Blob storage. Although this may look like it will cause you to pay more when using Azure File Sync, you need to do the complete analysis including all aspects of StorSimple costs to see the true comparison. Additionally, Azure Files offers reservations that enable you to buy storage at an up-to 36% discount over the list price. See [Reservations in Azure Files](../files/understanding-billing.md#reservations).
 
 - **Don't assume a 1:1 ratio between transactions on StorSimple and transactions in Azure File Sync.** It might be tempting to look at the number of transactions done by StorSimple in Azure Blob storage and assume that number will be similar to the number of transactions that Azure File Sync will do on Azure Files. This number may overstate or understate the number of transactions Azure File Sync will do, so it's not a good way to estimate transaction costs. The best way to estimate transaction costs is to do a small proof-of-concept in Azure File Sync with a live file share similar to the file shares stored in StorSimple.
 

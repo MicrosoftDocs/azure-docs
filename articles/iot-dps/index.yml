@@ -8,7 +8,6 @@ metadata:
   description: Azure IoT Hub Device Provisioning Service (DPS) - Tutorials, Quickstarts, HowTos, and API Reference
   author: kgremban
   ms.service: iot-dps
-  services: iot-dps
   ms.topic: landing-page
   ms.date: 04/26/2022
   ms.author: kgremban
@@ -46,14 +45,16 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links: 
-        - text: Link multiple hubs to DPS
-          url: tutorial-provision-multiple-hubs.md
-        - text: Provision for geolatency
-          url: how-to-provision-multitenant.md
+          - text: Provision for geolatency
+            url: how-to-provision-multitenant.md
+          - text: Use custom allocation policies
+            url: tutorial-custom-allocation-policies.md
       - linkListType: how-to-guide
         links:
-          - text: Create custom allocation policies
-            url: tutorial-custom-allocation-policies.md
+          - text: Link multiple IoT hubs to DPS
+            url: how-to-manage-linked-iot-hubs.md
+          - text: Use allocation policies to assign devices to IoT hubs
+            url: how-to-use-allocation-policies.md
 
   - title: Develop with SDKs
     linkLists:

@@ -1,18 +1,15 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
- author: cherylmc
- ms.service: vpn-gateway
- ms.topic: include
- ms.date: 02/10/2021
- ms.author: cherylmc
- ms.custom: include file
----
-### Step 1: Navigate to the virtual network gateway
 
-1. In the [Azure portal](https://portal.azure.com), navigate to **All resources**. 
-2. To open the virtual network gateway page, navigate to the virtual network gateway and click to select it. 
+author: cherylmc
+ms.author: cherylmc
+ms.date: 08/22/2023
+ms.service: vpn-gateway
+ms.topic: include
+---
+### Step 1: Go to the virtual network gateway
+
+1. In the [Azure portal](https://portal.azure.com), go to **All resources**.
+2. To open the virtual network gateway page, go to the virtual network gateway and click to select it.
 
 ### Step 2: Delete connections
 
@@ -22,7 +19,7 @@
 
 ### Step 3: Delete the virtual network gateway
 
-Be aware that if you have a P2S configuration to this VNet in addition to your S2S configuration, deleting the virtual network gateway will automatically disconnect all P2S clients without warning.
+If you have a P2S configuration to this VNet in addition to your S2S configuration, deleting the virtual network gateway will automatically disconnect all P2S clients without warning.
 
 1. On the virtual network gateway page, click **Overview**.
 2. On the **Overview** page, click **Delete** to delete the gateway.

@@ -14,6 +14,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 Private Link allows you to create private endpoints for Azure Database for PostgreSQL - Single server to bring it inside your Virtual Network (VNet). The private endpoint exposes a private IP within a subnet that you can use to connect to your database server just like any other resource in the VNet.
 
 For a list to PaaS services that support Private Link functionality, review the Private Link [documentation](../../private-link/index.yml). A private endpoint is a private IP address within a specific [VNet](../../virtual-network/virtual-networks-overview.md) and Subnet.
@@ -94,7 +96,7 @@ Configure [VNet peering](../../virtual-network/tutorial-connect-virtual-networks
 
 ### Connecting from an Azure VM in VNet-to-VNet environment
 
-Configure [VNet-to-VNet VPN gateway connection](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) to establish connectivity to a Azure Database for PostgreSQL - Single server from an Azure VM in a different region or subscription.
+Configure [VNet-to-VNet VPN gateway connection](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) to establish connectivity to an Azure Database for PostgreSQL - Single server from an Azure VM in a different region or subscription.
 
 ### Connecting from an on-premises environment over VPN
 

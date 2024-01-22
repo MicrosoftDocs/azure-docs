@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 09/27/2023
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -82,8 +82,8 @@ Customers in the following countries or regions can add their Tax IDs.
 |Georgia     | Germany        |
 |Ghana     | Greece        |
 |Guatemala     |   Hungary      |
-|Iceland     |  Italy       |
-|  India <sup>1</sup>   | Indonesia        |
+|Iceland     |  Italy ¹       |
+|India ²    | Indonesia        |
 |Ireland     |  Isle of Man        |
 |Kenya     |   Korea      |
 |  Latvia   |  Liechtenstein      |
@@ -100,10 +100,14 @@ Customers in the following countries or regions can add their Tax IDs.
 |Spain    |   Sweden   |
 |Switzerland    |   Taiwan  |
 |Tajikistan   |   Thailand  |
-|Turkey    |   Ukraine   |
+|Türkiye    |   Ukraine   |
 |United Arab Emirates    |   United Kingdom     |
 |Uzbekistan    |  Vietnam    |
 |Zimbabwe    |   |
+
+¹ For Italy, you must enter your organization's Codice Fiscale using the following steps with the **Manage Tax IDs** option.
+
+² Follow the instructions in the next section to add your Goods and Services Taxpayer Identification Number (GSTIN).
 
 1. Sign in to the Azure portal using the email address that has an owner or a contributor role on the billing account for an MCA or an account administrator role for a MOSP billing account.
 1. Search for **Cost Management + Billing**.  
@@ -113,9 +117,7 @@ Customers in the following countries or regions can add their Tax IDs.
     :::image type="content" source="./media/manage-tax-information/update-tax-id.png" alt-text="Screenshot showing where to update the Tax I D." lightbox="./media/manage-tax-information/update-tax-id.png" :::
 1. Enter new tax IDs and then select **Save**.  
     > [!NOTE]
-    > If you don't see the Tax IDs section, Tax IDs are not yet collected for your region. Or,  updating Tax IDs in the Azure portal isn't supported for your account.
-
-<sup>1</sup> Follow the instructions in the next section to add your Goods and Services Taxpayer Identification Number (GSTIN).
+    > If you don't see the Tax IDs section, Tax IDs are not yet collected for your region. Or, updating Tax IDs in the Azure portal isn't supported for your account.
 
 ## Add your GSTIN for billing accounts in India 
 

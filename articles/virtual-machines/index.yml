@@ -4,15 +4,13 @@ title: Virtual machines in Azure # < 60 chars
 summary: Documentation for creating and managing virtual machines in Azure. # < 160 chars
 
 metadata:
-  title: Virtual machines in Azure # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Documentation for creating and managing Linux virtual machines in Azure. # Required; article description that is displayed in search results. < 160 chars.
-  services: virtual-machines
-  ms.service: virtual-machines #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
-  author: cynthn #Required; your GitHub user alias, with correct capitalization.
-  ms.author: cynthn #Required; microsoft alias of author; optional team alias.
-  ms.date: 12/13/2021 #Required; mm/dd/yyyy format.
-
+  title: Virtual machines in Azure
+  description: Documentation for creating and managing Linux virtual machines in Azure.
+  ms.service: virtual-machines
+  ms.topic: landing-page
+  author: ju-shim
+  ms.author: jushiman
+  ms.date: 12/13/2021
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -23,14 +21,15 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Boost
+            url: ../azure-boost/overview.md
+          - text: Hibernation
+            url: hibernate-resume.md
           - text: Flexible Virtual Machine Scale Sets Orchestration
             url: flexible-virtual-machine-scale-sets.md
-          - text: Trusted Launch
-            url: trusted-launch.md
-          - text: VM applications in Azure Compute Gallery 
-            url: vm-applications.md
-          - text: VM restore points 
-            url: virtual-machines-create-restore-points.md
+          - text: Community Gallery
+            url: share-gallery-community.md
+
 
   # Card (optional)
   - title: Linux quickstarts
@@ -55,6 +54,8 @@ landingContent:
             url: ./windows/quick-create-portal.md
           - text: Azure PowerShell
             url: ./windows/quick-create-powershell.md
+          - text: Terraform
+            url: ./windows/quick-create-terraform.md
           - text: Azure CLI
             url: ./windows/quick-create-cli.md
 

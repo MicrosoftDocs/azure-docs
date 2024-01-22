@@ -10,6 +10,9 @@ ms.date: 07/17/2019
 
 # Remediate noncompliant Azure Automation State Configuration servers
 
+> [!NOTE]
+> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
+
 When servers are registered with Azure Automation State Configuration,
 the configuration mode is set to `ApplyOnly`, `ApplyAndMonitor`, or `ApplyAndAutoCorrect`. If the mode isn't set to `ApplyAndAutoCorrect`,
 servers that drift from a compliant state for any reason

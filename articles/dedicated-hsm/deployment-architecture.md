@@ -7,7 +7,6 @@ manager: rkarlin
 ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 06/03/2022
 ms.author: keithp
@@ -32,7 +31,6 @@ The HSMs are distributed across Microsoft’s data centers and can be easily pro
 * Canada Central
 * South Central US
 * Southeast Asia
-* East Asia
 * India Central
 * India South
 * Japan East

@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Synapse | Microsoft Docs'
-description: This tutorial shows how to run SQL queries on an Azure Synapse serverless SQL endpoint to access data in an Azure Data Lake Storage Gen2 storage account.
+title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Synapse'
+titleSuffix: Azure Storage
+description: This tutorial shows how to run SQL queries on an Azure Synapse serverless SQL endpoint to access data in an Azure Data Lake Storage Gen2 enabled storage account.
 author: jovanpop-msft
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+
+ms.service: azure-data-lake-storage
 ms.topic: tutorial
-ms.date: 11/22/2021
-ms.author: jovanpop
-ms.reviewer: jrasnic
+ms.date: 03/07/2022
+ms.author: normesta
 ms.custom: devx-track-sql
 #Customer intent: As an data engineer, I want to connect my data in Azure Storage so that I can easily run analytics on it.
 ---
 
 # Tutorial: Query Azure Data Lake Storage Gen2 using SQL language in Synapse Analytics
 
-This tutorial shows you how to connect your Azure Synapse serverless SQL pool to data stored in an Azure storage account that has Azure Data Lake Storage Gen2 enabled.
-This connection enables you to natively run SQL queries and analytics using SQL language on your data in Azure storage.
+This tutorial shows you how to connect your Azure Synapse serverless SQL pool to data stored in an Azure Storage account that has Azure Data Lake Storage Gen2 enabled.
+This connection enables you to natively run SQL queries and analytics using SQL language on your data in Azure Storage.
 
 In this tutorial, you will:
 
@@ -28,80 +28,52 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- Create an Azure Data Lake Storage Gen2 account.
+- Create a storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2)
 
   See [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
 - Make sure that your user account has the [Storage Blob Data Contributor role](assign-azure-role-data-access.md) assigned to it.
 
-- Install AzCopy v10. See [Transfer data with AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-
-  There's a couple of specific things that you'll have to do as you perform the steps in that article.
-
   > [!IMPORTANT]
-  > Make sure to assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
+  > Make sure to assign the role in the scope of the storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
 
 ### Download the flight data
 
-This tutorial uses flight data from the Bureau of Transportation Statistics to demonstrate how to perform an ETL operation. You must download this data to complete the tutorial.
+This tutorial uses flight data from the Bureau of Transportation Statistics. You must download this data to complete the tutorial.
 
-1. Go to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?gnoyr_VQ=FGJ).
+1. Download the [On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/tutorials/On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip) file. This file contains the flight data.
 
-2. Select the **Prezipped File** check box to select all data fields.
-
-3. Select the **Download** button and save the results to your computer.
-
-4. Unzip the contents of the zipped file and make a note of the file name and the path of the file. You need this information in a later step.
+2. Unzip the contents of the zipped file and make a note of the file name and the path of the file. You need this information in a later step.
 
 ### Copy source data into the storage account
 
-Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 account.
+1. Navigate to your new storage account in the Azure portal.
 
-1. Open a command prompt window, and enter the following command to log into your storage account.
+2. Select **Storage browser**->**Blob containers**->**Add container** and create a new container named **data**.
 
-   ```bash
-   azcopy login
-   ```
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of creating a folder in storage browser](./media/data-lake-storage-events/data-container.png)
 
-   Follow the instructions that appear in the command prompt window to authenticate your user account.
-
-2. To copy data from the *.csv* account, enter the following command.
-
-   ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
-   ```
-
-   - Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
-
-   - Replace the `<storage-account-name>` placeholder value with the name of your storage account.
-
-   - Replace the `<container-name>` placeholder with the name of a container in your storage account.
+6. In storage browser, upload the `On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.csv` file to the **data** folder.
 
 ## Create an Azure Synapse workspace
 
-In this section, you create an Azure Workspace.
+[Create a Synapse workspace in the Azure portal](../../synapse-analytics/get-started-create-workspace.md#create-a-synapse-workspace-in-the-azure-portal). As you create the workspace, use these values:
 
-1. Select the **Deploy to Azure** button. The template will open in the Azure portal.
+- **Subscription**: Select the Azure subscription associated with your storage account.
+- **Resource group**: Select the resource group where you placed your storage account.
+- **Region**: Select the region of the storage account (for example, `Central US`).
+- **Name**: Enter a name for your Synapse workspace.
+- **SQL Administrator login**: Enter the administrator username for the SQL Server.
+- **SQL Administrator password**: Enter the administrator password for the SQL Server.
+- **Tag Values**: Accept the default.
 
-   [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
+#### Find your Synapse SQL endpoint name (optional) 
 
-2. Enter or update the following values:
+The serverless SQL endpoint name server name enables you to connect with any tool that can run T-SQL queries on SQL server or Azure SQL database (For example: [SQL Server Management Studio](../../synapse-analytics/sql/get-started-ssms.md),
+[Azure Data Studio](../../synapse-analytics/sql/get-started-azure-data-studio.md), or [Power BI](../../synapse-analytics/sql/get-started-power-bi-professional.md)). 
 
-   - **Subscription**: Select the Azure subscription where you have the Azure storage account
-   - **Resource group**: Select the resource group where you placed your Azure Data Lake storage.
-   - **Region**: Select the region where you placed your Azure Data Lake storage (for example, **Central US**).
-   - **Name**: Enter a name for your Synapse workspace.
-   - **SQL Administrator login**: Enter the administrator username for the SQL Server.
-   - **SQL Administrator password**: Enter the administrator password for the SQL Server.
-   - **Tag Values**: Accept the default.
-   - **Review and Create**: Select.
-   - **Create**: Select.
-
-When the deployment finishes, you will see Azure Synapse Analytics workspace in the list of the deployed resources. You can follow the link to see more details about the workspace and [find your Synapse SQL endpoint name](#find-your-synapse-sql-endpoint-name).
-
-## Find your Synapse SQL endpoint name
-
-The server name for the serverless SQL pool in the following example is: `showdemoweu-ondemand.sql.azuresynapse.net`. To find the fully qualified server name:
+To find the fully qualified server name:
 
 1. Select on the workspace you want to connect to.
 2. Go to overview.
@@ -109,38 +81,30 @@ The server name for the serverless SQL pool in the following example is: `showde
 
    ![Full server name serverless SQL pool](../../synapse-analytics/sql/media/connect-overview/server-connect-example-sqlod.png)
 
-### Connect to Synapse SQL endpoint
+In this tutorial, you use Synapse Studio to query data from the CSV file that you uploaded to the storage account.
 
-Synapse SQL endpoint enables you to connect with any tool that can run T-SQL queries on SQL server or Azure SQL database. 
-The examples are [SQL Server Management Studio](../../synapse-analytics/sql/get-started-ssms.md),
-[Azure Data Studio](../../synapse-analytics/sql/get-started-azure-data-studio.md), or [Power BI](../../synapse-analytics/sql/get-started-power-bi-professional.md),
+## Use Synapse Studio to explore data
 
-Use a tool that you prefer to use to connect to SQL endpoint, put the serverless SQL serverless endpoint name, and connect with Azure AD authentication to connect.
+1. Open Synapse Studio. See [Open Synapse Studio](../../synapse-analytics/quickstart-create-workspace.md#open-synapse-studio)
 
-  > [!IMPORTANT]
-  > Do not use SQL authentication with username nad password because this will require additional steps to enable SQL login to access your Azure storage account.
+2. Create a SQL script and run this query to view the contents of the file: 
 
-## Explore data
+   ```sql
+   SELECT
+      TOP 100 *
+   FROM
+      OPENROWSET(
+         BULK 'https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv',
+         FORMAT='CSV',
+         PARSER_VERSION='2.0'
+      ) AS [result]
+   ```
 
-Create a new SQL query using the tool that you used to connect to your Synapse endpoint, put the following query, and set the path in
-
-```sql
-SELECT
-    TOP 100 *
-FROM
-    OPENROWSET(
-        BULK 'https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv',
-        FORMAT='CSV',
-        PARSER_VERSION='2.0'
-    ) AS [result]
-```
-
-When you execute the query, you will see the content of the file.
+   For information about how to create a SQL script in Synapse Studio, see [Synapse Studio SQL scripts in Azure Synapse Analytics](../../synapse-analytics/sql/author-sql-script.md)
 
 ## Clean up resources
 
-When they're no longer needed, delete your Synapse Analytics workspace. The workspace tat do not have some additional dedicated SQL pools or Spark pools is not charged if you are not using it, so you will get **no billing even if you keep it**.
-Do not delete the resource group if you have selected the resource group where you have placed your Azure storage account.
+When they're no longer needed, delete the resource group and all related resources. To do so, select the resource group for the storage account and workspace, and then and select **Delete**.
 
 ## Next steps
 

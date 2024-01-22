@@ -15,7 +15,7 @@ ms.date: 09/14/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Send secure push notifications from Azure Notification Hubs
@@ -23,7 +23,7 @@ ms.custom: devx-track-csharp
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
-> * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
+> * [Android](android-sdk.md)
 
 ## Overview
 

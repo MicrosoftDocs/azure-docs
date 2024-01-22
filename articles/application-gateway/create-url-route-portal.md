@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 07/08/2022
 ms.author: greglin
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can route my app traffic based on path-based routing rules.
 ---
 
@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 In this example, you create three virtual machines to be used as backend servers for the application gateway. You also install IIS on the virtual machines to verify that the application gateway works as expected.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the Azure portal, select **Create a resource**.
 2. Select **Windows Server 2016 Datacenter** in the Popular list.
 3. Enter these values for the virtual machine:
@@ -126,7 +126,7 @@ In this example, you create three virtual machines to be used as backend servers
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 

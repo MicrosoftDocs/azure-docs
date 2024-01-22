@@ -2,7 +2,7 @@
 title: WebSocket support in Azure Application Gateway
 description: Application Gateway provides native support for WebSocket across all gateway sizes. There are no user-configurable settings.
 author: greg-lindsay
-ms.author: amsriva
+ms.author: greglin
 ms.service: application-gateway
 services: application-gateway
 ms.topic: conceptual
@@ -26,7 +26,7 @@ To establish a WebSocket connection, a specific HTTP-based handshake is exchange
 ![Diagram compares a client interacting with a web server, connecting twice to get two replies, with a WebSocket interaction, where a client connects to a server once to get multiple replies.](./media/application-gateway-websocket/websocket.png)
 
 > [!NOTE]
-> As described, the HTTP protocol is used only to perform a handshake when establishing a WebSocket connection. Once the handshake is completed, a WebSocket connection gets opened for transmitting the data, and the Web Application Firewall (WAF) cannot parse any contents. Therefore, WAF does not perform any inspections on such data.
+> As described, the HTTP protocol is used only to perform a handshake when establishing a WebSocket connection. Once the handshake is completed, a WebSocket connection gets opened for transmitting the data, and the Web Application Firewall (WAF) cannot parse any contents. Therefore, WAF doesn't perform any inspections on such data.
 
 ### Listener configuration element
 
@@ -102,6 +102,9 @@ A BackendAddressPool is used to define a backend pool with WebSocket enabled ser
 }]
 ```
 
+> [!NOTE]
+> Ensure that your **timeout value** is greater than your server-defined ping/pong interval to avoid experiencing timeout errors before a ping is sent from the client. A typical value for a WebSocket is 20 seconds, so, for example, a timeout value of 40 seconds will ensure that the gateway does not send a timeout error before the client sends a ping; otherwise, this would throw a 1006 error on the client side.
+
 ## WebSocket enabled backend
 
 Your backend must have a HTTP/HTTPS web server running on the configured port (usually 80/443) for WebSocket to work. This requirement is because WebSocket protocol requires the initial handshake to be HTTP with upgrade to WebSocket protocol as a header field. The following is an example of a header:
@@ -117,7 +120,7 @@ Your backend must have a HTTP/HTTPS web server running on the configured port (u
     Sec-WebSocket-Version: 13
 ```
 
-Another reason for this is that application gateway backend health probe supports HTTP and HTTPS protocols only. If the backend server does not respond to HTTP or HTTPS probes, it is taken out of backend pool.
+Another reason for this is that application gateway backend health probe supports HTTP and HTTPS protocols only. If the backend server doesn't respond to HTTP or HTTPS probes, it is taken out of backend pool.
 
 ## Next steps
 

@@ -2,22 +2,23 @@
 title: Outputs in Bicep
 description: Describes how to define output values in Bicep
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.custom: devx-track-bicep
+ms.date: 12/06/2023
 ---
 
 # Outputs in Bicep
 
-This article describes how to define output values in a Bicep file. You use outputs when you need to return values from the deployed resources.
+This article describes how to define output values in a Bicep file. You use outputs when you need to return values from the deployed resources. You are limited to 64 outputs in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 ## Define output values
 
 The syntax for defining an output value is:
 
 ```bicep
-output <name> <data-type> = <value>
+output <name> <data-type or type-expression> = <value>
 ```
 
-An output can have the same name as a parameter, variable, module, or resource. Each output value must resolve to one of the [data types](data-types.md).
+An output can have the same name as a parameter, variable, module, or resource. Each output value must resolve to one of the [data types](data-types.md), or [user-defined data type expression](./user-defined-data-types.md).
 
 The following example shows how to return a property from a deployed resource. In the example, `publicIP` is the symbolic name for a public IP address that is deployed in the Bicep file. The output value gets the fully qualified domain name for the public IP address.
 
@@ -39,9 +40,19 @@ var user = {
 output stringOutput string = user['user-name']
 ```
 
+The following example shows how to use type expression:
+
+```bicep
+param foo 'a' | 'b' = 'a'
+
+output out 'a' | 'b' = foo
+```
+
+For more information, see [User-defined data types](./user-defined-data-types.md).
+
 ## Conditional output
 
-When the value to return depends on a condition in the deployment, use the the `?` operator.
+When the value to return depends on a condition in the deployment, use the `?` operator.
 
 ```bicep
 output <name> <data-type> = <condition> ? <true-value> : <false-value>

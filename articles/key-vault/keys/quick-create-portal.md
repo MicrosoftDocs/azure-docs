@@ -8,7 +8,7 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 03/24/2020
+ms.date: 01/04/2023
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys in Azure
 ---
@@ -20,26 +20,26 @@ Azure Key Vault is a cloud service that provides a secure store for secrets. You
 
 To access Azure Key Vault, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-All access to secrets takes place through Azure Key Vault. For this quickstart, create a key vault using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md).
+All access to secrets takes place through Azure Key Vault. For this quickstart, create a key vault using the [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md).
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Add a key to Key Vault
 
 To add a key to the vault, you just need to take a couple of additional steps. In this case, we add a key that could be used by an application. The key is called **ExampleKey**.
 
 1. On the Key Vault properties pages, select **Keys**.
-2. Click on **Generate/Import**.
+2. Select **Generate/Import**.
 3. On the **Create a key** screen choose the following values:
     - **Options**: Generate.
     - **Name**: ExampleKey.
-    - Leave the other values to their defaults. Click **Create**.
+    - Leave the other values to their defaults. Select **Create**.
 
 ## Retrieve a key from Key Vault
 
-Once that you receive the message that the key has been successfully created, you may click on it on the list. You can then see some of the properties and click **Download public key** to retrieve the key.
+Once that you receive the message that the key has been successfully created, you may click on it on the list. You can then see some of the properties and select **Download public key** to retrieve the key.
 
 :::image type="content" source="../media/keys/quick-create-portal/current-version-hidden.png" alt-text="Key properties":::
 
@@ -55,7 +55,7 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 
 ## Next steps
 
-In this quickstart, you created a Key Vault and stored a key in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a Key Vault and stored a key in it. To learn more about Key Vault and how to integrate it with your applications, continue on to these articles.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)

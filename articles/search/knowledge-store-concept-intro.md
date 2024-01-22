@@ -1,28 +1,28 @@
 ---
 title: Knowledge store concepts
-titleSuffix: Azure Cognitive Search
-description: A knowledge store is enriched content created by an Azure Cognitive Search skillset and saved to Azure Storage for use in other apps and non-search scenarios.
+titleSuffix: Azure AI Search
+description: A knowledge store is enriched content created by an Azure AI Search skillset and saved to Azure Storage for use in other apps and non-search scenarios.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 05/31/2022
+ms.date: 01/10/2024
 ---
 
-# Knowledge store in Azure Cognitive Search
+# Knowledge store in Azure AI Search
 
-Knowledge store is a data sink created by a [Cognitive Search enrichment pipeline](cognitive-search-concept-intro.md) that stores AI-enriched content in tables and blob containers in Azure Storage for independent analysis or downstream processing in non-search scenarios like knowledge mining.
+Knowledge store is secondary storage for [AI-enriched content created by a skillset](cognitive-search-concept-intro.md) in Azure AI Search. In Azure AI Search, an indexing job always sends output to a search index, but if you attach a skillset to an indexer, you can optionally also send AI-enriched output to a container or table in Azure Storage. A knowledge store can be used for independent analysis or downstream processing in non-search scenarios like knowledge mining.
 
-If you've used cognitive skills in the past, you already know that enriched content is created by *skillsets*. Skillsets move a document through a sequence of enrichments that invoke atomic transformations, such as recognizing entities or translating text. 
-
-Output can be a search index, or projections in a knowledge store. The two outputs, search index and knowledge store, are mutually exclusive products of the same pipeline. They are derived from the same inputs, but their content is structured, stored, and used in different applications.
+The two outputs of indexing, a search index and knowledge store, are mutually exclusive products of the same pipeline. They're derived from the same inputs and contain the same data, but their content is structured, stored, and used in different applications.
 
 :::image type="content" source="media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg" alt-text="Pipeline with skillset" border="false":::
 
 Physically, a knowledge store is [Azure Storage](../storage/common/storage-account-overview.md), either Azure Table Storage, Azure Blob Storage, or both. Any tool or process that can connect to Azure Storage can consume the contents of a knowledge store.
 
-Viewed through Azure portal, a knowledge store looks like any other collection of tables, objects, or files. The following screenshot shows a knowledge store composed of three tables. You can adopt a naming convention, such as a "kstore" prefix, to keep your content together.
+When viewed through Azure portal, a knowledge store looks like any other collection of tables, objects, or files. The following screenshot shows a knowledge store composed of three tables. You can adopt a naming convention, such as a `kstore` prefix, to keep your content together.
 
 :::image type="content" source="media/knowledge-store-concept-intro/kstore-in-storage-explorer.png" alt-text="Skills read and write from enrichment tree" border="true":::
 
@@ -30,7 +30,7 @@ Viewed through Azure portal, a knowledge store looks like any other collection o
 
 The primary benefits of a knowledge store are two-fold: flexible access to content, and the ability to shape data.
 
-Unlike a search index that can only be accessed through queries in Cognitive Search, a knowledge store can be accessed by any tool, app, or process that supports connections to Azure Storage. This flexibility opens up new scenarios for consuming the analyzed and enriched content produced by an enrichment pipeline.
+Unlike a search index that can only be accessed through queries in Azure AI Search, a knowledge store is accessible to any tool, app, or process that supports connections to Azure Storage. This flexibility opens up new scenarios for consuming the analyzed and enriched content produced by an enrichment pipeline.
 
 The same skillset that enriches data can also be used to shape data. Some tools like Power BI work better with tables, whereas a data science workload might require a complex data structure in a blob format. Adding a [Shaper skill](cognitive-search-skill-shaper.md) to a skillset gives you control over the shape of your data. You can then pass these shapes to projections, either tables or blobs, to create physical data structures that align with the data's intended use.
 
@@ -44,23 +44,22 @@ A knowledge store is defined inside a skillset definition and it has two compone
 
 + A connection string to Azure Storage
 
-+ [**Projections**](knowledge-store-projection-overview.md) that determine whether the knowledge store consists of tables, objects or files. 
++ [**Projections**](knowledge-store-projection-overview.md) that determine whether the knowledge store consists of tables, objects or files. The projections element is an array. You can create multiple sets of table-object-file combinations within one knowledge store.
 
-The projections element is an array. You can create multiple sets of table-object-file combinations within one knowledge store.
-
-```json
-"knowledgeStore": {
-   "storageConnectionString":"<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>",
-   "projections":[
-      {
-         "tables":[ ],
-         "objects":[ ],
-         "files":[ ]
-      }
+   ```json
+   "knowledgeStore": {
+      "storageConnectionString":"<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>",
+      "projections":[
+         {
+            "tables":[ ],
+            "objects":[ ],
+            "files":[ ]
+         }
+      ]
    }
-```
+   ```
 
-The type of projection you specify in this structure determines the type of storage used by knowledge store.
+The type of projection you specify in this structure determines the type of storage used by knowledge store, but not its structure. Fields in tables, objects, and files are determined by Shaper skill output if you're creating the knowledge store programmatically, or by the Import data wizard if you're using the portal.
 
 + `tables` project enriched content into Table Storage. Define a table projection when you need tabular reporting structures for inputs to analytical tools or export as data frames to other data stores. You can specify multiple `tables` within the same projection group to get a subset or cross section of enriched documents. Within the same projection group, table relationships are preserved so that you can work with all of them.
 
@@ -96,7 +95,7 @@ The wizard automates several tasks. Specifically, both shaping and projections (
 
 ### [**REST**](#tab/kstore-rest)
 
-[**Create your first knowledge store using Postman**](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store).
+[**Create your first knowledge store using Postman**](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/knowledge-store).
 
 REST API version `2020-06-30` can be used to create a knowledge store through additions to a skillset.
 
@@ -105,7 +104,7 @@ REST API version `2020-06-30` can be used to create a knowledge store through ad
 
 Within the skillset:
 
-+ Specify the projections that you want built in Azure Storage (tables, objects, files)
++ Specify the projections that you want built into Azure Storage (tables, objects, files)
 + Include a Shaper skill in your skillset to determine the schema and contents of the projection
 + Assign the named shape to a projection
 

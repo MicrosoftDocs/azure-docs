@@ -3,7 +3,7 @@ title: LDAP sync in Ranger and Apache Ambari in Azure HDInsight
 description: Address the LDAP sync in Ranger and Ambari and provide general guidelines.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/14/2022
+ms.date: 05/24/2023
 ---
 
 # LDAP sync in Ranger and Apache Ambari in Azure HDInsight
@@ -13,9 +13,9 @@ HDInsight Enterprise Security Package (ESP) clusters use Ranger for authorizatio
 ## General guidelines
 
 * Always deploy clusters with one or more groups.
-* If you want to use more groups in the cluster, check whether it makes sense to update the group memberships in Azure Active Directory (Azure AD).
+* If you want to use more groups in the cluster, check whether it makes sense to update the group memberships in Microsoft Entra ID.
 * If you want to change the cluster groups, you can change the sync filters by using Ambari.
-* All group membership changes in Azure AD are reflected in the cluster in subsequent syncs. The changes need to be synced to Azure AD Domain Services (Azure AD DS) first, and then to the clusters.
+* All group membership changes in Microsoft Entra ID are reflected in the cluster in subsequent syncs. The changes need to be synced to Microsoft Entra Domain Services first, and then to the clusters.
 * HDInsight clusters use Samba/Winbind to project the group memberships on the cluster nodes.
 * Group members are synced transitively (all the subgroups and their members) to both Ambari and Ranger. 
 
@@ -70,4 +70,4 @@ Ranger user sync can happen out of either of the headnodes. The logs are in `/va
 ## Next steps
 
 * [Authentication issues in Azure HDInsight](./domain-joined-authentication-issues.md)
-* [Synchronize Azure AD users to an HDInsight cluster](../hdinsight-sync-aad-users-to-cluster.md)
+* [Synchronize Microsoft Entra users to an HDInsight cluster](../hdinsight-sync-aad-users-to-cluster.md)

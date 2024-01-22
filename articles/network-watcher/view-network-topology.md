@@ -1,122 +1,116 @@
 ---
-title: View Azure virtual network topology | Microsoft Docs
-description: Learn how to view the resources in a virtual network, and the relationships between the resources.
-services: network-watcher
-documentationcenter: na
-author: damendo
+title: View Azure virtual network topology
+description: Learn how to view the resources in a virtual network and the relationships between them using the Azure portal, PowerShell, or the Azure CLI.
+author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 05/09/2018
-ms.author: damendo
+ms.date: 07/20/2023
+ms.custom: template-how-to, devx-track-azurecli, ignite-2022, engagement-fy23
 ---
 
 # View the topology of an Azure virtual network
 
-In this article, you learn how to view resources in a Microsoft Azure virtual network, and the relationships between the resources. For example, a virtual network contains subnets. Subnets contain resources, such as Azure Virtual Machines (VM). VMs have one or more network interfaces. Each subnet can have a network security group and a route table associated to it. The topology capability of Azure Network Watcher enables you to view all of the resources in a virtual network, the resources associated to resources in a virtual network, and the relationships between the resources.
+In this article, you learn how to view resources and the relationships between them in an Azure virtual network. For example, a virtual network contains subnets. Subnets contain resources, such as Azure Virtual Machines (VM). VMs have one or more network interfaces. Each subnet can have a network security group and a route table associated to it. The topology tool of Azure Network Watcher enables you to view all of the resources in a virtual network, the resources associated to resources in a virtual network, and the relationships between the resources.
 
-You can use the [Azure portal](#azure-portal), the [Azure CLI](#azure-cli), or [PowerShell](#powershell) to view a topology.
+> [!NOTE]
+> Try the new [Topology (Preview)](network-insights-topology.md) experience which offers visualization of Azure resources across multiple subscriptions and regions. Use this [Azure portal link](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/overview) to try Topology (Preview).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## Prerequisites
 
-## <a name = "azure-portal"></a>View topology - Azure portal
+# [**Portal**](#tab/portal)
 
-1. Log into the [Azure portal](https://portal.azure.com) with an account that has the necessary [permissions](required-rbac-permissions.md).
-2. On the top, left corner of the portal, select **All services**.
-3. In the **All services** filter box, enter *Network Watcher*. When **Network Watcher** appears in the results, select it.
-4. Select **Topology**. Generating a topology requires a network watcher in the same region that the virtual network that you want to generate the topology for exists in. If you don't have a network watcher enabled in the region that the virtual network you want to generate a topology for is in, network watchers are automatically created for you in all regions. The network watchers are created in a resource group named **NetworkWatcherRG**.
-5. Select a subscription, the resource group of a virtual network you want to view the topology for, and then select the virtual network. In the following picture, a topology is shown for a virtual network named *MyVnet*, in the resource group named *MyResourceGroup*:
+- An Azure account with an active subscription and the necessary [permissions](required-rbac-permissions.md). [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-    ![View topology](./media/view-network-topology/view-topology.png)
+- An Azure Virtual network with some resources connected to it. For more information, see [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    As you can see in the previous picture, the virtual network contains three subnets. One subnet has a VM deployed in it. The VM has one network interface attached to it and a public IP address associated to it. The other two subnets have a route table associated to them. Each route table contains two routes. One subnet has a network security group associated to it. Topology information is only shown for resources that are:
+- Network Watcher enabled in the virtual network region. For more information, see [Enable Network Watcher for your region](network-watcher-create.md?tabs=portal#enable-network-watcher-for-your-region).
+
+- Sign in to the [Azure portal](https://portal.azure.com/?WT.mc_id=A261C142F) with your Azure account.
+
+# [**PowerShell**](#tab/powershell)
+
+- An Azure account with an active subscription and the necessary [permissions](required-rbac-permissions.md). [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- An Azure Virtual network with some resources connected to it. For more information, see [Create a virtual network using the Azure portal](../virtual-network/quick-create-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+
+- Network Watcher enabled in the virtual network region. For more information, see [Enable Network Watcher for your region](network-watcher-create.md?tabs=powershell#enable-network-watcher-for-your-region).
+
+- Azure Cloud Shell or Azure PowerShell.
+
+    The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+
+  You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+
+# [**Azure CLI**](#tab/cli)
+
+- An Azure account with an active subscription and the necessary [permissions](required-rbac-permissions.md). [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- An Azure Virtual network with some resources connected to it. For more information, see [Create a virtual network using the Azure portal](../virtual-network/quick-create-cli.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+
+- Network Watcher enabled in the virtual network region. For more information, see [Enable Network Watcher for your region](network-watcher-create.md?tabs=cli#enable-network-watcher-for-your-region).
+
+- Azure Cloud Shell or Azure CLI.
     
-    - Within the same resource group and region as the *myVnet* virtual network. For example, a network security group that exists in a resource group other than *MyResourceGroup*, isn't shown, even if the network security group is associated to a subnet in the *MyVnet* virtual network.
-    - Within, or associated to resources within, the *myVnet* virtual network. For example, a network security group that isn't associated to a subnet or network interface in the *myVnet* virtual network isn't shown, even if the network security group is in the *MyResourceGroup* resource group.
+    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+    
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
-   The topology shown in the picture is for the virtual network created after deploying the **Route traffic through a network virtual appliance script sample**, which you can deploy using the [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), or [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+---
 
-6. Select **Download topology** to download the image as an editable file, in svg format.
+## View topology
 
-The resources shown in the diagram are a subset of the networking components in the virtual network. For example, while a network security group is shown, the security rules within it are not shown in the diagram. Though not differentiated in the diagram, the lines represent one of two relationships: *Containment* or *associated*. To see the full list of resources in the virtual network, and the type of relationship between the resources, generate the topology with [PowerShell](#powershell) or the [Azure CLI](#azure-cli).
+# [**Portal**](#tab/portal)
 
-## <a name = "azure-cli"></a>View topology - Azure CLI
+1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** from the search results.
 
-You can run the commands in the steps that follow:
-- In the Azure Cloud Shell, by selecting **Try It** at the top right of any command. The Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and configured to use with your account.
-- By running the CLI from your computer. If you run the CLI from your computer, steps in this article require the Azure CLI version 2.0.31 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
+    :::image type="content" source="./media/view-network-topology/portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/view-network-topology/portal-search.png":::
 
-The account that you use must have the necessary [permissions](required-rbac-permissions.md).
+1. Under **Monitoring**, select **Topology**.
 
-1. If you already have a network watcher in the same region as the virtual network that you want to create a topology for, skip to step 3. Create a resource group to contain a network watcher with [az group create](/cli/azure/group). The following example creates the resource group in the *eastus* region:
+1. Select the subscription and resource group of the virtual network that you want to view its topology, and then select the virtual network. 
 
-    ```azurecli-interactive
-    az group create --name NetworkWatcherRG --location eastus
-    ```
+    :::image type="content" source="./media/view-network-topology/topology.png" alt-text="Screenshot shows the topology of a virtual network in the Azure portal." lightbox="./media/view-network-topology/topology.png":::
 
-2. Create a network watcher with [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure). The following example creates a network watcher in the *eastus* region:
+    The virtual network in this example has two subnets: **mySubnet** and **GatewaySubnet**. **mySubnet** has three virtual machines (VMs), two of them are in the backend pool of **myLoadBalancer** public load balancer. There are two network security groups: **mySubnet-nsg** is associated to **mySubnet** subnet and **myVM-nsg** is associated to **myVM** virtual machine. **GatewaySubnet** has **VNetGW** virtual network gateway (VPN gateway).
+    
+    Topology information is only shown for resources that are:
 
-    ```azurecli-interactive
-    az network watcher configure \
-      --resource-group NetworkWatcherRG \
-      --location eastus \
-      --enabled true
-    ```
+    - in the same resource group and region as the **myVNet** virtual network. For example, a network security group that exists in a resource group other than **myResourceGroup**, isn't shown, even if the network security group is associated to a subnet in the **myVNet** virtual network.
+    - in the **myVNet** virtual network, or associated to resources in it. For example, a network security group that isn't associated to a subnet or network interface in the **myVNet** virtual network isn't shown, even if the network security group is in the **myResourceGroup** resource group.
 
-3. View the topology with [az network watcher show-topology](/cli/azure/network/watcher#az-network-watcher-show-topology). The following example views the topology for a resource group named *MyResourceGroup*:
+1. Select **Download topology** to download the diagram as an editable image file in svg format.
 
-    ```azurecli-interactive
-    az network watcher show-topology --resource-group MyResourceGroup
-    ```
+> [!NOTE]
+> The resources shown in the diagram are a subset of the networking components in the virtual network. For example, while a network security group is shown, the security rules within it are not shown in the diagram. Though not differentiated in the diagram, the lines represent one of two relationships: *Containment* or *associated*. To see the full list of resources in the virtual network, and the type of relationship between the resources, generate the topology with [PowerShell](?tabs=powershell#view-topology) or the [Azure CLI](?tabs=cli#view-topology).
 
-    Topology information is only returned for resources that are within the same resource group as the *MyResourceGroup* resource group and the same region as the network watcher. For example, a network security group that exists in a resource group other than *MyResourceGroup*, isn't shown, even if the network security group is associated to a subnet in the *MyVnet* virtual network.
+# [**PowerShell**](#tab/powershell)
 
-   Learn more about the relationships and [properties](#properties) in the returned output. If you don't have an existing virtual network to view a topology for, you can create one using the [Route traffic through a network virtual appliance](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) script sample. To view a diagram of the topology and download it in an editable file, use the [portal](#azure-portal).
+Retrieve the topology of a resource group using [Get-AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology). The following example retrieves the network topology of a virtual network in East US region listing the resources that are in the **myResourceGroup** resource group:
 
-## <a name = "powershell"></a>View topology - PowerShell
+```azurepowershell-interactive
+# Get a network level view of resources and their relationships in "myResourceGroup" resource group.
+Get-AzNetworkWatcherTopology -Location 'eastus' -TargetResourceGroupName 'myResourceGroup'
+```
 
-You can run the commands in the steps that follow:
-- In the Azure Cloud Shell, by selecting **Try It** at the top right of any command. The Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and configured to use with your account.
-- By running PowerShell from your computer. If you run PowerShell from your computer, this article requires the Azure PowerShell `Az` module. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+Topology information is only returned for resources that are in the same resource group and region as the **myVNet** virtual network. For example, a network security group that exists in a resource group other than **myResourceGroup**, isn't listed, even if the network security group is associated to a subnet in the **myVNet** virtual network.
 
-The account that you use must have the necessary [permissions](required-rbac-permissions.md).
+Learn more about the relationships and [properties](#properties) in the returned output.
 
-1. If you already have a network watcher in the same region as the virtual network that you want to create a topology for, skip to step 3. Create a resource group to contain a network watcher with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). The following example creates the resource group in the *eastus* region:
+# [**Azure CLI**](#tab/cli)
 
-    ```azurepowershell-interactive
-    New-AzResourceGroup -Name NetworkWatcherRG -Location EastUS
-    ```
+Retrieve the topology of a resource group using [az network watcher show-topology](/cli/azure/network/watcher#az-network-watcher-show-topology). The following example retrieves the network topology for **myResourceGroup** resource group:
 
-2. Create a network watcher with [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). The following example creates a network watcher in the eastus region:
+```azurecli-interactive
+# Get a network level view of resources and their relationships in "myResourceGroup" resource group.
+az network watcher show-topology --resource-group 'myResourceGroup'
+```
 
-    ```azurepowershell-interactive
-    New-AzNetworkWatcher `
-      -Name NetworkWatcher_eastus `
-      -ResourceGroupName NetworkWatcherRG
-    ```
+Topology information is only returned for resources that are in the same resource group and region as the **myVNet** virtual network. For example, a network security group that exists in a resource group other than **myResourceGroup**, isn't listed, even if the network security group is associated to a subnet in the **myVNet** virtual network.
 
-3. Retrieve a Network Watcher instance with [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher). The following example retrieves a network watcher in the East US region:
+Learn more about the relationships and [properties](#properties) in the returned output.
 
-    ```azurepowershell-interactive
-    $nw = Get-AzResource `
-      | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "EastUS" }
-    $networkWatcher = Get-AzNetworkWatcher `
-      -Name $nw.Name `
-      -ResourceGroupName $nw.ResourceGroupName
-    ```
-
-4. Retrieve a topology with [Get-AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology). The following example retrieves a topology for a virtual network in the resource group named *MyResourceGroup*:
-
-    ```azurepowershell-interactive
-    Get-AzNetworkWatcherTopology `
-      -NetworkWatcher $networkWatcher `
-      -TargetResourceGroupName MyResourceGroup
-    ```
-
-   Topology information is only returned for resources that are within the same resource group as the *MyResourceGroup* resource group and the same region as the network watcher. For example, a network security group that exists in a resource group other than *MyResourceGroup*, isn't shown, even if the network security group is associated to a subnet in the *MyVnet* virtual network.
-
-   Learn more about the relationships and [properties](#properties) in the returned output. If you don't have an existing virtual network to view a topology for, you can create one using the [Route traffic through a network virtual appliance](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) script sample. To view a diagram of the topology and download it in an editable file, use the [portal](#azure-portal).
+---
 
 ## Relationships
 
@@ -132,18 +126,30 @@ All resources returned in a topology have one of the following types of relation
 All resources returned in a topology have the following properties:
 
 - **Name**: The name of the resource
-- **Id**: The URI of the resource.
+- **ID**: The URI of the resource.
 - **Location**: The Azure region that the resource exists in.
+- **ResourceGroup**: The resource group that the resource exists in.
 - **Associations**: A list of associations to the referenced object. Each association has the following properties:
-    - **AssociationType**: References the relationship between the child object and the parent. Valid values are *Contains* or *Associated*.
-    - **Name**: The name of the referenced resource.
-    - **ResourceId**:  - The URI of the resource referenced in the association.
+    - **AssociationType**: The relationship between the child and the parent object. Valid values are **Contains** or **Associated**.
+    - **Name**: The name of the resource referenced in the association.
+    - **ResourceId**: The URI of the resource referenced in the association.
 
 ## Supported resources
 
-The Network Watcher Topology supports a limited set of resources. There are Virtual Network, Subnet, Network Interface, Network Security Group, Load Balancer, Load Balancer Health probe, Public IP, Virtual Network Peering, Virtual network gateway, VPN Gateway Connection, Virtual Machine, and Virtual Machine Scale Set.
+Topology supports the following resources:
+
+- Virtual networks and subnets
+- Virtual network peerings
+- Network interfaces
+- Network security groups
+- Load balancers and their health probes
+- Public IP
+- Virtual network gateways
+- VPN gateway connections
+- Virtual machines
+- Virtual machine scale sets.
 
 ## Next steps
 
-- Learn how to [diagnose a network traffic filter problem to or from a VM](diagnose-vm-network-traffic-filtering-problem.md) using Network Watcher's IP flow verify capability
-- Learn how to [diagnose a network traffic routing problem from a VM](diagnose-vm-network-routing-problem.md) using Network Watcher's next hop capability
+- Learn how to [diagnose a network traffic filter problem to or from a VM](diagnose-vm-network-traffic-filtering-problem.md) using Network Watcher's IP flow verify.
+- Learn how to [diagnose a network traffic routing problem from a VM](diagnose-vm-network-routing-problem.md) using Network Watcher's next hop.

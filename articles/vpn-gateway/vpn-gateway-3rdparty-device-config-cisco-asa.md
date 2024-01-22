@@ -2,9 +2,7 @@
 title: 'Sample configuration for connecting Cisco ASA devices to VPN gateways'
 titleSuffix: Azure VPN Gateway
 description: View sample configurations for connecting Cisco ASA devices to Azure VPN gateways.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/29/2021

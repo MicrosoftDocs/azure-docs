@@ -1,15 +1,15 @@
 ---
 title: Design guidance for replicated tables
-description: Recommendations for designing replicated tables in Synapse SQL pool  
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 11/02/2021
+description: Recommendations for designing replicated tables in Synapse SQL pool
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: 
-ms.custom: seo-lt-2019, azure-synapse
+ms.date: 01/09/2024
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - seo-lt-2019
+  - azure-synapse
 ---
 
 # Design guidance for using replicated tables in Synapse SQL pool
@@ -46,6 +46,9 @@ Replicated tables may not yield the best query performance when:
 - The table has frequent insert, update, and delete operations. The data manipulation language (DML) operations require a rebuild of the replicated table. Rebuilding frequently can cause slower performance.
 - The SQL pool is scaled frequently. Scaling a SQL pool changes the number of Compute nodes, which incurs rebuilding the replicated table.
 - The table has a large number of columns, but data operations typically access only a small number of columns. In this scenario, instead of replicating the entire table, it might be more effective to distribute the table, and then create an index on the frequently accessed columns. When a query requires data movement, SQL pool only moves data for the requested columns.
+
+> [!TIP]
+> For more guidance on indexing and replicated tables, see the [Cheat sheet for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics](cheat-sheet.md#index-your-table).
 
 ## Use replicated tables with simple query predicates
 
@@ -160,6 +163,8 @@ For example, this load pattern loads data from four sources, but only invokes on
 
 To ensure consistent query execution times, consider forcing the build of the replicated tables after a batch load. Otherwise, the first query will still use data movement to complete the query.
 
+The 'Build Replicated Table Cache' operation can execute up to two operations simultaneously. For example, if you attempt to rebuild the cache for five tables, the system will utilize a staticrc20 (which cannot be modified) to concurrently build two tables at the time. Therefore, it is recommended to avoid using large replicated tables exceeding 2 GB, as this may slow down the cache rebuild across the nodes and increase the overall time.
+
 This query uses the [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) DMV to list the replicated tables that have been modified, but not rebuilt.
 
 ```sql
@@ -180,6 +185,18 @@ To trigger a rebuild, run the following statement on each table in the preceding
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]
 ```
+
+To monitor the rebuild process, you can use [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true), where the `command` will start with 'BuildReplicatedTableCache'. For example:
+
+```sql
+-- Monitor Build Replicated Cache
+SELECT *
+FROM sys.dm_pdw_exec_requests
+WHERE command like 'BuildReplicatedTableCache%'
+```
+
+> [!TIP]
+> [Table size queries](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview#table-size-queries) can be used to verify which table(s) have a replicated distribution policy and which are larger than 2 GB.
 
 ## Next steps
 

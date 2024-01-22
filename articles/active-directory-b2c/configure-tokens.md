@@ -1,18 +1,17 @@
 ---
 title: Configure tokens - Azure Active Directory B2C  
 description: Learn how to configure the token lifetime and compatibility settings in Azure Active Directory B2C.
-services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2021
-ms.custom: project-no-code
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer intent: As a developer configuring token lifetimes in Azure Active Directory B2C, I want to understand the options and settings available for token lifetime and compatibility, so that I can customize them to fit the needs of my application and ensure secure access to resources.
+
 ---
 
 # Configure tokens in Azure Active Directory B2C
@@ -31,7 +30,7 @@ You can configure the token lifetime, including:
 
 - **Access and ID token lifetimes (minutes)** - The lifetime of the OAuth 2.0 bearer token and ID tokens. The default is 60 minutes (1 hour). The minimum (inclusive) is 5 minutes. The maximum (inclusive) is 1,440 minutes (24 hours).
 - **Refresh token lifetime (days)** - The maximum time period before which a refresh token can be used to acquire a new access token, if your application had been granted the `offline_access` scope. The default is 14 days. The minimum (inclusive) is one day. The maximum (inclusive) 90 days.
-- **Refresh token sliding window lifetime** - The refresh token sliding window type. `Bounded` indicates that the refresh token can be extended as specify in the **Lifetime length (days)**. `No expiry` indicates that the refresh token sliding window lifetime never expires.
+- **Refresh token sliding window lifetime** - The refresh token sliding window type. `Bounded` indicates that the refresh token can be extended as specified in the **Lifetime length (days)**. `No expiry` indicates that the refresh token sliding window lifetime never expires.
 - **Lifetime length (days)** - After this time period elapses the user is forced to reauthenticate, irrespective of the validity period of the most recent refresh token acquired by the application. The value must be greater than or equal to the **Refresh token lifetime** value.
 
 The following diagram shows the refresh token sliding window lifetime behavior.
@@ -49,14 +48,13 @@ The following diagram shows the refresh token sliding window lifetime behavior.
 To configure your user flow token lifetime:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **User flows (policies)**.
 1. Open the user flow that you previously created.
 1. Select **Properties**.
 1. Under **Token lifetime**, adjust the properties to fit the needs of your application.
-1. Click **Save**.
+1. Select **Save**.
 
 
 
@@ -94,7 +92,7 @@ The following values are set in the previous example:
 
 - **token_lifetime_secs** -  Access token lifetimes (seconds). The default is 3,600 (1 hour). The minimum is 300 (5 minutes). The maximum is 86,400 (24 hours). 
 - **id_token_lifetime_secs** -  ID token lifetimes (seconds). The default is 3,600 (1 hour). The minimum  is 300 (5 minutes). The maximum is 86,400 (24 hours). 
-- **refresh_token_lifetime_secs** Refresh token lifetimes (seconds). The default is 120,9600 (14 days). The minimum is 86,400 (24 hours). The maximum  is 7,776,000 (90 days). 
+- **refresh_token_lifetime_secs** Refresh token lifetimes (seconds). The default is 1,209,600 (14 days). The minimum is 86,400 (24 hours). The maximum  is 7,776,000 (90 days). 
 - **rolling_refresh_token_lifetime_secs** - Refresh token sliding window lifetime (seconds). The default is 7,776,000 (90 days). The minimum is 86,400 (24 hours). The maximum  is 31,536,000  (365 days). If you don't want to enforce a sliding window lifetime, set the value of `allow_infinite_rolling_refresh_token` to `true`. 
 - **allow_infinite_rolling_refresh_token** - Refresh token sliding window lifetime never expires. 
 
@@ -106,7 +104,7 @@ The following values are set in the previous example:
 You can configure the token compatibility, including:
 
 - **Issuer (iss) claim** - The access and ID token issuer format.
-- **Subject (sub) claim** - The principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory.
+- **Subject (sub) claim** - The principal about which the token asserts information, such as the user of an application. This value is immutable and can't be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory.
 - **Claim representing user flow** - This claim identifies the user flow that was executed. Possible values: `tfp` (default), or `acr`.
 
 ::: zone pivot="b2c-user-flow"
@@ -117,13 +115,13 @@ To configure your user flow compatibility settings:
 1. Open the user flow that you previously created.
 1. Select **Properties**.
 1. Under **Token compatibility settings**, adjust the properties to fit the needs of your application.
-1. Click **Save**.
+1. Select **Save**.
 
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
-To change the settings on your token compatibility, you set the [Token Issuer](jwt-issuer-technical-profile.md) technical profile metadata in the extension, or the relying party file of the policy you want to impact. The token issuer technical profile looks like following example:
+To change the settings on your token compatibility, you set the [Token Issuer](jwt-issuer-technical-profile.md) technical profile metadata in the extension, or the relying party file of the policy you want to update. The token issuer technical profile looks like following example:
 
 ```xml
 <ClaimsProviders>
@@ -186,7 +184,7 @@ The application claims are values that are returned to the application. Update y
 1. Open the user flow that you previously created.
 1. Select **Application claims**.
 1. Choose the claims and attributes that you want send back to your application.
-1. Click **Save**.
+1. Select **Save**.
 
 ::: zone-end
 
@@ -233,8 +231,9 @@ The OutputClaim element contains the following attributes:
 
 ## Authorization code lifetime
 
-When using the [OAuth 2.0 authorization code flow](authorization-code-flow.md), the app can use the authorization code to request an access token for a target resource. Authorization codes are short-lived that expire after about 10 minutes. The authorization code lifetime cannot be configured. Make sure your application redeems the authorization codes within 10 minutes. 
+When using the [OAuth 2.0 authorization code flow](authorization-code-flow.md), the app can use the authorization code to request an access token for a target resource. Authorization codes are short-lived that expire after about 10 minutes. The authorization code lifetime can't be configured. Make sure your application redeems the authorization codes within 10 minutes. 
 
 ## Next steps
 
-Learn more about how to [request access tokens](access-tokens.md).
+- Learn more about how to [request access tokens](access-tokens.md).
+- Learn how to build [Resilience through developer best practices](../active-directory/architecture/resilience-b2c-developer-best-practices.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json).

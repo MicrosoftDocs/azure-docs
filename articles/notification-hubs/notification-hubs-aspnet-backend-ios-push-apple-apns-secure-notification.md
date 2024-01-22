@@ -22,7 +22,7 @@ ms.lastreviewed: 01/04/2019
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
-> * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
+> * [Android](android-sdk.md)
 
 ## Overview
 

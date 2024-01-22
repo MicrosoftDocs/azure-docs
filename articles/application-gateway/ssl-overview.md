@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 06/09/2023
 ms.author: greglin
 
 ---
@@ -17,24 +17,25 @@ Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), 
 
 Application Gateway supports TLS termination at the gateway, after which traffic typically flows unencrypted to the backend servers. There are a number of advantages of doing TLS termination at the application gateway:
 
-- **Improved performance** – The biggest performance hit when doing TLS decryption is the initial handshake. To improve performance, the server doing the decryption caches TLS session IDs and manages TLS session tickets. If this is done at the application gateway, all requests from the same client can use the cached values. If it’s done on the backend servers, then each time the client’s requests go to a different server the client must re‑authenticate. The use of TLS tickets can help mitigate this issue, but they aren't supported by all clients and can be difficult to configure and manage.
+- **Improved performance** – The biggest performance hit when doing TLS decryption is the initial handshake. To improve performance, the server doing the decryption caches TLS session IDs and manages TLS session tickets. If this is done at the application gateway, all requests from the same client can use the cached values. If it’s done on the backend servers, then each time the client’s requests go to a different server the client must reauthenticate. The use of TLS tickets can help mitigate this issue, but they aren't supported by all clients and can be difficult to configure and manage.
 - **Better utilization of the backend servers** – SSL/TLS processing is very CPU intensive, and is becoming more intensive as key sizes increase. Removing this work from the backend servers allows them to focus on what they are most efficient at, delivering content.
 - **Intelligent routing** – By decrypting the traffic, the application gateway has access to the request content, such as headers, URI, and so on, and can use this data to route requests.
 - **Certificate management** – Certificates only need to be purchased and installed on the application gateway and not all backend servers. This saves both time and money.
 
-To configure TLS termination, a TLS/SSL certificate must be added to the listener. This allows the Application Gateway to decrypt incoming traffic and encrypt response traffic to the client. The certificate provided to the Application Gateway must be in Personal Information Exchange (PFX) format, which contains both the private and public keys.
+To configure TLS termination, a TLS/SSL certificate must be added to the listener. This allows the Application Gateway to decrypt incoming traffic and encrypt response traffic to the client. The certificate provided to the Application Gateway must be in Personal Information Exchange (PFX) format, which contains both the private and public keys. The supported PFX algorithms are listed at [PFXImportCertStore function](/windows/win32/api/wincrypt/nf-wincrypt-pfximportcertstore#remarks).
 
 > [!IMPORTANT] 
 > The certificate on the listener requires the entire certificate chain to be uploaded (the root certificate from the CA, the intermediates and the leaf certificate) to establish the chain of trust. 
 
-
 > [!NOTE] 
-> Application gateway does not provide any capability to create a new certificate or send a certificate request to a certification authority.
+> Application gateway doesn't provide any capability to create a new certificate or send a certificate request to a certification authority.
 
 For the TLS connection to work, you need to ensure that the TLS/SSL certificate meets the following conditions:
 
 - That the current date and time is within the "Valid from" and "Valid to" date range on the certificate.
 - That the certificate's "Common Name" (CN) matches the host header in the request. For example, if the client is making a request to `https://www.contoso.com/`, then the CN must be `www.contoso.com`.
+
+If you have errors with the backend certificate common name (CN), see our [troubleshooting guide](./application-gateway-backend-health-troubleshooting.md#common-name-cn-doesnt-match).  
 
 ### Certificates supported for TLS termination
 
@@ -42,7 +43,7 @@ Application gateway supports the following types of certificates:
 
 - CA (Certificate Authority) certificate: A CA certificate is a digital certificate issued by a certificate authority (CA)
 - EV (Extended Validation) certificate: An EV certificate is a certificate that conforms to industry standard certificate guidelines. This will turn the browser locator bar green and publish the company name as well.
-- Wildcard Certificate: This certificate supports any number of subdomains based on *.site.com, where your subdomain would replace the *. It doesn’t, however, support site.com, so in case the users are accessing your website without typing the leading "www", the wildcard certificate will not cover that.
+- Wildcard Certificate: This certificate supports any number of subdomains based on *.site.com, where your subdomain would replace the *. It doesn’t, however, support site.com, so in case the users are accessing your website without typing the leading "www", the wildcard certificate won't cover that.
 - Self-Signed certificates: Client browsers don't trust these certificates and will warn the user that the virtual service’s certificate isn't part of a trust chain. Self-signed certificates are good for testing or environments where administrators control the clients and can safely bypass the browser’s security alerts. Production workloads should never use self-signed certificates.
 
 For more information, see [configure TLS termination with application gateway](./create-ssl-portal.md).
@@ -58,11 +59,11 @@ End-to-end TLS allows you to encrypt and securely transmit sensitive data to the
 
 When configured with end-to-end TLS communication mode, Application Gateway terminates the TLS sessions at the gateway and decrypts user traffic. It then applies the configured rules to select an appropriate backend pool instance to route traffic to. Application Gateway then initiates a new TLS connection to the backend server and re-encrypts data using the backend server's public key certificate before transmitting the request to the backend. Any response from the web server goes through the same process back to the end user. End-to-end TLS is enabled by setting protocol setting in [Backend HTTP Setting](./configuration-overview.md#http-settings) to HTTPS, which is then applied to a backend pool.
 
-The [TLS policy](./application-gateway-ssl-policy-overview.md) applies only to the frontend traffic for both V1 and V2 SKU gateways. The backend TLS connection supports TLS 1.0 to TLS 1.2 versions.
+In Application Gateway v1 SKU gateways, [TLS policy](./application-gateway-ssl-policy-overview.md) applies the TLS version only to frontend traffic and the defined ciphers to both frontend and backend targets.  In Application Gateway v2 SKU gateways, TLS policy only applies to frontend traffic, backend TLS connections will always be negotiated via TLS 1.0 to TLS 1.2 versions.
 
 Application Gateway only communicates with those backend servers that have either allow-listed their certificate with the Application Gateway or whose certificates are signed by well-known CA authorities and the certificate's CN matches the host name in the HTTP backend settings. These include the trusted Azure services such as Azure App Service/Web Apps and Azure API Management.
 
-If the certificates of the members in the backend pool aren't signed by well-known CA authorities, then each instance in the backend pool with end to end TLS enabled must be configured with a certificate to allow secure communication. Adding the certificate ensures that the application gateway only communicates with known back-end instances. This further secures the end-to-end communication.
+If the certificates of the members in the backend pool aren't signed by well-known CA authorities, then each instance in the backend pool with end to end TLS enabled must be configured with a certificate to allow secure communication. Adding the certificate ensures that the application gateway only communicates with known backend instances. This further secures the end-to-end communication.
 
 > [!NOTE] 
 >
@@ -74,7 +75,7 @@ In this example, requests using TLS1.2 are routed to backend servers in Pool1 us
 
 ## End to end TLS and allow listing of certificates
 
-Application Gateway only communicates with those backend servers that have either allow-listed their certificate with the Application Gateway or whose certificates are signed by well-known CA authorities and the certificate's CN matches the host name in the HTTP backend settings. There are some differences in the end-to-end TLS setup process with respect to the version of Application Gateway used. The following section explains them individually.
+Application Gateway only communicates with those backend servers that have either allow-listed their certificate with the Application Gateway or whose certificates are signed by well-known CA authorities and the certificate's CN matches the host name in the HTTP backend settings. There are some differences in the end-to-end TLS setup process with respect to the version of Application Gateway used. The following section explains the versions individually.
 
 ## End-to-end TLS with the v1 SKU
 
@@ -122,6 +123,9 @@ The following tables outline the differences in SNI between the v1 and v2 SKU in
 | If the client doesn't specify a SNI header and if all the multi-site headers are enabled with "Require SNI" | Resets the connection | Returns the certificate of the first HTTPS listener according to the order specified by the request routing rules associated with the HTTPS listeners
 | If the client doesn't specify SNI header and if there's a basic listener configured with a certificate | Returns the certificate configured in the basic listener to the client (default or fallback certificate) | Returns the certificate configured in the basic listener |
 
+> [!TIP]
+> The SNI flag can be configured with PowerShell or by using an ARM template. For more information, see [RequireServerNameIndication](/powershell/module/az.network/set-azapplicationgatewayhttplistener#-requireservernameindication) and [Quickstart: Direct web traffic with Azure Application Gateway - ARM template](quick-create-template.md#review-the-template).
+
 ### Backend TLS connection (application gateway to the backend server)
 
 #### For probe traffic
@@ -133,7 +137,7 @@ The following tables outline the differences in SNI between the v1 and v2 SKU in
 | If the backend pool address is an IP address (v1) or if custom probe hostname is configured as IP address (v2) | SNI (server_name) won’t be set. <br> **Note:** In this case, the backend server should be able to return a default/fallback certificate and this should be allow-listed in HTTP settings under authentication certificate. If there’s no default/fallback certificate configured in the backend server and SNI is expected, the server might reset the connection and will lead to probe failures | In the order of precedence mentioned previously, if they have IP address as hostname, then SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Note:** SNI also won't be set in v2 probes if no custom probe is configured and no hostname is set on HTTP settings or backend pool |
 
 > [!NOTE] 
-> If a custom probe isn't configured, then Application Gateway sends a default probe in this format - \<protocol\>://127.0.0.1:\<port\>/. For example, for a default HTTPS probe, it will be sent as https://127.0.0.1:443/. Note that, the 127.0.0.1 mentioned here is only used as HTTP host header and as per RFC 6066, will not be used as SNI header. For more information on health probe errors, check the [backend health troubleshooting guide](application-gateway-backend-health-troubleshooting.md).
+> If a custom probe isn't configured, then Application Gateway sends a default probe in this format - \<protocol\>://127.0.0.1:\<port\>/. For example, for a default HTTPS probe, it will be sent as https://127.0.0.1:443/. Note that, the 127.0.0.1 mentioned here is only used as HTTP host header and as per RFC 6066, won't be used as SNI header. For more information on health probe errors, check the [backend health troubleshooting guide](application-gateway-backend-health-troubleshooting.md).
 
 #### For live traffic
 

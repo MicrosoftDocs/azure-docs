@@ -1,12 +1,12 @@
 ---
 title: How to prepare an application for deployment in Azure Spring Apps
 description: Learn how to prepare an application for deployment to Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 07/06/2021
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-spring-apps
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 ::: zone pivot="programming-language-csharp"
 This article shows how to prepare an existing Steeltoe application for deployment to Azure Spring Apps. Azure Spring Apps provides robust services to host, monitor, scale, and update a Steeltoe app.
@@ -90,9 +90,9 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 ## Enable Eureka Server service discovery
 
 > [!NOTE]
-> Eureka is not applicable to enterprise tier. If you're using enterprise tier, see [Use Service Registry](how-to-enterprise-service-registry.md).
+> Eureka is not applicable to the Enterprise plan. If you're using the Enterprise plan, see [Use Service Registry](how-to-enterprise-service-registry.md).
 
-In the configuration source that will be used when the app runs in Azure Spring Apps, set `spring.application.name` to the same name as the Azure Spring Apps app to which the project will be deployed.
+In the configuration source that's used when the app runs in Azure Spring Apps, set `spring.application.name` to the same name as the Azure Spring Apps app to which the project is deployed.
 
 For example, if you deploy a .NET project named `EurekaDataProvider` to an Azure Spring Apps app named `planet-weather-provider` the *appSettings.json* file should include the following JSON:
 
@@ -145,26 +145,28 @@ For details, see the [Java runtime and OS versions](./faq.md?pivots=programming-
 
 To prepare an existing Spring Boot application for deployment to Azure Spring Apps, include the Spring Boot and Spring Cloud dependencies in the application POM file as shown in the following sections.
 
-Azure Spring Apps will support the latest Spring Boot or Spring Cloud major version starting from 30 days after its release. The latest minor version will be supported as soon as it's released. You can get supported Spring Boot versions from [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) and Spring Cloud versions from [Spring Cloud Releases](https://github.com/spring-cloud/spring-cloud-release/wiki).
+Azure Spring Apps supports the latest Spring Boot or Spring Cloud major version starting from 30 days after its release. Azure Spring Apps supports the latest minor version as soon as it's released. You can get supported Spring Boot versions from [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) and Spring Cloud versions from [Spring Cloud Releases](https://github.com/spring-cloud/spring-cloud-release/wiki).
 
 The following table lists the supported Spring Boot and Spring Cloud combinations:
 
-### [Basic/Standard tier](#tab/basic-standard-tier)
+### [Enterprise plan](#tab/enterprise-plan)
 
-| Spring Boot version | Spring Cloud version |
-|---------------------|----------------------|
-| 2.7.x               | 2021.0.3+ aka Jubilee|
-| 2.6.x               | 2021.0.0+ aka Jubilee|
+| Spring Boot version | Spring Cloud version            | End of commercial support |
+|---------------------|---------------------------------|---------------------------|
+| 3.2.x               | 2022.0.3+ also known as Kilburn | 2026-02-23                |
+| 3.1.x               | 2022.0.3+ also known as Kilburn | 2025-08-18                |
+| 3.0.x               | 2022.0.3+ also known as Kilburn | 2025-02-24                |
+| 2.7.x               | 2021.0.3+ also known as Jubilee | 2025-08-24                |
+| 2.6.x               | 2021.0.3+ also known as Jubilee | 2024-02-24                |
 
-### [Enterprise tier](#tab/enterprise-tier)
+### [Basic/Standard plan](#tab/basic-standard-plan)
 
-| Spring Boot version | Spring Cloud version       |
-|---------------------|----------------------------|
-| 2.7.x               | 2021.0.3+ aka Jubilee      |
-| 2.6.x               | 2021.0.0+ aka Jubilee      |
-| 2.5.x               | 2020.3+ aka Ilford+        |
-| 2.4.x               | 2020.0+ aka Ilford+        |
-| 2.3.x               | Hoxton (starting with SR5) |
+| Spring Boot version | Spring Cloud version            | End of support |
+|---------------------|---------------------------------|----------------|
+| 3.2.x               | 2022.0.3+ also known as Kilburn | 2024-11-23     |
+| 3.1.x               | 2022.0.3+ also known as Kilburn | 2024-05-18     |
+| 3.0.x               | 2022.0.3+ also known as Kilburn | 2023-11-24     |
+| 2.7.x               | 2021.0.3+ also known as Jubilee | 2023-11-24     |
 
 ---
 
@@ -173,65 +175,7 @@ For more information, see the following pages:
 * [Spring Boot support](https://spring.io/projects/spring-boot#support)
 * [Spring Cloud Config support](https://spring.io/projects/spring-cloud-config#support)
 * [Spring Cloud Netflix support](https://spring.io/projects/spring-cloud-netflix#support)
-* [Spring Cloud 2020.0.0 (aka Ilford) Is Available](https://spring.io/blog/2020/12/22/spring-cloud-2020-0-0-aka-ilford-is-available)
-* [Adding Spring Cloud To An Existing Spring Boot Application](https://spring.io/projects/spring-cloud#adding-spring-cloud-to-an-existing-spring-boot-application)
-
-> [!NOTE]
-> - Upgrade Spring Boot to 2.5.2 or 2.4.8 to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using Spring Security, upgrade it to 5.5.1, 5.4.7, 5.3.10 or 5.2.11.
-> - An issue was identified with Spring Boot 2.4.0 on TLS authentication between apps and Spring Cloud Service Registry. Use version 2.4.1 or above. If you must use version 2.4.0, see the [FAQ](./faq.md?pivots=programming-language-java#development) for a workaround.
-
-### Dependencies for Spring Boot version 2.4/2.5/2.6/2.7
-
-For Spring Boot version 2.4/2.5, add the following dependencies to the application POM file.
-
-```xml
-<!-- Spring Boot dependencies -->
-<parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.4.8</version>
-</parent>
-
-<!-- Spring Cloud dependencies -->
-<dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-dependencies</artifactId>
-            <version>2020.0.2</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-    </dependencies>
-</dependencyManagement>
-```
-
-For Spring Boot version 2.6/2.7, add the following dependencies to the application POM file.
-
-```xml
-<!-- Spring Boot dependencies -->
-<parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.2</version>
-</parent>
-
-<!-- Spring Cloud dependencies -->
-<dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-dependencies</artifactId>
-            <version>2021.0.3</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-    </dependencies>
-</dependencyManagement>
-```
-
-> [!WARNING]
-> Don't specify `server.port` in your configuration. Azure Spring Apps will override this setting to a fixed port number. You must also respect this setting and not specify a server port in your code.
+* [Adding Spring Cloud To An Existing Spring Boot Application](https://spring.io/projects/spring-cloud#overview:~:text=Adding%20Spring%20Cloud%20To%20An%20Existing%20Spring%20Boot%20Application)
 
 ## Other recommended dependencies to enable Azure Spring Apps features
 
@@ -281,7 +225,31 @@ public class GatewayApplication {
 
 ### Distributed configuration
 
-#### [Basic/Standard tier](#tab/basic-standard-tier)
+#### [Enterprise plan](#tab/enterprise-plan)
+
+To enable distributed configuration in the Enterprise plan, use [Application Configuration Service for VMware Tanzu](https://docs.vmware.com/en/Application-Configuration-Service-for-VMware-Tanzu/2.0/acs/GUID-overview.html), which is one of the proprietary VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+
+In the Enterprise plan, there's no Spring Cloud Config Server, but you can use Application Configuration Service for Tanzu to manage centralized configurations. For more information, see [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md)
+
+To use Application Configuration Service for Tanzu, do the following steps for each of your apps:
+
+1. Add an explicit app binding to declare that your app needs to use Application Configuration Service for Tanzu.
+
+   > [!NOTE]
+   > When you change the bind/unbind status, you must restart or redeploy the app to make the change take effect.
+
+1. Set config file patterns. Config file patterns enable you to choose which application and profile the app uses. For more information, see the [Pattern](how-to-enterprise-application-configuration-service.md#pattern) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
+
+   Another option is to set the config file patterns at the same time as your app deployment, as shown in the following example:
+
+   ```azurecli
+      az spring app deploy \
+          --name <app-name> \
+          --artifact-path <path-to-your-JAR-file> \
+          --config-file-pattern <config-file-pattern>
+   ```
+
+#### [Basic/Standard plan](#tab/basic-standard-plan)
 
 To enable distributed configuration, include the following `spring-cloud-config-client` dependency in the dependencies section of your *pom.xml* file:
 
@@ -298,30 +266,6 @@ To enable distributed configuration, include the following `spring-cloud-config-
 
 > [!WARNING]
 > Don't specify `spring.cloud.config.enabled=false` in your bootstrap configuration. Otherwise, your application stops working with Config Server.
-
-#### [Enterprise tier](#tab/enterprise-tier)
-
-To enable distributed configuration in Enterprise tier, use [Application Configuration Service for VMware Tanzu®](https://docs.pivotal.io/tcs-k8s/0-1/), which is one of the proprietary VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and totally different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
-
-In Enterprise tier, there's no Spring Cloud Config Server, but you can use Application Configuration Service for Tanzu to manage centralized configurations. For more information, see [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md)
-
-To use Application Configuration Service for Tanzu, do the following steps for each of your apps:
-
-1. Add an explicit app binding to declare that your app needs to use Application Configuration Service for Tanzu.
-
-   > [!NOTE]
-   > When you change the bind/unbind status, you must restart or redeploy the app to make the change take effect.
-
-1. Set config file patterns. Config file patterns enable you to choose which application and profile the app will use. For more information, see the [Pattern](how-to-enterprise-application-configuration-service.md#pattern) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
-
-   Another option is to set the config file patterns at the same time as your app deployment, as shown in the following example:
-
-   ```azurecli
-      az spring app deploy \
-          --name <app-name> \
-          --artifact-path <path-to-your-JAR-file> \
-          --config-file-pattern <config-file-pattern>
-   ```
 
 ---
 
@@ -352,5 +296,5 @@ Include the `spring-boot-starter-actuator` dependency in the dependencies sectio
 
 In this article, you learned how to configure your Java Spring application for deployment to Azure Spring Apps. To learn how to set up a Config Server instance, see [Set up a Config Server instance](./how-to-config-server.md).
 
-More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples).
 ::: zone-end

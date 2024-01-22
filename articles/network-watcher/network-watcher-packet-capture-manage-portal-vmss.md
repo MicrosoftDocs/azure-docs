@@ -1,16 +1,15 @@
 ---
-title: Manage packet captures in Virtual machine scale sets with Azure Network Watcher - Azure portal
+title: Manage packet captures in virtual machine scale sets - Azure portal
 titleSuffix: Azure Network Watcher
-description: Learn how to manage the packet capture feature of Network Watcher in virtual machine scale set using the Azure portal.
+description: Learn how to manage packet captures in virtual machine scale sets with the packet capture feature of Network Watcher using the Azure portal.
 services: network-watcher
-documentationcenter: na
-author: shijaiswal
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 01/07/2021
-ms.author: shijaiswal
+ms.workload: infrastructure-services
+ms.date: 06/07/2022
+ms.custom: engagement-fy23
+ms.author: halkazwini
 ---
 
 # Manage packet captures in Virtual machine scale sets with Azure Network Watcher using the portal

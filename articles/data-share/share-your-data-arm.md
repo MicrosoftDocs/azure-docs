@@ -1,12 +1,12 @@
 ---
 title: 'Share outside your org (ARM template) - Azure Data Share quickstart'
 description: Learn how to share data with customers and partners using Azure Data Share and an Azure Resource Manager template (ARM template) in this quickstart.
-author: mumian
-ms.author: jgao
+author: sidontha
+ms.author: sidontha
 ms.service: data-share
 ms.topic: quickstart
-ms.date: 01/03/2022
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.date: 12/19/2023
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Share data using Azure Data Share and ARM template
@@ -69,7 +69,7 @@ It's because the deployment is trying to create the dataset before the Azure rol
     * **Location**: select a location for the resource group.
     * **Project Name**: enter a project name.  The project name is used for generating resource names.  See the variable definitions in the previous template.
     * **location**: select a location for the resources.  You can use the same location for the resource group.
-    * **Invitation Email**: enter the data share recipient's Azure login email address.  Email alias doesn't work.
+    * **Invitation Email**: enter the data share recipient's Azure sign in email address.  Email alias doesn't work.
 
     Use the default value for the rest of the settings.
 1. select **I agree to the terms and conditions stated above**, and the select **Purchase**.

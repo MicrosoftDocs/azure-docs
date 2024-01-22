@@ -21,12 +21,12 @@ sections:
       - question: |
           What is Trusted Hardware Identity Management (THIM) and its role in enclave attestation
         answer: |
-          Trusted Hardware Identity Management (THIM) defines the Azure security baseline for the [Azure Confidential computing (ACC)](../confidential-computing/overview.md) nodes from Intel and caches the data. The cached information will be further used by Azure Attestation in validating Trusted Execution Environments (TEEs).  
+          Trusted Hardware Identity Management (THIM) fetches the Azure security baseline for the [Azure Confidential computing (ACC)](../confidential-computing/overview.md) nodes from Intel and caches the data. The cached information will be further used by Azure Attestation in validating Trusted Execution Environments (TEEs).  
           
           THIM is recommended for the following reasons:
              - Offers high availability 
              - Reduces dependencies on externally hosted services and internet connectivity.
-             - Fetches the latest versions of Intel certificates, CRLs, Trusted Computing Base (TCB) information and Quoting Enclave identity of the ACC nodes from Intel. The service hence confirms the Azure security baseline to be referred by Azure Attestation while validating the TEEs, greatly reducing attestation failures due to invalidation or revocation of Intel certificates  
+             - Periodically fetches the newer versions of Intel certificates, CRLs, Trusted Computing Base (TCB) information and Quoting Enclave identity of the ACC nodes from Intel. The service hence confirms the Azure security baseline to be referred by Azure Attestation while validating the TEEs, greatly reducing attestation failures due to invalidation or revocation of Intel certificates  
           
       - question: |
           Is SGX attestation supported by Azure Attestation in non-Azure environments
@@ -55,7 +55,7 @@ sections:
           - After installing Azure Confidential computing virtual machine, install Azure DCAP library ([Windows/](https://www.nuget.org/packages/Microsoft.Azure.DCAP/) [Linux](https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/)) to leverage the benefits offered by Trusted Hardware Identity Management (THIM).
           - Remote attestation client needs to be authored which can retrieve the enclave evidence and send requests to Azure Attestation. See [code samples](https://github.com/Azure-Samples/microsoft-azure-attestation) for reference 
           - Attestation requests can be sent to the REST API endpoint of default providers or custom attestation providers 
-          - In [2018-09-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/attestation/data-plane/Microsoft.Attestation/stable/2018-09-01-preview) API version, the client needs to send Azure AD access token along with the evidence to SGX attest API endpoint. The Azure AD access token is not a required parameter to perform SGX attestation in [2020-10-01](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/attestation/data-plane/Microsoft.Attestation/stable/2020-10-01) API version
+          - In [2018-09-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/attestation/data-plane/Microsoft.Attestation/stable/2018-09-01-preview) API version, the client needs to send Microsoft Entra access token along with the evidence to SGX attest API endpoint. The Microsoft Entra access token is not a required parameter to perform SGX attestation in [2020-10-01](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/attestation/data-plane/Microsoft.Attestation/stable/2020-10-01) API version
           
       - question: |
           How can the relying party verify the integrity of attestation token and confirm that Azure Attestation is running inside an enclave

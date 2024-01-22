@@ -2,11 +2,11 @@
 metadata:
   title: Back up Azure Files FAQ
   description: In this article, discover answers to common questions about how to protect your Azure file shares with the Azure Backup service.
-  ms.date: 04/05/2022
+  ms.date: 10/14/2022
   ms.topic: faq
   ms.service: backup
-  author: v-amallick
-  ms.author: v-amallick
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
 title: Questions about backing up Azure Files
 summary: |
   This article answers common questions about backing up Azure Files. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [Microsoft Q&A question page for discussion](/answers/topics/azure-backup.html).
@@ -30,10 +30,10 @@ sections:
       - question: |
           Why is it recommended to enable lock on the storage account?
         answer: |
-          The current Azure Files backup solution keeps snapshots in the same storage account as the backed-up file share. If the storage account gets deleted, you will lose all your snapshots. To protect your account against accidental deletion, Azure Backup takes a Delete lock on the storage account. It means authorized users can still read and modify a resource, but they can't delete it. The lock also restricts the deletion of any file share under the storage account. Hence, you get protection from the accidental deletion of both the storage account and files shares.
+          The current Azure Files backup solution keeps snapshots in the same storage account as the backed-up file share. If the storage account gets deleted, you'll lose all your snapshots. To protect your account against accidental deletion, Azure Backup takes a Delete lock on the storage account. It means authorized users can still read and modify a resource, but they can't delete it. The lock also restricts the deletion of any file share under the storage account. Hence, you get protection from the accidental deletion of both the storage account and files shares.
 
       - question: |
-          Can I protect File Shares connected to a Sync Group in Azure Files Sync?
+          Can I protect File Shares connected to a Sync Group in Azure File Sync?
         answer: |
           Yes. Protection of Azure File Shares connected to Sync Groups is enabled.
 
@@ -63,6 +63,18 @@ sections:
           What should I do if my backups start failing due to the maximum limit reached error?
         answer: |
           You can have up to 200 Snapshots for a file share at any point in time. The limit includes snapshots taken by Azure Backup as defined by your policy. If your backups start failing after reaching the limit, delete On-Demand snapshots for successful future backups.
+
+      - question: |
+          How's the total number of snapshots corresponding to a backup policy configuration calculated?
+        answer: |
+          The following table explains the snapshot count as per the backup policy configuration:
+          
+          | Backup frequency | Retention period | Snapshot count |
+          | ---------------- | ---------------- | -------------- |
+          | **Daily**  | Add the retention values configured for daily, weekly, monthly, and yearly backups. For example, you configure a backup policy with the following values: <br><br> - Daily retention: 30 days <br> - Weekly retention: 40 weeks <br> - Monthly retention: 4 months <br> - Yearly retention: 6 years | This corresponds to 80 snapshots (30+40+4+6).
+          | **Hourly** | There's a buffer allocated for any delay in pruning the expired snapshots. For example, you configure a backup policy with: <br><br> - Number of daily snapshots as per your schedule: 6 <br> - Daily retention: 30 days <br> - Monthly retention: 11 months <br> - Yearly retention: 8 years | Considering 1 day buffer for each daily snapshot, the daily retention of 30 days is considered as 31 days for each of the 6 daily snapshots. So, this configuration corresponds to 205 [(6X31)+11+8] snapshots.
+
+
 
   - name: Restore
     questions:
@@ -198,9 +210,9 @@ sections:
 
           **Impact of change**
 
-          1. The expiration date of existing daily recovery points will be aligned according to the new daily retention value, that is 10 days. So any daily recovery point older than 10 days will be deleted.
+          1. The expiration date of existing daily recovery points will be aligned according to the new daily retention value (10 days). So any daily recovery point older than 10 days will be deleted.
 
-          2. The expiration date of existing weekly recovery points will be aligned according to the new weekly retention value, that is two weeks. So any weekly recovery point older than two weeks will be deleted.
+          2. The expiration date of existing weekly recovery points will be aligned according to the new weekly retention value (two weeks). So, any weekly recovery point older than two weeks will be deleted.
 
           3. The monthly recovery points will only be created as part of future backups based on the new policy configuration.
 
@@ -214,7 +226,7 @@ sections:
         answer: |
           The **duration** attribute helps to determine the timestamp for last backup of the day. 
 
-          For example, if the **start time** is “x AM” and **duration** is “y hours”, the backups will be scheduled between “x AM” and (x AM + y hours) based on the **schedule** attribute defined in the policy. This attribute enables you to ensure backups are only triggered during your working hours when there're frequent update operations on file share contents; therefore, taking multiple snapshots will safeguard data from any accidental changes.
+          For example, if the **start time** is “x AM” and **duration** is “y hours”, the backups will be scheduled between “x AM” and (x AM + y hours) based on the **schedule** attribute defined in the policy. This attribute enables you to ensure backups are only triggered during your working hours when there are frequent update operations on file share contents; so, taking multiple snapshots will safeguard data from any accidental changes.
 
       - question: |
           How are the backups scheduled based on the attributes - start time, schedule, and duration?
@@ -286,6 +298,11 @@ sections:
           Is the lease effective on snapshots in a file share undeleted from the soft delete state?
         answer: |
           No. If you delete a file share containing leased snapshots, the lease won’t be in place when the file share is undeleted.
+
+      - question: |
+          Can I configure different backup policies for file shares in a storage account?
+        answer: |
+          Yes, you can protect file shares in a storage account in the same Recovery Services vault with different backup policies.
 
 additionalContent: |
 

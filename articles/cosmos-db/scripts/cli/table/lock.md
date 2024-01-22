@@ -1,35 +1,35 @@
 ---
-title: Azure Cosmos DB Table API resource lock operations
-description: Use Azure CLI to create, list, show properties for, and delete resource locks for an Azure Cosmos DB Table API table.
+title: Azure Cosmos DB for Table resource lock operations
+description: Use Azure CLI to create, list, show properties for, and delete resource locks for an Azure Cosmos DB for Table table.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.topic: sample
 ms.date: 06/16/2022
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, ignite-2022, devx-track-azurecli
 ---
 
-# Use Azure CLI for resource lock operations on Azure Cosmos DB Table API tables
+# Use Azure CLI for resource lock operations on Azure Cosmos DB for Table tables
 
-[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../../../includes/appliesto-table.md)]
 
-The script in this article demonstrates performing resource lock operations for a Table API table. 
+The script in this article demonstrates performing resource lock operations for a API for Table table.
 
 > [!IMPORTANT]
-> To enable resource locking, the Azure Cosmos DB account must have the `disableKeyBasedMetadataWriteAccess` property enabled. This property prevents any changes to resources from clients that connect via account keys, such as the Cosmos DB Table SDK, Azure Storage Table SDK, or Azure portal. For more information, see [Preventing changes from SDKs](../../../role-based-access-control.md#prevent-sdk-changes).
+> To enable resource locking, the Azure Cosmos DB account must have the `disableKeyBasedMetadataWriteAccess` property enabled. This property prevents any changes to resources from clients that connect via account keys, such as the Azure Cosmos DB Table SDK, Azure Storage Table SDK, or Azure portal. For more information, see [Preventing changes from SDKs](../../../role-based-access-control.md#prevent-sdk-changes).
 
 ## Prerequisites
 
-- You need an [Azure Cosmos DB Table API account, database, and table created](create.md). [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
+- You need an [Azure Cosmos DB for Table account, database, and table created](create.md). [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
   > [!IMPORTANT]
   > To create or delete resource locks, you must have the **Owner** role in your Azure subscription.
 
 - This script requires Azure CLI version 2.12.1 or later.
 
-  - You can run the script in the Bash environment in [Azure Cloud Shell](../../../../cloud-shell/quickstart.md). When Cloud Shell opens, make sure **Bash** appears in the environment field at the upper left of the shell window. Cloud Shell always has the latest version of Azure CLI.
+  - You can run the script in the Bash environment in [Azure Cloud Shell](../../../../cloud-shell/get-started.md). When Cloud Shell opens, make sure **Bash** appears in the environment field at the upper left of the shell window. Cloud Shell always has the latest version of Azure CLI.
 
     [![Launch Cloud Shell in a new window](../../../../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
@@ -37,7 +37,7 @@ The script in this article demonstrates performing resource lock operations for 
 
     ```azurecli
     subscription="<subscriptionId>" # add subscription here
-    
+
     az account set -s $subscription # ...or use 'az login'
     ```
 
@@ -47,7 +47,7 @@ The script in this article demonstrates performing resource lock operations for 
 
 ## Sample script
 
-The following script uses Azure CLI [az lock](/cli/azure/lock) commands to manipulate resource locks on your Azure Cosmos DB Table API table. The script needs the `resourceGroup`, `account` name, and `table` name for the Azure Cosmos DB account and table you created.
+The following script uses Azure CLI [az lock](/cli/azure/lock) commands to manipulate resource locks on your Azure Cosmos DB for Table table. The script needs the `resourceGroup`, `account` name, and `table` name for the Azure Cosmos DB account and table you created.
 
 - [az lock create](/cli/azure/lock#az-lock-create) creates a `CanNotDelete` resource lock on the table.
 - [az lock list](/cli/azure/lock#az-lock-list) lists all the lock information for your Azure Cosmos DB Table account.

@@ -5,11 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 01/04/2024
 tags: connectors
 ---
 
 # Connect to an FTP server from workflows in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 This article shows how to access your File Transfer Protocol (FTP) server from a workflow in Azure Logic Apps with the FTP connector. You can then create automated workflows that run when triggered by events in your FTP server or in other systems and run actions to manage files on your FTP server.
 
@@ -23,7 +25,7 @@ For example, your workflow can start with an FTP trigger that monitors and respo
 If you're new to Azure Logic Apps, review the following get started documentation:
 
 * [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)
-* [Quickstart: Create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Quickstart: Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
 
 ## Connector technical reference
 
@@ -722,4 +724,6 @@ This action returns a [BlobMetadata](/connectors/ftp/#blobmetadata) object named
 
 ## Next steps
 
-* [Connectors overview for Azure Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](managed.md)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

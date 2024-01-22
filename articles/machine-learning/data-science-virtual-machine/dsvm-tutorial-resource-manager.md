@@ -3,17 +3,17 @@ title: 'Quickstart: Create a Data Science VM - Resource Manager template'
 titleSuffix: Azure Data Science Virtual Machine
 description: In this quickstart, you use an Azure Resource Manager template to quickly deploy a Data Science Virtual Machine
 services: machine-learning
-author: craigg-msft
-ms.author: craigg
+author: s-polly
+ms.author: scottpolly
 ms.date: 06/10/2020
 ms.topic: quickstart
 ms.service: data-science-vm
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create an Ubuntu Data Science Virtual Machine using an ARM template
 
-This quickstart will show you how to create an Ubuntu 18.04 Data Science Virtual Machine using an Azure Resource Manager template (ARM template). Data Science Virtual Machines are cloud-based virtual machines preloaded with a suite of data science and machine learning frameworks and tools. When deployed on GPU-powered compute resources, all tools and libraries are configured to use the GPU.
+This quickstart will show you how to create an Ubuntu Data Science Virtual Machine using an Azure Resource Manager template (ARM template). Data Science Virtual Machines are cloud-based virtual machines preloaded with a suite of data science and machine learning frameworks and tools. When deployed on GPU-powered compute resources, all tools and libraries are configured to use the GPU.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -40,7 +40,7 @@ The following resources are defined in the template:
 * [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
 * [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
 * [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
-* [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Create a cloud-based virtual machine. In this template, the virtual machine is configured as a Data Science Virtual Machine running Ubuntu 18.04.
+* [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Create a cloud-based virtual machine. In this template, the virtual machine is configured as a Data Science Virtual Machine running Ubuntu.
 
 ## Deploy the template
 

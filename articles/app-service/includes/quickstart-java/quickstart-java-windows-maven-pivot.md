@@ -7,7 +7,7 @@ ms.date: 06/30/2022
 ms.author: cephalin
 ---
 
-[Azure App Service](../../overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file, or .war file. Use the tabs to switch between Java SE and Tomcat instructions.
+[Azure App Service](../../overview.md) provides a highly scalable, self-patching web app hosting service. This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file or .war file. Use the tabs to switch between Java SE and Tomcat instructions.
 
 # [Java SE](#tab/javase)
 
@@ -82,16 +82,16 @@ The deployment process to Azure App Service will use your Azure credentials from
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.11.0:config
 ```
 
 # [Java SE](#tab/javase)
 
 1. If prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
 1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
-1. When prompted with **OS** option, select **Windows** by entering `1`.
-1. When prompted with **javaVersion** option, select **Java 11** by entering `2`.
-1. When prompted with **Pricing Tier** option, select **P1v2** by entering `10`.
+1. When prompted with **OS** option, select **Windows**.
+1. When prompted with **javaVersion** option, select **Java 11**.
+1. When prompted with **Pricing Tier** option, select **P1v2**.
 1. Finally, press enter on the last prompt to confirm your selections.
 
     Your summary output will look similar to the snippet shown below.
@@ -121,10 +121,10 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
 
 1. If prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
 1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
-1. When prompted with **OS** option, select **Windows** by entering `1`.
-1. When prompted with **javaVersion** option, select **Java 11** by entering `2`.
-1. When prompted with **webContainer** option, select **Tomcat 8.5** by entering `1`.
-1. When prompted with **Pricing Tier** option, select **P1v2** by entering `10`.
+1. When prompted with **OS** option, select **Windows**.
+1. When prompted with **javaVersion** option, select **Java 11**.
+1. When prompted with **webContainer** option, select **Tomcat 8.5**.
+1. When prompted with **Pricing Tier** option, select **P1v2**.
 1. Finally, press enter on the last prompt to confirm your selections.
 
     Your summary output will look similar to the snippet shown below.
@@ -155,6 +155,28 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
 JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
 
 ---
+
+After you've confirmed your choices, the plugin adds the above plugin element and requisite settings to your project's `pom.xml` file that configure your web app to run in Azure App Service.
+
+The relevant portion of the `pom.xml` file should look similar to the following example.
+
+```xml-interactive
+<build>
+    <plugins>
+        <plugin>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>>azure-webapp-maven-plugin</artifactId>
+            <version>x.xx.x</version>
+            <configuration>
+                <schemaVersion>v2</schemaVersion>
+                <resourceGroup>your-resourcegroup-name</resourceGroup>
+                <appName>your-app-name</appName>
+            ...
+            </configuration>
+        </plugin>
+    </plugins>
+</build>           
+```
 
 You can modify the configurations for App Service directly in your `pom.xml`. Some common configurations are listed below:
 

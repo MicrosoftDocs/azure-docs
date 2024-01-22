@@ -5,13 +5,14 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
-ms.author: mikaelw
-author: mikaelweave
-ms.date: 06/02/2022
+ms.author: kesheth
+author: expekesheth
+ms.date: 09/27/2023
 ---
 
 # Centers for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule introduction
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 In this series of tutorials, we'll cover a high-level summary of the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule, and the technical requirements outlined in this rule. We'll walk through the various implementation guides referenced for this rule. We'll also provide details on how to configure the Azure API for FHIR to support these implementation guides.
 

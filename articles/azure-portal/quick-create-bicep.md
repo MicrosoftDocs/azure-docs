@@ -2,31 +2,42 @@
 title: Create an Azure portal dashboard by using a Bicep file
 description: Learn how to create an Azure portal dashboard by using a Bicep file.
 ms.topic: quickstart
-ms.custom: subject-bicepqs,
-ms.date: 09/15/2022
+ms.custom: subject-bicepqs, devx-track-bicep
+ms.date: 12/11/2023
 ---
 
 # Quickstart: Create a dashboard in the Azure portal by using a Bicep file
 
-A dashboard in the Azure portal is a focused and organized view of your cloud resources. This quickstart focuses on the process of deploying a Bicep file to create a dashboard. The dashboard shows the performance of a virtual machine (VM), and some static information and links.
+A [dashboard](azure-portal-dashboards.md) in the Azure portal is a focused and organized view of your cloud resources. This quickstart shows how to deploy a Bicep file to create a dashboard. The example dashboard shows the performance of a virtual machine (VM), along with some static information and links.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+- [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-portal-dashboard/). The Bicep file for this article is too long to show here. To view the Bicep file, see [main.bicep](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/main.bicep). The Bicep file defines one Azure resource, a dashboard that displays data about the VM you created:
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-portal-dashboard/). This Bicep file is too long to show here. To view the Bicep file, see [main.bicep](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/main.bicep).
 
-- [Microsoft.Portal/dashboards](/azure/templates/microsoft.portal/dashboards?pivots=deployment-language-bicep)
+The Bicep file defines one Azure resource, a [Microsoft.Portal dashboards resource](/azure/templates/microsoft.portal/dashboards?pivots=deployment-language-bicep) that displays data about the VM that you'll create as part of the deployment.
+
+The dashboard created by deploying this Bicep file requires an existing virtual machine. Before deploying the Bicep file, the script deploys an ARM template called [prereq.azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/prereqs/prereq.azuredeploy.json) that creates a virtual machine.
+
+The virtual machine name is hard-coded as **SimpleWinVM** in the ARM template, to match what's used in the `main.bicep` file that creates the dashboard. You'll need to create your own administration username and password for this VM. This is a new username and password (not the account you use to sign in to Azure). The password must be complex. For more information, see [username requirements](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-)
+and [password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+
 
 ## Deploy the Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
-1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+1. Deploy the Bicep file using either Azure CLI or Azure PowerShell, using the script shown here. Replace the following values in the script:
+
+    - &lt;admin-user-name>: specify an administrator username.
+    - &lt;admin-password>: specify an administrator password.
+    - &lt;dns-label-prefix>: specify a DNS prefix.
+
     # [CLI](#tab/CLI)
 
     ```azurecli
@@ -63,15 +74,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
     ---
 
-    Replace the following values in the script:
-
-    - &lt;admin-user-name>: specify an administrator username.
-    - &lt;admin-password>: specify an administrator password.
-    - &lt;dns-label-prefix>: specify a DNS prefix.
-
-    The Bicep file requires an existing virtual machine. Before deploying the Bicep file, the script deploys an ARM template located at *https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/prereqs/prereq.azuredeploy.json* for creating a virtual machine. The virtual machine name is hard-coded as **SimpleWinVM** in the ARM template.
-
-When the deployment finishes, you should see a message indicating the deployment succeeded.
+After the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Review deployed resources
 

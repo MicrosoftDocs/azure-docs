@@ -7,7 +7,7 @@ ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 12/31/2020
+ms.date: 11/18/2022
 ---
 
 # Analyze data in a storage account
@@ -50,7 +50,7 @@ You can analyze the data in your workspace default ADLS Gen2 account or you can 
     display(df.limit(10))
     ```
 
-1. Attach to the Spark pool named **Spark1**. Run the cell.
+1. Attach to the Spark pool named **Spark1**. Run the cell. If you run into an error related to lack of cores, this spark pool may be used by another session. Cancel all the existing sessions and retry.
 1. Select back to the **users** folder. Right-click the **.parquet** file again, and then select **New SQL script** > **SELECT TOP 100 rows**. It creates a SQL script like this:
 
     ```sql

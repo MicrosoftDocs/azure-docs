@@ -2,8 +2,8 @@
 title: Azure Storage Analytics logging
 description: Use Storage Analytics to log details about Azure Storage requests. See what requests are logged, how logs are stored, how to enable Storage logging, and more.
 author: normesta
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: conceptual
 ms.date: 01/04/2022
 ms.author: normesta
@@ -80,7 +80,7 @@ Most storage browsing tools enable you to view the metadata of blobs; you can al
      $_.ICloudBlob.Metadata.LogType -match 'write'  
  } |  
  ForEach-Object {  
-     "{0}  {1}  {2}  {3}" –f $_.Name,   
+     "{0}  {1}  {2}  {3}" -f $_.Name,   
      $_.ICloudBlob.Metadata.StartTime,   
      $_.ICloudBlob.Metadata.EndTime,   
      $_.ICloudBlob.Metadata.LogType  

@@ -2,8 +2,8 @@
 title: Add a symbol layer to iOS maps
 titleSuffix: Microsoft Azure Maps
 description: Learn how to add a marker to a map. See an example that uses the Azure Maps iOS SDK to add a symbol layer that contains point-based data from a data source.
-author: stevemunk
-ms.author: v-munksteve
+author: sinnypan
+ms.author: sipa
 ms.date: 11/19/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -19,13 +19,13 @@ This article shows you how to render point data from a data source as a symbol l
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an iOS app](quick-ios-app.md) document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
+Be sure to complete the steps in the [Quickstart: Create an iOS app] document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
 
 ## Add a symbol layer
 
 Before you can add a symbol layer to the map, you need to take a couple of steps. First, create a data source, and add it to the map. Create a symbol layer. Then, pass in the data source to the symbol layer, to retrieve the data from the data source. Finally, add data into the data source, so that there's something to be rendered.
 
-The code below demonstrates what should be added to the map after it has loaded. This sample renders a single point on the map using a symbol layer.
+The following code demonstrates what should be added to the map after it has loaded. This sample renders a single point on the map using a symbol layer.
 
 ```swift
 //Create a data source and add it to the map.
@@ -48,7 +48,7 @@ There are three different types of point data that can be added to the map:
 - GeoJSON MultiPoint geometry - This object contains the coordinates of multiple points and nothing else. Pass an array of coordinates into the `PointCollection` class to create these objects.
 - GeoJSON Feature - This object consists of any GeoJSON geometry and a set of properties that contain metadata associated to the geometry.
 
-For more information, see the [Create a data source](create-data-source-ios-sdk.md) document on creating and adding data to the map.
+For more information, see the [Create a data source] document on creating and adding data to the map.
 
 The following code sample creates a GeoJSON Point geometry and passes it into the GeoJSON Feature and has a `title` value added to its properties. The `title` property is displayed as text below the symbol icon on the map.
 
@@ -157,7 +157,7 @@ The following screenshot shows the above code rendering a point feature using a 
 
 ## Predefined Symbol Marker Icons
 
-Initially the map has the built-in default marker icon, which is already loaded into the image sprite of the map. It will be used by default if nothing is set to the `iconImage` option. In case you need to do it manually, set `"marker-default"` to the `iconImage` option.
+Initially the map has the built-in default marker icon, which is already loaded into the image sprite of the map. It's used by default if nothing is set to the `iconImage` option. In case you need to do it manually, set `"marker-default"` to the `iconImage` option.
 
 ```swift
 let layer = SymbolLayer(source: source, options: [.iconImage("marker-default")])
@@ -175,7 +175,7 @@ map.images.add(.azm_markerRed, withID: "marker-red")
 let layer = SymbolLayer(source: source, options: [.iconImage("marker-red")])
 ```
 
-The code below lists all of the built-in icon images available as static variables of `UIImage` class.
+The code below lists the built-in icon images available as static variables of `UIImage` class.
 
 ```swift
 UIImage.azm_markerDefault // Dark blue
@@ -189,8 +189,15 @@ UIImage.azm_markerYellow
 
 See the following articles for more code samples to add to your maps:
 
-- [Create a data source](Create-data-source-ios-sdk.md)
-- [Cluster point data](clustering-point-data-ios-sdk.md)
-- [Add a bubble layer](add-bubble-layer-map-ios.md)
-- [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
-- [Display feature information](display-feature-information-ios-sdk.md)
+- [Create a data source]
+- [Cluster point data]
+- [Add a bubble layer]
+- [Use data-driven style expressions]
+- [Display feature information]
+
+[Add a bubble layer]: add-bubble-layer-map-ios.md
+[Cluster point data]: clustering-point-data-ios-sdk.md
+[Create a data source]: Create-data-source-ios-sdk.md
+[Display feature information]: display-feature-information-ios-sdk.md
+[Quickstart: Create an iOS app]: quick-ios-app.md
+[Use data-driven style expressions]: data-driven-style-expressions-ios-sdk.md

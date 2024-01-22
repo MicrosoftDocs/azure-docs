@@ -1,19 +1,18 @@
 ---
-title: Create an Azure virtual network peering - different deployment models -different subscriptions
+title: Create an Azure virtual network peering - different deployment models - different subscriptions
 titlesuffix: Azure Virtual Network
 description: Learn how to create a virtual network peering between virtual networks created through different Azure deployment models that exist in different Azure subscriptions.
 services: virtual-network
-documentationcenter: ''
-author: mbender-ms
+author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 06/25/2020
-ms.author: mbender
+ms.author: allensu
 ms.reviewer: anavin
-
 ---
+
 # Create a virtual network peering - different deployment models and subscriptions
 
 In this tutorial, you learn to create a virtual network peering between virtual networks created through different deployment models. The virtual networks exist in different subscriptions. Peering two virtual networks enables resources in different virtual networks to communicate with each other with the same bandwidth and latency as though the resources were in the same virtual network. Learn more about [Virtual network peering](virtual-network-peering-overview.md).
@@ -28,7 +27,7 @@ The steps to create a virtual network peering are different, depending on whethe
 
 A virtual network peering cannot be created between two virtual networks deployed through the classic deployment model. This tutorial uses virtual networks that exist in the same region. This tutorial peers virtual networks in the same region. You can also peer virtual networks in different [supported regions](virtual-network-manage-peering.md#cross-region). It's recommended that you familiarize yourself with the [peering requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints) before peering virtual networks.
 
-When creating a virtual network peering between virtual networks that exist in different subscriptions, the subscriptions can associated to the same Azure Active Directory tenant. If you don't already have an Azure Active Directory tenant, you can quickly [create one](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant).
+When creating a virtual network peering between virtual networks that exist in different subscriptions, the subscriptions can associated to the same Microsoft Entra tenant. If you don't already have a Microsoft Entra tenant, you can quickly [create one](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant).
 
 You can use the [Azure portal](#portal), the [Azure CLI](#cli), or [Azure PowerShell](#powershell) to create a virtual network peering. Click any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
 
@@ -50,7 +49,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
 5. In the **myVnetA** blade that appears, click **Access control (IAM)** from the vertical list of options on the left side of the blade.
 6. In the **myVnetA - Access control (IAM)** blade that appears, click **+ Add role assignment**.
 7. In the **Add role assignment** blade that appears, select **Network contributor** in the **Role** box.
-8. In the **Select** box, select UserB, or type UserB's email address to search for it. The list of users shown is from the same Azure Active Directory tenant as the virtual network you're setting up the peering for. Click UserB when it appears in the list.
+8. In the **Select** box, select UserB, or type UserB's email address to search for it. The list of users shown is from the same Microsoft Entra tenant as the virtual network you're setting up the peering for. Click UserB when it appears in the list.
 9. Click **Save**.
 10. Log out of the portal as UserA, then log in as UserB.
 11. Click **+ New**, type *Virtual network* in the **Search the Marketplace** box, then click **Virtual network** in the search results.
@@ -153,7 +152,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
       --name myVnetAToMyVnetB \
       --resource-group $rgName \
       --vnet-name myVnetA \
-      --remote-vnet-id  /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB \
+      --remote-vnet  /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB \
       --allow-vnet-access
     ```
 

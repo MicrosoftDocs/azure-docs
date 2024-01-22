@@ -62,7 +62,7 @@ Log Analytics prescribes a schema to your data, but allows you to override every
     | summarize numNonObfuscatedIPs_24h = count() by $table
     ```
     
-* **User IDs**: By default, Application Insights uses randomly generated IDs for user and session tracking in fields such as *session_Id*, *user_Id*, *user_AuthenticatedId*, *user_AccountId*, and *customDimensions*. However, it's common to override these fields with an ID that's more relevant to the application, such as usernames or Azure Active Directory GUIDs. These IDs are often considered to be personal data. We recommend obfuscating or anonymizing these IDs. 
+* **User IDs**: By default, Application Insights uses randomly generated IDs for user and session tracking in fields such as *session_Id*, *user_Id*, *user_AuthenticatedId*, *user_AccountId*, and *customDimensions*. However, it's common to override these fields with an ID that's more relevant to the application, such as usernames or Microsoft Entra GUIDs. These IDs are often considered to be personal data. We recommend obfuscating or anonymizing these IDs. 
 * **Custom data**: Application Insights allows you to append a set of custom dimensions to any data type. Use the following query to identify custom dimensions collected in the last 24 hours:
     ```
     search * 
@@ -80,6 +80,7 @@ We __strongly__ recommend you restructure your data collection policy to stop co
 
 > [!IMPORTANT]
 >  While most purge operations complete much quicker, **the formal SLA for the completion of purge operations is set at 30 days** due to their heavy impact on the data platform. This SLA meets GDPR requirements. It's an automated process, so there's no way to expedite the operation. 
+
 ### View and export
 
 Use the [Log Analytics query API](/rest/api/loganalytics/dataaccess/query) or the [Application Insights query API](/rest/api/application-insights/query) for view and export data requests. 
@@ -93,12 +94,12 @@ You need to implement the logic for converting the data to an appropriate format
 
 Azure Monitor's Purge API lets you delete personal data. Use the purge operation sparingly to avoid potential risks, performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your Log Analytics data. See the [Strategy for personal data handling](#strategy-for-personal-data-handling) section for alternative approaches to handling personal data.
 
-Purge is a highly privileged operation. Applications and Azure users, including the resource owner, can't execute a purge operation without explicitly being granted the _Data Purger_ role in Azure Resource Manager. Grant this role cautiously due to the potential for data loss. 
+Purge is a highly privileged operation. Grant the _Data Purger_ role in Azure Resource Manager cautiously due to the potential for data loss.
 
-To manage system resources, we limit purge requests to 50 requests an hour. Batch the execution of purge requests by sending a single command whose predicate includes all user identities that require purging. Use the [in operator](/azure/kusto/query/inoperator) to specify multiple identities. Run the query before executing the purge request to verify the expected results. 
+To manage system resources, we limit purge requests to 50 requests an hour. Batch the execution of purge requests by sending a single command whose predicate includes all user identities that require purging. Use the [in operator](/azure/kusto/query/inoperator) to specify multiple identities. Run the query before executing the purge request to verify the expected results.
 
-> [!NOTE]
-> After initiating a purge request, you cannot access the related data while the [purge operation status](/rest/api/loganalytics/workspacepurge/getpurgestatus) is *pending*. 
+> [!IMPORTANT]
+> Use of the Log Analytics or Application Insights Purge API does not affect your retention costs. To lower retention costs, you must decrease your data retention period.
 
 #### Log data
 
@@ -120,4 +121,4 @@ To manage system resources, we limit purge requests to 50 requests an hour. Batc
 
 ## Next steps
 - Learn more about [how Log Analytics collects, processes, and secures data](../logs/data-security.md).
-- Learn more about [how Application Insights collects, processes, and secures data](../app/data-retention-privacy.md).
+- Learn more about [how Application Insights collects, processes, and secures data](/previous-versions/azure/azure-monitor/app/data-retention-privacy).

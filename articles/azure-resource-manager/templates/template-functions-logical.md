@@ -2,7 +2,8 @@
 title: Template functions - logical
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to determine logical values.
 ms.topic: conceptual
-ms.date: 02/11/2022
+ms.custom: devx-track-arm-template
+ms.date: 06/23/2023
 ---
 
 # Logical functions for ARM templates
@@ -176,11 +177,11 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
     }
   },
   "resources": [
-    {
+   {
       "condition": "[not(empty(parameters('logAnalytics')))]",
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "apiVersion": "2017-03-30",
-      "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
+      "apiVersion": "2022-11-01",
+      "name": "[format('{0}/omsOnboarding', parameters('vmName'))]",
       "location": "[parameters('location')]",
       "properties": {
         "publisher": "Microsoft.EnterpriseCloud.Monitoring",
@@ -188,10 +189,10 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
-          "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
+          "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, null())]"
         },
         "protectedSettings": {
-          "workspaceKey": "[if(not(empty(parameters('logAnalytics'))), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
+          "workspaceKey": "[if(not(empty(parameters('logAnalytics'))), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, null())]"
         }
       }
     }

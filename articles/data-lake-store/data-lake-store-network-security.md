@@ -15,7 +15,7 @@ This article introduces virtual network integration for Azure Data Lake Storage 
 
 This feature helps to secure your Data Lake Storage account from external threats.
 
-Virtual network integration for Data Lake Storage Gen1 makes use of the virtual network service endpoint security between your virtual network and Azure Active Directory (Azure AD) to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access.
+Virtual network integration for Data Lake Storage Gen1 makes use of the virtual network service endpoint security between your virtual network and Microsoft Entra ID to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access.
 
 > [!NOTE]
 > There's no additional charge associated with using these capabilities. Your account is billed at the standard rate for Data Lake Storage Gen1. For more information, see [pricing](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable). For all other Azure services that you use, see [pricing](https://azure.microsoft.com/pricing/#product-picker).
@@ -72,7 +72,9 @@ Some available options are:
 
 ## Configuration
 
-### Step 1: Configure your virtual network to use an Azure AD service endpoint
+<a name='step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint'></a>
+
+### Step 1: Configure your virtual network to use a Microsoft Entra service endpoint
 
 1.	Go to the Azure portal, and sign in to your account.
  

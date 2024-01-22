@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: event-grid
  ms.topic: include
- ms.date: 10/20/2021
+ ms.date: 12/08/2022
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -16,16 +16,16 @@ Service Bus emits the following event types:
 
 | Event type | Description |
 | ---------- | ----------- |
-| Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Raised when there are active messages in a Queue or Subscription and no receivers listening. |
-| Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListeners | Raised when there are active messages in a Dead Letter Queue and no active listeners. |
-| Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications | Raised every 30 seconds if there are active messages in a queue or subscription, even if there are active listeners on that specific queue or subscription. It's also raised when the active message count transitions from 0 to a positive value for the queue or subscription. |
-| Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications | Raised every 30 seconds if there are messages in the dead-letter entity of a queue or subscription, even if there are active listeners on the dead-letter entity of that specific queue or subscription. It's also raised when the dead-letter message count transitions from 0 to a positive value for the dead-letter entity of the queue or subscription. | 
+| `Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners` | Raised when a new active message arrives in a queue or subscription and there are no receivers listening. |
+| `Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListeners` | Raised when a new active messages arrives in a dead letter queue and there are no active listeners. |
+| `Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications` | Raised every 30 seconds if there are active messages in a queue or subscription, even if there are active listeners on that specific queue or subscription. It's also raised when the active message count transitions from 0 to a positive value for the queue or subscription. |
+| `Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications` | Raised every 30 seconds if there are messages in the dead-letter entity of a queue or subscription, even if there are active listeners on the dead-letter entity of that specific queue or subscription. It's also raised when the dead-letter message count transitions from 0 to a positive value for the dead-letter entity of the queue or subscription. | 
 
 ## Example event
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-### Active Messages Available With No Listeners
+### Active messages available with no listeners
 This event is generated if you have active messages in a queue or a subscription and there are no receivers listening.
 
 ```json
@@ -48,7 +48,7 @@ This event is generated if you have active messages in a queue or a subscription
 }]
 ```
 
-#### Deadletter Messages Available With No Listeners
+#### Dead-letter messages available with no listeners
 
 The schema for a dead letter queue event is similar. You get at least one event per dead-letter queue that has messages and no active receivers.
 
@@ -72,8 +72,8 @@ The schema for a dead letter queue event is similar. You get at least one event 
 }]
 ```
 
-#### Active Messages Available Periodic Notifications
-This event is generated periodically if you have active messages on the specific queue or subscription, even if there are active listeners on that specific queue or subscription.
+#### Active messages available periodic notifications
+This event is generated periodically if you have active messages in the specific queue or subscription, even if there are active listeners for that specific queue or subscription.
 
 ```json
 [{
@@ -95,7 +95,7 @@ This event is generated periodically if you have active messages on the specific
 }]
 ```
 
-#### Deadletter Messages Available Periodic Notifications
+#### Dead-letter messages available periodic notifications
 This event is generated periodically if you have deadletter messages on the specific queue or subscription, even if there are active listeners on the deadletter entity of that specific queue or subscription.
 
 ```json
@@ -120,7 +120,7 @@ This event is generated periodically if you have deadletter messages on the spec
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-### Active Messages Available With No Listeners
+### Active messages available with no listeners
 This event is generated if you have active messages in a queue or a subscription and there are no receivers listening.
 
 ```json
@@ -142,7 +142,7 @@ This event is generated if you have active messages in a queue or a subscription
 }]
 ```
 
-#### Deadletter Messages Available With No Listeners
+#### Deadletter messages available with no listeners
 
 The schema for a dead letter queue event is similar. You get at least one event per dead-letter queue that has messages and no active receivers.
 
@@ -165,7 +165,7 @@ The schema for a dead letter queue event is similar. You get at least one event 
 }]
 ```
 
-#### Active Messages Available Periodic Notifications
+#### Active messages available periodic notifications
 This event is generated periodically if you have active messages on the specific queue or subscription, even if there are active listeners on that specific queue or subscription.
 
 ```json
@@ -187,7 +187,7 @@ This event is generated periodically if you have active messages on the specific
 }]
 ```
 
-#### Deadletter Messages Available Periodic Notifications
+#### Deadletter messages available periodic notifications
 This event is generated periodically if you have deadletter messages on the specific queue or subscription, even if there are active listeners on the deadletter entity of that specific queue or subscription.
 
 ```json
@@ -220,7 +220,7 @@ An event has the following top-level data:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `topic` | string | Full resource path to the event source. This field is not writeable. Event Grid provides this value. |
+| `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
 | `subject` | string | Publisher-defined path to the event subject. |
 | `eventType` | string | One of the registered event types for this event source. |
 | `eventTime` | string | The time the event is generated based on the provider's UTC time. |
@@ -235,7 +235,7 @@ An event has the following top-level data:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `source` | string | Full resource path to the event source. This field is not writeable. Event Grid provides this value. |
+| `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
 | `subject` | string | Publisher-defined path to the event subject. |
 | `type` | string | One of the registered event types for this event source. |
 | `time` | string | The time the event is generated based on the provider's UTC time. |

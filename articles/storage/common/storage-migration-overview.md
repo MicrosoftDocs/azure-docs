@@ -5,8 +5,8 @@ author: dukicn
 ms.author: nikoduki
 ms.topic: conceptual 
 ms.date: 03/31/2021
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ---
 
 # Azure Storage migration overview
@@ -70,7 +70,7 @@ After you finish the technical assessment, and select the proper target, do a co
 
 To keep the decision tree simple, limits of the target storage service aren't incorporated in the diagram. To find out more about current limits, and to determine whether you need to modify your choices based on them, see:
 
-- [Storage account limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)
+- [Storage account limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits)
 - [Blob Storage limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-blob-storage-limits)
 - [Azure Files scalability and performance targets](../files/storage-files-scale-targets.md)
 - [Azure NetApp Files resource limits](../../azure-netapp-files/azure-netapp-files-resource-limits.md)

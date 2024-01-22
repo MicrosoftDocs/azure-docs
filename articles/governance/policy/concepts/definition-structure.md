@@ -1,11 +1,12 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 06/27/2022
+ms.date: 08/15/2023
 ms.topic: conceptual
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
+
 # Azure Policy definition structure
 
 Azure Policy establishes conventions for resources. Policy definitions describe resource compliance
@@ -136,23 +137,19 @@ see [Tag support for Azure resources](../../../azure-resource-manager/management
 
 The following Resource Provider modes are fully supported:
 
-- `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
-  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. This mode supports
-  custom definitions as a _public preview_. See
-  [Create policy definition from constraint template](../how-to/extension-for-vscode.md#create-policy-definition-from-constraint-template) to create a
-  custom definition from an existing [Open Policy Agent](https://www.openpolicyagent.org/) (OPA)
-  GateKeeper v3
-  [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). Use
-  of the [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is _deprecated_.
+- `Microsoft.Kubernetes.Data` for managing Kubernetes clusters and components such as pods, containers, and ingresses. Supported for Azure Kubernetes Service clusters and [Azure Arc-enabled Kubernetes clusters](../../../aks/intro-kubernetes.md). Definitions
+  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
   definitions, see
   [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
+- `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
 
 The following Resource Provider modes are currently supported as a **[preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)**:
 
-- `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
-- `Microsoft.Kubernetes.Data` for Azure Policy components that target [Azure Kubernetes Service (AKS)](../../../aks/intro-kubernetes.md) resources such as pods, namespaces, and ingresses.
+- `Microsoft.ManagedHSM.Data` for managing [Managed HSM](../../../key-vault/managed-hsm/azure-policy.md) keys using Azure Policy.
+- `Microsoft.DataFactory.Data` for using Azure Policy to deny [Azure Data Factory](../../../data-factory/introduction.md) outbound traffic domain names not specified in an allow list. This RP mode is enforcement only and does not report compliance in public preview.
+- `Microsoft.MachineLearningServices.v2.Data` for managing [Azure Machine Learning](../../../machine-learning/overview-what-is-azure-machine-learning.md) model deployments. This RP mode reports compliance for newly created and updated components. During public preview, compliance records remain for 24 hours. Model deployments that exist before these policy definitions are assigned will not report compliance.
 
 > [!NOTE]
 >Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
@@ -185,16 +182,17 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 
 ## Parameters
 
-Parameters help simplify your policy management by reducing the number of policy definitions. Think 
+Parameters help simplify your policy management by reducing the number of policy definitions. Think
 of parameters like the fields on a form - `name`, `address`, `city`, `state`. These parameters
 always stay the same, however their values change based on the individual filling out the form.
 Parameters work the same way when building policies. By including parameters in a policy definition,
 you can reuse that policy for different scenarios by using different values.
 
-> [!NOTE]
-> Parameters may be added to an existing and assigned definition. The new parameter must include the
-> **defaultValue** property. This prevents existing assignments of the policy or initiative from
-> indirectly being made invalid.
+Parameters may be added to an existing and assigned definition. The new parameter must include the
+**defaultValue** property. This prevents existing assignments of the policy or initiative from
+indirectly being made invalid.
+
+Parameters can't be removed from a policy definition because there may be an assignment that sets the parameter value, and that reference would become broken. Instead of removing, you can classify the parameter as deprecated in the parameter metadata.
 
 ### Parameter properties
 
@@ -218,7 +216,9 @@ A parameter has the following properties that are used in the policy definition:
     resource or scope.
 - `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned. For oject-type parameters, the value must match the appropriate schema.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during
-  assignment. Allowed value comparisons are case-sensitive. For oject-type parameters, the values must match the appropriate schema.
+  assignment.
+    - Case sensitivity: Allowed value comparisons are case-sensitive when assigning a policy, meaning that the selected parameter values in the assignment must match the casing of values in the `allowedValues` array in the definition. However, once values are selected for the assignment, evaluation of string comparisons may be case-insensitive depending on the [condition](#conditions) used. For example, if the parameter specifies `Dev` as an allowed tag value in an assignment, and this value is compared to an input string using the `equals` condition, then Azure Policy would later evaluate a tag value of `dev` as a match even though it is lowercase because `notEquals ` is case insensitive.
+    - For object-type parameters, the values must match the appropriate schema.
 - `schema`: (Optional) Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the [Json.NET Schema](https://www.newtonsoft.com/jsonschema) 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
 
 ### Sample Parameters
@@ -408,7 +408,7 @@ In the **Then** block, you define the effect that happens when the **If** condit
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | modify | append | auditIfNotExists | deployIfNotExists | disabled"
+        "effect": "deny | audit | modify | denyAction | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -514,16 +514,32 @@ certain criteria can be formed using a **field** expression. The following field
     apostrophes.
   - Where **'\<tagName\>'** is the name of the tag to validate the condition for.
   - Example: `tags['''My.Apostrophe.Tag''']` where **'My.Apostrophe.Tag'** is the name of the tag.
+
+  > [!NOTE]
+  > `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are still acceptable ways of
+  > declaring a tags field. However, the preferred expressions are those listed above.
 - property aliases - for a list, see [Aliases](#aliases).
+  > [!NOTE]
+  > In **field** expressions referring to **\[\*\] alias**, each element in the array is evaluated
+  > individually with logical **and** between elements. For more information, see
+  > [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
-> [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are still acceptable ways of
-> declaring a tags field. However, the preferred expressions are those listed above.
 
-> [!NOTE]
-> In **field** expressions referring to **\[\*\] alias**, each element in the array is evaluated
-> individually with logical **and** between elements. For more information, see
-> [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+Conditions that use `field` expressions can replace the legacy policy definition syntax `"source": "action"`, which used to work for write operations. For example, this is no longer supported:
+```json
+{
+    "source": "action",
+    "like": "Microsoft.Network/publicIPAddresses/*"
+}
+```
+
+But the desired behavior can be achieved using `field` logic:
+```json
+{
+    "field": "type",
+    "equals": "Microsoft.Network/publicIPAddresses"
+}
+```
 
 #### Use tags with parameters
 
@@ -1020,26 +1036,6 @@ Policy:
 }
 ```
 
-### Effect
-
-Azure Policy supports the following types of effect:
-
-- **Append**: adds the defined set of fields to the request
-- **Audit**: generates a warning event in activity log but doesn't fail the request
-- **AuditIfNotExists**: generates a warning event in activity log if a related resource doesn't
-  exist
-- **Deny**: generates an event in the activity log and fails the request
-- **DeployIfNotExists**: deploys a related resource if it doesn't already exist
-- **Disabled**: doesn't evaluate resources for compliance to the policy rule
-- **Modify**: adds, updates, or removes the defined tags from a resource or subscription
-- **EnforceOPAConstraint** (deprecated): configures the Open Policy Agent admissions controller with
-  Gatekeeper v3 for self-managed Kubernetes clusters on Azure
-- **EnforceRegoPolicy** (deprecated): configures the Open Policy Agent admissions controller with
-  Gatekeeper v2 in Azure Kubernetes Service
-
-For complete details on each effect, order of evaluation, properties, and examples, see
-[Understanding Azure Policy Effects](effects.md).
-
 ### Policy functions
 
 Functions can be used to introduce additional logic into a policy rule. They are resolved within the [policy rule](#policy-rule) of a policy definition and within [parameter values assigned to policy definitions in an initiative](initiative-definition-structure.md#passing-a-parameter-value-to-a-policy-definition).
@@ -1050,9 +1046,12 @@ within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
 - dateTimeAdd()
+- dateTimeFromEpoch
+- dateTimeToEpoch
 - deployment()
 - environment()
 - extensionResourceId()
+- [lambda()](../../../azure-resource-manager/templates/template-functions-lambda.md)
 - listAccountSas()
 - listKeys()
 - listSecrets()
@@ -1066,7 +1065,6 @@ within a policy rule, except the following functions and user-defined functions:
 - subscriptionResourceId()
 - tenantResourceId()
 - tenant()
-- utcNow(format)
 - variables()
 
 > [!NOTE]
@@ -1180,7 +1178,7 @@ Limits to the size of objects that are processed by policy functions during poli
 }
 ```
 
-The length of the string created by the `concat()` function depends of the value of properties in the evaluated resource.
+The length of the string created by the `concat()` function depends on the value of properties in the evaluated resource.
 
 | Limit | Value | Example |
 |:---|:---|:---|
@@ -1275,6 +1273,27 @@ array element to a target value. When used with [count](#count) expression, it's
 
 For more information and examples, see
 [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+
+### Effect
+
+Azure Policy supports the following types of effect:
+
+- **Append**: adds the defined set of fields to the request
+- **Audit**: generates a warning event in activity log but doesn't fail the request
+- **AuditIfNotExists**: generates a warning event in activity log if a related resource doesn't
+  exist
+- **Deny**: generates an event in the activity log and fails the request based on requested resource configuration
+- **DenyAction**: generates an event in the activity log and fails the request based on requested action
+- **DeployIfNotExists**: deploys a related resource if it doesn't already exist
+- **Disabled**: doesn't evaluate resources for compliance to the policy rule
+- **Modify**: adds, updates, or removes the defined set of fields in the request
+- **EnforceOPAConstraint** (deprecated): configures the Open Policy Agent admissions controller with
+  Gatekeeper v3 for self-managed Kubernetes clusters on Azure
+- **EnforceRegoPolicy** (deprecated): configures the Open Policy Agent admissions controller with
+  Gatekeeper v2 in Azure Kubernetes Service
+
+For complete details on each effect, order of evaluation, properties, and examples, see
+[Understanding Azure Policy Effects](effects.md).
 
 ## Next steps
 

@@ -2,13 +2,13 @@
 title: Azure Data Box Disk troubleshooting disk unlocking issues | Microsoft Docs 
 description: Learn about the workflows to troubleshoot issues for the unlock tool with Azure Data Box Disk. Refer to Data Box Disk Unlock tool errors.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: troubleshooting
 ms.date: 08/05/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 # Troubleshoot disk unlocking issues in Azure Data Box Disk
 
