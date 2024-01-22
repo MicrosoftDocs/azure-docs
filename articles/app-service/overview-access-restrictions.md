@@ -24,7 +24,7 @@ You have the option of configuring a set of access restriction rules for each si
 
 ## App access
 
-App access allows you to configure if access is available through the default (public) endpoint. If the setting isn't configured, the default behavior is to enable access unless a private endpoint exists which changes the implicit behavior to disable access. You have the ability to explicitly configure this behavior to either enabled or disabled even if private endpoints exist.
+App access allows you to configure if access is available through the default (public) endpoint. You configure this behavior to either be `Disabled` or `Enabled`. When access is enabled, you can add [Site access](#site-access) restriction rules to control access from select virtual networks and IP addresses. If the setting isn't configured, the default behavior is to enable access unless a private endpoint exists which changes the behavior to disable access.
 
 :::image type="content" source="media/overview-access-restrictions/app-access-portal.png" alt-text="Screenshot of app access option in Azure portal.":::
 
@@ -98,7 +98,7 @@ Some use cases for http header filtering are:
 
 ## Diagnostic logging
 
-App Service can [send various logging categories to Azure Monitor](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor). One of those categories is called *IPSecurity Audit logs* and represent the activities in access restrictions. All requests that match a rule (except the unmatched rule), both allow and deny, is logged and can be used to validate configuration of access restrictions. The logging capability is also a powerful tool when troubleshooting rules configuration.
+App Service can [send various logging categories to Azure Monitor](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor). One of those categories is called `IPSecurity Audit logs` and represent the activities in access restrictions. All requests that match a rule (except the unmatched rule), both allow and deny, is logged and can be used to validate configuration of access restrictions. The logging capability is also a powerful tool when troubleshooting rules configuration.
 
 ## Advanced use cases
 
