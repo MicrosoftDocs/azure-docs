@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create, assign, and run a storage task'
-titleSuffix: Azure Storage Actions
+titleSuffix: Azure Storage Actions Preview
 description: Learn how to create your first storage task. You'll also assign that task to a storage account, queue the task to run, and then view the results of the run.
 services: storage
 author: normesta

@@ -1,6 +1,6 @@
 ---
 title: Analyze storage task runs
-titleSuffix: Azure Storage Actions
+titleSuffix: Azure Storage Actions Preview
 description: Learn how to view lists of runs and review run reports.
 author: normesta
 ms.service: azure-storage-actions

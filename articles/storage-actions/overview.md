@@ -1,6 +1,6 @@
 ---
-title: About Azure Storage Actions
-titleSuffix: Azure Storage Actions
+title: About Azure Storage Actions Preview
+titleSuffix: Azure Storage Actions Preview
 description: Learn how to perform operations on blobs in Azure Storage accounts based on a set of conditions that you define. 
 services: storage
 author: normesta
@@ -13,7 +13,7 @@ ms.author: normesta
 
 ---
 
-# What is Azure Storage Actions?
+# What is Azure Storage Actions Preview?
 
 Azure Storage Actions is a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. 
 
