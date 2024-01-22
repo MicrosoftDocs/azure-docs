@@ -60,6 +60,7 @@ Native document support can be integrated into your applications using the [Azur
 |**Digital tables**| Tables in digital documents are supported, however scanned table quality isn't guaranteed.|
 
 ***Document Size***
+
 |Attribute|Input limit|
 |---|---|
 |**Total number of documents per request** |**≤ 20**|
