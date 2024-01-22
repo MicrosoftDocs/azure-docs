@@ -176,7 +176,7 @@ To configure the workload identity, perform the following steps described in the
 * Establish federated identity credential
 
 >[!IMPORTANT]
->For the step to **Export environmental variables**, set the value for the variable `SERVICE_ACCOUNT_NAMESPACE` to `kafka`.
+>For the step to **Export environment variables**, set the value for the variable `SERVICE_ACCOUNT_NAMESPACE` to `kafka`.
 
 ## Deploy a trusted application with kata-cc and attestation container
 

@@ -1264,6 +1264,7 @@
   "articles/iot-hub/.openpublishing.redirection.iot-hub.json",
   "articles/iot-operations/.openpublishing.redirection.iot-operations.json",
   "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
+  "articles/lab-services/.openpublishing.redirection.lab-services.json",
   "articles/logic-apps/.openpublishing.redirection.logic-apps.json",
   "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
   "articles/machine-learning/v1/.openpublishing.redirection.machine-learning-v1.json",
