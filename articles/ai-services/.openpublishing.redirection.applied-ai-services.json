@@ -179,6 +179,16 @@
             "source_path_from_root": "/articles/ai-services/computer-vision/index-spatial-analysis.yml",
             "redirect_url": "/azure/ai-services/computer-vision/intro-to-spatial-analysis-public-preview",
             "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/custom-vision-service/update-application-to-3.0-sdk.md",
+            "redirect_url": "/azure/ai-services/custom-vision-service/overview",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/custom-vision-service/release-notes.md",
+            "redirect_url": "/azure/ai-services/custom-vision-service/whats-new",
+            "redirect_document_id": false
           }
      ]
 }
