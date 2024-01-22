@@ -331,10 +331,10 @@ For this preview release, we recommend for test and evaluation purposes to eithe
     bash setup-key.sh "kafka-encryption-demo" <Azure Key Vault URL>
     ```
     > [!NOTE]
-    > The envionment variable `MANAGED_IDENTITY` is required by the bash script `setup-key.sh`.
-
-    > [!NOTE]
-    > The public key will be saved as `kafka-encryption-demo-pub.pem` after executing the bash script. 
+    > 
+    > - The envionment variable `MANAGED_IDENTITY` is required by the bash script `setup-key.sh`.
+    > 
+    > - The public key will be saved as `kafka-encryption-demo-pub.pem` after executing the bash script. 
 
     > [!IMPORTANT]
     > If you receive the error `ForbiddenByRbac`,you might need to wait up to 24 hours as the backend services for managed identities maintain a cache per resource URI for up to 24 hours. See also: [Troubleshoot Azure RBAC][symptom-role-assignment-changes-are-not-being-detected].
