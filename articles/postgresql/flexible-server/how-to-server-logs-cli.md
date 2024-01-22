@@ -1,12 +1,12 @@
 ---
-title: List and download server logs with Azure CLI
-description: This article describes how to list and download Azure Database for PostgreSQL - Flexible Server logs by using the Azure CLI.
+title: Download server logs for Azure Database for PostgreSQL - Flexible Server with Azure CLI
+description: This article describes how to download server logs using Azure CLI.
 ms.service: postgresql
 ms.subservice: flexible-server
 author: varun-dhawan
 ms.author: varundhawan
 ms.topic: conceptual
-ms.date: 1/10/2024
+ms.date: 1/16/2024
 ---
 
 # List and download Azure Database for PostgreSQL - Flexible Server logs by using the Azure CLI
@@ -33,9 +33,10 @@ az account set --subscription <subscription id>
 
 ## List server logs using Azure CLI
 
-Once you're configured the prerequisites and connected to your required subscription.
-You can list the server logs from your Azure Database for PostgreSQL flexible server instance by using the following command.
+Once you're configured the prerequisites and connected to your required subscription. You can list the server logs from your Azure Database for PostgreSQL flexible server instance by using the following command.
 
+> [!Note]
+> You can configure your server logs in the same way as above using the [Server Parameters](./howto-configure-server-parameters-using-portal.md), setting the appropriate values for these parameters: _logfiles.download_enable_ to ON to enable this feature, and _logfiles.retention_days_ to define retention in days. Initially, server logs occupy data disk space for about an hour before moving to backup storage for the set retention period.
 
 ```azurecli
 az postgres flexible-server server-logs list --resource-group <myresourcegroup> --server-name <serverlogdemo> --out <table>

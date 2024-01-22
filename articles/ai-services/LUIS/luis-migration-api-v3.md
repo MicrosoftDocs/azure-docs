@@ -7,7 +7,7 @@ ms.manager: nitinme
 ms.author: aahi
 ms.subservice: azure-ai-luis
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 01/19/2024
 
 ---
 

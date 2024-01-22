@@ -6,15 +6,15 @@ manager: paulmey
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.date: 04/11/2023
 ms.author: frdavid
 ms.reviewer: azmetadatadev
 ---
 
-# Azure Instance Metadata Service 
+# Azure Instance Metadata Service
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances. You can use it to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data available, see the [Endpoint Categories Summary](#endpoint-categories).
@@ -77,8 +77,8 @@ Any request that doesn't meet **both** of these requirements are rejected by the
 > [!IMPORTANT]
 > IMDS is **not** a channel for sensitive data. The API is unauthenticated and open to all processes on the VM. Information exposed through this service should be considered as shared information to all applications running inside the VM.
 
-If it isn't necessary for every process on the VM to access IMDS endpoint, you can set local firewall rules to limit the access. 
-For example, if only a known system service needs to access instance metadata service, you can set a firewall rule on IMDS endpoint, only allowing the specific process(es) to access, or denying access for the rest of the processes. 
+If it isn't necessary for every process on the VM to access IMDS endpoint, you can set local firewall rules to limit the access.
+For example, if only a known system service needs to access instance metadata service, you can set a firewall rule on IMDS endpoint, only allowing the specific process(es) to access, or denying access for the rest of the processes.
 
 ## Proxies
 
@@ -105,7 +105,7 @@ Endpoints may support required and/or optional parameters. See [Schema](#schema)
 
 ### Query parameters
 
-IMDS endpoints support HTTP query string parameters. For example: 
+IMDS endpoints support HTTP query string parameters. For example:
 
 ```URL
 http://169.254.169.254/metadata/instance/compute?api-version=2021-01-01&format=json
@@ -122,7 +122,7 @@ Requests with duplicate query parameter names will be rejected.
 
 ### Route parameters
 
-For some endpoints that return larger json blobs, we support appending route parameters to the request endpoint to filter down to a subset of the response: 
+For some endpoints that return larger json blobs, we support appending route parameters to the request endpoint to filter down to a subset of the response:
 
 ```URL
 http://169.254.169.254/metadata/<endpoint>/[<filter parameter>/...]?<query parameters>
@@ -469,7 +469,7 @@ Data | Description | Version introduced |
 | `keyEncryptionKey.keyUrl` | The location of the key | 2021-11-01
 
 The resource disk object contains the size of the [Local Temp Disk](managed-disks-overview.md#temporary-disk) attached to the VM, if it has one, in kilobytes.
-If there's [no local temp disk for the VM](azure-vms-no-temp-disk.yml), this value is 0. 
+If there's [no local temp disk for the VM](azure-vms-no-temp-disk.yml), this value is 0.
 
 | Data | Description | Version introduced |
 |------|-------------|--------------------|
@@ -487,11 +487,11 @@ If there's [no local temp disk for the VM](azure-vms-no-temp-disk.yml), this val
 | `macAddress` | VM mac address | 2017-04-02
 
 > [!NOTE]
-> The nics returned by the network call are not guaranteed to be in order. 
+> The nics returned by the network call are not guaranteed to be in order.
 
 ### Get user data
 
-When creating a new VM, you can specify a set of data to be used during or after the VM provision, and retrieve it through IMDS. Check the end to end user data experience [here](user-data.md). 
+When creating a new VM, you can specify a set of data to be used during or after the VM provision, and retrieve it through IMDS. Check the end to end user data experience [here](user-data.md).
 
 To set up user data, utilize the quickstart template [here](https://aka.ms/ImdsUserDataArmTemplate). The sample below shows how to retrieve this data through IMDS. This feature is released with version `2021-01-01` and above.
 
@@ -700,7 +700,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     },
     "hostGroup": {
       "id": "testHostGroupId"
-    },    
+    },
     "isHostCompatibilityLayerVm": "true",
     "licenseType":  "Windows_Client",
     "location": "westus",
@@ -842,7 +842,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     },
     "hostGroup": {
       "id": "testHostGroupId"
-    }, 
+    },
     "isHostCompatibilityLayerVm": "true",
     "licenseType":  "Windows_Client",
     "location": "westus",
@@ -1240,7 +1240,7 @@ Verification successful
       "expiresOn": "11/28/18 06:16:17 -0000"
     },
   "vmId": "d3e0e374-fda6-4649-bbc9-7f20dc379f34",
-  "licenseType": "Windows_Client",  
+  "licenseType": "Windows_Client",
   "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
   "sku": "RS3-Pro"
 }

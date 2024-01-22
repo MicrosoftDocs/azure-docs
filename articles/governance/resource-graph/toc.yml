@@ -17,24 +17,6 @@
   - name: Run your first query - Azure PowerShell
     displayName: module, docker, Az.ResourceGraph
     href: ./first-query-powershell.md
-  - name: Run your first query - .NET
-    displayName: core, auth, dotnet
-    href: ./first-query-dotnet.md
-  - name: Run your first query - Go
-    displayName: package, sdk, golang
-    href: ./first-query-go.md
-  - name: Run your first query - Java
-    displayName: maven, zulu, mvn
-    href: ./first-query-java.md
-  - name: Run your first query - JavaScript
-    displayName: library, node, arm-resourcegraph
-    href: ./first-query-javascript.md
-  - name: Run your first query - Python
-    displayName: library, azure-mgmt, cli
-    href: ./first-query-python.md
-  - name: Run your first query - Ruby
-    displayName: gem, azure-mgmt
-    href: ./first-query-ruby.md
   - name: Run your first query - REST
     displayName: armclient, postman
     href: ./first-query-rest-api.md

@@ -16,13 +16,15 @@ ms.custom: references_regions
 
 This article demonstrates how to call the Image Analysis 4.0 API to segment an image. It also shows you how to parse the returned information.
 
+> [!IMPORTANT]
+> Background removal is only available through direct REST API calls. It is not available through the SDKs.
+
 ## Prerequisites
 
 This guide assumes you have successfully followed the steps mentioned in the [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) page. This means:
 
 * You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Vision resource"  target="_blank">created a Vision resource </a> and obtained a key and endpoint URL.
-* If you're using the client SDK, you have the appropriate SDK package installed and you have a running quickstart application. You modify this quickstart application based on code examples here.
-* If you're using 4.0 REST API calls directly, you have successfully made a `curl.exe` call to the service (or used an alternative tool). You modify the `curl.exe` call based on the examples here.
+* You have successfully made a `curl.exe` call to the service (or used an alternative tool). You modify the `curl.exe` call based on the examples here.
 
 The quickstart shows you how to extract visual features from an image, however, the concepts are similar to background removal. Therefore you benefit from starting from the quickstart and making modifications.
 
@@ -31,12 +33,10 @@ The quickstart shows you how to extract visual features from an image, however, 
 
 ## Authenticate against the service
 
-To authenticate against the Image Analysis service, you need an Azure AI Vision key and endpoint URL.
+To authenticate against the Image Analysis service, you need a Computer Vision key and endpoint URL.
 
 > [!TIP]
 > Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](../../security-features.md) article for more authentication options like [Azure Key Vault](../../use-key-vault.md). 
-
-The SDK example assumes that you defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
 
 <!--
 #### [C#](#tab/csharp)
@@ -70,7 +70,7 @@ Where we used this helper function to read the value of an environment variable:
 #### [REST API](#tab/rest)
 -->
 
-Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:segment?api-version=2023-02-01-preview`, where `<endpoint>` is your unique Azure AI Vision endpoint URL. See [Select a mode ](./background-removal.md#select-a-mode) section for another query string you add to this URL.
+Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:segment?api-version=2023-02-01-preview`, where `<endpoint>` is your unique Computer Vision endpoint URL. See [Select a mode ](./background-removal.md#select-a-mode) section for another query string you add to this URL.
 
 
 ## Select the image to analyze
@@ -220,10 +220,9 @@ The following one-channel PNG image is the response for the `foregroundMatting` 
 
 The API returns an image the same size as the original for the `foregroundMatting` mode, but at most 16 megapixels (preserving image aspect ratio) for the `backgroundRemoval` mode.
 
-
 ## Error codes
 
-[!INCLUDE [Image Analysis Error Codes](../includes/image-analysis-error-codes-40.md)]
+[!INCLUDE [image-analysis-error-codes-40](../includes/image-analysis-error-codes-40.md)]
 
 ---
 

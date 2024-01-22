@@ -5,7 +5,8 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 02/28/2023
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, contperf-fy21q3-portal, mode-ui
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, contperf-fy21q3-portal, mode-ui, ai-video-demo
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create your first C# function in Azure using Visual Studio
@@ -23,6 +24,11 @@ In this article, you learn how to:
 > * Deploy your code project to Azure Functions.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+
+This video shows you how to create a C# function in Azure.
+> [!VIDEO efa236ad-db85-4dfc-9f1e-b353c3b09498]
+
+The steps in the video are also described in the following sections.
 
 ## Prerequisites
 

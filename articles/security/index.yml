@@ -7,11 +7,8 @@ brand: azure
 metadata:
   title: Azure security documentation
   description: Azure offers security advantages that support your compliance efforts, provide cost-effective security for your organization, and help protect your hybrid and multicloud platforms, applications, and data.
-  services: security
   ms.service: security
-  ms.subservice: na
   ms.topic: hub-page
-  ms.collection: na
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin

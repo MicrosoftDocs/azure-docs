@@ -3,7 +3,8 @@ title: Troubleshoot Node.js apps in Azure Functions
 description: Learn how to troubleshoot common errors when you deploy or run a Node.js app in Azure Functions.
 ms.service: azure-functions
 ms.date: 09/20/2023
-ms.devlang: javascript, typescript
+ms.devlang: javascript
+# ms.devlang: javascript, typescript
 ms.custom: devx-track-js
 ms.topic: troubleshooting-general
 zone_pivot_groups: functions-nodejs-model

@@ -6,7 +6,7 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/06/2023
+ms.date: 01/12/2024
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -142,7 +142,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Ooredoo Cloud Connect](https://www.ooredoo.com.kw/portal/en/b2bOffConnAzureExpressRoute)** |Supported |Supported | Doha<br/>Doha2<br/>London2<br/>Marseille |
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link/)** |Supported |Supported | Melbourne<br/>Sydney |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Supported |Supported | Amsterdam<br/>Amsterdam2<br/>Chicago<br/>Dallas<br/>Dubai2<br/>Dublin2<br/>Frankfurt<br/>Hong Kong<br/>Johannesburg<br/>London<br/>London2<br/>Mumbai2<br/>Melbourne<br/>Paris<br/>Paris2<br/>Sao Paulo<br/>Silicon Valley<br/>Singapore<br/>Sydney<br/>Tokyo<br/>Toronto<br/>Washington DC |
-| **[Orange Poland](https://www.orange.pl/duze-firmy)** | Supported | Supported | Warsaw |
+| **[Orange Poland](https://www.orange.pl/duze-firmy/rozwiazania-chmurowe)** | Supported | Supported | Warsaw |
 | **[Orixcom](https://www.orixcom.com/solutions/azure-expressroute)** | Supported | Supported | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** | Supported | Supported | Amsterdam<br/>Chicago<br/>Dallas<br/>Denver<br/>Las Vegas<br/>London<br/>Los Angeles2<br/>Miami<br/>New York<br/>Seattle<br/>Silicon Valley<br/>Toronto<br/>Washington DC |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** | Supported | Supported | Chicago<br/>Hong Kong<br/>Hong Kong2<br/>London<br/>Singapore<br/>Singapore2<br/>Tokyo2 |
