@@ -47,7 +47,7 @@ To see all resource providers and the registration status for your subscription:
 1. Repeat the previous steps for the **Microsoft.ContainerInstances** and **Microsoft.Relay**
    resource providers.
 
-[![Screenshot of selecting resource providers in the Azure portal.][98]][98a]
+[![Screenshot of selecting resource providers in the Azure portal.][98a]][98b]
 
 ## 2. Collect the required information
 
@@ -111,7 +111,7 @@ the [quickstart templates][07] to configure a virtual network for Cloud Shell.
 1. On the left menu, select **Overview**. Then enter `azure container instance service` in the
    search bar.
 
-   [![Screenshot of searching for Azure Container Instance Service.][95]][95a]
+   [![Screenshot of searching for Azure Container Instance Service.][95a]][95b]
 
 1. In the results, under **Enterprise applications**, select **Azure Container Instance Service**.
 1. On the **Overview** page for **Azure Container Instance Service**, find the **Object ID** value
@@ -119,7 +119,7 @@ the [quickstart templates][07] to configure a virtual network for Cloud Shell.
 
    You use this ID in the quickstart template for the virtual network.
 
-   [![Screenshot of Azure Container Instance Service details.][96]][96a]
+   [![Screenshot of Azure Container Instance Service details.][96a]][96b]
 
 ## 3. Create the required network resources by using the ARM template
 
@@ -229,7 +229,7 @@ reset your user settings:
 Resetting the user settings triggers the first-time user experience the next time you start Cloud
 Shell.
 
-[![Screenshot of the Cloud Shell storage dialog.][97]][97a]
+[![Screenshot of the Cloud Shell storage dialog.][97a]][97b]
 
 1. Choose your preferred shell experience (Bash or PowerShell).
 1. Select **Show advanced settings**.
@@ -261,11 +261,11 @@ Cloud Shell instance.
 [08]: https://aka.ms/cloudshell/docs/vnet/template
 [09]: https://azure.microsoft.com/resources/templates/cloud-shell-vnet-storage/
 [10]: /azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription
-[95]: media/quickstart-deploy-vnet/container-service-search.png
-[95a]: media/quickstart-deploy-vnet/container-service-search.png#lightbox
-[96]: media/quickstart-deploy-vnet/container-service-details.png
-[96a]: media/quickstart-deploy-vnet/container-service-details.png#lightbox
-[97]: media/quickstart-deploy-vnet/setup-cloud-shell-storage.png
-[97a]: media/quickstart-deploy-vnet/setup-cloud-shell-storage.png#lightbox
-[98]: media/quickstart-deploy-vnet/resource-provider.png
-[98a]: media/quickstart-deploy-vnet/resource-provider.png#lightbox
+[95a]: media/deployment/container-service-search.png
+[95b]: media/deployment/container-service-search.png#lightbox
+[96a]: media/deployment/container-service-details.png
+[96b]: media/deployment/container-service-details.png#lightbox
+[97a]: media/deployment/setup-cloud-shell-storage.png
+[97b]: media/deployment/setup-cloud-shell-storage.png#lightbox
+[98a]: media/deployment/resource-provider.png
+[98b]: media/deployment/resource-provider.png#lightbox
