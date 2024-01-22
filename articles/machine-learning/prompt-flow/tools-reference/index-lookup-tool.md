@@ -27,9 +27,9 @@ The prompt flow *Index Lookup* tool enables the usage of common vector indices (
 1. Create or open a flow in Azure Machine Learning studio. For more information, see [Create a flow](../how-to-develop-flow.md#create-and-develop-your-prompt-flow).
 1. Select **+ More tools** > **Index Lookup** to add the Index Lookup tool to your flow.
 more-tools
-    :::image type="content" source="./media/more-tools.png" alt-text="Screenshot of the the M ore tools button and dropdown showing the Index Lookup tool in Azure Machine Learning studio." lightbox="./media/more-tools.png":::
+    :::image type="content" source="./media/index-lookup-tool/more-tools.png" alt-text="Screenshot of the the M ore tools button and dropdown showing the Index Lookup tool in Azure Machine Learning studio." lightbox="./media/index-lookup-tool/more-tools.png":::
 
-    :::image type="content" source="./media/index-lookup-tool.png" alt-text="Screenshot of the Index Lookup tool added to a flow in Azure Machine Learning studio." lightbox="./media/index-lookup-tool.png":::
+    :::image type="content" source="./media/index-lookup-tool/index-lookup-tool.png" alt-text="Screenshot of the Index Lookup tool added to a flow in Azure Machine Learning studio." lightbox="./media/index-lookup-tool/index-lookup-tool.png":::
 
 1. Enter values for the Index Lookup tool [input parameters](#inputs). The [LLM tool](llm-tool.md) can generate the vector input.
 1. Add more tools to your flow as needed, or select **Run** to run the flow.
