@@ -10,7 +10,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
 ms.custom: devx-track-azurepowershell
-ms.date: 10/09/2023
+ms.date: 01/22/2024
 ms.author: radeltch
 ---
 
@@ -596,18 +596,22 @@ Use the following content for the input file. You need to adapt the content to y
 
 ### **[A]** Assign the custom role
 
-#### Using Managed Identity
+Use managed identity or service principal.
+
+#### [Managed identity](#tab/msi)
 
 Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Verify each VM's managed identity role assignment contains all cluster VMs.
 
 > [!IMPORTANT]
 > Be aware assignment and removal of authorization with managed identities [can be delayed](../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization) until effective.
 
-#### Using Service Principal
+#### [Service principal](#tab/spn)
 
 Assign the custom role *Linux fence agent Role* that you already created to the service principal. Do *not* use the *Owner* role anymore. For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-Make sure to assign the custom role to the service principal at all VM (cluster node) scopes.  
+Make sure to assign the custom role to the service principal at all VM (cluster node) scopes.
+
+---
 
 ## Install the cluster
 
@@ -929,7 +933,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    > The 'pcmk_host_map' option is required in the command only if the hostnames and the Azure VM names are *not* identical. Specify the mapping in the format *hostname:vm-name*.
    > Refer to the bold section in the following command.
 
-   If using **managed identity** for your fence agent, run the following command
+   #### [Managed identity](#tab/msi)
 
    ```bash
    # replace the bold strings with your subscription ID and resource group of the VM
@@ -942,7 +946,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    sudo crm configure property stonith-timeout=900
    ```
 
-   If using **service principal** for your fence agent, run the following command
+   #### [Service principal](#tab/spn)
 
    ```bash
    # replace the bold strings with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
@@ -954,6 +958,8 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    
    sudo crm configure property stonith-timeout=900
    ```
+   
+   ---
 
    If you're using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
