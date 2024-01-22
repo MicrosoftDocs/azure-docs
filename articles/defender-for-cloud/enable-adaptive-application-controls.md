@@ -45,13 +45,13 @@ Select the recommendation, or open the adaptive application controls page to vie
 
 1. Open the **Recommended** tab. The groups of machines with recommended allowlists appear.
 
-   ![Recommended tab.](./media/enable-adaptive-application-controls/enable-adaptive-application-controls-recommended-tab.png)
+   ![Recommended tab.](./media/enable-adaptive-application-controls/adaptive-application-controls-recommended-tab.png)
 
 1. Select a group.
 
 1. To configure your new rule, review the various sections of this **Configure application control rules** page and the contents, which will be unique to this specific group of machines:
 
-   ![Configure a new rule.](./media/enable-adaptive-application-controls/enable-adaptive-application-controls-create-rule.png)
+   ![Configure a new rule.](./media/enable-adaptive-application-controls/adaptive-application-controls-create-rule.png)
 
    1. **Select machines** - By default, all machines in the identified group are selected. Unselect any to remove them from this rule.
 
