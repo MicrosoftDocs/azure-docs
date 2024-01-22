@@ -13,17 +13,17 @@ ms.date: 12/18/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Contoso Bakery supplies baked goods to the Puget Sound area in the northwest United States. It has bakeries in Seattle, Redmond, and Tacoma.
+Contoso supplies baked goods to the Puget Sound area in the northwest United States. It has bakeries in Seattle, Redmond, and Tacoma.
 
-Contoso Bakery wants to check the quality of its manufacturing process by detecting anomalies in real-time at their three bakeries. The quality of the process helps Contoso Bakery decide whether the baked products need more inspection because of process anomalies before they're shipped.
+Contoso wants to check the quality of its manufacturing process by detecting anomalies in real-time at their three bakeries. The quality of the process helps Contoso decide whether the baked products need more inspection because of process anomalies before they're shipped.
 
-To achieve these goals, Contoso Bakery needs to:
+To achieve these goals, Contoso needs to:
 
 - Collect data from multiple data sources.
 - Contextualize the data.
 - Use an analytics model at the edge to estimate the quality in near-real time.
 
-Contoso Bakery also wants to reduce the amount of data at the edge and send the final data to the cloud for more analysis.
+Contoso also wants to reduce the amount of data at the edge and send the final data to the cloud for more analysis.
 
 ## Prerequisite
 
@@ -83,9 +83,9 @@ To add a table to the `bakery_ops` database to store the anomaly data, navigate 
 
 ## Assets and measurements
 
-In this tutorial, you simulate the Contoso Bakery sites and production lines. Contoso Bakery has three types of asset on its production lines: ovens, mixers, and slicers:
+In this tutorial, you simulate the Contoso sites and production lines. Contoso has three types of asset on its production lines: ovens, mixers, and slicers:
 
-:::image type="content" source="media/tutorial-anomaly-detection/contoso-bakery-production-lines.svg" alt-text="Diagram that shows the Contoso Bakery sites, production lines and assets." border="false":::
+:::image type="content" source="media/tutorial-anomaly-detection/contoso-production-lines.png" alt-text="Diagram that shows the Contoso sites, production lines and assets." border="false" lightbox="media/tutorial-anomaly-detection/contoso-production-lines.png":::
 
 The production line assets generate multiple real-time measurements such as humidity, pressure, and temperature. This tutorial uses these simulated measurements to detect anomalies in the manufacturing process.
 
@@ -93,7 +93,7 @@ The simulation generates data and measurements from the following two sources fo
 
 ### Production line assets
 
-_Production line assets_ have sensors that generate measurements as the baked goods are produced. Contoso Bakery production lines contain _oven_, _mixer_, and _slicer_ assets. As a product moves through each asset, the system captures measurements of values that can affect the final product. The system sends these measurements to Azure IoT MQ.
+_Production line assets_ have sensors that generate measurements as the baked goods are produced. Contoso production lines contain _oven_, _mixer_, and _slicer_ assets. As a product moves through each asset, the system captures measurements of values that can affect the final product. The system sends these measurements to Azure IoT MQ.
 
 In this tutorial, the industrial data simulator simulates the assets that generate measurements. A [manifest](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/industrial-data-simulator/manifests/anomaly-detection/manifest.yml) file determines how the industrial data simulator generates the measurements.
 
@@ -523,19 +523,19 @@ The **Asset View** section displays the process variables, anomalies, number of 
 
 This view also displays the name of the asset that has the highest number of anomalies ratio within a given time period. This asset should be either inspected or replaced as soon as possible.
 
-This view also displays the name of the asset that has the highest number of vibration anomalies ratio within a given time period. The Contoso Bakery plant maintenance crew should prioritize this asset for predictive maintenance.
+This view also displays the name of the asset that has the highest number of vibration anomalies ratio within a given time period. The Contoso plant maintenance crew should prioritize this asset for predictive maintenance.
 
 The industrial data simulator generates deliberately noisy data for demonstration purposes and the anomaly detection is sensitive. Therefore, you see lots of anomalies. You can configure the sensitivity of the anomaly detection service and the noisiness of the industrial data simulator by editing their manifest files.
 
 The **Vibration Analysis** section of the dashboard charts the real-time vibrations coming from moving assets such as slicers and mixers. It also charts the average of the anomaly detection factor metric that lets operators know when the vibration anomalies are over the set limit. This information helps operators identify assets that require predictive maintenance. This section is valuable to the plant operators as it helps them monitor asset health and take necessary actions to prevent potential downtime or asset damage.
 
-The **Oven Process Parameters** section of the dashboard lets you visualize the current oven process parameters in the three Contoso Bakery locations. It charts the process parameters over a selected time period and shows temperature and humidity anomalies. You can use this anomaly data to predict abnormal oven process parameters that could result in a bad product. This section is valuable to the plant operators of the plant as it helps them to monitor the health of the ovens and take any necessary actions to preserve the quality of the products.
+The **Oven Process Parameters** section of the dashboard lets you visualize the current oven process parameters in the three Contoso locations. It charts the process parameters over a selected time period and shows temperature and humidity anomalies. You can use this anomaly data to predict abnormal oven process parameters that could result in a bad product. This section is valuable to the plant operators of the plant as it helps them to monitor the health of the ovens and take any necessary actions to preserve the quality of the products.
 
 You can also create your own dashboard with Kusto Queries.
 
 ## Summary
 
-This tutorial shows you how to do anomaly detection with the Contos Bakery manufacturing operations sample. You learned how to:
+This tutorial shows you how to do anomaly detection with the Contoso manufacturing operations sample. You learned how to:
 
 - Set up Azure IoT Operations on an Arc-enabled Kubernetes cluster.
 - Use Data Processor to transform and enrich the measurement data.

@@ -13,11 +13,11 @@ ms.date: 12/18/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Contoso Bakery supplies baked goods to the Puget Sound area in the northwest United States. It has bakeries in Seattle and Redmond.
+Contoso supplies baked goods to the Puget Sound area in the northwest United States. It has bakeries in Seattle and Redmond.
 
-Contoso Bakery wants to measure the overall equipment effectiveness (OEE) and power consumption of its production lines. Contoso Bakery plans to use these measurements to identify ineffective areas in the manufacturing process, and use the insights to improve the bottom line for the business.
+Contoso wants to measure the overall equipment effectiveness (OEE) and power consumption of its production lines. Contoso plans to use these measurements to identify ineffective areas in the manufacturing process, and use the insights to improve the bottom line for the business.
 
-To achieve these goals, Contoso Bakery needs to:
+To achieve these goals, Contoso needs to:
 
 - Gather data from multiple data sources.
 - Down sample, transform, and join the data at the edge.
@@ -64,13 +64,13 @@ Make a note of your workspace ID and lakehouse ID, you need them later. You can 
 
 In this tutorial, you simulate the Redmond and Seattle sites. Each site has two production lines producing baked goods:
 
-:::image type="content" source="media/tutorial-overall-equipment-effectiveness/contoso-bakery-production-lines.svg" alt-text="Diagram that shows the Contoso Bakery production lines." border="false":::
+:::image type="content" source="media/tutorial-overall-equipment-effectiveness/contoso-production-lines.png" alt-text="Diagram that shows the Contoso production lines." border="false" lightbox="media/tutorial-overall-equipment-effectiveness/contoso-production-lines.png":::
 
-To calculate OEE for Contoso Bakery, you need data from three data sources: production line assets, production data, and operator data. The following sections provide detail on each of these.
+To calculate OEE for Contoso, you need data from three data sources: production line assets, production data, and operator data. The following sections provide detail on each of these.
 
 ### Production line assets
 
-_Production line assets_ have sensors that generate measurements as the baked goods are produced. Contoso Bakery production lines contain _assembly_, _test_, and _packaging_ assets. As a product moves through each asset, the system captures measurements of values that can affect the final product. The system sends these measurements to Azure IoT MQ.
+_Production line assets_ have sensors that generate measurements as the baked goods are produced. Contoso production lines contain _assembly_, _test_, and _packaging_ assets. As a product moves through each asset, the system captures measurements of values that can affect the final product. The system sends these measurements to Azure IoT MQ.
 
 In this tutorial, the industrial data simulator simulates the assets that generate measurements. A [manifest](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/industrial-data-simulator/manifests/oee/manifest.yml) file determines how the industrial data simulator generates the measurements.
 
@@ -151,14 +151,14 @@ Each production line produces goods for a specific customer. The following snipp
   {
     "Line": "Line1",
     "Shift": 1,
-    "ProductId": "Donette",
+    "ProductId": "Bagel",
     "Site": "Redmond",
     "Customer": "Contoso"
   },
   {
     "Line": "Line2",
     "Shift": 1,
-    "ProductId": "Twinkies",
+    "ProductId": "Donut",
     "Site": "Redmond",
     "Customer": "Contoso"
   }
@@ -487,7 +487,7 @@ To create the _oee-process-pipeline_ pipeline:
     }
     ```
 
-    Select **Apply**. 
+    Select **Apply**.
 
 1. Use the **Stages** list on the left to add a **Call out HTTP** stage after the aggregate stage and select it. This HTTP call out stage calls a custom module running in the Kubernetes cluster that exposes an HTTP API. The module calculates the shift based on the current time. To configure the stage, select **Add condition** and enter the information from the following table:
 
@@ -571,13 +571,13 @@ Look for **Oee-processed-output** in the list of topics and verify that it's rec
     "HumidityAvg": 0,
     "LastCycletime": 4989,
     "Line": "Line2",
-    "Manufacturer": "ZenithTech",
+    "Manufacturer": "Northwind",
     "Operator": "Anne",
     "PackagedProductTarget": 17280,
     "PerformanceTarget": 60,
     "PlannedProductionTime": 15100,
     "PressureAvg": 0,
-    "ProductId": "Twinkies",
+    "ProductId": "Donut",
     "Shift": 2,
     "Site": "Seattle",
     "SpeedAvg": 2.099948273890882,
@@ -769,13 +769,13 @@ In [Microsoft Fabric](https://msit.powerbi.com/groups/me/list?experience=power-b
 
 1. Select **Get data** followed by **Microsoft Fabric**:
 
-    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/powerbi-get-lakehouse-data.png" alt-text="Screenshot that shows how to access lakehouse data in Power BI." lightbox="media/tutorial-overall-equipment-effectiveness/powerbi-get-lakehouse-data.png":::
+    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/power-bi-get-lakehouse-data.png" alt-text="Screenshot that shows how to access lakehouse data in Power BI." lightbox="media/tutorial-overall-equipment-effectiveness/power-bi-get-lakehouse-data.png":::
 
 1. Select **Lakehouses** and then select **Connect**.
 
 1. Select your lakehouse, and then **Connect to SQL endpoint**:
 
-    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/powerbi-connect-sql-endpoint.png" alt-text="Screenshot that shows how to access SQL endpoint in Power BI." lightbox="media/tutorial-overall-equipment-effectiveness/powerbi-connect-sql-endpoint.png":::
+    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/power-bi-connect-sql-endpoint.png" alt-text="Screenshot that shows how to access SQL endpoint in Power BI." lightbox="media/tutorial-overall-equipment-effectiveness/power-bi-connect-sql-endpoint.png":::
 
 1. Check the box next to the **OEE** table and then select **Load**.
 
@@ -823,9 +823,9 @@ Follow these steps to create some measures and use them to build a visualization
 
 Your dashboard looks like the following example:
 
-:::image type="content" source="media/tutorial-overall-equipment-effectiveness/example-dashboard.png" alt-text="Screen shot of an example dashboard that displays OEE, performance, quality, and availability measurements." lightbox="media/tutorial-overall-equipment-effectiveness/example-dashboard.png":::
+:::image type="content" source="media/tutorial-overall-equipment-effectiveness/example-dashboard.png" alt-text="Screenshot of an example dashboard that displays OEE, performance, quality, and availability measurements." lightbox="media/tutorial-overall-equipment-effectiveness/example-dashboard.png":::
 
-To create a filter that lets you calculate OEE for each Contoso Bakery site and further enhance the visualizations on the dashboard, complete the following steps:
+To create a filter that lets you calculate OEE for each Contoso site and further enhance the visualizations on the dashboard, complete the following steps:
 
 1. Select the **Slicer** icon in the visualizations panel and select **Site**. The slicer lets you filter by the site to calculate OEE, performance, and availability, for individual sites. You can also create a slicer based on asset ID.
 
