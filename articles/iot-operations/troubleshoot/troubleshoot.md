@@ -17,17 +17,13 @@ This article contains troubleshooting tips for Azure IoT Operations Preview.
 
 ## Deployment and configuration issues
 
-For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations *check* and *support create-bundle* commands.
+For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations *check* and *support* commands.
 
-Azure CLI version 2.42.0 or higher is required and the Azure IoT Operations extension installed. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). To install the Azure IoT Operations extension for Azure CLI, use the following command:
-
-```powershell
-az extension add --name azure-iot-ops
-```
+[Azure CLI version 2.42.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
 
 - Use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check) to evaluate IoT Operations service deployment for health, configuration, and usability. The *check* command can help you find problems in your deployment and configuration.
 
-- Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
+- Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The *support create-bundle* command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
 
 ## Data Processor pipeline deployment status is failed
 
