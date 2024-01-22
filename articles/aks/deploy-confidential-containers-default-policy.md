@@ -193,13 +193,12 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 1. Grant the managed identity you created earlier, and your account, access to the key vault. [Assign][assign-key-vault-access-cli] both identities the **Key Vault Crypto Officer** and **Key Vault Crypto User** Azure RBAC roles.
 
    > [!NOTE]
-   > The managed identity is the value you assign to the `USER_ASSIGNED_IDENTITY_NAME` variable.
-
-   > [!NOTE]
-   > To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac], or [Owner][owner-rbac].
-   
-   > [!NOTE]
-   > You must use the Key Vault Premium SKU to support HSM-protected keys. 
+   >
+   > - The managed identity is the value you assign to the `USER_ASSIGNED_IDENTITY_NAME` variable.
+   > 
+   > - To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac], or [Owner][owner-rbac].
+   > 
+   > - You must use the Key Vault Premium SKU to support HSM-protected keys. 
 
    Run the following command to set the scope:
 
