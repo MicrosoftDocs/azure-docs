@@ -8,7 +8,7 @@ author: sunilagarwal
 ms.reviewer: ""
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/30/2021
+ms.date: 1/22/2024
 ms.custom: mvc, devx-track-azurecli
 ---
 
@@ -105,7 +105,7 @@ Create an App Service app (the host process) with the [az webapp up](/cli/azure/
 ```azurecli
 # Create a web app
 
-az webapp up --resource-group myresourcegroup --location westus2 --plan DjangoPostgres-tutorial-plan --sku B1 --name <app-name>
+az webapp up --resource-group myresourcegroup --location westus2 --plan DjangoPostgres-tutorial-plan --sku S1 --name <app-name>
 
 # Enable VNET integration for web app.
 
@@ -121,7 +121,7 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 ```
 - For the `--location` argument, use the same location as you did for the database in the previous section.
 - Replace *\<app-name>* with a unique name across all Azure (the server endpoint is `https://<app-name>.azurewebsites.net`). Allowed characters for *\<app-name>* are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier.
-- Create the [App Service plan](../../app-service/overview-hosting-plans.md) *DjangoPostgres-tutorial-plan* in the Basic pricing tier (B1), if it doesn't exist. `--plan` and `--sku` are optional.
+- Create the [App Service plan](../../app-service/overview-hosting-plans.md) *DjangoPostgres-tutorial-plan* in the Standard pricing tier (S1), if it doesn't exist. `--plan` and `--sku` are optional.
 - Create the App Service app if it doesn't exist.
 - Enable default logging for the app, if not already enabled.
 - Upload the repository using ZIP deployment with build automation enabled.
