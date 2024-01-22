@@ -4,7 +4,7 @@ description: include file
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: include
-ms.date: 01/11/2024
+ms.date: 01/22/2024
 ms.author: rogarana
 ms.custom: include file
 ---
@@ -12,7 +12,6 @@ ms.custom: include file
 The following list contains Ultra disks's limitations:
 - Can't be used as OS disks
 - Doesn't support disk export
-- Can't directly change the type of an existing disk to an Ultra Disk
 - Doesn't support VM images
 - Doesn't support availability sets
 - Doesn't support Azure disk encryption
