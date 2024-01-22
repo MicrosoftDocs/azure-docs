@@ -90,11 +90,11 @@ To discover Kubernetes applications in the Azure Marketplace from within the Azu
    > [!IMPORTANT]
    > The **Containers** category includes both Kubernetes applications and standalone container images. Be sure to select only Kubernetes application offers when following these steps. Container images have a different deployment process, and generally can't be deployed on Arc-enabled Kubernetes clusters.
 
-   :::image type="content" source="media/deploy-marketplace/marketplace-containers.png" alt-text="Screenshot of Azure Marketplace showing the Containers menu item." lightboxsource="media/deploy-marketplace/marketplace-containers.png":::
+   :::image type="content" source="media/deploy-marketplace/marketplace-containers.png" alt-text="Screenshot of Azure Marketplace showing the Containers menu item." lightbox="media/deploy-marketplace/marketplace-containers.png":::
 
 1. You'll see several Kubernetes application offers displayed on the page. To view all of the Kubernetes application offers, select **See more**.
 
-   :::image type="content" source="media/deploy-marketplace/marketplace-see-more.png" alt-text="Screenshot showing the "See more" link for the Containers category in Azure Marketplace." source="media/deploy-marketplace/marketplace-see-more.png":::
+   :::image type="content" source="media/deploy-marketplace/marketplace-see-more.png" alt-text="Screenshot showing the See more link for the Containers category in Azure Marketplace." source="media/deploy-marketplace/marketplace-see-more.png":::
 
 1. Alternately, if you [used Azure CLI to discover Kubernetes applications](#discover-kubernetes-applications-that-supports-azure-arc-enabled-clusters??tabs=azure-cli), you can note the `publisherId`, then search using that term to view that publisher's Kubernetes applications in Azure Marketplace.
 
@@ -125,7 +125,7 @@ az vm image terms accept --offer <offerID> --plan <planId> --publisher <publishe
 ```
 
 > [!NOTE]
-> Although this command is for VMs, it also works for containers, including Arc-enabled Kubernetes clusters. For more information, see the [az cm image terms](/cli/azure/vm/image/terms?view=azure-cli-latest) reference.
+> Although this command is for VMs, it also works for containers, including Arc-enabled Kubernetes clusters. For more information, see the [az cm image terms](/cli/azure/vm/image/terms) reference.
 
 #### Deploy the application
 
