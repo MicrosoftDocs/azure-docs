@@ -51,7 +51,7 @@ The following settings are supported:
    - **azurite.tablePort** - The Table service listening port, by default 10002.
    - **azurite.cert** - Path to a locally trusted PEM or PFX certificate file path to enable HTTPS mode.
    - **azurite.debug** - Output the debug log to the Azurite channel. The default value is **false**.
-   - **azurite.key** - Path to a locally trusted PEM key file, required when 
+   - **azurite.key** - Path to a locally trusted PEM key file, required when **Azurite: Cert** points to a PFX file.
    - **azurite.location** - The workspace location path. The default is the Visual Studio Code working folder.
    - **azurite.loose** - Enable loose mode, which ignores unsupported headers and parameters.
    - **azurite.oauth** - Optional OAuth level.
