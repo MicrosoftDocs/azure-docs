@@ -60,7 +60,7 @@ Some upgrades require a virtual machine restart while others can be complete wit
 - Proximity Placement Group changes
 
 > [!NOTE]
-> While Password and Custom Data changes can be made without a restart, in order for the upgrades to be applied to the virtual machine instances, you must reimage the virtual machine. For more information, see [Reimage a virtual machine](#reimage-a-virtual-machine)
+> While Password and Custom Data changes can be made without a restart, in order for the upgrades to be applied to the virtual machine instances, you must reimage the virtual machine. For more information, see [Reimage a virtual machine](virtual-machine-scale-sets-reimage-virtual-machine.md)
 
 Upgrades that do not require a restart or reimage and can be completed in place without disrupting the virtual machine instance include: 
 
