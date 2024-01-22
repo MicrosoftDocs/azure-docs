@@ -27,8 +27,9 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 |:--- |:--- |:--- |
 | Azure NetApp Files backup | Public preview | No |
 | Azure NetApp Files large volumes | Public preview | No |
-| Edit network features for existing volumes | Public preview | No |
+| Edit network features for existing volumes | Public preview | Public preview |
 | Standard storage with cool access in Azure NetApp Files | Public preview | Public preview |
+
 
 ## Portal access
 
