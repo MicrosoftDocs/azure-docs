@@ -78,7 +78,7 @@ diskEncryptionSetId=$(az disk-encryption-set show --name $diskEncryptionSetName 
 az disk create -g $resourceGroupName -n $diskName --source $snapshotId --disk-encryption-set $diskEncryptionSetID --location eastus2euap
 ```
 
-## Performance impact - copy process
+## Performance impact - background copy process
 
 When you create a managed disk from a snapshot, it starts a background copy process. You can attach a disk to a VM while this process is running but you'll experience performance impact (4k disks experience read impact, 512e experience both read and write impact). For Ultra Disks and Premium SSD v2, you can check the status of the background copy process with the following commands:
 
