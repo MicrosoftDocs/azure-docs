@@ -254,7 +254,7 @@ As an example, you might want to know the time offset of each flower word in the
 
 A viseme is the visual description of a phoneme in spoken language. It defines the position of the face and mouth while a person is speaking. You can use the `mstts:viseme` element in SSML to request viseme output. For more information, see [Get facial position with viseme](how-to-speech-synthesis-viseme.md).
 
-The viseme setting is applied to all input text within it's enclosing `voice` element. To reset or change the viseme setting again, you must use a new `voice` element with either the same voice or a different voice.
+The viseme setting is applied to all input text within its enclosing `voice` element. To reset or change the viseme setting again, you must use a new `voice` element with either the same voice or a different voice.
 
 Usage of the `viseme` element's attributes are described in the following table.
 
