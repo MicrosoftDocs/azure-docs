@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
-ms.date: 12/18/2023
+ms.date: 01/20/2024
 ms.topic: overview
 ms.custom: devx-track-arm-template
 ms.author: davidsmatlak
@@ -132,18 +132,13 @@ For more information, see
 
 ## Running your first query
 
-Azure Resource Graph Explorer, part of Azure portal, enables running Resource Graph queries directly
-in the Azure portal. Pin the results as dynamic charts to provide real-time dynamic information to
-your portal workflow. For more information, see
-[First query with Azure Resource Graph Explorer](./first-query-portal.md).
+Azure Resource Graph Explorer, part of Azure portal, enables running Resource Graph queries directly in the Azure portal. Pin the results as dynamic charts to provide real-time dynamic information to your portal workflow. For more information, go to [First query with Azure Resource Graph Explorer](./first-query-portal.md).
 
-Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. The query is
-structured the same for each language. Learn how to enable Resource Graph with:
+Resource Graph also supports Azure CLI, Azure PowerShell, and REST API. The query is structured the same for each language. Learn how to enable Resource Graph with:
 
-- [Azure portal and Resource Graph Explorer](./first-query-portal.md)
-- [Azure CLI](./first-query-azurecli.md#add-the-resource-graph-extension)
-- [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
-- [Python](./first-query-python.md#add-the-resource-graph-library)
+- [Azure CLI](./first-query-azurecli.md)
+- [Azure PowerShell](./first-query-powershell.md)
+- [REST API](./first-query-rest-api.md)
 
 ## Alerts integration with Log Analytics
 
