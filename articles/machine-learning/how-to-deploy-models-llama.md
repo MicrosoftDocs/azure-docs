@@ -110,6 +110,8 @@ To create a deployment:
 1. You can also take note of the **Target** URL and the **Secret Key** to call the deployment and generate completions.   
 1. You can always find the endpoint's details, URL, and access keys by navigating to **Workspace** > **Endpoints** > **Serverless endpoints**.
 
+To learn about billing for Llama models deployed with pay-as-you-go, see [Cost and quota considerations for Llama 2 models deployed as a service](#cost-and-quota-considerations-for-llama-2-models-deployed-as-a-service).
+
 ### Consume Llama 2 models as a service
 
 Models deployed as a service can be consumed using either the chat or the completions API, depending on the type of model you deployed.
@@ -462,18 +464,18 @@ For reference about how to invoke Llama 2 models deployed to real-time endpoints
 
 ## Cost and quotas
 
-### Considerations for Llama 2 models deployed as a service
+### Cost and quota considerations for Llama 2 models deployed as a service
 
 Llama models deployed as a service are offered by Meta through Azure Marketplace and integrated with Azure Machine Learning studio for use. You can find Azure Marketplace pricing when deploying or fine-tuning models.
 
 Each time a workspace subscribes to a given model offering from Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
-For more information on how to track costs, see [Monitor costs for models offered through Azure Marketplace](/azure/ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
+For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](../ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
 :::image type="content" source="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters." lightbox="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png":::
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
-### Considerations for Llama 2 models deployed as real-time endpoints
+### Cost and quota considerations for Llama 2 models deployed as real-time endpoints
 
 For deployment and inferencing of Llama models with real-time endpoints, you consume virtual machine (VM) core quota that is assigned to your subscription on a per-region basis. When you sign up for Azure Machine Learning studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once you reach this limit, you can request a quota increase.  
 
