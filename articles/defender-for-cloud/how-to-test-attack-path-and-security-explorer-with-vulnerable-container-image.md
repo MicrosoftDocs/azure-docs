@@ -1,12 +1,12 @@
 ---
-title: Test attack paths and find vulnerable Kubernetes pods
-description: Learn how to test attack paths and find vulnerable Kubernetes pods with cloud security explorer in Microsoft Defender for Cloud
+title: Attack path analysis and enhanced risk-hunting for containers
+description: Learn how to test attack paths and perform enhanced risk-hunting for containers with cloud security explorer in Microsoft Defender for Cloud
 ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 01/21/2024
 ---
 
-# Test attack paths and find vulnerable Kubernetes pods
+# Attack path analysis and enhanced risk-hunting for containers
 
 Attack path analysis is a graph-based algorithm that scans the cloud security graph. The scans expose exploitable paths that attackers might use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations as to how best remediate issues that break the attack path and prevent successful breach.
 
@@ -70,6 +70,8 @@ If there are no entries in the list of attack paths, you can still test this fea
 > [!NOTE]
 > After completing the above flow, it can take up to 24 hours to see results in the cloud security explorer and attack path.
 
+After you completed testing the attack path, investigate the created attack path by going to **Attack path analysis**, and search for the attack path you created. For more information, see [Identify and remediate attack paths](how-to-manage-attack-path.md).
+
 ## AWS: Testing the attack path and security explorer using a mock vulnerable container image
 
 1. Create ECR repository named *mdc-mock-0001*
@@ -110,30 +112,24 @@ If there are no entries in the list of attack paths, you can still test this fea
 1. Install the following Helm chart:
 
     ```awscli
-    helm install dcspmcharts oci://dcspmtesting.azurecr.io/multi-cloud/dcspmcharts --version 1.0.0 --namespace mdc-dcspm-demo --create-namespace --set image=<ACCOUNT>.dkr.ecr.<REGION>.amazonaws.com/mdc-mock-0001 --set distribution=AWS
+    helm install dcspmcharts oci://mcr.microsoft.com/mdc/stable/dcspmcharts --version 1.0.0 --namespace mdc-dcspm-demo --create-namespace --set image=<ACCOUNT>.dkr.ecr.<REGION>.amazonaws.com/mdc-mock-0001 --set distribution=AWS
     ```
 
 The Helm chart deploys resources onto your cluster that can be used to infer attack paths. It also includes the vulnerable image.
 
-Allow some time to ensure the new configuration collection.
+> [!NOTE]
+> After completing the above flow, it can take up to 24 hours to see results in the cloud security explorer and attack path.
 
-## Find vulnerable Kubernetes pods
+After you completed testing the attack path, investigate the created attack path by going to **Attack path analysis**, and search for the attack path you created. For more information, see [Identify and remediate attack paths](how-to-manage-attack-path.md).
+
+## Find container posture issues with cloud security explorer
 
 You can build queries in one of the following ways:
 
-- [Find the security issue under attack paths](#find-the-security-issue-under-attack-paths)
 - [Explore risks with built-in cloud security explorer templates](#explore-risks-with-cloud-security-explorer-templates)
 - [Create custom queries with cloud security explorer](#create-custom-queries-with-cloud-security-explorer)
 
-### Find the security issue under attack paths
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Navigate to **Attack path analysis**.
-
-1. Select an attack path.
-
-1. Locate the entry that details this security issue under `Internet exposed Kubernetes pod is running a container with high severity vulnerabilities`.
+In the following sections, we present examples of queries you can select or create.
 
 ### Explore risks with cloud security explorer templates
 

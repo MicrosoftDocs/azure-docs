@@ -302,7 +302,7 @@
       items:
         - name: Onboard agentless containers for CSPM
           href: how-to-enable-agentless-containers.md
-        - name: Test attack paths and find vulnerable Kubernetes pods
+        - name: Attack path analysis and enhanced risk-hunting for containers
           displayName: attack paths, paths, security explorer, test
           href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md
     - name: Manage security standards and recommendations
