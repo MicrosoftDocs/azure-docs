@@ -105,7 +105,7 @@ To install the Metasploitable nested VM on the template VM:
 
 1. Download the Metasploitable image.
     1. Navigate to [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html). Fill out the form to download the image and select the **Submit** button.
-    
+
         > [!NOTE]
         > You can check for newer versions of the Metasploitable image on [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3).
 
