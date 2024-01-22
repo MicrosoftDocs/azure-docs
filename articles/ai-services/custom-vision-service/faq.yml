@@ -30,7 +30,7 @@ sections:
         answer: |
           You can find the prediction resource ID on the resource's **Properties** tab in the Azure portal, listed as **Resource ID**.
       - question: |
-          Does my Custom vision prediction endpoint accept base64-encoded images?
+          Does my Custom Vision prediction endpoint accept base64-encoded images?
         answer: |
           Yes. We recommend using open-source libraries that help you convert URL images to base64 encoded images and back. The OpenCV and Pillow libraries are popular with our customers for image conversion.
       - question: |

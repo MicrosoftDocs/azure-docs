@@ -82,10 +82,9 @@ There are a few steps you need to take to prepare an image for prediction. These
     # Convert to OpenCV format
     image = convert_to_opencv(image)
     ```
-    
-    ### Handle large images
-    If the image has a dimension greater than 1600 pixels, call this method (defined later on).
-    
+
+1. If the image has a dimension greater than 1600 pixels, call this method (defined later on).
+
     ```Python
     image = resize_down_to_1600_max_dim(image)
     ```

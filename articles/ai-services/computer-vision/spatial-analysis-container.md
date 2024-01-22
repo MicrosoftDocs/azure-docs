@@ -29,7 +29,7 @@ To run the Spatial Analysis container, you need a compute device with an NVIDIA 
 
 #### [Azure Stack Edge device](#tab/azure-stack-edge)
 
-Azure Stack Edge is a hardware-as-a-Service solution and an AI-enabled edge computing device with network data transfer capabilities. For detailed preparation and setup instructions, see the [Azure Stack Edge documentation](../../databox-online/azure-stack-edge-deploy-prep.md).
+Azure Stack Edge is a hardware-as-a-service solution and an AI-enabled edge computing device with network data transfer capabilities. For detailed preparation and setup instructions, see the [Azure Stack Edge documentation](../../databox-online/azure-stack-edge-deploy-prep.md).
 
 #### [Desktop machine](#tab/desktop-machine)
 
