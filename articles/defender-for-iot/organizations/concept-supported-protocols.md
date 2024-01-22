@@ -16,7 +16,7 @@ OT network sensors can detect the following protocols when identifying assets an
 
 |Brand / Vendor |Protocols  |
 |---------|---------|
-|**ABB**     |   ABB 800xA DCS (IEC61850 MMS including ABB extension)<br> CNCP<br> RNRP<br> ABB IAC<br> ABB Totalflow      |
+|**ABB**     |   ABB 800xA DCS (IEC61850 MMS including ABB extension)<br> CNCP<br> RNRP<br> ABB IAC<br> ABB Totalflow   <br> ABB NetConfig   |
 |**ASHRAE**     |    BACnet<br> BACnet BACapp<br> BACnet BVLC     |
 |**Beckhoff**     |   AMS (ADS)<br> Twincat       |
 |**Cisco**     |   CAPWAP Control<br> CAPWAP Data<br> CDP<br>  LWAPP      |
@@ -36,7 +36,8 @@ OT network sensors can detect the following protocols when identifying assets an
 |**Omron**     |  FINS <br>HTTP      |
 |**OPC**     |  AE <br>Common <br> DA <br>HDA <br> UA       |
 |**Oracle**     |   TDS<br> TNS      |
-|**Rockwell Automation**     |  CSP2<br> ENIP<br> EtherNet/IP CIP (including Rockwell extension)<br> EtherNet/IP CIP FW version 27 and above      |
+|**Rockwell Automation**     |  CSP2<br> ENIP<br> EtherNet/IP CIP (including Rockwell extension)<br> EtherNet/IP CIP FW version 27 and above  <br>Rockwell AADvance Discover <br>
+Rockwell AADvance SNCP/IXL    |
 |**Samsung** | Samsung TV |
 |**Schneider Electric**     | Modbus/TCP<br> Modbus TCP–Schneider Unity Extensions<br> OASYS (Schneider Electric Telvant)<br> Schneider TSAA        |
 |**Schneider Electric / Invensys**     |   Foxboro Evo<br> Foxboro I/A<br> Trident<br> TriGP<br> TriStation      |
