@@ -1277,6 +1277,7 @@
   "articles/purview/.openpublishing.redirection.purview.json",
   "articles/route-server/.openpublishing.redirection.route-server.json",
   "articles/sap/.openpublishing.redirection.sap.json",
+  "articles/security/.openpublishing.redirection.security.json",
   "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
   "articles/spatial-anchors/.openpublishing.redirection.spatial-anchors.json",
   "articles/spring-apps/.openpublishing.redirection.spring-apps.json",
