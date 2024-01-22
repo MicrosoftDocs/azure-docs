@@ -52,7 +52,7 @@ FROM TwitterStream TIMESTAMP BY CreatedAt
 GROUP BY TimeZone, TumblingWindow(second,10)
 ```
 
-Here's the same output: 
+Here's the sample output: 
 
 |WindowEndTime|TimeZone|Count|
 |-|-|-|
@@ -137,7 +137,7 @@ Output:
 
 A session window begins when the first event occurs. If another event occurs within the specified timeout from the last ingested event, then the window extends to include the new event. Otherwise if no events occur within the timeout, then the window is closed at the timeout.
 
-If events keep occurring within the specified timeout, the session window keeps extending until maximum duration is reached. The maximum duration checking intervals are set to be the same size as the specified max duration. For example, if the max duration is 10, then the checks on if the window exceeds maximum duration happens at t = 0, 10, 20, 30, etc.
+If events keep occurring within the specified timeout, the session window keeps extending until maximum duration is reached. The maximum duration checking intervals are set to be the same size as the specified max duration. For example, if the max duration is 10, then the checks on if the window exceeds maximum duration happen at t = 0, 10, 20, 30, etc.
 
 When a partition key is provided, the events are grouped together by the key and session window is applied to each group independently. This partitioning is useful for cases where you need different session windows for different users or devices.
 
