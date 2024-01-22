@@ -54,13 +54,13 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace. Alternatively, your account can be assigned a custom role that has the following permissions:
 
-    - On the Azure subscription (needed to sign up the workspace for Azure Marketplace offerings, once for each workspace, per offering):
+    - On the Azure subscription (needed to subscribe the workspace to the Azure Marketplace offer, once for each workspace, per offering):
       - `Microsoft.MarketplaceOrdering/agreements/offers/plans/read`
       - `Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action`
-      - `Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read`
+      - `Microsoft.MarketplaceOrdering/offerTypes/publishers/offers/plans/agreements/read`
       - `Microsoft.SaaS/register/action`
  
-    - On the Resource Group:
+    - On the Resource Group (to create and use the SaaS Resource):
       - `Microsoft.SaaS/resources/read`
       - `Microsoft.SaaS/resources/write`
  
@@ -89,14 +89,14 @@ To create a deployment:
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png":::
 
 1. On the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
-1. If this is your first time deploying the model in the workspace, you have to sign up your workspace for the particular offering (Llama-2-70b) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each workspace has its own connection to the particular Azure Marketplace offering, which allows you to control and monitor spending per workspace. Select **Subscribe and Deploy**.
+1. If this is your first time deploying the model in the workspace, you have to subscribe your workspace for the particular offering (eg. Llama-2-70b) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each workspace has its own subscription to the particular Azure Marketplace offer, which allows you to control and monitor spending. Select **Subscribe and Deploy**.
 
     > [!NOTE]
     > Subscribing a project to a particular Azure Marketplace offering (in this case, Llama-2-70b) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
 
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="media/how-to-deploy-models-llama/deploy-marketplace-terms.png":::
 
-1. Once you sign up the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require signing up. Therefore, you don't need to have the subscription-level permissions for subsequent deployments. If this is your case, select **Continue to deploy**.
+1. Once you sign up the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require subscribing again. Therefore, you don't need to have the subscription-level permissions for subsequent deployments. If this is your case, select **Continue to deploy**.
 
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-pay-as-you-go-project.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="media/how-to-deploy-models-llama/deploy-pay-as-you-go-project.png":::
 
