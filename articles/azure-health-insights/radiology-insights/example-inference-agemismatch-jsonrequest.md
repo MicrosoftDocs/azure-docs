@@ -11,7 +11,7 @@ ms.date: 12/06/2023
 ms.author: janschietse
 ---
 
-# Inference example agemismatch input
+# Inference example age mismatch input
 
 
 ```json

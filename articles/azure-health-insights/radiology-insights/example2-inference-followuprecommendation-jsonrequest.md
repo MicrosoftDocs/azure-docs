@@ -11,7 +11,7 @@ ms.date: 12/06/2023
 ms.author: janschietse
 ---
 
-# Inference example followupRecommendation input bis
+# Inference example followupRecommendation input 2
 
 ```json
 {
