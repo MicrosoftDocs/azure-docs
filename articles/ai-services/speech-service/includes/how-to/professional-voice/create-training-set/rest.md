@@ -1,9 +1,9 @@
 ---
  title: include file
  description: include file
- author: eur
- ms.author: eric-urban
- ms.service: azure-ai-services
+ author: eric-urban
+ ms.author: eur
+ ms.service: azure-ai-speech
  ms.topic: include
  ms.date: 12/1/2023
  ms.custom: include
@@ -11,7 +11,7 @@
 
 You need a training dataset to create a professional voice. A training dataset includes audio and script files. The audio files are recordings of the voice talent reading the script files. The script files are the text of the audio files. 
 
-In this article, you [create a training set](#create-a-training-set) and get it's resource ID. Then, using the resource ID, you can [upload a set of audio and script files](#upload-training-set-data).
+In this article, you [create a training set](#create-a-training-set) and get its resource ID. Then, using the resource ID, you can [upload a set of audio and script files](#upload-training-set-data).
 
 ## Create a training set
 
