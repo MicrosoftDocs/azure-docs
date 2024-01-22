@@ -40,11 +40,7 @@ $resourcegroupname="your resource group name"
 $b2cName="your b2c tenant name"
 
 ### login to azure
-Connect-AzAccount 
-#Connect-AzAccount SubscriptionId $subscriptionid
-Set-AzContext -Subscription $subscriptionid
-Connect-AzAccount -Tenant $tenantid -SubscriptionId $subscriptionid
-#Get-AzContext 
+Connect-AzAccount -Tenant $tenantid -SubscriptionId $subscriptionid 
 
 ### create resource group
 New-AzResourceGroup -Name $resourcegroupname -Location $region
