@@ -87,7 +87,7 @@ This section shows you how to make an analysis call to the service.
 
 Call the **analyze** method on the **ImageAnalysisClient** object, as shown here. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can use a **ImageAnalysisAsyncClient** object instead, and call its **analyze** method which is non-blocking. 
 
-Use the input objects created in the above sections. To analyze from an image buffer instead of URL, replace `imageURL` in the method call with `imageBuffer`.
+Use the input objects created in the above sections. To analyze from an image buffer instead of URL, replace `imageURL` in the method call with `imageData`.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_call)]
 
