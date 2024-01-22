@@ -45,7 +45,7 @@ You can explicitly set the API version used to read/write data via [`apiVersion`
 ## Prerequisites
 
 - API permission must be enabled in Salesforce.
-- You need configure the Connected Apps in Salesforce portal refering to this [article](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)
+- You need configure the Connected Apps in Salesforce portal referring to this [article](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)
 
     >[!IMPORTANT]
     > - The execution user must have the API Only permission.
@@ -250,7 +250,7 @@ To copy data to Salesforce Service Cloud, set the sink type in the copy activity
 | type | The type property of the copy activity sink must be set to **SalesforceServiceCloudV2Sink**. | Yes |
 | writeBehavior | The write behavior for the operation.<br/>Allowed values are **Insert** and **Upsert**. | No (default is Insert) |
 | externalIdFieldName | The name of the external ID field for the upsert operation. The specified field must be defined as "External ID Field" in the Salesforce Service Cloud object. It can't have NULL values in the corresponding input data. | Yes for "Upsert" |
-| writeBatchSize | The row count of data written to Salesforce Service Cloud in each batch. Suggest set this value from 10,000 to 200,000. Too little rows in each batch will reduce the copy performance. Too much rows in each batch may cause API timeout. | No (default is 100,000) |
+| writeBatchSize | The row count of data written to Salesforce Service Cloud in each batch. Suggest set this value from 10,000 to 200,000. Too few rows in each batch will reduce the copy performance. Too many rows in each batch may cause API timeout. | No (default is 100,000) |
 | ignoreNullValues | Indicates whether to ignore NULL values from input data during a write operation.<br/>Allowed values are **true** and **false**.<br>- **True**: Leave the data in the destination object unchanged when you do an upsert or update operation. Insert a defined default value when you do an insert operation.<br/>- **False**: Update the data in the destination object to NULL when you do an upsert or update operation. Insert a NULL value when you do an insert operation. | No (default is false) |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
