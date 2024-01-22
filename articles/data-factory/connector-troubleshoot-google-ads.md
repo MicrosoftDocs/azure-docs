@@ -20,14 +20,18 @@ This article provides suggestions to troubleshoot common problems with the Googl
 ## Error code: DeprecatedGoogleAdsLegacyDriverVersion 
 
 - **Message**: `The Google Ads connector’s legacy driver has been deprecated. To ensure your pipeline works, please upgrade the driver version of Google Ads linked service. Detailed instructions can be found in this documentation: https://learn.microsoft.com/azure/data-factory/connector-google-adwords?tabs=data-factory#upgrade-the-google-ads-driver-version`
+
 - **Cause**: Your pipeline is still running on a legacy Google Ads connector's driver that causes the error.
+
 - **Resolution**: Upgrade your Google Ads linked service's driver version to the Recommended version. Refer to this [article](connector-google-adwords.md#upgrade-the-google-ads-driver-version).
     
 
 ## Error code: DeprecatedGoogleAdWordsOdbcConnector 
 
 - **Message**: `The Google AdWords connector has been deprecated. To ensure your pipeline works, please create a new Google Ads linked service. Detailed instructions can be found in this documentation: https://learn.microsoft.com/azure/data-factory/connector-google-adwords#migrate-google-adwords-connector-to-google-ads-connector`
+
 - **Cause**: Your pipeline is still running on a deprecated Google AdWords connector that causes the error. 
+
 - **Resolution**: Create a new Google Ads linked service. Refer to this [article](connector-google-adwords.md#migrate-google-adwords-connector-to-google-ads-connector). 
 
 ## Related content
