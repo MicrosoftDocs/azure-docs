@@ -54,7 +54,7 @@ This article describes how to manually increase or decrease the number of nodes 
     az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1 --nodepool-name <your node pool name>
     ```
 
-    The following example output shows the cluster has successfully scaled to one node, as shown in the *agentPoolProfiles* section:
+    The following example output shows the cluster successfully scaled to one node, as shown in the *agentPoolProfiles* section:
 
     ```json
     {
@@ -110,7 +110,7 @@ This article describes how to manually increase or decrease the number of nodes 
     Set-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1 -NodeName <your node pool name>
     ```
 
-    The following example output shows the cluster has successfully scaled to one node, as shown in the *AgentPoolProfiles* property:
+    The following example output shows the cluster successfully scaled to one node, as shown in the *AgentPoolProfiles* property:
 
     ```output
     Name                   : nodepool1
@@ -138,23 +138,23 @@ Unlike `System` node pools that always require running nodes, `User` node pools 
 
 ### [Azure CLI](#tab/azure-cli)
 
-* To scale a user pool to 0, you can use the [az aks nodepool scale][az-aks-nodepool-scale] in alternative to the above `az aks scale` command, and set 0 as your node count.
+* To scale a user pool to 0, you can use the [az aks nodepool scale][az-aks-nodepool-scale] in alternative to the above `az aks scale` command, and set `0` as your node count.
 
     ```azurecli-interactive
     az aks nodepool scale --name <your node pool name> --cluster-name myAKSCluster --resource-group myResourceGroup  --node-count 0 
     ```
 
-* You can also autoscale `User` node pools to 0 nodes, by setting the `--min-count` parameter of the [Cluster Autoscaler](cluster-autoscaler.md) to 0.
+* You can also autoscale `User` node pools to zero nodes, by setting the `--min-count` parameter of the [Cluster Autoscaler](cluster-autoscaler.md) to `0`.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* To scale a user pool to 0, you can use the [Update-AzAksNodePool][update-azaksnodepool] in alternative to the above `Set-AzAksCluster` command, and set 0 as your node count.
+* To scale a user pool to 0, you can use the [Update-AzAksNodePool][update-azaksnodepool] in alternative to the above `Set-AzAksCluster` command, and set `0` as your node count.
 
     ```azurepowershell-interactive
     Update-AzAksNodePool -Name <your node pool name> -ClusterName myAKSCluster -ResourceGroupName myResourceGroup -NodeCount 0
     ```
 
-* You can also autoscale `User` node pools to 0 nodes, by setting the `-NodeMinCount` parameter of the [Cluster Autoscaler](cluster-autoscaler.md) to 0.
+* You can also autoscale `User` node pools to zero nodes, by setting the `-NodeMinCount` parameter of the [Cluster Autoscaler](cluster-autoscaler.md) to `0`.
 
 ---
 
