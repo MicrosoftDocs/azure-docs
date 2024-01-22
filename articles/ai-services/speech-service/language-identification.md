@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 9/19/2023
+ms.date: 1/21/2024
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
@@ -27,8 +27,7 @@ For speech recognition, the initial latency is higher with language identificati
 
 > [!IMPORTANT]
 > Language Identification APIs are simplified with the Speech SDK version 1.25 and later. The 
-`SpeechServiceConnection_SingleLanguageIdPriority` and `SpeechServiceConnection_ContinuousLanguageIdPriority` properties have
-been removed and replaced by a single property `SpeechServiceConnection_LanguageIdMode`. Prioritizing between low latency and high accuracy is no longer necessary following recent model improvements. Now, you only need to select whether to run at-start or continuous Language Identification when doing continuous speech recognition or translation.
+`SpeechServiceConnection_SingleLanguageIdPriority` and `SpeechServiceConnection_ContinuousLanguageIdPriority` properties have been removed and replaced by a single property `SpeechServiceConnection_LanguageIdMode`. Prioritizing between low latency and high accuracy is no longer necessary following recent model improvements. Now, you only need to select whether to run at-start or continuous Language Identification when doing continuous speech recognition or translation.
 
 Whether you use language identification with [speech to text](#speech-to-text) or with [speech translation](#speech-translation), there are some common concepts and configuration options.
 
@@ -101,20 +100,20 @@ For more information, see [supported languages](language-support.md?tabs=languag
 Speech supports both at-start and continuous language identification (LID).
 
 > [!NOTE]
-> Continuous language identification is only supported with Speech SDKs in C#, C++, Java ([for speech to text only](#speech-to-text)), JavaScript ([for speech to text only](#speech-to-text)),and Python.
-- At-start LID identifies the language once within the first few seconds of audio. Use at-start LID if the language in the audio won't change. With at-start LID, a single language is detected and returned in less than 5 seconds.
+> Continuous language identification is only supported with Speech SDKs in C#, C++, Java ([for speech to text only](#speech-to-text)), JavaScript ([for speech to text only](#speech-to-text)), and Python.
+- At-start LID identifies the language once within the first few seconds of audio. Use at-start LID if the language in the audio don't change. With at-start LID, a single language is detected and returned in less than 5 seconds.
 - Continuous LID can identify multiple languages for the duration of the audio. Use continuous LID if the language in the audio could change. Continuous LID doesn't support changing languages within the same sentence. For example, if you're primarily speaking Spanish and insert some English words, it will not detect the language change per word. 
 
 You implement at-start LID or continuous LID by calling methods for [recognize once or continuous](#recognize-once-or-continuous). Continuous LID is only supported with continuous recognition.
 
 ### Recognize once or continuous
 
-Language identification is completed with recognition objects and operations. You'll make a request to the Speech service for recognition of audio.
+Language identification is completed with recognition objects and operations. You make a request to the Speech service for recognition of audio.
 
 > [!NOTE]
 > Don't confuse recognition with identification. Recognition can be used with or without language identification.
 
-You'll either call the "recognize once" method, or the start and stop continuous recognition methods. You choose from:
+You either call the "recognize once" method, or the start and stop continuous recognition methods. You choose from:
 
 - Recognize once with At-start LID. Continuous LID isn't supported for recognize once.
 - Continuous recognition with at-start LID
@@ -1097,7 +1096,7 @@ To identify languages with [Batch transcription REST API](batch-transcription.md
 >
 > If your speech to text scenario requires both language identification and custom models, use [real-time speech to text](#speech-to-text-custom-models) instead of batch transcription.
 
-The following example shows the usage of the `languageIdentification` property with four candidate languages. For more information about request properties see [Create a batch transcription](batch-transcription-create.md#request-configuration-options).
+The following example shows the usage of the `languageIdentification` property with four candidate languages. For more information about request properties, see [Create a batch transcription](batch-transcription-create.md#request-configuration-options).
 
 ```json
 {

@@ -6,7 +6,7 @@ author: bexxx
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 09/15/2023
+ms.date: 1/21/2024
 ms.author: rbeckers
 ms.custom: devx-track-csharp
 ---
@@ -18,17 +18,17 @@ ms.custom: devx-track-csharp
 
 ## Forward compatibility
 
-All entities from v2.0 can also be found in the v3.0 API under the same identity. Where the schema of a result has changed, (for example, transcriptions), the result of a GET in the v3 version of the API uses the v3 schema. The result of a GET in the v2 version of the API uses the same v2 schema. Newly created entities on v3 aren't available in responses from v2 APIs.
+All entities from v2.0 can also be found in the v3.0 API under the same identity. Where the schema of a result has changed (such as transcriptions), the result of a GET in the v3 version of the API uses the v3 schema. The result of a GET in the v2 version of the API uses the same v2 schema. Newly created entities on v3 aren't available in responses from v2 APIs.
 
 ## Migration steps
 
-This is a summary list of items you need to be aware of when you are preparing for migration. Details are found in the individual links. Depending on your current use of the API not all steps listed here may apply. Only a few changes require non-trivial changes in the calling code. Most changes just require a change to item names. 
+This is a summary list of items you need to be aware of when you're preparing for migration. Details are found in the individual links. Depending on your current use of the API not all steps listed here might apply. Only a few changes require nontrivial changes in the calling code. Most changes just require a change to item names. 
 
 General changes: 
 
 1. [Change the host name](#host-name-changes)
 
-1. [Rename the property id to self in your client code](#identity-of-an-entity) 
+1. [Rename the property ID to self in your client code](#identity-of-an-entity) 
 
 1. [Change code to iterate over collections of entities](#working-with-collections-of-entities)
 
@@ -50,7 +50,7 @@ General changes:
 
     * [Change how base and custom models are retrieved](#retrieving-base-and-custom-models)
 
-    * [Rename the path segment accuracytests to evaluations in your client code](#accuracy-tests)
+    * [Rename the path segment accuracy tests to evaluations in your client code](#accuracy-tests)
 
 1. If you use endpoints APIs:
 
@@ -66,7 +66,7 @@ General changes:
 
 ### Host name changes
 
-Endpoint host names have changed from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com`. Paths to the new endpoints no longer contain `api/` because it's part of the hostname. The [Speech to text REST API v3.0](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) reference documentation lists valid regions and paths.
+Endpoint host names changed from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com`. Paths to the new endpoints no longer contain `api/` because it's part of the hostname. The [Speech to text REST API v3.0](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) reference documentation lists valid regions and paths.
 >[!IMPORTANT]
 >Change the hostname from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com` where region is the region of your speech subscription. Also remove `api/`from any path in your client code.
 
@@ -74,7 +74,7 @@ Endpoint host names have changed from `{region}.cris.ai` to `{region}.api.cognit
 
 The property `id` is now `self`. In v2, an API user had to know how our paths on the API are being created. This was non-extensible and required unnecessary work from the user. The property `id` (uuid) is replaced by `self` (string), which is location of the entity (URL). The value is still unique between all your entities. If `id` is stored as a string in your code, a rename is enough to support the new schema. You can now use the `self` content as the URL for the `GET`, `PATCH`, and `DELETE` REST calls for your entity.
 
-If the entity has additional functionality available through other paths, they are listed under `links`. The following example for transcription shows a separate method to `GET` the content of the transcription:
+If the entity has more functionality available through other paths, they're listed under `links`. The following example for transcription shows a separate method to `GET` the content of the transcription:
 >[!IMPORTANT]
 >Rename the property `id` to `self` in your client code. Change the type from `uuid` to `string` if needed. 
 
@@ -107,7 +107,7 @@ If the entity has additional functionality available through other paths, they a
 }
 ```
 
-Depending on your code's implementation, it may not be enough to rename the property. We recommend using the returned `self` and `links` values as the target urls of your REST calls, rather than generating paths in your client. By using the returned URLs, you can be sure that future changes in paths will not break your client code.
+Depending on your code's implementation, it might not be enough to rename the property. We recommend using the returned `self` and `links` values as the target urls of your REST calls, rather than generating paths in your client. By using the returned URLs, you can be sure that future changes in paths won't break your client code.
 
 ### Working with collections of entities
 
@@ -125,9 +125,9 @@ The basic shape of the response is the same for all collections:
 }
 ```
 
-The `values` property contains a subset of the available collection entities. The count and offset can be controlled using the `skip` and `top` query parameters. When `@nextLink` is not `null`, there's more data available and the next batch of data can be retrieved by doing a GET on `$.@nextLink`.
+The `values` property contains a subset of the available collection entities. The count and offset can be controlled using the `skip` and `top` query parameters. When `@nextLink` isn't `null`, there's more data available and the next batch of data can be retrieved by doing a GET on `$.@nextLink`.
 
-This change requires calling the `GET` for the collection in a loop until all elements have been returned.
+This change requires calling the `GET` for the collection in a loop until all elements are returned.
 
 >[!IMPORTANT]
 >When the response of a GET to `speechtotext/v3.1/{collection}` contains a value in `$.@nextLink`, continue issuing `GETs` on `$.@nextLink` until `$.@nextLink` is not set to retrieve all elements of that collection.
@@ -137,9 +137,9 @@ This change requires calling the `GET` for the collection in a loop until all el
 A detailed description on how to create batches of transcriptions can be found in [Batch transcription How-to](./batch-transcription.md).
 
 The v3 transcription API lets you set specific transcription options explicitly. All (optional) configuration properties can now be set in the `properties` property.
-Version v3 also supports multiple input files, so it requires a list of URLs rather than a single URL as v2 did. The v2 property name `recordingsUrl` is now `contentUrls` in v3. The functionality of analyzing sentiment in transcriptions has been removed in v3. See [Text Analysis](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for sentiment analysis options.
+Version v3 also supports multiple input files, so it requires a list of URLs rather than a single URL as v2 did. The v2 property name `recordingsUrl` is now `contentUrls` in v3. The functionality of analyzing sentiment in transcriptions is removed in v3. See [Text Analysis](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for sentiment analysis options.
 
-The new property `timeToLive` under `properties` can help prune the existing completed entities. The `timeToLive` specifies a duration after which a completed entity will be deleted automatically. Set it to a high value (for example `PT12H`) when the entities are continuously tracked, consumed, and deleted and therefore usually processed long before 12 hours have passed.
+The new property `timeToLive` under `properties` can help prune the existing completed entities. The `timeToLive` specifies a duration after which a completed entity are deleted automatically. Set it to a high value (for example `PT12H`) when the entities are continuously tracked, consumed, and deleted and therefore usually processed long before 12 hours have passed.
 
 **v2 transcription POST request body:**
 
@@ -182,7 +182,7 @@ The new property `timeToLive` under `properties` can help prune the existing com
 
 The schema of transcription results has changed slightly to align with transcriptions created by real-time endpoints. Find an in-depth description of the new format in the [Batch transcription How-to](./batch-transcription.md). The schema of the result is published in our [GitHub sample repository](https://aka.ms/csspeech/samples) under `samples/batch/transcriptionresult_v3.schema.json`.
 
-Property names are now camel-cased and the values for `channel` and `speaker` now use integer types. Format for durations now use the structure described in ISO 8601, which matches duration formatting used in other Azure APIs.
+Property names are now camel-cased and the values for `channel` and `speaker` now use integer types. Formats for durations now use the structure described in ISO 8601, which matches duration formatting used in other Azure APIs.
 
 Sample of a v3 transcription result. The differences are described in the comments.
 
@@ -245,14 +245,14 @@ Sample of a v3 transcription result. The differences are described in the commen
 }
 ```
 >[!IMPORTANT]
->Deserialize the transcription result into the new type as shown above. Instead of a single file per audio channel, distinguish channels by checking the property value of `channel` for each element in `recognizedPhrases`. There is now a single result file for each input file.
+>Deserialize the transcription result into the new type as shown previously. Instead of a single file per audio channel, distinguish channels by checking the property value of `channel` for each element in `recognizedPhrases`. There is now a single result file for each input file.
 
 
 ### Getting the content of entities and the results
 
-In v2, the links to the input or result files have been inlined with the rest of the entity metadata. As an improvement in v3, there is a clear separation between entity metadata (which is returned by a GET on `$.self`) and the details and credentials to access the result files. This separation helps protect customer data and allows fine control over the duration of validity of the credentials.
+In v2, the links to the input or result files are inline with the rest of the entity metadata. As an improvement in v3, there's a clear separation between entity metadata (which is returned by a GET on `$.self`) and the details and credentials to access the result files. This separation helps protect customer data and allows fine control over the duration of validity of the credentials.
 
-In v3, `links` include a sub-property called `files` in case the entity exposes data (datasets, transcriptions, endpoints, or evaluations). A GET on `$.links.files` will return a list of files and a SAS URL
+In v3, `links` include a sub-property called `files` in case the entity exposes data (datasets, transcriptions, endpoints, or evaluations). A GET on `$.links.files` returns a list of files and a SAS URL
 to access the content of each file. To control the validity duration of the SAS URLs, the query parameter `sasValidityInSeconds` can be used to specify the lifetime.
 
 **v2 transcription:**
@@ -323,7 +323,7 @@ The `kind` property indicates the format of content of the file. For transcripti
 
 Before v3, there was a distinction between an _acoustic model_ and a _language model_ when a model was being trained. This distinction resulted in the need to specify multiple models when creating endpoints or transcriptions. To simplify this process for a caller, we removed the differences and made everything depend on the content of the datasets that are being used for model training. With this change, the model creation now supports mixed datasets (language data and acoustic data). Endpoints and transcriptions now require only one model.
 
-With this change, the need for a `kind` in the `POST` operation has been removed and the `datasets[]` array can now contain multiple datasets of the same or mixed kinds.
+With this change, the need for a `kind` in the `POST` operation is removed and the `datasets[]` array can now contain multiple datasets of the same or mixed kinds.
 
 To improve the results of a trained model, the acoustic data is automatically used internally during language training. In general, models created through the v3 API deliver more accurate results than models created with the v2 API.
 
@@ -456,8 +456,8 @@ Pagination for endpoint logs works similar to all other collections, except that
 
 In v3, each endpoint log can be deleted individually by issuing a `DELETE` operation on the `self` of a file, or by using `DELETE` on `$.links.logs`. To specify an end date, the query parameter `endDate` can be added to the request.
 
->[!IMPORTANT]
->Instead of creating log exports on `/api/speechtotext/v2.0/endpoints/{id}/data` use `/v3.0/endpoints/{id}/files/logs/` to access log files individually. 
+> [!IMPORTANT]
+> Instead of creating log exports on `/api/speechtotext/v2.0/endpoints/{id}/data` use `/v3.0/endpoints/{id}/files/logs/` to access log files individually. 
 
 ### Using custom properties
 
