@@ -5,7 +5,7 @@ ms.author: nickoman
 author: nickomang
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/18/2024
+ms.date: 01/22/2024
 ---
 
 # Use Image Cleaner to clean up stale images on your Azure Kubernetes Service (AKS) cluster
@@ -106,11 +106,11 @@ You can manually trigger the clean up by defining a CRD object,`ImageList`. This
 ## Manually remove images using Image Cleaner
 
 > [!IMPORTANT]
-> The `name` must be set to `imagelist`.`
+> The `name` must be set to `imagelist`.
 
 * Manually remove an image using the following `kubectl apply` command. This example removes the `docker.io/library/alpine:3.7.3` image if it's unused.
 
-    ```azurecli-interactive
+    ```bash
     cat <<EOF | kubectl apply -f -
     apiVersion: eraser.sh/v1
     kind: ImageList
@@ -130,13 +130,13 @@ If you need to trigger another manual clean up, you have to create a new `imagel
 
 1. Delete the old `imagelist` using the `kubectl delete` command.
 
-    ```azurecli-interactive
+    ```bash
     kubectl delete ImageList imagelist
     ```
 
 2. Create a new `imagelist` with the same image name. The following example uses the same image as the [previous example](#manually-remove-images-using-image-cleaner).
 
-    ```azurecli-interactive
+    ```bash
     cat <<EOF | kubectl apply -f -
     apiVersion: eraser.sh/v1
     kind: ImageList
@@ -152,7 +152,7 @@ If you need to trigger another manual clean up, you have to create a new `imagel
 
 * Modify the existing `imagelist` using the `kubectl edit` command.
 
-    ```azurecli-interactive
+    ```bash
     kubectl edit ImageList imagelist
 
     # Add a new image to the list
@@ -175,7 +175,7 @@ Images specified in the exclusion list aren't removed from the cluster. Image Cl
 
 * Check the system exclusion list using the following `kubectl get` command.
 
-     ```azurecli-interactive
+     ```bash
     kubectl get -n kube-system configmap eraser-system-exclusion -o yaml
     ```
 
@@ -183,7 +183,7 @@ Images specified in the exclusion list aren't removed from the cluster. Image Cl
 
 1. Create a sample JSON file to contain excluded images.
 
-    ```azurecli-interactive
+    ```bash
     cat > sample.json <<EOF
     {"excluded": ["excluded-image-name"]}
     EOF
@@ -191,7 +191,7 @@ Images specified in the exclusion list aren't removed from the cluster. Image Cl
 
 2. Create a `configmap` using the sample JSON file using the following `kubectl create` and `kubectl label` command.
 
-    ```azurecli-interactive
+    ```bash
     kubectl create configmap excluded --from-file=sample.json --namespace=kube-system
     kubectl label configmap excluded eraser.sh/exclude.list=true -n kube-system
     ```
@@ -211,7 +211,7 @@ Images specified in the exclusion list aren't removed from the cluster. Image Cl
 
 ### How can I check which version Image Cleaner is using?
 
-```azurecli-interactive
+```bash
 kubectl describe configmap -n kube-system eraser-manager-config | grep tag -C 3
 ```
 
@@ -234,7 +234,7 @@ You can't customize the default settings.
 
 Image logs are stored in the `eraser-aks-xxxxx` worker pod. When `eraser-aks-xxxxx` is alive, you can run the following commands to view deletion logs:
 
-```azurecli-interactive
+```bash
 kubectl logs -n kube-system <worker-pod-name> -c collector
 kubectl logs -n kube-system <worker-pod-name> -c trivy-scanner
 kubectl logs -n kube-system <worker-pod-name> -c remover
