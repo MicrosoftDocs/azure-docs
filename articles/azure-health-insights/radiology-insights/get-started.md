@@ -21,15 +21,14 @@ To use the Radiology Insights (Preview) model, you must have an Azure AI service
 
 If you have no Azure AI services account, see [Deploy Azure AI Health Insights using the Azure portal.](../deploy-portal.md)
 
-Once deployment is complete, you use the Azure portal to navigate to the newly created Azure AI services account to see the details, including your Service URL. The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com/. 
-
-
+Once deployment is complete, you use the Azure portal to navigate to the newly created Azure AI services account to see the details, including your Service URL. 
+The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com/ . 
 
 ## Example request and results
 
 To send an API request, you need your Azure AI services account endpoint and key. 
 
-You can find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiologyinsights/create-job)
+You can find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiologyinsights/create-job).
 
 ![Screenshot of the Keys and Endpoints for the RI.](../media/keys-and-endpoints.png) 
 
@@ -126,7 +125,7 @@ Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
 }
 ```
 
-You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiologyinsights/create-job)
+You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiologyinsights/create-job).
 
 ### Evaluating a response that contains a case
 
@@ -170,7 +169,7 @@ http://{cognitive-services-account-endpoint}/health-insights/radiology-insights/
   "status": "succeeded"
 }
 ```
-You can find a full view of the [response parameters here](/rest/api/cognitiveservices/healthinsights/radiologyinsights/get-job)
+You can find a full view of the [response parameters here](/rest/api/cognitiveservices/healthinsights/radiologyinsights/get-job).
 
 
 ## Data limits

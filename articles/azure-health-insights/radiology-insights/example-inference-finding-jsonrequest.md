@@ -1,3 +1,4 @@
+```json
 {
   "configuration" : {
     "inferenceOptions" : {
@@ -10,7 +11,7 @@
         "provideFocusedSentenceEvidence" : false
       }
     },
-    "inferenceTypes" : [  "criticalResult" ],
+    "inferenceTypes" : [ "finding" ],
     "locale" : "en-US",
     "verbose" : false,
     "includeEvidence" : false
@@ -19,7 +20,7 @@
     "id" : "11111",
     "info" : {
       "sex" : "female",
-      "birthDate" : "1986-07-01T21:00:00+00:00",
+      "birthDate" : "2011-08-31T18:00:00+00:00",
       "clinicalInfo" : [ {
         "resourceType" : "Observation",
         "status" : "unknown",
@@ -36,8 +37,8 @@
     "encounters" : [ {
       "id" : "encounterid1",
       "period" : {
-        "start" : "2017-9-4T00:00:00",
-        "end" : "2017-9-4T00:00:00"
+        "start" : "2021-8-28T00:00:00",
+        "end" : "2021-8-28T00:00:00"
       },
       "class" : "inpatient"
     } ],
@@ -51,24 +52,25 @@
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
-	   "createdDateTime" : "2017-9-4T00:00:00",
+      "createdDateTime" : "2021-8-28T00:00:00",
       "administrativeMetadata" : {
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
               "system" : "Https://loinc.org",
-              "code" : "26086-9",
-              "display" : "XR KNEE - LEFT 2 VIEWS"
+              "code" : "24627-2",
+              "display" : "CT CHEST"
             } ]
           },
-          "description" : "XR KNEE - LEFT 2 VIEWS"
+          "description" : "CT CHEST"
         } ],
         "encounterId" : "encounterid1"
       },
       "content" : {
         "sourceType" : "inline",
-        "value" : "Indication: Pain.\n\nComparison: None available.\n\nTechnique: knee routine right\n\nFindings: \nMinimally displaced fibular head fracture, best seen on lateral view. No additional acute fracture is detected. The visualized joint spaces appear maintained. No evidence of joint effusion.\n\nImpression:\nMinimally displaced fracture of the fibular head, best seen on lateral view. Suggest MRI of the left knee for further evaluation.\n\n"
+        "value" : "\n\n\nFINDINGS:\nIn the right upper lobe, there is a new mass measuring 5.6 x 4.5 x 3.4 cm.\nA lobulated soft tissue mass is identified in the superior right lower lobe abutting the major fissure measuring 5.4 x 4.3 x 3.7 cm (series 3 image 94, coronal image 110).\nA 4 mm nodule in the right lower lobe (series 3, image 72) is increased dating back to 6/29/2012. This may represent lower lobe metastasis.\n\nIMPRESSION: 4 cm pulmonary nodule posterior aspect of the right upper lobe necessitating additional imaging as described.\n\t\t"
       }
     } ]
   } ]
 }
+```

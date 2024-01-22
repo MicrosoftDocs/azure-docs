@@ -1,3 +1,4 @@
+```json
 {
   "configuration" : {
     "inferenceOptions" : {
@@ -10,7 +11,7 @@
         "provideFocusedSentenceEvidence" : false
       }
     },
-    "inferenceTypes" : [  "followupCommunication" ],
+    "inferenceTypes" : [ "completeOrderDiscrepancy"],
     "locale" : "en-US",
     "verbose" : false,
     "includeEvidence" : false
@@ -51,24 +52,25 @@
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
-      "createdDateTime" : "2021-8-28T00:00:00",	  
+	  "createdDateTime" : "2021-8-28T00:00:00",
       "administrativeMetadata" : {
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
-              "system" : "Https://loinc.org",
-              "code" : "36572-6",
-              "display" : "XR CHEST AP"
+              "system" : "Http://hl7.org/fhir/ValueSet/cpt-all",
+              "code" : "76856",
+              "display" : "ULTRASOUND, PELVIC (NONOBSTETRIC), REAL TIME WITH IMAGE DOCUMENTATION; COMPLETE"
             } ]
           },
-          "description" : "XR CHEST AP"
+          "description" : "ULTRASOUND, PELVIC (NONOBSTETRIC), REAL TIME WITH IMAGE DOCUMENTATION; COMPLETE"
         } ],
         "encounterId" : "encounterid1"
       },
       "content" : {
         "sourceType" : "inline",
-        "value" : "\r\n\r\n\r\n\nThe results were faxed to Julie Carter on July 6 2016 at 3 PM.\n\nThe results were sent via Powerscribe to George Brown, PA.\n\n\t\t"
+        "value" : "\r\n\r\n\r\nCLINICAL HISTORY:   \r\n20-year-old female presenting with abdominal pain. Surgical history \r\nsignificant for appendectomy.\r\n \r\nCOMPARISON:   \r\nRight upper quadrant sonographic performed 1 day prior.\r\n \r\nTECHNIQUE:   \r\nTransabdominal grayscale pelvic sonography with duplex color Doppler \r\nand spectral waveform analysis of the ovaries.\r\n \r\nFINDINGS:   \r\nThe uterus is unremarkable given the transabdominal technique with \r\nendometrial echo complex within physiologic normal limits. The \r\novaries are symmetric in size. The right ovary measures 2.5 x 1.2 x 3.0 cm. The \r\nleft ovary measures 2.8 x 1.5 x 1.9 cm.\n \r\nOn duplex imaging, symmetrical signal.\r\n \r\nIMPRESSION:   \r\n1. Normal pelvic sonography. Findings of testicular torsion.\r\n\nA new US pelvis within the next 6 months is recommended.\n\nRecommend clinical follow up in 1-2 weeks.\n\nThese results have been discussed with Dr. Doe at 3 PM on November 1 2020.\n \r\n"
       }
     } ]
   } ]
 }
+```

@@ -1,3 +1,4 @@
+```json
 {
   "result": {
     "patientResults": [
@@ -18,3 +19,4 @@
   "lastUpdateDateTime": "2024-01-12T07:08:26.8320889Z",
   "status": "succeeded"
 }
+```

@@ -1,24 +1,26 @@
+```json
 {
   "configuration" : {
     "inferenceOptions" : {
       "followupRecommendationOptions" : {
         "includeRecommendationsWithNoSpecifiedModality" : false,
-        "includeRecommendationsInReferences" : true,
-        "provideFocusedSentenceEvidence" : true
+        "includeRecommendationsInReferences" : false,
+        "provideFocusedSentenceEvidence" : false
       },
       "findingOptions" : {
         "provideFocusedSentenceEvidence" : false
       }
     },
-    "inferenceTypes" : [ "followupRecommendation" ],
+    "inferenceTypes" : [  "radiologyProcedure" ],
     "locale" : "en-US",
     "verbose" : false,
-    "includeEvidence" : true
+    "includeEvidence" : false
   },
   "patients" : [ {
     "id" : "11111",
     "info" : {
-      "sex" : "male",
+      "sex" : "female",
+      "birthDate" : "1959-11-11T19:00:00+00:00",
       "clinicalInfo" : [ {
         "resourceType" : "Observation",
         "status" : "unknown",
@@ -35,8 +37,8 @@
     "encounters" : [ {
       "id" : "encounterid1",
       "period" : {
-        "start" : "2014-2-20T00:00:00",
-        "end" : "2014-2-20T00:00:00"
+        "start" : "2021-8-28T00:00:00",
+        "end" : "2021-8-28T00:00:00"
       },
       "class" : "inpatient"
     } ],
@@ -50,24 +52,34 @@
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
-	  "createdDateTime" : "2014-2-20T00:00:00",
+	  "createdDateTime" : "2021-8-28T00:00:00",
       "administrativeMetadata" : {
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
               "system" : "Https://loinc.org",
-              "code" : "LP207608-3",
-              "display" : "ULTRASOUND"
+              "code" : "24727-0",
+              "display" : "CT HEAD W CONTRAST IV"
             } ]
           },
-          "description" : "ULTRASOUND"
+          "description" : "CT HEAD W CONTRAST IV"
+        }, {
+          "code" : {
+            "coding" : [ {
+              "system" : "Http://hl7.org/fhir/ValueSet/cpt-all",
+              "code" : "70460",
+              "display" : "Ct head/brain w/dye"
+            } ]
+          },
+          "description" : "Ct head/brain w/dye"
         } ],
         "encounterId" : "encounterid1"
       },
       "content" : {
         "sourceType" : "inline",
-        "value" : " \n\nIMPRESSION:   \n \n1. Given its size, surgical \nconsultation is recommended.\n2. Recommend ultrasound.\n3. Recommend screening.\n\nRECOMMENDATION:\n\nTHIS IS A (AAA) CASE. An aneurysm follow up program has been developed to facilitate the monitoring of your patient and the next ultrasound will be arranged based on approved guidelines. \nKP NW Practice Guidelines for Surveillance of a AAA: Recommended Imaging Intervals \n<3cm No need for followup \n3-3.9cm Every 3 years \n4-4.4cm Every 2 years \n4.5-4.9cm Female every 6 months, Male every year \n5.0-5.5cm Male every 6 months \nReferral to Vascular Surgery: \nFemale >5cm \nMale <60 years of age; >5cm \nMale >61 years of age; >5.5cm.\nIf infrarenal aorta not well seen on US, repeat in 1 month with 24 hour liquid diet. If still not well seen, CT non-contrast abd/pelvis.\n"
+        "value" : "\nExam:  Head CT with Contrast\r\n\r\nHistory:  Headaches for 2 months\r\n\r\nTechnique: Axial, sagittal, and coronal images were reconstructed from helical CT through the head without IV contrast.\r\n\r\nIV contrast:  100 mL IV Omnipaque 300.\r\n\r\nFindings: There is no mass effect. There is no abnormal enhancement of the brain or within injuries with IV contrast.\nHowever, there is no evidence of enhancing lesion in either internal auditory canal.\n\r\nImpression: Negative CT of the brain without IV contrast.\r I recommend a new brain CT within nine months.\n"
       }
     } ]
   } ]
 }
+```

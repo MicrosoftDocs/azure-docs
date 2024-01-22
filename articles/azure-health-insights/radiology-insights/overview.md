@@ -34,10 +34,11 @@ This enables the radiologist to rectify any potential inconsistencies during rep
 This model does not provide any clinical judgment of the radiologist's interpretation of the image. The radiologist is responsible for the diagnosis and treatment of patient and the correct documentation thereof.
 
 **Providing Clinical Findings**: The model extracts as structured data two types of clinical findings: critical findings and actionable findings.  Only clinical findings that are documented in the report are extracted. Clinical findings produced by the model aren't deduced from pieces of information in the report nor from the image. These findings merely serve as a potential reminder for the radiologist to communicate with the provider.
+
 The model produces two categories of clinical findings, Actionable Finding and Critical Result, and are based on the clinical finding, explicitly stated in the report, and criteria formulated by ACR (American College of Radiology). The model  extracts all findings explicitly documented by the radiologist.  The extracted findings may be used to alert a radiologist of possible clinical findings that need to be clearly communicated and acted on in a timely fashion by a healthcare professional. Customers may also utilize the extracted findings to populate downstream or related systems (such as EHRs or autoschedule functions).
 
 **Communicating Follow-up Recommendations**: A radiologist uncovers findings for which in some cases a follow-up is recommended. The documented recommendation is extracted and normalized by the model. It can be used for communication to a healthcare professional (physician).
-Follow-up recommendations aren't generated, deduced or proposed. The model merely extract follow-up recommendation statements documented explicitly by the radiologist. Follow-up recommendations are normalized by coding to SNOMED.
+Follow-up recommendations aren't generated, deduced or proposed. The model merely extracts follow-up recommendation statements documented explicitly by the radiologist. Follow-up recommendations are normalized by coding to SNOMED.
 
 **Reporting Measurements**: A radiologist documents clinical findings with measurements. The model extracts clinically relevant information pertaining to the finding. The model extracts measurements the radiologist explicitly stated in the report. 
 
