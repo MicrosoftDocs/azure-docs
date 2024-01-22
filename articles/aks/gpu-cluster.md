@@ -66,11 +66,14 @@ AKS has automatic GPU driver installation enabled by default. In some cases, suc
 
 ### NVIDIA device plugin installation
 
-NVIDIA device plugin installation is required when using GPUs on AKS. In some cases, the this will be handled automatically, such as when using the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/microsoft-aks.html) or the [AKS GPU image (preview)](#use-the-aks-gpu-image-preview). Alternatively, you can manually install the NVIDIA device plugin.
+NVIDIA device plugin installation is required when using GPUs on AKS. In some cases, the this will be handled automatically, such as when using the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/microsoft-aks.html) for Linux or the [AKS GPU image (preview)](#use-the-aks-gpu-image-preview). Alternatively, you can manually install the NVIDIA device plugin.
 
 #### Manually install the NVIDIA device plugin
 
-You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on each node to provide the required drivers for the GPUs. This is the recommended approach when using GPU-enabled node pools for Windows or Azure Linux.
+> [!IMPORTANT]
+> NVIDIA device plugin installation is **not** required for Windows GPU node pools.
+
+You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on each node to provide the required drivers for the GPUs. This is the recommended approach when using GPU-enabled node pools for Azure Linux.
 
 ##### [Ubuntu Linux node pool (default SKU)](#tab/add-ubuntu-gpu-node-pool)
 
@@ -267,15 +270,16 @@ To use Azure Linux, you specify the OS SKU by setting `os-sku` to `AzureLinux` d
 
 ##### [Windows Server GPU node pool (preview)](#tab/add-windows-server-gpu-node-pool)
 
-You can run GPU workloads on Windows node pools after manual NVIDIA device plugin installation. The following limitations apply to Windows Server GPU node pools:
+NVIDIA device plugin installation is **not** required for Windows GPU node pools because it's installed automatically when you enable the Windows GPU preview extension.
+
+The following limitations apply to Windows Server GPU node pools:
 
 * Supported on k8s 1.29 and above.
-* Not supported on Windows Server 2019.
 * Minimum CLI version of 1.0.0b2.
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
-###### Install the NVIDIA device plugin on Windows Server GPU node pools
+###### Install the Windows GPU preview extension
 
 1. Install the `aks-preview` Azure CLI extension using the [`az extension add`][az-extension-add] command.
 
@@ -341,71 +345,7 @@ To use Windows GPU, you specify the OS SKU by setting `os-type` to `Windows` and
     > [!NOTE]
     > Taints and VM sizes can only be set for node pools during node pool creation, but you can update autoscaler settings at any time.
 
-2. Create a namespace using the [`kubectl create namespace`][kubectl-create] command.
-
-    ```bash
-    kubectl create namespace gpu-resources
-    ```
-
-3. Create a file named *nvidia-device-plugin-ds.yaml* and paste the following YAML manifest provided as part of the [NVIDIA device plugin for Kubernetes project][nvidia-github]:
-
-    ```yaml
-    apiVersion: apps/v1
-    kind: DaemonSet
-    metadata:
-      name: nvidia-device-plugin-daemonset
-      namespace: gpu-resources
-    spec:
-      selector:
-        matchLabels:
-          name: nvidia-device-plugin-ds
-      updateStrategy:
-        type: RollingUpdate
-      template:
-        metadata:
-          # Mark this pod as a critical add-on; when enabled, the critical add-on scheduler
-          # reserves resources for critical add-on pods so that they can be rescheduled after
-          # a failure.  This annotation works in tandem with the toleration below.
-          annotations:
-            scheduler.alpha.kubernetes.io/critical-pod: ""
-          labels:
-            name: nvidia-device-plugin-ds
-        spec:
-          tolerations:
-          # Allow this pod to be rescheduled while the node is in "critical add-ons only" mode.
-          # This, along with the annotation above marks this pod as a critical add-on.
-          - key: CriticalAddonsOnly
-            operator: Exists
-          - key: nvidia.com/gpu
-            operator: Exists
-            effect: NoSchedule
-          - key: "sku"
-            operator: "Equal"
-            value: "gpu"
-            effect: "NoSchedule"
-          containers:
-          - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:v0.14.1
-            name: nvidia-device-plugin-ctr
-            securityContext:
-              allowPrivilegeEscalation: false
-              capabilities:
-                drop: ["ALL"]
-            volumeMounts:
-              - name: device-plugin
-                mountPath: /var/lib/kubelet/device-plugins
-          volumes:
-            - name: device-plugin
-              hostPath:
-                path: /var/lib/kubelet/device-plugins
-    ```
-
-4. Create the DaemonSet and confirm the NVIDIA device plugin is created successfully using the [`kubectl apply`][kubectl-apply] command.
-
-    ```bash
-    kubectl apply -f nvidia-device-plugin-ds.yaml
-    ```
-
-5. Now that you successfully installed the NVIDIA device plugin, you can check that your [GPUs are schedulable](#confirm-that-gpus-are-schedulable) and [run a GPU workload](#run-a-gpu-enabled-workload).
+2. Check that your [GPUs are schedulable](#confirm-that-gpus-are-schedulable) and [run a GPU workload](#run-a-gpu-enabled-workload).
 
 ---
 
