@@ -54,7 +54,7 @@ The following steps show you how to find the WLS with Admin Server offer and fil
 
 1. Under **Credentials for Virtual Machines and WebLogic**, leave the default value for **Username for admin account of VMs**.
 
-1. Next to **Authentication type**, select **Password**. This article uses user name and password pair for the authentication. If you want to use SSH, see [Create and use an SSH public-private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys). Fill in **Password**. Use the same value for the confirmation.  
+1. Next to **Authentication type**, select **Password**. This article uses user name and password pair for the authentication. If you want to use SSH, see [Create and use an SSH public-private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys). Fill in *wlsVmCluster2022* for **Password**. Use the same value for the confirmation.  
 
 1. Leave the default value for **Username for WebLogic Administrator**.
 
@@ -138,27 +138,10 @@ Follow these steps to enable port 22:
 
     After the deployment completes, you'll be able to SSH to the VM.
 
-1. Connect the VM with the value of **sshCommand**. You can specify a key file in the command.
-
-   1. Use the following command to ensure you have read-only access to the private key:
-
-      ```bash
-      chmod 400 <keyname>.pem
-      ```
-
-   1. Use `ssh` to connect to your VM, as shown in the following example:
-
-      ```bash
-      ssh -i <private key path> weblogic@wls-5b942e9f2a-admindomain.westus.cloudapp.azure.com
-      ```
-
+1. Connect the VM with the value of **sshCommand** and your password (this article uses *wlsVmCluster2022*).
 ## Clean up resources
 
-If you're not going to continue to use the WLS, delete resources with the following steps:
-
-1. Navigate back to your working resource group. At the top of the page, under the text **Resource group**, select the resource group. Then, select **Delete resource group**.
-
-1. If you created an SSH key and stored it in Azure in [Option 3: Use an SSH public key stored in Azure](#option-3-use-an-ssh-public-key-stored-in-azure), then search for the resource group *ejb0802sshkey* in the search bar at the top of the portal. Then, select your resource group and delete it.
+If you're not going to continue to use the WLS, navigate back to your working resource group. At the top of the page, under the text **Resource group**, select the resource group. Then, select **Delete resource group**.
 
 ## Next steps
 
