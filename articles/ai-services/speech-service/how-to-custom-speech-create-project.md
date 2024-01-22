@@ -1,7 +1,7 @@
 ---
-title: Create a Custom Speech project - Speech service
+title: Create a custom speech project - Speech service
 titleSuffix: Azure AI services
-description: Learn about how to create a project for Custom Speech. 
+description: Learn about how to create a project for custom speech. 
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -11,15 +11,15 @@ ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 ---
 
-# Create a Custom Speech project
+# Create a custom speech project
 
-Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt). For example, you might create a project for English in the United States.
+Custom speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt). For example, you might create a project for English in the United States.
 
 ## Create a project
 
 ::: zone pivot="speech-studio"
 
-To create a Custom Speech project, follow these steps:
+To create a custom speech project, follow these steps:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
 1. Select the subscription and Speech resource to work with. 
@@ -132,7 +132,7 @@ The top-level `self` property in the response body is the project's URI. Use thi
 
 ## Choose your model
 
-There are a few approaches to using Custom Speech models:
+There are a few approaches to using custom speech models:
 - The base model provides accurate speech recognition out of the box for a range of [scenarios](overview.md#speech-scenarios). Base models are updated periodically to improve accuracy and quality. We recommend that if you use base models, use the latest default base models. If a required customization capability is only available with an older model, then you can choose an older base model. 
 - A custom model augments the base model to include domain-specific vocabulary shared across all areas of the custom domain.
 - Multiple custom models can be used when the custom domain has multiple areas, each with a specific vocabulary.
@@ -143,7 +143,7 @@ Multiple models are recommended if the vocabulary varies across the domain areas
 
 ## Model stability and lifecycle
 
-A base model or custom model deployed to an endpoint using Custom Speech is fixed until you decide to update it. The speech recognition accuracy and quality remain consistent, even when a new base model is released. This allows you to lock in the behavior of a specific model until you decide to use a newer model.
+A base model or custom model deployed to an endpoint using custom speech is fixed until you decide to update it. The speech recognition accuracy and quality remain consistent, even when a new base model is released. This allows you to lock in the behavior of a specific model until you decide to use a newer model.
 
 Whether you train your own model or use a snapshot of a base model, you can use the model for a limited time. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
 

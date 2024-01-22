@@ -1,7 +1,7 @@
 ---
-title: How to use the online transcription editor for Custom Speech - Speech service
+title: How to use the online transcription editor for custom speech - Speech service
 titleSuffix: Azure AI services
-description: The online transcription editor allows you to create or edit audio + human-labeled transcriptions for Custom Speech.
+description: The online transcription editor allows you to create or edit audio + human-labeled transcriptions for custom speech.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -12,7 +12,7 @@ ms.author: eur
 
 # How to use the online transcription editor
 
-The online transcription editor allows you to create or edit audio + human-labeled transcriptions for Custom Speech. The main use cases of the editor are as follows: 
+The online transcription editor allows you to create or edit audio + human-labeled transcriptions for custom speech. The main use cases of the editor are as follows: 
 
 * You only have audio data, but want to build accurate audio + human-labeled datasets from scratch to use in model training.
 * You already have audio + human-labeled datasets, but there are errors or defects in the transcription. The editor allows you to quickly modify the transcriptions to get best training accuracy.
@@ -30,7 +30,7 @@ Datasets in the **Training and testing dataset** tab can't be updated. You can i
 To import a dataset to the Editor, follow these steps:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
-1. Select **Custom Speech** > Your project name > **Speech datasets** > **Editor**.
+1. Select **Custom speech** > Your project name > **Speech datasets** > **Editor**.
 1. Select **Import data**
 1. Select datasets. You can select audio data only, audio + human-labeled data, or both. For audio-only data, you can use the default models to automatically generate machine transcription after importing to the editor.
 1. Enter a name and description for the new dataset, and then select **Next**.
@@ -46,7 +46,7 @@ Once a dataset is imported to the Editor, you can start editing the dataset. You
 To edit a dataset's transcription in the Editor, follow these steps:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
-1. Select **Custom Speech** > Your project name > **Speech datasets** > **Editor**.
+1. Select **Custom speech** > Your project name > **Speech datasets** > **Editor**.
 1. Select the link to a dataset by name.
 1. From the **Audio + text files** table, select the link to an audio file by name. 
 1. After you make edits, select **Save**.
@@ -62,7 +62,7 @@ Datasets in the Editor can be exported to the **Training and testing dataset** t
 To export datasets from the Editor, follow these steps:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
-1. Select **Custom Speech** > Your project name > **Speech datasets** > **Editor**.
+1. Select **Custom speech** > Your project name > **Speech datasets** > **Editor**.
 1. Select the link to a dataset by name.
 1. Select one or more rows from the **Audio + text files** table.
 1. Select **Export** to export all of the selected files as one new dataset. 
