@@ -24,7 +24,7 @@ You also need to make sure to plan and prepare any compliance requirements for d
 
 ## Relocation
 
-To relocate Azure Storage account to a new region, you must reconfigure Sentinel to the relocated Log Analytics Workspace, Workbooks, and Data Connectors at target. 
+To relocate Microsoft Sentinel to a new region, you must reconfigure Sentinel to connect to the relocated Log Analytics Workspace, Workbooks, and Data Connectors at target. 
 
 **Azure Resource Mover** doesn't support moving services used by the Microsoft Sentinel. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
 
