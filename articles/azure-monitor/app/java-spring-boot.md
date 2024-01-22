@@ -137,7 +137,7 @@ public static void main(String[] args) {
     SpringApplication.run(PetClinicApplication.class, args);
 }
 ```
-You can also call the  `ConnectionString.configure` method from a Spring component.
+Alternatively, call the  `ConnectionString.configure` method from a Spring component.
 
 Enable connection string configured at runtime:
 
