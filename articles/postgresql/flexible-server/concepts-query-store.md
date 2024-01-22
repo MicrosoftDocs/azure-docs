@@ -277,6 +277,7 @@ This function discards all statistics gathered in-memory by Query Store (that is
 
 
 ## Limitations and known issues
+[!INCLUDE [Note Query store and Azure storage compability](includes/note-query-store-azure-storage-compability.md)]
 
 - If an Azure Database for PostgreSQL flexible server instance has the parameter `default_transaction_read_only` set to on, Query Store doesn't capture any data.
 
