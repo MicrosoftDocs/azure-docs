@@ -163,10 +163,7 @@ This class requires an existing virtual network.
 
 By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys.
 
-To limit the data that Microsoft collects on your workspace, select **High business impact workspace** in the portal, or set `hbi_workspace=true ` in Python. For more information on this setting, see [Encryption at rest](concept-data-encryption.md#encryption-at-rest).
 
-> [!IMPORTANT]
-> Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
 
 #### Use your own data encryption key
 
@@ -221,6 +218,8 @@ ml_client.workspaces.begin_create(ws)
 
 ### Identity
 
+In the portal, use the **Identity** page to configure managed identity, storage account access, and data impact.  For the Python SDK, see the links in the following sections.
+
 #### Managed identity
 
 A workspace can be given either a system assigned identity or a user assigned identity. This identity is used to access resources in your subscription.  For more information, see [Set up authentication between Azure Machine Learning and other services](how-to-identity-based-service-authentication.md).
@@ -231,7 +230,10 @@ Choose between **Credential-based access** or **Identity-based access** when con
 
 #### Data impact
 
-If your workspace contains sensitive data, select **High business impact workspace**. This will control the amount of data Microsoft collects for diagnostic purposes and enables additional encryption in Microsoft managed environments.​
+To limit the data that Microsoft collects on your workspace, select **High business impact workspace** in the portal, or set `hbi_workspace=true ` in Python. For more information on this setting, see [Encryption at rest](concept-data-encryption.md#encryption-at-rest).
+
+> [!IMPORTANT]
+> Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
 
 ### Tags
 
