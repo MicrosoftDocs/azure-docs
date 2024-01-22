@@ -204,7 +204,7 @@ Metrics are served from port 8095, but this port isn't exposed outside the pod b
 
 ## Troubleshooting
 
-For troubleshooting steps, see [Azure Key Vault provider for Secrets Store CSI Driver troubleshooting](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/troubleshooting/).
+For troubleshooting steps, see [Azure Key Vault provider for Secrets Store CSI Driver troubleshooting][troubleshoot-csi].
 
 ## Next steps
 
@@ -221,6 +221,7 @@ To learn more about the Azure Key Vault provider for Secrets Store CSI Driver, s
 [az-aks-addon-update]: /cli/azure/aks#az-aks-addon-update
 [az-aks-addon-disable]: /cli/azure/aks#az-aks-addon-disable
 [az-aks-addon-enable]: /cli/azure/aks#az-aks-addon-enable
+[troubleshoot-csi]: /troubleshoot/azure/azure-kubernetes/troubleshoot-key-vault-csi-secrets-store-csi-driver
 
 <!-- LINKS EXTERNAL -->
 [reloader]: https://github.com/stakater/Reloader
