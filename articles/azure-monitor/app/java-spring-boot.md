@@ -100,7 +100,7 @@ For example, with `-Dapplicationinsights.runtime-attach.configuration.classpath.
 See [configuration file path configuration options](./java-standalone-config.md#configuration-file-path)
 to change the location for a file outside the classpath.
 
-#### Programmatic configuration examples: Application Insights JSON file
+####  Programmatically configure the Application Insights JSON file
 
 By default, the Application Insights Runtime Attach uses an `applicationinsights.json` in the classpath (_src/main/resources_).
 
@@ -114,9 +114,7 @@ public static void main(String[] args) {
 }
 ```
 
-#### Programmatic configuration examples: connection string
-
-To programmatically configure the connection string:
+#### Programmatically configure the connection string
 
 First, add the `applicationinsights-core` dependency:
 
