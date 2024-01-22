@@ -124,4 +124,4 @@ Get-AzCommand
 [06]: media/new-storage/getting-started.png
 [07]: media/new-storage/shell-icon.png
 [08]: media/new-storage/create-new-storage.png
-[09]: persisting-shell-storage.md
+[09]: ../persisting-shell-storage.md

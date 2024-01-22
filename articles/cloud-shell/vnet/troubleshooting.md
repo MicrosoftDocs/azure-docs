@@ -134,7 +134,7 @@ You can find these resources by viewing the resource group in the Azure portal.
 <!-- link references -->
 [01]: /azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription
 [02]: https://portal.azure.com/
-[03]: quickstart-deploy-vnet.md
+[03]: deployment.md
 
 [ss01a]: media/troubleshooting/resource-provider.png
 [ss01x]: media/troubleshooting/resource-provider.png#lightbox

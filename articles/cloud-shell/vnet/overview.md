@@ -59,6 +59,6 @@ The following diagram shows the resource architecture that you must build to ena
 For more information, see the [pricing][02] guide.
 
 <!-- link references -->
-[01]: ../azure-relay/relay-what-is-it.md
+[01]: /azure/azure-relay/relay-what-is-it
 [02]: https://azure.microsoft.com/pricing/details/service-bus/
 [03]: media/overview/data-diagram.png

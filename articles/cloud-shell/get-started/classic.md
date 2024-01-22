@@ -135,7 +135,7 @@ Get-AzCommand
 - [Learn about Azure Files storage][01]
 
 <!-- link references -->
-[01]: ../storage/files/storage-files-introduction.md
+[01]: /azure/storage/files/storage-files-introduction
 [02]: /cli/azure/
 [03]: /powershell/azure/
 [04]: https://portal.azure.com/
@@ -143,4 +143,4 @@ Get-AzCommand
 [06]: media/classic/create-storage.png
 [07]: media/classic/resource-provider.png
 [08]: media/classic/shell-icon.png
-[09]: persisting-shell-storage.md
+[09]: ../persisting-shell-storage.md
