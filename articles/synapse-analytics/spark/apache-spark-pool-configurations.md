@@ -2,7 +2,6 @@
 title: Apache Spark pool concepts
 description: Introduction to Apache Spark pool sizes and configurations in Azure Synapse Analytics.
 ms.topic: conceptual
-services: synapse-analytics 
 ms.service: synapse-analytics 
 ms.subservice: spark
 ms.custom: references_regions
