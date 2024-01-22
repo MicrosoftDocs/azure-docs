@@ -79,7 +79,7 @@ After you create a vector index, you can add it to a prompt flow from the prompt
 
     :::image type="content" source="media/how-to-create-vector-index/vector-index-lookup-tool.png" alt-text="Screenshot that shows the Vector Index Lookup tool.":::
 
-1. Click into the mlindex_content value box, and select your index. The tool should detect the index created in the the "Create a vector index" section of the tutorial. After filling in all the necessary information, click save to close the generate drawer.
+1. Select the **mlindex_content** value box, and select your index. The tool should detect the index created in the the "Create a vector index" section of the tutorial. After filling in all the necessary information, select save to close the generate drawer.
 
 1. Enter the queries and query_types to be performed against the index. 
 
