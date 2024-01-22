@@ -2,14 +2,12 @@
 title: Deploy SAP Dialog Instance with SAP ASCS/SCS high availability VMs on RHEL | Microsoft Docs
 description: Configure SAP Dialog Instance on SAP ASCS/SCS high availability VMs on RHEL
 services: virtual-machines-linux,virtual-network,storage
-documentationcenter: saponazure
 author: dennispadia
 manager: rdeltcheva
 tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/21/2024
 ms.author: depadia
@@ -621,7 +619,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo pcs resource enable g-NW1_PAS
    ```
 
-   The score of -1000 is to ensure that if only one node is available then both the instances will continue to run on the other node. If you would like to keep the AAS instance down in such situation, then you can use the `score=-INFINITY` to enforce this condition.
+   The score of -1000 is to ensure that if only one node is available then both the instances continue to run on the other node. If you would like to keep the AAS instance down in such situation, then you can use the `score=-INFINITY` to enforce this condition.
 
 3. Check the status of cluster.
 

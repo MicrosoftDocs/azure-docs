@@ -2,14 +2,12 @@
 title: Deploy SAP ASCS/SCS and SAP ERS with SAP HANA high availability VMs on RHEL | Microsoft Docs
 description: Configure SAP ASCS/SCS and SAP ERS with SAP HANA high availability VMs on RHEL.
 services: virtual-machines-linux,virtual-network,storage
-documentationcenter: saponazure
 author: apmsft
 manager: juergent
 tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/16/2022
 ms.author: ampatel
