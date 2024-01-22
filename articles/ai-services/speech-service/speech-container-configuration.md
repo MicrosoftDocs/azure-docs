@@ -2,7 +2,6 @@
 title: Configure Speech containers
 titleSuffix: Azure AI services
 description: Speech service provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -82,7 +81,7 @@ The exact syntax of the host mount location varies depending on the host operati
 The custom speech containers use [volume mounts](https://docs.docker.com/storage/volumes/) to persist custom models. You can specify a volume mount by adding the `-v` (or `--volume`) option to the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
 
 > [!NOTE]
-> The volume mount settings are only applicable for [Custom Speech to text](speech-container-cstt.md) containers. 
+> The volume mount settings are only applicable for [custom speech to text](speech-container-cstt.md) containers. 
 
 Custom models are downloaded the first time that a new model is ingested as part of the custom speech container docker run command. Sequential runs of the same `ModelId` for a custom speech container will use the previously downloaded model. If the volume mount is not provided, custom models cannot be persisted.
 

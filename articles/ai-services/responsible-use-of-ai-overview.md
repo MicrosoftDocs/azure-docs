@@ -46,7 +46,6 @@ Azure AI services provides information and guidelines on how to responsibly use 
 ## Azure AI Vision - Spatial Analysis
 
 * [Transparency note and use cases](/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=/azure/ai-services/computer-vision/context/context)
-* [Characteristics and limitations](/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/ai-services/computer-vision/context/context)
 * [Responsible use in AI deployment](/legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/ai-services/computer-vision/context/context)
 * [Disclosure design guidelines](/legal/cognitive-services/computer-vision/disclosure-design?context=/azure/ai-services/computer-vision/context/context)
 * [Research insights](/legal/cognitive-services/computer-vision/research-insights?context=/azure/ai-services/computer-vision/context/context)

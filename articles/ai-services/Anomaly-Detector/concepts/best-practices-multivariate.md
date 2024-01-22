@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
 ms.topic: best-practice
-ms.date: 06/07/2022
+ms.date: 01/18/2024
 ms.custom: cogserv-non-critical-anomaly-detector
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms

@@ -2,7 +2,6 @@
 title: Generate a REST API client library - Speech service
 titleSuffix: Azure AI services
 description: The Swagger documentation can be used to auto-generate SDKs for a number of programming languages. 
-#services: cognitive-services
 author: eric-urban
 ms.author: eur
 manager: nitinme
@@ -13,7 +12,7 @@ ms.date: 10/03/2022
 
 # Generate a REST API client library for the Speech to text REST API
 
-Speech service offers a Swagger specification to interact with a handful of REST APIs used to import data, create models, test model accuracy, create custom endpoints, queue up batch transcriptions, and manage subscriptions. Most operations available through the [Custom Speech area of the Speech Studio](https://aka.ms/speechstudio/customspeech) can be completed programmatically using these APIs.
+Speech service offers a Swagger specification to interact with a handful of REST APIs used to import data, create models, test model accuracy, create custom endpoints, queue up batch transcriptions, and manage subscriptions. Most operations available through the [custom speech area of the Speech Studio](https://aka.ms/speechstudio/customspeech) can be completed programmatically using these APIs.
 
 > [!NOTE]
 > Speech service has several REST APIs for [Speech to text](rest-speech-to-text.md) and [Text to speech](rest-text-to-speech.md).  

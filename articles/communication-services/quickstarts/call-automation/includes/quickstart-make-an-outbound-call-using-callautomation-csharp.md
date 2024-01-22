@@ -21,7 +21,8 @@ ms.custom: mode-other
 - Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
 
 ## Sample code
-Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/callautomation/callautomationQuickStart/CallAutomation_OutboundCalling).
+Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallAutomation_OutboundCalling).
+
 
 Navigate to `CallAutomation_OutboundCalling` folder and open the solution in a code editor.
 
@@ -64,7 +65,7 @@ var cognitiveServiceEndpoint = "<COGNITIVE_SERVICE_ENDPOINT>";
 
 ## Make an outbound call
 
-To make the outbound call from ACS, this sample uses the `targetPhonenumber` you defined earlier in the application to create the call using the `CreateCallAsync` API. This code will make an outbound call using the target phone number.
+To make the outbound call from Azure Communication Services, this sample uses the `targetPhonenumber` you defined earlier in the application to create the call using the `CreateCallAsync` API. This code will make an outbound call using the target phone number.
 
 ```csharp
 PhoneNumberIdentifier target = new PhoneNumberIdentifier(targetPhonenumber);

@@ -3,6 +3,7 @@ title: Manage MCC EDR Ingestion Agents for Azure Operator Insights
 description: Learn how to upgrade, update, roll back and manage MCC EDR Ingestion agents for AOI
 author: rcdun
 ms.author: rdunstan
+ms.reviewer: sergeyche
 ms.service: operator-insights
 ms.topic: how-to #Required; leave this attribute/value as-is
 ms.date: 11/02/2023
@@ -10,10 +11,12 @@ ms.date: 11/02/2023
 
 # Manage MCC EDR Ingestion Agents for Azure Operator Insights
 
+The MCC EDR agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. You might need to upgrade the agent, update its configuration, roll back changes or rotate its certificates.
+
 > [!WARNING]
 > When the agent is restarted, a small number of EDRs being handled may be dropped.  It is not possible to gracefully restart without dropping any data.  For safety, update agents one at a time, only updating the next when you are sure the previous was successful.
 
-## Agent software upgrade
+## Upgrade agent software
 
 To upgrade to a new release of the agent, repeat the following steps on each VM that has the old agent.
 
@@ -33,7 +36,7 @@ To upgrade to a new release of the agent, repeat the following steps on each VM 
 1. Once the agent is running, make sure it will automatically start on a reboot: `sudo systemctl enable az-mcc-edr-uploader.service`
 1. Verify that the agent is running and that EDRs are being routed to it as described in [Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights](troubleshoot-mcc-edr-agent.md).
 
-### Agent configuration update
+## Update agent configuration
 
 > [!WARNING]
 > Changing the configuration requires restarting the agent, whereupon a small number of EDRs being handled may be dropped.  It is not possible to gracefully restart without dropping any data.  For safety, update agents one at a time, only updating the next when you are sure the previous was successful.
@@ -46,7 +49,7 @@ If you need to change the agent's configuration, perform the following steps:
 
 1. Restart the agent: `sudo systemctl restart az-mcc-edr-uploader.service`
 
-### Rollback
+## Roll back upgrades or configuration changes
 
 If an upgrade or configuration change fails:
 
@@ -58,7 +61,7 @@ If an upgrade or configuration change fails:
 
 1. If this was software upgrade, make sure it will automatically start on a reboot: `sudo systemctl enable az-mcc-edr-uploader.service`
 
-## Certificate rotation
+## Rotate certificates
 
 You must refresh your service principal credentials before they expire.
 

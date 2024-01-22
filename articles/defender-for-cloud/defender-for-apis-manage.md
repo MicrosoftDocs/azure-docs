@@ -5,14 +5,12 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 12/03/2023
 ---
 
 # Manage your Defender for APIs deployment
 
 This article describes how to manage your [Microsoft Defender for APIs](defender-for-apis-introduction.md) plan deployment in Microsoft Defender for Cloud. Management tasks include offboarding APIs from Defender for APIs.
-
-Defender for APIs is currently in preview.
 
 ## Offboard an API
 

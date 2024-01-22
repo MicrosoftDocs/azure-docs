@@ -2,12 +2,11 @@
 title: Migrate from v3.1 to v3.2 REST API - Speech service
 titleSuffix: Azure AI services
 description: This document helps developers migrate code from v3.1 to v3.2 of the Speech to text REST API.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 09/15/2023
+ms.date: 1/21/2024
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -15,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Migrate code from v3.1 to v3.2 of the REST API
 
-The Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). Changes from version 3.1 to 3.2 are described in the sections below.
+The Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [custom speech](custom-speech-overview.md). This article describes changes from version 3.1 to 3.2.
 
 > [!IMPORTANT]
 > Speech to text REST API v3.2 is available in preview. 
@@ -36,7 +35,7 @@ For more information, see [Operation IDs](#operation-ids) later in this guide.
 
 ### Backwards compatibility limitations
 
-Don't use Speech to text REST API v3.0 or v3.1 to retrieve a transcription created via Speech to text REST API v3.2. You'll see an error message such as the following: "The API version can't be used to access this transcription. Please use API version v3.2 or higher."
+Don't use Speech to text REST API v3.0 or v3.1 to retrieve a transcription created via Speech to text REST API v3.2. You might see an error message such as: "The API version can't be used to access this transcription. Use API version v3.2 or higher."
 
 ### Language identification mode
 
@@ -49,16 +48,82 @@ Azure AI Speech now supports OpenAI's Whisper model via Speech to text REST API 
 > [!NOTE]
 > Azure OpenAI Service also supports OpenAI's Whisper model for speech to text with a synchronous REST API. To learn more, check out the [quickstart](../openai/whisper-quickstart.md). Check out [What is the Whisper model?](./whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
 
-## Custom Speech
+## Custom speech
 
 > [!IMPORTANT]
 > You'll be charged for custom speech model training if the base model was created on October 1, 2023 and later. You are not charged for training if the base model was created prior to October 2023. For more information, see [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 > 
 > To programmatically determine whether a model was created before or after October 1, 2023, use the `chargedForAdaptation` property that's [new in version 3.2](#charge-for-adaptation).
 
+### Custom display text formatting
+
+To support model adaptation with [custom display text formatting](how-to-custom-speech-test-and-train.md#custom-display-text-formatting-data-for-training) data, the [Datasets_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview1/operations/Datasets_Create) operation supports the **OutputFormatting** data kind. For more information, see [upload datasets](how-to-custom-speech-upload-data.md#upload-datasets). 
+
+Added a definition for `OutputFormatType` with `Lexical` and `Display` enum values.
+
+```json
+"OutputFormatType": {
+    "title": "OutputFormatType",
+    "enum": [
+        "Lexical",
+        "Display"
+    ],
+    "type": "string",
+    "x-ms-enum": {
+        "name": "OutputFormatType",
+        "modelAsString": true,
+        "values": [
+            {
+                "value": "Lexical",
+                "description": "Model provides the transcription output without formatting."
+            },
+            {
+                "value": "Display",
+                "description": "Model supports display formatting transcriptions output or endpoints."
+            }
+        ]
+    }
+},
+```
+
+The `OutputFormattingData` enum value is added to `FileKind` (type of input data).
+
+The `supportedOutputFormat` property is added to `BaseModelFeatures`. This property is within the `BaseModel` definition.
+
+```json
+"BaseModelFeatures": {
+    "title": "BaseModelFeatures",
+    "description": "Features supported by the model.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "#/definitions/SharedModelFeatures"
+        }
+    ],
+    "properties": {
+        "supportsAdaptationsWith": {
+            "description": "Supported dataset kinds to adapt the model.",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/DatasetKind"
+            },
+            "readOnly": true
+        },
+        "supportedOutputFormat": {
+            "description": "Supported output formats.",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/OutputFormatType"
+            },
+            "readOnly": true
+        }
+    }
+},
+```
+
 ### Charge for adaptation
 
-The `chargeForAdaptation` property is added to `BaseModelProperties`. This is within the `BaseModel` definition.
+The `chargeForAdaptation` property is added to `BaseModelProperties`. This property is within the `BaseModel` definition.
 
 > [!IMPORTANT]
 > You'll be charged for custom speech model training if the base model was created on October 1, 2023 and later. You are not charged for training if the base model was created prior to October 2023. For more information, see [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -117,7 +182,7 @@ You must update the base path in your code from `/speechtotext/v3.1` to `/speech
 ## Next steps
 
 * [Speech to text REST API](rest-speech-to-text.md)
-* [Speech to text REST API v3.2 (preview) specification](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/Speech/SpeechToText/preview/v3.2-preview.1)
+* [Speech to text REST API v3.2 (preview)](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview1)
 * [Speech to text REST API v3.1 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1)
 * [Speech to text REST API v3.0 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 

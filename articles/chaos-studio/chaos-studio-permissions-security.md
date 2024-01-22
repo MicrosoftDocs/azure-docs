@@ -89,6 +89,14 @@ Chaos Studio encrypts all data by default. Chaos Studio only accepts input for s
 
 These properties shouldn't be used to store sensitive data, such as payment information or passwords. For more information on how Chaos Studio protects your data, see [Azure customer data protection](../security/fundamentals/protection-customer-data.md).
 
+## Customer Lockbox
+
+Lockbox gives you the control to approve or reject Microsoft engineer request to access your experiment data during a support request.
+
+Lockbox can be enabled for chaos experiment information, and permission to access data is granted by the customer at the subscription level if lockbox is enabled.
+
+Learn more about [Customer Lockbox for Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md)
+
 ## Next steps
 Now that you understand how to secure your chaos experiment, you're ready to:
 

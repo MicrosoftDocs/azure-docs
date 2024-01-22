@@ -3,7 +3,7 @@ title: Create and upload an Ubuntu Linux VHD in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system.
 author: srijang
 ms.service: virtual-machines
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: how-to
 ms.date: 07/28/2021
@@ -12,7 +12,7 @@ ms.reviewer: mattmcinnes
 ---
 # Prepare an Ubuntu virtual machine for Azure
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 Ubuntu now publishes official Azure VHDs for download at [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). If you need to build your own specialized Ubuntu image for Azure, rather than use the manual procedure below it's recommended to start with these known working VHDs and customize as needed. The latest image releases can always be found at the following locations:
 
@@ -99,7 +99,7 @@ sudo rm -f /etc/netplan/*.yaml
 9. Configure cloud-init to provision the system using the Azure datasource:
 
 ```bash
-cat <<EOF | sudo tee /etc/cloud/cloud.cfg.d/90_dpkg.cfg  
+cat <<EOF | sudo tee /etc/cloud/cloud.cfg.d/90_dpkg.cfg
 datasource_list: [ Azure ]
 EOF
 
@@ -193,7 +193,7 @@ sudo cp -r ubuntu/ boot
 ```bash
 cd boot
 ```
-    
+
 19. Rename the shimx64.efi file:
 ```bash
 sudo mv shimx64.efi bootx64.efi
@@ -201,7 +201,7 @@ sudo mv shimx64.efi bootx64.efi
 
 20. Rename the grub.cfg file to bootx64.cfg:
 ```bash
-sudo mv grub.cfg bootx64.cfg 
+sudo mv grub.cfg bootx64.cfg
 ```
 
 ## Next steps

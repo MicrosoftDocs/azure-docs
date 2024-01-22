@@ -29,7 +29,7 @@ The below table lists the properties supported by a delta source. You can edit t
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Format must be `delta` | yes | `delta` | format |
 | File system | The container/file system of the delta lake | yes | String | fileSystem |
-| Folder path | The direct of the delta lake | yes | String | folderPath |
+| Folder path | The directory of the delta lake | yes | String | folderPath |
 | Compression type | The compression type of the delta table | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | Compression level | Choose whether the compression completes as quickly as possible or if the resulting file should be optimally compressed. | required if `compressedType` is specified. | `Optimal` or `Fastest` | compressionLevel |
 | Time travel | Choose whether to query an older snapshot of a delta table | no | Query by timestamp: Timestamp <br> Query by version: Integer | timestampAsOf <br> versionAsOf |
@@ -66,7 +66,7 @@ The below table lists the properties supported by a delta sink. You can edit the
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Format must be `delta` | yes | `delta` | format |
 | File system | The container/file system of the delta lake | yes | String | fileSystem |
-| Folder path | The direct of the delta lake | yes | String | folderPath |
+| Folder path | The directory of the delta lake | yes | String | folderPath |
 | Compression type | The compression type of the delta table | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | Compression level | Choose whether the compression completes as quickly as possible or if the resulting file should be optimally compressed. | required if `compressedType` is specified. | `Optimal` or `Fastest` | compressionLevel |
 | Vacuum | Deletes files older than the specified duration that is no longer relevant to the current table version. When a value of 0 or less is specified, the vacuum operation isn't performed. | yes | Integer | vacuum |
@@ -151,7 +151,7 @@ In Settings tab, you find three more options to optimize delta sink transformati
 
 When you write to a delta sink, there's a known limitation where the numbers of rows written won't show-up in the monitoring output.
 
-## Next steps
+## Related content
 
 * Create a [source transformation](data-flow-source.md) in mapping data flow.
 * Create a [sink transformation](data-flow-sink.md) in mapping data flow.

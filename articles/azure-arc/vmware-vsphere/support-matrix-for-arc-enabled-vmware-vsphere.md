@@ -5,6 +5,10 @@ ms.topic: how-to
 ms.date: 11/06/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
+author: Farha-Bano
+ms.author: v-farhabano
+manager: jsuri
+
 # Customer intent: As a VI admin, I want to understand the support matrix for Arc-enabled VMware vSphere.
 ---
 

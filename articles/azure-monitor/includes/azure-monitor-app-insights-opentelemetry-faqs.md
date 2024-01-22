@@ -3,7 +3,7 @@ author: AaronMaxwell
 ms.author: aaronmax
 ms.service: azure-monitor
 ms.topic: include
-ms.date: 10/13/2023
+ms.date: 12/15/2023
 ---
 
 ## Frequently asked questions
@@ -56,13 +56,13 @@ Check out our enablement docs for [.NET, Java, JavaScript (Node.js), and Python]
 
 ### Should I use OpenTelemetry or the Application Insights SDK?
 
-We recommend using the OpenTelemetry Distro unless you require a feature that is only available with formal support in the Application Insights SDK.
+We recommend using the OpenTelemetry Distro unless you require a [feature that is only available with formal support in the Application Insights SDK](#whats-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro).
 
 Adopting OpenTelemetry now prevents having to migrate at a later date.
 
 ### When should I use the Azure Monitor OpenTelemetry exporter?
 
-For .NET Core, Java, Node.js, and Python, we recommend using the OpenTelemetry distro. It's one line of code to get started.
+For ASP..NET Core, Java, Node.js, and Python, we recommend using the OpenTelemetry distro. It's one line of code to get started.
 
 For all other .NET scenarios, we recommend using our exporter: `Azure.Monitor.OpenTelemetry.Exporter`.
 

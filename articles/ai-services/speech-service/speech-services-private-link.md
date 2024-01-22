@@ -2,7 +2,6 @@
 title: How to use private endpoints with Speech service
 titleSuffix: Azure AI services
 description: Learn how to use Speech service with private endpoints provided by Azure Private Link
-#services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: azure-ai-speech
@@ -135,7 +134,7 @@ Speech service has REST APIs for [Speech to text](rest-speech-to-text.md) and [T
 Speech to text has two REST APIs. Each API serves a different purpose, uses different endpoints, and requires a different approach when you're using it in the private-endpoint-enabled scenario.
 
 The Speech to text REST APIs are:
-- [Speech to text REST API](rest-speech-to-text.md), which is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). 
+- [Speech to text REST API](rest-speech-to-text.md), which is used for [Batch transcription](batch-transcription.md) and [custom speech](custom-speech-overview.md). 
 - [Speech to text REST API for short audio](rest-speech-to-text-short.md), which is used for real-time speech to text.
 
 Usage of the Speech to text REST API for short audio and the Text to speech REST API in the private endpoint scenario is the same. It's equivalent to the [Speech SDK case](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) described later in this article.
@@ -235,7 +234,7 @@ All possible values for the region (first element of the DNS name) are listed in
 | `s2s`          | [Speech Translation](speech-translation.md)                 |
 | `stt`          | [Speech to text](speech-to-text.md)                         |
 | `tts`          | [Text to speech](text-to-speech.md)                         |
-| `voice`        | [Custom Voice](how-to-custom-voice.md)                      |
+| `voice`        | [Custom voice](professional-voice-create-project.md)                      |
 
 So the earlier example (`westeurope.stt.speech.microsoft.com`) stands for a Speech to text endpoint in West Europe.
 

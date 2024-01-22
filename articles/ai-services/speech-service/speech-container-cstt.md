@@ -2,7 +2,6 @@
 title: Custom speech to text containers - Speech service
 titleSuffix: Azure AI services
 description: Install and run custom speech to text containers with Docker to perform speech recognition, transcription, generation, and more on-premises.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -16,13 +15,13 @@ keywords: on-premises, Docker, container
 
 # Custom speech to text containers with Docker
 
-The Custom speech to text container transcribes real-time speech or batch audio recordings with intermediate results. You can use a custom model that you created in the [Custom Speech portal](https://speech.microsoft.com/customspeech). In this article, you'll learn how to download, install, and run a Custom speech to text container.
+The custom speech to text container transcribes real-time speech or batch audio recordings with intermediate results. You can use a custom model that you created in the [custom speech portal](https://speech.microsoft.com/customspeech). In this article, you'll learn how to download, install, and run a custom speech to text container.
 
 For more information about prerequisites, validating that a container is running, running multiple containers on the same host, and running disconnected containers, see [Install and run Speech containers with Docker](speech-container-howto.md).
 
 ## Container images
 
-The Custom speech to text container image for all supported versions and locales can be found on the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/custom-speech-to-text/tags) syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-speech-to-text`. 
+The custom speech to text container image for all supported versions and locales can be found on the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/custom-speech-to-text/tags) syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-speech-to-text`. 
 
 :::image type="content" source="./media/containers/mcr-tags-custom-speech-to-text.png" alt-text="A screenshot of the search connectors and triggers dialog." lightbox="./media/containers/mcr-tags-custom-speech-to-text.png":::
 
@@ -77,13 +76,13 @@ Before you can [run](#run-the-container-with-docker-run) the container, you need
 
 # [Custom model ID](#tab/custom-model)
 
-The custom model has to have been [trained](how-to-custom-speech-train-model.md) by using the [Speech Studio](https://aka.ms/speechstudio/customspeech). For information about how to get the model ID, see [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md).
+The custom model has to have been [trained](how-to-custom-speech-train-model.md) by using the [Speech Studio](https://aka.ms/speechstudio/customspeech). For information about how to get the model ID, see [custom speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
-![Screenshot that shows the Custom Speech training page.](media/custom-speech/custom-speech-model-training.png)
+![Screenshot that shows the custom speech training page.](media/custom-speech/custom-speech-model-training.png)
 
 Obtain the **Model ID** to use as the argument to the `ModelId` parameter of the `docker run` command.
 
-![Screenshot that shows Custom Speech model details.](media/custom-speech/custom-speech-model-details.png)
+![Screenshot that shows custom speech model details.](media/custom-speech/custom-speech-model-details.png)
 
 
 # [Base model ID](#tab/base-model)
@@ -265,7 +264,7 @@ Mounts:License={CONTAINER_LICENSE_DIRECTORY}
 Mounts:Output={CONTAINER_OUTPUT_DIRECTORY}
 ```
 
-The Custom Speech to text container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+The custom speech to text container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
 
 When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
 

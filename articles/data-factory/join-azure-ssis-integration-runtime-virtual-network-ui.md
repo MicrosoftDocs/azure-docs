@@ -144,7 +144,7 @@ After you've configured an Azure Resource Manager/classic virtual network, you c
 
 1. Start your Azure-SSIS IR by selecting the **Start** button in **Actions** column for your Azure-SSIS IR. It takes about 5/20-30 minutes to start your Azure-SSIS IR that joins a virtual network with express/standard injection method, respectively. 
 
-## Next steps
+## Related content
 
 - [Configure a virtual network to inject Azure-SSIS IR](azure-ssis-integration-runtime-virtual-network-configuration.md)
 - [Express virtual network injection method](azure-ssis-integration-runtime-express-virtual-network-injection.md)

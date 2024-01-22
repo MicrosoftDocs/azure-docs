@@ -13,7 +13,7 @@ ms.custom: seodec18, references_regions, devx-track-python, devx-track-extended-
 zone_pivot_groups: programming-languages-computer-vision-40
 ---
 
-# Call the Image Analysis 4.0 Analyze API (preview)
+# Call the Image Analysis 4.0 Analyze API
 
 This article demonstrates how to call the Image Analysis 4.0 API to return information about an image's visual features. It also shows you how to parse the returned information.
 

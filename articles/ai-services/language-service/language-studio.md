@@ -6,7 +6,7 @@ author: aahill
 ms.author: aahi
 manager: nitinme
 ms.service: azure-ai-language
-ms.date: 01/03/2023
+ms.date: 12/19/2023
 ms.topic: quickstart
 ms.custom: ignite-fall-2021
 ---
@@ -66,7 +66,8 @@ When you're ready to use Language Studio features on your own text data, you wil
 
 If you're sending conversational text to supported features in Language Studio, be aware of the following input requirements: 
 * The text you send must be a conversational dialog between two or more participants.
-* Each line must start with the name of the participant, followed by a `:`, and followed by what they say.
+* Except issue/resolution summarization, each line must start with the name of the participant, followed by a `:`, and followed by what they say.
+* To use issue and resolution aspects in conversation summarization, each line must start with the role of the participant between "Customer" and "Agent" spelled in English, followed by a ':' before what they say in any supported languages. Names of participants, followed by the role, are optional. 
 * Each participant must be on a new line. If multiple participants' utterances are on the same line, it will be processed as one line of the conversation.
 
 See the following example for how you should structure conversational text you want to send.

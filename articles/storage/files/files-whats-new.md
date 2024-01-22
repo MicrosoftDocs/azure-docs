@@ -19,7 +19,7 @@ Azure Files is updated regularly to offer new features and enhancements. This ar
 
 Customers using NFS Azure file shares can now take point-in-time snapshots of file shares. This enables users to roll back their entire filesystem to a previous point in time, or restore specific files that were accidentally deleted or corrupted. Customers using this preview feature can perform share-level Snapshot management operations via REST API, PowerShell, and Azure CLI. 
 
-This preview feature is currently available in a limited number of Azure regions. [Learn more](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots-preview).
+This preview feature is now available in all Azure public cloud regions. [Learn more](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots-preview).
 
 #### Azure Files now supports all valid Unicode characters
 

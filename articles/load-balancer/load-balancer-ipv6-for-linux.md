@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/21/2023
 ms.author: mbender
-ms.custom: template-how-to, engagement-fy23, doc-a-thon, devx-track-linux
+ms.custom: template-how-to, engagement-fy23, doc-a-thon, linux-related-content
 ---
 
 # Configure DHCPv6 for Linux VMs
@@ -26,7 +26,7 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
 > [!WARNING]
 > By improperly editing network configuration files, you can lose network access to your VM. We recommended that you test your configuration changes on non-production systems. The instructions in this article have been tested on the latest versions of the Linux images in the Azure Marketplace. For more detailed instructions, consult the documentation for your own version of Linux.
 
-# [RHEL/CentOS/Oracle](#tab/redhat) 
+# [RHEL/CentOS/Oracle](#tab/redhat)
 
 For RHEL, CentOS, and Oracle Linux versions 7.4 or higher, follow these steps:
 
@@ -48,8 +48,8 @@ For RHEL, CentOS, and Oracle Linux versions 7.4 or higher, follow these steps:
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
- 
-# [openSUSE/SLES](#tab/suse)  
+
+# [openSUSE/SLES](#tab/suse)
 
 Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have been preconfigured with DHCPv6. No other changes are required when you use these images. If you have a VM that's based on an older or custom SUSE image, use one of the following procedures to configure DHCPv6.
 
@@ -65,13 +65,13 @@ Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have bee
 
     ```config
     DHCLIENT6_MODE='managed'
-    
+
 
 3. Renew the IPv6 address:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
-    ``` 
+    ```
 ## OpenSUSE Leap and SLES 12
 
 For openSUSE Leap and SLES 12, follow these steps:
@@ -92,9 +92,9 @@ For openSUSE Leap and SLES 12, follow these steps:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
-    ``` 
+    ```
 
-# [Ubuntu](#tab/ubuntu) 
+# [Ubuntu](#tab/ubuntu)
 
 For Ubuntu versions 17.10 or higher, follow these steps:
 

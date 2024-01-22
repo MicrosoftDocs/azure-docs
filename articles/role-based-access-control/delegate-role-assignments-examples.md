@@ -9,7 +9,7 @@ ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
 ms.custom: devx-track-azurepowershell
-ms.date: 11/29/2023
+ms.date: 12/01/2023
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
@@ -684,7 +684,7 @@ New-AzRoleAssignment -ObjectId $principalId -Scope $scope -RoleDefinitionId $rol
 
 ## Example: Allow most roles, but don't allow others to assign roles
 
-This condition allows a delegate to add or remove role assignments for all roles except the [Owner](built-in-roles.md#owner), [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator-preview), and [User Access Administrator](built-in-roles.md#user-access-administrator) roles.
+This condition allows a delegate to add or remove role assignments for all roles except the [Owner](built-in-roles.md#owner), [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator), and [User Access Administrator](built-in-roles.md#user-access-administrator) roles.
 
 This condition is useful when you want to allow a delegate to assign most roles, but not allow the delegate to allow others to assign roles.
 
@@ -716,7 +716,7 @@ To target both the add and remove role assignment actions, notice that you must 
 > | Attribute | [Role definition ID](conditions-authorization-actions-attributes.md#role-definition-id) |
 > | Operator | [ForAnyOfAnyValues:GuidNotEquals](conditions-format.md#foranyofanyvalues) |
 > | Comparison | Value |
-> | Roles | [Owner](built-in-roles.md#owner)<br/>[Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator-preview)<br/>[User Access Administrator](built-in-roles.md#user-access-administrator) |
+> | Roles | [Owner](built-in-roles.md#owner)<br/>[Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)<br/>[User Access Administrator](built-in-roles.md#user-access-administrator) |
 
 > [!div class="mx-tableFixed"]
 > | Condition #2 | Setting |
@@ -726,7 +726,7 @@ To target both the add and remove role assignment actions, notice that you must 
 > | Attribute | [Role definition ID](conditions-authorization-actions-attributes.md#role-definition-id) |
 > | Operator | [ForAnyOfAnyValues:GuidNotEquals](conditions-format.md#foranyofanyvalues) |
 > | Comparison | Value |
-> | Roles | [Owner](built-in-roles.md#owner)<br/>[Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator-preview)<br/>[User Access Administrator](built-in-roles.md#user-access-administrator) |
+> | Roles | [Owner](built-in-roles.md#owner)<br/>[Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)<br/>[User Access Administrator](built-in-roles.md#user-access-administrator) |
 
 ```
 (

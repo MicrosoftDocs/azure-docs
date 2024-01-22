@@ -6,8 +6,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022, build-2023
-author: saachigopal
-ms.author: sagopal
+author: ositanachi
+ms.author: osiotugo
 ms.date: 03/31/2022
 ms.reviewer: scottpolly
 ---

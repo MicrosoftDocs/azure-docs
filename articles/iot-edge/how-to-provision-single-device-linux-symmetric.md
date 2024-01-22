@@ -3,7 +3,7 @@ title: Create and provision an IoT Edge device on Linux using symmetric keys - A
 description: Create and provision a single IoT Edge device in IoT Hub for manual provisioning with symmetric keys
 author: PatAltimore
 ms.service: iot-edge
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual
 ms.date: 04/25/2023
@@ -17,7 +17,7 @@ ms.reviewer: mattmcinnes
 
 This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device, which includes installing IoT Edge.
 
-Each device that connects to an [IoT hub](../iot-hub/index.yml) has a device ID that's used to track [cloud-to-device](../iot-hub/iot-hub-devguide-c2d-guidance.md) or [device-to-cloud](../iot-hub/iot-hub-devguide-d2c-guidance.md) communications. You configure a device with its connection information, which includes: 
+Each device that connects to an [IoT hub](../iot-hub/index.yml) has a device ID that's used to track [cloud-to-device](../iot-hub/iot-hub-devguide-c2d-guidance.md) or [device-to-cloud](../iot-hub/iot-hub-devguide-d2c-guidance.md) communications. You configure a device with its connection information, which includes:
 
 * IoT hub hostname
 * Device ID
@@ -59,7 +59,7 @@ If you are using Visual Studio Code, there are helpful Azure IoT extensions that
 
 Install both the Azure IoT Edge and Azure IoT Hub extensions:
 
-* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
+* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
 
 * [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 
@@ -108,7 +108,7 @@ To deploy your IoT Edge modules, go to your IoT hub in the Azure portal, then:
 1. Since we want to deploy the IoT Edge default modules (edgeAgent and edgeHub), we don't need to add any modules to this pane, so select **Review + create** at the bottom.
 
 1. You see the JSON confirmation of your modules. Select **Create** to deploy the modules.<br>
-   
+
 For more information, see [Deploy a module](quickstart-linux.md#deploy-a-module).
 
 ## Verify successful configuration
@@ -160,7 +160,7 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 
    Check that your device and modules are deployed and running, by viewing your device page in the Azure portal.
 
-   :::image type="content" source="media/how-to-provision-single-device-linux-symmetric/modules-deployed.png" alt-text="Screenshot of IoT Edge modules deployed and running confirmation in the Azure portal." lightbox="media/how-to-provision-single-device-linux-symmetric/modules-deployed.png":::   
+   :::image type="content" source="media/how-to-provision-single-device-linux-symmetric/modules-deployed.png" alt-text="Screenshot of IoT Edge modules deployed and running confirmation in the Azure portal." lightbox="media/how-to-provision-single-device-linux-symmetric/modules-deployed.png":::
 
    Once your modules are deployed and running, list them in your device or virtual machine with the following command:
 
