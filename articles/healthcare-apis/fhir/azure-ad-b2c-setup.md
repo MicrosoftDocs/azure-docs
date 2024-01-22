@@ -86,7 +86,7 @@ You need a test B2C user to associate with a specific patient resource in the FH
 
 2. On the left pane, choose **Users**.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/b2c-home-user2-sml.png" alt-text="Screenshot showing home user." lightbox="media/azure-ad-b2c-setup/b2c-home-user2-lrg.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/b2c-home-user-2-sml.png" alt-text="Screenshot showing home user." lightbox="media/azure-ad-b2c-setup/b2c-home-user-2-lrg.png":::
 
 3. Choose **+ New user**.
 
@@ -122,7 +122,7 @@ User flows define the sequence of steps users must follow to sign in. In this ex
 
 1. Make sure **Email signin** is enabled for local accounts so that the test user can sign in and obtain an access token for the FHIR service.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/b2c-user-flow-config1-sml.png" alt-text="Screenshot showing B2C user flow configuration." lightbox="media/azure-ad-b2c-setup/b2c-user-flow-config1-lrg.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/b2c-user-flow-config-1-sml.png" alt-text="Screenshot showing B2C user flow configuration." lightbox="media/azure-ad-b2c-setup/b2c-user-flow-config-1-lrg.png":::
 
 1. On the **Create a user flow** page, scroll to section **5. Application Claims**, and then select **Show more...** to show a list of all available claims. 
 
@@ -132,7 +132,7 @@ User flows define the sequence of steps users must follow to sign in. In this ex
 
 1. Choose **Create**.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/b2c-user-flow-config2.png" alt-text="Screenshot showing B2C user flow configuration with FHIR user claim." lightbox="media/azure-ad-b2c-setup/b2c-user-flow-config2.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/b2c-user-flow-config-2.png" alt-text="Screenshot showing B2C user flow configuration with FHIR user claim." lightbox="media/azure-ad-b2c-setup/b2c-user-flow-config-2.png":::
 
 #### Create a new B2C resource application
 
@@ -183,23 +183,23 @@ The B2C resource application handles authentication requests from your healthcar
 
 1. Choose  **+ Add a permission**.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/b2c-api-permission1-sml.png" alt-text="Screenshot showing B2C API permission." lightbox="media/azure-ad-b2c-setup/b2c-api-permission1-lrg.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/b2c-api-permission-1-sml.png" alt-text="Screenshot showing B2C API permission." lightbox="media/azure-ad-b2c-setup/b2c-api-permission-1-lrg.png":::
 
 1. On the **Request API permissions** pane, select **APIs my organization uses**.
 
 1. Select the resource application from the list.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/b2c-api-permission2-sml.png" alt-text="Screenshot showing B2C API permissions with APIs used." lightbox="media/azure-ad-b2c-setup/b2c-api-permission2-lrg.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/b2c-api-permission-2-sml.png" alt-text="Screenshot showing B2C API permissions with APIs used." lightbox="media/azure-ad-b2c-setup/b2c-api-permission-2-lrg.png":::
 
 1. On the **Request API permissions** pane in the **Patient** section, select at least one permission. In this example, the permission `patient.all.read` is selected, which means a user that requests an access token with the scope `patient.all.read` has Read privileges (patient.all.**read**) for all FHIR resources (patient.**all**.read) in the Patient compartment (**patient**.all.read) For more information, see [Patient compartment](https://build.fhir.org/compartmentdefinition-patient.html).
 
 1. Choose **Add permissions**.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/b2c-api-permission3.png" alt-text="Screenshot showing B2C API permissions with permissions added." lightbox="media/azure-ad-b2c-setup/b2c-api-permission3.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/b2c-api-permission-3.png" alt-text="Screenshot showing B2C API permissions with permissions added." lightbox="media/azure-ad-b2c-setup/b2c-api-permission-3.png":::
 
 1. On the **API permissions** page in the **Configured permissions** section, choose **Grant admin consent**.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/b2c-api-permission4-sml.png" alt-text="Screenshot showing B2C API permissions for admin consent." lightbox="media/azure-ad-b2c-setup/b2c-api-permission4-lrg.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/b2c-api-permission-4-sml.png" alt-text="Screenshot showing B2C API permissions for admin consent." lightbox="media/azure-ad-b2c-setup/b2c-api-permission-4-lrg.png":::
 
 ## Deploy the FHIR service with Azure Active Directory B2C as the identity provider
 
@@ -344,7 +344,7 @@ You need to create an explicit link between the test user in the B2C tenant and 
 
 1. Navigate back to the B2C tenant home page, on the left pane select **Users**.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/b2c-home-user5-sml.png" alt-text="Screenshot showing B2C home user." lightbox="media/azure-ad-b2c-setup/b2c-home-user5-lrg.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/b2c-home-user-5-sml.png" alt-text="Screenshot showing B2C home user." lightbox="media/azure-ad-b2c-setup/b2c-home-user-5-lrg.png":::
 
 1. Select **Test Patient1**.
 
@@ -360,11 +360,11 @@ You need to create an explicit link between the test user in the B2C tenant and 
 
 1. Select the avatar for the user, and then choose **Consent to permissions**.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/graph-consent1-sml.png" alt-text="Screenshot showing Graph consent for test user." lightbox="media/azure-ad-b2c-setup/graph-consent1-lrg.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/graph-consent-1-sml.png" alt-text="Screenshot showing Graph consent for test user." lightbox="media/azure-ad-b2c-setup/graph-consent-1-lrg.png":::
 
 1. Scroll to **User**. Consent to User.ReadWrite.All. This permission allows you to update the **Test Patient1** user with the `fhirUser` claim value.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/graph-consent2.png" alt-text="Screenshot showing Graph consent for fhirUser claim." lightbox="media/azure-ad-b2c-setup/graph-consent2.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/graph-consent-2.png" alt-text="Screenshot showing Graph consent for fhirUser claim." lightbox="media/azure-ad-b2c-setup/graph-consent2.png":::
 
 1. After the consent process completes, update the user. You need the b2c-extensions-app application (client) ID and the user Object ID.
 
@@ -436,11 +436,11 @@ Verify that Azure AD B2C users can access FHIR resources.
 
 1. When the authorization configuration in Postman is set up to launch the B2C user flow, choose **Get New Access Token** to get an access token.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/postman-get-token3.png" alt-text="Screenshot showing Postman get access token." lightbox="media/azure-ad-b2c-setup/postman-get-token3.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/postman-get-token-3.png" alt-text="Screenshot showing Postman get access token." lightbox="media/azure-ad-b2c-setup/postman-get-token-3.png":::
 
 1. Use the **Test Patient** credentials to sign in.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/postman-get-token2.png" alt-text="Screenshot showing Postman get token." lightbox="media/azure-ad-b2c-setup/postman-get-token2.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/postman-get-token-2.png" alt-text="Screenshot showing Postman get token." lightbox="media/azure-ad-b2c-setup/postman-get-token2.png":::
 
 1. Choose **Use Token** to use the access token for any requests in the collection.
 
@@ -448,7 +448,7 @@ Verify that Azure AD B2C users can access FHIR resources.
 
 1. Create a new request to search for patient resources in the FHIR service. Select the ellipsis button (...) next to the name of the collection, and then choose **Add request**.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/postman-request1-sml.png" alt-text="Screenshot showing Postman request added." lightbox="media/azure-ad-b2c-setup/postman-request1-lrg.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/postman-request-1-sml.png" alt-text="Screenshot showing Postman request added." lightbox="media/azure-ad-b2c-setup/postman-request-1-lrg.png":::
 
 1. Set the method to `GET`, enter the fully qualified FHIR service URL, and then add the path `/Patient`. 
 
@@ -456,7 +456,7 @@ Verify that Azure AD B2C users can access FHIR resources.
 
 1. Verify that the response contains the single patient resource.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/postman-request2.png" alt-text="Screenshot showing Postman request response." lightbox="media/azure-ad-b2c-setup/postman-request2.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/postman-request-2.png" alt-text="Screenshot showing Postman request response." lightbox="media/azure-ad-b2c-setup/postman-request-2.png":::
 
 ## Next steps
 
