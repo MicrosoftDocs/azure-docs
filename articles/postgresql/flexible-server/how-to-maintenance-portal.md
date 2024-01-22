@@ -6,7 +6,6 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ms.author: gennadyk
 author: GennadNY
-ms.reviewer: 
 ms.date: 11/30/2021
 ---
 
