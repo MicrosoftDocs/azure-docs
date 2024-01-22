@@ -200,6 +200,16 @@ On Ubuntu Linux, use K3s to create a Kubernetes cluster.
 
 ---
 
+## Verify cluster
+
+Use the Azure IoT Operations extension for Azure CLI to verify that your cluster host is configured correctly for deployment by using the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) command:
+
+```azurecli
+az iot ops verify-host
+```
+
+This helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints. If the cluster has an Ubuntu OS, it checks if `nfs-common` is installed, and if not give you the option to install on your behalf.
+
 ## Configure cluster and deploy Azure IoT Operations
 
 Part of the deployment process is to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault. The Azure CLI command `az iot ops init` does this for you. Once your cluster is configured, then you can deploy Azure IoT Operations.
