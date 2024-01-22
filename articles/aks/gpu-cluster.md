@@ -63,8 +63,13 @@ NVIDIA device plugin installation is required when using GPUs on AKS. In some ca
 You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on each node to provide the required drivers for the GPUs. This is the recommended approach when using GPU-enabled nodepools for Windows or Azure Linux.
 
 1. Add a node pool to your cluster using the [`az aks nodepool add`][az-aks-nodepool-add] command.
+If you're using an Azure Linux or Windows nodepool, you'll need to adjust the os when adding the nodepool.
 
-    ```azurecli-interactive
+### [Ubuntu Linux nodepool (default SKU)](#tab/add-ubuntu-gpu-node-pool)
+
+To use the default OS SKU, create the node pool without specifying an OS SKU. The node pool is configured for the default operating system based on the Kubernetes version of the cluster.
+
+ ```azurecli-interactive
     az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
@@ -77,7 +82,92 @@ You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on eac
         --max-count 3
     ```
 
-    The previous example command adds a node pool named *gpunp* to *myAKSCluster* in *myResourceGroup* and uses parameters to configure the following node pool settings:
+### [Azure Linux nodepool](#tab/add-azure-linux-gpu-node-pool)
+
+To use Azure Linux, specify the OS SKU:
+
+- `os-type` set to `Linux` (by default)
+- `os-sku` set to `AzureLinux`
+
+ ```azurecli-interactive
+    az aks nodepool add \
+        --resource-group myResourceGroup \
+        --cluster-name myAKSCluster \
+        --name gpunp \
+        --node-count 1 \
+        --os-sku AzureLinux \
+        --node-vm-size Standard_NC6s_v3 \
+        --node-taints sku=gpu:NoSchedule \
+        --enable-cluster-autoscaler \
+        --min-count 1 \
+        --max-count 3
+    ```
+```
+
+### [Windows Server GPU nodepool (preview)](#tab/add-windows-server-gpu-node-pool)
+
+You can run GPU workloads on Windows nodepools after manual NVIDIA device plugin installation.
+
+Limitations:
+- Supported on k8s 1.29 and above
+- Not supported on Windows Server 2019
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+1. Install the `aks-preview` Azure CLI extension using the [`az extension add`][az-extension-add] command.
+
+    ```azurecli-interactive
+    az extension add --name aks-preview
+    ```
+
+2. Update to the latest version of the extension using the [`az extension update`][az-extension-update] command.
+
+    ```azurecli-interactive
+    az extension update --name aks-preview
+    ```
+
+3. Register the `WindowsGPUPreview` feature flag using the [`az feature register`][az-feature-register] command.
+
+    ```azurecli-interactive
+    az feature register --namespace "Microsoft.ContainerService" --name "WindowsGPUPreview"
+    ```
+
+    It takes a few minutes for the status to show *Registered*.
+
+4. Verify the registration status using the [`az feature show`][az-feature-show] command.
+
+    ```azurecli-interactive
+    az feature show --namespace "Microsoft.ContainerService" --name "WindowsGPUPreview"
+    ```
+
+5. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
+
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.ContainerService
+    ```
+
+To use Windows GPU, you'll need to start by creating a nodepool with GPU while specifying the OS TYPE and SKU:
+
+- `os-type` set to `Windows`
+- `os-sku` set to `Windows2022`
+
+ ```azurecli-interactive
+    az aks nodepool add \
+        --resource-group myResourceGroup \
+        --cluster-name myAKSCluster \
+        --name gpunp \
+        --node-count 1 \
+        --os-type Windows \
+        --os-sku Windows2022 \
+        --node-vm-size Standard_NC6s_v3 \
+        --node-taints sku=gpu:NoSchedule \
+        --enable-cluster-autoscaler \
+        --min-count 1 \
+        --max-count 3
+    ```
+``` 
+
+  The previous example command adds a node pool named *gpunp* to *myAKSCluster* in *myResourceGroup* and uses parameters to configure the following node pool settings:
 
     * `--node-vm-size`: Sets the VM size for the node in the node pool to *Standard_NC6s_v3*.
     * `--node-taints`: Specifies a *sku=gpu:NoSchedule* taint on the node pool.
