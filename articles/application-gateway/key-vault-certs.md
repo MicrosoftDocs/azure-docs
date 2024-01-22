@@ -71,6 +71,9 @@ Define access policies to use the user-assigned managed identity with your Key V
    
    If you're using **Azure role-based access control** follow the article [Assign a managed identity access to a resource](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) and assign the user-assigned managed identity the **Key Vault Secrets User** role to the Azure Key Vault.
 
+> [!Note]
+> While working with different Key vaults for your HTTPS listener, take in consideration if you use different identities for each of those Key vaults at the time you create/update a listener, the operation will check all the other certificates as well. So if the permissions are not given to all identities and to all the keyvaults or you don't use only one centrilize identity for all the Key vaults used in AppGW the operation will fail.
+
 ### Verify Firewall Permissions to Key Vault
 
 As of March 15, 2021, Key Vault recognizes Application Gateway as a trusted service by leveraging User Managed Identities for authentication to Azure Key Vault.  With the use of service endpoints and enabling the trusted services option for Key Vault's firewall, you can build a secure network boundary in Azure. You can deny access to traffic from all networks (including internet traffic) to Key Vault but still make Key Vault accessible for an Application Gateway resource under your subscription.
