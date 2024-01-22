@@ -4,9 +4,9 @@ description: This quickstart provides several ways to connect with and query Azu
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-author: shreyaaithal 
-ms.author: shaithal 
-ms.custom: mvc, mode-api, devx-track-azurecli, devx-track-linux
+author: shreyaaithal
+ms.author: shaithal
+ms.custom: mvc, mode-api, devx-track-azurecli, linux-related-content
 ms.date: 05/03/2023
 ---
 
@@ -18,7 +18,7 @@ This quickstart demonstrates how to connect to Azure Database for MySQL flexible
 
 ## Prerequisites
 
-- An Azure account with an active subscription. 
+- An Azure account with an active subscription.
 
     [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - Install [Azure CLI](/cli/azure/install-azure-cli) latest version (2.20.0 or higher)

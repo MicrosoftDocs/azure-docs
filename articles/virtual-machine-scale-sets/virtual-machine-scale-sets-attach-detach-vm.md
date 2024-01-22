@@ -78,7 +78,7 @@ New-AzVm `
 
 ### Attach an existing VM to a Virtual Machine Scale Set (Preview)
 
-Attach an existing virtual machine to a Virtual Machine Scale Set after the time of VM creation by specifying the `virtualMachineScaleSet` property. Attaching an existing VM to a scale set with a fault domain count of 1 does not require downtime. 
+Attach an existing virtual machine to a Virtual Machine Scale Set after the time of VM creation by specifying the `virtualMachineScaleSet` property. Attaching an existing VM to a scale set with a fault domain count of 1 doesn't require downtime. 
 
 #### Enroll in the Preview
 
@@ -182,6 +182,7 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm -VirtualMachin
 - The scale set must use Flexible orchestration mode.
 - The scale set must have a `platformFaultDomainCount` of **1**.
 - VMs created by the scale set must be `Stopped` prior to being detached.
+- Detach of VMs created by the scale set is currently not supported in West Central US, East Asia, UK South, and North Europe.
 
 ## Moving VMs between scale sets (Preview)
 
