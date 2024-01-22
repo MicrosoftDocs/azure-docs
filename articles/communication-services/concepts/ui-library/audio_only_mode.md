@@ -13,40 +13,42 @@ ms.date:     01/08/2024
 ms.subservice: calling
 ---
 
-# Overview of Audio Only Mode
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+# Audio Only Mode: Overview
 
-"Audio Only Mode" is a feature designed for scenarios where video functionality is either not required or not feasible. This mode ensures users have a mechanism to communicate, utilizing only audio, thereby addressing various needs such as privacy, security, and resource conservation.
+**Public Preview Notice**
+
+**Audio Only Mode** is a specialized feature designed for situations where video functionality is unnecessary or impractical. This mode offers an audio-centric communication solution, addressing various needs including privacy, security, and resource efficiency.
 
 ### For Third-party Application Developers:
-Enabling Audio Only Mode in the UI Library is done via configuration of the `CallComposite`. Once enabled, all video will be disabled, including both local and remote streams. This must be initialized before starting the call and will persist for the duration of the call.
+
+To integrate Audio Only Mode in your application, configure the CallComposite in your UI Library. This configuration disables all video functionalities, both local and remote, for the entire call duration. It's crucial to activate this mode before initiating the call.
 
 ### Feature Description
-- Configuration to enabled/disable video
-- Disables remote video
-- Disables local camera
-- Suppresses options to control video in the UI
 
-#### User Interface Adaptations
-- Camera Button removed
-- Video related icons hidden
-- Only users Avatar and Mic status will be visible
+- Toggle configuration for video enablement or disablement.
+- Disables both remote and local video streams.
+- Automatically hides video control options in the user interface.
+
+### User Interface Adaptations
+
+- Removal of the Camera button.
+- Concealment of video-related icons.
+- Remote Video or shared content becomes non-visible.
+- Display of user's Avatar and Microphone status.
 
 ### Technical Considerations
 
 #### Bandwidth and Resource Optimization
-In cases where their is device constraints, such as battery and battery limitations, Audio Only Mode can be used to reduce the demands on the system. This can be propagated to the User to create communication solutions that are less resource intensive.
+
+Audio Only Mode is ideal for device-limited scenarios, such as low battery or memory constraints. It lessens the system's load, facilitating smoother, less resource-demanding communications.
 
 #### Security and Privacy Enhancements
-In some cases, Privacy or Security may be a consideration. Audio Only Mode will help ensure that no visual data from that client is transmitted off the device.
+
+In situations where privacy or security is paramount, Audio Only Mode ensures that no visual data is transmitted from the user's device.
 
 ### Use Cases and Scenarios
 
-1. **Remote Field Operations**: Field agents often work in remote areas with limited internet connectivity. Using "Audio Only Mode" allows these agents to participate in crucial meetings without worrying about unstable video feeds, ensuring uninterrupted communication despite bandwidth constraints.
-
-1. **Privacy during Home Office**: Many of employees work from home and prefer not to share their private living spaces during calls. "Audio Only Mode" respects their privacy while maintaining high-quality communication, allowing team members to focus on the discussion without the pressure of being on camera.
-
-1. **Accessibility for Visually Impaired Employees**: For visually impaired people, "Audio Only Mode" simplifies the user interface, making it easier to navigate and participate in calls, thereby enhancing their work experience and productivity.
-
-1. **Energy Conservation Initiatives**: As part of its sustainability efforts, Contoso encourages the use of "Audio Only Mode" in internal communications to save energy. Since audio calls require significantly less battery power compared to video calls, this mode aligns with the company's goals to reduce its environmental footprint.
-
+- **Remote Field Operations**: Facilitates uninterrupted communication in areas with limited internet, removing concerns about unstable video feeds.
+- **Privacy during Home Office**: Respects personal space by eliminating video during calls, ensuring comfortable and focused discussions.
+- **Accessibility for Visually Impaired Employees**: Simplifies the user interface, enhancing ease of use and participation in calls.
+- **Energy Conservation Initiatives**: As part of sustainability efforts, this mode is recommended for internal communications to save energy, aligning with environmental goals.
