@@ -36,7 +36,7 @@ The following example covers the addition of Hive catalog and metastore database
 **There are few important sections you need to add to your cluster ARM template to configure the Hive catalog and Hive metastore database:**
 
 ### Metastore configuration
-Configure external Hive metastore database which will be used by the cluster in `config.properties` file:
+Configure external Hive metastore database in `config.properties` file:
 ```json
 {
     "fileName": "config.properties",
@@ -56,7 +56,7 @@ Configure external Hive metastore database which will be used by the cluster in 
 |hive.metastore.hdi.metastoreWarehouseDir|ABFS URI to location in storage where data is stored.|`abfs://container1@myadlsgen2account1.dfs.core.windows.net/hive/warehouse`|
 
 ### Metastore authentication
-Configure authentication to external Hive metastore database by specifiying Azure Key Vault secrets to use in ARM template.
+Configure authentication to external Hive metastore database specifying Azure Key Vault secrets.
 > [!NOTE]
 > `referenceName` should match value provided in `hive.metastore.hdi.metastoreDbConnectionPasswordSecret`
 ```json
