@@ -18,7 +18,7 @@ The following table shows the latest available version of the MMR extension for 
 
 | Release | Latest version | Setup instructions |
 |---------|----------------|----------|
-| Public | 1.0.2309.7002 | [Use multimedia redirection on Azure Virtual Desktop](multimedia-redirection.md) |
+| Public | 1.0.2311.2004 | [Use multimedia redirection on Azure Virtual Desktop](multimedia-redirection.md) |
 
 ## Updates for version 1.0.2311.2004
 
