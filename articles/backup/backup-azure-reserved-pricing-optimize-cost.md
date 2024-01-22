@@ -4,6 +4,7 @@ description: This article explains about how to optimize costs for Azure Backup 
 ms.topic: how-to
 ms.service: backup
 ms.date: 11/01/2023
+ms.custom: engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
