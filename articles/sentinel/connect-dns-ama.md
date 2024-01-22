@@ -80,7 +80,7 @@ Before you begin, verify that you have:
 - The Microsoft Sentinel solution enabled. 
 - A defined Microsoft Sentinel workspace.
 - Windows Server 2012 R2 with auditing hotfix and later.
-- A Windows DNS Server with analytical logs enabled. 
+- A Windows DNS Server. 
 - To collect events from any system that isn't an Azure virtual machine, ensure that [Azure Arc](../azure-monitor/agents/azure-monitor-agent-manage.md) is installed. Install and enable Azure Arc before you enable the Azure Monitor Agent-based connector. This requirement includes:
     - Windows servers installed on physical machines
     - Windows servers installed on on-premises virtual machines
