@@ -1,25 +1,26 @@
 ---
-title: Picture-in-Picture for the UI Library
+title: Turn on picture-in-picture by using the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services UI library for Mobile native with Picture-in-Picture.
+description: Use picture-in-picture in the Azure Communication Services UI Library.
 author: pavelprystinka
-ms.author: pavelprystinka
+ms.author: pprystinka
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 12/12/2023
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-ios-android
 
-#Customer intent: As a developer, I want to turn on Picture-in-Picture in my application
+#Customer intent: As a developer, I want to turn on picture-in-picture in my application.
 ---
 
-# Picture-in-Picture 
+# Turn on picture-in-picture in an application
 
-While being in the call, user is presented with full screen UI, which prevents user from multitasking in the App while still on the call.
+While a user is on a call, a full-screen UI can prevent the user from multitasking in an app. There are two ways to enable the user to multitask in the app:
 
-There are two ways to enable user to multitask in the App:
-- Enabling multitasking - user is able to click Back button which, takes user back to the previous screen. No Calling UI is visible to user while still on the call.
-- Enable Picture-in-Picture, in additions, will display a system Picture-in-Picture with outgoing call. Please note Picture-in-Picture is using system provided Picture-in-Picture feature and is a subject of the feature support on the device, CPU load, RAM availability, battery state etc.
+- Enable the user to select the **Back** button and return to the previous screen. No calling UI is visible while the user is still on the call.
+- Turn on picture-in-picture.
+
+This article shows you how to turn on picture-in-picture in the Azure Communication Services UI Library. The picture-in-picture feature is system provided and is subject to feature support on the device, including CPU load, RAM availability, and battery state.
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -27,17 +28,19 @@ There are two ways to enable user to multitask in the App:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../quickstarts/identity/access-tokens.md)
-- Optional: Complete the quickstart for [getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md)
+- A user access token to enable the call client. [Get a user access token](../../quickstarts/identity/access-tokens.md).
+- Optional: Completion of the [quickstart for getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md).
+
+## Turn on the feature
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Picture-in-Picture for the Android UI library](./includes/pip/android.md)]
+[!INCLUDE [Picture-in-picture for the Android UI Library](./includes/pip/android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Picture-in-Picture for the iOS UI library](./includes/pip/ios.md)]
+[!INCLUDE [Picture-in-picture for the iOS UI Library](./includes/pip/ios.md)]
 ::: zone-end
 
 ## Next steps
 
-- [Learn more about UI Library](../../concepts/ui-library/ui-library-overview.md)
+- [Learn more about the UI Library](../../concepts/ui-library/ui-library-overview.md)

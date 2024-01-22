@@ -79,6 +79,7 @@ sections:
           Here are some ways you can deploy a confidential VM:
              - [Deploy from the Azure portal](quick-create-confidential-vm-portal.md)
              - [Deploy from the Azure Command-Line Interface (Azure CLI)](quick-create-confidential-vm-arm.md)
+             - [Deploy using an ARM Template](quick-create-confidential-vm-arm.md)
 
       - question: |
           Can I perform attestation for my AMD-based confidential VMs?

@@ -3,8 +3,6 @@ title: "Minimize SQL issues for Teradata migrations"
 description: Learn how to minimize the risk of SQL issues when migrating from Teradata to Azure Synapse Analytics. 
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom:
-ms.devlang:
 ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish

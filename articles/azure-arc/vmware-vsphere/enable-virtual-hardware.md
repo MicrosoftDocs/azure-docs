@@ -2,13 +2,12 @@
 title:  Enable virtual hardware and VM CRUD capabilities in a machine with Arc agent installed
 description: Enable virtual hardware and VM CRUD capabilities in a machine with Arc agent installed
 ms.topic: how-to 
-ms.date: 12/29/2023
+ms.date: 01/03/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: Farha-Bano
 ms.author: v-farhabano
 manager: jsuri
-ms.custom: 
 ---
 
 # Enable virtual hardware and VM CRUD capabilities in a machine with Arc agent installed
@@ -45,7 +44,7 @@ When you encounter this error message, try performing the **Link to vCenter** op
 
 
 ```azurecli-interactive
-az connectedvmware vm create --subscription <subscription-id> --location <Azure region of the machine> --resource-group <resource-group-name> --custom-location /providers/microsoft.extendedlocation/customlocations/<custom-location-name> --name <machine-name> --inventory-item /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ConnectedVMwarevSphere/<vcenter-name>/contoso-vcenter/InventoryItems/<machine-name>
+az connectedvmware vm create --subscription <subscription-id> --location <Azure region of the machine> --resource-group <resource-group-name> --custom-location /providers/microsoft.extendedlocation/customlocations/<custom-location-name> --name <machine-name> --inventory-item /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ConnectedVMwarevSphere/VCenters/<vcenter-name>/InventoryItems/<machine-name>
 ```
 
 ## Next steps

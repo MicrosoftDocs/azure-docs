@@ -4,7 +4,8 @@ description: This article shows you how to create a new alert rule using the CLI
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: how-to
-ms.date: 11/29/2023
+ms.custom: devx-track-arm-template
+ms.date: 01/03/2024
 ms.reviewer: harelbr
 ---
 # Create a new alert rule using the CLI, PowerShell, or an ARM template
@@ -14,14 +15,17 @@ You can create a new alert rule using the [the CLI](#create-a-new-alert-rule-usi
 
 You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-with-azure-cli). The following code examples use [Azure Cloud Shell](../../cloud-shell/overview.md). You can see the full list of the [Azure CLI commands for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor#azure-monitor-references).
 
-1. In the [portal](https://portal.azure.com/), select **Cloud Shell**. At the prompt, use the commands that follow.
+1. In the [portal](https://portal.azure.com/), select **Cloud Shell**. At the prompt, use these.
 
-    To create a metric alert rule, use the `az monitor metrics alert create` command. You can see detailed documentation on the metric alert rule create command in the `az monitor metrics alert create` section of the [CLI reference documentation for metric alerts](/cli/azure/monitor/metrics/alert).
+    - To create a metric alert rule, use the [az monitor metrics alert create](/cli/azure/monitor/metrics/alert) command.
+    - To create a log alert rule, use the [az monitor scheduled-query create](/cli/azure/monitor/scheduled-query) command.
+    - To create an activity log alert rule, use the [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert) command.
 
-    To create a metric alert rule that monitors if average Percentage CPU on a VM is greater than 90:
+    For example, to create a metric alert rule that monitors if average Percentage CPU on a VM is greater than 90:
     ```azurecli
      az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
     ```
+
 ## Create a new alert rule using PowerShell
 
 - To create a metric alert rule using PowerShell, use the [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2) cmdlet.
@@ -43,6 +47,7 @@ You can use an [Azure Resource Manager template (ARM template)](../../azure-reso
     - For metric alerts: [Resource Manager template samples for metric alert rules](resource-manager-alerts-metric.md)
     - For log alerts: [Resource Manager template samples for log alert rules](resource-manager-alerts-log.md)
     - For activity log alerts: [Resource Manager template samples for activity log alert rules](resource-manager-alerts-activity-log.md)
+    - For service health alerts: [Resource Manager template samples for service health alert rules](resource-manager-alerts-service-health.md)
     - For resource health alerts: [Resource Manager template samples for resource health alert rules](resource-manager-alerts-resource-health.md)
 1. Edit the template file to contain appropriate information for your alert, and save the file as \<your-alert-template-file\>.json.
 1. Edit the corresponding parameters file to customize the alert, and save as \<your-alert-template-file\>.parameters.json.

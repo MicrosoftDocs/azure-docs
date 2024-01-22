@@ -24,7 +24,11 @@ Diagnostics logs allow you to export basic usage information from your dev cente
 * Export data to blob storage, export to CSV.
 * Export data to Azure Monitor logs and view and query data in your own Log Analytics workspace 
 
-A dev center is required for the following step.
+To learn more about the different types of logs available for dev centers, see [DevCenter Diagnostic Logs Reference](monitor-reference.md).
+
+## Prerequisites
+
+A dev center.
 
 ## Enable logging with the Azure portal
 
@@ -34,7 +38,7 @@ Follow these steps enable logging for your Azure DevCenter resource:
 
 2. In the Azure portal, navigate to **All resources** -> **your-devcenter**
 
-3. Select **Diagnostics settings** in the **Monitoring** section.
+3. In the **Monitoring** section, select **Diagnostics settings**.
 
 4. Select **Add diagnostic setting** in the open page.
 
@@ -135,20 +139,20 @@ After enabling diagnostic settings on your dev center, you should be able to vie
 
 Here are some queries that you can enter into Log search to help your monitor your dev boxes.
 
-To query for all data-plane logs from DevCenter:
+To query for all dataplane logs from DevCenter:
 
 ```kusto
 DevCenterDiagnosticLogs
 ```
 
-To query for a filtered list of data-plane logs, specific to a single devbox:
+To query for a filtered list of dataplane logs, specific to a single devbox:
 
 ```kusto
 DevCenterDiagnosticLogs
 | where TargetResourceId contains "<devbox-name>"
 ```
 
-To generate a chart for data-plane logs, grouped by operation result status:
+To generate a chart for dataplane logs, grouped by operation result status:
 
 ```kusto
 DevCenterDiagnosticLogs

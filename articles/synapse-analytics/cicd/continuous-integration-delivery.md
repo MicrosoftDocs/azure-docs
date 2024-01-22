@@ -507,6 +507,9 @@ Here's an explanation of how the preceding template is constructed, by resource 
   - The `maxConcurrency` property has a default value and is the `string` type. The default parameter name of the `maxConcurrency` property is  `<entityName>_properties_typeProperties_maxConcurrency`.
   - The `recurrence` property also is parameterized. All properties under the `recurrence` property are set to be parameterized as strings, with default values and parameter names. An exception is the `interval` property, which is parameterized as the `int` type. The parameter name is suffixed with `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Similarly, the `freq` property is a string and is parameterized as a string. However, the `freq` property is parameterized without a default value. The name is shortened and suffixed, such as `<entityName>_freq`.
 
+  > [!NOTE]
+  > A maximum of 50 triggers is supported currently.
+
 **`linkedServices`**
 
 - Linked services are unique. Because linked services and datasets have a wide range of types, you can provide type-specific customization. In the preceding example, for all linked services of the `AzureDataLakeStore` type, a specific template is applied. For all others (identified through the use of the `*` character), a different template is applied.
