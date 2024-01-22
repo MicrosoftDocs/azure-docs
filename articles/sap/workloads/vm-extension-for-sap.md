@@ -2,12 +2,9 @@
 title: Implement the Azure VM extension for SAP solutions | Microsoft Docs
 description: Learn how to deploy the VM Extension for SAP.
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: OliverDoll
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
