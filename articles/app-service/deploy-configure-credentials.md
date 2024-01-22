@@ -3,7 +3,7 @@ title: Configure deployment credentials
 description: Learn what types of deployment credentials are in Azure App Service and how to configure and use them.
 
 ms.topic: article
-ms.date: 01/22/2024
+ms.date: 01/26/2024
 ms.reviewer: byvinyal
 ms.custom: seodec18
 author: cephalin

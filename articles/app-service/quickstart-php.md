@@ -5,7 +5,7 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 01/22/2024
+ms.date: 01/26/2024
 ms.devlang: php
 ms.custom: mode-other, devdivchpfy22, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux

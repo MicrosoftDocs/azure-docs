@@ -3,7 +3,7 @@ title: Deploy from local Git repo
 description: Learn how to enable local Git deployment to Azure App Service. One of the simplest ways to deploy code from your local machine.
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.topic: article
-ms.date: 01/22/2024
+ms.date: 01/26/2024
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 author: cephalin
