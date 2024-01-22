@@ -1,7 +1,6 @@
 ---
 title: include file
 description: include file
-services: synapse-analytics
 author: jonburchel
 ms.service: synapse-analytics
 ms.topic: include

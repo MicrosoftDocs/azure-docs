@@ -4,10 +4,8 @@ description: Run an IBM Z Development and Test Environment (zD&T) environment on
 services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
-documentationcenter:
 author: swread
 ms.author: sread
-editor: swread
 ms.topic: conceptual
 ms.date: 02/22/2019
 ---
