@@ -7,14 +7,14 @@ ms.date: 01/21/2024
 
 # Configure monitoring coverage for Defender for Servers
 
-Microsoft Defender for Cloud's Defender for Servers plan 2 has components that monitor your environments to provide extended coverage to your servers. Each of these components can be enabled, disabled or configured to your requirements. 
+Microsoft Defender for Cloud's Defender for Servers plan has components that monitor your environments to provide extended coverage to your servers. Each of these components can be enabled, disabled or configured to your requirements. 
 
-| Component | Description | Learn more |
-|:--:|:--:|:--:|
-| [Log Analytics agent](plan-defender-for-servers-agents.md) | Collects security-related configurations and event logs from the machine and stores the data in your Log Analytics default or custom workspace for analysis. | [Learn more](../azure-monitor/agents/log-analytics-agent.md) about the Log Analytics agent. |
-| [Vulnerability assessment for machines](deploy-vulnerability-assessment-defender-vulnerability-management.md) | Enables vulnerability assessment on your Azure and hybrid machines. | [Learn more](monitoring-components.md) about how Defender for Cloud collects data. |
-| [Endpoint protection](integration-defender-for-endpoint.md) | Enables protection powered by Microsoft Defender for Endpoint, including automatic agent deployment to your servers, and security data integration with Defender for Cloud | [Learn more](integration-defender-for-endpoint.md) about endpoint protection |
-| [Agentless scanning for machines](concept-agentless-data-collection.md) | Scans your machines for installed software and vulnerabilities without relying on agents or impacting machine performance. | [Learn more](concept-agentless-data-collection.md) about agentless scanning for machines. |
+| Component | Availability | Description | Learn more |
+|--|--|--|--|
+| [Log Analytics agent](plan-defender-for-servers-agents.md) | Plan 1 and 2 | Collects security-related configurations and event logs from the machine and stores the data in your Log Analytics default or custom workspace for analysis. | [Learn more](../azure-monitor/agents/log-analytics-agent.md) about the Log Analytics agent. |
+| [Vulnerability assessment for machines](deploy-vulnerability-assessment-defender-vulnerability-management.md) | Plan 1 and 2 |Enables vulnerability assessment on your Azure and hybrid machines. | [Learn more](monitoring-components.md) about how Defender for Cloud collects data. |
+| [Endpoint protection](integration-defender-for-endpoint.md) | Plan 1 and 2 | Enables protection powered by Microsoft Defender for Endpoint, including automatic agent deployment to your servers, and security data integration with Defender for Cloud | [Learn more](integration-defender-for-endpoint.md) about endpoint protection |
+| [Agentless scanning for machines](concept-agentless-data-collection.md) | Plan 2 | Scans your machines for installed software and vulnerabilities without relying on agents or impacting machine performance. | [Learn more](concept-agentless-data-collection.md) about agentless scanning for machines. |
 
 When you enable Defender for Servers plan 2, all of these components are toggled to **On** by default.
 
@@ -26,11 +26,11 @@ After enabling the Log Analytics agent, you'll be presented with the option to s
 
 1. Select **Edit configuration**.
 
-    :::image type="content" source="media/tutorial-enable-servers-plan/edit-configuration-log.png" alt-text="Screenshot that shows you where on the screen you need to select edit configuration, to edit the log analytics agent/azure monitor agent." lightbox="media/tutorial-enable-servers-plan/edit-configuration-log.png":::
+    :::image type="content" source="media/configure-servers-coverage/edit-configuration-log.png" alt-text="Screenshot that shows you where on the screen you need to select edit configuration, to edit the log analytics agent/azure monitor agent." lightbox="media/configure-servers-coverage/edit-configuration-log.png":::
 
 1. Select either a **Default workspace(s)** or a **Custom workspace** depending on your need.
 
-    :::image type="content" source="media/tutorial-enable-servers-plan/auto-provisioning-screen.png" alt-text="Screenshot of the auto provisioning configuration screen with the available options to select." lightbox="media/tutorial-enable-servers-plan/auto-provisioning-screen.png":::
+    :::image type="content" source="media/configure-servers-coverage/auto-provisioning-screen.png" alt-text="Screenshot of the auto provisioning configuration screen with the available options to select." lightbox="media/configure-servers-coverage/auto-provisioning-screen.png":::
 
 1. Select **Apply**.
 
@@ -45,7 +45,7 @@ Vulnerability assessment for machines allows you to select between two vulnerabi
 
 1. Select **Edit configuration**.
 
-    :::image type="content" source="media/tutorial-enable-servers-plan/vulnerability-edit.png" alt-text="Screenshot that shows you where to select edit for vulnerabilities assessment for machines." lightbox="media/tutorial-enable-servers-plan/vulnerability-edit.png":::
+    :::image type="content" source="media/configure-servers-coverage/vulnerability-edit.png" alt-text="Screenshot that shows you where to select edit for vulnerabilities assessment for machines." lightbox="media/configure-servers-coverage/vulnerability-edit.png":::
 
 1. In the Extension deployment configuration window, select either of the solutions depending on your need.
 
@@ -67,7 +67,7 @@ Defender for Cloud has the ability to scan your Azure machines for installed sof
 
 1. Select **Edit configuration**.
 
-    :::image type="content" source="media/tutorial-enable-servers-plan/agentless-scanning-edit.png" alt-text="Screenshot that shows where you need to select to edit the configuration of the agentless scanner." lightbox="media/tutorial-enable-servers-plan/agentless-scanning-edit.png":::
+    :::image type="content" source="media/configure-servers-coverage/agentless-scanning-edit.png" alt-text="Screenshot that shows where you need to select to edit the configuration of the agentless scanner." lightbox="media/configure-servers-coverage/agentless-scanning-edit.png":::
 
 1. Enter a tag name and tag value for any machines to be excluded from scans.
 
