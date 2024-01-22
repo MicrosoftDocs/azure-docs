@@ -47,7 +47,7 @@ You can use Azure CLI to get a list of extensions, including Azure Marketplace a
 az k8s-extension extension-types list-by-cluster --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName>
 ```
 
-The command will return a list of extension types that can be deployed on the connected clusters, similar to the example shown here. When you find the application you want to deploy, note the extension type name, and planInfo from the response to used in later steps.
+The command will return a list of extension types that can be deployed on the connected clusters, similar to the example shown here.
 
 ```json
 "id": "/subscriptions/{sub}/resourceGroups/{rg} /providers/Microsoft.Kubernetes/connectedClusters/{clustername} /providers/Microsoft.KubernetesConfiguration/extensiontypes/contoso",
@@ -78,7 +78,7 @@ The command will return a list of extension types that can be deployed on the co
 }
 ```
 
-For the application that you want to deploy, note the following values from the response received: `planId`, `publisherId`, `offerID`, and `extensionType`. You'll need these values to accept terms and deploy the application.
+When you find an application that you want to deploy, note the following values from the response received: `planId`, `publisherId`, `offerID`, and `extensionType`. You'll need these values to accept the application's terms and deploy the application.
 
 ### [Azure portal](#tab/portal)
 
@@ -118,7 +118,7 @@ To view the details of the terms, run the following command, providing the value
 az vm image terms show --offer <offerID> --plan <planId> --publisher <publisherId>
 ```
 
-To accept the terms, run the following command, using the same valuesfor `offerID`, `planID`, and `publisherID`.
+To accept the terms, run the following command, using the same values for `offerID`, `planID`, and `publisherID`.
 
 ```azurecli-interactive
 az vm image terms accept --offer <offerID> --plan <planId> --publisher <publisherId>
@@ -157,7 +157,7 @@ Once you've identified an offer you want to deploy, follow these steps:
 
 ## Verify the deployment
 
-Deploying an offer from Azure Marketplace creates a new extension instance on your Arc-enabled Kubernetes cluster. You can verify that the deployment was successful by confirming the extnesion is running successfully.
+Deploying an offer from Azure Marketplace creates a new extension instance on your Arc-enabled Kubernetes cluster. You can verify that the deployment was successful by confirming the extension is running successfully.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -209,7 +209,9 @@ Select an application, then select the uninstall button to remove the extension 
 
 ## Troubleshooting
 
-For help resolving issues, see [Troubleshoot the failed deployment of a Kubernetes application offer](/troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer).
+For help with resolving issues, see [Troubleshoot the failed deployment of a Kubernetes application offer](/troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer).
 
 ## Next steps
 
+- Learn about [extensions for Arc-enabled Kubernetes](conceptual-extensions.md).
+- Use our quickstart to [connect a Kubernetes cluster to Azure Arc](quickstart-connect-cluster.md).
