@@ -281,7 +281,7 @@ The steps in this section use the following prefixes:
    Create firewall rules to allow HANA System Replication and client traffic. The required ports are listed on [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports). The following commands are just an example to allow HANA 2.0 System Replication and client traffic to database SYSTEMDB, HN1, and NW1.
 
    ```bash
-    sudo firewall-cmd --zone=public --permanent --add-port={40302,40301,40307,40303,40340,30340,30341,30342}/tcp
+    sudo firewall-cmd --zone=public --add-port={40302,40301,40307,40303,40340,30340,30341,30342}/tcp --permanent
     sudo firewall-cmd --zone=public --add-port={40302,40301,40307,40303,40340,30340,30341,30342}/tcp
 
    ```
