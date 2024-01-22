@@ -2,7 +2,7 @@
 title: Manage secrets with agentless secrets scanning
 description: Learn how to scan your servers for secrets with Defender for Server's agentless secrets scanning.
 ms.topic: overview
-ms.date: 12/20/2023
+ms.date: 01/22/2024
 ---
 
 # Manage secrets with agentless secrets scanning
@@ -11,7 +11,7 @@ Attackers can move laterally across networks, find sensitive data, and exploit v
 
 Defender for Cloud's agentless secrets scanning for Virtual Machines (VM) locates plaintext secrets that exist in your environment. If secrets are detected, Defender for Cloud can assist your security team to prioritize and take actionable remediation steps to minimize the risk of lateral movement, all without affecting your machine's performance.
 
-By using agentless secrets scanning, you can proactively discover the following types of secrets across your environments (in Azure, AWS and GCP cloud providers):
+By using agentless secrets scanning, you can proactively discover the following types of secrets across your environments (in Azure, AWS, and GCP cloud providers):
 
 - Insecure SSH private keys:
 
@@ -53,17 +53,18 @@ By using agentless secrets scanning, you can proactively discover the following 
 - Plaintext OpenAI API Key.
 - Plaintext Azure Batch Shared Access Key.
 - Plaintext NPM Author Token.
-- Plaintext Azure Subscription Management Certificate. 
+- Plaintext Azure Subscription Management Certificate.
 
 Secrets findings can be found using the [Cloud Security Explorer](#remediate-secrets-with-cloud-security-explorer) and the [Secrets tab](#remediate-secrets-from-your-asset-inventory) with their metadata like secrets type, file name, file path, last access time, and more.
 
-The following secrets can also be accessed from the `Security Recommendations` and `Attack Path`, across Azure, AWS and GCP cloud providers:
+The following secrets can also be accessed from the `Security Recommendations` and `Attack Path`, across Azure, AWS, and GCP cloud providers:
 
 - Insecure SSH private keys:
 
   - Supporting RSA algorithm for PuTTy files.
   - PKCS#8 and PKCS#1 standards.
   - OpenSSH standard.
+
 - Plaintext Azure database connection string:
 
   - Plaintext Azure SQL connection strings, supports SQL PAAS.
@@ -71,6 +72,7 @@ The following secrets can also be accessed from the `Security Recommendations` a
   - Plaintext Azure database for MySQL.
   - Plaintext Azure database for MariaDB.
   - Plaintext Azure Cosmos DB, including PostgreSQL, MySQL and MariaDB.
+
 - Plaintext AWS RDS connection string, supports SQL PAAS:
 
   - Plaintext Amazon Aurora with Postgres and MySQL flavors.
@@ -87,7 +89,7 @@ The agentless scanner verifies whether SSH private keys can be used to move late
 
 - An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
-- Access to [Defender for Cloud](get-started.md)
+- Access to [Defender for Cloud](get-started.md).
 
 - [Enable](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features) either or both of the following two plans:
   - [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md)
@@ -99,11 +101,11 @@ For requirements for agentless scanning, see [Learn about agentless scanning](co
 
 ## Remediate secrets with attack path
 
-Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). These scans expose exploitable paths that attackers might use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations as to how best remediate issues that break the attack path and prevent successful breach.
+Attack path analysis is a graph-based algorithm that scans your [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph). These scans expose exploitable paths that attackers might use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations for how to best remediate issues that break the attack path and prevent successful breach.
 
 Attack path analysis takes into account the contextual information of your environment to identify issues that might compromise it. This analysis helps prioritize the riskiest issues for faster remediation.
 
-The attack path page shows an overview of your attack paths, affected resources and a list of active attack paths.
+The attack path page shows an overview of your attack paths, affected resources, and a list of active attack paths.
 
 ### Azure VM supported attack path scenarios
 
@@ -149,9 +151,9 @@ Agentless secrets scanning for GCP VM instances supports the following attack pa
 
 ## Remediate secrets with recommendations
 
-If a secret is found on your resource, that resource triggers an affiliated recommendation that is located under the Remediate vulnerabilities security control on the Recommendations page. Depending on your resources, either or both of the following recommendations appear:
+If a secret is found on your resource, that resource triggers an affiliated recommendation that is located under the Remediate vulnerabilities security control on the Recommendations page. Depending on your resources, either one or more of the following recommendations appear:
 
-- **Azure resources**: `Machines should have secrets findings resolved`
+- **Azure resources**: `Machines should have secret findings resolved`
 
 - **AWS resources**: `EC2 instances should have secret findings resolved`
 
@@ -165,7 +167,7 @@ If a secret is found on your resource, that resource triggers an affiliated reco
 
 1. Expand the **Remediate vulnerabilities** security control.
 
-1. Select either:
+1. Select one of the following:
 
     - **Azure resources**: `Machines should have secret findings resolved`
     - **AWS resources**: `EC2 instances should have secret findings resolved`
@@ -183,9 +185,9 @@ If a secret is found on your resource, that resource triggers an affiliated reco
 
 1. Expand **Affected resources** to review the resources affected by this secret.
 
-1. (Optional) You can select an affected resource to see that resources information.
+1. (Optional) You can select an affected resource to see that resource's information.
 
-Secrets that don't have a known attack path, are referred to as `secrets without an identified target resource`.
+Secrets that don't have a known attack path are referred to as `secrets without an identified target resource`.
 
 ## Remediate secrets with cloud security explorer
 
@@ -229,4 +231,4 @@ Different types of secrets have different sets of additional information. For ex
 
 ## Next steps
 
-- [Use asset inventory to manage your resources' security posture](asset-inventory.md)
+- [Use asset inventory to manage your resources' security posture](asset-inventory.md).
