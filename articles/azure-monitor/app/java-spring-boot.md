@@ -104,7 +104,7 @@ to change the location for a file outside the classpath.
 
 By default, the Application Insights Runtime Attach uses an `applicationinsights.json` in the classpath (_src/main/resources_).
 
-You can programmatically use another file contained in the classpath:
+You can programmatically use another json config file in the classpath:
 
 ```java
 public static void main(String[] args) {
