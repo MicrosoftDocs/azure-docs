@@ -139,7 +139,7 @@ public static void main(String[] args) {
 ```
 You can also call the  `ConnectionString.configure` method from a Spring component.
 
-You have also to add the following property in your Application Insights JSON file:
+Enable connection string configured at runtime:
 
 ```json
 {
