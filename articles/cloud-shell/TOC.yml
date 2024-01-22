@@ -6,7 +6,15 @@ items:
       - name: Features & tools
         href: features.md
   - name: Get started with Cloud Shell
-    href: get-started.md
+    items:
+      - name: Get started (Classic)
+        href: get-started/classic.md
+      - name: Get started (New UI)
+        href: get-started/ephemeral.md
+      - name: Get started with new storage account (New UI)
+        href: get-started/new-storage.md
+      - name: Get started with existing storage account (New UI)
+        href: get-started/existing-storage.md
   - name: How to use Cloud Shell
     items:
       - name: Persist files in storage
@@ -24,11 +32,11 @@ items:
   - name: Deploy Cloud Shell in a virtual network
     items:
       - name: Overview
-        href: vnet-overview.md
+        href: vnet/overview.md
       - name: Deploy using quickstart templates
-        href: vnet-deployment.md
+        href: vnet/deployment.md
       - name: Troubleshoot Azure Cloud Shell in a virtual network
-        href: vnet-troubleshooting.md
+        href: vnet/troubleshooting.md
   - name: Pricing
     items:
       - name: Cloud Shell pricing

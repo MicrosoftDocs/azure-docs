@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 01/19/2024
 ms.author: pafarley
 ms.custom: references_regions
 ---
@@ -23,7 +23,7 @@ The Multi-modal embeddings APIs enable the _vectorization_ of images and text qu
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Vision resource"  target="_blank">create a Vision resource </a> in the Azure portal to get your key and endpoint. Be sure to create it in one of the permitted geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. 
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. Be sure to create it in one of the permitted geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. 
    * After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
 
 ## Try out Multi-modal embeddings
@@ -51,7 +51,7 @@ curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeImage?
 }"
 ```
 
-To vectorize a local image, you'd put the binary image data in the HTTP request body.
+To vectorize a local image, you'd put the binary data in the HTTP request body.
 
 The API call returns a **vector** JSON object, which defines the image's coordinates in the high-dimensional vector space.
 

@@ -144,7 +144,6 @@ To create a job, a standalone Spark job can be defined as a YAML specification f
 - `code` - defines the location of the folder that contains source code and scripts for this job.
 - `entry` - defines the entry point for the job. It should cover one of these properties:
   - `file` - defines the name of the Python script that serves as an entry point for the job.
-  - `class_name` - defines the name of the class that serves as an entry point for the job.
 - `py_files` - defines a list of `.zip`, `.egg`, or `.py` files, to be placed in the `PYTHONPATH`, for successful execution of the job. This property is optional.
 - `jars` - defines a list of `.jar` files to include on the Spark driver, and the executor `CLASSPATH`, for successful execution of the job. This property is optional.
 - `files` - defines a list of files that should be copied to the working directory of each executor, for successful job execution. This property is optional.
@@ -161,7 +160,7 @@ To create a job, a standalone Spark job can be defined as a YAML specification f
   -   If dynamic allocation of executors is disabled, define this property:
       - `spark.executor.instances` - the number of Spark executor instances.
 - `environment` - an [Azure Machine Learning environment](./reference-yaml-environment.md) to run the job.
-- `args` - the command line arguments that should be passed to the job entry point Python script or class. See the YAML specification file provided here for an example.
+- `args` - the command line arguments that should be passed to the job entry point Python script. See the YAML specification file provided here for an example.
 - `resources` - this property defines the resources to be used by an Azure Machine Learning serverless Spark compute. It uses the following properties:
   - `instance_type` - the compute instance type to be used for Spark pool. The following instance types are currently supported:
     - `standard_e4s_v3`
@@ -289,7 +288,7 @@ To create a standalone Spark job, use the `azure.ai.ml.spark` function, with the
 - `name` - the name of the Spark job.
 - `display_name` - the display name of the Spark job that should be displayed in the UI and elsewhere.
 - `code` - the location of the folder that contains source code and scripts for this job.
-- `entry` - the entry point for the job. It should be a dictionary that defines a file or a class entry point.
+- `entry` - the entry point for the job. It should be a dictionary that defines the file entry point.
 - `py_files` - a list of `.zip`, `.egg`, or `.py` files to be placed in the `PYTHONPATH`, for successful execution of the job. This parameter is optional.
 - `jars` - a list of `.jar` files to include in the Spark driver and executor `CLASSPATH`, for successful execution of the job. This parameter is optional.
 - `files` - a list of files that should be copied to the working directory of each executor, for successful execution of the job. This parameter is optional.
@@ -307,7 +306,7 @@ To create a standalone Spark job, use the `azure.ai.ml.spark` function, with the
     - `executor_instances` - the number of Spark executor instances.
     - `environment` - the Azure Machine Learning environment that runs the job. This parameter should pass:
       - an object of `azure.ai.ml.entities.Environment`, or an Azure Machine Learning environment name (string).
-- `args` - the command line arguments that should be passed to the job entry point Python script or class. See the sample code provided here for an example.
+- `args` - the command line arguments that should be passed to the job entry point Python script. See the sample code provided here for an example.
 - `resources` - the resources to be used by an Azure Machine Learning serverless Spark compute. This parameter should pass a dictionary with:
   - `instance_type` - a key that defines the compute instance type to be used for the serverless Spark compute. The following instance types are currently supported:
     - `Standard_E4S_V3`

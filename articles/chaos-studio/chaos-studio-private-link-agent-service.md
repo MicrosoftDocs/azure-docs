@@ -9,8 +9,8 @@ ms.author: nikhilkaul
 ms.service: chaos-studio
 ms.custom: ignite-fall-2023
 ---
-# How-to: Configure Private Link for Agent-Based experiments
-This guide explains the steps needed to configure Private Link for a Chaos Studio **Agent-based** Experiment. The current user experience is based on the private endpoints support enabled as part of public preview of the private endpoints feature. Expect this experience to evolve with time as the feature is enhanced to GA quality.
+# How-to: Configure Private Link for Agent-Based experiments [Preview]
+This guide explains the steps needed to configure Private Link for a Chaos Studio **Agent-based** Experiment [Preview]. The current user experience is based on the private endpoints support enabled as part of public preview of the private endpoints feature. Expect this experience to evolve with time as the feature is enhanced to GA quality, as it is currently in **preview**. 
 
 ---
 ## Prerequisites
@@ -233,6 +233,8 @@ Example of updated agentInstanceConfig.json:
 ## Step 6.5: Disable CRL verification in agentSettings.JSON
 
 **IF** you blocked outbound access to Microsoft Certificate Revocation List (CRL) verification endpoints, then you need to update agentSettings.JSON to disable CRL verification check in the agent.
+
+By default this field is set to **true**, so you can either remove this field or set the value to false. See [here](chaos-studio-tutorial-agent-based-cli.md) for more details. 
 
 ```
 "communicationApi": {

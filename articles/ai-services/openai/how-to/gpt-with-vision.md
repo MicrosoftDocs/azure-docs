@@ -5,11 +5,9 @@ description: Learn about the options for using GPT-4 Turbo with Vision
 author: PatrickFarley #dereklegenzoff
 ms.author: pafarley #delegenz
 ms.service: azure-ai-openai
-ms.custom: 
 ms.topic: how-to
 ms.date: 11/06/2023
 manager: nitinme
-keywords:
 ---
 
 # Use GPT-4 Turbo with Vision
