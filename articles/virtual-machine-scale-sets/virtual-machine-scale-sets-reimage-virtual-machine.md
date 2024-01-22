@@ -13,7 +13,7 @@ ms.custom: upgradepolicy
 
 # Reimage a virtual machine
 
-Changes to the scale set OS, data disk Profile (such as admin username and password) and [Custom Data](../virtual-machines/custom-data.md) only apply to virtual machines created after the change in the scale set model. To bring existing virtual machines up-to-date, manually reimage each instance. 
+When updating a instance in a Virtual Machine Scale Set, there are some changes that cannot be updated in place without performing a reimage. This includes changes to the scale set OS, data disk Profile (such as admin username and password) and [Custom Data](../virtual-machines/custom-data.md). These changes only apply to virtual machines created after the change in the scale set model. To bring existing virtual machines up-to-date, manually reimage each instance. 
 
 > [!NOTE]
 > Reimaging an instance will restore it to it's initial state. The instance will be restarted, and any local data will be lost.
