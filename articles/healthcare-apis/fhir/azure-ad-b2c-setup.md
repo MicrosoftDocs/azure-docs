@@ -364,7 +364,7 @@ You need to create an explicit link between the test user in the B2C tenant and 
 
 1. Scroll to **User**. Consent to User.ReadWrite.All. This permission allows you to update the **Test Patient1** user with the `fhirUser` claim value.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/graph-consent-2.png" alt-text="Screenshot showing Graph consent for fhirUser claim." lightbox="media/azure-ad-b2c-setup/graph-consent2.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/graph-consent-2.png" alt-text="Screenshot showing Graph consent for fhirUser claim." lightbox="media/azure-ad-b2c-setup/graph-consent-2.png":::
 
 1. After the consent process completes, update the user. You need the b2c-extensions-app application (client) ID and the user Object ID.
 
@@ -440,7 +440,7 @@ Verify that Azure AD B2C users can access FHIR resources.
 
 1. Use the **Test Patient** credentials to sign in.
 
-   :::image type="content" source="media/azure-ad-b2c-setup/postman-get-token-2.png" alt-text="Screenshot showing Postman get token." lightbox="media/azure-ad-b2c-setup/postman-get-token2.png":::
+   :::image type="content" source="media/azure-ad-b2c-setup/postman-get-token-2.png" alt-text="Screenshot showing Postman get token." lightbox="media/azure-ad-b2c-setup/postman-get-token-2.png":::
 
 1. Choose **Use Token** to use the access token for any requests in the collection.
 
