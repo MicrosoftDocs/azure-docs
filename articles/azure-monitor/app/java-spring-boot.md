@@ -108,7 +108,7 @@ public static void main(String[] args) {
 See [configuration file path configuration options](./java-standalone-config.md#configuration-file-path)
 to change the location for a file outside the classpath.
 
-To programmatically configure configure a file outside the classpath:
+To programmatically configure a file outside the classpath:
 ```java
 public static void main(String[] args) {
     System.setProperty("applicationinsights.configuration.file", "{path}/applicationinsights-dev.json");
