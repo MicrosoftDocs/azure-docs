@@ -19,6 +19,8 @@ This article shows you how to:
 - Deploy the application on your cluster.
 - Monitor usage and billing information.
 
+You can use Azure CLI or the Azure portal to perform these tasks.
+
 ## Prerequisites
 
 To deploy an application, you must have an existing Azure Arc-enabled Kubernetes connected cluster, with at least one node of operating system and architecture type `linux/amd64`. If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md). Be sure to [upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version before you get started.
@@ -35,9 +37,9 @@ To deploy an application, you must have an existing Azure Arc-enabled Kubernetes
 >
 >- East US, East US2, EastUS2 EUAP, West US, West US2, Central US, West Central US, South Central US, West Europe, North Europe, Canada Central, South East Asia, Australia East, Central India, Japan East, Korea Central, UK South, UK West, Germany West Central, France Central, East Asia, West US3, Norway East, South African North, North Central US, Australia South East, Switzerland North, Japan West, South India
 
-## Use Azure CLI to deploy Kubernetes applications from Azure Marketplace
+## Discover Kubernetes applications that supports Azure Arc-enabled clusters
 
-### Discover Kubernetes applications that supports Azure Arc-enabled clusters
+### [Azure CLI](#tab/azurecli)
 
 You can use Azure CLI to get a list of extensions, including Azure Marketplace applications, that can be deployed on Azure Arc-enabled connected clusters. To do so, run this command, providing the name of your connected cluster and the resource group where the cluster is located.
 
@@ -76,9 +78,29 @@ The command will return a list of extension types that can be deployed on the co
 }
 ```
 
-For the application that you want to deploy, note the following values from the response received: `planId`, `publisherId`, `offerID`, and `extensionType`.
+For the application that you want to deploy, note the following values from the response received: `planId`, `publisherId`, `offerID`, and `extensionType`. You'll need these values to accept terms and deploy the application.
 
-### Accept terms and agreements
+### [Azure portal](#tab/portal)
+
+To discover Kubernetes applications in the Azure Marketplace from within the Azure portal:
+
+1. In the Azure portal, search for **Marketplace**. In the results, under **Services**, select **Marketplace**.
+1. From **Marketplace**, you can search for an offer or publisher directly by name, or you can browse all offers. To find Kubernetes application offers, select **Containers** from the **Categories** section in the left menu.
+
+   > [!IMPORTANT]
+   > The **Containers** category includes both Kubernetes applications and standalone container images. Be sure to select only Kubernetes application offers when following these steps. Container images have a different deployment process, and generally can't be deployed on Arc-enabled Kubernetes clusters.
+
+1. You'll see several Kubernetes application offers displayed on the page. To view all of the Kubernetes application offers, select **See more**.
+
+1. Alternately, if you used Azure CLI to discover Kubernetes applications, you can note the `publisherId`, then search using that term to view that publisher's Kubernetes applications in Azure Marketplace.
+
+---
+
+## Deploy a Kubernetes application
+
+### [Azure CLI](#tab/azurecli)
+
+#### Accept terms and agreements
 
 Before you can deploy a Kubernetes application, you need to accept its terms and agreements. Be sure to read these terms carefully so that you understand costs and any other requirements.
 
@@ -97,7 +119,7 @@ az vm image terms accept --offer <offerID> --plan <planId> --publisher <publishe
 > [!NOTE]
 > Although this command is for VMs, it also works for containers, including Arc-enabled Kubernetes clusters. For more information, see the [az cm image terms](/cli/azure/vm/image/terms?view=azure-cli-latest) reference.
 
-### Deploy the application
+#### Deploy the application
 
 To deploy the application (extension) through Azure CLI, follow the steps outlined in Deploy and manage Azure Arc-enabled Kubernetes cluster extensions.
 Sample command:
@@ -106,15 +128,13 @@ Sample command:
 az k8s-extension create --name <offerID> --extension-type <extensionType> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type connectedClusters --plan-name <planId> --plan-product <offerID> --plan-publisher <publisherId>  
 ```
 
-## Discover and deploy a Kubernetes application in the Azure portal
+### [Azure portal](#tab/portal)
 
-1. In the Azure portal, search for Marketplace on the top search bar. In the results, under Services, select Marketplace.
-1. You can search for an offer or publisher directly by name, or you can browse all offers. To find Kubernetes application offers, on the left side under Categories select Containers.
-1. You'll see several Kubernetes application offers displayed on the page. To view all of the Kubernetes application offers, select See more.
-1. Search for the applications using the ‘publisherId’ or the ‘extensionType’ that was identified earlier as part of discovering applications that support connected clusters.
 1. The offer may contain one more plans. On the Plans + Pricing tab, select an option. Ensure that the terms are acceptable, and then select Create.
 1. Follow each page in the wizard, all the way through Review + Create. Fill in information for your resource group, your cluster, and any configuration options that the application requires. You can decide to deploy on a new AKS cluster or use an existing cluster.
 Select the Arc-enabled Kubernetes cluster:
+
+---
 
 ## Verify the deployment
 
