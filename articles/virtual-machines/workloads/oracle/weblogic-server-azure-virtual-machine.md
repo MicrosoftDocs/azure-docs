@@ -40,7 +40,7 @@ The following steps show you how to find the WLS with Admin Server offer and fil
 
 1. On the offer page, select **Create**.
 
-1. On the **Basics** pane, ensure the value shown in the **Subscription** field is the same one that has the roles listed in the prerequisites section.
+1. On the **Basics** pane, ensure the value shown in the **Subscription** field is the same one that you applied in the prerequisites section.
 
 1. The offer must be deployed in an empty resource group. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, *ejb0802wls*.
 
@@ -54,84 +54,16 @@ The following steps show you how to find the WLS with Admin Server offer and fil
 
 1. Under **Credentials for Virtual Machines and WebLogic**, leave the default value for **Username for admin account of VMs**.
 
-## Choose how to authenticate the virtual machine
-
-There are several options to provide authentication to the VM, but you can choose only one. The steps in this section explain each option so you can choose the best one for your deployment.
-
-### Option 1: Use password
-
-This option configures a simple username/password pair for VM authentication. Follow these steps to provide values:
-
-1. Under **Authentication type**, leave the default value **Password**.
-1. Fill in *wlsVmAdmin2022* for **Password**. Use the same value for the confirmation field.
-
-### Option 2: Generate new Key pair
-
-This option generates a public key pair, installing the public key on the server. After the offer passes validation, you'll get a pop-up window to download the SSH key pair.
-
-Follow these steps to provide values for the WLS deployment:
-
-1. Under **Authentication type**, select **SSH Public Key**.
-1. Under **SSH public key source**, select **Generate new key pair**.
-1. Fill in *wlsKeyAdmin2022* for **Key pair name**.
-
-When you've completed the offer validation, select **Create**. You'll then get a pop-up window. Select **Download private key and create resource**, which will download the SSH key as a *.pem* file.
-
-:::image type="content" source="media/weblogic-server-azure-virtual-machine/download-private-key-and-create-resources.png" alt-text="Screenshot showing the option to download private key and create resource.":::
-
-Once the *.pem* file is downloaded, you might want to move it somewhere on your computer where it's easy to reference from your SSH client.
-
-### Option 3: Use an SSH public key stored in Azure
-
-This option requires you to store the SSH public key in Azure before continuing.
-
-The steps in this section show you how to create SSH key from the Azure portal and continue your WLS deployment.
-
-1. In the search bar at the top of the portal, enter *ssh key*. In the auto-suggested search results, in the **Services** section, select **SSH keys**.
-1. On the service page, select **Create**.
-1. On the **Basics** pane, ensure the value shown in the **Subscription** field is the same one that has the roles listed in the prerequisites section.
-1. You can deploy the SSH key in an existing resource group or by creating a new resource group. To create a new resource group, in the **Resource group** field, select **Create new** and fill in a value for the resource group name. For example, *ejb0802sshkey*.
-1. Fill in *ejb0802sshkey-for-wls-machine* for **Key pair name**.
-1. Under **SSH public key source**, select **Generate new key pair**.
-
-When you've completed the validation, select **Create**. You'll then get a pop-up window. Select **Download private key and create resource**, which will download the SSH key as a *.pem* file.
-
-After the SSH key deployment completed, get back to the WLS deployment and follow these steps to provide values:
-
-1. Under **Authentication type**, select **SSH Public Key**.
-1. Under **SSH public key source**, select **Use existing key stored in Azure**.
-1. Under **Stored Keys**, select the SSH key name `ejb0802sshkey-for-wls-machine` created earlier.
-
-### Option 4: Provide an existing SSH public key
-
-This option allows you to private an SSH public key for VM authentication.
-
-If you don't have an SSH key, you can follow [Create an SSH key pair](/azure/virtual-machines/linux/mac-create-ssh-keys#create-an-ssh-key-pair) to create a key pair using RSA encryption and a bit length of 4096. Azure currently supports SSH protocol 2 (SSH-2) RSA public-private key pairs with a minimum length of 2048 bits.
-
-You can display your public key with the following `cat` command, replacing `~/.ssh/id_rsa.pub` with the path and filename of your own public key file if needed:
-
-```bash
-cat ~/.ssh/id_rsa.pub
-```
-
-A typical public key value looks like this example:
-
-```text
-ssh-rsa AAAAB...Q== username@domainname
-```
-
-Then, follow these steps to provide values for the WLS deployment:
-
-1. Under **Authentication type**, select **SSH Public Key**.
-1. Under **SSH public key source**, select **Use existing public key**.
-1. Fill in **SSH public key** with your public key value.
-
-You've now finished configuring VM authentication. Use the following steps to continue with the other aspects of the WLS deployment.
+1. Next to **Authentication type**, select **Password**. This article uses user name and password pair for the authentication. If you want to use SSH, see [Create and use an SSH public-private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys). Fill in **Password**. Use the same value for the confirmation.  
 
 1. Leave the default value for **Username for WebLogic Administrator**.
+
 1. Fill in *wlsVmCluster2022* for the **Password for WebLogic Administrator**. Use the same value for the confirmation.
+
 1. Select **Review + create**. Ensure the green **Validation Passed** message appears at the top. If not, fix any validation problems and select **Review + create** again.
+
 1. Select **Create**.
+
 1. Track the progress of the deployment in the **Deployment is in progress** page.
 
 Depending on network conditions and other activity in your selected region, the deployment may take up to 30 minutes to complete.
