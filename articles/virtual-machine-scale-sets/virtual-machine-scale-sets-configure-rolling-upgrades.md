@@ -24,13 +24,13 @@ Rolling Upgrade Policy is best suited for Production workloads but can also be u
 ## Requirements
 When using a Rolling Upgrade Policy, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
 
-Virtual Machine Scale Sets using Uniform Orchestration Mode can use either a health probe or the Application Health Extension. If using Virtual Machine Scale Sets with Flexible Orchestration Mode, Application Health Extension is required as Health probes aren't supported on Flexible Orchestration Mode. 
+Virtual Machine Scale Sets using Uniform Orchestration Mode can use either a health probe or the Application Health Extension. If using Virtual Machine Scale Sets with Flexible Orchestration Mode, Application Health Extension is required as Health probes aren't supported in Flexible Orchestration Mode. 
 
 ## Concepts
 
 |Setting | Description |
 |---|---|
-|**Upgrade Policy Mode:** | The Upgrade Policy modes available on Virtual Machine Scale sets are Automatic, Manual and Rolling. | 
+|**Upgrade Policy Mode:** | The Upgrade Policy modes available on Virtual Machine Scale sets are **Automatic**, **Manual** and **Rolling**. | 
 |**Rolling upgrade batch size %** | Specifies how many of the total instances of your scale set you wish to be upgraded at one time. For example, a batch size of 20% when you have 10 instances in your scale set results in upgrade batches with two instances each. |
 |**Pause time between batches (sec)** | Specifies how long you want your scale set to wait between upgrading batches. For example, a pause time of 10 seconds means that once a batch has successfully completed, the scale set will wait 10 seconds before moving onto the next batch. |
 |**Max unhealthy instance %** | Specifies the allowed total number of instances marked as unhealthy before and during the Rolling Upgrade. For example, a max unhealthy instance % of 20 means if you have a scale set of 10 instances and more than two instances in the entire scale set report back as unhealthy, the Rolling Upgrade is canceled. |
