@@ -93,18 +93,7 @@ will be read from the classpath (`src/main/resources`, `src/test/resources`).
 From 3.4.3, you can configure the name of a JSON file in the classpath with the `applicationinsights.runtime-attach.configuration.classpath.file` system property.
 For example, with `-Dapplicationinsights.runtime-attach.configuration.classpath.file=applicationinsights-dev.json`, Application Insights will use `applicationinsights-dev.json` file for configuration.
 
-> [!NOTE]
-> Spring's `application.properties` or `application.yaml` files are not supported as
-> as sources for Application Insights Java configuration.
-
-See [configuration file path configuration options](./java-standalone-config.md#configuration-file-path)
-to change the location for a file outside the classpath.
-
-####  Programmatically configure the Application Insights JSON file
-
-By default, the Application Insights Runtime Attach uses an `applicationinsights.json` in the classpath (_src/main/resources_).
-
-You can programmatically use another JSON configuration file in the classpath:
+You can programmatically configure another file in the classpath:
 
 ```java
 public static void main(String[] args) {
@@ -114,7 +103,14 @@ public static void main(String[] args) {
 }
 ```
 
-You can also configure a file not in the classpath (outside the JAR or WAR):
+> [!NOTE]
+> Spring's `application.properties` or `application.yaml` files are not supported as
+> as sources for Application Insights Java configuration.
+
+See [configuration file path configuration options](./java-standalone-config.md#configuration-file-path)
+to change the location for a file outside the classpath.
+
+You can also configure a file outside the classpath:
 ```java
 public static void main(String[] args) {
     System.setProperty("applicationinsights.configuration.file", "{path}/applicationinsights-dev.json");
