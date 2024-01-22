@@ -228,9 +228,9 @@ sections:
         answer: | 
           Disk snapshots are created with the `CreatedBy` tag key, and the `Microsoft Defender for Cloud` tag value. The `CreatedBy` tag tracks who created the resource. 
 
-          You need to [activate the tags in the Billing and Cost Management console](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/activate-built-in-tags.html). It can take up to 24 hours for tags to activate.  AWS generates a cost allocation report as a comma-separated value (.CSV file) with your usage and costs grouped by your active tags.
+          You need to [activate the tags in the Billing and Cost Management console](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/activate-built-in-tags.html). It can take up to 24 hours for tags to activate. 
           
-          Once you have activated the tags, AWS generates a cost allocation report as a comma-separated value (CSV file) with your usage and cost grouped by your active tags. 
+          Once you have activated the tags, AWS generates a cost allocation report as a comma-separated value (.CSV file) with your usage and cost grouped by your active tags. 
 
   - name: Workspaces
     questions:
