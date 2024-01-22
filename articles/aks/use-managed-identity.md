@@ -5,7 +5,7 @@ ms.topic: article
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
-ms.date: 07/31/2023
+ms.date: 01/22/2024
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
@@ -59,6 +59,8 @@ AKS uses several managed identities for built-in services and add-ons.
 
 > [!NOTE]
 > AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][use-a-pre-created-kubelet-managed-identity].
+>
+> If your cluster already uses managed identity and the identity has been changed, for example, updating cluster identity type from system-assigned identity to user-assigned identity, or updating to a different user-assigned identity, it will have a delay for control plane components to switch to use new identity. Control plane components will keep using the old identity until its token is expired, after the token is refreshed, they will switch to use the new identity, this process can take several hours.
 
 1. Create an Azure resource group using the [`az group create`][az-group-create] command.
 
