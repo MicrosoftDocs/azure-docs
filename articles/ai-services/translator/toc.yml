@@ -117,12 +117,10 @@ items:
   - name: What is Document Translation?
     displayName: ocr,batch,features,development,formats,file types
     href: document-translation/overview.md
-  - name: Document Translation SDK overview
-    displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
-    href: document-translation/document-sdk-overview.md
-  - name: Document Translation REST APIs
-    displayName: get,post,cancel,delete
-    href: document-translation/reference/rest-api-guide.md
+  - name: Asynchronous batch translation
+    href: document-translation/asynchronous-translation.md
+  - name: Synchronous file translation
+    href: document-translation/synchronous-translation.md
   - name: Authentication and authorization
     items:
     - name: Create and use managed identities
@@ -149,6 +147,9 @@ items:
       href: document-translation/how-to-guides/create-use-glossaries.md
   - name: Reference
     items:
+    - name: Document Translation SDK overview
+      displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
+      href: document-translation/document-sdk-overview.md
     - name: Document Translation REST API guide
       displayName: get,post,cancel,delete
       href: document-translation/reference/rest-api-guide.md
@@ -170,6 +171,7 @@ items:
       href: document-translation/reference/get-translation-status.md
     - name: Cancel translation
       href: document-translation/reference/cancel-translation.md
+    
   - name: Document Translation FAQ
     href: document-translation/faq.md
 - name: Containers

@@ -76,7 +76,9 @@ This table lists the content limits for data sent using Document Translation:
 |Size of Translation memory file| ≤ 10 MB|
 
 > [!NOTE]
-> Document Translation can't be used to translate secured documents such as those with an encrypted password or with restricted access to copy content.
+>
+> * Document Translation can't be used to translate secured documents such as those with an encrypted password or with restricted access to copy content.
+> * When translating documents with content in multiple languages, the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
 
 ## Next steps
 

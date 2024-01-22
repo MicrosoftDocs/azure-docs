@@ -6,114 +6,48 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: overview
-ms.date: 01/19/2024
+ms.date: 01/22/2024
 ms.author: lajanuar
 ms.custom: references_regions
 recommendations: false
 ---
+
 # What is Document Translation?
 
-Document Translation is a cloud-based feature of the [Azure AI Translator](../translator-overview.md) machine translation service that enable you to translate documents using our REST APIs and SDKs. The Document translation feature is available across all [supported languages and dialects](../../language-support.md).and is avaialbe to translate multiple and complex documents **asynchronously** and single page documents **synchronously** while preserving original document structure and data format. 
+Document Translation is a cloud-based feature of the [Azure AI Translator](../translator-overview.md) machine translation service that enable you to translate documents using our REST APIs and SDKs. The Document translation API enable you to translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format. Document Translation supports two translation operations:
 
-## Asynchronous document translation
+* [Asynchronous](asynchronous-translation.md) document translation supports batch processing of multiple documents and files. The asynchronous translation process requires an Azure Blob storage account with containers for your source and translated documents.
 
-The following table lists the asynchronous operation key features:
+  The following table highlights **asynchronous** document translation key features:
 
-| Feature | Description |
-| ---------| -------------|
-|**Translate large files**| Translate whole documents asynchronously.|
-|**Translate numerous files**|Translate multiple files across all supported languages and dialects while preserving document structure and data format.|
-|**Preserve source file presentation**| Translate files while preserving the original layout and format.|
-|**Apply custom translation**| Translate documents using general and [custom translation](../custom-translator/concepts/customization.md#custom-translator) models.|
-|**Apply custom glossaries**|Translate documents using custom glossaries.|
-|**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
-|**Translate documents with content in multiple languages**|Use the autodetect feature to translate documents with content in multiple languages into your target language.|
+  | Feature | Description |
+  | ---------| -------------|
+  |**Translate large files**| Translate whole documents asynchronously.|
+  |**Translate numerous files**|Translate multiple files across all supported languages and dialects while preserving document structure and data format.|
+  |**Preserve source file presentation**| Translate files while preserving the original layout and format.|
+  |**Apply custom translation**| Translate documents using general and [custom translation](../custom-translator/concepts/customization.md#custom-translator) models.|
+  |**Apply custom glossaries**|Translate documents using custom glossaries.|
+  |**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
+  |**Translate documents with content in multiple languages**|Use the autodetect feature to translate documents with content in multiple languages into your target language.|
 
-> [!NOTE]
-> When translating documents with content in multiple languages, the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
-> For more information on input requirements, *see* [Document Translation request limits](../service-limits.md#document-translation)
+  For more information, see [Asynchronous document translation](asynchronous-translation.md)
 
-Asynchronous document translation requires an Azure Blob storage account with containers for your source and translated documents. Here is a high-level illustration of the asynchronous request process:
+* [Synchronous](synchronous-translation.md) document translation supports real-time processing of single-page files. The synchronous translation process does not require an Azure Blob storage account. The final response is returned directly to the calling client.
 
-For more information, see [Asynchronous document translation]()
+  The following table highlights **synchronous** document translation key features:
 
-## Synchronous document translation
+  |Feature | Description |
+  | ---------| -------------|
+  |**Translate single-page files**| The synchronous request accepts only a single document as input.|
+  |**Preserve source file presentation**| Translate files while preserving the original layout and format.|
+  |**Apply custom translation**| Translate documents using general and [custom translation](../custom-translator/concepts/customization.md#custom-translator) models.|
+  |**Apply custom glossaries**|Translate documents using custom glossaries.|
+  |**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
 
-|Feature | Description |
-| ---------| -------------|
-|**Translate single-page files**| The synchronous request accepts only a single document as input.|
-|**Preserve source file presentation**| Translate files while preserving the original layout and format.|
-|**Apply custom translation**| Translate documents using general and [custom translation](../custom-translator/concepts/customization.md#custom-translator) models.|
-|**Apply custom glossaries**|Translate documents using custom glossaries.|
-|**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
+  For more information, see [Synchronous document translation](synchronous-translation.md)
 
-The synchronous document translation operation does not require an Azure Blob storage account. The final response is returned directly to the calling client. Here is a high-level illustration of the synchronous request process:
 
-For more information, see [Synchronous document translation]()
 
-## Development options
-
-You can add Document Translation to your applications using the REST API or a client-library SDK:
-
-* The [**REST API**](reference/rest-api-guide.md). is a language agnostic interface that enables you to create HTTP requests and authorization headers to translate documents.
-
-* The [**client-library SDKs**](./quickstarts/document-translation-sdk.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](https://pypi.org/project/azure-ai-translation-document/).
-
-## Get started
-
-In our quickstart, you learn how to rapidly get started using Document Translation. To begin, you need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
-
-> [!div class="nextstepaction"]
-> [Start here](./quickstarts/document-translation-rest-api.md "Learn how to use Document Translation with HTTP REST")
-
-## Supported document formats
-
-The [Get supported document formats method](reference/get-supported-document-formats.md) returns a list of document formats supported by the Document Translation service. The list includes the common file extension, and the content-type if using the upload API.
-
-Document Translation supports the following document file types:
-
-| File type| File extension|Description|
-|---|---|--|
-|Adobe PDF|`pdf`|Portable document file format. Document Translation uses optical character recognition (OCR) technology to extract and translate text in scanned PDF document while retaining the original layout.|
-|Comma-Separated Values |`csv`| A comma-delimited raw-data file used by spreadsheet programs.|
-|HTML|`html`, `htm`|Hyper Text Markup Language.|
-|Localization Interchange File Format|xlf| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
-|Markdown| `markdown`, `mdown`, `mkdn`, `md`, `mkd`, `mdwn`, `mdtxt`, `mdtext`, `rmd`| A lightweight markup language for creating formatted text.|
-|M&#8203;HTML|`mthml`, `mht`| A web page archive format used to combine HTML code and its companion resources.|
-|Microsoft Excel|`xls`, `xlsx`|A spreadsheet file for data analysis and documentation.|
-|Microsoft Outlook|`msg`|An email message created or saved within Microsoft Outlook.|
-|Microsoft PowerPoint|`ppt`, `pptx`| A presentation file used to display content in a slideshow format.|
-|Microsoft Word|`doc`, `docx`| A text document file.|
-|OpenDocument Text|`odt`|An open-source text document file.|
-|OpenDocument Presentation|`odp`|An open-source presentation file.|
-|OpenDocument Spreadsheet|`ods`|An open-source spreadsheet file.|
-|Rich Text Format|`rtf`|A text document containing formatting.|
-|Tab Separated Values/TAB|`tsv`/`tab`| A tab-delimited raw-data file used by spreadsheet programs.|
-|Text|`txt`| An unformatted text document.|
-
-## Request limits
-
-For detailed information regarding Azure AI Translator Service request limits, *see* [**Document Translation request limits**](../service-limits.md#document-translation).
-
-### Legacy file types
-
-Source file types are preserved during the document translation with the following **exceptions**:
-
-| Source file extension | Translated file extension|
-| --- | --- |
-| .doc, .odt, .rtf, | .docx |
-| .xls, .ods | .xlsx |
-| .ppt, .odp | .pptx |
-
-## Supported glossary formats
-
-Document Translation supports the following glossary file types:
-
-| File type| File extension|Description|
-|---|---|--|
-|Comma-Separated Values| `csv` |A comma-delimited raw-data file used by spreadsheet programs.|
-|Localization Interchange File Format| `xlf` , `xliff`| A parallel document format, export of Translation Memory systems The languages used are defined inside the file.|
-|Tab-Separated Values/TAB|`tsv`, `tab`| A tab-delimited raw-data file used by spreadsheet programs.|
 
 ## Data residency
 
