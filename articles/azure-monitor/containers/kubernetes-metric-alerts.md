@@ -105,7 +105,7 @@ Once the rule group has been created, you can't use the same page in the portal 
 
 ### [Azure Resource Manager](#tab/arm)
 
-Edit the query and threshold or configure an action group for your alert rules in the ARM template described in [Enable Prometheus alert rules](#enable-prometheus-alert-rules) and redeploy it by using any deployment method.
+Edit the query and threshold or configure an action group for your alert rules in the ARM template described in [Enable recommended alert rules](#enable-recommended-alert-rules) and redeploy it by using any deployment method.
 
 ---
 
@@ -113,7 +113,7 @@ Edit the query and threshold or configure an action group for your alert rules i
 
 Instead of creating separate Prometheus alert rule groups for each of your clusters, you can create a single rule group and apply it to all of the clusters that use the same Azure Monitor workspace.
 
-1. View the alert rule group as described in [Edit Prometheus alert rules](#edit-prometheus-alert-rules).
+1. View the alert rule group as described in [Edit recommended alert rules](#edit-recommended-alert-rules).
 2. From the **Scope** menu, select **All clusters in the workspace** for the **Cluster** setting. 
 
     :::image type="content" source="media/kubernetes-metric-alerts/prometheus-rule-group-scope.png" lightbox="media/kubernetes-metric-alerts/prometheus-rule-group-scope.png" alt-text="Screenshot of option to edit rule group scope.":::
@@ -123,7 +123,7 @@ Disable the rule group to stop receiving alerts from the rules in it.
 
 ### [Azure portal](#tab/portal)
 
-1. View the Prometheus alert rule group or platform metric alert rule as described in [Edit Prometheus alert rules](#edit-prometheus-alert-rules).
+1. View the Prometheus alert rule group or platform metric alert rule as described in [Edit recommended alert rules](#edit-recommended-alert-rules).
 
 2. From the **Overview** menu, select **Disable**.
 
@@ -131,7 +131,7 @@ Disable the rule group to stop receiving alerts from the rules in it.
 
 ### [ARM template](#tab/arm)
 
-Set the **enabled** flag to false for the rule group in the ARM template described in [Enable Prometheus alert rules](#enable-prometheus-alert-rules) and redeploy it by using any deployment method.
+Set the **enabled** flag to false for the rule group in the ARM template described in [Enable recommended alert rules](#enable-recommended-alert-rules) and redeploy it by using any deployment method.
 
 ---
 
