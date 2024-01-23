@@ -407,22 +407,6 @@
       href: flexible-server/reference-pg-azure-storage.md
 - name: Migration
   items:
-  - name: Migration Service
-    items:
-    - name: Concepts
-      items:
-      - name: Premigration check
-        href: migrate/migration-service/premigration-migration-service.md
-      - name: Known issues and limitations
-        href: migrate/migration-service/known-issues-migration-service.md
-    - name: Getting Started
-      items:
-      - name: Prerequisites
-        href: migrate/migration-service/prerequisites-migration-service.md
-    - name: How-to guides
-      items:
-      - name: Network setup
-        href: migrate/migration-service/network-setup-migration-service.md
   - name: Migrate Single Server to Flexible Server
     items:
     - name: Migration tool - Concepts
@@ -443,6 +427,28 @@
       href: single-server/how-to-migrate-online.md
     - name: Migrate from Oracle
       href: single-server/how-to-migrate-from-oracle.md
+  - name: Migration Service
+    items:
+    - name: Overview
+      href: migrate/migration-service/concepts-migration-service-postgresql.md
+    - name: Concepts
+      items:
+      - name: Premigration validation
+        href: migrate/migration-service/concepts-premigration-migration-service.md
+      - name: Best practices
+        href: migrate/migration-service/best-practices-migration-service-postgresql.md
+      - name: Known issues and limitations
+        href: migrate/migration-service/concepts-known-issues-migration-service.md
+    - name: Getting Started
+      items:
+      - name: Prerequisites
+        href: migrate/migration-service/concepts-prerequisites-migration-service.md
+      - name: Migrate from on-premises and IaaS
+        href: migrate/migration-service/tutorial-migration-service-offline-iaas.md
+    - name: How-to guides
+      items:
+      - name: Network setup
+        href: migrate/migration-service/how-to-network-setup-migration-service.md
 - name: Azure Database for PostgreSQL - Single Server
   expanded: false
   items:

@@ -5,13 +5,14 @@ description: Network scenarios for connecting source and target
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 01/18/2024
+ms.date: 01/22/2024
 ms.service: postgresql
-ms.topic: conceptual
-ms.custom:
+ms.topic: how-to
 ---
 
 # Network guide for migration service in Azure Database for PostgreSQL - Flexible Server
+
+[!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 
 This document outlines various scenarios for connecting a source database to an Azure Database for PostgreSQL using the migration service. Each scenario presents different networking requirements and configurations to establish a successful connection for migration. Specific details vary based on the actual network setup and requirements of the source and target environments.
 
@@ -29,7 +30,7 @@ This document outlines various scenarios for connecting a source database to an 
 
 ## Scenario 2: Private IP on-premises source to virtual network-Integrated Azure Database for PostgreSQL via Express Route/IPSec VPN
 
-:::image type="content" source="media\network-setup-migration-service\on-premise-to-azure-vpn.png" alt-text="Screenshot of an on-premises data center is connected to Azure via ExpressRoute or VPN Gateway. The on-premises PostgreSQL server connects through the secure link to the Azure Database for PostgreSQL." lightbox="media\network-setup-migration-service\on-premise-to-azure-vpn.png":::
+:::image type="content" source="media\how-to-network-setup-migration-service\on-premises-to-azure-vpn.png" alt-text="Screenshot of an on-premises data center is connected to Azure via ExpressRoute or VPN Gateway. The on-premises PostgreSQL server connects through the secure link to the Azure Database for PostgreSQL." lightbox="media\how-to-network-setup-migration-service\on-premises-to-azure-vpn.png":::
 
 **Networking Steps:**
 
@@ -43,7 +44,7 @@ This document outlines various scenarios for connecting a source database to an 
 
 ## Scenario 3: AWS RDS for PostgreSQL to Azure Database for PostgreSQL
 
-:::image type="content" source="media\network-setup-migration-service\aws-to-azure-vpn.png" alt-text="Screenshot of an AWS RDS for PostgreSQL connects to Azure Database for PostgreSQL through the internet or a direct connect service like Express Route or AWS Direct Connect." lightbox="media\network-setup-migration-service\aws-to-azure-vpn.png":::
+:::image type="content" source="media\how-to-network-setup-migration-service\aws-to-azure-vpn.png" alt-text="Screenshot of an AWS RDS for PostgreSQL connects to Azure Database for PostgreSQL through the internet or a direct connect service like Express Route or AWS Direct Connect." lightbox="media\how-to-network-setup-migration-service\aws-to-azure-vpn.png":::
 
 The source database in another cloud provider (AWS) must have a public IP or a direct connection to Azure.
 
@@ -61,7 +62,7 @@ The source database in another cloud provider (AWS) must have a public IP or a d
 
 ## Scenario 4: Azure VM to Azure Database for PostgreSQL (different virtual networks)
 
-:::image type="content" source="media\network-setup-migration-service\vm-to-azure-peering.png" alt-text="Screenshot of an Azure VM in one virtual network connects to the Azure Database for PostgreSQL in another virtual network." lightbox="media\network-setup-migration-service\vm-to-azure-peering.png":::
+:::image type="content" source="media\how-to-network-setup-migration-service\vm-to-azure-peering.png" alt-text="Screenshot of an Azure VM in one virtual network connects to the Azure Database for PostgreSQL in another virtual network." lightbox="media\how-to-network-setup-migration-service\vm-to-azure-peering.png":::
 
 **Networking Steps:**
 
@@ -71,7 +72,7 @@ The source database in another cloud provider (AWS) must have a public IP or a d
 
 ## Scenario 5: Azure VM to Azure PostgreSQL (same virtual network)
 
-:::image type="content" source="media\network-setup-migration-service\vm-to-azure-same-vnet.png" alt-text="Screenshot of an Azure VM in the same virtual network connects directly to the Azure Database for PostgreSQL." lightbox="media\network-setup-migration-service\vm-to-azure-same-vnet.png":::
+:::image type="content" source="media\how-to-network-setup-migration-service\vm-to-azure-same-vnet.png" alt-text="Screenshot of an Azure VM in the same virtual network connects directly to the Azure Database for PostgreSQL." lightbox="media\how-to-network-setup-migration-service\vm-to-azure-same-vnet.png":::
 
 **Networking Steps:**
 
@@ -84,6 +85,7 @@ The migration service requires direct connectivity to the source database to per
 
 ## Related content
 
-- [Known issues and limitations](known-issues-migration-service.md)
-- [Premigration validations](premigration-migration-service.md)
-- [Prerequisites](prerequisites-migration-service.md)
+- [Migration service](concepts-migration-service-postgresql.md)
+- [Known issues and limitations](concepts-known-issues-migration-service.md)
+- [Premigration validations](concepts-premigration-migration-service.md)
+- [Prerequisites](concepts-prerequisites-migration-service.md)
