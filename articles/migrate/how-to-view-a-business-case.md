@@ -90,7 +90,7 @@ It covers cost components for on-premises and Azure, savings, and insights to un
 :::image type="content" source="./media/how-to-view-a-business-case/comparison-inline.png" alt-text="Screenshot of on-premises and Azure comparison." lightbox="./media/how-to-view-a-business-case/comparison-expanded.png":::
 
 ### On-premises vs AVS report
-It covers cost components for on-premises and AVS, savings, and insights to understand the savings better. <screenshot>
+It covers cost components for on-premises and AVS, savings, and insights to understand the savings better.
 
 ## Azure IaaS report
 
@@ -160,7 +160,7 @@ This section contains the cost estimate by recommended target (Annual cost inclu
 
 - On-premises footprint of the servers recommended to be migrated to AVS.
 - Contribution of Zombie servers in the on-premises cost.
-- Distribution of servers by OS, virtualization, and activity state.
+- Distribution of serv8ers by OS, virtualization, and activity state.
 - Distribution by support status of OS licenses and OS versions. 
 
 ## Next steps
