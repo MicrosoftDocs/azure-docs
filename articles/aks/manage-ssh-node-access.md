@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to configure SSH and manage SSH keys on Azure Kubernetes Service (AKS) cluster nodes.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/17/2024
+ms.date: 01/23/2024
 ---
 
 # Manage SSH for secure access to Azure Kubernetes Service (AKS) nodes
@@ -15,7 +15,7 @@ AKS supports the following configuration options to manage SSH keys on cluster n
 
 * Create a cluster with an SSH keys
 * Update the SSH keys on an existing AKS cluster
-* Disable and enable the SSH keys
+* Disable and enable the SSH service
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -75,7 +75,7 @@ Use the [az aks create][az-aks-create] command to deploy an AKS cluster with an 
 |-----|-----|-----|
 |--generate-ssh-key |If you don't have your own SSH keys, specify `--generate-ssh-key`. The Azure CLI automatically generates a set of SSH keys and saves them in the default directory `~/.ssh/`.||
 |--ssh-key-value |Public key path or key contents to install on node VMs for SSH access. For example, `ssh-rsa AAAAB...snip...UcyupgH azureuser@linuxvm`.|`~/.ssh/id_rsa.pub` |
-|--no-ssh-key | If you don't require SSH keys, specify this argument. However, AKS automatically generates a set of SSH keys because the Azure Virtual Machine resource dependency doesn't support an empty SSH keys file. As a result, the keys aren't returned and can't be used to SSH into the node VMs. ||
+|--no-ssh-key | If you don't require SSH keys, specify this argument. However, AKS automatically generates a set of SSH keys because the Azure Virtual Machine resource dependency doesn't support an empty SSH keys file. As a result, the keys aren't returned and can't be used to SSH into the node VMs. The private key is discarded and not saved.||
 
 >[!NOTE]
 >If no parameters are specified, the Azure CLI defaults to referencing the SSH keys stored in the `~/.ssh/id_rsa.pub` file. If the keys aren't found, the command returns the message `An RSA key file or key value must be supplied to SSH Key Value`.
@@ -136,6 +136,9 @@ When you disable SSH at cluster creation time, it takes effect after the cluster
 
 By default, the SSH service on AKS cluster nodes is open to all users and pods running on the cluster. You can prevent direct SSH access from the pod network to the nodes to help limit the attack vector if a container in a pod becomes compromised.
 Use the [az aks create][az-aks-create] command to create a new cluster, and include the `--ssh-access disabled` argument to disable SSH (preview) on all the node pools during cluster creation.
+
+> [!IMPORTANT]
+> After you disable the SSH service, you can't SSH into the cluster to perform administrative tasks or to troubleshoot.
 
 ```azurecli-interactive
 az aks create -g myResourceGroup -n myManagedCluster --ssh-access disabled
