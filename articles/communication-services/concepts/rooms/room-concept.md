@@ -59,7 +59,7 @@ The picture below illustrates the concept of managing and joining the rooms.
 
 :::image type="content" source="../media/rooms/rooms-join-call.png" alt-text="Diagram showing Rooms Management.":::
 
-### Rooms API/SDKs
+### Virtual Rooms API/SDKs
 
 Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in your server application for `room` operations:
 - Create
@@ -68,6 +68,16 @@ Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in 
 - Set and update the list of participants
 - Set and modify the Room validity
 - Assign roles and permissions to users. Details below.
+
+|Virtual Rooms SDK | Version | State|
+|-------------------| :-----------------------: | :-----------------------------: |
+| Virtual Rooms SDKs | 2023-06-14 | Generally Available - Fully supported |
+| Virtual Rooms SDKs | 2023-10-30 | Public Preview - Fully supported |
+| Virtual Rooms SDKs | 2023-03-31 | Retired |
+| Virtual Rooms SDKs | 2022-02-01 | Retired |
+| Virtual Rooms SDKs | 2021-04-07 | Retired |
+
+
 
 ### Calling SDKs
 
