@@ -95,7 +95,7 @@ When you need encryption to be enabled on a running VM in Azure, Azure Disk Encr
 <a name='set-up-an-azure-ad-app-and-service-principal-with-azure-powershell'></a>
 
 ### Set up a Microsoft Entra app and service principal with Azure PowerShell
-To execute the following commands, get and use the [Azure PowerShell module](powershell/azure/what-is-azure-powershell).
+To execute the following commands, get and use the [Azure PowerShell module](/powershell/azure/what-is-azure-powershell).
 
 1. Use the [New-AzADApplication](/powershell/module/az.resources/new-azadapplication) PowerShell cmdlet to create a Microsoft Entra application. MyApplicationHomePage and the MyApplicationUri can be any values you wish.
 
