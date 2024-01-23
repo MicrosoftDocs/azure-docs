@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: overview
-ms.date: 01/05/2024
+ms.date: 01/23/2024
 ms.author: franlanglois
 
 #customer intent: As a developer creating a service that uses a cache, I want to know about TLS connections so that I know my service is secure.
