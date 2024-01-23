@@ -21,7 +21,7 @@ To discover, try, and consume APIs in your [API center](overview.md), you can us
 * **Consume APIs** - Generate API SDK clients for your favorite language including JavaScript, TypeScript, .NET, Python, and Java, using the Microsoft Kiota engine that generates SDKs for Microsoft Graph, GitHub, and more. 
 
 > [!NOTE]
-> The API Center extension for Visual Studio Code is in preview. Learn more about the [extension preview](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat).
+> The API Center extension for Visual Studio Code is in preview. Learn more about the [extension preview](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center).
 
 ## Prerequisites
 
@@ -74,10 +74,10 @@ You can view the documentation for an API definition in your API center and try 
 
 ## Generate HTTP file
 
-You can view a .http file based on the API definition in your API center. If the REST Client extension is installed, you can make requests directory from the editor. This feature is only available for OpenAPI-based APIs in your API center.
+You can view a .http file based on the API definition in your API center. If the REST Client extension is installed, you can make requests directory from the Visual Studio Code editor. This feature is only available for OpenAPI-based APIs in your API center.
 
 1. Expand the API Center tree view to show an API definition. 
-1. Right-click on the definition, and select **Generate HTTP File**. A new tab appears that. renders a .http document populated by the API specification.
+1. Right-click on the definition, and select **Generate HTTP File**. A new tab appears that renders a .http document populated by the API specification.
 
     :::image type="content" source="media/use-vscode-extension/generate-http-file.png" alt-text="Screenshot of generating a .http file in Visual Studio Code.":::
 
@@ -92,8 +92,8 @@ Use the Microsoft Kiota extension to generate an API client for your favorite la
 
 1. Expand the API Center tree view to show an API definition.    
 1. Right-click on the definition, and select **Generate API Client**. The **Kiota OpenAPI Generator** pane appears.
-1. 1. Select the API endpoints and HTTP operations you wish to include in your SDKs.
-1. Select **Generate API client**
+1. Select the API endpoints and HTTP operations you wish to include in your SDKs.
+1. Select **Generate API client**.
     1. Enter configuration details about the SDK name, namespace, and output directory.
     1. Select the language for the generated SDK.
     
@@ -109,12 +109,13 @@ Use GitHub Copilot Chat to find APIs based on semantic search queries.
 
 1. Install Visual Studio Code - Insiders.
 1. Install the API Center, GitHub Copilot, and GitHub Copilot Chat extensions into Visual Studio Code - Insiders.
-1. In the Activity Bar, select GitHub Copilot Chat.
+1. In Visual Studio Code, in the Activity Bar, select GitHub Copilot Chat.
 1. Type `@apicenter /` to see available commands:
 
     * `@apicenter /list` - Lists available APIs
     * `@apicenter /search` - Searches APIs and API specifications
-    
+1. Search for APIs in Copilot Chat. For example, enter `@apicenter /search weather` to find APIs related to weather.
+
   ## Related content
 
 * [Azure API Center - key concepts](key-concepts.md)
