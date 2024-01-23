@@ -55,9 +55,7 @@ Vulnerability assessment for machines allows you to select between two vulnerabi
 
 With Microsoft Defender for Servers, you enable the protections provided by [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide) to your server resources. Defender for Endpoint includes automatic agent deployment to your servers, and security data integration with Defender for Cloud.
 
-**To configure endpoint protection**:
-
-1. Toggle the switch to **On**.
+To configure endpoint protection, toggle the switch to **On**.
 
 ## Configure agentless scanning for machines
 

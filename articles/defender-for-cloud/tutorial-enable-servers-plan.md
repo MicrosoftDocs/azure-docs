@@ -43,6 +43,8 @@ You can enable the Defender for Servers plan from the Environment settings page 
 
     :::image type="content" source="media/tutorial-enable-servers-plan/enable-servers-plan.png" alt-text="Screenshot that shows you how to toggle the Defender for Servers plan to on." lightbox="media/tutorial-enable-servers-plan/enable-servers-plan.png":::
 
+Once the plan has been enabled, you have the ability to [configure the monitoring settings](configure-servers-coverage.md) to suit your needs.
+
 ### Select a Defender for Servers plan
 
 When you enable the Defender for Servers plan, you're then given the option to select which plan - Plan 1 or Plan 2 - to enable. There are two plans you can choose from that offer different levels of protections for your resources.
@@ -71,6 +73,8 @@ When you enable the Defender for Servers plan, you're then given the option to s
 
 1. Select **Save**.
 
+Once the plan has been enabled, you have the ability to [configure the monitoring settings](configure-servers-coverage.md) to suit your needs.
+
 ## Enable the plan at the resource level
 
 While our recommendation is to enable Defender for Servers on the entire Azure subscription, to protect all existing and future resources in it, there are some cases where more flexibility is required to exclude specific resources or to manage security configurations at a lower hierarchy level than subscription. Resource level enablement is available for **Azure machines** and on-premises with **Azure Arc** as part of Defender for Servers plans:
@@ -85,6 +89,8 @@ Supported resource types include:
 - Azure VMs
 - On-premises with Azure Arc
 - Azure Virtual Machine Scale Sets Flex
+
+Once the plan has been enabled, you have the ability to [configure the monitoring settings](configure-servers-coverage.md) to suit your needs.
 
 ### Enablement via REST API
 
@@ -105,6 +111,8 @@ Since Microsoft Defender for Endpoint deployment for eligible machines is a near
 - If you plan to roll out and enable Servers Plan 1/Plan 2 at the subscription level and exclude individual existing VMs, make sure you exclude the VMs before (or at the same time) you enable the plan at the subscription level.
 - When you plan to exclude new VMs created under a subscription already enabled for P1/P2, make sure you exclude them during or shortly after creation time, to avoid unintentional deployment of Microsoft Defender for Endpoint.
 
+Once the plan has been enabled, you have the ability to [configure the monitoring settings](configure-servers-coverage.md) to suit your needs.
+
 ### Enablement at scale
 
 Use the following base script file to customize it for your specific needs.
@@ -112,6 +120,8 @@ Use the following base script file to customize it for your specific needs.
 1. [Download this file](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/Defender%20for%20Servers%20on%20resource%20level), save it as a PowerShell file, and run it.
 1. Select whether to set pricing by **tag** or by **resource group**.
 1. Follow the onscreen instructions.
+
+Once the plan has been enabled, you have the ability to [configure the monitoring settings](configure-servers-coverage.md) to suit your needs.
 
 ### Monitoring coverage status
 
@@ -124,4 +134,5 @@ To monitor your coverage status, you can use the inventory. In the main menu, se
 
 ## Next steps
 
+[Configure monitoring coverage](configure-servers-coverage.md)
 [Overview of Microsoft Defender for Servers](defender-for-servers-introduction.md)
