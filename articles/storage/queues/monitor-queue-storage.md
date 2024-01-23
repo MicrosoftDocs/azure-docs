@@ -8,7 +8,8 @@ ms.reviewer: fryu
 ms.date: 08/08/2023
 ms.topic: conceptual
 ms.service: azure-queue-storage
-ms.devlang: csharp, powershell, azurecli
+ms.devlang: csharp
+# ms.devlang: csharp, powershell, azurecli
 ms.custom: monitoring, devx-track-csharp, devx-track-azurepowershell
 ---
 

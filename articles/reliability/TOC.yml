@@ -160,6 +160,8 @@
       href: ../bastion/bastion-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#dr
     - name: Azure Batch
       href: reliability-batch.md
+    - name: Azure Cognitive Search
+      href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Cache for Redis
       items:
       - name: Availability zones
@@ -284,6 +286,8 @@
       href: ../active-directory-domain-services/tutorial-create-replica-set.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
   - name: Strategic services
     items:
+    - name: Azure Chaos Studio
+      href: reliability-chaos-studio.md
     - name: Azure Community Training
       href: reliability-community-training.md
     - name : Azure Cosmos DB for MongoDB vCore
@@ -323,7 +327,9 @@
     - name: Microsoft Defender for Cloud DevOps security
       href: reliability-defender-devops.md
     - name: Microsoft Fabric
-      href: reliability-fabric.md  
+      href: reliability-fabric.md
+    - name: Microsoft Purview
+      href: reliability-microsoft-purview.md
   - name:  Azure Service Manager retirement
     items:
     - name: Overview

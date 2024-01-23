@@ -240,7 +240,7 @@ A cluster can be linked to up to 1,000 workspaces located in the same region wit
 
 The workspace and the cluster can be in different subscriptions. It's possible for the workspace and cluster to be in different tenants if Azure Lighthouse is used to map both of them to a single tenant.
 
-Use the following steps to link a workspace to a cluster. You can automated for linking multiple workspaces:
+Use the following steps to link a workspace to a cluster. You can use automation for linking multiple workspaces:
 
 #### [Portal](#tab/azure-portal)
 
@@ -649,7 +649,7 @@ Cluster deletion operation should be done with caution, since operation is non-r
 
 The cluster's billing stops when cluster is deleted, regardless of the 31-days commitment tier defined in cluster.
 
-If you delete a cluster that has linked workspaces, workspaces get automatically unlinked from the cluster, workspaces are moved to Pay-As-You-Go pricing tier, and new data to workspaces is ingested to Log Analytics clusters instead. You can query workspace for the time range before it was linked to the cluster, and after the unlink, and the service performs cross-cluster queries seamlessly.
+If you delete a cluster that has linked workspaces, workspaces get automatically unlinked from the cluster, workspaces are moved to pay-as-you-go pricing tier, and new data to workspaces is ingested to Log Analytics clusters instead. You can query workspace for the time range before it was linked to the cluster, and after the unlink, and the service performs cross-cluster queries seamlessly.
 
 > [!NOTE] 
 > - There is a limit of seven clusters per subscription and region, five active, plus two that were deleted in past two weeks.
@@ -714,7 +714,7 @@ Authorization: Bearer <token>
   - If you create a cluster and get an error "region-name doesn't support Double Encryption for clusters.", you can still create the cluster without Double encryption by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
   - Double encryption setting can't be changed after the cluster has been created.
 
-- Deleting a workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-a-workspace) the workspace during the [soft-delete](./delete-workspace.md#soft-delete-behavior) period, workspace returns to previous state and remains linked to cluster.
+- Deleting a workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-a-workspace-in-a-soft-delete-state) the workspace during the [soft-delete](./delete-workspace.md#delete-a-workspace-into-a-soft-delete-state) period, workspace returns to previous state and remains linked to cluster.
 
 - During the commitment period, you can change to a higher commitment tier, which restarts the 31-day commitment period. You can't move back to pay-as-you-go or to a lower commitment tier until after you finish the commitment period.
 

@@ -218,6 +218,23 @@ sudo ln -vfs "../$(basename "${tf_dir}")/terraform" "${tf_bin}/terraform"
 
 ```
 
+### Upgrading the SAP Automation code base on the deployer
+
+You can upgrade the SAP Automation code base on the deployer virtual machines by running the following script:
+
+```bash
+
+cd ~/Azure_SAP_Automated_Deployment/sap-automation
+
+git pull
+
+cd ~/Azure_SAP_Automated_Deployment/sap-automation-samples
+
+git pull
+
+```
+
+
 ## Upgrade the workload zone
 
 The workload zone is the second component you need to upgrade. To upgrade the control plane, rerun the `SAP Workload Zone deployment` pipeline or rerun the `install_workloadzone.sh` script.

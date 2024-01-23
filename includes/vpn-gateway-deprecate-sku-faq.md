@@ -50,3 +50,9 @@ All gateways that are still using Standard or High Performance SKUs will be migr
 * High Performance -> VpnGw2AZ
 
 Final communication will be sent before initiating migration on any gateways.
+
+### Is VPN Gateway Basic SKU retiring as well ?
+
+No, Basic SKU is here to stay. We will soon add support for Standard IP to Basic SKU as currently it only supports Basic IP (which is on retirement path). Currently, you can create a Basic SKU through Powershell/CLI and once the support for Standard IP is added, portal should support Basic SKU creation as well.
+
+

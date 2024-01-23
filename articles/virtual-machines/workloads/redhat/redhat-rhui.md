@@ -4,7 +4,7 @@ description: Learn about Red Hat Update Infrastructure for on-demand Red Hat Ent
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: redhat
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 04/06/2023
@@ -43,7 +43,7 @@ For more information on Red Hat support policies for all versions of RHEL, see [
 The Red Hat images provided in Azure Marketplace are connected by default to one of two different types of life-cycle repositories:
 
 - Non-EUS: Will have the latest available software published by Red Hat for their particular Red Hat Enterprise Linux (RHEL) repositories.
-- Extended Update Support (EUS): Updates won't go beyond a specific RHEL minor release. 
+- Extended Update Support (EUS): Updates won't go beyond a specific RHEL minor release.
 
 > [!NOTE]
 > For more information on RHEL EUS, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) and [Red Hat Enterprise Linux Extended Update Support Overview](https://access.redhat.com/articles/rhel-eus).
@@ -104,13 +104,13 @@ Support for EUS RHEL7 ended in August 30, 2021. For more information, see [Red H
 ---
 ### Switch a RHEL Server to EUS Repositories.
 
-#### [Switching to EUS repositories on RHEL7](#tab/rhel7) 
+#### [Switching to EUS repositories on RHEL7](#tab/rhel7)
 
 >[!NOTE]
 >Support for RHEL7 EUS ended in August 30, 2021. It is not recommended to switch to EUS repositories in RHEL7 anymore.
 
- 
-#### [Switching to EUS repositories on RHEL8](#tab/rhel8) 
+
+#### [Switching to EUS repositories on RHEL8](#tab/rhel8)
 Use the following procedure to lock a RHEL 8.x VM to a particular minor release. Run the commands as `root`:
 
 >[!NOTE]
@@ -127,7 +127,7 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
    ```bash
    sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config' install rhui-azure-rhel8-eus
    ```
-   
+
 
 1. Lock the `releasever` level, it has to be one of 8.1, 8.2, 8.4, 8.6 or 8.8.
 
@@ -136,7 +136,7 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
    sudo sh -c 'echo 8.8 > /etc/dnf/vars/releasever'
    ```
 
-   If there are permission issues to access the `releasever`, you can edit the file using a text editor, add the image version details, and save the file.  
+   If there are permission issues to access the `releasever`, you can edit the file using a text editor, add the image version details, and save the file.
 
    > [!NOTE]
    > This instruction locks the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 8.1 > /etc/yum/vars/releasever` locks your RHEL version to RHEL 8.1.
@@ -147,7 +147,7 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
    sudo dnf update
    ```
 
-#### [Switching to EUS repositories on RHEL9](#tab/rhel9) 
+#### [Switching to EUS repositories on RHEL9](#tab/rhel9)
 
 Use the following procedure to lock a RHEL 9.x VM to a particular minor release. Run the commands as `root`:
 
@@ -165,7 +165,7 @@ Use the following procedure to lock a RHEL 9.x VM to a particular minor release.
    ```bash
    sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel9-eus.config' install rhui-azure-rhel9-eus
    ```
-   
+
 
 1. Lock the `releasever` level, currently it has to be one of 9.0 and 9.2.
 
@@ -174,7 +174,7 @@ Use the following procedure to lock a RHEL 9.x VM to a particular minor release.
    sudo sh -c 'echo 9.2 > /etc/dnf/vars/releasever'
    ```
 
-   If there are permission issues to access the `releasever`, you can edit the file using a text editor, add the image version details, and save the file.  
+   If there are permission issues to access the `releasever`, you can edit the file using a text editor, add the image version details, and save the file.
 
    > [!NOTE]
    > This instruction locks the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 9.2 > /etc/yum/vars/releasever` locks your RHEL version to RHEL 9.2.
@@ -187,7 +187,7 @@ Use the following procedure to lock a RHEL 9.x VM to a particular minor release.
 ---
 ### Switch a RHEL Server to non-EUS Repositories.
 
-#### [Switching to non-EUS repositories on RHEL7](#tab/rhel7) 
+#### [Switching to non-EUS repositories on RHEL7](#tab/rhel7)
 
 To remove the version lock, use the following commands. Run the commands as `root`.
 
@@ -215,7 +215,7 @@ To remove the version lock, use the following commands. Run the commands as `roo
    sudo yum update
    ```
 
-#### [Switching to non-EUS repositories on RHEL8](#tab/rhel8) 
+#### [Switching to non-EUS repositories on RHEL8](#tab/rhel8)
 
 To remove the version lock, use the following commands. Run the commands as `root`.
 
@@ -244,7 +244,7 @@ To remove the version lock, use the following commands. Run the commands as `roo
    ```
 
 
-#### [Switching to non-EUS repositories on RHEL9](#tab/rhel9) 
+#### [Switching to non-EUS repositories on RHEL9](#tab/rhel9)
 
 To remove the version lock, use the following commands. Run the commands as `root`.
 
@@ -263,7 +263,7 @@ To remove the version lock, use the following commands. Run the commands as `roo
 1. Add non-EUS repository.
 
    ```bash
-   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel9.config' install rhui-azure-rhel8
+   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel9.config' install rhui-azure-rhel9
    ```
 
 1. Update your RHEL VM.
@@ -283,7 +283,7 @@ If you're using a network configuration (custom Firewall or UDR configurations) 
 
 ```output
 # Azure Global
-RHUI 3 
+RHUI 3
 West US - 13.91.47.76
 East Us - 40.85.190.91
 South East Asia - 52.187.75.218
@@ -307,7 +307,7 @@ Southeast Asia - 20.24.186.80
 ```
 
 > [!NOTE]
-> 
+>
 > - As of October 12, 2023, all pay-as-you-go (PAYG) clients will be directed to the Red Hat Update Infrastructure (RHUI) 4 IPs in phase over the next two months. During this time, the RHUI3 IPs will remain for continued updates but will be removed at a future time. Existing routes and rules allowing access to RHUI3 IPs must be updated to also include RHUI4 IP addresses for uninterrupted access to packages and updates. Do not remove RHUI3 IPs to continue receiving updates during the transition period.
 >
 > - Also, the new Azure US Government images, as of January 2020, uses Public IP mentioned previously under the Azure Global header.
@@ -360,7 +360,7 @@ This procedure is provided for reference only. RHEL PAYG images already have the
 - For RHEL 8:
 
   1. Create a `config` file by using this command or a text editor:
-  
+
      ```bash
      cat <<EOF > rhel8.config
      [rhui-microsoft-azure-rhel8]

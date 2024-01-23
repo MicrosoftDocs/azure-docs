@@ -181,7 +181,7 @@ As your application workload demands change, you may need to scale the number of
 
 AKS offers a separate feature to automatically scale node pools with a feature called the [cluster autoscaler](cluster-autoscaler.md). You can enable this feature with unique minimum and maximum scale counts per node pool.
 
-For more information, see [use the cluster autoscaler](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
+For more information, see [use the cluster autoscaler](cluster-autoscaler.md#use-the-cluster-autoscaler-on-multiple-node-pools).
 
 ## Associate capacity reservation groups to node pools (preview)
 
@@ -499,7 +499,6 @@ When you use an Azure Resource Manager template to create and manage resources, 
                     "count": "[variables('agentPoolProfiles').agentCount]",
                     "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
                     "osType": "[variables('agentPoolProfiles').osType]",
-                    "storageProfile": "ManagedDisks",
                     "type": "VirtualMachineScaleSets",
                     "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
                     "orchestratorVersion": "1.15.7"

@@ -26,29 +26,40 @@ This article summarizes new releases and features in Azure Database for MySQL fl
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 
+## December 2023
+
+- **Near Zero Downtime Maintenance for Azure Database for MySQL Flexible Server (Preview)**
+
+  This feature significantly reduces maintenance-related downtime, typically maintaining operations under 60 seconds in most cases. Using planned failover in HA enabled servers, it updates the standby server first, followed by a failover to make it the primary, and concludes with updating the former primary server, ensuring minimal service disruption.[Learn more](./concepts-maintenance.md#near-zero-downtime-maintenance-public-preview)
+
+- **Error logs under server logs for Azure Database for MySQL Flexible Server (Preview)**
+
+  This new feature enables direct access to [MySQL Server error logs](https://dev.mysql.com/doc/refman/8.0/en/error-log.html), significantly improving ability to troubleshoot issues and enhancing transparency and independence with Azure Database for MySQL Flexible Server.[Learn more](./concepts-error-logs.md)
+
+
 ## November 2023
 
 - **Enhanced replica provisioning experience**
 
-   Replica provisioning experience will now provide extra flexibility to modify the replica compute and storage settings during the provisioning workflow. You can choose to modify the compute settings of the replica server at the time of provisioning instead of having to make the changes post provisioning of the replica server. The feature will also enable modifying the backup retention days of the replica server and configure it to have a different value than that of the source server.
+  Replica provisioning experience will now provide extra flexibility to modify the replica compute and storage settings during the provisioning workflow. You can choose to modify the compute settings of the replica server at the time of provisioning instead of having to make the changes post provisioning of the replica server. The feature will also enable modifying the backup retention days of the replica server and configure it to have a different value than that of the source server.
 
 - **Modify multiple server parameters using Azure CLI**
   
-   You can now conveniently update multiple server parameters for your Azure Database for MySQL flexible server instance using Azure CLI. [Learn more](./how-to-configure-server-parameters-cli.md#modify-a-server-parameter-value).
+  You can now conveniently update multiple server parameters for your Azure Database for MySQL flexible server instance using Azure CLI. [Learn more](./how-to-configure-server-parameters-cli.md#modify-a-server-parameter-value).
 
 - **Accelerated logs in Azure Database for MySQL flexible server (Preview)**
 
-  We're excited to announce preview of the accelerated logs feature for Azure Database for MySQL flexible server. This feature is available within the Business Critical service tier. Accelerated logs significantly enhances the performance of Azure Database for MySQL flexible server instances, offering a dynamic solution that is designed for high throughput needs that also reduces latency and optimizes cost efficiency.[Learn more](./concepts-accelerated-logs.md).
+  We're excited to announce preview of the accelerated logs feature for Azure Database for MySQL flexible server. This feature is available within the Business Critical service tier. Accelerated logs significantly enhance the performance of Azure Database for MySQL flexible server instances, offering a dynamic solution that is designed for high throughput needs that also reduces latency and optimizes cost efficiency.[Learn more](./concepts-accelerated-logs.md).
 
 - **Universal Geo Restore in Azure Database for MySQL flexible server (General Availability)**
 
-  Universal Geo Restore feature will allow you to restore a source server instance to an alternate region from the list of Azure supported regions where Azure Database for MySQL flexible server is [available](./overview.md#azure-regions). If a large-scale incident in a region results in unavailability of database application, then you can use this feature as a disaster recovery option to restore the server to an Azure supported target region that's different than the source server region. [Learn more](concepts-backup-restore.md#restore).
+  Universal Geo Restore feature allows you to restore a source server instance to an alternate region from the list of Azure supported regions where Azure Database for MySQL flexible server is [available](./overview.md#azure-regions). If a large-scale incident in a region results in unavailability of database application, then you can use this feature as a disaster recovery option to restore the server to an Azure supported target region that's different than the source server region. [Learn more](concepts-backup-restore.md#restore).
 
 ## October 2023
 
 - **Addition of New vCore Options in Azure Database for MySQL flexible server**
 
-  We are excited to inform you that we have introduced new 20 vCores options under the Business Critical Service tier for Azure Database for MySQL flexible server. Please find more information under [Compute Option for Azure Database for MySQL flexible server](./concepts-service-tiers-storage.md#service-tiers-size-and-server-types).
+  We're excited to inform you that we have introduced new 20 vCores options under the Business Critical Service tier for Azure Database for MySQL flexible server. Find more information under [Compute Option for Azure Database for MySQL flexible server](./concepts-service-tiers-storage.md#service-tiers-size-and-server-types).
 
 - **Metrics computation for Azure Database for MySQL flexible server**
 
@@ -56,7 +67,7 @@ This article summarizes new releases and features in Azure Database for MySQL fl
 
 - **Known Issues**
 
-  - When attempting to modify the User assigned managed identity and Key identifier in a single request while changing the CMK settings, the operation gets struck. We're working on the upcoming deployment for the permanent solution to address this issue. In the meantime, please ensure that you perform the two operations of updating the User Assigned Managed Identity and Key identifier in separate requests. The sequence of these operations is not critical, as long as the user-assigned identities have the necessary access to both key vaults.
+  - When attempting to modify the User assigned managed identity and Key identifier in a single request while changing the CMK settings, the operation gets struck. We're working on the upcoming deployment for the permanent solution to address this issue. In the meantime, please ensure that you perform the two operations of updating the User Assigned Managed Identity and Key identifier in separate requests. The sequence of these operations isn't critical, as long as the user-assigned identities have the necessary access to both key vaults.
   - We identified a known issue where customers are unable to initialize a new Custom Maintenance Window (CMW) configuration while creating or updating their Azure Database for MySQL flexible server instance using ARM/CLI/RestAPI. Currently, the CMW configuration can only be initially set up through the Azure portal. Subsequent modifications to the CMW can then be made during server updates. We're actively working to resolve this limitation. As a workaround, customers can manually set up a CMW for their MySQL server via the Azure portal before making any further changes through ARM/CLI/RestAPI.
 
 
@@ -97,7 +108,7 @@ This article summarizes new releases and features in Azure Database for MySQL fl
 
 - **Autoscale IOPS in Azure Database for MySQL flexible server (General Availability)**
 
-    You can now scale IOPS on demand without having to pre-provision a certain amount of IOPS. With this feature, you can now enjoy worry free IO management in Azure Database for MySQL flexible server because the server scales IOPs up or down automatically depending on workload needs. With this feature, you pay only for the IO you use and no longer need to provision and pay for resources you aren't fully using, saving time and money. The autoscale IOPS feature eliminates the administration required to provide the best performance for Azure Database for MySQL flexible server customers at the lowest cost. [Learn more](./concepts-storage-iops.md#autoscale-iops).
+  You can now scale IOPS on demand without having to pre-provision a certain amount of IOPS. With this feature, you can now enjoy worry free IO management in Azure Database for MySQL flexible server because the server scales IOPs up or down automatically depending on workload needs. With this feature, you pay only for the IO you use and no longer need to provision and pay for resources you aren't fully using, saving time and money. The autoscale IOPS feature eliminates the administration required to provide the best performance for Azure Database for MySQL flexible server customers at the lowest cost. [Learn more](./concepts-storage-iops.md#autoscale-iops).
 
 ## June 2023
 

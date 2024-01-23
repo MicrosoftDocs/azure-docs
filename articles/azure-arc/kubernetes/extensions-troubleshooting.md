@@ -2,6 +2,7 @@
 title: "Troubleshoot extension issues for Azure Arc-enabled Kubernetes clusters"
 ms.date: 12/19/2023
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes cluster extensions."
 ---
 

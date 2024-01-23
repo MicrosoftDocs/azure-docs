@@ -1,7 +1,7 @@
 ---
 title: Manage sensors with Defender for IoT in the Azure portal
 description: Learn how to onboard, view, and manage sensors with Defender for IoT in the Azure portal.
-ms.date: 11/13/2022
+ms.date: 12/19/2023
 ms.topic: how-to
 ms.custom: enterprise-iot
 ---
@@ -135,7 +135,7 @@ If you're updating your OT sensor version from a legacy version to 22.1.x or hig
 Make sure that you've started with the relevant updates steps for this update. For more information, see [Update OT system software](update-ot-software.md).
 
 > [!NOTE]
-> After upgrading to version 22.1.x, the new upgrade log is accessible by the *support* user on the sensor at the following path: `/opt/sensor/logs/legacy-upgrade.log`. To access the update log, sign into the sensor via SSH with the *support* user.
+> After upgrading to version 22.1.x, the new upgrade log is accessible by the *admin* user on the sensor at the following path: `/opt/sensor/logs/legacy-upgrade.log`. To access the update log, sign into the sensor via SSH with the *admin* user.
 >
 > For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users). 
 

@@ -24,12 +24,9 @@ This article walks you through the main user journey of using prompt flow in Azu
 
 - If you secure prompt flow with virtual network, please follow [Network isolation in prompt flow](how-to-secure-prompt-flow.md) to learn more detail.
 
+## Set up connection
 
-## Setup
-
-First you need to set up connection and runtime.
-
-### Connection
+First you need to set up connection.
 
 Connection helps securely store and manage secret keys or other sensitive credentials required for interacting with LLM (Large Language Models) and other external tools, for example,  Azure Content Safety.
 
@@ -47,18 +44,7 @@ To obtain the API key, base, type, and version, you can navigate to the [chat pl
 
 :::image type="content" source="./media/get-started-prompt-flow/create-aoai-connection.png" alt-text="Screenshot of the chat playground after selecting the view code  button that displays a popup with sample code, highlighting the API key." lightbox = "./media/get-started-prompt-flow/create-aoai-connection.png":::
 
-After inputting the required fields, select **Save** to create the runtime.
-
-### Runtime
-
-Runtime serves as the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. It's a must-have for flow execution. So, we suggest before starting flow authoring, you should set up your runtime.
-
-First, check if you have a Compute Instance assigned to you in the workspace. If not, follow [How to create a managed compute instance](../how-to-create-compute-instance.md) to create one. A memory optimized compute is recommended.
-
-Once you have your Compute Instance running, you can start to create a runtime. Go to **Runtime** tab, select **Create**. Then in the runtime creation right panel, specify a name, select your running compute instance, (if you see the warning message as shown below, select **Authenticate**), and use the default environment, then **Create**.
-
-:::image type="content" source="./media/get-started-prompt-flow/create-runtime.png" alt-text="Screenshot of add compute instance runtime tab. " lightbox = "./media/get-started-prompt-flow/create-runtime.png":::
-
+After inputting the required fields, select **Save** to create the connection.
 
 ## Create and develop your prompt flow
 
@@ -72,15 +58,25 @@ In this guide, we'll use **Web Classification** sample to walk you through the m
 
 :::image type="content" source="./media/get-started-prompt-flow/sample-in-gallery.png" alt-text="Screenshot of create from galley highlighting web classification. " lightbox = "./media/get-started-prompt-flow/sample-in-gallery.png":::
 
-After selecting **Clone**, the new flow will be saved in a specific folder within your workspace file share storage. You can customize the folder name according to your preferences.
+After selecting **Clone**, a new flow is created, and saved in a specific folder within your workspace file share storage. You can customize the folder name according to your preferences in the right panel.
 
-### Authoring page
+### Start automatic runtime (preview)
 
-After selecting **Clone**, You'll enter the authoring page.
+Then you'll enter the flow authoring page. Before we dive in, please first start a runtime.
+
+Runtime serves as the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. It's a must-have for flow execution. 
+
+For new users, we would recommend using the automatic runtime (preview) that can be used out of box, and you can easily customize the environment by adding packages in requirements.txt file in flow folder. Since starting the automatic runtime takes a while, we suggest you start it first before authoring the flow.
+
+:::image type="content" source="./media/get-started-prompt-flow/views.png" alt-text="Screenshot of starting an automatic runtime." lightbox = "./media/get-started-prompt-flow/start-automatic-runtime.png":::
+
+### Flow authoring page
+
+When the automatic runtime is creating, we can take a look at the flow authoring page.
 
 :::image type="content" source="./media/get-started-prompt-flow/views.png" alt-text="Screenshot of web classification highlighting the main working area." lightbox = "./media/get-started-prompt-flow/flatten-view.png":::
 
-At the left, it's the flatten view, the main working area where you can author the flow, for example add a new node, edit the prompt, select the flow input data, etc.
+At the left of authoring page, it's the flatten view, the main working area where you can author the flow, for example add a new node, edit the prompt, select the flow input data, etc.
 
 The top right corner shows the folder structure of the flow. Each flow has a folder that contains a flow.dag.yaml file, source code files, and system folders. You can export or import a flow easily for testing, deployment, or collaborative purposes.
 
@@ -93,12 +89,6 @@ In the bottom right corner, it's the graph view for visualization only. You can 
 In this guide, we use **Web Classification** sample to walk you through the main user journey. Web Classification is a flow demonstrating multi-class classification with LLM. Given a URL, it will classify the URL into a web category with just a few shots, simple summarization and classification prompts. For example, given \"https://www.imdb.com/\", it will classify this URL into \"Movie\".
 
 In the graph view, you can see how the sample flow looks like. The input is a URL to classify, then it uses a Python script to fetch text content from the URL, use LLM to summarize the text content within 100 words, then classify based on the URL and summarized text content, last use Python script to convert LLM output into a dictionary. The prepare_examples node is to feed few-shot examples to classification node's prompt.
-
-### Select runtime
-
-Before you start authoring, you should first select a runtime.
-
-:::image type="content" source="./media/get-started-prompt-flow/select-a-runtime.png" alt-text="Screenshot of Web classification highlighting the runtime selection drop-down." lightbox = "./media/get-started-prompt-flow/select-a-runtime.png":::
 
 ### Flow input data
 
@@ -115,7 +105,6 @@ For each LLM node, you need to select a connection to set your LLM API keys.
 :::image type="content" source="./media/get-started-prompt-flow/select-a-connection.png" alt-text="Screenshot of Web classification showing the connection drop-down." lightbox = "./media/get-started-prompt-flow/select-a-connection.png":::
 
 For this example, make sure API type is **chat** since the prompt example we provide is for chat API. To learn the prompt format difference of chat and completion API, see  [Develop a flow](./how-to-develop-flow.md). 
-
 
 Then depending on the connection type you selected, you need to select a deployment or a model. If you use Azure OpenAI connection, you need to select a deployment in drop-down (If you don't have a deployment, create one in Azure OpenAI portal by following [Create a resource and deploy a model using Azure OpenAI](../../cognitive-services/openai/how-to/create-resource.md?pivots=web-portal#deploy-a-model)). If you use OpenAI connection, you need to select a model.
 

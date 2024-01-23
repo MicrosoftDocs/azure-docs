@@ -6,8 +6,6 @@ author: duongau
 manager: kumudd
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 02/27/2023
 ms.author: duau
@@ -45,7 +43,6 @@ There are several possible causes, including:
 > [!TIP]
 > As with deploying new endpoints, CDN configuration changes take some time to propagate through the network.  Usually, changes are applied within 90 minutes.  If this is the first time you've set up compression for your CDN endpoint, you should consider waiting 1-2 hours to be sure the compression settings have propagated to the POPs. 
 > 
-> 
 
 ### Verify the request
 First, we should do a quick sanity check on the request.  You can use your browser's developer tools to view the requests being made.
@@ -53,17 +50,11 @@ First, we should do a quick sanity check on the request.  You can use your brows
 * Verify the request is being sent to your endpoint URL, `<endpointname>.azureedge.net`, and not your origin.
 * Verify the request contains an **Accept-Encoding** header, and the value for that header contains **gzip**, **deflate**, **brotli**, or **bzip2**.
 
-> [!NOTE]
-> **Azure CDN from Akamai** profiles only support **gzip** encoding.
-> 
-> 
-
 ![CDN request headers](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
 ### Verify compression settings (standard CDN profiles)
 > [!NOTE]
-> This step applies only if your CDN profile is an **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Edgio**, or **Azure CDN Standard from Akamai** profile. 
-> 
+> This step applies only if your CDN profile is an **Azure CDN Standard from Microsoft** or **Azure CDN Standard from Edgio** profile. 
 > 
 
 Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and select the **Configure** button.
@@ -76,7 +67,6 @@ Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and se
 ### Verify compression settings (Premium CDN profiles)
 > [!NOTE]
 > This step applies only if your CDN profile is an **Azure CDN Premium from Edgio** profile.
-> 
 > 
 
 Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and select the **Manage** button.  The supplemental portal opens.  Hover over the **HTTP Large** tab, then hover over the **Cache Settings** flyout.  Select **Compression**. 

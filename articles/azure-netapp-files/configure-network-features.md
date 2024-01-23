@@ -2,15 +2,9 @@
 title: Configure network features for an Azure NetApp Files volume | Microsoft Docs
 description: Describes the options for network features and how to configure the Network Features option for a volume. 
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 11/07/2023
 ms.custom: references_regions
@@ -92,7 +86,18 @@ See [regions supported for this feature](azure-netapp-files-network-topologies.m
 This feature currently doesn't support SDK.
 
 > [!NOTE]
-> You can also revert the option from *Standard* back to *Basic* network features. However, before performing the revert operation, you need to submit a waitlist request through the **[Azure NetApp Files standard networking features (edit volumes) Public Preview Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. The revert capability is expected to be enabled within a week after you submit the waitlist request. You can check the status of the registration by using the following command: 
+> The option to edit network features is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files standard networking features (edit volumes) Public Preview Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. The feature can take approximately one week to be enabled after you submit the waitlist request. You can check the status of feature registration by using the following command: 
+>
+> ```azurepowershell-interactive
+> Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBasicToStdNetworkFeaturesUpgrade                                                      
+> 
+> FeatureName                         ProviderName     RegistrationState   
+> -----------                         ------------     -----------------   
+> ANFBasicToStdNetworkFeaturesUpgrade Microsoft.NetApp Registered
+> ```
+
+> [!NOTE]
+> You can also revert the option from *Standard* back to *Basic* network features. However, before performing the revert operation, you need to submit a waitlist request through the **[Azure NetApp Files standard networking features (edit volumes) Public Preview Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. The revert capability can take approximately one week to be enabled after you submit the waitlist request. You can check the status of the registration by using the following command: 
 >
 > ```azurepowershell-interactive
 > Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFStdToBasicNetworkFeaturesRevert                                                      

@@ -5,6 +5,9 @@ ms.topic: how-to
 ms.date: 11/06/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
+author: Farha-Bano
+ms.author: v-farhabano
+manager: jsuri
 ---
 
 # Manage VMware VMs in Azure through Arc-enabled VMware vSphere

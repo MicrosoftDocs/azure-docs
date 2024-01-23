@@ -74,7 +74,7 @@ using (var client = new SshClient("<account>.blob.core.windows.net", "<account>.
 {
     client.HostKeyReceived += (sender, e) =>
         {
-            e.CanTrust = expectedFingerPrint.Contains(e.FingerPrintSHA256);
+            e.CanTrust = expectedFingerPrints.Contains(e.FingerPrintSHA256);
         };
     client.Connect();
 }

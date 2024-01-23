@@ -8,7 +8,7 @@ ms.topic: sample
 ms.date: 07/30/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown 
-ms.custom: ignite-2022, devx-track-azurepowershell
+ms.custom: ignite-2022
 ---
 
 # Create a table with autoscale for Azure Cosmos DB - API for Table

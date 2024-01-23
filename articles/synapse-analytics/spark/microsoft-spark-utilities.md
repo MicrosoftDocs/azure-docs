@@ -2,13 +2,11 @@
 title: Introduction to Microsoft Spark utilities
 description: "Tutorial: MSSparkutils in Azure Synapse Analytics notebooks"
 author: ruixinxu
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 09/10/2020
 ms.author: ruxu
-ms.reviewer:
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.custom: subject-rbac-steps, devx-track-python
 ---
@@ -1542,6 +1540,22 @@ mssparkutils.session.stop()
 > [!NOTE]
 > We don't recommend call language built-in APIs like `sys.exit` in Scala or `sys.exit()` in Python in your code, because such APIs just
 > kill the interpreter process, leaving Spark session alive and resources not released.
+
+## Package Dependencies
+
+If you want to develop notebooks or jobs locally and need to reference the relevant packages for compilation/IDE hints, you can use the following packages.
+
+:::zone pivot = "programming-language-python"
+[PyPI package](https://pypi.org/project/dummy-notebookutils/)
+::: zone-end
+
+:::zone pivot = "programming-language-r"
+[Cran package](https://cran.r-project.org/web/packages/notebookutils/index.html)
+::: zone-end
+
+:::zone pivot = "programming-language-scala"
+[Maven dependencies](https://mvnrepository.com/artifact/com.microsoft.azure.synapse/synapseutils)
+::: zone-end
 
 ## Next steps
 
