@@ -87,6 +87,8 @@ items:
           href: mqtt-request-response-messages.md                
         - name: Monitor
           items:
+          - name: Monitor Event Grid namespaces
+            href: monitor-namespaces.md
           - name: Monitoring data reference (MQTT delivery)
             href: monitor-mqtt-delivery-reference.md
         - name: Troubleshoot
@@ -172,6 +174,8 @@ items:
           href: handler-event-grid-namespace-topic.md
         - name: Monitor
           items:
+          - name: Monitor Event Grid namespaces
+            href: monitor-namespaces.md
           - name: Pull delivery data reference
             href: monitor-pull-reference.md
           - name: Push delivery data reference
