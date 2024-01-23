@@ -52,7 +52,7 @@ Use the following hardware profiles for production line monitoring, typically in
 > [!IMPORTANT]
 > Defender for IoT software versions require a minimum disk size of 100 GB. The L60 hardware profile, which only supports 60 GB of hard disk, has been deprecated.
 >
-> Migration steps from the L60 hardware profile to a supported profile can be found by following the [back up and restore a sensor](back-up-restore-sensor.md) process.
+> If you have a legacy sensor, such as the L60 hardware profile, you can migrate it to a supported profile can be found by following the [back up and restore a sensor](back-up-restore-sensor.md) process.
 
 ## On-premises management console systems
 
