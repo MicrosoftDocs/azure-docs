@@ -57,7 +57,7 @@ The following resources are created and store metadata for your workspace:
 | Service | How it's used | Example data |
 | ----- | ----- | ----- | 
 | Azure Cosmos DB | Stores job history data, compute metadata, asset metadata | Job name, status, sequence number and status; Compute cluster name, number of cores, number of nodes; Datastore names and tags, descriptions on assets like models; data labeling label names |
-| Azure AI Search | Stores indices that are used to help query your machine learning content. These indices are built on top of the data found in CosmosDB. | 
+| Azure AI Search | Stores indices that are used to help query your machine learning content. | These indices are built on top of the data found in CosmosDB as described above. | 
 | Azure Storage Account | Stores metadata related to Azure Machine Learning pipelines data. | Designer pipeline names, pipeline layout, execution properties. | 
 
 From a data lifecyle management point of view, data in the above resources are created and deleted as you create and delete their corresponding objects in Azure Machine Learning.
