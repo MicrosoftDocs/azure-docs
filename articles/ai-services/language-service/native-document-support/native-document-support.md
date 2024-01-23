@@ -28,7 +28,7 @@ Azure AI Language is a cloud-based service that applies Natural Language Process
 
 * [Personally Identifiable Information (PII)](../personally-identifiable-information/overview.md). The PII detection feature can identify, categorize, and redact sensitive information in unstructured text. The `PiiEntityRecognition` API supports native document processing.
 
-* [Document Summarization](../summarization/overview.md). Document summarization uses natural language processing to generate extractive (salient sentence extraction) or abstractive (contextual word extraction) summaries for documents. Both `AbstractiveSummarization` and `ExtractiveSummarization` APIs support native document processing.
+* [Document summarization](../summarization/overview.md). Document summarization uses natural language processing to generate extractive (salient sentence extraction) or abstractive (contextual word extraction) summaries for documents. Both `AbstractiveSummarization` and `ExtractiveSummarization` APIs support native document processing.
 
 ## Development options
 
@@ -41,7 +41,7 @@ Native document support can be integrated into your applications using the [Azur
 
 ## Supported document formats
 
- Applications use native file formats to create, save, or open native documents.  Currently Azure AI Language service supports the following native document formats:
+ Applications use native file formats to create, save, or open native documents.  Currently **PII** and **Document summarization** capabilities supports the following native document formats:
 
 |File type|File extension|Description|
 |---------|--------------|-----------|

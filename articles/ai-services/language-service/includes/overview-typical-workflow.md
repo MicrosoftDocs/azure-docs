@@ -17,6 +17,6 @@ To use this feature, you submit data for analysis and handle the API output in y
 
 2. Create a request using either the REST API or the client library for C#, Java, JavaScript, and Python. You can also send asynchronous calls with a batch request to combine API requests for multiple features into a single call.
 
-3. Send the request containing your data as raw unstructured text. Your key and endpoint will be used for authentication.
+3. Send the request containing your text data. Your key and endpoint will be used for authentication.
 
-4. Stream or store the response locally. 
+4. Stream or store the response locally.

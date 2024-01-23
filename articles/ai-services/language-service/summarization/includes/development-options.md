@@ -8,7 +8,7 @@ ms.date: 12/19/2023
 ms.author: aahi
 ---
 
-To use summarization, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use summarization:
+To use summarization, you submit for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use summarization:
 
 # [Document summarization](#tab/document-summarization)
 

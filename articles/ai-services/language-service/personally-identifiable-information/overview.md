@@ -21,21 +21,29 @@ PII detection is one of the features offered by [Azure AI Language](../overview.
 * The [**conceptual articles**](concepts/entity-categories.md) provide in-depth explanations of the service's functionality and features.
 
 PII comes into two shapes:
+
 * [PII](how-to-call.md) - works on unstructured text.
 * [Conversation PII (preview)](how-to-call-for-conversations.md) - tailored model to work on conversation transcription.
 
-
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
+
+## Supported document formats
+
+ Currently **PII** supports the following native document formats:
+
+|File type|File extension|Description|
+|---------|--------------|-----------|
+|Text| `.txt`|An unformatted text document.|
+|Adobe PDF| `.pdf`       |A portable document file formatted document.|
+|Microsoft Word| `.doc` `.docx`|A text document file.|
 
 ## Get started with PII detection
 
 [!INCLUDE [development options](./includes/development-options.md)]
 
-[!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
+[!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)]
 
-
-
-## Responsible AI 
+## Responsible AI
 
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it's deployed. Read the [transparency note for PII](/legal/cognitive-services/language-service/transparency-note-personally-identifiable-information?context=/azure/ai-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
@@ -56,4 +64,4 @@ An AI system includes not only the technology, but also the people who will use 
 
 There are two ways to get started using the entity linking feature:
 * [Language Studio](../language-studio.md), which is a web-based platform that enables you to try several Language service features without needing to write code.
-* The [quickstart article](quickstart.md) for instructions on making requests to the service using the REST API and client library SDK.  
+* The [quickstart article](quickstart.md) for instructions on making requests to the service using the REST API and client library SDK.
