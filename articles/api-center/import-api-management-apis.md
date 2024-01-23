@@ -92,7 +92,7 @@ import command will pick system-assigned identity first, then user-assigned and 
 
 ### Import all APIs from an API Management instance
 
-Use a wildcard (`*`) to specify all APIs from the API Management instance. Substitute the name of your API center and resource group in the following command:
+Use a wildcard (`*`) to specify all APIs from the API Management instance. Substitute the names of your API center and resource group in the following command:
 
 ```azurecli
 # $apimID is the full Azure resource ID of the API Management instance
@@ -106,7 +106,7 @@ az apic service import-from-apim --service-name <api-center-name> \
 
 ### Import a specific API from an API Management instance
 
-Specify an API to import by name from the API Management instance. Substitute the name of your API center and resource group in the following command:
+Specify an API to import by name from the API Management instance. Substitute the API name and the names of your API center and resource group in the following command:
 
 
 ```azurecli
