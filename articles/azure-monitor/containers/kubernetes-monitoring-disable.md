@@ -12,7 +12,7 @@ ms.reviewer: aul
 
 Use the following methods to remove [Container insights](#disable-container-insights) or [Prometheus](#disable-prometheus) from your Kubernetes cluster.
 
-## Permissions
+## Required permissions
 
 - You require at least [Contributor](../../role-based-access-control/built-in-roles.md#contributor) access to the cluster.
 
@@ -80,7 +80,6 @@ The following PowerShell and Bash scripts are available for removing Container i
 PowerShell: [disable-monitoring.ps1](https://aka.ms/disable-monitoring-powershell-script)
 
 ```powershell
-
 # Use current context
 .\disable-monitoring.ps1 -clusterResourceId <cluster-resource-id>
 
