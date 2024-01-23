@@ -178,10 +178,6 @@ Sometimes, you might encounter this error when starting a migration:
 
 In this case, you can grant the `migration user` permission to close all active connections to the database or close the connections manually before retrying the migration.
 
-## Conclusion
-
-Once the migration is complete, perform the recommended post-migration activities. Select [Post-migration activities](concepts-migration-service-postgresql.md#post-migration) to know more.
-
 ## Related content
 
 - [Migration service](concepts-migration-service-postgresql.md)
