@@ -4,7 +4,7 @@ titleSuffix: Azure AI Health Insights
 description: Radiology Insights frequently asked questions
 services: azure-health-insights
 author: JanSchietse
-manager: urJoerieVDV
+manager: JoerieVDV
 ms.service: azure-health-insights
 ms.topic: overview
 ms.date: 12/12/2023

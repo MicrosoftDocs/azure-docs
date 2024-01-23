@@ -1,3 +1,19 @@
+---
+title: Radiology Insights Inference Example lateralityDiscrepancy input
+titleSuffix: Azure AI Health Insights
+description: Radiology Insights Inference Example lateralityDiscrepancy input
+services: azure-health-insights
+author: JanSchietse
+manager: JoeriVDV
+ms.service: azure-health-insights
+ms.topic: quickstart
+ms.date: 12/06/2023
+ms.author: janschietse
+---
+
+# Inference example lateralityDiscrepancy input
+
+```json
 {
   "configuration" : {
     "inferenceOptions" : {
@@ -10,7 +26,7 @@
         "provideFocusedSentenceEvidence" : false
       }
     },
-    "inferenceTypes" : [  "followupCommunication" ],
+    "inferenceTypes" : [ "lateralityDiscrepancy" ],
     "locale" : "en-US",
     "verbose" : false,
     "includeEvidence" : false
@@ -19,7 +35,7 @@
     "id" : "11111",
     "info" : {
       "sex" : "female",
-      "birthDate" : "1959-11-11T19:00:00+00:00",
+      "birthDate" : "1986-07-01T21:00:00+00:00",
       "clinicalInfo" : [ {
         "resourceType" : "Observation",
         "status" : "unknown",
@@ -36,8 +52,8 @@
     "encounters" : [ {
       "id" : "encounterid1",
       "period" : {
-        "start" : "2021-8-28T00:00:00",
-        "end" : "2021-8-28T00:00:00"
+        "start" : "2021-08-28T00:00:00",
+        "end" : "2021-08-28T00:00:00"
       },
       "class" : "inpatient"
     } ],
@@ -51,24 +67,25 @@
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
-      "createdDateTime" : "2021-8-28T00:00:00",	  
+	  "createdDateTime" : "2021-8-28T00:00:00",
       "administrativeMetadata" : {
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
               "system" : "Https://loinc.org",
-              "code" : "36572-6",
-              "display" : "XR CHEST AP"
+              "code" : "26688-1",
+              "display" : "US BREAST - LEFT LIMITED"
             } ]
           },
-          "description" : "XR CHEST AP"
+          "description" : "US BREAST - LEFT LIMITED"
         } ],
         "encounterId" : "encounterid1"
       },
       "content" : {
         "sourceType" : "inline",
-        "value" : "\r\n\r\n\r\n\nThe results were faxed to Julie Carter on July 6 2016 at 3 PM.\n\nThe results were sent via Powerscribe to George Brown, PA.\n\n\t\t"
+        "value" : "Exam:   US LT BREAST TARGETED\r\n\r\nTechnique:  Targeted imaging of the  right breast  is performed.\r\n\r\nFindings:\r\n\r\nTargeted imaging of the left breast is performed from the 6:00 to the 9:00 position.  \r\n\r\nAt the 6:00 position, 5 cm from the nipple, there is a 3 x 2 x 4 mm minimally hypoechoic mass with a peripheral calcification. This may correspond to the mammographic finding. No other cystic or solid masses visualized.\r\n"
       }
     } ]
   } ]
 }
+```

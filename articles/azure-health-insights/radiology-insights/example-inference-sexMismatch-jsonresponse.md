@@ -1,3 +1,19 @@
+---
+title: Radiology Insights Inference Example sexMismatch output
+titleSuffix: Azure AI Health Insights
+description: Radiology Insights Inference Example sexMismatch output
+services: azure-health-insights
+author: JanSchietse
+manager: JoeriVDV
+ms.service: azure-health-insights
+ms.topic: quickstart
+ms.date: 12/06/2023
+ms.author: janschietse
+---
+
+# Inference example sexMismatch output
+
+```json
 {
   "result": {
     "patientResults": [
@@ -27,3 +43,4 @@
   "lastUpdateDateTime": "2024-01-12T07:33:29.786962Z",
   "status": "succeeded"
 }
+```

@@ -1,24 +1,41 @@
+---
+title: Radiology Insights Inference Example followupCommunication input
+titleSuffix: Azure AI Health Insights
+description: Radiology Insights Inference Example followupCommunication input
+services: azure-health-insights
+author: JanSchietse
+manager: JoeriVDV
+ms.service: azure-health-insights
+ms.topic: quickstart
+ms.date: 12/06/2023
+ms.author: janschietse
+---
+
+# Inference example followupCommunication input
+
+```json
 {
   "configuration" : {
     "inferenceOptions" : {
       "followupRecommendationOptions" : {
         "includeRecommendationsWithNoSpecifiedModality" : false,
-        "includeRecommendationsInReferences" : true,
-        "provideFocusedSentenceEvidence" : true
+        "includeRecommendationsInReferences" : false,
+        "provideFocusedSentenceEvidence" : false
       },
       "findingOptions" : {
         "provideFocusedSentenceEvidence" : false
       }
     },
-    "inferenceTypes" : [ "followupRecommendation" ],
+    "inferenceTypes" : [  "followupCommunication" ],
     "locale" : "en-US",
     "verbose" : false,
-    "includeEvidence" : true
+    "includeEvidence" : false
   },
   "patients" : [ {
     "id" : "11111",
     "info" : {
-      "sex" : "male",
+      "sex" : "female",
+      "birthDate" : "1959-11-11T19:00:00+00:00",
       "clinicalInfo" : [ {
         "resourceType" : "Observation",
         "status" : "unknown",
@@ -35,8 +52,8 @@
     "encounters" : [ {
       "id" : "encounterid1",
       "period" : {
-        "start" : "2014-2-20T00:00:00",
-        "end" : "2014-2-20T00:00:00"
+        "start" : "2021-8-28T00:00:00",
+        "end" : "2021-8-28T00:00:00"
       },
       "class" : "inpatient"
     } ],
@@ -50,24 +67,25 @@
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
-	  "createdDateTime" : "2014-2-20T00:00:00",
+      "createdDateTime" : "2021-8-28T00:00:00",	  
       "administrativeMetadata" : {
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
               "system" : "Https://loinc.org",
-              "code" : "LP207608-3",
-              "display" : "ULTRASOUND"
+              "code" : "36572-6",
+              "display" : "XR CHEST AP"
             } ]
           },
-          "description" : "ULTRASOUND"
+          "description" : "XR CHEST AP"
         } ],
         "encounterId" : "encounterid1"
       },
       "content" : {
         "sourceType" : "inline",
-        "value" : " \n\nIMPRESSION:   \n \n1. Given its size, surgical \nconsultation is recommended.\n2. Recommend ultrasound.\n3. Recommend screening.\n\nRECOMMENDATION:\n\nTHIS IS A (AAA) CASE. An aneurysm follow up program has been developed to facilitate the monitoring of your patient and the next ultrasound will be arranged based on approved guidelines. \nKP NW Practice Guidelines for Surveillance of a AAA: Recommended Imaging Intervals \n<3cm No need for followup \n3-3.9cm Every 3 years \n4-4.4cm Every 2 years \n4.5-4.9cm Female every 6 months, Male every year \n5.0-5.5cm Male every 6 months \nReferral to Vascular Surgery: \nFemale >5cm \nMale <60 years of age; >5cm \nMale >61 years of age; >5.5cm.\nIf infrarenal aorta not well seen on US, repeat in 1 month with 24 hour liquid diet. If still not well seen, CT non-contrast abd/pelvis.\n"
+        "value" : "\r\n\r\n\r\n\nThe results were faxed to Julie Carter on July 6 2016 at 3 PM.\n\nThe results were sent via Powerscribe to George Brown, PA.\n\n\t\t"
       }
     } ]
   } ]
 }
+```

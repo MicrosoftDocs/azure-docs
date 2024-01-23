@@ -1,3 +1,19 @@
+---
+title: Radiology Insights Inference Example age mismatch output
+titleSuffix: Azure AI Health Insights
+description: Radiology Insights Inference Example age mismatch output
+services: azure-health-insights
+author: JanSchietse
+manager: JoeriVDV
+ms.service: azure-health-insights
+ms.topic: quickstart
+ms.date: 12/06/2023
+ms.author: janschietse
+---
+
+# Inference example age mismatch output
+
+```json
 {
   "result": {
     "patientResults": [
@@ -18,3 +34,4 @@
   "lastUpdateDateTime": "2024-01-12T07:08:26.8320889Z",
   "status": "succeeded"
 }
+```

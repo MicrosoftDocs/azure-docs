@@ -1,3 +1,19 @@
+---
+title: Radiology Insights Inference Example limitedOrderDiscrepanc output
+titleSuffix: Azure AI Health Insights
+description: Radiology Insights Inference Example limitedOrderDiscrepanc output
+services: azure-health-insights
+author: JanSchietse
+manager: JoeriVDV
+ms.service: azure-health-insights
+ms.topic: quickstart
+ms.date: 12/06/2023
+ms.author: janschietse
+---
+
+# Inference example limitedOrderDiscrepanc output
+
+```json
 {
   "result": {
     "patientResults": [
@@ -111,3 +127,4 @@
   "lastUpdateDateTime": "2024-01-12T07:14:11.9375243Z",
   "status": "succeeded"
 }
+```

@@ -1,3 +1,19 @@
+---
+title: Radiology Insights Inference Example followupCommunication output
+titleSuffix: Azure AI Health Insights
+description: Radiology Insights Inference Example followupCommunication output
+services: azure-health-insights
+author: JanSchietse
+manager: JoeriVDV
+ms.service: azure-health-insights
+ms.topic: quickstart
+ms.date: 12/06/2023
+ms.author: janschietse
+---
+
+# Inference example followupCommunication output
+
+```json
 {
   "result": {
     "patientResults": [
@@ -32,3 +48,4 @@
   "lastUpdateDateTime": "2024-01-12T07:13:08.9740608Z",
   "status": "succeeded"
 }
+```

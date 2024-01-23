@@ -1,3 +1,20 @@
+---
+title: Radiology Insights Inference Example age mismatch input
+titleSuffix: Azure AI Health Insights
+description: Radiology Insights Inference Example age mismatch input
+services: azure-health-insights
+author: JanSchietse
+manager: JoeriVDV
+ms.service: azure-health-insights
+ms.topic: quickstart
+ms.date: 12/06/2023
+ms.author: janschietse
+---
+
+# Inference example age mismatch input
+
+
+```json
 {
   "configuration" : {
     "inferenceOptions" : {
@@ -10,13 +27,13 @@
         "provideFocusedSentenceEvidence" : false
       }
     },
-    "inferenceTypes" : [ "lateralityDiscrepancy" ],
+    "inferenceTypes" : [ "ageMismatch" ],
     "locale" : "en-US",
     "verbose" : false,
     "includeEvidence" : false
   },
   "patients" : [ {
-    "id" : "11111",
+    "id" : "111111",
     "info" : {
       "sex" : "female",
       "birthDate" : "1986-07-01T21:00:00+00:00",
@@ -51,24 +68,25 @@
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
-	  "createdDateTime" : "2021-8-28T00:00:00",
+	    "createdDateTime" : "2021-8-28T00:00:00",
       "administrativeMetadata" : {
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
               "system" : "Https://loinc.org",
-              "code" : "26688-1",
-              "display" : "US BREAST - LEFT LIMITED"
+              "code" : "41806-1",
+              "display" : "CT ABDOMEN"
             } ]
           },
-          "description" : "US BREAST - LEFT LIMITED"
+          "description" : "CT ABDOMEN"
         } ],
         "encounterId" : "encounterid1"
       },
       "content" : {
         "sourceType" : "inline",
-        "value" : "Exam:   US LT BREAST TARGETED\r\n\r\nTechnique:  Targeted imaging of the  right breast  is performed.\r\n\r\nFindings:\r\n\r\nTargeted imaging of the left breast is performed from the 6:00 to the 9:00 position.  \r\n\r\nAt the 6:00 position, 5 cm from the nipple, there is a 3 x 2 x 4 mm minimally hypoechoic mass with a peripheral calcification. This may correspond to the mammographic finding. No other cystic or solid masses visualized.\r\n"
+        "value" : "CT ABDOMEN AND PELVIS\n\nProvided history: \n78 years old Female\nAbnormal weight loss\n\nTechnique: Routine protocol helical CT of the abdomen and pelvis were performed after the injection of intravenous nonionic iodinated contrast. Axial, Sagittal and coronal 2-D reformats were obtained. Oral contrast was also administered.\n\nFindings:\nLimited evaluation of the included lung bases demonstrates no evidence of abnormality. \n\nGallbladder is absent. "
       }
     } ]
   } ]
 }
+```

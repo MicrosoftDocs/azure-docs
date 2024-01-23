@@ -1,3 +1,19 @@
+---
+title: Radiology Insights Inference Example sexMismatch input
+titleSuffix: Azure AI Health Insights
+description: Radiology Insights Inference Example sexMismatch input
+services: azure-health-insights
+author: JanSchietse
+manager: JoeriVDV
+ms.service: azure-health-insights
+ms.topic: quickstart
+ms.date: 12/06/2023
+ms.author: janschietse
+---
+
+# Inference example sexMismatch input
+
+```json
 {
   "configuration" : {
     "inferenceOptions" : {
@@ -10,7 +26,7 @@
         "provideFocusedSentenceEvidence" : false
       }
     },
-    "inferenceTypes" : [ "finding" ],
+    "inferenceTypes" : [ "sexMismatch"],
     "locale" : "en-US",
     "verbose" : false,
     "includeEvidence" : false
@@ -19,7 +35,6 @@
     "id" : "11111",
     "info" : {
       "sex" : "female",
-      "birthDate" : "2011-08-31T18:00:00+00:00",
       "clinicalInfo" : [ {
         "resourceType" : "Observation",
         "status" : "unknown",
@@ -36,8 +51,8 @@
     "encounters" : [ {
       "id" : "encounterid1",
       "period" : {
-        "start" : "2021-8-28T00:00:00",
-        "end" : "2021-8-28T00:00:00"
+        "start" : "2017-10-21T00:00:00",
+        "end" : "2017-10-21T00:00:00"
       },
       "class" : "inpatient"
     } ],
@@ -51,24 +66,25 @@
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
-      "createdDateTime" : "2021-8-28T00:00:00",
+      "createdDateTime" : "2017-10-21T00:00:00",
       "administrativeMetadata" : {
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
               "system" : "Https://loinc.org",
-              "code" : "24627-2",
-              "display" : "CT CHEST"
+              "code" : "37006-4",
+              "display" : "MG BREAST - BILATERAL MLO"
             } ]
           },
-          "description" : "CT CHEST"
+          "description" : "MG BREAST - BILATERAL MLO"
         } ],
         "encounterId" : "encounterid1"
       },
       "content" : {
         "sourceType" : "inline",
-        "value" : "\n\n\nFINDINGS:\nIn the right upper lobe, there is a new mass measuring 5.6 x 4.5 x 3.4 cm.\nA lobulated soft tissue mass is identified in the superior right lower lobe abutting the major fissure measuring 5.4 x 4.3 x 3.7 cm (series 3 image 94, coronal image 110).\nA 4 mm nodule in the right lower lobe (series 3, image 72) is increased dating back to 6/29/2012. This may represent lower lobe metastasis.\n\nIMPRESSION: 4 cm pulmonary nodule posterior aspect of the right upper lobe necessitating additional imaging as described.\n\t\t"
+        "value" : "Clinical indication: Screening mammogram on a 43 year old man.\r\n\r\nTechnique: Bilateral screening digital mammographic views with tomosynthesis.\n\r\n\r\nFindings:\nThe breast demonstrate scattered fibroglandular densities. There is a nodular density 2-3 o'clock posterior left breast. There are no suspicious masses, microcalcifications or areas of architectural distortion suggestive of malignancy. Both visualized axillae are unremarkable.\n\r\n\r\nImpression:\nNodularity 2-3 o'clock posterior left breast. Recommend left mammography in 6 months.\r\n\nFindings were discussed with Jane Doe, MD at 3:15 pm on 2023/09/05.\n \n \n \r\n\r\nRadiology Insights service surfaces insights documented by the radiologist in a radiology report. No new medical conclusions are drawn from it."
       }
     } ]
   } ]
 }
+```

@@ -1,3 +1,19 @@
+---
+title: Radiology Insights Inference Example lateralityDiscrepancy output
+titleSuffix: Azure AI Health Insights
+description: Radiology Insights Inference Example lateralityDiscrepancy output
+services: azure-health-insights
+author: JanSchietse
+manager: JoeriVDV
+ms.service: azure-health-insights
+ms.topic: quickstart
+ms.date: 12/06/2023
+ms.author: janschietse
+---
+
+# Inference example lateralityDiscrepancy output
+
+```json
 {
   "result": {
     "patientResults": [
@@ -28,3 +44,4 @@
   "lastUpdateDateTime": "2024-01-12T07:28:46.7075373Z",
   "status": "succeeded"
 }
+```

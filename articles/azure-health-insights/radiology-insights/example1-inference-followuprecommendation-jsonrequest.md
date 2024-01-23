@@ -1,3 +1,19 @@
+---
+title: Radiology Insights Inference Example followupRecommendation input
+titleSuffix: Azure AI Health Insights
+description: Radiology Insights Inference Example followupRecommendation input
+services: azure-health-insights
+author: JanSchietse
+manager: JoeriVDV
+ms.service: azure-health-insights
+ms.topic: quickstart
+ms.date: 12/06/2023
+ms.author: janschietse
+---
+
+# Inference example followupRecommendation input
+
+```json
 {
   "configuration" : {
     "inferenceOptions" : {
@@ -71,3 +87,4 @@
     } ]
   } ]
 }
+```

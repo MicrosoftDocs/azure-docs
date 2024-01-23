@@ -1,3 +1,19 @@
+---
+title: Radiology Insights Inference Example finding output
+titleSuffix: Azure AI Health Insights
+description: Radiology Insights Inference Example finding output
+services: azure-health-insights
+author: JanSchietse
+manager: JoeriVDV
+ms.service: azure-health-insights
+ms.topic: quickstart
+ms.date: 12/06/2023
+ms.author: janschietse
+---
+
+# Inference example finding output
+
+```json
 {
   "result": {
     "patientResults": [
@@ -1177,3 +1193,4 @@
   "lastUpdateDateTime": "2024-01-12T07:24:52.5370766Z",
   "status": "succeeded"
 }
+```

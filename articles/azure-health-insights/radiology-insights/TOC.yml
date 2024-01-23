@@ -13,7 +13,7 @@ items:
 - name: Responsible use of AI
   items:
     - name: Transparency note for Radiology Insights
-      href: transparencynote.md
+      href: transparency-note.md
     - name: Data, privacy, and security
       href: /azure/azure-health-insights/responsible-ai/data-privacy-security?toc=/azure/azure-health-insights/oncophenotype/toc.json
 - name: Concepts

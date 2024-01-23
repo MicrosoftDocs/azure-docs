@@ -1,3 +1,19 @@
+---
+title: Radiology Insights Inference Example followupRecommendation output 2
+titleSuffix: Azure AI Health Insights
+description: Radiology Insights Inference Example followupRecommendation output 2
+services: azure-health-insights
+author: JanSchietse
+manager: JoeriVDV
+ms.service: azure-health-insights
+ms.topic: quickstart
+ms.date: 12/06/2023
+ms.author: janschietse
+---
+
+# Inference example followupRecommendation output 2
+
+```json
 {
   "result": {
     "patientResults": [
@@ -17,7 +33,7 @@
                 {
                   "coding": [
                     {
-                      "system": "LOINC PLAYBOOK",
+                      "system": "http://loinc.org",
                       "code": "25061-3",
                       "display": "US UNSPECIFIED BODY REGION"
                     }
@@ -50,7 +66,7 @@
                     ],
                     "coding": [
                       {
-                        "system": "*SNOMED",
+                        "system": "http://snomed.info/sct",
                         "code": "16310003",
                         "display": "DIAGNOSTIC ULTRASONOGRAPHY (PROCEDURE)"
                       }
@@ -80,7 +96,7 @@
                     ],
                     "coding": [
                       {
-                        "system": "*SNOMED",
+                        "system": "http://snomed.info/sct",
                         "code": "279495008",
                         "display": "HUMAN BODY STRUCTURE (BODY STRUCTURE)"
                       }
@@ -120,311 +136,6 @@
             "findings": [],
             "isConditional": false,
             "isOption": false,
-            "isGuideline": false,
-            "isHedging": false,
-            "recommendedProcedure": {
-              "kind": "imagingProcedureRecommendation",
-              "imagingProcedures": [
-                {
-                  "modality": {
-                    "extension": [
-                      {
-                        "extension": [
-                          {
-                            "url": "reference",
-                            "valueReference": {
-                              "reference": "docid1"
-                            }
-                          },
-                          {
-                            "url": "offset",
-                            "valueInteger": 116
-                          },
-                          {
-                            "url": "length",
-                            "valueInteger": 9
-                          }
-                        ],
-                        "url": "http://hl7.org/fhir/StructureDefinition/derivation-reference"
-                      }
-                    ],
-                    "coding": [
-                      {
-                        "system": "*SNOMED",
-                        "code": "363680008",
-                        "display": "RADIOGRAPHIC IMAGING PROCEDURE (PROCEDURE)"
-                      }
-                    ]
-                  },
-                  "anatomy": {
-                    "extension": [
-                      {
-                        "extension": [
-                          {
-                            "url": "reference",
-                            "valueReference": {
-                              "reference": "docid1"
-                            }
-                          },
-                          {
-                            "url": "offset",
-                            "valueInteger": 116
-                          },
-                          {
-                            "url": "length",
-                            "valueInteger": 9
-                          }
-                        ],
-                        "url": "http://hl7.org/fhir/StructureDefinition/derivation-reference"
-                      }
-                    ],
-                    "coding": [
-                      {
-                        "system": "*SNOMED",
-                        "code": "279495008",
-                        "display": "HUMAN BODY STRUCTURE (BODY STRUCTURE)"
-                      }
-                    ]
-                  }
-                }
-              ]
-            },
-            "extension": [
-              {
-                "url": "modality_sentences",
-                "valueString": "106-126"
-              },
-              {
-                "extension": [
-                  {
-                    "url": "reference",
-                    "valueReference": {
-                      "reference": "docid1"
-                    }
-                  },
-                  {
-                    "url": "offset",
-                    "valueInteger": 116
-                  },
-                  {
-                    "url": "length",
-                    "valueInteger": 9
-                  }
-                ],
-                "url": "http://hl7.org/fhir/StructureDefinition/derivation-reference"
-              }
-            ]
-          },
-          {
-            "kind": "followupRecommendation",
-            "findings": [],
-            "isConditional": false,
-            "isOption": false,
-            "isGuideline": false,
-            "isHedging": false,
-            "recommendedProcedure": {
-              "kind": "imagingProcedureRecommendation",
-              "imagingProcedures": [
-                {
-                  "modality": {
-                    "extension": [
-                      {
-                        "extension": [
-                          {
-                            "url": "reference",
-                            "valueReference": {
-                              "reference": "docid1"
-                            }
-                          },
-                          {
-                            "url": "offset",
-                            "valueInteger": 116
-                          },
-                          {
-                            "url": "length",
-                            "valueInteger": 9
-                          }
-                        ],
-                        "url": "http://hl7.org/fhir/StructureDefinition/derivation-reference"
-                      }
-                    ],
-                    "coding": [
-                      {
-                        "system": "*SNOMED",
-                        "code": "363680008",
-                        "display": "RADIOGRAPHIC IMAGING PROCEDURE (PROCEDURE)"
-                      }
-                    ]
-                  },
-                  "anatomy": {
-                    "extension": [
-                      {
-                        "extension": [
-                          {
-                            "url": "reference",
-                            "valueReference": {
-                              "reference": "docid1"
-                            }
-                          },
-                          {
-                            "url": "offset",
-                            "valueInteger": 116
-                          },
-                          {
-                            "url": "length",
-                            "valueInteger": 9
-                          }
-                        ],
-                        "url": "http://hl7.org/fhir/StructureDefinition/derivation-reference"
-                      }
-                    ],
-                    "coding": [
-                      {
-                        "system": "*SNOMED",
-                        "code": "279495008",
-                        "display": "HUMAN BODY STRUCTURE (BODY STRUCTURE)"
-                      }
-                    ]
-                  }
-                }
-              ]
-            },
-            "extension": [
-              {
-                "url": "modality_sentences",
-                "valueString": "106-126"
-              },
-              {
-                "extension": [
-                  {
-                    "url": "reference",
-                    "valueReference": {
-                      "reference": "docid1"
-                    }
-                  },
-                  {
-                    "url": "offset",
-                    "valueInteger": 116
-                  },
-                  {
-                    "url": "length",
-                    "valueInteger": 9
-                  }
-                ],
-                "url": "http://hl7.org/fhir/StructureDefinition/derivation-reference"
-              }
-            ]
-          },
-          {
-            "kind": "followupRecommendation",
-            "findings": [],
-            "isConditional": false,
-            "isOption": false,
-            "isGuideline": false,
-            "isHedging": false,
-            "recommendedProcedure": {
-              "kind": "genericProcedureRecommendation",
-              "code": {
-                "extension": [
-                  {
-                    "extension": [
-                      {
-                        "url": "reference",
-                        "valueReference": {
-                          "reference": "docid1"
-                        }
-                      },
-                      {
-                        "url": "offset",
-                        "valueInteger": 39
-                      },
-                      {
-                        "url": "length",
-                        "valueInteger": 8
-                      }
-                    ],
-                    "url": "http://hl7.org/fhir/StructureDefinition/derivation-reference"
-                  },
-                  {
-                    "extension": [
-                      {
-                        "url": "reference",
-                        "valueReference": {
-                          "reference": "docid1"
-                        }
-                      },
-                      {
-                        "url": "offset",
-                        "valueInteger": 49
-                      },
-                      {
-                        "url": "length",
-                        "valueInteger": 12
-                      }
-                    ],
-                    "url": "http://hl7.org/fhir/StructureDefinition/derivation-reference"
-                  }
-                ],
-                "coding": [
-                  {
-                    "system": "*SNOMED",
-                    "code": "11429006",
-                    "display": "CONSULTATION (PROCEDURE)"
-                  }
-                ]
-              },
-              "description": "CONSULTATION (PROCEDURE)"
-            },
-            "extension": [
-              {
-                "url": "modality_sentences",
-                "valueString": "23-77"
-              },
-              {
-                "extension": [
-                  {
-                    "url": "reference",
-                    "valueReference": {
-                      "reference": "docid1"
-                    }
-                  },
-                  {
-                    "url": "offset",
-                    "valueInteger": 39
-                  },
-                  {
-                    "url": "length",
-                    "valueInteger": 8
-                  }
-                ],
-                "url": "http://hl7.org/fhir/StructureDefinition/derivation-reference"
-              },
-              {
-                "extension": [
-                  {
-                    "url": "reference",
-                    "valueReference": {
-                      "reference": "docid1"
-                    }
-                  },
-                  {
-                    "url": "offset",
-                    "valueInteger": 49
-                  },
-                  {
-                    "url": "length",
-                    "valueInteger": 12
-                  }
-                ],
-                "url": "http://hl7.org/fhir/StructureDefinition/derivation-reference"
-              }
-            ]
-          },
-          {
-            "kind": "followupRecommendation",
-            "findings": [],
-            "isConditional": false,
-            "isOption": false,
             "isGuideline": true,
             "isHedging": false,
             "recommendedProcedure": {
@@ -433,7 +144,7 @@
                 {
                   "coding": [
                     {
-                      "system": "LOINC PLAYBOOK",
+                      "system": "http://loinc.org",
                       "code": "86995-8",
                       "display": "GUIDANCE FOR ABSCESS"
                     }
@@ -442,7 +153,7 @@
                 {
                   "coding": [
                     {
-                      "system": "LOINC PLAYBOOK",
+                      "system": "http://loinc.org",
                       "code": "25061-3",
                       "display": "US UNSPECIFIED BODY REGION"
                     }
@@ -451,7 +162,7 @@
                 {
                   "coding": [
                     {
-                      "system": "LOINC PLAYBOOK",
+                      "system": "http://loinc.org",
                       "code": "25045-6",
                       "display": "CT UNSPECIFIED BODY REGION"
                     }
@@ -2840,7 +2551,7 @@
                     ],
                     "coding": [
                       {
-                        "system": "*SNOMED",
+                        "system": "http://snomed.info/sct",
                         "code": "363680008",
                         "display": "RADIOGRAPHIC IMAGING PROCEDURE (PROCEDURE)"
                       }
@@ -2849,7 +2560,7 @@
                   "anatomy": {
                     "coding": [
                       {
-                        "system": "*SNOMED",
+                        "system": "http://snomed.info/sct",
                         "code": "279495008",
                         "display": "HUMAN BODY STRUCTURE (BODY STRUCTURE)"
                       }
@@ -5242,11 +4953,13 @@
           }
         ]
       }
-    ]
+    ],
+    "modelVersion": "2024-01-10-Preview"
   },
-  "id": "9cc65e75-c2f8-4af3-bd5c-2cbcc626f597",
-  "createdDateTime": "2023-12-18T12:39:59.0849114Z",
-  "expirationDateTime": "2023-12-18T12:56:39.0849114Z",
-  "lastUpdateDateTime": "2023-12-18T12:40:12.6332286Z",
+  "id": "5efeb8c5-5e43-44a2-a261-2f1454271830",
+  "createdDateTime": "2024-01-12T07:12:08.1045971Z",
+  "expirationDateTime": "2024-01-12T07:28:48.1045971Z",
+  "lastUpdateDateTime": "2024-01-12T07:12:16.3194638Z",
   "status": "succeeded"
 }
+```
