@@ -52,6 +52,11 @@ Storage task assignment execution is autoscaled depending on the transaction req
 
 When the targeted storage account has lower available transaction capacity, storage task execution might be throttled resulting in longer than expected duration for completing the task assignment execution.
 
+For more information about scale limits, see [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md).
+
+> [!NOTE]
+> You can request higher capacity and ingress limits. To request an increase, contact [Azure Support](https://azure.microsoft.com/support/faq/).
+
 ## String operators on container metadata, blob metadata, and blob index tags don't work if the values are numbers
 
 You can't use string operators on container metadata, blob metadata and blob index tags along with numbers as value. For example, equals(Tags.Value[Year], '2022') where the value '2022' is a number, along with string operator equals, doesn't evaluate correctly.
