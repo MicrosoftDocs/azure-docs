@@ -13,9 +13,9 @@ ms.subservice: calling
 ms.custom: mode-other
 zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
-# How to force calling traffic to be proxied across your own server
+# Force calling traffic to be proxied across your own server
 
-In certain situations, it might be useful to have all your client traffic proxied to a server that you can control. When the SDK is initializing, you can provide the details of your servers that you would like the traffic to route to. Once enabled all the media traffic (audio/video/screen sharing) travel through the provided TURN servers instead of the Azure Communication Services defaults. This tutorial guides on how to have calling traffic be proxied to servers that you control.
+In certain situations, it might be useful to have all your client traffic proxied to a server that you can control. When the SDK is initializing, you can provide the details of your servers that you want the traffic to route to. Once enabled, all the media traffic (audio/video/screen sharing) travels through the provided TURN servers instead of the Azure Communication Services defaults. This tutorial shows you how to have calling traffic be proxied to servers that you control.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Proxy support with JavaScript](./includes/proxy-calling-support-tutorial-web.md)]
