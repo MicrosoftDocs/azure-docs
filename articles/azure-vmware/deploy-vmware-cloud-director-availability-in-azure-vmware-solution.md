@@ -65,7 +65,7 @@ Refer to our guide for detailed instructions on utilizing these run commands to 
 
 ### How do I install and configure VMware Cloud Director Availability in Azure VMware Solution? What are the prerequisites? 
 
-Deploy VMware Cloud Director Availability using run commands to enable classic engines and to access Disaster Recovery functionality. Follow this link, <VMware Cloud Director Availability in Azure VMware Solution Link from VMW> 
+Deploy VMware Cloud Director Availability using run commands to enable classic engines and to access Disaster Recovery functionality. Follow this link, VMware Cloud Director Availability in Azure VMware Solution Link from VMW.
 
 ### How is VMware Cloud Director Availability supported?
 
