@@ -63,7 +63,7 @@
         - name: Protect your resources with Defender CSPM
           displayName: CSPM, cloud security posture management, enable
           href: tutorial-enable-cspm-plan.md
-        - name: Protect your servers with Defender for Servers
+        - name: Deploy Defender for Servers
           displayName: servers, server, enable
           href: tutorial-enable-servers-plan.md
         - name: Protect your applications with Defender for App Service
@@ -478,7 +478,7 @@
     - name: Deploy
       displayName: hybrid, arc, Defender for Servers
       items:
-      - name: Protect servers with Defender for Servers
+      - name: Deploy Defender for Servers
         href: tutorial-enable-servers-plan.md
       - name: Plan Defender for Servers deployment
         items:

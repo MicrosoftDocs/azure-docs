@@ -4,7 +4,7 @@ description: This document helps you enable and manage adaptive application cont
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 01/22/2024
+ms.date: 01/23/2024
 ---
 
 # Enable and manage adaptive application controls
@@ -45,13 +45,13 @@ Select the recommendation, or open the adaptive application controls page to vie
 
 1. Open the **Recommended** tab. The groups of machines with recommended allowlists appear.
 
-   ![Recommended tab.](./media/enable-adaptive-application-controls/adaptive-application-controls-recommended-tab.png)
+   :::image type="content" source="media/enable-adaptive-application-controls/adaptive-application-recommended-tab.png" alt-text="Screenshot that shows you where on the screen the recommendation tab is."::: 
 
 1. Select a group.
 
 1. To configure your new rule, review the various sections of this **Configure application control rules** page and the contents, which will be unique to this specific group of machines:
 
-   ![Configure a new rule.](./media/enable-adaptive-application-controls/adaptive-application-controls-create-rule.png)
+    :::image type="content" source="media/enable-adaptive-application-controls/adaptive-application-create-rule.png" alt-text="Screenshot that shows you the order you need to follow to configure application control rules in the portal.":::
 
    1. **Select machines** - By default, all machines in the identified group are selected. Unselect any to remove them from this rule.
 
@@ -82,7 +82,7 @@ To edit the rules for a group of machines:
 
    1. Select **Add rule**.
 
-      ![Add a custom rule.](./media/enable-adaptive-application-controls/adaptive-application-add-custom-rule.png)
+    :::image type="content" source="media/enable-adaptive-application-controls/adaptive-application-add-custom-rule.png" alt-text="Screenshot that showsyou where the add rule button is located.":::
 
    1. If you're defining a known safe path, change the **Rule type** to 'Path' and enter a single path. You can include wildcards in the path. The following screens show some examples of how to use wildcards.
 
