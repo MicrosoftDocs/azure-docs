@@ -13,7 +13,7 @@ ms.date: 08/08/2023
 
    :::image type="content" source="./media/vpn-gateway-basic-vnet-rm-portal-include/basics.png" alt-text="Screenshot that shows the Basics tab." lightbox="./media/vpn-gateway-basic-vnet-rm-portal-include/basics.png":::
 
-   * **Subscription**: Verify that the subscription listed is the correct one. You can change subscriptions by using the dropdown list.
+   * **Subscription**: Verify that the subscription listed is the correct one. You can change subscriptions by using the dropdown box.
    * **Resource group**: Select an existing resource group or select **Create new** to create a new one. For more information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/management/overview.md#resource-groups).
    * **Name**: Enter the name for your virtual network.
    * **Region**: Select the location for your virtual network. The location determines where the resources that you deploy to this virtual network will live.
@@ -23,9 +23,10 @@ ms.date: 08/08/2023
 1. Select **IP Addresses** to go to the **IP Addresses** tab. On the **IP Addresses** tab, configure the settings.
 
    * **IPv4 address space**: By default, an address space is automatically created. You can select the address space and adjust it to reflect your own values. You can also add a different address space and remove the default that was automatically created. For example, you can specify the starting address as **10.1.0.0** and specify the address space size as **/16**. Then select **Add** to add that address space.
-   * **+ Add subnet**: If you use the default address space, a default subnet is created automatically. If you change the address space, add a new subnet within that address space. Select **+ Add subnet** to open the **Add subnet** window. Configure the following settings and then select **Add** at the bottom of the page to add the values.
-      * **Subnet name**: An example is **FrontEnd**.
-      * **Subnet address range**: The address range for this subnet. Examples are **10.1.0.0** and **/24**.
+   * **+ Add subnet**: If you use the default address space, a default subnet is created automatically. If you change the address space, add a new subnet within that address space. Select **+ Add subnet** to open the **Add subnet** window. Configure the following settings, and then select **Add** at the bottom of the page to add the values.
+
+     * **Subnet name**: An example is **FrontEnd**.
+     * **Subnet address range**: The address range for this subnet. Examples are **10.1.0.0** and **/24**.
 
 1. Review the **IP addresses** page and remove any address spaces or subnets that you don't need.
 1. Select **Review + create** to validate the virtual network settings.
