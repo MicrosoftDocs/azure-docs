@@ -6,7 +6,6 @@ ms.service: api-center
 ms.topic: how-to
 ms.date: 01/12/2024
 ms.author: danlep 
-ms.custom: 
 # Customer intent: As an API program manager, I want to automate processes to register and update APIs in my Azure API center.
 ---
 

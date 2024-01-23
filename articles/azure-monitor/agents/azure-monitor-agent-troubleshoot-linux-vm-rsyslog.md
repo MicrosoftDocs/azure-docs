@@ -1,11 +1,11 @@
 ---
-title: Syslog troubleshooting on Azure Monitor Agent for Linux 
+title: Syslog troubleshooting on Azure Monitor Agent for Linux
 description: Guidance for troubleshooting rsyslog issues on Linux virtual machines, scale sets with Azure Monitor Agent, and data collection rules.
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.date: 5/31/2023
-ms.custom: references_region, devx-track-linux
+ms.custom: references_region, linux-related-content
 ms.reviewer: shseth
 ---
 # Syslog troubleshooting guide for Azure Monitor Agent for Linux
@@ -76,7 +76,7 @@ In some cases, `du` might not report any large files or directories. It might be
 
 ```bash
    sudo lsof +L1
-```   
+```
 
 ```output
 COMMAND   PID   USER   FD   TYPE DEVICE   SIZE/OFF NLINK  NODE NAME

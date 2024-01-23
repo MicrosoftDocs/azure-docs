@@ -5,7 +5,7 @@ author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
-ms.date: 02/20/2020
+ms.date: 01/19/2024
 ms.topic: conceptual
 ---
 
