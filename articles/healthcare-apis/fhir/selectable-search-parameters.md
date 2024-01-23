@@ -1,5 +1,5 @@
 ---
-title:  Selectable search parameters in the FHIR service of Azure Health Data Services
+title:  Selectable search parameters for the FHIR service in Azure Health Data Services
 description: Learn how to use selectable search parameters in the FHIR service of Azure Health Data Services to customize and optimize your searches on FHIR resources. Save storage space and improve performance by enabling only the search parameters you need.
 author: expekesheth
 ms.service: healthcare-apis
@@ -9,15 +9,10 @@ ms.date: 01/24/2023
 ms.author: kesheth
 ---
 
-# Selectable search parameter capability  
-Searching for resources is fundamental to the FHIR service. Each resource in the FHIR service carries information as a set of elements. Search parameters work to query the information in these elements. When the FHIR service is deployed, [predefined search parameters](https://www.hl7.org/fhir/searchparameter-registry.html) are enabled by default. The FHIR service performs efficient searches by extracting and indexing specific properties from FHIR resources during the ingestion of data. 
+# Selectable search parameters 
+Searching for resources is fundamental to the FHIR&reg; service. Each resource in the FHIR service carries information as a set of elements. Search parameters work to query the information in these elements. When the FHIR service is deployed, [predefined search parameters](https://www.hl7.org/fhir/searchparameter-registry.html) are enabled by default. The FHIR service performs efficient searches by extracting and indexing specific properties from FHIR resources during the ingestion of data. 
 
 Selectable search parameters allow you to enable or disable predefined search parameters. This capability helps you store more resources in allocated storage space and improve performance by enabling only the search parameters you need.
-
-> [!IMPORTANT]
-> The selectable search parameter capability is available for preview. Preview APIs and SDKs are provided without a service-level agreement (SLA). We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## Guide on using selectable search parameter 
 
 To perform status updates on search parameters, follow these main steps:
 
@@ -27,7 +22,11 @@ To perform status updates on search parameters, follow these main steps:
 
 In this article, we demonstrate FHIR search syntax in example API calls with the {{FHIR_URL}} placeholder to represent the FHIR server URL. 
 
-### Get the status of search parameters
+> [!IMPORTANT]
+> The selectable search parameter capability is available for preview. Preview APIs and SDKs are provided without a service-level agreement (SLA). We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+## Get the status of search parameters
 An API endpoint (‘$status’) is provided to view the status of search parameters.
 
 There are four statuses in the response: 
@@ -36,7 +35,7 @@ There are four statuses in the response:
 | --- | --- |
 | Supported | The search parameter is supported by the FHIR service, and you submitted requests to enable the search parameter. Execute the reindex operation to run from supported to enabled. |
 | Enabled | The search parameter is enabled for searching. This status is the next step after the supported status. |
-| PendingDisable | The search parameter disable is pending after execution of the reindex operation. |
+| PendingDisable | Disabling the search parameter is pending after execution of the reindex operation. |
 | Disabled | The search parameter is disabled. |
 
 
@@ -46,15 +45,15 @@ GET {{FHIR_URL}}/SearchParameter/$status
 ```
 
 To identify the status of individual or a subset of search parameters use these filters.
-* **Name**: To identify search parameter status by name use request,
+* **Name**. To identify search parameter status by name, use this request:
 ```rest
    GET {{FHIR_URL}}/SearchParameter/$status?code=<name of search parameter/ sub string>
 ```
-* **URL**: To identify search parameter status by its canonical identifier use request,
+* **URL**. To identify search parameter status by its canonical identifier, use this request:
 ```rest
 GET {{FHIR_URL}}/SearchParameter/$status?url=<SearchParameter url>
 ``` 
-* **Resource type**: In FHIR, search parameters are enabled at individual resource level to enable filtering and retrieving specific subset of resources. To identify status of all the search parameters mapped to resource, use request.
+* **Resource type**. In FHIR, search parameters are enabled at the individual resource level to allow filtering and retrieving of a specific subset of resources. To identify the status of all the search parameters mapped to a resource, use this request:
 ```rest
 GET {{FHIR_URL}}/SearchParameter/$status?resourcetype=<ResourceType name>
 ```
@@ -78,14 +77,19 @@ In response to the GET request to $status endpoint, the parameters resource type
   ]
 }
 ```
-Now that you're aware on how to get the status of search parameters, lets move to the next step to understand on updating the status of search parameters to 'Supported' or 'Disabled'.
 
-### Update the status of search parameters
-To update the status of search parameters, you need to be assigned thAzure RBAC role **Search Parameter Manager**.
+## Update the status of search parameters
 
-Search Parameter Status can be updated for a single search parameter or in bulk.
-#### Update Single search parameter status
-To update the status of single search parameter, use this API request. 
+After you get the status of search parameters, update the status of search parameters to 'Supported' or 'Disabled'.
+
+> [!NOTE]
+> To update the status of search parameters, you need to be assigned to the **Search Parameter Manager** Azure RBAC role.
+
+Search parameter status can be updated for a single search parameter or in bulk.
+
+#### Update a single search parameter status
+
+To update the status of a single search parameter, use this API request: 
 
 ```rest
 PUT {{FHIR_URL}}/SearchParameter/$status
@@ -113,7 +117,7 @@ Depending on your use case, you can keep the status state value to either ‘Sup
 
 If you receive a 400 HTTP status code in the response, it means there's no unique match for identified search Parameter. Check the search parameter ID. 
 
-#### Update search parameter status in bulk
+#### Update search parameter statuses in bulk
 To update the status of search parameters in bulk, the ‘PUT’ request should have the ‘Parameters’ resource list in the request body. The list needs to contain the individual search parameters that need to be updated. 
 
 ```rest
@@ -147,10 +151,11 @@ PUT {{FHIR_URL}}/SearchParameter/$status
 }
 ```
 
-After you update the search parameter status to 'Supported' or 'Disabled', the next step is to execute reindex job. 
+## Execute a reindex job
 
-### Execute a reindex job
-Until the search parameter is indexed, the 'Enabled' and 'Disabled' status of the search parameters aren't activated. Reindex job execution helps to update the status from 'Supported' to 'Enabled' or 'PendingDisable' to 'Disabled'.
+After you update the search parameter status to 'Supported' or 'Disabled', the next step is to execute a reindex job. 
+
+Until the search parameter is indexed, the 'Enabled' and 'Disabled' status of the search parameters aren't activated. Reindex job execution updates the status from 'Supported' to 'Enabled' or 'PendingDisable' to 'Disabled'.
 
 A reindex job can be executed against the entire FHIR service database or against specific search parameters. A reindex job can be performance intensive. For more information, see [Run a reindex job](how-to-run-a-reindex.md).
 

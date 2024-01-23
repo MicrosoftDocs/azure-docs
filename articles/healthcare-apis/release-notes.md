@@ -1,24 +1,24 @@
 ---
 title: Azure Health Data Services monthly releases
-description: Find out about new capabilities and enhancements released monthly for Azure Health Data Services.
+description: Stay updated with the latest features and improvements of Azure Health Data Services. Read the monthly release notes and learn how to get the most out of healthcare data.
 services: healthcare-apis
 author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: workspace
 ms.topic: reference
-ms.date: 01/22/2023
+ms.date: 01/24/2023
 ms.author: kavitagaddam 
 ms.custom: references_regions
 ---
 
 # Release notes: Azure Health Data Services
 
-> Azure Health Data Services is generally available. 
->For more information about Azure Health Data Services Service Level Agreements, see [SLA for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
-
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. 
 
 This article provides details about the features and enhancements made to Azure Health Data Services, including the different services (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
+
+> [!IMPORTANT]
+> Azure Health Data Services is generally available. For more information, see the [Service Level Agreement (SLA) for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
 
 ## January 2024
 
@@ -35,6 +35,14 @@ Learn more:
 - [Bulk update DICOM files](dicom/update-files.md)
 
 ### FHIR service
+
+**Selectable search parameters capability is available for preview**
+
+The selectable search parameters capability allows you to customize and optimzize searches on FHIR resources. The capability lets choose which predefined search parameters to enable or disable for the FHIR service. By enabling only the search parameters you need, you can save storage space, improve performance, and tailor searches to specific use cases. 
+
+Learn more: 
+
+- [Selectable search parameters for the FHIR service](/fhir/selectable-search-parameters.md)
 
 **FHIR service integration with Azure Active Directory B2C is generally available**
 
