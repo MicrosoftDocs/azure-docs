@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Deploy Application Gateway for Containers ALB Controller (preview)'
+title: 'Quickstart: Deploy Application Gateway for Containers ALB Controller '
 titlesuffix: Azure Application Load Balancer
 description: In this quickstart, you learn how to provision the Application Gateway for Containers ALB Controller in an AKS cluster.
 services: application-gateway
@@ -12,17 +12,13 @@ ms.date: 12/05/2023
 ms.author: greglin
 ---
 
-# Quickstart: Deploy Application Gateway for Containers ALB Controller (preview)
+# Quickstart: Deploy Application Gateway for Containers ALB Controller 
 
 The [ALB Controller](application-gateway-for-containers-components.md#application-gateway-for-containers-alb-controller) is responsible for translating Gateway API and Ingress API configuration within Kubernetes to load balancing rules within Application Gateway for Containers.  The following guide walks through the steps needed to provision an ALB Controller into a new or existing AKS cluster.
 
 ## Prerequisites
 
 You need to complete the following tasks prior to deploying Application Gateway for Containers on Azure and installing ALB Controller on your cluster:
-
-> [!IMPORTANT]
-> Application Gateway for Containers is currently in PREVIEW.<br>
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 1. Prepare your Azure subscription and your `az-cli` client.
 
@@ -62,7 +58,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
     ```azurecli-interactive
     AKS_NAME='<your cluster name>'
     RESOURCE_GROUP='<your resource group name>'
-    LOCATION='northeurope' # The list of available regions may grow as we roll out to more preview regions
+    LOCATION='northeurope' # The list of available regions may grow as we roll out to more regions
     VM_SIZE='<the size of the vm in AKS>' # The size needs to be available in your location
 
     az group create --name $RESOURCE_GROUP --location $LOCATION

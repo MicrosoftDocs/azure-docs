@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Application Gateway for Containers (preview)
+title: Troubleshoot Application Gateway for Containers 
 description: Learn how to troubleshoot common issues with Application Gateway for Containers
 services: application-gateway
 author: greglin
@@ -10,7 +10,7 @@ ms.date: 12/05/2023
 ms.author: greglin
 ---
 
-# Troubleshooting in Application Gateway for Containers (preview)
+# Troubleshooting in Application Gateway for Containers 
 
 This article provides some guidance to help you troubleshoot common problems in Application Gateway for Containers.
 

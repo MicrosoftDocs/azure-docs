@@ -10,7 +10,7 @@ ms.date: 01/03/2024
 ms.author: greglin
 ---
 
-# Header rewrite for Azure Application Gateway for Containers - Gateway API (preview)
+# Header rewrite for Azure Application Gateway for Containers - Gateway API 
 
 Application Gateway for Containers allows you to rewrite HTTP headers of client requests and responses from backend targets.
 
@@ -26,10 +26,6 @@ The following figure illustrates a request with a specific user agent being rewr
 [ ![A diagram showing the Application Gateway for Containers rewriting a request header to the backend.](./media/how-to-header-rewrite-gateway-api/header-rewrite.png) ](./media/how-to-header-rewrite-gateway-api/header-rewrite.png#lightbox)
 
 ## Prerequisites
-
-> [!IMPORTANT]
-> Application Gateway for Containers is currently in PREVIEW.<br>
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 1. If following the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
 2. If you're following the ALB managed deployment strategy, ensure provisioning of the [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).

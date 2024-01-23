@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions about Azure Application Gateway for Containers (preview)
+  title: Frequently asked questions about Azure Application Gateway for Containers 
   description: Find answers to frequently asked questions about Azure Application Gateway for Containers.
   services: application-gateway
   author: greglin
@@ -10,7 +10,7 @@ metadata:
   ms.date: 09/25/2023
   ms.author: greglin
     
-title: Frequently asked questions about Application Gateway for Containers (preview)
+title: Frequently asked questions about Application Gateway for Containers 
 summary: The following are common questions asked about Azure Application Gateway for Containers.
 
 sections:

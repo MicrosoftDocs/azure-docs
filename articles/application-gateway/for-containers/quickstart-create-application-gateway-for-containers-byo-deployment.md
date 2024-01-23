@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create Application Gateway for Containers - bring your own deployment (preview)'
+title: 'Quickstart: Create Application Gateway for Containers - bring your own deployment '
 description: In this quickstart, you learn how to provision and manage the Application Gateway for Containers Azure resources independent from Kubernetes configuration.
 services: application-gateway
 author: greglin
@@ -11,15 +11,11 @@ ms.date: 07/24/2023
 ms.author: greglin
 ---
 
-# Quickstart: Create Application Gateway for Containers - bring your own deployment (preview)
+# Quickstart: Create Application Gateway for Containers - bring your own deployment 
 
 This guide assumes you're following the **bring your own** [deployment strategy](overview.md#deployment-strategies), where ALB Controller references the Application Gateway for Containers resources precreated in Azure. It's assumed that resource lifecycles are managed in Azure, independent from what is defined within Kubernetes. 
 
 ## Prerequisites
-
-> [!IMPORTANT]
-> Application Gateway for Containers is currently in PREVIEW.<br>
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Ensure you have first deployed ALB Controller into your Kubernetes cluster.  You may follow the [Quickstart: Deploy Application Gateway for Containers ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) guide if you haven't already deployed the ALB Controller.
 
