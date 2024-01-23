@@ -7,7 +7,7 @@ author: msjuergent
 manager: bburns
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/21/2023
+ms.date: 01/22/2024
 ms.author: juergent
 ---
 
@@ -56,6 +56,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- Changes in all high availability documentation to include guidelines for setting the “probeThreshold” property to 2 in the load balancer’s health probe configuration.
 - January 21, 2024: Change recommendations around LARGEPAGES in [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md)
 - December 15, 2023: Change recommendations around DIRECTIO and LVM in [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md)
 - December 11, 2023: Add RHEL requirements to [HANA third site for multi-target replication](./disaster-recovery-sap-hana.md) and integrating into a Pacemaker cluster.
@@ -157,5 +158,3 @@ In the SAP workload documentation space, you can find the following areas:
 - October 26, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to update resource names in HANA scale-out Active/Active (Read Enabled) configuration
 - October 19, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to add instructions for HANA scale-out Active/Active (Read Enabled) configuration
 - October 11, 2021: Change in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](./sap-high-availability-guide-wsfc-shared-disk.md), [Prepare the Azure infrastructure for SAP HA by using a Windows failover cluster and shared disk for SAP ASCS/SCS](./sap-high-availability-infrastructure-wsfc-shared-disk.md) and [SAP ASCS/SCS instance multi-SID high availability with Windows server failover clustering and Azure shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) to add instructions about zone redundant storage (ZRS) for Azure shared disk support
-
-
