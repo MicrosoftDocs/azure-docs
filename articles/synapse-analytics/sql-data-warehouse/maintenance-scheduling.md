@@ -4,7 +4,7 @@ description: Maintenance scheduling enables customers to plan around the necessa
 author: sowmi93
 ms.author: sosivara
 ms.reviewer: sngun
-ms.date: 11/28/2022
+ms.date: 01/10/2024
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
@@ -57,7 +57,8 @@ To view the maintenance schedule that has been applied to your Synapse SQL pool,
 
 ## Skip or change maintenance schedule
 
-To ensure compliance with latest security requirements, we are unable to accommodate requests to skip or delay these updates. However, you may have some options to adjust your maintenance window within the current cycle depending on your situation:
+To ensure compliance with latest security requirements, we are unable to accommodate requests to skip or delay these updates. However, you may have some options to adjust your maintenance window if you are using DW500c and higher
+data warehouse tiers within the current cycle depending on your situation:
 - If you receive a pending notification for maintenance, and you need more time to finish your jobs or notify your team, you can change the window start time as long as you do so before the beginning of your defined maintenance window. This will shift your window forward in time within the cycle.
 
 - You can manually trigger the maintenance by pausing and resuming (or scaling) your SQL Dedicated pool after the start of a cycle for which a "Pending" notification has been received. The weekend maintenance cycle starts on Saturday at 00:00 UTC; the midweek maintenance cycle starts Tuesday at 12:00 UTC.

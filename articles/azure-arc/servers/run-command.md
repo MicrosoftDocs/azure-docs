@@ -28,11 +28,11 @@ Run Command on Azure Arc-enabled servers supports the following operations:
 
 |Operation  |Description  |
 |---------|---------|
-|[Create](https://review.learn.microsoft.com/en-us/rest/api/hybridcompute/machine-run-commands/create-or-update?view=rest-hybridcompute-2023-10-03-preview&branch=main&tabs=HTTP) |The operation to create a run command. This runs the run command. |
-|[Delete](/rest/api/hybridcompute/machine-run-commands/delete?view=rest-hybridcompute-2023-10-03-preview&tabs=HTTP) |The operation to delete a run command. If it's running, delete will also stop the run command. |
-|[Get](/rest/api/hybridcompute/machine-run-commands/get?view=rest-hybridcompute-2023-10-03-preview&tabs=HTTP) |The operation to get a run command. |
-|[List](/rest/api/hybridcompute/machine-run-commands/list?view=rest-hybridcompute-2023-10-03-preview&tabs=HTTP) |The operation to get all the run commands of an Azure Arc-enabled server. |
-|[Update](/rest/api/hybridcompute/machine-run-commands/update?view=rest-hybridcompute-2023-10-03-preview&tabs=HTTP) |The operation to update the run command. This stops the previous run command. |
+|[Create](/rest/api/hybridcompute/machine-run-commands/create-or-update?tabs=HTTP) |The operation to create a run command. This runs the run command. |
+|[Delete](/rest/api/hybridcompute/machine-run-commands/delete?tabs=HTTP) |The operation to delete a run command. If it's running, delete will also stop the run command. |
+|[Get](/rest/api/hybridcompute/machine-run-commands/get?tabs=HTTP) |The operation to get a run command. |
+|[List](/rest/api/hybridcompute/machine-run-commands/list?tabs=HTTP) |The operation to get all the run commands of an Azure Arc-enabled server. |
+|[Update](/rest/api/hybridcompute/machine-run-commands/update?tabs=HTTP) |The operation to update the run command. This stops the previous run command. |
  
 > [!NOTE]
 > Output and error blobs are overwritten each time the run command script executes.
@@ -40,11 +40,11 @@ Run Command on Azure Arc-enabled servers supports the following operations:
 
 ## Example scenarios
 
-Suppose you have an Azure Arc-enabled server called “2012DatacenterServer1” in resource group “ContosoRG” with Subscription ID “aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa”. Consider a scenario where you need to provide remote access to an endpoint for Windows Server 2012 / R2 servers. Access to Extended Security Updates enabled by Azure Arc requires access to the endpoint `microsoft.com/pkiops/certs`. You need to remotely configure a firewall rule that allows access to this endpoint. Use Run Command in order to allow connectivity to this endpoint.
+Suppose you have an Azure Arc-enabled server called “2012DatacenterServer1” in resource group “ContosoRG” with Subscription ID “aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa”. Consider a scenario where you need to provide remote access to an endpoint for Windows Server 2012 / R2 servers. Access to Extended Security Updates enabled by Azure Arc requires access to the endpoint `www.microsoft.com/pkiops/certs`. You need to remotely configure a firewall rule that allows access to this endpoint. Use Run Command in order to allow connectivity to this endpoint.
 
 ### Example 1: Endpoint access with Run Command
 
-Start off by creating a Run Command script to provide endpoint access to the `microsoft.com/pkiops/certs` endpoint on your target Arc-enabled server using the PUT operation.
+Start off by creating a Run Command script to provide endpoint access to the `www.microsoft.com/pkiops/certs` endpoint on your target Arc-enabled server using the PUT operation.
 
 To directly provide the script in line, use the following operation:
 
@@ -60,11 +60,11 @@ PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa
     "parameters": [
       {
         "name": "ruleName",
-        "value": " Allow access to microsoft.com/pkiops/certs"
+        "value": " Allow access to www.microsoft.com/pkiops/certs"
       },
       {
         "name": "endpoint",
-        "value": ""microsoft.com/pkiops/certs"
+        "value": "www.microsoft.com/pkiops/certs"
       },
       {
         "name": "port",
@@ -100,11 +100,11 @@ PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa
     "parameters": [
       {
         "name": "ruleName",
-        "value": " Allow access to microsoft.com/pkiops/certs"
+        "value": " Allow access to www.microsoft.com/pkiops/certs"
       },
       {
         "name": "endpoint",
-        "value": ""microsoft.com/pkiops/certs"
+        "value": "www.microsoft.com/pkiops/certs"
       },
       {
         "name": "port",
@@ -207,5 +207,5 @@ To disable the Run Command on Azure Arc-enabled servers, open an administrative 
 
 **Linux**
 
-sudo azcmagent config set extensions.blocklist "microsoft.cplat.core/runcommandhandlerlinux"
+`sudo azcmagent config set extensions.blocklist "microsoft.cplat.core/runcommandhandlerlinux"`
 

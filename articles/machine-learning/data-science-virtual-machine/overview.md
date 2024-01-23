@@ -1,11 +1,11 @@
 ---
 title: What is the Azure Data Science Virtual Machine
-titleSuffix: Azure Data Science Virtual Machine 
+titleSuffix: Azure Data Science Virtual Machine
 description: Overview of Azure Data Science Virtual Machine - An easy to use virtual machine on the Azure cloud platform with preinstalled and configured tools and libraries for doing data science.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 ms.service: data-science-vm
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 author: jesscioffi
 ms.author: jcioffi
 ms.reviewer: mattmcinnes
@@ -47,7 +47,7 @@ The DSVM is a customized VM image for Data Science but [Azure Machine Learning](
 
 Key differences between these:
 
-|Feature |Data Science<br>VM |Azure Machine Learning<br>Compute Instance  | 
+|Feature |Data Science<br>VM |Azure Machine Learning<br>Compute Instance  |
 |---------|---------|---------|
 | Fully Managed | No        | Yes        |
 |Language Support     |  Python, R, Julia, SQL, C#,<br> Java, Node.js, F#       | Python and R        |
@@ -73,7 +73,7 @@ You can use the DSVM to evaluate or learn new data science [tools](./tools-inclu
 
 In the DSVM, your training models can use deep learning algorithms on hardware that's based on graphics processing units (GPUs). By taking advantage of the VM scaling capabilities of the Azure platform, the DSVM helps you use GPU-based hardware in the cloud according to your needs. You can switch to a GPU-based VM when you're training large models, or when you need high-speed computations while keeping the same OS disk. You can choose any of the N series GPUs enabled virtual machine SKUs with DSVM. Note GPU enabled virtual machine SKUs aren't supported on Azure free accounts.
 
-The Windows editions of the DSVM come preinstalled with GPU drivers, frameworks, and GPU versions of deep learning frameworks. On the Linux editions, deep learning on GPUs is enabled on the Ubuntu DSVMs. 
+The Windows editions of the DSVM come preinstalled with GPU drivers, frameworks, and GPU versions of deep learning frameworks. On the Linux editions, deep learning on GPUs is enabled on the Ubuntu DSVMs.
 
 You can also deploy the Ubuntu or Windows editions of the DSVM to an Azure virtual machine that isn't based on GPUs. In this case, all the deep learning frameworks falls back to the CPU mode.
 

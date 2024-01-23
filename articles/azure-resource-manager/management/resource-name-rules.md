@@ -4,8 +4,7 @@ description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
-ms.reviewer: franksolomon
-ms.date: 01/03/2024
+ms.date: 01/19/2024
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -135,7 +134,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | privateClouds | resource group | 1-80 | Alphanumerics, periods, hyhens, and underscores.<br>Start with alphanumeric and end with alphanumeric or underscore. |
+> | privateClouds | resource group | 1-80 | Alphanumerics, periods, hyhens, and underscores.<br><br>Start with alphanumeric and end with alphanumeric or underscore. |
 
 ## Microsoft.Batch
 
@@ -400,6 +399,15 @@ In the following tables, the term alphanumeric refers to:
 > | servers / firewallRules | servers | 1-128 | Alphanumerics, hyphens, and underscores. |
 > | servers / virtualNetworkRules | servers | 1-128 | Alphanumerics and hyphens. |
 
+## Microsoft.DesktopVirtualization
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | applicationGroups | resource group | 3-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with letter or number. End with letter, number, or underscore. |
+> | hostPools | resource group | 3-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with letter or number. End with letter, number, or underscore. |
+> | workspaces | resource group | 3-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with letter or number. End with letter, number, or underscore. |
+
 ## Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
@@ -568,6 +576,13 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | userAssignedIdentities | resource group | 3-128 | Alphanumerics, hyphens, and underscores<br><br>Start with letter or number. |
 
+## Microsoft.Management
+
+>[!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | managementgroups | tenant | 1-90 | Alphanumerics, hyphens, underscores, periods, and parentheses. <br><br> Start with letter or number.<br><br>Cannot end with period. |
+
 ## Microsoft.Maps
 
 > [!div class="mx-tableFixed"]
@@ -646,6 +661,8 @@ In the following tables, the term alphanumeric refers to:
 > | privateDnsZones | resource group | 1-63 characters<br><br>2 to 34 labels<br><br>Each label is a set of characters separated by a period. For example, **contoso.com** has 2 labels. | Each label can contain alphanumerics, underscores, and hyphens.<br><br>Each label is separated by a period. |
 > | privateDnsZones / virtualNetworkLinks | private DNS zone | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | privateEndpoints | resource group | 2-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | privateLinkServices | resource group | 2-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | privateLinkServices / privateEndpointConnections | private link service | 2-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | publicIPAddresses | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | publicIPPrefixes | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | routeFilters | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
@@ -886,6 +903,7 @@ In the following tables, the term alphanumeric refers to:
 > | serverfarms | resource group | 1-60 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode |
 > | sites | global or per domain. See note below. | 2-60 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode<br><br>Can't start or end with hyphen. |
 > | sites / slots | site | 2-59 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode |
+> | sites / privateEndpointConnections | site | 2-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 
 > [!NOTE]
 > A web site must have a globally unique URL. When you create a web site that uses a hosting plan, the URL is `http://<app-name>.azurewebsites.net`. The app name must be globally unique. When you create a web site that uses an App Service Environment, the app name must be unique within the [domain for the App Service Environment](../../app-service/environment/using-an-ase.md#app-access). For both cases, the URL of the site is globally unique.

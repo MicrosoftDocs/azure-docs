@@ -100,9 +100,9 @@ Azure AI Search is rolling out increased vector index size limits worldwide for 
 
 The following regions **do not** support increased limits:
 
-- Germany West Central
-- Jio India West
-- Qatar Central
++ Germany West Central
++ West India
++ Qatar Central
 
 | Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 | ----- | ------------------ | ------------------------------------------ | ---------------------------- |
@@ -138,7 +138,7 @@ Maximum running times exist to provide balance and stability to the service as a
 
 <sup>4</sup> Maximum of 30 skills per skillset.
 
-<sup>5</sup> Regarding the 2 or 24 hour maximum duration for indexers: a 2-hour maximum is the most common and it's what you should plan for. The 24-hour limit is from an older indexer implementation. If you have unscheduled indexers that run continuously for 24 hours, it's because those indexers couldn't be migrated to the newer runtime behavior. For extra large data sets, indexers can be made to run longer than maximum limits if you put them on a [2-hour run time schedule](search-howto-schedule-indexers.md). When the first 2-hour interval is complete, the indexer picks up where it left off to start the next 2-hour interval.
+<sup>5</sup> Regarding the 2 or 24 hour maximum duration for indexers: a 2-hour maximum is the most common and it's what you should plan for. The 24-hour limit is from an older indexer implementation. If you have unscheduled indexers that run continuously for 24 hours, it's because those indexers couldn't be migrated to the newer infrastructure. As a general rule, for indexing jobs that can't finish within two hours, put the indexer on a [2-hour schedule](search-howto-schedule-indexers.md). When the first 2-hour interval is complete, the indexer picks up where it left off when starting the next 2-hour interval.
 
 <sup>6</sup> Skillset execution, and image analysis in particular, are computationally intensive and consume disproportionate amounts of available processing power. Running time for these workloads has been shortened to give other jobs in the queue more opportunity to run.
 

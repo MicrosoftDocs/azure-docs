@@ -11,8 +11,7 @@ author: mrbullwinkle #noabenefraim
 ms.author: mbullwin
 zone_pivot_groups: "openai-embeddings"
 recommendations: false
-ms.custom:
-
+ms.custom: devx-track-python
 ---
 
 # Tutorial: Explore Azure OpenAI Service embeddings and document search

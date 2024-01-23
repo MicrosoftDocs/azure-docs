@@ -159,7 +159,7 @@
         href: manage/programmatically-create-subscription-enterprise-agreement.md
       - name: Create MCA subscriptions programmatically
         href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
-      - name: Create MCA subscriptions programmatically across AD tenants
+      - name: Create MCA subscriptions programmatically across tenants
         href: manage/programmatically-create-subscription-microsoft-customer-agreement-across-tenants.md
       - name: Create MPA subscriptions programmatically
         href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
@@ -229,42 +229,44 @@
       href: manage/change-credit-card.md
     - name: View payment history
       href: manage/view-payment-history.md
-  - name: Troubleshoot
+  - name: Troubleshoot billing
     items:
     - name: Can't view or find invoices
-      href: manage/troubleshoot-cant-find-invoice.md
+      href: troubleshoot-billing/troubleshoot-cant-find-invoice.md
     - name: View billing account
-      href: manage/troubleshoot-account-not-found.md
+      href: troubleshoot-billing/troubleshoot-account-not-found.md
     - name: EA billing issues with usage files
-      href: manage/troubleshoot-ea-billing-issues-usage-file-pivot-tables.md
+      href: troubleshoot-billing/troubleshoot-ea-billing-issues-usage-file-pivot-tables.md
     - name: MCA billing issues with usage files
-      href: manage/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables.md
+      href: troubleshoot-billing/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables.md
     - name: CSP billing issues with usage files
-      href: manage/troubleshoot-csp-billing-issues-usage-file-pivot-tables.md
-    - name: No subscriptions found
-      href: manage/no-subscriptions-found.md
+      href: troubleshoot-billing/troubleshoot-csp-billing-issues-usage-file-pivot-tables.md
     - name: Payment issues
-      href: manage/billing-troubleshoot-azure-payment-issues.md
+      href: troubleshoot-billing/billing-troubleshoot-azure-payment-issues.md
     - name: Declined card
-      href: manage/troubleshoot-declined-card.md
+      href: troubleshoot-billing/troubleshoot-declined-card.md
     - name: Troubleshoot threshold billing
-      href: manage/troubleshoot-threshold-billing.md
-    - name: Azure account sign-up issues
-      href: manage/troubleshoot-azure-sign-up.md
-    - name: Subscription sign-in issues
-      href: manage/troubleshoot-sign-in-issue.md
-    - name: Create multiple subscriptions message
-      href: manage/create-subscriptions-deploy-resources.md
-    - name: Not available due to conflict error
-      href: manage/troubleshoot-not-available-conflict.md
+      href: troubleshoot-billing/troubleshoot-threshold-billing.md
     - name: Enterprise cost view disabled
-      href: manage/enterprise-mgmt-grp-troubleshoot-cost-view.md
+      href: troubleshoot-billing/enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: Troubleshoot Azure EA portal access
-      href: manage/ea-portal-troubleshoot.md
+      href: troubleshoot-billing/ea-portal-troubleshoot.md
     - name: Contact support
       href: ../azure-portal/supportability/how-to-create-azure-support-request.md
     - name: Create EA support request
-      href: manage/how-to-create-azure-support-request-ea.md
+      href: troubleshoot-billing/how-to-create-azure-support-request-ea.md
+  - name: Troubleshoot subscriptions
+    items:
+    - name: No subscriptions found
+      href: troubleshoot-subscription/no-subscriptions-found.md
+    - name: Azure account sign-up issues
+      href: troubleshoot-subscription/troubleshoot-azure-sign-up.md
+    - name: Subscription sign-in issues
+      href: troubleshoot-subscription/troubleshoot-sign-in-issue.md
+    - name: Create multiple subscriptions message
+      href: troubleshoot-subscription/create-subscriptions-deploy-resources.md
+    - name: Not available due to conflict error
+      href: troubleshoot-subscription/troubleshoot-not-available-conflict.md
 - name: Reference
   items:
   - name: Billing Automation Scenarios

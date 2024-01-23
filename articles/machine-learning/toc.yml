@@ -598,6 +598,8 @@
       href: how-to-deploy-models-from-huggingface.md
     - name: How to use Azure OpenAI models
       href: how-to-use-openai-models-in-azure-ml.md
+    - name: How to deploy Llama 2 family models
+      href: how-to-deploy-models-llama.md
     - name: Regulate deployments using policy
       href: how-to-regulate-registry-deployments.md
     - name: Use Model Catalog collections with virtual network
@@ -698,6 +700,8 @@
               href: ./prompt-flow/tools-reference/serp-api-tool.md
             - name: Open Model LLM tool
               href: ./prompt-flow/tools-reference/open-model-llm-tool.md
+            - name: Azure OpenAI GPT-4 Turbo with Vision tool
+              href: ./prompt-flow/tools-reference/azure-open-ai-gpt-4v-tool.md
             - name: OpenAI GPT-4V tool
               href: ./prompt-flow/tools-reference/openai-gpt-4v-tool.md
             - name: Troubleshoot Guidance
@@ -912,6 +916,10 @@
               href: how-to-secure-online-endpoint.md
             - name: Access Azure resources from online endpoints
               href: how-to-access-resources-from-endpoints-managed-identities.md
+            - name: Secret injection in online endpoints
+              href: concept-secret-injection.md
+            - name: Deploy to online endpoints with secret injection
+              href: how-to-deploy-online-endpoint-with-secret-injection.md
     - name: Batch endpoints
       items:
         - name: Batch endpoints
