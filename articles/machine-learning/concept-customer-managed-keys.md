@@ -44,19 +44,23 @@ In addition to customer-managed keys, Azure Machine Learning also provides a [hb
 
 ## Limitations
 
-* The customer-managed key for resources the workspace depends on can't be updated after workspace creation.
-* Resources managed by Microsoft in your subscription can't transfer ownership to you.
+* After workspace creation, the customer-managed encryption key for resources the workspace depends on can only be updated to another key in the original Azure Key Vault resource.
+* Encrypted data will be stored on resources that live in a Microsoft-managed resource group in your subscription. You cannot create these resource upfront or transfer ownership of these to you. Data lifecycle is managed indirectly via the Azure ML APIs as you create objects in Azure Machine Learning service.
 * You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your workspace.
 
-## How workspace metadata is stored
+## How and what workspace metadata is stored
 
-The following resources store metadata for your workspace:
+When you bring your own encryption key, service metadata will be stored on dedicated resources in your Azure subscription. Microsoft creates a seperate resource group in your subscription for this named 'azureml-rg-<workspacename>_<GUID>'. Resource in this managed resource group can only be modified by Microsoft. Additional networking controls are configured when you create a private link endpoint on your workspace.
 
-| Service | How it's used |
-| ----- | ----- |
-| Azure Cosmos DB | Stores job history data. |
-| Azure AI Search | Stores indices that are used to help query your machine learning content. |
-| Azure Storage Account | Stores other metadata such as Azure Machine Learning pipelines data. |
+The following resources are created and store metadata for your workspace:
+
+| Service | How it's used | Example data |
+| ----- | ----- | ----- | 
+| Azure Cosmos DB | Stores job history data, compute metadata, asset metadata | Job name, status, sequence number and status; Compute cluster name, number of cores, number of nodes; Datastore names and tags, descriptions on assets like models; data labeling label names |
+| Azure AI Search | Stores indices that are used to help query your machine learning content. These indices are built on top of the data found in CosmosDB. | 
+| Azure Storage Account | Stores metadata related to Azure Machine Learning pipelines data. | Designer pipeline names, pipeline layout, execution properties. | 
+
+From a data lifecyle management point of view, data in the above resources are created and deleted as you create and delete their corresponding objects in Azure Machine Learning.
 
 Your Azure Machine Learning workspace reads and writes data using its managed identity. This identity is granted access to the resources using a role assignment (Azure role-based access control) on the data resources. The encryption key you provide is used to encrypt data that is stored on Microsoft-managed resources. It's also used to create indices for Azure AI Search, which are created at runtime.
 
