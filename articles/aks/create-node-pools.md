@@ -259,6 +259,29 @@ Beginning in Kubernetes version 1.20 and higher, you can specify `containerd` as
         --aks-custom-headers WindowsContainerRuntime=containerd
     ```
 
+## Use Ephemeral OS on new clusters
+
+Configure the cluster to use ephemeral OS disks when the cluster is created. Use the `--node-osdisk-type` argument to set Ephemeral OS as the OS disk type for the new cluster.
+
+```azurecli
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
+```
+
+If you want to create a regular cluster using network-attached OS disks, you can do so by specifying the `--node-osdisk-type=Managed` argument. You can also choose to add other ephemeral OS node pools, which we cover in the following section.
+
+## Use Ephemeral OS on existing clusters
+
+Configure a new node pool to use Ephemeral OS disks. Use the `--node-osdisk-type` argument to set as the OS disk type as the OS disk type for that node pool.
+
+```azurecli
+az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
+```
+
+> [!IMPORTANT]
+> With ephemeral OS you can deploy VM and instance images up to the size of the VM cache. In the AKS case, the default node OS disk configuration uses 128 GB, which means that you need a VM size that has a cache larger than 128 GB. The default Standard_DS2_v2 has a cache size of 86 GB, which isn't large enough. The Standard_DS3_v2 has a cache size of 172 GB, which is large enough. You can also reduce the default size of the OS disk by using `--node-osdisk-size`. The minimum size for AKS images is 30 GB.
+
+If you want to create node pools with network-attached OS disks, you can do so by specifying `--node-osdisk-type Managed`.
+
 ## Delete a node pool
 
 If you no longer need a node pool, you can delete it and remove the underlying VM nodes.
