@@ -132,18 +132,18 @@ This verification is **required** for best SMS delivery experience.
 ### What happens if I don't verify my toll-free numbers?
 
 #### SMS to US phone numbers
-Effective April 1, 2023, the industry’s toll-free aggregator is implementing new limits to messaging traffic for pending toll-free numbers.
+Effective January 31, 2024, the industry’s toll-free aggregator is mandating toll-free verification and will only allow verified numbers to send SMS messages.
 
 New limits are as follows:
 
-|Limit type  |Verification Status|Current limit| Limit effective November 8, 2023 |
+|Limit type  |Verification Status|Current limit| Limit effective January 31, 2024 |
 |------------|-------------------|-------------|-------------------------------|
 |Daily limit |Unverified         | 500       |Blocked|
 |Weekly limit| Unverified| 1,000| Blocked|
 |Monthly Limit| Unverified| 2,000| Blocked|
-|Daily limit| Pending Verification| No Limit| 2,000|
-|Weekly limit| Pending Verification| No Limit| 6,000|
-|Monthly Limit| Pending Verification| 500,000| 10,000|
+|Daily limit| Pending Verification| 2,000| Blocked|
+|Weekly limit| Pending Verification| 6,000| Blocked|
+|Monthly Limit| Pending Verification| 10,000| Blocked|
 |Daily limit| Verified | No Limit| No Limit|
 |Weekly limit| Verified| No Limit| No Limit|
 |Monthly Limit| Verified| No Limit| No Limit|
@@ -151,16 +151,13 @@ New limits are as follows:
 
 > [!IMPORTANT]
 > Unverified SMS traffic that exceeds the daily limit or is filtered for spam will have a [4010 error code](../troubleshooting-info.md#sms-error-codes)  returned for both scenarios.
-> 
-> The unverified volume daily cap is a daily maximum limit (not a guaranteed daily minimum), so unverified traffic can still experience message filtering even when it’s well below the daily limits.
 
 #### SMS to Canadian phone numbers
 Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To unblock the traffic, a verification application needs to be submitted and in [pending or verified status](#what-do-the-different-application-statuses-verified-pending-and-unverified-mean).
 
-### What do the different application statuses (verified, pending and unverified) mean? 
+### What do the different application statuses (verified and unverified) mean? 
 - **Verified:** Verified numbers have gone through the toll-free verification process and have been approved. Their traffic is subjected to limited filters. If traffic does trigger any filters, that specific content is blocked but the number is not automatically blocked.
-- **Pending**: Numbers in a submitted application get into pending state 2-3 days after application is submitted. Numbers in pending state have an associated toll-free verification form being reviewed by the toll-free messaging aggregator. They can send at a lower throughput than verified numbers, but higher than unverified numbers. Blocking can be applied to individual content, URLs, or there can be an automatic block of all traffic from the number. These numbers remain in this pending state until a decision has been made on verification status.
-- **Unverified:** Unverified numbers have either 1) not submitted a verification application or 2) have had their application denied. These numbers are subject to the highest amount of filtering, and numbers in this state automatically get shut off if any spam or unwanted traffic is detected.
+- **Unverified:** Unverified numbers have either 1) not submitted a verification application, 2) have submitted the verification application and are waiting for a decision, or 3) have had their application denied. These numbers will not be able to send any SMS traffic.
 
 ### What happens after I submit the toll-free verification form?
 :::image type="content" source="./media/tf-status-blue.png" alt-text="A picture of the toll-free application timeline and the different application statuses." lightbox="./media/tf-status-blue.png":::
