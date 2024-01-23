@@ -22,7 +22,7 @@ You'll need the latest versions of the following software:
 
 ## MSBuild tasks and Bicep packages
 
-From your continuous integration (CI) pipeline, you can use MSBuild tasks and CLI packages to convert Bicep files and Bicep parameter files into JSON. The functionality relies on the following [NuGet packages](https://www.nuget.org/packages/Azure.Bicep.Core/). The latest NuGet package versions match the latest [Bicep CLI](./bicep-cli.md) version. 
+From your continuous integration (CI) pipeline, you can use MSBuild tasks and CLI packages to convert Bicep files and Bicep parameter files into JSON. The functionality relies on the following [NuGet packages](https://www.nuget.org/packages/Azure.Bicep.Core/). 
 
 | Package Name | Description |
 | ----  |---- |
@@ -31,11 +31,21 @@ From your continuous integration (CI) pipeline, you can use MSBuild tasks and CL
 | [Azure.Bicep.CommandLine.linux-x64](https://www.nuget.org/packages/Azure.Bicep.CommandLine.linux-x64) | Bicep CLI for Linux. |
 | [Azure.Bicep.CommandLine.osx-x64](https://www.nuget.org/packages/Azure.Bicep.CommandLine.osx-x64) | Bicep CLI for macOS. |
 
+The latest NuGet package versions match the latest [Bicep CLI](./bicep-cli.md) version. 
+
 - **Azure.Bicep.MSBuild package**
 
-  When included in project file's `PackageReference` property, the `Azure.Bicep.MSBuild` package imports the Bicep task used for invoking the Bicep CLI. The package transforms its output into MSBuild errors and the `BicepCompile` target to streamline the usage of the Bicep task. By default, the `BicepCompile` runs after the `Build` target, compiling all @(Bicep) items and @(BicepParam) items. It then deposits the output in `$(OutputPath)` with the same filename and a _.json_ extension.
+  When included in project file's `PackageReference` property, the `Azure.Bicep.MSBuild` package imports the Bicep task used for invoking the Bicep CLI. For example:
+  
+  ```xml
+  <ItemGroup>
+    <PackageReference Include="Azure.Bicep.MSBuild" Version="0.24.24" />
+    ...
+  </ItemGroup>
 
-  *** jgao: I am uncertain about the relevance of discussing MSBuild erros and BicepCompile. Can I shorten the paragraph to just keep the first sentence? The OutputPath is discussed later in the article. 
+  ```
+  
+  The package transforms its output into MSBuild errors and the `BicepCompile` target to streamline the usage of the Bicep task. By default, the `BicepCompile` runs after the `Build` target, compiling all @(Bicep) items and @(BicepParam) items. It then deposits the output in `$(OutputPath)` with the same filename and a _.json_ extension.
 
   The following example compiles _main.bicep_ and _main.bicepparam_ files in the same directory as the project file and places the compiled _main.json_ and _main.parameters.json_ in the `$(OutputPath)` directory.
 
@@ -64,13 +74,29 @@ From your continuous integration (CI) pipeline, you can use MSBuild tasks and CL
   | `BicepCompileBeforeTargets` | None | Used as `BeforeTargets` value for the `BicepCompile` target. |
   | `BicepOutputPath` | `$(OutputPath)` | Set this property to override the default output path for the compiled ARM template. `OutputFile` metadata on `Bicep` items takes precedence over this value. |
 
-  For the Azure.Bicep.MSBuild to operate, it is required to have an environment variable named `BicepPath` set. This can be done by referencing the appropriate `Azure.Bicep.CommandLine.*` package for your operating system in the `PackageReference` property. Alternatively, you can manually install the Bicep CLI and setting the `BicepPath` environment variable or MSBuild property.
+  *** jgao: Do I add these properties to the `PropertyGroup` element?
 
-  *** jgao: can you provide a sample for setting BicepPath?
+  For the `Azure.Bicep.MSBuild` to operate, it is required to have an environment variable named `BicepPath` set. See the next bullet item for configuring `BicepPath`.
 
 - **Azure.Bicep.CommandLine.* packages**
 
-  The `Azure.Bicep.CommandLine.*` packages are available for Windows, Linux, and macOS. When referenced in a project file via the `PackageReference` property, the `Azure.Bicep.CommandLine.*` packages set the `BicepPath` property to the full path of the Bicep executable for the platform. The reference to this package may be omitted if Bicep CLI is installed through other means and the `BicepPath` environment variable or MSBuild property are set accordingly.
+  The `Azure.Bicep.CommandLine.*` packages are available for Windows, Linux, and macOS. The following example references the package for Windows. 
+
+  ```xml
+  <ItemGroup>
+    <PackageReference Include="Azure.Bicep.CommandLine.win-x64" Version="__LATEST_VERSION__" />
+    ...
+  </ItemGroup>  
+  ```
+
+  When referenced in a project file, the `Azure.Bicep.CommandLine.*` packages automatically set the `BicepPath` property to the full path of the Bicep executable for the platform. The reference to this package may be omitted if Bicep CLI is installed through other means. For this case, instead of referencing an `Azure.Bicep.Commandline` package, you can either configure an environment variable  called  `BicepPath` or add `BicepPath` to the `PropertyGroup`, for example:
+  
+  ```xml
+  <PropertyGroup>
+    <BicepPath>c:\users\john\.Azure\bin</BicepPath>
+    ...
+  </PropertyGroup>
+  ```
 
 ### Examples
 
@@ -80,6 +106,7 @@ The following examples shows how to configure C# console application project fil
 
 The .NET Core 3.1 and .NET 6 examples are similar. But .NET 6 uses a different format for the _Program.cs_ file. For more information, see [.NET 6 C# console app template generates top-level statements](/dotnet/core/tutorials/top-level-templates).
 
+<a id="net-6"></a>
 - **.NET 6**
 
   ```xml
@@ -106,6 +133,7 @@ The .NET Core 3.1 and .NET 6 examples are similar. But .NET 6 uses a different f
 
   The `RootNamespace` property contains a placeholder value. When you create a project file, the value matches your project's name.
 
+<a id="net-core-31"></a>
 - **.NET Core 3.1**
 
   ```xml
@@ -127,16 +155,13 @@ The .NET Core 3.1 and .NET 6 examples are similar. But .NET 6 uses a different f
   </Project>
   ```
 
+<a id="notargets-sdk"></a>
 #### NoTargets SDK example
 
 The [Microsoft.Build.NoTargets](https://github.com/microsoft/MSBuildSdks/blob/main/src/NoTargets/README.md) MSBuild project SDK allows project tree owners the ability to define projects that do not compile an assembly. This SDK allows creation of standalone projects that compile only Bicep files.
 
-For [Microsoft.Build.NoTargets](/dotnet/core/project-sdk/overview#project-files), specify a version like `Microsoft.Build.NoTargets/3.5.6`.
-
-*** jgao: use version 3.5.6 or the latest version?  The latest version can be found at https://www.nuget.org/packages/Microsoft.Build.NoTargets. 
-
 ```xml
-<Project Sdk="Microsoft.Build.NoTargets/__LATEST_VERSION__">
+<Project Sdk="Microsoft.Build.NoTargets/__LATEST_MICROSOFT.BUILD.NOTARGETS.VERSION__">
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
   </PropertyGroup>
@@ -153,8 +178,11 @@ For [Microsoft.Build.NoTargets](/dotnet/core/project-sdk/overview#project-files)
 </Project>
 ```
 
-*** jgao: shall I combine the two ItemGroup in the preceding example?
+For [Microsoft.Build.NoTargets](/dotnet/core/project-sdk/overview#project-files), specify a version like `Microsoft.Build.NoTargets/3.5.6`.
 
+The latest Microsoft.Build.NoTargets version can be found at [https://www.nuget.org/packages/Microsoft.Build.NoTargets](https://www.nuget.org/packages/Microsoft.Build.NoTargets). 
+
+<a id="classic-framework"></a>
 #### Classic framework example
 
 Use the classic example only if the previous examples don't work for you. In this example, the `ProjectGuid`, `RootNamespace` and `AssemblyName` properties contain placeholder values. When you create a project file, a unique GUID is created, and the name values match your project's name.
