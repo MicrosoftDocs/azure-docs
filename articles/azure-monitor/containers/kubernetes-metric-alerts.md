@@ -45,7 +45,7 @@ Using the Azure portal, the Prometheus rule group will be created in the same re
 ### [Azure Resource Manager](#tab/arm)
 Using an ARM template, you can specify the region for the Prometheus rule group, but you should create it in the same region as the cluster.
 
-1. Download the required files for the template you're working with and deploy using the parameters in the table below. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
+Download the required files for the template you're working with and deploy using the parameters in the tables below. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
 
 ### ARM
 
@@ -78,7 +78,7 @@ See the [README](https://github.com/Azure/prometheus-collector/blob/main/AddonBi
 ---
 
 
-## Edit Prometheus alert rules
+## Edit alert rules
 
 Once the rule group has been created, you can't use the same page in the portal to edit the rules. For Prometheus metrics, you must edit the rule group to modify any rules in it, including enabling any rules that weren't already enabled. For platform metrics, you can edit each alert rule.
 
@@ -135,11 +135,11 @@ Set the **enabled** flag to false for the rule group in the ARM template describ
 
 ---
 
-## Alert rule details
+## Recommended alert rule details
 
-The following table lists the details of each Prometheus alert rule. Source code for each is available in [GitHub](https://aka.ms/azureprometheus-communityalerts).
+The following table lists the details of each recommended Prometheus alert rule. Source code for each is available in [GitHub](https://aka.ms/azureprometheus-communityalerts).
 
-**Pod level alerts**
+### Pod level alerts
 
 | Alert name | Description | Default threshold |
 |:---|:---|:---|
@@ -157,7 +157,7 @@ The following table lists the details of each Prometheus alert rule. Source code
 | KubeletPodStartUpLatencyHigh | Kubelet Pod startup 99th percentile latency is {{ $value }} seconds on node {{ $labels.node }}. \| 60 |
 
 
-**Cluster level alerts**
+### Cluster level alerts
 
 | Alert name | Description | Default threshold |
 |:---|:---|:---|
@@ -174,7 +174,7 @@ The following table lists the details of each Prometheus alert rule. Source code
 | KubePersistentVolumeInodesFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} only has {{ $value \| humanizePercentage }} free inodes. | NA |
 | KubePersistentVolumeErrors | The persistent volume {{ $labels.persistentvolume }} has status {{ $labels.phase }} | 0 |
 
-**Node level alerts**
+### Node level alerts
 
 | Alert name | Description | Default threshold |
 |:---|:---|:---|
@@ -199,8 +199,9 @@ The following table lists the details of each Prometheus alert rule. Source code
 
 ## Legacy Container insights metric alerts (preview)
 
-> [!IMPORTANT]
-> Metric rules in Container insights will be retired on May 31, 2024 (this was previously announced as March 14, 2026). If you already enabled these alert rules, you should disable the legacy alerts and enable the new experience. As of August 15, 2023, you can longer configure new custom metric recommended alerts using the portal.
+Metric rules in Container insights will be retired on May 31, 2024 (this was previously announced as March 14, 2026). These rules haven't been available for creation using the portal since August 15, 2023. These rules were in public preview but will be retired without reaching general availability since the new recommended metric alerts described in this article are now available.
+
+If you already enabled these legacy alert rules, you should disable them and enable the new experience. 
 
 ### Disable metric alert rules
 
