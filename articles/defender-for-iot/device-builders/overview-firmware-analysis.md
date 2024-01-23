@@ -34,6 +34,8 @@ Defender for IoT can analyze your firmware for common weaknesses and vulnerabili
 
 - **Password hash extraction**: Ensure that user account password hashes use secure cryptographic algorithms.  
 
+:::image type="content" source="media/tutorial-firmware-analysis/overview.png" alt-text="Screenshot that shows the overview page of the analysis results.":::
+
 ## Next steps
 
 - [Analyze a firmware image](tutorial-analyze-firmware.md)
