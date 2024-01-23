@@ -2,7 +2,7 @@
 title: Disable monitoring of your Kubernetes cluster
 description: Describes how to remove Container insights and scraping of Prometheus metrics from your Kubernetes cluster.
 ms.topic: conceptual
-ms.date: 01/23/24
+ms.date: 01/23/2024
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ms.reviewer: aul
@@ -10,23 +10,23 @@ ms.reviewer: aul
 
 # Disable monitoring of your Kubernetes cluster
 
-Use the following methods to remove [Container insights](#container-insights) or [Prometheus](#prometheus) from your cluster.
+Use the following methods to remove [Container insights](#container-insights) or [Prometheus](#prometheus) from your Kubernetes cluster.
 
 ## Permissions
 
 - You require at least [Contributor](../../role-based-access-control/built-in-roles.md#contributor) access to the cluster.
 
-## Container insights
+## Disable Container insights
 
 ### AKS cluster
 
-Use the [az aks disable-addons](/cli/azure/aks#az-aks-disable-addons) CLI command to disable Container insights on a cluster. The command removes the agent from the cluster nodes. It doesn't remove the solution or the data already collected and stored in your Azure Monitor resource.
+Use the [az aks disable-addons](/cli/azure/aks#az-aks-disable-addons) CLI command to disable Container insights on a cluster. The command removes the agent from the cluster nodes. It doesn't remove the data already collected and stored in the Log Analytics workspace for your cluster.
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
-Alternatively, you cn use the following ARM template below to remove Container insights. 
+Alternatively, you can use the following ARM template below to remove Container insights. 
 
   ```json
 {
@@ -77,18 +77,18 @@ Alternatively, you cn use the following ARM template below to remove Container i
 ### Arc-enabled Kubernetes cluster
 The following PowerShell and Bash scripts are available for removing Container insights from your Arc-enabled Kubernetes clusters. You can get the **kube-context** of your cluster by running the command `kubectl config get-contexts`. If you want to use the current context, then don't specify this parameter.
 
-
-- PowerShell: [disable-monitoring.ps1](https://aka.ms/disable-monitoring-powershell-script)
-- Bash: [disable-monitoring.sh](https://aka.ms/disable-monitoring-bash-script)
-
+PowerShell: [disable-monitoring.ps1](https://aka.ms/disable-monitoring-powershell-script)
 
 ```powershell
+
 # Use current context
 .\disable-monitoring.ps1 -clusterResourceId <cluster-resource-id>
 
 # Specify kube-context
 .\disable-monitoring.ps1 -clusterResourceId <cluster-resource-id> -kubeContext <kube-context>
 ```
+
+Bash: [disable-monitoring.sh](https://aka.ms/disable-monitoring-bash-script)
 
 ```bash
 # Use current context
@@ -98,7 +98,7 @@ bash disable-monitoring.sh --resource-id $AZUREARCCLUSTERRESOURCEID
 bash disable-monitoring.sh --resource-id $AZUREARCCLUSTERRESOURCEID --kube-context $KUBECONTEXT
 ```
 
-### Helm
+### Remove Container insights with Helm
 
 The following steps apply to the following environments:
 
@@ -141,22 +141,20 @@ The configuration change can take a few minutes to complete. Because Helm tracks
 
 ## Prometheus
 
-Use the following Azure CLI command to remove the metrics add-on from your AKS cluster, and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus.  
+Use the following `az aks update` Azure CLI command with the `--disable-azure-monitor-metrics` parameter to remove the metrics add-on from your AKS cluster, and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus. It doesn't remove the data already collected and stored in the Azure Monitor workspace for your cluster.
 
-The `az aks update --disable-azure-monitor-metrics` command:
+```azurecli
+az aks update --disable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group>
+```
+
+This command performs the following actions:
 
 + Removes the ama-metrics agent from the cluster nodes. 
 + Deletes the recording rules created for that cluster.  
 + Deletes the data collection endpoint (DCE).  
 + Deletes the data collection rule (DCR).
-+ Deletes the DCRA and recording rules groups created as part of onboarding.
++ Deletes the data collection rule association (DCRA) and recording rules groups created as part of onboarding.
 
-> [!NOTE]
-> This action doesn't remove any existing data stored in your Azure Monitor workspace.
-
-```azurecli
-az aks update --disable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group>
-```
 
 
 
