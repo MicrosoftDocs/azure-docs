@@ -61,7 +61,7 @@ You create the application gateway using the tabs on the **Create application ga
    - **Tier**: Select **Basic**.
    - **HTTP2** and **IP address type**: Use default settings.
 
-     ![Create new application gateway: Basics tab.](./media/deploy-v2-basic-portal/application-gateway-create-basics.png)
+     ![Create new application gateway: Basics tab.](./media/deploy-basic-portal/application-gateway-create-basics.png)
 
 2. For Azure to communicate between the resources that you create, a virtual network is needed. You can either create a new virtual network or use an existing one. In this example, you create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: One for the application gateway, and another for the backend servers.
 
@@ -73,7 +73,7 @@ You create the application gateway using the tabs on the **Create application ga
     - **Name**: Enter *myVNet* for the name of the virtual network.
     - **Subnet name** (Application Gateway subnet): The **Subnets** grid shows a subnet named *default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed. The default IP address range provided is 10.0.0.0/24. After entering these details, select **OK**.
     
-        ![Create new vnet for the application gateway.](./media/deploy-v2-basic-portal/vnet-create.png)
+        ![Create new vnet for the application gateway.](./media/deploy-basic-portal/vnet-create.png)
 
 3. Select **Next: Frontends**.
 
