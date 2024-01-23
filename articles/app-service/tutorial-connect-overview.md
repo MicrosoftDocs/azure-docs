@@ -22,6 +22,20 @@ Your app service may need to connect to other Azure services such as a database,
 
 There are two recommended ways to use secrets in your app:  using secrets stored in Azure Key Vault or secrets in App Service application settings.
 
+### Use secrets in app settings 
+
+Some apps access secrets using environment variables.  Traditionally, App Service [app settings](configure-common.md) have been used to store connection strings, API keys, and other environment variables.  These secrets are injected into your application code as environment variables at app startup. App settings are always encrypted when stored (encrypted-at-rest).  If you also want access policies and audit history for your secrets, consider putting them in Azure Key Vault and using [Key Vault references](app-service-key-vault-references) in your app settings.
+
+Examples of using application secrets to connect to a database:
+
+- [ASP.NET Core with SQL DB](tutorial-dotnetcore-sqldb-app.md)
+- [ASP.NET with SQL DB](app-service-web-tutorial-dotnet-sqldatabase.md)
+- [PHP with MySQL](tutorial-php-mysql-app.md)
+- [Node.js with MongoDB](tutorial-nodejs-mongodb-app.md)
+- [Python with Postgres](tutorial-python-postgresql-app.md)
+- [Java with Spring Data](tutorial-java-spring-cosmosdb.md)
+- [Quarkus with Postgres](tutorial-java-quarkus-postgresql-app.md)
+
 ### Use secrets from Key Vault
 
 [Azure Key Vault](app-service-key-vault-references.md) can be used to securely store secrets and keys, monitor access and use of secrets, and simplify admistration of application secrets.  If your app's downstream service doesn't support Microsoft Entra authentication or requires a connection string or key, use Key Vault to store your secrets and connect your app to Key Vault with a managed identity and retrieve the secrets. 
@@ -37,9 +51,6 @@ The following image demonstrates App Service connecting to Key Vault using a man
 
 :::image type="content" source="media/tutorial-connect-overview/app-service-connect-key-vault-managed-identity.png" alt-text="Image showing app service using a secret stored in Key Vault and managed with Managed identity to connect to Azure AI services."::: 
 
-### Use secrets in app settings 
-
-Some apps access secrets using environment variables.  Use App Service [app settings](configure-common.md) to store connection strings, API keys, and other environment variables and pass them to the application code as environment variables. App settings are always encrypted when stored (encrypted-at-rest).
 
 ## Connect using the app identity
 
