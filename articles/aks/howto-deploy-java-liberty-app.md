@@ -2,6 +2,8 @@
 title: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 recommendations: false
 description: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
+author: KarlErickson
+ms.author: edburns
 ms.topic: how-to
 ms.date: 12/21/2022
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
@@ -31,7 +33,7 @@ This article is intended to help you quickly get to deployment. Before going to 
 * This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 > [!NOTE]
->  This guidance can also be executed from a local developer command line with Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+> This guidance can also be executed from a local developer command line with Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 * If running the commands in this guide locally (instead of Azure Cloud Shell):
   * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux).
@@ -47,24 +49,25 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
 1. Visit the [Azure portal](https://portal.azure.com/). In the search box at the top of the page, type *IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service*. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section. If you prefer, you can go directly to the offer with this shortcut link: [https://aka.ms/liberty-aks](https://aka.ms/liberty-aks).
 
 1. Select **Create**.
-    ![Screenshot of create using Azure Marketplace Solution Template.](./media/howto-deploy-java-liberty-app/create-using-solution-template.png)
 
 1. In the **Basics** pane
+
    1. create a new resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `ejb0913-java-liberty-project-rg`.
    1. Select *East US* as **Region**.
 
 1. Select **Next**, enter the **AKS** pane. This pane allows you to select an existing AKS cluster and Azure Container Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability enables you to use the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. Leave all other values at the defaults.
-   
-1. Select **Next**, enter the **Load Balancing** pane. Next to **Connect to Azure Application Gateway?** select **Yes**, then further configuration will be required.  
+
+1. Select **Next**, enter the **Load Balancing** pane. Next to **Connect to Azure Application Gateway?** select **Yes**, then further configuration will be required.
+
    1. You can customize the **virtual network** and **subnet** into which the deployment will place the resources. Leave these values at their defaults.
    1. You can provide the **TLS/SSL certificate** presented by the Azure Application Gateway. Leave the values at the default to cause the offer to generate a self-signed certificate. Don't go to production using a self-signed certificate. For more information about self-signed certificates, see [Create a self-signed public certificate to authenticate your application](../active-directory/develop/howto-create-self-signed-certificate.md).
-   1. You can enable **cookie based affinity**, also known as sticky sessions. We want sticky sessions enabled for this article, so ensure this option is selected.
-   ![Screenshot of the enable cookie-based affinity checkbox.](./media/howto-deploy-java-liberty-app/enable-cookie-based-affinity.png)
+   1. You can select **Enable cookie based affinity**, also known as sticky sessions. We want sticky sessions enabled for this article, so ensure this option is selected.
 
 1. Select **Next**, enter the **Operator and application** pane. Leave these values at their defaults.
-   1. **IBM Supported?** if **Yes**, you select to deploy IBM WebSphere Liberty Operator; if **No**, you select to deploy Open Liberty Operator. 
+
+   1. **IBM Supported?** if **Yes**, you select to deploy IBM WebSphere Liberty Operator; if **No**, you select to deploy Open Liberty Operator.
    1. **Deploy an application?** if **Yes**, you may select to deploy your own application image which need to be public and accessible without credential; or select to deploy the Open Liberty sample image.
-  
+
 1. Select **Review + create** to validate your selected options. In the ***Review + create** pane, when you see **Create** light up after validation pass, select **Create**. The deployment may take up to 20 minutes.
 
 ## Capture selected information from the deployment
@@ -86,9 +89,11 @@ If you navigated away from the **Deployment is in progress** page, the following
    * `appDeploymentTemplateYaml` if you select **No** to **Deploy an application?** when deploying the Marketplace offer; or `appDeploymentYaml` if you select **yes** to **Deploy an application?**.
 
    ### [Bash](#tab/in-bash)
+
    Paste the value of `appDeploymentTemplateYaml` or `appDeploymentYaml` into a Bash shell, append `| grep secretName`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
-   
+
    ### [PowerShell](#tab/in-powershell)
+
    Paste the quoted string in `appDeploymentTemplateYaml` or `appDeploymentYaml` into a PowerShell, append `| ForEach-Object { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) } | Select-String "secretName"`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
 
    ---
@@ -111,7 +116,7 @@ The following steps guide you through creating an Azure SQL Database single data
    >
    > At the **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
    >
-   > ![Screenshot of configuring SQL database networking.](./media/howto-deploy-java-liberty-app/create-sql-database-networking.png)
+   > :::image type="content" source="media/howto-deploy-java-liberty-app/create-sql-database-networking.png" alt-text="Screenshot of the Azure portal that shows the Networking tab of the Create SQL Database page with the Connectivity method and Firewall rules settings highlighted." lightbox="media/howto-deploy-java-liberty-app/create-sql-database-networking.png":::
 
 Now that the database and AKS cluster have been created, we can proceed to preparing AKS to host your Open Liberty application.
 
@@ -166,40 +171,44 @@ In directory *liberty/config*, the *server.xml* file is used to configure the DB
 Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many variables from the environment. As part of the Maven build, these variables are used to populate values in the YAML files located in *src/main/aks*. You can do something similar for your application outside Maven if you prefer.
 
 ### [Bash](#tab/in-bash)
+
 ```bash
 cd <path-to-your-repo>/java-app
 
 # The following variables will be used for deployment file generation into target.
-export LOGIN_SERVER=<Azure_Container_Registry_Login_Server_URL>
-export REGISTRY_NAME=<Azure_Container_Registry_Name>
-export USER_NAME=<Azure_Container_Registry_Username>
-export PASSWORD=<Azure_Container_Registry_Password>
-export DB_SERVER_NAME=<Server name>.database.windows.net
-export DB_NAME=<Database name>
-export DB_USER=<Server admin login>@<Server name>
-export DB_PASSWORD=<Server admin password>
-export INGRESS_TLS_SECRET=<Ingress TLS secret name>
+export LOGIN_SERVER=<Azure-Container-Registry-Login-Server-URL>
+export REGISTRY_NAME=<Azure-Container-Registry-name>
+export USER_NAME=<Azure-Container-Registry-username>
+export PASSWORD=<Azure-Container-Registry-password>
+export DB_SERVER_NAME=<server-name>.database.windows.net
+export DB_NAME=<database-name>
+export DB_USER=<server-admin-login>@<server-name>
+export DB_PASSWORD=<server-admin-password>
+export INGRESS_TLS_SECRET=<ingress-TLS-secret-name>
 
 mvn clean install
 ```
+
 ### [PowerShell](#tab/in-powershell)
+
 ```powershell
 cd <path-to-your-repo>/java-app
 
 # The following variables will be used for deployment file generation into target.
-$Env:LOGIN_SERVER=<Azure_Container_Registry_Login_Server_URL>
-$Env:REGISTRY_NAME=<Azure_Container_Registry_Name>
-$Env:USER_NAME=<Azure_Container_Registry_Username>
-$Env:PASSWORD=<Azure_Container_Registry_Password>
-$Env:DB_SERVER_NAME=<Server name>.database.windows.net
-$Env:DB_NAME=<Database name>
-$Env:DB_USER=<Server admin login>@<Server name>
-$Env:DB_PASSWORD=<Server admin password>
-$Env:INGRESS_TLS_SECRET=<Ingress TLS secret name>
+$Env:LOGIN_SERVER=<Azure-Container-Registry-Login-Server-URL>
+$Env:REGISTRY_NAME=<Azure-Container-Registry-name>
+$Env:USER_NAME=<Azure-Container-Registry-username>
+$Env:PASSWORD=<Azure-Container-Registry-password>
+$Env:DB_SERVER_NAME=<server-name>.database.windows.net
+$Env:DB_NAME=<database-name>
+$Env:DB_USER=<server-admin-login>@<server-name>
+$Env:DB_PASSWORD=<server-admin-password>
+$Env:INGRESS_TLS_SECRET=<ingress-TLS-secret-name>
 
 mvn clean install
 
 ```
+
 ---
 
 ### (Optional) Test your project locally
@@ -219,7 +228,7 @@ You can now run and test the project locally before deploying to Azure. For conv
 
 ### Build image for AKS deployment
 
-You can now run the `docker build` command to build the image. 
+You can now run the `docker build` command to build the image.
 
 ```bash
 cd <path-to-your-repo>/java-app/target
@@ -234,6 +243,7 @@ You can now use the following steps to test the Docker image locally before depl
 1. Run the image using the following command. Note we're using the environment variables defined previously.
 
    ### [Bash](#tab/in-bash)
+
    ```bash
    docker run -it --rm -p 9080:9080 \
       -e DB_SERVER_NAME=${DB_SERVER_NAME} \
@@ -242,7 +252,9 @@ You can now use the following steps to test the Docker image locally before depl
       -e DB_PASSWORD=${DB_PASSWORD} \
       javaee-cafe:v1
    ```
+
    ### [PowerShell](#tab/in-powershell)
+
    ```powershell
    docker run -it --rm -p 9080:9080 `
       -e DB_SERVER_NAME=${Env:DB_SERVER_NAME} `
@@ -251,6 +263,7 @@ You can now use the following steps to test the Docker image locally before depl
       -e DB_PASSWORD=${Env:DB_PASSWORD} `
       javaee-cafe:v1
    ```
+
    ---
 
 1. Once the container starts, go to `http://localhost:9080/` in your browser to access the application.
@@ -262,23 +275,26 @@ You can now use the following steps to test the Docker image locally before depl
 Upload the built image to the ACR created in the offer.
 
 ### [Bash](#tab/in-bash)
+
 ```bash
 docker tag javaee-cafe:v1 ${LOGIN_SERVER}/javaee-cafe:v1
 docker login -u ${USER_NAME} -p ${PASSWORD} ${LOGIN_SERVER}
 docker push ${LOGIN_SERVER}/javaee-cafe:v1
 ```
+
 ### [PowerShell](#tab/in-powershell)
+
 ```powershell
 docker tag javaee-cafe:v1 ${Env:LOGIN_SERVER}/javaee-cafe:v1
 docker login -u ${Env:USER_NAME} -p ${Env:PASSWORD} ${Env:LOGIN_SERVER}
 docker push ${Env:LOGIN_SERVER}/javaee-cafe:v1
 ```
----
 
+---
 
 ### Deploy and test the application
 
-The following steps deploy and test the application.
+Use the following steps to deploy and test the application:
 
 1. Connect to the AKS cluster.
 
@@ -299,15 +315,13 @@ The following steps deploy and test the application.
    kubectl apply -f openlibertyapplication-agic.yaml
    ```
 
-1. Wait for the pods to be restarted.
-
-   Wait until all pods are restarted successfully using the following command.
+1. Wait until all pods are restarted successfully by using the following command:
 
    ```bash
    kubectl get pods --watch
    ```
 
-   You should see output similar to the following to indicate that all the pods are running.
+   You should see output similar to the following example to indicate that all the pods are running:
 
    ```output
    NAME                                       READY   STATUS    RESTARTS   AGE
@@ -325,19 +339,23 @@ The following steps deploy and test the application.
       ```
 
       Copy the value of **ADDRESS** from the output, this is the frontend public IP address of the deployed Azure Application Gateway.
-      
+
    1. Go to `https://<ADDRESS>` to test the application. For your convenience, this shell command will create an environment variable whose value you can paste straight into the browser.
-      
+
       ### [Bash](#tab/in-bash)
+
       ```bash
       export APP_URL=https://$(kubectl get ingress | grep javaee-cafe-cluster-agic-ingress | cut -d " " -f14)/
       echo $APP_URL
       ```
+
       ### [PowerShell](#tab/in-powershell)
+
       ```powershell
       $APP_URL = "https://$(kubectl get ingress | Select-String 'javaee-cafe-cluster-agic-ingress' | ForEach-Object { $_.Line.Split(' ')[13] })/"
       $APP_URL
       ```
+
       ---
 
       If the web page doesn't render correctly or returns a `502 Bad Gateway` error, that's because the app is still starting in the background. Wait for a few minutes and then try again.
@@ -347,15 +365,19 @@ The following steps deploy and test the application.
 To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
 
 ### [Bash](#tab/in-bash)
+
 ```bash
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 az group delete --name <db-resource-group> --yes --no-wait
 ```
+
 ### [PowerShell](#tab/in-powershell)
+
 ```powershell
 az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
 az group delete --name <db-resource-group> --yes --no-wait
 ```
+
 ---
 
 ## Next steps
