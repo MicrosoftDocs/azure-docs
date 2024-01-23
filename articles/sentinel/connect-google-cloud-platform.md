@@ -34,18 +34,22 @@ Before you begin, verify that you have the following:
 
 ## Set up GCP environment
 
-You set up the GCP environment by creating the following GCP resources:
-- Topic
-- Subscription for the topic
-- Workload identity pool
-- Workload identity provider
-- Service account
-- Role
+There are two things you need to set up in your GCP environment:
+
+1. [Set up Microsoft Sentinel authentication in GCP](#gcp-authentication-setup) by creating the following resources in the GCP IAM service:
+    - Workload identity pool
+    - Workload identity provider
+    - Service account
+    - Role
+
+1. [Set up log collection in GCP and ingestion into Microsoft Sentinel](#gcp-audit-logs-setup) by creating the following resources in the GCP Pub/Sub service:
+    - Topic
+    - Subscription for the topic
 
 You can set up the environment in one of two ways:
 
-- [Create GCP resources via the Terraform API](?tabs=terraform#gcp-authentication-setup): Terraform provides an API for the Identity and Access Management (IAM) that creates the resources. Microsoft Sentinel provides a script that issues the necessary commands to the API.
-- [Set up GCP environment manually](?tabs=manual#gcp-authentication-setup), creating the resources yourself in the GCP console.
+- [Create GCP resources via the Terraform API](?tabs=terraform): Terraform provides an API for ***the Identity and Access Management (IAM)???*** that creates the resources. Microsoft Sentinel provides a script that issues the necessary commands to the API.
+- [Set up GCP environment manually](?tabs=manual), creating the resources yourself in the GCP console.
 
 ### GCP Authentication Setup
 
@@ -58,16 +62,16 @@ You can set up the environment in one of two ways:
     gcloud config set project {projectId}  
     ```
 
-1. Copy the Terraform script provided by Microsoft Sentinel from the Sentinel GitHub repository into your GCP Cloud Shell environment.
+1. Copy the Terraform authentication script provided by Microsoft Sentinel from the Sentinel GitHub repository into your GCP Cloud Shell environment.
 
     1. Open the Terraform [GCPInitialAuthenticationSetup script](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPInitialAuthenticationSetup) file and copy its contents.  
 
     1. Create a directory in your Cloud Shell environment, enter it, and create a new blank file.
         ```bash
-        mkdir {directory-name} && cd {directory-name} && touch main.tf
+        mkdir {directory-name} && cd {directory-name} && touch initauth.tf
         ```
 
-    1. Open *main.tf* in the Cloud Shell editor and paste the contents of the script file into it.
+    1. Open *initauth.tf* in the Cloud Shell editor and paste the contents of the script file into it.
 
 1. Initialize Terraform in the directory you created by typing the following command in the terminal:
     ```bash
@@ -86,7 +90,7 @@ You can set up the environment in one of two ways:
 
 1. When asked if you want to create the resources listed, type *yes*.
 
-Save the resources parameters for later use.
+When the output from the script is displayed, save the resources parameters for later use.
 
 # [Manual setup](#tab/manual)
 
@@ -152,34 +156,38 @@ Save the resources parameters for later use.
 
 # [Terraform API Setup](#tab/terraform)
 
-1. In a new folder, copy the Terraform [GCPAuditLogsSetup script](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPAuditLogsSetup) into a new file, and save it as a .tf file:
-    
+1. Copy the Terraform audit log setup script provided by Microsoft Sentinel from the Sentinel GitHub repository into a different folder in your GCP Cloud Shell environment.
+
+    1. Open the Terraform [GCPAuditLogsSetup script](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPAuditLogsSetup) file and copy its contents.  
+
+    1. Create another directory in your Cloud Shell environment, enter it, and create a new blank file.
+        ```bash
+        mkdir {other-directory-name} && cd {other-directory-name} && touch auditlog.tf
+        ```
+
+    1. Open *auditlog.tf* in the Cloud Shell editor and paste the contents of the script file into it.
+
+1. Initialize Terraform in the new directory by typing the following command in the terminal:
+    ```bash
+    terraform init 
     ```
-    cd {foldername} 
+
+1. When you receive the confirmation message that Terraform was initialized, run the script by typing the following command in the terminal:
+    ```bash
+    terraform apply 
     ```
 
-    
-    ```
-    terraform init  
-    ```
+    To ingest logs from an entire organization using a single Pub/Sub, type:
 
-1. Type: 					 
-    
-    ```
-    terraform apply  
+    ```bash
+    terraform apply -var="organization-id= {organizationId} "
     ```
 
-To ingest logs from an entire organization using a single Pub/Sub, type:
+1. When asked if you want to create the resources listed, type *yes*.
 
-```    
-terraform apply -var="organization-id= {organizationId} "					 
-```
+When the output from the script is displayed, save the resources parameters for later use.
 
-1. Type *yes*. 						 
-
-1. Save the resource parameters for later use.  
-
-1. Wait five minutes before moving to the next step. 
+Wait five minutes before moving to the next step. 
 
 # [Manual setup](#tab/manual)
 
