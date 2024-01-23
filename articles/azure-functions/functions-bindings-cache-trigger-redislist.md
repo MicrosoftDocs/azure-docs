@@ -147,7 +147,7 @@ From `function.json`, here's the binding data:
 
 ### [Model v4](#tab/node-v4)
 
-The Node.js v4 programming model example isn't available in preview.
+The Node.js v4 programming model example is not yet supported in preview.
 
 ---
 
@@ -224,7 +224,7 @@ From `function.json`, here's the binding data:
 
 ### [v2](#tab/python-v2)
 
-The Python v2 programming model example isn't available in preview.
+The Python v2 programming model example is not yet supported in preview.
 
 ---
 

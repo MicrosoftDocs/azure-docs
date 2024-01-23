@@ -323,7 +323,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
 ```
 ### [Model v4](#tab/node-v4)
 
-The Node.js v4 programming model example isn't available in preview.
+The Node.js v4 programming model example is not yet supported in preview.
 
 ---
 ::: zone-end
@@ -428,7 +428,7 @@ Here's binding data to listen to the channel `pubsubTest`.
 }
 ```
 
-Here's binding data to listen to keyspace notifications for the key `myKey`.
+Here's binding data to listen to keyspace notifications for the key `keyspaceTest`.
 
 ```json
 {
@@ -436,7 +436,7 @@ Here's binding data to listen to keyspace notifications for the key `myKey`.
     {
       "type": "redisPubSubTrigger",
       "connectionStringSetting": "redisConnectionString",
-      "channel": "__keyspace@0__:myKey",
+      "channel": "__keyspace@0__:keyspaceTest",
       "name": "message",
       "direction": "in"
     }
@@ -464,7 +464,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
 
 ### [v2](#tab/python-v2)
 
-The Python v2 programming model example isn't available in preview.
+The Python v2 programming model example isn't supported in preview.
 
 ---
 
