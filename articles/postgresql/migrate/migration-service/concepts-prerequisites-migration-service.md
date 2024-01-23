@@ -4,20 +4,23 @@ description: Providing the prerequisites of the migration service in Azure Datab
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 01/18/2024
+ms.date: 01/22/2024
 ms.service: postgresql
 ms.topic: conceptual
-ms.custom:
 ---
 
 # Prerequisites for the migration service in Azure Database for PostgreSQL - Flexible Server
 
-Before you start your migration with migration service in Azure Database for PostgreSQL, it's essential to fulfill the following prerequisites, which apply to both offline and online migration scenarios.
+[!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
+
+Before you start your migration with migration service in Azure Database for PostgreSQL, it's essential to fulfill the following prerequisites, which apply to offline migration scenarios.
 
 ## Target setup
 
 - Azure Database for PostgreSQL must be set up in Azure before migration.
+
 - The SKU chosen for the Azure Database for PostgreSQL should correspond with the specifications of the source database to ensure compatibility and adequate performance.
+
 - For detailed instructions on how to create a new Azure Database for PostgreSQL, refer to the following link: [Quickstart: Create server](/azure/postgresql/flexible-server/).
 
 ## Source version
@@ -40,9 +43,9 @@ The following table can help set up the network between the source and target.
 
 | Source | Target | Connectivity Tips |
 | --- | --- | --- |
-| Public  | Public  | No other action is required if the source is allowlisted in the target's firewall rules. |
-| Private | Public  | This configuration isn't supported; use pg_dump/pg_restore for data transfer. |
-| Public  | Private | No other action is required if the source is whitelisted in the target's firewall rules. |
+| Public | Public | No other action is required if the source is allowlisted in the target's firewall rules. |
+| Private | Public | This configuration isn't supported; use pg_dump/pg_restore for data transfer. |
+| Public | Private | No other action is required if the source is whitelisted in the target's firewall rules. |
 | Private | Private | Establish an ExpressRoute, IPsec VPN, VPN Tunneling, or virtual network Peering between the source and target. |
 | Private | Private Endpoint | This configuration isn't supported; contact [Microsoft support](https://support.microsoft.com/). |
 
@@ -58,12 +61,15 @@ The following table can help set up the network between the source and target.
 
 ## Extensions
 
-Extensions are additional features that can be added to PostgreSQL to enhance its functionality. Extensions are supported in Azure Database for PostgreSQL, but they must be enabled manually. To enable extensions, follow these steps:
+Extensions are extra features that can be added to PostgreSQL to enhance its functionality. Extensions are supported in Azure Database for PostgreSQL, but they must be enabled manually. To enable extensions, follow these steps:
 
 - Use the select command in the source to list all the extensions that are being used - `select extname,extversion from pg_extension;`
+
 - Search for azure.extensions server parameter on the Server parameter page on your Azure Database for PostgreSQL. Enable the extensions found in the source within the PostgreSQL.
 
-:::image type="content" source="media\prerequisites-migration-service\extensions-enable-flexible-server.png" alt-text="Screenshot of enabling the extensions in Azure Database for PostgreSQL." lightbox="media\prerequisites-migration-service\extensions-enable-flexible-server.png":::
+- Save the parameter changes, and if necessary, restart the Azure Database for PostgreSQL to apply the new configuration.
+
+    :::image type="content" source="media\concepts-prerequisites-migration-service\extensions-enable-flexible-server.png" alt-text="Screenshot of enabling extension for Azure Database for PostgreSQL." lightbox="media\concepts-prerequisites-migration-service\extensions-enable-flexible-server.png":::
 
 - Check if the list contains any of the following extensions:
     - PG_CRON
@@ -75,15 +81,15 @@ Extensions are additional features that can be added to PostgreSQL to enhance it
     - PGLOGICAL
     - WAL2JSON
 
-If yes, go to the server parameters page and search for the shared_preload_libraries parameter. This parameter indicates the set of extension libraries that are preloaded at the server restart.
+    :::image type="content" source="media\concepts-prerequisites-migration-service\shared-preload-libraries.png" alt-text="Screenshot of the shared preload libraries." lightbox="media\concepts-prerequisites-migration-service\shared-preload-libraries.png":::
 
-:::image type="content" source="media\prerequisites-migration-service\shared-preload-libraries.png" alt-text="Screenshot of setting  extensions in the shared libraries in Azure Database for PostgreSQL." lightbox="media\prerequisites-migration-service\shared-preload-libraries.png":::
+If yes, go to the server parameters page and search for the shared_preload_libraries parameter. This parameter indicates the set of extension libraries that are preloaded at the server restart.
 
 ## Users and roles
 
 When migrating to Azure Database for PostgreSQL, it's important to address the migration of users and roles separately, as they require manual intervention:
 
-- **Manual Migration of Users and Roles**: Users and their associated roles must be manually migrated to the Azure Database for PostgreSQL. To facilitate this process, you can use the `pg_dumpall` utility with the `--globals-only` flag to export global objects such as roles and user accounts. Execute the following command, replacing `<<username>>` with the actual username and `<<filename>>` with your desired output file name:
+- **Manual Migration of Users and Roles**: Users and their associated roles must be manually migrated to the Azure   Database for PostgreSQL. To facilitate this process, you can use the `pg_dumpall` utility with the `--globals-only` flag to export global objects such as roles and user accounts. Execute the following command, replacing `<<username>>` with the actual username and `<<filename>>` with your desired output file name:
 
   ```sql
   pg_dumpall --globals-only -U <<username>> -f <<filename>>.sql
@@ -95,18 +101,20 @@ By following these steps, you can ensure that user accounts and roles are correc
 
 ## Server parameters
 
+These parameters aren't automatically migrated to the target environment and must be manually configured.
+
 - Match server parameter values from the source PostgreSQL database to the Azure Database for PostgreSQL by accessing the "Server parameters" section in the Azure portal and manually updating the values accordingly.
 
 - Save the parameter changes, and if necessary, restart the Azure Database for PostgreSQL to apply the new configuration.
 
 ## Disable high availability (reliability) and read replicas in target
-
 - Disable high availability (reliability) and read replicas in the target environment is essential. These features should be enabled only after the migration has been completed.
 
 - By following these guidelines, you can help ensure a smooth migration process without the added variables introduced by HA and Read Replicas. Once the migration is complete and the database is stable, you can proceed to enable these features to enhance the availability and scalability of your database environment in Azure.
 
 ## Related content
 
-- [Known Issues and limitations](known-issues-migration-service.md)
-- [Network setup](network-setup-migration-service.md)
-- [premigration validations](premigration-migration-service.md)
+- [Migration service](concepts-migration-service-postgresql.md)
+- [Known Issues and limitations](concepts-known-issues-migration-service.md)
+- [Network setup](how-to-network-setup-migration-service.md)
+- [premigration validations](concepts-premigration-migration-service.md)

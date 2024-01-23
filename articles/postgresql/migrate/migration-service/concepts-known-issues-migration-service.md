@@ -1,15 +1,17 @@
 ---
-title: "Migration service - limitations"
+title: "Migration service - known issues and limitations"
 description: Providing the limitations of the migration service in Azure Database for PostgreSQL
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 01/18/2024
+ms.date: 01/22/2024
 ms.service: postgresql
 ms.topic: conceptual
 ---
 
-# Known Issues and limitations - migration service in Azure Database for PostgreSQL - Flexible Server
+# Known issues and limitations - migration service in Azure Database for PostgreSQL
+
+[!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 
 This article describes the known issues and limitations associated with the migrations service in Azure Database for PostgreSQL.
 
@@ -44,10 +46,11 @@ Here are common limitations that apply to migration scenarios:
 
 - The migration service doesn't support migration at the object level, that is, at the table level or schema level.
 
-- The migration service is unable to perform migration when the source database is Azure Database for PostgreSQL - Single server with no public access or is an on-premises/AWS using a private IP, and the target Azure Database for PostgreSQL Flexible Server is accessible only through a private endpoint.
+- The migration service is unable to perform migration when the source database is Azure Database for PostgreSQL single server with no public access or is an on-premises/AWS using a private IP, and the target Azure Database for PostgreSQL Flexible Server is accessible only through a private endpoint.
 
 ## Related content
 
-- [Network setup](network-setup-migration-service.md)
-- [Premigration validations](premigration-migration-service.md)
-- [Prerequisites](prerequisites-migration-service.md)
+- [Migration service](concepts-migration-service-postgresql.md)
+- [Network setup](how-to-network-setup-migration-service.md)
+- [Premigration validations](concepts-premigration-migration-service.md)
+- [Prerequisites](concepts-prerequisites-migration-service.md)
