@@ -29,8 +29,8 @@ You'll need the following things before you can use watermarking:
 
   - [Windows Desktop client](users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json), version 1.2.3317 or later, on Windows 10 and later.
   - [Web client](users/connect-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
-  - [macOS client](users/connect-macos.md).
-  - [iOS client](users/connect-ios-ipados.md), version 10.5.4 and later.
+  - [macOS client](users/connect-macos.md), version 10.9.5 or later.
+  - [iOS client](users/connect-ios-ipados.md), version 10.5.4 or later.
 
   >[!NOTE]
   >The Android client doesn't support watermarking. 

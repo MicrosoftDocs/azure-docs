@@ -4,7 +4,6 @@ titleSuffix: Azure App Configuration
 description: Learn how to set up your application to automatically reload secrets and certificates from Key Vault.
 services: azure-app-configuration
 author: avanigupta
-ms.assetid: 
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: how-to

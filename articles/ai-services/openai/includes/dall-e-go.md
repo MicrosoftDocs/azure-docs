@@ -7,7 +7,6 @@ manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 08/28/2023
-keywords: 
 ---
 
 Use this guide to get started generating images with the Azure OpenAI SDK for Go.
