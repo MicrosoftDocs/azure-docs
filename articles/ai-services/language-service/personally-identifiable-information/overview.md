@@ -7,14 +7,14 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: overview
-ms.date: 12/19/2023
+ms.date: 01/22/2024
 ms.author: jboback
 ms.custom: language-service-pii, ignite-fall-2021
 ---
 
 # What is Personally Identifiable Information (PII) detection in Azure AI Language?
 
-PII detection is one of the features offered by [Azure AI Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. The PII detection feature can **identify, categorize, and redact** sensitive information in unstructured text. For example: phone numbers, email addresses, and forms of identification. The method for utilizing PII in conversations is different than other use cases, and articles for this use have been separated.
+PII detection is one of the features offered by [Azure AI Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. The PII detection feature can **identify, categorize, and redact** sensitive information in unstructured text. For example: phone numbers, email addresses, and forms of identification. The method for utilizing PII in conversations is different than other use cases, and articles for this use are separate.
 
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](how-to-call.md) contain instructions for using the service in more specific or customized ways.
@@ -45,7 +45,7 @@ PII comes into two shapes:
 
 ## Responsible AI
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it's deployed. Read the [transparency note for PII](/legal/cognitive-services/language-service/transparency-note-personally-identifiable-information?context=/azure/ai-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
+An AI system includes not only the technology, but also the people who use it, the people who are affected by it, and the deployment environment. Read the [transparency note for PII](/legal/cognitive-services/language-service/transparency-note-personally-identifiable-information?context=/azure/ai-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. For more information, see the following articles:
 
 [!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
 
