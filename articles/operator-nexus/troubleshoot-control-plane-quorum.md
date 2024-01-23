@@ -31,14 +31,14 @@ Follow this troubleshooting guide when multiple control plane nodes are offline 
 ## Procedure
 
 1. Identify the Nexus Management Node
-- To identify the management nodes, run `az networkcloud baremetalmachine list -g <RG_Name>`
+- To identify the management nodes, run `az networkcloud baremetalmachine list -g <ResourceGroup_Name>`
 - Log in to the identified server
 - Ensure the ironic-conductor service is present on this node using `crictl ps -a |grep -i ironic-conductor`
   Example output:
 
 ~~~
-  testuser@<servername> [ ~ ]$ sudo crictl ps -a |grep -i ironic-conductor
-<id>       <id>       6 hours ago         Running             ironic-conductor                                     0                   <id>`
+testuser@<servername> [ ~ ]$ sudo crictl ps -a |grep -i ironic-conductor
+<id>       <id>       6 hours ago       Running       ironic-conductor       0       <id>
 ~~~
 
 2. Determine the iDRAC IP of the server
@@ -62,10 +62,10 @@ Follow this troubleshooting guide when multiple control plane nodes are offline 
 
 3. Access the iDRAC GUI using the IP in your browser to shut down impacted management servers
 
-   :::image type="content" source="\media\troubleshoot-control-plane-quorum\graceful-shutdown.png" alt-text="Screenshot of an iDRAC GUI and the button to perform a graceful shutdown." lightbox="media\troubleshoot-control-plane-quorum\graceful-shutdown.png":::
+   :::image type="content" source="media\troubleshoot-control-plane-quorum\graceful-shutdown.png" alt-text="Screenshot of an iDRAC GUI and the button to perform a graceful shutdown." lightbox="media\troubleshoot-control-plane-quorum\graceful-shutdown.png":::
 
 4. When all impacted management servers are down, turn on the servers using the iDRAC GUI
 
-   :::image type="content" source="media\troubleshoot-control-plane-quorum\graceful-poweron.png" alt-text="Screenshot of an iDRAC GUI and the button to perform power on command." lightbox="media\troubleshoot-control-plane-quorum\graceful-poweron.png":::
+   :::image type="content" source="media\troubleshoot-control-plane-quorum\graceful-poweron.png" alt-text="Screenshot of an iDRAC GUI and the button to perform power on command." lightbox="media\troubleshoot-control-plane-quorum\graceful-power-on.png":::
 
 5. The servers should now be restored. If not, engage Microsoft support.
