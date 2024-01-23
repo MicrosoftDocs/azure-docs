@@ -13,7 +13,7 @@ ms.custom: mvc, seo-java-january2024, seo-java-february2024, mode-api, devx-trac
 
 # Quickstart: Use Azure Cache for Redis in Java with Redisson Redis client
 
-In this quickstart, you incorporate Azure Cache for Redis into a Java app using the [Redisson](https://redisson.org/) Redis client and JCP standard JCache API to have access to a secure, dedicated cache that is accessible from any application within Azure.
+In this quickstart, you incorporate Azure Cache for Redis into a Java app using the [Redisson](https://redisson.org/) Redis client and JCP standard JCache API to have access to a secure, dedicated cache that is accessible from any application within Azure. Two options are provided for selecting the Azure identity to use for the Redis connection.
 
 ## Skip to the code on GitHub
 
@@ -33,7 +33,9 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
 
 ## Set up the working environment
 
-### Option01: Authentication with Redis Key
+The steps in this section show you how to select the Azure identity used for the Redis connection. Two options are shown. The sample code looks at the value of the `AUTH_TYPE` environment variable and takes action depending on the value.
+
+### Identity option 1: Authentication with Redis Key
 
 Depending on your operating system, add environment variables for your cache's **Host name** and **Primary access key**. Open a command prompt, or a terminal window, and set up the following values:
 
@@ -54,7 +56,7 @@ Replace the placeholders with the following values:
 - `<YOUR_HOST_NAME>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
 - `<YOUR_PRIMARY_ACCESS_KEY>`: The primary access key, obtained from the *Access keys* section of your Azure Cache for Redis resource in the Azure portal.
 
-### Option02: Authentication with Microsoft Entra ID
+### Identity option 2: Authentication with Microsoft Entra ID
 
 Depending on your operating system, add environment variables for your cache's **Host name** and **USER_NAME**. Open a command prompt, or a terminal window, and set up the following values:
 
@@ -74,10 +76,9 @@ Replace the placeholders with the following values:
 
 - `<YOUR_HOST_NAME>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
 - `<USER_NAME>`: Object ID of your managed identity or service principal.
-  - You can get the **USER_NAME** by following 1-4 steps in the image:
-   - ![user_name](./media/cache-java-redisson-get-started/user_name.png)
+   - You can get the **USER_NAME** by following 1-4 steps in the image:
 
-
+   :::image type="content" source="media/cache-java-redisson-get-started/user_name.png" alt-text="Screen shot of user name panel." lightbox="media/cache-java-redisson-get-started/user_name.png":::
 
 ## Create a new Java app
 
@@ -216,7 +217,8 @@ mvn compile exec:java -Dexec.mainClass=example.demo.App
 
 In the example below, you can see the `Message` key previously had a cached value, which was set in the last run. The app updated that cached value.
 
-![Azure Cache for Redis app completed](./media/cache-java-redisson-get-started/redis-cache-app-complete.png)
+:::image type="content" source="media/cache-java-redisson-get-started/redis-cache-app-complete.png" alt-text="Screen show showing the completed app." lightbox="media/cache-java-redisson-get-started/redis-cache-app-complete.png":::
+
 
 ## Clean up resources
 
@@ -232,7 +234,7 @@ Otherwise, if you are finished with the quickstart sample application, you can d
 
 1. In the **Filter by name** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, click **Test Resources** then **Delete resource group**.
 
-   ![Azure resource group deleted](./media/cache-java-redisson-get-started/redis-cache-delete-resource-group.png)
+   :::image type="content" source="media/cache-java-redisson-get-started/redis-cache-delete-resource-group.png" alt-text="Azure resource group deleted" lightbox="media/cache-java-redisson-get-started/redis-cache-delete-resource-group.png":::
 
 1. You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and select **Delete**.
 
