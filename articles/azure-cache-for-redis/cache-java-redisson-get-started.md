@@ -40,11 +40,13 @@ Depending on your operating system, add environment variables for your cache's *
 ```CMD
 set REDIS_CACHE_HOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
 set REDIS_CACHE_KEY=<YOUR_PRIMARY_ACCESS_KEY>
+set AUTH_TYPE=RedisKey
 ```
 
 ```bash
 export REDIS_CACHE_HOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
 export REDIS_CACHE_KEY=<YOUR_PRIMARY_ACCESS_KEY>
+export AUTH_TYPE=RedisKey
 ```
 
 Replace the placeholders with the following values:
@@ -160,6 +162,9 @@ public class App {
     private static Config getConfig(){
         if ("MicrosoftEntraID".equals(System.getenv("AUTH_TYPE"))) {
             System.out.println("Auth with Microsoft Entra ID");
+            return getConfigAuthWithAAD();
+        } else if ("RedisKey".equals(System.getenv("AUTH_TYPE"))) {
+            System.out.println("Auth with Redis key");
             return getConfigAuthWithAAD();
         }
         System.out.println("Auth with Redis key");
