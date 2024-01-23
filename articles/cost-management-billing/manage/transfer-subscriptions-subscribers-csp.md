@@ -12,7 +12,7 @@ ms.author: banders
 
 # Transfer Azure subscriptions between subscribers and CSPs
 
-This article provides high-level steps used to transfer Azure subscriptions to and from Cloud Solution Provider (CSP) partners and their customers. This information is intended for the Azure subscriber to help them coordinate with their partner. Information that Microsoft partners use for the transfer process is documented at [Transfer subscriptions under and Azure plan from one partner to another](azure-plan-subscription-transfer-partners.md).
+This article provides high-level steps used to transfer Azure subscriptions to and from Cloud Solution Provider (CSP) partners and their customers. This information is intended for the Azure subscriber to help them coordinate with their partner. Information that Microsoft partners use for the transfer process is documented at [Transfer subscriptions under an Azure plan from one partner to another](azure-plan-subscription-transfer-partners.md).
 
 Download or export cost and billing information that you want to keep before you start a transfer request. Billing and utilization information doesn't transfer with the subscription. For more information about exporting cost management data, see [Create and manage exported data](../costs/tutorial-export-acm-data.md). For more information about downloading your invoice and usage data, see [Download or view your Azure billing invoice and daily usage data](download-azure-invoice-daily-usage-date.md).
 
