@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 12/15/2023
+ms.date: 01/21/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -58,9 +58,10 @@ Installing or migrating existing SAP on Oracle systems to Azure, the following d
 5.  ASM removes the requirement for Mirror Log. Follow the guidance from Oracle in Note [888626 - Redo log layout for high-end systems](https://launchpad.support.sap.com/#/notes/888626)
 6.  Use ASMLib and don't use udev
 7.  Azure NetApp Files deployments should use Oracle dNFS (Oracle’s own high performance Direct NFS solution)
-8.  Large databases benefit greatly from large SGA sizes. Large customers should deploy on Azure M-series with 4 TB or more RAM size.
+8.  Large Oracle databases benefit greatly from large SGA sizes. Large customers should deploy on Azure M-series with 4 TB or more RAM size.
     - Set Linux Huge Pages to 75% of Physical RAM size
     - Set SGA to 90% of Huge Page size
+    - Set the Oracle parameter USE_LARGE_PAGES = **ONLY** - The value ONLY is preferred over the value TRUE as the value ONLY is suppossed to deliver more consistent and predictable performance. The value TRUE may allocate both large 2MB and standard 4K pages. The value ONLY is going to always force large 2MB pages. If the number of available huge pages is not sufficient or not correctly configured, the database instance is going to fail to start with error code: *ora-27102 :  out of memory Linux_x86_64 Error 12 : cannot allocate memory*. If there is insufficient contiguous memory Oracle the Operating System may need to be restarted and/or the Operating System Huge Page parameters reconfigured
 9.  Oracle Home should be located outside of the “root” volume or disk. Use a separate disk or ANF volume. The disk holding the Oracle Home should be 64GB or larger
 10. The size of the boot disk for large high performance Oracle database servers is important. As a minimum a P10 disk should be used for M-series or E-series. Don't use small disks such as P4 or P6. A small disk can cause performance issues.
 11. Accelerated Networking must be enabled on all VMs. Upgrade to the latest OL release if there are any problems enabling Accelerated Networking
