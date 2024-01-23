@@ -19,7 +19,7 @@ ms.custom: [references_regions]
 
 # How to deploy Llama 2 family of large language models with Azure Machine Learning studio
 
-The Llama 2 family of large language models (LLMs) is a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. The model family also includes fine-tuned versions optimized for dialogue use cases with Reinforcement Learning from Human Feedback (RLHF), called Llama-2-chat.
+The Llama 2 family of large language models (LLMs) is a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. The model family also includes fine-tuned versions optimized for dialogue use cases with reinforcement learning from human feedback (RLHF), called Llama-2-chat.
 
 Llama 2 can be deployed as a service with pay-as-you-go billing or with hosted infrastructure in real-time endpoints.
 
@@ -52,20 +52,20 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
     > [!IMPORTANT]
     > Pay-as-you-go model deployment offering is only available in workspaces created in **East US 2** and **West US 3** regions.
 
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
-    - On the Azure subscription (needed to subscribe the workspace to the Azure Marketplace offering, once for each workspace, per offering):
+    - On the Azure subscription—to subscribe the workspace to the Azure Marketplace offering, once for each workspace, per offering:
       - `Microsoft.MarketplaceOrdering/agreements/offers/plans/read`
       - `Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action`
       - `Microsoft.MarketplaceOrdering/offerTypes/publishers/offers/plans/agreements/read`
       - `Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read`
       - `Microsoft.SaaS/register/action`
  
-    - On the Resource Group (to create and use the SaaS Resource):
+    - On the resource group—to create and use the SaaS resource:
       - `Microsoft.SaaS/resources/read`
       - `Microsoft.SaaS/resources/write`
  
-    - On the Workspace for deploying endpoints (the AzureML Data Scientist role contains these permissions already):
+    - On the workspace—to deploy endpoints (the Azure Machine Learning data scientist role contains these permissions already):
       - `Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*`  
       - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*`
 
@@ -86,14 +86,14 @@ To create a deployment:
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="media/how-to-deploy-models-llama/deploy-pay-as-you-go.png":::
 
 1. On the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
-1. If this is your first time deploying the model in the workspace, you have to subscribe your workspace for the particular offering (eg. Llama-2-70b) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each workspace has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and Deploy**.
+1. If this is your first time deploying the model in the workspace, you have to subscribe your workspace for the particular offering (for example, Llama-2-70b) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each workspace has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and Deploy**.
 
     > [!NOTE]
     > Subscribing a project to a particular Azure Marketplace offering (in this case, Llama-2-70b) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
 
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="media/how-to-deploy-models-llama/deploy-marketplace-terms.png":::
 
-1. Once you sign up the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require subscribing again. Therefore, you don't need to have the subscription-level permissions for subsequent deployments. If this is your case, select **Continue to deploy**.
+1. Once you sign up the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require subscribing again. Therefore, you don't need to have the subscription-level permissions for subsequent deployments. If this scenario applies to you, select **Continue to deploy**.
 
     :::image type="content" source="media/how-to-deploy-models-llama/deploy-pay-as-you-go-project.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="media/how-to-deploy-models-llama/deploy-pay-as-you-go-project.png":::
 
@@ -378,8 +378,6 @@ Apart from deploying with the pay-as-you-go managed service, you can also deploy
 
 ### Create a new deployment
 
-# [Studio](#tab/azure-studio)
-
 Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time endpoint in [Azure Machine Learning studio](https://ml.azure.com).
 
 1. Select the workspace in which you want to deploy the model.
@@ -409,8 +407,8 @@ Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time en
 1. Wait for the endpoint creation and deployment to finish. This step can take a few minutes.
 1. Select the endpoint's **Consume** page to obtain code samples that you can use to consume the deployed model in your application.
 
----
-For more information please refer to [Deploying foundation models to endpoints for inferencing](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2#deploying-foundation-models-to-endpoints-for-inferencing)
+For more information on how to deploy models to real-time endpoints, using the studio, see [Deploying foundation models to endpoints for inferencing](how-to-use-foundation-models.md#deploying-foundation-models-to-endpoints-for-inferencing).
+
 ### Consume Llama 2 models deployed to real-time endpoints
 
 For reference about how to invoke Llama 2 models deployed to real-time endpoints, see the model's card in Azure Machine Learning studio [model catalog](concept-model-catalog.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
