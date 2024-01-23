@@ -78,7 +78,7 @@ See the [README](https://github.com/Azure/prometheus-collector/blob/main/AddonBi
 ---
 
 
-## Edit alert rules
+## Edit recommended alert rules
 
 Once the rule group has been created, you can't use the same page in the portal to edit the rules. For Prometheus metrics, you must edit the rule group to modify any rules in it, including enabling any rules that weren't already enabled. For platform metrics, you can edit each alert rule.
 
@@ -109,14 +109,6 @@ Edit the query and threshold or configure an action group for your alert rules i
 
 ---
 
-## Apply alert rule group to multiple clusters
-
-Instead of creating separate Prometheus alert rule groups for each of your clusters, you can create a single rule group and apply it to all of the clusters that use the same Azure Monitor workspace.
-
-1. View the alert rule group as described in [Edit recommended alert rules](#edit-recommended-alert-rules).
-2. From the **Scope** menu, select **All clusters in the workspace** for the **Cluster** setting. 
-
-    :::image type="content" source="media/kubernetes-metric-alerts/prometheus-rule-group-scope.png" lightbox="media/kubernetes-metric-alerts/prometheus-rule-group-scope.png" alt-text="Screenshot of option to edit rule group scope.":::
 
 ## Disable alert rule group
 Disable the rule group to stop receiving alerts from the rules in it. 
