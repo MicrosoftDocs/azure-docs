@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: reference
-ms.date: 11/23/2023
+ms.date: 1/21/2024
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Speech to text REST API
 
-Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [custom speech](custom-speech-overview.md). 
+Speech to text REST API is used for [batch transcription](batch-transcription.md) and [custom speech](custom-speech-overview.md). 
 
 > [!IMPORTANT]
 > Speech to text REST API v3.2 is available in preview. 
@@ -37,7 +37,7 @@ Use Speech to text REST API to:
 
 Speech to text REST API includes such features as:
 
-- Get logs for each endpoint if logs have been requested for that endpoint.
+- Get logs for each endpoint if logs are requested for that endpoint.
 - Request the manifest of the models that you create, to set up on-premises containers.
 - Upload data from Azure storage accounts by using a shared access signature (SAS) URI.
 - Bring your own storage. Use your own storage accounts for logs, transcription files, and other data.
@@ -106,7 +106,7 @@ See [Test recognition quality](how-to-custom-speech-inspect-data.md?pivots=rest-
 
 ## Health status
 
-Health status provides insights about the overall health of the service and sub-components.
+Health status provides insights about the overall health of the service and subcomponents.
 
 |Path|Method|Version 3.1|Version 3.0|
 |---------|---------|---------|---------|

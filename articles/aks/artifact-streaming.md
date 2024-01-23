@@ -104,6 +104,18 @@ Enablement on ACR is a prerequisite for Artifact Streaming on AKS. For more info
         --enable-artifact-streaming
     ```
 
+### Enable Artifact Streaming on an existing node pool
+
+* Update an existing node pool to enable Artifact Streaming using the [`az aks nodepool update`][az-aks-nodepool-update] command with the `--enable-artifact-streaming`.
+
+    ```azurecli-interactive
+    az aks nodepool update \
+        --resource-group myResourceGroup \
+        --cluster-name myAKSCluster \
+        --name myNodePool \
+        --enable-artifact-streaming
+    ```
+
 ## Check if Artifact Streaming is enabled
 
 Now that you enabled Artifact Streaming on a premium ACR and connected that to an AKS node pool with Artifact Streaming enabled, any new pod deployments on this cluster with an image pull from the ACR with Artifact Streaming enabled will see reductions in image pull times.
