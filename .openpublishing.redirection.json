@@ -19193,6 +19193,11 @@
             "redirect_document_id": false  
         },
         {
+            "source_path_from_root": "/articles/aks/cluster-configuration.md",
+            "redirect_url": "/azure/aks/concepts-clusters-workloads.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/orbital/overview-analytics.md",
             "redirect_url": "/azure/orbital/overview",
             "redirect_document_id": false  

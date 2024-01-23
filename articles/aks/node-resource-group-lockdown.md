@@ -26,19 +26,17 @@ Before you begin, you need the following resources installed and configured:
 
 ### Install the `aks-preview` CLI extension
 
-1. Install the `aks-preview` extension using the [`az extension add`][az-extension-add] command.
+* Install or update the the `aks-preview` extension using the [`az extension add`][az-extension-add] or the [`az extension update`][az-extension-update] command.
 
     ```azurecli-interactive
+    # Install the aks-preview extension
     az extension add --name aks-preview
-    ```
 
-2. Update the extension to make sure you have the latest version installed using the [`az extension update`][az-extension-update] command.
-
-    ```azurecli-interactive
+    # Update to the latest version of the aks-preview extension
     az extension update --name aks-preview
     ```
 
-### Register the NRGLockdownPreview feature flag
+### Register the `NRGLockdownPreview` feature flag
 
 1. Register the `NRGLockdownPreview` feature flag using the [`az feature register`][az-feature-register] command.
 
