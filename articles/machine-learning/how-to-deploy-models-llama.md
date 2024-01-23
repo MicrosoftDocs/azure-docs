@@ -19,9 +19,9 @@ ms.custom: [references_regions]
 
 # How to deploy Llama 2 family of large language models with Azure Machine Learning studio
 
-The Llama 2 family of large language models (LLMs) is a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. The model family also includes fine-tuned versions optimized for dialogue use cases with reinforcement learning from human feedback (RLHF), called Llama-2-chat.
+In this article, you learn about the Llama 2 family of large language models (LLMs). You also learn how to use Azure Machine Learning studio to deploy models from this set either as a service with pay-as you go billing or with hosted infrastructure in real-time endpoints.
 
-Llama 2 can be deployed as a service with pay-as-you-go billing or with hosted infrastructure in real-time endpoints.
+The Llama 2 family of LLMs is a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. The model family also includes fine-tuned versions optimized for dialogue use cases with reinforcement learning from human feedback (RLHF), called Llama-2-chat.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
