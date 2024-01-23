@@ -50,11 +50,13 @@ Sign in to the [Transmit Admin Portal](https://portal.transmitsecurity.io/) and 
 
 1. From **Applications**, select **Add application**.
 1. Configure the application with the following attributes:
+
    | Property | Description |
    |:---------|:---------------------|
    | **Application name** | Application name| 
    | **Client name** | Client name| 
    | **Redirect URIs** | `https://<your-B2C-tenant>.b2clogin.com/<your-B2C-tenant>.onmicrosoft.com/oauth2/authresp` where `<your-B2C-tenant>` is your Azure AD B2C tenant domain (or `<your-B2C-tenant>.b2clogin.com` is your custom domain)|
+
 3. Select **Add**.
 
 4. Upon registration, a **Client ID** and **Client Secret** appear. Record the values to use later.
@@ -66,12 +68,14 @@ From the [Transmit Admin Portal](https://portal.transmitsecurity.io/), configure
 1. Select **Authentication**, and then select **Experiences Management**.
 1. From the drop-down menu, select your application.
 1. Configure your application with the following attributes:
+
    | Property | Description |
    |:---------|:---------------------|
    | **User identifier** | Select **Email**| 
    | **Primary authentication method** | Select **Passkey**| 
    | **Secondary authentication method** | Only enable **WebAuthn QR** and **Email OTP**|
    | **Select user information** | Delete all the default fields|
+
 1. Select **Save**.
 
 ::: zone pivot="b2c-user-flow"
@@ -87,6 +91,7 @@ To enable users to sign in with Transmit Security, configure Transmit Security a
 1. Under **Azure services**, select **Azure AD B2C** (or select **More services** and use the **All services** search box to search for Azure AD B2C).
 1. Select **Identity providers**, and then select **New OpenID Connect provider**.
 1. Configure the provider as follows:
+
    | Property | Description |
    |:---------|:---------------------|
    | **Name** | Name, such as Transmit Security| 
@@ -98,9 +103,8 @@ To enable users to sign in with Transmit Security, configure Transmit Security a
    | **Response mode** | **form_post**|
    | **Display name** | `email`|
    | **Email** | `email`|
+
 1. Select **Save**.
-
-
 
 ## Step 4: Create a user flow
 
@@ -141,12 +145,14 @@ You need to store the client secret of your Transmit application that you previo
 1. On the Overview page, under **Policies**, select **Identity Experience Framework**.
 1. Select **Policy Keys**, and then select **Add**.
 1. Configure the policy key as follows:
+
    | Property | Description |
    |:---------|:---------------------|
    | **Options** | **Manual**| 
    | **Name** | Policy key name, such as *TransmitClientSecret*| 
    | **Secret** | Client secret provided by Transmit|
    | **Key usage** | **Signature**|
+   
 1. Select **Create** to add the policy key.
 
 ## Step 4: Add Transmit as an identity provider
