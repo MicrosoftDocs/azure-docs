@@ -6578,6 +6578,11 @@
             "source_path_from_root": "/articles/azure-monitor/agents/data-collection-rule-sample-agent.md",
             "redirect_url": "/azure/azure-monitor/essentials/data-collection-rule-samples",
             "redirect_document_id": false
-        }        
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/resource-manager-container-insights.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=arm#enable-container-insights",
+            "redirect_document_id": false
+        }
     ]
 }

@@ -4,7 +4,7 @@ description: Provides an overview of Azure Database for PostgreSQL - Flexible Se
 author: sunilagarwal
 ms.author: sunila
 ms.reviewer: maghan
-ms.date: 07/07/2023
+ms.date: 01/18/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
@@ -126,7 +126,7 @@ One advantage of running your workload in Azure is global reach. Azure Database 
 | Sweden Central | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Sweden South* | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland North | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Switzerland West*| :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Switzerland West*| :heavy_check_mark: (v3/v4/v5 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | UAE Central* | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :x: |
 | UAE North | :heavy_check_mark: (v3/v4/v5 only) | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | US Gov Arizona | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :x: |
