@@ -4,7 +4,7 @@ description: This article describes how you can manage Microsoft Entra ID enable
 author: achudnovskij
 ms.author: anchudno
 ms.reviewer: maghan
-ms.date: 11/04/2022
+ms.date: 01/02/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: devx-track-arm-template

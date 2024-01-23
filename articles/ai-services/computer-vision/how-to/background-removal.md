@@ -8,13 +8,13 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 01/19/2024
 ms.custom: references_regions
 ---
 
-# Remove the background from images
+# Remove the background in images
 
-This article demonstrates how to call the Image Analysis 4.0 API to segment an image. It also shows you how to parse the returned information.
+This article demonstrates how to call the Image Analysis 4.0 API to segment an image (separate the foreground from background). It also shows you how to parse the returned information.
 
 > [!IMPORTANT]
 > Background removal is only available through direct REST API calls. It is not available through the SDKs.
@@ -26,7 +26,7 @@ This guide assumes you have successfully followed the steps mentioned in the [qu
 * You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Vision resource"  target="_blank">created a Vision resource </a> and obtained a key and endpoint URL.
 * You have successfully made a `curl.exe` call to the service (or used an alternative tool). You modify the `curl.exe` call based on the examples here.
 
-The quickstart shows you how to extract visual features from an image, however, the concepts are similar to background removal. Therefore you benefit from starting from the quickstart and making modifications.
+The [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) shows you how to extract visual features from an image. However, the concepts are similar to background removal. Therefore you benefit from starting with the quickstart and making modifications.
 
 > [!IMPORTANT]
 > Background removal is only available in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
@@ -157,7 +157,7 @@ Create a new [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis
 ### [REST](#tab/rest)
 -->
 
-Set the query string *mode** to one of these two values. This query string is mandatory if you want to do image segmentation.
+Set the query string *mode* to one of these two values. This query string is mandatory if you want to do image segmentation.
 
 |URL parameter | Value               |Description  |
 |--------------|---------------------|-------------|
@@ -224,7 +224,7 @@ The API returns an image the same size as the original for the `foregroundMattin
 
 [!INCLUDE [image-analysis-error-codes-40](../includes/image-analysis-error-codes-40.md)]
 
----
+
 
 ## Next steps
 
