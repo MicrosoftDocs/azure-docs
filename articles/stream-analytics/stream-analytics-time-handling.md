@@ -5,7 +5,7 @@ author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 01/23/2024
 ---
 
 # Understand time handling in Azure Stream Analytics
