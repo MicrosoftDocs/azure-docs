@@ -1,7 +1,6 @@
 ---
 title: Data ingestion and normalization
 description: This article helps you understand the data ingestion and normalization capability within the FinOps Framework and how to implement that in the Microsoft Cloud.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 06/22/2023
@@ -68,7 +67,7 @@ At this point, you have a data pipeline and are ingesting data into a central da
 - Determine what other datasets are required based on your reporting needs:
   - Cost and pricing
     - [Azure retail prices](/rest/api/cost-management/retail-prices/azure-retail-prices) for pay-as-you-go rates without organizational discounts.
-    - [Price sheets](/rest/api/cost-management/price-sheet/download) for organizational pricing for Microsoft Customer Agreement accounts.
+    - [Price sheets](/rest/api/cost-management/price-sheet) for organizational pricing for Microsoft Customer Agreement accounts.
     - [Price sheets](/rest/api/consumption/price-sheet/get) for organizational pricing for Enterprise Agreement accounts.
     - [Balance summary](/rest/api/consumption/balances/get-by-billing-account) for Enterprise Agreement monetary commitment balance.
   - Commitment-based discounts

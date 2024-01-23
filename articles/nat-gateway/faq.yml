@@ -44,7 +44,29 @@ sections:
       - question: How do I delete a NAT gateway resource?
         answer: |
           To delete a NAT gateway resource, the resource must first be disassociated from the subnet. Once the NAT gateway resource is disassociated from all subnets, it can be deleted. See [remove a NAT gateway from an existing subnet and delete the resource](./manage-nat-gateway.md?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource) for step-by-step guidance.
+
+      - question: Does NAT gateway support IP fragmentation?
+        answer: |
+          No, NAT gateway does not support IP fragmentation for TCP or UDP protocols.
                   
+  - name: NAT gateway metrics
+    questions: 
+      - question: What is the difference between SNAT Connection Count and Total SNAT Connection Count metrics for NAT gateway?
+        answer: |
+          The [SNAT Connection Count](nat-metrics.md#snat-connection-count) metric shows the number of new SNAT connections made per second. The [Total SNAT Connection Count](nat-metrics.md#total-snat-connection-count) metric shows the total amount of active connection on NAT gateway. 
+
+      - question: How can I see SNAT port usage on NAT gateway?
+        answer: |
+          There's no SNAT port usage metric for NAT gateway. Use the SNAT Connection Count and Total SNAT Connection Count metrics to help you evaluate the SNATing capacity of your NAT gateway.  
+
+      - question: How can I store my NAT gateway metrics long-term?
+        answer: |
+          NAT gateway metrics can be retrived by using the [metrics REST API](/rest/api/monitor/metrics/list). Alternatively, you can select Share and then Download to Excel from the NAT gateway metrics page in the Azure portal.
+
+      - question: Can NAT gateway metrics be retrieved using diagnostic settings?
+        answer: |
+          No, NAT gateway metrics can't be exported using [diagnostic settings](/azure/azure-monitor/reference/supported-metrics/microsoft-network-natgateways-metrics). NAT gateway metrics are multi-dimensional. Diagnostic settings doesn't support the export of [multi-dimensional metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index#exporting-platform-metrics-to-other-locations).
+      
   - name: Outbound connectivity with NAT gateway
     questions:
       - question: How can I use NAT gateway to connect outbound in a setup where I'm currently using a different service for outbound?
@@ -62,14 +84,6 @@ sections:
       - question: If multiple public IP addresses are assigned to a NAT gateway, is traffic flow disrupted when one of the IP addresses is removed?
         answer: |
           Any active connections associated with a public IP address terminate upon the public IP address being removed. If the NAT gateway resource has multiple public IPs, new traffic is distributed among the assigned IPs.
-
-      - question: What is the difference between SNAT Connection Count and Total SNAT Connection Count metrics for NAT gateway?
-        answer: |
-          The [SNAT Connection Count](nat-metrics.md#snat-connection-count) metric shows the number of new SNAT connections made per second. The [Total SNAT Connection Count](nat-metrics.md#total-snat-connection-count) metric shows the total amount of active connection on NAT gateway. 
-
-      - question: How can I see SNAT port usage on NAT gateway?
-        answer: |
-          There's no SNAT port usage metric for NAT gateway. Use the SNAT Connection Count and Total SNAT Connection Count metrics to help you evaluate the SNATing capacity of your NAT gateway.  
           
   - name: Traffic routes
     questions:

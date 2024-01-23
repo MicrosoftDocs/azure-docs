@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-content-moderator
 ms.custom: build-2023
 ms.topic: include
-ms.date: 06/11/2021
+ms.date: 01/18/2024
 ms.author: pafarley
 ---
 

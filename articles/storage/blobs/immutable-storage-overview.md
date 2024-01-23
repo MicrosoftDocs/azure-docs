@@ -146,6 +146,9 @@ When you enable blob inventory, Azure Storage generates an inventory report on a
 
 For more information about blob inventory, see [Azure Storage blob inventory](blob-inventory.md).
 
+> [!NOTE]
+> You can't configure an inventory policy in an account if support for version-level immutability is enabled on that account, or if support for version-level immutability is enabled on the destination container that is defined in the inventory policy. 
+
 ## Pricing
 
 There is no additional capacity charge for using immutable storage. Immutable data is priced in the same way as mutable data. For pricing details on Azure Blob Storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).

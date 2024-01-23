@@ -2,15 +2,9 @@
 title: Standard storage with cool access in Azure NetApp Files
 description: Explains how to use standard storage with cool access to configure inactive data to move from Azure NetApp Files Standard service-level storage (the hot tier) to an Azure storage account (the cool tier).
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 11/01/2023
 ms.author: anfdocs
@@ -44,6 +38,7 @@ Standard storage with cool access is supported for the following regions:
 * Australia East 
 * Australia Southeast
 * Brazil South 
+* Brazil Southeast
 * Canada Central 
 * Canada East
 * Central India 
@@ -52,9 +47,13 @@ Standard storage with cool access is supported for the following regions:
 * France Central
 * North Central US 
 * North Europe  
+* Southeast Asia
 * Switzerland North 
 * Switzerland West 
 * UAE North 
+* US Gov Arizona
+* US Gov Virginia 
+* West US
 
 ## Effects of cool access on data
 

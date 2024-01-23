@@ -2,8 +2,8 @@
 title: Deploy an AKS cluster with Confidential Containers (preview)
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with Confidential Containers (preview) and a default security policy by using the Azure CLI.
 ms.topic: quickstart
-ms.date: 11/13/2023
-ms.custom: devx-track-azurecli, ignite-fall-2023, mode-api, devx-track-linux
+ms.date: 01/10/2024
+ms.custom: devx-track-azurecli, ignite-fall-2023, mode-api, linux-related-content
 ---
 
 # Deploy an AKS cluster with Confidential Containers and a default policy
@@ -24,7 +24,7 @@ In general, getting started with AKS Confidential Containers involves the follow
 
 - The `aks-preview` Azure CLI extension version 0.5.169 or later.
 
-- The `confcom` Confidential Container Azure CLI extension 0.3.0 or later. `confcom` is required to generate a [security policy][confidential-containers-security-policy].
+- The `confcom` Confidential Container Azure CLI extension 0.3.3 or later. `confcom` is required to generate a [security policy][confidential-containers-security-policy].
 
 - Register the `Preview` feature in your Azure subscription.
 
@@ -139,7 +139,7 @@ Use the following command to enable Confidential Containers (preview) by creatin
    * **--cluster-name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
    * **--name**: Enter a unique name for your clusters node pool, such as *nodepool2*.
    * **--workload-runtime**: Specify *KataCcIsolation* to enable the feature on the node pool. Along with the `--workload-runtime` parameter, these other parameters shall satisfy the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
-   * **--os-sku**: **AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
+   * **--os-sku**: *AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
    * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Standard_DC8as_cc_v5][DC8as-series] VMs.
 
    The following example adds a user node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup*:
@@ -176,13 +176,13 @@ To configure the workload identity, perform the following steps described in the
 * Establish federated identity credential
 
 >[!IMPORTANT]
->For the step to **Export environmental variables**, set the value for the variable `SERVICE_ACCOUNT_NAMESPACE` to `kafka`.
+>For the step to **Export environment variables**, set the value for the variable `SERVICE_ACCOUNT_NAMESPACE` to `kafka`.
 
 ## Deploy a trusted application with kata-cc and attestation container
 
 The following steps configure end-to-end encryption for Kafka messages using encryption keys managed by [Azure Managed Hardware Security Modules][azure-managed-hsm] (mHSM). The key is only released when the Kafka consumer runs within a Confidential Container with an Azure attestation secret provisioning container injected in to the pod.
 
-This configuration is basedon the following four components:
+This configuration is based on the following four components:
 
 * Kafka Cluster: A simple Kafka cluster deployed in the Kafka namespace on the cluster.
 * Kafka Producer: A Kafka producer running as a vanilla Kubernetes pod that sends encrypted user-configured messages using a public key to a Kafka topic.
@@ -193,15 +193,15 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 1. Grant the managed identity you created earlier, and your account, access to the key vault. [Assign][assign-key-vault-access-cli] both identities the **Key Vault Crypto Officer** and **Key Vault Crypto User** Azure RBAC roles.
 
    >[!NOTE]
-   >The managed identity is the value you assigned to the `USER_ASSIGNED_IDENTITY_NAME` variable.
+   >The managed identity is the value you assign to the `USER_ASSIGNED_IDENTITY_NAME` variable.
 
    >[!NOTE]
-   >To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator (preview)][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac],or [Owner][owner-rbac].
+   >To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac], or [Owner][owner-rbac].
 
    Run the following command to set the scope:
 
     ```azurecli-interactive
-    AKV_SCOPE=$(az keyvault show --name <AZURE_AKV_RESOURCE_NAME> --query id --output tsv) 
+    AKV_SCOPE=$(az keyvault show --name <AZURE_AKV_RESOURCE_NAME> --query id --output tsv)
     ```
 
    Run the following command to assign the **Key Vault Crypto Officer** role.
@@ -313,19 +313,19 @@ For this preview release, we recommend for test and evaluation purposes to eithe
           targetPort: kafka-consumer
     ```
 
-1. Create a Kafka namespace by running the following command:
+1. Create a kafka namespace by running the following command:
 
     ```bash
     kubectl create namespace kafka
     ```
 
-1. Install the Kafka cluster in the Kafka namespace by running the following command::
+1. Install the Kafka cluster in the kafka namespace by running the following command:
 
     ```bash
     kubectl create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
     ```
 
-1. Run the following command to apply the `Kafka` cluster CR file.
+1. Run the following command to apply the `kafka` cluster CR file.
 
     ```bash
     kubectl apply -f https://strimzi.io/examples/latest/kafka/kafka-persistent-single.yaml -n kafka
@@ -338,7 +338,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 
     ```
 
-1. Prepare the RSA Encryption/Decryption key by [https://github.com/microsoft/confidential-container-demos/blob/main/kafka/setup-key.sh] the Bash script for the workload from GitHub. Save the file as `setup-key.sh`.
+1. Prepare the RSA Encryption/Decryption key using the [bash script](https://github.com/microsoft/confidential-container-demos/raw/main/kafka/setup-key.sh) for the workload from GitHub. Save the file as `setup-key.sh`.
 
 1. Set the `MAA_ENDPOINT` environmental variable to match the value for the `SkrClientMAAEndpoint` from the `consumer.yaml` manifest file by running the following command.
 
@@ -374,29 +374,29 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 1. Get the IP address of the web service using the following command:
 
     ```bash
-    kubectl get svc consumer -n kafka 
+    kubectl get svc consumer -n kafka
     ```
 
-Copy and paste the external IP address of the consumer service into your browser and observe the decrypted message. 
+1. Copy and paste the external IP address of the consumer service into your browser and observe the decrypted message.
 
-The following resemblers the output of the command:
+    The following example resembles the output of the command:
 
-```output
-Welcome to Confidential Containers on AKS!
-Encrypted Kafka Message: 
-Msg 1: Azure Confidential Computing
-```
+    ```output
+    Welcome to Confidential Containers on AKS!
+    Encrypted Kafka Message:
+    Msg 1: Azure Confidential Computing
+    ```
 
-You should also attempt to run the consumer as a regular Kubernetes pod by removing the `skr container` and `kata-cc runtime class` spec. Since you aren't running the consumer with kata-cc runtime class, you no longer need the policy.
+1. You should also attempt to run the consumer as a regular Kubernetes pod by removing the `skr container` and `kata-cc runtime class` spec. Since you aren't running the consumer with kata-cc runtime class, you no longer need the policy.
 
-Remove the entire policy and observe the messages again in the browser after redeploying the workload. Messages appear as base64-encoded ciphertext because the private encryption key can't be retrieved. The key can't be retrieved because the consumer is no longer running in a confidential environment, and the `skr container` is missing, preventing decryption of messages.
+1. Remove the entire policy and observe the messages again in the browser after redeploying the workload. Messages appear as base64-encoded ciphertext because the private encryption key can't be retrieved. The key can't be retrieved because the consumer is no longer running in a confidential environment, and the `skr container` is missing, preventing decryption of messages.
 
 ## Cleanup
 
 When you're finished evaluating this feature, to avoid Azure charges, clean up your unnecessary resources. If you deployed a new cluster as part of your evaluation or testing, you can delete the cluster using the [az aks delete][az-aks-delete] command.
 
 ```azurecli-interactive
-az aks delete --resource-group myResourceGroup --name myAKSCluster 
+az aks delete --resource-group myResourceGroup --name myAKSCluster
 ```
 
 If you enabled Confidential Containers (preview) on an existing cluster, you can remove the pod(s) using the [kubectl delete pod][kubectl-delete-pod] command.
@@ -443,7 +443,7 @@ kubectl delete pod pod-name
 [azure-managed-hsm]: ../key-vault/managed-hsm/overview.md
 [provision-key-vault-azure-cli]: ../key-vault/general/quick-create-cli.md
 [assign-key-vault-access-cli]: ../key-vault/general/rbac-guide.md#assign-role
-[key-vault-data-access-admin-rbac]: ../role-based-access-control/built-in-roles.md#key-vault-data-access-administrator-preview
+[key-vault-data-access-admin-rbac]: ../role-based-access-control/built-in-roles.md#key-vault-data-access-administrator
 [user-access-admin-rbac]: ../role-based-access-control/built-in-roles.md#user-access-administrator
 [owner-rbac]: ../role-based-access-control/built-in-roles.md#owner
 [az-attestation-show]: /cli/azure/attestation#az-attestation-show

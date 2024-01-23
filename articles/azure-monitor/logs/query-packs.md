@@ -6,7 +6,7 @@ ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: roygal
-ms.date: 06/22/2022
+ms.date: 12/11/2023
 
 ---
 
@@ -49,6 +49,9 @@ To add query packs to your Log Analytics workspace:
 
 ## Create a query pack
 You can create a query pack by using the REST API or from the **Log Analytics query packs** pane in the Azure portal. To open the **Log Analytics query packs** pane in the portal, select **All services** > **Other**.
+
+> [!NOTE]
+> Queries saved in [query pack](./query-packs.md) aren't encrypted with Customer-managed key. Select **Save as Legacy query** when saving queries instead, to protect them with Customer-managed key.
 
 ### Create a token
 You must have a token for authentication of the API request. There are multiple methods to get a token. One method is to use `armclient`.

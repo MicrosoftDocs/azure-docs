@@ -2,12 +2,11 @@
 title: Voice Assistants on Windows overview - Speech service
 titleSuffix: Azure AI services
 description: An overview of the voice assistants on Windows, including capabilities and development resources available.
-#services: cognitive-services
 author: cfogg6
 manager: trrwilson
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 02/19/2022
+ms.date: 1/22/2024
 ms.author: travisw
 ms.custom: cogserv-non-critical-speech
 ---
@@ -22,7 +21,7 @@ Voice agent applications can be activated by a spoken keyword to enable a hands-
 
 In addition, Windows provides a set of voice-activation privacy settings that gives users control of voice activation and above lock activation on a per-app basis.
 
-After voice activation, Windows will manage multiple active agents properly and notify each voice assistant if they are interrupted or deactivated. This allows applications to manage interruptions and other inter-agent events properly.
+After voice activation, Windows will manage multiple active agents properly and notify each voice assistant if they're interrupted or deactivated. This allows applications to manage interruptions and other inter-agent events properly.
 
 ## How does voice activation work?
 
@@ -34,11 +33,11 @@ When the user speaks a keyword, the software or hardware keyword spotter on the 
 
 The first time a voice activated application is run, it registers its app ID and keyword information through the ConversationalAgent APIs. AAR registers all configurations in the global mapping with the hardware or software keyword spotter on the system, allowing them to detect the application's keyword. The application also [registers with the Background Service](/windows/uwp/launch-resume/register-a-background-task).
 
-Note that this means an application cannot be activated by voice until it has been run once and registration has been allowed to complete.
+This means an application can't be activated by voice until it has been run once and registration has been allowed to complete.
 
 ### Receiving an activation
 
-Upon receiving the request from AAR, the Background Service launches the application. The application receives a signal through the OnBackgroundActivated life-cycle method in `App.xaml.cs` with a unique event argument. This argument tells the application that it was activated by AAR and that it should start keyword verification.
+The Background Service receives the request from AAR and launches the application. The application receives a signal through the OnBackgroundActivated life-cycle method in `App.xaml.cs` with a unique event argument. This argument tells the application that it was activated by AAR and that it should start keyword verification.
 
 If the application successfully verifies the keyword, it can make a request that appears in the foreground. When this request succeeds, the application displays UI and continues its interaction with the user.
 
@@ -46,7 +45,7 @@ AAR still signals active applications when their keyword is spoken. Rather than 
 
 ### Keyword verification
 
-The keyword spotter that triggers the application to start has achieved low power consumption by simplifying the keyword model. This allows the keyword spotter to be "always on" without a high power impact, but it also means the keyword spotter will likely have a high number of "false accepts" where it detects a keyword even though no keyword was spoken. This is why the voice activation system launches the application in the background: to give the application a chance to verify that the keyword was spoken before interrupting the user's current session. AAR saves the audio since a few seconds before the keyword was spotted and makes it accessible to the application. The application can use this to run a more reliable keyword spotter on the same audio.
+The keyword spotter that triggers the application to start has achieved low power consumption by simplifying the keyword model. This allows the keyword spotter to be "always on" without a high power effect, but it also means the keyword spotter likely has a high number of "false accepts" where it detects a keyword even though no keyword was spoken. This is why the voice activation system launches the application in the background: to give the application a chance to verify that the keyword was spoken before interrupting the user's current session. AAR saves the audio since a few seconds before the keyword was spotted and makes it accessible to the application. The application can use this to run a more reliable keyword spotter on the same audio.
 
 ## Next steps
 

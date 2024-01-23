@@ -999,8 +999,32 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "cosmos-db-nosql-nodejs-quickstart",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-nodejs-quickstart",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cosmos-db-nosql-python-samples",
       "url": "https://github.com/azure-samples/cosmos-db-nosql-python-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-nosql-python-quickstart",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-python-quickstart",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-nosql-java-quickstart",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-java-quickstart",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-nosql-go-quickstart",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-go-quickstart",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -1204,6 +1228,8 @@
   "articles/ai-services/.openpublishing.redirection.applied-ai-old.json",
   "articles/ai-services/.openpublishing.redirection.applied-ai-services.json",
   "articles/ai-services/.openpublishing.redirection.cognitive-services.json",
+  "articles/ai-studio/.openpublishing.redirection.ai-studio.json",
+  "articles/energy-data-services/.openpublishing.redirection.energy-data-services.json",
   "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
   "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
   "articles/azure-relay/.openpublishing.redirection.relay.json",
@@ -1223,6 +1249,8 @@
   "articles/digital-twins/.openpublishing.redirection.digital-twins.json",
   "articles/event-grid/.openpublishing.redirection.event-grid.json",
   "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
+  "articles/governance/policy/.openpublishing.redirection.policy.json",
+  "articles/governance/policy/.openpublishing.redirection.resource-graph.json",
   "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
   "articles/hdinsight-aks/.openpublishing.redirection.hdinsight-aks.json",
   "articles/healthcare-apis/.openpublishing.redirection.healthcare-apis.json",
@@ -1236,6 +1264,7 @@
   "articles/iot-hub/.openpublishing.redirection.iot-hub.json",
   "articles/iot-operations/.openpublishing.redirection.iot-operations.json",
   "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
+  "articles/lab-services/.openpublishing.redirection.lab-services.json",
   "articles/logic-apps/.openpublishing.redirection.logic-apps.json",
   "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
   "articles/machine-learning/v1/.openpublishing.redirection.machine-learning-v1.json",
@@ -1254,6 +1283,7 @@
   "articles/spring-apps/.openpublishing.redirection.spring-apps.json",
   "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json",
   "articles/static-web-apps/.openpublishing.redirection.static-web-apps.json",
+  "articles/storsimple/.openpublishing.redirection.storsimple.json",
   "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",
   "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
   "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",

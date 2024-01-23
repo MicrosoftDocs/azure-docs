@@ -55,7 +55,7 @@ For example, if your proxy server requires authentication with a user name and p
 
 ```powershell
 # IP address or name of the proxy server.
-$Address="127.0.0.1"
+$Address="http://127.0.0.1"
 
 # The port to use for the connection to the proxy.
 $Port=8080

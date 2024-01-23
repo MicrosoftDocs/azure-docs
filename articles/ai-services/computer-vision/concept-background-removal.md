@@ -27,6 +27,9 @@ This feature provides two possible outputs based on the customer's needs:
 
 This service is currently in preview, and the API may change in the future.
 
+> [!IMPORTANT]
+> Background removal is only available in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+
 ## Background removal examples
 
 The following example images illustrate what the Image Analysis service returns when removing the background of an image and creating an alpha matte. 
@@ -50,7 +53,7 @@ It's important to note the limitations of background removal:
 
 ## Use the API
 
-The background removal feature is available through the [Segment](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-02-01-preview/operations/63e6b6d9217d201194bbecbd) API (`imageanalysis:segment`). You can call this API through the REST API or the Vision SDK. See the [Background removal how-to guide](./how-to/background-removal.md) for more information.
+The background removal feature is available through the [Segment](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-02-01-preview/operations/63e6b6d9217d201194bbecbd) API (`imageanalysis:segment`). See the [Background removal how-to guide](./how-to/background-removal.md) for more information.
 
 ## Next steps
 

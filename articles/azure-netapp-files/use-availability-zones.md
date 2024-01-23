@@ -2,15 +2,9 @@
 title: Use availability zones for high availability in Azure NetApp Files | Microsoft Docs
 description: Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/17/2022
 ms.author: anfdocs
@@ -32,7 +26,7 @@ Azure NetApp Files' [availability zone volume placement](manage-availability-zon
 
 [!INCLUDE [Availability Zone volumes have the same level of support as other volumes in the subscription](includes/availability-zone-service-callout.md)]
 
-All Virtual Machines within the region in (peered) VNets can access all Azure NetApp Files resources (blue arrows). Virtual Machines accessing Azure NetApp Files volumes in the same zone (green arrows) share the availability zone failure domain. 
+All virtual machines (VMs) within the region in (peered) VNets can access all Azure NetApp Files resources (blue arrows). VMs accessing Azure NetApp Files volumes in the same zone (green arrows) share the availability zone failure domain. 
 
 Azure NetApp Files deployments will occur in the availability of zone of choice if Azure NetApp Files is present in that availability zone and has sufficient capacity.
 
@@ -42,6 +36,9 @@ Azure NetApp Files deployments will occur in the availability of zone of choice 
 You can co-locate your compute, storage, networking, and data resources across an availability zone, and replicate this arrangement in other availability zones. Many applications are built for HA across multiple availability zones using application-based replication and failover technologies, like [SQL Server Always-On Availability Groups (AOAG)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server), [SAP HANA with HANA System Replication (HSR)](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-suse.md), and [Oracle with Data Guard](../virtual-machines/workloads/oracle/oracle-reference-architecture.md#high-availability-for-oracle-databases). 
 
 Latency is subject to availability zone latency for within availability zone access and the regional latency envelope for cross-availability zone access.
+
+>[!IMPORTANT]
+>It's not recommended that you use availability zones with Terraform-managed volumes. If you do, you must [add the zone property to your volume](manage-availability-zone-volume-placement.md#populate-availability-zone-for-terraform-managed-volumes).
 
 ## Azure regions with availability zones
 

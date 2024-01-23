@@ -53,6 +53,8 @@ Your classic resource data persists and is subject to the retention settings on 
 
 If you don't need to migrate an existing resource, and instead want to create a new workspace-based Application Insights resource, see the [Workspace-based resource creation guide](create-workspace-resource.md).
 
+> [!NOTE]
+> The migration process shouldn't introduce any application downtime or restarts nor change your existing instrumentation key or connection string.
 ## Prerequisites
 
 - A Log Analytics workspace with the access control mode set to the **Use resource or workspace permissions** setting:
@@ -121,17 +123,24 @@ When you query directly from the Log Analytics workspace, you only see data that
 > [!NOTE]
 > If you rename your Application Insights resource after you migrate to the workspace-based model, the Application Insights **Logs** tab no longer shows the telemetry collected before renaming. You can see all old and new data on the **Logs** tab of the associated Log Analytics resource.
 
-
 ## Identifying the Application Insights resources by ingestion type
 
 Use the following script to identify your Application Insights resources by ingestion type.
 
 #### Example
 
-```azurecli
-
-Get-AzApplicationInsights -SubscriptionId '7faeaa41-541f-48da-82b4-3dc10c594b85' | Format-Table -Property Name, IngestionMode, WorkspaceResourceId, @{label='Type';expression={if ($_.ingestionMode -eq 'LogAnalytics') {'Workspace-based'} elseif ($_.IngestionMode -eq 'ApplicatonInsights') {'Classic'}}}
-
+```powershell
+Get-AzApplicationInsights -SubscriptionId 'Your Subscription ID' | Format-Table -Property Name, IngestionMode, Id, @{label='Type';expression={
+    if ([string]::IsNullOrEmpty($_.IngestionMode)) {
+        'Unknown'
+    } elseif ($_.IngestionMode -eq 'LogAnalytics') {
+        'Workspace-based'
+    } elseif ($_.IngestionMode -eq 'ApplicationInsights' -or $_.IngestionMode -eq 'ApplicationInsightsWithDiagnosticSettings') {
+        'Classic'
+    } else {
+        'Unknown'
+    }
+}}
 ```
 
 ## Programmatic resource migration
@@ -822,3 +831,4 @@ Legacy table: traces
 
 * [Explore metrics](../essentials/metrics-charts.md)
 * [Write Log Analytics queries](../logs/log-query-overview.md)
+

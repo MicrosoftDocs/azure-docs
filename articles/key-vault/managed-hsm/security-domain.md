@@ -6,7 +6,7 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/28/2022
+ms.date: 12/18/2023
 ---
 
 # Security domain in Managed HSM overview
@@ -15,7 +15,7 @@ A managed HSM is a single-tenant, [Federal Information Processing Standards (FIP
 
 To operate, a managed HSM must have a security domain. The security domain is an encrypted blob file that contains artifacts like the HSM backup, user credentials, the signing key, and the data encryption key that's unique to the managed HSM.
 
-A managed HSM serves the following purposes:
+A managed HSM security domain serves the following purposes:
 
 - Establishes "ownership" by cryptographically tying each managed HSM to a root of trust keys under your sole control. This ensures that Microsoft doesn't have access to your cryptographic key material on the managed HSM.
 - Sets the cryptographic boundary for key material in a managed HSM instance.

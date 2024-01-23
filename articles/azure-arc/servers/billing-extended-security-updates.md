@@ -1,7 +1,7 @@
 ---
 title: Billing service for Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn about billing services for Extended Security Updates for Windows Server 2012 enabled by Azure Arc.
-ms.date: 12/04/2023
+ms.date: 12/19/2023
 ms.topic: conceptual
 ---
 
@@ -27,6 +27,8 @@ If you deactivate and then later reactivate a license, you'll be billed for the 
 > [!NOTE]
 > The back-billing cost appears as a separate line item in invoicing. If you acquired a discount for your core WS2012 ESUs enabled by Azure Arc, the same discount may or may not apply to back-billing. You should verify that the same discounting, if applicable, has been applied to back-billing charges as well.
 > 
+
+Please note that estimates in the Azure Cost Management forecast may not accurately project monthly costs. Due to the episodic nature of back-billing charges, the projection of monthly costs may appear as overestimated during initial months.
 
 ## Billing associated with modifications to an Azure Arc ESU license
 

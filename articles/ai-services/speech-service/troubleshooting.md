@@ -2,12 +2,11 @@
 title: Troubleshoot the Speech SDK - Speech service
 titleSuffix: Azure AI services
 description: This article provides information to help you solve issues you might encounter when you use the Speech SDK.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: troubleshooting
-ms.date: 12/08/2022
+ms.date: 1/22/2024
 ms.author: eur
 ---
 
@@ -21,7 +20,7 @@ You might observe one of several authentication errors, depending on the program
 - Did you set the speech resource key and region values? 
 - AuthenticationFailure
 - HTTP 403 Forbidden or HTTP 401 Unauthorized. Connection requests without a valid `Ocp-Apim-Subscription-Key` or `Authorization` header are rejected with a status of 403 or 401.
-- ValueError: cannot construct SpeechConfig with the given arguments (or a variation of this message). This error could be observed, for example, when you run one of the Speech SDK for Python quickstarts without setting environment variables. You might also see it when you set the environment variables to something invalid such as your key or region. 
+- ValueError: can't construct SpeechConfig with the given arguments (or a variation of this message). This error could be observed, for example, when you run one of the Speech SDK for Python quickstarts without setting environment variables. You might also see it when you set the environment variables to something invalid such as your key or region. 
 - Exception with an error code: 0x5. This access denied error could be observed, for example, when you run one of the Speech SDK for C# quickstarts without setting environment variables.
 
 For baseline authentication troubleshooting tips, see [validate your resource key](#validate-your-resource-key) and [validate an authorization token](#validate-an-authorization-token). For more information about confirming credentials, see [get the keys for your resource](../multi-service-resource.md?pivots=azportal#get-the-keys-for-your-resource).
@@ -110,7 +109,7 @@ It's OK to have silence at the beginning of audio, but only when you use [contin
 
 ## SPXERR_AUDIO_SYS_LIBRARY_NOT_FOUND
 
-This can be returned, for example, when multiple versions of Python have been installed, or if you're not using a supported version of Python. You can try using a different python interpreter or uninstall all python versions and re-install the latest version of python and the Speech SDK.
+This error can be returned, for example, when multiple versions of Python are installed, or if you're not using a supported version of Python. You can try using a different python interpreter or uninstall all python versions and re-install the latest version of python and the Speech SDK.
 
 ## HTTP 400 Bad Request
 
@@ -118,7 +117,7 @@ This error usually occurs when the request body contains invalid audio data. Onl
 
 ## HTTP 408 Request Timeout
 
-The error most likely occurs because no audio data is being sent to the service. This error also might be caused by network issues.
+The error most likely occurs because no audio data is being sent to the service. Network issues might also cause this error.
 
 ## Next steps
 

@@ -29,15 +29,15 @@ Here are a few examples of the kinds of prompts you can use to generate Azure CL
 
 ## Examples
 
-In this example, the prompt "I want to use Azure CLI to create a web application" provides a list of steps, along with the necessary Azure CLI commands.
+In this example, the prompt "**I want to use Azure CLI to create a web application**" provides a list of steps, along with the necessary Azure CLI commands.
 
 :::image type="content" source="media/generate-cli-scripts/cli-web-app.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing Azure CLI commands to create a web app.":::
 
-Similarly, you can say "I want to create a virtual machine using Azure cli" to get a step-by-step guide with commands.
+Similarly, you can say "**I want to create a virtual machine using Azure CLI**" to get a step-by-step guide with commands.
 
 :::image type="content" source="media/generate-cli-scripts/cli-vm.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing Azure CLI commands to create a VM.":::
 
-For a more detailed scenario, you can say "I want to use Azure CLI to deploy and manage AKS using a private service endpoint."
+For more detailed scenarios, you can use prompts like "**I want to use Azure CLI to deploy and manage AKS using a private service endpoint**."
 
 :::image type="content" source="media/generate-cli-scripts/cli-aks.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing commands to deploy and manage AKS using a private service endpoint.":::
 
