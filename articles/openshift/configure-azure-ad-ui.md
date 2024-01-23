@@ -121,4 +121,4 @@ If you now logout of the OpenShift Web Console and try to login again, you'll be
 
 
 > [!NOTE]
-> If you encounter the error like "AADSTS50011: The redirect URI https://oauth-openshift.apps.xxxxxxxxxx.xxxxxxx.aroapp.io/oauth2callback/xxxx specified in the request does not match the redirect URIs configured", you can follow the troubleshooting guide [Azure AD (OIDC) login failed when Redirect URI is not set correctly](https://access.redhat.com/solutions/7016893) to solve the issue.  
+> If you encounter the error like "AADSTS50011: The redirect URI https\://oauth-openshift.apps.xxxxxxxxxx.xxxxxxx.aroapp.io/oauth2callback/xxxx specified in the request does not match the redirect URIs configured", you can follow the troubleshooting guide [Azure AD (OIDC) login failed when Redirect URI is not set correctly](https://access.redhat.com/solutions/7016893) to solve the issue.  
