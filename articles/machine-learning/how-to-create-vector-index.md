@@ -8,7 +8,7 @@ author: balapv
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 06/30/2023
+ms.date: 01/22/2024
 ms.topic: how-to
 ms.custom:
   - prompt-flow
@@ -82,6 +82,9 @@ After you create a vector index, you can add it to a prompt flow from the prompt
 1. Select the **mlindex_content** value box, and select your index. The tool should detect the index created in the the "Create a vector index" section of the tutorial. After filling in all the necessary information, select save to close the generate drawer.
 
 1. Enter the queries and query_types to be performed against the index. 
+   
+   An example of a plain string you can input in this case would be: `How to use SDK V2?'. Here is an example of an embedding as an input: `${embed_the_question.output}`. Passing a plain string will only work when the Vector Index is getting used on the workspace which created it.
+
 
 ## Supported File Types
 

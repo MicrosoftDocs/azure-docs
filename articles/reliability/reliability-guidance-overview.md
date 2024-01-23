@@ -101,6 +101,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 
 | Product| Availability zone guide | Disaster recovery guide |
 |-------|-------|-------|
+|Azure Chaos Studio | [Reliability in Azure Chaos Studio](reliability-chaos-studio.md)| [Reliability in Azure Chaos Studio](reliability-chaos-studio.md)|
 |Azure Community Training|[Reliability in Community Training](reliability-community-training.md) |[Reliability in Community Training](reliability-community-training.md) |
 |Azure Cosmos DB for MongoDB vCore|[High availability in Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Failover for business continuity and disaster recovery with Azure Cosmos DB for MongoDB vCore](../cosmos-db/mongodb/vcore/failover-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Databox| |[Microsoft Azure Data Box Disk FAQ](../databox/data-box-disk-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-can-i-recover-my-data-if-an-entire-region-fails-) |
