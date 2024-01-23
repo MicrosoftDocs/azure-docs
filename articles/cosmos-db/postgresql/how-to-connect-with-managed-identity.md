@@ -1,26 +1,26 @@
 ---
-title: Connect with Managed Identity using Azure AD in Azure Cosmos DB for PostgreSQL
-description: Learn how to connect and authenticate using Managed Identity when Azure AD authentication method is enabled on an Azure Cosmos DB for PostgreSQL cluster
+title: Connect with Managed Identity using Microsoft Entra ID in Azure Cosmos DB for PostgreSQL
+description: Learn how to connect and authenticate using Managed Identity when Microsoft Entra ID authentication method is enabled on an Azure Cosmos DB for PostgreSQL cluster
 author: niklarin
 ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 01/17/2024
+ms.date: 01/21/2024
 ---
 # Connect with Managed Identity to Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 > [!IMPORTANT]
-> Azure Active Directory authentication in Azure Cosmos DB for PostgreSQL is currently in preview.
+> Microsoft Entra ID (formerly Azure Active Directory) authentication in Azure Cosmos DB for PostgreSQL is currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended
-> for production workloads. Certain features might not be supported or might have constrained 
+> for production workloads. Certain features might not be supported or might have constrained
 > capabilities.
 >
 > You can see a complete list of other new features in [preview features](product-updates.md#features-in-preview).
 
-You can use both system-assigned and user-assigned managed identities to authenticate to Azure Cosmos DB for PostgreSQL. This article shows you how to use a system-assigned managed identity for an Azure Virtual Machine (VM) to access an Azure Cosmos DB for PostgreSQL cluster. Managed Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code.
+You can use both system-assigned and user-assigned managed identities to authenticate to Azure Cosmos DB for PostgreSQL. This article shows you how to use a system-assigned managed identity for an Azure virtual machine (VM) to access an Azure Cosmos DB for PostgreSQL cluster. Managed identities are automatically managed by Azure and enable you to authenticate to services that support Microsoft Entra ID authentication without needing to insert credentials into your code.
 
 You learn how to:
 - Grant your VM access to an Azure Cosmos DB for PostgreSQL cluster
@@ -30,11 +30,11 @@ You learn how to:
 
 ## Prerequisites
 
-- If you're not familiar with the managed identities for Azure resources feature, see this [overview](../../../articles/active-directory/managed-identities-azure-resources/overview.md). If you don't have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
-- To do the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your Azure subscription or resource group). If you need assistance with a role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../../articles/role-based-access-control/role-assignments-portal.md).
-- You need an Azure VM (for example, running Ubuntu Linux) that you'd like to use to access your database using Managed Identity
-- You need an Azure Cosmos DB for PostgreSQL cluster that has [Azure AD authentication method](./how-to-configure-authentication.md#choose-authentication-method) configured
-- To follow the C# example, first, complete the guide on how to [Connect with C#](./quickstart-app-stacks-csharp.md)
+- If you're not familiar with the managed identities for Azure resources feature, see this [overview](/entra/identity/managed-identities-azure-resources/overview). If you don't have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
+- To do the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your Azure subscription or resource group). If you need assistance with a role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+- You need an Azure VM (for example, running Ubuntu Linux) that you'd like to use to access your database using managed identity.
+- You need an Azure Cosmos DB for PostgreSQL cluster that has [Microsoft Entra ID authentication method](./how-to-configure-authentication.md#choose-authentication-method) configured.
+- To follow the C# example, first, complete the guide on how to [connect with C#](./quickstart-app-stacks-csharp.md)
 
 ## Create a system-assigned managed identity for your VM
 
