@@ -9,23 +9,23 @@ ms.date: 01/22/2024
 
 # Understand adaptive application controls
 
-Microsoft Defender for Cloud's adaptive application controls enhance your security with this data-driven, intelligent automated solution that defines allowlists of known-safe applications for your machines.
+Microsoft Defenders for Cloud's adaptive application controls enhance your security with this data-driven, intelligent automated solution that defines allowlists of known-safe applications for your machines.
 
 Often, organizations have collections of machines that routinely run the same processes. Microsoft Defender for Cloud uses machine learning to analyze the applications running on your machines and create a list of the known-safe software. Allowlists are based on your specific Azure workloads, and you can further customize the recommendations using the following instructions.
 
-When you've enabled and configured adaptive application controls, you'll get security alerts if any application runs other than the ones you've defined as safe.
+When you enable and configure adaptive application controls, you get security alerts if any application runs other than the ones you defined as safe.
 
 ## What are the benefits of adaptive application controls?
 
 By defining lists of known-safe applications, and generating alerts when anything else is executed, you can achieve multiple oversight and compliance goals:
 
-- Identify potential malware, even any that might be missed by antimalware solutions
+- Identify potential malware, even any that antimalware solutions can miss 
 - Improve compliance with local security policies that dictate the use of only licensed software
 - Identify outdated or unsupported versions of applications
-- Identify software that's banned by your organization but is nevertheless running on your machines
+- Identify software your organization banned but is nevertheless running on your machines
 - Increase oversight of apps that access sensitive data
 
-No enforcement options are currently available. Adaptive application controls are intended to provide security alerts if any application runs other than the ones you've defined as safe.
+No enforcement options are currently available. Adaptive application controls are intended to provide security alerts if any application runs other than the ones you define as safe.
 
 ## Availability
 
