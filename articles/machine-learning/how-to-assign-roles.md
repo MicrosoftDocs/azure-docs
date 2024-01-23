@@ -29,7 +29,7 @@ This article explains how to manage access (authorization) to an Azure Machine L
 > [!WARNING]
 > Applying some roles might limit UI functionality in Azure Machine Learning studio for other users. For example, if a user's role doesn't have the ability to create a compute instance, the option to create a compute instance isn't available in studio. This behavior is expected, and prevents the user from attempting operations that would return an access denied error.
 
-## Built-in roles
+## Default roles
 
 Azure Machine Learning workspaces have five built-in roles that are available by default. When adding users to a workspace, they can be assigned one of the following roles.
 
@@ -84,7 +84,7 @@ To use Microsoft Entra security groups:
  3. Assign the group an RBAC role on the workspace, such as AzureML Data Scientist, Reader, or Contributor. 
  4. [Add group members](/azure/active-directory/fundamentals/how-to-manage-groups#add-or-remove-members-and-owners). The members gain access to the workspace.
 
-## Create custom roles
+## Create custom role
 
 If the built-in roles are insufficient, you can create custom roles. Custom roles might possess read, write, delete, and compute resource permissions in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level.
 
