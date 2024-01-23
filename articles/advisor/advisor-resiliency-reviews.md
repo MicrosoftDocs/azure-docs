@@ -22,7 +22,7 @@ In this article, you learn how to enable and access resiliency reviews prepared 
 
 ## How it works
 
-After you request a review, Microsoft Cloud Solution Architects engineers perform extensive analysis, curate the list of prioritized recommendations, and publish a resiliency review. You triage the recommendations and implement them. Your Microsoft account team works with you to facilitate the process.
+After you request a review, Microsoft Cloud Solution Architect engineers perform extensive analysis, curate the list of prioritized recommendations, and publish a resiliency review. You triage the recommendations and implement them. Your Microsoft account team works with you to facilitate the process.
 
 The following table defines the roles and the access they have within Advisor:
 
@@ -38,7 +38,7 @@ The following table defines the roles and the access they have within Advisor:
 
 Resiliency reviews are available to customers with Unified or Premier Support contracts via a Well Architected Reliability Assessment. Reach out to your Customer Success Account Manager to initiate a review. You can find their contacts in [Services Hub](https://serviceshub.microsoft.com/).
 
-Your Microsoft account team works with you to collect information about the workload. They need to know which subscriptions are used for the workload, and which subscription they should use to publish the review and recommendations. You need to work with the owner of this subscription to configure permissions for your team.
+Your Microsoft account team works with you to collect information about the workload. They need to know which subscriptions are used for the workload, and which subscriptions they should use to publish the review and recommendations. You need to work with the owner of this subscription to configure permissions for your team.
 
 ## View and triage recommendations
 
@@ -68,11 +68,11 @@ If there's a new review available to you, you see a notification banner on top o
 
 1. Open the Azure portal and navigate to [Advisor](https://aka.ms/Advisor_Reviews). 
 Select **Manage** (->) Reviews in the left navigation pane. A list of reviews opens. At the top of the page, you see the number of **Total Reviews** and review **Recommendations**, and a graph of **Reviews by status**. 
-1. Use search, filters, and sorting to find the review you need. You can filter reviews by one of the **Status equals** states below, or choose *All* (the default) to see all reviews:
+1. Use search, filters, and sorting to find the review you need. You can filter reviews by one of the **Status equals** states shown next, or choose *All* (the default) to see all reviews. If you don’t see a review for your subscription, make sure the review subscription is included in the global portal filter. You might need to update the filter to see the reviews for a subscription. 
 
 * *New*: No recommendations are triaged (accepted or rejected)
 
-* *In progress*: Some recommendations are not triaged
+* *In progress*: Some recommendations aren't triaged
 
 * *Triaged*: All recommendations are triaged (accepted or rejected)
 
@@ -105,15 +105,15 @@ The triage process includes reviewing recommendations and making decisions on wh
 
 The priority of a recommendation is based on the impact and urgency of the suggested improvements and is set by your account team. 
 
-* *Critical*: These are the most important recommendations that can have a significant impact on your Azure resources. They should be addressed as soon as possible to avoid potential issues such as security breaches, data loss, or service outages.
+* *Critical*: The most important recommendations that can have a significant impact on your Azure resources. They should be addressed as soon as possible to avoid potential issues such as security breaches, data loss, or service outages.
 
-* *High*: These are the recommendations that can improve the performance, reliability, or cost efficiency of your Azure resources. They should be addressed in a timely manner to optimize your Azure deployments.
+* *High*: The recommendations that can improve the performance, reliability, or cost efficiency of your Azure resources. They should be addressed in a timely manner to optimize your Azure deployments.
 
-* *Medium*: These are the recommendations that can enhance the operational excellence or user experience of your Azure resources. They should be considered and implemented if they align with your business goals and requirements.
+* *Medium*: The recommendations that can enhance the operational excellence or user experience of your Azure resources. They should be considered and implemented if they align with your business goals and requirements.
 
-* *Low*: These are the recommendations that can provide additional benefits or insights for your Azure resources. They should be reviewed and implemented if they are relevant and feasible for your scenario.
+* *Low*: The recommendations that can provide additional benefits or insights for your Azure resources. They should be reviewed and implemented if they're relevant and feasible for your scenario.
 
-* *Informational*: These are the recommendations that can help you learn more about the features and capabilities of Azure. They do not require any action, but they can help you discover new ways to use Azure.
+* *Informational*: The recommendations that can help you learn more about the features and capabilities of Azure. They don't require any action, but they can help you discover new ways to use Azure.
 
 ### Accept recommendations
 
@@ -139,12 +139,12 @@ If you reset a recommendation after your engineering started implementation, the
 
 1. You must select a reason when you reject a recommendation. Select one of the reasons from the list of available options.
 
-:::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-reject-options-small.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations reject options." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-reject-options-small.png":::
+:::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-reject-options-medium.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations reject options." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-reject-options-medium.png":::
 
 [!NOTE]
 The reason for the rejection is visible to your account team. It helps them understand workload context and your business priorities better. Additionally, Microsoft uses this information to improve the quality of recommendations.
 
-3. The rejected recommendation is moved to the **Rejected** tab. It is not visible for your engineering team under **Recommendations** (->) **Reliability**.
+3. The rejected recommendation is moved to the **Rejected** tab. It isn't visible for your engineering team under **Recommendations** (->) **Reliability**.
 
 :::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations page of accepted recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png":::
 
@@ -154,7 +154,7 @@ The reason for the rejection is visible to your account team. It helps them unde
 
 ## Implement recommendations
 
-Once review recommendations have been triaged, all recommendations with *Accepted* status become available for action through the **Reliability** pages. Typically, an engineer on your team acts on the recommendations.
+Once review recommendations are triaged, all recommendations with *Accepted* status become available for action through the **Reliability** pages. Typically, an engineer on your team acts on the recommendations.
 
 ### Prerequisites to implement recommendations
 
@@ -173,13 +173,13 @@ The recommendations are grouped by type:
 
 :::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-rejected-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations page of rejected recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-rejected-m.png":::
 
-You can filter the recommendations by subscription, priority, and workload as well as sort the recommendation list.
+You can filter the recommendations by subscription, priority, and workload, as well as sort the recommendation list.
 
 You can sort recommendations using column headers - *Priority* (Critical, High, Medium, Low, Informational), *Description*, *Impacted resources*, *Review name*, *Potential benefits*, or *Last updated* date. 
 
 ### View recommendation details
 
-Click on a recommendation description to open a details page. The *Description*, *Potential benefits*, and *Notes* are added by your account team when the review is prepared.
+Select on a recommendation description to open a details page. The *Description*, *Potential benefits*, and *Notes* are added by your account team when the review is prepared.
 
 :::image type="content" source="./media/resiliency-reviews/resiliency-review-reliability-page-detail-m.png" alt-text="Screenshot of the Azure Advisor Reliability page for a Resiliency Reviews recommendation." lightbox="./media/resiliency-reviews/resiliency-review-reliability-page-detail-m.png":::
 
@@ -197,9 +197,9 @@ Recommendation status is a valuable indicator for determining what actions need 
 
 * You can also postpone the recommendation for action later.
 
-* You can dismiss a recommendation if you do not plan to implement it. If you dismiss the recommendation, you must give a reason, just as you must give a reason if you reject a recommendation in a review.
+* You can dismiss a recommendation if you don't plan to implement it. If you dismiss the recommendation, you must give a reason, just as you must give a reason if you reject a recommendation in a review.
 
-:::image type="content" source="./media/resiliency-reviews/resiliency-review-reliability-recommendation-dismiss-options-small.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations dismiss options-small.png":::
+:::image type="content" source="./media/resiliency-reviews/resiliency-review-reliability-recommendation-dismiss-options-medium.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations dismiss options-medium.png":::
 
 ## Review maintenance
 
