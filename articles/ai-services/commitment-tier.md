@@ -14,8 +14,7 @@ ms.date: 01/22/2024
 
 # Purchase commitment tier pricing
 
-Azure AI offers commitment tier pricing, each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the following Azure AI services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload:
-
+Azure AI offers commitment tier pricing, allowing discounted rates compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the following Azure AI services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload:
 * Speech to text (Standard)
 * Text to speech (Neural)
 * Text Translation (Standard)

@@ -6,7 +6,7 @@ author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 01/08/2024
+ms.date: 01/21/2024
 ---
 
 # Azure Cosmos DB for PostgreSQL limits and limitations
@@ -116,12 +116,12 @@ By default this database is called `citus`. Azure Cosmos DB for PostgreSQL suppo
 
 ## Backup and restore
 
-### Geo-redundant backup and restore (preview)
+### Geo-redundant backup and restore
 * Geo-redundant backup can be enabled only during cluster creation.
-    * You can enable geo-redundant backup when you perform a cluster restore.
+    * You can enable geo-redundant backup when you perform a [cluster restore](./howto-restore-portal.md).
     * You can enable geo-redundant backup when you [promote a cluster read-replica to an independent cluster](./howto-read-replicas-portal.md#promote-a-read-replica).
-* Geo-redundant backup can't be enabled on single node clusters with [burstable compute](./concepts-burstable-compute.md).
 * Geo-redundant backup can't be disabled once cluster is created.
+* Geo-redundant backup can't be enabled on single node clusters with [burstable compute](./concepts-burstable-compute.md).
 * [Customer managed key (CMK)](./concepts-customer-managed-keys.md) isn't supported for clusters with geo-redundant backup enabled.
 * Azure Cosmos DB for PostgreSQL cluster with geo-redundant backup enabled can't have a [cluster read replica](./concepts-read-replicas.md) in the region where geo-redundant backup is stored.
 
