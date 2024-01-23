@@ -659,8 +659,8 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
-  - id: programming-language-cpp
-    title: C++
+  - id: programming-language-javascript
+    title: JavaScript
   - id: programming-language-rest-api
     title: REST API
 - id: programming-languages-vision-40-sdk
@@ -673,8 +673,8 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
-  - id: programming-language-cpp
-    title: C++
+  - id: programming-language-javascript
+    title: JavaScript
 - id: programming-languages-ocr
   title: Programming languages
   prompt: Choose a programming language.
@@ -1068,6 +1068,15 @@ groups:
     title: Scala
   - id: programming-language-csharp
     title: C#
+- id: programming-languages-spark-all-minus-sql-r-csharp
+# Owner: sidandrews
+  title: Programming languages
+  prompt: Choose a language
+  pivots:
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-scala
+    title: Scala
 - id: aml-control-methods
   # Owner: gopalv
   title: Azure Machine Learning control plane

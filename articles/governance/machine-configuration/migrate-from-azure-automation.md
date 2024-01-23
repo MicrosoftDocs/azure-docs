@@ -394,7 +394,7 @@ configuration stored in Azure Automation by making a REST request to the service
 [04]: /powershell/gallery/how-to/working-with-local-psrepositories
 [05]: ./how-to-create-package.md
 [06]: ./how-to-create-package.md#author-a-configuration
-[07]: https://learn.microsoft.com/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.4
+[07]: /powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.4
 [08]: https://github.com/Azure/azure-policy/blob/bbfc60104c2c5b7fa6dd5b784b5d4713ddd55218/samples/GuestConfiguration/package-samples/resource-modules/WindowsDscConfiguration/DscResources/WindowsDscConfiguration/WindowsDscConfiguration.psm1#L97
 [09]: ./dsc-in-machine-configuration.md#special-requirements-for-get
 [10]: ../../azure-resource-manager/management/overview.md#terminology

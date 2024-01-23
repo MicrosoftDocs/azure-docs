@@ -67,7 +67,9 @@ When [creating a new Azure Managed Grafana workspace](quickstart-managed-grafana
     :::image type="content" source="media/grafana-enterprise/create-with-enterprise-plan.png" alt-text="Screenshot of the Grafana dashboard, instance creation basic details.":::
 
     > [!CAUTION]
-    > Each Azure subscription can benefit from one free Grafana Enterprise trial. The free trial lets you try the Grafana Enterprise plan for one month. If you select a free trial and enable recurring billing, you will start getting charged after the end of your first month. Disable recurring billing if you just want to test Grafana Enterprise.
+    > Each Azure subscription can benefit from one and only one free Grafana Enterprise trial. The free trial lets you try the Grafana Enterprise plan for one month.
+    > - If you select a free trial and enable recurring billing, you will start getting charged after the end of your first month. Disable recurring billing if you just want to test Grafana Enterprise.
+    > - If you delete a Grafana Enterprise free trial resource, you will not be able to create another Grafana Enterprise free trial. Free trial is for one-time use only.
 
 1. Select **Review + create** and review the information about your new instance, including the costs that may be associated with the Grafana Enterprise plan and potential other paid options.
 
@@ -83,7 +85,9 @@ To enable Grafana Enterprise on an existing Azure Managed Grafana instance, foll
        :::image type="content" source="media/grafana-enterprise/enable-grafana-enterprise.png" alt-text="Screenshot of the Grafana dashboard showing how to enable Grafana enterprise on an existing workspace." lightbox="media/grafana-enterprise/enable-grafana-enterprise.png":::
   1. Select **Free Trial - Azure Managed Grafana Enterprise Upgrade** to test Grafana Enterprise for free or select the monthly plan. Review the associated costs to make sure that you selected a plan that suits you. Recurring billing is disabled by default.
         > [!CAUTION]
-        > Each Azure subscription can benefit from one free Grafana Enterprise trial. The free trial lets you try the Grafana Enterprise plan for one month. If you select a free trial and enable recurring billing, you will start getting charged after the end of your first month. Disable recurring billing if you just want to test Grafana Enterprise.
+        > Each Azure subscription can benefit from one and only one free Grafana Enterprise trial. The free trial lets you try the Grafana Enterprise plan for one month.
+        > - If you select a free trial and enable recurring billing, you will start getting charged after the end of your first month. Disable recurring billing if you just want to test Grafana Enterprise.
+        > - If you delete a Grafana Enterprise free trial resource, you will not be able to create another Grafana Enterprise free trial. Free trial is for one-time use only.
 
   1. Read and check the box at the bottom of the page to state that you agree with the terms displayed, and select **Update** to finalize the creation of your new Azure Managed Grafana instance.
 

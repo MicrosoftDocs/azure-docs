@@ -4,9 +4,9 @@ description: Find out about new capabilities and enhancements released monthly f
 services: healthcare-apis
 author: kgaddam10
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: workspace
 ms.topic: reference
-ms.date: 1/3/2023
+ms.date: 1/18/2023
 ms.author: kavitagaddam 
 ms.custom: references_regions
 ---
@@ -19,6 +19,28 @@ ms.custom: references_regions
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. 
 
 This article provides details about the features and enhancements made to Azure Health Data Services, including the different services (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
+
+## January 2024
+
+### DICOM service
+
+**Bulk update of files in the DICOM service is generally available**
+
+The bulk update operation enables you to change imaging metadata for multiple files stored in the DICOM service. For example, bulk update enables you to modify DICOM attributes for one or more studies in a single, asynchronous operation. You can use an API to perform updates to patient demographics and avoid the cost of repeating time-consuming uploads.
+
+Beyond the efficiency gains, the bulk update capability preserves a record of the changes in the change feed and persists the original, unmodified instances for future retrieval.
+
+Learn more:
+
+- [Bulk update DICOM files](dicom/update-files.md)
+
+### FHIR service
+
+**Storage size support in FHIR service beyond 4TB** 
+
+By default each FHIR instance is limited to storage capacity of 4TB. To provision a FHIR instance with storage capacity beyond 4TB, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with the Issue type 'Service and Subscription limit (quotas)'.
+> [!NOTE]
+> Due to an issue with billing metrics for storage, customers opting for more than 4TB storage capacity won't be billed for storage until the issue is addressed.
 
 ## December 2023
 

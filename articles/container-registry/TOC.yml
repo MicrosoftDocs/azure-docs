@@ -64,16 +64,6 @@
         href: tutorial-enable-artifact-cache-auth-cli.md
       - name: Troubleshoot 
         href: tutorial-troubleshoot-artifact-cache.md
-    - name: Artifact Streaming
-      items:
-      - name: Artifact Streaming - Overview
-        href: tutorial-artifact-streaming.md
-      - name: Enable Artifact Streaming - Azure portal
-        href: tutorial-artifact-streaming-portal.md
-      - name: Enable Artifact Streaming - Azure CLI
-        href: tutorial-artifact-streaming-cli.md
-      - name: Troubleshoot
-        href: tutorial-artifact-streaming-troubleshoot.md
   - name: Samples
     items:
     - name: Azure Resource Graph queries
@@ -98,6 +88,8 @@
       href: container-registry-image-formats.md
     - name: Tag and version images
       href: container-registry-image-tag-version.md
+    - name: Artifact streaming
+      href: container-registry-artifact-streaming.md
     - name: Geo-replication
       href: container-registry-geo-replication.md
     - name: Zone redundancy
@@ -110,6 +102,7 @@
       displayName: multi-architecture
     - name: Manage public images
       href: buffer-gate-public-content.md
+   
   - name: How-to guides
     expanded: false
     items:
@@ -372,6 +365,8 @@
     href: container-registry-faq.yml
   - name: API Deprecation
     href: container-registry-api-deprecation.md
+  - name: Troubleshoot Artifact streaming
+    href: troubleshoot-artifact-streaming.md
 - name: Resources
   expanded: false
   items:
