@@ -202,7 +202,7 @@ sections:
         
       - question: Can I change the virtual network or subnet for an existing application gateway?
         answer: |
-          You can move an application gateway across subnets within the same virtual network only. It's supported with v1 with a public and private frontend and v2 with a public frontend only. The application gateway should be in a *Stopped* state to perform this action. Stopping or starting v1 changes the public IP. This operation can only be done by using Azure PowerShell and the Azure CLI by running the following commands:
+          You can move an application gateway across subnets within the same virtual network only. It's supported with v1 with a public and private frontend (dynamic allocation) and v2 with a public frontend only. We cannot move the application gateway to another subnet if the private frontend IP configuration is statically allocated. The application gateway should be in a *Stopped* state to perform this action. Stopping or starting v1 changes the public IP. This operation can only be done by using Azure PowerShell and the Azure CLI by running the following commands:
           
           **Azure PowerShell**
 
