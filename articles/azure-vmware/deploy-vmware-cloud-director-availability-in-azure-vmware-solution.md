@@ -78,7 +78,7 @@ For using VMware Cloud Director Availability outside of the local network segmen
 Customers can deploy VMware Cloud Director Availability using Azure Run commands on Azure portal.
 
 > [!IMPORTANT]
-> Converting from manual installation of VCDA to Run command is not supported. Existing customers with any manual VCDA installation are advised to uninstall and reinstall VCDA using Run commands to fully leverage the classic engine and Disaster Recovery capabilities.
+> Converting from manual installation of VMware Cloud Director Availability to Run command is not supported. Existing customers using VMware Cloud Director Availability can use Run commands and install VMware Cloud Director Availability to fully leverage the classic engine and Disaster Recovery capabilities. 
 
 To access Run commands for VCDA:
 1. Navigate to Azure VMware Solution private cloud
