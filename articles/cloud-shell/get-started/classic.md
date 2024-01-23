@@ -1,7 +1,7 @@
 ---
 description: Learn how to start using Azure Cloud Shell.
 ms.contributor: jahelmic
-ms.date: 10/30/2023
+ms.date: 01/22/2024
 ms.topic: article
 tags: azure-resource-manager
 title: Get started with Azure Cloud Shell
@@ -135,12 +135,12 @@ Get-AzCommand
 - [Learn about Azure Files storage][01]
 
 <!-- link references -->
-[01]: ../storage/files/storage-files-introduction.md
+[01]: /azure/storage/files/storage-files-introduction
 [02]: /cli/azure/
 [03]: /powershell/azure/
 [04]: https://portal.azure.com/
-[05]: media/get-started/choose-shell.png
-[06]: media/get-started/create-storage.png
-[07]: media/get-started/resource-provider.png
-[08]: media/get-started/shell-icon.png
-[09]: persisting-shell-storage.md
+[05]: media/classic/choose-shell.png
+[06]: media/classic/create-storage.png
+[07]: media/classic/resource-provider.png
+[08]: media/classic/shell-icon.png
+[09]: ../persisting-shell-storage.md
