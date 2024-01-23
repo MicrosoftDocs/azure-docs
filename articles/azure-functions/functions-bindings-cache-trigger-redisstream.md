@@ -33,23 +33,51 @@ For more information, see [RedisStreamTrigger](https://github.com/Azure/azure-fu
 
 ### [Isolated worker model](#tab/isolated-process)
 
-The isolated process examples aren't available in preview.
 
 ```csharp
-//TBD
+﻿using Microsoft.Extensions.Logging;
+
+namespace Microsoft.Azure.Functions.Worker.Extensions.Redis.Samples.RedisStreamTrigger
+{
+    internal class SimpleStreamTrigger
+    {
+        private readonly ILogger<SimpleStreamTrigger> logger;
+
+        public SimpleStreamTrigger(ILogger<SimpleStreamTrigger> logger)
+        {
+            this.logger = logger;
+        }
+
+        [Function(nameof(SimpleStreamTrigger))]
+        public void Run(
+            [RedisStreamTrigger(Common.connectionStringSetting, "streamKey")] string entry)
+        {
+            logger.LogInformation(entry);
+        }
+    }
+}
 ```
 
 ### [In-process model](#tab/in-process)
 
 ```csharp
 
-[FunctionName(nameof(StreamsTrigger))]
-public static void StreamsTrigger(
-    [RedisStreamTrigger("Redis", "streamTest")] string entry,
-    ILogger logger)
+﻿using Microsoft.Extensions.Logging;
+
+namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisStreamTrigger
 {
-    logger.LogInformation($"The entry pushed to the list listTest: '{entry}'");
+    internal class SimpleStreamTrigger
+    {
+        [FunctionName(nameof(SimpleStreamTrigger))]
+        public static void Run(
+            [RedisStreamTrigger(Common.connectionStringSetting, "streamKey")] string entry,
+            ILogger logger)
+        {
+            logger.LogInformation(entry);
+        }
+    }
 }
+
 ```
 
 ---
@@ -59,20 +87,26 @@ public static void StreamsTrigger(
 
 ```java
 
-    @FunctionName("StreamTrigger")
-    public void StreamTrigger(
+package com.function.RedisStreamTrigger;
+
+import com.microsoft.azure.functions.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.redis.annotation.*;
+
+public class SimpleStreamTrigger {
+    @FunctionName("SimpleStreamTrigger")
+    public void run(
             @RedisStreamTrigger(
-                name = "entry",
-                connectionStringSetting = "redisLocalhost",
+                name = "req",
+                connectionStringSetting = "redisConnectionString",
                 key = "streamTest",
-                pollingIntervalInMs = 100,
-                messagesPerWorker = 10,
-                count = 1,
-                deleteAfterProcess = true)
-                String entry,
+                pollingIntervalInMs = 1000,
+                maxBatchSize = 1)
+                String message,
             final ExecutionContext context) {
-            context.getLogger().info(entry);
+            context.getLogger().info(message);
     }
+}
 
 ```
 
@@ -98,12 +132,10 @@ From `function.json`, here's the binding data:
   "bindings": [
     {
       "type": "redisStreamTrigger",
-      "deleteAfterProcess": false,
-      "connectionStringSetting": "redisLocalhost",
+      "connectionStringSetting": "redisConnectionString",
       "key": "streamTest",
       "pollingIntervalInMs": 1000,
-      "messagesPerWorker": 100,
-      "count": 10,
+      "maxBatchSize": 16,
       "name": "entry",
       "direction": "in"
     }
@@ -137,12 +169,10 @@ From `function.json`, here's the binding data:
   "bindings": [
     {
       "type": "redisStreamTrigger",
-      "deleteAfterProcess": false,
-      "connectionStringSetting": "redisLocalhost",
+      "connectionStringSetting": "redisConnectionString",
       "key": "streamTest",
       "pollingIntervalInMs": 1000,
-      "messagesPerWorker": 100,
-      "count": 10,
+      "maxBatchSize": 16,
       "name": "entry",
       "direction": "in"
     }
@@ -176,12 +206,10 @@ From `function.json`, here's the binding data:
   "bindings": [
     {
       "type": "redisStreamTrigger",
-      "deleteAfterProcess": false,
-      "connectionStringSetting": "redisLocalhost",
+      "connectionStringSetting": "redisConnectionString",
       "key": "streamTest",
       "pollingIntervalInMs": 1000,
-      "messagesPerWorker": 100,
-      "count": 10,
+      "maxBatchSize": 16,
       "name": "entry",
       "direction": "in"
     }

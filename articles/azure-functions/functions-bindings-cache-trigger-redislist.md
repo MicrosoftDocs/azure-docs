@@ -24,28 +24,59 @@ For more information this Azure Cache for Redis triggers and bindings, [Redis Ex
 | Lists | Yes  | Yes   |  Yes  |
 
 > [!IMPORTANT]
-> Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md). 
+> Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md).
 >
 
 ## Example
 
 ::: zone pivot="programming-language-csharp"
 
-The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`:
+The following sample polls the key `listTest`.:
 
 ### [Isolated worker model](#tab/isolated-process)
 
-The isolated process examples aren't available in preview.
+```csharp
+﻿using Microsoft.Extensions.Logging;
+
+namespace Microsoft.Azure.Functions.Worker.Extensions.Redis.Samples.RedisListTrigger
+{
+    public class SimpleListTrigger
+    {
+        private readonly ILogger<SimpleListTrigger> logger;
+
+        public SimpleListTrigger(ILogger<SimpleListTrigger> logger)
+        {
+            this.logger = logger;
+        }
+
+        [Function(nameof(SimpleListTrigger))]
+        public void Run(
+            [RedisListTrigger(Common.connectionStringSetting, "listTest")] string entry)
+        {
+            logger.LogInformation(entry);
+        }
+    }
+}
+
+```
 
 ### [In-process model](#tab/in-process)
 
 ```csharp
-[FunctionName(nameof(ListsTrigger))]
-public static void ListsTrigger(
-    [RedisListTrigger("Redis", "listTest")] string entry,
-    ILogger logger)
+﻿using Microsoft.Extensions.Logging;
+
+namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisListTrigger
 {
-    logger.LogInformation($"The entry pushed to the list listTest: '{entry}'");
+    internal class SimpleListTrigger
+    {
+        [FunctionName(nameof(SimpleListTrigger))]
+        public static void Run(
+            [RedisListTrigger(Common.connectionStringSetting, "listTest")] string entry,
+            ILogger logger)
+        {
+            logger.LogInformation(entry);
+        }
+    }
 }
 ```
 
@@ -57,20 +88,26 @@ public static void ListsTrigger(
 The following sample polls the key `listTest` at a localhost Redis instance at `redisLocalhost`:
 
 ```java
-    @FunctionName("ListTrigger")
-    public void ListTrigger(
+package com.function.RedisListTrigger;
+
+import com.microsoft.azure.functions.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.redis.annotation.*;
+
+public class SimpleListTrigger {
+    @FunctionName("SimpleListTrigger")
+    public void run(
             @RedisListTrigger(
-                name = "entry",
-                connectionStringSetting = "redisLocalhost",
+                name = "req",
+                connectionStringSetting = "redisConnectionString",
                 key = "listTest",
-                pollingIntervalInMs = 100,
-                messagesPerWorker = 10,
-                count = 1,
-                listPopFromBeginning = false)
-                String entry,
+                pollingIntervalInMs = 1000,
+                maxBatchSize = 1)
+                String message,
             final ExecutionContext context) {
-            context.getLogger().info(entry);
+            context.getLogger().info(message);
     }
+}
 ```
 
 ::: zone-end
@@ -92,20 +129,19 @@ From `function.json`, here's the binding data:
 
 ```json
 {
-  "bindings": [
-    {
-      "type": "redisListTrigger",
-      "listPopFromBeginning": true,
-      "connectionStringSetting": "redisLocalhost",
-      "key": "listTest",
-      "pollingIntervalInMs": 1000,
-      "messagesPerWorker": 100,
-      "count": 10,
-      "name": "entry",
-      "direction": "in"
-    }
-  ],
-  "scriptFile": "index.js"
+    "bindings": [
+        {
+            "type": "redisListTrigger",
+            "listPopFromBeginning": true,
+            "connectionStringSetting": "redisConnectionString",
+            "key": "listTest",
+            "pollingIntervalInMs": 1000,
+            "maxBatchSize": 16,
+            "name": "entry",
+            "direction": "in"
+        }
+      ],
+    "scriptFile": "index.js"
 }
 ```
 
@@ -132,20 +168,19 @@ From `function.json`, here's the binding data:
 
 ```json
 {
-  "bindings": [
-    {
-      "type": "redisListTrigger",
-      "listPopFromBeginning": true,
-      "connectionStringSetting": "redisLocalhost",
-      "key": "listTest",
-      "pollingIntervalInMs": 1000,
-      "messagesPerWorker": 100,
-      "count": 10,
-      "name": "entry",
-      "direction": "in"
-    }
-  ],
-  "scriptFile": "run.ps1"
+    "bindings": [
+        {
+            "type": "redisListTrigger",
+            "listPopFromBeginning": true,
+            "connectionStringSetting": "redisConnectionString",
+            "key": "listTest",
+            "pollingIntervalInMs": 1000,
+            "maxBatchSize": 16,
+            "name": "entry",
+            "direction": "in"
+        }
+      ],
+    "scriptFile": "run.ps1"
 }
 ```
 
@@ -171,20 +206,19 @@ From `function.json`, here's the binding data:
 
 ```json
 {
-  "bindings": [
-    {
-      "type": "redisListTrigger",
-      "listPopFromBeginning": true,
-      "connectionStringSetting": "redisLocalhost",
-      "key": "listTest",
-      "pollingIntervalInMs": 1000,
-      "messagesPerWorker": 100,
-      "count": 10,
-      "name": "entry",
-      "direction": "in"
-    }
-  ],
-  "scriptFile": "__init__.py"
+    "bindings": [
+        {
+            "type": "redisListTrigger",
+            "listPopFromBeginning": true,
+            "connectionStringSetting": "redisConnectionString",
+            "key": "listTest",
+            "pollingIntervalInMs": 1000,
+            "maxBatchSize": 16,
+            "name": "entry",
+            "direction": "in"
+        }
+      ],
+    "scriptFile": "__init__.py"
 }
 ```
 

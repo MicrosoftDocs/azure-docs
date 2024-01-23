@@ -35,9 +35,84 @@ For more information this Azure Cache for Redis triggers and bindings, [Redis Ex
 
 ### [Isolated worker model](#tab/isolated-process)
 
-The isolated process examples aren't available in preview.
+This sample listens to the channel `pubsubTest`.
 
 ```csharp
+﻿using Microsoft.Extensions.Logging;
+
+namespace Microsoft.Azure.Functions.Worker.Extensions.Redis.Samples.RedisPubSubTrigger
+{
+    internal class SimplePubSubTrigger
+    {
+        private readonly ILogger<SimplePubSubTrigger> logger;
+
+        public SimplePubSubTrigger(ILogger<SimplePubSubTrigger> logger)
+        {
+            this.logger = logger;
+        }
+
+        [Function(nameof(SimplePubSubTrigger))]
+        public void Run(
+            [RedisPubSubTrigger(Common.connectionStringSetting, "pubsubTest")] string message)
+        {
+            logger.LogInformation(message);
+        }
+    }
+}
+
+```
+
+This sample listens to any keyspace notifications for the key `keyspaceTest`.
+
+```csharp
+using Microsoft.Extensions.Logging;
+
+namespace Microsoft.Azure.Functions.Worker.Extensions.Redis.Samples.RedisPubSubTrigger
+{
+    internal class KeyspaceTrigger
+    {
+        private readonly ILogger<KeyspaceTrigger> logger;
+
+        public KeyspaceTrigger(ILogger<KeyspaceTrigger> logger)
+        {
+            this.logger = logger;
+        }
+        
+        [Function(nameof(KeyspaceTrigger))]
+        public void Run(
+            [RedisPubSubTrigger(Common.connectionStringSetting, "__keyspace@0__:keyspaceTest")] string message)
+        {
+            logger.LogInformation(message);
+        }
+    }
+}
+
+```
+
+This sample listens to any `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/).
+
+```csharp
+﻿using Microsoft.Extensions.Logging;
+
+namespace Microsoft.Azure.Functions.Worker.Extensions.Redis.Samples.RedisPubSubTrigger
+{
+    internal class KeyeventTrigger
+    {
+        private readonly ILogger<KeyeventTrigger> logger;
+
+        public KeyeventTrigger(ILogger<KeyeventTrigger> logger)
+        {
+            this.logger = logger;
+        }
+        
+        [Function(nameof(KeyeventTrigger))]
+        public void Run(
+            [RedisPubSubTrigger(Common.connectionStringSetting, "__keyevent@0__:del")] string message)
+        {
+            logger.LogInformation($"Key '{message}' deleted.");
+        }
+    }
+}
 
 ```
 
@@ -46,37 +121,61 @@ The isolated process examples aren't available in preview.
 This sample listens to the channel `pubsubTest`.
 
 ```csharp
-[FunctionName(nameof(PubSubTrigger))]
-public static void PubSubTrigger(
-    [RedisPubSubTrigger("redisConnectionString", "pubsubTest")] string message,
-    ILogger logger)
+﻿using Microsoft.Extensions.Logging;
+
+namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisPubSubTrigger
 {
-    logger.LogInformation(message);
+    internal class SimplePubSubTrigger
+    {
+        [FunctionName(nameof(SimplePubSubTrigger))]
+        public static void Run(
+            [RedisPubSubTrigger(Common.connectionStringSetting, "pubsubTest")] string message,
+            ILogger logger)
+        {
+            logger.LogInformation(message);
+        }
+    }
 }
 ```
 
-This sample listens to any keyspace notifications for the key `myKey`.
+This sample listens to any keyspace notifications for the key `keyspaceTest`.
 
 ```csharp
 
-[FunctionName(nameof(KeyspaceTrigger))]
-public static void KeyspaceTrigger(
-    [RedisPubSubTrigger("redisConnectionString", "__keyspace@0__:myKey")] string message,
-    ILogger logger)
+﻿using Microsoft.Extensions.Logging;
+
+namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisPubSubTrigger
 {
-    logger.LogInformation(message);
+    internal class KeyspaceTrigger
+    {
+        [FunctionName(nameof(KeyspaceTrigger))]
+        public static void Run(
+            [RedisPubSubTrigger(Common.connectionStringSetting, "__keyspace@0__:keyspaceTest")] string message,
+            ILogger logger)
+        {
+            logger.LogInformation(message);
+        }
+    }
 }
 ```
 
 This sample listens to any `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/).
 
 ```csharp
-[FunctionName(nameof(KeyeventTrigger))]
-public static void KeyeventTrigger(
-    [RedisPubSubTrigger("redisConnectionString", "__keyevent@0__:del")] string message,
-    ILogger logger)
+﻿using Microsoft.Extensions.Logging;
+
+namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisPubSubTrigger
 {
-    logger.LogInformation(message);
+    internal class KeyeventTrigger
+    {
+        [FunctionName(nameof(KeyeventTrigger))]
+        public static void Run(
+            [RedisPubSubTrigger(Common.connectionStringSetting, "__keyevent@0__:del")] string message,
+            ILogger logger)
+        {
+            logger.LogInformation($"Key '{message}' deleted.");
+        }
+    }
 }
 ```
 
@@ -88,46 +187,70 @@ public static void KeyeventTrigger(
 This sample listens to the channel `pubsubTest`.
 
 ```java
-@FunctionName("PubSubTrigger")
-    public void PubSubTrigger(
+package com.function.RedisPubSubTrigger;
+
+import com.microsoft.azure.functions.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.redis.annotation.*;
+
+public class SimplePubSubTrigger {
+    @FunctionName("SimplePubSubTrigger")
+    public void run(
             @RedisPubSubTrigger(
-                name = "message",
+                name = "req",
                 connectionStringSetting = "redisConnectionString",
                 channel = "pubsubTest")
                 String message,
             final ExecutionContext context) {
             context.getLogger().info(message);
     }
+}
 ```
 
 This sample listens to any keyspace notifications for the key `myKey`.
 
 ```java
-@FunctionName("KeyspaceTrigger")
-    public void KeyspaceTrigger(
+package com.function.RedisPubSubTrigger;
+
+import com.microsoft.azure.functions.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.redis.annotation.*;
+
+public class KeyspaceTrigger {
+    @FunctionName("KeyspaceTrigger")
+    public void run(
             @RedisPubSubTrigger(
-                name = "message",
+                name = "req",
                 connectionStringSetting = "redisConnectionString",
-                channel = "__keyspace@0__:myKey")
+                channel = "__keyspace@0__:keyspaceTest")
                 String message,
             final ExecutionContext context) {
             context.getLogger().info(message);
     }
+}
 ```
 
 This sample listens to any `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/).
 
 ```java
- @FunctionName("KeyeventTrigger")
-    public void KeyeventTrigger(
+package com.function.RedisPubSubTrigger;
+
+import com.microsoft.azure.functions.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.redis.annotation.*;
+
+public class KeyeventTrigger {
+    @FunctionName("KeyeventTrigger")
+    public void run(
             @RedisPubSubTrigger(
-                name = "message",
+                name = "req",
                 connectionStringSetting = "redisConnectionString",
                 channel = "__keyevent@0__:del")
                 String message,
             final ExecutionContext context) {
             context.getLogger().info(message);
     }
+}
 ```
 
 ::: zone-end
@@ -164,7 +287,7 @@ Here's binding data to listen to the channel `pubsubTest`.
 }
 ```
 
-Here's binding data to listen to keyspace notifications for the key `myKey`.
+Here's binding data to listen to keyspace notifications for the key `keyspaceTest`.
 
 ```json
 {
@@ -172,7 +295,7 @@ Here's binding data to listen to keyspace notifications for the key `myKey`.
     {
       "type": "redisPubSubTrigger",
       "connectionStringSetting": "redisConnectionString",
-       "channel": "__keyspace@0__:myKey",
+      "channel": "__keyspace@0__:keyspaceTest",
       "name": "message",
       "direction": "in"
     }
@@ -196,6 +319,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
   ],
   "scriptFile": "index.js"
 }
+
 ```
 ### [Model v4](#tab/node-v4)
 
@@ -233,7 +357,7 @@ Here's binding data to listen to the channel `pubsubTest`.
 }
 ```
 
-Here's binding data to listen to keyspace notifications for the key `myKey`.
+Here's binding data to listen to keyspace notifications for the key `keyspaceTest`.
 
 ```json
 {
@@ -241,7 +365,7 @@ Here's binding data to listen to keyspace notifications for the key `myKey`.
     {
       "type": "redisPubSubTrigger",
       "connectionStringSetting": "redisConnectionString",
-       "channel": "__keyspace@0__:myKey",
+      "channel": "__keyspace@0__:keyspaceTest",
       "name": "message",
       "direction": "in"
     }
