@@ -52,25 +52,22 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
     > [!IMPORTANT]
     > Pay-as-you-go model deployment offering is only available in workspaces created in **East US 2** and **West US 3** regions.
 
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace. Alternatively, your account can be assigned a custom role that has the following permissions:
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
     - On the Azure subscription (needed to subscribe the workspace to the Azure Marketplace offering, once for each workspace, per offering):
       - `Microsoft.MarketplaceOrdering/agreements/offers/plans/read`
       - `Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action`
       - `Microsoft.MarketplaceOrdering/offerTypes/publishers/offers/plans/agreements/read`
+      - `Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read`
       - `Microsoft.SaaS/register/action`
  
     - On the Resource Group (to create and use the SaaS Resource):
       - `Microsoft.SaaS/resources/read`
       - `Microsoft.SaaS/resources/write`
  
-    - On the Project (the AI developer role contains these permissions already):
+    - On the Workspace for deploying endpoints (the AzureML Data Scientist role contains these permissions already):
       - `Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*`  
       - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*`
-      
-    - For fine-tuning, these permissions are needed at the project level (the AI developer role contains these permissions already):
-      - `Microsoft.MachineLearningServices/workspaces/jobs/*`
-      - `Microsoft.MachineLearningServices/workspaces/datastores/*`
 
     For more information on permissions, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
