@@ -33,22 +33,47 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
 
 ## Set up the working environment
 
-Depending on your operating system, add environment variables for your **Host name** and **USERNAME**. Open a command prompt, or a terminal window, and set up the following values:
+### Option01: Authentication with Redis Key
 
-```cmd
+Depending on your operating system, add environment variables for your cache's **Host name** and **Primary access key**. Open a command prompt, or a terminal window, and set up the following values:
+
+```CMD
 set REDIS_CACHE_HOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
-set USERNAME=<USERNAME>
+set REDIS_CACHE_KEY=<YOUR_PRIMARY_ACCESS_KEY>
 ```
 
 ```bash
 export REDIS_CACHE_HOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
-export USERNAME=<USERNAME>
+export REDIS_CACHE_KEY=<YOUR_PRIMARY_ACCESS_KEY>
 ```
 
 Replace the placeholders with the following values:
 
 - `<YOUR_HOST_NAME>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
-- `<USERNAME>`: Object ID of your managed identity or service principal.
+- `<YOUR_PRIMARY_ACCESS_KEY>`: The primary access key, obtained from the *Access keys* section of your Azure Cache for Redis resource in the Azure portal.
+
+### Option02: Authentication with Microsoft Entra ID
+
+Depending on your operating system, add environment variables for your cache's **Host name** and **USER_NAME**. Open a command prompt, or a terminal window, and set up the following values:
+
+```CMD
+set REDIS_CACHE_HOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+set USER_NAME=<USER_NAME>
+set AUTH_TYPE=MicrosoftEntraID
+```
+
+```bash
+export REDIS_CACHE_HOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+export USER_NAME=<USER_NAME>
+export AUTH_TYPE=MicrosoftEntraID
+```
+
+Replace the placeholders with the following values:
+
+- `<YOUR_HOST_NAME>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
+- `<USER_NAME>`: Object ID of your managed identity or service principal.
+
+
 
 ## Create a new Java app
 
@@ -81,8 +106,6 @@ Save the *pom.xml* file.
 Open *App.java* and replace the code with the following code:
 
 ```java
-package example.demo;
-
 import com.azure.core.credential.TokenRequestContext;
 import com.azure.identity.DefaultAzureCredential;
 import com.azure.identity.DefaultAzureCredentialBuilder;
@@ -98,26 +121,15 @@ import javax.cache.configuration.Configuration;
 import javax.cache.configuration.MutableConfiguration;
 import java.time.LocalDateTime;
 
+
 /**
  * Redis test
  *
  */
 public class App {
     public static void main(String[] args) {
-        //Construct a Token Credential from Identity library, e.g. DefaultAzureCredential / ClientSecretCredential / Client CertificateCredential / ManagedIdentityCredential etc.
-        DefaultAzureCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().build();
 
-        // Fetch a Microsoft Entra token to be used for authentication.
-        String token = defaultAzureCredential
-                .getToken(new TokenRequestContext()
-                .addScopes("acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default")).block().getToken();
-
-        // Connect to the Azure Cache for Redis over the TLS/SSL port using the key
-        Config redissonconfig = new Config();
-        redissonconfig.useSingleServer()
-            .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")))
-            .setUsername( System.getenv("USERNAME")) // (*Required), Username is Object ID of your managed identity or service principal
-            .setPassword(token); // Microsoft Entra access token as password is required.
+        Config redissonconfig = getConfig();
 
         RedissonClient redissonClient = Redisson.create(redissonconfig);
 
@@ -142,6 +154,42 @@ public class App {
 
         redissonClient.shutdown();
     }
+
+    private static Config getConfig(){
+        if ("MicrosoftEntraID".equals(System.getenv("AUTH_TYPE"))) {
+            System.out.println("Auth with Microsoft Entra ID");
+            return getConfigAuthWithAAD();
+        }
+        System.out.println("Auth with Redis key");
+        return getConfigAuthWithKey();
+    }
+
+    private static Config getConfigAuthWithKey() {
+        // Connect to the Azure Cache for Redis over the TLS/SSL port using the key
+        Config redissonconfig = new Config();
+        redissonconfig.useSingleServer().setPassword(System.getenv("REDIS_CACHE_KEY"))
+            .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")));
+        return redissonconfig;
+    }
+
+    private static Config getConfigAuthWithAAD() {
+        //Construct a Token Credential from Identity library, e.g. DefaultAzureCredential / ClientSecretCredential / Client CertificateCredential / ManagedIdentityCredential etc.
+        DefaultAzureCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().build();
+
+        // Fetch a Microsoft Entra token to be used for authentication.
+        String token = defaultAzureCredential
+            .getToken(new TokenRequestContext()
+                .addScopes("acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default")).block().getToken();
+
+        // Connect to the Azure Cache for Redis over the TLS/SSL port using the key
+        Config redissonconfig = new Config();
+        redissonconfig.useSingleServer()
+            .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")))
+            .setUsername(System.getenv("USER_NAME")) // (Required) Username is Object ID of your managed identity or service principal
+            .setPassword(token); // Microsoft Entra access token as password is required.
+        return redissonconfig;
+    }
+
 }
 ```
 
