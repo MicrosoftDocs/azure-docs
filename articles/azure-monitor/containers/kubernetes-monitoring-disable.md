@@ -10,7 +10,7 @@ ms.reviewer: aul
 
 # Disable monitoring of your Kubernetes cluster
 
-Use the following methods to remove [Container insights](#container-insights) or [Prometheus](#prometheus) from your Kubernetes cluster.
+Use the following methods to remove [Container insights](#disable-container-insights) or [Prometheus](#disable-prometheus) from your Kubernetes cluster.
 
 ## Permissions
 
@@ -139,7 +139,7 @@ The configuration change can take a few minutes to complete. Because Helm tracks
 
 
 
-## Prometheus
+## Disable Prometheus
 
 Use the following `az aks update` Azure CLI command with the `--disable-azure-monitor-metrics` parameter to remove the metrics add-on from your AKS cluster, and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus. It doesn't remove the data already collected and stored in the Azure Monitor workspace for your cluster.
 
