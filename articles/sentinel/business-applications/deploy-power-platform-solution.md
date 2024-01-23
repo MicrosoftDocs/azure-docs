@@ -57,6 +57,7 @@ In Microsoft Sentinel, enable the six data connectors to collect activity logs a
 ### Power Platform inventory data connector
 
 The Power Platform inventory data connector allows you to resolve the GUIDs for Power Platform and PowerApps environments in the incident details to the human readable names that appear in Power Platform admin center and the Power Apps maker portal. We recommend enabling this data connector but it's not required to fully deploy the Microsoft Power Platform solution.
+To optimize ingestion, the Power Platform inventory data connector ingests data in full every 14 days and incremental updates daily. The incremental updates only include inventory assets that have changes since the previous day.
 
 To collect Power Apps and Power Automate inventory data, deploy the Azure Resource Manager template to create a function app. To complete the deployment, you need the blob service URL for your Azure Data Lake Storage Gen2 storage account. After you create the function app, grant the managed identity for the function app access to the storage account.
 
