@@ -27,9 +27,7 @@ In this article, we demonstrate FHIR search syntax in example API calls with the
 
 
 ## Get the status of search parameters
-An API endpoint (‘$status’) is provided to view the status of search parameters.
-
-There are four statuses in the response: 
+An API endpoint (‘$status’) is provided to view the status of search parameters. There are four statuses for the response: 
 
 | Status | Description |
 | --- | --- |
@@ -38,13 +36,12 @@ There are four statuses in the response:
 | PendingDisable | Disabling the search parameter is pending after execution of the reindex operation. |
 | Disabled | The search parameter is disabled. |
 
-
 To get the status across all search parameters, use the following request. This request returns a list of all the search parameters and their status. Scroll through the list to find the search parameter you need.
 ```rest
 GET {{FHIR_URL}}/SearchParameter/$status
 ```
 
-To identify the status of individual or a subset of search parameters use these filters.
+To identify the status of individual or a subset of search parameters, use these filters.
 * **Name**. To identify search parameter status by name, use this request:
 ```rest
    GET {{FHIR_URL}}/SearchParameter/$status?code=<name of search parameter/ sub string>
@@ -160,7 +157,7 @@ Until the search parameter is indexed, the 'Enabled' and 'Disabled' status of th
 A reindex job can be executed against the entire FHIR service database or against specific search parameters. A reindex job can be performance intensive. For more information, see [Run a reindex job](how-to-run-a-reindex.md).
 
 > [!NOTE]
-> A capability statement documents a set of behaviors for a FHIR server. A capability statement is available for the /metadata endpoint. 'Enabled' search parameters are listed in the capability statement for your FHIR service.
+> A capability statement document is a set of behaviors for a FHIR server. A capability statement is available for the /metadata endpoint. 'Enabled' search parameters are listed in the capability statement for your FHIR service.
 
 ## Next steps
 
