@@ -17,7 +17,7 @@ This article shows you how to use the Azure portal to create an Azure Applicatio
 
 ![Quickstart setup](./media/quick-create-portal/application-gateway-qs-resources.png)
 
-For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md). For more information about features and capabilities in Application Gateway Basic, see [SKU types](overview-v2#sku-types).
+For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md). For more information about features and capabilities in Application Gateway Basic, see [SKU types](overview-v2.md#sku-types).
 
 > [!IMPORTANT]
 > Application Gateway Basic SKU is currently in PREVIEW.<br>

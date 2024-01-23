@@ -191,20 +191,15 @@ In this example, you install IIS on the virtual machines to verify Azure created
 ### Add backend servers to backend pool
 
 1. On the Azure portal menu, select **All resources** or search for and select *All resources*. Then select **myAppGateway**.
-
 2. Select **Backend pools** from the left menu.
-
 3. Select **myBackendPool**.
-
 4. Under **Backend targets**, **Target type**, select **Virtual machine** from the drop-down list.
-
 5. Under **Target**, select the **myVM** and **myVM2** virtual machines and their associated network interfaces from the drop-down lists.
 
    > [!div class="mx-imgBorder"]
    > ![Add backend servers](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
 6. Select **Save**.
-
 7. Wait for the deployment to complete before proceeding to the next step.
 
 ## Test the application gateway
