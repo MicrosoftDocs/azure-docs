@@ -90,7 +90,7 @@ The Azure VMware Solution private cloud portal provides a range of Run commands 
 The Run command 'Install-VCDAAVS' installs and configures the VMware Cloud Director Availability instance in Azure VMware Solution. The instance includes VMware Cloud Director Replication Manager, Tunnel, and two Replicators. You can add more replicators by using 'Install-VCDARepliactor' to scale. 
 
 > [!NOTE]
-> Run the **Initialize-AVSSite** run command before you run the install command. 
+> Run the **Initialize-AVSSite** command before you run the install command. 
 
 You can also use Run commands to perform many other functions such as start, stop VCDA VMs, uninstall VCDA etc.  
 
