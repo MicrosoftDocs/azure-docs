@@ -44,7 +44,7 @@ The entitlement service enables three use cases for authorization:
 - You can add individual users to a `user group`. The `user group` is then added to a `data group`. The data group is added to the ACL of the data record. It enables abstraction for the data groups because individual users don't need to be added one by one to the data group. Instead, you can add users to the `user group`. Then you can use the `user group` repeatedly for multiple `data groups`. The nested structure helps provide scalability to manage memberships in OSDU.
 
 #### Piculiarity of `users@` group
-There's one exception of this group naming rule for the "users" group. It gets created when a new data partition is provisioned and its name follows the pattern of `users@{partition}.{domain}`. It has the list of all the users with any type of access in a specific data partition. Before you add a new user to any entitlement groups, you also need to add the new user to the `users@{partition}.{domain}` group.
+- There's one exception of this group naming rule for the "users" group. It gets created when a new data partition is provisioned and its name follows the pattern of `users@{partition}.{domain}`. It has the list of all the users with any type of access in a specific data partition. Before you add a new user to any entitlement groups, you also need to add the new user to the `users@{partition}.{domain}` group.
 
 #### Piculiarity of `users.data.root@` group
 - users.data.root entitlement group is the default member of all data groups when groups are created. If you try to remove users.data.root from any data group, you get error since this membership is enforced by OSDU.
