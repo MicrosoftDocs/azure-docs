@@ -73,10 +73,9 @@ Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in 
 |-------------------| :-----------------------: | :-----------------------------: |
 | Virtual Rooms SDKs | 2023-06-14 | Generally Available - Fully supported |
 | Virtual Rooms SDKs | 2023-10-30 | Public Preview - Fully supported |
-| Virtual Rooms SDKs | 2023-03-31 | Retired |
-| Virtual Rooms SDKs | 2022-02-01 | Retired |
-| Virtual Rooms SDKs | 2021-04-07 | Retired |
-
+| Virtual Rooms SDKs | 2023-03-31 | Will be retired on April 30, 2024 |
+| Virtual Rooms SDKs | 2022-02-01 | Will be retired on April 30, 2024 |
+| Virtual Rooms SDKs | 2021-04-07 | Will be retired on April 30, 2024 |
 
 
 ### Calling SDKs
