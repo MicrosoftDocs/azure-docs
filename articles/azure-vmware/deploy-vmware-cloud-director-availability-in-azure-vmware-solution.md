@@ -11,7 +11,35 @@ ms.date: 1/22/2024
 
 In this article, learn how to deploy VMware Cloud Director Availability in Azure VMware Solution.
 
-Enterprise customers use VMware Cloud Director Availability, a Disaster Recovery as a Service (DRaaS) solution, to use VMware Cloud Director service (VMware CDS) within Azure VMware Soltuion. With VMware Cloud Director Availability, VMware Cloud Director service provider and tenants can protect and migrate their workloads at tenant level. The native integration of VMware Cloud Director Availability with VMware CDS, through its plugin, enables multitenancy tenants to efficiently manage migration and disaster recovery for their virtual data center workloads through the VMware Cloud Director Availability tenant portal. 
+Customers can use VMware Cloud Director Availability, a Disaster Recovery as a Service (DRaaS) solution, to protect and migrate workloads both to and from the VMware Cloud Director service associated with Azure VMware Soltuion. The native integration of VMware Cloud Director Availability with VMware Cloud director (VCD) and VMware Cloud Director service (VMware CDS), through its plugin, enables multitenancy tenants to efficiently manage migration and disaster recovery for their virtual data center workloads through the VMware Cloud Director Availability tenant portal. 
+
+## Key components of VMware Cloud Director Availability
+
+VMware Cloud Director Availability consists of the following types of appliances.
+
+### Replication Management Appliance
+
+This appliance, also known as the manager, enables communication with VMware Cloud Director. The enabled communication gives VMware Cloud Director Availability the capability to discover resources like: Organization Virtual datacenter (OrgVDC), storage policies, datastores, and networks managed by VMware Cloud director and used by tenants.
+
+The manager plays a vital role in identifying vApps and virtual machines (VMs) eligible for replication of migration and suitable destinations for incoming replications and migrations. It also provides user interface (UI) and API interfaces, which serve as a communication bridge for users interacting with VMware Cloud Director Availability.
+
+The responsibility of the manager extends to communication with local and remote replicators and collecting data about each protected or migrated workload.
+
+### Replication Appliance instances
+
+VMware Cloud Director Availability Cloud Replication appliance serves as the entity responsible for transferring replication data to and from ESXi hosts in the cloud. For outgoing replications or migrations, it communicates with the VM Kernel interface of an ESXi host; capturing, encrypting, and optionally compressing the replication data. The data is sent to a remote replicator, whether in the cloud or on-premises.
+
+For incoming replications or migrations, the cloud replicator receives data from a replicator (whether in the cloud or on-premises), decrypts and decompresses it, and then transfers it to ESXi to be written to a datastore. You can deploy more replicators to scale as number of migrations or protections increases.
+
+### Tunnel Appliance
+
+Tunnel appliance is the single-entry point to VMware Cloud Director Availability instance in the cloud and its role is to manage incoming management and replication traffic. Tunnel handles both data and management traffic and forwards it respectively to cloud replicators and manager.
+
+### On-premises Cloud director replication appliance
+
+This appliance is deployed in tenant on-premises datacenters. It creates a pairing relation to VMware Cloud Director Availability in the cloud and can protect or migrate VMs running locally to the cloud and vice versa.
+
+VMware Cloud Director Availability installation in the Azure VMware Solution cloud site consists of one Replication Manager, one Tunnel Appliance, and two Replicator Appliances. You can deploy more replicators using Azure portal.
 
 The following diagram shows VMware Cloud Director Availability appliances installed in both on-premises and Azure VMware Solution.
 
@@ -29,10 +57,14 @@ The two following VMware Cloud Director Availability scenarios are useful in Azu
 
     VMware Cloud Director Availability provides a flexible solution for multitenant customers, enabling smooth workload migration between Cloud Director service (CDS) instances hosted on Azure VMware Solution SDDC. This empowers efficient cloud-to-cloud migration at the tenant level when using CDs with Azure VMware Solution
 
-## Prerequisites
+## Install and configure VMware Cloud Director Availability using Run commands
+
+Verify the following prerequisites to ensure you're ready to install and confiture VMware Cloud DIrector Availability using Run commands.
+
+### Prerequisites
 
 - Verify the Azure VMware Solution private cloud is configured. 
-- Verify the VMware-Cloud-Director-Availability-Providerrelease.number.xxxxxxx-build_sha_OVF10.ova version 4.7 or later is uploaded under the correct datastore. 
+- Verify the VMware-Cloud-Director-Availability-Providerrelease.number.xxxxxxx-build_sha_OVF10.ova version 4.7 is uploaded under the correct datastore. 
 - Verify the subnet, DNS zone and records for the VMware Cloud Director Availability appliances are configured. 
 - Verify the subnet has outbound Internet connectivity to communicate with: VMware Cloud Director service, remote VMware Cloud Director Availability sites, and the upgrade repository. 
 - Verify the DNS zone has a forwarding capability for the public IP addresses that need to be reached.  
