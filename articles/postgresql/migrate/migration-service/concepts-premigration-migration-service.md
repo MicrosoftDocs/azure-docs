@@ -29,7 +29,7 @@ To use premigration validation when migrating to Azure Database for PostgreSQL -
 
 - When prompted, choose the migration option that includes validation. This could be labeled as **validate**, **validate and migrate**, or a similar term depending on the context of the portal's interface.
 
-    :::image type="content" source="media\concepts-premigration-migration-service\premigration-option.png" alt-text="Screenshot of premigration option. This is a description of the screenshot." lightbox="media\concepts-premigration-migration-service\premigration-option.png":::
+    :::image type="content" source="media\concepts-premigration-migration-service\premigration-option.png" alt-text="Screenshot of premigration option to start migration." lightbox="media\concepts-premigration-migration-service\premigration-option.png":::
 
 ### Use Azure CLI
 
@@ -59,13 +59,13 @@ Plan your migrations better by performing premigration validations in advance to
 
 We recommend that customers use premigration validations to identify issues before running migrations. This helps you to plan your migrations better and avoid any surprises during the migration process.
 
-- Choose the **Validate** option and run premigration validation on an advanced date of your planned migration.
+1. Choose the **Validate** option and run premigration validation on an advanced date of your planned migration.
 
-- Analyze the output and take any remedial actions for any errors.
+1. Analyze the output and take any remedial actions for any errors.
 
-- Rerun Step 1 until the validation is successful.
+1. Rerun Step 1 until the validation is successful.
 
-- Start the migration using the **Validate and Migrate** option on the planned date and time.
+1. Start the migration using the **Validate and Migrate** option on the planned date and time.
 
 ## Related content
 
