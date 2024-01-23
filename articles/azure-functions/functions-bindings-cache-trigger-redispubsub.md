@@ -8,12 +8,14 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 08/07/2023
+ms.date: 01/22/2024
 ---
 
 # RedisPubSubTrigger Azure Function (preview)
 
 Redis features [publish/subscribe functionality](https://redis.io/docs/interact/pubsub/) that enables messages to be sent to Redis and broadcast to subscribers.
+
+For more information this Azure Cache for Redis triggers and bindings, [Redis Extension for Azure Functions](https://github.com/Azure/azure-functions-redis-extension/tree/main).
 
 ## Scope of availability for functions triggers
 
@@ -36,7 +38,7 @@ Redis features [publish/subscribe functionality](https://redis.io/docs/interact/
 The isolated process examples aren't available in preview.
 
 ```csharp
-//TBD
+
 ```
 
 ### [In-process model](#tab/in-process)

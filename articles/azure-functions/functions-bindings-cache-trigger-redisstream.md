@@ -8,19 +8,21 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 08/07/2023
+ms.date: 01/22/2024
 ---
 
 # RedisStreamTrigger Azure Function (preview)
 
 The `RedisStreamTrigger` reads new entries from a stream and surfaces those elements to the function.
 
+For more information, see [RedisStreamTrigger](https://github.com/Azure/azure-functions-redis-extension/tree/mapalan/UpdateReadMe/samples/dotnet/RedisStreamTrigger).
+
 | Tier    | Basic | Standard, Premium | Enterprise, Enterprise Flash |
 |---------|:-----:|:-----------------:|:----------------------------:|
 | Streams | Yes   | Yes               | Yes                          |
 
 > [!IMPORTANT]
-> Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md). 
+> Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md).
 >
 
 ## Example
@@ -252,7 +254,9 @@ The `RedisStreamTrigger` Azure Function reads new entries from a stream and surf
 
 The trigger polls Redis at a configurable fixed interval, and uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/) to read elements from the stream.
 
-The consumer group of the function is the function name, that is, `StreamTrigger`. Each function creates a new random GUID to use as its consumer name within the group to ensure that scaled out instances of the function don't read the same messages from the stream.
+The consumer group for all instances of a function is the the name of the function, that is, `SimpleStreamTrigger` for the [StreamTrigger sample](samples/dotnet/RedisStreamTrigger/SimpleStreamTrigger.cs).
+
+Each functions instance uses the [`WEBSITE_INSTANCE_ID`](https://learn.microsoft.com/en-us/azure/app-service/reference-app-settings?tabs=kudu%2Cdotnet#scaling) or generates a random GUID to use as its consumer name within the group to ensure that scaled out instances of the function do not read the same messages from the stream.
 
 ::: zone pivot="programming-language-csharp"
 

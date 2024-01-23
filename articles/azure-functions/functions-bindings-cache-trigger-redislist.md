@@ -8,12 +8,14 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 08/07/2023
+ms.date: 01/22/2024
 ---
 
 # RedisListTrigger Azure Function (preview)
 
 The `RedisListTrigger` pops new elements from a list and surfaces those entries to the function.
+
+For more information this Azure Cache for Redis triggers and bindings, [Redis Extension for Azure Functions](https://github.com/Azure/azure-functions-redis-extension/tree/main).
 
 ## Scope of availability for functions triggers
 
