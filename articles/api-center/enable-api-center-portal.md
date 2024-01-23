@@ -10,9 +10,9 @@ ms.custom:
 # Customer intent: As an API program manager, I want to enable a portal for developers in my organization to discover the APIs in my organization's API center.
 ---
 
-# Enable the API Center portal
+# Enable your API Center portal
 
-This article shows how to enable the *API Center portal*, an automatically generated website that developers in your organization can use to discover the APIs in your API center. The portal is hosted by Azure at a unique URL and restricts user access based on Azure role-based access control.
+This article shows how to enable your *API Center portal*, an automatically generated website that developers in your organization can use to discover the APIs in your API center. The portal is hosted by Azure at a unique URL and restricts user access based on Azure role-based access control.
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
@@ -118,5 +118,5 @@ For more information and steps to register the resource provider using other too
 ## Related content
 
 * [Azure CLI reference for API Center](/cli/azure/apic) 
-* [What is Azure role-based access control (RBAC)?](../role-based-access-cgontrol/overview.md)
+* [What is Azure role-based access control (RBAC)?](../role-based-access-control/overview.md)
 * To learn about rules for dynamic group membership, see [Create or update a dynamic group in Microsoft Entra ID](/entra/identity/users/groups-create-rule)
