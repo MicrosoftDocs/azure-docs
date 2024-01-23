@@ -328,12 +328,7 @@ Follow these steps to set up a video retrieval system and integrate it with your
                         {
                             "type": "text",
                             "text": "Describe this video:"
-                        }
-                    ]
-            },
-            {
-                "role": "user",
-                "content": [
+                        },
                         {
                             "type": "acv_document_id",
                             "acv_document_id": "<your_video_ID>"
