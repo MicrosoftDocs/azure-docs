@@ -2,12 +2,12 @@
 title: Build a global identity solution with region-based approach
 titleSuffix: Azure AD B2C
 description: Learn the region-based design consideration for Azure AD B2C to provide customer identity management for global customers.
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: conceptual
 ms.date: 12/15/2022
 ms.author: gasinh

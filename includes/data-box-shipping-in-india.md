@@ -1,10 +1,10 @@
 ---
-author: sipastak
+author: stevenmatthew
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
 ms.date: 01/23/2023
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Take the following steps if returning the device in India.
@@ -27,5 +27,6 @@ Take the following steps if returning the device in India.
 7.	If you encounter any issues or are asked to pay additional fees when scheduling a pickup, reach out to Azure Data Box Operations <adbops@microsoft.com> for assistance. Provide the Order Name and the issue encountered in the subject line.
  
 Once the device is picked up and scanned by the carrier, the order status in the Azure portal will be updated to **Picked Up**, and a tracking ID will be displayed.
+
 
 

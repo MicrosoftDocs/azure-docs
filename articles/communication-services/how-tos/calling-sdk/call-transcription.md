@@ -17,7 +17,7 @@ zone_pivot_groups: acs-plat-ios-android-windows
 # Display call transcription state on the client
 
 > [!NOTE]
-> Call transcription state is only available from Teams meetings. Currently there's no support for call transcription state for ACS to ACS calls.
+> Call transcription state is only available from Teams meetings. Currently there's no support for call transcription state for Azure Communication Services to Azure Communication Services calls.
 
 When using call transcription you may want to let your users know that a call is being transcribe. Here's how.
 

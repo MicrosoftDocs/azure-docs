@@ -1,23 +1,25 @@
 ---
-title: Using Azure Cosmos DB (Apache Cassandra) with HDInsight on AKS - Flink
-description: Learn how to Sink HDInsight Kafka message into Azure Cosmos DB for Apache Cassandra, with Apache Flink running on HDInsight on AKS.
+title: Using Azure Cosmos DB for Apache Cassandra® with HDInsight on AKS for Apache Flink®
+description: Learn how to Sink Apache Kafka® message into Azure Cosmos DB for Apache Cassandra®, with Apache Flink® running on HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/30/2023
 ---
 
-# Sink Kafka messages into Azure Cosmos DB for Apache Cassandra, with HDInsight on AKS - Flink
+# Sink Apache Kafka® messages into Azure Cosmos DB for Apache Cassandra, with Apache Flink® on HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-This example uses [HDInsight on AKS Flink 1.16.0](../flink/flink-overview.md) to sink [HDInsight Kafka 3.2.0](/azure/hdinsight/kafka/apache-kafka-introduction) messages into [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction)
+This example uses [Apache Flink](../flink/flink-overview.md) to sink [HDInsight for Apache Kafka](/azure/hdinsight/kafka/apache-kafka-introduction) messages into [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction)
+
+This example is prominent when Engineers prefer real-time aggregated data for analysis. With access to historical aggregated data, you can build machine learning (ML) models to build insights or actions. You can also ingest IoT data into Apache Flink to aggregate data in real-time and store it in Apache Cassandra.
 
 ## Prerequisites
 
-* [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
-* [HDInsight 5.1 Kafka 3.2](../../hdinsight/kafka/apache-kafka-get-started.md)
+* [Apache Flink 1.16.0 on HDInsight on AKS](../flink/flink-create-cluster-portal.md)
+* [Apache Kafka 3.2 on HDInsight](../../hdinsight/kafka/apache-kafka-get-started.md)
 * [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/index.yml)
-* Prepare an Ubuntu VM as maven project development env in the same VNet as HDInsight on AKS.
+* An Ubuntu VM for maven project development environment in the same VNet as HDInsight on AKS cluster.
 
 ## Azure Cosmos DB for Apache Cassandra
 
@@ -181,7 +183,7 @@ drwxr-xr-x 2 root root 4096 May 15 02:43 util/
 **CassandraUtils.java**
 
 > [!NOTE]
-> Change ssl_keystore_file_path depends on the java cert location. On HDInsight on AKS Apache Flink, the path is `/usr/lib/jvm/msopenjdk-11-jre/lib/security`
+> Change ssl_keystore_file_path depends on the java cert location. Apache Flink cluster on HDInsight on AKS, the path is `/usr/lib/jvm/msopenjdk-11-jre/lib/security`
 
 ``` java
 package com.azure.cosmosdb.cassandra.util;
@@ -210,7 +212,7 @@ public class CassandraUtils {
 
 
     /**
-     * This method creates a Cassandra Session based on the the end-point details given in config.properties.
+     * This method creates a Cassandra Session based on the end-point details given in config.properties.
      * This method validates the SSL certificate based on ssl_keystore_file_path & ssl_keystore_password properties.
      * If ssl_keystore_file_path & ssl_keystore_password are not given then it uses 'cacerts' from JDK.
      * @return Session Cassandra Session
@@ -376,7 +378,7 @@ public class CassandraSink implements SinkFunction<Tuple3<Integer, String, Strin
 **main class: CassandraDemo.java**
 
 > [!Note] 
-> * Replace Kafka Broker IPs with your cluster broker IPs
+> * Replace Kafka Broker IPs with your Kafka cluster broker IPs
 > * Prepare topic
 >   * user `/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 3 --topic user --bootstrap-server wn0-flinkd:9092`
 
@@ -461,7 +463,7 @@ Run UserProfile class in /azure-cosmos-db-cassandra-java-getting-started-main/sr
 bin/flink run -c com.azure.cosmosdb.cassandra.examples.UserProfile -j cosmosdb-cassandra-examples.jar
 ```
 
-## Sink Kafka Topics into Cosmos DB (Apache Cassandra)
+## Sink Kafka Topics into Cosmos DB for Apache Cassandra
 
 Run CassandraDemo class to sink Kafka topic into  Cosmos DB for Apache Cassandra
 
@@ -473,7 +475,7 @@ bin/flink run -c com.azure.cosmosdb.cassandra.examples.CassandraDemo -j cosmosdb
 
 ## Validate Apache Flink Job Submission
 
-Check job on HDInsight on AKS Flink UI
+Check job on Flink Web UI on HDInsight on AKS Cluster
 
 :::image type="content" source="./media/cosmos-db-for-apache-cassandra/check-output-on-flink-ui.png" alt-text="Screenshot showing how to check the job on HDInsight on AKS Flink UI." lightbox="./media/cosmos-db-for-apache-cassandra/check-output-on-flink-ui.png":::
 
@@ -548,3 +550,4 @@ sshuser@hn0-flinkd:~$ python user.py | /usr/hdp/current/kafka-broker/bin/kafka-c
 * [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/introduction.md).
 * [Create a API for Cassandra account in Azure Cosmos DB](../../cosmos-db/cassandra/create-account-java.md)
 * [Azure Samples ](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started)
+* Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache Cassandra, Cassandra and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

@@ -2,7 +2,7 @@
 title: Telemetry channels in Application Insights | Microsoft Docs
 description: How to customize telemetry channels in Application Insights SDKs for .NET and .NET Core.
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 01/31/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ms.reviewer: mmcc
@@ -11,6 +11,8 @@ ms.reviewer: mmcc
 # Telemetry channels in Application Insights
 
 Telemetry channels are an integral part of the [Application Insights SDKs](./app-insights-overview.md). They manage buffering and transmission of telemetry to the Application Insights service. The .NET and .NET Core versions of the SDKs have two built-in telemetry channels: `InMemoryChannel` and `ServerTelemetryChannel`. This article describes each channel and shows how to customize channel behavior.
+
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
 ## What are telemetry channels?
 

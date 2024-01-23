@@ -1,6 +1,6 @@
 ---
 title:  "Deploy search app (.NET tutorial)"
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Deploy search-enabled website with .NET apis to Azure Static web app.
 manager: nitinme
 author: diberry
@@ -8,7 +8,10 @@ ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/18/2023
-ms.custom: devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - ignite-2023
 ms.devlang: csharp
 ---
 

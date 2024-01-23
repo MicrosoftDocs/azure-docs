@@ -17,14 +17,32 @@
 # - name: Samples
 - name: Concepts
   items:
-  - name: NAS volumes as a service 
+  - name: Volumes as a service 
     items: 
       - name: Understand NAS
         href: network-attached-storage-concept.md 
       - name: Understand NAS protocols
         href: network-attached-storage-protocols.md
+      - name: Understand NAS permissions 
+        items:
+        - name: Understand NAS share permissions 
+          href: network-attached-storage-permissions.md
+        - name: Understand NAS file permissions 
+          href: network-attached-file-permissions.md
+        - name: Understand SMB file permissions 
+          href: network-attached-file-permissions-smb.md
+        - name: Understand NFS permissions 
+          items: 
+          - name: Understand mode bits
+            href: network-attached-file-permissions-nfs.md
+          - name: Understand auxiliary/supplemental groups 
+            href: auxiliary-groups.md
+          - name: Understand NFSv4.x access control lists
+            href: nfs-access-control-lists.md
       - name: Understand dual-protocol security style and permission behaviors
         href: dual-protocol-permission-behaviors.md
+      - name: Understand guidelines for Active Directory Domain Services
+        href: understand-guidelines-active-directory-domain-service-site.md
       - name: Understand the use of LDAP
         href: lightweight-directory-access-protocol.md
       - name: Understand NFS group memberships and supplemental groups
@@ -49,8 +67,12 @@
       href: azure-policy-definitions.md
     - name: Storage service add-ons
       href: storage-service-add-ons.md
+  - name: Cost optimization 
+    items:
     - name: Cost model for Azure NetApp Files
       href: azure-netapp-files-cost-model.md
+    - name: Standard storage with cool access
+      href: cool-access-introduction.md
   - name: Quotas 
     items:
     - name: Understand volume quota
@@ -163,30 +185,6 @@
         href: solutions-windows-virtual-desktop.md
       - name: Benefits of using Azure NetApp Files for SQL Server deployment
         href: solutions-benefits-azure-netapp-files-sql-server.md
-  - name: FAQs
-    items:
-          - name: Networking FAQs
-            href: faq-networking.md
-          - name: Capacity management FAQs
-            href: faq-capacity-management.md
-          - name: NFS FAQs
-            href: faq-nfs.md
-          - name: SMB FAQs
-            href: faq-smb.md
-          - name: Performance FAQs
-            href: faq-performance.md
-          - name: Application resilience FAQs
-            href: faq-application-resilience.md
-          - name: Data migration and protection FAQs
-            href: faq-data-migration-protection.md
-          - name: Application volume group FAQs
-            href: faq-application-volume-group.md
-          - name: Azure NetApp Files backup FAQs
-            href: faq-backup.md
-          - name: Security FAQs
-            href: faq-security.md
-          - name: Integration FAQs
-            href: faq-integration.md
   - name: Security
     items:
     - name: Security baseline
@@ -205,8 +203,6 @@
       href: request-region-access.md
   - name: Manage Active Directory 
     items:
-    - name: Understand guidelines for Active Directory Domain Services
-      href: understand-guidelines-active-directory-domain-service-site.md
     - name: Create and manage Active Directory connections
       href: create-active-directory-connections.md
     - name: Modify Active Directory connections
@@ -261,6 +257,8 @@
         href: configure-unix-permissions-change-ownership-mode.md
       - name: Configure access control lists for NFSv4.1
         href: configure-access-control-lists.md
+      - name: Manage SMB share ACLs in Azure NetApp Files
+        href: manage-smb-share-access-control-lists.md
       - name: Configure network features for a volume
         href: configure-network-features.md
       - name: Configure customer-managed keys 
@@ -285,6 +283,10 @@
         href: dynamic-change-volume-service-level.md
       - name: Manage default and individual user and group quotas for a volume
         href: manage-default-individual-user-group-quotas.md
+      - name: Manage standard storage with cool access 
+        href: manage-cool-access.md
+    - name: Update Terraform-managed volume
+      href: terraform-manage-volume.md
   - name: Manage application volume groups 
     items:
       - name: Manage application volume groups for SAP HANA
@@ -391,6 +393,30 @@
       href: troubleshoot-user-access-ldap.md
     - name: Troubleshoot file locks
       href: troubleshoot-file-locks.md
+- name: FAQs
+  items:
+  - name: Networking FAQs
+    href: faq-networking.md
+  - name: Capacity management FAQs
+    href: faq-capacity-management.md
+  - name: NFS FAQs
+    href: faq-nfs.md
+  - name: SMB FAQs
+    href: faq-smb.md
+  - name: Performance FAQs
+    href: faq-performance.md
+  - name: Application resilience FAQs
+    href: faq-application-resilience.md
+  - name: Data migration and protection FAQs
+    href: faq-data-migration-protection.md
+  - name: Application volume group FAQs
+    href: faq-application-volume-group.md
+  - name: Azure NetApp Files backup FAQs
+    href: faq-backup.md
+  - name: Security FAQs
+    href: faq-security.md
+  - name: Integration FAQs
+    href: faq-integration.md
 - name: Reference
   items:
   - name: REST
@@ -421,12 +447,14 @@
       href: azacsnap-cmd-ref-runbefore-runafter.md
 - name: Resources
   items:
+  - name: Azure NetApp Files tools 
+    href: tools-reference.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/netapp/
   - name: Regional availability
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&rar=true&regions=all
   - name: Feature availability
-    href: https://azure.github.io/azure-netapp-files/map/
+    href: https://aka.ms/anfmap
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla/netapp/
   - name: Videos

@@ -72,7 +72,7 @@ az vm create \
 
 ## Create an Azure Database for MySQL server
 
-Create a Azure Database for MySQL with the az mysql server create command. Remember that the name of your MySQL Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
+Create an Azure Database for MySQL with the az mysql server create command. Remember that the name of your MySQL Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
 
 ```azurecli-interactive
 # Create a server in the resource group 

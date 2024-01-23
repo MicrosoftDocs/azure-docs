@@ -3,19 +3,19 @@ title: Add custom plugins in Azure HDInsight on AKS
 description: Add custom plugins to an existing Trino cluster in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ---
 
 # Custom plugins
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-This article provides details on how to deploy custom plugins to your HDInsight on AKS Trino cluster. 
+This article provides details on how to deploy custom plugins to your Trino cluster with HDInsight on AKS. 
 
 Trino provides a rich interface allowing users to write their own plugins such as event listeners, custom SQL functions etc. You can add the configuration described in this article to make custom plugins available in your Trino cluster using ARM template. 
 
 ## Prerequisites
-* An operational HDInsight on AKS Trino cluster.
+* An operational Trino cluster with HDInsight on AKS.
 * Create [ARM template](../create-cluster-using-arm-template-script.md) for your cluster.
 * Review complete cluster [ARM template](https://hdionaksresources.blob.core.windows.net/trino/samples/arm/arm-trino-config-sample.json) sample.
 * Familiarity with [ARM template authoring and deployment](/azure/azure-resource-manager/templates/overview).

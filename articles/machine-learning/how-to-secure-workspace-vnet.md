@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 09/29/2023
+ms.date: 10/19/2023
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2, sdkv2, event-tier1-build-2022, engagement-fy23, build-2023
 ---
@@ -48,8 +48,8 @@ In this article you learn how to enable the following workspaces resources in a 
 
 + An existing virtual network and subnet to use with your compute resources.
 
-    > [!IMPORTANT]
-    > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
+    > [!WARNING]
+    > Do not use the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network, and will result in errors if used for your VNet. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
 [!INCLUDE [network-rbac](includes/network-rbac.md)]
 
@@ -57,7 +57,9 @@ In this article you learn how to enable the following workspaces resources in a 
 
 * Your Azure Container Registry must be Premium version. For more information on upgrading, see [Changing SKUs](../container-registry/container-registry-skus.md#changing-tiers).
 
-* If your Azure Container Registry uses a __private endpoint__, it must be in the same _virtual network_ as the storage account and compute targets used for training or inference. If it uses a __service endpoint__, it must be in the same _virtual network_ and _subnet_ as the storage account and compute targets.
+* If your Azure Container Registry uses a __private endpoint__, we _recommend_ that it be in the same _virtual network_ as the storage account and compute targets used for training or inference. However it can also be in a [peered](/azure/virtual-network/virtual-network-peering-overview) virtual network.
+
+   If it uses a __service endpoint__, it must be in the same _virtual network_ and _subnet_ as the storage account and compute targets.
 
 * Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md).
 
@@ -171,7 +173,7 @@ Azure Machine Learning uses an associated Key Vault instance to store the follow
 Azure key vault can be configured to use either a private endpoint or service endpoint. To use Azure Machine Learning experimentation capabilities with Azure Key Vault behind a virtual network, use the following steps:
 
 > [!TIP]
-> Regardless of whether you use a private endpoint or service endpoint, the key vault must be in the same network as the private endpoint of the workspace.
+> We _recommend_ that the key vault be in the same VNet as the workspace, however it can be in a [peered](/azure/virtual-network/virtual-network-peering-overview) VNet.
 
 # [Private endpoint](#tab/pe)
 

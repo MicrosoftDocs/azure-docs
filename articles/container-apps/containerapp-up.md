@@ -4,7 +4,9 @@ description: How to deploy a container app with the az containerapp up command
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/08/2022
 ms.author: cshoe
@@ -113,8 +115,6 @@ The command can build the image with or without a Dockerfile.  If building witho
 - Node.js
 - PHP
 - Python
-- Ruby
-- Go
 
 The following example shows how to deploy a container app from local source code.  
 

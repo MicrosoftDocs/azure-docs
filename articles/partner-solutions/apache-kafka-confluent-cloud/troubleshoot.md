@@ -2,9 +2,8 @@
 title: Troubleshooting Apache Kafka for Confluent Cloud
 description: This article provides information about troubleshooting and frequently asked questions (FAQ) for Confluent Cloud on Azure.
 ms.topic: conceptual
-ms.date: 02/18/2021
-author: flang-msft
-ms.author: franlanglois
+
+ms.date: 11/20/2023
 ---
 
 # Troubleshooting Apache Kafka on Confluent Cloud solutions
@@ -25,13 +24,9 @@ If the offer isn't displayed, contact [Confluent support](https://support.conflu
 
 ## Purchase errors
 
-* Purchase fails because a valid credit card isn't connected to the Azure subscription or a payment method isn't associated with the subscription.
+[!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
-  Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](../../cost-management-billing/manage/change-credit-card.md).
-
-* The EA subscription doesn't allow Marketplace purchases.
-
-  Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Confluent support](https://support.confluent.io).
+If those options don't solve the problem, contact [Confluent support](https://support.confluent.io).
 
 ## Conflict error
 
@@ -72,7 +67,7 @@ If the problem persists, contact [Confluent support](https://support.confluent.i
 ## Next steps
 
 - Learn about [managing your instance](manage.md) of Apache Kafka on Confluent Cloud.
-- Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
+- Get started with Apache Kafka on Confluent Cloud - An Azure Native ISV Service on
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)

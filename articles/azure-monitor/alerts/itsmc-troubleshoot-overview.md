@@ -21,8 +21,8 @@ An alternative is to be notified through ITSMC. ITSMC gives you the option to se
 Depending on your configuration when you set up a connection, ITSMC can sync up to 120 days of incident and change request data. To get the log record schema for this data, see the [Data synced from your ITSM product](./itsmc-synced-data.md) article.
 
 You can visualize the incident and change request data by using the ITSMC dashboard:
-
-![Screenshot that shows the ITSMC dashboard.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
+<!-- convertborder later -->
+:::image type="content" source="media/itsmc-overview/itsmc-overview-sample-log-analytics.png" lightbox="media/itsmc-overview/itsmc-overview-sample-log-analytics.png" alt-text="Screenshot that shows the ITSMC dashboard." border="false":::
 
 The dashboard also provides information about connector status. You can use that information as a starting point to analyze problems with the connections. For more information, see [Error investigation using the dashboard](./itsmc-dashboard.md).
 
@@ -35,8 +35,8 @@ Service Map automatically discovers the application components on Windows and Li
 Service Map shows connections between servers, processes, and ports across any TCP-connected architecture. Other than the installation of an agent, no configuration is required. For more information, see [Using Service Map](../vm/service-map.md).
 
 If you're using Service Map, you can view the service desk items created in IT Service Management (ITSM) solutions, as shown in this example:
-
-![Screenshot that shows the Log Analytics screen.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
+<!-- convertborder later -->
+:::image type="content" source="media/itsmc-overview/itsmc-overview-integrated-solutions.png" lightbox="media/itsmc-overview/itsmc-overview-integrated-solutions.png" alt-text="Screenshot that shows the Log Analytics screen." border="false":::
 
 ## Resolve problems
 
@@ -57,7 +57,7 @@ The following sections identify common symptoms, possible causes, and resolution
   * For ServiceNow, ensure that you have [sufficient privileges](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role) in the corresponding ITSM product.
 
 * For Service Manager connections:  
-  * Ensure that the web app is successfully deployed and that the hybrid connection is created. To verify that the connection is successfully established with the on-premises Service Manager computer, go to the web app URL as described in the [documentation for making a hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
+  * Ensure that the web app is successfully deployed and that the hybrid connection is created. To verify that the connection is successfully established with the on-premises Service Manager computer, go to the web app URL. For more information, see the [documentation for making a hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
 
 ### Duplicate work items are created
 
@@ -73,7 +73,7 @@ The following sections identify common symptoms, possible causes, and resolution
 
 ### Work items are not created
 
-**Cause**: There can be several reasons for this:
+**Cause**: The cause can be one of several reasons:
 
 * Code was modified on the ServiceNow side.
 * Permissions are misconfigured.
@@ -91,10 +91,10 @@ The following sections identify common symptoms, possible causes, and resolution
 
 ### Sync connection 
 
-**Cause**: There can be several reasons for this:
+**Cause**: The cause can be one of several reasons:
 
 * Templates aren't shown as a part of the action definition dropdown and an error message is shown: "Can't retrieve the template configuration, see the connector logs for more information."
-* Values aren't shown in the dropdowns of the default fields as a part of the action definition and an error message is shown: "No values found for the following fields: \<field names\>."
+* Values aren't shown in the dropdowns of the default fields as a part of the action definition. In addition, an error message is shown: "No values found for the following fields: \<field names\>."
 * Incidents/Events aren't created in ServiceNow.
 
 **Resolution**: 
@@ -102,12 +102,12 @@ The following sections identify common symptoms, possible causes, and resolution
 * Check the [dashboard](itsmc-dashboard.md) and review the errors in the section for connector status. Then review the [common errors and their resolutions](itsmc-dashboard-errors.md)
 
 ### In the incidents received from ServiceNow, the configuration item is blank 
-**Cause**: There can be several reasons for this:
+**Cause**: The cause can be one of several reasons:
 * The alert isn't a log alert. Configuration items are only supported by log alerts.
-* The search results do not include the **Computer** or **Resource** column.
-* The values in the configuration item field do not match an entry in the CMDB.
+* The search results don't include the **Computer** or **Resource** column.
+* The values in the configuration item field don't match an entry in the CMDB.
 
 **Resolution**: 
 * Check if the alert is a log alert. If it isn't a log alert, configuration items are not supported.
-* If the search results do not have  a Computer or Resource column, add them to the query. When you are defining a query in Log Search alerts you need to have in the query result the Configuration items names with one of the label names "Computer",  "Resource", "_ResourceId" or "ResourceId”. This mapping will enable to map the configuration items to the ITSM payload
-* Check that the values in the Computer and Resource columns are identical to the values in the CMDB. If they are not, add a new entry to the CMDB with the matching values.
+* If the search results don't have  a Computer or Resource column, add them to the query. When you're defining a query in Log Search alerts you need to have in the query result the Configuration items names with one of the label names "Computer",  "Resource", "_ResourceId" or "ResourceId”. This mapping enables to map the configuration items to the ITSM payload
+* Check that the values in the Computer and Resource columns are identical to the values in the CMDB. If they aren't, add a new entry to the CMDB with the matching values.

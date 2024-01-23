@@ -2,7 +2,7 @@
 title: Azure Service Bus premium and standard tiers
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
 ms.topic: conceptual
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-extended-java
 ms.date: 05/02/2023
 ---
 

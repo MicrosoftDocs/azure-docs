@@ -2,7 +2,7 @@
 title: "Find similar faces"
 titleSuffix: Azure AI services
 description: Use the Face service to find similar faces (face search by image).
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
@@ -11,7 +11,6 @@ ms.subservice: azure-ai-face
 ms.topic: how-to
 ms.date: 11/07/2022
 ms.author: pafarley
-ms.custom: 
 ---
 
 # Find similar faces

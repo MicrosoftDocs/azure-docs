@@ -31,7 +31,7 @@ Go to the [Azure portal](https://portal.azure.com/) to create an Azure Database 
 
 1. Select **+ Create**.
 
-2. On the Create a Azure Database for PostgreSQL page , select  **Single server**.
+2. On the Create an Azure Database for PostgreSQL page, select  **Single server**.
 
     >[!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstart-create-database-portal/select-single-server.png" alt-text="Select single server":::

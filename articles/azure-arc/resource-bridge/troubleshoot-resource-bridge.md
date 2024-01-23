@@ -1,13 +1,13 @@
 ---
-title: Troubleshoot Azure Arc resource bridge (preview) issues
-description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 03/15/2023
+title: Troubleshoot Azure Arc resource bridge issues
+description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge when trying to deploy or connect to the service.
+ms.date: 11/03/2023
 ms.topic: conceptual
 ---
 
-# Troubleshoot Azure Arc resource bridge (preview) issues
+# Troubleshoot Azure Arc resource bridge issues
 
-This article provides information on troubleshooting and resolving issues that may occur while attempting to deploy, use, or remove the Azure Arc resource bridge (preview). The resource bridge is a packaged virtual machine, which hosts a *management* Kubernetes cluster. For general information, see [Azure Arc resource bridge (preview) overview](./overview.md).
+This article provides information on troubleshooting and resolving issues that could occur while attempting to deploy, use, or remove the Azure Arc resource bridge. The resource bridge is a packaged virtual machine, which hosts a *management* Kubernetes cluster. For general information, see [Azure Arc resource bridge overview](./overview.md).
 
 ## General issues
 
@@ -22,11 +22,11 @@ $HOME\.KVA\.ssh\logkey.pub
 $HOME\.KVA\.ssh\logkey 
 ```
 
-### Remote PowerShell is not supported
+### Remote PowerShell isn't supported
 
-If you run `az arcappliance` CLI commands for Arc Resource Bridge via remote PowerShell, you may experience various problems. For instance, you might see an [authentication handshake failure error when trying to install the resource bridge on an Azure Stack HCI cluster](#authentication-handshake-failure) or another type of error.
+If you run `az arcappliance` CLI commands for Arc Resource Bridge via remote PowerShell, you might experience various problems. For instance, you might see an [authentication handshake failure error when trying to install the resource bridge on an Azure Stack HCI cluster](#authentication-handshake-failure) or another type of error.
 
-Using `az arcappliance` commands from remote PowerShell is not currently supported. Instead, sign in to the node through Remote Desktop Protocol (RDP) or use a console session.
+Using `az arcappliance` commands from remote PowerShell isn't currently supported. Instead, sign in to the node through Remote Desktop Protocol (RDP) or use a console session.
 
 ### Resource bridge cannot be updated
 
@@ -38,13 +38,13 @@ To resolve this issue, delete the appliance and update the appliance YAML file. 
 
 ### Connection closed before server preface received
 
-When there are multiple attempts to deploy Arc resource bridge, expired credentials left on the management machine may cause future deployments to fail. The error will contain the message `Unavailable desc = connection closed before server preface received`. This error will surface in various `az arcappliance` commands including `validate`, `prepare` and `delete`.
+When there are multiple attempts to deploy Arc resource bridge, expired credentials left on the management machine might cause future deployments to fail. The error will contain the message `Unavailable desc = connection closed before server preface received`. This error will surface in various `az arcappliance` commands including `validate`, `prepare` and `delete`.
 
-To resolve this error, the .wssd\python and .wssd\kva folders in the user profile directory need to be manually deleted from the management machine. Depending on where  the deployment errored, there may not be a kva folder to delete. You can delete these folders manually by navigating to the user profile directory (typically `C:\Users\<username>`), then deleting the `.wssd\python` and `.wssd\kva` folders. After they are deleted, retry the command that failed.
+To resolve this error, the .wssd\python and .wssd\kva folders in the user profile directory need to be manually deleted from the management machine. Depending on where  the deployment errored, there might not be a kva folder to delete. You can delete these folders manually by navigating to the user profile directory (typically `C:\Users\<username>`), then deleting the `.wssd\python` and `.wssd\kva` folders. After they are deleted, retry the command that failed.
 
 ### Token refresh error
 
-When you run the Azure CLI commands, the following error may be returned: *The refresh token has expired or is invalid due to sign-in frequency checks by conditional access.* The error occurs because when you sign in to Azure, the token has a maximum lifetime. When that lifetime is exceeded, you need to sign in to Azure again by using the `az login` command.
+When you run the Azure CLI commands, the following error might be returned: *The refresh token has expired or is invalid due to sign-in frequency checks by conditional access.* The error occurs because when you sign in to Azure, the token has a maximum lifetime. When that lifetime is exceeded, you need to sign in to Azure again by using the `az login` command.
 
 ### Default host resource pools are unavailable for deployment
 
@@ -54,7 +54,7 @@ When the appliance is deployed to a host resource pool, there is no high availab
 
 ### Resource bridge status "Offline" and `provisioningState` "Failed"
 
-When deploying Arc resource bridge, the bridge may appear to be successfully deployed, because no errors were encountered when running `az arcappliance deploy` or `az arcappliance create`. However, when viewing the bridge in Azure portal, you may see status shows as **Offline**, and `az arcappliance show` may show the `provisioningState` as **Failed**. This happens when required providers are not registered before the bridge is deployed.
+When deploying Arc resource bridge, the bridge might appear to be successfully deployed, because no errors were encountered when running `az arcappliance deploy` or `az arcappliance create`. However, when viewing the bridge in Azure portal, you might see status shows as **Offline**, and `az arcappliance show` might show the `provisioningState` as **Failed**. This happens when required providers aren't registered before the bridge is deployed.
 
 To resolve this problem, delete the resource bridge, register the providers, then redeploy the resource bridge.
 
@@ -74,37 +74,27 @@ To resolve this problem, delete the resource bridge, register the providers, the
 1. Redeploy the resource bridge.
 
 > [!NOTE]
-> Partner products (such as Arc-enabled VMware vSphere) may have their own required providers to register. To see additional providers that must be registered, see the product's documentation.
+> Partner products (such as Arc-enabled VMware vSphere) might have their own required providers to register. To see additional providers that must be registered, see the product's documentation.
 
 ### Expired credentials in the appliance VM
 
-Arc resource bridge consists of an appliance VM that is deployed to the on-premises infrastructure. The appliance VM maintains a connection to the management endpoint of the on-premises infrastructure using locally stored credentials. If these credentials are not updated, the resource bridge is no longer able to communicate with the management endpoint. This may cause problems when trying to upgrade the resource bridge or manage VMs through Azure.
+Arc resource bridge consists of an appliance VM that is deployed to the on-premises infrastructure. The appliance VM maintains a connection to the management endpoint of the on-premises infrastructure using locally stored credentials. If these credentials aren't updated, the resource bridge is no longer able to communicate with the management endpoint. This can cause problems when trying to upgrade the resource bridge or manage VMs through Azure.
 
 To fix this, the credentials in the appliance VM need to be updated. For more information, see [Update credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm).
-
-
-
-
-
-
-
-
-
-
 
 ## Networking issues
 
 ### Back-off pulling image error
 
-When trying to deploy Arc resource bridge, you may see an error that contains `back-off pulling image \\\"url"\\\: FailFastPodCondition`. This error is caused when the appliance VM can't reach the URL specified in the error. To resolve this issue, make sure the appliance VM meets system requirements, including internet access connectivity to [required allowlist URLs](network-requirements.md).
+When trying to deploy Arc resource bridge, you might see an error that contains `back-off pulling image \\\"url"\\\: FailFastPodCondition`. This error is caused when the appliance VM can't reach the URL specified in the error. To resolve this issue, make sure the appliance VM meets system requirements, including internet access connectivity to [required allowlist URLs](network-requirements.md).
 
 ### Not able to connect to URL
 
-If you receive an error that contains `Not able to connect to https://example.url.com`, check with your network administrator to ensure your network allows all of the required firewall and proxy URLs to deploy Arc resource bridge. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md). 
+If you receive an error that contains `Not able to connect to https://example.url.com`, check with your network administrator to ensure your network allows all of the required firewall and proxy URLs to deploy Arc resource bridge. For more information, see [Azure Arc resource bridge network requirements](network-requirements.md).
 
 ### .local not supported
 
-When trying to set the configuration for Arc resource bridge, you may receive an error message similar to: 
+When trying to set the configuration for Arc resource bridge, you might receive an error message similar to:
 
 `"message": "Post \"https://esx.lab.local/52b-bcbc707ce02c/disk-0.vmdk\": dial tcp: lookup esx.lab.local: no such host"`
 
@@ -112,13 +102,13 @@ This occurs when a `.local` path is provided for a configuration setting, such a
 
 ### Azure Arc resource bridge is unreachable
 
-Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control plane requires a static IP address. The IP address is specified in the `infra.yaml` file. If the IP address is assigned from a DHCP server, the address can change if not reserved. Rebooting the Azure Arc resource bridge (preview) or VM can trigger an IP address change, resulting in failing services.
+Azure Arc resource bridge runs a Kubernetes cluster, and its control plane requires a static IP address. The IP address is specified in the `infra.yaml` file. If the IP address is assigned from a DHCP server, the address can change if it's not reserved. Rebooting the Azure Arc resource bridge or VM can trigger an IP address change, resulting in failing services.
 
-Intermittently, the resource bridge (preview) can lose the reserved IP configuration. This is due to the behavior described in [loss of VIPs when systemd-networkd is restarted](https://github.com/acassen/keepalived/issues/1385). When the IP address isn't assigned to the Azure Arc resource bridge (preview) VM, any call to the resource bridge API server will fail. As a result, you can't create any new resource through the resource bridge (preview), ranging from connecting to Azure Arc private cloud, create a custom location, create a VM, etc.
+Intermittently, the resource bridge can lose the reserved IP configuration. This is due to the behavior described in [loss of VIPs when systemd-networkd is restarted](https://github.com/acassen/keepalived/issues/1385). When the IP address isn't assigned to the Azure Arc resource bridge VM, any call to the resource bridge API server will fail. As a result, you can't create any new resource through the resource bridge, ranging from connecting to Azure Arc private cloud, create a custom location, create a VM, etc.
 
 Another possible cause is slow disk access. Azure Arc resource bridge uses etcd which requires 10 ms latency or less per [recommendation](https://docs.openshift.com/container-platform/4.6/scalability_and_performance/recommended-host-practices.html#recommended-etcd-practices_). If the underlying disk has low performance, it can impact the operations, and causing failures.
 
-To resolve this issue, reboot the resource bridge (preview) VM, and it should recover its IP address. If the address is assigned from a DHCP server, reserve the IP address associated with the resource bridge (preview).
+To resolve this issue, reboot the resource bridge VM, and it should recover its IP address. If the address is assigned from a DHCP server, reserve the IP address associated with the resource bridge.
 
 ### SSL proxy configuration issues
 
@@ -128,7 +118,7 @@ For more information, see [SSL proxy configuration](network-requirements.md#ssl-
 
 ### KVA timeout error
 
-While trying to deploy Arc Resource Bridge, a "KVA timeout error" may appear. The "KVA timeout error" is a generic error that can be the result of a variety of network misconfigurations that involve the management machine, Appliance VM, or Control Plane IP not having communication with each other, to the internet, or required URLs. This communication failure is often due to issues with DNS resolution, proxy settings, network configuration, or internet access.  
+While trying to deploy Arc Resource Bridge, a "KVA timeout error" might appear. The "KVA timeout error" is a generic error that can be the result of a variety of network misconfigurations that involve the management machine, Appliance VM, or Control Plane IP not having communication with each other, to the internet, or required URLs. This communication failure is often due to issues with DNS resolution, proxy settings, network configuration, or internet access.  
 
 For clarity, "management machine" refers to the machine where deployment CLI commands are being run. "Appliance VM" is the VM that hosts Arc resource bridge. "Control Plane IP" is the IP of the control plane for the Kubernetes management cluster in the Appliance VM.
 
@@ -136,24 +126,24 @@ For clarity, "management machine" refers to the machine where deployment CLI com
 
 - Management machine is unable to communicate with Control Plane IP and Appliance VM IP.
 - Appliance VM is unable to communicate with the management machine, vCenter endpoint (for VMware), or MOC cloud agent endpoint (for Azure Stack HCI).  
-- Appliance VM does not have internet access.
+- Appliance VM doesn't have internet access.
 - Appliance VM has internet access, but connectivity to one or more required URLs is being blocked, possibly due to a proxy or firewall.
 - Appliance VM is unable to reach a DNS server that can resolve internal names, such as vCenter endpoint for vSphere or cloud agent endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses, such as Azure service addresses and container registry names.  
 - Proxy server configuration on the management machine or Arc resource bridge configuration files is incorrect. This can impact both the management machine and the Appliance VM. When the `az arcappliance prepare` command is run, the management machine won't be able to connect and download OS images if the host proxy isn't correctly configured. Internet access on the Appliance VM might be broken by incorrect or missing proxy configuration, which impacts the VM’s ability to pull container images.  
 
 #### Troubleshoot KVA timeout error
 
-To resolve the error, one or more network misconfigurations may need to be addressed. Follow the steps below to address the most common reasons for this error.
+To resolve the error, one or more network misconfigurations might need to be addressed. Follow the steps below to address the most common reasons for this error.
 
-1. When there is a problem with deployment, the first step is to collect logs by Appliance VM IP (not by kubeconfig, as the kubeconfig may be empty if deploy command did not complete). Problems collecting logs are most likely due to the management machine being unable to reach the Appliance VM.
+1. When there is a problem with deployment, the first step is to collect logs by Appliance VM IP (not by kubeconfig, as the kubeconfig could be empty if the deploy command didn't complete). Problems collecting logs are most likely due to the management machine being unable to reach the Appliance VM.
 
    Once logs are collected, extract the folder and open kva.log. Review the kva.log for more information on the failure to help pinpoint the cause of the KVA timeout error.
 
 1. The management machine must be able to communicate with the Appliance VM IP and Control Plane IP. Ping the Control Plane IP and Appliance VM IP from the management machine and verify there is a response from both IPs.
 
-   If a request times out, the management machine is not able to communicate with the IP(s). This could be caused by a closed port, network misconfiguration or a firewall block. Work with your network administrator to allow communication between the management machine to the Control Plane IP and Appliance VM IP.
+   If a request times out, the management machine can't communicate with the IP(s). This could be caused by a closed port, network misconfiguration or a firewall block. Work with your network administrator to allow communication between the management machine to the Control Plane IP and Appliance VM IP.
 
-1. Appliance VM IP and Control Plane IP must be able to communicate with the management machine and vCenter endpoint (for VMware) or MOC cloud agent endpoint (for HCI). Work with your network administrator to ensure the network is configured to permit this. This may require adding a firewall rule to open port 443 from the Appliance VM IP and Control Plane IP to vCenter or port 65000 and 55000 for Azure Stack HCI MOC cloud agent. Review [network requirements for Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-prerequisites#network-port-requirements) and [VMware](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md) for Arc resource bridge.
+1. Appliance VM IP and Control Plane IP must be able to communicate with the management machine and vCenter endpoint (for VMware) or MOC cloud agent endpoint (for HCI). Work with your network administrator to ensure the network is configured to permit this. This might require adding a firewall rule to open port 443 from the Appliance VM IP and Control Plane IP to vCenter or port 65000 and 55000 for Azure Stack HCI MOC cloud agent. Review [network requirements for Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-prerequisites#network-port-requirements) and [VMware](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md) for Arc resource bridge.
 
 1. Appliance VM IP and Control Plane IP need internet access to [these required URLs](#not-able-to-connect-to-url). Azure Stack HCI requires [additional URLs](/azure-stack/hci/manage/azure-arc-vm-management-prerequisites). Work with your network administrator to ensure that the IPs can access the required URLs.
 
@@ -165,7 +155,8 @@ To resolve the error, one or more network misconfigurations may need to be addre
 
    Verify that the DNS server IP used to create the configuration files has internal and external address resolution. If not, [delete the appliance](/cli/azure/arcappliance/delete), recreate the Arc resource bridge configuration files with the correct DNS server settings, and then deploy Arc resource bridge using the new configuration files.
 
-## Move Arc resource bridge location 
+## Move Arc resource bridge location
+
 Resource move of Arc resource bridge isn't currently supported. You'll need to delete the Arc resource bridge, then re-deploy it to the desired location. 
 
 ## Azure Arc-enabled VMs on Azure Stack HCI issues
@@ -174,9 +165,9 @@ For general help resolving issues related to Azure Arc-enabled VMs on Azure Stac
 
 ### Authentication handshake failure
 
-When running an `az arcappliance` command, you may see a connection error: `authentication handshake failed: x509: certificate signed by unknown authority`
+When running an `az arcappliance` command, you might see a connection error: `authentication handshake failed: x509: certificate signed by unknown authority`
 
-This is usually caused when trying to run commands from remote PowerShell, which is not supported by Azure Arc resource bridge.
+This is usually caused when trying to run commands from remote PowerShell, which isn't supported by Azure Arc resource bridge.
 
 To install Azure Arc resource bridge on an Azure Stack HCI cluster, `az arcappliance` commands must be run locally on a node in the cluster. Sign in to the node through Remote Desktop Protocol (RDP) or use a console session to run these commands.
 
@@ -193,11 +184,11 @@ Error: Error in reading OVA file: failed to parse ovf: strconv.ParseInt: parsing
 value out of range.
 ```
 
-This error occurs when you run the Azure CLI commands in a 32-bit context, which is the default behavior. The vSphere SDK only supports running in a 64-bit context. The specific error returned from the vSphere SDK is `Unable to import ova of size 6GB using govc`. To resolve the error, install and use Azure CLI 64-bit. 
+This error occurs when you run the Azure CLI commands in a 32-bit context, which is the default behavior. The vSphere SDK only supports running in a 64-bit context. The specific error returned from the vSphere SDK is `Unable to import ova of size 6GB using govc`. To resolve the error, install and use Azure CLI 64-bit.
 
 ### Error during host configuration
 
-When you deploy the resource bridge on VMware vCenter, if you have been using the same template to deploy and delete the appliance multiple times, you may encounter the following error:
+When you deploy the resource bridge on VMware vCenter, if you have been using the same template to deploy and delete the appliance multiple times, you might encounter the following error:
 
 `Appliance cluster deployment failed with error:
 Error: An error occurred during host configuration`
@@ -210,164 +201,163 @@ When deploying the resource bridge on VMware vCenter, you specify the folder in 
 
 ### Insufficient permissions
 
-When deploying the resource bridge on VMware vCenter, you may get an error saying that you have insufficient permission. To resolve this issue, make sure that the user account being used to deploy the resource bridge has all of the following privileges in VMware vCenter and then try again.
-
+When deploying the resource bridge on VMware vCenter, you might get an error saying that you have insufficient permission. To resolve this issue, make sure that the user account being used to deploy the resource bridge has all of the following privileges in VMware vCenter and then try again.
 
 **Datastore** 
 
-- Allocate space 
+- Allocate space
 
-- Browse datastore 
+- Browse datastore
 
-- Low level file operations 
+- Low level file operations
 
 **Folder** 
 
-- Create folder 
+- Create folder
 
-**vSphere Tagging** 
+**vSphere Tagging**
 
 - Assign or Unassign vSphere Tag
 
 **Network** 
 
-- Assign network 
+- Assign network
 
-**Resource** 
+**Resource**
 
-- Assign virtual machine to resource pool 
+- Assign virtual machine to resource pool
 
-- Migrate powered off virtual machine 
+- Migrate powered off virtual machine
 
-- Migrate powered on virtual machine 
+- Migrate powered on virtual machine
 
-**Sessions** 
+**Sessions**
 
-- Validate session 
+- Validate session
 
-**vApp** 
+**vApp**
 
-- Assign resource pool 
+- Assign resource pool
 
 - Import 
 
-**Virtual machine** 
+**Virtual machine**
 
-- Change Configuration 
+- Change Configuration
 
-  - Acquire disk lease 
+  - Acquire disk lease
 
-  - Add existing disk 
+  - Add existing disk
 
-  - Add new disk 
+  - Add new disk
 
-  - Add or remove device 
+  - Add or remove device
 
-  - Advanced configuration 
+  - Advanced configuration
 
-  - Change CPU count 
+  - Change CPU count
 
-  - Change Memory 
+  - Change Memory
 
-  - Change Settings 
+  - Change Settings
 
-  - Change resource 
+  - Change resource
 
-  - Configure managedBy 
+  - Configure managedBy
 
-  - Display connection settings 
+  - Display connection settings
 
-  - Extend virtual disk 
+  - Extend virtual disk
 
-  - Modify device settings 
+  - Modify device settings
 
-  - Query Fault Tolerance compatibility 
+  - Query Fault Tolerance compatibility
 
-  - Query unowned files 
+  - Query unowned files
 
-  - Reload from path 
+  - Reload from path
 
-  - Remove disk 
+  - Remove disk
 
-  - Rename 
+  - Rename
 
-  - Reset guest information 
+  - Reset guest information
 
-  - Set annotation 
+  - Set annotation
 
-  - Toggle disk change tracking 
+  - Toggle disk change tracking
 
-  - Toggle fork parent 
+  - Toggle fork parent
 
-  - Upgrade virtual machine compatibility 
+  - Upgrade virtual machine compatibility
 
-- Edit Inventory 
+- Edit Inventory
 
-  - Create from existing 
+  - Create from existing
 
-  - Create new 
+  - Create new
 
-  - Register 
+  - Register
 
-  - Remove 
+  - Remove
 
-  - Unregister 
+  - Unregister
 
-- Guest operations 
+- Guest operations
 
-  - Guest operation alias modification 
+  - Guest operation alias modification
 
-  - Guest operation modifications 
+  - Guest operation modifications
 
-  - Guest operation program execution 
+  - Guest operation program execution
 
-  - Guest operation queries 
+  - Guest operation queries
 
-- Interaction 
+- Interaction
 
-  - Connect devices 
+  - Connect devices
 
-  - Console interaction 
+  - Console interaction
 
-  - Guest operating system management by VIX API 
+  - Guest operating system management by VIX API
 
-  - Install VMware Tools 
+  - Install VMware Tools
 
-  - Power off 
+  - Power off
 
-  - Power on 
+  - Power on
 
-  - Reset 
+  - Reset
 
-  - Suspend 
+  - Suspend
 
-- Provisioning 
+- Provisioning
 
-  - Allow disk access 
+  - Allow disk access
 
-  - Allow file access 
+  - Allow file access
 
-  - Allow read-only disk access 
+  - Allow read-only disk access
 
-  - Allow virtual machine download 
+  - Allow virtual machine download
 
-  - Allow virtual machine files upload 
+  - Allow virtual machine files upload
 
-  - Clone virtual machine 
+  - Clone virtual machine
 
-  - Deploy template 
+  - Deploy template
   
-  - Mark as template 
+  - Mark as template
 
-  - Mark as virtual machine 
+  - Mark as virtual machine
 
-- Snapshot management 
+- Snapshot management
 
-  - Create snapshot 
+  - Create snapshot
 
-  - Remove snapshot 
+  - Remove snapshot
 
-  - Revert to snapshot 
+  - Revert to snapshot
 
 ## Next steps
 
@@ -376,9 +366,6 @@ When deploying the resource bridge on VMware vCenter, you may get an error sayin
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for support:
 
 - Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
-
 - Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
-
 - [Open an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
-
 

@@ -63,7 +63,7 @@ Billing for the commitment tiers is done per workspace on a daily basis. If the 
 Azure Commitment Discounts, such as discounts received from [Microsoft Enterprise Agreements](https://www.microsoft.com/licensing/licensing-programs/enterprise), are applied to Azure Monitor Logs commitment-tier pricing just as they are to pay-as-you-go pricing. Discounts are applied whether the usage is being billed per workspace or per dedicated cluster.
 
 > [!TIP]
-> The **Usage and estimated costs** menu item for each Log Analytics workspace shows an estimate of what your data ingestion charges would be at each commitment level to help you choose the optimal commitment tier for your data ingestion patterns. Review this information periodically to determine if you can reduce your charges by moving to another tier. For information on this view, see [Usage and estimated costs](../usage-estimated-costs.md#usage-and-estimated-costs). To review your actual charges, use [Azure Cost Management = Billing](../usage-estimated-costs.md#azure-cost-management--billing).
+> The **Usage and estimated costs** menu item for each Log Analytics workspace shows an estimate of what your data ingestion charges would be at each commitment level to help you choose the optimal commitment tier for your data ingestion patterns. Review this information periodically to determine if you can reduce your charges by moving to another tier. For information on this view, see [Usage and estimated costs](../cost-usage.md#usage-and-estimated-costs). To review your actual charges, use [Azure Cost Management = Billing](../cost-usage.md#azure-cost-management--billing).
 
 ## Dedicated clusters
 
@@ -100,6 +100,9 @@ For more information on Basic Logs, including how to configure them and query th
 In addition to data ingestion, there's a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived logs have a reduced retention charge, and there's a charge to search against them. Use archived logs to reduce your costs for data that you must store for compliance or occasional investigation.
 
 For more information on data retention and archiving, including how to configure these settings and access archived data, see [Configure data retention and archive policies in Azure Monitor Logs](data-retention-archive.md).
+
+>[!NOTE]
+>Deleting data from your Log Analytics workspace using the Log Analytics Purge feature doesn't affect your retention costs. To lower retention costs, decrease the retention period for the workspace or for specific tables.
 
 ## Search jobs
 
@@ -304,9 +307,8 @@ This query isn't an exact replication of how usage is calculated, but it provide
 
 ## Next steps
 
-- See [Azure Monitor cost and usage](../usage-estimated-costs.md) for a description of the different types of Azure Monitor charges and how to analyze them on your Azure bill.
+- See [Azure Monitor cost and usage](../cost-usage.md) for a description of the different types of Azure Monitor charges and how to analyze them on your Azure bill.
 - See [Analyze usage in Log Analytics workspace](analyze-usage.md) for details on analyzing the data in your workspace to determine the source of any higher-than-expected usage and opportunities to reduce your amount of data collected.
 - See [Set daily cap on Log Analytics workspace](daily-cap.md) to control your costs by configuring a maximum volume that might be ingested in a workspace each day.
 - See [Azure Monitor best practices - Cost management](../best-practices-cost.md) for best practices on configuring and managing Azure Monitor to minimize your charges.
-
 

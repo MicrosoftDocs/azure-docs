@@ -26,7 +26,7 @@ Install the following Python libraries: `os`, `requests`, `json`
 
 ### Set environment variables
 
-This example requires environment variables named `OPEN_AI_KEY`, `OPEN_AI_ENDPOINT`, `SPEECH_KEY`, and `SPEECH_REGION`.
+This example requires environment variables named `OPEN_AI_KEY`, `OPEN_AI_ENDPOINT`, `OPEN_AI_DEPLOYMENT_NAME`, `SPEECH_KEY`, and `SPEECH_REGION`.
 
 [!INCLUDE [Environment variables](../../common/environment-variables-openai.md)]
 
@@ -51,51 +51,58 @@ Follow these steps to create a new console application.
     ```Python
     import os
     import azure.cognitiveservices.speech as speechsdk
-    import openai
-    
-    # This example requires environment variables named "OPEN_AI_KEY" and "OPEN_AI_ENDPOINT"
+    from openai import AzureOpenAI
+
+    # This example requires environment variables named "OPEN_AI_KEY", "OPEN_AI_ENDPOINT" and "OPEN_AI_DEPLOYMENT_NAME"
     # Your endpoint should look like the following https://YOUR_OPEN_AI_RESOURCE_NAME.openai.azure.com/
-    openai.api_key = os.environ.get('OPEN_AI_KEY')
-    openai.api_base =  os.environ.get('OPEN_AI_ENDPOINT')
-    openai.api_type = 'azure'
-    openai.api_version = '2022-12-01'
-    
+    client = AzureOpenAI(
+    azure_endpoint=os.environ.get('OPEN_AI_ENDPOINT'),
+    api_key=os.environ.get('OPEN_AI_KEY'),
+    api_version="2023-05-15"
+    )
+
     # This will correspond to the custom name you chose for your deployment when you deployed a model.
-    deployment_id='text-davinci-003' 
-    
+    deployment_id=os.environ.get('OPEN_AI_DEPLOYMENT_NAME')
+
     # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
     speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
     audio_output_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
     audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
-    
+
     # Should be the locale for the speaker's language.
     speech_config.speech_recognition_language="en-US"
     speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
-    
+
     # The language of the voice that responds on behalf of Azure OpenAI.
     speech_config.speech_synthesis_voice_name='en-US-JennyMultilingualNeural'
     speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_output_config)
-    
+    # tts sentence end mark
+    tts_sentence_end = [ ".", "!", "?", ";", "。", "！", "？", "；", "\n" ]
+
     # Prompts Azure OpenAI with a request and synthesizes the response.
     def ask_openai(prompt):
-    
-        # Ask Azure OpenAI
-        response = openai.Completion.create(engine=deployment_id, prompt=prompt, max_tokens=100)
-        text = response['choices'][0]['text'].replace('\n', ' ').replace(' .', '.').strip()
-        print('Azure OpenAI response:' + text)
-        
-        # Azure text to speech output
-        speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()
-    
-        # Check result
-        if speech_synthesis_result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
-            print("Speech synthesized to speaker for text [{}]".format(text))
-        elif speech_synthesis_result.reason == speechsdk.ResultReason.Canceled:
-            cancellation_details = speech_synthesis_result.cancellation_details
-            print("Speech synthesis canceled: {}".format(cancellation_details.reason))
-            if cancellation_details.reason == speechsdk.CancellationReason.Error:
-                print("Error details: {}".format(cancellation_details.error_details))
-    
+        # Ask Azure OpenAI in streaming way
+        response = client.chat.completions.create(model=deployment_id, max_tokens=200, stream=True, messages=[
+            {"role": "user", "content": prompt}
+        ])
+        collected_messages = []
+        last_tts_request = None
+
+        # iterate through the stream response stream
+        for chunk in response:
+            if len(chunk.choices) > 0:
+                chunk_message = chunk.choices[0].delta.content  # extract the message
+                if chunk_message is not None:
+                    collected_messages.append(chunk_message)  # save the message
+                    if chunk_message in tts_sentence_end: # sentence end found
+                        text = ''.join(collected_messages).strip() # join the recieved message together to build a sentence
+                        if text != '': # if sentence only have \n or space, we could skip
+                            print(f"Speech synthesized to speaker for: {text}")
+                            last_tts_request = speech_synthesizer.speak_text_async(text)
+                            collected_messages.clear()
+        if last_tts_request:
+            last_tts_request.get()
+
     # Continuously listens for speech input to recognize and send as text to Azure OpenAI
     def chat_with_open_ai():
         while True:
@@ -103,7 +110,7 @@ Follow these steps to create a new console application.
             try:
                 # Get audio from the microphone and then send it to the TTS service.
                 speech_recognition_result = speech_recognizer.recognize_once_async().get()
-    
+
                 # If speech is recognized, send it to Azure OpenAI and listen for the response.
                 if speech_recognition_result.reason == speechsdk.ResultReason.RecognizedSpeech:
                     if speech_recognition_result.text == "Stop.": 
@@ -121,14 +128,15 @@ Follow these steps to create a new console application.
                         print("Error details: {}".format(cancellation_details.error_details))
             except EOFError:
                 break
-    
+
     # Main
-    
+
     try:
         chat_with_open_ai()
     except Exception as err:
         print("Encountered exception. {}".format(err))
     ```
+
 1. To increase or decrease the number of tokens returned by Azure OpenAI, change the `max_tokens` parameter. For more information tokens and cost implications, see [Azure OpenAI tokens](/azure/ai-services/openai/overview#tokens) and [Azure OpenAI pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
 
 Run your new console application to start speech recognition from a microphone:
@@ -138,7 +146,7 @@ python openai-speech.py
 ```
 
 > [!IMPORTANT]
-> Make sure that you set the `OPEN_AI_KEY`, `OPEN_AI_ENDPOINT`, `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [previously](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+> Make sure that you set the `OPEN_AI_KEY`, `OPEN_AI_ENDPOINT`, `OPEN_AI_DEPLOYMENT_NAME`, `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [previously](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 Speak into your microphone when prompted. The console output includes the prompt for you to begin speaking, then your request as text, and then the response from Azure OpenAI as text. The response from Azure OpenAI should be converted from text to speech and then output to the default speaker.
 
@@ -162,7 +170,7 @@ Now that you've completed the quickstart, here are some more considerations:
 
 - To change the speech recognition language, replace `en-US` with another [supported language](~/articles/ai-services/speech-service/language-support.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/ai-services/speech-service/language-identification.md). 
 - To change the voice that you hear, replace `en-US-JennyMultilingualNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices). If the voice doesn't speak the language of the text returned from Azure OpenAI, the Speech service doesn't output synthesized audio.
-- To use a different [model](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability), replace `text-davinci-003` with the ID of another [deployment](/azure/ai-services/openai/how-to/create-resource#deploy-a-model). Keep in mind that the deployment ID isn't necessarily the same as the model name. You named your deployment when you created it in [Azure OpenAI Studio](https://oai.azure.com/).
+- To use a different [model](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability), replace `gpt-35-turbo-instruct` with the ID of another [deployment](/azure/ai-services/openai/how-to/create-resource#deploy-a-model). Keep in mind that the deployment ID isn't necessarily the same as the model name. You named your deployment when you created it in [Azure OpenAI Studio](https://oai.azure.com/).
 - Azure OpenAI also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filtering](/azure/ai-services/openai/concepts/content-filter) article.
 
 ## Clean up resources

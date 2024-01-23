@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 10/25/2022 
+ms.date: 10/20/2023 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -85,7 +85,7 @@ The following YAML code executes a script that can be used to stop triggers befo
               workingDirectory: ../
 ```
 
-## Next steps
+## Related content
 
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)

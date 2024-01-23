@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart 
-ms.date: 09/05/2023
+ms.date: 11/28/2023
 ms.custom: template-quickstart, ignite-2022
 ---
 
@@ -95,7 +95,7 @@ You can also enable the DDoS protection plan for an existing virtual network fro
 
 Azure Firewall Manager is a platform to manage and protect your network resources at scale. You can associate your virtual networks with a DDoS protection plan within Azure Firewall Manager. This functionality is currently available in Public Preview. See [Configure an Azure DDoS Protection Plan using Azure Firewall Manager](../firewall-manager/configure-ddos.md).
 
-:::image type="content" source="./media/manage-ddos-protection/ddos-protection.png" alt-text="Screenshot showing virtual network with DDoS Protection Plan.":::
+:::image type="content" source="./media/manage-ddos-protection/ddos-protection.png" alt-text="Screenshot showing virtual network with DDoS Protection Plan." lightbox="./media/manage-ddos-protection/ddos-protection.png":::
 
 ## Enable DDoS protection for all virtual networks
 
@@ -114,7 +114,8 @@ The _MyVnet_ virtual network should be listed.
 ## View protected resources
 Under **Protected resources**, you can view your protected virtual networks and public IP addresses, or add more virtual networks to your DDoS protection plan:
 
-:::image type="content" source="./media/manage-ddos-protection/ddos-protected-resources.png" alt-text="Screenshot showing protected resources.":::
+:::image type="content" source="./media/manage-ddos-protection/ddos-protected-resources.png" alt-text="Screenshot showing protected resources." lightbox="./media/manage-ddos-protection/ddos-protected-resources.png":::
+
 
 ### Disable for a virtual network:
 

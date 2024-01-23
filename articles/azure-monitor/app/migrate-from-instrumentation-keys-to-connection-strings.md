@@ -2,13 +2,13 @@
 title: Migrate from Application Insights instrumentation keys to connection strings
 description: Learn the steps required to upgrade from Azure Monitor Application Insights instrumentation keys to connection strings.
 ms.topic: conceptual
-ms.date: 09/12/2023
+ms.date: 12/15/2023
 ms.reviewer: cogoodson
 ---
 
 # Migrate from Application Insights instrumentation keys to connection strings
 
-This article walks you through migrating from [instrumentation keys](create-workspace-resource.md#about-resources-and-instrumentation-keys) to [connection strings](sdk-connection-string.md#overview).
+This article walks through migrating from instrumentation keys to [connection strings](sdk-connection-string.md#overview).
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ This article walks you through migrating from [instrumentation keys](create-work
 1. Configure the Application Insights SDK by following [How to set connection strings](sdk-connection-string.md#set-a-connection-string).
 
 > [!IMPORTANT]
-> Don't use both a connection string and an instrumentation key. The latter one set supersedes the other, and could result in telemetry not appearing on the portal. [missing data](#missing-data).
+> Don't use both a connection string and an instrumentation key. The latter one set supersedes the other, and could result in telemetry not appearing on the portal. See [missing data](#missing-data).
 
 ## Migration at scale
 

@@ -15,7 +15,7 @@ ms.date: 01/30/2023
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 To take advantage of newly added nodes, rebalance distributed table
-[shards](concepts-distributed-data.md#shards). Rebalancing moves shards from existing nodes to the new ones. Azure Cosmos DB for PostgreSQL offers
+[shards](concepts-nodes.md#shards). Rebalancing moves shards from existing nodes to the new ones. Azure Cosmos DB for PostgreSQL offers
 zero-downtime rebalancing, meaning queries continue without interruption during
 shard rebalancing.
 

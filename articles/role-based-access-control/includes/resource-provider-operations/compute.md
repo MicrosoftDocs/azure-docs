@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 11/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -20,12 +20,23 @@ Azure service: [Azure Container Apps](../../../container-apps/index.yml)
 > | --- | --- |
 > | microsoft.app/register/action | Register microsoft.app resource provider for the subscription |
 > | microsoft.app/unregister/action | Unregister microsoft.app resource provider for the subscription |
+> | microsoft.app/getcustomdomainverificationid/action | Get Subscription Verification Id used for verifying custom domains |
+> | microsoft.app/builders/write | Create or update a Builder |
+> | microsoft.app/builders/read | Get a Builder |
+> | microsoft.app/builders/delete | Delete a Builder |
+> | microsoft.app/builds/write | Create or update a Build's build |
+> | microsoft.app/builds/read | Get a Builder's Build |
+> | microsoft.app/builds/delete | Delete a Managed Environment's Build |
+> | microsoft.app/builds/listauthtoken/action | Gets the token used to connect to the build endpoints, such as source code upload or build log streaming. |
+> | microsoft.app/connectedenvironments/join/action | Allows to create a Container App or Container Apps Job in a Connected Environment |
 > | microsoft.app/containerapps/write | Create or update a Container App |
 > | microsoft.app/containerapps/delete | Delete a Container App |
 > | microsoft.app/containerapps/read | Get a Container App |
 > | microsoft.app/containerapps/listsecrets/action | List secrets of a container app |
 > | microsoft.app/containerapps/listcustomhostnameanalysis/action | List custom host name analysis result |
-> | microsoft.app/containerapps/authtoken/action | Get Auth Token for Container App Dev APIs to get log stream, exec or port forward from a container. |
+> | microsoft.app/containerapps/stop/action | Stop a Container App |
+> | microsoft.app/containerapps/start/action | Start a Container App |
+> | microsoft.app/containerapps/authtoken/action | Get Auth Token for Container App Dev APIs to get log stream, exec or port forward from a container. This operation will be deprecated. |
 > | microsoft.app/containerapps/getauthtoken/action | Get Auth Token for Container App Dev APIs to get log stream, exec or port forward from a container. |
 > | microsoft.app/containerapps/authconfigs/read | Get auth config of a container app |
 > | microsoft.app/containerapps/authconfigs/write | Create or update auth config of a container app |
@@ -39,13 +50,29 @@ Azure service: [Azure Container Apps](../../../container-apps/index.yml)
 > | microsoft.app/containerapps/sourcecontrols/write | Create or Update Container App Source Control Configuration |
 > | microsoft.app/containerapps/sourcecontrols/read | Get Container App Source Control Configuration |
 > | microsoft.app/containerapps/sourcecontrols/delete | Delete Container App Source Control Configuration |
-> | microsoft.app/containerapps/sourcecontrols/operationresults/read | Get Container App Source Control Long Running Operation Result |
+> | microsoft.app/jobs/write | Create or update a Container Apps Job |
+> | microsoft.app/jobs/delete | Delete a Container Apps Job |
+> | microsoft.app/jobs/start/action | Start a Container Apps Job |
+> | microsoft.app/jobs/stop/action | Stop multiple Container Apps Job executions |
+> | microsoft.app/jobs/read | Get a Container Apps Job |
+> | microsoft.app/jobs/listsecrets/action | List secrets of a container apps job |
+> | microsoft.app/jobs/detectors/read | Get detector of a container apps job |
+> | microsoft.app/jobs/execution/read | Get a single execution from a Container Apps Job |
+> | microsoft.app/jobs/executions/read | Get a Container Apps Job's execution history |
+> | microsoft.app/jobs/stop/execution/action | Stop a Container Apps Job's specific execution |
 > | microsoft.app/locations/availablemanagedenvironmentsworkloadprofiletypes/read | Get Available Workload Profile Types in a Region |
 > | microsoft.app/locations/billingmeters/read | Get Billing Meters in a Region |
 > | microsoft.app/locations/containerappoperationresults/read | Get a Container App Long Running Operation Result |
 > | microsoft.app/locations/containerappoperationstatuses/read | Get a Container App Long Running Operation Status |
+> | microsoft.app/locations/containerappsjoboperationresults/read | Get a Container Apps Job Long Running Operation Result |
+> | microsoft.app/locations/containerappsjoboperationstatuses/read | Get a Container Apps Job Long Running Operation Status |
+> | microsoft.app/locations/managedcertificateoperationstatuses/read | Get a Managed Certificate Long Running Operation Result |
+> | microsoft.app/locations/managedcertificateoperationstatuses/delete | Delete a Managed Certificate Long Running Operation Result |
 > | microsoft.app/locations/managedenvironmentoperationresults/read | Get a Managed Environment Long Running Operation Result |
 > | microsoft.app/locations/managedenvironmentoperationstatuses/read | Get a Managed Environment Long Running Operation Status |
+> | microsoft.app/locations/sourcecontroloperationresults/read | Get Container App Source Control Long Running Operation Result |
+> | microsoft.app/locations/sourcecontroloperationstatuses/read | Get a Container App Source Control Long Running Operation Status |
+> | microsoft.app/locations/usages/read | Get Quota Usages in a Region |
 > | microsoft.app/managedenvironments/join/action | Allows to create a Container App in a Managed Environment |
 > | microsoft.app/managedenvironments/read | Get a Managed Environment |
 > | microsoft.app/managedenvironments/write | Create or update a Managed Environment |
@@ -60,9 +87,13 @@ Azure service: [Azure Container Apps](../../../container-apps/index.yml)
 > | microsoft.app/managedenvironments/daprcomponents/delete | Delete Managed Environment Dapr Component |
 > | microsoft.app/managedenvironments/daprcomponents/listsecrets/action | List Secrets of a Dapr Component |
 > | microsoft.app/managedenvironments/detectors/read | Get detector of a managed environment |
+> | microsoft.app/managedenvironments/managedcertificates/write | Create or update a Managed Certificate in Managed Environment |
+> | microsoft.app/managedenvironments/managedcertificates/read | Get a Managed Certificate in Managed Environment |
+> | microsoft.app/managedenvironments/managedcertificates/delete | Delete a Managed Certificate in Managed Environment |
 > | microsoft.app/managedenvironments/storages/read | Get storage for a Managed Environment. |
 > | microsoft.app/managedenvironments/storages/write | Create or Update a storage of Managed Environment. |
 > | microsoft.app/managedenvironments/storages/delete | Delete a storage of Managed Environment. |
+> | microsoft.app/managedenvironments/usages/read | Get Quota Usages in a Managed Environment |
 > | microsoft.app/managedenvironments/workloadprofilestates/read | Get Current Workload Profile States |
 > | microsoft.app/operations/read | Get a list of supported container app operations |
 
@@ -272,6 +303,7 @@ Azure service: [Virtual Machines](../../../virtual-machines/index.yml), [Virtual
 > | Microsoft.Compute/hostGroups/hosts/read | Get the properties of a host |
 > | Microsoft.Compute/hostGroups/hosts/write | Creates a new host or updates an existing host |
 > | Microsoft.Compute/hostGroups/hosts/delete | Deletes the host |
+> | Microsoft.Compute/hostGroups/hosts/hostSizes/read | Lists available sizes the host can be updated to. NOTE: The dedicated host sizes provided can be used to only scale up the existing dedicated host. |
 > | Microsoft.Compute/images/read | Get the properties of the Image |
 > | Microsoft.Compute/images/write | Creates a new Image or updates an existing one |
 > | Microsoft.Compute/images/delete | Deletes the image |
@@ -392,6 +424,7 @@ Azure service: [Virtual Machines](../../../virtual-machines/index.yml), [Virtual
 > | Microsoft.Compute/virtualMachineScaleSets/manualUpgrade/action | Manually updates instances to latest model of the Virtual Machine Scale Set |
 > | Microsoft.Compute/virtualMachineScaleSets/reimage/action | Reimages the instances of the Virtual Machine Scale Set |
 > | Microsoft.Compute/virtualMachineScaleSets/reimageAll/action | Reimages all disks (OS Disk and Data Disks) for the instances of a Virtual Machine Scale Set  |
+> | Microsoft.Compute/virtualMachineScaleSets/approveRollingUpgrade/action | Approves deferred rolling upgrades for the instances of a Virtual Machine Scale Set  |
 > | Microsoft.Compute/virtualMachineScaleSets/redeploy/action | Redeploy the instances of the Virtual Machine Scale Set |
 > | Microsoft.Compute/virtualMachineScaleSets/performMaintenance/action | Performs planned maintenance on the instances of the Virtual Machine Scale Set |
 > | Microsoft.Compute/virtualMachineScaleSets/scale/action | Verify if an existing Virtual Machine Scale Set can Scale In/Scale Out to specified instance count |
@@ -399,6 +432,7 @@ Azure service: [Virtual Machines](../../../virtual-machines/index.yml), [Virtual
 > | Microsoft.Compute/virtualMachineScaleSets/osRollingUpgrade/action | Starts a rolling upgrade to move all Virtual Machine Scale Set instances to the latest available Platform Image OS version. |
 > | Microsoft.Compute/virtualMachineScaleSets/setOrchestrationServiceState/action | Sets the state of an orchestration service based on the action provided in operation input. |
 > | Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades/action | Cancels the rolling upgrade of a Virtual Machine Scale Set |
+> | Microsoft.Compute/virtualMachineScaleSets/disks/beginGetAccess/action | Get the SAS URI of VirtualMachineScaleSets Disk |
 > | Microsoft.Compute/virtualMachineScaleSets/extensions/read | Gets the properties of a Virtual Machine Scale Set Extension |
 > | Microsoft.Compute/virtualMachineScaleSets/extensions/write | Creates a new Virtual Machine Scale Set Extension or updates an existing one |
 > | Microsoft.Compute/virtualMachineScaleSets/extensions/delete | Deletes the Virtual Machine Scale Set Extension |
@@ -423,6 +457,7 @@ Azure service: [Virtual Machines](../../../virtual-machines/index.yml), [Virtual
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/deallocate/action | Powers off and releases the compute resources for a Virtual Machine in a VM Scale Set. |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/reimage/action | Reimages a Virtual Machine instance in a Virtual Machine Scale Set. |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/reimageAll/action | Reimages all disks (OS Disk and Data Disks) for Virtual Machine instance in a Virtual Machine Scale Set. |
+> | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/approveRollingUpgrade/action | Approves deferred rolling upgrade for Virtual Machine instance in a Virtual Machine Scale Set. |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/redeploy/action | Redeploys a Virtual Machine instance in a Virtual Machine Scale Set |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/retrieveBootDiagnosticsData/action | Retrieves boot diagnostic logs blob URIs of Virtual Machine instance in a Virtual Machine Scale Set |
 > | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/performMaintenance/action | Performs planned maintenance on a Virtual Machine instance in a Virtual Machine Scale Set |

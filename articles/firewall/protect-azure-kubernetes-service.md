@@ -3,7 +3,7 @@ title: Use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 description: Learn how to use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 author: vhorne
 ms.service: firewall
-ms.custom: devx-track-azurecli, build-2023, devx-track-linux
+ms.custom: devx-track-azurecli, build-2023, linux-related-content
 services: firewall
 ms.topic: how-to
 ms.date: 10/19/2023
@@ -21,16 +21,16 @@ Azure Kubernetes Service (AKS) offers a managed Kubernetes cluster on Azure. For
 Despite AKS being a fully managed solution, it doesn't offer a built-in solution to secure ingress and egress traffic between the cluster and external networks. Azure Firewall offers a solution to this.
 
 AKS clusters are deployed on a virtual network. This network can be managed (created by AKS) or custom (preconfigured by the user beforehand). In either case, the cluster has outbound dependencies on services outside of that virtual network (the service has no inbound dependencies). For management and operational purposes, nodes in an AKS cluster need to access [certain ports and fully qualified domain names (FQDNs)](../aks/outbound-rules-control-egress.md) describing these outbound dependencies. This is required for various functions including, but not limited to, the nodes that communicate with the Kubernetes API server.  They download and install core Kubernetes cluster components and node security updates, or pull base system container images from Microsoft Container Registry (MCR), and so on. These outbound dependencies are almost entirely defined with FQDNs, which don't have static addresses behind them. The lack of static addresses means that Network Security Groups can't be used to lock down outbound traffic from an AKS cluster. For this reason, by default, AKS clusters have unrestricted outbound (egress) Internet access. This level of network access allows nodes and services you run to access external resources as needed.
- 
+
 However, in a production environment, communications with a Kubernetes cluster should be protected to prevent against data exfiltration along with other vulnerabilities. All incoming and outgoing network traffic must be monitored and controlled based on a set of security rules. If you want to do this, you have to restrict egress traffic, but a limited number of ports and addresses must remain accessible to maintain healthy cluster maintenance tasks and satisfy those outbound dependencies previously mentioned.
- 
+
 The simplest solution uses a firewall device that can control outbound traffic based on domain names. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the Internet. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination, giving you fine-grained egress traffic control, but at the same time allows you to provide access to the FQDNs encompassing an AKS cluster’s outbound dependencies (something that NSGs can't do). Likewise, you can control ingress traffic and improve security by enabling threat intelligence-based filtering on an Azure Firewall deployed to a shared perimeter network. This filtering can provide alerts, and deny traffic to and from known malicious IP addresses and domains.
 
 See the following video by Abhinav Sriram for a quick overview on how this works in practice on a sample environment:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE529Qc]
 
-You can download a zip file from the [Microsoft Download Center](https://download.microsoft.com/download/0/1/3/0131e87a-c862-45f8-8ee6-31fa103a03ff/aks-azfw-protection-setup.zip) that contains a bash script file and a yaml file to automatically configure the sample environment used in the video. It configures Azure Firewall to protect both ingress and egress traffic. The following guides  walk through each step of the script in more detail so you can set up a custom configuration. 
+You can download a zip file from the [Microsoft Download Center](https://download.microsoft.com/download/0/1/3/0131e87a-c862-45f8-8ee6-31fa103a03ff/aks-azfw-protection-setup.zip) that contains a bash script file and a yaml file to automatically configure the sample environment used in the video. It configures Azure Firewall to protect both ingress and egress traffic. The following guides  walk through each step of the script in more detail so you can set up a custom configuration.
 
 The following diagram shows the sample environment from the video that the script and guide configure:
 
@@ -78,7 +78,7 @@ az group create --name $RG --location $LOC
 
 Create a virtual network with two subnets to host the AKS cluster and the Azure Firewall. Each has their own subnet. Let's start with the AKS network.
 
-```
+```azurecli
 # Dedicated virtual network with AKS subnet
 
 az network vnet create \
@@ -173,7 +173,7 @@ See [virtual network route table documentation](../virtual-network/virtual-netwo
 > For applications outside of the kube-system or gatekeeper-system namespaces that needs to talk to the API server, an additional network rule to allow TCP communication to port 443 for the API server IP in addition to adding application rule for fqdn-tag AzureKubernetesService is required.
 
 
- You can use the following three network rules to configure your firewall.  You might need to adapt these rules based on your deployment. The first rule allows access to port 9000 via TCP. The second rule allows access to port 1194 and 123 via UDP. Both these rules only allow traffic destined to the Azure Region CIDR that we're using, in this case East US. 
+ You can use the following three network rules to configure your firewall.  You might need to adapt these rules based on your deployment. The first rule allows access to port 9000 via TCP. The second rule allows access to port 1194 and 123 via UDP. Both these rules only allow traffic destined to the Azure Region CIDR that we're using, in this case East US.
 
 Finally, we add a third network rule opening port 123 to an Internet time server FQDN (for example:`ntp.ubuntu.com`)  via UDP. Adding an FQDN as a network rule is one of the specific features of Azure Firewall, and you need to adapt it when using your own options.
 
@@ -357,7 +357,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: voting-storage
-  labels: 
+  labels:
     app: voting-storage
 spec:
   ports:
@@ -414,7 +414,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: voting-app
-  labels: 
+  labels:
     app: voting-app
 spec:
   type: LoadBalancer
@@ -473,7 +473,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: voting-analytics
-  labels: 
+  labels:
     app: voting-analytics
 spec:
   ports:

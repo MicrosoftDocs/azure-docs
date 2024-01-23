@@ -3,7 +3,7 @@ title: "Cisco ASA/FTD via AMA (Preview) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Cisco ASA/FTD via AMA (Preview) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 01/06/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -33,23 +33,30 @@ CommonSecurityLog
    | sort by TimeGenerated
    ```
 
+
+
 ## Prerequisites
 
 To integrate with Cisco ASA/FTD via AMA (Preview) make sure you have: 
 
-- ****: To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
+- To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
+
 
 ## Vendor installation instructions
 
 Enable data collection rule​
 
-> Cisco ASA/FTD event logs are collected only from **Linux** agents.
+Cisco ASA/FTD event logs are collected only from **Linux** agents.
+
+
+
 
 Run the following command to install and apply the Cisco ASA/FTD collector:
 
-```
-   sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
-```
+
+   `sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py`
+
+
 
 ## Next steps
 

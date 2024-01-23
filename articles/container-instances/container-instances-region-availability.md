@@ -78,19 +78,13 @@ The following maximum resources are available to a container group deployed with
 
 | GPU SKUs | GPU count | Max CPU | Max Memory (GB) | Storage (GB) |
 | --- | --- | --- | --- | --- |
-| K80 | 1 | 6 | 56 | 50 |
-| K80 | 2 | 12 | 112 | 50 |
-| K80 | 4 | 24 | 224 | 50 |
-| P100, V100 | 1 | 6 | 112 | 50 |
-| P100, V100 | 2 | 12 | 224 | 50 |
-| P100, V100 | 4 | 24 | 448 | 50 |
+| V100 | 1 | 6 | 112 | 50 |
+| V100 | 2 | 12 | 224 | 50 |
+| V100 | 4 | 24 | 448 | 50 |
 
 ## Windows container groups
 
 The following regions and maximum resources are available to container groups with [supported and preview](./container-instances-faq.yml) Windows Server containers.
-
-> [!IMPORTANT]
-> At this time, deployments with Windows container groups are not supported in an Azure virtual network deployment.
 
 > [!IMPORTANT] 
 > At this time, Windows container groups are not supported with Confidential containers on Azure Container Instances.

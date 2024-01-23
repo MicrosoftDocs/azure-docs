@@ -2,15 +2,9 @@
 title: Use availability zones for high availability in Azure NetApp Files | Microsoft Docs
 description: Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/17/2022
 ms.author: anfdocs
@@ -32,7 +26,7 @@ Azure NetApp Files' [availability zone volume placement](manage-availability-zon
 
 [!INCLUDE [Availability Zone volumes have the same level of support as other volumes in the subscription](includes/availability-zone-service-callout.md)]
 
-All Virtual Machines within the region in (peered) VNets can access all Azure NetApp Files resources (blue arrows). Virtual Machines accessing Azure NetApp Files volumes in the same zone (green arrows) share the availability zone failure domain. 
+All virtual machines (VMs) within the region in (peered) VNets can access all Azure NetApp Files resources (blue arrows). VMs accessing Azure NetApp Files volumes in the same zone (green arrows) share the availability zone failure domain. 
 
 Azure NetApp Files deployments will occur in the availability of zone of choice if Azure NetApp Files is present in that availability zone and has sufficient capacity.
 
@@ -43,9 +37,12 @@ You can co-locate your compute, storage, networking, and data resources across a
 
 Latency is subject to availability zone latency for within availability zone access and the regional latency envelope for cross-availability zone access.
 
+>[!IMPORTANT]
+>It's not recommended that you use availability zones with Terraform-managed volumes. If you do, you must [add the zone property to your volume](manage-availability-zone-volume-placement.md#populate-availability-zone-for-terraform-managed-volumes).
+
 ## Azure regions with availability zones
 
-For a list of regions that that currently support availability zones, see [Azure regions with availability zone support](../reliability/availability-zones-service-support.md).
+For a list of regions that currently support availability zones, see [Azure regions with availability zone support](../reliability/availability-zones-service-support.md).
 
 ## Next steps
 

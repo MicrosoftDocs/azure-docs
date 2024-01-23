@@ -2,6 +2,7 @@
 title: Export cluster ARM template
 description: Learn how to Create cluster ARM template
 ms.service: hdinsight-aks
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 08/29/2023
 ---

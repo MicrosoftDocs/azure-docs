@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 09/05/2023
+ms.date: 12/15/2023
 ms.author: banders
 ms.reviewer: michm
 ---
@@ -146,7 +146,7 @@ Learn more about features that you can use to optimize your experience and accel
 For more information, see the following resources:
 
 - [Cost Management - Azure Blog](https://azure.microsoft.com/blog/tag/cost-management/)
-- [Microsoft Cost Management – YouTube](https://www.youtube.com/@AzureCostManagement)
+- [Microsoft Cost Management – YouTube](https://www.youtube.com/AzureCostManagement)
 
 ## Establish governance for your new MCA
 
@@ -283,7 +283,7 @@ Learn more about features that can use to optimize your experience and accelerat
 For more information, see the following resources:
 
 - [Cost Management - Azure Blog](https://azure.microsoft.com/blog/tag/cost-management/)
-- [Microsoft Cost Management - YouTube](https://www.youtube.com/@AzureCostManagement)
+- [Microsoft Cost Management – YouTube](https://www.youtube.com/AzureCostManagement)
 
 ## Establish governance after migration to MCA
 
@@ -345,7 +345,7 @@ The Azure Enterprise Reporting APIs enable Enterprise Azure customers to program
 
 ### Review Power BI setup
 
-Learn how to use Power BI with Microsoft Cost Management. For more information, see [Connect to Cost Management data in Power BI Desktop and Analyze Azure costs with the Power BI App](/power-bi/connect-data/desktop-connect-azure-cost-management).
+Learn how to use Power BI with Microsoft Cost Management. For more information, see [Connect to Cost Management data in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
 
 ### Manage billing across tenants
 

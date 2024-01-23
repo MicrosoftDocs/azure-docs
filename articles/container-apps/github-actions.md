@@ -4,7 +4,10 @@ description: Learn to automatically create new revisions in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom:
+  - devx-track-azurecli
+  - linux-related-content
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/09/2022
 ms.author: cshoe
@@ -27,7 +30,7 @@ To build and deploy your container app, you add the [`azure/container-apps-deplo
 The action supports the following scenarios:
 
 * Build from a Dockerfile and deploy to Container Apps
-* Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Node.js, PHP, Python, and Ruby
+* Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Java, Node.js, PHP, and Python
 * Deploy an existing container image to Container Apps
 
 ### Usage examples
@@ -68,7 +71,7 @@ steps:
     uses: azure/login@v1
     with:
       creds: ${{ secrets.AZURE_CREDENTIALS }}
-        
+
   - name: Build and deploy Container App
     uses: azure/container-apps-deploy-action@v1
     with:
@@ -110,9 +113,9 @@ You take the following steps to configure a GitHub Actions workflow to deploy to
 
 ### Create a GitHub repository and clone source code
 
-Before creating a workflow, the source code for your app must be in a GitHub repository. 
+Before creating a workflow, the source code for your app must be in a GitHub repository.
 
-1. Log in to Azure with the Azure CLI. 
+1. Log in to Azure with the Azure CLI.
 
     ```azurecli-interactive
     az login
@@ -139,7 +142,7 @@ Before creating a workflow, the source code for your app must be in a GitHub rep
 
 Create your container app using the `az containerapp up` command in the following steps. This command will create Azure resources, build the container image, store the image in a registry, and deploy to a container app.
 
-After you create your app, you can add a managed identity to the app and assign the identity the `AcrPull` role to allow the identity to pull images from the registry. 
+After you create your app, you can add a managed identity to the app and assign the identity the `AcrPull` role to allow the identity to pull images from the registry.
 
 [!INCLUDE [container-apps-github-devops-setup.md](../../includes/container-apps-github-devops-setup.md)]
 
@@ -154,7 +157,7 @@ The GitHub workflow requires a secret named `AZURE_CREDENTIALS` to authenticate 
       --name my-app-credentials \
       --role contributor \
       --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/my-container-app-rg \
-      --sdk-auth \
+      --json-auth \
       --output json
     ```
 
@@ -183,7 +186,7 @@ The GitHub workflow requires a secret named `AZURE_CREDENTIALS` to authenticate 
       push:
         branches:
           - main
-          
+
     jobs:
       build:
         runs-on: ubuntu-latest

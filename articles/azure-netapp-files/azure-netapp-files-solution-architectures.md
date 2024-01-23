@@ -2,15 +2,9 @@
 title: Solution architectures using Azure NetApp Files | Microsoft Docs
 description: Provides references to best practices for solution architectures using Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/18/2023
 ms.author: anfdocs
@@ -123,6 +117,7 @@ This section provides references to SAP on Azure solutions.
 * [SAP HANA Azure virtual machine storage configurations](../virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 * [SAP on Azure NetApp Files Sizing Best Practices](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-netapp-files-sizing-best-practices/ba-p/3895300)
 * [Optimize HANA deployments with Azure NetApp Files application volume group for SAP HANA](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/optimize-hana-deployments-with-azure-netapp-files-application/ba-p/3683417)
+* [Configuring Azure NetApp Files Application Volume Group (AVG) for zonal SAP HANA deployment](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/configuring-azure-netapp-files-anf-application-volume-group-avg/ba-p/3943801)
 * [Using Azure NetApp Files AVG for SAP HANA to deploy HANA with multiple partitions (MP)](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-netapp-files-avg-for-sap-hana-to-deploy-hana-with/ba-p/3742747)
 * [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](../virtual-machines/workloads/sap/hana-vm-operations-netapp.md)
 * [High availability of SAP HANA Scale-up with Azure NetApp Files on Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md)
@@ -133,8 +128,6 @@ This section provides references to SAP on Azure solutions.
 * [Azure Application Consistent Snapshot tool (AzAcSnap)](azacsnap-introduction.md)
 * [Protecting HANA databases configured with HSR on Azure NetApp Files with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/protecting-hana-databases-configured-with-hsr-on-azure-netapp/ba-p/3654620)
 * [Manual Recovery Guide for SAP HANA on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-vms-from-azure/ba-p/3290161)
-* [SAP HANA on Azure NetApp Files - Data protection with BlueXP backup and recovery](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-hana-on-azure-netapp-files-data-protection-with-bluexp/ba-p/3840116)
-* [SAP HANA on Azure NetApp Files – System refresh & cloning operations with BlueXP backup and recovery](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-hana-on-azure-netapp-files-system-refresh-amp-cloning/ba-p/3908660)
 * [Azure NetApp Files Backup for SAP Solutions](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/anf-backup-for-sap-solutions/ba-p/3717977)
 * [SAP HANA Disaster Recovery with Azure NetApp Files](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
 
@@ -214,6 +207,7 @@ This section provides references for High Performance Computing (HPC) solutions.
 
 ### Electronic design automation (EDA)
 
+* [Azure Modeling and Simulation Workbench](../modeling-simulation-workbench/index.yml)
 * [EDA workloads on Azure NetApp Files - Performance Best Practice](https://techcommunity.microsoft.com/t5/azure-global/eda-workloads-on-azure-netapp-files-performance-best-practice/ba-p/2119979)
 * [Benefits of using Azure NetApp Files for electronic design automation](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: EDA HPC Lab with Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)

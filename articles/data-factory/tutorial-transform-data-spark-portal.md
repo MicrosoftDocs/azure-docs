@@ -6,7 +6,7 @@ ms.subservice: tutorials
 ms.topic: tutorial
 author: nabhishek
 ms.author: abnarain
-ms.date: 01/11/2023
+ms.date: 10/20/2023
 ---
 # Transform data in the cloud by using a Spark activity in Azure Data Factory
 
@@ -207,7 +207,7 @@ The file should have each word from the input text file and the number of times 
 (u'file', 1)
 ```
 
-## Next steps
+## Related content
 The pipeline in this sample transforms data by using a Spark activity and an on-demand HDInsight linked service. You learned how to: 
 
 > [!div class="checklist"]

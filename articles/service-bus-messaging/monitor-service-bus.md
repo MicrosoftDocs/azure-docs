@@ -23,7 +23,7 @@ Start with the article [Monitoring Azure resources with Azure Monitor](../azure-
 The following sections build on this article by describing the specific data gathered for Azure Service Bus. These sections also provide examples for configuring data collection and analyzing this data with Azure tools.
 
 > [!TIP]
-> To understand costs associated with Azure Monitor, see [Usage and estimated costs](../azure-monitor//usage-estimated-costs.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/logs/data-ingestion-time.md).
+> To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](../azure-monitor/cost-usage.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/logs/data-ingestion-time.md).
 
 ## Monitoring data from Azure Service Bus
 Azure Service Bus collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
@@ -96,7 +96,7 @@ The diagnostic logging information is stored in tables named **AzureDiagnostics*
 The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
-You can analyze metrics for Azure Service Bus, along with metrics from other Azure services, by selecting **Metrics** from the **Azure Monitor** section on the home page for your Service Bus namespace. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. For a list of the platform metrics collected, see [Monitoring Azure Service Bus data reference metrics](monitor-service-bus-reference.md#metrics).
+You can analyze metrics for Azure Service Bus, along with metrics from other Azure services, by selecting **Metrics** from the **Azure Monitor** section on the home page for your Service Bus namespace. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool. For a list of the platform metrics collected, see [Monitoring Azure Service Bus data reference metrics](monitor-service-bus-reference.md#metrics).
 
 ![Metrics Explorer with Service Bus namespace selected](./media/monitor-service-bus/metrics.png)
 

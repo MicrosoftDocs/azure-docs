@@ -1,20 +1,20 @@
 ---
-title: Call the Image Analysis API
+title: Call the Image Analysis 3.2 API
 titleSuffix: Azure AI services
 description: Learn how to call the Image Analysis API and configure its behavior.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: PatrickFarley
 ms.author: pafarley
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 01/19/2024
 ms.custom: "seodec18"
 ---
 
-# Call the Image Analysis API
+# Call the Image Analysis 3.2 API
 
-This article demonstrates how to call the Image Analysis API to return information about an image's visual features. It also shows you how to parse the returned information using the client SDKs or REST API.
+This article demonstrates how to call the Image Analysis 3.2 API to return information about an image's visual features. It also shows you how to parse the returned information using the client SDKs or REST API.
 
 This guide assumes you've already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Vision resource"  target="_blank">created a Vision resource </a> and obtained a key and endpoint URL. If you're using a client SDK, you'll also need to authenticate a client object. If you haven't done these steps, follow the [quickstart](../quickstarts-sdk/image-analysis-client-library.md) to get started.
   
@@ -87,7 +87,7 @@ You can specify which features you want to use by setting the URL query paramete
 
 A populated URL might look like this:
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=Tags`
+`https://<endpoint>/vision/v3.2/analyze?visualFeatures=Tags`
 
 #### [C#](#tab/csharp)
 
@@ -136,7 +136,7 @@ The following URL query parameter specifies the language. The default value is `
 
 A populated URL might look like this:
 
-`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=Tags&language=en`
+`https://<endpoint>/vision/v3.2/analyze?visualFeatures=Tags&language=en`
 
 #### [C#](#tab/csharp)
 

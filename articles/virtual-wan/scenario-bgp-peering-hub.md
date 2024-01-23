@@ -5,7 +5,7 @@ description: Learn about BGP peering with an Azure Virtual WAN virtual hub.
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/06/2022
+ms.date: 10/30/2023
 ms.author: cherylmc
 
 ---
@@ -32,7 +32,7 @@ The virtual hub router now also exposes the ability to peer with it, thereby exc
 
 * You can't peer a virtual hub router with Azure Route Server provisioned in a virtual network.
 * The virtual hub router only supports 16-bit (2 bytes) ASN.
-* The virtual network connection that has the NVA BGP connection endpoint must always be associated and propagating to defaultRouteTable. Custom route tables are not supported at this time.
+* The virtual network connection that has the NVA BGP connection endpoint must always be associated and propagating to defaultRouteTable. Custom route tables aren't supported at this time.
 * The virtual hub router supports transit connectivity between virtual networks connected to virtual hubs. This has nothing to do with this feature for BGP peering capability as Virtual WAN already supports transit connectivity. Examples:
   * VNET1: NVA1 connected to Virtual Hub 1 -> (transit connectivity) -> VNET2: NVA2 connected to Virtual Hub 1.
   * VNET1: NVA1 connected to Virtual Hub 1 -> (transit connectivity) -> VNET2: NVA2 connected to Virtual Hub 2.
@@ -48,13 +48,13 @@ The virtual hub router now also exposes the ability to peer with it, thereby exc
    | Resource | Limit |
    |---|---|
    |  Number of routes each BGP peer can advertise to the virtual hub.| The hub can only accept a maximum number of 10,000 routes (total) from its connected resources. For example, if a virtual hub has a total of 6000 routes from the connected virtual networks, branches, virtual hubs etc., then when a new BGP peering is configured with an NVA, the NVA can only advertise up to 4000 routes. |
-* Routes from NVA in a virtual network that are more specific than the virtual network address space, when advertised to the virtual hub through BGP are not propagated further to on-premises.
+* Routes from NVA in a virtual network that are more specific than the virtual network address space, when advertised to the virtual hub through BGP aren't propagated further to on-premises.
 * Currently we only support 4,000 routes from the NVA to the virtual hub.
-* Traffic destined for addresses in the virtual network directly connected to the virtual hub cannot be configured to route through the NVA using BGP peering between the hub and NVA. This is because the virtual hub automatically learns about system routes associated with addresses in the spoke virtual network when the spoke virtual network connection is created. These automatically learned system routes are preferred over routes learned by the hub through BGP.
-* BGP peering between an NVA in a spoke VNet and a secured virtual hub (hub with an integrated security solution) is supported if Routing Intent **is** configured on the hub. BGP peering feature is not supported for secured virtual hubs where routing intent is **not** configured. 
+* Traffic destined for addresses in the virtual network directly connected to the virtual hub can't be configured to route through the NVA using BGP peering between the hub and NVA. This is because the virtual hub automatically learns about system routes associated with addresses in the spoke virtual network when the spoke virtual network connection is created. These automatically learned system routes are preferred over routes learned by the hub through BGP.
+* BGP peering between an NVA in a spoke VNet and a secured virtual hub (hub with an integrated security solution) is supported if Routing Intent **is** configured on the hub. BGP peering feature isn't supported for secured virtual hubs where routing intent is **not** configured. 
 * In order for the NVA to exchange routes with VPN and ER connected sites, branch to branch routing must be turned on.
 
-* When configuring BGP peering with the hub, you will see two IP addresses. Peering with both these addresses is required. Not peering with both addresses can cause routing issues. The same routes must be advertised to both of these addresses. Advertising different routes will cause routing issues. 
+* When configuring BGP peering with the hub, you'll see two IP addresses. Peering with both these addresses is required. Not peering with both addresses can cause routing issues. The same routes must be advertised to both of these addresses. Advertising different routes will cause routing issues. 
 
 * The next hop IP address on the routes being advertised from the NVA to the virtual HUB route server has to be the same as the IP address of the NVA, the IP address configured on the BGP peer. Having a different IP address advertised as next hop IS NOT supported on virtual WAN at the moment.
 ## BGP peering scenarios
@@ -69,7 +69,7 @@ In this scenario, the virtual hub named "Hub 1" is connected to several virtual 
 
 ### Configuration steps without BGP peering
 
-The following steps are required when BGP peering is not used on the virtual hub:
+The following steps are required when BGP peering isn't used on the virtual hub:
 
 Virtual hub configuration
 
@@ -96,7 +96,7 @@ Virtual network configuration
 
 #### Effective routes
 
-The table below shows few entries from Hub 1's effective routes in the defaultRouteTable. Notice that the route for VNET5 (subnet 10.2.1.0/24) and this confirms VNET1 and VNET5 will be able to communicate with each other.
+The following table shows few entries from Hub 1's effective routes in the defaultRouteTable. Notice that the route for VNET5 (subnet 10.2.1.0/24) and this confirms VNET1 and VNET5 will be able to communicate with each other.
 
 | Destination prefix |  Next hop| Origin | ASN path|
 | --- | --- | --- | ---|
@@ -114,7 +114,7 @@ In this scenario, the on-premises site named "NVA Branch 1" has a VPN configured
 
 ### Configuration steps without BGP peering
 
-The following steps are required when BGP peering is not used on the virtual hub:
+The following steps are required when BGP peering isn't used on the virtual hub:
 
 Virtual hub configuration
 

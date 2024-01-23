@@ -1,24 +1,18 @@
 ---
 title: Restore - Azure Cosmos DB for PostgreSQL - Azure portal
-description: See how to perform restore operations in Azure Cosmos DB for PostgreSQL through the Azure portal.
+description: See how to perform restore operations in the same or another region in Azure Cosmos DB for PostgreSQL through the Azure portal.
 ms.author: nlarin
 author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022, references_regions
 ms.topic: how-to
-ms.date: 10/02/2023
+ms.date: 01/21/2024
 ---
 
 # Backup and point-in-time restore of a cluster in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
-
-> [!IMPORTANT]
-> Geo-redundant backup and restore in Azure Cosmos DB for PostgreSQL is currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended
-> for production workloads. Certain features might not be supported or might have constrained 
-> capabilities.
 
 This article provides step-by-step procedures to select backup type, to check type of backup enabled on a cluster, and to perform [point-in-time
 recoveries](concepts-backup.md#restore) for a
@@ -26,9 +20,10 @@ cluster using backups. You can restore either to the earliest backup or to
 a custom restore point within your retention period.
 
 > [!NOTE]
-> While cluster backups are always stored for 35 days, you may need to 
+> While cluster backups are always stored for 35 days, you might need to 
 > open a support request to restore the cluster to a point that is earlier
-> than the latest failover time. 
+> than the latest failover time. Maintenance and compute / storage scaling operations use
+> failovers to minimize downtime during these operations.
 
 ## Select type of cluster backup
 Enabling geo-redundant backup is possible during cluster creation on the **Scale** screen that can be accessed on the **Basics** tab. Click the **Save** button to apply your selection. 
@@ -60,7 +55,7 @@ earliest existing backup.
 
 1. Select **Next**. 
 
-1. (optional) Make data encryption selection for restored cluster on the **Encryption (preview)** tab.
+1. (optional) Make data encryption selection for restored cluster on the **Encryption** tab.
 
 1. Select **Create**. A notification shows that the restore operation is initiated.
 
@@ -81,7 +76,7 @@ and time of your choosing.
 
 1. Select **Next**. 
 
-1. (optional) Make data encryption selection for restored cluster on the **Encryption (preview)** tab.
+1. (optional) Make data encryption selection for restored cluster on the **Encryption** tab.
 
 1. Select **Create**. A notification shows that the restore operation is initiated.
 
@@ -103,5 +98,6 @@ back up and running:
 
 * Learn more about [backup and restore](concepts-backup.md) in
   Azure Cosmos DB for PostgreSQL.
+* See [the list of Azure regions where geo-redundant backup is supported](./resources-regions.md)
 * See [backup and restore limits and limitations](./reference-limits.md#backup-and-restore).
 * Set [suggested alerts](./howto-alert-on-metric.md#suggested-alerts) on clusters.

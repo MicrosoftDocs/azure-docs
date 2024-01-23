@@ -71,7 +71,7 @@
         href: configuration-http-settings.md
   - name: Routing
     items:
-    - name: Multiple site hosting
+    - name: Multi-site hosting
       href: multiple-site-overview.md
     - name: URL routing
       href: url-route-overview.md
@@ -219,6 +219,14 @@
       href: tutorial-multiple-sites-powershell.md
     - name: Azure CLI
       href: tutorial-multiple-sites-cli.md
+  - name: IPv6 frontend
+    items:
+    - name: Azure portal
+      href: ipv6-application-gateway-portal.md
+    - name: Azure PowerShell
+      href: ipv6-application-gateway-powershell.md
+    - name: ARM template
+      href: ipv6-application-gateway-arm-template.md
   - name: Redirect traffic
     items:
     - name: External traffic
@@ -257,8 +265,6 @@
       items:
         - name: Azure portal
           href: rewrite-url-portal.md
-  - name: Configure App Service
-    href: configure-web-app.md
   - name: Configure custom probes
     items:
       - name: Portal
@@ -267,6 +273,10 @@
         href: application-gateway-create-probe-classic-ps.md
       - name: Resource Manager PowerShell
         href: application-gateway-create-probe-ps.md
+  - name: Configure App Service
+    href: configure-web-app.md
+  - name: Schedule autoscaling
+    href: application-gateway-externally-managed-scheduled-autoscaling.md
   - name: Troubleshoot
     items:
       - name: ILB with an App Service Environment

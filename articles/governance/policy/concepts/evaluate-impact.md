@@ -22,7 +22,7 @@ compliant resources are incorrectly included (known as a _false positive_) in th
 The recommended approach to validating a new policy definition is by following these steps:
 
 - Tightly define your policy
-- Audit your existing resources
+- Test your policy's effectiveness
 - Audit new or updated resource requests
 - Deploy your policy to resources
 - Continuous monitoring
@@ -42,37 +42,41 @@ impacts resources that are used by other services.
 For this reason, your policy definitions should be as tightly defined and focused on the resources
 and the properties you need to evaluate for compliance as possible.
 
-## Audit existing resources
+
+## Test your policy's effectiveness
 
 Before looking to manage new or updated resources with your new policy definition, it's best to see
-how it evaluates a limited subset of existing resources, such as a test resource group. Use the
+how it evaluates a limited subset of existing resources, such as a test resource group. The [Azure Policy VS Code extension](../how-to/extension-for-vscode.md#on-demand-evaluation-scan) allows for isolated testing of definitions against existing Azure resources using the on demand evaluation scan.
+You may also assign the definition in a _Dev_ environment using the
 [enforcement mode](./assignment-structure.md#enforcement-mode) _Disabled_ (DoNotEnforce) on your
 policy assignment to prevent the [effect](./effects.md) from triggering or activity log entries from
 being created.
 
 This step gives you a chance to evaluate the compliance results of the new policy on existing
-resources without impacting work flow. Check that no compliant resources are marked as non-compliant
+resources without impacting work flow. Check that no compliant resources show as non-compliant
 (_false positive_) and that all the resources you expect to be non-compliant are marked correctly.
-After the initial subset of resources validates as expected, slowly expand the evaluation to all
-existing resources.
+After the initial subset of resources validates as expected, slowly expand the evaluation to more
+existing resources and more scopes.
 
 Evaluating existing resources in this way also provides an opportunity to remediate non-compliant
 resources before full implementation of the new policy. This cleanup can be done manually or through
 a [remediation task](../how-to/remediate-resources.md) if the policy definition effect is
-_DeployIfNotExists_.
+_DeployIfNotExists_ or _Modify_.
+
+Policy definitions with a _DeployIfNotExist_ should leverage the [Azure Resource Manager template what if](../../../azure-resource-manager/templates/deploy-what-if.md) to validate and test the changes that happen when deploying the ARM template. 
 
 ## Audit new or updated resources
 
 Once you've validated your new policy definition is reporting correctly on existing resources, it's
 time to look at the impact of the policy when resources get created or updated. If the policy
-definition supports effect parameterization, use [Audit](./effects.md#audit). This configuration
+definition supports effect parameterization, use [Audit](./effects.md#audit) or [AuditIfNotExist](./effects.md#auditifnotexists). This configuration
 allows you to monitor the creation and updating of resources to see whether the new policy
 definition triggers an entry in Azure Activity log for a resource that is non-compliant without
 impacting existing work or requests.
 
 It's recommended to both update and create new resources that match your policy definition to see
-that the _Audit_ effect is correctly being triggered when expected. Be on the lookout for resource
-requests that shouldn't be affected by the new policy definition that trigger the _Audit_ effect.
+that the _Audit_ or _AuditIfNotExist_ effect is correctly being triggered when expected. Be on the lookout for resource
+requests that shouldn't be affected by the new policy definition that trigger the _Audit_ or _AuditIfNotExist_ effect.
 These affected resources are another example of _false positives_ and must be fixed in the policy
 definition before full implementation.
 
@@ -86,10 +90,7 @@ existing resources.
 After completing validation of your new policy definition with both existing resources and new or
 updated resource requests, you begin the process of implementing the policy. It's recommended to
 create the policy assignment for the new policy definition to a subset of all resources first, such
-as a resource group. After validating initial deployment, extend the scope of the policy to broader
-and broader levels, such as subscriptions and management groups. This expansion is achieved by
-removing the assignment and creating a new one at the target scopes until it's assigned to the full
-scope of resources intended to be covered by your new policy definition.
+as a resource group. You can further filter by resource type or location using the [`resourceSelectors`](./assignment-structure.md#resource-selectors-preview) property within the policy assignment.After validating initial deployment, extend the scope of the policy to broader as a resource group. After validating initial deployment, expand the impact of the policy by adjusting the resourceSelector filters to target more locations or resource types, or by removing the assignment and replacing it with a new one at broader scopes like subscriptions and management groups. Continue this gradual rollout until it's assigned to the full scope of resources intended to be covered by your new policy definition.
 
 During rollout, if resources are located that should be exempt from your new policy definition,
 address them in one of the following ways:

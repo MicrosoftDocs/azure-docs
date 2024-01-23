@@ -114,7 +114,7 @@ The following steps are the sequential events that take place during the Hive Re
 
 1. The `REPL_LOAD` command is issued from the secondary cluster. The command points to the path configured in Step 3.
 
-1. The secondary cluster reads the metadata file with tracked events that was created in Step 3. Ensure that that the secondary cluster has network connectivity to the Azure Data Lake Storage Gen2 storage of the primary cluster where the tracked events from `REPL_DUMP` are stored.  
+1. The secondary cluster reads the metadata file with tracked events that was created in Step 3. Ensure that the secondary cluster has network connectivity to the Azure Data Lake Storage Gen2 storage of the primary cluster where the tracked events from `REPL_DUMP` are stored.  
 
 1. The secondary cluster spawns distributed copy (`DistCP`) compute.
 

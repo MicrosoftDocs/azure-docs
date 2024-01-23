@@ -7,7 +7,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 09/20/2023
+ms.date: 11/07/2023
 ms.author: greglin
 ---
 
@@ -29,8 +29,8 @@ Application Gateway for Containers enables SSL [offloading](/azure/architecture/
 > Application Gateway for Containers is currently in PREVIEW.<br>
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If following the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
+2. If following the ALB managed deployment strategy, ensure that you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTPS application
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate TLS/SSL offloading.
 
@@ -40,9 +40,9 @@ Application Gateway for Containers enables SSL [offloading](/azure/architecture/
     
     This command creates the following on your cluster:
     - a namespace called `test-infra`
-    - 1 service called `echo` in the `test-infra` namespace
-    - 1 deployment called `echo` in the `test-infra` namespace
-    - 1 secret called `listener-tls-secret` in the `test-infra` namespace
+    - one service called `echo` in the `test-infra` namespace
+    - one deployment called `echo` in the `test-infra` namespace
+    - one secret called `listener-tls-secret` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 
@@ -124,7 +124,7 @@ EOF
 
 ---
 
-Once the gateway resource has been created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+When the gateway resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
@@ -175,7 +175,7 @@ status:
       kind: HTTPRoute
 ```
 
-Once the gateway has been created, create an HTTPRoute
+Once the gateway is created, create an HTTPRoute
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: gateway.networking.k8s.io/v1beta1
@@ -193,12 +193,12 @@ spec:
 EOF
 ```
 
-Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
+Once the HTTPRoute resource is created, ensure the route is _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
 ```bash
 kubectl get httproute https-route -n test-infra -o yaml
 ```
 
-Verify the status of the Application Gateway for Containers resource has been successfully updated.
+Verify the Application Gateway for Containers resource is successfully updated.
 
 ```yaml
 status:

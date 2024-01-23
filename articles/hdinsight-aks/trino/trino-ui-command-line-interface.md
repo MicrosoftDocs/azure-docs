@@ -3,17 +3,17 @@ title: Trino CLI
 description: Using Trino via CLI
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ---
 
 # Trino CLI
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-The Trino CLI provides a terminal-based, interactive shell for running queries.
+The Trino CLI for HDInsight on AKS provides a terminal-based, interactive shell for running queries.
 
 ## Install on Windows
-For Windows, the Trino CLI is installed via an MSI, which gives you access to the CLI through the Windows Command Prompt (CMD) or PowerShell. When installing for Windows Subsystem for Linux (WSL), see [Install on Linux](#install-on-linux).
+For Windows, the Trino CLI for HDInsight on AKS is installed via an MSI, which gives you access to the CLI through the Windows Command Prompt (CMD) or PowerShell. When installing for Windows Subsystem for Linux (WSL), see [Install on Linux](#install-on-linux).
 
 ### Requirements
 
@@ -23,7 +23,7 @@ For Windows, the Trino CLI is installed via an MSI, which gives you access to th
 
 ### Install or update
 
-The MSI package is used for installing or updating the HDInsight on AKS Trino CLI on Windows.
+The MSI package is used for installing or updating the Trino CLI for HDInsight on AKS on Windows.
 
 Download and install the latest release of the Trino CLI. When the installer asks if it can make changes to your computer, click the "Yes" box. After the installation is complete, you'll need to close and reopen any active Windows Command Prompt or PowerShell windows to use the Trino CLI.
 

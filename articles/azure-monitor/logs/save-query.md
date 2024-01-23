@@ -30,14 +30,14 @@ When you save a query, it's stored in a query pack, which has benefits over the 
 
 ## Save a query
 To save a query to a query pack, select **Save as query** from the **Save** dropdown in Log Analytics.
-
-[![Screenshot that shows the Save query menu.](media/save-query/save-query.png)](media/save-query/save-query.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="media/save-query/save-query.png" lightbox="media/save-query/save-query.png" alt-text="Screenshot that shows the Save query menu." border="false":::
 
 When you save a query to a query pack, the following dialog box appears where you can provide values for the query properties. The query properties are used for filtering and grouping of similar queries to help you find the query you're looking for. For a detailed description of each property, see [Query properties](queries.md#query-properties).
 
 Most users should leave the option to **Save to the default query pack**, which will save the query in the [default query pack](query-packs.md#default-query-pack). Clear this checkbox if there are other query packs in your subscription. For information on how to create a new query pack, see [Query packs in Azure Monitor Logs](query-packs.md).
-
-[![Screenshot that shows the Save as query dialog.](media/save-query/save-query-dialog.png)](media/save-query/save-query-dialog.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="media/save-query/save-query-dialog.png" lightbox="media/save-query/save-query-dialog.png" alt-text="Screenshot that shows the Save as query dialog." border="false":::
 
 ## Edit a query
 You might want to edit a query that you've already saved. You might want to change the query itself or modify any of its properties. After you open an existing query in Log Analytics, you can edit it by selecting **Edit query details** from the **Save** dropdown. Now you can save the edited query with the same properties or modify any properties before saving.

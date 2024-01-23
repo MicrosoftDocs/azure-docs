@@ -136,7 +136,7 @@ Example of the event schema:
         "recordingStorageInfo": {
             "recordingChunks": [
                 {
-                    "documentId": string, // Document id for for the recording chunk
+                    "documentId": string, // Document id for the recording chunk
                     "contentLocation": string, //Azure Communication Services URL where the content is located
                     "metadataLocation": string, // Azure Communication Services URL where the metadata for this chunk is located
                     "deleteLocation": string, // Azure Communication Services URL to use to delete all content, including recording and metadata.

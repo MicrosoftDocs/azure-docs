@@ -80,7 +80,7 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
 
     -  Select **Create**.
 
-3.  Now if you navigate back to the "Events" option in left panel of your ACS resource, you should be able to see the new event subscription with the Advanced Messaging events.
+3.  Now if you navigate back to the "Events" option in left panel of your Azure Communication Services resource, you should be able to see the new event subscription with the Advanced Messaging events.
 
     :::image type="content" source="./media/handle-advanced-messaging-events/verify-events.png" alt-text="Screenshot that shows two Advanced messaging events subscribed.":::
 

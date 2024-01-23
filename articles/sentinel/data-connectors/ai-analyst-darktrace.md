@@ -3,14 +3,14 @@ title: "AI Analyst Darktrace connector for Microsoft Sentinel"
 description: "Learn how to install the connector AI Analyst Darktrace to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 06/22/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # AI Analyst Darktrace connector for Microsoft Sentinel
 
-The Darktrace connector lets users connect Darktrace Model Breaches in real-time with Azure Sentinel, allowing creation of custom Dashboards, Workbooks, Notebooks and Custom Alerts to improve investigation.  Azure Sentinel's enhanced visibility into Darktrace logs enables monitoring and mitigation of security threats.
+The Darktrace connector lets users connect Darktrace Model Breaches in real-time with Microsoft Sentinel, allowing creation of custom Dashboards, Workbooks, Notebooks and Custom Alerts to improve investigation.  Microsoft Sentinel's enhanced visibility into Darktrace logs enables monitoring and mitigation of security threats.
 
 ## Connector attributes
 
@@ -39,17 +39,17 @@ CommonSecurityLog
 
 1. Linux Syslog agent configuration
 
-Install and configure the Linux agent to collect your Common Event Format (CEF) Syslog messages and forward them to Azure Sentinel.
+Install and configure the Linux agent to collect your Common Event Format (CEF) Syslog messages and forward them to Microsoft Sentinel.
 
 > Notice that the data from all regions will be stored in the selected workspace
 
 1.1 Select or create a Linux machine
 
-Select or create a Linux machine that Azure Sentinel will use as the proxy between your security solution and Azure Sentinel this machine can be on your on-prem environment, Azure or other clouds.
+Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-premises environment, Azure or other clouds.
 
 1.2 Install the CEF collector on the Linux machine
 
-Install the Microsoft Monitoring Agent on your Linux machine and configure the machine to listen on the necessary port and forward messages to your Azure Sentinel workspace. The CEF collector collects CEF messages on port 514 TCP.
+Install the Microsoft Monitoring Agent on your Linux machine and configure the machine to listen on the necessary port and forward messages to your Microsoft Sentinel workspace. The CEF collector collects CEF messages on port 514 TCP.
 
 > 1. Make sure that you have Python on your machine using the following command: python -version.
 
@@ -65,7 +65,7 @@ Configure Darktrace to forward Syslog messages in CEF format to your Azure works
 
  1) Within the Darktrace Threat Visualizer, navigate to the System Config page in the main menu under Admin. 
 
-  2) From the left-hand menu, select Modules and choose Azure Sentinel from the available Workflow Integrations.\n 3) A configuration window will open. Locate Azure Sentinel Syslog CEF and click New to reveal the configuration settings, unless already exposed. 
+  2) From the left-hand menu, select Modules and choose Microsoft Sentinel from the available Workflow Integrations.\n 3) A configuration window will open. Locate Microsoft Sentinel Syslog CEF and click New to reveal the configuration settings, unless already exposed. 
 
  4) In the Server configuration field, enter the location of the log forwarder and optionally modify the communication port. Ensure that the port selected is set to 514 and is allowed by any intermediary firewalls. 
 
@@ -99,9 +99,3 @@ Make sure to configure the machine's security according to your organization's s
 
 
 [Learn more >](https://aka.ms/SecureCEF)
-
-
-
-## Next steps
-
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/darktrace1655286944672.darktrace_mss?tab=Overview) in the Azure Marketplace.

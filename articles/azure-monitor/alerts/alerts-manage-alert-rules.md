@@ -5,7 +5,7 @@ author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 03/05/2023
+ms.date: 01/14/2024
 ms.reviewer: harelbr
 ---
 # Manage your alert rules
@@ -55,11 +55,11 @@ Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 
 ## Enable recommended alert rules in the Azure portal
 
-If you don't have alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [create a new alert rule](alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal), or enable recommended out-of-the-box alert rules in the Azure portal.
+You can [create a new alert rule](alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal), or enable recommended out-of-the-box alert rules in the Azure portal.
 
 The system compiles a list of recommended alert rules based on:
 - The resource provider’s knowledge of important signals and thresholds for monitoring the resource.
-- Telemetry that tells us what customers commonly alert on for this resource.
+- Data that tells us what customers commonly alert on for this resource.
 
 > [!NOTE]
 > The alert rule recommendations feature is enabled for:
@@ -67,17 +67,23 @@ The system compiles a list of recommended alert rules based on:
 > - AKS resources
 > - Log Analytics workspaces
 
-:::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-alert-rules.jpg" alt-text="Screenshot of alerts page with link to recommended alert rules.":::
+:::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-alerts.png" alt-text="Screenshot of alerts page with link to recommended alert rules.":::
 
 To enable recommended alert rules:
 
-1. On the **Alerts** page, select **Enable recommended alert rules**. The **Enable recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.  
-1. In the **Alert me if** section, select all of the rules you want to enable. The rules are populated with the default values for the rule condition, such as the percentage of CPU usage that you want to trigger an alert. You can change the default values if you would like.
+1. In the left pane, select **Alerts**. 
+1. Select **View + set up**. The **Set up recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.
+
+    :::image type="content" source="media/alerts-managing-alert-instances/set-up-recommended-alerts.png" alt-text="Screenshot of recommended alert rules pane.":::
+
+1. In the **Select alert rules** section, all recommended alerts are populated with the default values for the rule condition, such as the percentage of CPU usage that you want to trigger an alert. You can change the default values if you would like, or turn off an alert.
+1. Expand each of the alert rules to see its details. By default, the severity for each is **Informational**. You can change to another severity if you'd like.
+
+    :::image type="content" source="media/alerts-managing-alert-instances/configure-alert-severity.png" alt-text="Screenshot of recommended alert rule severity configuration." lightbox="media/alerts-managing-alert-instances/configure-alert-severity.png":::
+
 1. In the **Notify me by** section, select the way you want to be notified if an alert is fired.
 1. Select **Use an existing action group**, and enter the details of the existing action group if you want to use an action group that already exists.
-1. Select **Enable**.
-
-    :::image type="content" source="media/alerts-managing-alert-instances/alerts-enable-recommended-alert-rule-pane.png" alt-text="Screenshot of recommended alert rules pane."::: 
+1. Select **Save**.
 
 ## Manage metric alert rules with the Azure CLI
 

@@ -28,7 +28,7 @@ Start with the article [Monitoring Azure resources with Azure Monitor](../azure-
 The following sections build on this article by describing the specific data gathered for Azure Stream Analytics. These sections also provide examples for configuring data collection and analyzing this data with Azure tools.
 
 > [!TIP]
-> To understand costs associated with Azure Monitor, see [Usage and estimated costs](../azure-monitor//usage-estimated-costs.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/logs/data-ingestion-time.md).
+> To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](../azure-monitor/cost-usage.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/logs/data-ingestion-time.md).
 
 ## Monitoring overview page in Azure portal
 Azure Stream Analytics provides plenty of metrics that you can use to monitor and troubleshoot your query and job performance. You can view data from these metrics on the **Overview** page of the Azure portal, in the **Monitoring** section.  
@@ -52,7 +52,7 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](/a
 The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
-You can analyze metrics for **Azure Stream Analytics** with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-getting-started) for details on using this tool. 
+You can analyze metrics for **Azure Stream Analytics** with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool. 
 
 For a list of the platform metrics collected for Azure Stream Analytics, see [Monitoring Azure Stream Analytics data reference metrics](monitor-azure-stream-analytics-reference.md#metrics)  
 

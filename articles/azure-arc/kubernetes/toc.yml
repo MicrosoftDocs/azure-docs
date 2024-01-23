@@ -70,6 +70,8 @@
       - name: Application deployment with GitOps
         displayName: flux, deploy, configuration
         href: conceptual-gitops-flux2.md
+      - name: GitOps (Flux v2) parameters
+        href: gitops-flux2-parameters.md
       - name: CI/CD workflow using GitOps
         displayName: flux, pipeline
         href: conceptual-gitops-flux2-ci-cd.md
@@ -154,12 +156,17 @@
         href: ../../machine-learning/how-to-attach-kubernetes-anywhere.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
   - name: Move between regions
     href: move-regions.md
-  - name: Diagnose connection issues
-    displayName: troubleshoot, problem, proxy, network
-    href: diagnose-connection-issues.md
   - name: Troubleshooting
-    displayName: problem, issue, resolve
-    href: troubleshooting.md
+    items:
+    - name: Platform issues
+      displayName: problem, issue, resolve
+      href: troubleshooting.md
+    - name: Connection issues
+      displayName: troubleshoot, problem, proxy, network
+      href: diagnose-connection-issues.md
+    - name: Extension issues
+      displayName: gitops, flux, osm, open
+      href: extensions-troubleshooting.md
 - name: Reference
   items:
   - name: Azure Policy built-ins
@@ -172,7 +179,7 @@
 - name: Resources
   items:
   - name: Azure Arc Jumpstart
-    href: https://azurearcjumpstart.io
+    href: https://aka.ms/AzureArcJumpstart
   - name: Microsoft Q&A for Azure Arc
     href: /answers/tags/146/azure-arc
   - name: Azure updates

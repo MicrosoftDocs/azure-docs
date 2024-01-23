@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability, references_regions
 ms.service: chaos-studio
-ms.date: 10/19/2023 
+ms.date: 01/23/2024 
 ---
 
 
@@ -44,7 +44,7 @@ In the event of a zone-wide outage, you should anticipate a brief degradation in
 
 ## Cross-region disaster recovery and business continuity
 
-Chaos Studio does not support service enabled cross-region failover. It currently supports only single-region geography.
+Chaos Studio supports single-region geography only, and doesn't support service enabled cross-region failover.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/03/2023
+ms.date: 01/18/2024
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -50,6 +50,10 @@ Azure Bastion isn't supported with Azure Private DNS Zones in national clouds.
 
 No, Azure Bastion doesn't currently support private link.
 
+### Why do I get a "Failed to add subnet" error when using "Deploy Bastion" in the portal?
+
+At this time, for most address spaces, you must add a subnet named **AzureBastionSubnet** to your virtual network before you select **Deploy Bastion**.
+
 ### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
 
 For Azure Bastion resources deployed on or after November 2, 2021, the minimum AzureBastionSubnet size is /26 or larger (/25, /24, etc.). All Azure Bastion resources deployed in subnets of size /27 prior to this date are unaffected by this change and will continue to work. However, we highly recommend increasing the size of any existing AzureBastionSubnet to /26 in case you choose to take advantage of [host scaling](./configure-host-scaling.md) in the future.
@@ -64,13 +68,17 @@ No. UDR isn't supported on an Azure Bastion subnet.
 
 For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual Appliance (NVA) in the same virtual network, you don’t need to force traffic from an Azure Bastion subnet to Azure Firewall because the communication between Azure Bastion and your VMs is private. For more information, see [Accessing VMs behind Azure Firewall with Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
-### <a name="upgradesku"></a> Can I upgrade from a Basic SKU to a Standard SKU?
+### <a name="all-skus"></a> What SKU should I use?
+
+Azure Bastion has multiple SKUs. You should select a SKU based on your connection and feature requirements. For a full list of SKU tiers and supported connections and features, see the [Configuration settings](configuration-settings.md#skus) article.
+
+### <a name="upgradesku"></a> Can I upgrade a SKU?
 
 Yes. For steps, see [Upgrade a SKU](upgrade-sku.md). For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
 
-### <a name="downgradesku"></a> Can I downgrade from a Standard SKU to a Basic SKU?
+### <a name="downgradesku"></a> Can I downgrade a SKU?
 
-No. Downgrading from a Standard SKU to a Basic SKU isn't supported. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
+No. Downgrading a SKU isn't supported. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
 
 ### <a name="virtual-desktop"></a>Does Bastion support connectivity to Azure Virtual Desktop?
 
@@ -232,6 +240,10 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 |Microsoft.Network/virtualNetworks/read|Get the virtual network definition|Action|
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|Action|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|Action|
+
+### I am connecting to a VM using a JIT policy, do I need additional permissions?
+
+If user is connecting to a VM using a JIT policy, there is no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](../defender-for-cloud/just-in-time-access-usage.md)
 
 ### My privatelink.azure.com can't resolve to management.privatelink.azure.com
 

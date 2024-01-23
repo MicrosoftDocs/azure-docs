@@ -14,7 +14,10 @@ ms.author: yolasors
 
 This article shows you how to use pre-production environments to review changes to applications that are deployed with [Azure Static Web Apps](overview.md). A pre-production environment is a fully functional staged version of your application that includes changes not available in production.
 
-Azure Static Web Apps generates a GitHub Actions workflow in the repo. When a pull request is created against a branch that the workflow watches, the pre-production environment gets built. The pre-production environment stages the app, so you can review the changes before you push them to production.
+> [!Note]
+> Pull request environments are not automatically supported for Azure DevOps, but you can use [named environments](./named-environments.md) to set them up manually.
+
+Azure Static Web Apps generates a YAML workflow in the repo. When a pull request is created against a branch that the workflow watches, the pre-production environment gets built. The pre-production environment stages the app, so you can review the changes before you push them to production. The lifecycle of a pre-production environment is tied to the pull request. Once the pull request is closed, the pre-production environment is automatically deleted.
 
 You can do the following tasks within pre-production environments:
 
@@ -23,9 +26,6 @@ You can do the following tasks within pre-production environments:
 - Compare different versions of your application
 - Validate changes using acceptance tests
 - Perform sanity checks before you deploy to production
-
-> [!NOTE]
-> Pull requests and pre-production environments are only supported in GitHub Actions deployments.
 
 ## Prerequisites
 

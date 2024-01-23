@@ -9,7 +9,7 @@ ms.reviewer: bwren
 ---
 
 # Cost optimization in Azure Monitor
-Cost optimization refers to ways to reduce unnecessary expenses and improve operational efficiencies. You can significantly reduce your cost for Azure Monitor by understanding your different configuration options and opportunities to reduce the amount of data that it collects. Before you use this article, you should see [Azure Monitor cost and usage](usage-estimated-costs.md) to understand the different ways that Azure Monitor charges and how to view your monthly bill.
+Cost optimization refers to ways to reduce unnecessary expenses and improve operational efficiencies. You can significantly reduce your cost for Azure Monitor by understanding your different configuration options and opportunities to reduce the amount of data that it collects. Before you use this article, you should see [Azure Monitor cost and usage](cost-usage.md) to understand the different ways that Azure Monitor charges and how to view your monthly bill.
 
 This article describes [Cost optimization](/azure/architecture/framework/cost/) for Azure Monitor as part of the [Azure Well-Architected Framework](/azure/architecture/framework/). This is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architectural excellence:
 
@@ -52,7 +52,7 @@ This article describes [Cost optimization](/azure/architecture/framework/cost/) 
 ## Containers
 
 
-[!INCLUDE [waf-containers-cost](includes/waf-vm-cost.md)]
+[!INCLUDE [waf-containers-cost](includes/waf-containers-cost.md)]
 
 
 

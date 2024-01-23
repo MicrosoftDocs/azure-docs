@@ -1,6 +1,6 @@
 ---
 title: "Azure Arc-enabled Kubernetes validation"
-ms.date: 07/21/2023
+ms.date: 10/26/2023
 ms.topic: how-to
 description: "Describes Arc validation program for Kubernetes distributions"
 ---
@@ -31,6 +31,7 @@ The following providers and their corresponding Kubernetes distributions have su
 | VMware       | [Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid) |TKGs 2.2; upstream K8s 1.25.7+vmware.3<br>TKGm 2.3; upstream K8s v1.26.5+vmware.2<br>TKGm 2.2; upstream K8s v1.25.7+vmware.2 <br>TKGm 2.1.0; upstream K8s v1.24.9+vmware.1|
 | Canonical    | [Charmed Kubernetes](https://ubuntu.com/kubernetes)|[1.24](https://ubuntu.com/kubernetes/docs/1.24/components), [1.28](https://ubuntu.com/kubernetes/docs/1.28/components) |
 | SUSE Rancher      | [Rancher Kubernetes Engine](https://rancher.com/products/rke/) | RKE CLI version: [v1.3.13](https://github.com/rancher/rke/releases/tag/v1.3.13); Kubernetes versions: 1.24.2, 1.23.8  |
+| SUSE Rancher      | [K3s](https://rancher.com/products/k3s/) | [v1.27.4+k3s1](https://github.com/k3s-io/k3s/releases/tag/v1.27.4%2Bk3s1), [v1.26.7+k3s1](https://github.com/k3s-io/k3s/releases/tag/v1.26.7%2Bk3s1), [v1.25.12+k3s1](https://github.com/k3s-io/k3s/releases/tag/v1.25.12%2Bk3s1)  |
 | Nutanix      | [Nutanix Kubernetes Engine](https://www.nutanix.com/products/kubernetes-engine)    | Version [2.5](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Kubernetes-Engine-v2_5:Nutanix-Kubernetes-Engine-v2_5); upstream K8s v1.23.11 |
 | Kublr	| [Kublr Managed K8s](https://kublr.com/managed-kubernetes/) Distribution |[Kublr 1.26.0](https://docs.kublr.com/releasenotes/1.26/release-1.26.0/); Upstream K8s Versions: 1.21.3, 1.22.10, 1.22.17, 1.23.17, 1.24.13, 1.25.6, 1.26.4 |
 | Mirantis | [Mirantis Kubernetes Engine](https://www.mirantis.com/software/mirantis-kubernetes-engine/) | MKE Version [3.6.0](https://docs.mirantis.com/mke/3.6/release-notes/3-6-0.html) <br> MKE Version [3.5.5](https://docs.mirantis.com/mke/3.5/release-notes/3-5-5.html) <br> MKE Version [3.4.7](https://docs.mirantis.com/mke/3.4/release-notes/3-4-7.html) |

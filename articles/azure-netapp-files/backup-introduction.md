@@ -2,15 +2,9 @@
 title: Understand Azure NetApp Files backup | Microsoft Docs
 description: Describes what Azure NetApp Files backup does, supported regions, and the cost model.  
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2023
 ms.author: anfdocs
@@ -41,13 +35,16 @@ Azure NetApp Files backup is supported for the following regions:
 * Australia East
 * Australia Southeast
 * Brazil South
+* Brazil Southeast 
 * Canada Central
 * Canada East
+* Central India
 * Central US
 * East Asia
 * East US
 * East US 2
 * France Central
+* Germany North
 * Germany West Central
 * Japan East
 * Japan West
@@ -62,6 +59,8 @@ Azure NetApp Files backup is supported for the following regions:
 * South India
 * Southeast Asia
 * Sweden Central
+* Switzerland North
+* Switzerland West 
 * UAE Central
 * UAE North
 * UK South

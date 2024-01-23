@@ -2,9 +2,7 @@
 title: Enforce a minimum required version of Transport Layer Security (TLS) for requests to an Event Hubs namespace
 titleSuffix: Azure Event Hubs
 description: Configure a service bus namespace to require a minimum version of Transport Layer Security (TLS) for clients making requests against Azure Event Hubs.
-services: event-hubs
 author: EldertGrootenboer
-
 ms.service: event-hubs
 ms.topic: article
 ms.date: 04/25/2022
@@ -20,7 +18,7 @@ Azure Event Hubs supports choosing a specific TLS version for namespaces. Curren
 Azure Event Hubs namespaces permit clients to send and receive data with TLS 1.0 and above. To enforce stricter security measures, you can configure your Event Hubs namespace to require that clients send and receive data with a newer version of TLS. If an Event Hubs namespace requires a minimum version of TLS, then any requests made with an older version will fail.
 
 > [!IMPORTANT]
-> If you are using a service that connects to Azure Event Hubs, make sure that that service is using the appropriate version of TLS to send requests to Azure Event Hubs before you set the required minimum version for an Event Hubs namespace.
+> If you are using a service that connects to Azure Event Hubs, make sure that service is using the appropriate version of TLS to send requests to Azure Event Hubs before you set the required minimum version for an Event Hubs namespace.
 
 ## Permissions necessary to require a minimum version of TLS
 

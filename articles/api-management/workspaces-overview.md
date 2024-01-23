@@ -2,7 +2,6 @@
 title: Workspaces in Azure API Management | Microsoft Docs
 description: Learn about workspaces (preview) in Azure API Management. Workspaces allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. 
 services: api-management
-documentationcenter: ''
 author: dlepow
  
 ms.service: api-management
@@ -108,9 +107,9 @@ Workspace members must be assigned both a service-scoped role and a workspace-sc
 
 The following resources aren't currently supported in workspaces: 
 
-* Authorization servers
+* Authorization servers (credential providers in credential manager)
 
-* Authorizations 
+* Authorizations (connections to credential providers in credential manager)
 
 * Backends 
 
@@ -134,7 +133,7 @@ Therefore, the following sample scenarios aren't currently supported in workspac
 
 * Validating client certificates 
 
-* Using the authorizations feature 
+* Using the credential manager (formerly called authorizations) feature 
 
 * Specifying API authorization server information (for example, for the developer portal)
    

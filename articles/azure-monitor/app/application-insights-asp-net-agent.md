@@ -2,7 +2,7 @@
 title: Deploy Application Insights Agent
 description: Learn how to use Application Insights Agent to monitor website performance. It works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-ms.date: 09/12/2023
+ms.date: 11/15/2023
 ms.reviewer: abinetabate
 ---
 
@@ -109,12 +109,12 @@ Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=00000
 ### [Detailed instructions](#tab/detailed-instructions)
 
 This tab describes how to onboard to the PowerShell Gallery and download the ApplicationMonitor module.
-Included are the most common parameters that you'll need to get started.
+Included are the most common parameters that you need to get started.
 We've also provided manual download instructions in case you don't have internet access.
 
 ### Get a connection string
 
-To get started, you need an connection string. For more information, see [Connection strings](sdk-connection-string.md).
+To get started, you need a connection string. For more information, see [Connection strings](sdk-connection-string.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -158,11 +158,11 @@ PSRemotingProtocolVersion      2.3
 SerializationVersion           1.1.0.1
 ```
 
-These instructions were written and tested on a computer running Windows 10 and the versions listed above.
+These instructions were written and tested on a computer running Windows 10 and the following versions.
 
 ### Prerequisites for PowerShell Gallery
 
-These steps will prepare your server to download modules from PowerShell Gallery.
+These steps prepare your server to download modules from PowerShell Gallery.
 
 > [!NOTE]
 > PowerShell Gallery is supported on Windows 10, Windows Server 2016, and PowerShell 6+.
@@ -178,7 +178,7 @@ These steps will prepare your server to download modules from PowerShell Gallery
         - `-Proxy`. Specifies a proxy server for the request.
         - `-Force`. Bypasses the confirmation prompt.
 
-    You'll receive this prompt if NuGet isn't set up:
+    You receive this prompt if NuGet isn't set up:
 
     ```output
     NuGet provider is required to continue
@@ -197,7 +197,7 @@ These steps will prepare your server to download modules from PowerShell Gallery
     - Optional parameter:
         - `-Proxy`. Specifies a proxy server for the request.
 
-    You'll receive this prompt if PowerShell Gallery isn't trusted:
+    You receive this prompt if PowerShell Gallery isn't trusted:
 
     ```output
     Untrusted repository
@@ -208,7 +208,7 @@ These steps will prepare your server to download modules from PowerShell Gallery
     [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
     ```
 
-    You can confirm this change and audit all PSRepositories by running the `Get-PSRepository` command.
+    You can confirm this change and audit all `PSRepositories` by running the `Get-PSRepository` command.
 
 4. Install the newest version of PowerShellGet.
     - Description: This module contains the tooling used to get other modules from PowerShell Gallery. Version 1.0.0.1 ships with Windows 10 and Windows Server. Version 1.6.0 or higher is required. To determine which version is installed, run the `Get-Command -Module PowerShellGet` command.
@@ -218,7 +218,7 @@ These steps will prepare your server to download modules from PowerShell Gallery
         - `-Proxy`. Specifies a proxy server for the request.
         - `-Force`. Bypasses the "already installed" warning and installs the latest version.
 
-    You'll receive this error if you're not using the newest version of PowerShellGet:
+    You receive this error if you're not using the newest version of PowerShellGet:
 
     ```output
     Install-Module : A parameter cannot be found that matches parameter name 'AllowPrerelease'.
@@ -229,11 +229,11 @@ These steps will prepare your server to download modules from PowerShell Gallery
     FullyQualifiedErrorId : NamedParameterNotFound,Install-Module
     ```
 
-5. Restart PowerShell. You can't load the new version in the current session. New PowerShell sessions will load the latest version of PowerShellGet.
+5. Restart PowerShell. You can't load the new version in the current session. New PowerShell sessions load the latest version of PowerShellGet.
 
 ### Download and install the module via PowerShell Gallery
 
-These steps will download the Az.ApplicationMonitor module from PowerShell Gallery.
+These steps download the Az.ApplicationMonitor module from PowerShell Gallery.
 
 1. Ensure that all prerequisites for PowerShell Gallery are met.
 2. Run PowerShell as Admin with an elevated execution policy.
@@ -257,7 +257,7 @@ If for any reason you can't connect to the PowerShell module, you can manually d
 3. Under **Installation Options**, select **Manual Download**.
 
 #### Option 1: Install into a PowerShell modules directory
-Install the manually downloaded PowerShell module into a PowerShell directory so it will be discoverable by PowerShell sessions.
+Install the manually downloaded PowerShell module into a PowerShell directory so it's discoverable by PowerShell sessions.
 For more information, see [Installing a PowerShell Module](/powershell/scripting/developer/module/installing-a-powershell-module).
 
 
@@ -288,7 +288,7 @@ For more information, see [Installing a PowerShell Module](/powershell/scripting
     ```
 
 #### Option 2: Unzip and import nupkg manually
-Install the manually downloaded PowerShell module into a PowerShell directory so it will be discoverable by PowerShell sessions.
+Install the manually downloaded PowerShell module into a PowerShell directory so it's discoverable by PowerShell sessions.
 For more information, see [Installing a PowerShell Module](/powershell/scripting/developer/module/installing-a-powershell-module).
 
 If you're installing the module into any other directory, manually import the module by using [Import-Module](/powershell/module/microsoft.powershell.core/import-module).
@@ -305,12 +305,12 @@ If you're installing the module into any other directory, manually import the mo
 
 ### Route traffic through a proxy
 
-When you monitor a computer on your private intranet, you'll need to route HTTP traffic through a proxy.
+When you monitor a computer on your private intranet, you need to route HTTP traffic through a proxy.
 
 The PowerShell commands to download and install Az.ApplicationMonitor from the PowerShell Gallery support a `-Proxy` parameter.
 Review the preceding instructions when you write your installation scripts.
 
-The Application Insights SDK will need to send your app's telemetry to Microsoft. We recommend that you configure proxy settings for your app in your web.config file. For more information, see [How do I achieve proxy passthrough?](#how-do-i-achieve-proxy-passthrough).
+The Application Insights SDK needs to send your app's telemetry to Microsoft. We recommend that you configure proxy settings for your app in your web.config file. For more information, see [How do I achieve proxy passthrough?](#how-do-i-achieve-proxy-passthrough).
 
 
 ### Enable monitoring
@@ -333,7 +333,7 @@ This tab describes the following cmdlets, which are members of the [Az.Applicati
 - [Start-ApplicationInsightsMonitoringTrace](?tabs=api-reference#start-applicationinsightsmonitoringtrace)
 
 > [!NOTE]
-> - To get started, you need an instrumentation key. For more information, see [Create a resource](create-workspace-resource.md).
+> - To get started, you need a connection string. For more information, see [Create a resource](create-workspace-resource.md).
 > - This cmdlet requires that you review and accept our license and privacy statement.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
@@ -342,7 +342,6 @@ This tab describes the following cmdlets, which are members of the [Az.Applicati
 > This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](?tabs=detailed-instructions#run-powershell-as-admin-with-an-elevated-execution-policy).
 > - This cmdlet requires that you review and accept our license and privacy statement.
 > - The instrumentation engine adds additional overhead and is off by default.
-
 
 ### Enable-InstrumentationEngine
 
@@ -354,7 +353,7 @@ It collects events and messages that describe the execution of a managed process
 
 Enable the instrumentation engine if:
 - You've already enabled monitoring with the Enable cmdlet but didn't enable the instrumentation engine.
-- You've manually instrumented your app with the .NET SDKs and want to collect additional telemetry.
+- You've manually instrumented your app with the .NET SDKs and want to collect extra telemetry.
 
 #### Examples
 
@@ -384,14 +383,21 @@ Configuring registry for instrumentation engine...
 
 Enables codeless attach monitoring of IIS apps on a target computer.
 
-This cmdlet will modify the IIS applicationHost.config and set some registry keys.
-It will also create an applicationinsights.ikey.config file, which defines the instrumentation key used by each app.
-IIS will load the RedfieldModule on startup, which will inject the Application Insights SDK into applications as the applications start.
+This cmdlet modifies the IIS applicationHost.config and sets some registry keys.
+It creates an applicationinsights.ikey.config file, which defines the instrumentation key used by each app.
+IIS loads the RedfieldModule on startup, which injects the Application Insights SDK into applications as the applications start.
 Restart IIS for your changes to take effect.
 
 After you enable monitoring, we recommend that you use [Live Metrics](live-stream.md) to quickly check if your app is sending us telemetry.
 
 #### Examples
+
+##### Example with a single connection string
+In this example, all apps on the current computer are assigned a single connection string.
+
+```powershell
+Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/'
+```
 
 ##### Example with a single instrumentation key
 In this example, all apps on the current computer are assigned a single instrumentation key.
@@ -403,10 +409,10 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ##### Example with an instrumentation key map
 In this example:
 - `MachineFilter` matches the current computer by using the `'.*'` wildcard.
-- `AppFilter='WebAppExclude'` provides a `null` instrumentation key. The specified app won't be instrumented.
+- `AppFilter='WebAppExclude'` provides a `null` instrumentation key. The specified app isn't instrumented.
 - `AppFilter='WebAppOne'` assigns the specified app a unique instrumentation key.
 - `AppFilter='WebAppTwo'` assigns the specified app a unique instrumentation key.
-- Finally, `AppFilter` also uses the `'.*'` wildcard to match all web apps that aren't matched by the earlier rules and assign a default instrumentation key.
+- `AppFilter` uses the `'.*'` wildcard to match any web apps it doesn't already match and assigns a default instrumentation key.
 - Spaces are added for readability.
 
 ```powershell
@@ -422,6 +428,9 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 
 #### Parameters
 
+##### -ConnectionString
+**Required.** Use this parameter to supply a single connection string for use by all apps on the target computer.
+
 ##### -InstrumentationKey
 **Required.** Use this parameter to supply a single instrumentation key for use by all apps on the target computer.
 
@@ -430,17 +439,17 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 You can create a single installation script for several computers by setting `MachineFilter`.
 
 > [!IMPORTANT]
-> Apps will match against rules in the order that the rules are provided. So you should specify the most specific rules first and the most generic rules last.
+> Apps matches against rules in the order that the rules are provided. So you should specify the most specific rules first and the most generic rules last.
 
 ###### Schema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
 - **MachineFilter** is a required C# regex of the computer or VM name.
-    - '.*' will match all
-    - 'ComputerName' will match only computers with the exact name specified.
+    - '.*' matches all
+    - 'ComputerName' matches only computers with the exact name specified.
 - **AppFilter** is a required C# regex of the IIS Site Name. You can get a list of sites on your server by running the command [get-iissite](/powershell/module/iisadministration/get-iissite).
-    - '.*' will match all
-    - 'SiteName' will match only the IIS Site with the exact name specified.
+    - '.*' matches all
+    - 'SiteName' matches only the IIS Site with the exact name specified.
 - **InstrumentationKey** is required to enable monitoring of apps that match the preceding two filters.
     - Leave this value null if you want to define rules to exclude monitoring.
 
@@ -456,7 +465,7 @@ The instrumentation engine adds overhead and is off by default.
 ##### -IgnoreSharedConfig
 When you have a cluster of web servers, you might be using a [shared configuration](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
 The HttpModule can't be injected into this shared configuration.
-This script will fail with the message that extra installation steps are required.
+This script fails with the message that extra installation steps are required.
 Use this switch to ignore this check and continue installing prerequisites.
 For more information, see [known conflict-with-iis-shared-configuration](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
 
@@ -533,7 +542,7 @@ Configuring registry for instrumentation engine...
 ### Disable-ApplicationInsightsMonitoring
 
 Disables monitoring on the target computer.
-This cmdlet will remove edits to the IIS applicationHost.config and remove registry keys.
+This cmdlet removes edits to the IIS applicationHost.config and remove registry keys.
 
 #### Examples
 
@@ -604,7 +613,7 @@ Filters:
 
 This cmdlet provides troubleshooting information about Application Insights Agent.
 Use this cmdlet to investigate the monitoring status, version of the PowerShell Module, and to inspect the running process.
-This cmdlet will report version information and information about key files required for monitoring.
+This cmdlet reports version information and information about key files required for monitoring.
 
 #### Examples
 
@@ -645,11 +654,11 @@ AppAlreadyInstrumented : true
 ```
 
 In this example;
-- **Machine Identifier** is an anonymous ID used to uniquely identify your server. If you create a support request, we'll need this ID to find logs for your server.
+- **Machine Identifier** is an anonymous ID used to uniquely identify your server. If you create a support request, we need this ID to find logs for your server.
 - **Default Web Site** is Stopped in IIS
 - **DemoWebApp111** has been started in IIS, but hasn't received any requests. This report shows that there's no running process (ProcessId: not found).
 - **DemoWebApp222** is running and is being monitored (Instrumented: true). Based on the user configuration, Instrumentation Key xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 was matched for this site.
-- **DemoWebApp333** has been manually instrumented using the Application Insights SDK. Application Insights Agent detected the SDK and won't monitor this site.
+- **DemoWebApp333** has been manually instrumented using the Application Insights SDK. Application Insights Agent detected the SDK and doesn't monitor this site.
 
 
 ##### Example: PowerShell module information
@@ -748,7 +757,7 @@ listdlls64.exe -accepteula w3wp
 
 ##### (No parameters)
 
-By default, this cmdlet will report the monitoring status of web applications.
+By default, this cmdlet reports the monitoring status of web applications.
 Use this option to review if your application was successfully instrumented.
 You can also review which Instrumentation Key was matched to your site.
 
@@ -760,7 +769,7 @@ Use this option if you need to identify the version of any DLL, including the Ap
 ##### -InspectProcess
 
 **Optional**. Use this switch to report whether IIS is running.
-It will also download external tools to determine if the necessary DLLs are loaded into the IIS runtime.
+It downloads external tools to determine if the necessary DLLs are loaded into the IIS runtime.
 
 
 If this process fails for any reason, you can run these commands manually:
@@ -771,7 +780,7 @@ If this process fails for any reason, you can run these commands manually:
 
 ##### -Force
 
-**Optional**. Used only with InspectProcess. Use this switch to skip the user prompt that appears before additional tools are downloaded.
+**Optional**. Used only with InspectProcess. Use this switch to skip the user prompt that appears before more tools are downloaded.
 
 
 ### Set-ApplicationInsightsMonitoringConfig
@@ -786,7 +795,7 @@ Restart IIS for your changes to take effect.
 #### Examples
 
 ##### Example with a single instrumentation key
-In this example, all apps on the current computer will be assigned a single instrumentation key.
+In this example, all apps on the current computer are assigned a single instrumentation key.
 
 ```powershell
 Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -795,10 +804,10 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ##### Example with an instrumentation key map
 In this example:
 - `MachineFilter` matches the current computer by using the `'.*'` wildcard.
-- `AppFilter='WebAppExclude'` provides a `null` instrumentation key. The specified app won't be instrumented.
+- `AppFilter='WebAppExclude'` provides a `null` instrumentation key. The specified app isn't instrumented.
 - `AppFilter='WebAppOne'` assigns the specified app a unique instrumentation key.
 - `AppFilter='WebAppTwo'` assigns the specified app a unique instrumentation key.
-- Finally, `AppFilter` also uses the `'.*'` wildcard to match all web apps that aren't matched by the earlier rules and assign a default instrumentation key.
+- `AppFilter` uses the `'.*'` wildcard to match web apps it doesn't already match and assigns a default instrumentation key.
 - Spaces are added for readability.
 
 ```powershell
@@ -819,17 +828,17 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 You can create a single installation script for several computers by setting `MachineFilter`.
 
 > [!IMPORTANT]
-> Apps will match against rules in the order that the rules are provided. So you should specify the most specific rules first and the most generic rules last.
+> Apps matches against rules in the order that the rules are provided. So you should specify the most specific rules first and the most generic rules last.
 
 ###### Schema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
 - **MachineFilter** is a required C# regex of the computer or VM name.
-    - '.*' will match all
-    - 'ComputerName' will match only computers with the specified name.
+    - '.*' matches all
+    - 'ComputerName' matches only computers with the specified name.
 - **AppFilter** is a required C# regex of the computer or VM name.
-    - '.*' will match all
-    - 'ApplicationName' will match only IIS apps with the specified name.
+    - '.*' matches all
+    - 'ApplicationName' matches only IIS apps with the specified name.
 - **InstrumentationKey** is required to enable monitoring of the apps that match the preceding two filters.
     - Leave this value null if you want to define rules to exclude monitoring.
 
@@ -873,9 +882,9 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 Collects [ETW Events](/windows/desktop/etw/event-tracing-portal) from the codeless attach runtime.
 This cmdlet is an alternative to running [PerfView](https://github.com/microsoft/perfview).
 
-Collected events will be printed to the console in real-time and saved to an ETL file. The output ETL file can be opened by [PerfView](https://github.com/microsoft/perfview) for further investigation.
+Events are collected, printed to the console in real-time, and saved to an ETL file. You can open the output ETL file with [PerfView](https://github.com/microsoft/perfview) for further investigation.
 
-This cmdlet will run until it reaches the timeout duration (default 5 minutes) or is stopped manually (`Ctrl + C`).
+This cmdlet runs until it reaches the timeout duration (default 5 minutes) or is stopped manually (`Ctrl + C`).
 
 #### Examples
 
@@ -883,12 +892,12 @@ This cmdlet will run until it reaches the timeout duration (default 5 minutes) o
 
 Normally we would ask that you collect events to investigate why your application isn't being instrumented.
 
-The codeless attach runtime will emit ETW events when IIS starts up and when your application starts up.
+The codeless attach runtime emits ETW events when IIS starts up and when your application starts up.
 
 To collect these events:
-1. In a cmd console with admin privileges, execute `iisreset /stop` To turn off IIS and all web apps.
+1. In a cmd console with admin privileges, execute `iisreset /stop` to stop IIS and all web apps.
 2. Execute this cmdlet
-3. In a cmd console with admin privileges, execute `iisreset /start` To start IIS.
+3. In a cmd console with admin privileges, execute `iisreset /start` to start IIS.
 4. Try to browse to your app.
 5. After your app finishes loading, you can manually stop it (`Ctrl + C`) or wait for the timeout.
 
@@ -898,7 +907,7 @@ You have three options when collecting events:
 1. Use the switch `-CollectSdkEvents` to collect events emitted from the Application Insights SDK.
 2. Use the switch `-CollectRedfieldEvents` to collect events emitted by Application Insights Agent and the Redfield Runtime. These logs are helpful when diagnosing IIS and application startup.
 3. Use both switches to collect both event types.
-4. By default, if no switch is specified both event types will be collected.
+4. By default, if no switch is specified both event types are collected.
 
 
 #### Parameters
@@ -908,8 +917,8 @@ You have three options when collecting events:
 
 ##### -LogDirectory
 **Optional.** Use this switch to set the output directory of the ETL file.
-By default, this file will be created in the PowerShell Modules directory.
-The full path will be displayed during script execution.
+By default, this file is created in the PowerShell Modules directory.
+The full path is displayed during script execution.
 
 
 ##### -CollectSdkEvents
@@ -961,16 +970,16 @@ The release note updates are listed here.
 
 ### 2.0.0
 
-- Updated the Application Insights .NET/.NET Core SDK to 2.21.0-redfield
+- Updated the Application Insights .NET/.NET Core SDK to `2.21.0-redfield`
 
 ### 2.0.0-beta3
 
-- Updated the Application Insights .NET/.NET Core SDK to 2.20.1-redfield
+- Updated the Application Insights .NET/.NET Core SDK to `2.20.1-redfield`
 - Enabled SQL query collection
 
 ### 2.0.0-beta2
 
-Updated the Application Insights .NET/.NET Core SDK to 2.18.1-redfield
+Updated the Application Insights .NET/.NET Core SDK to `2.18.1-redfield`
 
 ### 2.0.0-beta1
 
@@ -993,7 +1002,7 @@ Each of these options is described in the [detailed instructions](?tabs=detailed
 
 ### Does Application Insights Agent support ASP.NET Core applications?
 
-  Yes. Starting from [Application Insights Agent 2.0.0](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0), ASP.NET Core applications hosted in IIS are supported.
+  Yes. In [Application Insights Agent 2.0.0](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0) and later, ASP.NET Core applications hosted in IIS are supported.
 
 ### How do I verify that the enablement succeeded?
 
@@ -1030,7 +1039,7 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 
 View your telemetry:
 - [Explore metrics](../essentials/metrics-charts.md) to monitor performance and usage.
-- [Search events and logs](./search-and-transaction-diagnostics.md?tabs=transaction-search) to diagnose problems.
+- [Search events and logs](./transaction-search-and-diagnostics.md?tabs=transaction-search) to diagnose problems.
 - [Use Log Analytics](../logs/log-query-overview.md) for more advanced queries.
 - [Create dashboards](./overview-dashboard.md).
 

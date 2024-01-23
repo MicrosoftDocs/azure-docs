@@ -1,11 +1,10 @@
 ---
 title: include file
 description: include file
-services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 04/11/2022
+ms.date: 11/27/2023
 ms.author: spelluru
 ms.custom: "include file"
 

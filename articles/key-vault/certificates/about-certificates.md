@@ -173,10 +173,6 @@ As an example, here are some use cases of using certificates to secure communica
 * **IoT and networking devices**: Protect and secure your devices by using certificates for authentication and communication.
 * **Cloud/multicloud**: Secure cloud-based applications on-premises, cross-cloud, or in your cloud provider's tenant.
 
-### Code signing
-
-A certificate can help secure the code/script of software, to ensure that the author can share the software over the internet without interference by malicious entities. After the author signs the code by using a certificate and taking advantage of code-signing technology, the software is marked with a stamp of authentication that displays the author and their website. The certificate used in code signing helps validate the software's authenticity, promoting end-to-end security.
-
 ## Next steps
 - [Certificate creation methods](create-certificate.md)
 - [About Key Vault](../general/overview.md)

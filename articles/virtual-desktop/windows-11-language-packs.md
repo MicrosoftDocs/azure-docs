@@ -3,7 +3,7 @@ title: Install language packs on Windows 11 Enterprise VMs in Azure Virtual Desk
 description: How to install language packs for Windows 11 Enterprise VMs in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 10/20/2023
 ms.author: helohr
 manager: femila
 ---
@@ -18,7 +18,7 @@ When your organization includes users with multiple different languages, you hav
 
 The second option is more efficient in terms of resources and cost, but requires a few extra steps. Fortunately, this article will help walk you through how to build an image that can accommodate users of all languages and localization needs.
 
-## Requirements
+## Prerequisites
 
 Before you can add languages to a Windows 11 Enterprise VM, you'll need to have the following things ready:
 
@@ -26,10 +26,10 @@ Before you can add languages to a Windows 11 Enterprise VM, you'll need to have 
 - A Language and Optional Features ISO and Inbox Apps ISO of the OS version the image uses. You can download them here:
   - Language and Optional Features ISO:
     - [Windows 11, version 21H2 Language and Optional Features ISO](https://software-download.microsoft.com/download/sg/22000.1.210604-1628.co_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
-    - [Windows 11, version 22H2 Language and Optional Features ISO](https://software-static.download.prss.microsoft.com/dbazure/988969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
+    - [Windows 11, version 22H2 and 23H2 Language and Optional Features ISO](https://software-static.download.prss.microsoft.com/dbazure/988969d5-f34g-4e03-ac9d-1f9786c66749/22621.1.220506-1250.ni_release_amd64fre_CLIENT_LOF_PACKAGES_OEM.iso)
   - Inbox Apps ISO:
     - [Windows 11, version 21H2 Inbox Apps ISO](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22000.2003.230512-1746.co_release_svc_prod3_amd64fre_InboxApps.iso)
-    - [Windows 11, version 22H2 Inbox Apps ISO](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.1778.230511-2102.ni_release_svc_prod3_amd64fre_InboxApps.iso)
+    - [Windows 11, version 22H2 and 23H2 Inbox Apps ISO](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66749/22621.2501.231009-1937.ni_release_svc_prod3_amd64fre_InboxApps.iso)
 - An Azure Files share or a file share on a Windows File Server VM
 
 >[!NOTE]
@@ -41,7 +41,7 @@ To create the content repository you'll use to add languages and features to you
 
 1. Open the VM you want to add languages to in Azure.
 
-2. Open and mount the ISO file you downloaded in the [Requirements](#requirements) section above on the VM.
+2. Open and mount the ISO file you downloaded in the [Prerequisites](#prerequisites) section above on the VM.
 
 3. Create a folder on the file share.
 

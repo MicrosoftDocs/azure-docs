@@ -47,7 +47,7 @@ An environment is a collection of Azure resources on which your application is d
 
 in Azure Deployment Environments, you use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) to provide elevation-of-privilege capabilities. Identities can help you provide self-serve capabilities to your development teams without giving them access to the target subscriptions in which the Azure resources are created. 
 
-The managed identity that's attached to the dev center needs to be granted appropriate access to connect to the catalogs. You should grant owner access to the target deployment subscriptions that are configured at the project level. The Azure Deployment Environments service uses the specific managed identity to perform the deployment on behalf of the developer.
+The managed identity that's attached to the dev center needs to be granted appropriate access to connect to the catalogs. You should grant Contributor and User Access Administrator access to the target deployment subscriptions that are configured at the project level. The Azure Deployment Environments service uses the specific managed identity to perform the deployment on behalf of the developer.
 
 ## Dev center environment types
 
@@ -70,7 +70,7 @@ Deployment environments scan the specified folder of the repository to find [env
 
 ## Environment definitions
 
-An environment definition is a combination of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Your development teams use the items that you provide in the catalog to create environments in Azure.
+An environment definition is a combination of an IaC template and an environment file that acts as a manifest. The template defines the environment, and the environment file provides metadata about the template. Your development teams use the items that you provide in the catalog to create environments in Azure.
 
 > [!NOTE]
 > Azure Deployment Environments uses Azure Resource Manager (ARM) templates.

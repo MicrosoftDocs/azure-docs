@@ -2,12 +2,12 @@
 title: Custom named entity recognition - Azure AI services
 titleSuffix: Azure AI services
 description: Customize an AI model to label and extract information from documents using Azure AI services.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: overview
-ms.date: 02/22/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---

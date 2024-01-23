@@ -7,8 +7,6 @@ ms.author: franlanglois
 ms.topic: conceptual
 ms.date: 01/18/2023
 
-ms.custom: event-tier1-build-2022
-
 ---
 
 # Troubleshooting NGINXaaS integration with Azure
@@ -26,6 +24,10 @@ You can get support for your NGINXaaS deployment through a **New Support request
     :::image type="content" source="media/nginx-troubleshoot/nginx-support-request.png" alt-text="Screenshot of a new NGINXaaS support ticket.":::
 
 ## Troubleshooting
+
+### Marketplace purchase errors
+
+[!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
 ### Unable to create an NGINXaaS resource as not a subscription owner  
 

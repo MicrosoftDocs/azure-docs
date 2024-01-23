@@ -292,7 +292,7 @@
     items:
     - name: Monitoring Virtual WAN
       href: monitor-virtual-wan.md
-    - name: Monitoring - best practices
+    - name: Monitoring - Best practices
       href: monitoring-best-practices.md
     - name: Azure Monitor Insights
       href: azure-monitor-insights.md
@@ -308,6 +308,8 @@
         href: packet-capture-site-to-site-powershell.md
     - name: Advanced Monitoring for P2S VPN
       href: monitor-point-to-site-connections.md
+  - name: Configure customer-controlled gateway maintenance
+    href: customer-controlled-gateway-maintenance.md
 - name: Reference
   items:
   - name: Monitoring data

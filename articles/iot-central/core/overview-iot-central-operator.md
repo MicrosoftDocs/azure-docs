@@ -13,7 +13,7 @@ ms.custom: [mvc, iot-central-frontdoor]
 
 # IoT Central device management guide
 
-An IoT Central application lets you monitor and manage millions of devices throughout their life cycle.
+An IoT Central application lets you monitor and manage hundreds of thousands of devices throughout their life cycle.
 
 IoT Central lets you complete device management tasks such as:
 
