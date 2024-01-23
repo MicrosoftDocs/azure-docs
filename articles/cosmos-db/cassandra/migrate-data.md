@@ -58,7 +58,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
       }
     ```
 
-* **Allocate the required throughput:** Azure Cosmos DB can automatically scale storage and throughput as your requirements grow. You can estimate your throughput needs by using the [Azure Cosmos DB request unit calculator](https://www.documentdb.com/capacityplanner). 
+* **Allocate the required throughput:** Azure Cosmos DB can automatically scale storage and throughput as your requirements grow. You can estimate your throughput needs by using the [Azure Cosmos DB request unit calculator](https://cosmos.azure.com/capacitycalculator). 
 
 * **Create tables in the API for Cassandra account:** Before you start migrating data, pre-create all your tables from the Azure portal or from `cqlsh`. If you're migrating to an Azure Cosmos DB account that has database-level throughput, make sure to provide a partition key when you create the containers.
 
