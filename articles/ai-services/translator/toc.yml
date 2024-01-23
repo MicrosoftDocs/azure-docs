@@ -114,7 +114,7 @@ items:
       href: reference/v3-0-dictionary-examples.md
 - name: Document translation
   items:
-  - name: What are batch and file document translation?
+  - name: What is Document Translation?
     displayName: ocr,batch,features,development,formats,file types
     href: document-translation/overview.md
   - name: Authentication and authorization
@@ -135,7 +135,7 @@ items:
       - name:  Batch Translation REST APIs
         displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,setup
         href: document-translation/quickstarts/async-translation-rest-api.md
-    - name: 🆕 File translation (preview)
+    - name: 🆕 File translation
       items:
       - name: File translation REST APIs (preview)
         displayName: get started,keys,endpoint,headers,setup
@@ -156,24 +156,26 @@ items:
     - name: Batch Translation REST API guide
       displayName: get,post,cancel,delete
       href: document-translation/reference/rest-api-guide.md
-    - name: Get supported document formats
-      href: document-translation/reference/get-supported-document-formats.md
-    - name: Get supported glossary formats
-      href: document-translation/reference/get-supported-glossary-formats.md
-    - name: Get supported storage sources
-      href: document-translation/reference/get-supported-storage-sources.md
-    - name: Start translation
-      href: document-translation/reference/start-translation.md
-    - name: Get documents status
-      href: document-translation/reference/get-documents-status.md
-    - name: Get document status
-      href: document-translation/reference/get-document-status.md
-    - name: Get translations status
-      href: document-translation/reference/get-translations-status.md
-    - name: Get translation status
-      href: document-translation/reference/get-translation-status.md
-    - name: Cancel translation
-      href: document-translation/reference/cancel-translation.md
+    - name: Batch operations
+      items:
+      - name: Get supported document formats
+        href: document-translation/reference/get-supported-document-formats.md
+      - name: Get supported glossary formats
+        href: document-translation/reference/get-supported-glossary-formats.md
+      - name: Get supported storage sources
+        href: document-translation/reference/get-supported-storage-sources.md
+      - name: Start translation
+        href: document-translation/reference/start-translation.md
+      - name: Get documents status
+        href: document-translation/reference/get-documents-status.md
+      - name: Get document status
+        href: document-translation/reference/get-document-status.md
+      - name: Get translations status
+        href: document-translation/reference/get-translations-status.md
+      - name: Get translation status
+        href: document-translation/reference/get-translation-status.md
+      - name: Cancel translation
+        href: document-translation/reference/cancel-translation.md
   - name: Document Translation FAQ
     href: document-translation/faq.md
 - name: Containers
