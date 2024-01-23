@@ -13,6 +13,8 @@ This document explains how to use the Cloud Shell window. Cloud Shell recently u
 interface for the Cloud Shell terminal window. The new toolbar uses text-based menu items rather
 than icons, making it easier to find the desired action.
 
+![Screenshot of the new Cloud Shell user experience.][05]
+
 ## Switch between Bash and PowerShell
 
 Use the environment selector in the Cloud Shell toolbar to switch between Bash and PowerShell
@@ -20,13 +22,13 @@ environments. When Cloud Shell is configured to start in PowerShell, the button 
 to Bash**. When Cloud Shell is configured to start in Bash, the button is labeled **Switch to
 PowerShell**.
 
-![Screenshot of the Switch shells button.][07]
+![Screenshot of the Switch shells button.][08]
 
 ## Restart Cloud Shell
 
 Select the restart icon in the Cloud Shell toolbar to reset machine state.
 
-![Screenshot of the Restart button.][05]
+![Screenshot of the Restart button.][06]
 
 > [!WARNING]
 > Restarting Cloud Shell resets machine state and any files not persisted in an Azure fileshare are
@@ -41,7 +43,7 @@ across sessions unless you select **Reset User Settings**.
 When you select **Reset User Settings**, the current session is closed and your settings are reset.
 You're prompted to restart as if this is your first time using Cloud Shell.
 
-![Screenshot of the Settings menu.][06]
+![Screenshot of the Settings menu.][07]
 
 ## Manage files menu
 
@@ -81,7 +83,7 @@ displays a confirmation form before switching you to the Classic user experience
 
 ![Screenshot of the Cloud Shell editor button][02]
 
-For more information, see [Using the Azure Cloud Shell editor][10].
+For more information, see [Using the Azure Cloud Shell editor][11].
 
 ## Web preview menu
 
@@ -89,7 +91,7 @@ The **Web preview** feature allows you to open ports on your Cloud Shell contain
 with running applications. The **Web preview** menu allows you to enter the port number that you
 want to open.
 
-![Screenshot of the Web preview button.][09]
+![Screenshot of the Web preview button.][10]
 
 Select **Open port** to only open the port. Select **Open and browse** to open the port and preview
 the port in a new browser tab.
@@ -100,16 +102,16 @@ port, or open another port.
 ![Screenshot of Web Preview menu with open ports.][01]
 
 To preview an open port in a new tab, select the web preview icon on the top left of the window then
-select **Preview port <number>**.
+select **Preview port \<number\>**.
 
 To close the open port, select the web preview icon on the top left of the window the select **Close
-port <number>**.
+port \<number\>**.
 
 ## Minimize, maximize, or close the Cloud Shell window
 
 The icons on the top right of the window are used to manage the state of the Cloud Shell window.
 
-![Screenshot of Cloud Shell toolbar.][08]
+![Screenshot of Cloud Shell toolbar.][09]
 
 When you select the **Minimize** button, the Cloud Shell terminal is hidden and the Azure portal is
 displayed. The Cloud Shell session is still running. Select the Cloud Shell icon again to unhide the
@@ -145,16 +147,17 @@ minutes without interaction.
 
 ## Next steps
 
-[Using the Azure Cloud Shell editor][10]
+[Using the Azure Cloud Shell editor][11]
 
 <!-- link references -->
 [01]: media/new-ui-shell-window/close-port.png
 [02]: media/new-ui-shell-window/editor.png
 [03]: media/new-ui-shell-window/manage-files.png
 [04]: media/new-ui-shell-window/new-session.png
-[05]: media/new-ui-shell-window/restart-cloud-shell.png
-[06]: media/new-ui-shell-window/settings-menu.png
-[07]: media/new-ui-shell-window/switch-to-bash.png
-[08]: media/new-ui-shell-window/toolbar.png
-[09]: media/new-ui-shell-window/web-preview.png
-[10]: using-cloud-shell-editor.md
+[05]: media/new-ui-shell-window/new-ui-fullscreen.png
+[06]: media/new-ui-shell-window/restart-cloud-shell.png
+[07]: media/new-ui-shell-window/settings-menu.png
+[08]: media/new-ui-shell-window/switch-to-bash.png
+[09]: media/new-ui-shell-window/toolbar.png
+[10]: media/new-ui-shell-window/web-preview.png
+[11]: using-cloud-shell-editor.md
