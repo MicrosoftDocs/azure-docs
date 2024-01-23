@@ -1,6 +1,6 @@
 ---
 title: Properties, operators, and operations in storage task conditions
-titleSuffix: Azure Storage Actions
+titleSuffix: Azure Storage Actions Preview
 description: Learn about the elements of conditions and operations in a storage task.
 services: storage
 author: normesta

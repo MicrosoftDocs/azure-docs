@@ -1,6 +1,6 @@
 ---
 title: Define storage task conditions & operations
-titleSuffix: Azure Storage Actions
+titleSuffix: Azure Storage Actions Preview
 description: Learn how to define the conditions and operations of a storage task by using a visual editor.
 author: normesta
 ms.service: azure-storage-actions
@@ -29,7 +29,7 @@ Navigate to the storage task in the Azure portal and then under **Storage task m
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Conditions button and the Conditions editor.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-condition-editor.png)
 
-The **Visual builder** tab of the **Conditions** pane appears. 
+The **Visual builder** tab of the **Conditions** pane appears.
 
 ## Define conditions
 

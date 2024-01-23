@@ -1,6 +1,6 @@
 ---
 title: Storage Actions monitoring data reference
-titleSuffix: Azure Storage Actions
+titleSuffix: Azure Storage Actions Preview
 description: Important reference material needed when you monitor Azure Storage Actions.
 author: normesta
 
