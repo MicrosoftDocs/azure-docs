@@ -158,6 +158,19 @@ The [change feed](change-feed-overview.md) records update actions in the same ma
 ## Supported DICOM modules
 Any attributes in the [Patient Identification Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-2) and [Patient Demographic Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-3) that aren't sequences can be updated using the bulk update operation. Supported attributes are called out in the tables.
 
+### What changed in DICOM file
+
+As part of bulk update, only DICOM metadata is updated. The pixel data is not updated. Pixel data will be same as the original version.
+
+Other than updating the metadata, the file meta information of the DICOM file is updated with the below information.
+
+| Tag           | Attribute name        | Description           | Value
+| --------------| --------------------- | --------------------- | --------------|
+| (0002,0012)   | Implementation Class UID | Uniquely identifies the implementation that wrote this file and its content. | 1.3.6.1.4.1.311.129 |
+| (0002,0013)   | Implementation Version Name | Identifies a version for an Implementation Class UID (0002,0012) | Assembly version of the DICOM service (e.g. 0.1.4785) |
+
+Here, the UID `1.3.6.1.4.1.311.129` is a registered under [Microsoft OID arc](https://oidref.com/1.3.6.1.4.1.311) in IANA.
+
 #### Patient identification module attributes
 | Attribute Name   | Tag           | Description           |
 | ---------------- | --------------| --------------------- |
