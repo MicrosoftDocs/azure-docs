@@ -7,7 +7,7 @@ ms.author: jacodel
 manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: conceptual
-ms.date: 05/24/2021
+ms.date: 01/19/2024
 ms.custom: mode-other
 ---
 

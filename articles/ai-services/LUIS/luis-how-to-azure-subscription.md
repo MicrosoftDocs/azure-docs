@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 01/19/2024
 ms.custom: contperf-fy21q4, devx-track-azurecli 
 ms.devlang: azurecli
 ---

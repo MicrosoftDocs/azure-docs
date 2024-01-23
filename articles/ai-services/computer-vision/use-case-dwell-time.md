@@ -8,11 +8,11 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 07/22/2022
+ms.date: 01/19/2024
 ms.author: pafarley
 ---
 
-# Overview: Monitor dwell time in front of displays with Spatial Analysis 
+# Monitor dwell time in front of displays with Spatial Analysis 
 
 Spatial Analysis can provide real-time information about how long customers spend in front of a display in a retail store. The service monitors the length of time customers spend in a zone you specify. You can use this information to track customer engagement with promotions/displays within a store or understand customers' preference toward specific products. 
 

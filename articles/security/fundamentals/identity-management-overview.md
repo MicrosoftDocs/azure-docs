@@ -2,7 +2,6 @@
 title: Azure security features that help with identity management | Microsoft Docs
 description: Learn about the core Azure security features that help with identity management. See information about topics like single sign-on and reverse proxy.
 services: security
-documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
 
@@ -10,8 +9,6 @@ ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/05/2022
 ms.author: terrylan
 # Customer intent: As an IT Pro or decision maker, I am trying to learn about identity management capabilities in Azure

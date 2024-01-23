@@ -611,5 +611,5 @@ Enrollments where all associated accounts and services have been transferred to 
 
 ## Next steps
 
-- If you need to create an Azure support request for your EA enrollment, see [How to create an Azure support request for an Enterprise Agreement issue](how-to-create-azure-support-request-ea.md).
+- If you need to create an Azure support request for your EA enrollment, see [How to create an Azure support request for an Enterprise Agreement issue](../troubleshoot-billing/how-to-create-azure-support-request-ea.md).
 - Read the [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) for questions about EA subscription ownership.

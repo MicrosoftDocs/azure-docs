@@ -3,8 +3,6 @@ title: Azure encryption overview | Microsoft Docs
 description: Learn about encryption options in Azure. See information for encryption at rest, encryption in flight, and key management with Azure Key Vault.
 services: security
 author: msmbaldwin
-
-ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.custom: ignite-2022

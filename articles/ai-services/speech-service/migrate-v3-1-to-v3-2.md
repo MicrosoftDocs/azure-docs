@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/23/2023
+ms.date: 1/21/2024
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Migrate code from v3.1 to v3.2 of the REST API
 
-The Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). Changes from version 3.1 to 3.2 are described in the sections below.
+The Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [custom speech](custom-speech-overview.md). This article describes changes from version 3.1 to 3.2.
 
 > [!IMPORTANT]
 > Speech to text REST API v3.2 is available in preview. 
@@ -35,7 +35,7 @@ For more information, see [Operation IDs](#operation-ids) later in this guide.
 
 ### Backwards compatibility limitations
 
-Don't use Speech to text REST API v3.0 or v3.1 to retrieve a transcription created via Speech to text REST API v3.2. You'll see an error message such as the following: "The API version can't be used to access this transcription. Please use API version v3.2 or higher."
+Don't use Speech to text REST API v3.0 or v3.1 to retrieve a transcription created via Speech to text REST API v3.2. You might see an error message such as: "The API version can't be used to access this transcription. Use API version v3.2 or higher."
 
 ### Language identification mode
 
@@ -48,7 +48,7 @@ Azure AI Speech now supports OpenAI's Whisper model via Speech to text REST API 
 > [!NOTE]
 > Azure OpenAI Service also supports OpenAI's Whisper model for speech to text with a synchronous REST API. To learn more, check out the [quickstart](../openai/whisper-quickstart.md). Check out [What is the Whisper model?](./whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
 
-## Custom Speech
+## Custom speech
 
 > [!IMPORTANT]
 > You'll be charged for custom speech model training if the base model was created on October 1, 2023 and later. You are not charged for training if the base model was created prior to October 2023. For more information, see [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -88,7 +88,7 @@ Added a definition for `OutputFormatType` with `Lexical` and `Display` enum valu
 
 The `OutputFormattingData` enum value is added to `FileKind` (type of input data).
 
-The `supportedOutputFormat` property is added to `BaseModelFeatures`. This is within the `BaseModel` definition.
+The `supportedOutputFormat` property is added to `BaseModelFeatures`. This property is within the `BaseModel` definition.
 
 ```json
 "BaseModelFeatures": {
@@ -123,7 +123,7 @@ The `supportedOutputFormat` property is added to `BaseModelFeatures`. This is wi
 
 ### Charge for adaptation
 
-The `chargeForAdaptation` property is added to `BaseModelProperties`. This is within the `BaseModel` definition.
+The `chargeForAdaptation` property is added to `BaseModelProperties`. This property is within the `BaseModel` definition.
 
 > [!IMPORTANT]
 > You'll be charged for custom speech model training if the base model was created on October 1, 2023 and later. You are not charged for training if the base model was created prior to October 2023. For more information, see [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).

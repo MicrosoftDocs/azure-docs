@@ -160,6 +160,8 @@ The following message is displayed when the container app is deployed:
 
 :::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Screenshot of container app web page.":::
 
+[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
+
 ## Clean up resources
 
 If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this quickstart.

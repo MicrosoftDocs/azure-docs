@@ -51,7 +51,7 @@ The following table summarizes each plan and their cloud availability.
 
 
 > [!NOTE]
-> Starting March 1, 2024, Defender CSPM must be enabled to have premium DevOps security capabilities that include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings. See DevOps security [support and prerequisites](devops-support.md) to learn more.
+> Starting March 7, 2024, Defender CSPM must be enabled to have premium DevOps security capabilities that include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings. See DevOps security [support and prerequisites](devops-support.md) to learn more.
 
 
 ## Integrations (preview)
@@ -68,7 +68,7 @@ You can choose which ticketing system to integrate. For preview, only ServiceNow
 
 - Defender CSPM for GCP is free until January 31, 2024.
 
-- From March 1, 2023, advanced DevOps security posture capabilities will only be available through the paid Defender CSPM plan. Free foundational security posture management in Defender for Cloud will continue providing a number of Azure DevOps recommendations. Learn more about [DevOps security features](devops-support.md#azure-devops).
+- From March 7, 2024, advanced DevOps security posture capabilities will only be available through the paid Defender CSPM plan. Free foundational security posture management in Defender for Cloud will continue providing a number of Azure DevOps recommendations. Learn more about [DevOps security features](devops-support.md#azure-devops).
 
 - For subscriptions that use both Defender CSPM and Defender for Containers plans, free vulnerability assessment is calculated based on free image scans provided via the Defender for Containers plan, as summarized [in the Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
