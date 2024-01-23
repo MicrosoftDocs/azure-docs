@@ -92,20 +92,20 @@ If the data distribution on the source is highly skewed, with most of the data p
 
 1. The table must have a column with a simple (not composite) primary key or unique index of type int or significant int.
 
-> [!NOTE]  
-> In the case of approaches #2 or #3, the user must carefully evaluate the implications of adding a unique index column to the source schema. Only after confirmation that adding a unique index column will not affect the application should the user go ahead with the changes.
+    > [!NOTE]  
+    > In the case of approaches #2 or #3, the user must carefully evaluate the implications of adding a unique index column to the source schema. Only after confirmation that adding a unique index column will not affect the application should the user go ahead with the changes.
 
 1. If the table doesn't have a simple primary key or unique index of type int or significant int but has a column that meets the data type criteria, the column can be converted into a unique index using the command below. This command doesn't require a lock on the table.
 
-```sql
-    create unique index concurrently partkey_idx on <table name> (column name);
-```
+    ```sql
+        create unique index concurrently partkey_idx on <table name> (column name);
+    ```
 
 1. If the table doesn't have a simple int/big int primary key or unique index or any column that meets the data type criteria, you can add such a column using [ALTER](https://www.postgresql.org/docs/current/sql-altertable.html) and drop it post-migration. Running the ALTER command requires a lock on the table.
 
-```sql
-    alter table <table name> add column <column name> big serial unique;
-```
+    ```sql
+        alter table <table name> add column <column name> big serial unique;
+    ```
 
 If any of the above conditions are satisfied, the table is migrated in multiple partitions in parallel, which should provide a marked increase in the migration speed.
 
