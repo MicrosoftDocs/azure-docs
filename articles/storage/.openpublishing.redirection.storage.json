@@ -1,11 +1,6 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/storage/common/storage-failover-customer-managed-planned.md",
-            "redirect_url": "/articles/storage/common/storage-failover-customer-managed-unplanned",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/storage/queues/storage-c-plus-plus-how-to-use-queues.md",
             "redirect_url": "/previous-versions/azure/storage/queues/storage-c-plus-plus-how-to-use-queues",
             "redirect_document_id": false
