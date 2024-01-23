@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 11/03/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Authorize access to blobs and files with AzCopy and Microsoft Entra ID
@@ -320,8 +321,8 @@ If you sign in by using Azure PowerShell, then Azure PowerShell obtains an OAuth
 
 To enable AzCopy to use that token, type the following command, and then press the ENTER key.
 
-```bash
-export AZCOPY_AUTO_LOGIN_TYPE=PSCRED
+```PowerShell
+$Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
 ```
 
 For more information about how to sign in with the Azure PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).

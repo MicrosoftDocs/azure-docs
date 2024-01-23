@@ -3,10 +3,10 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 06/9/2023
+ms.date: 01/10/2024
 ---
 
-<!-- 
+<!--
 For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps with Basic/Standard plan.
 
 [!INCLUDE [deploy-microservice-apps-with-basic-standard-plan](includes/quickstart-deploy-microservice-apps/deploy-microservice-apps-with-basic-standard-plan.md)]
@@ -17,27 +17,13 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-Use the following steps to prepare the sample locally.
-
-1. Use the following command to clone the sample GitHub project:
-
-   ```bash
-   git clone https://github.com/Azure-Samples/spring-petclinic-microservices.git
-   ```
-
-1. Use the following command to change to the sample root path and execute the shell script to run the sample project locally:
-
-   ```bash
-   bash ./scripts/run_all_without_infra.sh
-   ```
-
-1. After the script executes successfully, go to `http://localhost:8080` in your browser to access the PetClinic app.
+[!INCLUDE [prepare-spring-project](prepare-spring-project.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
 Use the following steps to initialize the Pet Clinic application using Azure Developer CLI templates:
 
-1. Open a terminal, create a new, empty folder, and then navigate to it.
+1. In the Bash window, create a new, empty folder and then navigate to it.
 
 1. Use the following command to initialize the project:
 
@@ -53,11 +39,11 @@ Use the following steps to initialize the Pet Clinic application using Azure Dev
 
    ```output
    Initializing a new project (azd init)
-   
+
    Downloading template code to: <your-local-path>
    (✓) Done: Initialized git repository
    Enter a new environment name: <your-env-name>
-   
+
    SUCCESS: New project initialized!
    You can view the template code in your directory: <your-local-path>
    Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
@@ -98,7 +84,7 @@ Use the following steps to create the service instance:
    | **Name**           | *myasa*                           | A unique name that identifies your Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
    | **Plan**           | **Standard**                      | The pricing plan determines the resources and cost associated with your instance.                                                                                                                                                                                                                   |
    | **Region**         | The region closest to your users. | The location that is closest to your users.                                                                                                                                                                                                                                                         |
-   | **Zone Redundant** | Unchecked                         | Creates your Azure Spring Apps service in an Azure availability zone. Not currently supported in all regions.                                                                                                                                                                                       |
+   | **Zone Redundant** | Unselected                        | Creates your Azure Spring Apps service in an Azure availability zone. Not currently supported in all regions.                                                                                                                                                                                       |
 
 1. Navigate to the **Diagnostic settings** tab on the **Create Azure Spring Apps** page and then select **Create new** to create a new Log Analytics workspaces instance. On the **Create new Log Analytics workspace** page, update the name of the **Log Analytics workspace** as needed, and then select **OK** to confirm the creation.
 
@@ -118,7 +104,7 @@ Use the following steps to create the service instance:
 
 1. Select **Config Server** in the navigation pane.
 
-1. On the **Config Server** page, for **URI**, enter *`https://github.com/Azure-Samples/spring-petclinic-microservices-config.git`*, and then select **Validate**.
+1. On the **Config Server** page, for **URI**, enter *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git* and then select **Validate**.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/validate-config-server.png" alt-text="Screenshot of the Azure portal that shows the Config Server page with the Default URI and the Validate button highlighted and the Apply button disabled." lightbox="../../media/quickstart-deploy-microservice-apps/validate-config-server.png":::
 
@@ -128,7 +114,7 @@ Use the following steps to create the service instance:
 
 Use the following steps to create the required resources:
 
-1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you've already signed in.
+1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you already signed in.
 
    ```bash
    azd auth login
@@ -136,7 +122,7 @@ Use the following steps to create the required resources:
 
    The console outputs messages similar to the following example:
 
-   ```text
+   ```output
    Logged in to Azure.
    ```
 
@@ -172,7 +158,7 @@ You can now deploy the app to Azure Spring Apps.
 
 Use the following steps to deploy the microservice applications using the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps):
 
-1. Navigate to the sample project directory and use the following command to configure the apps for Azure Spring Apps:
+1. Navigate to the sample project directory and then use the following command to configure the apps for Azure Spring Apps:
 
    ```bash
    ./mvnw -P spring-apps com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config
@@ -198,7 +184,7 @@ Use the following steps to deploy the microservice applications using the [Maven
    > [!NOTE]
    > Deployment to Azure Spring Apps can take up to 25 minutes.
 
-After the command is executed, a log displays output similar to the following example, which indicates that all deployments are successful:
+After the command runs, a log displays output similar to the following example, which indicates that all deployments are successful:
 
 ```output
 [INFO] Deployment(default) is successfully updated.
@@ -239,23 +225,23 @@ Use the following steps to package the app, provision the Azure resources requir
 
    ```output
    Deploying services (azd deploy)
-   
+
    (✓) Done: Deploying service admin-server
    - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-admin-server.azuremicroservices.io
-   
+
    (✓) Done: Deploying service api-gateway
    - Endpoint: https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io
-   
+
    (✓) Done: Deploying service customers-service
    - No endpoints were found
-   
+
    (✓) Done: Deploying service vets-service
    - No endpoints were found
-   
+
    (✓) Done: Deploying service visits-service
    - No endpoints were found
-   
-   
+
+
    SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview

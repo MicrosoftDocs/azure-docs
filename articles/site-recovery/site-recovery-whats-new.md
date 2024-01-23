@@ -8,7 +8,7 @@ author: ankitaduttaMSFT
 ms.date: 12/27/2023
 ms.custom:
   - engagement-fy23
-  - devx-track-linux
+  - linux-related-content
   - ignite-2023
 ---
 
@@ -55,7 +55,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 ### Update Rollup 69
 
 > [!Note]
-> - The 9.56 version only has updates for Azure-to-Azure and Modernized VMware-to-Azure protection scenarios. 
+> - The 9.56 version only has updates for Azure-to-Azure and Modernized VMware-to-Azure protection scenarios.
 
 [Update rollup 69](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) provides the following updates:
 
@@ -63,8 +63,8 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
-**Azure VM disaster recovery** | Added support for Rocky Linux 8.7, Rocky Linux 9.0, Rocky Linux 9.1 and SUSE Linux Enterprise Server 15 SP5 Linux distros. <br><br/> Added support for Windows 11 servers. 
-**VMware VM/physical disaster recovery to Azure** | Added support for Rocky Linux 8.7, Rocky Linux 9.0, Rocky Linux 9.1 and SUSE Linux Enterprise Server 15 SP5 Linux distros. 
+**Azure VM disaster recovery** | Added support for Rocky Linux 8.7, Rocky Linux 9.0, Rocky Linux 9.1 and SUSE Linux Enterprise Server 15 SP5 Linux distros. <br><br/> Added support for Windows 11 servers.
+**VMware VM/physical disaster recovery to Azure** | Added support for Rocky Linux 8.7, Rocky Linux 9.0, Rocky Linux 9.1 and SUSE Linux Enterprise Server 15 SP5 Linux distros.
 
 
 ## Updates (November 2023)
@@ -85,7 +85,7 @@ You can now also manage Azure Site Recovery protections using Azure Business Con
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for RHEL 8.8 Linux distros.
-**VMware VM/physical disaster recovery to Azure** | Added support for RHEL 8.8 Linux distros. 
+**VMware VM/physical disaster recovery to Azure** | Added support for RHEL 8.8 Linux distros.
 
 ## Updates (May 2023)
 
@@ -162,7 +162,7 @@ You can now also manage Azure Site Recovery protections using Azure Business Con
 [Update rollup 62](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) provides the following updates:
 
 > [!Note]
-> - The 9.49 version has not been released for VMware replications to Azure preview experience. 
+> - The 9.49 version has not been released for VMware replications to Azure preview experience.
 
 **Update** | **Details**
 --- | ---
@@ -183,7 +183,7 @@ You can now also manage Azure Site Recovery protections using Azure Business Con
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for more kernels for Debian 10 and Ubuntu 20.04 Linux distros. <br/><br/> Added public preview support for on-Demand Capacity Reservation integration.
-**VMware VM/physical disaster recovery to Azure** | Added support for thin provisioned LVM volumes.<br/><br/> 
+**VMware VM/physical disaster recovery to Azure** | Added support for thin provisioned LVM volumes.<br/><br/>
 
 ## Updates (January 2022)
 
@@ -195,8 +195,8 @@ You can now also manage Azure Site Recovery protections using Azure Business Con
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | A number of fixes and improvement as detailed in the rollup KB article.
-**Azure VM disaster recovery** | Support added for retention points to be available for up to 15 days.<br/><br/>Added support for replication to be enabled on Azure virtual machines via Azure Policy. <br/><br/> Added support for ZRS managed disks when replicating Azure virtual machines. <br/><br/> Support added for SUSE Linux Enterprise Server 15 SP3, Red Hat Enterprise Linux 8.4 and Red Hat Enterprise Linux 8.5 <br/><br/> 
-**VMware VM/physical disaster recovery to Azure** | Support added for retention points to be available for up to 15 days.<br/><br/>Support added for SUSE Linux Enterprise Server 15 SP3, Red Hat Enterprise Linux 8.4 and Red Hat Enterprise Linux 8.5 <br/><br/> 
+**Azure VM disaster recovery** | Support added for retention points to be available for up to 15 days.<br/><br/>Added support for replication to be enabled on Azure virtual machines via Azure Policy. <br/><br/> Added support for ZRS managed disks when replicating Azure virtual machines. <br/><br/> Support added for SUSE Linux Enterprise Server 15 SP3, Red Hat Enterprise Linux 8.4 and Red Hat Enterprise Linux 8.5 <br/><br/>
+**VMware VM/physical disaster recovery to Azure** | Support added for retention points to be available for up to 15 days.<br/><br/>Support added for SUSE Linux Enterprise Server 15 SP3, Red Hat Enterprise Linux 8.4 and Red Hat Enterprise Linux 8.5 <br/><br/>
 
 
 ## Next steps

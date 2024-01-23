@@ -76,6 +76,12 @@ items:
         href: ../common/classic-account-migration-process.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Migrate a classic storage account to Resource Manager
         href: ../common/classic-account-migrate.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Data Lake Storage Gen2
+      items:
+      - name: Plan to upgrade an account
+        href: upgrade-to-data-lake-storage-gen2.md
+      - name: Upgrade an account
+        href: upgrade-to-data-lake-storage-gen2-how-to.md
   - name: Data transfer and migration
     items:
     - name: Storage migration overview
@@ -271,6 +277,8 @@ items:
           href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Configure TLS version for a client application
           href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        - name: Migrate to TLS 1.2
+          href: ../common/transport-layer-security-configure-migrate-to-TLS2.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Network routing preference
         href: ../common/network-routing-preference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         items:
@@ -367,16 +375,16 @@ items:
       href: data-protection-overview.md
     - name: Soft delete
       items:
-        - name: Soft delete for containers
-          href: soft-delete-container-overview.md
-        - name: Enable soft delete for containers
-          href: soft-delete-container-enable.md
-        - name: Soft delete for blobs
-          href: soft-delete-blob-overview.md
-        - name: Enable blob soft delete
-          href: soft-delete-blob-enable.md
-        - name: Manage and restore soft-deleted blobs
-          href: soft-delete-blob-manage.md
+      - name: Soft delete for containers
+        href: soft-delete-container-overview.md
+      - name: Enable soft delete for containers
+        href: soft-delete-container-enable.md
+      - name: Soft delete for blobs
+        href: soft-delete-blob-overview.md
+      - name: Enable blob soft delete
+        href: soft-delete-blob-enable.md
+      - name: Manage and restore soft-deleted blobs
+        href: soft-delete-blob-manage.md
     - name: Versioning
       href: versioning-overview.md
       items:
@@ -421,12 +429,16 @@ items:
         href: ../common/redundancy-regions-gzrs.md?toc=/azure/storage/blobs/toc.json
     - name: Disaster recovery
       items:
-      - name: Customer-managed failover for disaster recovery
+      - name: Disaster recovery planning and failover
         href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: How customer-managed failover works
+        href: ../common/storage-failover-customer-managed-unplanned.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Initiate account failover
         href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Check the Last Sync Time property
         href: ../common/last-sync-time-get.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Failover considerations for storage accounts with private endpoints
+        href: ../common/storage-failover-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Performance, scale, and cost
     items:
     - name: Performance & scale
@@ -457,7 +469,7 @@ items:
           href: storage-blob-scalable-app-download-files.md
         - name: 4 - Verify throughput and latency metrics
           href: storage-blob-scalable-app-verify-metrics.md
-    - name: Cost management 
+    - name: Cost management
       items:
       - name: Plan and manage costs
         href: ../common/storage-plan-manage-costs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -514,16 +526,10 @@ items:
       items:
       - name: Storage Analytics
         href: ../common/storage-analytics.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Metrics (classic)
-        href: ../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        items:
-        - name: Enable and manage metrics (classic)
-          href: ../common/manage-storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Logs (classic)
+      - name: Logs
         href: ../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        items:
-        - name: Enable and manage logs (classic)
-          href: ../common/manage-storage-analytics-logs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Enable and manage logs
+        href: ../common/manage-storage-analytics-logs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Application development
     items:
     - name: Blob Storage object model
@@ -533,7 +539,7 @@ items:
       - name: Create and manage client objects
         href: storage-blob-client-management.md
       - name: Query for a Blob Storage endpoint
-        href: storage-blob-query-endpoint-srp.md 
+        href: storage-blob-query-endpoint-srp.md
     - name: .NET
       items:
       - name: Get started
@@ -549,9 +555,9 @@ items:
           - name: Auth using developer accounts
             href: /dotnet/azure/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Auth from Azure-hosted apps
-            href: /dotnet/azure/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+            href: /dotnet/azure/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Auth from on-premises apps
-            href: /dotnet/azure/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+            href: /dotnet/azure/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Container actions
         items:
         - name: Create a container
@@ -609,7 +615,7 @@ items:
           - name: Create a service SAS for a blob
             href: sas-service-create-dotnet.md
           - name: Create an account SAS
-            href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+            href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Append blob actions
         items:
         - name: Append data to an append blob
@@ -641,9 +647,9 @@ items:
           - name: Auth in development environments
             href: /azure/developer/java/sdk/identity-dev-env-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Auth with user credentials
-            href: /azure/developer/java/sdk/identity-user-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+            href: /azure/developer/java/sdk/identity-user-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Auth with service principals
-            href: /azure/developer/java/sdk/identity-service-principal-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+            href: /azure/developer/java/sdk/identity-service-principal-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Auth in Azure hosted applications
             href: /azure/developer/java/sdk/identity-azure-hosted-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Container actions
@@ -700,6 +706,12 @@ items:
             href: sas-service-create-java.md
           - name: Create an account SAS
             href: ../common/storage-account-sas-create-java.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Client library configuration options
+        items:
+        - name: Performance tuning for uploads and downloads
+          href: storage-blobs-tune-upload-download-java.md
+        - name: Configure logging
+          href: /azure/developer/java/sdk/logging-overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: JavaScript
       items:
       - name: Get started
@@ -715,15 +727,15 @@ items:
           - name: Auth using developer accounts
             href: /azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Auth from Azure-hosted apps
-            href: /azure/developer/javascript/sdk/authentication/azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+            href: /azure/developer/javascript/sdk/authentication/azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Auth from on-premises apps
-            href: /azure/developer/javascript/sdk/authentication/on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+            href: /azure/developer/javascript/sdk/authentication/on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Work with SAS tokens
           items:
           - name: User delegation SAS
             href: storage-blob-create-user-delegation-sas-javascript.md
           - name: Service SAS
-            href: sas-service-create-javascript.md  
+            href: sas-service-create-javascript.md
           - name: Account SAS
             href: storage-blob-account-delegation-sas-create-javascript.md
       - name: Container actions
@@ -771,7 +783,7 @@ items:
       - name: 'Tutorial: Upload and process image files'
         href: blob-upload-function-trigger-javascript.md
     - name: TypeScript
-      items: 
+      items:
       - name: Get started
         href: storage-blob-typescript-get-started.md
       - name: Authorize access from your application
@@ -785,15 +797,15 @@ items:
           - name: Auth using developer accounts
             href: /azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Auth from Azure-hosted apps
-            href: /azure/developer/javascript/sdk/authentication/azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+            href: /azure/developer/javascript/sdk/authentication/azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Auth from on-premises apps
-            href: /azure/developer/javascript/sdk/authentication/on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+            href: /azure/developer/javascript/sdk/authentication/on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Work with SAS tokens
           items:
           - name: User delegation SAS
             href: storage-blob-create-user-delegation-sas-javascript.md
           - name: Service SAS
-            href: sas-service-create-javascript.md  
+            href: sas-service-create-javascript.md
           - name: Account SAS
             href: storage-blob-account-delegation-sas-create-javascript.md
       - name: Container actions
@@ -853,9 +865,9 @@ items:
           - name: Auth using developer accounts
             href: /azure/developer/python/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Auth from Azure-hosted apps
-            href: /azure/developer/python/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+            href: /azure/developer/python/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Auth from on-premises apps
-            href: /azure/developer/python/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json  
+            href: /azure/developer/python/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Container actions
         items:
         - name: Create a container
@@ -1220,10 +1232,10 @@ items:
       items:
       - name: .NET
         items:
-          - name: Version 11.x samples
-            href: blob-v11-samples-dotnet.md
-          - name: Design highly available applications (.NET version 11.x)
-            href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        - name: Version 11.x samples
+          href: blob-v11-samples-dotnet.md
+        - name: Design highly available applications (.NET version 11.x)
+          href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: JavaScript version 11.x samples
         href: blob-v11-samples-javascript.md
       - name: Python version 2.1 samples
@@ -1312,8 +1324,6 @@ items:
         items:
         - name: Storage Analytics
           href: ../common/storage-analytics.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Metrics
-          href: ../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Logs
           href: ../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Monitor, diagnose, and troubleshoot

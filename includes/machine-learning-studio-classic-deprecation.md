@@ -1,10 +1,8 @@
 ---
-author: cjgronlund
 ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: include
 ms.date: 08/23/2021    
-ms.author: cgronlun
 ---
 <!-- Deprecation notice for Machine Learning Studio (classic) docs
 -->

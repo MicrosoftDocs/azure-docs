@@ -68,7 +68,7 @@ A script example showing API key usage for various operations can be found at [Q
 
 ### [**REST API**](#tab/rest-use)
 
-Set an admin key in the request header using the syntax `api-key` equal to your key. Admin keys are used for most operations, including create, delete, and update. Admin keys are also used on requests issued to the search service itself, such as listing objects or requesting service statistics. see [Connect to Azure AI Search using REST APIs](search-get-started-rest.md#connect-to-azure-ai-search) for a more detailed example.
+Set an admin key in the request header using the syntax `api-key` equal to your key. Admin keys are used for most operations, including create, delete, and update. Admin keys are also used on requests issued to the search service itself, such as listing objects or requesting service statistics. see [Quickstart: Create a search index using REST](search-get-started-rest.md) for a more detailed example.
 
 :::image type="content" source="media/search-security-api-keys/rest-headers.png" alt-text="Screenshot of the Headers section of a request in Postman." border="true":::
 

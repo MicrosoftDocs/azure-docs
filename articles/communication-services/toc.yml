@@ -383,23 +383,23 @@ items:
         href: how-tos/calling-sdk/push-notifications.md
       - name: Using the mobile UI Library for voice and video
         items: 
-        - name: Setup localization
+        - name: Set up localization
           href: how-tos/ui-library-sdk/localization.md
-        - name: Setup theming
+        - name: Set up theming
           href: how-tos/ui-library-sdk/theming.md
-        - name: Participant view data injection
+        - name: Inject participant view data
           href: how-tos/ui-library-sdk/data-model.md
-        - name: Skip Setup Screen
+        - name: Skip the setup screen
           href: how-tos/ui-library-sdk/skip-setup-screen.md
-        - name: Setup Orientation
+        - name: Set up orientation
           href: how-tos/ui-library-sdk/orientation.md
-        - name: Set up Picture in Picture
+        - name: Set up picture-in-picture
           href: how-tos/ui-library-sdk/picture-in-picture.md
         - name: Set up CallKit
           href: how-tos/ui-library-sdk/callkit.md
-        - name: Set up one to one calling and PUSH notifications
+        - name: Set up one-to-one calling and push notifications
           href: how-tos/ui-library-sdk/one-to-one-calling.md
-        - name: Troubleshooting
+        - name: Troubleshoot
           href: how-tos/ui-library-sdk/troubleshooting.md
     - name: Events
       items:
@@ -1205,6 +1205,8 @@ items:
       href: concepts/numbers/phone-number-management-for-slovakia.md
     - name: Phone number management for Slovenia
       href: concepts/numbers/phone-number-management-for-slovenia.md
+    - name: Phone number management for South Africa
+      href: concepts/numbers/phone-number-management-for-south-africa.md
     - name: Phone number management for South Korea
       href: concepts/numbers/phone-number-management-for-south-korea.md
     - name: Phone number management for Spain

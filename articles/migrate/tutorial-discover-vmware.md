@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 12/28/2023
+ms.date: 01/19/2024
 ms.service: azure-migrate
 ms.custom: mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > * Start continuous discovery.
 
 > [!NOTE]
-> Tutorials show you the quickest path for trying out a scenario. They use default options where possible.  
+> Tutorials show you the quickest path for trying out a scenario. They use default options where possible. This scenario is also applicable for discovery of VM servers from AVS.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
@@ -259,7 +259,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 
         After the appliance is successfully registered, to see the registration details, select **View details**.
 
-1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7 from VMware. Extract the downloaded zip file contents to the specified location on the appliance, the default path is *C:\Program Files\VMware\VMware Virtual Disk Development Kit* as indicated in the *Installation instructions*.
+1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. Download VDDK 6.7 or 7 (depending on the compatibility of VDDK and ESXi versions) from VMware. Extract the downloaded zip file contents to the specified location on the appliance, the default path is *C:\Program Files\VMware\VMware Virtual Disk Development Kit* as indicated in the *Installation instructions*.
 
    The Migration and modernization tool uses the VDDK to replicate servers during migration to Azure.
 

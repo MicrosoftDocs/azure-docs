@@ -96,7 +96,7 @@ The first tab is **Setup**. Just in case you missed it, allowlist necessary exte
 
 It's always a good practice to choose **Validate** or **Validate and Migrate** option to perform pre-migration validations before running the migration. To learn more about the pre-migration validation refer to this [documentation](./concepts-single-to-flexible.md#pre-migration-validations).
 
-**Migration mode** gives you the option to pick the mode for the migration. **Offline** is the default option.  Support for **Online** migrations is currently available in UK South, South Africa North, UAE North, and all regions across Asia and Australia. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
+**Migration mode** gives you the option to pick the mode for the migration. **Offline** is the default option.  Support for **Online** migrations is currently available in Central US, France Central, Germany West Central, North Central US, South Central US, North Europe, all West US regions, UK South, South Africa North, UAE North, and all regions across Asia and Australia. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
 
 :::image type="content" source="./media/concepts-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="./media/concepts-single-to-flexible/online-migration-feature-switch.png":::
 
@@ -132,10 +132,10 @@ Under this tab, there's a list of user databases inside the Single Server. You c
 
 :::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-database.png" alt-text="Screenshot of Databases to migrate." lightbox="./media/concepts-single-to-flexible/flexible-migration-database.png":::
 
-### Review
-
 >[!NOTE]
-> Gentle reminder to allowlist necessary [extensions](./concepts-single-to-flexible.md#allowlist-required-extensions) before you select **Create** in case it's not yet complete.
+> The tool migrates only user databases. System databases or template databases such as template0, template1 will not be migrated.
+
+### Review
 
 The **Review** tab summarizes all the details for creating the validation or migration. Review the details and click on the start button.
 
