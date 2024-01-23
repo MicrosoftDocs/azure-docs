@@ -9254,8 +9254,6 @@
             "redirect_url": "/azure/governance/",
             "redirect_document_id": false
         },
-
-        
         {
             "source_path_from_root": "/articles/governance/blueprints/samples/new-zealand-ism.md",
             "redirect_url": "/azure/governance/blueprints/samples/index",
@@ -9266,8 +9264,6 @@
             "redirect_url": "/azure/governance/policy/samples/index",
             "redirect_document_id": false
         },        
-
-
         {
             "source_path_from_root": "/articles/governance/blueprints/samples/azure-security-benchmark/control-mapping.md",
             "redirect_url": "/azure/governance/blueprints/samples/azure-security-benchmark",
