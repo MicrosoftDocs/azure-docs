@@ -7,7 +7,6 @@ ms.date: 01/05/2022
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-zone_pivot_groups: azure-maps-coverage
 ---
 
 # Localization support in Azure Maps
