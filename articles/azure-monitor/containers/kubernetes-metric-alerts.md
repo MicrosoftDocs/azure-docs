@@ -1,17 +1,14 @@
 ---
-title: Metric alert rules for Kubernetes clusters (preview)
+title: Recommended alert rules for Kubernetes clusters (preview)
 description: Describes how to enable recommended metric alerts rules for a Kubernetes cluster in Azure Monitor.
 ms.topic: conceptual
 ms.date: 01/17/2024
 ms.reviewer: aul
 ---
 
-# Metric alert rules for Kubernetes clusters (preview)
+# Recommended alert rules for Kubernetes clusters (preview)
 
-[Alerts](../alerts/alerts-overview.md) in Azure Monitor proactively identify issues related to performance of your Azure resources. This article describes how to enable and edit a set of recommended metric alert rules that are predefined for your Kubernetes clusters. 
-
-## Prerequisites
-- Your cluster must be configured to send Prometheus metrics to Azure Monitor managed service for Prometheus. See [Enable monitoring for Kubernetes clusters](./kubernetes-monitoring-enable.md#enable-prometheus-and-grafana).
+[Alerts](../alerts/alerts-overview.md) in Azure Monitor proactively identify issues related to the health and performance of your Azure resources. This article describes how to enable and edit a set of recommended metric alert rules that are predefined for your Kubernetes clusters. 
 
 ## Types of alert rules
 There are two types of metric alert rules used with Kubernetes clusters.
@@ -19,10 +16,11 @@ There are two types of metric alert rules used with Kubernetes clusters.
 - [Prometheus metric alert rules](../alerts/alerts-types.md#prometheus-alerts) use metric data collected from your Kubernetes cluster in a [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). These rules require [Prometheus to be enabled on your cluster](./kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) and are stored in a [Prometheus rule group](../essentials/prometheus-rule-groups.md).
 - [Platform metric alert rules](../alerts/alerts-types.md#metric-alerts) use metrics that are automatically collected from your AKS cluster and are stored as [Azure Monitor alert rules](../alerts/alerts-overview.md).
 
-## Enable Prometheus alert rules
-Note: Although you can create the Prometheus alert in a resource group different from the target resource, you should use the same resource group.
+## Enable recommended alert rules
+Use one of the following methods to enable the recommended alert rules for your cluster. You can enable both Prometheus and platform metric alert rules for the same cluster.
 
 ### [Azure portal](#tab/portal)
+Using the Azure portal, the Prometheus rule group will be created in the same region as the cluster.
 
 1.	From the **Alerts** menu for your cluster, select **Set up recommendations**.
 
@@ -45,32 +43,37 @@ Note: Although you can create the Prometheus alert in a resource group different
 
 
 ### [Azure Resource Manager](#tab/arm)
+Using an ARM template, you can specify the region for the Prometheus rule group, but you should create it in the same region as the cluster.
 
-1. Download the required files for the template you're working with.
+1. Download the required files for the template you're working with and deploy using the parameters in the table below. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
 
-**ARM**
+### ARM
 
 - Template file: [https://aka.ms/azureprometheus-communityalerts](https://aka.ms/azureprometheus-communityalerts)
 
-**Bicep**
+- Parameters:
+
+    | Parameter | Description |
+    |:---|:---|
+    | clusterResourceId | Resource ID of the cluster. |
+    | actionGroupResourceId | Resource ID of action group that defines responses to alerts. |
+    | azureMonitorWorkspaceResourceId | Resource ID of the Azure Monitor workspace receiving the cluster's Prometheus metrics. |
+    | location | Region to store the alert rule group. |
+
+### Bicep
+See the [README](https://github.com/Azure/prometheus-collector/blob/main/AddonBicepTemplate/README.md) for further details.
 
 - Template file: [https://aka.ms/azureprometheus-alerts-bicep)](https://aka.ms/azureprometheus-alerts-bicep)
-- Further details: [README](https://github.com/Azure/prometheus-collector/blob/main/AddonBicepTemplate/README.md)
+- Parameters:
 
+    | Parameter | Description |
+    |:---|:---|
+    | aksResourceId | Resource ID of the cluster. |
+    | actionGroupResourceId | Resource ID of action group that defines responses to alerts. |
+    | monitorWorkspaceName | Name of the Azure Monitor workspace receiving the cluster's Prometheus metrics. |
+    | location | Region to store the alert rule group. |
+    
 
-2. Provide values for the following parameters:
-
-| ARM Parameter | Bicep Parameter | Description |
-|:---|:---|:---|
-| clusterName | | Name of the cluster. |
-| clusterResourceId | aksResourceId | Resource ID of the cluster. |
-| actionGroupResourceId | actionGroupResourceId | Resource ID of action group that defines responses to alerts. |
-| azureMonitorWorkspaceResourceId | | Resource ID of the Azure Monitor workspace receiving the cluster's Prometheus metrics. |
-| | monitorWorkspaceName | Name of the Azure Monitor workspace receiving the cluster's Prometheus metrics. |
-| location | location | Region to store the alert rule group. |
-
-
-3. Deploy the template with the parameter file by using any valid method for deploying Resource Manager templates. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
 
 ---
 
@@ -136,51 +139,63 @@ Set the **enabled** flag to false for the rule group in the ARM template describ
 
 The following table lists the details of each Prometheus alert rule. Source code for each is available in [GitHub](https://aka.ms/azureprometheus-communityalerts).
 
-| Alert name | Description | Default threshold | Level |
-|:---|:---|:---|:---|
-| KubePodCrashLooping | Pod is in CrashLoop which means the app dies or is unresponsive and Kubernetes tries to restart it automatically. | NA | Pod |
-| KubePodNotReadyByController | Pod has been in a non-ready state for more than 15 minutes. | NA | Pod |
-| KubeDeploymentReplicasMismatch | Deployment has not matched the expected number of replicas. | NA | Cluster |
-| KubeStatefulSetReplicasMismatch | StatefulSet has not matched the expected number of replicas. | NA | Cluster |
-| KubeJobNotCompleted | Job is taking more than 1h to complete. | NA | Pod |
-| KubeJobFailed | Job failed complete. | NA | Pod |
-| KubeHpaReplicasMismatch | Horizontal Pod Autoscaler has not matched the desired number of replicas for longer than 15 minutes. | NA | Cluster |
-| KubeHpaMaxedOut | Horizontal Pod Autoscaler has been running at max replicas for longer than 15 minutes. | NA | Cluster |
-| KubeCPUQuotaOvercommit | Cluster has overcommitted CPU resource requests for Namespaces and cannot tolerate node failure. | 1.5 | Cluster |
-| KubeMemoryQuotaOvercommit | Cluster has overcommitted memory resource requests for Namespaces. | 1.5 | Cluster |
-| KubeQuotaAlmostFull | Cluster reaches to the allowed limits for given namespace. | Between 0.9 and 1 | Node |
-| KubeVersionMismatch | Different semantic versions of Kubernetes components running. | NA | Cluster |
-| KubeNodeNotReady | KubeNodeNotReady alert is fired when a Kubernetes node is not in Ready state for a certain period. | NA | Node |
-| KubeNodeUnreachable | Kubernetes node is unreachable and some workloads may be rescheduled. | NA | Node |
-| KubeNodeReadinessFlapping | The readiness status of node has changed few times in the last 15 minutes. | 2 | Node |
-| Average PV usage is greater than 80% | Average PV usage is greater than 80% | 80 | Cluster |
-| Average node CPU utilization is greater than 80% | Average node CPU utilization is greater than 80% | 80 | Node |
-| Job did not complete in time | Number of stale jobs older than six hours is greater than 0 | 0 | Pod |
-| Working set memory for a node is greater than 80% | Working set memory for a node is greater than 80% | 80 | Node |
-| Pod container restarted in last 1 hour | Pod container restarted in last 1 hour | NA | Pod |
-| Number of OOM killed containers is greater than 0 | Number of OOM killed containers is greater than 0 | 0 | Node |
-| Ready state of pods is less than 80% | Ready state of pods is less than 80% | 80 | Pod |
-| Number of pods in failed state are greater than 0 | Number of pods in failed state are greater than 0 | 0 | Pod |
-| KubeDaemonSetNotScheduled | Pods of DaemonSet are not scheduled. | NA | Node |
-| KubePodNotReadyByController | Pod has been in a non-ready state for more than 15 minutes. | NA | Pod |
-| KubeStatefulSetGenerationMismatch | StatefulSet generation for {{ $labels.namespace }}/{{ $labels.statefulset }} does not match, this indicates that the StatefulSet has failed but has not been rolled back. | NA | Pod |
-| KubeContainerWaiting | Pod on container waiting longer than 1 hour | NA | Node |
-| KubeClientErrors | Kubernetes API server client is experiencing errors. | 0.01 | Cluster |
-| KubeDaemonSetMisScheduled | DaemonSet pods are misscheduled | 0 | Node |
-| Average CPU usage per container is greater than 95% | Average CPU usage per container is greater than 95% | 95 | Pod |
-| CPUThrottlingHigh | Processes experience elevated CPU throttling | NA | Cluster |
-| KubeletPlegDurationHigh | The Kubelet Pod Lifecycle Event Generator has a 99th percentile duration of {{ $value }} seconds on node {{ $labels.node }}. | 10 | Node |
-| Average Memory usage per container is greater than 95% | Average Memory usage per container is greater than 95% | 95 | Pod |
-| KubePersistentVolumeFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} is only {{ $value \| humanizePercentage }} free. | NA | Cluster |
-| KubeletClientCertificateExpiratioNode | Client certificate for Kubelet on node {{ $labels.node }} expires in {{ $value \| humanizeDuration }}. | NA | Node |
-| KubeletPodStartUpLatencyHigh | Kubelet Pod startup 99th percentile latency is {{ $value }} seconds on node {{ $labels.node }}. \| 60 | Pod |
-| KubePersistentVolumeInodesFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} only has {{ $value \| humanizePercentage }} free inodes. | NA | Cluster |
-| KubeletServerCertificateExpiratioNode | Server certificate for Kubelet on node {{ $labels.node }} expires in {{ $value \| humanizeDuration }}. | NA | Node |
-| KubePersistentVolumeErrors | The persistent volume {{ $labels.persistentvolume }} has status {{ $labels.phase }} | 0 | Cluster |
-| KubeletClientCertificateRenewalErrors | Kubelet has failed to renew its client certificate. | 0 | Node |
-| KubeletServerCertificateRenewalErrors | Kubelet has failed to renew its server certificate. | 0 | Node |
-| KubeQuotaFullyUsed | Namespace {{ $labels.namespace }} is using {{ $value \| humanizePercentage }} of its {{ $labels.resource }} quota | 1 | Node |
-| KubeQuotaExceeded | Namespace {{ $labels.namespace }} is using {{ $value \| humanizePercentage }} of its {{ $labels.resource }} quota. | 1 | Node |
+**Pod level alerts**
+
+| Alert name | Description | Default threshold |
+|:---|:---|:---|
+| KubePodCrashLooping | Pod is in CrashLoop which means the app dies or is unresponsive and Kubernetes tries to restart it automatically. | NA |
+| Job did not complete in time | Number of stale jobs older than six hours is greater than 0 | 0 |
+| Pod container restarted in last 1 hour | Pod container restarted in last 1 hour | NA |
+| Ready state of pods is less than 80% | Ready state of pods is less than 80% | 80 |
+| Number of pods in failed state are greater than 0 | Number of pods in failed state are greater than 0 | 0 |
+| KubePodNotReadyByController | Pod has been in a non-ready state for more than 15 minutes. | NA |
+| KubeStatefulSetGenerationMismatch | StatefulSet generation for {{ $labels.namespace }}/{{ $labels.statefulset }} does not match, this indicates that the StatefulSet has failed but has not been rolled back. | NA |
+| KubeJobNotCompleted | Job is taking more than 1h to complete. | NA |
+| KubeJobFailed | Job failed complete. | NA |
+| Average CPU usage per container is greater than 95% | Average CPU usage per container is greater than 95% | 95 |
+| Average Memory usage per container is greater than 95% | Average Memory usage per container is greater than 95% | 95 |
+| KubeletPodStartUpLatencyHigh | Kubelet Pod startup 99th percentile latency is {{ $value }} seconds on node {{ $labels.node }}. \| 60 |
+
+
+**Cluster level alerts**
+
+| Alert name | Description | Default threshold |
+|:---|:---|:---|
+| Average PV usage is greater than 80% | Average PV usage is greater than 80% | 80 |
+| KubeDeploymentReplicasMismatch | Deployment has not matched the expected number of replicas. | NA |
+| KubeStatefulSetReplicasMismatch | StatefulSet has not matched the expected number of replicas. | NA |
+| KubeHpaReplicasMismatch | Horizontal Pod Autoscaler has not matched the desired number of replicas for longer than 15 minutes. | NA |
+| KubeHpaMaxedOut | Horizontal Pod Autoscaler has been running at max replicas for longer than 15 minutes. | NA |
+| KubeCPUQuotaOvercommit | Cluster has overcommitted CPU resource requests for Namespaces and cannot tolerate node failure. | 1.5 |
+| KubeMemoryQuotaOvercommit | Cluster has overcommitted memory resource requests for Namespaces. | 1.5 |
+| KubeVersionMismatch | Different semantic versions of Kubernetes components running. | NA |
+| KubeClientErrors | Kubernetes API server client is experiencing errors. | 0.01 |
+| KubePersistentVolumeFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} is only {{ $value \| humanizePercentage }} free. | NA |
+| KubePersistentVolumeInodesFillingUPod | The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} only has {{ $value \| humanizePercentage }} free inodes. | NA |
+| KubePersistentVolumeErrors | The persistent volume {{ $labels.persistentvolume }} has status {{ $labels.phase }} | 0 |
+
+**Node level alerts**
+
+| Alert name | Description | Default threshold |
+|:---|:---|:---|
+| Average node CPU utilization is greater than 80% | Average node CPU utilization is greater than 80% | 80 |
+| Working set memory for a node is greater than 80% | Working set memory for a node is greater than 80% | 80 |
+| Number of OOM killed containers is greater than 0 | Number of OOM killed containers is greater than 0 | 0 |
+| KubeNodeUnreachable | Kubernetes node is unreachable and some workloads may be rescheduled. | NA |
+| KubeNodeNotReady | KubeNodeNotReady alert is fired when a Kubernetes node is not in Ready state for a certain period. | NA |
+| KubeNodeReadinessFlapping | The readiness status of node has changed few times in the last 15 minutes. | 2 |
+| KubeContainerWaiting | Pod on container waiting longer than 1 hour | NA |
+| KubeDaemonSetNotScheduled | Pods of DaemonSet are not scheduled. | NA |
+| KubeDaemonSetMisScheduled | DaemonSet pods are misscheduled | 0 |
+| KubeletClientCertificateExpiration | Client certificate for Kubelet on node {{ $labels.node }} expires in {{ $value \| humanizeDuration }}. | NA |
+| KubeletServerCertificateExpiration | Server certificate for Kubelet on node {{ $labels.node }} expires in {{ $value \| humanizeDuration }}. | NA |
+| KubeletClientCertificateRenewalErrors | Kubelet has failed to renew its client certificate. | 0 |
+| KubeletServerCertificateRenewalErrors | Kubelet has failed to renew its server certificate. | 0 |
+| KubeQuotaAlmostFull | Cluster reaches to the allowed limits for given namespace. | Between 0.9 and 1 |
+| KubeQuotaFullyUsed | Namespace {{ $labels.namespace }} is using {{ $value \| humanizePercentage }} of its {{ $labels.resource }} quota | 1 |
+| KubeQuotaExceeded | Namespace {{ $labels.namespace }} is using {{ $value \| humanizePercentage }} of its {{ $labels.resource }} quota. | 1 |
+
+
 
 ## Legacy Container insights metric alerts (preview)
 
