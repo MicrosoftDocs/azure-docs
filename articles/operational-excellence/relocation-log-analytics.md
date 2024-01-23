@@ -38,7 +38,7 @@ Log Analytics Workspace doesn't natively support migrating workspace data from o
 The diagram below illustrates the relocation pattern for a Log Analytics workspace. The red flow lines represent the redeployment of the target instance along with data movement and updating domains and endpoints.
 
 
-:::image type="content" source="media/relocation/log-analytics/log-analytics-workspace-relocation-pattern.png" alt-text="Diagram illustrating SentiLog Analytics Workspace relocation pattern.":::
+:::image type="content" source="media/relocation/log-analytics/log-analytics-workspace-relocation-pattern.png" alt-text="Diagram illustrating Log Analytics Workspace relocation pattern.":::
 
 
 **Azure Resource Mover** doesn't support moving services used by the Microsoft Sentinel. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
@@ -84,8 +84,19 @@ The diagram below illustrates the relocation pattern for a Log Analytics workspa
 
 Once the relocation is complete, the Log Analytics Workspace must be tested and validated. Below are some of the recommended guidelines.
 
+- If the relocation has been successful, all the relevant data tables should start populating. For example:
+
+    :::image type="content" source="media/relocation/log-analytics/log-analytics-workspace-data-table.png" alt-text="Diagram illustrating Log Analytics Workspace data tables populating after relocation.":::
+
 - Run manual or automated smoke and integration tests to ensure that configurations and dependent resources have been properly linked, and that configured data is accessible.
 
 - Test Log Analytics Workspace components and integration.
 
-- Run a validation check (either through a script or manually) to ensure all dependent resources are properly linked and all configured data is flowing to log analytics. This can be checked by running Kusto query language.
+- Run a validation check (either through a script or manually) to ensure all dependent resources are properly linked and all configured data is flowing to log analytics. This can be checked by running the following Kusto query language script:
+
+    ```kusto
+        Event
+        | where TimeGenerated > ago(1h)
+        | sort by TimeGenerated desc
+    ```
+
