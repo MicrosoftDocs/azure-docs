@@ -51,10 +51,10 @@ This card covers your potential total cost of ownership savings based on the cho
 It covers the cost of running all the servers scoped in the business case using some of the industry benchmarks. It doesn't cover Facilities (lease/colocation/power) cost by default, but you can edit it in the on-premises cost assumptions section. It includes one time cost for some of the capital expenditures like hardware acquisition etc., and annual cost for other components that you might pay as operating expenses like maintenance etc.
 
 ### Estimated Azure cost
-It covers the cost of all servers and workloads that have been identified as ready for migration/modernization as per the recommendation. Refer to the respective *Azure IaaS* and *Azure PaaS* report for details. The Azure cost is calculated based on the right sized Azure configuration, ideal migration target and most suitable pricing offers for your workloads. You can override the migration strategy, target location or other settings in the 'Azure cost' assumptions to see how your savings could change by migrating to Azure.
+It covers the cost of all servers and workloads that have been identified as ready for migration/modernization as per the recommendation. Refer to the respective [Azure IaaS](how-to-view-a-business-case.md#azure-iaas-report) and [Azure PaaS](how-to-view-a-business-case.md#azure-paas-report) report for details. The Azure cost is calculated based on the right sized Azure configuration, ideal migration target and most suitable pricing offers for your workloads. You can override the migration strategy, target location or other settings in the 'Azure cost' assumptions to see how your savings could change by migrating to Azure.
 
 ### Estimated AVS cost
-It covers the cost of hosting all servers and workloads that have been identified as ready for migration to AVS. Refer to the respective AVS report for details. The AVS cost is calculated based on the right-sized configuration. A default CPU over-subscription of 4:1, 100% memory overcommit and compression and deduplication factor of 1.5 is assumed to get the compute cost of AVS. You can learn more about this [here](concepts-azure-vmware-solution-assessment-calculation.md). You can override the migration strategy, target location or other settings in the 'Azure cost' assumptions to see how your savings could change by migrating to Azure.
+It covers the cost of hosting all servers and workloads that have been identified as ready for migration to AVS. Refer to the respective AVS report for details. The AVS cost is calculated based on the right-sized configuration. A default CPU over-subscription of 4:1, 100% memory overcommit and compression and deduplication factor of 1.5 is assumed to get the compute cost of AVS. You can learn more about this [here](concepts-azure-vmware-solution-assessment-calculation.md#whats-in-an-azure-vmware-solution-assessment). You can override the migration strategy, target location or other settings in the 'Azure cost' assumptions to see how your savings could change by migrating to Azure.
 
 ### YoY estimated current vs future state cost
 As you plan to migrate to Azure in phases, this line chart shows your cashflow per year based on the estimated migration completed that year. By default, it's assumed that you'll migrate 0% in the current year, 20% in Year 1, 50% in Year 2, and 100% in Year 3.
@@ -88,9 +88,6 @@ It covers which servers are ideal for cloud, servers that can be decommissioned 
 It covers cost components for on-premises and Azure, savings, and insights to understand the savings better.
 
 :::image type="content" source="./media/how-to-view-a-business-case/comparison-inline.png" alt-text="Screenshot of on-premises and Azure comparison." lightbox="./media/how-to-view-a-business-case/comparison-expanded.png":::
-
-## On-premises vs AVS report
-It covers cost components for on-premises and AVS, savings, and insights to understand the savings better. <screenshot>
 
 ## Azure IaaS report
 
@@ -147,6 +144,9 @@ This section contains the cost estimate by recommended target (Annual cost and a
 - Distribution of SQL instances by SQL version and activity state.
 
 ---
+
+## On-premises vs AVS report
+It covers cost components for on-premises and AVS, savings, and insights to understand the savings better.
 
 ## AVS report
 
