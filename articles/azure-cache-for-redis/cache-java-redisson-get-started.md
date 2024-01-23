@@ -106,6 +106,8 @@ Save the *pom.xml* file.
 Open *App.java* and replace the code with the following code:
 
 ```java
+package example.demo;
+
 import com.azure.core.credential.TokenRequestContext;
 import com.azure.identity.DefaultAzureCredential;
 import com.azure.identity.DefaultAzureCredentialBuilder;
