@@ -282,9 +282,9 @@ The `RedisStreamTrigger` Azure Function reads new entries from a stream and surf
 
 The trigger polls Redis at a configurable fixed interval, and uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/) to read elements from the stream.
 
-The consumer group for all instances of a function is the the name of the function, that is, `SimpleStreamTrigger` for the [StreamTrigger sample](samples/dotnet/RedisStreamTrigger/SimpleStreamTrigger.cs).
+The consumer group for all instances of a function is the the name of the function, that is, `SimpleStreamTrigger` for the [StreamTrigger sample](https://github.com/Azure/azure-functions-redis-extension/blob/main/samples/dotnet/RedisStreamTrigger/SimpleStreamTrigger.cs).
 
-Each functions instance uses the [`WEBSITE_INSTANCE_ID`](https://learn.microsoft.com/en-us/azure/app-service/reference-app-settings?tabs=kudu%2Cdotnet#scaling) or generates a random GUID to use as its consumer name within the group to ensure that scaled out instances of the function do not read the same messages from the stream.
+Each functions instance uses the [`WEBSITE_INSTANCE_ID`](/azure/app-service/reference-app-settings?tabs=kudu%2Cdotnet#scaling) or generates a random GUID to use as its consumer name within the group to ensure that scaled out instances of the function do not read the same messages from the stream.
 
 ::: zone pivot="programming-language-csharp"
 
