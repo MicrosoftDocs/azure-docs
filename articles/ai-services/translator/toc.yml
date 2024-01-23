@@ -30,14 +30,14 @@ items:
   - name: Create a Translator resource
     displayName: endpoint,key,portal,azure,authentication,delete,resource
     href: create-translator-resource.md
-  - name: 🆕 Text Translation SDK overview (preview)
+  - name: Text Translation SDK overview (preview)
     displayName: get started,sdk,keys,endpoint
     href: text-sdk-overview.md
   - name: Text Translation REST API guide
     href:  reference/rest-api-guide.md
   - name: Quickstarts
     items:
-    - name: 🆕 Translator Text SDK (preview)
+    - name: Translator Text SDK (preview)
       displayName: get started,sdk,keys,endpoint,headers,c#,go,java,javascript,python,setup
       href: quickstart-text-sdk.md
     - name:  Translator Text REST APIs
@@ -112,17 +112,11 @@ items:
       href: reference/v3-0-dictionary-lookup.md
     - name: Dictionary Examples
       href: reference/v3-0-dictionary-examples.md
-- name: Document Translation
+- name: Asynchronous and Synchronous Document Translation
   items:
   - name: What is Document Translation?
     displayName: ocr,batch,features,development,formats,file types
     href: document-translation/overview.md
-  - name: Document Translation SDK overview
-    displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
-    href: document-translation/document-sdk-overview.md
-  - name: Document Translation REST APIs
-    displayName: get,post,cancel,delete
-    href: document-translation/reference/rest-api-guide.md
   - name: Authentication and authorization
     items:
     - name: Create and use managed identities
@@ -133,15 +127,22 @@ items:
       href: document-translation/how-to-guides/create-sas-tokens.md
   - name: Quickstarts
     items:
-    - name: Document Translation SDKs
-      displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
-      href: document-translation/quickstarts/document-translation-sdk.md
-    - name:  Document Translation REST APIs
-      displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,setup
-      href: document-translation/quickstarts/document-translation-rest-api.md
+    - name: Asynchronous translation
+      items:
+      - name: Async Translation SDKs
+        displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
+        href: document-translation/quickstarts/async-translation-sdk.md
+      - name:  Async Translation REST APIs
+        displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,setup
+        href: document-translation/quickstarts/async-translation-rest-api.md
+    - name: Synchronous translation
+      items:
+      - name: 🆕 Sync Translation REST APIs
+        displayName: get started,keys,endpoint,headers,setup
+        href: document-translation/quickstarts/sync-translation-rest-api.md
   - name: How-to guides
     items:
-    - name: Use REST APIs programmatically
+    - name: Use Async REST APIs programmatically
       displayName: get started,batch,sdk,c#,.net,dotnet,python,javascript,java,go,source,target,blob,set up,storage
       href: document-translation/how-to-guides/use-rest-api-programmatically.md
     - name: Create and use glossaries
@@ -149,7 +150,13 @@ items:
       href: document-translation/how-to-guides/create-use-glossaries.md
   - name: Reference
     items:
-    - name: Document Translation REST API guide
+    - name: Asynchronous Translation SDK overview
+      displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
+      href: document-translation/document-sdk-overview.md
+    - name: Asynchronous Translation REST APIs
+      displayName: get,post,cancel,delete
+      href: document-translation/reference/rest-api-guide.md
+    - name: Asynchronous Translation REST API guide
       displayName: get,post,cancel,delete
       href: document-translation/reference/rest-api-guide.md
     - name: Get supported document formats
@@ -271,15 +278,15 @@ items:
   items:
   - name: Language Studio
     items:
-    - name: 🆕 Translate using Language Studio (preview)
+    - name: Translate using Language Studio (preview)
       displayName: quickstart, how to, interface
       href: document-translation/language-studio.md
   - name: Translator V3 connector
     items:
-    - name: "🆕 Automate document translation (preview)"
+    - name: "Automate document translation (preview)"
       displayName: connect, power, automate, flow
       href: connector/document-translation-flow.md
-    - name: 🆕 Automate text translation (preview)
+    - name: Automate text translation (preview)
       displayName: connect, power, automate, flow
       href: connector/text-translator-flow.md
 - name: Resources
