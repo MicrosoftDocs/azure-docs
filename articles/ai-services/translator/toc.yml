@@ -112,9 +112,9 @@ items:
       href: reference/v3-0-dictionary-lookup.md
     - name: Dictionary Examples
       href: reference/v3-0-dictionary-examples.md
-- name: Batch and document file translation
+- name: Document translation
   items:
-  - name: What is Document Translation?
+  - name: What are batch and file document translation?
     displayName: ocr,batch,features,development,formats,file types
     href: document-translation/overview.md
   - name: Authentication and authorization
@@ -135,9 +135,9 @@ items:
       - name:  Batch Translation REST APIs
         displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,setup
         href: document-translation/quickstarts/async-translation-rest-api.md
-    - name: 🆕 Document file translation (preview)
+    - name: 🆕 File translation (preview)
       items:
-      - name: Document file translation REST APIs (preview)
+      - name: File translation REST APIs (preview)
         displayName: get started,keys,endpoint,headers,setup
         href: document-translation/quickstarts/sync-translation-rest-api.md
   - name: How-to guides
