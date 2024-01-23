@@ -1,6 +1,6 @@
 ---
-title: What is TLS within Azure Cache for Redis
-description: Learn about the TLS protocol and how to use it with your application to communicate to your Azure Cache for Redis instances.
+title: What are the configuration settings for TLS in Azure Cache for Redis
+description: Learn about the TLS protocol configuration and how to use TLS to securely communicate with Azure Cache for Redis instances.
 author: flang-msft
 
 ms.service: cache
@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 01/23/2024
 ms.author: franlanglois
 
-#customer intent: As a developer creating a service that uses a cache, I want to know about TLS connections so that I know my service is secure.
+# Customer intent: As a developer creating a service that uses a cache, I want to know the details about TLS connections so that I know my service is secure.
 ---
 
-# What is the TLS protocol with Azure Cache for Redis
+# What are the configuration settings for the TLS protocol?
 
 Transport Layer Security (TLS) is a cryptographic protocol that provides secure communication over a network. Azure Cache for Redis supports TLS on all tiers. When create a service that uses an Azure Cache for Redis instance, we strongly encourage you to connect using TLS.
 
