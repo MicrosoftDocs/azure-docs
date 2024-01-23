@@ -54,7 +54,7 @@ The control plane includes the following core Kubernetes components:
 | *kube-scheduler* | When you create or scale applications, the scheduler determines what nodes can run the workload and starts the identified nodes. |  
 | *kube-controller-manager* | The controller manager oversees a number of smaller controllers that perform actions such as replicating pods and handling node operations. |  
 
-While you don't need to configure control plane components, you can't access the control plane directly. Kubernetes control plane and node upgrades are orchestrated through the Azure CLI or Azure portal. To troubleshoot possible issues, you can review the control plane logs using Azure Monitor.
+Keep in mind that you can't directly access the control plane. Kubernetes control plane and node upgrades are orchestrated through the Azure CLI or Azure portal. To troubleshoot possible issues, you can review the control plane logs using Azure Monitor.
 
 > [!NOTE]
 > If you want to configure or directly access a control plane, you can deploy a self-managed Kubernetes cluster using [Cluster API Provider Azure][cluster-api-provider-azure].
@@ -77,7 +77,7 @@ The Azure VM size for your nodes defines CPUs, memory, size, and the storage typ
 
 In AKS, the VM image for your cluster's nodes is based on Ubuntu Linux, [Azure Linux](use-azure-linux.md), or Windows Server 2022. When you create an AKS cluster or scale out the number of nodes, the Azure platform automatically creates and configures the requested number of VMs. Agent nodes are billed as standard VMs, so any VM size discounts, including [Azure reservations][reservation-discounts], are automatically applied.
 
-For managed disks, the default disk size and performance is assigned according to the selected VM SKU and vCPU count. For more information, see [Default OS disk sizing](cluster-configuration.md#default-os-disk-sizing).
+For managed disks, default disk size and performance are assigned according to the selected VM SKU and vCPU count. For more information, see [Default OS disk sizing](cluster-configuration.md#default-os-disk-sizing).
 
 > [!NOTE]
 > If you need advanced configuration and control on your Kubernetes node container runtime and OS, you can deploy a self-managed cluster using [Cluster API Provider Azure][cluster-api-provider-azure].
@@ -86,7 +86,7 @@ For managed disks, the default disk size and performance is assigned according t
 
 AKS supports Ubuntu 22.04 and Azure Linux 2.0 as the node operating system (OS) for clusters with Kubernetes 1.25 and higher. Ubuntu 18.04 can also be specified at node pool creation for Kubernetes versions 1.24 and below.
 
-AKS supports Windows Server 2022 as the default OS for Windows node pools in clusters with Kubernetes 1.25 and higher. Windows Server 2019 can also be specified at node pool creation for Kubernetes versions 1.32 and below. Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and isn't supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+AKS supports Windows Server 2022 as the default OS for Windows node pools in clusters with Kubernetes 1.25 and higher. Windows Server 2019 can also be specified at node pool creation for Kubernetes versions 1.32 and below. Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life and isn't supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
 ### Container runtime configuration
 
@@ -94,7 +94,7 @@ A container runtime is software that executes containers and manages container i
 
 [`Containerd`](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. With`containerd`-based nodes and node pools, the kubelet talks directly to `containerd` using the CRI (container runtime interface) plugin, removing extra hops in the data flow when compared to the Docker CRI implementation. As such, you see better pod startup latency and less resource (CPU and memory) usage.
 
-`Containerd` works on every GA version of Kubernetes in AKS, and in every newer Kubernetes version above v1.19, and supports all Kubernetes and AKS features.
+`Containerd` works on every GA version of Kubernetes in AKS, in every Kubernetes version starting from v1.19, and supports all Kubernetes and AKS features.
 
 > [!IMPORTANT]
 > Clusters with Linux node pools created on Kubernetes v1.19 or higher default to the `containerd` container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`.
@@ -148,7 +148,7 @@ Reserved memory in AKS includes the sum of two values:
 
 **AKS 1.29 and later**
 
-1. **`kubelet` daemon** has the *memory.available<100Mi* eviction rule by default. This ensures that a node always has at least 100Mi allocatable at all times. When a host is below that available memory threshold, the `kubelet` triggers the termination of one of the running pods and frees up memory on the host machine.
+1. **`kubelet` daemon** has the *memory.available<100Mi* eviction rule by default. This rule ensures that a node has at least 100Mi allocatable at all times. When a host is below that available memory threshold, the `kubelet` triggers the termination of one of the running pods and frees up memory on the host machine.
 2. **A rate of memory reservations** set according to the lesser value of: *20MB * Max Pods supported on the Node + 50MB* or *25% of the total system memory resources*.
 
     **Examples**:
@@ -159,19 +159,18 @@ Reserved memory in AKS includes the sum of two values:
 
 **AKS versions prior to 1.29**
 
-1. **`kubelet` daemon** is installed on all Kubernetes agent nodes to manage container creation and termination. By default on AKS, `kubelet` daemon has the *memory.available<750Mi* eviction rule, ensuring a node must always have at least 750Mi allocatable at all times. When a host is below that available memory threshold, the `kubelet` will trigger to terminate one of the running pods and free up memory on the host machine.
-
+1. **`kubelet` daemon** has the *memory.available<750Mi* eviction rule by default. This rule ensures that a node has at least 750Mi allocatable at all times. When a host is below that available memory threshold, the `kubelet` triggers the termination of one of the running pods and free up memory on the host machine.
 2. **A regressive rate of memory reservations** for the kubelet daemon to properly function (*kube-reserved*).
    * 25% of the first 4GB of memory
    * 20% of the next 4GB of memory (up to 8GB)
    * 10% of the next 8GB of memory (up to 16GB)
    * 6% of the next 112GB of memory (up to 128GB)
-   * 2% of any memory above 128GB
+   * 2% of any memory more than 128GB
 
 > [!NOTE]
 > AKS reserves an extra 2GB for system processes in Windows nodes that isn't part of the calculated memory.
 
-Memory and CPU allocation rules are designed to do the following:
+Memory and CPU allocation rules are designed to:
 
 * Keep agent nodes healthy, including some hosting system pods critical to cluster health.
 * Cause the node to report less allocatable memory and CPU than it would report if it weren't part of a Kubernetes cluster.
@@ -241,7 +240,7 @@ When you create an AKS cluster, you specify an Azure resource group to create th
 * The virtual network for the cluster
 * The storage for the cluster
 
-The node resource group is assigned a name by default with the following format: *MC_resourceGroupName_clusterName_location*. During cluster creation, you have the option to specify the name assigned to your node resource group. When using an Azure Resource Manager template, you can define the name using the `nodeResourceGroup` property. When using Azure CLI, you use the `--node-resource-group` parameter with the `az aks create` command, as shown in the following example:
+The node resource group is assigned a name by default with the following format: *MC_resourceGroupName_clusterName_location*. During cluster creation, you can specify the name assigned to your node resource group. When using an Azure Resource Manager template, you can define the name using the `nodeResourceGroup` property. When using Azure CLI, you use the `--node-resource-group` parameter with the `az aks create` command, as shown in the following example:
 
 ```azurecli-interactive
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-resource-group myNodeResourceGroup
@@ -276,7 +275,7 @@ When you create a pod, you can define *resource requests* for a certain amount o
 
 For more information, see [Kubernetes pods][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle].
 
-A pod is a logical resource, but application workloads run on the containers. Pods are typically ephemeral, disposable resources. Individually scheduled pods miss some of the high availability and redundancy Kubernetes features. Instead, pods are deployed and managed by Kubernetes *Controllers*, such as the Deployment Controller.
+A pod is a logical resource, but application workloads run on the containers. Pods are typically ephemeral, disposable resources. Individually scheduled pods miss some of the high availability and redundancy Kubernetes features. Instead, Kubernetes *Controllers*, such as the Deployment Controller, deploys and manages pods.
 
 ## Deployments and YAML manifests
 
@@ -329,8 +328,8 @@ A breakdown of the deployment specifications in the YAML manifest file is as fol
 | ----------------- | ------------- |  
 | `.apiVersion` | Specifies the API group and API resource you want to use when creating the resource. |  
 | `.kind` | Specifies the type of resource you want to create. |  
-| `.metadata.name` | Specifies the name of the deployment. This file will run the *nginx* image from Docker Hub. |  
-| `.spec.replicas` | Specifies how many pods to create. This file will create three duplicate pods. |  
+| `.metadata.name` | Specifies the name of the deployment. This example YAML file runs the *nginx* image from Docker Hub. |  
+| `.spec.replicas` | Specifies how many pods to create. This example YAML file creates three duplicate pods. |  
 | `.spec.selector` | Specifies which pods will be affected by this deployment. |
 | `.spec.selector.matchLabels` | Contains a map of *{key, value}* pairs that allow the deployment to find and manage the created pods. |  
 | `.spec.selector.matchLabels.app` | Has to match `.spec.template.metadata.labels`. |  
@@ -345,9 +344,9 @@ A breakdown of the deployment specifications in the YAML manifest file is as fol
 | `.spec.spec.resources.requests` | Specifies the minimum amount of compute resources required. |
 | `.spec.spec.resources.requests.cpu` | Specifies the minimum amount of CPU required. |
 | `.spec.spec.resources.requests.memory` | Specifies the minimum amount of memory required. |
-| `.spec.spec.resources.limits` | Specifies the maximum amount of compute resources allowed. This limit is enforced by the kubelet. |
-| `.spec.spec.resources.limits.cpu` | Specifies the maximum amount of CPU allowed. This limit is enforced by the kubelet. |
-| `.spec.spec.resources.limits.memory` | Specifies the maximum amount of memory allowed. This limit is enforced by the kubelet. |
+| `.spec.spec.resources.limits` | Specifies the maximum amount of compute resources allowed. The kubelet enforces this limit. |
+| `.spec.spec.resources.limits.cpu` | Specifies the maximum amount of CPU allowed. The kubelet enforces this limit. |
+| `.spec.spec.resources.limits.memory` | Specifies the maximum amount of memory allowed. The kubelet enforces this limit. |
 
 More complex applications can be created by including services, such as load balancers, within the YAML manifest.
 
@@ -361,7 +360,7 @@ To use Helm, install the Helm client on your computer, or use the Helm client in
 
 ## StatefulSets and DaemonSets
 
-Using the Kubernetes Scheduler, the Deployment Controller runs replicas on any available node with available resources. While this approach might be sufficient for stateless applications, the Deployment Controller isn't ideal for applications that require the following specifications:
+The Deployment Controller uses the Kubernetes Scheduler and runs replicas on any available node with available resources. While this approach might be sufficient for stateless applications, the Deployment Controller isn't ideal for applications that require the following specifications:
 
 * A persistent naming convention or storage.
 * A replica to exist on each select node within a cluster.
