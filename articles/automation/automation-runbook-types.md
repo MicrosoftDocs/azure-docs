@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/28/2023
+ms.date: 01/23/2024
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-python
 ---
@@ -227,15 +227,12 @@ Currently, Python 3.10 (preview) runtime version is supported for both Cloud and
 
 Following are the limitations of Python runbooks
 
-# [Python 2.7](#tab/py27)
+# [Python 3.10 (preview)](#tab/py10)
 
-- [Python 2.7](https://devguide.python.org/versions/) is no longer supported by parent product Python. We recommend you to create new runbooks in the supported versions and update the outdated runbooks.
-- You must be familiar with Python scripting.
-- For Python 2.7.12 modules, use wheel files cp27-amd6.
-- To use third-party libraries, you must [import the packages](python-packages.md) into the Automation account.
-- Azure Automation doesn't support **sys.stderr**.
-- The Python **automationassets** package isn't available on pypi.org, so it's not available for import onto a Windows machine.
-
+- For Python 3.10 (preview) modules, currently, only the wheel files targeting cp310 Linux OS are supported. [Learn more](./python-3-packages.md)
+- Source control integration isn't supported.
+- Custom packages for Python 3.10 (preview) are only validated during job runtime. Job is expected to fail if the package is not compatible in the runtime or if required dependencies of packages aren't imported into automation account.
+- Currently, Python 3.10 (preview) runbooks are only supported from Azure portal. Rest API and PowerShell aren't supported.
 
 # [Python 3.8 (GA)](#tab/py38)
 
@@ -247,13 +244,14 @@ Following are the limitations of Python runbooks
 - Azure Automation doesn't support **sys.stderr**.
 - The Python **automationassets** package isn't available on pypi.org, so it's not available for import onto a Windows machine.
 
+# [Python 2.7](#tab/py27)
 
-# [Python 3.10 (preview)](#tab/py10)
-
-- For Python 3.10 (preview) modules, currently, only the wheel files targeting cp310 Linux OS are supported. [Learn more](./python-3-packages.md)
-- Source control integration isn't supported.
-- Custom packages for Python 3.10 (preview) are only validated during job runtime. Job is expected to fail if the package is not compatible in the runtime or if required dependencies of packages aren't imported into automation account.
-- Currently, Python 3.10 (preview) runbooks are only supported from Azure portal. Rest API and PowerShell aren't supported.
+- [Python 2.7](https://devguide.python.org/versions/) is no longer supported by parent product Python. We recommend you to create new runbooks in the supported versions and update the outdated runbooks.
+- You must be familiar with Python scripting.
+- For Python 2.7.12 modules, use wheel files cp27-amd6.
+- To use third-party libraries, you must [import the packages](python-packages.md) into the Automation account.
+- Azure Automation doesn't support **sys.stderr**.
+- The Python **automationassets** package isn't available on pypi.org, so it's not available for import onto a Windows machine.
 
 ---
 
