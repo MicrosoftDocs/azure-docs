@@ -335,7 +335,7 @@ If you need to change the target architecture for your solution, use the followi
 
 # [C\#](#tab/csharp)
 
-Target architecture is set when you build the container in a later step.
+The target architecture is set when you create the container image in a later step.
 
 # [C, Java, Node.js, Python](#tab/c+java+node+python)
 
@@ -678,7 +678,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
     }
     ```
 
-1. Find the `SetupCallbacksForModule` function. Replace the function with the following code that adds an **else if** statement to check if the module twin has been updated.
+1. Find the `SetupCallbacksForModule` function. Replace the function with the following code that adds an **else if** statement to check if the module twin is updated.
 
    ```c
    static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
@@ -741,7 +741,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
     import com.microsoft.azure.sdk.iot.device.DeviceTwin.TwinPropertyCallBack;
     ```
 
-1. Add the following definition into class **App**. This variable sets a temperature threshold. The measured machine temperature won't be reported to IoT Hub until it goes over this value.
+1. Add the following definition into class **App**. This variable sets a temperature threshold. The measured machine temperature isn't reported to IoT Hub until it goes over this value.
 
     ```java
     private static final String TEMP_THRESHOLD = "TemperatureThreshold";
@@ -913,7 +913,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
 # [Python](#tab/python)
 
-In this section, add the code that expands the *filtermodule* to analyze the messages before sending them. You'll add code that filters messages where the reported machine temperature is within the acceptable limits.
+In this section, add the code that expands the *filtermodule* to analyze the messages before sending them. You add code that filters messages where the reported machine temperature is within the acceptable limits.
 
 1. In the Visual Studio Code explorer, open **modules** > **filtermodule** > **main.py**.
 
@@ -1001,7 +1001,7 @@ In this section, add the code that expands the *filtermodule* to analyze the mes
 
 ## Build and push your solution
 
-You've updated the module code and the deployment template to help understand some key deployment concepts. Now, you're ready to build your module container image and push it to your container registry.
+You updated the module code and the deployment template to help understand some key deployment concepts. Now, you're ready to build your module container image and push it to your container registry.
 
 In Visual Studio Code, open the **deployment.template.json** deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) describes the modules to be configured on the targeted IoT Edge device. Before deployment, you need to update your Azure Container Registry credentials and your module images with the proper `createOptions` values. For more information about createOption values, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
 
@@ -1106,9 +1106,9 @@ Provide your container registry credentials to Docker so that it can push your c
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   You may receive a security warning recommending the use of `--password-stdin`. While that's a recommended best practice for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
+   You might receive a security warning recommending the use of `--password-stdin`. While that's a recommended best practice for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
-1. Sign in to the Azure Container Registry. You may need to [Install Azure CLI](/cli/azure/install-azure-cli) to use the `az` command. This command asks for your user name and password found in your container registry in **Settings** > **Access keys**.
+1. Sign in to the Azure Container Registry. You need to [Install Azure CLI](/cli/azure/install-azure-cli) to use the `az` command. This command asks for your user name and password found in your container registry in **Settings** > **Access keys**.
 
    ```azurecli
    az acr login -n <ACR registry name>
@@ -1164,9 +1164,9 @@ This process may take several minutes the first time, but is faster the next tim
 
 ::: zone-end
 
-#### Update the build and image
+#### Optional: Update the module and image
 
-If you make changes to your module code, you need to rebuild and push the module image to your container registry. Use the steps in this section to update the build and image. You can skip this section if you didn't make any changes to your module code.
+If you make changes to your module code, you need to rebuild and push the module image to your container registry. Use the steps in this section to update the build and container image. You can skip this section if you didn't make any changes to your module code.
 
 ::: zone pivot="iotedge-dev-ext"
 
@@ -1190,9 +1190,6 @@ Notice that the two parameters that had placeholders now contain their proper va
 Build and push the updated image with a *0.0.2* version tag. For example, to build and push the image for the local registry or an Azure container registry, use the following commands:
 
 # [C\#](#tab/csharp)
-
-
-
 
 ```bash
 
@@ -1288,7 +1285,7 @@ az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./
 
 1. Under your device, expand **Modules** to see a list of deployed and running modules. Select the refresh button. You should see the new *tempSensor* and *filtermodule* modules running on your device.
 
-   It may take a few minutes for the modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
+   It might take a few minutes for the modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
 
 ## View messages from device
 
