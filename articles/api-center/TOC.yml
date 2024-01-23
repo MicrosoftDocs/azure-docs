@@ -29,7 +29,10 @@
       - name: Manage inventory - Azure CLI
         href: manage-apis-azure-cli.md
 #- name: API governance
-#- name: API discovery and consumption
+- name: API discovery and consumption
+  items:
+      - name: Use Visual Studio Code extension
+        href: use-vscode-extension.md
 - name: Reference
   items:
       - name: Azure CLI
