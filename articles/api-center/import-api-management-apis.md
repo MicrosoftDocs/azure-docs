@@ -16,11 +16,11 @@ This article shows how to import APIs from an Azure API Management instance to y
 
 When you import an API from an API Management instance to your API center:
 
-* The API's [versions](key-concepts.md#api-version) and [definitions](key-concepts.md#api-definition) are copied to your API center
 * Azure API Management is added as an [environment](key-concepts.md#environment) in your API center
 * The API's [versions](key-concepts.md#api-version) [definitions](key-concepts.md#api-definition), and [deployment](key-concepts.md#deployment) information are copied to your API center
 
 After importing APIs, you can add metadata and documentation in your API center to help stakeholders discover, understand, and consume the APIs.
+
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
 ## Prerequisites
@@ -55,7 +55,7 @@ az apic service update --name <api-center-name> \
 
 ## Assign the managed identity the API Management Service Reader role
 
-Assign your API center's managed identity the `API Management Service Reader` role in your API Management instance. You can use the [portal](../role-based-access-control/role-assignments-portal-assign-managed-identity.md) or the following steps in the Azure CLI:
+Assign your API center's managed identity the `API Management Service Reader` role in your API Management instance. You can use the [portal](../role-based-access-control/role-assignments-portal-managed-identity.md) or the following steps in the Azure CLI:
 
 * Use the [az apic service show](/cli/azure/apic/service#az-will be used byapic-service-show) command to get the object ID of the managed identity in your API center.
 * Use the [az apim show](/cli/azure/apim#az-apim-show) command to get the resource ID of your API Management instance. 
@@ -118,5 +118,5 @@ az apic service import-from-apim --service-name <api-center-name> \
 ## Related content
 
 * [Azure CLI reference for API Center](/cli/azure/apic) 
-* [Assign Azure roles to a managed identity](../role-based-access-control/role-assignments-portal-assign-managed-identity.md)
+* [Assign Azure roles to a managed identity](../role-based-access-control/role-assignments-portal-managed-identity.md)
 * [Azure API Management documentation](../api-management/index.yml)
