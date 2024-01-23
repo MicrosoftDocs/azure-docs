@@ -173,7 +173,7 @@ Updates for changes and the status of your applications will be communicated via
 To submit a toll-free verification application, navigate to Azure Communication Service resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Select on the Toll-Free verification application link displayed as "Submit Application" in the infobox at the top of the phone numbers blade. Complete the form.
 
 ### What is considered a high quality toll-free verification application? 
-The higher the quality of the application the higher chances your application enters [pending state](#what-do-the-different-application-statuses-verified-and-unverified-mean) faster.  
+The higher the quality of the application the higher chances your application enters [verified state](#what-do-the-different-application-statuses-verified-and-unverified-mean) faster.  
 
 Pointers to ensure you are submitting a high quality application:
 - Phone number(s) listed is/are Toll-free number(s)
