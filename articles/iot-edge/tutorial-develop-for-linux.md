@@ -4,7 +4,7 @@ description: This tutorial walks through setting up your development machine and
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 01/19/2024
+ms.date: 01/23/2024
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -333,6 +333,12 @@ If you need to change the target architecture for your solution, use the followi
 
 ::: zone pivot="iotedge-dev-cli"
 
+# [C\#](#tab/csharp)
+
+Target architecture is set when you build the container in a later step.
+
+# [C, Java, Node.js, Python](#tab/c+java+node+python)
+
 1. Open or create **settings.json** in the **.vscode** directory of your solution.
 
 1. Change the *platform* value to `amd64`, `arm32v7`, `arm64v8`, or `windows-amd64`. For example:
@@ -345,6 +351,8 @@ If you need to change the target architecture for your solution, use the followi
         }
     }
     ```
+
+---
 
 ::: zone-end
 
