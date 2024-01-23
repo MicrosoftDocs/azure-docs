@@ -74,6 +74,8 @@ Replace the placeholders with the following values:
 
 - `<YOUR_HOST_NAME>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
 - `<USER_NAME>`: Object ID of your managed identity or service principal.
+  - You can get the **USER_NAME** by following 1-4 steps in the image:
+   - ![user_name](./media/cache-java-redisson-get-started/user_name.png)
 
 
 
