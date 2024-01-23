@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: vijetaj
 author: vijetajo
 ms.reviewer: sgilley
-ms.date: 10/19/2022
+ms.date: 01/23/2024
 ms.custom:
   - ignite-fall-2021
   - event-tier1-build-2022
@@ -145,11 +145,17 @@ See the following table to learn more about supported series.
 
 While Azure Machine Learning supports these VM series, they might not be available in all Azure regions. To check whether VM series are available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
+:::moniker range="azureml-api-2"
 > [!NOTE]
 > Azure Machine Learning doesn't support all VM sizes that Azure Compute supports. To list the available VM sizes, use one of the following methods:
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
-:::moniker range="azureml-api-2"
 > * The [Azure CLI extension 2.0 for machine learning](how-to-configure-cli.md) command, [az ml compute list-sizes](/cli/azure/ml/compute#az-ml-compute-list-sizes).
+:::moniker-end
+
+:::moniker range="azureml-api-1"
+> [!NOTE]
+> Azure Machine Learning doesn't support all VM sizes that Azure Compute supports. To list the available VM sizes, use one of the following methods:
+> * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
 :::moniker-end
 
 If using the GPU-enabled compute targets, it is important to ensure that the correct CUDA drivers are installed in the training environment. Use the following table to determine the correct CUDA version to use:
