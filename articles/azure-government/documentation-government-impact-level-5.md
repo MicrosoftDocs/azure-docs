@@ -157,9 +157,9 @@ For Analytics services availability in Azure Government, see [Products available
 
 - Configure encryption at rest of content in Azure Event Hubs by [using customer-managed keys in Azure Key Vault](../event-hubs/configure-customer-managed-key.md).
 
-### [Power BI](../power-bi/index.yml)
+### [Power BI]( /power-bi/fundamentals/)
 
-- Configure encryption at rest of content in Power BI by [using customer-managed keys in Azure Key Vault](../enterprise/service-encryption-customer-managed-keys.md).
+- Configure encryption at rest of content in Power BI by [using customer-managed keys in Azure Key Vault]( /power-bi/enterprise/service-encryption-customer-managed-keys).
 
 ## Compute
 
