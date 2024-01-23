@@ -119,7 +119,7 @@ Alphanumeric sender ID replacement with a number may occur when a certain wirele
 ## Toll-Free Verification
 
 > [!IMPORTANT]
-> Effective **November 8, 2023**, unverified toll-free numbers sending messages to US phone numbers will have its traffic **blocked**. At this time, there is no change to limits on sending from pending TFNs. To unblock the traffic, a verification application needs to be submitted and be in [pending or verified status](#what-do-the-different-application-statuses-verified-pending-and-unverified-mean).
+> Effective **November 8, 2023**, unverified toll-free numbers sending messages to US phone numbers will have its traffic **blocked**. At this time, there is no change to limits on sending from pending TFNs. To unblock the traffic, a verification application needs to be submitted and be in [verified status](#what-do-the-different-application-statuses-verified-and-unverified-mean).
 
 > [!IMPORTANT]
 > Effective **January 31, 2024**, only fully verified toll-free numbers will be able to send traffic. Unverified toll-free numbers sending messages to US and CA phone numbers will have its traffic **blocked**. 
@@ -153,7 +153,7 @@ New limits are as follows:
 > Unverified SMS traffic that exceeds the daily limit or is filtered for spam will have a [4010 error code](../troubleshooting-info.md#sms-error-codes)  returned for both scenarios.
 
 #### SMS to Canadian phone numbers
-Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To unblock the traffic, a verification application needs to be submitted and in [pending or verified status](#what-do-the-different-application-statuses-verified-pending-and-unverified-mean).
+Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To unblock the traffic, a verification application needs to be submitted and in [verified status](#what-do-the-different-application-statuses-verified-and-unverified-mean).
 
 ### What do the different application statuses (verified and unverified) mean? 
 - **Verified:** Verified numbers have gone through the toll-free verification process and have been approved. Their traffic is subjected to limited filters. If traffic does trigger any filters, that specific content is blocked but the number is not automatically blocked.
@@ -173,7 +173,7 @@ Updates for changes and the status of your applications will be communicated via
 To submit a toll-free verification application, navigate to Azure Communication Service resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Select on the Toll-Free verification application link displayed as "Submit Application" in the infobox at the top of the phone numbers blade. Complete the form.
 
 ### What is considered a high quality toll-free verification application? 
-The higher the quality of the application the higher chances your application enters [pending state](#what-do-the-different-application-statuses-verified-pending-and-unverified-mean) faster.  
+The higher the quality of the application the higher chances your application enters [pending state](#what-do-the-different-application-statuses-verified-and-unverified-mean) faster.  
 
 Pointers to ensure you are submitting a high quality application:
 - Phone number(s) listed is/are Toll-free number(s)
