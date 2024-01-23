@@ -15,9 +15,7 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 # Customer-managed keys for Azure Machine Learning
 
-Azure Machine Learning is built on top of multiple Azure services. Although the stored data is encrypted through encryption keys that Microsoft provides, you can enhance security by also providing your own (customer-managed) keys. The keys that you provide are stored in Azure Key Vault.
-
-[!INCLUDE [machine-learning-customer-managed-keys.md](includes/machine-learning-customer-managed-keys.md)]
+Azure Machine Learning is built on top of multiple Azure services. Although the stored data is encrypted through encryption keys that Microsoft provides, you can enhance security by also providing your own (customer-managed) keys. The keys that you provide are stored in Azure Key Vault. Your data is stored on a set of additional resources that you manage in your Azure subscription.
 
 In addition to customer-managed keys, Azure Machine Learning provides an [hbi_workspace flag](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace). Enabling this flag reduces the amount of data that Microsoft collects for diagnostic purposes and enables [extra encryption in Microsoft-managed environments](../security/fundamentals/encryption-atrest.md). This flag also enables the following behaviors:
 
@@ -42,37 +40,44 @@ For example, the managed identity for Azure Cosmos DB would need to have those p
 
 ## Limitations
 
-* After you create a workspace, you can't update the customer-managed key for resources that the workspace depends on.
-* Resources that Microsoft manages in your subscription can't transfer ownership to you.
+* After workspace creation, the customer-managed encryption key for resources that the workspace depends on can only be updated to another key in the original Azure Key Vault resource.
+* Encrypted data is stored on resources in a Microsoft-managed resource group in your subscription. You can't create these resources up front or transfer ownership of these to you. The data lifecycle is managed indirectly via the Azure Machine Learning APIs as you create objects in the Azure Machine Learning service.
 * You can't delete Microsoft-managed resources that you use for customer-managed keys without also deleting your workspace.
+* You can't encrypt the compute cluster's OS disk by using your customer-managed keys. You must use Microsoft-managed keys.
 
 > [!WARNING]
 > Don't delete the resource group that contains the Azure Cosmos DB instance, or any of the resources that are automatically created in this group. If you need to delete the resource group or Microsoft-managed services in it, you must delete the Azure Machine Learning workspace that uses it. The resource group's resources are deleted when you delete the associated workspace.
 
 ## Storage of workspace metadata
 
-The following resources store metadata for your workspace:
+When you bring your own encryption key, service metadata is stored on dedicated resources in your Azure subscription. Microsoft creates a separate resource group in your subscription for this purpose: *azureml-rg-workspacename_GUID*. Only Microsoft can modify the resources in this managed resource group.
 
-| Service | How it's used |
-| ----- | ----- |
-| Azure Cosmos DB | Stores job history data |
-| Azure AI Search | Stores indices that are used to help query your machine learning content |
-| Azure Storage | Stores other metadata, such as Azure Machine Learning pipeline data |
+Microsoft creates the following resources to store metadata for your workspace:
+
+| Service | Usage | Example data |
+| ----- | ----- | ----- |
+| Azure Cosmos DB | Stores job history data, compute metadata, and asset metadata. | Data can include job name, status, sequence number, and status; compute cluster name, number of cores, and number of nodes; datastore names and tags, and descriptions on assets like models; and data label names. |
+| Azure AI Search | Stores indices that help with querying your machine learning content. | These indices are built on top of the data stored in Azure Cosmos DB. |
+| Azure Storage | Stores metadata related to Azure Machine Learning pipeline data. | Data can include designer pipeline names, pipeline layout, and execution properties. |
+
+From the perspective of data lifecycle management, data in the preceding resources is created and deleted as you create and delete corresponding objects in Azure Machine Learning.
 
 Your Azure Machine Learning workspace reads and writes data by using its managed identity. This identity is granted access to the resources through a role assignment (Azure role-based access control) on the data resources. The encryption key that you provide is used to encrypt data that's stored on Microsoft-managed resources. It's also used to create indices for Azure AI Search at runtime.
 
+Extra networking controls are configured when you create a private link endpoint on your workspace to allow for inbound connectivity. This configuration includes the creation of a private link endpoint connection to the Azure Cosmos DB instance. Network access is restricted to only trusted Microsoft services.
+
 ## Customer-managed keys
 
-When you _don't_ use a customer-managed key, Microsoft creates and manages these resources in a Microsoft-owned Azure subscription and uses a Microsoft-managed key to encrypt the data.
+When you *don't* use a customer-managed key, Microsoft creates and manages resources in a Microsoft-owned Azure subscription and uses a Microsoft-managed key to encrypt the data.
 
-When you use a customer-managed key, these resources are in your Azure subscription and encrypted with your key. While they exist in your subscription, Microsoft manages these resources. They're automatically created and configured when you create your Azure Machine Learning workspace.
+When you use a customer-managed key, the resources are in your Azure subscription and encrypted with your key. While these resources exist in your subscription, Microsoft manages them. They're automatically created and configured when you create your Azure Machine Learning workspace.
 
-These Microsoft-managed resources are located in a new Azure resource group that's created in your subscription. This group is in addition to the resource group for your workspace. This resource group contains the Microsoft-managed resources that your key is used with. The formula for naming the resource group is `<Azure Machine Learning workspace resource group name><GUID>`.
+These Microsoft-managed resources are located in a new Azure resource group that's created in your subscription. This resource group is separate from the resource group for your workspace. It contains the Microsoft-managed resources that your key is used with. The formula for naming the resource group is: `<Azure Machine Learning workspace resource group name><GUID>`.
 
 > [!TIP]
 > The [Request Units](../cosmos-db/request-units.md) for Azure Cosmos DB automatically scale as needed.
 
-If your Azure Machine Learning workspace uses a private endpoint, this resource group also contains a Microsoft-managed Azure virtual network. This virtual network helps secure communications between the managed services and the workspace. You _can't provide your own virtual network_ for use with the Microsoft-managed resources. You also _can't modify the virtual network_. For example, you can't change the IP address range that it uses.
+If your Azure Machine Learning workspace uses a private endpoint, this resource group also contains a Microsoft-managed Azure virtual network. This virtual network helps secure communication between the managed services and the workspace. You *can't provide your own virtual network* for use with the Microsoft-managed resources. You also *can't modify the virtual network*. For example, you can't change the IP address range that it uses.
 
 > [!IMPORTANT]
 > If your subscription doesn't have enough quota for these services, a failure will occur.
@@ -101,15 +106,17 @@ Azure Machine Learning uses compute resources to train and deploy machine learni
 
 ### Compute cluster
 
-The OS disk for each compute node that's stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when no jobs are queued. The underlying virtual machine is deprovisioned, and the OS disk is deleted. Azure Disk Encryption isn't supported for the OS disk.
+Compute clusters have local OS disk storage and can mount data from storage accounts in your subscription during a job. When you're mounting data from your own storage account in a job, you can enable customer-managed keys on those storage accounts for encryption.
 
-Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. If you create the workspace with the `hbi_workspace` parameter set to `TRUE`, the temporary disk is encrypted. This environment is short lived (only during your job), and encryption support is limited to system-managed keys only.
+The OS disk for each compute node that's stored in Azure Storage is always encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts, and not with customer-managed keys. This compute target is ephemeral, so data that's stored on the OS disk is deleted after the cluster scales down. Clusters typically scale down when no jobs are queued, autoscaling is on, and the minimum node count is set to zero. The underlying virtual machine is deprovisioned, and the OS disk is deleted.
+
+Azure Disk Encryption isn't supported for the OS disk. Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. If you create the workspace with the `hbi_workspace` parameter set to `TRUE`, the temporary disk is encrypted. This environment is short lived (only during your job), and encryption support is limited to system-managed keys only.
 
 ### Compute instance
 
-The OS disk for compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. If you create the workspace with the `hbi_workspace` parameter set to `TRUE`, the local temporary disk on the compute instance is encrypted with Microsoft-managed keys. Customer-managed key encryption is not supported for OS and temporary disks.
+The OS disk for a compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. If you create the workspace with the `hbi_workspace` parameter set to `TRUE`, the local temporary disk on the compute instance is encrypted with Microsoft-managed keys. Customer-managed key encryption is not supported for OS and temporary disks.
 
-### HBI_workspace flag
+### hbi_workspace flag
 
 You can set the `hbi_workspace` flag only when you create a workspace. You can't change it for an existing workspace.
 
