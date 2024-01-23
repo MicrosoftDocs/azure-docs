@@ -48,13 +48,13 @@ There's one exception of this group naming rule for the "users" group. It gets c
 
 #### Piculiarity of `users.data.root@` group
 - users.data.root entitlement group is the default member of all data groups when groups are created. If you try to remove users.data.root from any data group, you get error since this membership is enforced by OSDU.
-- users.data.root is the default and permanent owner as explained in [OSDU validate owner access API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/DataAuthorizationService.java?ref_type=heads#L66) and [OSDU users data root check API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/EntitlementsAndCacheServiceImpl.java#L98)
+- users.data.root is the default and permanent owner of all the data records as explained in [OSDU validate owner access API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/DataAuthorizationService.java?ref_type=heads#L66) and [OSDU users data root check API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/EntitlementsAndCacheServiceImpl.java#L98)
 
-As an example in the scenatio, 
+As an example in the scenario, 
 - A data_record_1 has 2 ACLs: ACL_1 and ACL_2.
 - User_1 is a member of ACL_1 and users.data.root.
 Now if you remove user_1 from  ACL_1, user_1 remains to have access of the data_record_1 via users.data.root group.
-And if ACL_1 and ACL_2 are removed from data_record_1, users.data.root continue to have owner access of the data.
+And if ACL_1 and ACL_2 are removed from data_record_1, users.data.root continue to have owner access of the data. This preserves the data record from becoming orphan ever.
 
 ## Users
 
