@@ -11,7 +11,7 @@ ms.author: daknappe
 
 You can install the [Remote Desktop client for Windows](./users/connect-windows.md) on either a per-system or per-user basis. Installing it on a per-system basis installs the client on the machines for all users by default, and administrators control updates. Per-user installation installs the application to a subfolder within the local AppData folder of each user's profile, enabling users to install updates with needing administrative rights.
 
-When you install the client using `msiexec.exe`, per-system is the default method of client installation. You can use the parameters `ALLUSERS=2 MSIINSTALLPERUSER=1` with msiexec to install the client per-user, however if you're deploying the client with Intune or Configuration Manager, using msiexec directly to install the client causes it to be installed per-system, regardless of the parameters used. Wrapping the msiexec command in a PowerShell script enables the client to be successfully installed per-user.
+When you install the client using `msiexec.exe`, per-system is the default method of client installation. You can use the parameters `ALLUSERS=2 MSIINSTALLPERUSER=1` with `msiexec` to install the client per-user, however if you're deploying the client with Intune or Configuration Manager, using `msiexec` directly to install the client causes it to be installed per-system, regardless of the parameters used. Wrapping the `msiexec` command in a PowerShell script enables the client to be successfully installed per-user.
 
 ## Prerequisites
 
@@ -29,9 +29,9 @@ To install the client on a per-user basis using a PowerShell script, select the 
 
 #### [Intune](#tab/intune)
 
-Here's how to install the client on a per-user basis using a PowerShell script with Intune as a *Windows app (Win32)*.
+Here's how to install the client on a per-user basis using a PowerShell script with Intune as a **Windows app (Win32)**.
 
-1. Create a new folder on your local Windows device and add the Remote Desktop client MSI file you downloaded.
+1. Create a new folder on your local Windows device and add the Remote Desktop client `.msi` file you downloaded.
 
 1. Within that folder, create a PowerShell script file called `Install.ps1` and add the following content, replacing `<RemoteDesktop>` with the filename of the `.msi` file you downloaded:
 
@@ -78,9 +78,9 @@ Here's how to install the client on a per-user basis using a PowerShell script w
 
 #### [Configuration Manager](#tab/configmgr)
 
-Here's how to install the client on a per-user basis using a PowerShell script with Configuration Manager as a *Script Installer*.
+Here's how to install the client on a per-user basis using a PowerShell script with Configuration Manager as a **Script Installer**.
 
-1. Create a new folder in your content location share for Configuration Manager and add the Remote Desktop client MSI file you downloaded.
+1. Create a new folder in your content location share for Configuration Manager and add the Remote Desktop client `.msi` file you downloaded.
 
 1. Within that folder, create a PowerShell script file called `Install.ps1` and add the following content, replacing `<RemoteDesktop>` with the filename of the `.msi` file you downloaded:
 
