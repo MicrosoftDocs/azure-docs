@@ -225,6 +225,7 @@
         - name: Deploy a cluster with a fully managed resource group
           href: node-resource-group-lockdown.md
         - name: Scale an AKS cluster
+        - name: Manually scale nodes in an AKS cluster
           href: scale-cluster.md
         - name: Stop an AKS cluster
           href: start-stop-cluster.md
