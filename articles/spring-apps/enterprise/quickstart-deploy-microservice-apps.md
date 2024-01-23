@@ -150,7 +150,31 @@ The following sections describe how to validate the deployment.
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-[!INCLUDE [validate-the-apps](includes/quickstart-deploy-microservice-apps/validate-the-apps.md)]
+### 5.1. Access the applications
+
+Using the endpoint assigned from Spring Cloud Gateway - for example, https://<your-Azure-Spring-Apps-instance-name>-gateway-xxxxx.svc.azuremicroservices.io. The application should look similar to the following screenshot:
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/deployment-output-enterprise-plan.png" alt-text="Diagram that shows the enterprise URL of the ARM deployment outputs." lightbox="media/quickstart-deploy-microservice-apps/deployment-output-enterprise-plan.png":::
+
+The application should look similar to the following screenshot:
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/application-enterprise.png" alt-text="Screenshot of the PetClinic application running on Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/application-enterprise.png":::
+
+### 5.2. Query the application logs
+
+After you browse each function of the Pet Clinic, the Log Analytics workspace collects logs of each application. You can check the logs by using custom queries, as shown in the following screenshot:
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/azure-spring-apps-log-query-enterprise.png" alt-text="Screenshot of the Azure portal that shows the Logs page of the query on PetClinic application and the results for the Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/azure-spring-apps-log-query-enterprise.png":::
+
+### 5.3. Monitor the applications
+
+Application Insights monitors the application dependencies, as shown by the following application tracing map:
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png" alt-text="Screenshot of the Azure portal that shows the Application map page for Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png":::
+
+Copy the URL for Application Live View and open the Application Live View URL to monitor application runtimes, as shown in the following screenshot:
+
+:::image type="content" source="media/quickstart-deploy-microservice-apps/application-live-view.png" alt-text="Screenshot of the Application Live View for the PetClinic application." lightbox="media/quickstart-deploy-microservice-apps/application-live-view.png":::
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
