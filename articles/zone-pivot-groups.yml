@@ -1908,7 +1908,7 @@ groups:
   title: Azure Maps coverage
   prompt: Choose the API version
   pivots:
-  - id: route
+  - id: route-v1
     title: Route
   - id: route-v2
     title: Route v2
