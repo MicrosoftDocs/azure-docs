@@ -29,7 +29,6 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Record Calls Client-side JavaScript](./includes/record-calls/record-calls-web.md)]
-[!INCLUDE [Local Recording Notification for Teams JavaScript](./includes/record-calls/record-calls-locally-web.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
