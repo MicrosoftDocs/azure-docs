@@ -1,97 +1,112 @@
 ---
-title: Create or join parallel branches for actions in workflows
-description: Learn how to create or merge parallel running branches for independent workflow actions in Azure Logic Apps.
+title: Create or join parallel branches in workflows
+description: Create or merge parallel branches for workflow actions in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 01/21/2024
 ---
 
-# Create or join parallel branches for workflow actions in Azure Logic Apps
+# Create or join parallel branches with workflow actions in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-By default, your actions in logic app workflows run sequentially. 
-To perform independent actions at the same time, 
-you can create [parallel branches](#parallel-branches), 
-and then [join those branches](#join-branches) later in your flow. 
+By default, your actions in a logic app workflow run sequentially. To organize actions into separate branches and run those branches at the same time, you can create [parallel branches](#parallel-branches), and then [join those branches](#join-branches) later in your workflow.
 
-> [!TIP] 
-> If you have a trigger that receives an array 
-> and want to run a workflow for each array item, 
-> you can *debatch* that array with the 
-> [**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
+> [!TIP]
+>
+> If you have a trigger that receives an array and want to run an individual workflow run instance for each array item, 
+> you can *debatch* that array with the [**SplitOn** trigger property](logic-apps-workflow-actions-triggers.md#split-on-debatch).
+
+This guide shows how to create parallel branches in a workflow and rejoin those branches, as shown in this high-level diagram:
+
+:::image type="content" source="media/logic-apps-control-flow-branches/branch-join-overview.png" alt-text="Screenshot shows high-level conceptual diagram with parallel branches that later join in workflow." lightbox="media/logic-apps-control-flow-branches/branch-join-overview.png":::
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/). 
+* An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md)
+* A logic app workflow that starts with a trigger and the actions that you want. Make sure that your workflow includes the actions between where you want to add a parallel branch.
+
+## Limitations
+
+Parallel branches run only when their `runAfter` property values match the finished parent step's status. For example, both `branchAction1` and `branchAction2` are set to run only when the `parentAction` completes with `Succeeded` status.
+
+Your workflow waits for all branches to finish before continuing the next action in the workflow.
+
 
 <a name="parallel-branches"></a>
 
-## Add parallel branch
+## Add a parallel branch action
 
-To run independent steps at the same time, 
-you can add parallel branches next to an existing step. 
+### [Standard](#tab/standard)
 
-![Run steps in parallel](media/logic-apps-control-flow-branches/parallel.png)
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and workflow in the designer.
 
-Your logic app waits for all branches to finish before continuing workflow. 
-Parallel branches run only when their `runAfter` property 
-values match the finished parent step's status. 
-For example, both `branchAction1` and `branchAction2` are set to 
-run only when the `parentAction` completes with `Succeeded` status.
+1. Between the actions where you want to add a parallel branch, move your pointer over the connecting arrow.
 
-> [!NOTE]
-> Before you start, your logic app must already 
-> have a step where you can add parallel branches.
+1. Select the **plus** sign (**+**) that appears, and then select **Add a parallel branch**.
 
-1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
-open your logic app in Logic App Designer.
+   :::image type="content" source="media/logic-apps-control-flow-branches/add-parallel-branch-standard.png" alt-text="Screenshot shows Standard workflow with selected plus sign and selected option, Add a parallel branch." lightbox="media/logic-apps-control-flow-branches/add-parallel-branch-standard.png":::
 
-1. Move your pointer over the arrow above the 
-step where you want to add parallel branches. 
-Choose the **plus** sign (**+**) that appears, 
-and then choose **Add a parallel branch**. 
+1. Now, add the action that you want to run in the parallel branch. In the **Add an action** pane and search box, find and select the action that you want.
 
-   ![Add parallel branch](media/logic-apps-control-flow-branches/add-parallel-branch.png)
+   :::image type="content" source="media/logic-apps-control-flow-branches/select-action-standard.png" alt-text="Screenshot shows Standard workflow with search box named Choose an operation." lightbox="media/logic-apps-control-flow-branches/select-action-standard.png":::
 
-1. In the search box, find and select the action you want.
+   The selected action now appears in the parallel branch, for example:
 
-   ![Screenshot that shows the "Choose an action" window in the Logic App Designer.](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
+   :::image type="content" source="media/logic-apps-control-flow-branches/added-parallel-branch-standard.png" alt-text="Screenshot shows Standard workflow, parallel branch, and previously selected action." lightbox="media/logic-apps-control-flow-branches/added-parallel-branch-standard.png":::
 
-   Your selected action now appears in the parallel branch, for example:
+1. To add another action to the parallel branch, under the action where you want to add a new action, select the **plus** (**+**) sign, and then select **Add an action**.
 
-   ![Find and select the action you want](media/logic-apps-control-flow-branches/added-parallel-branch.png)
+   :::image type="content" source="media/logic-apps-control-flow-branches/add-sequential-action-standard.png" alt-text="Screenshot shows Standard workflow and how to add another action to the same parallel branch." lightbox="media/logic-apps-control-flow-branches/add-sequential-action-standard.png":::
 
-1. Now, in each parallel branch, add the steps you want. 
-To add another action to a branch, move your pointer under 
-the action where you want to add a sequential action. 
-Choose the **plus** (**+**) sign that appears, 
-and then select **Add an action**.
-
-   ![Add sequential action to parallel branch](media/logic-apps-control-flow-branches/add-sequential-action.png)
-
-1. In the search box, find and select the action you want.
-
-   ![Screenshot that shows the "Choose an action" window and search box in the Logic App Designer.](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+1. In the **Choose an operation** search box, find and select the action that you want.
 
    Your selected action now appears within the current branch, for example:
 
-   ![Find and select sequential action](media/logic-apps-control-flow-branches/added-sequential-action.png)
+   :::image type="content" source="media/logic-apps-control-flow-branches/added-sequential-action-standard.png" alt-text="Screenshot shows Standard workflow with added sequential action." lightbox="media/logic-apps-control-flow-branches/added-sequential-action-standard.png":::
 
-To merge branches back together, 
-[join your parallel branches](#join-branches). 
+To merge branches back together, [join your parallel branches](#join-branches).
+
+### [Consumption](#tab/consumption)
+
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
+
+1. Between the actions where you want to add a parallel branch, move your pointer over the connecting arrow.
+
+1. Select the **plus** sign (**+**) that appears, and then select **Add a parallel branch**.
+
+   :::image type="content" source="media/logic-apps-control-flow-branches/add-parallel-branch-consumption.png" alt-text="Screenshot shows Consumption workflow with selected plus sign and selected option, Add a parallel branch." lightbox="media/logic-apps-control-flow-branches/add-parallel-branch-consumption.png":::
+
+1. Now, add the action that you want to run in the parallel branch. In the **Choose an operation** search box, find and select the action that you want.
+
+   :::image type="content" source="media/logic-apps-control-flow-branches/select-action-consumption.png" alt-text="Screenshot shows Consumption workflow with search box named Choose an operation." lightbox="media/logic-apps-control-flow-branches/select-action-consumption.png":::
+
+   The selected action now appears in the parallel branch, for example:
+
+   :::image type="content" source="media/logic-apps-control-flow-branches/added-parallel-branch-consumption.png" alt-text="Screenshot shows Consumption workflow, parallel branch, and previously selected action." lightbox="media/logic-apps-control-flow-branches/added-parallel-branch-consumption.png":::
+
+1. To add another action to the parallel branch, under the action where you want to add a new action, move your pointer around, select the **plus** (**+**) sign that appears, and then select **Add an action**.
+
+   :::image type="content" source="media/logic-apps-control-flow-branches/add-sequential-action-consumption.png" alt-text="Screenshot shows Consumption workflow and how to add another action to the same parallel branch." lightbox="media/logic-apps-control-flow-branches/add-sequential-action-consumption.png":::
+
+1. In the **Choose an operation** search box, find and select the action that you want.
+
+   Your selected action now appears within the current branch, for example:
+
+   :::image type="content" source="media/logic-apps-control-flow-branches/added-sequential-action-consumption.png" alt-text="Screenshot shows Consumption workflow with added sequential action." lightbox="media/logic-apps-control-flow-branches/added-sequential-action-consumption.png":::
+
+To merge branches back together, [join your parallel branches](#join-branches).
+
+---
 
 <a name="parallel-json"></a>
 
 ## Parallel branch definition (JSON)
 
-If you're working in code view, you can define the parallel 
-structure in your logic app's JSON definition instead, for example:
+If you're working in code view, you can define the parallel structure in your logic app workflow's JSON definition instead, for example:
 
 ``` json
 {
@@ -131,23 +146,19 @@ structure in your logic app's JSON definition instead, for example:
 
 ## Join parallel branches
 
-To merge parallel branches together, 
-just add a step at the bottom under all the branches. 
-This step runs after all the parallel branches finish running.
+To merge parallel branches together, just add a step at the bottom under all the branches. This step runs after all the parallel branches finish running.
 
 ![Join parallel branches](media/logic-apps-control-flow-branches/join.png)
 
-1. In the [Azure portal](https://portal.azure.com), 
-find and open your logic app in Logic App Designer. 
+1. In the [Azure portal](https://portal.azure.com), find and open your logic app in Logic App Designer.
 
-1. Under the parallel branches you want to join, choose **New step**. 
+1. Under the parallel branches you want to join, choose **New step**.
 
    ![Add step to join](media/logic-apps-control-flow-branches/add-join-step.png)
 
-1. In the search box, find and select the action 
-you want as the step that joins the branches.
+1. In the search box, find and select the action you want as the step that joins the branches.
 
-   ![Find and select the action that joins parallel branches](media/logic-apps-control-flow-branches/join-steps.png)
+   ![Find and select the action that joins parallel branches](media/logic-apps-control-flow-branches/join-branches-consumption.png)
 
    Your parallel branches are now merged.
 
