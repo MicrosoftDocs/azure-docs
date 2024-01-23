@@ -1,7 +1,7 @@
 ---
 title: Data encryption with Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: 'Learn how Azure Machine Learning computes and data stores provide data encryption at rest and in transit.'
+description: 'Learn how Azure Machine Learning computes and datastores provide data encryption at rest and in transit.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -16,7 +16,7 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 
 # Data encryption with Azure Machine Learning
 
-Azure Machine Learning relies on a variety of Azure data storage services and compute resources when it's training models and performing inferences. In this article, learn about the data encryption for each service both at rest and in transit.
+Azure Machine Learning relies on a variety of Azure data storage services and compute resources when you're training models and performing inferences. In this article, learn about the data encryption for each service both at rest and in transit.
 
 For production-grade encryption during training, we recommend that you use an Azure Machine Learning compute cluster. For production-grade encryption during inference, we recommend that you use Azure Kubernetes Service (AKS).
 
@@ -32,7 +32,7 @@ Azure Machine Learning stores snapshots, output, and logs in the Azure Blob Stor
 
 For information on how to use your own keys for data stored in Azure Blob storage, see [Azure Storage encryption with customer-managed keys in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md).
 
-Training data is typically also stored in Azure Blob Storage so that training compute targets can access it. This storage isn't managed by Azure Machine Learning but mounted to compute targets as a remote file system.
+Training data is typically also stored in Azure Blob Storage so that training compute targets can access it. Azure Machine Learning doesn't manage this storage. This storage is mounted to compute targets as a remote file system.
 
 If you need to _rotate or revoke_ your key, you can do so at any time. When you rotate a key, the storage account starts using the new key (latest version) to encrypt data at rest. When you revoke (disable) a key, the storage account takes care of failing requests. It usually takes an hour for the rotation or revocation to be effective.
 
@@ -42,7 +42,7 @@ For information on regenerating the access keys, see [Regenerate storage account
 
 [!INCLUDE [Note](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-Azure Data Lake Storage Gen2 is built on top of Azure Blob Storage and is designed for enterprise big data analytics. Data Lake Storage Gen2 is used as a datastore for Azure Machine Learning. Like Azure Blob Storage, the data at rest is encrypted with Microsoft-managed keys.
+Azure Data Lake Storage Gen2 is built on top of Azure Blob Storage and is designed for big data analytics in enterprises. Data Lake Storage Gen2 is used as a datastore for Azure Machine Learning. Like Azure Blob Storage, the data at rest is encrypted with Microsoft-managed keys.
 
 For information on how to use your own keys for data stored in Azure Data Lake Storage, see [Azure Storage encryption with customer-managed keys in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md).
 
@@ -58,21 +58,21 @@ For information on how to use customer-managed keys for transparent data encrypt
 
 #### Azure Database for PostgreSQL
 
-By default, Azure Database for PostgreSQL uses Azure Storage encryption to encrypt data at rest by using Microsoft managed keys. It's similar to transparent data encryption in other databases, such as SQL Server.
+By default, Azure Database for PostgreSQL uses Azure Storage encryption to encrypt data at rest by using Microsoft-managed keys. It's similar to transparent data encryption in other databases, such as SQL Server.
 
 For information on how to use customer-managed keys for transparent data encryption, see [Azure Database for PostgreSQL Single Server data encryption with a customer-managed key](../postgresql/single-server/concepts-data-encryption-postgresql.md).
 
 #### Azure Database for MySQL
 
-Azure Database for MySQL is a relational database service in the Microsoft Cloud based on the MySQL Community Edition database engine. The Azure Database for MySQL service uses the FIPS 140-2 validated cryptographic module for Azure Storage encryption of data at rest.
+Azure Database for MySQL is a relational database service in the Microsoft Cloud. It's based on the MySQL Community Edition database engine. The Azure Database for MySQL service uses the FIPS 140-2 validated cryptographic module for Azure Storage encryption of data at rest.
 
 To encrypt data by using customer-managed keys, see [Azure Database for MySQL data encryption with a customer-managed key](../mysql/single-server/concepts-data-encryption-mysql.md).
 
 ### Azure Cosmos DB
 
-Azure Machine Learning stores metadata in an Azure Cosmos DB instance. This instance is associated with a Microsoft subscription managed by Azure Machine Learning. All the data stored in Azure Cosmos DB is encrypted at rest with Microsoft-managed keys.
+Azure Machine Learning stores metadata in an Azure Cosmos DB instance. This instance is associated with a Microsoft subscription that Azure Machine Learning manages. All the data stored in Azure Cosmos DB is encrypted at rest with Microsoft-managed keys.
 
-When using your own (customer-managed) keys to encrypt the Azure Cosmos DB instance, a Microsoft-managed Azure Cosmos DB instance is created in your subscription. This instance is created in a Microsoft-managed resource group, which is different from the resource group for your workspace. For more information, see [Customer-managed keys for Azure Machine Learning](concept-customer-managed-keys.md).
+When you're using your own (customer-managed) keys to encrypt the Azure Cosmos DB instance, a Microsoft-managed Azure Cosmos DB instance is created in your subscription. This instance is created in a Microsoft-managed resource group, which is different from the resource group for your workspace. For more information, see [Customer-managed keys for Azure Machine Learning](concept-customer-managed-keys.md).
 
 ### Azure Container Registry
 
@@ -87,8 +87,8 @@ To use customer-managed keys to encrypt your container registry, you need to cre
 
 For examples of creating a workspace by using an existing container registry, see the following articles:
 
-* [Create a workspace for Azure Machine Learning by using the Azure CLI](how-to-manage-workspace-cli.md).
-* [Create a workspace with the Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace).
+* [Create a workspace for Azure Machine Learning by using the Azure CLI](how-to-manage-workspace-cli.md)
+* [Create a workspace with the Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace)
 * [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md)
 
 :::moniker range="azureml-api-1"
@@ -110,9 +110,8 @@ To use the key when you're deploying a model to Container Instances, create a ne
 
 For more information on creating and using a deployment configuration, see the following articles:
 
-* [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) reference
-
-* [Where and how to deploy](./v1/how-to-deploy-and-where.md)
+* [AciWebservice class reference](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
+* [Deploy machine learning models to Azure](./v1/how-to-deploy-and-where.md)
 
 For more information on using a customer-managed key with Container Instances, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md).
 :::moniker-end
@@ -140,7 +139,7 @@ Managed online endpoints and batch endpoints use Machine Learning compute in the
 
 #### Compute instance
 
-The OS disk for a compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. If you create the workspace with the `hbi_workspace` parameter set to `TRUE`, the local OS and temporary disks on compute instance are encrypted with Microsoft-managed keys. Customer-managed key encryption is not supported for OS and temporary disks.
+The OS disk for a compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. If you create the workspace with the `hbi_workspace` parameter set to `TRUE`, the local OS and temporary disks on a compute instance are encrypted with Microsoft-managed keys. Customer-managed key encryption is not supported for OS and temporary disks.
 
 For more information, see [Customer-managed keys for Azure Machine Learning](concept-customer-managed-keys.md).
 
@@ -172,35 +171,35 @@ To help secure external calls made to the scoring endpoint, Azure Machine Learni
 
 ### Microsoft-collected data
 
-Microsoft might collect information that doesn't identify users, like resource names (for example, the dataset name or the machine learning experiment name) or job environment variables, for diagnostic purposes. All such data is stored through Microsoft-managed keys in storage hosted in Microsoft-owned subscriptions and follows [Microsoft's standard privacy policy and data-handling standards](https://privacy.microsoft.com/privacystatement). This data stays within the same region as your workspace.
+Microsoft might collect information that doesn't identify users, like resource names (for example, the dataset name or the machine learning experiment name) or job environment variables, for diagnostic purposes. All such data is stored through Microsoft-managed keys in storage hosted in Microsoft-owned subscriptions. The storage follows [Microsoft's standard privacy policy and data-handling standards](https://privacy.microsoft.com/privacystatement). This data stays within the same region as your workspace.
 
-Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Microsoft logs, encrypts, and stores environment variables. Similarly, when you name your jobs, avoid including sensitive information such as user names or secret project names. This information might appear in telemetry logs that Microsoft Support engineers can access.
+We recommend not storing sensitive information (such as account key secrets) in environment variables. Microsoft logs, encrypts, and stores environment variables. Similarly, when you name your jobs, avoid including sensitive information such as user names or secret project names. This information might appear in telemetry logs that Microsoft support engineers can access.
 
 You can opt out from the collection of diagnostic data by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when you use the Azure Machine Learning Python SDK, the Azure CLI, REST APIs, or Azure Resource Manager templates.
 
-## Using Azure Key Vault
+## Credential storage in Azure Key Vault
 
 Azure Machine Learning uses the Azure Key Vault instance that's associated with the workspace to store credentials of various kinds:
 
-* The associated storage account connection string
-* Passwords to Azure Container Repository instances
-* Connection strings to data stores
+* The associated connection string for the storage account
+* Passwords to Azure Container Registry instances
+* Connection strings to datastores
 
-Secure Shell (SSH) passwords and keys to compute targets like Azure HDInsight and VMs are stored in a separate key vault that's associated with the Microsoft subscription. Azure Machine Learning doesn't store any passwords or keys that users provide. Instead, it generates, authorizes, and stores its own SSH keys to connect to VMs and HDInsight to run the experiments.
+Secure Shell (SSH) passwords and keys to compute targets like Azure HDInsight and virtual machines are stored in a separate key vault that's associated with the Microsoft subscription. Azure Machine Learning doesn't store any passwords or keys that users provide. Instead, it generates, authorizes, and stores its own SSH keys to connect to virtual machines and HDInsight to run the experiments.
 
 Each workspace has an associated system-assigned managed identity that has the same name as the workspace. This managed identity has access to all keys, secrets, and certificates in the key vault.
 
 ## Next steps
 
 :::moniker range="azureml-api-2"
-* [Use datastores](how-to-datastore.md)
+* [Create datastores](how-to-datastore.md)
 * [Create data assets](how-to-create-data-assets.md)
 * [Access data in a training job](how-to-read-write-data-v2.md)
 :::moniker-end
 :::moniker range="azureml-api-1"
-* [Connect to Azure storage](./v1/how-to-access-data.md)
+* [Connect to Azure storage services](./v1/how-to-access-data.md)
 * [Get data from a datastore](./v1/how-to-create-register-datasets.md)
 * [Connect to data](v1/how-to-connect-data-ui.md)
 * [Train with datasets](v1/how-to-train-with-datasets.md)
 :::moniker-end
-* [Customer-managed keys](concept-customer-managed-keys.md)
+* [Use customer-managed keys](concept-customer-managed-keys.md)
