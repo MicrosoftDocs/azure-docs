@@ -17,7 +17,7 @@ The built-in roles for Azure Virtual Desktop and the permissions for each one ar
 
 ## Desktop Virtualization Contributor
 
-The Desktop Virtualization Contributor role allows management of all your Azure Virtual Desktop resources. You also need the *User Access Administrator* role to assign application groups to user accounts or user groups. This role doesn't grant users access to compute resources.
+The Desktop Virtualization Contributor role allows managing all your Azure Virtual Desktop resources. You also need the *User Access Administrator* role to assign application groups to user accounts or user groups. This role doesn't grant users access to compute resources.
 
 | Action type | Permissions |
 |--|--|
@@ -50,7 +50,7 @@ The Desktop Virtualization User role allows users to use an application on a ses
 
 ## Desktop Virtualization Host Pool Contributor
 
-The Desktop Virtualization Host Pool Contributor role allows managing all aspects of a host pool, including access to resources. You also need the *Virtual Machine Contributor* role to create virtual machines and the *Desktop Virtualization Application Group Contributor* and *Desktop Virtualization Workspace Contributor* roles to deploy Azure Virtual Desktop using the portal, or you can use the *Desktop Virtualization Contributor* role.
+The Desktop Virtualization Host Pool Contributor role allows managing all aspects of a host pool. You also need the *Virtual Machine Contributor* role to create virtual machines and the *Desktop Virtualization Application Group Contributor* and *Desktop Virtualization Workspace Contributor* roles to deploy Azure Virtual Desktop using the portal, or you can use the *Desktop Virtualization Contributor* role.
 
 | Action type | Permissions |
 |--|--|
@@ -72,7 +72,7 @@ The Desktop Virtualization Host Pool Reader role allows viewing all aspects of a
 
 ## Desktop Virtualization Application Group Contributor
 
-The Desktop Virtualization Application Group Contributor role allows managing all aspects of an application group. If you to assign user accounts or user groups to application groups, you also need the *User Access Administrator* role.
+The Desktop Virtualization Application Group Contributor role allows managing all aspects of an application group. If you want to assign user accounts or user groups to application groups too, you also need the *User Access Administrator* role.
 
 | Action type | Permissions |
 |--|--|
@@ -127,7 +127,7 @@ The Desktop Virtualization User Session Operator role allows sending messages, d
 
 ## Desktop Virtualization Session Host Operator
 
-The Desktop Virtualization Session Host Operator role allows viewing and removing session hosts, and changing drain mode. This role can't add session hosts using the Azure portal because it doesn't have write permission for host pool objects. For adding session hosts outside of the Azure portal, if the registration token is valid (generated and not expired), this role can add session hosts to the host pool if they also have the *Virtual Machine Contributor* role.
+The Desktop Virtualization Session Host Operator role allows viewing and removing session hosts, and changing drain mode. This role can't add session hosts using the Azure portal because it doesn't have write permission for host pool objects. For adding session hosts outside of the Azure portal, if the registration token is valid (generated and not expired), this role can add session hosts to the host pool if the *Virtual Machine Contributor* role is also assigned.
 
 | Action type | Permissions |
 |--|--|
