@@ -334,9 +334,11 @@
 - name: Compliance
   items:
     - name: Microsoft Azure Compliance Offerings
-      href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
+      href: https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3
     - name: Azure, Dynamics 365, Microsoft 365, and Power Platform compliance offerings
       href: /azure/compliance/offerings/
+    - name: Azure security baseline for Azure Container Apps
+      href: /security/benchmark/azure/baselines/azure-container-apps-security-baseline
 - name: Samples & FAQs
   items:
     - name: Samples

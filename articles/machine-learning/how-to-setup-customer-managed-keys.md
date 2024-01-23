@@ -47,7 +47,6 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
 * You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your workspace.
 * The key vault that contains your customer-managed key must be in the same Azure subscription as the Azure Machine Learning workspace.
 * OS disk of machine learning compute can't be encrypted with customer-managed key, but can be encrypted with Microsoft-managed key if the workspace is created with `hbi_workspace` parameter set to `TRUE`. For more details, see [Data encryption](concept-data-encryption.md#machine-learning-compute).
-* Workspace with customer-managed key doesn't currently support v2 batch endpoint.
 
 > [!IMPORTANT]
 > When using a customer-managed key, the costs for your subscription will be higher because of the additional resources in your subscription. To estimate the cost, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).

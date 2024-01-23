@@ -7,7 +7,6 @@ ms.topic: overview
 ms.reviewer: sngun, garye, negust, ruxu
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.custom:
 ms.date: 02/14/2023
 ---
 # Azure AI services in Azure Synapse Analytics

@@ -107,7 +107,7 @@
         - name: Node DNS names
           href: concepts-node-domain-name.md
           displayName: DNS, FQDN, connection, connect
-        - name: Customer managed keys
+        - name: Customer-managed keys
           href: concepts-customer-managed-keys.md
           displayName: customer-managed, keys, cmk
         - name: Row-level security
@@ -231,7 +231,7 @@
         - name: Manage Microsoft Entra ID and Postgres users
           href: how-to-configure-authentication.md
           displayName: Azure Active Directory, PosgreSQL roles, authentication
-        - name: Customer managed keys
+        - name: Customer-managed keys
           href: how-to-customer-managed-keys.md
           displayName: customer-managed, keys, cmk
         - name: Configure TLS/SSL

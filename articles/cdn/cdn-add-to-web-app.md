@@ -4,10 +4,7 @@ description: In this tutorial, Azure Content Delivery Network (CDN) is added to 
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: 
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/27/2023
 ms.author: duau

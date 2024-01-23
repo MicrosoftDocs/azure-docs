@@ -97,7 +97,7 @@ items:
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Azure regions supported by Dev Box
-      href: https://azure.microsoft.com/regions/services/
+      href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=dev-box
     - name: FAQ
       href: dev-box-faq.yml
     - name: Get support for Microsoft Dev Box
