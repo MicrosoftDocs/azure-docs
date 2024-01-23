@@ -4,7 +4,7 @@ description: Integrate Azure AI capabilities into Azure Database for PostgreSQL 
 author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: maghan, carols
-ms.date: 11/07/2023
+ms.date: 01/19/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:

@@ -6,7 +6,7 @@ author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 12/12/2023
+ms.date: 01/16/2024
 ---
 
 # Servers - Azure Database for PostgreSQL - Flexible Server

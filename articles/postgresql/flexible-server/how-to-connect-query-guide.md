@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
-ms.date: 11/30/2021
+ms.date: 01/02/2024
 ---
 
 # Connect and query overview for Azure Database for PostgreSQL - Flexible Server
