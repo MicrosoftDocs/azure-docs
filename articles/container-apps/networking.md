@@ -195,6 +195,8 @@ Subnet address ranges can't overlap with the following ranges reserved by Azure 
 - 172.31.0.0/16
 - 192.0.2.0/24
 
+If you created your container apps with a custom service CIDR, you should ensure that your container app's subnet doesn't conflict with your custom service CIDR range.
+
 ---
 
 ### Subnet configuration with CLI
