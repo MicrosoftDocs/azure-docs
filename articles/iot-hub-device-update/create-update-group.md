@@ -199,7 +199,7 @@ az iot du device group show \
 
 ## Removing a device from a device group
 
-To remove a device from a device group, the ADU Group tag value must be changed to "null".
+To remove a device from a device group, the ADUGroup tag value must be changed to "null".
 
    ```JSON
        "tags": {
@@ -208,7 +208,6 @@ To remove a device from a device group, the ADU Group tag value must be changed 
    ```
 This will delete the ADUGroup tag from the device twin and remove the device from its device group.
 
----
 ## Deleting device groups
 
 While device groups are automatically created, groups, device classes and deployments are not automatically cleaned up so as to retain them for historical records or other user needs. Device groups can be deleted through Azure portal by individually selecting and deleting the desired groups, or by calling the DELETE API on the group. [Learn more](/cli/azure/iot/du/device/group#az-iot-du-device-group-delete)
