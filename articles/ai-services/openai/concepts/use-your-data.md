@@ -249,6 +249,15 @@ Data is ingested into Azure AI search using the following process:
 
 3. The preprocessed data is loaded from the chunks container, and indexed in the Azure AI Search index. 
 
+### Ingestion parameters
+
+You can use the following parameter to change how your data is ingested in Azure OpenAI Studio, Azure AI Studio, and the ingestion API. Changing the parameter requires re-ingesting your data into Azure Search.
+
+|Parameter name  | Description  |
+|---------|---------|
+| **Chunk size** | Azure OpenAI on your data processes your documents by splitting them into chunks before indexing them in Azure Search. The chunk size is the maximum number of tokens for any chunk in the search index. The default chunk size is 1024 tokens. However, given the uniqueness of your data, you may find a different chunk size (such as 256, 512, or 1536 tokens for example) more effective. 
+Adjusting the chunk size can enhance the performance of the chat bot. While finding the optimal chunk size requires some trial and error, start by considering the nature of your dataset. A smaller chunk size is generally better for datasets with direct facts and less context, while a larger chunk size might be beneficial for more contextual information, though it can affect retrieval performance. |
+
 
 ### Using the model
 
@@ -270,25 +279,50 @@ You can use Azure OpenAI on your data securely by protecting data and resources 
 
 Use the following sections to learn how to improve the quality of responses given by the model.
 
-### Custom parameters
+### Runtime parameters
 
-You can modify the following additional settings in the **Data parameters** section in Azure OpenAI Studio and [the API](../reference.md#completions-extensions).
+You can modify the following additional settings in the **Data parameters** section in Azure OpenAI Studio and [the API](../reference.md#completions-extensions). You do not need to re-ingest your your data when you update these parameters. 
 
 
 |Parameter name  | Description  |
 |---------|---------|
-|**Retrieved documents**     |  Specifies the number of top-scoring documents from your data index used to generate responses. You might want to increase the value when you have short documents or want to provide more context. The default value is 5. This is the `topNDocuments` parameter in the API.     |
-| **Strictness**     | Sets the threshold to categorize documents as relevant to your queries. Raising the value means a higher threshold for relevance and filters out more less-relevant documents for responses. Setting this value too high might cause the model to fail to generate responses due to limited available documents. The default value is 3.         |
+| **Limit responses to your data** | This flag configures the chatbot's approach to handling queries unrelated to the data source or when search documents are insufficient for a complete answer. When this setting is disabled, the model supplements its responses with its own knowledge in addition to your documents. When this setting is enabled, the model attempts to only rely on your documents for responses. |
+|**Top K Documents**     |  This parameter is an integer that can be set to 3, 5, 10, or 20, and controls the number of document chunks provided to the large language model for formulating the final response. By default, this is set to 5. The search process can be noisy and sometimes, due to chunking, relevant information may be spread across multiple chunks in the search index. Selecting a top-K number, like 5, ensures that the model can extract relevant information, despite the inherent limitations of search and chunking. However, increasing the number too high can potentially distract the model. Additionally, the maximum number of documents that can be effectively used depends on the version of the model, as each has a different context size and capacity for handling documents. If you find that responses are missing important context, try increasing this parameter. Conversely, if you think the model is providing irrelevant information alongside useful data, consider decreasing it.
+When experimenting with the [chunk size](#ingestion-parameters), we recommend adjusting the top-K parameter to achieve the best performance. Usually, it is beneficial to change the top-K value in the opposite direction of your chunk size adjustment. For example, if you decrease the chunk size from the default of 1024, you might want to increase the top-K value to 10 or 20. This ensures a similar amount of information is provided to the model, as reducing the chunk size decreases the amount of information in the 5 documents given to the model. |
+| **Strictness**     | Determines the system's aggressiveness in filtering search documents based on their similarity scores. The system queries Azure Search or other document stores, then decides which documents to provide to large language models like ChatGPT. Filtering out irrelevant documents can significantly enhance the performance of the end-to-end chatbot. Some documents are excluded from the top-K results if they have low similarity scores before forwarding them to the model. This is controlled by an integer value ranging from 1 to 5. Setting this value to 1 means that the system will minimally filter documents based on search similarity to the user query. Conversely, a setting of 5 indicates that the system will aggressively filter out documents, applying a very high similarity threshold. If you find that the chatbot omits relevant information, lower the filter's strictness (set the value closer to 1) to include more documents. Conversely, if irrelevant documents distract the responses, increase the threshold (set the value closer to 5). |
 
 ### System message
 
-Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, what it should and shouldn't answer, and how to format responses. There are token limits that apply to the system message, used with every API call, and counted against the overall token limit. The system message will be truncated if it exceeds the token limits listed in the [token estimation](#token-usage-estimation-for-azure-openai-on-your-data) section.
+You can define a system message to steer the model's reply when using Azure OpenAI on your data. This message will allow you to customize your replies on top of the retrieval augmented generation (RAG) pattern that Azure OpenAI on your data uses. The system message is used in addition to an internal base prompt to provide the experience. To support this, we truncate the system message after a specific [number of tokens](#token-usage-estimation-for-azure-openai-on-your-data) to ensure the model can answer questions using your data. If you are defining extra behavior on top of the default experience, ensure that your system prompt is detailed and explains the exact expected customization. 
 
-For example, if you're creating a chatbot where the data consists of transcriptions of quarterly financial earnings calls, you might use the following system message:
+Once you select add your dataset, you can use the **System message** section in the Azure OpenAI Studio and Azure AI Studio chat playgrounds, or the `roleInformation` [parameter in the API](../reference.md#completions-extensions).
 
-*"You are a financial chatbot useful for answering questions from financial reports. You are given excerpts from the earnings call. Please answer the questions by parsing through all dialogue."*
+:::image type="content" source="../media/use-your-data/system-message.png" alt-text="A screenshot showing the system message option in Azure OpenAI Studio." lightbox="../media/use-your-data/use-your-data/system-message.png":::
 
-This system message can help improve the quality of the response by specifying the domain (in this case finance) and mentioning that the data consists of call transcriptions. It helps set the necessary context for the model to respond appropriately. You can also configure this [in the API](../reference.md#completions-extensions) by using the `roleInformation`.
+#### Potential usage patterns
+
+**Define a role**
+
+You can define a role that you want your assistant. For example, if you are building a support bot, you can add *"You are an expert incident support assistant that helps users solve new issues."*.
+
+**Define the type of data being retrieved**
+
+You can also add the nature of data you are providing to assistant.
+* Define the topic or scope of your dataset, like "financial report", "academic paper", or "incident report". For example, for technical support you might add *"You answer queries using information from similar incidents in the retrieved documents."*.
+* If your data has certain characteristics, you can add these details to the system message. For example, if your documents are in Japanese, you can add *"You retrieve Japanese documents and you should read them carefully in Japanese and answer in Japanese."*. 
+* If your documents include structured data like tables from a financial report, you can also add this fact into the system prompt. For example, if your data has tables, you might add *"You are given data in form of tables pertaining to financial results and you should read the table line by line to perform calculations to answer user questions."*.
+
+**Define the output style** 
+
+You can also change the model's output by defining a system message. For example, if you want to ensure that the assistant answers are in French, you can add a prompt like *"You are an AI assistant that helps users who understand French find information. The user questions can be in English or French. Please read the retrieved documents carefully and answer them in French. Please translate the knowledge from documents to French to ensure all answers are in French."*.
+
+**Reaffirm critical behavior**
+
+Azure OpenAI on your data works by sending instructions to a large language model in the form of prompts to answer user queries using your data. If there is a certain behavior that is critical to the application, you can repeat the behavior in system message to increase its accuracy. For example, to guide the model to only answer from documents, you can add "*Please answer using retrieved documents only, and without using your knowledge. Please generate citations to retrieved documents for every claim in your answer. If the user question cannot be answered using retrieved documents, please explain the reasoning behind why documents are relevant to user queries. In any case, do not answer using your own knowledge."*.
+
+**Prompt Engineering tricks**
+
+There are many tricks in prompt engineering that you can try to improve the output. One example is chain-of-thought prompting for you which you can add *"Let’s think step by step about information in retrieved documents to answer user queries. Extract relevant knowledge to user queries from documents step by step and form an answer bottom up from the extracted information from relevant documents."*.
 
 > [!NOTE]
 > The system message is used to modify how GPT assistant responds to a user question based on retrieved documentation. It does not affect the retrieval process. If you'd like to provide instructions for the retrieval process, it is better to include them in the questions.
