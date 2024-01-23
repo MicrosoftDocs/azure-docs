@@ -5,7 +5,7 @@ ms.topic: article
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
-ms.date: 01/22/2024
+ms.date: 01/24/2024
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
@@ -233,7 +233,7 @@ A custom user-assigned managed identity for the control plane enables access to 
     }
     ```
   
-* After creating the identity, [add the role assignment for control plane managed identity][add-role-assignment-for-control-plane-managed-identity] using the [`az role assignment create`][az-role-assignment-create] command.
+* After creating the custom user-assigned managed identity for the control plane, [add the role assignment for the managed identity][add-role-assignment-for-managed-identity] using the [`az role assignment create`][az-role-assignment-create] command.
 
 * Update your cluster with your existing identities using the [`az aks update`][az-aks-update] command. Make sure to provide the resource ID of the managed identity for the control plane by including the `assign-identity` argument.
 
@@ -483,7 +483,7 @@ Use [Azure Resource Manager templates][aks-arm-template] to create a managed ide
 [update-managed-identity-on-an-existing-cluster]: use-managed-identity.md#update-managed-identity-on-an-existing-cluster
 [workload-identity-overview]: workload-identity-overview.md
 [aad-pod-identity]: use-azure-ad-pod-identity.md
-[add-role-assignment-for-control-plane-managed-identity]: use-managed-identity.md#add-role-assignment-for-managed-identity
+[add-role-assignment-for-managed-identity]: use-managed-identity.md#add-role-assignment-for-managed-identity
 [az-group-create]: /cli/azure/group#az_group_create
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
