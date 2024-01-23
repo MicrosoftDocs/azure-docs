@@ -557,9 +557,16 @@ items:
       href: connector-rest.md
       displayName: timeout
     - name: Salesforce
-      href: connector-salesforce.md
+      items:
+      - name: Salesforce
+        href: connector-salesforce.md
+      - name: Salesforce (legacy)
+        href: connector-salesforce-legacy.md
     - name: Salesforce Service Cloud
       href: connector-salesforce-service-cloud.md
+      items:
+      - name: Salesforce Service Cloud (legacy)
+        href: connector-salesforce-service-cloud-legacy.md
     - name: Salesforce Marketing Cloud
       href: connector-salesforce-marketing-cloud.md
     - name: SAP Business Warehouse Open Hub

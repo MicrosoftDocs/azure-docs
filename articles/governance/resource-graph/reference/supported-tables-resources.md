@@ -1,11 +1,9 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 12/28/2023
+ms.date: 01/22/2023
 ms.topic: reference
 ms.custom: generated
-ms.author: davidsmatlak
-author: davidsmatlak
 ---
 
 # Azure Resource Graph table and resource type reference
@@ -1025,10 +1023,6 @@ For sample queries for this table, see [Resource Graph sample queries for servic
 
 - microsoft.compute/skuspotevictionrate/location
 - microsoft.compute/skuspotpricehistory/ostype/location
-
-## workloadmonitorresources
-
-- microsoft.workloadmonitor/monitors
 
 ## Next steps
 

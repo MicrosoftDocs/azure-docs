@@ -23,7 +23,7 @@ The Azure App Configuration Python provider includes built-in caching and refres
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An Azure App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- Python 3.6 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
+- Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 
 ## Add key-values
 
