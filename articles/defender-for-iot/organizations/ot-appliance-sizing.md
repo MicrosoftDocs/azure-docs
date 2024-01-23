@@ -49,6 +49,11 @@ Use the following hardware profiles for production line monitoring, typically in
 |L500   | Up to 200 Mbps        |   1,000      |Physical / Virtual         |
 |L100    | Up to 60 Mbps        |   800      | Physical / Virtual        |
 
+> [!IMPORTANT]
+> Defender for IoT software versions require a minimum disk size of 100 GB. The L60 hardware profile, which only supports 60 GB of hard disk, has been deprecated.
+>
+> Migration steps from the L60 hardware profile to a supported profile can be found by following the [back up and restore a sensor](back-up-restore-sensor.md) process.
+
 ## On-premises management console systems
 
 On-premises management consoles allow you to manage and monitor large, multiple-sensor deployments. Use the following hardware profiles for deployment of an on-premises management console:
