@@ -51,4 +51,3 @@ In situations where privacy or security is paramount, Audio Only Mode ensures th
 - **Remote Field Operations**: Facilitates uninterrupted communication in areas with limited internet, removing concerns about unstable video feeds.
 - **Privacy during Home Office**: Respects personal space by eliminating video during calls, ensuring comfortable and focused discussions.
 - **Accessibility for Visually Impaired Employees**: Simplifies the user interface, enhancing ease of use and participation in calls.
-- **Energy Conservation Initiatives**: As part of sustainability efforts, this mode is recommended for internal communications to save energy, aligning with environmental goals.
