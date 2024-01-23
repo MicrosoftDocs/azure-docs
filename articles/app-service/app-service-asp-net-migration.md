@@ -51,6 +51,8 @@ Select one of the following options to get started with a migration assessment:
 
 ## App Service migration tools and resources
 
+__App Service Migration Assistant tool and App Service migration assistant for PowerShell scripts are governed by the terms and conditions in the EULA.pdf packaged with the respective tools.__
+
 |Migration Tools| Description | Documentation |
 |-----------|-------------|---------------|
 |(App Service Migration Assistant)[https://appmigration.microsoft.com/api/download/windows/AppServiceMigrationAssistant.msi]|Migrate .NET web apps from Windows OS to App Service.|(App Service Migration Assistant Documentation)[https://github.com/Azure/App-Service-Migration-Assistant/wiki]|
