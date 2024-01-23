@@ -38,6 +38,10 @@ The current list of supported commands are
   Command Name: `mde-agent-information`\
   Arguments: None
 
+- Collect MDE diagnostic support logs\
+  Command Name: `mde-support-diagnostics`\
+  Arguments: None
+
 - Collect Dell Hardware Rollup Status\
   Command Name: `hardware-rollup-status`\
   Arguments: None
@@ -73,6 +77,16 @@ az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" 
   --resource-group "resourceGroupName" \
   --subscription "subscription" \
   --commands '[{"command":"mde-agent-information"}]' \
+  --limit-time-seconds 600
+```
+
+This example executes the `mde-support-diagnostics` command without arguments.
+
+```azurecli
+az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
+  --resource-group "resourceGroupName" \
+  --subscription "subscription" \
+  --commands '[{"command":"mde-support-diagnostics"}]' \
   --limit-time-seconds 600
 ```
 
@@ -133,6 +147,47 @@ Writing to /hostfs/tmp/runcommand
 ================================
 Script execution result can be found in storage account:
  https://cmzhnh6bdsfsdwpbst.blob.core.windows.net/bmm-run-command-output/f5962f18-2228-450b-8cf7-cb8344fdss63b0-action-bmmdataextcmd.tar.gz?se=2023-07-26T19%3A07%3A22Z&sig=X9K3VoNWRFP78OKqFjvYoxubp65BbNTq%2BGnlHclI9Og%3D&sp=r&spr=https&sr=b&st=2023-07-26T15%3A07%3A22Z&sv=2019-12-12
+```
+
+Data collected from the `mde-support-diagnostics` command uses the MDE Client Analyzer tool to bundle information from `mdatp` commands and relevant log files.  The storage account `tgz` file will contain a `zip` file named `mde-support-diagnostics-<hostname>.zip`. The `zip` should be sent along with any support requests to ensure the supporting teams can use the logs for troubleshooting and root cause analysis, if needed.
+
+```azurecli
+====Action Command Output====
+Executing mde-support-diagnostics command
+[2024-01-23 16:07:37.588][INFO] XMDEClientAnalyzer Version: 1.3.2
+[2024-01-23 16:07:38.367][INFO] Top Command output: [/tmp/top_output_2024_01_23_16_07_37mel0nue0.txt]
+[2024-01-23 16:07:38.367][INFO] Top Command Summary: [/tmp/top_summary_2024_01_23_16_07_370zh7dkqn.txt]
+[2024-01-23 16:07:38.367][INFO] Top Command Outliers: [/tmp/top_outlier_2024_01_23_16_07_37aypcfidh.txt]
+[2024-01-23 16:07:38.368][INFO] [MDE Diagnostic]
+[2024-01-23 16:07:38.368][INFO]   Collecting MDE Diagnostic
+[2024-01-23 16:07:38.613][WARNING] mde is not running
+[2024-01-23 16:07:41.343][INFO] [SLEEP] [3sec] waiting for agent to create diagnostic package
+[2024-01-23 16:07:44.347][INFO] diagnostic package path: /var/opt/microsoft/mdatp/wdavdiag/5b1edef9-3b2a-45c1-a45d-9e7e4b6b869e.zip
+[2024-01-23 16:07:44.347][INFO] Successfully created MDE diagnostic zip
+[2024-01-23 16:07:44.348][INFO]   Adding mde_diagnostic.zip to report directory
+[2024-01-23 16:07:44.348][INFO]   Collecting MDE Health
+[...snip...]
+================================
+Script execution result can be found in storage account: 
+ https://cmmj627vvrzkst.blob.core.windows.net/bmm-run-command-output/7c5557b9-b6b6-a4a4-97ea-752c38918ded-action-bmmdataextcmd.tar.gz?se=2024-01-23T20%3A11%3A32Z&sig=9h20XlZO87J7fCr0S1234xcyu%2Fl%2BVuaDh1BE0J6Yfl8%3D&sp=r&spr=https&sr=b&st=2024-01-23T16%3A11%3A32Z&sv=2019-12-12 
+```
+
+After downloading the execution result file, the support files can be unzipped for analysis.
+
+```azurecli
+Archive:  mde-support-diagnostics-rack1compute02.zip
+  inflating: mde_diagnostic.zip      
+  inflating: process_information.txt  
+  inflating: auditd_info.txt         
+  inflating: auditd_log_analysis.txt  
+  inflating: auditd_logs.zip         
+  inflating: ebpf_kernel_config.txt  
+  inflating: ebpf_enabled_func.txt   
+  inflating: ebpf_syscalls.zip       
+  inflating: ebpf_raw_syscalls.zip   
+  inflating: messagess.zip           
+  inflating: conflicting_processes_information.txt  
+[...snip...]
 ```
 
 Data is collected with the `hardware-rollup-status` command and formatted as JSON to `/hostfs/tmp/runcommand/rollupStatus.json`. The JSON file is found
