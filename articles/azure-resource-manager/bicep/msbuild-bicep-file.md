@@ -10,19 +10,19 @@ ms.custom: devx-track-bicep, devx-track-arm-template
 
 # Quickstart: Use MSBuild to convert Bicep to JSON
 
-Learn the process of utilizing [MSBuild](/visualstudio/msbuild/msbuild) for the conversion of Bicep files to Azure Resource Manager JSON templates (ARM templates). Additionally, MSBuild can be utilized for the conversion of [Bicep parameter files](./parameter-files.md?tabs=Bicep) to [Azure Resource Manager parameter files](../templates/parameter-files.md) with the NuGet packge version 0.23.x or later. The provided examples demonstrate the use of MSBuild from the command line with C# project files for the conversion. These project files serve as examples that can be utilized in an MSBuild continuous integration (CI) pipeline.
+Learn the process of utilizing [MSBuild](/visualstudio/msbuild/msbuild) for the conversion of Bicep files to Azure Resource Manager JSON templates (ARM templates). Additionally, MSBuild can be utilized for the conversion of [Bicep parameter files](./parameter-files.md?tabs=Bicep) to [Azure Resource Manager parameter files](../templates/parameter-files.md) with the NuGet packages version 0.23.x or later. The provided examples demonstrate the use of MSBuild from the command line with C# project files for the conversion. These project files serve as examples that can be utilized in an MSBuild continuous integration (CI) pipeline.
 
 ## Prerequisites
 
-You'll need the latest versions of the following software:
+You need the latest versions of the following software:
 
-- [Visual Studio](/visualstudio/install/install-visual-studio). The free community version will install .NET 6.0, .NET Core 3.1, .NET SDK, MSBuild, .NET Framework 4.8, NuGet package manager, and C# compiler. From the installer, select **Workloads** > **.NET desktop development**.
+- [Visual Studio](/visualstudio/install/install-visual-studio). The free community version installs .NET 6.0, .NET Core 3.1, .NET SDK, MSBuild, .NET Framework 4.8, NuGet package manager, and C# compiler. From the installer, select **Workloads** > **.NET desktop development**.
 - [Visual Studio Code](https://code.visualstudio.com/) with the extensions for [Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) and [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
 - [PowerShell](/powershell/scripting/install/installing-powershell) or a command-line shell for your operating system.
 
 ## MSBuild tasks and Bicep packages
 
-From your continuous integration (CI) pipeline, you can use MSBuild tasks and CLI packages to convert Bicep files and Bicep parameter files into JSON. The functionality relies on the following [NuGet packages](https://www.nuget.org/packages/Azure.Bicep.Core/). 
+From your continuous integration (CI) pipeline, you can use MSBuild tasks and CLI packages to convert Bicep files and Bicep parameter files into JSON. The functionality relies on the following NuGet packages:
 
 | Package Name | Description |
 | ----  |---- |
@@ -31,11 +31,15 @@ From your continuous integration (CI) pipeline, you can use MSBuild tasks and CL
 | [Azure.Bicep.CommandLine.linux-x64](https://www.nuget.org/packages/Azure.Bicep.CommandLine.linux-x64) | Bicep CLI for Linux. |
 | [Azure.Bicep.CommandLine.osx-x64](https://www.nuget.org/packages/Azure.Bicep.CommandLine.osx-x64) | Bicep CLI for macOS. |
 
+You can find the latest version from these pages. For example:
+
+:::image type="content" source="./media/msbuild-bicep-file/bicep-nuget-package-version.png" alt-text="Find the latest Bicep NuGet package version." border="true":::
+
 The latest NuGet package versions match the latest [Bicep CLI](./bicep-cli.md) version. 
 
-- **Azure.Bicep.MSBuild package**
+- **Azure.Bicep.MSBuild**
 
-  When included in project file's `PackageReference` property, the `Azure.Bicep.MSBuild` package imports the Bicep task used for invoking the Bicep CLI. For example:
+  When included in project file's `PackageReference` property, the `Azure.Bicep.MSBuild` package imports the Bicep task used for invoking the Bicep CLI. 
   
   ```xml
   <ItemGroup>
@@ -47,7 +51,7 @@ The latest NuGet package versions match the latest [Bicep CLI](./bicep-cli.md) v
   
   The package transforms its output into MSBuild errors and the `BicepCompile` target to streamline the usage of the Bicep task. By default, the `BicepCompile` runs after the `Build` target, compiling all @(Bicep) items and @(BicepParam) items. It then deposits the output in `$(OutputPath)` with the same filename and a _.json_ extension.
 
-  The following example compiles _main.bicep_ and _main.bicepparam_ files in the same directory as the project file and places the compiled _main.json_ and _main.parameters.json_ in the `$(OutputPath)` directory.
+  The following example shows project file setting for compiling _main.bicep_ and _main.bicepparam_ files in the same directory as the project file and places the compiled _main.json_ and _main.parameters.json_ in the `$(OutputPath)` directory.
 
   ```xml
   <ItemGroup>
@@ -56,7 +60,7 @@ The latest NuGet package versions match the latest [Bicep CLI](./bicep-cli.md) v
   </ItemGroup>
   ```
 
-  You can override the output path per file using the `OutputFile` metadata on `Bicep` items. The following example will recursively find all _main.bicep_ files and place the compiled _.json_ files in `$(OutputPath)` under a subdirectory with the same name in `$(OutputPath)`:
+  You can override the output path per file using the `OutputFile` metadata on `Bicep` items. The following example recursively finds all _main.bicep_ files and places the compiled _.json_ files in `$(OutputPath)` under a subdirectory with the same name in `$(OutputPath)`:
 
   ```xml
   <ItemGroup>
@@ -76,9 +80,9 @@ The latest NuGet package versions match the latest [Bicep CLI](./bicep-cli.md) v
 
   *** jgao: Do I add these properties to the `PropertyGroup` element?
 
-  For the `Azure.Bicep.MSBuild` to operate, it is required to have an environment variable named `BicepPath` set. See the next bullet item for configuring `BicepPath`.
+  For the `Azure.Bicep.MSBuild` to operate, it's required to have an environment variable named `BicepPath` set. See the next bullet item for configuring `BicepPath`.
 
-- **Azure.Bicep.CommandLine.* packages**
+- **Azure.Bicep.CommandLine**
 
   The `Azure.Bicep.CommandLine.*` packages are available for Windows, Linux, and macOS. The following example references the package for Windows. 
 
@@ -89,7 +93,7 @@ The latest NuGet package versions match the latest [Bicep CLI](./bicep-cli.md) v
   </ItemGroup>  
   ```
 
-  When referenced in a project file, the `Azure.Bicep.CommandLine.*` packages automatically set the `BicepPath` property to the full path of the Bicep executable for the platform. The reference to this package may be omitted if Bicep CLI is installed through other means. For this case, instead of referencing an `Azure.Bicep.Commandline` package, you can either configure an environment variable  called  `BicepPath` or add `BicepPath` to the `PropertyGroup`, for example:
+  When referenced in a project file, the `Azure.Bicep.CommandLine.*` packages automatically set the `BicepPath` property to the full path of the Bicep executable for the platform. The reference to this package can be omitted if Bicep CLI is installed through other means. For this case, instead of referencing an `Azure.Bicep.Commandline` package, you can either configure an environment variable  called  `BicepPath` or add `BicepPath` to the `PropertyGroup`, for example:
   
   ```xml
   <PropertyGroup>
@@ -98,13 +102,13 @@ The latest NuGet package versions match the latest [Bicep CLI](./bicep-cli.md) v
   </PropertyGroup>
   ```
 
-### Examples
+### Project file samples
 
-The following examples shows how to configure C# console application project files for converting Bicep files and Bicep parameter files to JSON. Replace `__LATEST_VERSION__` with the latest version of the [Bicep NuGet packages](https://www.nuget.org/packages/Azure.Bicep.Core/) in the following samples.
+The following samples show how to configure C# console application project files for converting Bicep files and Bicep parameter files to JSON. Replace `__LATEST_VERSION__` with the latest version of the [Bicep NuGet packages](https://www.nuget.org/packages/Azure.Bicep.Core/) in the following samples. See [MSBuild tasks and Bicep packages](#msbuild-tasks-and-bicep-packages) for finding the latest version.
 
-#### SDK-based examples
+#### SDK-based sample
 
-The .NET Core 3.1 and .NET 6 examples are similar. But .NET 6 uses a different format for the _Program.cs_ file. For more information, see [.NET 6 C# console app template generates top-level statements](/dotnet/core/tutorials/top-level-templates).
+The .NET Core 3.1 and .NET 6 samples are similar. But .NET 6 uses a different format for the _Program.cs_ file. For more information, see [.NET 6 C# console app template generates top-level statements](/dotnet/core/tutorials/top-level-templates).
 
 <a id="net-6"></a>
 - **.NET 6**
@@ -158,7 +162,7 @@ The .NET Core 3.1 and .NET 6 examples are similar. But .NET 6 uses a different f
 <a id="notargets-sdk"></a>
 #### NoTargets SDK example
 
-The [Microsoft.Build.NoTargets](https://github.com/microsoft/MSBuildSdks/blob/main/src/NoTargets/README.md) MSBuild project SDK allows project tree owners the ability to define projects that do not compile an assembly. This SDK allows creation of standalone projects that compile only Bicep files.
+The [Microsoft.Build.NoTargets](https://github.com/microsoft/MSBuildSdks/blob/main/src/NoTargets/README.md) MSBuild project SDK allows project tree owners the ability to define projects that don't compile an assembly. This SDK allows creation of standalone projects that compile only Bicep files.
 
 ```xml
 <Project Sdk="Microsoft.Build.NoTargets/__LATEST_MICROSOFT.BUILD.NOTARGETS.VERSION__">
@@ -178,14 +182,18 @@ The [Microsoft.Build.NoTargets](https://github.com/microsoft/MSBuildSdks/blob/ma
 </Project>
 ```
 
-For [Microsoft.Build.NoTargets](/dotnet/core/project-sdk/overview#project-files), specify a version like `Microsoft.Build.NoTargets/3.5.6`.
+The latest `Microsoft.Build.NoTargets` version can be found at [https://www.nuget.org/packages/Microsoft.Build.NoTargets](https://www.nuget.org/packages/Microsoft.Build.NoTargets). For [Microsoft.Build.NoTargets](/dotnet/core/project-sdk/overview#project-files), specify a version like `Microsoft.Build.NoTargets/3.7.56`.
 
-The latest Microsoft.Build.NoTargets version can be found at [https://www.nuget.org/packages/Microsoft.Build.NoTargets](https://www.nuget.org/packages/Microsoft.Build.NoTargets). 
+```xml
+<Project Sdk="Microsoft.Build.NoTargets/3.7.56">
+  ...
+</Project>
+```
 
 <a id="classic-framework"></a>
 #### Classic framework example
 
-Use the classic example only if the previous examples don't work for you. In this example, the `ProjectGuid`, `RootNamespace` and `AssemblyName` properties contain placeholder values. When you create a project file, a unique GUID is created, and the name values match your project's name.
+Use the classic example only if the previous samples don't work for you. In this example, the `ProjectGuid`, `RootNamespace` and `AssemblyName` properties contain placeholder values. When you create a project file, a unique GUID is created, and the name values match your project's name.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -263,7 +271,7 @@ These examples demonstrate the conversion of a Bicep file and a Bicep parameter 
 
 Build a project in .NET with the dotnet CLI.
 
-1. Open Visual Studio code and select **Terminal** > **New Terminal** to start a PowerShell session.
+1. Open Visual Studio Code and select **Terminal** > **New Terminal** to start a PowerShell session.
 1. Create a directory named _msBuildDemo_ and go to the directory. This example uses _C:\msBuildDemo_.
 
     ```powershell
@@ -279,13 +287,14 @@ Build a project in .NET with the dotnet CLI.
 
     The command creates a project file using the same name as your directory, _msBuildDemo.csproj_. For more information about how to create a console application from Visual Studio Code, see the [tutorial](/dotnet/core/tutorials/with-visual-studio-code).
 
-1. Open _msBuildDemo.csproj_ with an editor, and replace the content with the [.NET 6](#net-6) or [NoTargets SDK](#notargets-sdk) examples, and also replace `__LATEST_VERSION__` with the latest version of the Bicep NuGet packages.
+1. Open _msBuildDemo.csproj_ with an editor, and replace the content with the [.NET 6](#net-6) or [NoTargets SDK](#notargets-sdk) sample, and also replace `__LATEST_VERSION__` with the latest version of the Bicep NuGet packages.
+1. Save the file.
 
 # [.NET Core 3.1](#tab/netcore31)
 
 Build a project in .NET Core 3.1 using the dotnet CLI.
 
-1. Open Visual Studio code and select **Terminal** > **New Terminal** to start a PowerShell session.
+1. Open Visual Studio Code and select **Terminal** > **New Terminal** to start a PowerShell session.
 1. Create a directory named _msBuildDemo_ and go to the directory. This example uses _C:\msBuildDemo_.
 
     ```powershell
@@ -301,7 +310,7 @@ Build a project in .NET Core 3.1 using the dotnet CLI.
 
     The project file is named the same as your directory, _msBuildDemo.csproj_. For more information about how to create a console application from Visual Studio Code, see the [tutorial](/dotnet/core/tutorials/with-visual-studio-code).
 
-1. Replace the contents of _msBuildDemo.csproj_ with the [.NET Core 3.1](#net-core-31) or [NoTargets SDK](#notargets-sdk) examples.
+1. Replace the contents of _msBuildDemo.csproj_ with the [.NET Core 3.1](#net-core-31) or [NoTargets SDK](#notargets-sdk) sample.
 1. Replace `__LATEST_VERSION__` with the latest version of the Bicep NuGet packages.
 1. Save the file.
 
@@ -330,9 +339,9 @@ If you know how to unload a project and reload a project, you can edit _msBuildD
 
 ### Create Bicep file
 
-You'll need a Bicep file and a BicepParam file that will be converted to JSON.
+You need a Bicep file and a BicepParam file to be converted to JSON.
 
-1. Create a _main.bicep_ file in the _C:\msBuildDemo_ directory with the following content:
+1. Create a _main.bicep_ file in the same folder as the project file, for example:  _C:\msBuildDemo_ directory, with the following content:
 
     ```bicep
     @allowed([
@@ -381,7 +390,7 @@ You'll need a Bicep file and a BicepParam file that will be converted to JSON.
 Run MSBuild to convert the Bicep file and the Bicep parameter file to JSON.
 
 1. Open a Visual Studio Code terminal session.
-1. In the PowerShell session, go to the folder which contains the csproj file. For example, the _C:\msBuildDemo_ directory.
+1. In the PowerShell session, go to the folder that contains the project file. For example, the _C:\msBuildDemo_ directory.
 1. Run MSBuild.
 
     ```powershell
@@ -459,6 +468,20 @@ Run MSBuild to convert the Bicep file and the Bicep parameter file to JSON.
       }
     }
     ```
+
+1. The _main.parameters.json_ file should look like:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "prefix": {
+      "value": "mystore"
+    }
+  }
+}
+```
 
 If you make changes or want to rerun the build, delete the output directory so new files can be created.
 
