@@ -92,9 +92,11 @@ The Run command 'Install-VCDAAVS' installs and configures the VMware Cloud Direc
 > [!NOTE]
 > Run the **Initialize-AVSSite** run command before you run the install command. 
 
+You can also use Run commands to perform many other functions such as start, stop VCDA VMs, uninstall VCDA etc.  
+
 :::image type="content" source="media/deploy-vmware-cloud-director-availability/vcda-run-command.png" alt-text="Screenshot shows multiple VCDA run commands available within the VCDA run command package."lightbox="media/deploy-vmware-cloud-director-availability/vcda-run-command.png"::: 
 
-Refer to our guide for detailed instructions on utilizing these run commands to effectively install, uninstall, and manage VCDA within your Azure solution private cloud (VMware Link to be added). 
+Refer to our guide for detailed instructions on utilizing these run commands to effectively install and manage VCDA within your Azure solution private cloud (VMware Link to be added). 
 
 ## FAQs
 
