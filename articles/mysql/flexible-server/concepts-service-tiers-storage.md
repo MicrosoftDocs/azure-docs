@@ -106,6 +106,28 @@ To get more details about the compute series available, refer to Azure VM docume
 >[!NOTE]
 >For [Burstable (B-series) compute tier](../../virtual-machines/sizes-b-series-burstable.md) if the VM is started/stopped or restarted, the credits may be lost. For more information, see [Burstable (B-Series) FAQ](../../virtual-machines/sizes-b-series-burstable.md).
 
+## Performance limitations of burstable series instances
+
+Burstable compute tier is designed to provide a cost-effective solution for workloads that don't require continuous full CPU continuously. This tier is ideal for nonproduction workloads, such as development, staging, or testing environments.
+The unique feature of the burstable compute tier is its ability to “burst”, that is, to utilize more than its baseline CPU performance using up to 100% of the vCPU when the workload requires it. This is made possible by a CPU credit model, [which allows B-series instances to accumulate “CPU credits”](../../virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model.md#b-series-cpu-credit-model) during periods of low CPU usage. These credits can then be spent during periods of high CPU usage, allowing the instance to burst above its base CPU performance.
+
+However, it’s important to note that once a burstable instance exhausts its CPU credits, it operates at its base CPU performance. For example, the base CPU performance of a Standard_B1s is 20% that is, 0.2 Vcore. If Burstable tier server is running a workload that requires more CPU performance than the base level, and it has exhausted its CPU credits, the server may experience performance limitations and eventually could affect various system operations for your server.
+
+Therefore, while the Burstable compute tier offers significant cost and flexibility advantages for certain types of workloads, **it is not recommended for production workloads** that require consistent CPU performance. Note that the Burstable tier doesn't support functionality of creating [Read Replicas](./concepts-read-replicas.md) and [High availability](./concepts-high-availability.md) feature. For such workloads and features, other compute tiers, such as the General Purpose or Business Critical are more appropriate.
+
+For more information on the Azure's B-series CPU credit model, refer to the [B-series burstable instances](../../virtual-machines/sizes-b-series-burstable.md) and [B-series CPU credit model](../../virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model.md#b-series-cpu-credit-model).
+
+### Monitoring CPU credits in burstable tier
+
+Monitoring your CPU credit balance is crucial for maintaining optimal performance in the Burstable compute tier. Azure Database for MySQL Flexible Server provides two key metrics related to CPU credits. The ideal threshold for triggering an alert depends on your specific workload and performance requirements.
+
+
+[CPU Credit Consumed](./concepts-monitoring.md): This metric indicates the number of CPU credits consumed by your instance. Monitoring this metric can help you understand your instance’s CPU usage patterns and manage its performance effectively.
+
+[CPU Credit Remaining](./concepts-monitoring.md): This metric shows the number of CPU credits remaining for your instance. Keeping an eye on this metric can help you prevent your instance from degrading in performance due to exhausting its CPU credits.
+
+For more information, on [how to setup alerts on metrics, refer to this guide](./how-to-alert-on-metric.md).
+
 ## Storage
 
 The storage you provision is the amount of storage capacity available to your flexible server. Storage is used for the database files, temporary files, transaction logs, and the MySQL server logs. In all service tiers, the minimum storage supported is 20 GiB and maximum is 16 TiB. Storage is scaled in 1 GiB increments and can be scaled up after the server is created.
@@ -123,13 +145,13 @@ For example, if you have provisioned 110 GiB of storage, and the actual utilizat
 
 While the service attempts to make the server read-only, all new write transaction requests are blocked and existing active transactions will continue to execute. When the server is set to read-only, all subsequent write operations and transaction commits fail. Read queries will continue to work uninterrupted. 
 
-To get the server out of read-only mode, you should increase the provisioned storage on the server. This can be done using the Azure portal or Azure CLI. Once increased, the server will be ready to accept write transactions again.
+To get the server out of read-only mode, you should increase the provisioned storage on the server. This can be done using the Azure portal or Azure CLI. Once increased, the server is ready to accept write transactions again.
 
-We recommend that you <!--turn on storage auto-grow or to--> set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. For more information, see the documentation on alert documentation [how to set up an alert](how-to-alert-on-metric.md).
+We recommended that you <!--turn on storage auto-grow or to--> set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. For more information, see the documentation on alert documentation [how to set up an alert](how-to-alert-on-metric.md).
 
-### Storage auto-grow
+### Storage auto grow
 
-Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto-grow is enabled, the storage automatically grows without impacting the workload. Storage auto-grow is enabled by default for all new server creates. For servers with less than equal to 100 GB provisioned storage, the provisioned storage size is increased by 5 GB when the free storage is below 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 10 GB of the provisioned storage size. Maximum storage limits as specified above apply. Refresh the server instance to see the updated storage provisioned under **Settings** on the **Compute + Storage** page. 
+Storage autogrow prevents your server from running out of storage and becoming read-only. If storage autogrow is enabled, the storage automatically grows without impacting the workload. Storage autogrow is enabled by default for all new server creates. For servers with less than equal to 100 GB provisioned storage, the provisioned storage size is increased by 5 GB when the free storage is below 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 10 GB of the provisioned storage size. Maximum storage limits as specified above apply. Refresh the server instance to see the updated storage provisioned under **Settings** on the **Compute + Storage** page. 
 
 For example, if you have provisioned 1000 GB of storage, and the actual utilization goes over 990 GB, the server storage size is increased to 1050 GB. Alternatively, if you have provisioned 20 GB of storage, the storage size is increase to 25 GB when less than 2 GB of storage is free.
 
@@ -145,7 +167,7 @@ The minimum IOPS are 360 across all compute sizes and the maximum IOPS is determ
 > **Minimum IOPS are 360 across all compute sizes<br>
 > **Maximum IOPS are determined by the selected compute size. 
 
-You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using [IO percent](./concepts-monitoring.md) metric. If you need more IOPS than the max IOPS based on compute then you need to scale your server's compute.
+You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using [IO percent](./concepts-monitoring.md) metric. If you need more IOPS than the max IOPS based on compute, then you need to scale your server's compute.
 
 ## Autoscale IOPS
 The cornerstone of Azure Database for MySQL flexible server is its ability to achieve the best performance for tier 1 workloads, which can be improved by enabling server automatically scale performance (IO) of its database servers seamlessly depending on the workload needs. This is an opt-in feature that enables users to scale IOPS on demand without having to pre-provision a certain amount of IO per second. With the Autoscale IOPS featured enable, you can now enjoy worry free IO management in Azure Database for MySQL flexible server because the server scales IOPs up or down automatically depending on workload needs.  
