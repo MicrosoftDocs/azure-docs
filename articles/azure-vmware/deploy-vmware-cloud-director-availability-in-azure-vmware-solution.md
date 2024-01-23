@@ -35,7 +35,7 @@ The two following VMware Cloud Director Availability scenarios are useful in Azu
 - Verify the VMware-Cloud-Director-Availability-Providerrelease.number.xxxxxxx-build_sha_OVF10.ova version 4.7 or later is uploaded under the correct datastore. 
 - Verify the subnet, DNS zone and records for the VMware Cloud Director Availability appliances are configured. 
 - Verify the subnet has outbound Internet connectivity to communicate with: VMware Cloud Director service, remote VMware Cloud Director Availability sites, and the upgrade repository. 
-- Verify the DNS zone has forwarding for the public IP addresses that need to be reached.  
+- Verify the DNS zone has a forwarding capability for the public IP addresses that need to be reached.  
 
 For using VMware Cloud Director Availability outside of the local network segment, [turn on public IP addresses to an NSX-T Edge node for NSX-T Data Center](https://learn.microsoft.com/azure/azure-vmware/enable-public-ip-nsx-edge).
 
@@ -55,7 +55,7 @@ To access Run commands for VCDA:
 
 The Azure VMware Solution private cloud portal provides a range of Run commands for VCDA as are shown in the following screenshot. The commands empower you to perform various operations, including installation, configuration, uninstallation, scaling, and more.  
 
-Run command Install-VCDAAVS Install and configure VMware Cloud Director Availability instance in Azure VMware Solution. This includes VMware Cloud Director Replication Manager, Tunnel and two Replicators. You can add more replicators by using Install-VCDARepliactor to scale. 
+The Run command 'Install-VCDAAVS' installs and configures the VMware Cloud Director Availability instance in Azure VMware Solution. The instance includes VMware Cloud Director Replication Manager, Tunnel, and two Replicators. You can add more replicators by using 'Install-VCDARepliactor' to scale. 
 
 :::image type="content" source="media/deploy-vmware-cloud-director-availability/vcda-run-command.png" alt-text="Screenshot shows multiple VCDA run commands available within the VCDA run command package."lightbox="media/deploy-vmware-cloud-director-availability/vcda-run-command.png"::: 
 
@@ -75,3 +75,10 @@ VMware Cloud Director Availability is a VMware owned and supported product on Az
 
 VMware Cloud Director Availability 4.7 or later is supported with Azure VMware solution using Run commands. If you have any existing manual deployment of VMware Cloud Director Availability, redeploy VMware Cloud Director Availability using Run commands to use classic engine and Disaster recovery functionality. Manual installation isn't supported.
 
+### What are Run commands in Azure VMware Solution? 
+
+For more information, go to [Run Command in Azure VMware Solution(Preview)](https://learn.microsoft.com/azure/azure-vmware/concepts-run-command)
+
+### How do I use VMware Cloud Director Availability Run commands for day 2 operations such as scaling, upgrades, uninstall, and more?
+
+Day 2 operations such as scaling, upgrade, or uninstall can be done using Run commands. Follow detailed guide (add link).
