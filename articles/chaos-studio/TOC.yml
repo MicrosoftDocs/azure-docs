@@ -44,6 +44,8 @@
     href: chaos-studio-private-networking.md
   - name: Regional availability
     href: chaos-studio-region-availability.md
+  - name: Reliability 
+    href: ../reliability/reliability-chaos-studio.md?toc=/azure/chaos-studio/toc.json&bc=/azure/chaos-studio/breadcrumb/toc.json
 - name: How-to guides
   items:
   - name: Create and run experiment - Service-direct faults
