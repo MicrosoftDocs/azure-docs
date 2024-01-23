@@ -172,7 +172,7 @@ Currently as the keys are not in sync between source and target, you have the ab
 
 If you are using a Key Vault, for example `KV1`, in the target settings, you can change the keys by using a different key vault in the target region. You can choose either an existing key vault that is different from original key vault `KV1` or use a new key vault. As Azure Site Recovery doesn't allow changing the keys in place, you must use a different key vault in the target region.
 
-For this example, we assume that you create a new empty key vault `KV2` with the [necessary privileges](azure-to-azure-how-to-enable-replication-ade-vms#required-user-permissions). You can then update the vault using the following steps:
+For this example, we assume that you create a new empty key vault `KV2` with the [necessary privileges](#required-user-permissions). You can then update the vault using the following steps:
 
 1. Navigate to **Recovery services vault** in the portal.
 1. Select *replicated item* > **Properties** > **Compute and Network** 
