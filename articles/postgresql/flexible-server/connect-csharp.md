@@ -334,7 +334,7 @@ az group delete \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage Azure Database for MySQL server using Portal](./how-to-manage-server-portal.md)<br/>
+> [Manage Azure Database for PostgreSQL server using Portal](./how-to-manage-server-portal.md)<br/>
 
 > [!div class="nextstepaction"]
-> [Manage Azure Database for MySQL server using CLI](./how-to-manage-server-cli.md)
+> [Manage Azure Database for PostgreSQL server using CLI](./how-to-manage-server-cli.md)
