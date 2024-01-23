@@ -125,7 +125,7 @@ This process allows you to encrypt both the data and the OS disk of the deployed
 > [!IMPORTANT]
 > This process works with only AKS version 1.17 or later. Azure Machine Learning added support for AKS 1.17 on Jan 13, 2020.
 
-### Azure Machine Learning compute
+### Machine Learning compute
 
 #### Compute cluster
 
