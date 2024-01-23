@@ -4,7 +4,7 @@ description: Learn about the concepts of in-place major version upgrade with Azu
 author: kabharati
 ms.author: kabharati
 ms.reviewer: rajsell
-ms.date: 12/30/2023
+ms.date: 01/16/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: references_regions
