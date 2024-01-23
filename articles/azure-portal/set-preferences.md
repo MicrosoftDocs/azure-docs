@@ -206,15 +206,17 @@ If your admin has enabled an inactivity timeout policy, you can still set your o
 
 ### Change the directory timeout setting (admin)
 
-Users with the [Global Administrator role](../active-directory/roles/permissions-reference.md#global-administrator) can enforce the maximum idle time before a session is signed out. This inactivity timeout setting applies to all users in the directory. Once it's set, all new sessions will comply with the new timeout settings (but it won't apply immediately to users who were already signed in).
+Users with the [Global Administrator role](../active-directory/roles/permissions-reference.md#global-administrator) can enforce the maximum idle time before a session is signed out. This inactivity timeout setting applies to all users in the directory. Once it's set, all new sessions will comply with the new timeout settings. The change won't apply to signed-in users until their next sessions.
 
-Global Administrators can't change this setting for individual users, but any user has the option to set a shorter timeout interval for themselves. Users won't be able to change their individual timeout setting to a longer interval than the current option set by a Global Administrator.
+Global Administrators can't specify different settings for individual users in the tenant. However, each user has the option to set a shorter timeout interval for themselves. Users can't change their individual timeout setting to a longer interval than the current option set by a Global Administrator.
 
 To enforce an idle timeout setting for all users of the Azure portal, sign in with a Global Administrator account, then select **Enable directory level idle timeout** to turn on the setting. Next, enter the **Hours** and **Minutes** for the maximum time that a user can be inactive before their session is automatically signed out. After you select **Apply**, this setting will apply to all users in the directory.
 
 :::image type="content" source="media/set-preferences/azure-portal-settings-sign-out-inactive-admin.png" alt-text="Screenshot showing the directory level idle timeout options.":::
 
 To confirm that the inactivity timeout policy is set correctly, select **Notifications** from the global page header and verify that a success notification is listed.
+
+To change a previously selected directory timeout, any Global Administrator can follow these steps again to apply a new timeout interval. If a Global Administrator unchecks the box for **Enable directory level idle timeout**, the previous setting will remain in place by default for all users; however, any user can change their individual setting to whatever they prefer.
 
 ### Enable or disable pop-up notifications
 
