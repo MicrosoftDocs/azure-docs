@@ -87,7 +87,7 @@ To delete a replica in the portal, follow the steps below.
 
 --- -->
 
-## Use replicas
+## Scale and failover with replicas
 
 Each replica you create has its dedicated endpoint. If your application resides in multiple geo-locations, you can update each deployment of your application in a location to connect to the replica closer to that location, which helps minimize the network latency between your application and App Configuration. Since each replica has its separate request quota, this setup also helps the scalability of your application while it grows to a multi-region distributed service.
 
