@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 07/18/2023
+ms.date: 01/23/2024
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp
@@ -15,7 +15,7 @@ ms.custom: mode-other, devx-track-dotnet, devx-track-extended-java, devx-track-g
 zone_pivot_groups: programming-languages-set-translator
 ---
 
-# Get started with Document Translation
+# Get started with asynchronous document translation
 
 Document Translation is a cloud-based feature of the [Azure AI Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#supported-document-formats). In this quickstart, learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
 
