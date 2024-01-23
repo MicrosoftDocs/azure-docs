@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use Azure PowerShell to create
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 11/06/2022
+ms.date: 01/23/2024
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: devx-track-azurepowershell, mvc, mode-api
@@ -162,6 +162,9 @@ New-AzApplicationGateway `
   -RequestRoutingRules $frontendRule `
   -Sku $sku
 ```
+
+> [!TIP]
+> You can modify values of the `Name` and `Tier` parameters to use a different SKU. For example: `Basic`.
 
 ### Backend servers
 

@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use a Resource Manager templat
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 06/10/2022
+ms.date: 01/23/2024
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
@@ -39,6 +39,9 @@ For the sake of simplicity, this template creates a simple setup with a public f
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/ag-docs-qs/)
 
 :::code language="json" source="~/quickstart-templates/demos/ag-docs-qs/azuredeploy.json":::
+
+> [!TIP]
+> You can modify values of the `Name` and `Tier` parameters under `resource\applicationGateWay\properties\sku` to use a different SKU. For example: `Basic`. For information about deploying custom templates, see [Create and deploy ARM templates](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 Multiple Azure resources are defined in the template:
 

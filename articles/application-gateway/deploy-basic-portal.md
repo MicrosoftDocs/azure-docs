@@ -1,26 +1,26 @@
 ---
-title: Deploy Application Gateway v2 basic (Preview)
+title: Deploy Application Gateway Basic (Preview)
 titleSuffix: Azure Application Gateway
-description: Learn how to deploy Application Gateway v2 Basic. 
+description: Learn how to deploy Application Gateway Basic. 
 services: application-gateway
 author: greg-lindsay
 ms.topic: how-to
-ms.date: 01/22/2024
+ms.date: 01/23/2024
 ms.author: greglin
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
 ---
 
-# Deploy Application Gateway v2 basic (Preview)
+# Deploy Application Gateway Basic (Preview)
 
-This article shows you how to use the Azure portal to create an Azure Application Gateway v2 Basic (Preview) and test it to make sure it works correctly. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, a simple setup is used with a public frontend IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines (VMs) in the backend pool.
+This article shows you how to use the Azure portal to create an Azure Application Gateway Basic (Preview) and test it to make sure it works correctly. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, a simple setup is used with a public frontend IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines (VMs) in the backend pool.
 
 ![Quickstart setup](./media/quick-create-portal/application-gateway-qs-resources.png)
 
-For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md).
+For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md). For more information about features and capabilities in Application Gateway Basic, see [SKU types](overview-v2#sku-types).
 
 > [!IMPORTANT]
-> Application Gateway v2 Basic SKU is currently in PREVIEW.<br>
+> Application Gateway Basic SKU is currently in PREVIEW.<br>
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
@@ -33,14 +33,14 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 Register for the preview using Azure PowerShell:
 
-``Azure PowerShell
+```azurepowershell-interactive
 Set-AzContext -Subscription <subscription-id>
 Get-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace "Microsoft.Network"
 Register-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace Microsoft.Network
-``
+```
 
 > [!NOTE]
-> When you join the preview, all new Application Gateways provision with the ability to deploy with a v2 basic SKU.  If you wish to opt out from the new functionality and return to the current generally available functionality of Application Gateway, you can [unregister from the preview](#unregister-from-the-preview).
+> When you join the preview, all new Application Gateways provision with the ability to deploy with a basic SKU.  If you wish to opt out from the new functionality and return to the current generally available functionality of Application Gateway, you can [unregister from the preview](#unregister-from-the-preview).
 
 For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
 
@@ -244,11 +244,11 @@ To delete the resource group:
 
 Unregister for the preview using Azure PowerShell:
 
-``Azure PowerShell
+```azurepowershell-interactive
 Set-AzContext -Subscription <subscription-id>
 Get-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace "Microsoft.Network"
 Unregister-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace Microsoft.Network
-``
+```
 
 ## Next steps
 

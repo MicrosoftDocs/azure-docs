@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use Terraform to create an Azu
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 09/26/2023
+ms.date: 01/23/2024
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: devx-track-terraform
@@ -43,19 +43,22 @@ In this quickstart, you use Terraform to create an Azure Application Gateway. Th
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
-1. Create a file named `providers.tf` and insert the following code:
+2. Create a file named `providers.tf` and insert the following code:
 
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-application-gateway/providers.tf":::
 
-1. Create a file named `main.tf` and insert the following code:
+3. Create a file named `main.tf` and insert the following code:
 
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-application-gateway/main.tf":::
 
-1. Create a file named `variables.tf` and insert the following code:
+> [!TIP]
+> You can modify values of the `Name` and `Tier` parameters under `resource\applicationGateWay\main\sku` to use a different SKU. For example: `Basic`.
+
+4. Create a file named `variables.tf` and insert the following code:
 
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-application-gateway/variables.tf":::
 
-1. Create a file named `outputs.tf` and insert the following code:
+5. Create a file named `outputs.tf` and insert the following code:
 
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-application-gateway/outputs.tf":::
 
