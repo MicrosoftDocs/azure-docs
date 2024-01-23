@@ -88,15 +88,15 @@ If you navigated away from the **Deployment is in progress** page, the following
    * `cmdToConnectToCluster`
    * `appDeploymentTemplateYaml` if you select **No** to **Deploy an application?** when deploying the Marketplace offer; or `appDeploymentYaml` if you select **yes** to **Deploy an application?**.
 
-   # [Bash](#tab/in-bash)
+    # [Bash](#tab/in-bash)
 
-   Paste the value of `appDeploymentTemplateYaml` or `appDeploymentYaml` into a Bash shell, append `| grep secretName`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
+    Paste the value of `appDeploymentTemplateYaml` or `appDeploymentYaml` into a Bash shell, append `| grep secretName`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
 
-   # [PowerShell](#tab/in-powershell)
+    # [PowerShell](#tab/in-powershell)
 
-   Paste the quoted string in `appDeploymentTemplateYaml` or `appDeploymentYaml` into a PowerShell, append `| ForEach-Object { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) } | Select-String "secretName"`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
+    Paste the quoted string in `appDeploymentTemplateYaml` or `appDeploymentYaml` into a PowerShell, append `| ForEach-Object { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) } | Select-String "secretName"`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
 
-   ---
+    ---
 
 These values will be used later in this article. Note that several other useful commands are listed in the outputs.
 
@@ -241,29 +241,29 @@ You can now use the following steps to test the Docker image locally before depl
 
 1. Run the image using the following command. Note we're using the environment variables defined previously.
 
-   # [Bash](#tab/in-bash)
+    # [Bash](#tab/in-bash)
 
-   ```bash
-   docker run -it --rm -p 9080:9080 \
-      -e DB_SERVER_NAME=${DB_SERVER_NAME} \
-      -e DB_NAME=${DB_NAME} \
-      -e DB_USER=${DB_USER} \
-      -e DB_PASSWORD=${DB_PASSWORD} \
-      javaee-cafe:v1
-   ```
+    ```bash
+    docker run -it --rm -p 9080:9080 \
+       -e DB_SERVER_NAME=${DB_SERVER_NAME} \
+       -e DB_NAME=${DB_NAME} \
+       -e DB_USER=${DB_USER} \
+       -e DB_PASSWORD=${DB_PASSWORD} \
+       javaee-cafe:v1
+    ```
 
-   # [PowerShell](#tab/in-powershell)
+    # [PowerShell](#tab/in-powershell)
 
-   ```powershell
-   docker run -it --rm -p 9080:9080 `
-      -e DB_SERVER_NAME=${Env:DB_SERVER_NAME} `
-      -e DB_NAME=${Env:DB_NAME} `
-      -e DB_USER=${Env:DB_USER} `
-      -e DB_PASSWORD=${Env:DB_PASSWORD} `
-      javaee-cafe:v1
-   ```
+    ```powershell
+    docker run -it --rm -p 9080:9080 `
+       -e DB_SERVER_NAME=${Env:DB_SERVER_NAME} `
+       -e DB_NAME=${Env:DB_NAME} `
+       -e DB_USER=${Env:DB_USER} `
+       -e DB_PASSWORD=${Env:DB_PASSWORD} `
+       javaee-cafe:v1
+    ```
 
-   ---
+    ---
 
 1. Once the container starts, go to `http://localhost:9080/` in your browser to access the application.
 
@@ -341,21 +341,21 @@ Use the following steps to deploy and test the application:
 
    1. Go to `https://<ADDRESS>` to test the application. For your convenience, this shell command will create an environment variable whose value you can paste straight into the browser.
 
-      # [Bash](#tab/in-bash)
+       # [Bash](#tab/in-bash)
 
-      ```bash
-      export APP_URL=https://$(kubectl get ingress | grep javaee-cafe-cluster-agic-ingress | cut -d " " -f14)/
-      echo $APP_URL
-      ```
+       ```bash
+       export APP_URL=https://$(kubectl get ingress | grep javaee-cafe-cluster-agic-ingress | cut -d " " -f14)/
+       echo $APP_URL
+       ```
 
-      # [PowerShell](#tab/in-powershell)
+       # [PowerShell](#tab/in-powershell)
 
-      ```powershell
-      $APP_URL = "https://$(kubectl get ingress | Select-String 'javaee-cafe-cluster-agic-ingress' | ForEach-Object { $_.Line.Split(' ')[13] })/"
-      $APP_URL
-      ```
+       ```powershell
+       $APP_URL = "https://$(kubectl get ingress | Select-String 'javaee-cafe-cluster-agic-ingress' | ForEach-Object { $_.Line.Split(' ')[13] })/"
+       $APP_URL
+       ```
 
-      ---
+       ---
 
       If the web page doesn't render correctly or returns a `502 Bad Gateway` error, that's because the app is still starting in the background. Wait for a few minutes and then try again.
 
