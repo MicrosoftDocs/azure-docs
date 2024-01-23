@@ -90,11 +90,11 @@ It covers cost components for on-premises and Azure, savings, and insights to un
 :::image type="content" source="./media/how-to-view-a-business-case/comparison-inline.png" alt-text="Screenshot of on-premises and Azure comparison." lightbox="./media/how-to-view-a-business-case/comparison-expanded.png":::
 
 ## On-premises vs AVS report
-It covers cost components for on-premises and AVS, savings, and insights to understand the savings better.
+It covers cost components for on-premises and AVS, savings, and insights to understand the savings better. <screenshot>
 
 ## Azure IaaS report
 
-**Azure tab**
+#### [Azure](#tab/iaas-azure)
 
 This section contains the cost estimate by recommended target (Annual cost and also includes Compute, Storage, Network, labor components) and savings from Hybrid benefits.
 - IaaS cost estimate:
@@ -111,16 +111,18 @@ This section assumes instance to SQL Server on Azure VM migration recommendation
     - **Recommended VM family**: This card covers the VM sizes recommended. The ones marked Unknown are the VMs that have some readiness issues and no SKUs could be found for them.
     - **Recommended storage type**: This card covers the storage cost distribution across different recommended storage types.
 
-**On-premises tab**
+#### [On-premises](#tab/iaas-on-premises)
 
 - On-premises footprint of the servers recommended to be migrated to Azure IaaS.
 - Contribution of Zombie servers in the on-premises cost.
 - Distribution of servers by OS, virtualization, and activity state.
 - Distribution by support status of OS licenses and OS versions. 
 
+---
+
 ## Azure PaaS report
 
-**Azure tab**
+#### [Azure](#tab/paas-azure)
 
 This section contains the cost estimate by recommended target (Annual cost and also includes Compute, Storage, Network, labor components) and savings from Hybrid benefits.
 - PaaS cost estimate:
@@ -137,16 +139,18 @@ This section contains the cost estimate by recommended target (Annual cost and a
    - **Estimated cost by savings options**: This card includes the cost of the recommended AKS node pools. It is recommended that the web apps are migrated using 3 year Reserved Instance or 3 year Savings Plan to maximize savings.
    - **Distribution by recommended Node pool SKU**: This card covers the recommended SKUs for AKS node pools.
 
-**On-premises tab**
+#### [On-premises](#tab/paas-on-premises)
 
 - On-premises footprint of the servers recommended to be migrated to Azure PaaS.
 - Contribution of Zombie SQL instances in the on-premises cost.
 - Distribution by support status of OS licenses and OS versions.
 - Distribution of SQL instances by SQL version and activity state.
 
+---
+
 ## AVS report
 
-**AVS (Azure VMware Solution) tab**
+#### [AVS (Azure VMware Solution)](#tab/avs-azure)
 
 This section contains the cost estimate by recommended target (Annual cost includes Compute, Storage, Network, labor components) and savings from Hybrid benefits.
 - AVS cost estimate:
@@ -156,12 +160,14 @@ This section contains the cost estimate by recommended target (Annual cost inclu
     - **Savings with 3-year RI**: This card shows the node cost with 3-year RI.
     - **Savings with Azure Hybrid Benefit & Extended Security Updates**: This card displays the estimated maximum savings when using Azure hybrid benefit and with extended security updates over a period of one year.
 
-**On-premises tab**
+#### [On-premises](#tab/avs-on-premises)
 
 - On-premises footprint of the servers recommended to be migrated to AVS.
 - Contribution of Zombie servers in the on-premises cost.
-- Distribution of serv8ers by OS, virtualization, and activity state.
+- Distribution of servers by OS, virtualization, and activity state.
 - Distribution by support status of OS licenses and OS versions. 
+
+---
 
 ## Next steps
 - [Learn more](concepts-business-case-calculation.md) about how business cases are calculated.
