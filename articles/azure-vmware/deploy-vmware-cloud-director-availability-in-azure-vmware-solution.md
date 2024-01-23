@@ -23,7 +23,7 @@ The two following VMware Cloud Director Availability scenarios are useful in Azu
 
 - Azure VMware Solution to Azure VMware Solution
 
-    VMware Cloud Director Availability provides a flexible solution for multitenant customers, enabling smooth workload migration between Cloud Director service (CDS) instances hosted on Azure VMware Solution SDDC. This empowers efficient cloud-to-cloud migration at the tenant level when using CDs with Azure VMware Solution.
+    VMware Cloud Director Availability provides a flexible solution for multitenant customers. The flexible solution enables smooth workload migration between Cloud Director service (CDS) instances hosted on Azure VMware Solution SDDC, which empowers efficient cloud-to-cloud migration at the tenant level when using CDs with Azure VMware Solution.
 
 ## Key components of VMware Cloud Director Availability
 
@@ -108,14 +108,18 @@ Deploy VMware Cloud Director Availability using run commands to enable classic e
 
 VMware Cloud Director Availability is a VMware owned and supported product on Azure VMware Solution. For any support queries on VMware Cloud Director Availability, contact VMware support for assistance. Both VMware and Microsoft support teams collaborate as necessary to address and resolve VMware Cloud Director Availability issues within Azure VMware Solution.
 
-### What version of VMware Cloud Director Availability is supported with Azure VMware Solution Run commands?
-
-VMware Cloud Director Availability 4.7 or later is supported with Azure VMware solution using Run commands. If you have any existing manual deployment of VMware Cloud Director Availability, redeploy VMware Cloud Director Availability using Run commands to use classic engine and Disaster recovery functionality. Manual installation isn't supported.
-
 ### What are Run commands in Azure VMware Solution? 
 
 For more information, go to [Run Command in Azure VMware Solution(Preview)](https://learn.microsoft.com/azure/azure-vmware/concepts-run-command)
 
-### How do I use VMware Cloud Director Availability Run commands for day 2 operations such as scaling, upgrades, uninstall, and more?
+### How do I use VMware Cloud Director Availability Run commands for day 2 operations such as scaling, uninstall, and more?
 
-Day 2 operations such as scaling, upgrade, or uninstall can be done using Run commands. Follow detailed guide (add link).
+Day 2 operations such as scaling or uninstall can be done using Run commands. Follow detailed guide (add link).
+
+### How can I upgrade VMware Cloud Director Availability?
+
+VMware Cloud Director Availability can be upgraded using [Appliances upgrade sequence and prerequisites (https://docs.vmware.com/en/VMware-Cloud-Director-Availability/4.7/VMware-Cloud-Director-Availability-Install-Config-Upgrade-Cloud/GUID-51B25D13-8224-43F1-AE54-65EDDA9E5FAD.html)]
+
+## Next steps
+
+Learn more about VMware Cloud Director Availability, VMware Cloud Director Availability (add link here).
