@@ -29,6 +29,7 @@ Azure Communication Services emits the following event types:
 * [Presence Events](./communication-services-presence-events.md)
 * [Email Events](./communication-services-email-events.md)
 * [Job Router Events](./communication-services-router-events.md)
+* [Advanced Messaging Events](./communication-services-advanced-messaging-events.md)
 
 You can use the Azure portal or Azure CLI to subscribe to events emitted by your Communication Services resource. 
 
