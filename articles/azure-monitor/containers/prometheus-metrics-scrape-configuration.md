@@ -342,7 +342,7 @@ See the [Apply config file](prometheus-metrics-scrape-validate.md#deploy-config-
 
 ### TLS based scraping
 
-If the metrics endpoint is secured, you need to set scheme to `https` and set the TLS settings. You can use the `tls_config` configuration property inside a custom scrape job to configure the TLS settings either using a CRD or a configmap. You need to provide a CA certificate to validate API server certificate with. The CA certificate is used to verify the authenticity of the server's certificate when Prometheus connects to the target over TLS. It helps ensure that the server's certificate is signed by a trusted authority.
+If you have a Prometheus instance served with TLS and you want to scrape metrics from it, you need to set scheme to `https` and set the TLS settings in your configmap or respective CRD. You can use the `tls_config` configuration property inside a custom scrape job to configure the TLS settings either using a CRD or a configmap. You need to provide a CA certificate to validate API server certificate with. The CA certificate is used to verify the authenticity of the server's certificate when Prometheus connects to the target over TLS. It helps ensure that the server's certificate is signed by a trusted authority.
 
 The secret should be created in kube-system namespace and then the configmap/CRD should be created in kube-system namespace. The order of secret creation matters. When there's no secret but a valid CRD/config map, you will find errors in collector log -> `no file found for cert....`
 
@@ -382,6 +382,11 @@ tlsConfig:
     For example: secret_kube-system_ama-metrics-mtls-secret_<cert-name>.pem and secret_kube-system_ama-metrics-mtls-secret_<key-name>.pem.
 > The CRD needs to be be created in kube-system namespace.
 > The secret name should exactly be ama-metrics-mtls-secret in kube-system namespace. An example command for creating secret: kubectl create secret generic ama-metrics-mtls-secret --from-file=secret_kube-system_ama-metrics-mtls-secret_client-cert.pem=secret_kube-system_ama-metrics-mtls-secret_client-cert.pem --from-file=secret_kube-system_ama-metrics-mtls-secret_client-key.pem=secret_kube-system_ama-metrics-mtls-secret_client-key.pem -n kube-system
+
+To read more on TLS authentication, the following documents might be helpful.
+
+1. Generating TLS certificates -> https://o11y.eu/blog/prometheus-server-tls/
+2. Configurations -> https://prometheus.io/docs/alerting/latest/configuration/#tls_config
 
 ## Next steps
 
