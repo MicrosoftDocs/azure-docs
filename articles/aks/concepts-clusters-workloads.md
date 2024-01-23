@@ -261,7 +261,7 @@ Modifying any **Azure-created tags** on resources under the node resource group 
 
 AKS allows you to create and modify tags that are propagated to resources in the node resource group, and you can add those tags when [creating or updating][aks-tags] the cluster. You might want to create or modify custom tags to assign a business unit or cost center, for example. You can also create Azure Policies with a scope on the managed resource group.
 
-To reduce the chance of changes in the node resource group affecting your clusters, you can enable *node resource group lockdown* to apply a deny assignment to your AKS resources. for more information, see [Fully managed resource group (Preview)][fully-managed-resource-group].
+To reduce the chance of changes in the node resource group affecting your clusters, you can enable *node resource group lockdown* to apply a deny assignment to your AKS resources. for more information, see [Fully managed resource group (preview)][fully-managed-resource-group].
 
 > [!WARNING]
 > If you don't have node resource group lockdown enabled, you can directly modify any resource in the node resource group. Directly modifying resources in the node resource group can cause your cluster to become unstable or unresponsive.
@@ -280,21 +280,19 @@ A pod is a logical resource, but application workloads run on the containers. Po
 
 ## Deployments and YAML manifests
 
-A *deployment* represents identical pods managed by the Kubernetes Deployment Controller. A deployment defines the number of pod *replicas* to create. The Kubernetes Scheduler ensures that additional pods are scheduled on healthy nodes if pods or nodes encounter problems.
+A *deployment* represents identical pods managed by the Kubernetes Deployment Controller. A deployment defines the number of pod *replicas* to create. The Kubernetes Scheduler ensures that extra pods are scheduled on healthy nodes if pods or nodes encounter problems. You can update deployments to change the configuration of pods, the container image, or the attached storage.
 
-You can update deployments to change the configuration of pods, container image used, or attached storage. The Deployment Controller:
+The Deployment Controller manages the deployment lifecycle and performs the following actions:
 
 * Drains and terminates a given number of replicas.
 * Creates replicas from the new deployment definition.
 * Continues the process until all replicas in the deployment are updated.
 
-Most stateless applications in AKS should use the deployment model rather than scheduling individual pods. Kubernetes can monitor deployment health and status to ensure that the required number of replicas run within the cluster. When scheduled individually, pods aren't restarted if they encounter a problem, and aren't rescheduled on healthy nodes if their current node encounters a problem.
+Most stateless applications in AKS should use the deployment model rather than scheduling individual pods. Kubernetes can monitor deployment health and status to ensure that the required number of replicas run within the cluster. When scheduled individually, pods aren't restarted if they encounter a problem, and they aren't rescheduled on healthy nodes if their current node encounters a problem.
 
-You don't want to disrupt management decisions with an update process if your application requires a minimum number of available instances. *Pod Disruption Budgets* define how many replicas in a deployment can be taken down during an update or node upgrade. For example, if you have *five (5)* replicas in your deployment, you can define a pod disruption of *4 (four)* to only allow one replica to be deleted or rescheduled at a time. As with pod resource limits, best practice is to define pod disruption budgets on applications that require a minimum number of replicas to always be present.
+You don't want to disrupt management decisions with an update process if your application requires a minimum number of available instances. *Pod Disruption Budgets* define how many replicas in a deployment can be taken down during an update or node upgrade. For example, if you have *five* replicas in your deployment, you can define a pod disruption of *four* to only allow one replica to be deleted or rescheduled at a time. As with pod resource limits, our recommended best practice is to define pod disruption budgets on applications that require a minimum number of replicas to always be present.
 
-Deployments are typically created and managed with `kubectl create` or `kubectl apply`. Create a deployment by defining a manifest file in the YAML format.
-
-The following example creates a basic deployment of the NGINX web server. The deployment specifies *three (3)* replicas to be created, and requires port *80* to be open on the container. Resource requests and limits are also defined for CPU and memory.
+Deployments are typically created and managed with `kubectl create` or `kubectl apply`. You can create a deployment by defining a manifest file in the YAML format. The following example shows a basic deployment manifest file for an NGINX web server:
 
 ```yaml
 apiVersion: apps/v1
@@ -351,77 +349,76 @@ A breakdown of the deployment specifications in the YAML manifest file is as fol
 | `.spec.spec.resources.limits.cpu` | Specifies the maximum amount of CPU allowed. This limit is enforced by the kubelet. |
 | `.spec.spec.resources.limits.memory` | Specifies the maximum amount of memory allowed. This limit is enforced by the kubelet. |
 
-More complex applications can be created by including services (such as load balancers) within the YAML manifest.
+More complex applications can be created by including services, such as load balancers, within the YAML manifest.
 
 For more information, see [Kubernetes deployments][kubernetes-deployments].
 
 ### Package management with Helm
 
-[Helm][helm] is commonly used to manage applications in Kubernetes. You can deploy resources by building and using existing public Helm *charts* that contain a packaged version of application code and Kubernetes YAML manifests. You can store Helm charts either locally or in a remote repository, such as an [Azure Container Registry Helm chart repo][acr-helm].
+[Helm][helm] is commonly used to manage applications in Kubernetes. You can deploy resources by building and using existing public *Helm charts* that contain a packaged version of application code and Kubernetes YAML manifests. You can store Helm charts either locally or in a remote repository, such as an [Azure Container Registry Helm chart repo][acr-helm].
 
 To use Helm, install the Helm client on your computer, or use the Helm client in the [Azure Cloud Shell][azure-cloud-shell]. Search for or create Helm charts, and then install them to your Kubernetes cluster. For more information, see [Install existing applications with Helm in AKS][aks-helm].
 
 ## StatefulSets and DaemonSets
 
-Using the Kubernetes Scheduler, the Deployment Controller runs replicas on any available node with available resources. While this approach may be sufficient for stateless applications, the Deployment Controller isn't ideal for applications that require:
+Using the Kubernetes Scheduler, the Deployment Controller runs replicas on any available node with available resources. While this approach might be sufficient for stateless applications, the Deployment Controller isn't ideal for applications that require the following specifications:
 
 * A persistent naming convention or storage.
 * A replica to exist on each select node within a cluster.
 
-Two Kubernetes resources, however, let you manage these types of applications:
+Two Kubernetes resources, however, let you manage these types of applications: *StatefulSets* and *DaemonSets*.
 
-- *StatefulSets* maintain the state of applications beyond an individual pod lifecycle.
-- *DaemonSets* ensure a running instance on each node, early in the Kubernetes bootstrap process.
+*StatefulSets* maintain the state of applications beyond an individual pod lifecycle. *DaemonSets* ensure a running instance on each node early in the Kubernetes bootstrap process.
 
 ### StatefulSets
 
-Modern application development often aims for stateless applications. For stateful applications, like those that include database components, you can use *StatefulSets*. Like deployments, a StatefulSet creates and manages at least one identical pod. Replicas in a StatefulSet follow a graceful, sequential approach to deployment, scale, upgrade, and termination. The naming convention, network names, and storage persist as replicas are rescheduled with a StatefulSet.
+Modern application development often aims for stateless applications. For stateful applications, like those that include database components, you can use *StatefulSets*. Like deployments, a StatefulSet creates and manages at least one identical pod. Replicas in a StatefulSet follow a graceful, sequential approach to deployment, scale, upgrade, and termination operations. The naming convention, network names, and storage persist as replicas are rescheduled with a StatefulSet.
 
-Define the application in YAML format using `kind: StatefulSet`. From there, the StatefulSet Controller handles the deployment and management of the required replicas. Data is written to persistent storage, provided by Azure Managed Disks or Azure Files. With StatefulSets, the underlying persistent storage remains, even when the StatefulSet is deleted.
+You can define the application in YAML format using `kind: StatefulSet`. From there, the StatefulSet Controller handles the deployment and management of the required replicas. Data writes to persistent storage, provided by Azure Managed Disks or Azure Files. With StatefulSets, the underlying persistent storage remains, even when the StatefulSet is deleted.
 
 For more information, see [Kubernetes StatefulSets][kubernetes-statefulsets].
 
-Replicas in a StatefulSet are scheduled and run across any available node in an AKS cluster. To ensure at least one pod in your set runs on a node, you use a DaemonSet instead.
+> [!IMPORTANT]
+> Replicas in a StatefulSet are scheduled and run across any available node in an AKS cluster. To ensure at least one pod in your set runs on a node, you should use a DaemonSet instead.
 
 ### DaemonSets
 
-For specific log collection or monitoring, you may need to run a pod on all nodes or a select set of nodes. You can use *DaemonSets* to deploy to one or more identical pods. The DaemonSet Controller ensures that each node specified runs an instance of the pod.
+For specific log collection or monitoring, you might need to run a pod on all nodes or a select set of nodes. You can use *DaemonSets* to deploy to one or more identical pods. The DaemonSet Controller ensures that each node specified runs an instance of the pod.
 
-The DaemonSet Controller can schedule pods on nodes early in the cluster boot process, before the default Kubernetes scheduler has started. This ability ensures that the pods in a DaemonSet are started before traditional pods in a Deployment or StatefulSet are scheduled.
+The DaemonSet Controller can schedule pods on nodes early in the cluster boot process before the default Kubernetes scheduler starts. This ability ensures that the pods in a DaemonSet state before traditional pods in a Deployment or StatefulSet are scheduled.
 
-Like StatefulSets, a DaemonSet is defined as part of a YAML definition using `kind: DaemonSet`.
+Like StatefulSets, you can define a DaemonSet as part of a YAML definition using `kind: DaemonSet`.
 
 For more information, see [Kubernetes DaemonSets][kubernetes-daemonset].
 
 > [!NOTE]
-> If using the [Virtual Nodes add-on](virtual-nodes-cli.md#enable-the-virtual-nodes-addon), DaemonSets will not create pods on the virtual node.
+> If you're using the [virtual Nodes add-on](virtual-nodes-cli.md#enable-the-virtual-nodes-addon), DaemonSets don't create pods on the virtual node.
 
 ## Namespaces
 
-Kubernetes resources, such as pods and deployments, are logically grouped into a *namespace* to divide an AKS cluster and create, view, or manage access to resources. For example, you can create namespaces to separate business groups. Users can only interact with resources within their assigned namespaces.
+Kubernetes resources, such as pods and deployments, are logically grouped into *namespaces* to divide an AKS cluster and create, view, or manage access to resources. For example, you can create namespaces to separate business groups. Users can only interact with resources within their assigned namespaces.
 
 ![Kubernetes namespaces to logically divide resources and applications](media/concepts-clusters-workloads/namespaces.png)
 
-When you create an AKS cluster, the following namespaces are available:
+The following namespaces are available when you create an AKS cluster:
 
 | Namespace | Description |  
 | ----------------- | ------------- |  
-| *default*                                                                                 | Where pods and deployments are created by default when none is provided. In smaller environments, you can deploy applications directly into the default namespace without creating additional logical separations. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.                                                        |  
-| *kube-system* | Where core resources exist, such as network features like DNS and proxy, or the Kubernetes dashboard. You typically don't deploy your own applications into this namespace.                                      |  
-| *kube-public*                                                                            | Typically not used, but can be used for resources to be visible across the whole cluster, and can be viewed by any user.                                                                                    |  
-
+| *default* | Where pods and deployments are created by default when none is provided. In smaller environments, you can deploy applications directly into the default namespace without creating extra logical separations. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified. |  
+| *kube-system* | Where core resources exist, such as network features like DNS and proxy, or the Kubernetes dashboard. You typically don't deploy your own applications into this namespace. |  
+| *kube-public* | Typically not used, but can be used for resources to be visible across the whole cluster, and can be viewed by any user. |  
 
 For more information, see [Kubernetes namespaces][kubernetes-namespaces].
 
 ## Next steps
 
-This article covers some of the core Kubernetes components and how they apply to AKS clusters. For more information on core Kubernetes and AKS concepts, see the following articles:
+For more information on core Kubernetes and AKS concepts, see the following articles:
 
-- [Kubernetes / AKS access and identity][aks-concepts-identity]
-- [Kubernetes / AKS security][aks-concepts-security]
-- [Kubernetes / AKS virtual networks][aks-concepts-network]
-- [Kubernetes / AKS storage][aks-concepts-storage]
-- [Kubernetes / AKS scale][aks-concepts-scale]
+* [Kubernetes / AKS access and identity][aks-concepts-identity]
+* [Kubernetes / AKS security][aks-concepts-security]
+* [Kubernetes / AKS virtual networks][aks-concepts-network]
+* [Kubernetes / AKS storage][aks-concepts-storage]
+* [Kubernetes / AKS scale][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 [cluster-api-provider-azure]: https://github.com/kubernetes-sigs/cluster-api-provider-azure
@@ -445,13 +442,11 @@ This article covers some of the core Kubernetes components and how they apply to
 [aks-concepts-network]: concepts-network.md
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
 [aks-helm]: kubernetes-helm.md
-[operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
-[use-multiple-node-pools]: create-node-pools.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [reservation-discounts]:../cost-management-billing/reservations/save-compute-costs-reservations.md
-[configure-nrg]: ./cluster-configuration.md#fully-managed-resource-group-preview
 [aks-service-level-agreement]: faq.md#does-aks-offer-a-service-level-agreement
 [aks-tags]: use-tags.md
 [aks-support]: support-policies.md#user-customization-of-agent-nodes
 [intro-azure-linux]: ../azure-linux/intro-azure-linux.md
+[fully-managed-resource-group]: ./node-resource-group-lockdown.md

@@ -222,8 +222,8 @@
       items:
         - name: Deploy a cluster in an Edge Zone
           href: edge-zones.md
-        - name: Cluster configuration options
-          href: cluster-configuration.md 
+        - name: Deploy a cluster with a fully managed resource group
+          href: node-resource-group-lockdown.md
         - name: Scale an AKS cluster
           href: scale-cluster.md
         - name: Stop an AKS cluster
@@ -302,7 +302,6 @@
               href: custom-node-configuration.md
             - name: Abort long running operations
               href: manage-abort-operations.md
-            
             - name: Stop/deallocate nodes with Scale-down Mode
               href: scale-down-mode.md
             - name: Connect securely to cluster nodes
