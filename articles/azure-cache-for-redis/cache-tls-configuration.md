@@ -8,13 +8,12 @@ ms.topic: overview
 ms.date: 01/05/2024
 ms.author: franlanglois
 
-
+#customer intent: As a developer creating a service that uses a cache, I want to know about TLS connections so that I know my service is secure.
 ---
 
 # What is the TLS protocol with Azure Cache for Redis
 
-Transport Layer Security (TLS) is a cryptographic protocol that provides secure communication over a network. Azure Cache for Redis supports TLS on all tiers, and usage is encouraged.
-For more infomation on 
+Transport Layer Security (TLS) is a cryptographic protocol that provides secure communication over a network. Azure Cache for Redis supports TLS on all tiers. When create a service that uses an Azure Cache for Redis instance, we strongly encourage you to connect using TLS.
 
 > [!IMPORTANT]
 > Starting October 1, 2024, TLS 1.0 and 1.1 will no longer be supported. You should use TLS 1.2 or 1.3 instead.
