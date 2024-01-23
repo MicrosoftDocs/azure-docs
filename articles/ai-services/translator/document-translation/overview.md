@@ -27,9 +27,9 @@ Document Translation is a cloud-based feature of the [Azure AI Translator](../tr
 
 * [Synchronous](synchronous-translation.md) document translation supports immediate-response processing of single-page files. The synchronous translation process does not require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
 
-### [Asynchronous translation](#tab/asynchronous)
+## [Asynchronous translation](#tab/asynchronous)
 
-## Asynchronous translation key features
+### Asynchronous translation key features
 
   | Feature | Description |
   | ---------| -------------|
@@ -40,6 +40,21 @@ Document Translation is a cloud-based feature of the [Azure AI Translator](../tr
   |**Apply custom glossaries**|Translate documents using custom glossaries.|
   |**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
   |**Translate documents with content in multiple languages**|Use the autodetect feature to translate documents with content in multiple languages into your target language.|
+
+### Development options
+
+You can add Document Translation to your applications using the REST API or a client-library SDK:
+
+* The [**REST API**](reference/rest-api-guide.md). is a language agnostic interface that enables you to create HTTP requests and authorization headers to translate documents.
+
+* The [**client-library SDKs**](./quickstarts/document-translation-sdk.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](https://pypi.org/project/azure-ai-translation-document/).
+
+### Get started
+
+In our quickstart, you learn how to rapidly get started using Document Translation. To begin, you need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
+
+> [!div class="nextstepaction"]
+> [Start here](./quickstarts/document-translation-rest-api.md "Learn how to use Document Translation with HTTP REST")
 
 ### Asynchronous supported document formats
 
@@ -86,25 +101,38 @@ Document Translation supports the following glossary file types:
 |Localization Interchange File Format| `xlf` , `xliff`| A parallel document format, export of Translation Memory systems The languages used are defined inside the file.|
 |Tab-Separated Values/TAB|`tsv`, `tab`| A tab-delimited raw-data file used by spreadsheet programs.|
 
+## [Synchronous document translation](#tab/synchronous)## Supported document formats
+
+### Synchronous Document Translation supports the following document file types:
+
+|File type| File extension|Description|
+|---|---|--|
+|HTML|`html`, `htm`|Hyper Text Markup Language.|
+|M&#8203;HTML|`mthml`, `mht`| A web page archive format used to combine HTML code and its companion resources.|
+|Microsoft Excel|`xls`, `xlsx`|A spreadsheet file for data analysis and documentation.|
+|Microsoft Outlook|`msg`|An email message created or saved within Microsoft Outlook.|
+|Microsoft PowerPoint|`ppt`, `pptx`| A presentation file used to display content in a slideshow format.|
+|Microsoft Word|`doc`, `docx`| A text document file.|
+|OpenDocument Text|`odt`|An open-source text document file.|
+|OpenDocument Presentation|`odp`|An open-source presentation file.|
+|OpenDocument Spreadsheet|`ods`|An open-source spreadsheet file.|
+|Plain Text|`txt`| An unformatted text document.|
+
+The following table highlights **synchronous** document translation key features:
+
+|Feature | Description |
+| ---------| -------------|
+|**Translate single-page files**| The synchronous request accepts only a single document as input.|
+|**Preserve source file presentation**| Translate files while preserving the original layout and format.|
+|**Apply custom translation**| Translate documents using general and [custom translation](../custom-translator/concepts/customization.md#custom-translator) models.|
+|**Apply custom glossaries**|Translate documents using custom glossaries.|
+|**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
+
+---
+
 ## Request limits
 
 For detailed information regarding Azure AI Translator Service request limits, *see* [**Document Translation request limits**](../service-limits.md#document-translation).
-
-
-  The following table highlights **synchronous** document translation key features:
-
-  |Feature | Description |
-  | ---------| -------------|
-  |**Translate single-page files**| The synchronous request accepts only a single document as input.|
-  |**Preserve source file presentation**| Translate files while preserving the original layout and format.|
-  |**Apply custom translation**| Translate documents using general and [custom translation](../custom-translator/concepts/customization.md#custom-translator) models.|
-  |**Apply custom glossaries**|Translate documents using custom glossaries.|
-  |**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
-
-  For more information, see [Synchronous document translation](synchronous-translation.md)
-
-
-
 
 ## Data residency
 
