@@ -75,7 +75,7 @@ For using VMware Cloud Director Availability outside of the local network segmen
 
 ## Install and manage VMware Cloud Directory Availability using Run commands
 
-Enterprise customers seeking to implement and manage multitenant BCDR in their Azure VMware Solution SDDC using VMware Cloud director Availability can utilize VCDA Run commands accessible on the Azure portal.  
+Customers seeking to implement and manage multitenant BCDR in their Azure VMware Solution SDDC using VMware Cloud director Availability can utilize VCDA Run commands accessible on the Azure portal.  
 
 > [!IMPORTANT]
 > Converting from manual installation of VCDA to Run command is not supported. Existing customers with any manual VCDA installation are advised to uninstall and reinstall VCDA using Run commands to fully leverage the classic engine and Disaster Recovery capabilities.
