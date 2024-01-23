@@ -10,7 +10,7 @@ author: msangapu-msft
 # Automatic scaling in Azure App Service
 
 > [!NOTE]
-> Automatic scaling is in preview. It's available for Premium V2 (P1V2, P2V2, P3V2) and Premium V3 (P1V3, P2V3, P3V3) pricing tiers, and supported for all app types: Windows, Linux, and Windows container.
+> Automatic scaling is in preview. It's available for Premium V2 (P1V2, P2V2, P3V2) and Premium V3 (P1V3, P2V3, P3V3) pricing tiers, and supported for all app types: Windows, Linux, and Windows container. Automatic scaling is not supported on deployment slots.
 >
 
 Automatic scaling is a new scale out option that automatically handles scaling decisions for your web apps and App Service Plans. It's different from the pre-existing **[Azure autoscale](../azure-monitor/autoscale/autoscale-overview.md)**, which lets you define scaling rules based on schedules and resources. With automatic scaling, you can adjust scaling settings to improve your app's performance and avoid cold start issues. The platform prewarms instances to act as a buffer when scaling out, ensuring smooth performance transitions. You can use Application Insights [Live Metrics](../azure-monitor/app/live-stream.md) to check your current instance count, and [performanceCounters](../azure-functions/analyze-telemetry-data.md#query-telemetry-data) to see the instance count history. You're charged per second for every instance, including prewarmed instances. 
