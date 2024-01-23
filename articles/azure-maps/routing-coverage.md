@@ -78,7 +78,7 @@ For more information about the Route Directions V2 API, see [Azure Maps Route Se
 
 ## Azure Maps routing coverage tables
 
-::: zone pivot="route"
+::: zone pivot="route-v1"
 
 <!------------------------------------------------------------------
 ### Legend
