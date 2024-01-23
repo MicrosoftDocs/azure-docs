@@ -27,7 +27,7 @@ Currently, you can only enable certain resource types for Chaos Studio virtual n
 To use Chaos Studio with virtual network injection, you must meet the following requirements.
 1. The `Microsoft.ContainerInstance` and `Microsoft.Relay` resource providers must be registered with your subscription.
 1. The virtual network where Chaos Studio resources will be injected must have two subnets: a container subnet and a relay subnet. A container subnet is used for the Chaos Studio containers that will be injected into your private network. A relay subnet is used to forward communication from Chaos Studio to the containers inside the private network.
-    1. Both subnets need at least `/27` in the address space. An example is an address prefix of `10.0.0.0/28` or `10.0.0.0/24`.
+    1. Both subnets need at least `/28` for the size of the address space (in this case `/27` is larger than `/28`, for example). An example is an address prefix of `10.0.0.0/28` or `10.0.0.0/24`.
     1. The container subnet must be delegated to `Microsoft.ContainerInstance/containerGroups`.
     1. The subnets can be arbitrarily named, but we recommend `ChaosStudioContainerSubnet` and `ChaosStudioRelaySubnet`.
 1. When you enable the desired resource as a target so that you can use it in Chaos Studio experiments, the following properties must be set:

@@ -2,15 +2,9 @@
 title: Azure NetApp Files datastore performance benchmarks for Azure VMware Solution | Microsoft Docs
 description: Describes performance benchmarks that Azure NetApp Files datastores deliver for virtual machines on Azure VMware Solution.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2023
 ms.author: anfdocs

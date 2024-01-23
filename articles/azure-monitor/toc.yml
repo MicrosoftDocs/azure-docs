@@ -125,19 +125,15 @@ items:
         items:
         - name: .NET
           items:
-            - name: ASP.NET Core
-              items:
-              - name: ASP.NET Core App Monitoring
-                displayName: Core, .NET Core, services.add, dotnetcore, c#, csharp
-                href: app/asp-net-core.md
-              - name: ILogger
-                displayName: ilogger, logging, log
-                href: app/ilogger.md
-            - name: ASP.NET
-              items:
-              - name: ASP.NET App Monitoring
-                displayName: ASP.NET, c#, csharp, .NET, NET, dotnet
-                href: app/asp-net.md
+            - name: ASP.NET Core App Monitoring
+              displayName: Core, .NET Core, services.add, dotnetcore, c#, csharp
+              href: app/asp-net-core.md
+            - name: ILogger
+              displayName: ilogger, logging, log
+              href: app/ilogger.md
+            - name: ASP.NET App Monitoring
+              displayName: ASP.NET, c#, csharp, .NET, NET, dotnet
+              href: app/asp-net.md
             - name: Non-HTTP, console, and background apps
               displayName: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
               href: app/worker-service.md
@@ -192,8 +188,6 @@ items:
           - name: Sampling
             displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
             href: app/sampling-classic-api.md
-          - name: SDK support policy
-            href: app/sdk-support-guidance.md
           - name: Statsbeat
             href: app/statsbeat.md
           - name: TelemetryProcessors
