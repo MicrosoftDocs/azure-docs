@@ -165,7 +165,7 @@ public class App {
             return getConfigAuthWithAAD();
         } else if ("RedisKey".equals(System.getenv("AUTH_TYPE"))) {
             System.out.println("Auth with Redis key");
-            return getConfigAuthWithAAD();
+            return getConfigAuthWithKey();
         }
         System.out.println("Auth with Redis key");
         return getConfigAuthWithKey();
