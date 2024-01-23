@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 [Azure Resource Health](/azure/service-health/resource-health-overview?WT.mc_id=Portal-Microsoft_Azure_Health) is a component of Azure Monitor that can be configured to generate alerts based on signals from Azure Red Hat OpenShift clusters. These alerts help you prepare for such actions as planned maintenance operations and unplanned events that can disrupt workloads or make the cluster unreachable.
 
-You can configure Resource Health alert signals for the following conditions:
+Resource Health alert signals for ARO clusters include the following conditions:
 
 - **Critical update pending:** This signal is enabled whenever the ARO service is ready with a critical fix for the ARO cluster, and that fix requires rolling reboots of nodes. The signal should provide more details of when the signal was enabled, and the time window within which the fix is likely to be rolled out to the cluster. 
 
@@ -27,7 +27,7 @@ You can configure Resource Health alert signals for the following conditions:
 - **Cluster unreachable:** This signal is enabled whenever the ARO RP detects a failure to reach a customer cluster. 
 
 > [!NOTE]
-> In additional to the Resource Health signals described in this article, Azure Monitor also supports other log search and activity log signal types.
+> In additional to the Resource Health signals described in this article, Azure Monitor also supports other log search and activity log signal types for ARO.
 > 
 
 Configuring Resource Health alerts for an ARO cluster requires an alert rule. Alert rules define the conditions in which alert signals are generated.
@@ -36,9 +36,11 @@ Configuring Resource Health alerts for an ARO cluster requires an alert rule. Al
 
 1. Select **Resource health**, then select **Add resource health alert**.
 
-1. Enter all applicable parameters for the alert rule in the window, then select **Review + Create**.
+1. Enter all applicable parameters for the alert rule in the various tabs of the window, including an **Alert rule name** in the **Details** tab..
 
-For detailed instructions on using and creating alert rules, see [What are Azure Monitor alerts?](/azure/azure-monitor/alerts/alerts-overview)
+    For detailed instructions on using and creating alert rules, see [What are Azure Monitor alerts?](/azure/azure-monitor/alerts/alerts-overview)
+
+1. Select **Review + Create**.
 
 ## Cluster alert notifications
 
