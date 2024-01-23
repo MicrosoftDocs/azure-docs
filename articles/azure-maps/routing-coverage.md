@@ -17,7 +17,7 @@ This article provides coverage information for Azure Maps routing. Upon a search
 
 ## Routing information supported
 
-the following information is available in the [Azure Maps routing coverage tables]:
+The following information is available in the [Azure Maps routing coverage tables]:
 
 ::: zone pivot="route-v1"
 <!-----------------------------ROUTING V1 ------------------------------------------------------------------------------>
