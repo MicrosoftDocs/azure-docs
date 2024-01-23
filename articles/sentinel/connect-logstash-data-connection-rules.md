@@ -446,12 +446,12 @@ To monitor the connectivity and activity of the Microsoft Sentinel output plugin
 If you are not seeing any data in this log file, generate and send some events locally (through the input and filter plugins) to make sure the output plugin is receiving data. Microsoft Sentinel will support only issues relating to the output plugin.
 
 
-#### Firewall configurations
-Define network settings and enable network isolation for Sentinel Logstash output plugin.
+#### Network security
+Define network settings and enable network isolation for Microsoft Sentinel Logstash output plugin.
 
 ##### Virtual network service tags
 
-Azure Monitor Agent supports [Azure virtual network service tags](../../virtual-network/service-tags-overview.md). Both *AzureMonitor* and *AzureActiveDirectory* tags are required. 
+Microsoft Sentinel output plugin supports [Azure virtual network service tags](../../virtual-network/service-tags-overview.md). Both *AzureMonitor* and *AzureActiveDirectory* tags are required. 
 
 Azure Virtual network service tags can be used to define network access controls on [network security groups](../../virtual-network/network-security-groups-overview.md#security-rules), [Azure Firewall](../../firewall/service-tags.md), and user-defined routes. Use service tags in place of specific IP addresses when you create security rules and routes. For scenarios where Azure virtual network service tags cannot be used, the Firewall requirements are given below.
 
