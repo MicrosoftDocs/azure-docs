@@ -633,7 +633,7 @@
     },
     {
       "source_path_from_root": "/articles/ai-services/translator/document-translation/quickstarts/document-translation-rest-api.md",
-      "redirect_url": "/azure/ai-services//translator/document-translation/quickstarts/async-translation-sdk",
+      "redirect_url": "/azure/ai-services//translator/document-translation/quickstarts/async-translation-rest-api",
       "redirect_document_id": true
     }
     

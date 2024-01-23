@@ -1,5 +1,5 @@
 ---
- title: Get started with synchronous document translation
+title: Get started with synchronous document translation
 description: "How to translate documents synchronously using the REST API"
 #services: cognitive-services
 author: laujan
