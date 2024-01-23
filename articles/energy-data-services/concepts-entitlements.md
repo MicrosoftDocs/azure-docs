@@ -54,7 +54,9 @@ The entitlement service enables three use cases for authorization:
 As an example in the scenario, 
 - A data_record_1 has 2 ACLs: ACL_1 and ACL_2.
 - User_1 is a member of ACL_1 and users.data.root.
+  
 Now if you remove user_1 from  ACL_1, user_1 remains to have access of the data_record_1 via users.data.root group.
+
 And if ACL_1 and ACL_2 are removed from data_record_1, users.data.root continue to have owner access of the data. This preserves the data record from becoming orphan ever.
 
 ## Users
