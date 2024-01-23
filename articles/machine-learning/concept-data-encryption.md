@@ -16,7 +16,7 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 
 # Data encryption with Azure Machine Learning
 
-Azure Machine Learning relies on a variety of Azure data storage services and compute resources when you're training models and performing inferences. In this article, learn about the data encryption for each service both at rest and in transit.
+Azure Machine Learning relies on various Azure data storage services and compute resources when you're training models and performing inferences. In this article, learn about the data encryption for each service both at rest and in transit.
 
 For production-grade encryption during training, we recommend that you use an Azure Machine Learning compute cluster. For production-grade encryption during inference, we recommend that you use Azure Kubernetes Service (AKS).
 
@@ -30,7 +30,7 @@ Azure Machine Learning end-to-end projects integrate with services like Azure Bl
 
 Azure Machine Learning stores snapshots, output, and logs in the Azure Blob Storage account (default storage account) that's tied to the Azure Machine Learning workspace and your subscription. All the data stored in Azure Blob Storage is encrypted at rest with Microsoft-managed keys.
 
-For information on how to use your own keys for data stored in Azure Blob storage, see [Azure Storage encryption with customer-managed keys in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md).
+For information on how to use your own keys for data stored in Azure Blob Storage, see [Azure Storage encryption with customer-managed keys in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md).
 
 Training data is typically also stored in Azure Blob Storage so that training compute targets can access it. Azure Machine Learning doesn't manage this storage. This storage is mounted to compute targets as a remote file system.
 
@@ -125,7 +125,7 @@ This process allows you to encrypt both the data and the OS disk of the deployed
 > [!IMPORTANT]
 > This process works with only AKS version 1.17 or later. Azure Machine Learning added support for AKS 1.17 on Jan 13, 2020.
 
-### Machine Learning compute
+### Azure Machine Learning compute
 
 #### Compute cluster
 
@@ -135,7 +135,7 @@ Azure Disk Encryption is not enabled for workspaces by default. If you create th
 
 Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. If you create the workspace with the `hbi_workspace` parameter set to `TRUE`, the temporary disk is encrypted. This environment is short lived (only during your job), and encryption support is limited to system-managed keys only.
 
-Managed online endpoints and batch endpoints use Machine Learning compute in the back end, and they follow the same encryption mechanism.
+Managed online endpoints and batch endpoints use Azure Machine Learning compute in the back end, and they follow the same encryption mechanism.
 
 #### Compute instance
 
@@ -169,9 +169,7 @@ To help secure external calls made to the scoring endpoint, Azure Machine Learni
 
 ## Data collection and handling
 
-### Microsoft-collected data
-
-Microsoft might collect information that doesn't identify users, like resource names (for example, the dataset name or the machine learning experiment name) or job environment variables, for diagnostic purposes. All such data is stored through Microsoft-managed keys in storage hosted in Microsoft-owned subscriptions. The storage follows [Microsoft's standard privacy policy and data-handling standards](https://privacy.microsoft.com/privacystatement). This data stays within the same region as your workspace.
+For diagnostic purposes, Microsoft might collect information that doesn't identify users. For example, Microsoft might collect resource names (for example, the dataset name or the machine learning experiment name) or job environment variables. All such data is stored through Microsoft-managed keys in storage hosted in Microsoft-owned subscriptions. The storage follows [Microsoft's standard privacy policy and data-handling standards](https://privacy.microsoft.com/privacystatement). This data stays within the same region as your workspace.
 
 We recommend not storing sensitive information (such as account key secrets) in environment variables. Microsoft logs, encrypts, and stores environment variables. Similarly, when you name your jobs, avoid including sensitive information such as user names or secret project names. This information might appear in telemetry logs that Microsoft support engineers can access.
 

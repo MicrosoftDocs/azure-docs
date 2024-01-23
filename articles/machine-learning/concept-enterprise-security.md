@@ -15,7 +15,7 @@ ms.date: 09/13/2023
 
 # Enterprise security and governance for Azure Machine Learning
 
-In this article, you learn about security and governance features that are available for Azure Machine Learning. These features are useful for administrators, DevOps engineers, and MLOps engineers who want to create a secure configuration that's compliant with an organization's policies.
+In this article, you learn about security and governance features that are available for Azure Machine Learning. These features are useful for administrators, DevOps engineers, and MLOps engineers who want to create a secure configuration that complies with an organization's policies.
 
 With Azure Machine Learning and the Azure platform, you can:
 
@@ -47,7 +47,7 @@ Each workspace has an associated system-assigned [managed identity](../active-di
 | Container registry | Contributor |
 | Resource group that contains the workspace | Contributor |
 
-The system-assigned managed identity is used for internal service-to-service authentication between Azure Machine Learning and other Azure resources. Users can't access the identity token, and they can't use it to gain access to these resources. Users can only access the resources through [Azure Machine Learning control and data plane APIs](how-to-assign-roles.md), if they have sufficient RBAC permissions.
+The system-assigned managed identity is used for internal service-to-service authentication between Azure Machine Learning and other Azure resources. Users can't access the identity token, and they can't use it to gain access to these resources. Users can access the resources only through [Azure Machine Learning control and data plane APIs](how-to-assign-roles.md), if they have sufficient RBAC permissions.
 
 We don't recommend that admins revoke the access of the managed identity to the resources mentioned in the preceding table. You can restore access by using the [resync keys operation](how-to-change-storage-access-key.md).
 
@@ -75,7 +75,7 @@ For more information, see the following articles:
 * [Use authentication credential secrets in Azure Machine Learning jobs](how-to-use-secrets-in-runs.md)
 * [Set up authentication between Azure Machine Learning and other services](how-to-identity-based-service-authentication.md)
 
-## Network security and isolation
+## Provide network security and isolation
 
 To restrict network access to Azure Machine Learning resources, you can use an [Azure Machine Learning managed virtual network](how-to-managed-network.md) or an [Azure Virtual Network instance](../virtual-network/virtual-networks-overview.md). Using a virtual network reduces the attack surface for your solution and the chances of data exfiltration.
 
@@ -105,21 +105,21 @@ You don't have to choose one or the other. For example, you can use an Azure Mac
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 
-## Data encryption
+## Encrypt data
 
 Azure Machine Learning uses various compute resources and datastores on the Azure platform. To learn more about how each of these resources supports data encryption at rest and in transit, see [Data encryption with Azure Machine Learning](concept-data-encryption.md).
 
-## Data exfiltration prevention
+## Prevent data exfiltration
 
 Azure Machine Learning has several inbound and outbound network dependencies. Some of these dependencies can expose a data exfiltration risk by malicious agents within your organization. These risks are associated with the outbound requirements to Azure Storage, Azure Front Door, and Azure Monitor. For recommendations on mitigating this risk, see [Azure Machine Learning data exfiltration prevention](how-to-prevent-data-loss-exfiltration.md).
 
-## Vulnerability scanning
+## Scan for vulnerabilities
 
 [Microsoft Defender for Cloud](../security-center/security-center-introduction.md) provides unified security management and advanced threat protection across hybrid cloud workloads. For Azure Machine Learning, you should enable scanning of your [Azure Container Registry](../container-registry/container-registry-intro.md) resource and AKS resources. For more information, see [Introduction to Microsoft Defender for container registries](../security-center/defender-for-container-registries-introduction.md) and [Introduction to Microsoft Defender for Kubernetes](../security-center/defender-for-kubernetes-introduction.md).
 
 ## Audit and manage compliance
 
-[Azure Policy](../governance/policy/index.yml) is a governance tool that helps you ensure that Azure resources are compliant with your policies. You can set policies to allow or enforce specific configurations, such as whether your Azure Machine Learning workspace uses a private endpoint.
+[Azure Policy](../governance/policy/index.yml) is a governance tool that helps you ensure that Azure resources comply with your policies. You can set policies to allow or enforce specific configurations, such as whether your Azure Machine Learning workspace uses a private endpoint.
 
 For more information on Azure Policy, see the [Azure Policy documentation](../governance/policy/overview.md). For more information on the policies that are specific to Azure Machine Learning, see [Audit and manage Azure Machine Learning](how-to-integrate-azure-policy.md).
 

@@ -30,7 +30,7 @@ The `hbi_workspace` flag doesn't affect encryption in transit. It affects only e
 * An Azure subscription.
 * An Azure Key Vault instance. The key vault contains the keys for encrypting your services.
 
-The key vault instance must enable soft delete and purge protection. The managed identity for the services that you help secure by using a customer-managed key must have the following permissions in Key Vault:
+The key vault must enable soft delete and purge protection. The managed identity for the services that you help secure by using a customer-managed key must have the following permissions to the key vault:
 
 * Wrap Key
 * Unwrap Key
@@ -41,7 +41,7 @@ For example, the managed identity for Azure Cosmos DB would need to have those p
 ## Limitations
 
 * After workspace creation, the customer-managed encryption key for resources that the workspace depends on can only be updated to another key in the original Azure Key Vault resource.
-* Encrypted data is stored on resources in a Microsoft-managed resource group in your subscription. You can't create these resources up front or transfer ownership of these to you. The data lifecycle is managed indirectly via the Azure Machine Learning APIs as you create objects in the Azure Machine Learning service.
+* Encrypted data is stored on resources in a Microsoft-managed resource group in your subscription. You can't create these resources up front or transfer ownership of them to you. The data lifecycle is managed indirectly via the Azure Machine Learning APIs as you create objects in the Azure Machine Learning service.
 * You can't delete Microsoft-managed resources that you use for customer-managed keys without also deleting your workspace.
 * You can't encrypt the compute cluster's OS disk by using your customer-managed keys. You must use Microsoft-managed keys.
 
@@ -57,12 +57,12 @@ Microsoft creates the following resources to store metadata for your workspace:
 | Service | Usage | Example data |
 | ----- | ----- | ----- |
 | Azure Cosmos DB | Stores job history data, compute metadata, and asset metadata. | Data can include job name, status, sequence number, and status; compute cluster name, number of cores, and number of nodes; datastore names and tags, and descriptions on assets like models; and data label names. |
-| Azure AI Search | Stores indices that help with querying your machine learning content. | These indices are built on top of the data stored in Azure Cosmos DB. |
+| Azure AI Search | Stores indexes that help with querying your machine learning content. | These indexes are built on top of the data stored in Azure Cosmos DB. |
 | Azure Storage | Stores metadata related to Azure Machine Learning pipeline data. | Data can include designer pipeline names, pipeline layout, and execution properties. |
 
 From the perspective of data lifecycle management, data in the preceding resources is created and deleted as you create and delete corresponding objects in Azure Machine Learning.
 
-Your Azure Machine Learning workspace reads and writes data by using its managed identity. This identity is granted access to the resources through a role assignment (Azure role-based access control) on the data resources. The encryption key that you provide is used to encrypt data that's stored on Microsoft-managed resources. It's also used to create indices for Azure AI Search at runtime.
+Your Azure Machine Learning workspace reads and writes data by using its managed identity. This identity is granted access to the resources through a role assignment (Azure role-based access control) on the data resources. The encryption key that you provide is used to encrypt data that's stored on Microsoft-managed resources. It's also used to create indexes for Azure AI Search at runtime.
 
 Extra networking controls are configured when you create a private link endpoint on your workspace to allow for inbound connectivity. This configuration includes the creation of a private link endpoint connection to the Azure Cosmos DB instance. Network access is restricted to only trusted Microsoft services.
 
