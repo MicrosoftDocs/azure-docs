@@ -40,9 +40,9 @@ After you move all the resources associated with the original NAT gateway instan
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroup** in **Name**. </br> Select **OK**. </br> Instead, you can select the existing resource group associated with the moved resources in the subscription. |
+    | Resource group | Select **Create new**. </br> Enter **test-rg** in **Name**. </br> Select **OK**. </br> Instead, you can select the existing resource group associated with the moved resources in the subscription. |
     | **Instance details** |   |
-    | Name | Enter **myNATgateway**. |
+    | Name | Enter **nat-gateway**. |
     | Region | Select the name of the new region. |
     | Availability Zone | Select **None**. Instead, you can select the zone of the moved resources if applicable. |
     | Idle timeout (minutes) | Enter **10**. |
@@ -53,7 +53,7 @@ After you move all the resources associated with the original NAT gateway instan
 
     | Setting | Value |
     | ------- | ----- |
-    | Public IP addresses | Select **Create a new public IP address**. </br> Enter **myNATPublicIP** in **Name**. </br> Select **OK**. </br> Instead, you can select an existing public IP in your subscription if applicable. |
+    | Public IP addresses | Select **Create a new public IP address**. </br> Enter **public-ip-nat** in **Name**. </br> Select **OK**. </br> Instead, you can select an existing public IP in your subscription if applicable. |
 
 6. Select the **Subnet** tab, or select **Next: Subnet** at the bottom of the page.
 
