@@ -56,7 +56,6 @@ In this how-to guide, you learn how to configure alerts in Azure Monitor for SAP
 
 ## View and Manage alerts in a centralized experience (Preview)
 This enhanced view introduces powerful capabilities that streamline alert management, providing a unified view of all alerts and alert rules across various providers. This consolidated approach enables you to efficiently manage and monitor alerts, improving your overall experience with Azure Monitor for SAP Solutions.
-    :::image type="content" source="./media/get-alerts-portal/new-alerts-view.png" alt-text="Screenshot showing central alerts view." lightbox="./media/get-alerts-portal/new-alerts-view.png":::
 
 1. **Centralized Alert Management**: 
 Gain a holistic view of all alerts fired across different providers within a single, intuitive interface. With the new Alerts experience, you can easily track and manage alerts from various sources in one place, providing a comprehensive overview of your SAP landscape's health.
@@ -75,6 +74,13 @@ Enable alert processing rules, a powerful feature that allows you to take specif
 
 1. **Export to CSV**: 
 Facilitate data analysis and reporting by exporting fired alerts and alert rules to CSV format. This feature empowers you to share, analyze, and archive alert data seamlessly, supporting your organization's reporting and compliance requirements.
+
+To access the new Alerts experience in Azure Monitor for SAP Solutions:
+
+1. Navigate to the Azure portal.
+1. Select your Azure Monitor for SAP Solutions instance.
+    :::image type="content" source="./media/get-alerts-portal/new-alerts-view.png" alt-text="Screenshot showing central alerts view." lightbox="./media/get-alerts-portal/new-alerts-view.png":::
+1. Click on the "Alerts" tab to explore the enhanced alert management capabilities.
 
 ## Next steps
 
