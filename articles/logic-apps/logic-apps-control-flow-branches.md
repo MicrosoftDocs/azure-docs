@@ -188,6 +188,8 @@ To merge parallel branches together, under all the branches, just add another ac
 
    :::image type="content" source="media/logic-apps-control-flow-branches/joined-branches-consumption.png" alt-text="Screenshot shows Consumption workflow with the action that joins the preceding parallel branches." lightbox="media/logic-apps-control-flow-branches/joined-branches-consumption.png":::
 
+---
+
 <a name="join-json"></a>
 
 ## Join definition (JSON)
