@@ -44,8 +44,8 @@ In addition to customer-managed keys, Azure Machine Learning also provides a [hb
 
 ## Limitations
 
-* The customer-managed key for resources the workspace depends on can't be updated after workspace creation.
-* Resources managed by Microsoft in your subscription can't transfer ownership to you.
+* After workspace creation, the customer-managed encryption key for resources the workspace depends on can only be updated to another key in the original Azure Key Vault resource.
+* Encrypted data will be stored on resources that live in a Microsoft-managed resource group in your subscription. You cannot create these resource upfront or transfer ownership of these to you. Data lifecycle is managed indirectly via the Azure ML APIs as you create objects in Azure Machine Learning service.
 * You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your workspace.
 
 ## How workspace metadata is stored
