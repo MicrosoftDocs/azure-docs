@@ -70,3 +70,8 @@ Deploy VMware Cloud Director Availability using run commands to enable classic e
 ### How is VMware Cloud Director Availability supported?
 
 VMware Cloud Director Availability is a VMware owned and supported product on Azure VMware Solution. For any support queries on VMware Cloud Director Availability, contact VMware support for assistance. Both VMware and Microsoft support teams collaborate as necessary to address and resolve VMware Cloud Director Availability issues within Azure VMware Solution.
+
+### What version of VMware Cloud Director Availability is supported with Azure VMware Solution Run commands?
+
+VMware Cloud Director Availability 4.7 or later is supported with Azure VMware solution using Run commands. If you have any existing manual deployment of VMware Cloud Director Availability, redeploy VMware Cloud Director Availability using Run commands to use classic engine and Disaster recovery functionality. Manual installation isn't supported.
+
