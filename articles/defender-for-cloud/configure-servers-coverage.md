@@ -1,19 +1,19 @@
 ---
-title: Configure monitoring coverage for Defender for Servers
-description: 
+title: Configure monitoring coverage
+description: Learn how to configure the different monitoring components that are available in Defender for Servers in Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 01/21/2024
+ms.date: 01/23/2024
 ---
 
-# Configure monitoring coverage for Defender for Servers
+# Configure monitoring coverage
 
-Microsoft Defender for Cloud's Defender for Servers plan has components that monitor your environments to provide extended coverage to your servers. Each of these components can be enabled, disabled or configured to your requirements. 
+Microsoft Defender for Cloud's Defender for Servers plans contains components that monitor your environments to provide extended coverage on your servers. Each of these components can be enabled, disabled or configured to your meet your specific requirements. 
 
 | Component | Availability | Description | Learn more |
 |--|--|--|--|
-| [Log Analytics agent](plan-defender-for-servers-agents.md) | Plan 1 and 2 | Collects security-related configurations and event logs from the machine and stores the data in your Log Analytics default or custom workspace for analysis. | [Learn more](../azure-monitor/agents/log-analytics-agent.md) about the Log Analytics agent. |
-| [Vulnerability assessment for machines](deploy-vulnerability-assessment-defender-vulnerability-management.md) | Plan 1 and 2 |Enables vulnerability assessment on your Azure and hybrid machines. | [Learn more](monitoring-components.md) about how Defender for Cloud collects data. |
-| [Endpoint protection](integration-defender-for-endpoint.md) | Plan 1 and 2 | Enables protection powered by Microsoft Defender for Endpoint, including automatic agent deployment to your servers, and security data integration with Defender for Cloud | [Learn more](integration-defender-for-endpoint.md) about endpoint protection |
+| [Log Analytics agent](plan-defender-for-servers-agents.md) | Plan 1 and Plan 2 | Collects security-related configurations and event logs from the machine and stores the data in your Log Analytics default or custom workspace for analysis. | [Learn more](../azure-monitor/agents/log-analytics-agent.md) about the Log Analytics agent. |
+| [Vulnerability assessment for machines](deploy-vulnerability-assessment-defender-vulnerability-management.md) | Plan 1 and Plan 2 |Enables vulnerability assessment on your Azure and hybrid machines. | [Learn more](monitoring-components.md) about how Defender for Cloud collects data. |
+| [Endpoint protection](integration-defender-for-endpoint.md) | Plan 1 and Plan 2 | Enables protection powered by Microsoft Defender for Endpoint, including automatic agent deployment to your servers, and security data integration with Defender for Cloud | [Learn more](integration-defender-for-endpoint.md) about endpoint protection. |
 | [Agentless scanning for machines](concept-agentless-data-collection.md) | Plan 2 | Scans your machines for installed software and vulnerabilities without relying on agents or impacting machine performance. | [Learn more](concept-agentless-data-collection.md) about agentless scanning for machines. |
 
 When you enable Defender for Servers plan 2, all of these components are toggled to **On** by default.
