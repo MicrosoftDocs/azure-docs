@@ -170,7 +170,6 @@ The **object grounding** integration brings a new layer to data analysis and use
     ```
 
 1. Make the following changes:
-    1. Enter your Azure OpenAI endpoint URL and key in the appropriate fields.
     1. Enter your GPT-4 Turbo with Vision deployment name in the appropriate field. 
     1. Enter your Computer Vision endpoint URL and key in the appropriate fields.
     1. Change the value of the `"image"` field to the base 64 byte data of your image.
