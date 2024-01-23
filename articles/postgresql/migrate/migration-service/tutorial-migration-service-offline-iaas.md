@@ -48,7 +48,7 @@ The migration service comes with a simple, wizard-based experience on the Azure 
     > [!NOTE]  
     > The first time you use the migration service, an empty grid appears with a prompt to begin your first migration.
 
-  If migrations to your flexible server target are already created, the grid now contains information about attempted migrations.
+    If migrations to your flexible server target are already created, the grid now contains information about attempted migrations.
 
 1. Select the **Create** button to go through a wizard-based series of tabs to perform a migration.
 
@@ -370,20 +370,16 @@ az postgres flexible-server migration list --subscription <<subscription ID>> --
 az postgres flexible-server migration create --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Unique Migration Name>> --properties "C:\migration-cli\migration_body.json"
 ```
 
-:::image type="content" source="media\tutorial-migration-service-offline-iaas\create-migration-CLI.png" alt-text="Screenshot of the create cli." lightbox="media\tutorial-migration-service-offline-iaas\create-migration-CLI.png":::
-
 - Run the following command to get the migration status initiated in the previous step. You can check the status of the migration by providing the migration name
 
 ```bash
 az postgres flexible-server migration show --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Migration ID>>
 ```
 
-:::image type="content" source="media\tutorial-migration-service-offline-iaas\show-migration-cli.png" alt-text="Screenshot of showing the cli migration.." lightbox="media\tutorial-migration-service-offline-iaas\show-migration-cli.png":::
+- You can also see the status in the Azure Database for PostgreSQL flexible server portal.
 
-- You can also see the status in the Azure Database for PostgreSQL flexible server portal
-
-:::image type="content" source="media\tutorial-migration-service-offline-iaas\status-migration-portal.png" alt-text="Screenshot of status migration portal." lightbox="media\tutorial-migration-service-offline-iaas\status-migration-portal.png":::
-
+    :::image type="content" source="media\tutorial-migration-service-offline-iaas\status-migration-portal.png" alt-text="Screenshot of status migration portal." lightbox="media\tutorial-migration-service-offline-iaas\status-migration-portal.png":::
+    
 ### Step 5 - Post Migration
 
 After successfully completing the databases, you need to manually validate the data between source and target and verify all the objects in the target database are successfully created.
