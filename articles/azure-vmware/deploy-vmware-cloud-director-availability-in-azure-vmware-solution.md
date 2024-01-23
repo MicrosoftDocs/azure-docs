@@ -11,7 +11,7 @@ ms.date: 1/22/2024
 
 In this article, learn how to deploy VMware Cloud Director Availability in Azure VMware Solution.
 
-Customers can use [VMware Cloud Director Availability](https://docs.vmware.com/en/VMware-Cloud-Director-Availability/index.html), a Disaster Recovery as a Service (DRaaS) solution, to protect and migrate workloads both to and from the VMware Cloud Director service associated with Azure VMware Soltuion. The native integration of VMware Cloud Director Availability with VMware Cloud director (VCD) and VMware Cloud Director service (CDS), through its plugin, enables multitenancy tenants to efficiently manage migration and disaster recovery for their virtual data center workloads through the VMware Cloud Director Availability tenant portal. 
+Customers can use [VMware Cloud Director Availability](https://docs.vmware.com/en/VMware-Cloud-Director-Availability/index.html), a Disaster Recovery as a Service (DRaaS) solution, to protect and migrate workloads both to and from the VMware Cloud Director service associated with Azure VMware Soltuion. The native integration of VMware Cloud Director Availability with VMware Cloud director (VCD) and VMware Cloud Director service (CDS) enables multitenancy tenants to efficiently manage migration and disaster recovery for workloads through the VMware Cloud Director Availability for provider and tenant portal. 
 
 ## VMware Cloud Director Availability useful scenarios in Azure VMware Solution
 
@@ -57,7 +57,7 @@ The following diagram shows VMware Cloud Director Availability appliances instal
 
 :::image type="content" source="media/deploy-vmware-cloud-director-availability/vcda-diagram.png" alt-text="Diagram shows VCDA appliances installed in both on-premises and Azure VMware Solution."lightbox="media/deploy-vmware-cloud-director-availability/vcda-diagram.png"::: 
 
-## Install and configure VMware Cloud Director Availability using Run commands
+## Install and configure VMware Cloud Director Availability on Azure VMware Solution
 
 Verify the following prerequisites to ensure you're ready to install and confiture VMware Cloud DIrector Availability using Run commands.
 
@@ -96,13 +96,13 @@ You can also use Run commands to perform many other functions such as start, sto
 
 :::image type="content" source="media/deploy-vmware-cloud-director-availability/vcda-run-command.png" alt-text="Screenshot shows multiple VCDA run commands available within the VCDA run command package."lightbox="media/deploy-vmware-cloud-director-availability/vcda-run-command.png"::: 
 
-Refer to our guide for detailed instructions on utilizing these run commands to effectively install and manage VCDA within your Azure solution private cloud (VMware Link to be added). 
+Refer to our guide for detailed instructions on utilizing these run commands to effectively install and manage VCDA within your Azure solution private cloud (live VMware Link to be added). 
 
 ## FAQs
 
 ### How do I install and configure VMware Cloud Director Availability in Azure VMware Solution? What are the prerequisites? 
 
-Deploy VMware Cloud Director Availability using run commands to enable classic engines and to access Disaster Recovery functionality. Follow this link, VMware Cloud Director Availability in Azure VMware Solution Link from VMW.
+Deploy VMware Cloud Director Availability using run commands to enable classic engines and to access Disaster Recovery functionality. Follow this link, VMware Cloud Director Availability in Azure VMware Solution Link from VMW (live VMware Link to be added).
 
 ### How is VMware Cloud Director Availability supported?
 
@@ -110,16 +110,16 @@ VMware Cloud Director Availability is a VMware owned and supported product on Az
 
 ### What are Run commands in Azure VMware Solution? 
 
-For more information, go to [Run Command in Azure VMware Solution(Preview)](https://learn.microsoft.com/azure/azure-vmware/concepts-run-command)
+For more information, go to [Run Command in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/concepts-run-command)
 
-### How do I use VMware Cloud Director Availability Run commands for day 2 operations such as scaling, uninstall, and more?
+### How can I add more Replicators in my existing VMware Cloud Director Availability installation?
 
-Day 2 operations such as scaling or uninstall can be done using Run commands. Follow detailed guide (add link).
+You can use Run Command **Install-VCDAReplicator** to install and configure new VMware Cloud Director Availability replicator virtual machines in Azure VMware Solution.
 
 ### How can I upgrade VMware Cloud Director Availability?
 
-VMware Cloud Director Availability can be upgraded using [Appliances upgrade sequence and prerequisites (https://docs.vmware.com/en/VMware-Cloud-Director-Availability/4.7/VMware-Cloud-Director-Availability-Install-Config-Upgrade-Cloud/GUID-51B25D13-8224-43F1-AE54-65EDDA9E5FAD.html)]
+VMware Cloud Director Availability can be upgraded using [Appliances upgrade sequence and prerequisites](https://docs.vmware.com/en/VMware-Cloud-Director-Availability/4.7/VMware-Cloud-Director-Availability-Install-Config-Upgrade-Cloud/GUID-51B25D13-8224-43F1-AE54-65EDDA9E5FAD.html).
 
 ## Next steps
 
-Learn more about VMware Cloud Director Availability, VMware Cloud Director Availability (add link here).
+Learn more about VMware Cloud Director Availability run connands in Azure VMware Solution, [VMware Cloud Director Availability](https://docs.vmware.com/en/VMware-Cloud-Director-Availability/index.html).
