@@ -6,7 +6,7 @@ author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: workspace
 ms.topic: reference
-ms.date: 1/18/2023
+ms.date: 01/22/2023
 ms.author: kavitagaddam 
 ms.custom: references_regions
 ---
