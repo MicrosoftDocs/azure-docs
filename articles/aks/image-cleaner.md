@@ -45,16 +45,16 @@ With Image Cleaner, you can choose between manual and automatic mode and the fol
 
 Once `eraser-controller-manager` is deployed, the following steps will be taken automatically:
 
-* It immediately starts the clean up process and creates `eraser-aks-xxxxx` worker pods for each node.
+* It immediately starts the cleanup process and creates `eraser-aks-xxxxx` worker pods for each node.
 * There are three containers in each worker pod:
   * A **collector**, which collects unused images
   * A **trivy-scanner**, which leverages [trivy](https://github.com/aquasecurity/trivy) to scan image vulnerabilities.
   * A **remover**, which removes unused images with vulnerabilities.
-* After the clean up process completes, the worker pod is deleted and the next scheduled clean up happens according to the `--image-cleaner-interval-hours` you define.
+* After the cleanup process completes, the worker pod is deleted and the next scheduled cleanup happens according to the `--image-cleaner-interval-hours` you define.
 
 ### Manual mode
 
-You can manually trigger the clean up by defining a CRD object,`ImageList`. This triggers the `eraser-contoller-manager` to create `eraser-aks-xxxxx` worker pods for each node and complete the manual removal process.
+You can manually trigger the cleanup by defining a CRD object,`ImageList`. This triggers the `eraser-contoller-manager` to create `eraser-aks-xxxxx` worker pods for each node and complete the manual removal process.
 
 > [!NOTE]
 > After disabling Image Cleaner, the old configuration still exists. This means if you enable the feature again without explicitly passing configuration, the existing value is used instead of the default.
@@ -122,9 +122,9 @@ You can manually trigger the clean up by defining a CRD object,`ImageList`. This
     EOF
     ```
 
-The manual clean up is a one-time operation and is only triggered when a new `imagelist` is created or changes are made to the existing `imagelist`. After the image is deleted, the `imagelist` won't be deleted automatically.
+The manual cleanup is a one-time operation and is only triggered when a new `imagelist` is created or changes are made to the existing `imagelist`. After the image is deleted, the `imagelist` won't be deleted automatically.
 
-If you need to trigger another manual clean up, you have to create a new `imagelist` or make changes to an existing one. If you want to remove the same image again, you need to create a new `imagelist`.
+If you need to trigger another manual cleanup, you have to create a new `imagelist` or make changes to an existing one. If you want to remove the same image again, you need to create a new `imagelist`.
 
 ### Delete an existing ImageList and create a new one
 
