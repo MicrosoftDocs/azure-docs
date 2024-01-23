@@ -87,6 +87,8 @@ items:
           href: mqtt-request-response-messages.md                
         - name: Monitor
           items:
+          - name: Monitor Event Grid namespaces
+            href: monitor-namespaces.md
           - name: Monitoring data reference (MQTT delivery)
             href: monitor-mqtt-delivery-reference.md
         - name: Troubleshoot
@@ -172,6 +174,8 @@ items:
           href: handler-event-grid-namespace-topic.md
         - name: Monitor
           items:
+          - name: Monitor Event Grid namespaces
+            href: monitor-namespaces.md
           - name: Pull delivery data reference
             href: monitor-pull-reference.md
           - name: Push delivery data reference
@@ -464,6 +468,8 @@ items:
           href: security-authorization.md
         - name: Network security
           href: network-security.md
+        - name: Enforce minimum required TLS version
+          href: transport-layer-security-enforce-minimum-version.md
       - name: Use cases
         items:
         - name: Use cases for domains
@@ -568,6 +574,8 @@ items:
           href: configure-firewall.md
         - name: Deliver events to Microsoft Entra protected endpoints
           href: secure-webhook-delivery.md
+        - name: Configure minimum required TLS version
+          href: transport-layer-security-configure-minimum-version.md
       - name: Monitor
         items:
         - name: Enable diagnostic logs
