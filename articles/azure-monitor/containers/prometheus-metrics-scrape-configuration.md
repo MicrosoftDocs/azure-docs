@@ -29,10 +29,10 @@ Four different configmaps can be configured to provide scrape configuration and 
 2. [`ama-metrics-prometheus-config`](https://aka.ms/azureprometheus-addon-rs-configmap) (**Recommended**)
    This config map can be used to provide Prometheus scrape config for addon replica. Addon runs a singleton replica, and any cluster level services can be discovered and scraped by providing scrape jobs in this configmap. You can take the sample configmap from the above git hub repo, add scrape jobs that you  would need and apply/deploy the config map to `kube-system` namespace for your cluster.
 3. [`ama-metrics-prometheus-config-node`](https://aka.ms/azureprometheus-addon-ds-configmap) (**Advanced**)
-    This config map can be used to provide Prometheus scrape config for addon DaemonSet that runs on every **Linux** node in the cluster, and any node level targets on each node can be scraped by providing scrape jobs in this configmap. When you use this configmap, you can use `$NODE_IP` variable in your scrape config, which gets substituted by corresponding  node's ip address in DaemonSet pod running on each node. This way you get access to scrape anything that runs on that node from the metrics addon DaemonSet. **Please be careful when you use discoveries in scrape config in this node level config map, as every node in the cluster will setup & discover the target(s) and will collect redundant metrics**. 
+    This config map can be used to provide Prometheus scrape config for addon DaemonSet that runs on every **Linux** node in the cluster, and any node level targets on each node can be scraped by providing scrape jobs in this configmap. When you use this configmap, you can use `$NODE_IP` variable in your scrape config, which gets substituted by corresponding  node's ip address in DaemonSet pod running on each node. This way you get access to scrape anything that runs on that node from the metrics addon DaemonSet. **Please be careful when you use discoveries in scrape config in this node level config map, as every node in the cluster will setup & discover the target(s) and will collect redundant metrics**.
     You can take the sample configmap from the above git hub repo, add scrape jobs that you  would need and apply/deploy the config map to `kube-system` namespace for your cluster
 4. [`ama-metrics-prometheus-config-node-windows`](https://aka.ms/azureprometheus-addon-ds-configmap-windows) (**Advanced**)
-    This config map can be used to provide Prometheus scrape config for addon DaemonSet that runs on every **Windows** node in the cluster, and node level targets on each node can be scraped by providing scrape jobs in this configmap. When you use this configmap, you can use `$NODE_IP` variable in your scrape config, which will be substituted by corresponding  node's ip address in DaemonSet pod running on each node. This way you get access to scrape anything that runs on that node from the metrics addon DaemonSet. **Please be careful when you use discoveries in scrape config in this node level config map, as every node in the cluster will setup & discover the target(s) and will collect redundant metrics**. 
+    This config map can be used to provide Prometheus scrape config for addon DaemonSet that runs on every **Windows** node in the cluster, and node level targets on each node can be scraped by providing scrape jobs in this configmap. When you use this configmap, you can use `$NODE_IP` variable in your scrape config, which will be substituted by corresponding  node's ip address in DaemonSet pod running on each node. This way you get access to scrape anything that runs on that node from the metrics addon DaemonSet. **Please be careful when you use discoveries in scrape config in this node level config map, as every node in the cluster will setup & discover the target(s) and will collect redundant metrics**.
     You can take the sample configmap from the above git hub repo, add scrape jobs that you  would need and apply/deploy the config map to `kube-system` namespace for your cluster
 
 ## Metrics add-on settings configmap
@@ -339,6 +339,49 @@ scrape_configs:
 ```
 
 See the [Apply config file](prometheus-metrics-scrape-validate.md#deploy-config-file-as-configmap) section to create a configmap from the Prometheus config.
+
+### TLS based scraping
+
+If the metrics endpoint is secured, you need to set scheme to `https` and set the TLS settings. You can use the `tls_config` configuration property inside a custom scrape job to configure the TLS settings either using a CRD or a configmap. You need to provide a CA certificate to validate API server certificate with. The CA certificate is used to verify the authenticity of the server's certificate when Prometheus connects to the target over TLS. It helps ensure that the server's certificate is signed by a trusted authority.
+
+The secret should be created in kube-system namespace and then the configmap/CRD should be created in kube-system namespace. The order of secret creation matters. When there's no secret but a valid CRD/config map, you will find errors in collector log -> `no file found for cert....`
+
+Below are the details about how to provide the TLS config settings through a configmap or CRD.
+
+1. To provide the TLS config setting in a configmap, please create the self-signed certificate and key inside /etc/prometheus/certs directory inside your mtls enabled app.
+        An example tlsConfig inside the config map should look like this below:
+
+```yaml
+tls_config:
+    ca_file: /etc/prometheus/certs/client-cert.pem
+    cert_file: /etc/prometheus/certs/client-cert.pem
+    key_file: /etc/prometheus/certs/client-key.pem
+    insecure_skip_verify: false
+```
+
+2. To provide the TLS config setting in a CRD, please create the self-signed certificate and key inside /etc/prometheus/certs directory inside your mtls enabled app.
+    An example tlsConfig inside a Podmonitor should look like this below:
+
+```yaml
+tlsConfig:
+    ca:
+        secret:
+        key: "client-cert.pem" # since it is self-signed
+        name: "ama-metrics-mtls-secret"
+    cert:
+        secret:
+        key: "client-cert.pem"
+        name: "ama-metrics-mtls-secret"
+    keySecret:
+        key: "client-key.pem"
+        name: "ama-metrics-mtls-secret"
+    insecureSkipVerify: false
+```
+> [!NOTE]
+> Please make sure that the certificate file name and key name inside the mtls app should be of the following format in case of a CRD based scraping.
+    For example: secret_kube-system_ama-metrics-mtls-secret_<cert-name>.pem and secret_kube-system_ama-metrics-mtls-secret_<key-name>.pem.
+> The CRD needs to be be created in kube-system namespace.
+> The secret name should exactly be ama-metrics-mtls-secret in kube-system namespace. An example command for creating secret: kubectl create secret generic ama-metrics-mtls-secret --from-file=secret_kube-system_ama-metrics-mtls-secret_client-cert.pem=secret_kube-system_ama-metrics-mtls-secret_client-cert.pem --from-file=secret_kube-system_ama-metrics-mtls-secret_client-key.pem=secret_kube-system_ama-metrics-mtls-secret_client-key.pem -n kube-system
 
 ## Next steps
 
