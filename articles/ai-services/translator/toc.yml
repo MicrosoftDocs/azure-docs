@@ -112,7 +112,7 @@ items:
       href: reference/v3-0-dictionary-lookup.md
     - name: Dictionary Examples
       href: reference/v3-0-dictionary-examples.md
-- name: Asynchronous and Synchronous Document Translation
+- name: Batch and document file translation
   items:
   - name: What is Document Translation?
     displayName: ocr,batch,features,development,formats,file types
@@ -127,22 +127,22 @@ items:
       href: document-translation/how-to-guides/create-sas-tokens.md
   - name: Quickstarts
     items:
-    - name: Asynchronous translation
+    - name: Batch translation
       items:
-      - name: Async Translation SDKs
+      - name: Batch Translation SDKs
         displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
         href: document-translation/quickstarts/async-translation-sdk.md
-      - name:  Async Translation REST APIs
+      - name:  Batch Translation REST APIs
         displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,setup
         href: document-translation/quickstarts/async-translation-rest-api.md
-    - name: Synchronous translation
+    - name: 🆕 Document file translation (preview)
       items:
-      - name: 🆕 Sync Translation REST APIs
+      - name: Document file translation REST APIs (preview)
         displayName: get started,keys,endpoint,headers,setup
         href: document-translation/quickstarts/sync-translation-rest-api.md
   - name: How-to guides
     items:
-    - name: Use Async REST APIs programmatically
+    - name: Use batch REST APIs programmatically
       displayName: get started,batch,sdk,c#,.net,dotnet,python,javascript,java,go,source,target,blob,set up,storage
       href: document-translation/how-to-guides/use-rest-api-programmatically.md
     - name: Create and use glossaries
@@ -150,13 +150,10 @@ items:
       href: document-translation/how-to-guides/create-use-glossaries.md
   - name: Reference
     items:
-    - name: Asynchronous Translation SDK overview
+    - name: Batch Translation SDK overview
       displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
       href: document-translation/document-sdk-overview.md
-    - name: Asynchronous Translation REST APIs
-      displayName: get,post,cancel,delete
-      href: document-translation/reference/rest-api-guide.md
-    - name: Asynchronous Translation REST API guide
+    - name: Batch Translation REST API guide
       displayName: get,post,cancel,delete
       href: document-translation/reference/rest-api-guide.md
     - name: Get supported document formats
