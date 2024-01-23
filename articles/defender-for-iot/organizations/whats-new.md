@@ -32,13 +32,16 @@ You might want to update your sensor to a specific version for various reasons, 
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md#send-the-software-update-to-your-ot-sensor).
 
-### L60 hardware profile sensor /device is no longer supported
+### L60 hardware profile is no longer supported
 
-The L60 hardware profile is no longer supported and is removed from . Hardware profiles now require a minimum of 100GB. Migration steps from the L60 profile can be found .....
-Hardware profiles have been removed from [Production line monitoring (medium and small deployments)](ot-appliance-sizing.md#production-line-monitoring-medium-and-small-deployments) , [Configure OT sensor backup settings](legacy-central-management/back-up-sensors-from-management.md#configure-ot-sensor-backup-settings) and [OT network sensor VM requirements](ot-virtual-appliances.md#ot-network-sensor-vm-requirements).
-<!-- as per /azure/defender-for-iot/organizations/ot-appliance-sizing#production-line-monitoring-medium-and-small-deployments -->
+The L60 hardware profile is no longer supported and is removed from support documentation. Hardware profiles now require a minimum of 100GB, the minimum hardware profile is now L100.
+To migrate from the L60 profile to a new profile follow the [Back up and restore OT network sensor](organizations/back-up-restore-sensor.md) procedure.
 
-For more infomation .....??
+<!-- [Configure OT sensor backup settings](legacy-central-management/back-up-sensors-from-management.md#configure-ot-sensor-backup-settings)
+Hardware profiles have been removed from [Production line monitoring (medium and small deployments)](ot-appliance-sizing.md#production-line-monitoring-medium-and-small-deployments) ,  and [OT network sensor VM requirements](ot-virtual-appliances.md#ot-network-sensor-vm-requirements).
+ as per /azure/defender-for-iot/organizations/ot-appliance-sizing#production-line-monitoring-medium-and-small-deployments -->
+
+For more infomation, see.....??
 
 ## December 2023
 
