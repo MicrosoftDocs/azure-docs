@@ -1,6 +1,6 @@
 ---
-title: Migration of Cloud Services that are not in a Virtual Network
-description: How to migrate non Vnet Cloud Services to a Virtual Network
+title: Migrate cloud services not in a virtual network to a virtual network
+description: How to migrate non-vnet cloud services to a virtual network
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: hirenshah1
@@ -9,7 +9,7 @@ ms.reviewer: mattmcinnes
 ms.date: 01/24/2024
 ---
 
-# Migrate Cloud Services not in a Virtual Network to a Virtual Network
+# Migrate cloud services not in a virtual network to a virtual network
 
 Some legacy cloud services are still running without Vnet support. While there's a process for migrating directly through the portal, there are certain considerations that should be made prior to migration. This article walks you through the process of migrating a non Vnet supporting Cloud Service to a Vnet supporting Cloud Service.
 
@@ -24,28 +24,28 @@ Some legacy cloud services are still running without Vnet support. While there's
 - Potential downtime while manually rebuilding network.
 
 
-## Migrate Cloud Services not in a Virtual Network to a Virtual Network
+## Migration procedure using the Azure Portal
 
 1. Create a non vnet classic cloud service in the same region as the vnet you want to migrate to.
 
 1. In the Azure portal, select the 'Staging' drop-down.
-    ![The Staging drop-down in the Azure portal](./media/vnet-migrate-staging.png)
+    ![Screenshot of the staging drop-down in the Azure portal.](./media/vnet-migrate-staging.png)
 
 1. Create a deployment with same configuration as existing deployment by selecting 'Upload' next to the staging drop-down. The platform creates a Default Vnet deployment in staging slot.
-    ![The upload button in the Azure portal](./media/vnet-migrate-upload.png)
+    ![Screenshot of the upload button in the Azure portal.](./media/vnet-migrate-upload.png)
 
 1. Once staging deployment is created, the URL, IP address, and label populate.
-    ![URL, IP, etc. data populated in the Azure portal](./media/vnet-migrate-populated.png)
+    ![Screenshot of the URL, IP, etc. data populated in the Azure portal.](./media/vnet-migrate-populated.png)
 The staging deployment has a different Deployment Name, Deployment ID, and Public IP Address different to the production deployment.
 
 1. After verifying the data, select 'Swap' to swap the production and staging deployments.
-    ![The swap button in the Azure portal](./media/vnet-migrate-swap.png)
+    ![Screenshot of the swap button in the Azure portal.](./media/vnet-migrate-swap.png)
 This operation swaps both the deployments. After swapping, you'll find staging deployment in production slot with the DNS and IP address of production deployment with the production deployment will be present in staging slot.
 
 1. You can now safely delete the staging slot.
 
 1. Trigger the Cloud Service Migration Operation.
-    ![Migrate to Arm migration trigger](./media/vnet-migrate-to-arm.png)
+    ![Screenshot of the 'Migrate to Arm' button in the Azure portal.](./media/vnet-migrate-to-arm.png)
 
 
 ## Next steps
