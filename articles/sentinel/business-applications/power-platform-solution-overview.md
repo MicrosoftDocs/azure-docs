@@ -49,7 +49,7 @@ The Microsoft Sentinel solution for Power Platform ingests and cross-correlates 
 |Microsoft Power Platform Connectors (Preview)    |   Power Platform connector activity logs  <br><br>For more information, see [View the Power Platform connector activity logs](/power-platform/admin/connector-events-power-platform).      |     PowerPlatformConnectorActivity    |
 |Microsoft Power Platform DLP (Preview)     |     Data loss prevention activity logs  <br><br>For more information, see [Data loss prevention activity logging](/power-platform/admin/dlp-activity-logging).   |    PowerPlatformDlpActivity     |
 |Microsoft Power Platform Admin Activity (Preview)|Power Platform administrator activity logs<br><Br> For more information, see [View Power Platform administrative logs using auditing solutions in Microsoft Purview (preview)](/power-platform/admin/admin-activity-logging).||
-|Microsoft Dataverse (Preview) |    Dataverse and model-driven apps activity logging <br><br>For more information, see [Microsoft Dataverse and model-driven apps activity logging](/power-platform/admin/enable-use-comprehensive-auditing).    |   DataverseActivity      |
+|Microsoft Dataverse (Preview) |    Dataverse and model-driven apps activity logging <br><br>For more information, see [Microsoft Dataverse and model-driven apps activity logging](/power-platform/admin/enable-use-comprehensive-auditing).<br><br>If you use the data connector for Dynamics 365, migrate to the data connector for Microsoft Dataverse. This data connector replaces the legacy data connector for Dynamics 365 and supports data collection rules.  |   DataverseActivity      |
 
 ### Analytic rules
 
