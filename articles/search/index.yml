@@ -57,7 +57,7 @@ landingContent:
       - linkListType: sample
         links:
           - text: Vector search samples
-            url: ttps://github.com/Azure/azure-search-vector-samples/blob/main/README.md
+            url: https://github.com/Azure/azure-search-vector-samples/blob/main/README.md
 
   # Card
   - title: Develop apps
