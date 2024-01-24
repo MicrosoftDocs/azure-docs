@@ -237,7 +237,7 @@ For workload specific versions, see
 
 * Poland Central
 
-## Coming soon 
+## ![Icon shows coming soon.](./media/hdinsight-release-notes/clock.svg)
 
 * The max length of cluster name changes to 45 from 59 characters, to improve the security posture of clusters.
 * Cluster permissions for secure storage  
