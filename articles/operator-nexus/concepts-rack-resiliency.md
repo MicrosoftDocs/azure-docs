@@ -43,7 +43,8 @@ Two compute racks
 | KCP        | KCP-spare|
 | MGMT       | MGMT     |
 
-> [!NOTE] Operator Nexus supports control plane resiliency in single rack configurations by having three management nodes within the rack. For example, a single rack configuration with three management servers will provide an equivalent number of active control planes to ensure resiliency within a rack.
+> [!NOTE] 
+> Operator Nexus supports control plane resiliency in single rack configurations by having three management nodes within the rack. For example, a single rack configuration with three management servers will provide an equivalent number of active control planes to ensure resiliency within a rack.
 
 ## Impacts to on-prem instance
 

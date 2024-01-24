@@ -66,6 +66,6 @@ testuser@<servername> [ ~ ]$ sudo crictl ps -a |grep -i ironic-conductor
 
 4. When all impacted management servers are down, turn on the servers using the iDRAC GUI
 
-   :::image type="content" source="media\troubleshoot-control-plane-quorum\graceful-poweron.png" alt-text="Screenshot of an iDRAC GUI and the button to perform power on command." lightbox="media\troubleshoot-control-plane-quorum\graceful-power-on.png":::
+   :::image type="content" source="media\troubleshoot-control-plane-quorum\graceful-power-on.png" alt-text="Screenshot of an iDRAC GUI and the button to perform power on command." lightbox="media\troubleshoot-control-plane-quorum\graceful-power-on.png":::
 
 5. The servers should now be restored. If not, engage Microsoft support.
