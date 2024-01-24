@@ -62,7 +62,7 @@ The [Azure role assignment condition format](../../role-based-access-control/con
 
 ## Status of condition features in Azure Storage
 
-Currently, Azure attribute-based access control (Azure ABAC) is generally available (GA) for controlling access only to Azure Blob Storage, Azure Data Lake Storage Gen2, and Azure Queues using `request` and `resource` attributes in the standard storage account performance tier. It's either not available or in PREVIEW for other storage account performance tiers, resource types, and attributes.
+Currently, Azure attribute-based access control (Azure ABAC) is generally available (GA) for controlling access only to Azure Blob Storage, Azure Data Lake Storage Gen2, and Azure Queues using `request`, `resource`, and `principal` attributes in the standard storage account performance tier. It's either not available or in PREVIEW for other storage account performance tiers, resource types, and attributes.
 
 See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -74,6 +74,14 @@ The following table shows the current status of ABAC by storage account performa
 | Standard | Data Lake Storage Gen2                      | resource                  | snapshot       | Preview |
 | Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment | All attributes | Preview |
 | Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal<br/>request<br/>resource | All attributes | Preview |
+
+
+> [!NOTE] If a feature isn't supported for Data Lake Storage Gen2 storage accounts, which use a hierarchical namespace, then that attribute isn't supported through ABAC. The following attributes aren't supported when hierarchical namespace is enabled for a storage account:
+>
+> - [Blob index tags [Keys]](storage-auth-abac-attributes.md#blob-index-tags-keys)
+> - [Blob index tags [Values in key]](storage-auth-abac-attributes.md##blob-index-tags-values-in-key)
+> - [Snapshot](storage-auth-abac-attributes.md#snapshot)
+> - [Version ID](storage-auth-abac-attributes.md#version-id)
 
 ## Next steps
 
