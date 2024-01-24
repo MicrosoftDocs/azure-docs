@@ -10,12 +10,16 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 11/30/2023
+ms.date: 01/24/2024
 recommendations: false
 keywords:
 ---
 
 # What's new in Azure OpenAI Service
+
+## February 2024
+
+- [Azure OpenAI on your data](./concepts/use-your-data.md) is now Generally Available. It additionally provides public preview support for Pinecone and Elasticsearch databases. 
 
 ## December 2023
 
