@@ -112,7 +112,7 @@ Redeployment with data migration for Azure Database for PostgreSQL is based on l
         1. Ensure that the `ignoreMissingVnetServiceEndpoint` flag is set to `False`, so that the IaC fails to deploy the database when the service endpoint isn’t configured in the target region. 
         
         
-## Validate relocation
+## Validate
 
 Once the relocation is complete, the Azure PostgreSQL server needs to be tested and validated. Below are some of the recommended guidelines.
 
