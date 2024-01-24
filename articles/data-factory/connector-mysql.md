@@ -272,7 +272,7 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `char` |`String` |
 | `date` |`Datetime` |
 | `datetime` |`Datetime` |
-| `decimal` |`Decimal, String` |
+| `decimal` |`Decimal` |
 | `double` |`Double` |
 | `double precision` |`Double` |
 | `enum` |`String` |
@@ -299,7 +299,7 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `time` |`TimeSpan` |
 | `timestamp` |`Datetime` |
 | `tinyblob` |`Byte[]` |
-| `tinyint` |`Int16` |
+| `tinyint` |`SByte` |
 | `tinyint unsigned` |`Int16` |
 | `tinytext` |`String` |
 | `varchar` |`String` |
