@@ -34,7 +34,7 @@ For more information, see [Update Defender for IoT OT monitoring software](updat
 
 ### New protocols supported for sensor version 24.1.0
 
-The list of supported protocols for sensor version 24.1.0 has been updated to include newly supported protocols. The updated protocol list is in [Defender for IoT supported IoT, OT, ICS, and SCADA protocols](concept-supported-protocols.md). <!--click here for the updated protocol list -->
+The list of supported protocols for sensor version 24.1.0 is updated to include newly supported protocols. For the updated protocol list, see [Defender for IoT supported IoT, OT, ICS, and SCADA protocols](concept-supported-protocols.md).
 
 ## December 2023
 
@@ -48,7 +48,7 @@ Sensor versions 23.2.0 run on a Debian 11 operating system instead of Ubuntu. De
 
 Using Debian as the base for our sensor software helps reduce the number of packages installed on the sensors, increasing efficiency and security of your systems.
 
-Due to the operating system switch, the software update from your legacy version to version 23.2.0 may be longer and heavier than usual. 
+Due to the operating system switch, the software update from your legacy version to version 23.2.0 might be longer and heavier than usual. 
 
 For more information, see [Back up and restore OT network sensors from the sensor console](back-up-restore-sensor.md) and [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
@@ -105,7 +105,7 @@ For more information, see:
 
 ### Live statuses for cloud-based sensor updates
 
-When running a sensor update from the Azure portal, a new progress bar appears in the **Sensor version** column during the update process. As the update progresses the bar shows the percentage of the update completed, showing you that the process is ongoing, is not stuck or has failed. For example:
+When running a sensor update from the Azure portal, a new progress bar appears in the **Sensor version** column during the update process. As the update progresses the bar shows the percentage of the update completed, showing you that the process is ongoing, isn't stuck or has failed. For example:
 
 :::image type="content" source="media/whats-new/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column." lightbox="media/whats-new/sensor-version-update-bar.png":::
 
