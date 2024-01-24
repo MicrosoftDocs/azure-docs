@@ -53,7 +53,7 @@ Get-AzComputeResourceSku | where {$_.ResourceType -eq 'disks' -and $_.Name -eq '
 
 # [Azure portal](#tab/portal)
 
-To programmatically determine the regions and zones you can deploy to, use either the Azure CLI, Azure PowerShell Modul. 
+To programmatically determine the regions and zones you can deploy to, use either the Azure CLI, Azure PowerShell Module. 
 
 ---
 
@@ -190,7 +190,7 @@ You've now deployed a VM with a premium SSD v2.
 
 ## Adjust disk performance
 
-Unlike other managed disks, the performance of a Premium SSD v2 can be configured independently of its size by using the Azure CLI and PowerShell. Making adjustments to disk performance by using the Azure portal is not currently supported. 
+Unlike other managed disks, the performance of Premium SSD v2 disks can be configured independently of its size by using the Azure CLI and PowerShell. Making adjustments to disk performance by using the Azure portal is not currently supported. 
 
 For conceptual information on adjusting disk performance, see [Premium SSD v2 performance](disks-types.md#premium-ssd-v2-performance).
 
@@ -198,7 +198,7 @@ For conceptual information on adjusting disk performance, see [Premium SSD v2 pe
 
 Use the [az disk update](/cli/azure/disk#az-disk-update) command to change the performance configuration of your Premium SSD v2 disk. For example, you can use the `disk-iops-read-write` parameter to adjust the max IOPS limit, and the `disk-mbps-read-write` parameter to adjust the max throughput limit of your Premium SSD v2 disk.  
 
-Update the values to suit your business need, and then run the following command to adjust the performance of your disk: 
+The following command adjusts the performance of your disk. Update the values in the command, and then run it:
 
 ```azurecli
 az disk update --subscription $subscription --resource-group $rgname --name $diskName --disk-iops-read-write=5000 --disk-mbps-read-write=200
@@ -208,7 +208,7 @@ az disk update --subscription $subscription --resource-group $rgname --name $dis
 
 Use the [New-AzDiskUpdateConfig](/powershell/module/az.compute/new-azdiskupdateconfig) command to define your new performance configuration values for your Premium SSD v2 disks, and then use the [Update-AzDisk](/powershell/module/az.compute/update-azdisk) command to apply your configuration changes to your disk. For example, you can use the `DiskIOPSReadWrite` parameter to adjust the max IOPS limit, and the `DiskMBpsReadWrite` parameter to adjust the max throughput limit of your Premium SSD v2 disk.  
 
-Update the values to suit your business need, and then run the following command to adjust the performance of your disk: 
+The following command adjusts the performance of your disk. Update the values in the command, and then run it:
 
 ```azurepowershell
 $diskupdateconfig = New-AzDiskUpdateConfig -DiskIOPSReadWrite 5000 -DiskMBpsReadWrite 200

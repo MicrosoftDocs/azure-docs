@@ -102,7 +102,6 @@ Premium SSD v2 is suited for a broad range of workloads such as SQL server, Orac
 
 Premium SSD v2 support a 4k physical sector size by default, but can be configured to use a 512E sector size as well. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks.
 
-View [Deploy a Premium SSD v2 disk](disks-deploy-premium-v2.md) to get started. 
 
 ### Differences between Premium SSD and Premium SSD v2
 
