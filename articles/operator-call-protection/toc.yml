@@ -1,0 +1,20 @@
+items:
+- name: 'Azure Operator Call Protection documentation'
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Operator Call Protection?
+    href: overview.md
+- name: Get started
+  items:
+  - name: Overview of deploying
+    href: deployment-overview.md
+  - name: Prepare to deploy Operator Call Protection on Azure Communications Gateway
+    href: ../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json
+  - name: Deploy Operator Call Protection on Azure Communications Gateway
+    href: ../communications-gateway/deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json
+  - name: Integrate with Azure Communications Gateway's API
+    href: ../communications-gateway/integrate-with-provisioning-api.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json
+  - name: Set up Azure Operator Call Protection
+    href: set-up-operator-call-protection.md
