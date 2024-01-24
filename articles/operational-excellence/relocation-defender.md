@@ -12,16 +12,13 @@ ms.topic: how-to
 
 Microsoft Defender for Cloud is an environment-based management feature of Azure. As such, Defender is not region specific. However, moving region-specific services to another region may or may not have implications on their connectivity or functionality with Microsoft Defender for Cloud. This article covers all the aspects of this scenario to help make sure that your region relocation plan includes making sure Microsoft Defender for Cloud continues to work for your workloads afte region move.
 
-## Prerequisites
-
-If there's a subscription change in the new region, [ you must enable Defender for Cloud on the new subscription](/azure/defender-for-cloud/connect-azure-subscription). 
-
-
-## Relocation recommendations
-
 To relocate Microsoft Defender for Cloud to a new region, you must select the appropriate [relocation strategy for each Azure service](relocation-concept-guidance-overview.md) that uses Defender for Cloud. This section contains general guidance and recommendations to help you prepare for a relocation of services that use Microsoft Defender.
 
 **Azure Resource Mover** doesn't support moving services used by the Microsoft Defender for Cloud. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
+
+## Prerequisites
+
+If there's a subscription change in the new region, [ you must enable Defender for Cloud on the new subscription](/azure/defender-for-cloud/connect-azure-subscription). 
 
 
 ## General recommendations
@@ -34,7 +31,7 @@ To relocate Microsoft Defender for Cloud to a new region, you must select the ap
 
 - Ensure that all servers in the source location are deleted or de-allocated to avoid extra cost bearing.
 
-### Microsoft Defender for servers recommendations
+### Microsoft Defender for servers
 
 - If Microsoft Defender for servers is enabled for the subscription and auto-provisioning of the Log Analytics agent is enabled under Environment settings, all the machines in the subscription are automatically protected after relocation. Otherwise, you must manually provision the agents after relocation. 
 
@@ -47,19 +44,19 @@ To relocate Microsoft Defender for Cloud to a new region, you must select the ap
     >[!NOTE]
     >It's recommended that you don't delete the default workspace for Defender. Defender for Cloud uses the default workspaces to store security data from your VMs. If you delete a workspace, Defender for Cloud is unable to collect this data and some security recommendations and alerts are unavailable. If you have already delete the default workspace, you can recover by removing the Log Analytics agent on the VMs connected to the deleted workspace. Defender for Cloud reinstalls the agent and creates a new default workspaces.
 
-### Microsoft Defender for SQL recommendations
+### Microsoft Defender for SQL
 
 If a custom Log analytics workspace is being used in the source location to defend a SQL server deployment and is also required in the target location, ensure that the target Log analytics workspace has Microsoft Defender for SQL solution enabled.
 
-### Microsoft Defender for Container components recommendations
+### Microsoft Defender for Container components
 
 If auto-provisioning is turned off, Defender profiles must be deployed manually for the new container instances at target. To learn how to manually deploy containers, see [Enable and deploy Defender for Containers plan for each relevant component](/azure/defender-for-cloud/defender-for-containers-enable#deploying-defender-agent---all-options). 
 
-### Microsoft Defender for Storage recommendations
+### Microsoft Defender for Storage
 
 If Defender for Storage plan is enabled for the subscription and if the Storage Account in the source location is excluded from that plan, [ensure the same configuration for the storage account in the target location](/azure/defender-for-cloud/defender-for-storage-classic-enable?tabs=enable-storage-protection-ps#exclude-a-storage-account-from-a-protected-subscription-in-the-per-transaction-plan).
 
-### Logic Apps recommendations
+### Logic Apps
 
 - If the response to alerts in the source location are automated through Logic Apps, the same must be done in the target location. The logic app in the target location  must have the following roles/permissions:
     - Logic App Operator permissions or Logic App read/trigger access for running Logic Apps.
