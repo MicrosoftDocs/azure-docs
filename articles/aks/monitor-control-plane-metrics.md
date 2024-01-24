@@ -20,9 +20,10 @@ This article helps you understand this new feature, how to implement it, and how
 ## Prerequisites and limitations
 
 - Only supports [Azure Monitor managed service for Prometheus][managed-prometheus-overview].
-- [Private link](../azure-monitor/logs/private-link-security.md) is not supported.
+- [Private link](../azure-monitor/logs/private-link-security.md) isn't supported.
 - Only the default [ama-metrics-settings-config-map](../azure-monitor/containers/prometheus-metrics-scrape-configuration.md#configmaps) can be customized. All other customizations are not supported.
 - The cluster must use [managed identity authentication](use-managed-identity.md).
+- This feature is currently available in regions where v20240107 is available. Please check the [AKS release tracker][release-tracker] to make sure that the version is available in the region of the cluster.
 
 ### Install or update the `aks-preview` Azure CLI extension
 
@@ -65,7 +66,7 @@ az provider register --namespace "Microsoft.ContainerService"
 You can enable control plane metrics with the Azure Monitor managed service for Prometheus add-on during cluster creation or for an existing cluster. To collect Prometheus metrics from your Kubernetes cluster, see [Enable Prometheus and Grafana for Kubernetes clusters][enable-monitoring-kubernetes-cluster] and follow the steps on the **CLI** tab for an AKS cluster. On the command-line, be sure to include the parameters `--generate-ssh-keys` and `--enable-managed-identity`.
 
 >[!NOTE]
-> Unlike the metrics collected from cluster nodes, control plane metrics are collected by a component which is not part of the **ama-metrics** add-on. Enabling the `AzureMonitorMetricsControlPlanePreview` feature flag and the managed prometheus add-on ensures control plane metrics are collected. After enabling metric collection, it can take several minutes for the data to appear in the workspace.
+> Unlike the metrics collected from cluster nodes, control plane metrics are collected by a component which isn't part of the **ama-metrics** add-on. Enabling the `AzureMonitorMetricsControlPlanePreview` feature flag and the managed prometheus add-on ensures control plane metrics are collected. After enabling metric collection, it can take several minutes for the data to appear in the workspace.
 
 ## Querying Control Plane metrics
 
@@ -73,7 +74,7 @@ Control plane metrics are stored in an Azure monitor workspace in the cluster's 
 
 :::image type="content" source="media/monitor-control-plane-metrics/insights-azmon.png" alt-text="Screenshot of Azure Monitor workspace." lightbox="media/monitor-control-plane-metrics/insights-azmon.png":::
 
-If you are using Azure Managed Grafana to visualize the data, you can import the following dashboards. AKS provides dashboard templates to help you view and analyze your control plane telemetry data in real-time.
+If you're using Azure Managed Grafana to visualize the data, you can import the following dashboards. AKS provides dashboard templates to help you view and analyze your control plane telemetry data in real-time.
 
 * [API server][grafana-dashboard-template-api-server]
 * [ETCD][grafana-dashboard-template-etcd]
@@ -163,7 +164,7 @@ Perform the following steps to collect all metrics from all targets on the clust
 Make sure to check that the feature flag `AzureMonitorMetricsControlPlanePreview` is enabled and the `ama-metrics` pods are running.
 
 > [!NOTE]
-> The [troubleshooting methods][prometheus-troubleshooting] for Azure managed service Prometheus won't translate directly here as the components scraping the control plane are not present in the managed prometheus add-on.
+> The [troubleshooting methods][prometheus-troubleshooting] for Azure managed service Prometheus won't translate directly here as the components scraping the control plane aren't present in the managed prometheus add-on.
 
 ## ConfigMap formatting or errors
 
@@ -175,15 +176,15 @@ Start by setting some of the [node related metrics][node-metrics] to `true` and 
 
 ### Events ingested
 
-Once you applied the changes, you can open metrics explorer from the **Azure Monitor overview** page, or from the **Monitoring** section the selected cluster. In the Azure portal, select **Metrics**.  Check for an increase or decrease in the number of events ingested per minute, it should help you determine if the specific metric is missing or all metrics are missing.
+Once you applied the changes, you can open metrics explorer from the **Azure Monitor overview** page, or from the **Monitoring** section the selected cluster. In the Azure portal, select **Metrics**.  Check for an increase or decrease in the number of events ingested per minute. It should help you determine if the specific metric is missing or all metrics are missing.
 
 ### Specific metric is not exposed
 
-There have been cases where the metric is documented, but it's not exposed from the target and isn't forwarded to the Azure Monitor workspace. In this case, it's necessary to verify other metrics are being forwarded to the workspace.
+There were cases where the metrics are documented, but not exposed from the target and wasn't forwarded to the Azure Monitor workspace. In this case, it's necessary to verify other metrics are being forwarded to the workspace.
 
 ### No access to the Azure Monitor workspace
 
-When enabling the add-on, if you specified an existing workspace that you might not have access to. In that case, it might look like the metrics are not being collected and forwarded. Make sure that you create a new workspace when enabling the add-on or while creating the cluster.
+When you enable the add-on, you might have specified an existing workspace that you don't have access to. In that case, it might look like the metrics are not being collected and forwarded. Make sure that you create a new workspace while enabling the add-on or while creating the cluster.
 
 ## Disable control plane metrics on your AKS cluster
 
@@ -230,3 +231,4 @@ After evaluating this preview feature, [share your feedback][share-feedback]. We
 [node-metrics]: ../azure-monitor/containers/prometheus-metrics-scrape-default.md
 [list-of-default-metrics-aks-control-plane]: control-plane-metrics-default-list.md
 [az-feature-unregister]: /cli/azure/feature#az-feature-unregister
+[release-tracker]: https://releases.aks.azure.com/#tabversion
