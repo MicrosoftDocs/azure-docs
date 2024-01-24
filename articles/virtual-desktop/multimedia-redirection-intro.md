@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: helohr
-manager: femila
 ---
 # Understanding multimedia redirection for Azure Virtual Desktop
 
