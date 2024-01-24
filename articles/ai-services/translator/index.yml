@@ -44,7 +44,7 @@ landingContent:
           - text: Text Translation
             url: text-translation-overview.md
           - text: Batch Document Translation
-            url:  document-translation/async-batch-overview.md
+            url:  document-translation/overview.md
           - text: File Document Translation
             url: document-translation/sync-file-overview.md
           - text: Custom Translator

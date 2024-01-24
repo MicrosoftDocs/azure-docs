@@ -50,7 +50,7 @@ For a training to succeed, the following table shows the minimum number of sente
 > - Training will not start and will fail if the 10,000 minimum sentence count for Training is not met.
 > - Tuning and Testing are optional. If you do not provide them, the system will remove an appropriate percentage from Training to use for validation and testing.
 > - You can train a model using only dictionary data. Please refer to [What is Dictionary](dictionaries.md).
-> - If your dictionary contains more than 250,000 sentences, our Document Translation feature is a better choice. Please refer to [Document Translation](../../document-translation/async-batch-overview.md).
+> - If your dictionary contains more than 250,000 sentences, our Document Translation feature is a better choice. Please refer to [Document Translation](../../document-translation/overview.md).
 > - Free (F0) subscription training has a maximum limit of 2,000,000 characters.
 
 ## Next steps

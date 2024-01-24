@@ -114,12 +114,9 @@ items:
       href: reference/v3-0-dictionary-examples.md
 - name: Document translation
   items:
-  - name: What is Batch Document Translation?
-    displayName: ocr,asynchronous,features,development,formats,file types
-    href: document-translation/async-batch-overview.md
-  - name: What is File Document Translation? 
-    displayName: ocr,synchronous,features,development,formats,file types 
-    href: document-translation/sync-file-overview.md
+  - name: What is Document Translation?
+    displayName: ocr,batch,features,development,formats,file types
+    href: document-translation/overview.md
   - name: Authentication and authorization
     items:
     - name: Create and use managed identities

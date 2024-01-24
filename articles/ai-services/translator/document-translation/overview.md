@@ -1,32 +1,31 @@
 ---
-title: What is File Document Translation?
-description: An overview of the cloud-based synchronous File Document Translation service and process.
+title: What is Document Translation?
+description: An overview of the cloud-based batch Document Translation services and processes.
 #services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: overview
-ms.date: 01/24/2024
+ms.date: 01/31/2024
 ms.author: lajanuar
 ms.custom: references_regions
 recommendations: false
 ---
 
-<!-- markdownlint-disable MD033 -->
-<!-- markdownlint-disable MD051 -->
-<!-- markdownlint-disable MD024 -->
-<!-- markdownlint-disable MD036 -->
-<!-- markdownlint-disable MD049 -->
-<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD051 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD036 -->
+<!-- markdownlint-disable MD049 -->
+<!-- markdownlint-disable MD001 -->
 
-# What is File Document Translation?
+# What is Document Translation?
 
 Document Translation is a cloud-based machine translation feature of the [Azure AI Translator](../translator-overview.md) service.  You can translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format. The Document translation API supports two translation operations:
 
-* [File document translation](#file-translation-key-features) supports synchronous processing of single file translations. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
+* [Batch](#batch-translation) document translation supports asynchronous processing of multiple documents and files. The batch translation process requires an Azure Blob storage account with containers for your source and translated documents.
 
-* [Batch document translation](async-batch-overview.md#batch-translation-key-features) supports asynchronous processing of multiple documents and files. The batch translation process requires an Azure Blob storage account with containers for your source and translated documents.
-
+* [File](#file-translation.md) document translation supports synchronous processing of single file translations. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
 
 ## [Batch translation](#tab/asynchronous)
 
@@ -50,6 +49,58 @@ You can add Document Translation to your applications using the REST API or a cl
 
 * The [**client-library SDKs**](./quickstarts/async-translation-sdk.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](https://pypi.org/project/azure-ai-translation-document/).
 
+### Get started
+
+In our quickstart, you learn how to rapidly get started using Document Translation. To begin, you need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
+
+> [!div class="nextstepaction"]
+> [Start here](./quickstarts/async-translation-rest-api.md "Learn how to use batch document translation with HTTP REST")
+
+### Batch translation supported document formats
+
+The [Get supported document formats method](reference/get-supported-document-formats.md) returns a list of document formats supported by the Document Translation service. The list includes the common file extension, and the content-type if using the upload API.
+
+| File type| File extension|Description|
+|---|---|--|
+|Adobe PDF|`pdf`|Portable document file format. Document Translation uses optical character recognition (OCR) technology to extract and translate text in scanned PDF document while retaining the original layout.|
+|Comma-Separated Values |`csv`| A comma-delimited raw-data file used by spreadsheet programs.|
+|HTML|`html`, `htm`|Hyper Text Markup Language.|
+|Localization Interchange File Format|xlf| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
+|Markdown| `markdown`, `mdown`, `mkdn`, `md`, `mkd`, `mdwn`, `mdtxt`, `mdtext`, `rmd`| A lightweight markup language for creating formatted text.|
+|M&#8203;HTML|`mthml`, `mht`| A web page archive format used to combine HTML code and its companion resources.|
+|Microsoft Excel|`xls`, `xlsx`|A spreadsheet file for data analysis and documentation.|
+|Microsoft Outlook|`msg`|An email message created or saved within Microsoft Outlook.|
+|Microsoft PowerPoint|`ppt`, `pptx`| A presentation file used to display content in a slideshow format.|
+|Microsoft Word|`doc`, `docx`| A text document file.|
+|OpenDocument Text|`odt`|An open-source text document file.|
+|OpenDocument Presentation|`odp`|An open-source presentation file.|
+|OpenDocument Spreadsheet|`ods`|An open-source spreadsheet file.|
+|Rich Text Format|`rtf`|A text document containing formatting.|
+|Tab Separated Values/TAB|`tsv`/`tab`| A tab-delimited raw-data file used by spreadsheet programs.|
+|Text|`txt`| An unformatted text document.|
+
+### Batch Legacy file types
+
+Source file types are preserved during the document translation with the following **exceptions**:
+
+| Source file extension | Translated file extension|
+| --- | --- |
+| .doc, .odt, .rtf, | .docx |
+| .xls, .ods | .xlsx |
+| .ppt, .odp | .pptx |
+
+### Batch supported glossary formats
+
+Document Translation supports the following glossary file types:
+
+| File type| File extension|Description|
+|---|---|--|
+|Comma-Separated Values| `csv` |A comma-delimited raw-data file used by spreadsheet programs.|
+|Localization Interchange File Format| `xlf` , `xliff`| A parallel document format, export of Translation Memory systems The languages used are defined inside the file.|
+|Tab-Separated Values/TAB|`tsv`, `tab`| A tab-delimited raw-data file used by spreadsheet programs.|
+
+## [File document translation](#tab/synchronous)
+
 ## File translation key features
 
 |Feature | Description |
@@ -60,7 +111,7 @@ You can add Document Translation to your applications using the REST API or a cl
 |**Apply custom glossaries**|Translate documents using custom glossaries.|
 |**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
 
-## File translation supported document formats
+## Supported document formats
 
 |File type| File extension|Description|
 |---|---|--|
@@ -74,6 +125,8 @@ You can add Document Translation to your applications using the REST API or a cl
 |OpenDocument Presentation|`odp`|An open-source presentation file.|
 |OpenDocument Spreadsheet|`ods`|An open-source spreadsheet file.|
 |Plain Text|`txt`| An unformatted text document.|
+
+---
 
 ## Request limits
 
@@ -102,7 +155,5 @@ Document Translation data residency depends on the Azure region where your Trans
 
 ## Next steps
 
-In our quickstart, you learn how to rapidly get started using Document Translation. To begin, you need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
-
 > [!div class="nextstepaction"]
-> [Get Started with Document Translation](./quickstarts/sync-translation-rest-api.md)
+> [Get Started with Document Translation](./quickstarts/async-translation-rest-api.md)
