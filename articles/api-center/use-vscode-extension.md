@@ -35,9 +35,9 @@ To discover, try, and consume APIs in your [API center](overview.md), you can us
     
 The following Visual Studio Code extensions are optional and needed only for certain scenarios as indicated:
 
-    * [REST client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - to generate HTTP requests
+* [REST client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - to generate HTTP requests
 
-    * [Microsoft Kiota extension](https://marketplace.visualstudio.com/items?itemName=ms-graph.kiota) - to generate API clients
+* [Microsoft Kiota extension](https://marketplace.visualstudio.com/items?itemName=ms-graph.kiota) - to generate API clients
 
     
 ## Setup
@@ -102,19 +102,8 @@ Use the Microsoft Kiota extension to generate an API client for your favorite la
 
 For details on using the Kiota extension, see [Microsoft Kiota extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-graph.kiota).
 
-## Use GitHub Copilot Chat to find APIs
-
-Use GitHub Copilot Chat to find APIs based on semantic search queries. 
-
-1. Install Visual Studio Code - Insiders.
-1. Install the API Center, GitHub Copilot, and GitHub Copilot Chat extensions into Visual Studio Code - Insiders.
-1. In Visual Studio Code, in the Activity Bar, select GitHub Copilot Chat.
-1. Type `@apicenter /` to see available commands:
-
-    * `@apicenter /list` - Lists available APIs
-    * `@apicenter /search` - Searches APIs and API specifications
-1. Search for APIs in Copilot Chat. For example, enter `@apicenter /search weather` to find APIs related to weather.
 
   ## Related content
 
 * [Azure API Center - key concepts](key-concepts.md)
+* [Discover APIs with GitHub Copilot Chat and Azure API Center extension for Visual Studio Code](use-vscode-extension-copilot.md)
