@@ -20,14 +20,12 @@ landingContent:
   # Card
   - title: About Azure AI Search
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
           - text: What is Azure AI Search?
             url: search-what-is-azure-search.md
           - text: AI enrichment
             url: cognitive-search-concept-intro.md
-          - text: Retrieval Augmented Generation (RAG)
-            url: retrieval-augmented-generation-overview.md
           - text: Semantic reranking
             url: semantic-search-overview.md
       - linkListType: quickstart
@@ -40,13 +38,15 @@ landingContent:
   # Card
   - title: Vector stores
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
           - text: Vectors in Azure AI Search
             url: vector-search-overview.md
           - text: Integrated vectorization (preview)
             url: vector-search-integrated-vectorization.md
-      - linkListType: quickstart
+          - text: Retrieval Augmented Generation (RAG)
+            url: retrieval-augmented-generation-overview.md
+      - linkListType: how-to-guide
         links:
           - text: Create a vector store
             url: search-get-started-vector.md
@@ -58,6 +58,16 @@ landingContent:
         links:
           - text: Vector search samples
             url: https://github.com/Azure/azure-search-vector-samples/blob/main/README.md
+
+  # Card
+  - title: Azure AI Studio
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create a vector index in AI Studio
+            url: /azure/ai-studio/how-to/index-add
+          - text: Build a question and answer copilot
+            url: /azure/ai-studio/tutorials/deploy-copilot-ai-studio
 
   # Card
   - title: Develop apps
@@ -88,7 +98,7 @@ landingContent:
   # Card
   - title: Index data
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
           - text: What's a search index?
             url: search-what-is-an-index.md
@@ -108,19 +118,9 @@ landingContent:
             url: tutorial-optimize-indexing-push-api.md
 
   # Card
-  - title: Azure AI Studio
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Create a vector index in AI Studio
-            url: /azure/ai-studio/how-to/index-add
-          - text: Build a question and answer copilot
-            url: /azure/ai-studio/tutorials/deploy-copilot-ai-studio
-
-  # Card
   - title: Query data
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
           - text: Query types and composition
             url: search-query-overview.md
