@@ -56,9 +56,9 @@ The following example creates a resource group named *myResourceGroup* in the *e
     }
     ```
 
-## Export environmental variables
+## Export environment variables
 
-To help simplify steps to configure the identities required, the steps below define environmental variables for reference on the cluster.
+To help simplify steps to configure the identities required, the steps below define environment variables for reference on the cluster.
 
 * Create these variables using the following commands. Replace the default values for `RESOURCE_GROUP`, `LOCATION`, `SERVICE_ACCOUNT_NAME`, `SUBSCRIPTION`, `USER_ASSIGNED_IDENTITY_NAME`, and `FEDERATED_IDENTITY_CREDENTIAL_NAME`.
 
