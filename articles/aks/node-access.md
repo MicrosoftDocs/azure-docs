@@ -198,7 +198,7 @@ For convenience, the nodepools are exposed when the node has a public IP assigne
     aks-nodepool1-33555069-vmss000001  10.224.0.6   IPv4
     aks-nodepool1-33555069-vmss000002  10.224.0.4   IPv4            
     ```
-    To target a specific node inside the nodepool, add a `--machine-name` flag:
+    To target a specific node inside the node pool, use the `--machine-name` flag:
 
     ```bash
         az aks machine show --cluster-name myAKScluster --nodepool-name nodepool1 -g myResourceGroup --machine-name aks-nodepool1-33555069-vmss000000 -o table
