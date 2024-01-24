@@ -18,36 +18,38 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About AI Search
+  - title: About Azure Search
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure AI Search?
             url: search-what-is-azure-search.md
-          - text: Vectors in Azure AI Search
-            url: vector-search-overview.md
-          - text: Integrated vectorization (preview)
-            url: vector-search-integrated-vectorization.md
-          - text: Retrieval Augmented Generation (RAG)
-            url: retrieval-augmented-generation-overview.md
-          - text: Semantic ranking
-            url: semantic-search-overview.md
-      - linkListType: learn
-        links:
-          - text: Learning module
-            url: /training/modules/intro-to-azure-search/
-
-  # Card
-  - title: 10-minute quickstarts
-    linkLists:
+          - text: AI enrichment
+            url: cognitive-search-concept-intro.md
       - linkListType: quickstart
         links:
           - text: Create a search service
             url: search-create-service-portal.md
           - text: Create a search index
             url: search-get-started-portal.md
+
+  # Card
+  - title: Vector store
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Vectors in Azure AI Search
+            url: vector-search-overview.md
+          - text: Integrated vectorization (preview)
+            url: vector-search-integrated-vectorization.md
+          - text: Retrieval Augmented Generation (RAG)
+            url: retrieval-augmented-generation-overview.md
+      - linkListType: how-to-guide
+        links:
           - text: Create a vector store
             url: search-get-started-vector.md
+          - text: Query a vector store
+            url: vector-search-how-to-query.md
 
   # Card
   - title: Develop apps
@@ -114,8 +116,8 @@ landingContent:
         links:
           - text: Query types and composition
             url: search-query-overview.md
-          - text: Query vector data
-            url: vector-search-how-to-query.md
+          - text: Semantic reranking
+            url: semantic-search-overview.md
       - linkListType: how-to-guide
         links:
           - text: Create a simple query
@@ -130,15 +132,3 @@ landingContent:
             url: query-odata-filter-orderby-syntax.md
           - text: Search Documents (REST)
             url: /rest/api/searchservice/search-documents
-
-  # Card
-  - title: Enrich with AI
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: What is AI enrichment?
-            url: cognitive-search-concept-intro.md
-          - text: Skillsets
-            url: cognitive-search-working-with-skillsets.md
-          - text: Knowledge stores
-            url: knowledge-store-concept-intro.md
