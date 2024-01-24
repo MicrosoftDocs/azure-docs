@@ -62,7 +62,7 @@ App settings in Azure Logic Apps work similarly to app settings in Azure Functio
 | `ServiceProviders.Sftp.SftpConnectionPoolSize` | `2` connections | Sets the number of connections that each processor can cache. The total number of connections that you can cache is *ProcessorCount* multiplied by the setting value. |
 | `ServiceProviders.MaximumAllowedTriggerStateSizeInKB` | `10` KB, which is ~1,000 files | Sets the trigger state entity size in kilobytes, which is proportional to the number of files in the monitored folder and is used to detect files. If the number of files exceeds 1,000, increase this value. |
 | `ServiceProviders.Sql.QueryTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
-| `TARGET_BASED_SCALING_ENABLED`| `1` | Sets whether Azure Logic Apps uses target-based scaling (`1`) or incremental scaling (`0`). By default, target-based scaling is automatically enabled. For more information see [Target-based scaling](#scaling). |
+| `TARGET_BASED_SCALING_ENABLED` | `1` | Sets Azure Logic Apps to use target-based scaling (`1`) or incremental scaling (`0`). By default, target-based scaling is automatically enabled. For more information see [Target-based scaling](#scaling). |
 | `WEBSITE_LOAD_ROOT_CERTIFICATES` | None | Sets the thumbprints for the root certificates to be trusted. |
 | `Workflows.Connection.AuthenticationAudience` | None | Sets the audience for authenticating a managed (Azure-hosted) connection. |
 | `Workflows.CustomHostName` | None | Sets the host name to use for workflow and input-output URLs, for example, "logic.contoso.com". For information to configure a custom DNS name, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md) and [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md). |
@@ -143,8 +143,6 @@ To add or update an app setting using the Azure CLI, run the command `az logicap
 ```azurecli
 az logicapp config appsettings set --name MyLogicApp --resource-group MyResourceGroup --settings CUSTOM_LOGIC_APP_SETTING=12345 
 ```
-
----
 
 <a name="reference-host-json"></a>
 
