@@ -9,7 +9,7 @@ ms.date: 01/24/2023
 ms.author: kesheth
 ---
 
-# Selectable search parameters 
+# Selectable search parameters (Preview)
 
 > [!IMPORTANT]
 > The selectable search parameter capability is available for preview. Preview APIs and SDKs are provided without a service-level agreement (SLA). We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -41,7 +41,7 @@ To get the status across all search parameters, use the following request. This 
 GET {{FHIR_URL}}/SearchParameter/$status
 ```
 
-To identify the status of individual or a subset of search parameters, use these filters.
+To identify the status of individual or a subset of search parameters, use these filters:
 * **Name**. To identify search parameter status by name, use this request:
 ```rest
    GET {{FHIR_URL}}/SearchParameter/$status?code=<name of search parameter/ sub string>
@@ -77,10 +77,10 @@ In response to the GET request to $status endpoint, the parameters resource type
 
 ## Update the status of search parameters
 
-After you get the status of search parameters, update the status of search parameters to 'Supported' or 'Disabled'.
+After you get the status of search parameters, update the status of search parameters to `Supported` or `Disabled`.
 
 > [!NOTE]
-> To update the status of search parameters, you need to be assigned to the **Search Parameter Manager** Azure RBAC role.
+> To update the status of search parameters, you need the **Search Parameter Manager** Azure RBAC role.
 
 Search parameter status can be updated for a single search parameter or in bulk.
 
@@ -110,7 +110,7 @@ PUT {{FHIR_URL}}/SearchParameter/$status
 }
 ```
 
-Depending on your use case, you can keep the status state value to either ‘Supported’ or ’Disabled’ for a search parameter. When you send the state 'Disabled' in the request, the response returns as 'PendingDisable' because a reindex job must run to fully remove associations.
+Depending on your use case, you can keep the status state value to either ‘Supported’ or ’Disabled’ for a search parameter. When you send the state `Disabled` in the request, the response returns as `PendingDisable` because a reindex job must run to fully remove associations.
 
 If you receive a 400 HTTP status code in the response, it means there's no unique match for identified search Parameter. Check the search parameter ID. 
 
@@ -150,14 +150,14 @@ PUT {{FHIR_URL}}/SearchParameter/$status
 
 ## Execute a reindex job
 
-After you update the search parameter status to 'Supported' or 'Disabled', the next step is to execute a reindex job. 
+After you update the search parameter status to `Supported` or `Disabled`, the next step is to execute a reindex job. 
 
-Until the search parameter is indexed, the 'Enabled' and 'Disabled' status of the search parameters aren't activated. Reindex job execution updates the status from 'Supported' to 'Enabled' or 'PendingDisable' to 'Disabled'.
+Until the search parameter is indexed, the `Enabled` and `Disabled` status of the search parameters aren't activated. Reindex job execution updates the status from `Supported` to `Enabled` or `PendingDisable` to `Disabled`.
 
 A reindex job can be executed against the entire FHIR service database or against specific search parameters. A reindex job can be performance intensive. For more information, see [Run a reindex job](how-to-run-a-reindex.md).
 
 > [!NOTE]
-> A capability statement document is a set of behaviors for a FHIR server. A capability statement is available for the /metadata endpoint. 'Enabled' search parameters are listed in the capability statement for your FHIR service.
+> A capability statement document is a set of behaviors for a FHIR server. A capability statement is available for the /metadata endpoint. `Enabled` search parameters are listed in the capability statement for your FHIR service.
 
 ## Next steps
 
