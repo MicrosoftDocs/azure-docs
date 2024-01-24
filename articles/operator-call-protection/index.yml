@@ -6,11 +6,14 @@ summary: Learn about Azure Operator Call Protection for telecommunications opera
 metadata:
   title: Azure Operator Call Protection documentation
   description: Learn about Azure Operator Call Protection for telecommunications operators.
-  ms.service: #Required; use either service or product per approved list. 
+  ms.service: azure
   ms.topic: landing-page # Required
   author:  #Required; your GitHub user alias, with correct capitalization.
   ms.author: #Required; microsoft alias of author; optional team alias.
   ms.date: #Required; mm/dd/yyyy format.
+  ms.custom:
+    - update-for-call-protection-service-slug
+
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 

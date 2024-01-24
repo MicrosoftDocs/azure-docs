@@ -3,9 +3,10 @@ title: #Required; "What is <product>?"
 description: #Required; article description that is displayed in search results.
 author: #Required; your GitHub user alias, with correct capitalization.
 ms.author: #Required; microsoft alias of author
-ms.service: #Required; use the name-string related to slug in ms.product/ms.service
-ms.topic: overview #Required; leave this attribute/value as-is.
+ms.service: azure
 ms.date: #Required; mm/dd/yyyy format.
+ms.custom:
+    - update-for-call-protection-service-slug
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
