@@ -13,8 +13,7 @@ ms.custom: mode-other
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
->[!IMPORTANT]
-> The proxy feature will *not* be available for Teams identities and Azure Communication Services Teams interoperability actions.
+The proxy feature will *not* be available for Teams identities and Azure Communication Services Teams interoperability actions.
 
 ## Proxy calling media traffic
 
