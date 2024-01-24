@@ -62,9 +62,18 @@ az cognitiveservices account deployment create \
 
 Provisioned throughput quota represents a specific amount of total throughput you can deploy. Quota in the Azure OpenAI Service is managed at the subscription level. All Azure OpenAI resources within the subscription share this quota. 
 
-Quota is specific to a (deployment type, model, region) triplet and isn't interchangeable. Meaning you can't use quota for GPT-4 to deploy GPT-35-turbo. You can raise a support request to move quota across deployment types, models, or regions but the swap isn't guaranteed.
+Quota is specified in Provisioned throughput units and is specific to a (deployment type, model, region) triplet. Quota isn't interchangeable. Meaning you can't use quota for GPT-4 to deploy GPT-35-turbo. You can raise a support request to move quota across deployment types, models, or regions but the swap isn't guaranteed.
 
 While we make every attempt to ensure that quota is deployable, quota doesn't represent a guarantee that the underlying capacity is available. The service assigns capacity during the deployment operation and if capacity is unavailable the deployment fails with an out of capacity error.
+
+
+### Determining the number of PTUs needed for a workload
+
+PTUs represent an amount of undelrying model processing capacity. Similar to your computer or databases, different workloads or requests to the model will consume different amounts of underlying processing capacity. The conversion from call shape characteristics (prompt size, generation size and call rate) to PTUs is complex and non-linear. To simplify this process, you can use the [Azure OpenAI Capacity calculator](https://oai.azure.com/portal/calculator) to size specific workload shapes. 
+
+A few high-level considerations:
+- Generations require more capacity than prompts
+- Larger calls are progressively more expensive to compute. For example, 100 calls of with a 1000 token prompt size will require less capacity than 1 call with 100,000 tokens in the prompt. This also means that the distribution of these call shapes is important in overall throghput. Traffic patterns with a wide distribtion that includes some very large calls may experience lower throughput per PTU than a narrower distribution with the same average prompt & completion token sizes. 
 
 
 ### How utilization enforcement works
@@ -94,7 +103,8 @@ We use a variation of the leaky bucket algorithm to maintain utilization below 1
 
 4.	The overall utilization is decremented down at a continuous rate based on the number of PTUs deployed. 
 
-Since calls are accepted until utilization reaches 100%, you're allowed to burst over 100% utilization when first increasing traffic. For sizeable calls and small sized deployments, you might then be over 100% utilization for up to several minutes.
+> [!NOTE]
+> Since calls are accepted until utilization reaches 100%, you're allowed to burst over 100% utilization when first increasing traffic. For sizeable calls and small sized deployments, you might then be over 100% utilization for up to several minutes. This can also appear as a burst of high requests-per-minute (RPM) to your deployment followed by a steady decrease in RPM as the deployment stabilizes.
 
 
 :::image type="content" source="../media/provisioned/utilization.jpg" alt-text="Diagram showing how subsequent calls are added to the utilization." lightbox="../media/provisioned/utilization.jpg":::
