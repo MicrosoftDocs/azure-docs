@@ -185,7 +185,7 @@ Azure Data Factory supports all Storage Account types from one region to another
     - [Azure Content Delivery Network](/azure/cdn/cdn-overview). Change the origin of existing CDN to the primary blob service endpoint (or the primary static website endpoint) of your new account.
     - [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 
-### Validate relocation
+### Validate
 
 Once the relocation is complete, the Azure Storage Account needs to be tested and validated. Below are some of the recommended guidelines.
 
