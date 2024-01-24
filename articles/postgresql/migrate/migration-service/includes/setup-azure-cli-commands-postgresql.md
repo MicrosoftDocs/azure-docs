@@ -9,14 +9,14 @@ ms.topic: include
 ms.custom:
 ---
 
-# Set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server
+## Set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server
 
 - Install the Azure CLI depending on the operating system to run the CLI commands.
 - Azure CLI can be installed from - [How to install the Azure CLI](/cli/azure/install-azure-cli).
 - If Azure CLI is already installed, check the version by issuing the az version command. The version should be at least 2.56.0 or above to use the migration service.
 - Once installed, run the az sign in command. This opens the default browser and loads an Azure sign-in page to authenticate. Pass in your Azure credentials to do a successful authentication. For other ways to sign with Azure CLI, visit this link.
 
-## Setup CLI commands for the migration service
+### Setup CLI commands for the migration service
 
 All the CLI commands start with `az postgres flexible-server migration`. There are also help statements provided to assist you in understanding the various options and framing the correct syntax for the CLI commands.
 
@@ -24,17 +24,17 @@ Once the CLI is installed, open the command prompt and log into the Azure accoun
 
 Example with Windows command prompt: `az login`.
 
-## Commands to use with the migration service
+### Commands to use with the migration service
 
 The migration service provides the following commands to help you migrate your PostgreSQL databases to Azure Database for PostgreSQL - Flexible Server.
 
-### The help command
+#### The help command
 
 The command ```az postgres flexible-server migration –-help``` provides the name and the corresponding verbs.
 
 :::image type="content" source="media\tutorial-migration-service-offline-iaas\az-flexible-migration-help-CLI.png" alt-text="Screenshot of the az migration help CLI results." lightbox="media\tutorial-migration-service-offline-iaas\az-flexible-migration-help-CLI.png":::
 
-### The create command
+#### The create command
 
 The create command helps to migrate from a source server to a target server.
 
@@ -85,7 +85,7 @@ The JSON file contains the following information:
 | `sourceType` | Required parameter. Values can be - on-premises, AWS, AzureVM, PostgreSQLSingleServer |
 | `sslMode` | SSL modes for migration. SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer/Require for other source types |
 
-### The list command
+#### The list command
 
 The list command lists all the migration attempts made to an Azure Database for PostgreSQL target.
 
@@ -100,7 +100,7 @@ az postgres flexible-server migration list [--subscription] [--resource-group][-
 | `name` | Name of the PostgreSQL Flexible server target |
 | `filter` | To filter migrations, two values are supported – Active and All |
 
-### The show command
+#### The show command
 
 The show command helps you monitor ongoing migrations and gives the current state and substate of the migration. These details include information on the current state and substate of the migration.
 
@@ -153,7 +153,7 @@ Different sub states supported within show command for validation.
 | `Succeeded` | Validation is successful |
 | `Warning` | Validation is in Warning. Warnings are informative messages that you need to keep in mind while planning the migration |
 
-## Cancel the migration
+### Cancel the migration
 
 You can cancel any ongoing migration attempts by using the `cancel` command. This command stops the particular migration attempt but doesn't drop or roll back any changes on your target server. Here's the CLI command to delete a migration:
 

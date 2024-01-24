@@ -191,7 +191,9 @@ You can cancel any ongoing validations or migrations. The workflow must be in th
 
 ## End-to-end flow tutorial
 
-To begin migrating using Azure CLI, you need to install the Azure CLI on your local machine. For more information, see [How to setup Azure CLI](how-to-setup-azure-cli-commands.md)
+To begin migrating using Azure CLI, you need to install the Azure CLI on your local machine.
+
+[!INCLUDE [setup-azure-CLI-commands-postgresql](includes/setup-azure-cli-commands-postgresql.md)]
 
 ## Connect to the source
 
@@ -199,7 +201,7 @@ To begin migrating using Azure CLI, you need to install the Azure CLI on your lo
 
 - For this tutorial, we're going to migrate "ticketdb," "inventorydb," and "timedb" into Azure Database for PostgreSQL flexible server.
 
-:::image type="content" source="media\tutorial-migration-service-offline-iaas\az-migration-source-CLI-aws.png" alt-text="Screenshot of the az migration source page." lightbox="media\tutorial-migration-service-offline-iaas\az-migration-source-CLI-aws.png":::
+:::image type="content" source="media\tutorial-migration-service-offline-iaas\az-migration-source-cli-aws.png" alt-text="Screenshot of the az migration source page." lightbox="media\tutorial-migration-service-offline-iaas\az-migration-source-CLI-aws.png":::
 
 ## Perform migration using CLI
 
@@ -281,7 +283,7 @@ After migration, you can perform the following tasks:
 
 ## Migration best practices
 
-For a successful end-to-end migration, follow the post-migration steps in [Migrate to Azure Database for PostgreSQL - Flexible Server](../best-practices-migration-service-postgresql.md). After you complete the preceding steps, you can change your application code to point database connection strings to Flexible Server. You can then start using the target as the primary database server.
+For a successful end-to-end migration, follow the post-migration steps in [Migrate to Azure Database for PostgreSQL - Flexible Server](best-practices-migration-service-postgresql.md). After you complete the preceding steps, you can change your application code to point database connection strings to Flexible Server. You can then start using the target as the primary database server.
 
 ## Related content
 

@@ -190,7 +190,9 @@ You can cancel any ongoing validations or migrations. The workflow must be in th
 
 #### [CLI](#tab/cli)
 
-To begin migrating using Azure CLI, you need to install the Azure CLI on your local machine. For more information, see [How to setup Azure CLI](how-to-setup-azure-cli-commands.md)
+To begin migrating using Azure CLI, you need to install the Azure CLI on your local machine.
+
+[!INCLUDE [setup-azure-cli-commands-postgresql](includes/setup-azure-cli-commands-postgresql.md)]
 
 ## Connect to the source
 
