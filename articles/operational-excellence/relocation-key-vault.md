@@ -13,46 +13,45 @@ ms.topic: how-to
 
 This article covers relocation guidance for Azure Key Vault across regions. Azure Key Vault does not allow you to move a key vault from one region to another. You can, however, create a key vault in the new region, manually copy each individual key, secret, or certificate from your existing key vault to the new key vault, and then remove the original key vault.
 
+**Azure Resource Mover** doesn't support moving services used by the Azure Key Vault. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
+
 ## Prerequisites
 
 - Identify all Key Vault dependant resources.
-- Depending on your Azure Key Vault deployment, the following dependent resources may need to be deployed and configured in the target region prior to relocation:
+- Depending on your Azure Key Vault deployment, the following dependent resources *may* need to be deployed and configured in the target region prior to relocation:
     - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
     - [Azure Private Link](./relocation-private-link.md)
     - [Virtual Network](./relocation-virtual-network.md)
 
+- Before you begin to plan your key vault relocation, keep the following considerations in mind:  
+    - Key vault names are globally unique. You can't reuse a vault name.
+    - You must reconfigure your access policies and network configuration settings in the new key vault.
+    - You must reconfigure soft-delete and purge protection in the new key vault.
+    - The backup and restore operation won't preserve your autorotation settings. You may need to reconfigure the settings.
+    
 
-## Relocation considerations
+## Prepare
 
-Before you begin to plan your key vault relocation, keep the following considerations in mind:
+To get started, export a Resource Manager template. This template contains settings that describe your Automation namespace.
 
-- Key vault names are globally unique. You can't reuse a vault name.
-- You must reconfigure your access policies and network configuration settings in the new key vault.
-- You must reconfigure soft-delete and purge protection in the new key vault.
-- The backup and restore operation won't preserve your autorotation settings. You may need to reconfigure the settings.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **All resources** and then select your Automation resource.
+3. Select **Export template**. 
+4. Choose **Download** in the **Export template** page.
+5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 
-## Relocation strategies
-
-To relocate Azure Key Vault to a new region, you can choose to [redeploy without data migration](#redeploy-without-data-migration) or [redeploy with data migration](#redeploy-with-data-migration) strategies. 
-
-**Azure Resource Mover** doesn't support moving services used by the Azure Key Vault. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
-
-## Redeploy without data migration
-
-To relocate a Key Vault instance without that doesn't have any client specific data, you can perform a simple redeployment without data migration. You can use this method to relocated a configuration Key Vault (one that contains connection strings, environment-specific PFX files, etc…). With a configuration Key Vault, the Key Vault instance can simply be re-created in the target region without any data movement. The reason is that the data is environment-specific and needs to be regenerated and stored in the target Key Vault.
-
-
-**To redeploy your Key Vault instance without data:**
-
-1. Export your Key Vault's existing configuration into an [ARM template](/azure/templates/microsoft.keyvault/2022-07-01/vaults). 
-
-1. Redeploy the template to the new region. For an example of how to use an ARM template to create a Key Vault instance, see [Key Vault Deployment with ARM - Quickstart templates](/azure/templates/microsoft.KeyVault/2021-06-01-preview/vaults?tabs=json&pivots=deployment-language-arm-template).
-
-    >[!TIP]
-    >You can also create the new key vault by using [Azure portal](../key-vault/general/quick-create-portal.md), the [Azure CLI](../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
+   This zip file contains the .json files that include the template and scripts to deploy the template.
 
 
-## Redeploy with data migration
+## Redeploy without data
+
+To relocate a Key Vault instance without that doesn't have any client specific data, you can perform a simple redeployment without data migration. For an example of how to use an ARM template to create a Key Vault instance, see [Key Vault Deployment with ARM - Quickstart templates](/azure/templates/microsoft.KeyVault/2021-06-01-preview/vaults?tabs=json&pivots=deployment-language-arm-template).
+
+>[!TIP]
+>You can also create the new key vault by using [Azure portal](../key-vault/general/quick-create-portal.md), the [Azure CLI](../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
+
+
+## Redeploy with data
 
 Key Vault supports the following redeployment methods: 
 
@@ -78,9 +77,7 @@ In the diagram below,
 
     - **Use manual non-encrypted backup**. You can export certain secret types manually. For example, you can expert certificates as a PFX file. This option eliminates the geographical restrictions for some secret types, such as certificates. You can then upload the PFX files to any key vault in any region. The secrets are downloaded in a non-password protected format. You are responsible for securing your secrets during the move. To learn how to export certificates from Azure Key Vault see [Export certificates from Azure Key Vault](/azure/key-vault/certificates/how-to-export-certificate?tabs=azure-cli)
 
-1. Export your Key Vault's existing configuration into an [ARM template](/azure/templates/microsoft.keyvault/2022-07-01/vaults). 
-
-1. Redeploy the template to the new region by using one of the following methods:
+1. Redeploy the exported template to the new region by using one of the following methods:
 
     - Use an ARM template to create a Key Vault instance, see [Key Vault Deployment with ARM - Quickstart templates](/azure/templates/microsoft.KeyVault/2021-06-01-preview/vaults?tabs=json&pivots=deployment-language-arm-template).
 

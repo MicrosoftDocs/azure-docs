@@ -13,7 +13,7 @@ ms.topic: how-to
 
 This article covers relocation guidance for [Azure Automation](../automation/overview.md) across regions.
 
-To relocate Azure Automation to a new region, you can choose to [redeploy without data migration](#redeploy-without-data-migration) or [redeploy with data migration](#redeploy-with-data-migration) strategies.
+If your Azure Automation instance doesn't have any configuration and the instance itself needs to be moved alone, you can simply choose to redeploy the NetApp File instance by using [Bicep, ARM Template, or Terraform](/azure/templates/microsoft.automation/automationaccounts?tabs=bicep&pivots=deployment-language-bicep).
 
 **Azure Resource Mover** doesn't support moving services used by the Azure Automation. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
 
@@ -39,18 +39,14 @@ To get started, export a Resource Manager template. This template contains setti
 
    This zip file contains the .json files that include the template and scripts to deploy the template.
 
-## Redeploy without data migration
-
-If your Azure Automation instance doesn't have any configuration and the instance itself needs to be moved alone, you can choose to redeploy the NetApp File instance by using [Bicep, ARM Template, or Terraform](/azure/templates/microsoft.automation/automationaccounts?tabs=bicep&pivots=deployment-language-bicep).
-
-## Redeploy with data migration
+## Redeploy
 
 In the diagram below, the red flow lines illustrate redeployment of the target instance along with configuration movement.
 
 :::image type="content" source="media/relocation/automation/automation-pattern-design.png" alt-text="Diagram illustrating cold standby redeployment with configuration movement":::
 
 
-**To redeploy:**
+**To deploy the template to create an Automation instance in the target region:**
 
 1. Reconfigure the template parameters for the target. 
 

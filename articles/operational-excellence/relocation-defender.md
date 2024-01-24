@@ -14,7 +14,7 @@ Microsoft Defender for Cloud is an environment-based management feature of Azure
 
 ## Prerequisites
 
-- If there's a subscription change in the new region, [ you must enable Defender for Cloud on the new subscription](/azure/defender-for-cloud/connect-azure-subscription). 
+If there's a subscription change in the new region, [ you must enable Defender for Cloud on the new subscription](/azure/defender-for-cloud/connect-azure-subscription). 
 
 
 ## Relocation recommendations
