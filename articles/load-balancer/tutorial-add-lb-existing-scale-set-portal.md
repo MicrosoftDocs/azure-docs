@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 ## Create Virtual Machine Scale Set
 
-In this section, you'll create a Virtual Machine Scale Set that will be attached to a load balancer created later.
+In this section, you create a Virtual Machine Scale Set that is attached to a load balancer created later.
 
 1. In the search box at the top of the portal, enter **Virtual machine scale**, and select **Virtual machine scale sets** from the search results.
 1. Select **Create**.
@@ -79,7 +79,7 @@ In this section, you'll create a Virtual Machine Scale Set that will be attached
 
 ## Create load balancer
 
-You'll create a load balancer in this section. The frontend IP, backend pool, load-balancing, and inbound NAT rules are configured as part of the creation.
+You create a load balancer in this section. The frontend IP, backend pool, load-balancing, and inbound NAT rules are configured as part of the creation.
 
 1. In the search box at the top of the portal, enter **Load balancer**.
 
@@ -149,11 +149,11 @@ You'll create a load balancer in this section. The frontend IP, backend pool, lo
 
 ### Configure load balancer settings
 
-In this section, you'll create a backend pool for **myLoadBalancer**.
+In this section, you create a backend pool for **myLoadBalancer**.
 
-You'll create a health probe to monitor **HTTP** and **Port 80**. The health probe will monitor the health of the virtual machines in the backend pool. 
+You create a health probe to monitor **HTTP** and **Port 80**. The health probe monitors the health of the virtual machines in the backend pool. 
 
-You'll create a load-balancing rule for **Port 80** with outbound SNAT disabled. The NAT gateway you created earlier will handle the outbound connectivity of the virtual machines.
+You create a load-balancing rule for **Port 80** with outbound SNAT disabled. The NAT gateway you created earlier handles the outbound connectivity of the virtual machines.
 
 1. In the search box at the top of the portal, enter **Load balancer**.
 
@@ -201,7 +201,7 @@ You'll create a load-balancing rule for **Port 80** with outbound SNAT disabled.
 1. Select **Review + Create** and **Create**.
 ## Add load balancer to scale set
 
-In this section, you'll go to the scale set in the Azure portal and add a load balancer to the scale set.
+In this section, you add a load balancer to the scale set in the Azure portal.
 
 1. In the search box at the top of the portal, enter **Virtual machine scale**.
 
