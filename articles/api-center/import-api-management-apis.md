@@ -12,13 +12,14 @@ ms.custom:
 
 # Import APIs from Azure API Management to your API center
 
-This article shows how to import (add) APIs from an Azure API Management instance to your [API center](overview.md) using the Azure CLI. Quickly add APIs managed in API Management to your API inventory so they're discoverable and accessible to developers, API program managers, and other stakeholders in your organization.
+This article shows how to import (add) APIs from an Azure API Management instance to your [API center](overview.md) using the Azure CLI. Add APIs managed in API Management to your API inventory so they're discoverable and accessible to developers, API program managers, and other stakeholders in your organization.
 
-When you add an API from an API Management instance to your API center, it's registered as follows:
+When you add an API from an API Management instance to your API center:
 
 * The API's [versions](key-concepts.md#api-version), [definitions](key-concepts.md#api-definition), and [deployment](key-concepts.md#deployment) information are copied to your API center.
 * The API receives a system-generated API name in your API center. It retains its display name (title) from API Management.
-* Azure API Management is added as an [environment](key-concepts.md#environment) in your API center.
+* The **Lifecycle stage** of the API is set to *Design*.
+* Azure API Management is added as an [environment](key-concepts.md#environment).
 
 After adding an API from API Management, you can add metadata and documentation in your API center to help stakeholders discover, understand, and consume the API.
 
@@ -146,7 +147,7 @@ az apic service import-from-apim --service-name <api-center-name> \
 ```
 
 > [!NOTE]
-> Specify `<api-name>`according to the API resource name in the API Management instance, not the display name. Example: `petstore-api` instead of `Petstore API`.
+> Specify `<api-name>` according to the API resource name in the API Management instance, not the display name. Example: `petstore-api` instead of `Petstore API`.
 
 After running the command, you can view the imported APIs in the following locations:
 
