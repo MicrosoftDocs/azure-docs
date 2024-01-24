@@ -76,7 +76,7 @@ A storage account gives access to the Azure Storage services. The storage accoun
     :::image type="content" source="./media/integrate-storage-account/endpoint-created.png" alt-text="Screenshot of new Front Door endpoint created from Storage account.":::
 
 > [!NOTE]
-    > * The endpoint list will only show Front Door and CDN profiles within the same subscription. 
+> * The endpoint list will only show Front Door and CDN profiles within the same subscription. 
 
 
 ## Extra features
