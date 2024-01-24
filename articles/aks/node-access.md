@@ -18,7 +18,7 @@ You access a node through authentication, which methods vary depending on your N
 
 This method requires usage of `kubectl debug` command. 
 
-## Before you begin
+### Before you begin
 
 This guide shows you how to create a connection to an AKS node and update the SSH key of your AKS cluster. To follow along the steps, you need to use Azure CLI that supports version 2.0.64 or later. Run `az --version` to check the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
