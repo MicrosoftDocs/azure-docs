@@ -33,18 +33,18 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 Depending on your operating system, add environment variables for your **Host name** and **Primary access key** that you noted previously. Open a command prompt, or a terminal window, and set up the following values:
 
-### [Windows](#tab/cmd)
-
-```cmd
-set REDISCACHEHOSTNAME=<your-host-name>.redis.cache.windows.net
-set REDISCACHEKEY=<your-primary-access-key>
-```
-
 ### [Linux](#tab/bash)
 
 ```bash
 export REDISCACHEHOSTNAME=<your-host-name>.redis.cache.windows.net
 export REDISCACHEKEY=<your-primary-access-key>
+```
+
+### [Windows](#tab/cmd)
+
+```cmd
+set REDISCACHEHOSTNAME=<your-host-name>.redis.cache.windows.net
+set REDISCACHEKEY=<your-primary-access-key>
 ```
 
 ---
@@ -135,13 +135,6 @@ In this sample, you use Maven to run the quickstart app.
 
 1. First, if you haven't already, you must set the environment variables as noted previously.
 
-   ### [Windows](#tab/cmd)
-
-   ```cmd
-   set REDISCACHEHOSTNAME=<your-host-name>.redis.cache.windows.net
-   set REDISCACHEKEY=<your-primary-access-key>
-   ```
-
    ### [Linux](#tab/bash)
 
    ```bash
@@ -149,20 +142,27 @@ In this sample, you use Maven to run the quickstart app.
    export REDISCACHEKEY=<your-primary-access-key>
    ```
 
+   ### [Windows](#tab/cmd)
+
+   ```cmd
+   set REDISCACHEHOSTNAME=<your-host-name>.redis.cache.windows.net
+   set REDISCACHEKEY=<your-primary-access-key>
+   ```
+
     ---
 
 1. Execute the following Maven command to build and run the app:
 
-   ### [Windows](#tab/cmd)
+   ### [Linux](#tab/bash)
 
-   ```cmd
+   ```bash
    mvn compile
    mvn exec:java -D exec.mainClass=example.demo.App
    ```
 
-   ### [Linux](#tab/bash)
+   ### [Windows](#tab/cmd)
 
-   ```bash
+   ```cmd
    mvn compile
    mvn exec:java -D exec.mainClass=example.demo.App
    ```

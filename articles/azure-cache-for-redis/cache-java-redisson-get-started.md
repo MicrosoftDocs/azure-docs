@@ -39,20 +39,20 @@ The steps in this section show you two options for how to select the Azure ident
 
 Depending on your operating system, add environment variables for your cache's host name and primary access key. Open a command prompt, or a terminal window, and set up the following values:
 
-### [Windows](#tab/cmd)
-
-```cmd
-set REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
-set REDIS_CACHE_KEY=<your-primary-access-key>
-set AUTH_TYPE=RedisKey
-```
-
 ### [Linux](#tab/bash)
 
 ```bash
 export REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
 export REDIS_CACHE_KEY=<your-primary-access-key>
 export AUTH_TYPE=RedisKey
+```
+
+### [Windows](#tab/cmd)
+
+```cmd
+set REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
+set REDIS_CACHE_KEY=<your-primary-access-key>
+set AUTH_TYPE=RedisKey
 ```
 
 ---
@@ -66,20 +66,20 @@ Replace the placeholders with the following values:
 
 Depending on your operating system, add environment variables for your cache's host name and user name. Open a command prompt, or a terminal window, and set up the following values:
 
-### [Windows](#tab/cmd)
-
-```cmd
-set REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
-set USER_NAME=<user-name>
-set AUTH_TYPE=MicrosoftEntraID
-```
-
 ### [Linux](#tab/bash)
 
 ```bash
 export REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
 export USER_NAME=<user-name>
 export AUTH_TYPE=MicrosoftEntraID
+```
+
+### [Windows](#tab/cmd)
+
+```cmd
+set REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
+set USER_NAME=<user-name>
+set AUTH_TYPE=MicrosoftEntraID
 ```
 
 ---
@@ -100,9 +100,9 @@ Replace the placeholders with the following values:
 
 Using Maven, generate a new quickstart app:
 
-### [Windows](#tab/cmd)
+### [Linux](#tab/bash)
 
-```cmd
+```bash
 mvn archetype:generate \
     -DarchetypeGroupId=org.apache.maven.archetypes \
     -DarchetypeArtifactId=maven-archetype-quickstart \
@@ -113,9 +113,9 @@ mvn archetype:generate \
     -Dversion=1.0
 ```
 
-### [Linux](#tab/bash)
+### [Windows](#tab/cmd)
 
-```bash
+```cmd
 mvn archetype:generate \
     -DarchetypeGroupId=org.apache.maven.archetypes \
     -DarchetypeArtifactId=maven-archetype-quickstart \
@@ -251,15 +251,15 @@ Save *App.java*.
 
 Execute the following Maven command to build and run the app:
 
-### [Windows](#tab/cmd)
-
-```cmd
-mvn compile exec:java -Dexec.mainClass=example.demo.App
-```
-
 ### [Linux](#tab/bash)
 
 ```bash
+mvn compile exec:java -Dexec.mainClass=example.demo.App
+```
+
+### [Windows](#tab/cmd)
+
+```cmd
 mvn compile exec:java -Dexec.mainClass=example.demo.App
 ```
 
