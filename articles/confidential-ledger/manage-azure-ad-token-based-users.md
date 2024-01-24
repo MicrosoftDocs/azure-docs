@@ -16,23 +16,6 @@ Microsoft Entra ID-based users are identified by their Microsoft Entra object ID
 
 Users with Administrator privileges can manage users of the confidential ledger. Available roles are Reader (read-only), Contributor (read and write), and Administrator (read, write, and manage users).
 
-The following client libraries are available to manage users:
-
-- [Python](#python-client-library)
-- [.NET](#net-client-library)
-- [Java](#java-client-library)
-- [TypeScript](#typescript-client-library)
-
-## Sign in to Azure
-
-[!INCLUDE [Sign in to Azure](../../includes/confidential-ledger-sign-in-azure.md)]
-
-Get the confidential ledger's name and the identity service URI from the Azure portal as it is needed to create a client to manage the users. This image shows the appropriate properties in the Azure portal.
-
-:::image type="content" source="./media/ledger-properties.png" alt-text="A screenshot showing ledger properties in the Azure portal.":::
-
-Replace instances of `contoso` and  `https://contoso.confidential-ledger.azure.com` in the following code snippets with the respective values from the Azure portal.
-
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Sign in to Azure](./includes/sign-in-to-azure-acl.md)]
 
