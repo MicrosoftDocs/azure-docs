@@ -4,6 +4,7 @@ description: In this tutorial, learn how to back up SAP HANA databases running o
 ms.topic: tutorial
 ms.date: 01/24/2024
 ms.service: backup
+ms.custom: engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
