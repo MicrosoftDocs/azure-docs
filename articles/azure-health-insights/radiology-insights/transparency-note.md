@@ -77,7 +77,7 @@ The Radiology Insight adds several types of inferences/annotations to the origin
 
 Example of a Clinical Radiology document with inferences:
 
-![Image of a radiology document with a Mismatch and Follow-up Recommendation inference](../media/radiologydoc-with-inferences.png)
+![Screenshot of a radiology document with a Mismatch and Follow-up Recommendation inference](../media/radiology-doc-with-inferences.png)
 
 ### Functional description of the inferences in scope and examples
 

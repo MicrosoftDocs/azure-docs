@@ -346,7 +346,7 @@ This type has the following fields, the first 2 of which are always filled:
 [Example  input json](example1-inference-followuprecommendation-jsonrequest.md)
 [Example output json](example1-inference-followuprecommendation-jsonresponse.md)
 
-**follow up Communication**
+**Follow up Communication**
 
 This inference is created when findings or test results were communicated to a medical professional.
 - kind: RadiologyInsightsInferenceType.FollowupCommunication
