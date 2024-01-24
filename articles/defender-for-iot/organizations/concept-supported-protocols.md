@@ -23,6 +23,7 @@ OT network sensors can detect the following protocols when identifying assets an
 |**DNP. org**     |   DNP3      |
 |**Emerson**     |   DeltaV<br> DeltaV - Discovery<br> Emerson OpenBSI/BSAP<br> Ovation DCS ADMD<br>Ovation DCS DPUSTAT<br> Ovation DCS SSRPC      |
 |**Emerson Fischer**     |  ROC       |
+|**FANUC**     |  FANUC FOCUS    |
 |**GE**     | ADL (MarkVIe) <br>Bentley Nevada (System 1 / BN3500)<br>ClassicSDI (MarkVle) <br>  EGD<br>  GSM (GE MarkVI and MarkVIe)<br> InterSite<br> SDI (MarkVle) <br>  SRTP (GE)<br> GE_CMP        |
 |**Generic Applications** | Active Directory<br> RDP<br> Teamviewer<br> VNC<br>  |
 |**Honeywell**     |    ENAP<br> Experion DCS CDA<br> Experion DCS FDA<br> Honeywell EUCN <br> Honeywell Discovery     |
@@ -36,10 +37,9 @@ OT network sensors can detect the following protocols when identifying assets an
 |**Omron**     |  FINS <br>HTTP      |
 |**OPC**     |  AE <br>Common <br> DA <br>HDA <br> UA       |
 |**Oracle**     |   TDS<br> TNS      |
-|**Rockwell Automation**     |  CSP2<br> ENIP<br> EtherNet/IP CIP (including Rockwell extension)<br> EtherNet/IP CIP FW version 27 and above  <br>Rockwell AADvance Discover <br>
-Rockwell AADvance SNCP/IXL    |
+|**Rockwell Automation**     |  CSP2<br> ENIP<br> EtherNet/IP CIP (including Rockwell extension)<br> EtherNet/IP CIP FW version 27 and above  <br>Rockwell AADvance Discover <br> Rockwell AADvance SNCP/IXL    |
 |**Samsung** | Samsung TV |
-|**Schneider Electric**     | Modbus/TCP<br> Modbus TCP–Schneider Unity Extensions<br> OASYS (Schneider Electric Telvant)<br> Schneider TSAA        |
+|**Schneider Electric**     | Modbus/TCP<br> Modbus TCP–Schneider Unity Extensions<br> OASYS (Schneider Electric Telvant)<br> Schneider TSAA <br> Schneider NetManage       |
 |**Schneider Electric / Invensys**     |   Foxboro Evo<br> Foxboro I/A<br> Trident<br> TriGP<br> TriStation      |
 |**Schneider Electric / Modicon**     |   Modbus RTU      |
 |**Schneider Electric / Wonderware**     |    Wonderware Suitelink     |
