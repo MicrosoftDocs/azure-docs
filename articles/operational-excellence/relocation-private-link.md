@@ -9,8 +9,7 @@ ms.date: 12/11/2023
 ms.service: private-link
 ms.topic: conceptual
 ms.custom:
-  - references_regions
-  - subject-reliability
+  - subject-relocation
 ---
 
 # Relocation guidance for Azure Public IP

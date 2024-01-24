@@ -8,6 +8,8 @@ ms.date: 01/23/2024
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: how-to
+ms.custom:
+  - subject-relocation
 ---
 
 # Relocation guidance for Azure Monitor - Log Analytics Workspace

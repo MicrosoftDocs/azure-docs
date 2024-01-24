@@ -7,6 +7,8 @@ ms.reviewer: anaharris
 ms.date: 01/10/2024
 ms.service: postgresql
 ms.topic: how-to
+ms.custom:
+  - subject-relocation
 ---
 
 

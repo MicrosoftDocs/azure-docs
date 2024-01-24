@@ -6,6 +6,8 @@ ms.author: anaharris
 ms.date: 01/18/2024
 ms.service: defender-for-cloud
 ms.topic: how-to
+ms.custom:
+  - subject-relocation
 ---
 
 # Relocation guidance for Microsoft Defender for Cloud

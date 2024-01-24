@@ -7,6 +7,8 @@ ms.reviewer: anaharris
 ms.date: 01/18/2024
 ms.service: microsoft-sentinel
 ms.topic: how-to
+ms.custom:
+  - subject-relocation
 ---
 
 # Relocation guidance for Azure Key Vault

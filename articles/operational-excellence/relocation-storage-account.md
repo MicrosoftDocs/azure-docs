@@ -7,6 +7,8 @@ ms.reviewer: anaharris
 ms.date: 01/17/2024
 ms.service: azure-storage
 ms.topic: how-to
+ms.custom:
+  - subject-relocation
 ---
 
 
