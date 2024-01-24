@@ -262,14 +262,17 @@ The following example Azure Resource Manager template creates an event-driven jo
     "properties": {
         "configuration": {
             "eventTriggerConfig": {
-                "maxExecutions": 10,
-                "minExecutions": 0,
                 "scale": {
+                    "maxExecutions": 10,
+                    "minExecutions": 0,
                     "rules": [
                         {
-                            "auth": {
-                                "connection": "connection-string-secret"
-                            },
+                            "auth": [
+                                {
+                                    "triggerParameter": "connection",
+                                    "secretRef": "connection-string-secret"
+                                }
+                            ],
                             "metadata": {
                                 "accountName": "mystorage",
                                 "queueLength": 1,
@@ -278,7 +281,7 @@ The following example Azure Resource Manager template creates an event-driven jo
                             "name": "queue",
                             "type": "azure-queue"
                         }
-                    ],
+                    ]
                 }
             },
             "replicaRetryLimit": 0,
