@@ -18,7 +18,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Search
+  - title: About Azure AI Search
     linkLists:
       - linkListType: overview
         links:
@@ -28,6 +28,8 @@ landingContent:
             url: cognitive-search-concept-intro.md
           - text: Retrieval Augmented Generation (RAG)
             url: retrieval-augmented-generation-overview.md
+          - text: Semantic reranking
+            url: semantic-search-overview.md
       - linkListType: quickstart
         links:
           - text: Create a search service
@@ -36,7 +38,7 @@ landingContent:
             url: search-get-started-portal.md
 
   # Card
-  - title: Vector store
+  - title: Vector stores
     linkLists:
       - linkListType: overview
         links:
@@ -50,6 +52,8 @@ landingContent:
             url: search-get-started-vector.md
           - text: Query a vector store
             url: vector-search-how-to-query.md
+          - text: Chunk data
+            url: vector-search-how-to-chunk-documents.md
       - linkListType: sample
         links:
           - text: Vector search samples
@@ -108,22 +112,18 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Build a question and answer copilot
-            url: /azure/ai-studio/tutorials/deploy-copilot-ai-studio
           - text: Create a vector index in AI Studio
             url: /azure/ai-studio/how-to/index-add
+          - text: Build a question and answer copilot
+            url: /azure/ai-studio/tutorials/deploy-copilot-ai-studio
 
   # Card
   - title: Query data
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
           - text: Query types and composition
             url: search-query-overview.md
-          - text: Semantic reranking
-            url: semantic-search-overview.md
-      - linkListType: how-to-guide
-        links:
           - text: Create a simple query
             url: search-query-create.md
           - text: Create advanced queries
