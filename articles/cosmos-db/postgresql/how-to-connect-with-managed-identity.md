@@ -52,17 +52,22 @@ Retrieve the application ID for the system-assigned managed identity, which you'
 az ad sp list --display-name vm-name --query [*].appId --out tsv
 ```
 
+The output of this command is the application ID. 
+
 ## Create a PostgreSQL user for your Managed Identity
 
-Now, connect as the Azure AD administrator user to your Azure Cosmos DB for PostgreSQL cluster's coordinator, and run the following SQL statements, replacing `CLIENT_ID` with the client ID you retrieved for your system-assigned managed identity:
+Now, follow these steps to add the system-assigned managed identity to the list of Microsoft Entra ID accounts on your Azure Cosmos DB for PostgreSQL cluster. 
 
-```sql
-select * from pgaadauth_create_principal('<identity_name>', false, false);
-```
+1. In [Azure portal](https://portal.azure.com), open **Authentication** page of your Azure Cosmos DB for PostgreSQL cluster.
+1. In the **Azure Active Directory (AAD) authentication (preview)** section, select **Add Azure AD roles**.
+1. In the **Select Azure AD roles** panel, enter application ID from the previous step in the **Search** field.
+1. Select the VM's system-assigned managed identity in the search results. It has the application ID from the previous step in the **Details** column of the search results.
+1. Use **Select** button to confirm your choice.
+1. 1. In the **Authentication** page, select **Save** in the toolbar to save changes.
 
-For more information on managing Azure AD enabled database roles, see [how to manage Azure AD enabled PostgreSQL roles](./how-to-configure-authentication.md#configure-azure-active-directory-authentication)
+For more information on managing Microsoft Entra ID database roles, see [how to manage Microsoft Entra ID roles](./how-to-configure-authentication.md#configure-microsoft-entra-id-authentication).
 
-The managed identity now has access when authenticating with the identity name as a role name and the Azure AD token as a password.
+The managed identity now has access when authenticating with the identity name as a role name and the Microsoft Entra ID token as a password.
 
 ## Retrieve the access token from the Azure Instance Metadata service
 
