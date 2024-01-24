@@ -40,15 +40,14 @@ You can specify whether the root account can access the volume or not by using t
 ## Can I use the same file path for multiple volumes?
 
 The same file path can be used for:
-* volumes deployed in different regions.
-* volumes deployed to different availability zones within the same region. 
+* volumes deployed in different regions
+* volumes deployed to different availability zones within the same region
 
-Also, the same file path can be used for:
-* regional volumes (without availability zones).
-* volumes within the same region.
+If you are using:
+* regional volumes (without availability zones) or
+* volumes within the same region,
 
-For these cases (regional volumes and volumes with the same region), the file path must be unique within each delegated subnet or assigned to different delegated subnets. 
-<!-- confirm part after or -->
+the same file path can be used, however the file path must be unique within each delegated subnet or assigned to different delegated subnets. 
 
 For more information, see [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). 
 
