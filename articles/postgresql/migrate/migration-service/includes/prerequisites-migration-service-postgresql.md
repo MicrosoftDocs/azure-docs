@@ -79,8 +79,6 @@ Extensions are extra features that can be added to PostgreSQL to enhance its fun
     - PGLOGICAL
     - WAL2JSON
 
-:::image type="content" source="../media/concepts-prerequisites-migration-service/shared-preload-libraries.png" alt-text="Screenshot of the shared preload libraries." lightbox="media\concepts-prerequisites-migration-service\shared-preload-libraries.png":::
-
 If yes, search the server parameters page for the shared_preload_libraries parameter. This parameter indicates the set of extension libraries that are preloaded at the server restart.
 
 ### Users and roles
