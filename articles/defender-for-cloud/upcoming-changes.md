@@ -50,7 +50,10 @@ As part of the [upcoming Azure Log Analytics agent, also known as the Microsoft 
 
 As part of this plan, there will be a new experience used to discover and identify and potential configuration issues in your endpoint protection solutions for both Microsoft and non-Microsoft Endpoint Detection and Response (EDR) solutions on your servers.
 
+The new experience will include new recommendations that will cover multi-cloud servers and will be available through theDefender for Servers plan 2 and Defender CSPM. The following two Azure Monitoring Agent (AMA) recommendations will be deprecated in favor of the creation of the new recommendations:
 
+- [Endpoint protection should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439)
+- [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000)
 
 ## Update to agentless VM scanning built-in Azure role
 
