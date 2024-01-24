@@ -19,7 +19,7 @@ You can configure the minimum TLS version using the Azure portal or Azure Resour
 > [!NOTE]
 > The screenshots and the sample Resource Manager templates are for Event Grid topics. The screenshots and template for domains are similar. 
 
-## Specify the minimum TLS version for a topic or a domain in the Azure portal
+## Configure minimum TLS version for a topic or a domain in the Azure portal
 You can specify the minimum TLS version when creating an Event Grid topic or a domain in the Azure portal on the **Security** tab. The screenshots are for an Event Grid topic and the user interface for configuring this property for a domain is similar. 
 
 :::image type="content" source="./media/transport-layer-security-configure-minimum-version/create-topic-tls.png" alt-text="Screenshot showing the page to set the minimum TLS version when creating an Event Grid topic.":::
@@ -28,7 +28,7 @@ You can also specify the minimum TLS version for an existing topic on the **Conf
 
 :::image type="content" source="./media/transport-layer-security-configure-minimum-version/existing-topic-tls.png" alt-text="Screenshot showing the page to set the minimum TLS version for an existing Event Grid topic.":::
 
-## Create a Resource Manager template to configure the minimum TLS version for a topic or a domain
+## Configure minimum TLS version for a topic or a domain using Resource Manager template
 
 To configure the minimum TLS version for an Event Grid topic or domain with a template, create a template with the  `MinimumTlsVersion`  property set to 1.0, 1.1, or 1.2. When you create an Event Grid topic or domain with an Azure Resource Manager template, the `MinimumTlsVersion` property is set to 1.2 by default, unless explicitly set to another version  The sample template in this article is for an Event Grid topic and the template for configuring the TLS version for a domain is similar. 
 
