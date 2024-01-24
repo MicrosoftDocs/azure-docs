@@ -12,10 +12,9 @@ ms.reviewer: jeffwo
 
 By default, Azure Monitor Agent connects to a public endpoint to connect to your Azure Monitor environment. This article explains how to enable network isolation for your agents by using [Azure Private Link](../../private-link/private-link-overview.md).
 
-
 1. [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint) for Azure Monitor Agent to sent collected data. An agent can only send data to a data collection endpoint in the same region. If you have agents in multiple regions, you must create a data collection endpoint in each region.
 
-1.[Configure your private link](../logs/private-link-configure.md). An Azure Monitor private link connects a private endpoint to a set of Azure Monitor resources that define the boundaries of your monitoring network. That set is called an Azure Monitor Private Link Scope.
+1. [Configure your private link](../logs/private-link-configure.md). An Azure Monitor private link connects a private endpoint to a set of Azure Monitor resources that define the boundaries of your monitoring network. That set is called an Azure Monitor Private Link Scope.
 
 1. Add the data collection endpoints to a new or existing [Azure Monitor Private Link Scopes](../logs/private-link-configure.md#connect-azure-monitor-resources) resource. This process adds the DCEs to your private DNS zone (see [how to validate](../logs/private-link-configure.md#review-and-validate-your-private-link-setup)) and allows communication via private links. You can do this task from the AMPLS resource or on an existing DCE resource's **Network isolation** tab.
 
