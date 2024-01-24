@@ -2,7 +2,7 @@
 title: Configure monitoring coverage
 description: Learn how to configure the different monitoring components that are available in Defender for Servers in Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 01/23/2024
+ms.date: 01/24/2024
 ---
 
 # Configure monitoring coverage
@@ -34,6 +34,8 @@ After enabling the Log Analytics agent, you'll be presented with the option to s
 
 1. Select **Apply**.
 
+1. Select **Continue**.
+
 ## Configure vulnerability assessment for machines
 
 Vulnerability assessment for machines allows you to select between two vulnerability assessment solutions:
@@ -51,11 +53,17 @@ Vulnerability assessment for machines allows you to select between two vulnerabi
 
 1. Select **Apply**.
 
+1. Select **Continue**.
+
 ## Configure endpoint protection
 
 With Microsoft Defender for Servers, you enable the protections provided by [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide) to your server resources. Defender for Endpoint includes automatic agent deployment to your servers, and security data integration with Defender for Cloud.
 
-To configure endpoint protection, toggle the switch to **On**.
+To configure endpoint protection:
+
+1. Toggle the switch to **On**.
+
+1. Select **Continue**.
 
 ## Configure agentless scanning for machines
 
@@ -70,5 +78,7 @@ Defender for Cloud has the ability to scan your Azure machines for installed sof
 1. Enter a tag name and tag value for any machines to be excluded from scans.
 
 1. Select **Apply**.
+
+1. Select **Continue**.
 
 Learn more about agentless scanning and how to [enable agentless scanning](enable-agentless-scanning-vms.md) on other cloud environments.
