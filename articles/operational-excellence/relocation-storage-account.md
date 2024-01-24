@@ -16,7 +16,7 @@ ms.custom:
 
 This article covers relocation guidance for Azure Storage Account across regions.
 
-To relocate Azure Storage account to a new region, you can choose to [redeploy without data migration](#redeploy-without-data) or [redeploy with data migration](#redeploy-with-data-migration) strategies.
+To relocate Azure Storage account to a new region, you can choose to [redeploy without data migration](#redeploy-without-data) or [redeploy with data migration](#redeploy-with-data) strategies.
 
 **Azure Resource Mover** doesn't support moving Azure Storage accounts. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
 
@@ -37,7 +37,7 @@ If your Azure Storage Account instance doesn't have any client specific data and
     
     To view the available configuration templates, see [the complete Azure Template library](/azure/templates/).
 
-## Redeploy with data migration
+## Redeploy with data
 
 To redeploy your storage account with data, you can choose between the following tools:
     
