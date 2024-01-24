@@ -174,7 +174,7 @@ az cosmosdb sql container merge \
 
 For **shared throughput databases**, start the merge by using `az cosmosdb sql database merge`.
 
-```azurecli
+```azurecli-interactive
 az cosmosdb sql database merge \
 	--account-name '<cosmos-account-name>'                               
 	--name '<cosmos-database-name>'                                
@@ -182,7 +182,7 @@ az cosmosdb sql database merge \
 ```
 
 
-```http
+```http-interactive
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/partitionMerge?api-version=2023-11-15-preview
 ```
 
@@ -264,7 +264,7 @@ az cosmosdb mongodb collection merge \
 ---
 For **shared-throughput databases**, start the merge by using [`az cosmosdb mongodb database merge`](/cli/azure/cosmosdb/mongodb/database?view=azure-cli-latest).
 
-```azurecli
+```azurecli-interactive
 az cosmosdb mongodb database merge \
 	--account-name '<cosmos-account-name>'                               
 	--name '<cosmos-database-name>'                                
@@ -272,7 +272,7 @@ az cosmosdb mongodb database merge \
 ```
 
 
-```http
+```http-interactive
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}/partitionMerge?api-version=2023-11-15-preview
 ```
 
