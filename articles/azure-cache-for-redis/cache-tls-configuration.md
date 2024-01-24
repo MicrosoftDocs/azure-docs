@@ -1,5 +1,5 @@
 ---
-title: What are the configuration settings for TLS
+title: What are the configuration settings for TLS?
 description: Learn about the TLS protocol configuration and how to use TLS to securely communicate with Azure Cache for Redis instances.
 author: flang-msft
 
@@ -27,7 +27,7 @@ This table contains the information for TLS availability in different tiers.
 |:-----------------|:----------------------------------------------:|:----------------------------:|
 | **Availability** | Yes (1.0(retired), 1.1(retired), 1.2, and 1.3) | Yes (1.2 and 1.3)            |
 
-## TLS 1.3 Support
+## TLS 1.3 support
 
 TLS 1.3 is supported across all tiers of Azure Cache for Redis. Presently, there's no option to enforce that TLS 1.3 is used by clients. You're required to negotiate TLS 1.3 when connecting to the cache instance.
 
@@ -44,7 +44,7 @@ TLS 1.3 cipher suites:
 - `TLS_AES_256_GCM_SHA384`
 
 > [!NOTE]
-> The `TLS_CHACHA20_POLY1305_SHA256` cipher suite is no longer be supported for TLS 1.3 connections. The `TLS_AES_128_GCM_SHA256` or `TLS_AES_256_GCM_SHA384` cipher suites can be used instead.
+> The `TLS_CHACHA20_POLY1305_SHA256` cipher suite is no longer supported for TLS 1.3 connections. The `TLS_AES_128_GCM_SHA256` or `TLS_AES_256_GCM_SHA384` cipher suites can be used instead.
 >
 
 ## How to enable or disable TLS

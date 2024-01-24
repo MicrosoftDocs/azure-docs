@@ -50,7 +50,7 @@ The following sections provide guidance about how to detect dependencies on thes
 
 ### Check whether your application is already compliant
 
-You can find out whether your application works with TLS 1.2 by setting the **Minimum TLS version** value to TLS 1.2 on a test or staging cache, then running tests. The **Minimum TLS version** setting is in the [Advanced settings](cache-configure.md#advanced-settings) of your cache instance in the Azure portal.  If the application continues to function as expected after this change, If the application continues to function as expected after this change, then your app is using TLS 1.2 or newer.
+You can find out whether your application works with TLS 1.2 by setting the **Minimum TLS version** value to TLS 1.2 on a test or staging cache, then running tests. The **Minimum TLS version** setting is in the [Advanced settings](cache-configure.md#advanced-settings) of your cache instance in the Azure portal. If the application continues to function as expected after this change, then your app is using TLS 1.2 or newer.
 
 > [!NOTE]
 > With your cache open in the portal, select **Advanced** in the resource menu. If the Minimum TLS version for your cache instance is set to **Default**, your Minimum TLS version is set to TLS 1.2. TLS 1.2 is the default value that is assigned to your cache instance when no explicit value is chosen.
