@@ -20,49 +20,13 @@ To learn how to relocate Azure Cosmos DB for PostgreSQL (formerly called Azure D
 For an overview of the region pairs supported by native replication, see [cross-region replication](../postgresql/concepts-read-replicas.md#cross-region-replication).
 
 
-## Relocation strategies
-
-To relocate Azure PostgreSQL database to a new region, you can choose to [redeploy without data migration](#redeploy-without-data-migration) or [redeploy with data migration](#redeploy-with-data-migration) strategies. 
-
 **Azure Resource Mover** doesn't support moving services used by the Azure Database for PostgreSQL. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
-
-## Redeploy without data migration
-
-A simple redeployment without data or configuration for Azure Database for PostgreSQL has minimal downtime due to its low complexity.
-
-**To redeploy your PostgreSQL server without configuration or data:**
-
-1. Export your PostgreSQL Server's existing configuration into an [ARM template](/azure/templates/microsoft.dbforpostgresql/flexibleservers?pivots=deployment-language-arm-template). 
-
-1. Adjust template parameters to match the destination region.
-  >[!IMPORTANT]
-  >The target server must be different from source server name. You must reconfigure clients to point to the new server.
-
-1. Redeploy the template to the new region. For an example of how to use an ARM template to create an Azure Database for PostgreSQL, see [Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/quickstart-create-server-arm-template?tabs=portal%2Cazure-portal).
-  
-
-## Redeploy with data migration
-
-In this section you learn how to redeploy your data and source server to the target server, using the same configuration of the source server. 
-
-Configuration includes, but is not limited to:
-
-- Network
-- Administrator name
-- SKU
-- Server settings
-- Extensions
-- Backup
-- Maintenance
-- High availability 
-
-
->[!TIP]
->you can use Azure portal to move an Azure Database for PostgreSQL - Single Server. To learn how to perform replication for Single Server, see [Move an Azure Database for Azure Database for PostgreSQL - Single Server to another region by using the Azure portal](/azure/postgresql/single-server/how-to-move-regions-portal).
 
 ### Prerequisites
 
-- To relocate PostgreSQL from one region to another, you must have an additional compute resource to run the backup and restore tools. The examples in this guide use an Azure VM running Ubuntu 20.04 LTS. The compute resources must:
+Prerequisites only apply to [redeployment with data](#redeploy-with-data). To move your database without data you can skip to [Redeploy without data](#redeploy-without-data).
+
+- To relocate PostgreSQL with data from one region to another, you must have an additional compute resource to run the backup and restore tools. The examples in this guide use an Azure VM running Ubuntu 20.04 LTS. The compute resources must:
   - Have network access to both the source and the target server, either on a private network or by inclusion in the firewall rules.
   - Be located in either the source or target region.
   - Use [Accelerated Networking](/azure/virtual-network/accelerated-networking-overview) (if available).
@@ -72,21 +36,41 @@ Configuration includes, but is not limited to:
     - [Azure Private Link](./relocation-private-link.md)
     - [Virtual Network](./relocation-virtual-network.md)
     - [Network Peering](/azure/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks)
+    - 
+## Prepare
+
+To get started, export a Resource Manager template. This template contains settings that describe your Automation namespace.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **All resources** and then select your Automation resource.
+3. Select **Export template**. 
+4. Choose **Download** in the **Export template** page.
+5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
+
+   This zip file contains the .json files that include the template and scripts to deploy the template.
 
 
-### Redeploy your PostgreSQL server with data migration
+## Redeploy without data
 
-Redeployment with data migration for Azure Database for PostgreSQL is based on logical backup and restore and requires the use of native tools. As a result, you can expect noticeable downtime during restoration.
+1. Adjust the exported template parameters to match the destination region.
 
-**To redeploy your PostgreSQL server with configuration or data:**
-
-1. Export your PostgreSQL Server's existing configuration into an [ARM template](/azure/templates/microsoft.dbforpostgresql/flexibleservers?pivots=deployment-language-arm-template). 
-1. Adjust template parameters to match the destination region.
   >[!IMPORTANT]
-  >The target server name must be different from source server name. You must reconfigure clients to point to the new server.
+  >The target server must be different from source server name. You must reconfigure clients to point to the new server.
+
 1. Redeploy the template to the new region. For an example of how to use an ARM template to create an Azure Database for PostgreSQL, see [Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/quickstart-create-server-arm-template?tabs=portal%2Cazure-portal).
   
 
+## Redeploy with data
+
+Redeployment with data migration for Azure Database for PostgreSQL is based on logical backup and restore and requires the use of native tools. As a result, you can expect noticeable downtime during restoration.
+
+>[!TIP]
+>you can use Azure portal to relocate an Azure Database for PostgreSQL - Single Server. To learn how to perform replication for Single Server, see [Move an Azure Database for Azure Database for PostgreSQL - Single Server to another region by using the Azure portal](/azure/postgresql/single-server/how-to-move-regions-portal).
+
+1. Adjust the exported template parameters to match the destination region.
+  >[!IMPORTANT]
+  >The target server name must be different from source server name. You must reconfigure clients to point to the new server.
+1. Redeploy the template to the new region. For an example of how to use an ARM template to create an Azure Database for PostgreSQL, see [Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/quickstart-create-server-arm-template?tabs=portal%2Cazure-portal).
 
 1. On the compute resource provisioned for the migration, install the PostgreSQL client tools for the PostgreSQL version to be migrated. The following example uses PostgreSQL version 13 on an Azure VM that runs Ubuntu 20.04 LTS:
 
@@ -128,3 +112,9 @@ Redeployment with data migration for Azure Database for PostgreSQL is based on l
         1. Ensure that the `ignoreMissingVnetServiceEndpoint` flag is set to `False`, so that the IaC fails to deploy the database when the service endpoint isn’t configured in the target region. 
         
         
+## Validate relocation
+
+Once the relocation is complete, the Azure PostgreSQL server needs to be tested and validated. Below are some of the recommended guidelines.
+
+- Run manual or automated smoke and integration tests to ensure that configurations and dependent resources have been properly linked, and that configured data is accessible.
+- Test Azure Key Vault components and integration.
