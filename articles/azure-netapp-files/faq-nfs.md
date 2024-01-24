@@ -46,6 +46,7 @@ The same file path can be used for:
 Also, the same file path can be used for:
 * regional volumes (without availability zones).
 * volumes within the same region.
+
 For these cases (regional volumes and volumes with the same region), the file path must be unique within each delegated subnet or assigned to different delegated subnets. 
 <!-- confirm part after or -->
 
