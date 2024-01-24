@@ -125,19 +125,15 @@ items:
         items:
         - name: .NET
           items:
-            - name: ASP.NET Core
-              items:
-              - name: ASP.NET Core App Monitoring
-                displayName: Core, .NET Core, services.add, dotnetcore, c#, csharp
-                href: app/asp-net-core.md
-              - name: ILogger
-                displayName: ilogger, logging, log
-                href: app/ilogger.md
-            - name: ASP.NET
-              items:
-              - name: ASP.NET App Monitoring
-                displayName: ASP.NET, c#, csharp, .NET, NET, dotnet
-                href: app/asp-net.md
+            - name: ASP.NET Core App Monitoring
+              displayName: Core, .NET Core, services.add, dotnetcore, c#, csharp
+              href: app/asp-net-core.md
+            - name: ILogger
+              displayName: ilogger, logging, log
+              href: app/ilogger.md
+            - name: ASP.NET App Monitoring
+              displayName: ASP.NET, c#, csharp, .NET, NET, dotnet
+              href: app/asp-net.md
             - name: Non-HTTP, console, and background apps
               displayName: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
               href: app/worker-service.md
@@ -192,8 +188,6 @@ items:
           - name: Sampling
             displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
             href: app/sampling-classic-api.md
-          - name: SDK support policy
-            href: app/sdk-support-guidance.md
           - name: Statsbeat
             href: app/statsbeat.md
           - name: TelemetryProcessors
@@ -509,6 +503,8 @@ items:
         href: containers/container-insights-region-mapping.md
       - name: Transition from Container monitoring solution
         href: containers/container-insights-transition-solution.md
+    - name: Disable monitoring
+      href: containers/kubernetes-monitoring-disable.md
     - name: Configure data collection
       items:
       - name: Prometheus (metrics)
@@ -550,8 +546,6 @@ items:
           href: containers/container-insights-authentication.md
         - name: Send Prometheus metrics to Logs
           href: containers/container-insights-prometheus-logs.md
-      - name: Disable monitoring
-        href: containers/kubernetes-monitoring-disable.md
     - name: Monitor
       items:
       - name: Monitor performance
@@ -1441,8 +1435,6 @@ items:
       items:
         - name: Create a resource
           href: app/resource-manager-app-resource.md
-    - name: Container insights
-      href: containers/resource-manager-container-insights.md
     - name: Data collection rules
       href: agents/resource-manager-data-collection-rules.md
     - name: Data collection endpoints
