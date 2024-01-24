@@ -422,23 +422,25 @@ items:
     - name: Overview
       href: /rest/api/maps
     - name: Data
-      href: /rest/api/maps/data
+      href: /rest/api/maps/data?view=rest-maps-1.0
     - name: Data V2
-      href: /rest/api/maps/data-v2
+      href: /rest/api/maps/data
     - name: Data Registry
       href: /rest/api/maps/data-registry
     - name: Geolocation
       href: /rest/api/maps/geolocation
     - name: Render
-      href: /rest/api/maps/render
+      href: /rest/api/maps/render?view=rest-maps-1.0
     - name: Render V2
-      href: /rest/api/maps/render-v2
+      href: /rest/api/maps/render
     - name: Route
       href: /rest/api/maps/route
+    - name: Route V2 (Preview)
+      href: /rest/api/maps/route?view=rest-maps-2023-10-01-preview
     - name: Search
-      href: /rest/api/maps/search
+      href: /rest/api/maps/search?view=rest-maps-1.0
     - name: Search V2
-      href: /rest/api/maps/search-v2
+      href: /rest/api/maps/search
     - name: Spatial
       href: /rest/api/maps/spatial
     - name: Timezone
@@ -454,39 +456,39 @@ items:
       - name: 2023-03-01-preview
         items:
         - name: Alias
-          href: /rest/api/maps/2023-03-01-preview/alias
+          href: /rest/api/maps-creator/alias?view=rest-maps-creator-2023-03-01-preview
         - name: Conversion
-          href: /rest/api/maps/2023-03-01-preview/conversion		
+          href: /rest/api/maps-creator/conversion?view=rest-maps-creator-2023-03-01-preview	
         - name: Dataset
-          href: /rest/api/maps/2023-03-01-preview/dataset
+          href: /rest/api/maps-creator/dataset?view=rest-maps-creator-2023-03-01-preview
         - name: Feature State
-          href: /rest/api/maps/2023-03-01-preview/feature-state
+          href: /rest/api/maps-creator/feature-state?view=rest-maps-creator-2023-03-01-preview
         - name: Features
-          href: /rest/api/maps/2023-03-01-preview/features
+          href: /rest/api/maps-creator/features?view=rest-maps-creator-2023-03-01-preview
         - name: Map configuration
-          href: /rest/api/maps/2023-03-01-preview/map-configuration
+          href: /rest/api/maps-creator/map-configuration?view=rest-maps-creator-2023-03-01-preview
         - name: Routeset
-          href: /rest/api/maps/2023-03-01-preview/routeset
+          href: /rest/api/maps-creator/routeset?view=rest-maps-creator-2023-03-01-preview
         - name: Style
-          href: /rest/api/maps/2023-03-01-preview/style
+          href: /rest/api/maps-creator/style?view=rest-maps-creator-2023-03-01-preview
         - name: Tileset
-          href: /rest/api/maps/2023-03-01-preview/tileset
+          href: /rest/api/maps-creator/tileset?view=rest-maps-creator-2023-03-01-preview
         - name: Wayfinding
-          href: /rest/api/maps/2023-03-01-preview/wayfinding
+          href: /rest/api/maps-creator/wayfinding?view=rest-maps-creator-2023-03-01-preview
       - name: V2
         items:
           - name: Alias
-            href: /rest/api/maps/v2/alias
+            href: /rest/api/maps-creator/alias
           - name: Conversion
-            href: /rest/api/maps/v2/conversion
+            href: /rest/api/maps-creator/conversion
           - name: Dataset
-            href: /rest/api/maps/v2/dataset
+            href: /rest/api/maps-creator/dataset
           - name: Feature State
-            href: /rest/api/maps/v2/feature-state
+            href: /rest/api/maps-creator/feature-state
           - name: Tileset
-            href: /rest/api/maps/v2/tileset
+            href: /rest/api/maps-creator/tileset
           - name: WFS
-            href: /rest/api/maps/v2/wfs
+            href: /rest/api/maps-creator/wfs
     - name: Maps account management
       href: /rest/api/maps-management/
   - name: JavaScript

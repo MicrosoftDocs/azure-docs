@@ -293,7 +293,7 @@ Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
 $result.Error -join "`r`n"
 ```
 
-## Next steps
+## Related content
 See other supported control flow activities: 
 
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)

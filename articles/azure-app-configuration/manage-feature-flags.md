@@ -3,7 +3,6 @@ title: "Tutorial: Use Azure App Configuration to manage feature flags"
 titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to manage feature flags separately from your application by using Azure App Configuration.
 services: azure-app-configuration
-documentationcenter: ''
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: tutorial

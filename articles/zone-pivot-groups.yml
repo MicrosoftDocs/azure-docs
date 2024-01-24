@@ -382,12 +382,12 @@ groups:
     title: Java
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-typescript
-    title: TypeScript
   - id: programming-language-powershell
     title: PowerShell
   - id: programming-language-python
     title: Python
+  - id: programming-language-typescript
+    title: TypeScript
 - id: programming-languages-set-functions-temp
   title: Programming languages
   prompt: Choose a programming language
@@ -659,8 +659,8 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
-  - id: programming-language-cpp
-    title: C++
+  - id: programming-language-javascript
+    title: JavaScript
   - id: programming-language-rest-api
     title: REST API
 - id: programming-languages-vision-40-sdk
@@ -673,8 +673,8 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
-  - id: programming-language-cpp
-    title: C++
+  - id: programming-language-javascript
+    title: JavaScript
 - id: programming-languages-ocr
   title: Programming languages
   prompt: Choose a programming language.
@@ -969,6 +969,15 @@ groups:
     title: REST
   - id: speech-cli
     title: CLI
+- id: speech-studio-rest
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a tool or API
+  pivots:
+  - id: speech-studio
+    title: Speech Studio
+  - id: rest-api
+    title: REST
 - id: speech-cli-rest
 # Owner: eur
   title: Programming languages
@@ -1059,6 +1068,15 @@ groups:
     title: Scala
   - id: programming-language-csharp
     title: C#
+- id: programming-languages-spark-all-minus-sql-r-csharp
+# Owner: sidandrews
+  title: Programming languages
+  prompt: Choose a language
+  pivots:
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-scala
+    title: Scala
 - id: aml-control-methods
   # Owner: gopalv
   title: Azure Machine Learning control plane
@@ -1173,6 +1191,16 @@ groups:
     title: Linux
   - id: platform-windows
     title: Windows
+- id: app-service-platform-windows-linux-windows-container
+  title: App Service platform
+  prompt: Choose a hosting platform
+  pivots:
+  - id: platform-linux
+    title: Linux
+  - id: platform-windows
+    title: Windows
+  - id: platform-windows-container
+    title: Windows container
 # Owner: msangapu
 - id: app-service-portal-azd
   title: App Service deployment method
@@ -1838,6 +1866,8 @@ groups:
     title: Go
   - id: programming-language-java
     title: Java
+  - id: programming-language-spring
+    title: Spring
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-python
@@ -1885,6 +1915,15 @@ groups:
     title: Python
   - id: rest-api
     title: REST
+# Owner: mbullwin
+- id: openai-embeddings
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-powershell
+    title: PowerShell
 # Owner: aahi
 - id: openai-use-your-data
   title: Programming languages
@@ -1894,6 +1933,8 @@ groups:
     title: Studio
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-spring
+    title: Spring
   - id: programming-language-javascript
     title: JavaScript 
   - id: programming-language-python
@@ -1925,6 +1966,15 @@ groups:
     title: PowerShell
   - id: rest-api
     title: REST (DALL-E 3)
+# Owner: pafarley
+- id: openai-quickstart-gpt-v
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: rest-api
+    title: REST
 # Owner: mbullwin
 - id: openai-whisper
   title: Programming languages
@@ -1973,8 +2023,19 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
-- id: azure-maps-android
+
+# Owner: farazgis
+- id: azure-maps-coverage
+  title: Azure Maps coverage
+  prompt: Choose the API version
+  pivots:
+  - id: route-v1
+    title: Route
+  - id: route-v2
+    title: Route v2
+
 # Owner: richbrun
+- id: azure-maps-android
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -2048,7 +2109,7 @@ groups:
 # Owner: Brendanc
 - id: drawing-package-version
   title: Creator drawing package
-  prompt: Choose a drawing package Version
+  prompt: Choose a drawing package version
   pivots:
   - id: drawing-package-v1
     title: drawing package 1.0
@@ -2424,10 +2485,10 @@ groups:
   pivots:
   - id: sc-enterprise
     title: Enterprise
-  - id: sc-consumption-plan
-    title: Standard consumption and dedicated (Preview)
   - id: sc-standard
     title: Basic/Standard
+  - id: sc-consumption-plan
+    title: Standard consumption and dedicated (Preview)
 ########### BEGIN APPLICATION MANAGEMENT
 # Service:       Active Directory (active-directory)
 # Sub-service:   APPLICATION MANAGEMENT(manage-apps)
@@ -2867,6 +2928,23 @@ groups:
     title: Azure Developer CLI
   - id: local
     title: Local
+# Owner: sidandrews
+- id: azure-cosmos-db-quickstart-env
+  title: Azure Cosmos DB Quickstart environment
+  prompt: Choose a development environment
+  pivots:
+  - id: devcontainer-codespace
+    title: GitHub Codespaces
+  - id: devcontainer-vscode
+    title: Visual Studio Code
+- id: azure-virtual-network-manager-quickstart-options
+  title: Azure Virtual Network Manager Quickstart Scope Options
+  prompt: Choose a scope option
+  pivots:
+  - id: mgmt-grp
+    title: Management group
+  - id: sub
+    title: Subscription
 # Owner: accledgerdevs
 - id: azure-confidential-ledger-programming-languages
   title: Programming languages

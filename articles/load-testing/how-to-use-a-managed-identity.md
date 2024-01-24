@@ -12,9 +12,9 @@ ms.topic: how-to
 
 # Use managed identities for Azure Load Testing
 
-This article shows how to create a managed identity for Azure Load Testing. You can use a managed identity to securely access other Azure resources. For example, you use a managed identity to read secrets or certificates from Azure Key Vault in your load test.
+This article shows how to create a managed identity for Azure Load Testing. You can use a managed identity to securely read secrets or certificates from Azure Key Vault in your load test.
 
-A managed identity from Microsoft Entra ID allows your load testing resource to easily access other Microsoft Entra protected resources, such as Azure Key Vault. The identity is managed by the Azure platform and doesn't require you to manage or rotate any secrets. For more information about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
+A managed identity from Microsoft Entra ID allows your load testing resource to easily access Microsoft Entra protected Azure Key Vault. The identity is managed by the Azure platform and doesn't require you to manage or rotate any secrets. For more information about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
 
 Azure Load Testing supports two types of identities:
 

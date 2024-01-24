@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Share insights with non-technical business stakeholders by exporting a PDF Responsible AI scorecard from Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: enterprise-readiness
+ms.subservice: rai
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki

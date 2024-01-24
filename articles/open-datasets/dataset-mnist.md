@@ -35,8 +35,6 @@ Four files are available in the container directly:
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azureml-opendatasets&registryId=mnist -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azureml-opendatasets&registryId=mnist)**.
 
 ### Load MNIST into a data frame using Azure Machine Learning tabular datasets. 
 For more information on Azure Machine Learning datasets, see [Create Azure Machine Learning datasets](../machine-learning/v1/how-to-create-register-datasets.md). 
@@ -155,8 +153,6 @@ if sys.platform == 'linux':
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=mnist -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=mnist)**.
 
 ```python
 %matplotlib inline
@@ -235,8 +231,6 @@ plt.show()
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureDatabricks&package=azureml-opendatasets&registryId=mnist -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureDatabricks&package=azureml-opendatasets&registryId=mnist)**.
 
 ### Load MNIST into a data frame using Azure Machine Learning tabular datasets. 
 For more information on Azure Machine Learning datasets, see [Create Azure Machine Learning datasets](../machine-learning/v1/how-to-create-register-datasets.md). 

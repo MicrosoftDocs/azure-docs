@@ -207,6 +207,6 @@ The following articles help you get started using the Standard consumption and d
 > [!div class="nextstepaction"]
 > [Quickstart: Deploy your first application to Azure Spring Apps](quickstart.md)
 
-Samples are available on GitHub. See [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/).
+Samples are available on GitHub. See [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/).
 
 For feature updates about Azure Spring Apps, see [Azure updates](https://azure.microsoft.com/updates/?query=spring).

@@ -10,7 +10,7 @@ ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
-# Register and authorize spacecraft
+# Create and authorize a spacecraft resource
 
 To contact a satellite, it must be registered and authorized as a spacecraft resource with Azure Orbital Ground Station.
 
@@ -24,17 +24,15 @@ To contact a satellite, it must be registered and authorized as a spacecraft res
      - [KSAT Lite](https://azuremarketplace.microsoft.com/marketplace/apps/kongsbergsatelliteservicesas1657024593438.ksatlite?exp=ubp8&tab=Overview)
      - [Viasat RTE](https://azuremarketplace.microsoft.com/marketplace/apps/viasatinc1628707641775.viasat-real-time-earth?tab=overview)
 
-## Sign in to Azure
-
-Sign in to the [Azure portal](https://aka.ms/orbital/portal).
-
 ## Create a spacecraft resource
 
 Create a [spacecraft resource](spacecraft-object.md) as a representation of your satellite in Azure.
 
-1. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
-2. In the **Spacecraft** page, select Create.
-3. In **Create spacecraft resource**, enter or select this information in the Basics tab:
+### Azure portal method
+1. Sign in to the [Azure portal](https://aka.ms/orbital/portal).
+2. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
+3. In the **Spacecraft** page, click **Create**.
+4. In **Create spacecraft resource**, enter or select this information in the Basics tab:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -48,16 +46,16 @@ Create a [spacecraft resource](spacecraft-object.md) as a representation of your
    | TLE line 2 | Enter TLE line 2 |
    
    > [!NOTE]
-   > TLE stands for Two-Line Element. 
-   > Be sure to update this TLE value before you schedule a contact. A TLE that is more than two weeks old might result in an unsuccessful downlink.
+   > TLE stands for [Two-Line Element](spacecraft-object.md#ephemeris).
+   > Be sure to update this TLE value before you schedule a contact. A TLE that's more than two weeks old might result in an unsuccessful downlink.
 
    > [!NOTE]
    > Spacecraft resources can be created in any Azure region with a Microsoft ground station and can schedule contacts on any ground station. Current eligible Azure regions are West US 2, Sweden Central, Southeast Asia, Brazil South, and South Africa North.
 
    :::image type="content" source="media/orbital-eos-register-bird.png" alt-text="Register Spacecraft Resource Page" lightbox="media/orbital-eos-register-bird.png":::
 
-4. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page.
-5. In the **Links** page, enter or select this information:
+5. Click the **Links** tab, or click the **Next: Links** button at the bottom of the page.
+6. In the **Links** page, enter or select this information:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -68,12 +66,16 @@ Create a [spacecraft resource](spacecraft-object.md) as a representation of your
 
    :::image type="content" source="media/orbital-eos-register-links.png" alt-text="Spacecraft Links Resource Page" lightbox="media/orbital-eos-register-links.png":::
 
-6. Select the **Review + create** tab, or select the **Review + create** button.
-7. Select **Create**
+7. Click the **Review + create** tab, or click the **Review + create** button.
+8. Click **Create**.
+
+### API method
+
+Use the Spacecrafts REST Operation Group to [create a spacecraft resource](/rest/api/orbital/azureorbitalgroundstation/spacecrafts/create-or-update/) in the Azure Orbital Ground Station API.
 
 ## Request authorization of the new spacecraft resource
 
-Submit a spacecraft authorization request in order to schedule [contacts](concepts-contact.md) with your new spacecraft resource at applicable ground station sites. 
+Submit a spacecraft authorization request in order to schedule [contacts](concepts-contact.md) with your new spacecraft resource at applicable ground station sites.
 
    > [!NOTE]
    > A [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher is required to submit a spacecraft authorization request.
@@ -83,9 +85,10 @@ Submit a spacecraft authorization request in order to schedule [contacts](concep
    > 
    > **Public spacecraft**: licensing is not required for authorization. The Azure Orbital Ground Station service supports several public satellites including Aqua, Suomi NPP, JPSS-1/NOAA-20, and Terra.
 
-1. Navigate to the newly created spacecraft resource's overview page.
-2. Select **New support request** in the Support + troubleshooting section of the left-hand blade.
-3. In the **New support request** page, enter or select this information in the Basics tab:
+1. Sign in to the [Azure portal](https://aka.ms/orbital/portal).
+2. Navigate to the newly created spacecraft resource's overview page.
+3. Click **New support request** in the Support + troubleshooting section of the left-hand blade.
+4. In the **New support request** page, enter or select the following information in the Basics tab:
 
 | **Field** | **Value** |
 | --- | --- |
@@ -97,8 +100,8 @@ Submit a spacecraft authorization request in order to schedule [contacts](concep
 | Problem type |	Select **Spacecraft Management and Setup** |
 | Problem subtype |	Select **Spacecraft Registration** |
 
-4. Select the Details tab at the top of the page
-5. In the Details tab, enter this information in the Problem details section:
+4. Click the **Details** tab at the top of the page.
+5. In the Details tab, enter the following information in the **problem details section**:
 
 | **Field** | **Value** |
 | --- | --- |
@@ -109,15 +112,15 @@ Submit a spacecraft authorization request in order to schedule [contacts](concep
 | File upload | Upload any **pertinent licensing material**, if applicable. |
 
 6. Complete the **Advanced diagnostic information** and **Support method** sections of the **Details** tab.
-7. Select the **Review + create** tab, or select the **Review + create** button.
-8. Select **Create**.
+7. Click the **Review + create** tab, or click the **Review + create** button.
+8. Click **Create**.
 
-After the spacecraft authorization request is submitted, the Azure Orbital Ground Station team will review the request and authorize the spacecraft resource at relevant ground stations according to the licenses. Authorization requests for public satellites will be quickly approved.
+After the spacecraft authorization request is submitted, the Azure Orbital Ground Station team reviews the request and authorizes the spacecraft resource at relevant ground stations according to the licenses. Authorization requests for public satellites will be quickly approved.
 
 ## Confirm spacecraft is authorized
 
-1. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
-2. In the **Spacecraft** page, select the newly registered spacecraft.
+1. In the Azure portal search box, enter **Spacecrafts**. Select **Spacecrafts** in the search results.
+2. In the **Spacecraft** page, click the newly registered spacecraft.
 3. In the new spacecraft's overview page, check that the **Authorization status** shows **Allowed**.
 
 ## Next steps

@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 09/15/2023
+ms.date: 01/17/2024
 ms.author: radeltch
 ---
 
@@ -44,13 +44,13 @@ This article describes how to deploy and configure Azure virtual machines (VMs),
 * [NFS on Azure Files](../../storage/files/files-nfs-protocol.md).
 * [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md).
 
-The simple mount configuration is expected to be the [default](https://documentation.suse.com/sbp/sap/single-html/SAP-S4HA10-setupguide-simplemount-sle15/#id-introduction) for new implementations on SLES for SAP Applications 15.
+The simple mount configuration is expected to be the default for new implementations on SLES for SAP Applications 15.
 
 ## Prerequisites  
 
 The following guides contain all the required information to set up a NetWeaver HA system:
 
-* [SAP S/4 HANA - Enqueue Replication 2 High Availability Cluster With Simple Mount](https://documentation.suse.com/sbp/sap/html/SAP-S4HA10-setupguide-simplemount-sle15/index.html)
+* [SAP S/4 HANA - Enqueue Replication 2 High Availability Cluster With Simple Mount](https://documentation.suse.com/sbp/sap-15/html/SAP-S4HA10-setupguide-sle15/index.html)
 * [Use of Filesystem resource for ABAP SAP Central Services (ASCS)/ERS HA setup not possible](https://www.suse.com/support/kb/doc/?id=000019944)
 * SAP Note [1928533][1928533], which has:  
   * A list of Azure VM sizes that are supported for the deployment of SAP software
@@ -101,50 +101,42 @@ The example configurations and installation commands use the following instance 
 
 ## Prepare the infrastructure
 
-This article assumes that you've already deployed an [Azure virtual network](../../virtual-network/virtual-networks-overview.md), subnet, and resource group. To prepare the rest of your infrastructure:
+The resource agent for SAP Instance is included in SUSE Linux Enterprise Server for SAP Applications. An image for SUSE Linux Enterprise Server for SAP Applications 12 or 15 is available in Azure Marketplace. You can use the image to deploy new VMs.
 
-1. Deploy your VMs. You can deploy VMs in availability sets or in availability zones, if the Azure region supports these options.
-   > [!IMPORTANT]
-   > If you need additional IP addresses for your VMs, deploy and attach a second network interface controller (NIC). Don't add secondary IP addresses to the primary NIC. [Azure Load Balancer Floating IP doesn't support this scenario](../../load-balancer/load-balancer-multivip-overview.md#limitations).
-2. For your virtual IPs, deploy and configure an [Azure load balancer](../../load-balancer/load-balancer-overview.md). We recommend that you use a [Standard load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).
-   1. Create front-end IP address 10.27.0.9 for the ASCS instance:
-      1. Open the load balancer, select **Frontend IP pool**, and then select **Add**.
-      2. Enter the name of the new front-end IP pool (for example, **frontend.NW1.ASCS**).
-      3. Set **Assignment** to **Static** and enter the IP address (for example, **10.27.0.9**).
-      4. Select **OK**.
-   2. Create front-end IP address 10.27.0.10 for the ERS instance:  
-      * Repeat the preceding steps to create an IP address for ERS (for example, **10.27.0.10** and **frontend.NW1.ERS**).
-   3. Create a single back-end pool:
-      1. Open the load balancer, select **Backend pools**, and then select **Add**.
-      2. Enter the name of the new back-end pool (for example, **backend.NW1**).
-      3. Select **NIC** for Backend Pool Configuration.
-      4. Select **Add a virtual machine**.
-      5. Select the virtual machines of the ASCS cluster.
-      6. Select **Add**.
-      7. Select **Save**.
-   4. Create a health probe for port 62000 for ASCS:
-      1. Open the load balancer, select **Health probes**, and then select **Add**.
-      2. Enter the name of the new health probe (for example, **health.NW1.ASCS**).
-      3. Select **TCP** as the protocol and **62000** as the port. Keep the interval of **5**.  
-      4. Select **Add**.
-   5. Create a health probe for port 62101 for the ERS instance:  
-      * Repeat the preceding steps to create a health probe for ERS (for example, **62101** and **health.NW1.ERS**).
-   6. Create load-balancing rules for ASCS:
-      1. Open the load balancer, select **Load-balancing rules**, and then select **Add**.
-      2. Enter the name of the new load-balancing rule (for example, **lb.NW1.ASCS**).
-      3. Select the front-end IP address for ASCS, back-end pool, and health probe that you created earlier (for example, **frontend.NW1.ASCS**, **backend.NW1**, and **health.NW1.ASCS**).
-      4. Increase idle timeout to 30 minutes
-      5. Select **HA ports**.
-      6. Enable Floating IP.
-      7. Select **OK**.
-   7. Create load-balancing rules for ERS:
-      * Repeat the preceding steps to create load-balancing rules for ERS (for example, **lb.NW1.ERS**).
+### Deploy Linux VMs manually via Azure portal
+
+This document assumes that you've already deployed a resource group, [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md), and subnet.
+
+Deploy virtual machines with SLES for SAP Applications image. Choose a suitable version of SLES image that is supported for SAP system. You can deploy VM in any one of the availability options - virtual machine scale set, availability zone, or availability set.
+
+### Configure Azure load balancer
+
+During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow the steps below to configure a standard load balancer for the high-availability setup of SAP ASCS and SAP ERS.
+
+#### [Azure portal](#tab/lb-portal)
+
+[!INCLUDE [Configure Azure standard load balancer using Azure portal](../../../includes/sap-load-balancer-ascs-ers-portal.md)]
+
+#### [Azure CLI](#tab/lb-azurecli)
+
+[!INCLUDE [Configure Azure standard load balancer using Azure CLI](../../../includes/sap-load-balancer-ascs-ers-azurecli.md)]
+
+#### [PowerShell](#tab/lb-powershell)
+
+[!INCLUDE [Configure Azure standard load balancer using PowerShell](../../../includes/sap-load-balancer-ascs-ers-powershell.md)]
+
+---
+
+> [!IMPORTANT]
+> A floating IP address isn't supported on a network interface card (NIC) secondary IP configuration in load-balancing scenarios. For details, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
 
 > [!NOTE]
 > When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity unless you perform additional configuration to allow routing to public endpoints. For details on how to achieve outbound connectivity, see [Public endpoint connectivity for virtual machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+>
+> * Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+> * To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
 
 ## Deploy NFS
 
@@ -652,7 +644,9 @@ The instructions in this section are applicable only if you're using Azure NetAp
 
 10. **[1]** Create the SAP cluster resources.
 
-    If you're using an ENSA1 architecture, define the resources as follows.
+    Depending on whether you are running an ENSA1 or ENSA2 system, select respective tab to define the resources. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
+
+    #### [ENSA1](#tab/ensa1)
 
     ```bash
     sudo crm configure property maintenance-mode="true"
@@ -706,14 +700,12 @@ The instructions in this section are applicable only if you're using Azure NetAp
     sudo crm configure property maintenance-mode="false"
     ```
 
-    SAP introduced support for [ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
+    #### [ENSA2](#tab/ensa2)
 
     > [!NOTE]
     > If you have a two-node cluster running ENSA2, you have the option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resoure priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
     >
-    > The property priority-fencing-delay is only applicable for ENSA2 running on two-node cluster. For more information, see [Enqueue Replication 2 High Availability cluster with simple mount](https://documentation.suse.com/sbp/sap/html/SAP-S4HA10-setupguide-simplemount-sle15/index.html#multicluster)
-
-    If you're using an ENSA2 architecture, define the resources as follows.
+    > The property priority-fencing-delay is only applicable for ENSA2 running on two-node cluster. For more information, see [Enqueue Replication 2 High Availability cluster with simple mount](https://documentation.suse.com/sbp/sap-15/html/SAP-S4HA10-setupguide-sle15/index.html#multicluster)
 
     ```bash
     sudo crm configure property maintenance-mode="true"
@@ -764,26 +756,28 @@ The instructions in this section are applicable only if you're using Azure NetAp
     sudo crm configure property maintenance-mode="false"
     ```
 
-    If you're upgrading from an older version and switching to ENSA2, see SAP Note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
+    ---
 
-    Make sure that the cluster status is OK and that all resources are started. It isn't important which node the resources are running on.
+If you're upgrading from an older version and switching to ENSA2, see SAP Note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
 
-    ```bash
-    sudo crm_mon -r
-    # Full list of resources:
-    # 
-    # stonith-sbd     (stonith:external/sbd): Started sap-cl2
-    #  Resource Group: g-NW1_ASCS
-    #      nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started sap-cl1
-    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started sap-cl1
-    #      rsc_sapstartsrv_NW1_ASCS00 (ocf::suse:SAPStartSrv):        Started sap-cl1
-    #      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started sap-cl1
-    #  Resource Group: g-NW1_ERS
-    #      nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started sap-cl2
-    #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started sap-cl2
-    #      rsc_sapstartsrv_NW1_ERS01  (ocf::suse:SAPStartSrv):        Started sap-cl2
-    #      rsc_sap_NW1_ERS01  (ocf::heartbeat:SAPInstance):   Started sap-cl1
-    ```
+Make sure that the cluster status is OK and that all resources are started. It isn't important which node the resources are running on.
+
+```bash
+sudo crm_mon -r
+# Full list of resources:
+# 
+# stonith-sbd     (stonith:external/sbd): Started sap-cl2
+#  Resource Group: g-NW1_ASCS
+#      nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started sap-cl1
+#      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started sap-cl1
+#      rsc_sapstartsrv_NW1_ASCS00 (ocf::suse:SAPStartSrv):        Started sap-cl1
+#      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started sap-cl1
+#  Resource Group: g-NW1_ERS
+#      nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started sap-cl2
+#      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started sap-cl2
+#      rsc_sapstartsrv_NW1_ERS01  (ocf::suse:SAPStartSrv):        Started sap-cl2
+#      rsc_sap_NW1_ERS01  (ocf::heartbeat:SAPInstance):   Started sap-cl1
+```
 
 ## Prepare the SAP application server
 

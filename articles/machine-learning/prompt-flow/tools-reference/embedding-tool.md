@@ -1,7 +1,7 @@
 ---
 title: Embedding tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
-description: Prompt flow embedding tool uses OpenAI's embedding models to convert text into dense vector representations for various NLP tasks.
+description: The prompt flow embedding tool uses OpenAI's embedding models to convert text into dense vector representations for various natural language processing tasks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
@@ -15,47 +15,46 @@ ms.date: 11/02/2023
 ---
 
 # Embedding tool
-OpenAI's embedding models convert text into dense vector representations for various NLP tasks. See the [OpenAI Embeddings API](https://platform.openai.com/docs/api-reference/embeddings) for more information.
+
+OpenAI's embedding models convert text into dense vector representations for various natural language processing tasks. For more information, see the [OpenAI Embeddings API](https://platform.openai.com/docs/api-reference/embeddings).
 
 ## Prerequisites
+
 Create OpenAI resources:
 
-- **OpenAI**
+- **OpenAI**:
 
-    Sign up account [OpenAI website](https://openai.com/)
-    Login and [Find personal API key](https://platform.openai.com/account/api-keys)
+    - Sign up your account on the [OpenAI website](https://openai.com/).
+    - Sign in and [find your personal API key](https://platform.openai.com/account/api-keys).
 
-- **Azure OpenAI (AOAI)**
+- **Azure OpenAI Service**:
 
-    Create Azure OpenAI resources with [instruction](../../../ai-services/openai/how-to/create-resource.md)
+    Create Azure OpenAI resources with [these instructions](../../../ai-services/openai/how-to/create-resource.md).
 
-## **Connections**
+## Connections
 
-Set up connections to provide resources in embedding tool.
+Set up connections to provide resources in the embedding tool.
 
-| Type        | Name     | API KEY  | API Type | API Version |
+| Type        | Name     | API key  | API type | API version |
 |-------------|----------|----------|----------|-------------|
 | OpenAI      | Required | Required | -        | -           |
 | AzureOpenAI | Required | Required | Required | Required    |
-
 
 ## Inputs
 
 |  Name                  | Type        | Description                                                           | Required |
 |------------------------|-------------|-----------------------------------------------------------------------|----------|
-| input                  | string      | the input text to embed                                               | Yes      |
-| connection             | string      | the connection for the embedding tool use to provide resources         | Yes      |
-| model/deployment_name  | string      | instance of the text-embedding engine to use. Fill in model name if you use OpenAI connection, or deployment name if use Azure OpenAI connection.    | Yes      |
-
-
+| input                  | string      | Input text to embed.                                               | Yes      |
+| connection             | string      | Connection for the embedding tool used to provide resources.         | Yes      |
+| model/deployment_name  | string      | Instance of the text-embedding engine to use. Fill in the model name if you use an OpenAI connection. Insert the deployment name if you use an Azure OpenAI connection.    | Yes      |
 
 ## Outputs
 
-| Return Type | Description                              |
+| Return type | Description                              |
 |-------------|------------------------------------------|
-| list        | The vector representations for inputs    |
+| list        | Vector representations for inputs    |
 
-There is an example response returned by the embedding tool:
+Here's an example response that the embedding tool returns:
 
 <details>
   <summary>Output</summary>

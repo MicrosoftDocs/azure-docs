@@ -1,14 +1,14 @@
 ---
-title: NSG flow logs
+title: NSG flow logs overview
 titleSuffix: Azure Network Watcher
 description: Learn about NSG flow logs feature of Azure Network Watcher, which allows you to log information about IP traffic flowing through a network security group.
 ms.author: halkazwini
 author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 11/28/2023
+ms.date: 01/17/2024
 
-#CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can monitor my network and optimize its performance.
+#CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can log my network traffic to analyze and optimize the network performance.
 ---
 
 # Flow logging for network security groups
@@ -466,17 +466,17 @@ When you delete a network security group, the associated flow log resource is de
 ### Storage account
 
 - **Location**: The storage account must be in the same region as the network security group.
-- **Subscription**: The storage account must be in a subscription associated with the same Microsoft Entra tenant as the network security group's subscription.
+- **Subscription**: The storage account must be in the same subscription of the network security group or in a subscription associated with the same Microsoft Entra tenant of the network security group's subscription.
 - **Performance tier**: The storage account must be standard. Premium storage accounts aren't supported.
 - **Self-managed key rotation**: If you change or rotate the access keys to your storage account, NSG flow logs stop working. To fix this problem, you must disable and then re-enable NSG flow logs.
 
 ### Cost
 
-NSG flow logging is billed on the volume of logs produced. High traffic volume can result in large-flow log volume and the associated costs.
+NSG flow logging is billed on the volume of logs produced. High traffic volume can result in large flow-log volume which increases the associated costs. 
 
-Pricing of NSG flow logs doesn't include the underlying costs of storage. Using the retention policy feature with NSG flow logs means incurring separate storage costs for extended periods of time.
+NSG flow log pricing doesn't include the underlying costs of storage. Using the retention policy feature with NSG flow logs means incurring separate storage costs for extended periods of time.
 
-If you want to retain data forever and don't want to apply any retention policy, set retention days to 0. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+If you want to retain data forever and don't want to apply a retention policy, set retention days to 0. For more information, see [Network Watcher Pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ### Non-default inbound TCP rules
 
@@ -558,9 +558,9 @@ This problem might be related to:
 
 ## Pricing
 
-NSG flow logs are charged per gigabyte of logs collected and come with a free tier of 5 GB/month per subscription. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
+NSG flow logs are charged per gigabyte of *Network flow logs collected* and come with a free tier of 5 GB/month per subscription. If traffic analytics is enabled with NSG flow logs, traffic analytics pricing applies at per gigabyte processing rates. Traffic analytics isn't offered with a free tier of pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
-Storage of logs is charged separately. For relevant prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Related content
 

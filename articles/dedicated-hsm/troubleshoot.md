@@ -8,7 +8,6 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.custom: "mvc, seodec18"
 ms.date: 05/12/2022

@@ -5,7 +5,7 @@ ms.service: data-lake-analytics
 ms.custom: devx-track-azurepowershell
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 12/20/2023
 ---
 
 # Adding a user in the Azure portal

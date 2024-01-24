@@ -1,7 +1,7 @@
 ---
 title: Quickstart vector search
 titleSuffix: Azure AI Search
-description: Use the generally available REST APIs to call vector search.
+description: Use the generally available REST APIs to create and query a vector store.
 
 author: HeidiSteen
 ms.author: heidist
@@ -9,31 +9,31 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
-ms.date: 11/02/2023
+ms.date: 01/19/2024
 ---
 
 # Quickstart: Vector search using REST APIs
 
 Get started with vector search in Azure AI Search using the **2023-11-01** REST APIs that create, load, and query a search index. 
 
-Search indexes can have vector fields in the fields collection. When querying the search index, you can build vector-only queries, or create hybrid queries that target vector fields *and* textual fields configured for filters, sorts, facets, and semantic ranking.
+Search indexes can have vector and nonvector fields. You can execute pure vector queries, or hybrid queries targeting both vector *and* textual fields configured for filters, sorts, facets, and semantic reranking.
 
 > [!NOTE]
-> Looking for [built-in data chunking and vectorization](vector-search-integrated-vectorization.md)? Try the [**Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) instead.
+> The stable REST API version depends on external modules for data chunking and embedding. If you want test-drive the [built-in data chunking and vectorization (public preview)](vector-search-integrated-vectorization.md) features, try the [**Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) for an end-to-end walkthrough.
 
 ## Prerequisites
 
 + [Postman app](https://www.postman.com/downloads/)
 
++ [Sample Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart-vectors), with requests targeting the **2023-11-01** API version of Azure AI Search.
+
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
 + Azure AI Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
-  For the optional [semantic ranking](semantic-search-overview.md) shown in the last example, your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
++ Optionally, for [semantic reranking](semantic-search-overview.md) shown in the last example, your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
-+ [Sample Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart-vectors), with requests targeting the **2023-11-01** API version of Azure AI Search.
-
-+ Optional. The Postman collection includes a **Generate Embedding** request that can generate vectors from text. The collection provides a ready-to-use vector, but if you want to replace it, provide an [Azure OpenAI](https://aka.ms/oai/access) endpoint with a deployment of **text-embedding-ada-002**. The step for generating a custom embedding is the only step that requires an Azure OpenAI endpoint, Azure OpenAI key, model deployment name, and API version in the collection variables.
++ Optionally, an [Azure OpenAI](https://aka.ms/oai/access) resource with a deployment of **text-embedding-ada-002**. The quickstart includes an optional step for generating new text embeddings, but we provide existing embeddings so that you can skip this step.
 
 > [!NOTE]
 > This quickstart is for the generally available version of [vector search](vector-search-overview.md). If you want to try integrated vectorization, currently in public preview, try [this quickstart](search-get-started-portal-import-vectors.md) instead.  
@@ -44,9 +44,9 @@ Sample data consists of text and vector descriptions for seven fictitious hotels
 
 + Textual data is used for keyword search, semantic ranking, and capabilities that depend on text (filters, facets, and sorting). 
 
-+ Vector data (text embeddings) is used for vector search. Currently, Azure AI Search doesn't generate vectors for you. For this quickstart, vector data was generated separately and copied into the "Upload Documents" request and into the query requests.
++ Vector data (text embeddings) is used for vector queries. Currently, Azure AI Search doesn't generate vectors for you in the generally available REST APIs and SDKs. For this quickstart, vector data was generated previously and copied into the "Upload Documents" request and into the query requests.
 
-For vector queries, we used the **Generate Embedding** request that calls Azure OpenAI and outputs embeddings for a search string. If you want to formulate your own vector queries against the sample data, provide your Azure OpenAI connection information in the Postman collection variables. Your Azure OpenAI service must have a deployment of an embedding model that's identical to the one used to generate embeddings in your search corpus. 
+To create vector query strings, we used the **Generate Embedding** request to an [Azure OpenAI](https://aka.ms/oai/access) resource. If you want to formulate your own vector queries against the sample data, provide your Azure OpenAI connection information in the Postman collection variables. Your Azure OpenAI service must have a deployment of an embedding model that's identical to the one used to generate embeddings in your search corpus. 
 
 For this quickstart, the following parameters were used: 
   
@@ -56,7 +56,7 @@ For this quickstart, the following parameters were used:
 
 ## Set up your project
 
-If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest.md) for instructions on how to import collections and set variables.
+If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest.md) for instructions on how to set collection variables and formulate REST calls.
 
 1. [Fork or clone the azure-search-postman-samples repository](https://github.com/Azure-Samples/azure-search-postman-samples).
 
@@ -79,15 +79,13 @@ If you're unfamiliar with Postman, see [this quickstart](search-get-started-rest
 
 1. Save your changes.
 
-You're now ready to send the requests to your search service. For each request, select the blue **Send** button. When you see a success message, move on to the next request.
-
 ## Create an index
 
 Use the [Create or Update Index](/rest/api/searchservice/indexes/create-or-update) REST API for this request.
 
 The index schema is organized around hotels content. Sample data consists of the names, descriptions, and locations of seven fictitious hotels. This schema includes fields for vector and traditional keyword search, with configurations for vector and semantic ranking. 
 
-The following example is a subset of the full index. We trimmed the definition so that you can focus on field definitions, vector configuration, and optional semantic configuration.
+The following example is a subset of the full index. We trimmed the definition so that you can focus on field definitions, vector configuration, and optional semantic configuration. Compare `HotelName` and `HotelNameVector` for differences in field definitions. For more information, see [Add vector fields to a search index](vector-search-how-to-create-index.md).
 
 ```http
 PUT https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version=2023-11-01
@@ -235,7 +233,7 @@ You should get a status HTTP 201 success.
 
 **Key points:**
 
-+ The `"fields"` collection includes a required key field, text and vector fields (such as `"Description"`, `"DescriptionVector"`) for keyword and vector search. Colocating vector and non-vector fields in the same index enables hybrid queries. For instance, you can combine filters, keyword search with semantic ranking, and vectors into a single query operation.
++ The `"fields"` collection includes a required key field, text and vector fields (such as `"Description"`, `"DescriptionVector"`) for keyword and vector search. Colocating vector and nonvector fields in the same index enables hybrid queries. For instance, you can combine filters, keyword search with semantic ranking, and vectors into a single query operation.
 
 + Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchProfile"` properties. See [Create or Update Index](/rest/api/searchservice/indexes/create-or-update) for property descriptions.
 
@@ -478,7 +476,7 @@ The response for the vector equivalent of "classic lodging near running trails, 
 
 ### Single vector search with filter
 
-You can add filters, but the filters are applied to the non-vector content in your index. In this example, the filter applies to the `"Tags"` field, filtering out any hotels that don't provide free WIFI.
+You can add filters, but the filters are applied to the nonvector content in your index. In this example, the filter applies to the `"Tags"` field, filtering out any hotels that don't provide free WIFI.
 
 This example sets `vectorFilterMode` to pre-query filtering, which is the default, so you don't need to set it. It's listed here for awareness because it's a newer feature.
 

@@ -80,17 +80,20 @@ This section contains the parameters related to the Azure infrastructure.
 
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                                       | Description                                                                                  | Type       |
-> | ---------------------------------------------- | -------------------------------------------------------------------------------------------- | ---------- |
-> | `custom_disk_sizes_filename`                   | Defines the disk sizing file name, See [Custom sizing](configure-extra-disks.md).            | Optional   |
-> | `disk_encryption_set_id`                       | The disk encryption key to use for encrypting managed disks by using customer-provided keys. | Optional   |
-> | `proximityplacementgroup_arm_ids`              | Specifies the Azure resource identifiers of existing proximity placement groups.             |            |
-> | `proximityplacementgroup_names`                | Specifies the names of the proximity placement groups.                                       |            |
-> | `resource_offset`                              | Provides an offset for resource naming.                                                      | Optional   |
-> | `use_loadbalancers_for_standalone_deployments` | Controls if load balancers are deployed for standalone installations                         | Optional   |
-> | `use_scalesets_for_deployment`                 | Use Flexible Virtual Machine Scale Sets for the deployment                                   | Optional   |
-> | `scaleset_id`                                  | Azure resource identifier for the virtual machine scale set                                  | Optional   |
-> | `user_assigned_identity_id                     | User assigned identity to assign to the virtual machines                                     | Optional   |
+> | Variable                                       | Description                                                                                       | Type       |
+> | ---------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------- |
+> | `app_proximityplacementgroup_arm_ids`          | Specifies the Azure resource identifiers of existing proximity placement groups for the app tier. |            |
+> | `app_proximityplacementgroup_names`            | Specifies the names of the proximity placement groups for the app tier.                           |            |
+> | `custom_disk_sizes_filename`                   | Defines the disk sizing file name, See [Custom sizing](configure-extra-disks.md).                 | Optional   |
+> | `disk_encryption_set_id`                       | The disk encryption key to use for encrypting managed disks by using customer-provided keys.      | Optional   |
+> | `proximityplacementgroup_arm_ids`              | Specifies the Azure resource identifiers of existing proximity placement groups.                  |            |
+> | `proximityplacementgroup_names`                | Specifies the names of the proximity placement groups.                                            |            |
+> | `resource_offset`                              | Provides an offset for resource naming.                                                           | Optional   |
+> | `scaleset_id`                                  | Azure resource identifier for the virtual machine scale set                                       | Optional   |
+> | `use_app_proximityplacementgroups`             | Controls if the app tier virtual machines are placed in a different ppg from the database.        | Optional   |
+> | `use_loadbalancers_for_standalone_deployments` | Controls if load balancers are deployed for standalone installations                              | Optional   |
+> | `use_scalesets_for_deployment`                 | Use Flexible Virtual Machine Scale Sets for the deployment                                        | Optional   |
+> | `user_assigned_identity_id                     | User assigned identity to assign to the virtual machines                                          | Optional   |
 
 The `resource_offset` parameter controls the naming of resources. For example, if you set the `resource_offset` to 1, the first disk will be named `disk1`. The default value is 0.
 

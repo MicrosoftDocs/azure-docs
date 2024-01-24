@@ -10,10 +10,10 @@ ms.date: 08/01/2023
 ms.author: jasteppe
 ---
 
-# How to use the MedTech service Mapping debugger
+# How to use the MedTech service Mapping debugger (Preview)
 
 > [!IMPORTANT]
-> This feature is currently in Public Preview. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This capability is currently available for Public Preview and is subject to change. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this article, learn how to use the MedTech service Mapping debugger. The Mapping debugger is a self-service tool that is used for creating, updating, and troubleshooting the MedTech service [device](overview-of-device-mapping.md) and [FHIR&reg; destination](overview-of-fhir-destination-mapping.md) mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.
 
@@ -26,7 +26,7 @@ The following video presents an overview of the Mapping debugger:
 
 ## Overview of the Mapping debugger
 
-1. To access the MedTech service's Mapping debugger, select **Mapping debugger** within your MedTech service on the Azure portal. For this article, we're using a MedTech service named **mt-azuredocsdemo**. Select your own MedTech service. From this screen, we can see the Mapping debugger is presenting the device and FHIR destination mappings associated with this MedTech service and has provided a **Validation** of those mappings.
+1. To access the MedTech service's Mapping debugger, select **Mapping debugger** within your MedTech service on the Azure portal. For this article, we're using a MedTech service named **mt-azuredocsdemo**. Select your own MedTech service. From this screen, we can see the Mapping debugger is presenting the device and FHIR destination mappings associated with this MedTech service and provides a **Validation** of those mappings.
 
    :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-main-screen.png" alt-text="Screenshot of the Mapping debugger main screen." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-main-screen.png":::
 
@@ -56,7 +56,7 @@ For this troubleshooting example, we're using a test device message that is [mes
 
    :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-with-error-details.png" alt-text="Screenshot of the Mapping debugger with error details for the device mappings warning." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-with-error-details.png":::
 
-3. We've used the suggestions provided by the Mapping debugger, and the error warnings are fixed. We're ready to select **Save** to commit our updated device and FHIR destination mappings to the MedTech service.
+3. We use the suggestions provided by the Mapping debugger, and the error warnings are now fixed. We're ready to select **Save** to commit our updated device and FHIR destination mappings to the MedTech service.
 
    :::image type="content" source="media\how-to-use-mapping-debugger\mapping-debugger-save-mappings.png" alt-text="Screenshot of the Mapping debugger and the Save button." lightbox="media\how-to-use-mapping-debugger\mapping-debugger-save-mappings.png":::
 

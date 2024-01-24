@@ -16,13 +16,9 @@ ms.custom: references_regions, build-2023, build-2023-dataai
 
 # What is Azure AI Content Safety? 
 
-[!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
-
 Azure AI Content Safety detects harmful user-generated and AI-generated content in applications and services. Azure AI Content Safety includes text and image APIs that allow you to detect material that is harmful. We also have an interactive Content Safety Studio that allows you to view, explore and try out sample code for detecting harmful content across different modalities.  
 
 Content filtering software can help your app comply with regulations or maintain the intended environment for your users.
-
-
 
 This documentation contains the following article types:  
 
@@ -112,8 +108,7 @@ For more information, see [Language support](/azure/ai-services/content-safety/l
 
 ### Region/location
 
-To use the Azure AI Content Safety APIs, you must create your Content Safety resource in the supported regions. Currently, it is available in the following Azure regions: 
-
+To use the Content Safety APIs, you must create your Azure AI Content Safety resource in the supported regions. Currently, it is available in the following Azure regions: 
 - Australia East
 - Canada East
 - Central US
@@ -128,6 +123,10 @@ To use the Azure AI Content Safety APIs, you must create your Content Safety res
 - West Europe
 - West US 2
 - Sweden Central
+
+Private preview features, such as jailbreak risk detection and protected material detection, are available in the following Azure regions:
+- East US
+- West Europe
 
 Feel free to [contact us](mailto:contentsafetysupport@microsoft.com) if you need other regions for your business.
 

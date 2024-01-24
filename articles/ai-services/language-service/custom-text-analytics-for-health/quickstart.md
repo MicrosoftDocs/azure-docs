@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: quickstart
-ms.date: 04/14/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: language-service-custom-TA4H, ignite-fall-2021, mode-other, event-tier1-build-2022
 zone_pivot_groups: usage-custom-language-features

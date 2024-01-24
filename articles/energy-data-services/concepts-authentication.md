@@ -1,6 +1,6 @@
 ---
 title: Authentication concepts in Microsoft Azure Data Manager for Energy 
-description:  This article describes the various concepts regarding the authentication in Azure Data Manager for Energy.
+description: This article describes various concepts of authentication in Azure Data Manager for Energy.
 author: shikhagarg1
 ms.author: shikhagarg
 ms.service: energy-data-services
@@ -9,20 +9,26 @@ ms.date: 02/10/2023
 ms.custom: template-concept
 ---
 
-# Authentication concepts in Azure Data Manager for Energy 
+# Authentication concepts in Azure Data Manager for Energy
 
-## Service Principals
-In the Azure Data Manager for Energy instance, 
-1. No Service Principals are created. 
-2. The app-id is used for API access. The same app-id is used to provision ADME instance.
-3. The app-id doesn't have access to infrastructure resources. 
-4. The app-id also gets added as OWNER to all OSDU groups by default. 
-5. For service-to-service (S2S) communication, ADME uses MSI (msft service identity).
+Authentication confirms the identity of users. The access flows can be user triggered, system triggered, or system API communication. In this article, you learn about service principals and authorization tokens.
 
-In the OSDU instance, 
-1. Terraform scripts create two Service Principals: 
-2. The first Service Principal is used for API access. It can also manage infrastructure resources. 
-3. The second Service Principal is used for service-to-service (S2S) communications. 
+## Service principals
 
-## Refresh Auth Token
-You can refresh the authorization token using the steps outlined in [Generate a refresh token](how-to-generate-refresh-token.md). 
+In an Azure Data Manager for Energy instance:
+
+- No service principals are created.
+- The app ID is used for API access. The same app ID is used to provision an Azure Data Manager for Energy instance.
+- The app ID doesn't have access to infrastructure resources.
+- The app ID also gets added as OWNER to all OSDU groups by default.
+- For service-to-service communication, Azure Data Manager for Energy uses Managed Service Identity.
+
+In an OSDU instance:
+
+- Terraform scripts create two service principals:
+   - The first service principal is used for API access. It can also manage infrastructure resources.
+   - The second service principal is used for service-to-service communications.
+
+## Generate an authorization token
+
+To generate the authorization token, follow the steps in [Generate auth token](how-to-generate-auth-token.md).

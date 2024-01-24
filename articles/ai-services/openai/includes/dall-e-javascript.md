@@ -9,7 +9,6 @@ ms.topic: include
 author: PatrickFarley
 ms.author: pafarley
 ms.date: 08/24/2023
-keywords: 
 ---
 
 Use this guide to get started generating images with the Azure OpenAI SDK for JavaScript.
@@ -74,7 +73,8 @@ async function main() {
     console.log("== Batch Image Generation ==");
   
     const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
-    const results = await client.getImages(prompt, { n, size });
+    const deploymentName = "dall-e";
+    const results = await client.getImages(deploymentName, prompt, { n, size });
   
     for (const image of results.data) {
       console.log(`Image generation result URL: ${image.url}`);
