@@ -51,7 +51,9 @@ Set up a secured storage account for your function app:
 
 1. [Create a second storage account](../storage/common/storage-account-create.md). This is going to be the secured storage account that your function app will use instead. You can also use an existing storage account not already being used by Functions.
 
-1. [Create a file share](../storage/files/storage-how-to-create-file-share.md#create-a-file-share) in the new storage account.
+1. Copy the connection string for this storage account. You need this string for later.
+
+1. [Create a file share](../storage/files/storage-how-to-create-file-share.md#create-a-file-share) in the new storage account. Try to use the same name as the file share in the existing storage account. Otherwise, you'll need to copy the name of the new file share to configure an app setting later.
 
 1. Secure the new storage account in one of the following ways:
 
@@ -61,19 +63,21 @@ Set up a secured storage account for your function app:
 
 1. Copy the file and blob content from the current storage account used by the function app to the newly secured storage account and file share. [AzCopy](../storage/common/storage-use-azcopy-blobs-copy.md) and [Azure Storage Explorer](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-tips-and-tricks-how-to-move-azure-storage-blobs-between/ba-p/3545304) are common methods. If you use Azure Storage Explorer, you may need to allow your client IP address into your storage account's firewall. 
 
-1. Copy the connection string for this storage account. You need this string for later.
-
 Now you're ready to configure your function app to communicate with the newly secured storage account.
 
-### 3. Enable content share routing
+### 3. Enable application and configuration routing
 
-You should now restrict traffic to the file share used by Functions to use only the virtual network.
+You should now route your function app's traffic to go through the virtual network.
 
-1. [Enable content share routing](../app-service/configure-vnet-integration-routing.md#content-share) to have your function app communicate with your storage account through its virtual network. 
+1. Enable [application routing](../app-service/overview-vnet-integration.md#application-routing) to route your app's traffic into the virtual network.
 
-1. Navigate to the **Networking** tab of your function app. Under **Outbound traffic configuration**, select the subnet associated with your virtual network integration.
+    * Navigate to the **Networking** tab of your function app. Under **Outbound traffic configuration**, select the subnet associated with your virtual network integration.
 
-    * In the new page, check the box for **Content storage** under **Configuration routing**.
+    * In the new page, check the box for **Outbound internet traffic** under **Application routing**.
+
+1. Enable [content share routing](../app-service/overview-vnet-integration.md#content-share) to have your function app communicate with your new storage account through its virtual network. 
+
+    * In the same page, check the box for **Content storage** under **Configuration routing**.
 
 ### 4. Update application settings
 
