@@ -18,7 +18,7 @@ ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, c
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 
-In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to an [online endpoint](concept-endpoints.md) for real-time inference. When you deploy your MLflow model to an online endpoint, you don't need to specify a scoring script or an environment—this functionality is known as _no-code deployment__ 
+In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to an [online endpoint](concept-endpoints.md) for real-time inference. When you deploy your MLflow model to an online endpoint, you don't need to specify a scoring script or an environment—this functionality is known as _no-code deployment_.
 
 For no-code-deployment, Azure Machine Learning:
 
@@ -44,9 +44,9 @@ git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples/cli/endpoints/online
 ```
 
-### Follow along in Jupyter Notebooks
+<!-- ### Follow along in Jupyter Notebook
 
-You can follow the steps for using the Azure Machine Learning Python SDK by opening the [mlflow_sdk_online_endpoints_progresive.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/deploy/mlflow_sdk_online_endpoints.ipynb) notebook in the cloned repository.
+You can follow the steps for using the Azure Machine Learning Python SDK by opening the [mlflow_sdk_online_endpoints_progresive.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/deploy/mlflow_sdk_online_endpoints.ipynb) notebook in the cloned repository. -->
 
 ## Prerequisites
 
@@ -186,14 +186,14 @@ To create a model in Azure Machine Learning studio:
 - Select __Register__ and select where your model is located. For this example, select __From local files__.
 - On the __Upload model__ page, select __MLflow__ for the model type.
 - Select __Browse__ to select the model folder, then select __Next__.
-- Provide a __Name__ for the model on the "Model settings" page and select __Next__.
-- Select __Register__.
+- Provide a __Name__ for the model on the __Model settings__ page and select __Next__.
+- Review the uploaded model fines and model settings on the __Review__ page, then select __Register__.
 
 :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/register-model-in-studio.png" alt-text="Screenshot of the UI to register a model." lightbox="media/how-to-deploy-mlflow-models-online-endpoints/register-model-in-studio.png":::
 
 ---
 
-_What if your model was logged inside of a run?_
+__What if your model was logged inside of a run?__ 
 
 If your model was logged inside of a run, you can register it directly.
 
