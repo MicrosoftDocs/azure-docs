@@ -56,7 +56,8 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
-- Changes in all high availability documentation to include guidelines for setting the “probeThreshold” property to 2 in the load balancer’s health probe configuration.
+- January 24, 2024: Split [SAP RISE integration documentation](./rise-integration.md) into multiple segments for improved legibility, additional overview information added.
+- January 22, 2024: Changes in all high availability documentation to include guidelines for setting the “probeThreshold” property to 2 in the load balancer’s health probe configuration.
 - January 21, 2024: Change recommendations around LARGEPAGES in [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md)
 - December 15, 2023: Change recommendations around DIRECTIO and LVM in [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md)
 - December 11, 2023: Add RHEL requirements to [HANA third site for multi-target replication](./disaster-recovery-sap-hana.md) and integrating into a Pacemaker cluster.
