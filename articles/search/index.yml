@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
 title: Azure AI Search documentation # < 60 chars
-summary: Information retrieval at scale for vector and text content in traditional or conversational and copilot search scenarios.
+summary: Information retrieval at scale for vector and text content in traditional or generative search scenarios.
 metadata:
   title: Azure AI Search documentation
-  description: Information retrieval at scale for vector and text content in traditional or conversational and copilot search scenarios.
+  description: Information retrieval at scale for vector and text content in traditional or generative search scenarios.
   ms.service: service
   ms.custom:
     - ignite-2023
@@ -106,7 +106,7 @@ landingContent:
             url: /azure/ai-studio/tutorials/deploy-copilot-ai-studio
           - text: Create a vector index in AI Studio
             url: /azure/ai-studio/how-to/index-add
-                     
+
   # Card
   - title: Query data
     linkLists:
