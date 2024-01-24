@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/13/2023
+ms.date: 01/18/2024
 ms.author: jianleishen
 ---
 # Copy data from MariaDB using Azure Data Factory or Synapse Analytics
@@ -56,8 +56,7 @@ Use the following steps to create a linked service to MariaDB in the Azure porta
 
 2. Search for Maria and select the MariaDB connector.
 
-   :::image type="content" source="media/connector-mariadb/mariadb-connector.png" alt-text="Screenshot of the MariaDB connector.":::    
-
+   :::image type="content" source="media/connector-mariadb/mariadb-connector.png" alt-text="Screenshot of the MariaDB connector.":::
 
 1. Configure the service details, test the connection, and create the new linked service.
 
@@ -74,7 +73,12 @@ The following properties are supported for MariaDB linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **MariaDB** | Yes |
-| connectionString | An ODBC connection string to connect to MariaDB. <br/>You can also put password in Azure Key Vault and pull the `pwd` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
+| driverVersion | The driver version that you use. The value is v2. | Yes |
+| server | The name of your MariaDB Server. | Yes |
+| port | The port number to connect to the MariaDB server. | No |
+| database | Your MariaDB database name. | Yes |
+| username | Your user name. | Yes |
+| password | The password for the user name. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -85,7 +89,11 @@ The following properties are supported for MariaDB linked service:
     "properties": {
         "type": "MariaDB",
         "typeProperties": {
-            "connectionString": "Server=<host>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
+            "server": "<server>",
+            "port": "<port>",
+            "database": "<database>",
+            "username": "<username>",
+            "driverVersion": "v2"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -103,15 +111,45 @@ The following properties are supported for MariaDB linked service:
     "properties": {
         "type": "MariaDB",
         "typeProperties": {
-            "connectionString": "Server=<host>;Port=<port>;Database=<database>;UID=<user name>;",
-            "pwd": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
-            }
+            "server": "<server>",
+            "port": "<port>",
+            "database": "<database>",
+            "username": "<username>",
+            "pwd": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "<Azure Key Vault linked service name>",
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "<secretName>"
+            },
+            "driverVersion": "v2"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+If you use the legacy driver version, the following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to: **MariaDB** | Yes |
+| connectionString | An ODBC connection string to connect to MariaDB. <br/>You can also put password in Azure Key Vault and pull the `pwd` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
+
+**Example:**
+
+```json
+{
+    "name": "MariaDBLinkedService",
+    "properties": {
+        "type": "MariaDB",
+        "typeProperties": {
+            "connectionString": "Server=<host>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -189,10 +227,66 @@ To copy data from MariaDB, set the source type in the copy activity to **MariaDB
 ]
 ```
 
+## Data type mapping for MariaDB
+
+When copying data from MariaDB, the following mappings are used from MariaDB data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+
+| MariaDB data type | Interim service data type |
+|:--- |:--- |
+| `bigint` |`Int64` |
+| `bigint unsigned` |`Decimal` |
+| `bit(1)` |`UInt64` |
+| `bit(M), M>1`|`UInt64`|
+| `blob` |`Byte[]` |
+| `bool` |`Boolean` <br/>(If TreatTinyAsBoolean=false, it is mapped as `SByte`. TreatTinyAsBoolean is true by defult ) |
+| `char` |`String` |
+| `date` |`Datetime` |
+| `datetime` |`Datetime` |
+| `decimal` |`Decimal` |
+| `double` |`Double` |
+| `double precision` |`Double` |
+| `enum` |`String` |
+| `float` |`Single` |
+| `int` |`Int32` |
+| `int unsigned` |`Int64`|
+| `integer` |`Int32` |
+| `integer unsigned` |`Int64` |
+| `json` |`String` |
+| `long varbinary` |`Byte[]` |
+| `long varchar` |`String` |
+| `longblob` |`Byte[]` |
+| `longtext` |`String` |
+| `mediumblob` |`Byte[]` |
+| `mediumint` |`Int32` |
+| `mediumint unsigned` |`Int64` |
+| `mediumtext` |`String` |
+| `numeric` |`Decimal` |
+| `real` |`Double` |
+| `set` |`String` |
+| `smallint` |`Int16` |
+| `smallint unsigned` |`Int32` |
+| `text` |`String` |
+| `time` |`TimeSpan` |
+| `timestamp` |`Datetime` |
+| `tinyblob` |`Byte[]` |
+| `tinyint` |`SByte` |
+| `tinyint unsigned` |`Int16` |
+| `tinytext` |`String` |
+| `varchar` |`String` |
+| `year` |`Int` |
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
+## Migrate the MariaDB linked service
 
-## Next steps
+Migrating your MariaDB linked service is highly recommended if you use the legacy version. Take the following steps:
+
+1. Create a new MariaDB linked service and configure it by referring to [Linked service properties](connector-mariadb.md#linked-service-properties).
+
+1. The data type mapping for the latest MariaDB linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MariaDB](connector-mariadb.md#data-type-mapping-for-mariadb).
+
+## Related content
+
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
