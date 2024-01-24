@@ -26,15 +26,9 @@ For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Serv
     > [!NOTE]
     > Get a support entitlement from Oracle before going to production. Failure to do so results in running insecure images that are not patched for critical security flaws. For more information on Oracle's critical patch updates, see [Critical Patch Updates, Security Alerts and Bulletins](https://www.oracle.com/security-alerts/) from Oracle.
   - Accept the license agreement.
-
-## Create a storage account and storage container to hold the sample application
-
-Use the following steps to create a storage account and container. Some of these steps direct you to other guides. After completing the steps, you can upload a sample application to run on WLS on AKS.
-
-1. Download a sample application as a *.war* or *.ear* file. The sample app should be self-contained and not have any database, messaging, or other external connection requirements. The sample app from the WLS Kubernetes Operator documentation is a good choice. You can download [testwebapp.war](https://aka.ms/wls-aks-testwebapp) from Oracle. Save the file to your local filesystem.
-1. Sign in to the [Azure portal](https://aka.ms/publicportal).
-1. Create a storage account by following the steps in [Create a storage account](/azure/storage/common/storage-account-create). You don't need to perform all the steps in the article. Just fill out the fields as shown on the **Basics** pane, then select **Review + create** to accept the default options. Proceed to validate and create the account, then return to this article.
-1. Create a storage container within the account. Then, upload the sample application you downloaded in step 1 by following the steps in [Quickstart: Upload, download, and list blobs with the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal). Upload the sample application as the blob, then return to this article.
+- [Docker for Desktop](https://www.docker.com/products/docker-desktop). This document was tested with Docker version 20.10.7.
+- A Java JDK, Version 11. Azure recommends [Microsoft Build of OpenJDK](https://docs.microsoft.com/java/openjdk/download). Ensure that your JAVA_HOME environment variable is set correctly in the shells in which you run the commands.
+- Ensure that you have the zip/unzip utility installed; use `zip/unzip -v` to test if `zip/unzip` works.
 
 ## Deploy WLS on AKS
 
