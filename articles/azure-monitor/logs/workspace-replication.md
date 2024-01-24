@@ -179,6 +179,11 @@ GET
 https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>?api-version=2023-01-01-preview
 ```
 
+> [!NOTE]
+> To call Failover and Failback, a user must have the Log Analytics Contributor role on the resources group of the workspace.
+
+ ```
+
 Now, you can trigger failover with the below POST command. This call returns 202. It's a long running operation, which may take time to complete. Failover updates your DNS records, and even when that’s complete, it may take time for clients to get the updated DNS settings.
  
  ```
