@@ -2,7 +2,7 @@
 title: Prerequisites for Azure Database for PostgreSQL migration service
 author: markingmyname
 ms.author: maghan
-ms.date: 01/22/2024
+ms.date: 01/30/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: include

@@ -1,16 +1,16 @@
 ---
-title: "Tutorial: Offline Migration from on-premises and Azure virtual machines using the Azure portal and CLI"
-description: "Learn about Offline migration of your on-premises or Azure virtual machines PostgreSQL databases to Azure Database for PostgreSQL - Flexible Server."
+title: "Tutorial: Offline migration from on-premises and Azure virtual machines using the migration service with the Azure portal and CLI"
+description: "Learn to migrate seamlessly from on-premises or an Azure VM to Azure Database for PostgreSQL - Flexible Server using the new migration service in Azure, simplifying the transition while ensuring data integrity and efficient deployment."
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 01/24/2024
+ms.date: 01/30/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: tutorial
 ---
 
-# Tutorial: Offline migration from on-premises or Azure virtual machines to Azure Database for PostgreSQL - Flexible Server Preview
+# Tutorial: Migrate offline using the migration service from an on-premises PostgreSQL server or a PostgreSQL server in an Azure virtual machine to Azure Database for PostgreSQL - Flexible Server Preview
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 

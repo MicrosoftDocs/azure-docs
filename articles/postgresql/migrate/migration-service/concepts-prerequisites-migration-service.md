@@ -4,7 +4,7 @@ description: Providing the prerequisites of the migration service in Azure Datab
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 01/22/2024
+ms.date: 01/30/2024
 ms.service: postgresql
 ms.topic: conceptual
 ---

@@ -4,7 +4,7 @@ description: "Learn how to set up Azure CLI for migration service in Azure Datab
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 01/24/2024
+ms.date: 01/30/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
