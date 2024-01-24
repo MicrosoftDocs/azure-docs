@@ -82,11 +82,15 @@ Azure NetApp Files also supports [access-based enumeration](azure-netapp-files-c
 
 ## Can I use the same share name for multiple volumes? 
 
-For volumes not in an availability zone or volumes in the same availability zone, you can use the same file path. However, the share name must be unique within each delegated subnet.  
+The same share name can be used for:
+* volumes deployed in different regions.
+* volumes deployed to different availability zones within the same region. 
 
-For volumes deployed to different availability zones within the same region, the same share name can be used. 
-
-For volumes deployed to different regions, the same share name can be used. 
+Also, the share name can be used for:
+* regional volumes (without availability zones)
+* volumes within the same region
+For these cases (regional volumes and volumes with the same region), the share name must be unique within each delegated subnet or assigned to different delegated subnets. 
+<!-- confirm part after or -->
 
 For more information, see For more information, see [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). 
 
