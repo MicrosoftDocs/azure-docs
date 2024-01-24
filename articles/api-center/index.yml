@@ -52,3 +52,5 @@ landingContent:
         links:
           - text: Use Visual Studio Code extension
             url: use-vscode-extension.md
+          - text: Discover APIs with GitHub Copilot Chat
+            url: use-vscode-extension-copilot.md

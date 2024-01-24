@@ -10,13 +10,13 @@ ms.custom:
 # Customer intent: As a developer, I want to use my Visual Studio Code environment to discover, try, and consume APIs in my organization's API center.
 ---
 
-# Use the Azure API Center extension for Visual Studio Code (preview)
+# Get started with the Azure API Center extension for Visual Studio Code (preview)
 
 To discover, try, and consume APIs in your [API center](overview.md), you can use the Azure API Center extension in your Visual Studio Code development environment:
 
-* **Discover APIs** - Browse the APIs in your API center, and view their details and documentation. Optionally enable GitHub Copilot Chat to find APIs based on semantic search queries.
+* **Discover APIs** - Browse the APIs in your API center, and view their details and documentation.
 
-* **Try APIs** - Use a REST client to automate .http file generation and explore API requests and responses. 
+* **Try APIs** - Use a Swagger UI preview or a REST client to explore API requests and responses. 
 
 * **Consume APIs** - Generate API SDK clients for your favorite language including JavaScript, TypeScript, .NET, Python, and Java, using the Microsoft Kiota engine that generates SDKs for Microsoft Graph, GitHub, and more. 
 
@@ -27,20 +27,19 @@ To discover, try, and consume APIs in your [API center](overview.md), you can us
 
 * One or more API centers in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
 
-    Currently, you need to be assigned the Contributor role or higher permissions to the API center to use the extension.
+    Currently, you need to be assigned the Contributor role or higher permissions to access API centers with the extension.
 
 * [Visual Studio Code](https://code.visualstudio.com/)
     
 * [Azure API Center extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center)
     
-* Optionally install:
+The following Visual Studio Code extensions are optional and needed only for certain scenarios as indicated:
 
     * [REST client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - to generate HTTP requests
 
     * [Microsoft Kiota extension](https://marketplace.visualstudio.com/items?itemName=ms-graph.kiota) - to generate API clients
 
-    * [VS Code - Insiders](https://apps.microsoft.com/detail/XP8LFCZM790F6B) (version after 2024-01-19), [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot), and [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) - to use the `@apicenter` agent with GitHub Copilot Chat
-
+    
 ## Setup
 
 1. Install the Azure API Center extension for Visual Studio Code from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center). Install optional extensions as needed.
@@ -119,4 +118,3 @@ Use GitHub Copilot Chat to find APIs based on semantic search queries.
   ## Related content
 
 * [Azure API Center - key concepts](key-concepts.md)
-* [Getting started with GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot)
