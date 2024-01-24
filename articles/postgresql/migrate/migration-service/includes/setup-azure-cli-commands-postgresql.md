@@ -32,7 +32,7 @@ The migration service provides the following commands to help you migrate your P
 
 The command ```az postgres flexible-server migration –-help``` provides the name and the corresponding verbs.
 
-:::image type="content" source="media\tutorial-migration-service-offline-iaas\az-flexible-migration-help-CLI.png" alt-text="Screenshot of the az migration help CLI results." lightbox="media\tutorial-migration-service-offline-iaas\az-flexible-migration-help-CLI.png":::
+:::image type="content" source="../media/tutorial-migration-service-offline-iaas/az-flexible-migration-help-cli.png" alt-text="Screenshot of the az migration help CLI results." lightbox="media\tutorial-migration-service-offline-iaas\az-flexible-migration-help-cli.png":::
 
 #### The create command
 
@@ -40,7 +40,7 @@ The create command helps to migrate from a source server to a target server.
 
 The help command allows users to understand the different arguments used for creating and initiating the migration `az postgres flexible-server migration create --help`.
 
-:::image type="content" source="media\tutorial-migration-service-offline-iaas\az-flexible-migration-help-create-CLI.png" alt-text="Screenshot of the az migration create help CLI results." lightbox="media\tutorial-migration-service-offline-iaas\az-flexible-migration-help-create-CLI.png":::
+:::image type="content" source="../media/tutorial-migration-service-offline-iaas/az-flexible-migration-help-create-cli.png" alt-text="Screenshot of the az migration create help CLI results." lightbox="media\tutorial-migration-service-offline-iaas\az-flexible-migration-help-create-cli.png":::
 
 ```bash
 az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --migration-option ValidateAndMigrate --properties "C:\Users\Administrator\Documents\migrationBody.JSON" --migration-mode offline

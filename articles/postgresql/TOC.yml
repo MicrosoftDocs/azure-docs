@@ -447,8 +447,6 @@
         href: migrate/migration-service/concepts-known-issues-migration-service.md
     - name: How-to guides
       items:
-      - name: CLI command help
-        href: migrate/migration-service/how-to-setup-azure-cli.md
       - name: Network setup
         href: migrate/migration-service/how-to-network-setup-migration-service.md
 - name: Azure Database for PostgreSQL - Single Server

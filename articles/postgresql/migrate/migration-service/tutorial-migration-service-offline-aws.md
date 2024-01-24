@@ -24,10 +24,6 @@ In this document, you learn:
 > - Monitor the migration
 > - Post migration
 
-## Prerequisites
-
-Follow the prerequisites before you start your migration with migration service in Azure Database for PostgreSQL.
-
 [!INCLUDE [prerequisites-migration-service-postgresql](includes/prerequisites-migration-service-postgresql.md)]
 
 #### [Portal](#tab/portal)
