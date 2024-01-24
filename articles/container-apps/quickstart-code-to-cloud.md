@@ -144,7 +144,7 @@ Download and extract the API sample application in the language of your choice.
 
 # [C#](#tab/csharp)
 
-[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-csharp/zip/refs/heads/main) from the [azure-samples/containerapps-albumapi-csharp repo](https://github.com/azure-samples/containerapps-albumapi-csharp).
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-csharp/zip/refs/heads/main) to your machine.
 
 Extract the download and change into the *containerapps-albumapi-csharp-main/src* folder.
 
@@ -154,9 +154,6 @@ Extract the download and change into the *containerapps-albumapi-csharp-main/src
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-java/zip/refs/heads/main) to your machine.
 
 Extract the download and change into the *containerapps-albumapi-java-main/src* folder.
-
-> [!NOTE] 
-> The Java sample only supports a Maven build, which creates an executable JAR file. The build uses the default settings, as passing in environment variables is not supported.
 
 
 # [JavaScript](#tab/javascript)
@@ -175,9 +172,9 @@ Extract the download and change into the *containerapps-albumapi-python-main/src
 
 # [Go](#tab/go)
 
-[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-go/zip/refs/heads/main) from the [azure-samples/containerapps-albumapi-csharp repo](https://github.com/azure-samples/containerapps-albumapi-go).
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-go/zip/refs/heads/main) to your machine.
 
-Extract the download and navigate into the `containerapps-albumapi-go-main/src` directory and proceed to the next step.
+Extract the download and navigate into the *containerapps-albumapi-go-main/src* folder.
 
 
 ::: zone-end
@@ -217,7 +214,7 @@ Extract the download and navigate into the `containerapps-albumapi-python-buildp
 
 # [Go](#tab/go)
 
-Azure Container Apps cloud build doesn't support Buildpacks for Go.
+Azure Container Apps cloud build doesn't currently support Buildpacks for Go.
 
 ::: zone-end
 
@@ -230,19 +227,22 @@ Azure Container Apps cloud build doesn't support Buildpacks for Go.
 
 Build and deploy your first container app with the `containerapp up` command. This command will:
 
-- Create the resource group
 ::: zone pivot="with-dockerfile"
+- Create the resource group
 - Create an Azure Container Registry
 - Build the container image and push it to the registry
-::: zone-end
-::: zone pivot="without-dockerfile"
-- Automatically create a default registry as part of your environment
-- Automatically detect the language and runtime
-- Build the image using the appropriate Buildpack
-- Push the image into the Azure Container Apps default registry
-::: zone-end
 - Create the Container Apps environment with a Log Analytics workspace
-- Create and deploy the container app using the build container image
+- Create and deploy the container app using the built container image
+::: zone-end
+
+::: zone pivot="without-dockerfile"
+- Create the resource group
+- Create a default registry as part of your environment
+- Detect the language and runtime of your application and build the image using the appropuiate Buildpack
+- Push the image into the Azure Container Apps default registry
+- Create the Container Apps environment with a Log Analytics workspace
+- Create and deploy the container app using the built container image
+::: zone-end
 
 ::: zone pivot="with-dockerfile"
 
@@ -251,7 +251,7 @@ The `up` command uses the Dockerfile in the root of the repository to build the 
 ::: zone-end
 ::: zone pivot="without-dockerfile"
 
-If the `up` command doesn't find a Dockerfile, it automatically uses Buildpacks to turn your application source into a runnable container. Since the Buildpack is trying to run the build on your behalf, you need to tell the `up` command which port to use.
+If the `up` command doesn't find a Dockerfile, it automatically uses Buildpacks to turn your application source into a runnable container. Since the Buildpack is trying to run the build on your behalf, you need to tell the `up` command which port to send ingress traffic to.
 
 ::: zone-end
 

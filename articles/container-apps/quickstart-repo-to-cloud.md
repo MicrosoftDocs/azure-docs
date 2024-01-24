@@ -169,42 +169,76 @@ $ACR_NAME="acaalbums"+$GITHUB_USERNAME
 
 ## Prepare the GitHub repository
 
-In a browser window, go to the GitHub repository for your preferred language and fork the repository.
+::: zone pivot="with-dockerfile"
+
+In a browser window, go to the GitHub repository for your preferred language and fork the repository. 
 
 # [C#](#tab/csharp)
 
-Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-csharp) to fork the repo to your account.
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-csharp) to fork the repo to your account. Then copy the repo URL to use it
+in the next step.
 
-
-::: zone pivot="without-dockerfile"
 
 # [Java](#tab/java)
 
-Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-java) to fork the repo to your account.
-
-> [!NOTE] 
-> The Java sample only supports a Maven build, which results in an executable JAR file. The build uses the default settings, as passing in environment variables is not supported.
-
-:::zone-end
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-java) to fork the repo to your account. Then copy the repo URL to use it
+in the next step.
 
 
 # [JavaScript](#tab/javascript)
 
-Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-javascript) to fork the repo to your account.
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-javascript) to fork the repo to your account. Then copy the repo URL to use it
+in the next step.
 
 
 # [Python](#tab/python)
 
-Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-python) to fork the repo to your account.
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-python) to fork the repo to your account. Then copy the repo URL to use it
+in the next step.
 
-
-::: zone pivot="with-dockerfile"
 
 # [Go](#tab/go)
 
-Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-go) to fork the repo to your account.
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-go) to fork the repo to your account. Then copy the repo URL to use it
+in the next step.
 
 ::: zone-end
+
+
+::: zone pivot="without-dockerfile"
+
+In a browser window, go to the GitHub repository for your preferred language and fork the repository **including branches**. 
+
+# [C#](#tab/csharp)
+
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-csharp) to fork the repo to your account. Uncheck "Copy the `main` branch only"
+to also fork the `buildpack` branch.
+
+
+# [Java](#tab/java)
+
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-java) to fork the repo to your account. Uncheck "Copy the `main` branch only"
+to also fork the `buildpack` branch.
+
+
+# [JavaScript](#tab/javascript)
+
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-javascript) to fork the repo to your account. Uncheck "Copy the `main` branch only"
+to also fork the `buildpack` branch.
+
+
+# [Python](#tab/python)
+
+Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-python) to fork the repo to your account. Uncheck "Copy the `main` branch only"
+to also fork the `buildpack` branch.
+
+
+# [Go](#tab/go)
+
+Azure Container Apps cloud build doesn't currently support Buildpacks for Go.
+
+::: zone-end
+
 
 ---
 
@@ -212,37 +246,44 @@ Select the **Fork** button at the top of the [album API repo](https://github.com
 
 Build and deploy your first container app from your forked GitHub repository with the `containerapp up` command. This command will:
 
+::: zone pivot="with-dockerfile"
 - Create the resource group
 - Create the Container Apps environment with a Log Analytics workspace
-::: zone pivot="with-dockerfile"
 - Create an Azure Container Registry
-::: zone-end
-::: zone pivot="without-dockerfile"
-- Automatically create a default registry as part of your environment
-::: zone-end
 - Create a GitHub Action workflow to build and deploy the container app
+::: zone-end
+
+::: zone pivot="without-dockerfile"
+- Create the resource group
+- Create the Container Apps environment with a Log Analytics workspace
+- Automatically create a default registry as part of your environment
+- Create a GitHub Action workflow to build and deploy the container app
+::: zone-end
 
 When you push new code to the repository, the GitHub Action will:
 
 ::: zone pivot="with-dockerfile"
 - Build the container image and push it to the Azure Container Registry
 - Deploy the container image to the created container app
-::: zone-end
-::: zone pivot="without-dockerfile"
-- Automatically detect the language and runtime
-- Build the image using the appropriate Buildpack
-- Push the image into the Azure Container Apps default registry
-::: zone-end
 
-::: zone pivot="with-dockerfile"
 The `up` command uses the Dockerfile in the root of the repository to build the container image. The target port is defined by the EXPOSE instruction in the Dockerfile.  A Docker file isn't required to build a container app. 
 ::: zone-end
 
 ::: zone pivot="without-dockerfile"
+- Automatically detect the language and runtime
+- Build the image using the appropriate Buildpack
+- Push the image into the Azure Container Apps default registry
+
 The container app needs to be accessible to ingress traffic. Ensure to expose port 8080 to listen for incoming requests.
 ::: zone-end
 
+::: zone pivot="with-dockerfile"
 In the command below, replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name in the form of `https://github.com/<OWNER>/<REPOSITORY-NAME>` or `<OWNER>/<REPOSITORY-NAME>`.
+::: zone-end
+
+::: zone pivot="without-dockerfile"
+In the command below, replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name in the form of `https://github.com/<OWNER>/<REPOSITORY-NAME>` or `<OWNER>/<REPOSITORY-NAME>`. Use the `--branch buildpack` option to point to the sample source without a Dockerfile.
+::: zone-end
 
 # [Bash](#tab/bash)
 
@@ -271,6 +312,8 @@ az containerapp up \
   --ingress external \
   --target-port 8080 \
   --repo <YOUR_GITHUB_REPOSITORY_NAME>
+  --branch buildpack
+  --
 ```
 
 ::: zone-end
@@ -303,6 +346,7 @@ az containerapp up `
     --ingress external `
     --target-port 8080 `
     --repo <YOUR_GITHUB_REPOSITORY_NAME>
+    --branch buildpack
 ```
 
 ::: zone-end
