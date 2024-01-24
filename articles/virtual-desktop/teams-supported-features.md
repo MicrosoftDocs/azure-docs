@@ -41,6 +41,9 @@ The following table lists whether the Windows Desktop client, Azure Virtual Desk
 | Shared system audio | Yes | No |
 | Simulcast | Yes | Yes |
 
+> [!TIP]
+> You can find a more general list of Teams features that aren't supported on any VDI platform in the documentation for Microsoft Teams at [Features not supported in VDI](/microsoftteams/new-teams-vdi-requirements-deploy#features-not-supported-in-vdi).
+
 ## Version requirements
 
 The following table lists the minimum required versions for each Teams feature. For optimal user experience on Teams for Azure Virtual Desktop, we recommend using the latest supported versions of each client along with the WebRTC Redirector Service installed on your session hosts, which you can find in the following list:
