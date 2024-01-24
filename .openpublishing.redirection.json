@@ -14511,43 +14511,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/security/fundamentals/abstract-serverless-platform-security.md",
-            "redirect_url": "https://azure.microsoft.com/resources/azure-functions-serverless-platform-security/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/security/fundamentals/abstract-network-security.md",
-            "redirect_url": "https://azure.microsoft.com/resources/azure-network-security/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/security/fundamentals/abstract-operational-security.md",
-            "redirect_url": "https://azure.microsoft.com/resources/azure-operational-security/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/security/fundamentals/abstract-container-security.md",
-            "redirect_url": "https://azure.microsoft.com/resources/container-security-in-microsoft-azure/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/security/fundamentals/abstract-develop-secure-apps.md",
-            "redirect_url": "https://azure.microsoft.com/resources/develop-secure-applications-on-azure/",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/search/search-video-demo-tutorial-list.md",
             "redirect_url": "https://azure.microsoft.com/resources/videos/index/?services=search",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/security/fundamentals/white-papers.md",
-            "redirect_url": "https://azure.microsoft.com/resources/whitepapers/search/?term=security\u0026type=WhitePaperResource",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/security/fundamentals/channel-nine.md",
-            "redirect_url": "/teamblog/channel9joinedmicrosoftlearn/",
             "redirect_document_id": false
         },
         {
@@ -14721,11 +14686,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/security/fundamentals/mvp.md",
-            "redirect_url": "https://mvp.microsoft.com/",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/billing-troubleshoot-azure-sign-up-issues.md",
             "redirect_url": "https://support.microsoft.com/help/4042959",
             "redirect_document_id": false
@@ -14758,16 +14718,6 @@
         {
             "source_path_from_root": "/articles/store-blitline-how-to-use.md",
             "redirect_url": "https://www.blitline.com",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/security/fundamentals/response-center.md",
-            "redirect_url": "https://www.microsoft.com/msrc",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/security/fundamentals/trust-center.md",
-            "redirect_url": "https://www.microsoft.com/trust-center",
             "redirect_document_id": false
         },
         {
