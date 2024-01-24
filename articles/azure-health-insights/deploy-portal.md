@@ -24,7 +24,7 @@ Once deployment is complete, you can use the Azure portal to navigate to the new
 2. Create a new **Resource group**.
 3. Add a new Azure AI services account to your Resource group and search for **Health Insights**.
 
-    ![Screenshot of how to create the new Azure AI Health Insights service.](media/create-service.png) 
+    [ ![Screenshot of how to create the new Azure AI Health Insights service.](media/create-service.png)](media/create-service.png#lightbox)
 
     or Use this [link](https://portal.azure.com/#create/Microsoft.CognitiveServicesHealthInsights) to create a new Azure AI services account.
 
