@@ -130,11 +130,23 @@ Clone the sample code for this guide. The sample is on [GitHub](https://github.c
 
 There are a few samples in the repository. We'll use *java-app/*. Here's the file structure of the application.
 
+#### [Bash](#tab/in-bash)
+
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
 git checkout 20240109
 ```
+
+#### [PowerShell](#tab/in-powershell)
+
+```powershell
+git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
+cd open-liberty-on-aks
+git checkout 20240109
+```
+
+---
 
 If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
 
@@ -216,10 +228,21 @@ You can now run and test the project locally before deploying to Azure. For conv
 
 1. Start the application using `liberty:run`. `liberty:run` will also use the environment variables defined in the previous step.
 
+   #### [Bash](#tab/in-bash)
+
    ```bash
    cd <path-to-your-repo>/java-app
    mvn liberty:run
    ```
+
+   #### [PowerShell](#tab/in-powershell)
+
+   ```powershell
+   cd <path-to-your-repo>/java-app
+   mvn liberty:run
+   ```
+
+    ---
 
 1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser and verify the application is accessible and all functions are working.
 
@@ -229,11 +252,23 @@ You can now run and test the project locally before deploying to Azure. For conv
 
 You can now run the `docker build` command to build the image.
 
+#### [Bash](#tab/in-bash)
+
 ```bash
 cd <path-to-your-repo>/java-app/target
 
 docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
 ```
+
+#### [PowerShell](#tab/in-powershell)
+
+```powershell
+cd <path-to-your-repo>/java-app/target
+
+docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
+```
+
+---
 
 ### (Optional) Test the Docker image locally
 
@@ -301,24 +336,55 @@ Use the following steps to deploy and test the application:
 
 1. Apply the DB secret.
 
+   #### [Bash](#tab/in-bash)
+
    ```bash
    cd <path-to-your-repo>/java-app/target
    kubectl apply -f db-secret.yaml
    ```
 
+   #### [PowerShell](#tab/in-powershell)
+
+   ```powershell
+   cd <path-to-your-repo>/java-app/target
+   kubectl apply -f db-secret.yaml
+   ```
+
+    ---
+
    You'll see the output `secret/db-secret-sql created`.
 
 1. Apply the deployment file.
+
+   #### [Bash](#tab/in-bash)
 
    ```bash
    kubectl apply -f openlibertyapplication-agic.yaml
    ```
 
+   #### [PowerShell](#tab/in-powershell)
+
+   ```powershell
+   kubectl apply -f openlibertyapplication-agic.yaml
+   ```
+
+    ---
+
 1. Wait until all pods are restarted successfully by using the following command:
+
+   #### [Bash](#tab/in-bash)
 
    ```bash
    kubectl get pods --watch
    ```
+
+   #### [PowerShell](#tab/in-powershell)
+
+   ```powershell
+   kubectl get pods --watch
+   ```
+
+    ---   
 
    You should see output similar to the following example to indicate that all the pods are running:
 
@@ -333,9 +399,19 @@ Use the following steps to deploy and test the application:
 
    1. Get **ADDRESS** of the Ingress resource deployed with the application
 
+      #### [Bash](#tab/in-bash)
+
       ```bash
       kubectl get ingress
       ```
+
+      #### [PowerShell](#tab/in-powershell)
+
+      ```powershell
+      kubectl get ingress
+      ```
+
+       ---      
 
       Copy the value of **ADDRESS** from the output, this is the frontend public IP address of the deployed Azure Application Gateway.
 
