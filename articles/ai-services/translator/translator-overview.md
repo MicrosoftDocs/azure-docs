@@ -21,7 +21,8 @@ Translator service supports the following features. Use the links in this table 
 | Feature | Description | Development options |
 |----------|-------------|--------------------------|
 | [**Text Translation**](text-translation-overview.md) | Execute text translation between supported source and target languages in real time. Create a [dynamic dictionary](dynamic-dictionary.md) and learn how to [prevent translations](prevent-translation.md) using the Translator API. | &bull; [**REST API**](reference/rest-api-guide.md) </br>&bull; [**Text translation container**](containers/translator-how-to-install-container.md)
-| [**Document Translation**](document-translation/overview.md) | Translate batch and complex files while preserving the structure and format of the original documents. [Create a glossary](document-translation/how-to-guides/create-use-glossaries.md) to use with document translation.| &bull; [**REST API**](document-translation/reference/rest-api-guide.md)</br>&bull; [**Client-library SDK**](document-translation/quickstarts/async-translation-sdk.md) |
+| [**Batch Document Translation**](document-translation/async-batchoverview.md) | Translate batch and complex files while preserving the structure and format of the original documents. [Create a glossary](document-translation/how-to-guides/create-use-glossaries.md) to use with document translation.| &bull; [**REST API**](document-translation/reference/rest-api-guide.md)</br>&bull; [**Client-library SDK**](document-translation/quickstarts/async-translation-sdk.md) |
+|[**File Document Translation**](document-translation/sync-file-overview.md)|Synchronous processing of single file translations. The final response contains the translated document and is returned directly to the calling client.|**REST API**|
 | [**Custom Translator**](custom-translator/overview.md) | Build customized models to translate domain- and industry-specific language, terminology, and style. [Create a dictionary (phrase or sentence)](custom-translator/concepts/dictionaries.md) for custom translations. | &bull; [**Custom Translator portal**](https://portal.customtranslator.azure.ai/)|
 
 For detailed information regarding Azure AI Translator Service request limits, *see* [**Text translation request limits**](service-limits.md#text-translation).
@@ -38,6 +39,7 @@ Now, you're ready to get started! [**Create a Translator service**](create-trans
 
 * Learn more about the following features:
   * [**Text Translation**](text-translation-overview.md)
-  * [**Document Translation**](document-translation/overview.md)
+  * [**Batch Document Translation**](document-translation/async-batch-overview.md)
+  * [**File Document Translation**](document-translation/sync-file-overview.md)
   * [**Custom Translator**](custom-translator/overview.md)
 * Review [**Translator pricing**](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).

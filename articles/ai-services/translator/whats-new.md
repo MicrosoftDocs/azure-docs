@@ -194,7 +194,7 @@ These additions bring the total number of languages supported in Translator to 1
 
 ### [Document Translation ― now generally available](https://www.microsoft.com/translator/blog/2021/05/25/translate-full-documents-with-document-translation-%e2%80%95-now-in-general-availability/)
 
-* **Feature release**: Translator's [Document Translation](document-translation/overview.md)  feature is generally available. Document Translation is designed to translate large files and batch documents with rich content while preserving original structure and format. You can also use custom glossaries and custom models built with [Custom Translator](custom-translator/overview.md) to ensure your documents are translated quickly and accurately.
+* **Feature release**: Translator's [Batch Document Translation](document-translation/async-batch-overview.md)  feature is generally available. Document Translation is designed to translate large files and batch documents with rich content while preserving original structure and format. You can also use custom glossaries and custom models built with [Custom Translator](custom-translator/overview.md) to ensure your documents are translated quickly and accurately.
 
 ### [Translator service available in containers](https://www.microsoft.com/translator/blog/2021/05/25/translator-service-now-available-in-containers/)
 
@@ -204,7 +204,7 @@ These additions bring the total number of languages supported in Translator to 1
 
 ### [Document Translation public preview](https://www.microsoft.com/translator/blog/2021/02/17/introducing-document-translation/)
 
-* **New release**:  [Document Translation](document-translation/overview.md) is available as a preview feature of the Translator Service. Preview features are still in development and aren't meant for production use. They're made available on a "preview" basis so customers can get early access and provide feedback. Document Translation enables you to translate large documents and process batch files while still preserving the original structure and format. _See_ [Microsoft Translator blog: Introducing Document Translation](https://www.microsoft.com/translator/blog/2021/02/17/introducing-document-translation/)
+* **New release**:  [Batch Document Translation](document-translation/async-batch-overview.md) is available as a preview feature of the Translator Service. Preview features are still in development and aren't meant for production use. They're made available on a "preview" basis so customers can get early access and provide feedback. Document Translation enables you to translate large documents and process batch files while still preserving the original structure and format. _See_ [Microsoft Translator blog: Introducing Document Translation](https://www.microsoft.com/translator/blog/2021/02/17/introducing-document-translation/)
 
 ### [Text and document translation support for nine added languages](https://www.microsoft.com/translator/blog/2021/02/22/microsoft-translator-releases-nine-new-languages-for-international-mother-language-day-2021/)
 

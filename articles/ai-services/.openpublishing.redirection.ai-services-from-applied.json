@@ -635,6 +635,11 @@
       "source_path_from_root": "/articles/ai-services/translator/document-translation/quickstarts/document-translation-rest-api.md",
       "redirect_url": "/azure/ai-services/translator/document-translation/quickstarts/async-translation-rest-api",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/translator/document-translation/overview.md",
+      "redirect_url": "/azure/ai-services/translator/document-translation/async-batch-overview",
+      "redirect_document_id": true
     }
     
   ]

@@ -19,17 +19,15 @@ recommendations: false
 <!-- markdownlint-disable MD049 -->
 <!-- markdownlint-disable MD001 -->
 
-# What is Document Translation?
+# What is Batch Document Translation?
 
 Document Translation is a cloud-based feature of the [Azure AI Translator](../translator-overview.md) machine translation service that enable you to use our REST APIs and SDKs to translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format. The Document translation API supports two translation operations:
 
-* [Batch](#batch-translation) document translation supports asynchronous processing of multiple documents and files. The batch translation process requires an Azure Blob storage account with containers for your source and translated documents.
+* [Batch document translation](#batch-translation-key-features) supports asynchronous processing of multiple documents and files. The batch translation process requires an Azure Blob storage account with containers for your source and translated documents.
 
-* [File](#file-translation.md) document translation supports synchronous processing of single file translations. The file translation process does not require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
+* [File document translation](sync-file-overview.md#file-translation-key-features) supports synchronous processing of single file translations. The file translation process does not require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
 
-## [Batch translation](#tab/asynchronous)
-
-### Batch translation key features
+## Batch translation key features
 
   | Feature | Description |
   | ---------| -------------|
@@ -48,13 +46,6 @@ You can add Document Translation to your applications using the REST API or a cl
 * The [**REST API**](reference/rest-api-guide.md). is a language agnostic interface that enables you to create HTTP requests and authorization headers to translate documents.
 
 * The [**client-library SDKs**](./quickstarts/async-translation-sdk.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](https://pypi.org/project/azure-ai-translation-document/).
-
-### Get started
-
-In our quickstart, you learn how to rapidly get started using Document Translation. To begin, you need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
-
-> [!div class="nextstepaction"]
-> [Start here](./quickstarts/async-translation-rest-api.md "Learn how to use batch document translation with HTTP REST")
 
 ### Batch translation supported document formats
 
@@ -79,7 +70,7 @@ The [Get supported document formats method](reference/get-supported-document-for
 |Tab Separated Values/TAB|`tsv`/`tab`| A tab-delimited raw-data file used by spreadsheet programs.|
 |Text|`txt`| An unformatted text document.|
 
-### Batch Legacy file types
+### Legacy file types
 
 Source file types are preserved during the document translation with the following **exceptions**:
 
@@ -89,7 +80,7 @@ Source file types are preserved during the document translation with the followi
 | .xls, .ods | .xlsx |
 | .ppt, .odp | .pptx |
 
-### Batch supported glossary formats
+### Supported glossary formats
 
 Document Translation supports the following glossary file types:
 
@@ -98,35 +89,6 @@ Document Translation supports the following glossary file types:
 |Comma-Separated Values| `csv` |A comma-delimited raw-data file used by spreadsheet programs.|
 |Localization Interchange File Format| `xlf` , `xliff`| A parallel document format, export of Translation Memory systems The languages used are defined inside the file.|
 |Tab-Separated Values/TAB|`tsv`, `tab`| A tab-delimited raw-data file used by spreadsheet programs.|
-
-## [File document translation](#tab/synchronous)
-
-## File translation key features
-
-|Feature | Description |
-| ---------| -------------|
-|**Translate single-page files**| The synchronous request accepts only a single document as input.|
-|**Preserve source file presentation**| Translate files while preserving the original layout and format.|
-|**Apply custom translation**| Translate documents using general and [custom translation](../custom-translator/concepts/customization.md#custom-translator) models.|
-|**Apply custom glossaries**|Translate documents using custom glossaries.|
-|**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
-
-## Supported document formats
-
-|File type| File extension|Description|
-|---|---|--|
-|HTML|`html`, `htm`|Hyper Text Markup Language.|
-|M&#8203;HTML|`mthml`, `mht`| A web page archive format used to combine HTML code and its companion resources.|
-|Microsoft Excel|`xls`, `xlsx`|A spreadsheet file for data analysis and documentation.|
-|Microsoft Outlook|`msg`|An email message created or saved within Microsoft Outlook.|
-|Microsoft PowerPoint|`ppt`, `pptx`| A presentation file used to display content in a slideshow format.|
-|Microsoft Word|`doc`, `docx`| A text document file.|
-|OpenDocument Text|`odt`|An open-source text document file.|
-|OpenDocument Presentation|`odp`|An open-source presentation file.|
-|OpenDocument Spreadsheet|`ods`|An open-source spreadsheet file.|
-|Plain Text|`txt`| An unformatted text document.|
-
----
 
 ## Request limits
 
@@ -154,6 +116,8 @@ Document Translation data residency depends on the Azure region where your Trans
 |**All other regions including Global, North America, and South America**  | US — East US &bull; West US 2|
 
 ## Next steps
+
+In our quickstart, you learn how to rapidly get started using Document Translation. To begin, you need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
 
 > [!div class="nextstepaction"]
 > [Get Started with Document Translation](./quickstarts/async-translation-rest-api.md)
