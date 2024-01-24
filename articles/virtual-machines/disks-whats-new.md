@@ -3,7 +3,7 @@ title: What's new in Azure Disk Storage
 description: Learn about new features and enhancements in Azure Disk Storage.   
 author: roygara
 ms.author: rogarana
-ms.date: 01/17/2024
+ms.date: 01/22/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ms.custom: references_regions
@@ -39,6 +39,8 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
         - [Preview - Performance plus](#preview---performance-plus)
         - [Expanded regional availability for Ultra Disks](#expanded-regional-availability-for-ultra-disks-1)
         - [More transactions at no extra cost - Standard SSDs](#more-transactions-at-no-extra-cost---standard-ssds)
+        - [GA: Create disks from snapshots encrypted with customer-managed keys across subscriptions](#ga-create-disks-from-snapshots-encrypted-with-customer-managed-keys-across-subscriptions)
+        - [GA: Entra ID support for managed disks](#ga-entra-id-support-for-managed-disks)
 
 ## What's new in 2024
 
@@ -123,7 +125,15 @@ In quarter 1, Ultra Disks were made available in the Brazil Southeast, China Nor
 
 #### More transactions at no extra cost - Standard SSDs
 
-In quarter 1, we added an hourly limit to the number of transactions that can occur a billable cost. Any transactions beyond that limit don't occur a cost. For information, see the [blog post](https://aka.ms/billedcapsblog) or [Standard SSD transactions](disks-types.md#standard-ssd-transactions).
+In quarter 1, we added an hourly limit to the number of transactions that can occur a billable cost. Any transactions beyond that limit don't occur a cost. For more information, see the [blog post](https://aka.ms/billedcapsblog) or [Standard SSD transactions](disks-types.md#standard-ssd-transactions).
+
+#### GA: Create disks from snapshots encrypted with customer-managed keys across subscriptions
+
+In quarter 1, support for creating disks from snapshots or other disks encrypted with customer-managed keys in different subscriptions while within the same tenant was added. For more information, see either the [Azure Update](https://azure.microsoft.com/updates/ga-create-disks-from-cmkencrypted-snapshots-across-subscriptions-and-in-the-same-tenant/) or [the documentation](disk-encryption.md#customer-managed-keys).
+
+#### GA: Entra ID support for managed disks
+
+In quarter 1, support for using Entra ID to secure uploads and downloads of managed disks was added. For details, see [Secure downloads with Microsoft Entra ID](linux/download-vhd.md#secure-downloads-and-uploads-with-microsoft-entra-id) or [Secure uploads with Microsoft Entra ID](windows/disks-upload-vhd-to-managed-disk-powershell.md#secure-uploads-with-microsoft-entra-id).
 
 ## Next steps
 

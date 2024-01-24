@@ -1,8 +1,6 @@
 ---
 title: Deploying disks with Azure Resource Manager templates
 description: Details how to use managed and unmanaged disks in Azure Resource Manager templates for Azure VMs.
-documentationcenter:
-manager:
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: storage

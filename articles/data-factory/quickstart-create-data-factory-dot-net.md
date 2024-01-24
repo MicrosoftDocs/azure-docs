@@ -49,10 +49,10 @@ Next, create a C# .NET console application in Visual Studio:
 ## Install NuGet packages
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Azure.ResourceManager.DataFactory NuGet package](https://www.nuget.org/packages/Azure.ResourceManager.DataFactory/).
+2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Azure.ResourceManager.DataFactory](https://www.nuget.org/packages/Azure.ResourceManager.DataFactory/) NuGet package.
 
     ```powershell
-    Install-Package Azure.Management.DataFactory -IncludePrerelease
+    Install-Package Azure.ResourceManager.DataFactory -IncludePrerelease
     Install-Package Azure.Identity 
     ```
 

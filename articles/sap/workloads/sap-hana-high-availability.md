@@ -1,8 +1,6 @@
 ---
 title: High availability for SAP HANA on Azure VMs on SLES
 description: Learn how to set up and use high availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server.
-services: virtual-machines-linux
-documentationcenter: 
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure

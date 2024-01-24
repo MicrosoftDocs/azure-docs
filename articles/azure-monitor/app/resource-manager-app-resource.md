@@ -2,9 +2,9 @@
 title: Resource Manager template samples for Application Insights resources
 description: Sample Azure Resource Manager templates to deploy Application Insights resources in Azure Monitor.
 ms.topic: sample
-ms.date: 11/14/2022
+ms.date: 01/31/2024
 ms.custom: ignite-fall-2021, devx-track-arm-template
-ms.reviewer: vitalyg
+ms.reviewer: cogoodson
 ---
 
 # Resource Manager template samples for creating Application Insights resources

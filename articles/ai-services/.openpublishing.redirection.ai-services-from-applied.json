@@ -625,6 +625,16 @@
       "source_path_from_root": "/articles/ai-services/document-intelligence/quickstarts/includes/v3-rest-api-sdk.md",
       "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/includes/rest-api-sdk.md",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/translator/document-translation/quickstarts/document-translation-sdk.md",
+      "redirect_url": "/azure/ai-services/translator/document-translation/quickstarts/async-translation-sdk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/translator/document-translation/quickstarts/document-translation-rest-api.md",
+      "redirect_url": "/azure/ai-services/translator/document-translation/quickstarts/async-translation-rest-api",
+      "redirect_document_id": true
     }
     
   ]

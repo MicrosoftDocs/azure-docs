@@ -6,7 +6,7 @@ author: jiajzhan
 manager: junwg
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.date: 1/22/2024
 ms.author: jiajzhan
 ---
 
@@ -18,10 +18,10 @@ Speech service supports the [International Phonetic Alphabet (IPA)](https://en.w
 
 |`ipa` | Symbol         | Note|
 |-------|-------------------|-------------------|
-| `ˈ`   | Primary stress     |  Don’t use single quote ( ‘ or ' ) though it looks similar.  |
-| `ˌ`   | Secondary stress   | Don’t use comma ( , ) though it looks similar.                 |
+| `ˈ`   | Primary stress     |  Don't use single quote (`‘` or `'`) though they look similar.  |
+| `ˌ`   | Secondary stress   | Don't use comma (`,`) though it looks similar.                 |
 | `.`   | Syllable boundary  |                  |
-| `ː`   | Long  | Don’t use colon ( : or ：) though it looks similar.         |
+| `ː`   | Long  | Don't use colon (`:` or `：`) though they look similar.         |
 | `‿`   | Linking   |           |
 
 > [!TIP]

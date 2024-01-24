@@ -26,7 +26,7 @@ Send a `GET` request to:
 GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/storagesources
 ```
 
-Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).
+Learn how to find your [custom domain name](../quickstarts/async-translation-rest-api.md).
 
 > [!IMPORTANT]
 >
@@ -109,4 +109,4 @@ Status code: 500
 Follow our quickstart to learn more about using Document Translation and the client library.
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](../quickstarts/document-translation-rest-api.md)
+> [Get started with Document Translation](../quickstarts/async-translation-rest-api.md)
