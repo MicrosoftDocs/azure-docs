@@ -43,7 +43,11 @@ The time taken for a migration to complete depends on several factors. It includ
 
 The following phases are considered for calculating the total downtime to perform production server migration.
 
-### Data Validation
+- **Migration of PITR** - The best way to get a good estimate on the time taken to migrate your production database server would be to take a point-in time restore of your production server and run the offline migration on this newly restored server.
+
+- **Migration of Buffer** - After completing the above step, you can plan for actual production migration during a time period when the application traffic is low. This migration can be planned on the same day or probably a week away. By this time, the size of the source server might have increased. Update your estimated migration time for your production server based on the amount of this increase. If the increase is significant, you can consider doing another test using the PITR server. But for most servers the size increase shouldn't be significant enough.
+
+- **Data Validation**
 
 Once the migration is completed for the production server, you need to verify if the data in the flexible server is an exact copy of the source instance. Customers can use open-source/third-party tools or can do the validation manually. Prepare the validation steps you would like to do before the actual migration. Validation can include:
     

@@ -43,6 +43,7 @@ Here are common limitations that apply to migration scenarios:
     - Create casts
     - Creation of FTS parsers and FTS templates
     - Users with superuser roles
+    - Create TYPE
 
 - The migration service doesn't support migration at the object level, that is, at the table level or schema level.
 
