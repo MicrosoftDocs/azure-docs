@@ -12,7 +12,7 @@ ms.author: anfdocs
 
 # Azure NetApp Files tools 
 
-Azure NetApp Files offers [multiple tools](https://azure.github.io/azure-netapp-files/) to estimate costs, understand features and availability, and monitor your Azure NetApp Files deployment.
+Azure NetApp Files offers [multiple tools](https://aka.ms/anftools) to estimate costs, understand features and availability, and monitor your Azure NetApp Files deployment.
 
 * [**Azure NetApp Files Performance Calculator**](https://aka.ms/anfcalc)
 
