@@ -1,5 +1,5 @@
 ---
-title: Migration of Old Cloud Services that are not in a Virtual Network
+title: Migration of Cloud Services that are not in a Virtual Network
 description: How to migrate non Vnet Cloud Services to a Virtual Network
 ms.topic: how-to
 ms.service: cloud-services-extended-support
@@ -8,6 +8,8 @@ ms.author: hirshah
 ms.reviewer: mattmcinnes
 ms.date: 01/24/2024
 ---
+
+# Migrate Cloud Services not in a Virtual Network to a Virtual Network
 
 Some legacy cloud services are still running without Vnet support. While there's a process for migrating directly through the portal, there are certain considerations that should be made prior to migration. This article walks you through the process of migrating a non Vnet supporting Cloud Service to a Vnet supporting Cloud Service.
 
