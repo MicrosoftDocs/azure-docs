@@ -2,7 +2,7 @@
 title: Tutorial - Back up SAP HANA databases in Azure VMs 
 description: In this tutorial, learn how to back up SAP HANA databases running on Azure VM to an Azure Backup Recovery Services vault. 
 ms.topic: tutorial
-ms.date: 05/16/2022
+ms.date: 01/24/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -63,23 +63,26 @@ Since the streams primarily deal with disks, you need to understand the disk per
 If you want to throttle backup service disk IOPS consumption to a maximum value, then perform the following steps.
 
 1. Go to the "opt/msawb/bin" folder
-2. Create a new JSON file named "ExtensionSettingOverrides.JSON"
+2. Create a new JSON file named "ExtensionSettingsOverrides.JSON"
 3. Add a key-value pair to the JSON file as follows:
 
     ```json
     {
-    "MaxUsableVMThroughputInMBPS": 200
+    "MaxUsableVMThroughputInMBPS": 120
     }
     ```
 
 4. Change the permissions and ownership of the file as follows:
     
     ```bash
-    chmod 750 ExtensionSettingOverrides.json
-    chown root:msawb ExtensionSettingOverrides.json
+    chmod 750 ExtensionSettingsOverrides.json
+    chown root:msawb ExtensionSettingsOverrides.json
     ```
 
 5. No restart of any service is required. The Azure Backup service will attempt to limit the throughput performance as mentioned in this file.
+
+>[!Note]
+> If the changes aren't applied, restart the databases.
 
 ## What the pre-registration script does
 
