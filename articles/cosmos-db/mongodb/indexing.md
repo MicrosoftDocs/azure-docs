@@ -125,7 +125,7 @@ Here's an example of creating a geospatial index on the `location` field:
 
 ### Text indexes
 
-Azure Cosmos DB for MongoDB does not currently support text indexes. For text search queries on strings, you should use [Azure Cognitive Search](../../search/search-howto-index-cosmosdb.md) integration with Azure Cosmos DB. 
+Azure Cosmos DB for MongoDB does not currently support text indexes. For text search queries on strings, you should use [Azure AI Search](../../search/search-howto-index-cosmosdb.md) integration with Azure Cosmos DB. 
 
 ## Wildcard indexes
 

@@ -3,7 +3,6 @@ title: Azure Monitor data platform
 description: Overview of the Azure Monitor data platform and collection of observability data.
 author: bwren
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 08/09/2023
@@ -61,7 +60,7 @@ Read more about distributed tracing at [What is distributed tracing?](app/distri
 
 Once [Change Analysis is enabled](./change/change-analysis-enable.md), the `Microsoft.ChangeAnalysis` resource provider is registered with an Azure Resource Manager subscription to make the resource properties and configuration change data available. Change Analysis provides data for various management and troubleshooting scenarios to help users understand what changes might have caused the issues:
 - Troubleshoot your application via the [Diagnose & solve problems tool](./change/change-analysis-enable.md).
-- Perform general management and monitoring via the [Change Analysis overview portal](./change/change-analysis-visualizations.md#view-change-analysis-data) and [the activity log](./change/change-analysis-visualizations.md#activity-log-change-history).
+- Perform general management and monitoring via the [Change Analysis overview portal](./change/change-analysis-visualizations.md#view-change-analysis-data) and [the activity log](./change/change-analysis-visualizations.md#view-the-activity-log-change-history).
 - [Learn more about how to view data results for other scenarios](./change/change-analysis-visualizations.md).
 
 Read more about Change Analysis, including data sources in [Use Change Analysis in Azure Monitor](./change/change-analysis.md).

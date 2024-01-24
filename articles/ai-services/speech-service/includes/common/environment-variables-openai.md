@@ -14,6 +14,7 @@ Your application must be authenticated to access Azure AI services resources. Fo
 To set the environment variables, open a console window, and follow the instructions for your operating system and development environment. 
 - To set the `OPEN_AI_KEY` environment variable, replace `your-openai-key` with one of the keys for your resource.
 - To set the `OPEN_AI_ENDPOINT` environment variable, replace `your-openai-endpoint` with one of the regions for your resource.
+- To set the `OPEN_AI_DEPLOYMENT_NAME` environment variable, replace `your-openai-deployment-name` with one of the regions for your resource.
 - To set the `SPEECH_KEY` environment variable, replace `your-speech-key` with one of the keys for your resource.
 - To set the `SPEECH_REGION` environment variable, replace `your-speech-region` with one of the regions for your resource.
 
@@ -22,6 +23,7 @@ To set the environment variables, open a console window, and follow the instruct
 ```console
 setx OPEN_AI_KEY your-openai-key
 setx OPEN_AI_ENDPOINT your-openai-endpoint
+setx OPEN_AI_DEPLOYMENT_NAME=your-openai-deployment-name
 setx SPEECH_KEY your-speech-key
 setx SPEECH_REGION your-speech-region
 ```
@@ -36,6 +38,7 @@ After you add the environment variables, you may need to restart any running pro
 ```bash
 export OPEN_AI_KEY=your-openai-key
 export OPEN_AI_ENDPOINT=your-openai-endpoint
+export OPEN_AI_DEPLOYMENT_NAME=your-openai-deployment-name
 export SPEECH_KEY=your-speech-key
 export SPEECH_REGION=your-speech-region
 ```
@@ -51,6 +54,7 @@ Edit your .bash_profile, and add the environment variables:
 ```bash
 export OPEN_AI_KEY=your-openai-key
 export OPEN_AI_ENDPOINT=your-openai-endpoint
+export OPEN_AI_DEPLOYMENT_NAME=your-openai-deployment-name
 export SPEECH_KEY=your-speech-key
 export SPEECH_REGION=your-speech-region
 ```

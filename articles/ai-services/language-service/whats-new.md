@@ -2,7 +2,7 @@
 title: What's new in Azure AI Language?
 titleSuffix: Azure AI services
 description: Find out about new releases and features for the Azure AI Language.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
@@ -15,6 +15,10 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 # What's new in Azure AI Language?
 
 Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## November 2023
+
+* [Named Entity Recognition Container](./named-entity-recognition/how-to/use-containers.md) is now Generally Available (GA).
 
 ## July 2023
 

@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: overview 
-ms.date: 10/27/2023
+ms.date: 11/17/2023
 --- 
 
 # What is Azure Managed Grafana?
@@ -41,7 +41,7 @@ Azure Managed Grafana is available in the two service tiers presented below.
 | Essential (preview)    | Provides the core Grafana functionalities in use with Azure data sources. Since it doesn't provide an SLA guarantee, this tier should be used only for non-production environments.   |
 | Standard              | The default tier, offering better performance, more features and an SLA. It's recommended for most situations.  |
 
-The following table lists the main features supported in each tier:
+The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/details/managed-grafana/) gives more information on these tiers and the following table lists the main features supported in each tier:
 
 | Feature                                                                                  | Essential (preview)                          | Standard                                                                                                        |
 |------------------------------------------------------------------------------------------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------|

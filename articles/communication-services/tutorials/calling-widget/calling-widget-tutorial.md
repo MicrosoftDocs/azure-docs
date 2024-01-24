@@ -19,7 +19,7 @@ ms.subservice: calling
 
 ![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash-widget-open.png)
 
-This project aims to guide developers to initiate a call from the ACS Calling Web SDK to Teams Call Queue and Auto Attendant using the Azure Communication UI Library.
+This project aims to guide developers to initiate a call from the Azure Communication Services Calling Web SDK to Teams Call Queue and Auto Attendant using the Azure Communication UI Library.
 
 As per your requirements, you might need to offer your customers an easy way to reach out to you without any complex setup.
 
@@ -101,13 +101,13 @@ function App() {
   /**
    * Token for local user.
    */
-  const token = "<Enter your ACS token here>";
+  const token = "<Enter your Azure Communication Services token here>";
 
   /**
    * User identifier for local user.
    */
   const userId: CommunicationIdentifier = {
-    communicationUserId: "<Enter your ACS ID here>",
+    communicationUserId: "<Enter your Azure Communication Services ID here>",
   };
 
   /**

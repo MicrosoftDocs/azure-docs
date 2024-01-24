@@ -2,16 +2,15 @@
 title: Apache Kafka on Confluent Cloud overview
 description: Learn about using Apache Kafka on Confluent Cloud in the Azure Marketplace.
 ms.topic: conceptual
-ms.date: 02/22/2022
-author: flang-msft
-ms.author: franlanglois
+
+ms.date: 11/20/2023
 ---
 
-# What is Apache Kafka on Confluent Cloud - Azure Native ISV Service?
+# What is Apache Kafka on Confluent Cloud - An Azure Native ISV Service?
 
 Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. This Azure Native ISV Service is developed and managed by Microsoft and Confluent.
 
-You can find Apache Kafka on Confluent Cloud - Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview).
+You can find Apache Kafka on Confluent Cloud - An Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview).
 
 Apache Kafka on Confluent Cloud is an Azure Marketplace offering that provides Apache Kafka as a service. It's fully managed so you can focus on building your applications rather than managing the clusters.
 
@@ -85,7 +84,7 @@ To learn more, see Confluent blog articles about Azure services that integrate w
 ## Next steps
 
 - To create an instance of Apache Kafka on Confluent Cloud, see [QuickStart: Get started with Confluent Cloud on Azure](create.md).
-- Get started with Apache Kafka on Confluent Cloud - Azure Native ISV Service on
+- Get started with Apache Kafka on Confluent Cloud - An Azure Native ISV Service on
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)

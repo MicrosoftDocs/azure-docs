@@ -1,12 +1,12 @@
 ---
 title: Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
-description: Learn how to configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnet.
+description: Learn how to configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnets.
 author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 11/03/2023
+ms.date: 11/28/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -17,7 +17,7 @@ With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Net
 
 ## Overview of Overlay networking
 
-In Overlay networking, only the Kubernetes cluster nodes are assigned IPs from a subnet. Pods receive IPs from a private CIDR provided at the time of cluster creation. Each node is assigned a `/24` address space carved out from the same CIDR. Extra nodes created when you scale out a cluster automatically receive `/24` address spaces from the same CIDR. Azure CNI assigns IPs to pods from this `/24` space.
+In Overlay networking, only the Kubernetes cluster nodes are assigned IPs from subnets. Pods receive IPs from a private CIDR provided at the time of cluster creation. Each node is assigned a `/24` address space carved out from the same CIDR. Extra nodes created when you scale out a cluster automatically receive `/24` address spaces from the same CIDR. Azure CNI assigns IPs to pods from this `/24` space.
 
 A separate routing domain is created in the Azure Networking stack for the pod's private CIDR space, which creates an Overlay network for direct communication between pods. There's no need to provision custom routes on the cluster subnet or use an encapsulation method to tunnel traffic between pods, which provides connectivity performance between pods on par with VMs in a VNet. Workloads running within the pods are not even aware that network address manipulation is happening.
 
@@ -43,7 +43,7 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 
 ## IP address planning
 
-- **Cluster Nodes**: When setting up your AKS cluster, make sure your VNet subnet has enough room to grow for future scaling. Keep in mind that clusters can't scale across subnets, but you can always add new node pools in another subnet within the same VNet for extra space. A `/24`subnet can fit up to 251 nodes since the first three IP addresses are reserved for management tasks.
+- **Cluster Nodes**: When setting up your AKS cluster, make sure your VNet subnets have enough room to grow for future scaling. You can assign each node pool to a dedicated subnet. A `/24`subnet can fit up to 251 nodes since the first three IP addresses are reserved for management tasks.
 - **Pods**: The Overlay solution assigns a `/24` address space for pods on every node from the private CIDR that you specify during cluster creation. The `/24` size is fixed and can't be increased or decreased. You can run up to 250 pods on a node. When planning the pod address space, ensure the private CIDR is large enough to provide `/24` address spaces for new nodes to support future cluster expansion.
   - When planning IP address space for pods, consider the following factors:
     - The same pod CIDR space can be used on multiple independent AKS clusters in the same VNet.
@@ -112,6 +112,25 @@ az aks create -n $clusterName -g $resourceGroup \
   --pod-cidr 192.168.0.0/16
 ```
 
+## Add a new nodepool to a dedicated subnet
+
+After your have created a cluster with Azure CNI Overlay, you can create another nodepool and assign the nodes to a new subnet of the same VNet.
+This approach can be usefull if you want to control the ingress or egress IPs of the host from/ towards targets in the same VNET or peered VNets.
+
+```azurecli-interactive
+clusterName="myOverlayCluster"
+resourceGroup="myResourceGroup"
+location="westcentralus"
+nodepoolName="newpool1"
+subscriptionId=$(az account show --query id -o tsv)
+vnetName="yourVnetName"
+subnetName="yourNewSubnetName"
+subnetResourceId="/subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnetName/subnets/$subnetName"
+az aks nodepool add  -g $resourceGroup --cluster-name $clusterName \
+  --name $nodepoolName --node-count 1 \
+  --mode system --vnet-subnet-id $subnetResourceId
+```
+
 ## Upgrade an existing cluster to CNI Overlay
 
 > [!NOTE]
@@ -121,16 +140,22 @@ az aks create -n $clusterName -g $resourceGroup \
 > - Doesn't use the dynamic pod IP allocation feature.
 > - Doesn't have network policies enabled.
 > - Doesn't use any Windows node pools with docker as the container runtime.
+
+> [!NOTE]
+> Because Routing domain is not yet supported for ARM, CNI Overlay is not yet supported on ARM-based (ARM64) processor nodes.
+>
  
 > [!WARNING]
 > Prior to Windows OS Build 20348.1668, there was a limitation around Windows Overlay pods incorrectly SNATing packets from host network pods, which had a more detrimental effect for clusters upgrading to Overlay. To avoid this issue, **use Windows OS Build greater than or equal to 20348.1668**.
 
 > [!WARNING]
 > If using a custom azure-ip-masq-agent config to include additional IP ranges that should not SNAT packets from pods, upgrading to Azure CNI Overlay can break connectivity to these ranges. Pod IPs from the overlay space will not be reachable by anything outside the cluster nodes.
-> Additionally, for sufficiently old clusters there might be a ConfigMap left over from a previous version of azure-ip-masq-agent. If this ConfigMap, named `azure-ip-masq-agent-config`, exists and is not intetionally in-place it should be deleted before running the update command.
+> Additionally, for sufficiently old clusters there might be a ConfigMap left over from a previous version of azure-ip-masq-agent. If this ConfigMap, named `azure-ip-masq-agent-config`, exists and is not intentionally in-place it should be deleted before running the update command.
 > If not using a custom ip-masq-agent config, only the `azure-ip-masq-agent-config-reconciled` ConfigMap should exist with respect to Azure ip-masq-agent ConfigMaps and this will be updated automatically during the upgrade process.
 
 The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately to Overlay isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or Kubernetes version upgrade where each node in a node pool is re-imaged.
+
+### Azure CNI Cluster Upgrade
 
 Update an existing Azure CNI cluster to use Overlay using the [`az aks update`][az-aks-update] command.
 
@@ -146,6 +171,31 @@ az aks update --name $clusterName \
 ```
 
 The `--pod-cidr` parameter is required when upgrading from legacy CNI because the pods need to get IPs from a new overlay space, which doesn't overlap with the existing node subnet. The pod CIDR also can't overlap with any VNet address of the node pools. For example, if your VNet address is *10.0.0.0/8*, and your nodes are in the subnet *10.240.0.0/16*, the `--pod-cidr` can't overlap with *10.0.0.0/8* or the existing service CIDR on the cluster.
+
+
+### Kubenet Cluster Upgrade (Preview)
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+You must have the latest aks-preview Azure CLI extension installed and register the `Microsoft.ContainerService` `AzureOverlayPreview` feature flag.
+
+Update an existing Kubenet cluster to use Azure CNI Overlay using the [`az aks update`][az-aks-update] command.
+
+```azurecli-interactive
+clusterName="myOverlayCluster"
+resourceGroup="myResourceGroup"
+location="westcentralus"
+
+az aks update --name $clusterName \
+--resource-group $resourceGroup \
+--network-plugin azure \
+--network-plugin-mode overlay 
+```
+
+Since the cluster is already using a private CIDR for pods, you don't need to specify the `--pod-cidr` parameter and the Pod CIDR will remain the same.
+
+> [!NOTE]
+> When upgrading from Kubenet to CNI Overlay, the route table will no longer be required for pod routing. If the cluster is using a customer provided route table, the routes which were being used to direct pod traffic to the correct node will automatically be deleted during the migration operation. If the cluster is using a managed route table (the route table was created by AKS and lives in the node resource group) then that route table will be deleted as part of the migration.
 
 ## Dual-stack Networking (Preview)
 

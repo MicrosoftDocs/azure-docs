@@ -9,8 +9,9 @@ ms.author: msmbaldwin
 
 ---
 
-Generate a key pair for the member. After the following command completes, the member's public key is saved in member0_cert.pem and the private key is saved in member0_privk.pem.
+Generate a key pair for the member. After the following commands complete, the member's public key is saved in `member0_cert.pem` and the private key is saved in `member0_privk.pem`.
 
 ```bash
-/opt/ccf_virtual/bin/keygenerator.sh --name member0
+openssl ecparam -out "member0_privk.pem" -name "secp384r1" -genkey
+openssl req -new -key "member0_privk.pem" -x509 -nodes -days 365 -out "member0_cert.pem" -"sha384" -subj=/CN="member0"
 ```

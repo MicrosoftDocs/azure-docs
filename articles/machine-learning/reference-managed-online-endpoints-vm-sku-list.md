@@ -30,7 +30,7 @@ This table shows the VM SKUs that are supported for Azure Machine Learning manag
 | X-Large       | Standard_D32a_v4 </br> Standard_D32as_v4 </br> Standard_D48a_v4 </br> Standard_D48as_v4 </br> Standard_D64a_v4 </br> Standard_D64as_v4 </br> Standard_D96a_v4 </br> Standard_D96as_v4 | Standard_F32s_v2 <br/> Standard_F48s_v2 <br/> Standard_F64s_v2 <br/> Standard_F72s_v2 <br/> Standard_FX24mds <br/> Standard_FX36mds <br/> Standard_FX48mds | Standard_E32s_v3 <br/> Standard_E48s_v3 <br/> Standard_E64s_v3 | Standard_NC48ads_A100_v4 </br> Standard_NC96ads_A100_v4 </br> Standard_ND96asr_v4 </br> Standard_ND96amsr_A100_v4 </br> Standard_ND40rs_v2 |
 
 > [!CAUTION]
-> `Standard_DS1_v2` and `Standard_F2s_v2` may be too small for bigger models and may lead to container termination due to insufficient memory, not enough space on the disk, or probe failure as it takes too long to initiate the container. If you face [OutOfQuota errors](how-to-troubleshoot-online-endpoints.md?tabs=cli#error-outofquota) or [ReourceNotReady errors](how-to-troubleshoot-online-endpoints.md?tabs=cli#error-resourcenotready), try bigger VM SKUs. If you want to reduce the cost of deploying multiple models with managed online endpoint, see [the example for multi models](how-to-deploy-online-endpoints.md#use-more-than-one-model-in-a-deployment).
+> `Standard_DS1_v2` and `Standard_F2s_v2` may be too small for bigger models and may lead to container termination due to insufficient memory, not enough space on the disk, or probe failure as it takes too long to initiate the container. If you face [OutOfQuota errors](how-to-troubleshoot-online-endpoints.md?tabs=cli#error-outofquota) or [ReourceNotReady errors](how-to-troubleshoot-online-endpoints.md?tabs=cli#error-resourcenotready), try bigger VM SKUs. If you want to reduce the cost of deploying multiple models with managed online endpoint, see [the example for multi models](how-to-deploy-online-endpoints.md#use-multiple-local-models-in-a-deployment). 
 
 > [!NOTE]
 > We recommend having more than 3 instances for deployments in production scenarios. In addition, Azure Machine Learning reserves 20% of your compute resources for performing upgrades on some VM SKUs as described in [Virtual machine quota allocation for deployment](how-to-deploy-online-endpoints.md#virtual-machine-quota-allocation-for-deployment). VM SKUs that are exempted from this extra quota reservation are listed below:
@@ -40,3 +40,4 @@ This table shows the VM SKUs that are supported for Azure Machine Learning manag
 > - Standard_ND96asr_v4
 > - Standard_ND96amsr_A100_v4
 > - Standard_ND40rs_v2
+

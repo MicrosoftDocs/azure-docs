@@ -2,7 +2,7 @@
 title: DatetimeV2 Prebuilt entities - LUIS
 titleSuffix: Azure AI services
 description: This article has datetimeV2 prebuilt entity information in Language Understanding (LUIS).
-services: cognitive-services
+#services: cognitive-services
 ms.author: aahi
 author: aahill
 manager: nitinme
@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference
-ms.date: 04/13/2020
+ms.date: 01/19/2024
 ---
 
 # DatetimeV2 prebuilt entity for a LUIS app

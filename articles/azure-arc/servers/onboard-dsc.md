@@ -9,6 +9,10 @@ ms.topic: conceptual
 
 Using [Windows PowerShell Desired State Configuration](/powershell/dsc/getting-started/winGettingStarted) (DSC), you can automate software installation and configuration for a Windows computer. This article describes how to use DSC to install the Azure Connected Machine agent on hybrid Windows machines.
 
+>[!NOTE]
+> The PowerShell module described in this article is not currently supported by Microsoft. Any changes or improvements are only handled as a best-effort by the community.
+>
+
 ## Requirements
 
 - Windows PowerShell version 4.0 or higher
@@ -19,11 +23,11 @@ Using [Windows PowerShell Desired State Configuration](/powershell/dsc/getting-s
 
 ## Install the ConnectedMachine DSC module
 
-1. To manually install the module, download the source code and unzip the contents of the project directory to the
-`$env:ProgramFiles\WindowsPowerShell\Modules folder`. Or, run the following command to install from the PowerShell gallery using PowerShellGet (in PowerShell 5.0):
+1. To manually install the module, download the source code from GitHub. Save the content to the
+`$env:ProgramFiles\WindowsPowerShell\Modules folder`.
 
     ```powershell
-    Find-Module -Name AzureConnectedMachineDsc -Repository PSGallery | Install-Module
+    git clone https://github.com/azure/AzureConnectedMachineDsc
     ```
 
 2. To confirm installation, run the following command and ensure you see the Azure Connected Machine DSC resources available.

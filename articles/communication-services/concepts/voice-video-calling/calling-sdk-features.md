@@ -15,6 +15,9 @@ ms.custom: devx-track-js
 ---
 # Calling SDK overview
 
+[!INCLUDE [Survey Request](../../includes/survey-request.md)]
+
+
 The Calling SDK enables end-user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To get started right away, check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md).
 
 Once you've started development, check out the [known issues page](../known-issues.md) to find bugs we're working on.
@@ -22,6 +25,9 @@ Once you've started development, check out the [known issues page](../known-issu
 Key features of the Calling SDK:
 
 - **Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provide clients visibility into who is connected to a call (the roster).
+- **User Access Security**
+  - **Roster** control, **Schedule** control, and user **roles/permissions** are enforced through [Virtual Rooms](../rooms/room-concept.md).
+  - Ability for a user to **Initiate a new call** or to **Join an existing call** can be managed through [User Identities and Tokens](../identity-model.md) 
 - **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire.
 - **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications dataplane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
 - **PSTN** - The Calling SDK can initiate voice calls with the traditional publicly switched telephone network, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony/get-phone-number.md) or programmatically.
@@ -44,7 +50,7 @@ The following list presents the set of features that are currently available in 
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Mute other participants    |✔️<sup>1</sup>        |   ❌       |    ❌              |     ❌      |
+|                   | Mute other participants    |✔️<sup>1</sup>        |   ✔️<sup>1</sup>       |    ✔️<sup>1</sup>              |     ✔️<sup>1</sup>      |
 |                   | Switch between cameras                                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Active speaker                                                                                                      | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -147,11 +153,13 @@ Running JavaScript Calling SDK on these platforms isn't actively tested, it migh
 - Support for Android API Level 21 or Higher
 - Support for Java 7 or higher
 - Support for Android Studio 2.0
+- **Android Auto** and **IoT devices running Android** are currently not supported
 
 ## iOS Calling SDK support
 
 - Support for iOS 10.0+ at build time, and iOS 12.0+ at run time
 - Xcode 12.0+
+- Support for **iPadOS** 13.0+
 
 ## Calling client - browser security model
 

@@ -1,6 +1,6 @@
 ---
-title: Disaster recovery - Azure Arc-enabled SQL Managed Instance - portal
-description: Describes how to configure disaster recovery for Azure Arc-enabled SQL Managed Instance in the portal
+title: Disaster recovery - SQL Managed Instance enabled by Azure Arc - portal
+description: Describes how to configure disaster recovery for SQL Managed Instance enabled by Azure Arc in the portal
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 # Configure failover group - portal
 
-This article explains how to configure disaster recovery for Azure Arc-enabled SQL Managed Instance with Azure portal. Before you proceed, review the information and prerequisites in [Azure Arc-enabled SQL Managed Instance - disaster recovery](managed-instance-disaster-recovery.md).
+This article explains how to configure disaster recovery for SQL Managed Instance enabled by Azure Arc with Azure portal. Before you proceed, review the information and prerequisites in [SQL Managed Instance enabled by Azure Arc - disaster recovery](managed-instance-disaster-recovery.md).
 
 [!INCLUDE [failover-group-prerequisites](includes/failover-group-prerequisites.md)]
 
@@ -88,7 +88,7 @@ After you initiate the change, the portal automatically refreshes the status eve
 1. Select **Delete failover group** to proceed. Otherwise select **Cancel**, to not delete the group.
 
 
-## Next steps
+## Related content
 
-- [Overview: Azure Arc-enabled SQL Managed Instance business continuity](managed-instance-business-continuity-overview.md)
+- [Overview: SQL Managed Instance enabled by Azure Arc business continuity](managed-instance-business-continuity-overview.md)
 - [Configure failover group - CLI](managed-instance-disaster-recovery-cli.md)

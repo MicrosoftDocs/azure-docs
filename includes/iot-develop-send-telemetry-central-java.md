@@ -177,7 +177,7 @@ In this section, you configure your local environment, install the Azure IoT Jav
 1. Run the following code sample from the SDK. The sample creates a temperature controller with thermostat sensors.
 
     ```console
-    mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
+    java -jar -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
     ```
 
     After your device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. After some initial provisioning details, the console start to output the telemetry for the temperature controller.

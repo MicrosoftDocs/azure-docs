@@ -52,10 +52,10 @@ Whenever possible, we recommend using Microsoft Entra user groups for each assig
 
 When defining your authorizations, be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job. For information about supported roles and best practices, see [Tenants, users, and roles in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
 
-To track your impact across customer engagements and receive recognition, associate your Microsoft Cloud Partner Program ID with at least one user account that has access to each of your onboarded subscriptions. You'll need to perform this association in your service provider tenant. We recommend creating a service principal account in your tenant that is associated with your partner ID, then including that service principal every time you onboard a customer. For more info, see [Link your partner ID to enable partner earned credit on delegated resources](partner-earned-credit.md).
-
 > [!TIP]
 > You can also create *eligible authorizations* that let users in your managing tenant temporarily elevate their role. This feature has specific licensing requirements. For more information, see [Create eligible authorizations](create-eligible-authorizations.md).
+
+To track your impact across customer engagements and receive recognition, associate your Microsoft Cloud Partner Program ID with at least one user account that has access to each of your onboarded subscriptions. You'll need to perform this association in your service provider tenant. We recommend creating a service principal account in your tenant that is associated with your partner ID, then including that service principal every time you onboard a customer. For more info, see [Link a partner ID](../../cost-management-billing/manage/link-partner-id.md).
 
 ## Create an Azure Resource Manager template
 

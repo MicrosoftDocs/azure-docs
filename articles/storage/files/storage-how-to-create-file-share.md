@@ -7,7 +7,8 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/10/2023
 ms.author: kendownie
-ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell, ai-video-demo
+ai-usage: ai-assisted
 ---
 
 # Create an SMB Azure file share
@@ -25,6 +26,11 @@ To create an Azure file share, you need to answer three questions about how you 
     In local and zone redundant storage accounts, Azure file shares can span up to 100 TiB. However, in geo- and geo-zone redundant storage accounts, Azure file shares can span only up to 5 TiB unless you sign up for [Geo-redundant storage for large file shares (preview)](geo-redundant-storage-for-large-file-shares.md).
 
 For more information on these three choices, see [Planning for an Azure Files deployment](storage-files-planning.md).
+
+This video shows you how to create an SMB Azure file share.
+> [!VIDEO f846e86c-cf83-4311-a67d-190944635e53]
+
+The steps in the video are also described in the following sections.
 
 ## Applies to
 | File share type | SMB | NFS |

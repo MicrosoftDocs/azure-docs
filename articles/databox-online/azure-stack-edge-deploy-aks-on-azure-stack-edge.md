@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/17/2023
+ms.date: 11/29/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
@@ -200,8 +200,10 @@ Use this step to configure the virtual switch for Kubernetes compute traffic.
 
     [![Screenshot that shows the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page.png#lightbox)
 
-1. Enable the compute on a port that has internet access. For example, in this case, port 2 that was connected to the internet is enabled for compute. Internet access allows you to retrieve container images from AKS. 
+1. Enable the compute on a port that has internet access. For example, in this case, port 2 that was connected to the internet is enabled for compute. Internet access allows you to retrieve container images from AKS.
 
+   The Azure consistent services virtual IP must be able to reach this compute virtual switch network either via external routing or by creating an Azure consistent services virtual IP on the same network. 
+ 
 1. For Kubernetes nodes, specify a contiguous range of six static IPs in the same subnet as the network for this port. 
 
    As part of the AKS deployment, two clusters are created, a management cluster and a target cluster. The IPs that you specified are used as follows:

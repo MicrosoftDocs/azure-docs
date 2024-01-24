@@ -4,7 +4,7 @@ description: Learn how to enable user-assigned managed identities on Batch pools
 ms.topic: conceptual
 ms.date: 04/03/2023
 ms.devlang: csharp
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ---
 # Configure managed identities in Batch pools
 
@@ -112,7 +112,7 @@ Azure Container Registry, support managed identities. For more information on us
 see the following links:
 
 - [Resource files](resource-files.md)
-- [Output files](batch-task-output-files.md#specify-output-files-using-managed-identity)
+- [Output files](batch-task-output-files.md#using-managed-identity)
 - [Azure Container Registry](batch-docker-container-workloads.md#managed-identity-support-for-acr)
 - [Azure Blob container file system](virtual-file-mount.md#azure-blob-container)
 

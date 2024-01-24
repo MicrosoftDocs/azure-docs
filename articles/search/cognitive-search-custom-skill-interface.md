@@ -1,15 +1,17 @@
 ---
 title: Custom skill interface
-titleSuffix: Azure Cognitive Search
-description: Integrate a custom skill with an AI enrichment pipeline in Azure Cognitive Search through a web interface that defines compatible inputs and outputs in a skillset.
+titleSuffix: Azure AI Search
+description: Integrate a custom skill with an AI enrichment pipeline in Azure AI Search through a web interface that defines compatible inputs and outputs in a skillset.
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 06/29/2023
 ---
 
-# Add a custom skill to an Azure Cognitive Search enrichment pipeline
+# Add a custom skill to an Azure AI Search enrichment pipeline
 
 An [AI enrichment pipeline](cognitive-search-concept-intro.md) can include both [built-in skills](cognitive-search-predefined-skills.md) and [custom skills](cognitive-search-custom-skill-web-api.md) that you personally create and publish. Your custom code executes externally to the search service (for example, as an Azure function), but accepts inputs and sends outputs to the skillset just like any other skill.
 

@@ -3,7 +3,7 @@ title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 11/06/2023
-ms.custom: references_regions, devx-track-linux
+ms.custom: references_regions, linux-related-content
 ---
 
 # Frequently asked questions about Azure Kubernetes Service (AKS)
@@ -350,11 +350,11 @@ Any patch, including a security patch, is automatically applied to the AKS clust
 
 ## What is the purpose of the AKS Linux Extension I see installed on my Linux Virtual Machine Scale Sets instances?
 
-The AKS Linux Extension is an Azure VM extension that installs and configures monitoring tools on Kubernetes worker nodes. The extension is installed on all new and existing Linux nodes. It configures the following monitoring tools:  
+The AKS Linux Extension is an Azure VM extension that installs and configures monitoring tools on Kubernetes worker nodes. The extension is installed on all new and existing Linux nodes. It configures the following monitoring tools:
 
 - [Node-exporter](https://github.com/prometheus/node_exporter): Collects hardware telemetry from the virtual machine and makes it available using a metrics endpoint. Then, a monitoring tool, such as Prometheus, is able to scrap these metrics.
 - [Node-problem-detector](https://github.com/kubernetes/node-problem-detector): Aims to make various node problems visible to upstream layers in the cluster management stack. It's a systemd unit that runs on each node, detects node problems, and reports them to the cluster’s API server using Events and NodeConditions.
-- [Local-gadget](https://inspektor-gadget.io/docs/): Uses in-kernel eBPF helper programs to monitor events related to syscalls from userspace programs in a pod.
+- [ig](https://inspektor-gadget.io/docs/latest/ig/): An eBPF-powered open-source framework for debugging and observing Linux and Kubernetes systems. It provides a set of tools (or gadgets) designed to gather relevant information, allowing users to identify the cause of performance issues, crashes, or other anomalies. Notably, its independence from Kubernetes enables users to employ it also for debugging control plane issues.
 
 These tools help provide observability around many node health related problems, such as:
 

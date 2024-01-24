@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 11/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -187,6 +187,7 @@ Azure service: [Event Hubs](../../../event-hubs/index.yml)
 > | Microsoft.EventHub/namespaces/Delete | Delete Namespace Resource |
 > | Microsoft.EventHub/namespaces/authorizationRules/action | Updates Namespace Authorization Rule. This API is deprecated. Please use a PUT call to update the Namespace Authorization Rule instead.. This operation is not supported on API version 2017-04-01. |
 > | Microsoft.EventHub/namespaces/removeAcsNamepsace/action | Remove ACS namespace |
+> | Microsoft.EventHub/namespaces/updateState/action | UpdateNamespaceState |
 > | Microsoft.EventHub/namespaces/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
 > | Microsoft.EventHub/namespaces/joinPerimeter/action | Action to Join the Network Security Perimeter. This action is used to perform linked access by NSP RP. |
 > | Microsoft.EventHub/namespaces/authorizationRules/read | Get the list of Namespaces Authorization Rules description. |
@@ -271,6 +272,17 @@ Azure service: [HDInsight](../../../hdinsight/index.yml)
 > | --- | --- |
 > | Microsoft.HDInsight/register/action | Register HDInsight resource provider for the subscription |
 > | Microsoft.HDInsight/unregister/action | Unregister HDInsight resource provider for the subscription |
+> | Microsoft.HDInsight/clusterPools/read | Get details about HDInsight on AKS Cluster Pool |
+> | Microsoft.HDInsight/clusterPools/write | Create or Update HDInsight on AKS Cluster Pool |
+> | Microsoft.HDInsight/clusterPools/delete | Delete a HDInsight on AKS Cluster Pool |
+> | Microsoft.HDInsight/clusterPools/clusters/read | Get details about HDInsight on AKS Cluster |
+> | Microsoft.HDInsight/clusterPools/clusters/write | Create or Update HDInsight on AKS Cluster |
+> | Microsoft.HDInsight/clusterPools/clusters/delete | Delete a HDInsight on AKS cluster |
+> | Microsoft.HDInsight/clusterPools/clusters/resize/action | Resize a HDInsight on AKS Cluster |
+> | Microsoft.HDInsight/clusterPools/clusters/runjob/action | Run HDInsight on AKS Cluster Job |
+> | Microsoft.HDInsight/clusterPools/clusters/instanceviews/read | Get details about HDInsight on AKS Cluster Instance View |
+> | Microsoft.HDInsight/clusterPools/clusters/jobs/read | List HDInsight on AKS Cluster Jobs |
+> | Microsoft.HDInsight/clusterPools/clusters/serviceconfigs/read | Get details about HDInsight on AKS Cluster Service Configurations |
 > | Microsoft.HDInsight/clusters/write | Create or Update HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/read | Get details about HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/delete | Delete a HDInsight Cluster |
@@ -323,6 +335,7 @@ Azure service: [Azure Data Explorer](/azure/data-explorer/)
 > | Microsoft.Kusto/Clusters/Activate/action | Starts the cluster. |
 > | Microsoft.Kusto/Clusters/Deactivate/action | Stops the cluster. |
 > | Microsoft.Kusto/Clusters/CheckNameAvailability/action | Checks the cluster name availability. |
+> | Microsoft.Kusto/Clusters/Migrate/action | Migrates the cluster data to another cluster. |
 > | Microsoft.Kusto/Clusters/DetachFollowerDatabases/action | Detaches follower's databases. |
 > | Microsoft.Kusto/Clusters/ListFollowerDatabases/action | Lists the follower's databases. |
 > | Microsoft.Kusto/Clusters/DiagnoseVirtualNetwork/action | Diagnoses network connectivity status for external resources on which the service is dependent. |
@@ -343,6 +356,7 @@ Azure service: [Azure Data Explorer](/azure/data-explorer/)
 > | Microsoft.Kusto/Clusters/Databases/DataConnectionValidation/action | Validates database data connection. |
 > | Microsoft.Kusto/Clusters/Databases/CheckNameAvailability/action | Checks name availability for a given type. |
 > | Microsoft.Kusto/Clusters/Databases/EventHubConnectionValidation/action | Validates database Event Hub connection. |
+> | Microsoft.Kusto/Clusters/Databases/InviteFollower/action |  |
 > | Microsoft.Kusto/Clusters/Databases/DataConnections/read | Reads a data connections resource. |
 > | Microsoft.Kusto/Clusters/Databases/DataConnections/write | Writes a data connections resource. |
 > | Microsoft.Kusto/Clusters/Databases/DataConnections/delete | Deletes a data connections resource. |
@@ -374,6 +388,9 @@ Azure service: [Azure Data Explorer](/azure/data-explorer/)
 > | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/logDefinitions/read | Gets the diagnostic logs settings for the resource |
 > | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/metricDefinitions/read | Gets the metric definitions of the resource |
+> | Microsoft.Kusto/Clusters/SandboxCustomImages/read | Reads a sandbox custom image |
+> | Microsoft.Kusto/Clusters/SandboxCustomImages/write | Writes a sandbox custom image |
+> | Microsoft.Kusto/Clusters/SandboxCustomImages/delete | Deletes a sandbox custom image |
 > | Microsoft.Kusto/Clusters/SKUs/read | Reads a cluster SKU resource. |
 > | Microsoft.Kusto/Clusters/SKUs/PrivateEndpointConnectionProxyValidation/action | Validates a private endpoint connection proxy |
 > | Microsoft.Kusto/Locations/CheckNameAvailability/action | Checks resource name availability. |
@@ -448,6 +465,8 @@ Azure service: [Stream Analytics](../../../stream-analytics/index.yml)
 > | Microsoft.StreamAnalytics/operations/Read | Read Stream Analytics Operations |
 > | Microsoft.StreamAnalytics/streamingjobs/CompileQuery/action | Compile Query for Stream Analytics Job |
 > | Microsoft.StreamAnalytics/streamingjobs/Delete | Delete Stream Analytics Job |
+> | Microsoft.StreamAnalytics/streamingjobs/DownloadDiagram/action | Download job diagrams for Stream Analytics Job |
+> | Microsoft.StreamAnalytics/streamingjobs/GenerateTopologies/action | Generate topologies for Stream Analytics Job |
 > | Microsoft.StreamAnalytics/streamingjobs/PublishEdgePackage/action | Publish edge package for Stream Analytics Job |
 > | Microsoft.StreamAnalytics/streamingjobs/Read | Read Stream Analytics Job |
 > | Microsoft.StreamAnalytics/streamingjobs/Scale/action | Scale Stream Analytics Job |
@@ -478,6 +497,7 @@ Azure service: [Stream Analytics](../../../stream-analytics/index.yml)
 > | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/write | Write diagnostic setting. |
 > | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for streamingjobs |
 > | Microsoft.StreamAnalytics/streamingjobs/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for streamingjobs |
+> | Microsoft.StreamAnalytics/streamingjobs/Skus/Read | Read Stream Analytics Job SKUs |
 > | Microsoft.StreamAnalytics/streamingjobs/transformations/Delete | Delete Stream Analytics Job Transformation |
 > | Microsoft.StreamAnalytics/streamingjobs/transformations/Read | Read Stream Analytics Job Transformation |
 > | Microsoft.StreamAnalytics/streamingjobs/transformations/Write | Write Stream Analytics Job Transformation |
@@ -496,6 +516,7 @@ Azure service: [Azure Synapse Analytics](../../../synapse-analytics/index.yml)
 > | Microsoft.Synapse/locations/kustoPoolOperationResults/read | Reads operations resources |
 > | Microsoft.Synapse/locations/operationResults/read | Read any Async Operation Result. |
 > | Microsoft.Synapse/locations/operationStatuses/read | Read any Async Operation Status. |
+> | Microsoft.Synapse/locations/usages/read | Get all uasage and quota information |
 > | Microsoft.Synapse/operations/read | Read Available Operations from the Azure Synapse Analytics Resource Provider. |
 > | Microsoft.Synapse/privateEndpoints/notify/action | Notify Private Endpoint movement |
 > | Microsoft.Synapse/privateLinkHubs/write | Create any PrivateLinkHubs. |
@@ -573,6 +594,7 @@ Azure service: [Azure Synapse Analytics](../../../synapse-analytics/index.yml)
 > | Microsoft.Synapse/workspaces/kustoPools/Start/action | Starts the cluster. |
 > | Microsoft.Synapse/workspaces/kustoPools/Stop/action | Stops the cluster. |
 > | Microsoft.Synapse/workspaces/kustoPools/CheckNameAvailability/action | Checks the cluster name availability. |
+> | Microsoft.Synapse/workspaces/kustoPools/Migrate/action | Migrates the cluster data to another cluster. |
 > | Microsoft.Synapse/workspaces/kustoPools/ListLanguageExtensions/action | Lists language extensions. |
 > | Microsoft.Synapse/workspaces/kustoPools/AddLanguageExtensions/action | Add language extensions. |
 > | Microsoft.Synapse/workspaces/kustoPools/RemoveLanguageExtensions/action | Remove language extensions. |
@@ -586,6 +608,7 @@ Azure service: [Azure Synapse Analytics](../../../synapse-analytics/index.yml)
 > | Microsoft.Synapse/workspaces/kustoPools/Databases/delete | Deletes a database resource. |
 > | Microsoft.Synapse/workspaces/kustoPools/Databases/DataConnectionValidation/action | Validates database data connection. |
 > | Microsoft.Synapse/workspaces/kustoPools/Databases/CheckNameAvailability/action | Checks name availability for a given type. |
+> | Microsoft.Synapse/workspaces/kustoPools/Databases/InviteFollower/action |  |
 > | Microsoft.Synapse/workspaces/kustoPools/Databases/DataConnections/read | Reads a data connections resource. |
 > | Microsoft.Synapse/workspaces/kustoPools/Databases/DataConnections/write | Writes a data connections resource. |
 > | Microsoft.Synapse/workspaces/kustoPools/Databases/DataConnections/delete | Deletes a data connections resource. |
@@ -718,6 +741,7 @@ Azure service: [Azure Synapse Analytics](../../../synapse-analytics/index.yml)
 > | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/workloadClassifiers/operationStatuses/read | SQL Analytics Pool workload classifier operation status |
 > | Microsoft.Synapse/workspaces/sqlUsages/read | Gets usage limits available for SQL Analytics Pools |
 > | Microsoft.Synapse/workspaces/trustedServiceBypassConfiguration/write | Update Trusted Service Bypass configuration for workspace. |
+> | Microsoft.Synapse/workspaces/usages/read | Get all uasage and quota information |
 > | Microsoft.Synapse/workspaces/vulnerabilityAssessments/write | Create or Update SQL server vulnerability assement report. |
 > | Microsoft.Synapse/workspaces/vulnerabilityAssessments/read | Read default SQL server vulnerability assement report. |
 > | Microsoft.Synapse/workspaces/vulnerabilityAssessments/delete | Delete SQL server vulnerability assement report. |

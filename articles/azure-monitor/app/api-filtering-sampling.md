@@ -2,8 +2,9 @@
 title: Filtering and preprocessing in the Application Insights SDK | Microsoft Docs
 description: Write telemetry processors and telemetry initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 ms.topic: conceptual
-ms.date: 10/11/2023
-ms.devlang: csharp, javascript, python
+ms.date: 11/15/2023
+ms.devlang: csharp
+# ms.devlang: csharp, javascript, python
 ms.custom: "devx-track-js, devx-track-csharp"
 ms.reviewer: cithomas
 ---
@@ -561,6 +562,6 @@ What's the difference between telemetry processors and telemetry initializers?
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Next steps
-* [Search events and logs](./search-and-transaction-diagnostics.md?tabs=transaction-search)
+* [Search events and logs](./transaction-search-and-diagnostics.md?tabs=transaction-search)
 * [sampling](./sampling.md)
 

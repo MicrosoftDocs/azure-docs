@@ -2,9 +2,10 @@
 title: Use a managed identity in Azure Kubernetes Service (AKS)
 description: Learn how to use a system-assigned or user-assigned managed identity in Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.custom: devx-track-azurecli
-ms.date: 07/31/2023
-
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
+ms.date: 01/24/2024
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
@@ -46,16 +47,21 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | azure-policy | No identity required. | N/A | No
 | Add-on | Calico | No identity required. | N/A | No
 | Add-on | Dashboard | No identity required. | N/A | No
+| Add-on | application-routing | Manages Azure DNS and Azure Key Vault certificates | Key Vault Secrets User role for Key Vault, DNZ Zone Contributor role for DNS zone | No
 | Add-on | HTTPApplicationRouting | Manages required network resources. | Reader role for node resource group, contributor role for DNS zone | No
 | Add-on | Ingress application gateway | Manages required network resources. | Contributor role for node resource group | No
 | Add-on | omsagent | Used to send AKS metrics to Azure Monitor. | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances (ACI). | Contributor role for node resource group | No
+| Add-on | Cost analysis | Used to gather cost allocation data | | 
 | OSS project | Microsoft Entra ID-pod-identity | Enables applications to access cloud resources securely with Microsoft Entra ID. | N/A | Steps to grant permission at [Microsoft Entra Pod Identity Role Assignment configuration](./use-azure-ad-pod-identity.md).
 
 ## Enable managed identities on a new AKS cluster
 
 > [!NOTE]
-> AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][Use a pre-created kubelet managed identity].
+> AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][use-a-pre-created-kubelet-managed-identity].
+
+> [!NOTE]
+> If your cluster is already using managed identity and the identity was changed, for example you update the cluster identity type from system-assigned to user-assigned, there will be a delay for control plane components to switch to the new identity. Control plane components keep using the old identity until its token expires. After the token is refreshed, they switch to the new identity. This process can take several hours.
 
 1. Create an Azure resource group using the [`az group create`][az-group-create] command.
 
@@ -156,7 +162,7 @@ A custom user-assigned managed identity for the control plane enables access to 
 >
 > USDOD Central, USDOD East, and USGov Iowa regions in Azure US Government cloud aren't supported.
 >
-> AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][Use a pre-created kubelet managed identity].
+> AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][use-a-pre-created-kubelet-managed-identity].
 
 * If you don't have a managed identity, create one using the [`az identity create`][az-identity-create] command.
 
@@ -228,7 +234,7 @@ A custom user-assigned managed identity for the control plane enables access to 
     }
     ```
   
-* After creating the identity, [add the role assignment for control plane managed identity][add-role-assignment-for-control-plane-managed-identity] using the [`az role assignment create`][az-role-assignment-create] command.
+* After creating the custom user-assigned managed identity for the control plane, [add the role assignment for the managed identity][add-role-assignment-for-managed-identity] using the [`az role assignment create`][az-role-assignment-create] command.
 
 * Update your cluster with your existing identities using the [`az aks update`][az-aks-update] command. Make sure to provide the resource ID of the managed identity for the control plane by including the `assign-identity` argument.
 
@@ -478,7 +484,7 @@ Use [Azure Resource Manager templates][aks-arm-template] to create a managed ide
 [update-managed-identity-on-an-existing-cluster]: use-managed-identity.md#update-managed-identity-on-an-existing-cluster
 [workload-identity-overview]: workload-identity-overview.md
 [aad-pod-identity]: use-azure-ad-pod-identity.md
-[add-role-assignment-for-control-plane-managed-identity]: use-managed-identity.md#add-role-assignment-for-managed-identity
+[add-role-assignment-for-managed-identity]: use-managed-identity.md#add-role-assignment-for-managed-identity
 [az-group-create]: /cli/azure/group#az_group_create
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials

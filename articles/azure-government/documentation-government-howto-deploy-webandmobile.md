@@ -3,11 +3,9 @@ title: Deploy an Azure App Services app| Microsoft Docs
 description: This tutorial describes how to deploy a Web App, API App, or Mobile App to Azure Government using Visual Studio and Azure SDK.
 services: azure-government
 cloud: gov
-documentationcenter: ''
 
 ms.service: azure-government
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/10/2018
 

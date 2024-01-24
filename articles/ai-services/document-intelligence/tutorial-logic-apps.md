@@ -5,11 +5,13 @@ description: A tutorial introducing how to use Document intelligence with Logic 
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
 ms.date: 08/01/2023
 ms.author: bemabonsu
 zone_pivot_groups: cloud-location
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: '<=doc-intel-4.0.0'
 ---
 
 # Create a Document Intelligence Logic Apps workflow
@@ -20,12 +22,12 @@ monikerRange: '<=doc-intel-3.1.0'
 <!-- markdownlint-disable MD004 -->
 <!-- markdownlint-disable MD032 -->
 :::moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0-v2-1.md)]
+[!INCLUDE [applies to v4.0, v3.1 and v3.0](includes/applies-to-v40-v31-v30.md)]
 
 :::moniker-end
 
 :::moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 :::moniker-end
 
 :::moniker range=">=doc-intel-3.0.0"
@@ -104,13 +106,13 @@ Now that we've created the flow, the last thing to do is to test it and make sur
 
    :::image type="content" source="media/logic-apps-tutorial/failed-run-step.png" alt-text="Screenshot of failed step.":::
 
-1. Once achieve a successful run, check your email. There's a new email with the information we specified.
+1. After a workflow run succeeds, check your email. There's a new email with the information we specified.
 
     :::image type="content" source="media/logic-apps-tutorial/invoice-received.png" alt-text="Screenshot of received email message.":::
 
-1. Be sure to [disable or delete](../../logic-apps/manage-logic-apps-with-azure-portal.md#disable-or-enable-a-single-logic-app) your logic App after you're done so usage stops.
+1. After you're done, [disable or delete your logic app](../../logic-apps/manage-logic-apps-with-azure-portal.md?tabs=consumption#disable-enable-logic-apps) so that usage stops.
 
-    :::image type="content" source="media/logic-apps-tutorial/disable-delete.png" alt-text="Screenshot of disable and delete buttons.":::
+   :::image type="content" source="media/logic-apps-tutorial/disable-delete.png" alt-text="Screenshot of disable and delete buttons.":::
 
 Congratulations! You've officially completed this tutorial.
 

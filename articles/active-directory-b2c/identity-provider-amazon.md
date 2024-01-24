@@ -2,14 +2,10 @@
 title: Set up sign-up and sign-in with an Amazon account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Amazon accounts in your applications using Azure Active Directory B2C.
-services: active-directory-b2c
 author: garrodonnell
 manager: CelesteDG
-
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.custom: project-no-code
 ms.date: 09/16/2021
 ms.author: godonnell
 ms.subservice: B2C
@@ -95,7 +91,7 @@ You need to store the client secret that you previously recorded in your Azure A
 
 ## Configure Amazon as an identity provider
 
-To enable users to sign in using a Amazon account, you need to define the account as a claims provider. that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
+To enable users to sign in using an Amazon account, you need to define the account as a claims provider. that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
 You can define an Amazon account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy.
 

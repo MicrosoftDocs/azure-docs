@@ -9,7 +9,7 @@ ms.subservice: conditions
 ms.topic: troubleshooting
 ms.workload: identity
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 09/20/2023
+ms.date: 11/15/2023
 ms.author: rolyon
 ---
 
@@ -67,25 +67,18 @@ When you try to add a role assignment with a condition, **Principal** does not a
 
 Instead, you see the message:
 
-To use principal (user) attributes, you must have all of the following: Microsoft Entra ID P1 or P2 license, Microsoft Entra permissions (such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role), and custom security attributes defined in Microsoft Entra ID.
-
-![Screenshot showing principal message when adding a condition.](./media/conditions-troubleshoot/condition-principal-attribute-message.png)
+`To use principal (user) attributes, you must have Microsoft Entra permissions (such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role) and custom security attributes defined in Microsoft Entra ID.`
 
 **Cause**
 
-You don't meet the prerequisites. To use principal attributes, you must have **all** of the following:
+You don't meet the prerequisites. To use principal attributes, you must have the following:
 
-- Microsoft Entra ID P1 or P2 license
 - Microsoft Entra permissions for the signed-in user to read at least one attribute set
 - Custom security attributes defined in Microsoft Entra ID
 
 **Solution**
 
 1. Open **Microsoft Entra ID** > **Custom security attributes**.
-
-    If the **Custom security attributes** page is disabled, you don't have a Microsoft Entra ID P1 or P2 license. Open **Microsoft Entra ID** > **Overview** and check the license for your tenant.
-
-    ![Screenshot that shows Custom security attributes page disabled in Azure portal.](./media/conditions-troubleshoot/attributes-disabled.png)
 
     If you see the **Get started** page, you don't have permissions to read at least one attribute set or custom security attributes haven't been defined yet.
 
@@ -103,9 +96,11 @@ You don't meet the prerequisites. To use principal attributes, you must have **a
 
 1. If custom security attributes haven't been defined yet, assign the [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator) role at tenant scope and add custom security attributes. For more information, see [Add or deactivate custom security attributes in Microsoft Entra ID](../active-directory/fundamentals/custom-security-attributes-add.md).
 
-    When finished, you should be able to read at least one attribute set. **Principal** should now appear in the **Attribute source** list when you add a role assignment with a condition.
+    When finished, you should be able to read at least one attribute set. 
 
     ![Screenshot that shows the attribute sets the user can read.](./media/conditions-troubleshoot/attribute-sets-read.png)
+
+    **Principal** should now appear in the **Attribute source** list when you add a role assignment with a condition.
 
 ### Symptom - Principal does not appear in Attribute source when using PIM 
 
@@ -167,11 +162,11 @@ The previously selected attribute no longer applies to the currently selected ac
 
 **Solution 1**
 
-In the **Add action** section, select an action that applies to the selected attribute. For a list of storage actions that each storage attribute supports, see [Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md) and [Actions and attributes for Azure role assignment conditions for Azure queues (preview)](../storage/queues/queues-auth-abac-attributes.md).
+In the **Add action** section, select an action that applies to the selected attribute. For a list of storage actions that each storage attribute supports, see [Actions and attributes for Azure role assignment conditions for Azure Blob Storage](../storage/blobs/storage-auth-abac-attributes.md) and [Actions and attributes for Azure role assignment conditions for Azure queues](../storage/queues/queues-auth-abac-attributes.md).
 
 **Solution 2**
 
-In the **Build expression** section, select an attribute that applies to the currently selected actions. For a list of storage attributes that each storage action supports, see [Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md) and [Actions and attributes for Azure role assignment conditions for Azure queues (preview)](../storage/queues/queues-auth-abac-attributes.md).
+In the **Build expression** section, select an attribute that applies to the currently selected actions. For a list of storage attributes that each storage action supports, see [Actions and attributes for Azure role assignment conditions for Azure Blob Storage](../storage/blobs/storage-auth-abac-attributes.md) and [Actions and attributes for Azure role assignment conditions for Azure queues](../storage/queues/queues-auth-abac-attributes.md).
 
 ### Symptom - Attribute does not apply in this context warning
 

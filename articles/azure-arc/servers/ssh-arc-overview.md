@@ -47,7 +47,7 @@ SSH access to Arc-enabled servers is currently supported in all regions supporte
 
 Check if the HybridConnectivity resource provider (RP) has been registered:
 
-```az provider show -n Microsoft.HybridConnectivity```
+```az provider show -n Microsoft.HybridConnectivity -o tsv --query registrationState```
 
 If the RP hasn't been registered, run the following:
 
@@ -112,7 +112,7 @@ In order to use the SSH connect feature, you must update the Service Configurati
 
 #### [Azure CLI](#tab/azure-cli)
 
-```az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/SSH?api-version=2023-03-15 --body '{\"properties\": {\"serviceName\": \"SSH\", \"port\": \"22\"}}'```
+```az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/SSH?api-version=2023-03-15 --body "{\"properties\": {\"serviceName\": \"SSH\", \"port\": 22}}"```
 
 #### [Azure PowerShell](#tab/azure-powershell)
 

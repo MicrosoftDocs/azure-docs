@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/13/2023
+ms.date: 01/08/2024
 ms.author: banders
 ---
 
@@ -25,8 +25,6 @@ Your WHT request must include the following items:
 - A digitally signed TDS Certificate (Form 16A) issued by the Indian Income Tax Department (provided by the customer)
 
 Submit the WHT request by opening a ticket with Microsoft support.
-
-[!INCLUDE [Pay by check](../../../includes/cost-management-pay-check.md)]
 
 ## Credit card payment
 

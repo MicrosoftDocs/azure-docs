@@ -1,7 +1,7 @@
 ---
 title: "Face REST API quickstart"
 description: Use the Face REST API with cURL to detect and analyze faces.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision

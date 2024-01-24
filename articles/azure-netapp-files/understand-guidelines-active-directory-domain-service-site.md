@@ -2,15 +2,9 @@
 title: Understand guidelines for Active Directory Domain Services site design and planning
 description: Proper Active Directory Domain Services (AD DS) design and planning are key to solution architectures that use Azure NetApp Files volumes.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/21/2023
 ms.author: anfdocs
@@ -33,7 +27,6 @@ Azure NetApp Files supports identity-based authentication over SMB through the f
 * **Microsoft Entra Domain Services authentication**: Cloud-based, Microsoft Entra Domain Services-joined Windows VMs can access Azure NetApp Files file shares with Microsoft Entra Domain Services credentials. In this solution, Microsoft Entra Domain Services runs a traditional Windows Server AD domain on behalf of the customer.
 * **Microsoft Entra Kerberos for hybrid identities**: Using Microsoft Entra ID for authenticating [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md) allows Microsoft Entra users to access Azure NetApp Files file shares using Kerberos authentication. This means your end users can access Azure NetApp Files file shares without requiring a line-of-sight to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined Windows or Linux virtual machines. *Cloud-only identities aren't currently supported.*
 * **AD Kerberos authentication for Linux clients**: Linux clients can use Kerberos authentication over SMB for Azure NetApp Files using AD DS.
-
 
 ### <a name="network-requirements"></a>Network requirements 
 
@@ -61,6 +54,7 @@ The required network ports are as follows:
 | Kerberos | 88 | UDP |
 | LDAP | 389 | TCP |
 | LDAP | 389 | UDP |
+| LDAP | 389 | TLS | 
 | LDAP | 3268 | TCP |
 | NetBIOS name | 138 | UDP |
 | SAM/LSA | 445 | TCP |

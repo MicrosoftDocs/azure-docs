@@ -2,22 +2,22 @@
 title: Image type detection - Azure AI Vision
 titleSuffix: Azure AI services
 description: Concepts related to the image type detection feature of the Azure AI Vision API.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 01/19/2024
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
 # Image type detection
 
-With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API, Azure AI Vision can analyze the content type of images, indicating whether an image is clip art or a line drawing.
+With the [Analyze Image 3.2 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b), Azure AI Vision can analyze the content type of images and indicate whether an image is clip art or a line drawing.
 
-## Detecting clip art
+## Clip art detection
 
 Azure AI Vision analyzes an image and rates the likelihood of the image being clip art on a scale of 0 to 3, as described in the following table.
 
@@ -66,7 +66,7 @@ The following JSON responses illustrates what Azure AI Vision returns when ratin
 }
 ```
 
-## Detecting line drawings
+## Line drawing detection
 
 Azure AI Vision analyzes an image and returns a boolean value indicating whether the image is a line drawing.
 
@@ -110,6 +110,6 @@ The following JSON responses illustrates what Azure AI Vision returns when indic
 
 ## Use the API
 
-The image type detection feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `ImageType` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"imageType"` section.
+The image type detection feature is part of the [Analyze Image 3.2 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). You can call this API through a native SDK or through REST calls. Include `ImageType` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"imageType"` section.
 
 * [Quickstart: Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)
