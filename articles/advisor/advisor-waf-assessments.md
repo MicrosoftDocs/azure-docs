@@ -51,7 +51,7 @@ You can manage access to Advisor reviews using built-in roles. The permissions v
 
 1. Provide the input parameters:
 
-* **Subscription**: Choose from the list of available subscriptions in the dropdown Advisor. Once chosen, the system looks for workloads configured for that subscription. Some subscriptions without workloads and offer you no choice for **Assessment type**.
+* **Subscription**: Choose from the list of available subscriptions in the dropdown Advisor. Once chosen, the system looks for workloads configured for that subscription. Not all subscriptions are available for the WAF Assessments preview.
 
 * **Workload** (optional): If you have workloads configured for that subscription, you can view them in the list and select one.
 
@@ -59,56 +59,74 @@ You can manage access to Advisor reviews using built-in roles. The permissions v
   * [Mission Critical | Well-Architected Review](/assessments/23513bdb-e8a2-4f0b-8b6b-191ee1f52d34/)
   * [Azure Well-Architected Review](/assessments/azure-architecture-review/)
 
-* **Assessment name**: A unique name for the assessment. Typing in the name activates the **Review and Create** option at the top of the page and the **Next** button at the bottom of the page.
+* **Assessment name**: A unique name for the assessment. Typing in the name activates the **Review and Create** option at the top of the page and the **Next** button at the bottom of the page. To find an existing assessment, go to the main **Assessments** page. 
   
-1. Select **Next**. Validation checks are performed. A page opens that shows all of the existing assessments, both *Completed* and *In progress*. You can use the tabs at the top to return to the start new assessment **Basics** view or continue in the **Review and create** view. 
+1. Select **Next**. A page opens that shows all of the existing assessments with the same subscription and workload (if any), and status of each similar assessment, both *Completed* and *In progress*. You can see the results of that assessment before deciding to start a new one. 
 
-If applicable, a notice appears at the top of the page that there's already an assessment with the same subscription and workload. 
+If you arrow back a page, or use the **Review and create** tab, the new assessment options form is reset.
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-start-new-tiles.png" alt-text="Sreenshot of Azure Advisor **Start new assessment** assessments tile page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-start-new-tiles.png":::
 
 You can choose to: 
+
   a. View the recommendations generated for a completed recommendation
-  b. Resume an assessment you initiated earlier
-  c. Know if someone from your organization is also taking the same assessment 
+
+  b. Resume an assessment you initiated earlier. If you do so, you're redirected to **Learn** platform, select **Continue** to resume creating the assessment
+  
+  c. Review the recommendations of a completed assessment created by someone from your organization
+
   d. Create a new assessment
 
 > [!NOTE]
-> You cannot resume an in-progress assessment created by someone else.
-> If you select **Resume assessment** for a self-owned assessment, you are redirected to Learn platform, click **Continue** to resume creating the assessment. 
+> You cannot resume an in-progress assessment created by someone else. 
+
+1. Select **Create** or **Click here to start a new assessment** at the top of the page. The **Learn > Assessments** question pages open to the **Assessment overview** page. The **Progress** bar shows how many questions are part of this assessment. The **Milestones** table includes the assessment by default, as the initial milestone. Adding milestones can help you keep track of progress as you implement the assessment recommendations. To learn more about milestones, see [Microsoft Assessments - Milestones](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/microsoft-assessments-milestones/ba-p/3975841).
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-learn.png" alt-text="Sreenshot of Azure Advisor **Resume assessment** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-learn.png":::
 
-1. To begin the assessment creation process, select **Create** at the page bottom or **Create new assessment** at the top of the page. The first assessment configuration page opens.
+1. To begin the assessment creation process, select **Continue**. The first assessment question page opens.
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-workload.png" alt-text="Sreenshot of Azure Advisor **Choose assessment workload** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-workload.png":::
 
-1.	On that page, select a workload type. To know more about workload types, see [Well-Architected Branches for Assessing Workload-Types - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-architecture-blog/well-architected-branches-for-assessing-workload-types/ba-p/3267234).
+1.	On that page, select a workload type. Each workload type consists of approximately 60 questions based on the key recommendations provided in the pillars of the Well-Architected Framework. To know more about workload types, see [Well-Architected Branches for Assessing Workload-Types - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-architecture-blog/well-architected-branches-for-assessing-workload-types/ba-p/3267234).
+
   * Core Well-Architected Review: Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of your workload’s design. To learn more, see [Azure Well-Architected Review](/assessments/azure-architecture-review/)
+
   * Azure Machine Learning: Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of your machine learning models. The Compute targets and Instance types are two key concepts in Azure Machine Learning. To learn more, see [Assessing your machine learning workloads](/shows/azure-enablement/assessing-your-machine-learning-workloads)
-  * Internet of Things: Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of your IoT solution. The IoT workload assessment evaluates your IoT solution through the lenses of the Well-Architected Framework Security and Reliability pillars. After the assessment identifies key recommendations for your IoT solution, you can use the following content to help implement the recommendations:
-    a. [Reliability](/azure/well-architected/iot/iot-reliability): Complete the reliability questions for IoT workloads in the Azure Well-Architected Review.
-    b. [Security](/azure/well-architected/iot/iot-security): Complete the security questions for IoT workloads in the Azure Well-Architected Review.
-  * SAP On Azure (Preview): Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of your SAP applications running on Azure infrastructure as a service. For detailed information on the different types of storage and their capability and usability with SAP workloads and SAP components, see [Azure Storage types for SAP workload](/azure/sap/workloads/planning-guide-storage). The article covers articles such as Microsoft Azure Storage resiliency, storage scenarios with SAP workloads, storage recommendations for SAP storage scenarios, and Azure premium storage.
-  * Azure Stack Hub (Preview): Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of your workloads running on Azure Stack Hub. The Manage methodology of the Cloud Adoption Framework provides suggested operations management activities for Azure Stack Hub 1. These activities focus on the following list of core responsibilities:
-    a. Inventory and visibility: Create an inventory of assets across multiple clouds. Develop visibility into the run state of each asset.
-    b. Operational compliance: Establish controls and processes to ensure that each state is properly configured and running in a well-governed environment.
-    c. Protect and recover: Ensure that all managed assets are protected and can be recovered by using baseline management tooling.
-    d. Enhanced baseline options: Evaluate common additions to the baseline that might meet business needs.
-    e. Platform operations: Extend the management baseline with a well-defined service catalog and centrally managed platforms.
-    f. Workload operations: Extend the management baseline to include a focus on mission-critical workloads.
 
-Each workload type consists of approximately 60 questions based on the key recommendations provided in the pillars of the Well-Architected Framework. When ready, select **Next**. The second assessment questions page opens.
+  * Internet of Things: Evaluates your IoT solution through the lenses of the Well-Architected Framework Security and Reliability pillars. After the assessment identifies key recommendations for your IoT solution, you can use the following content to help implement the recommendations:
 
-1. Select a Core Pillar of WAF to be used in the assessment. When ready, select **Next**.
+    * [Reliability](/azure/well-architected/iot/iot-reliability): Complete the reliability questions for IoT workloads in the Azure Well-Architected Review.
+     
+    * [Security](/azure/well-architected/iot/iot-security): Complete the security questions for IoT workloads in the Azure Well-Architected Review.
+  
+  * SAP On Azure (Preview): Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of your SAP applications running on Azure infrastructure as a service. For detailed information on the different types of storage and their capability and usability with SAP workloads and SAP components, see [Azure Storage types for SAP workload](/azure/sap/workloads/planning-guide-storage). 
+
+  * Azure Stack Hub (Preview): Evaluates the reliability, security, cost optimization, operational excellence, and performance efficiency of your workloads running on Azure Stack Hub. The Manage methodology of the Cloud Adoption Framework suggests Azure Stack hub operations management activities focusing on the following list of core responsibilities:
+
+    * Inventory and visibility: Create an inventory of assets across multiple clouds. Develop visibility into the run state of each asset.
+
+    * Operational compliance: Establish controls and processes to ensure that each state is properly configured and running in a well-governed environment.
+
+    * Protect and recover: Ensure that all managed assets are protected and can be recovered by using baseline management tooling.
+
+    * Enhanced baseline options: Evaluate common additions to the baseline that might meet business needs.
+
+    * Platform operations: Extend the management baseline with a well-defined service catalog and centrally managed platforms.
+
+    * Workload operations: Extend the management baseline to include a focus on mission-critical workloads.
+
+When ready, select **Next**. The second assessment questions page opens.
+
+1. Select a Core Pillar of WAF to be used in the assessment. To learn more about well architected pillars, see [Introducing the Microsoft Azure Well-Architected Framework](https://azure.microsoft.com/blog/introducing-the-microsoft-azure-wellarchitected-framework/). When ready, select **Next**.
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar.png" alt-text="Sreenshot of Azure Advisor **Choose pillar assessment** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar.png":::
 
-1.	Based on your response for workload type and core pillar, the number of questions vary. You can respond to the different question and continue clicking on **Next**.
+1.	Based on your response for workload type and core pillar, the number of questions vary. Respond to the different question and continue clicking on **Next** until you reach a page with **View guidance**.
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar-detail-2-populated.png" alt-text="Sreenshot of Azure Advisor **Choose pillar assessment detail** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar-detail-2-populated.png":::
 
-When ready, select **View guidance**. An assessment results, or guidance, page opens.
+1. Select **View guidance**. An assessment results, or guidance, page opens.
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-results-guidance-next-steps-improve-results-expanded.png" alt-text="Sreenshot of Azure Advisor **Guidance** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-results-guidance-next-steps-improve-results-expanded.png":::
 
