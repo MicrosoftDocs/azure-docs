@@ -11,7 +11,7 @@
       "redirect_document_id": false
     },
     {
-        "source_path": "/articles/storage-actions/index.yml",
+        "source_path": "articles/storage-actions/index.yml",
         "redirect_url": "/azure/storage-actions/storage-tasks/",
         "redirect_document_id": false
     },
