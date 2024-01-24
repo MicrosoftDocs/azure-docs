@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure AI Search documentation # < 60 chars
-summary: Information retrieval at scale for traditional and conversational search applications, with security and options for AI enrichment and vectorization.
+summary: Information retrieval at scale for vector and text content in traditional or conversational and copilot search scenarios.
 metadata:
   title: Azure AI Search documentation
-  description: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
+  description: Information retrieval at scale for vector and text content in traditional or conversational and copilot search scenarios.
   ms.service: service
   ms.custom:
     - ignite-2023
   ms.topic: landing-page
   author: HeidiSteen
   ms.author: heidist
-  ms.date: 11/04/2023
+  ms.date: 01/24/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -24,7 +24,7 @@ landingContent:
         links:
           - text: What is Azure AI Search?
             url: search-what-is-azure-search.md
-          - text: Vector search
+          - text: Vectors in Azure AI Search
             url: vector-search-overview.md
           - text: Integrated vectorization (preview)
             url: vector-search-integrated-vectorization.md
@@ -46,12 +46,18 @@ landingContent:
             url: search-create-service-portal.md
           - text: Create a search index
             url: search-get-started-portal.md
-          - text: Create a vector index
+          - text: Create a vector store
             url: search-get-started-vector.md
-          - text: Create a demo app
-            url: search-create-app-portal.md
-          - text: Create a skillset
-            url: cognitive-search-quickstart-blob.md
+
+  # Card
+  - title: Azure AI Studio
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Build a question and answer copilot
+            url: /azure/ai-studio/tutorials/deploy-copilot-ai-studio
+          - text: Create a vector index in AI Studio
+            url: /azure/ai-studio/how-to/index-add
 
   # Card
   - title: Develop apps
@@ -110,10 +116,6 @@ landingContent:
             url: search-query-overview.md
           - text: Query vector data
             url: vector-search-how-to-query.md
-          - text: Simple syntax (default)
-            url: query-simple-syntax.md
-          - text: Full Lucene syntax
-            url: query-lucene-syntax.md
       - linkListType: how-to-guide
         links:
           - text: Create a simple query
@@ -122,6 +124,8 @@ landingContent:
             url: search-query-lucene-examples.md
       - linkListType: reference
         links:
+          - text: Simple syntax (default)
+            url: query-simple-syntax.md
           - text: OData language reference
             url: query-odata-filter-orderby-syntax.md
           - text: Search Documents (REST)
