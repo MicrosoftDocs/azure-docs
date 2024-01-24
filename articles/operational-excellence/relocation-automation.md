@@ -13,22 +13,35 @@ ms.topic: how-to
 
 This article covers relocation guidance for [Azure Automation](../automation/overview.md) across regions.
 
-
-## Relocation strategies
-
 To relocate Azure Automation to a new region, you can choose to [redeploy without data migration](#redeploy-without-data-migration) or [redeploy with data migration](#redeploy-with-data-migration) strategies.
 
 **Azure Resource Mover** doesn't support moving services used by the Azure Automation. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
 
+
+## Prerequisites
+
+- Identify all Automation dependant resources.
+- If the system-assigned managed identity is not being used at source, you must map user-assigned managed identity at the target.
+- If the target Azure Automation needs to be enabled for private access, associate with Virtual Network for private endpoint.
+- If the source Azure Automation is enabled with a private connection, create a private link and configure the private link with DNS at target. 
+- For Azure Automation to communicate with Hybrid RunBook Worker, Update Management, Change Tracking, Inventory Configuration, and Automation State Configuration, you must enable port 443 for both inbound and outbound internet access.
+
+
+## Prepare
+
+To get started, export a Resource Manager template. This template contains settings that describe your Automation namespace.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **All resources** and then select your Automation resource.
+3. Select **Export template**. 
+4. Choose **Download** in the **Export template** page.
+5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
+
+   This zip file contains the .json files that include the template and scripts to deploy the template.
+
 ## Redeploy without data migration
 
-If your Azure Automation instance doesn't have any configuration and the instance itself needs to be moved alone, you can choose to redeploy without data migration. 
-
-**To redeploy your Automation instance without data:**
-
-Redeploy the NetApp File instance by using [Bicep, ARM Template, or Terraform](/azure/templates/microsoft.automation/automationaccounts?tabs=bicep&pivots=deployment-language-bicep).
-
-To view the available configuration templates, see [the complete Azure Template library](/azure/templates/).
+If your Azure Automation instance doesn't have any configuration and the instance itself needs to be moved alone, you can choose to redeploy the NetApp File instance by using [Bicep, ARM Template, or Terraform](/azure/templates/microsoft.automation/automationaccounts?tabs=bicep&pivots=deployment-language-bicep).
 
 ## Redeploy with data migration
 
@@ -37,19 +50,7 @@ In the diagram below, the red flow lines illustrate redeployment of the target i
 :::image type="content" source="media/relocation/automation/automation-pattern-design.png" alt-text="Diagram illustrating cold standby redeployment with configuration movement":::
 
 
-### Prerequisites
-
-- Identify all Automation dependant resources.
-- Ensure that a landing zone has been deployed in alignment with the assessed architecture
-- If the system-assigned managed identity is not being used at source, you must map user-assigned managed identity at the target.
-- If the target Azure Automation needs to be enabled for private access, associate with Virtual Network for private endpoint.
-- If the source Azure Automation is enabled with a private connection, create a private link and configure the private link with DNS at target. 
-- For Azure Automation to communicate with Hybrid RunBook Worker, Update Management, Change Tracking, Inventory Configuration, and Automation State Configuration, you must enable port 443 for both inbound and outbound internet access.
-
-
-### Redeploy your Automation instance to another region:**
-
-1. Manually create the Azure Automation instance with the required parameters and configurations or [export the source Azure automation template](/azure/azure-resource-manager/templates/export-template-portal).
+**To redeploy:**
 
 1. Reconfigure the template parameters for the target. 
 
@@ -61,7 +62,7 @@ In the diagram below, the red flow lines illustrate redeployment of the target i
 
 1. Configure the target virtual machines with desired state configuration from the relocated Azure Automation instance as per source.
 
-### Validate relocation
+## Validate relocation
 
 Once the relocation is complete, the Azure Automation needs to be tested and validated. Below are some of the recommended guidelines.
 

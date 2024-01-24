@@ -14,7 +14,7 @@ ms.topic: how-to
 
 This article covers relocation guidance for Azure Monitor - Log Analytics Workspace across regions.
 
-### Prerequisites
+## Prerequisites
 
 - Validate that the Azure subscription has the correct resource creation permissions to deploy Log Analytics workspaces in the target region. Also, check to see if there's any Azure policy region restriction.
 - Ensure that a Landing Zone has been deployed as per assessed architecture.
@@ -29,7 +29,7 @@ This article covers relocation guidance for Azure Monitor - Log Analytics Worksp
     - [Microsoft Defender for Cloud (Azure Security Center)](./relocation-defender.md)
 
 
-### Redeploy your Log Analytics Workspace
+## Redeploy your Log Analytics Workspace
 
 In a Landing Zone deployment, many resources depend on Azure Log Analytics Workspace for data logging. When planning for the relocation of the Landing Zone, prioritization sequencing is extremely important. A relocation plan for Log Analytics Workspace must include the relocation of any resources that log data with Log Analytics Workspace as soon as Log Analytics has completed its move. 
 
@@ -41,7 +41,7 @@ The diagram below illustrates the relocation pattern for a Log Analytics workspa
 :::image type="content" source="media/relocation/log-analytics/log-analytics-workspace-relocation-pattern.png" alt-text="Diagram illustrating Log Analytics Workspace relocation pattern.":::
 
 
-**Azure Resource Mover** doesn't support moving services used by the Microsoft Sentinel. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
+**Azure Resource Mover** doesn't support moving services used by the Log Analytics Workspace. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
 
 **To redeploy your workspace:**
 
@@ -80,7 +80,7 @@ The diagram below illustrates the relocation pattern for a Log Analytics workspa
     - Reconfigure associated resources manually/or by using script updated in dependent resources, configs and apps.
 
 
-### Validate your Log Analytics relocation
+## Validate your Log Analytics relocation
 
 Once the relocation is complete, the Log Analytics Workspace must be tested and validated. Below are some of the recommended guidelines.
 
