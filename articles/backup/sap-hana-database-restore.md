@@ -2,7 +2,7 @@
 title: Restore SAP HANA databases on Azure VMs
 description: In this article, you'll learn how to restore SAP HANA databases that are running on Azure virtual machines. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 01/24/2024
 ms.service: backup
 ms.custom: ignite-2022
 author: AbhishekMallick-MS
@@ -348,6 +348,8 @@ The secondary region restore user experience is similar to the primary region re
 >* After the restore is triggered and in the data transfer phase, the restore job can't be canceled.
 >* The role and access level that are required to perform a restore operation in cross-regions are the Backup Operator role in the subscription and Contributor (write) access on the source and target virtual machines. To view backup jobs, Backup reader is the minimum permission that's required in the subscription.
 >* The recovery point objective (RPO) for the backup data to be available in secondary region is 12 hours. Therefore, when you turn on CRR, the RPO for the secondary region is *12 hours + log frequency duration* (which can be set to a minimum of 15 minutes).
+
+Learn about the [minimum role requirements for cross-region restore](backup-rbac-rs-vault.md#minimum-role-requirements-for-azure-workload-backups-sql-and-hana-db-backups).
 
 ### Monitor secondary region restore jobs
 
