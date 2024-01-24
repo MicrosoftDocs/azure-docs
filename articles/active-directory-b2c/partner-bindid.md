@@ -52,7 +52,7 @@ To get started, you need:
 * [A registered web application](./tutorial-register-applications.md) in your Azure AD B2C tenant.
 * [Azure AD B2C custom policies](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 * A Transmit Security tenant. Go to [transmitsecurity.com](https://transmitsecurity.com/).
-* 
+
 ::: zone-end
 
 ## Step 1: Create a Transmit app 
