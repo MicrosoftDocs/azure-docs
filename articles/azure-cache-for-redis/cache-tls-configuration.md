@@ -1,5 +1,5 @@
 ---
-title: What are the configuration settings for TLS in Azure Cache for Redis
+title: What are the configuration settings for TLS
 description: Learn about the TLS protocol configuration and how to use TLS to securely communicate with Azure Cache for Redis instances.
 author: flang-msft
 
@@ -21,15 +21,15 @@ Transport Layer Security (TLS) is a cryptographic protocol that provides secure 
 
 ## Scope of availability
 
-This table contains the informtion for TLS availability in different tiers.
+This table contains the information for TLS availability in different tiers.
 
-| **Tier**         | Basic, Standard, Premium | Enterprise, Enterprise Flash |
-|:-----------------|:------------------------:|:----------------------------:|
-| **Availability** | Yes (1.0(retired), 1.1(retired), 1.2, and 1.3(coming soon))           | Yes (1.2 and 1.3(coming soon))                        |
+| **Tier**         | Basic, Standard, Premium                       | Enterprise, Enterprise Flash |
+|:-----------------|:----------------------------------------------:|:----------------------------:|
+| **Availability** | Yes (1.0(retired), 1.1(retired), 1.2, and 1.3) | Yes (1.2 and 1.3)            |
 
 ## TLS 1.3 Support
 
-On February 1, 2024, TLS 1.3 will be supported across all tiers of Azure Cache for Redis. No option is yet available to enforce that TLS 1.3 be used by clients. You are required to negotiate TLS 1.3 when connecting to the cache instance.
+TLS 1.3 is supported across all tiers of Azure Cache for Redis. Presently, there's no option to enforce that TLS 1.3 is used by clients. You're required to negotiate TLS 1.3 when connecting to the cache instance.
 
 ### TLS cipher suites
 
@@ -44,12 +44,12 @@ TLS 1.3 cipher suites:
 - `TLS_AES_256_GCM_SHA384`
 
 > [!NOTE]
-> The `TLS_CHACHA20_POLY1305_SHA256` cipher suite will no longer be supported for TLS 1.3 connections on February 1, 2024. The `TLS_AES_128_GCM_SHA256` or `TLS_AES_256_GCM_SHA384` cipher suites can be used instead.
+> The `TLS_CHACHA20_POLY1305_SHA256` cipher suite is no longer be supported for TLS 1.3 connections. The `TLS_AES_128_GCM_SHA256` or `TLS_AES_256_GCM_SHA384` cipher suites can be used instead.
 >
 
 ## How to enable or disable TLS
 
-Enabling and disabling TLS is different within different tiers. Here is the information for the two sets of Azure Cache for Redis tiers.
+Enabling and disabling TLS is different within different tiers. Here's the information for the two sets of Azure Cache for Redis tiers.
 
 ### Basic, Standard, and Premium tiers
 
@@ -59,7 +59,7 @@ By default, TLS access is enabled in new caches, while non-TLS access is disable
 1. Then, select **No** for **Allow access only via SSL** .
 1. select **Save**.
 
-In non-clustered caches, port `6380` is used for TLS access, while port `6379` is used for non-TLS access.
+In nonclustered caches, port `6380` is used for TLS access, while port `6379` is used for non-TLS access.
 
 In [clustered caches](cache-how-to-scale.md#can-i-directly-connect-to-the-individual-shards-of-my-cache), TLS-enabled caches use ports in the `150XX` range, while non-TLS caches use ports in the `130XX` range.
 
@@ -71,7 +71,7 @@ By default, only TLS access can be used. To disable TLS access:
 2. Select **Enable** for **Non-TLS access only**.
 3. Select **Save**.
 
-Enterprise and Enterprise Flash tier caches use port `10000` for both TLS and non-TLS connections. If the OSS cluster policy is used, [additional connections are established](cache-how-to-scale.md#can-i-directly-connect-to-the-individual-shards-of-my-cache) using ports in the `85XX` range, regardless of TLS status.
+Enterprise and Enterprise Flash tier caches use port `10000` for both TLS and non-TLS connections. If the OSS cluster policy is used, [more connections are established](cache-how-to-scale.md#can-i-directly-connect-to-the-individual-shards-of-my-cache) using ports in the `85XX` range, regardless of TLS status.
 
 ## Remove TLS 1.0 and 1.1 from use with Azure Cache for Redis
 
