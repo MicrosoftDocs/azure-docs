@@ -16,17 +16,19 @@ The proxy feature is available starting in the public preview version [1.13.0-be
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 ## Proxy calling media traffic
 
-## What is a TURN server?
+The following sections describe how to proxy call your media traffic.
+
+### What is a TURN server?
 Many times, establishing a network connection between two peers isn't straightforward. A direct connection might not work because of:
 
 - Firewalls with strict rules.
 - Peers sitting behind a private network.
 - Computers running in a network address translation (NAT) environment.
 
-To solve these network connection issues, you can use a TURN server. The term stands for "Traversal Using Relays around NAT," and it's a protocol for relaying network traffic. STUN and TURN servers are the relay servers here. Learn more about how Azure Communication Services [mitigates](../../concepts/network-traversal.md) network challenges by using STUN and TURN.
+To solve these network connection issues, you can use a server that uses the Traversal Using Relay NAT (TURN) protocol for relaying network traffic. STUN and TURN servers are the relay servers here. To learn more about how Azure Communication Services mitigates network challenges by using STUN and TURN, see [Network traversal concepts](../../concepts/network-traversal.md).
 
 ### Provide your TURN server details to the SDK
-To provide the details of your TURN servers, you need to pass details of what TURN server to use as part of `CallClientOptions` while initializing `CallClient`. For more information on how to set up a call, see [Azure Communication Services Web SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web) for the quickstart on how to set up Voice and Video.
+To provide the details of your TURN servers, you need to pass details of what TURN server to use as part of `CallClientOptions` while initializing `CallClient`. For more information on how to set up a call, see [Azure Communication Services Web SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web) for the quickstart on how to set up voice and video.
 
 ```js
 import { CallClient } from '@azure/communication-calling'; 
@@ -68,9 +70,9 @@ const callClient = new CallClient({
 ```
 
 > [!IMPORTANT]
-> If you've provided your TURN server details while initializing `CallClient`, all the media traffic will <i>exclusively</i> flow through these TURN servers. Any other ICE candidates that are normally generated when creating a call won't be considered while trying to establish connectivity between peers. That means only `relay` candidates are considered. To learn more about different types of Ice candidates see [RTCIceCandidate: type property](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/type).
+> If you provided your TURN server details while you initialized `CallClient`, all the media traffic <i>exclusively</i> flows through these TURN servers. Any other ICE candidates that are normally generated when you create a call won't be considered while trying to establish connectivity between peers. That means only `relay` candidates are considered. To learn more about different types of Ice candidates see [RTCIceCandidate: type property](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/type).
 
-If the `?transport` query parameter isn't present as part of the TURN URL or isn't one of the `udp`, `tcp`, or `tls` values, the default behavior will be UDP.
+If the `?transport` query parameter isn't present as part of the TURN URL or isn't one of the `udp`, `tcp`, or `tls` values, the default behavior is UDP.
 
 If any of the URLs provided are invalid or don't have one of the `turn:`, `turns:`, or `stun:` schemas, the `CallClient` initialization fails and throws errors accordingly. The error messages that are thrown should help you troubleshoot if you run into issues.
 
@@ -79,11 +81,11 @@ For the API reference for the `CallClientOptions` object, and the `networkConfig
 ### Set up a TURN server in Azure
 You can create a Linux virtual machine in the Azure portal. For more information, see [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu). To deploy a TURN server, use [coturn](https://github.com/coturn/coturn). Coturn is a free and open-source implementation of a TURN and STUN server for VoIP and WebRTC.
 
-After you've set up a TURN server, you can test it by using the [WebRTC Trickle ICE](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/) webpage.
+After you set up a TURN server, you can test it by using the instructions on the [WebRTC Trickle ICE](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/) webpage.
 
 ## Proxy signaling traffic
 
-To provide the URL of a proxy server, you need to pass it in as part of `CallClientOptions` while initializing `CallClient`. For more information on how to set up a call, see [Azure Communication Services Web SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web)) for the quickstart on how to set up Voice and Video.
+To provide the URL of a proxy server, you need to pass it in as part of `CallClientOptions` while initializing `CallClient`. For more information on how to set up a call, see [Azure Communication Services Web SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web)) for the quickstart on how to set up voice and video.
 
 ```js
 import { CallClient } from '@azure/communication-calling'; 
@@ -107,11 +109,11 @@ For the API reference for the `CallClientOptions` object, and the `networkConfig
 
 ### Set up a signaling proxy middleware in express js
 
-You can also create a proxy middleware in your express js server setup to have all the URLs redirected through it by using the [http-proxy-middleware](https://www.npmjs.com/package/http-proxy-middleware) npm package. The `createProxyMiddleware` function from that package should cover what you need for a simple redirect proxy setup. Here's an example usage of it with some option settings that the SDK needs to have all of our URLs working as expected:
+You can also create a proxy middleware in your express js server setup to have all the URLs redirected through it by using the [http-proxy-middleware](https://www.npmjs.com/package/http-proxy-middleware) npm package. The `createProxyMiddleware` function from that package should cover what you need for a simple redirect proxy setup. Here's an example usage of it with some option settings that the SDK needs so that all of our URLs work as expected:
 
 ```js
 const proxyRouter = (req) => {
-    // Your router function if you don't intend to setup a direct target
+    // Your router function if you don't intend to set up a direct target
 
     // An example:
     if (!req.originalUrl && !req.url) {
@@ -127,7 +129,7 @@ const proxyRouter = (req) => {
 }
 
 const myProxyMiddleware = createProxyMiddleware({
-    target: 'https://microsoft.com', // This will be ignore if a router function is provided, but createProxyMiddleware still requires this to be passed in (see it's official docs on the npm page for the most recent changes)
+    target: 'https://microsoft.com', // This will be ignored if a router function is provided, but createProxyMiddleware still requires this to be passed in (see its official docs on the npm page for the most recent changes)
     router: proxyRouter,
     changeOrigin: true,
     secure: false, // If you have proper SSL setup, set this accordingly
@@ -147,7 +149,7 @@ app.use('/proxy', myProxyMiddleware);
 ### Set up a signaling proxy server on Azure
 You can create a Linux virtual machine in the Azure portal and deploy an NGINX server on it. For more information, see [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu).
 
-Here's an NGINX configuration that you can use for an example:
+Here's an NGINX configuration that you can use as a sample:
 
 ```
 events {
