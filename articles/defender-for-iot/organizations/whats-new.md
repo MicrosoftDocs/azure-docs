@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Sensor update in Azure portal now supports selecting a specific version](#sensor-update-in-azure-portal-now-supports-selecting-a-specific-version) <br> |
+| **OT networks** | - [Sensor update in Azure portal now supports selecting a specific version](#sensor-update-in-azure-portal-now-supports-selecting-a-specific-version) <br> - [New protocols supported for sensor version 24.1.0](#new-protocols-supported-for-sensor-version-2410) |
 
 ### Sensor update in Azure portal now supports selecting a specific version
 
@@ -31,6 +31,10 @@ You might want to update your sensor to a specific version for various reasons, 
 :::image type="content" source="media/whats-new/send-package-multiple-versions-400.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." border="false" lightbox="media/whats-new/send-package-multiple-versions.png" :::
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md#send-the-software-update-to-your-ot-sensor).
+
+### New protocols supported for sensor version 24.1.0
+
+The list of supported protocols for sensor version 24.1.0 has been updated to include newly supported protocols. The updated protocol list is in [Defender for IoT supported IoT, OT, ICS, and SCADA protocols](concept-supported-protocols.md). <!--click here for the updated protocol list -->
 
 ## December 2023
 
