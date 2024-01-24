@@ -122,7 +122,7 @@ When ready, select **Next**. The second assessment questions page opens.
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar.png" alt-text="Sreenshot of Azure Advisor **Choose pillar assessment** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar.png":::
 
-1.	Based on your response for workload type and core pillar, the number of questions vary. Respond to the different question and continue clicking on **Next** until you reach a page with **View guidance**.
+1.	Based on your response for workload type and core pillar, the number of questions vary. Your answers to the questions are essential to the quality of the assessment recommendations. Respond to the different question and continue clicking on **Next** until you reach a page with **View guidance**.
 
 :::image type="content" source="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar-detail-2-populated.png" alt-text="Sreenshot of Azure Advisor **Choose pillar assessment detail** page." lightbox="./media/advisor-waf-assessments/advisor-waf-assessment-new-question-pillar-detail-2-populated.png":::
 
@@ -172,10 +172,10 @@ From the recommendations list page, you can
 **Machine Learning**
 * [Tailored Well-Architected Assessments for your workloads](https://techcommunity.microsoft.com/t5/azure-governance-and-management/tailored-well-architected-assessments-for-your-workloads/ba-p/2914022)
 * [Azure Machine Learning](/assessments/eec33ce4-4ef0-4bd2-9f69-1956e50465d4/)
-IoT
+**IoT**
 * [Reliability in your IoT workload](/azure/well-architected/iot/iot-reliability)
 * [Security in your IoT workload](/azure/well-architected/iot/iot-security)
-SAP
+**SAP**
 * [SAP workloads on Azure: planning and deployment checklist](/azure/sap/workloads/deployment-checklist)
 * [Well-Architected for SAP workloads - Continuous Improvement through Operational Excellence](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/well-architected-for-sap-workloads-continuous-improvement/ba-p/3672295)
 
