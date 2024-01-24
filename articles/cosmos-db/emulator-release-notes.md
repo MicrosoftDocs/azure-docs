@@ -15,22 +15,26 @@ ms.date: 09/11/2023
 The Azure Cosmos DB emulator is updated at a regular cadence with release notes provided in this article.
 
 > [!div class="nextstepaction"]
-> [Download latest version (``2.14.12``)](https://aka.ms/cosmosdb-emulator)
+> [Download latest version (``2.14.16``)](https://aka.ms/cosmosdb-emulator)
 
 ## Supported versions
 
 Only the most recent version of the Azure Cosmos DB emulator is actively supported.
 
-## Latest version ``2.14.12``
+## Latest version ``2.14.16``
 
-> *Released March 20, 2023*
+> *Released January 8, 2024*
 
-- This release fixes an issue impacting Gremlin and Table endpoint API types. Prior to this fix a client application fails with a 500 status code when trying to connect to the public emulator's endpoint.
+- This release fixes an issue which was causing emulator to bind with `loopback` instead of `public interface` even after passing /AllowNetworkAccess command line option.
 
 ## Previous releases
 
 > [!WARNING]
 > Previous versions of the emulator are not supported by the product group.
+
+### ``2.14.12`` (March 20, 2023)
+
+- This release fixes an issue impacting Gremlin and Table endpoint API types. Prior to this fix a client application fails with a 500 status code when trying to connect to the public emulator's endpoint.
 
 ### ``2.14.11`` (January 27, 2023)
 
