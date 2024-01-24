@@ -350,10 +350,10 @@ main().catch((err) => {
 ::: zone-end
 
 ::: zone pivot="programming-language-portal"
-## Azure Portal
+## Azure portal
 
-Navigate to the Azure Portal and access the `Manage users` blade. You can add, update, and delete users from this blade.
-![Manage Users blade](./media/portal-manage-users/manage-users-blade.png)
+Navigate to the Azure portal and access the `Manage users` blade. You can add, update, and delete users from this blade.
+![Screenshot of the Manage Users blade.](./media/portal-manage-users/manage-users-blade.png)
 
 To add a user, click on the `Add/Remove` button, pick a user and select the role for the user, and `Apply` the changes. The user will be added to the list of users with the selected role.
 
