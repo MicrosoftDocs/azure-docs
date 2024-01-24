@@ -26,6 +26,8 @@ landingContent:
             url: search-what-is-azure-search.md
           - text: AI enrichment
             url: cognitive-search-concept-intro.md
+          - text: Retrieval Augmented Generation (RAG)
+            url: retrieval-augmented-generation-overview.md
       - linkListType: quickstart
         links:
           - text: Create a search service
@@ -42,9 +44,7 @@ landingContent:
             url: vector-search-overview.md
           - text: Integrated vectorization (preview)
             url: vector-search-integrated-vectorization.md
-          - text: Retrieval Augmented Generation (RAG)
-            url: retrieval-augmented-generation-overview.md
-      - linkListType: how-to-guide
+      - linkListType: quickstart
         links:
           - text: Create a vector store
             url: search-get-started-vector.md
