@@ -22,7 +22,7 @@ You also need to make sure to plan and prepare any compliance requirements for d
 >Sentinel doesn’t connect to default workspaces that are created by Microsoft Defender for Cloud.
 
 
-## Relocation
+## Relocate
 
 To relocate Microsoft Sentinel to a new region, you must reconfigure Sentinel to connect to the relocated Log Analytics Workspace, Workbooks, and Data Connectors at target. 
 

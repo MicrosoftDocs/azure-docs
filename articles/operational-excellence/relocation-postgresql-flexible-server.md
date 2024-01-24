@@ -24,7 +24,7 @@ For an overview of the region pairs supported by native replication, see [cross-
 
 ### Prerequisites
 
-Prerequisites only apply to [redeployment with data](#redeploy-with-data). To move your database without data you can skip to [Redeploy without data](#redeploy-without-data).
+Prerequisites only apply to [redeployment with data](#redeploy-with-data). To move your database without data you can skip to [Prepare](#prepare).
 
 - To relocate PostgreSQL with data from one region to another, you must have an additional compute resource to run the backup and restore tools. The examples in this guide use an Azure VM running Ubuntu 20.04 LTS. The compute resources must:
   - Have network access to both the source and the target server, either on a private network or by inclusion in the firewall rules.

@@ -17,18 +17,19 @@ ms.custom:
 
 This article covers the recommended approaches, guidelines and practices for relocating an Azure Virtual Network.
 
+To move Azure Virtual Network to a new region, you can choose either to use Azure Resource Mover or  redeployment. However, it's recommended that you use the [redeployment method](#redeployment-strategy-recommended) to move your network.
+
 
 ## Prerequisites
 
-Before you begin relocation, make sure that you include the following considerations and recommended guidance in your planning:
 
-- **Create a dependency map** with all the Azure services that use the Virtual Network. 
+- Identify all Azure Virtual Network dependant resources.
     
-- **Identify the source networking layout and all the resources that are currently used.** This layout can include load balancers, network security groups (NSGs), Route Tables, and reserved IPs.
+- Identify the source networking layout and all the resources that are currently used. This layout can include load balancers, network security groups (NSGs), Route Tables, and reserved IPs.
 
-- **Collect/List all virtual network resources and configurations**, such as Associated DDoS plan, Azure Firewall, Private endpoint connections and Diagnostic setting configuration.
+- Collect all virtual network resources and configurations, such as Associated DDoS plan, Azure Firewall, Private endpoint connections and Diagnostic setting configuration.
 
-- **To move Network Watcher NSG logs**, you'll need to make sure that you move the diagnostic storage account *prior* to relocation of the virtual network and the NSG flow log.
+- Move the diagnostic storage account that contains Network Watcher NSG logs *prior* to relocation of the virtual network and the NSG flow log.
 
 > [!IMPORTANT]
 > Starting July 1, 2021, you won't be able to add new tests in an existing workspace or enable a new workspace with Network performance monitor. You can continue to use the tests created prior to July 1, 2021. To minimize service disruption to your current workloads, migrate your tests from Network performance monitor to the new Connection monitor in Azure Network Watcher before February 29, 2024.
@@ -80,27 +81,18 @@ To plan your relocation of an Azure Virtual Network, you must understand whether
 :::image type="content" source="media/relocation/vnet-connected-relocation-ip-address-change.png" alt-text="Diagram showing connected workload relocation with vNet IP address range change..":::
 
 
-## Relocation strategies
-
-To move Azure Virtual Network to a new region, you can choose either to use Azure Resource Mover or  redeployment. However, it's recommended that you use the [redeployment method](#redeployment-strategy-recommended) to move your network.
-
-
-### Redeployment strategy (Recommended)
+## Redeploy
 
 Redeployment is the recommended way to move your virtual network to a new region.  Redeployment supports both independent relocation of multiple workloads, as well as private IP address range change in the target region. To redeploy, you'll use a Resource Manager template.
 
-
-#### Redeployment considerations
+When choosing to redeploy, it's important that you understand the following considerations:
 
 - [Peered Virtual networks](/azure/virtual-network/virtual-network-peering-overview) can't be re-created in the new region, even if they're defined in the exported template. To have virtual networking peering in the new region, you need to create a separate export template for the peering.
 - If you enable private IP address range change, multiple workloads in a virtual network can be relocated independently of each other, 
 - The redeployment method supports the option to enable and disable private IP address range change in the target region.
 - If you don't enable private IP address change in the target region, data migration scenarios that require communication between source and target region can only be established using public endpoints (public IP addresses).
 
-#### How to redeploy
-
-
-**To redeploy using a Resource Manager template:**
+**To redeploy your virtual network to a new region:**
 
 1. Redeploy your virtual network to another region by choosing the appropriate guides:
 
@@ -128,7 +120,7 @@ Redeployment is the recommended way to move your virtual network to a new region
     
         
 
-### Relocation strategy
+### Relocate with Azure Resource Mover
 
 Although it's not recommended, you can choose to use Azure Resource Mover to migrate your virtual network to another region. 
 
@@ -147,8 +139,6 @@ Below are some features and limitations of using the migration strategy.
 - Virtual Network Peering must be reconfigured after the relocation. Its recommended that you move the peering virtual network either before or with the source virtual network.
 
 - While performing the Initiate move steps with Azure Resource Mover, resources may be temporarily unavailable.
-
-### How to relocate using Resource Mover
 
 To relocate your virtual network across regions with Resource Mover, follow the steps in [move Azure Virtual Network across Azure regions](/azure/resource-mover/overview#move-across-regions).
 
@@ -179,7 +169,7 @@ As soon as the virtual network get deployed in a specific region, Network Watche
 
 - Recreate the NSG flow logs for the target virtual network.
 
-## Relocation validation
+## Validate
 
 Once the entire relocation is completed, you need to test and validate the virtual network by doing the following:
 
