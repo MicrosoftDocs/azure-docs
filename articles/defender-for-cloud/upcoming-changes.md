@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/11/2024
+ms.date: 01/24/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Two AMA-based recommendations are set for deprecation](#two-ama-based-recommendations-are-set-for-deprecation) | January 28, 2024 | February 28, 2024 |
 | [Update to agentless VM scanning built-in Azure role](#update-to-agentless-vm-scanning-built-in-azure-role) |January 14, 2024 | February 2024 |
 | [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |January 14, 2024 | February 2024 |
 | [Four new recommendations for Azure Stack HCI resource type](#four-new-recommendations-for-azure-stack-hci-resource-type) | January 11, 2024 | February 2024 |
@@ -42,6 +43,14 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Two AMA-based recommendations are set for deprecation
+
+As part of the [upcoming Azure Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) deprecation](https://techcommunity.microsoft.com/t5/blogs/blogworkflowpage/blog-id/MicrosoftDefenderCloudBlog/article-id/1269), Defender for Servers's security features will only utilize the Microsoft Defender for Endpoint agent, complemented by the agentless scanning capabilities of Defender for Servers.
+
+As part of this plan, there will be a new experience used to discover and identify and potential configuration issues in your endpoint protection solutions for both Microsoft and non-Microsoft Endpoint Detection and Response (EDR) solutions on your servers.
+
+
 
 ## Update to agentless VM scanning built-in Azure role
 
