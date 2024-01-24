@@ -224,7 +224,7 @@
           href: edge-zones.md
         - name: Cluster configuration options
           href: cluster-configuration.md 
-        - name: Scale an AKS cluster
+        - name: Manually scale nodes in an AKS cluster
           href: scale-cluster.md
         - name: Stop an AKS cluster
           href: start-stop-cluster.md

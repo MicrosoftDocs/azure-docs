@@ -15,8 +15,9 @@ In order to upgrade Arc resource bridge, the appliance VM must be online, its st
 
 There must be sufficient space on the management machine (~3.5 GB) and appliance VM (35 GB) to download required images. For VMware, a new template is created.
 
-Currently, in order to upgrade Arc resource bridge, you must enable outbound connection from the Appliance VM IPs (`k8snodeippoolstart/end`, VM IP 1/2) to `msk8s.sb.tlu.dl.delivery.mp.microsoft.com`, port 443. Be sure the full list of [required endpoints for Arc resource bridge](network-requirements.md) are also enabled.
+The outbound connection from the Appliance VM IPs (`k8snodeippoolstart/end`, VM IP 1/2) to `msk8s.sb.tlu.dl.delivery.mp.microsoft.com`, port 443 must be enabled. Be sure the full list of [required endpoints for Arc resource bridge](network-requirements.md) are also enabled.
 
+If you are performing a manual upgrade, the upgrade command should be run from the management machine used to initially deploy the Arc resource bridge and still contains the [appliance configuration files](system-requirements.md#configuration-files) or one that meets the [management machine requirements](system-requirements.md#management-machine-requirements) and also contains the appliance configuration files.
 Arc resource bridges configured with DHCP can't be upgraded and aren't supported in a production environment. Instead, a new Arc resource bridge should be deployed using [static IP configuration](system-requirements.md#static-ip-configuration).  
 
 ## Overview

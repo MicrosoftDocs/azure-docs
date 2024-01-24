@@ -5,8 +5,7 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: overview
-ms.date: 04/28/2023
-ms.custom: engagement-fy23
+ms.date: 01/23/2024
 ---
 
 # Get started with Azure IoT device development
