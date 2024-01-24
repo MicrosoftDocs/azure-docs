@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: release-notes
 ms.date: 12/14/2023
 ms.author: helohr
-manager: femila
 ms.custom: references_regions
 ---
 # What's new in the Azure Virtual Desktop Agent?
