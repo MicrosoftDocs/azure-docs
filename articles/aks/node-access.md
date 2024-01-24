@@ -81,7 +81,7 @@ Follow these steps as a workaround to connect with SSH on a Windows Server node.
 
 At this time, you can't connect to a Windows Server node directly by using `kubectl debug`. Instead, you need to first connect to another node in the cluster with `kubectl`, then connect to the Windows Server node from that node using SSH.
 
-To connect to another node in the cluster, use the `kubectl debug` command. For more information, follow the above steps in the kubectl section. Create an SSH connection to the Windows Server node from another node, and use the SSH keys provided when you created the AKS cluster and the internal IP address of the Windows Server node.
+To connect to another node in the cluster, use the `kubectl debug` command. For more information, follow the above steps in the kubectl section. Create an SSH connection to the Windows Server node from another node using the SSH keys provided when you created the AKS cluster and the internal IP address of the Windows Server node.
 
 > [!IMPORTANT]
 >
