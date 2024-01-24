@@ -2,7 +2,7 @@
 title: Back up SQL Server always on availability groups
 description: In this article, learn how to back up SQL Server on availability groups.
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 01/25/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -78,7 +78,7 @@ Based on the above sample AG deployment, following are the various failover poss
 
 Recovery services vault doesn’t support cross-subscription or cross-region backups. This section summarizes how to enable backups for AGs that are spanning subscriptions or Azure regions and the associated considerations.
 
-- Evaluate if you really need to enable backups from all nodes. If one region/subscription has most of the AG nodes and failover to other nodes happens very rarely, setting up the backup in that first region may be enough. If the failovers to other region/subscription happen frequently and for prolonged duration, then you may want to set aup backups proactively in the other region as well.
+- Evaluate if you really need to enable backups from all nodes. If one region/subscription has most of the AG nodes and failover to other nodes happens very rarely, setting up the backup in that first region may be enough. If the failovers to other region/subscription happen frequently and for prolonged duration, then you may want to set up backups proactively in the other region as well.
 
 - Each vault where the backup gets enabled will have its own set of recovery point chains. Restores from these recovery points can be done to VMs registered in that vault only.
 
@@ -172,6 +172,34 @@ If a node is part of an AG that has one or more databases configured for backup,
 
 Restore a database from Azure Backup to an AG
 SQL Availability Groups do not support directly restoring a database into AG. The database needs to be restored to a standalone SQL instance and then needs to be joined to an AG.
+
+
+
+
+## Availability group re-creation scenarios for the SQL database server
+
+Re-creation of Availability group (AG), duplicate AGs, and the backup items get listed as *protectable items* or *protected items* in the following scenarios:
+
+- Re-creating AGs that are already protected appear as duplicate AGs on the **Configure Backup** page and in the **Protected items** list. If you want to retain the backup data that is already present in the older AG, then stop the backup by using the **Stop protection and retain data** option before re-creating and scheduling backups on the new AG items.
+
+  Azure Backup uses this method to list the duplicate items on the **Protected items list**, and the **Configure Backup** page or **Protectable item list** displays these items until you want to retain the backup data.
+
+- If you don't want the backup data from the older AG, then stop the backup operation by using the **Stop protection and delete data** option for the older item before re-creating and scheduling backups on the new AG.
+
+  >[!Caution]
+  >Stop protection and delete data is a destructive operation.
+
+- You can recreate the AG after performing one of the above Stop protection process to avoid backup failures.
+
+
+
+
+
+
+
+
+
+
 
 ## Next steps
 
