@@ -104,6 +104,7 @@ await deepAR.switchEffect('https://cdn.jsdelivr.net/npm/deepar/effects/lion');
 await deepAR.backgroundBlur(true, 8);
 
 ```
+:::image type="content" source="./media/deepar/deepar-screenshot.png" alt-text="Screenshot of the video effect":::
 
 ## Stop the effect
 
