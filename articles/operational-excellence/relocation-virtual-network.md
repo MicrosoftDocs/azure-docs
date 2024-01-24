@@ -120,7 +120,7 @@ When choosing to redeploy, it's important that you understand the following cons
     
         
 
-### Relocate with Azure Resource Mover
+## Relocate with Azure Resource Mover
 
 Although it's not recommended, you can choose to use Azure Resource Mover to migrate your virtual network to another region. 
 
@@ -146,10 +146,7 @@ To relocate your virtual network across regions with Resource Mover, follow the 
 >During the Resource Mover validation step, you may see a list of dependencies that can also be prepared to move with the virtual network. It's highly recommended that you move dependent resources separately by detaching them from the move collection.
 
 
-
-## Additional relocation resources
-
-### Relocate DDOS Protection Plan
+## Relocate DDOS Protection Plan
 
 DDoS Protection Plan doesn't have any client specific data and the instance itself can be moved alone.
 
@@ -161,7 +158,7 @@ DDoS Protection Plan doesn't have any client specific data and the instance itse
 
 1. Once redeployment completes, use the Azure portal to reconfigure the DDOS Protection plan with the target virtual network.
 
-### Relocate Network Watcher
+## Relocate Network Watcher
 
 As soon as the virtual network get deployed in a specific region, Network Watcher is automatically enabled. However, you'll still need to perform some configuration steps:
 
