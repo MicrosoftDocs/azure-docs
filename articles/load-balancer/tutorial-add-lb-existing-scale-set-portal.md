@@ -130,7 +130,7 @@ You create a load-balancing rule for **Port 80** with outbound SNAT disabled. Th
 1. Select **Add**.
 1. Select **Review + Create** and **Create**.
 
-# Add load balancer to scale set
+## Add load balancer to scale set
 
 In this section, you add a load balancer to the scale set in the Azure portal.
 
