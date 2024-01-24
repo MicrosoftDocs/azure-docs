@@ -1,11 +1,11 @@
 ---
-title: #Required; "<verb> * <noun>"
-description: #Required; Keep the description within 100- and 165-characters including spaces.
-author: #Required; your GitHub user alias, with correct capitalization
-ms.author: #Required; microsoft alias of author
+title: Set up Azure Operator Call Protection
+description: Start using Azure Operator Call Protection to protect your customers against fraud
+author: rcdun
+ms.author: rdunstan
 ms.service: azure
-ms.topic: how-to #Required; leave this attribute/value as-is
-ms.date: #Required; mm/dd/yyyy format
+ms.topic: how-to
+ms.date: 01/31/2024
 ms.custom:
     - update-for-call-protection-service-slug
 
@@ -36,7 +36,7 @@ For example: "Migrate data from regular tables to ledger tables" or "Create a ne
 
 -->
 
-# "<verb> * <noun>"
+# "\<verb\> * \<noun\>"
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
@@ -92,7 +92,7 @@ For portal-based procedures, minimize bullets and numbering.
 
 -->
 
-## "\<verb\> * \<noun\>"
+## "\<verb1\> * \<noun1\>"
 TODO: Add introduction sentence(s)
 [Include a sentence or two to explain only what is needed to complete the procedure.]
 TODO: Add ordered list of procedure steps
@@ -100,7 +100,7 @@ TODO: Add ordered list of procedure steps
 1. Step 2
 1. Step 3
 
-## "\<verb\> * \<noun\>"
+## "\<verb2\> * \<noun2\>"
 TODO: Add introduction sentence(s)
 [Include a sentence or two to explain only what is needed to complete the procedure.]
 TODO: Add ordered list of procedure steps
@@ -108,7 +108,7 @@ TODO: Add ordered list of procedure steps
 1. Step 2
 1. Step 3
 
-## "\<verb\> * \<noun\>"
+## "\<verb3\> * \<noun3\>"
 TODO: Add introduction sentence(s)
 [Include a sentence or two to explain only what is needed to complete the procedure.]
 TODO: Add ordered list of procedure steps
@@ -128,16 +128,21 @@ Optional: You have two options for manually curated links in this pattern: Next 
 
 TODO: Add your next step link(s)
 
+<!--
+
 > [!div class="nextstepaction"]
 > [Write concepts](article-concept.md)
+
+-->
 
 <!-- OR -->
 
 ## Related content
 
 TODO: Add your next step link(s)
-
+<!--
 - [Write concepts](article-concept.md)
+ -->
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the main branch.

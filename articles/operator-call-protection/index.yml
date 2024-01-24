@@ -7,10 +7,10 @@ metadata:
   title: Azure Operator Call Protection documentation
   description: Learn about Azure Operator Call Protection for telecommunications operators.
   ms.service: azure
-  ms.topic: landing-page # Required
-  author:  #Required; your GitHub user alias, with correct capitalization.
-  ms.author: #Required; microsoft alias of author; optional team alias.
-  ms.date: #Required; mm/dd/yyyy format.
+  ms.topic: landing-page
+  author:  rcdun
+  ms.author: rdunstan
+  ms.date: 01/31/2024
   ms.custom:
     - update-for-call-protection-service-slug
 

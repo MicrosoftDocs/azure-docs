@@ -1,11 +1,11 @@
 ---
-title: #Required; Keep the title body to 60-65 chars max including spaces and brand
-description: #Required; Keep the description within 100- and 165-characters including spaces 
-author: #Required; your GitHub user alias, with correct capitalization
-ms.author: #Required; microsoft alias of author
+title: Learn about deploying and setting up Azure Operator Call Protection
+description: Understand how to get started with Azure Operator Call Protection to protect your customers against fraud
+author: rcdun
+ms.author: rdunstan
 ms.service: azure
 ms.topic: concept-article #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 01/31/2024
 ms.custom:
     - update-for-call-protection-service-slug
 
@@ -111,44 +111,20 @@ Optional: You have two options for manually curated links in this pattern: Next 
 
 ## Next step
 
-TODO: Add your next step link(s)
-
 > [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
+> [Prepare to deploy Operator Call Protection on Azure Communications Gateway](../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json)
+
 
 <!-- OR -->
-
-## Related content
-
-TODO: Add your next step link(s)
-
-- [Write concepts](article-concept.md)
 
 <!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
-
-
-<!-- 6. Next step/Related content ------------------------------------------------------------------------
-
-Optional: You have two options for manually curated links in this pattern: Next step and Related
-content. You don't have to use either, but don't use both. For Next step, provide one link to the
-next step in a sequence. Use the blue box format For Related content provide 1-3 links. Include some
-context so the customer can determine why they would click the link. Add a context sentence for the
-following links.
-
--->
-
-## Next step
-TODO: Add your next step link(s)
-> [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
-
-<!-- OR -->
-
 ## Related content
+
 TODO: Add your next step link(s)
+
 - [Write concepts](article-concept.md)
+- 
+--->
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 

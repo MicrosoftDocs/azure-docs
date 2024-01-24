@@ -1,10 +1,11 @@
 ---
-title: #Required; "What is <product>?"
-description: #Required; article description that is displayed in search results.
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author
+title: What is Azure Operator Call Protection?
+description: Learn how telecommunications operators can use Azure Operator Call Protection to detect fraud with AI.
+author: rcdun
+ms.author: rdunstan
 ms.service: azure
-ms.date: #Required; mm/dd/yyyy format.
+ms.topic: overview
+ms.date: 01/31/2024
 ms.custom:
     - update-for-call-protection-service-slug
 
@@ -36,7 +37,7 @@ You can also use this in the TOC if your service name doesn't cause the phrase t
 
 -->
 
-# What is <product/service>? 
+# What is /<product/service/>? 
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
@@ -92,18 +93,19 @@ Optional: You have two options for manually curated links in this pattern: Next 
 
 ## Next step
 
-TODO: Add your next step link(s)
-
 > [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
+> [Learn about deploying and setting up Azure Operator Call Protection](deployment-overview.md)
 
 <!-- OR -->
 
+<!--
 ## Related content
 
 TODO: Add your next step link(s)
 
 - [Write concepts](article-concept.md)
+- 
+--->
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the main branch.
