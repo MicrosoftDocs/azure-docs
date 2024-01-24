@@ -217,7 +217,7 @@ Once the upgrade process has completed successfully the following steps should b
 - Enable any antivirus, anti-spyware or firewall software that may have been disabled at the start of the upgrade process.
 
 > [!IMPORTANT]
-> The image plan information will not change post the upgrade process. Since, the image version and the plan information describe the original image that was used during the creation of the VM
+> The image plan information will not change after the upgrade process.
 
 
 ## Recover from failure
