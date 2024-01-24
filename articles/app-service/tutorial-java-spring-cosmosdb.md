@@ -9,10 +9,10 @@ ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-azurecli, ignite-2022, devx-track-extended-java, AppServiceConnectivity
 ---
 
+# Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
+
 > [!NOTE]
 > For Spring applications, we recommend using Azure Spring Apps. However, you can still use Azure App Service as a destination.
-
-# Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
 
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
 When you are finished, you will have a [Spring Boot](https://spring.io/projects/spring-boot) application storing data in [Azure Cosmos DB](../cosmos-db/index.yml) running on [Azure App Service on Linux](overview.md).
