@@ -1,18 +1,15 @@
 ---
-title: "How to set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server"
-description: "Learn how to set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server."
-author: apduvuri
-ms.author: adityaduvuri
-ms.reviewer: maghan
+title: Set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server
+author: markingmyname
+ms.author: maghan
 ms.date: 01/30/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.topic: how-to
+ms.topic: include
+ms.custom:
 ---
 
-# How to set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server
-
-This article helps you understand the Azure CLI commands used to migrate your PostgreSQL databases to Azure Database for PostgreSQL - Flexible Server.
+# Set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server
 
 - Install the Azure CLI depending on the operating system to run the CLI commands.
 - Azure CLI can be installed from - [How to install the Azure CLI](/cli/azure/install-azure-cli).
@@ -175,10 +172,3 @@ For more information about this command, use the `help` parameter:
 ```azurecli-interactive
 az postgres flexible-server migration update cancel -- help
 ```
-
-## Related content
-
-- [How to install the Azure CLI](/cli/azure/install-azure-cli)
-- [Migration service](concepts-migration-service-postgresql.md)
-- [Migrate from on-premises or Azure VM](tutorial-migration-service-offline-iaas.md)
-- [Migrate from AWS RDS](tutorial-migration-service-offline-aws.md)

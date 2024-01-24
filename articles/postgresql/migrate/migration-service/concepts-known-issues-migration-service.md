@@ -54,4 +54,3 @@ Here are common limitations that apply to migration scenarios:
 - [Migration service](concepts-migration-service-postgresql.md)
 - [Network setup](how-to-network-setup-migration-service.md)
 - [Premigration validations](concepts-premigration-migration-service.md)
-- [Prerequisites](concepts-prerequisites-migration-service.md)

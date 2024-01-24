@@ -27,7 +27,9 @@ In this document, you learn:
 
 ## Prerequisites
 
-[!INCLUDE [prerequisites-postgresql-migration-service-offline-iaas](includes/prerequisites-postgresql-migration-service.md)]
+Follow the prerequisites before you start your migration with migration service in Azure Database for PostgreSQL.
+
+[!INCLUDE [prerequisites-migration-service-postgresql](includes/prerequisites-migration-service-postgresql.md)]
 
 #### [Portal](#tab/portal)
 
@@ -78,7 +80,7 @@ Select the **Next: Connect to source** button.
 
 :::image type="content" source="media\tutorial-migration-service-offline-iaas\portal-offline-setup-migration.png" alt-text="Screenshot of the setup migration page." lightbox="media\tutorial-migration-service-offline-iaas\portal-offline-setup-migration.png":::
 
-## Connect to source
+## Connect to the source
 
 The **Connect to Source** tab prompts you to give details related to the source selected in the **Setup Tab**, which is the source of the databases.
 
@@ -98,7 +100,7 @@ After the successful test connection, select the **Next: Select Migration target
 
 :::image type="content" source="media\tutorial-migration-service-offline-iaas\portal-offline-connect-source-migration.png" alt-text="Screenshot of connect source migration page." lightbox="media\tutorial-migration-service-offline-iaas\portal-offline-connect-source-migration.png":::
 
-## Connect to target
+## Connect to the target
 
 The **select migration target** tab displays metadata for the Flexible Server target, like subscription name, resource group, server name, location, and PostgreSQL version.
 
@@ -190,7 +192,7 @@ You can cancel any ongoing validations or migrations. The workflow must be in th
 
 To begin migrating using Azure CLI, you need to install the Azure CLI on your local machine. For more information, see [How to setup Azure CLI](how-to-setup-azure-cli-commands.md)
 
-## Connect to source
+## Connect to the source
 
 In this tutorial, the source PostgreSQL version used is 14.8, and it's installed in one of the Azure VMs with the operating system Ubuntu.
 
@@ -276,11 +278,12 @@ After migration, you can perform the following tasks:
 
 - Monitor the database performance closely to see if it requires performance tuning.
 
-## Migration best practices
-
-For a successful end-to-end migration, follow the post-migration steps in [Migrate to Azure Database for PostgreSQL - Flexible Server](../best-practices-migration-service-postgresql.md). After you complete the preceding steps, you can change your application code to point database connection strings to Flexible Server. You can then start using the target as the primary database server.
-
 ## Related content
 
 - [Migration service](concepts-migration-service-postgresql.md)
 - [Migrate from AWS RDS](tutorial-migration-service-offline-aws.md)
+- [Best practices](best-practices-migration-service-postgresql.md)
+- [Known Issues and limitations](concepts-known-issues-migration-service.md)
+- [Network setup](how-to-network-setup-migration-service.md)
+- [Premigration validations](concepts-premigration-migration-service.md)
+

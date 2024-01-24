@@ -66,9 +66,10 @@ We recommend that customers use premigration validations to identify issues befo
 
 1. Start the migration using the **Validate and Migrate** option on the planned date and time.
 
-## Validation States 
+## Validation states 
 
 The result post running the validated option can be:
+
 - **Succeeded** - No issues were found, and you can plan for the migration
 - **Failed** - There were errors found during validation, which can cause the migration to fail. Review the list of errors and their suggested workarounds and take corrective measures before planning the migration.
 - **Warning** - Warnings are informative messages you must remember while planning the migration. 
@@ -79,4 +80,3 @@ The result post running the validated option can be:
 - [Migration service](concepts-migration-service-postgresql.md)
 - [Known issues and limitations](concepts-known-issues-migration-service.md)
 - [Network setup](how-to-network-setup-migration-service.md)
-- [Prerequisites](concepts-prerequisites-migration-service.md)

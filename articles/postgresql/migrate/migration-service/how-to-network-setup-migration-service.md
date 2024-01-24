@@ -86,4 +86,3 @@ The migration service requires direct connectivity to the source database to per
 - [Migration service](concepts-migration-service-postgresql.md)
 - [Known issues and limitations](concepts-known-issues-migration-service.md)
 - [Premigration validations](concepts-premigration-migration-service.md)
-- [Prerequisites](concepts-prerequisites-migration-service.md)

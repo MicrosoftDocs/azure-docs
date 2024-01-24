@@ -431,6 +431,12 @@
     items:
     - name: Overview
       href: migrate/migration-service/concepts-migration-service-postgresql.md
+    - name: Tutorials
+      items:
+      - name: Migrate from on-premises and Azure VM
+        href: migrate/migration-service/tutorial-migration-service-offline-iaas.md
+      - name: Migrate from AWS RDS
+        href: migrate/migration-service/tutorial-migration-service-offline-aws.md
     - name: Concepts
       items:
       - name: Premigration validation
@@ -439,18 +445,10 @@
         href: migrate/migration-service/best-practices-migration-service-postgresql.md
       - name: Known issues and limitations
         href: migrate/migration-service/concepts-known-issues-migration-service.md
-    - name: Getting Started
-      items:
-      - name: Prerequisites
-        href: migrate/migration-service/concepts-prerequisites-migration-service.md
-      - name: Migrate from on-premises and Azure VM
-        href: migrate/migration-service/tutorial-migration-service-offline-iaas.md
-      - name: Migrate from AWS RDS
-        href: migrate/migration-service/tutorial-migration-service-offline-aws.md
     - name: How-to guides
       items:
       - name: CLI command help
-        href: migrate/migration-service/how-to-cli-commands.md
+        href: migrate/migration-service/how-to-setup-azure-cli.md
       - name: Network setup
         href: migrate/migration-service/how-to-network-setup-migration-service.md
 - name: Azure Database for PostgreSQL - Single Server
