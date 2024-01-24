@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Control Plane Quorum Loss
+title: Troubleshoot control plane quorum loss
 description: Document how to restore control plane quorum loss
 ms.topic: article
 ms.date: 01/18/2024
