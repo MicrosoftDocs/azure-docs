@@ -494,7 +494,6 @@ options.customCallingContext = customCallingContext;
 const result = await callConnection.transferCallToParticipant(transferDestination, options);
 
 // Transfer pstn User
-const result = await callConnection.transferCallToParticipant(transferDestination, options);
 const transferDestination = { phoneNumber: "<taget_phoneNumber>" };
 const transferee = { phoneNumber: "<transferee_phoneNumber>" };
 const options = { transferee: transferee, operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };

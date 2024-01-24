@@ -107,7 +107,7 @@ Selecting a column in your data preview tab and clicking **Statistics** in the d
 
 :::image type="content" source="media/data-flow/stats.png" alt-text="Column statistics":::
 
-## Next steps
+## Related content
 
 * Once you're finished building and debugging your data flow, [execute it from a pipeline.](control-flow-execute-data-flow-activity.md)
 * When testing your pipeline with a data flow, use the pipeline [Debug run execution option.](iterative-development-debugging.md)

@@ -44,7 +44,7 @@ The following limits apply on a per-region, per-subscription basis.
 | Test runs per test | 5000 | |
 | File uploads per test | 1000 | |
 | App Components per test or test run | 100 | |
-| [Test criteria](./how-to-define-test-criteria.md#load-test-fail-criteria) per test | 10 | |
+| [Test criteria](./how-to-define-test-criteria.md#load-test-fail-criteria) per test | 50 | |
 
 <sup>2</sup> If you aren't already at the maximum limit, you can request an increase. We aren't currently able to approve increase requests past our maximum limitations stated above. To request an increase for your default limit, contact Azure Support. Default limits vary by offer category type.
 
@@ -90,4 +90,4 @@ To raise the limit or quota above the default limit, [open an online customer su
 ## Next steps
 
 - Learn how to [set up a high-scale load test](./how-to-high-scale-load.md).
-- Learn how to [configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
+- Learn how to [configure automated performance testing](./quickstart-add-load-test-cicd.md).

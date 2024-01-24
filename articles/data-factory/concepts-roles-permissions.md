@@ -1,7 +1,7 @@
 ---
 title: Roles and permissions for Azure Data Factory 
 description: Describes the roles and permissions required to create Data Factories and to work with child resources.
-ms.date: 02/08/2023
+ms.date: 01/05/2024
 ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: security
@@ -92,7 +92,7 @@ Here are a few examples that demonstrate what you can achieve with custom roles:
   Assign the built-in **contributor** role on the data factory resource for the user. This role lets the user see the resources in the Azure portal, but the user can't access the  **Publish** and **Publish All** buttons.
 
 
-## Next steps
+## Related content
 
 - Learn more about roles in Azure - [Understand role definitions](../role-based-access-control/role-definitions.md)
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Monitor the safety and quality of generative AI applications deployed to production on Azure Machine Learning.
 services: machine-learning
 author: buchananwp
-ms.author: wibuchan
+ms.author: willalpine
 ms.service: machine-learning
 ms.subservice: prompt-flow
 ms.reviewer: scottpolly
@@ -82,7 +82,7 @@ What parameters are configured in your data asset dictates what metrics you can 
 1. **Role access** To assign a role with the required permissions, you need to have the *owner* or *Microsoft.Authorization/roleAssignments/write* permission on your resource. Updating connections and permissions may take several minutes to take effect. These additional roles must be assigned to your UAI:
     - **Resource:** Workspace
     - **Role:** Azure Machine Learning Data Scientist
-1. **Workspace connection:** [following this guidance](get-started-prompt-flow.md#connection), you use a managed identity that represents the credentials to the Azure OpenAI endpoint used to calculate the monitoring metrics. **DO NOT** delete the connection once it's used in the flow.
+1. **Workspace connection:** [following this guidance](get-started-prompt-flow.md#set-up-connection), you use a managed identity that represents the credentials to the Azure OpenAI endpoint used to calculate the monitoring metrics. **DO NOT** delete the connection once it's used in the flow.
     -  **API version:** 2023-03-15-preview
 1. **Prompt flow deployment:** Create a prompt flow runtime [following this guidance](how-to-create-manage-runtime.md), run your flow, and ensure your [deployment is configured using this article as a guide](how-to-deploy-for-real-time-inference.md) 
     - **Flow inputs & outputs:** You need to name your flow outputs appropriately and remember these column names when creating your monitor. In this article, we use the following:

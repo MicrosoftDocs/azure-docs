@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/21/2023
+ms.date: 01/05/2024
 ---
 
 # Troubleshoot copy activity performance
@@ -254,7 +254,7 @@ Here is performance monitoring and tuning references for some of the supported d
 * SQL Server: [Monitor and tune for performance](/sql/relational-databases/performance/monitor-and-tune-for-performance).
 * On-premises file server: [Performance tuning for file servers](/previous-versions//dn567661(v=vs.85)).
 
-## Next steps
+## Related content
 See the other copy activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)

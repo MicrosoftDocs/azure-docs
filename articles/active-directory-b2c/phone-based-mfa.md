@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
 
-ms.date: 09/20/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to monitor phone authentication failures and mitigate fraudulent sign-ups, so that I can protect against malicious use of the telephony service and ensure a secure authentication process.
 
 ---
 # Securing phone-based multifactor authentication

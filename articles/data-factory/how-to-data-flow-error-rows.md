@@ -56,6 +56,6 @@ This video walks through an example of setting-up error row handling logic in yo
 
     :::image type="content" source="media/data-flow/error-row-3.png" alt-text="complete data flow with error rows":::
 
-## Next steps
+## Related content
 
 * Build the rest of your data flow logic by using mapping data flows [transformations](concepts-data-flow-overview.md).

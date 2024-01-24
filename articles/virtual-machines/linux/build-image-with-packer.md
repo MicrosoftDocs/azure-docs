@@ -1,20 +1,20 @@
 ---
-title: Create Linux Azure VM Images with Packer 
+title: Create Linux Azure VM Images with Packer
 description: Learn how to use Packer to create images of Linux virtual machines in Azure
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.date: 04/11/2023
-ms.author: cynthn
+ms.author: jushiman
 ms.collection: linux
 ---
 
 # How to use Packer to create Linux virtual machine images in Azure
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 Each virtual machine (VM) in Azure is created from an image that defines the Linux distribution and OS version. Images can include pre-installed applications and configurations. The Azure Marketplace provides many first and third-party images for most common distributions and application environments, or you can create your own custom images tailored to your needs. This article details how to use the open source tool [Packer](https://www.packer.io/) to define and build custom images in Azure.
 
@@ -267,7 +267,7 @@ az vm open-port \
 
 Now you can open a web browser and enter `http://publicIpAddress` in the address bar. Provide your own public IP address from the VM create process. The default NGINX page is displayed as in the following example:
 
-![NGINX default site](./media/build-image-with-packer/nginx.png) 
+![NGINX default site](./media/build-image-with-packer/nginx.png)
 
 ## Next steps
 You can also use existing Packer provisioner scripts with [Azure Image Builder](image-builder.md).

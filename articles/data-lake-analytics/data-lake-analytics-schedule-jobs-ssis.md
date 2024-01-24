@@ -4,8 +4,9 @@ description: Learn how to use SQL Server Integration Services to schedule U-SQL 
 ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 12/20/2023
 ---
+
 # Schedule U-SQL jobs using SQL Server Integration Services (SSIS)
 
 In this document, you learn how to orchestrate and create U-SQL jobs using SQL Server Integration Service (SSIS). 
@@ -103,7 +104,7 @@ In SSIS package design view, add an **Azure Data Lake Store File System Task**, 
 
     1. In **Expressions** page, add a new expression key-value pair for **JobName**.
     2. Set the value for JobName to the variable defined in Foreach Loop Container, for example, `@[User::FileName]`.
-    
+
         ![Configure SSIS Expression for U-SQL job name](./media/data-lake-analytics-schedule-jobs-ssis/configure-expression-for-u-sql-job-name.png)
 
 ## Scenario 3-Use U-SQL files in Azure Blob Storage
@@ -136,7 +137,7 @@ Besides of using U-SQL files stored on cloud, you can also use files on your loc
 
 ## Scenario 5-Use U-SQL statement in SSIS variable
 
-In some cases, you may need to dynamically generate the U-SQL statements. You can use **SSIS Variable** with **SSIS Expression** and other SSIS tasks, like Script Task, to help you generate the U-SQL statement dynamically.
+In some cases, you might need to dynamically generate the U-SQL statements. You can use **SSIS Variable** with **SSIS Expression** and other SSIS tasks, like Script Task, to help you generate the U-SQL statement dynamically.
 
 1. Open Variables tool window through **SSIS > Variables** top-level menu.
 
@@ -150,7 +151,7 @@ In some cases, you may need to dynamically generate the U-SQL statements. You ca
 
 ## Scenario 6-Pass parameters to U-SQL script
 
-In some cases, you may want to dynamically set the U-SQL variable value in the U-SQL script. **Parameter Mapping** feature in Azure Data Lake Analytics Task helps with this scenario. There are usually two typical user cases:
+In some cases, you might want to dynamically set the U-SQL variable value in the U-SQL script. **Parameter Mapping** feature in Azure Data Lake Analytics Task helps with this scenario. There are usually two typical user cases:
 
 - Set the input and output file path variables dynamically based on current date and time.
 - Set the parameter for stored procedures.

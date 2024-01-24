@@ -121,7 +121,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
     :::image type="content" source="./media/load-data-into-azure-data-lake-store/adls-copy-result.png" alt-text="Verify Data Lake Storage Gen1 output":::
 
-## Next steps
+## Related content
 
 Advance to the following article to learn about Data Lake Storage Gen1 support: 
 

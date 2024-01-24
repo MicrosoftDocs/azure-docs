@@ -4,12 +4,19 @@ description: Learn how to enable diagnostic logging and add instrumentation to y
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 06/29/2023
-ms.custom: "devx-track-csharp, seodec18"
 ms.author: msangapu
 author: msangapu-msft
-
+ms.custom: devx-track-csharp, seodec18, ai-video-demo
+ai-usage: ai-assisted
 ---
+
 # Enable diagnostics logging for apps in Azure App Service
+
+This video shows you how to enable diagnostics logging for apps.
+> [!VIDEO 62f2edbe-1063-4ec3-a76f-faa0bd783f2f]
+
+The steps in the video are also described in the following sections.
+
 ## Overview
 Azure provides built-in diagnostics to assist with debugging an [App Service app](overview.md). In this article, you learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
@@ -17,7 +24,6 @@ This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to 
 
 > [!NOTE]
 > In addition to the logging instructions in this article, there's new, integrated logging capability with Azure Monitoring. You'll find more on this capability in the [Send logs to Azure Monitor](#send-logs-to-azure-monitor) section. 
->
 >
 
 |Type|Platform|Location|Description|
@@ -197,25 +203,29 @@ With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you c
 
 The following table shows the supported log types and descriptions: 
 
-| Log type | Windows | Windows Container | Linux | Linux Container | Description |
-|-|-|-|-|-|-|
-| AppServiceConsoleLogs | Java SE & Tomcat | Yes | Yes | Yes | Standard output and standard error |
-| AppServiceHTTPLogs | Yes | Yes | Yes | Yes | Web server logs |
-| AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
-| AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
-| AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; **only available for Premium tier and above** |
-| AppServiceAppLogs | ASP.NET, .NET Core, & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | .NET Core, Java, SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Application logs |
-| AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
-| AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
-| AppServiceAntivirusScanAuditLogs <sup>3</sup> | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender for Cloud; **only available for Premium tier** | 
+| Log Name| Log type | Windows | Windows Container | Linux | Linux Container | Description |
+|-|-|-|-|-|-|-|
+| App Service Console Logs | AppServiceConsoleLogs | Java SE & Tomcat | Yes | Yes | Yes | Standard output and standard error <sup>3</sup> |
+| HTTP logs | AppServiceHTTPLogs | Yes | Yes | Yes | Yes | Web server logs |
+| App Service Environment Platform Logs | AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
+| Access Audit Logs | AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
+| Site Content Change Audit Logs | AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; **only available for Premium tier and above** |
+| App Service Application Logs | AppServiceAppLogs | ASP.NET, .NET Core, & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | .NET Core, Java, SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Application logs <sup>3</sup> |
+| IPSecurity Audit logs | AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
+| App Service Platform logs | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
+| Report Antivirus Audit Logs | AppServiceAntivirusScanAuditLogs <sup>3</sup> | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender for Cloud; **only available for Premium tier** | 
 
 <sup>1</sup> For Tomcat apps, add `TOMCAT_USE_STARTUP_BAT` to the app settings and set it to `false` or `0`. Need to be on the *latest* Tomcat version and use *java.util.logging*.
 
 <sup>2</sup> For Java SE apps, add `WEBSITE_AZMON_PREVIEW_ENABLED` to the app settings and set it to `true` or to `1`.
 
-<sup>3</sup> AppServiceAntivirusScanAuditLogs log type is still currently in Preview
+<sup>3</sup> Current logging limit is set to 100 logs per minute.
+
+<sup>4</sup> AppServiceAntivirusScanAuditLogs log type is still currently in Preview
 
 ## Networking considerations
+
+- App Service logs aren't supported using Regional VNet integration, our recommendation is to use the Diagnostic settings feature.
 
 If you secure your Azure Storage account by [only allowing selected networks](../storage/common/storage-network-security.md#change-the-default-network-access-rule), it can receive logs from App Service only if both of the following are true:
 

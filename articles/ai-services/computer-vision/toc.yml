@@ -102,7 +102,7 @@ items:
   items:
   - name: Image Analysis overview
     href: overview-image-analysis.md
-  - name: Vision SDK
+  - name: Image Analysis SDK
     items:
     - name: Overview
       href: sdk/overview-sdk.md
@@ -110,16 +110,22 @@ items:
       href: sdk/install-sdk.md
   - name: Quickstarts
     items:
-    - name: Version 4.0 quickstart (preview)
+    - name: Version 4.0 quickstart
       href: quickstarts-sdk/image-analysis-client-library-40.md
     - name: Version 3.2 quickstart
       href: quickstarts-sdk/image-analysis-client-library.md
   - name: Samples
     items:
-    - name: Version 4.0 (preview)
+    - name: Version 4.0
       items:
-      - name: Azure Image Analysis samples
-        href: https://github.com/Azure-Samples/azure-ai-vision-sdk
+      - name: Azure Image Analysis Java SDK samples
+        href: https://aka.ms/azsdk/image-analysis/samples/java
+      - name: Azure Image Analysis Python SDK samples
+        href: https://aka.ms/azsdk/image-analysis/samples/python
+      - name: Azure Image Analysis .NET SDK samples
+        href: https://aka.ms/azsdk/image-analysis/samples/csharp
+      - name: Azure Image Analysis JavaScript SDK samples
+        href: https://aka.ms/azsdk/image-analysis/samples/js
     - name: Version 3.2
       items:
       - name: Azure AI services .NET SDK samples
@@ -142,19 +148,19 @@ items:
       href: /legal/cognitive-services/computer-vision/limited-access?context=/azure/ai-services/computer-vision/context/context
   - name: How-to guides
     items:
-    - name: Version 4.0 (preview)
+    - name: Version 4.0
       items:
       - name: Call the Analyze API
         href: how-to/call-analyze-image-40.md
       - name: Model customization
         items:
-        - name: Create a custom model
+        - name: Create a custom model (preview)
           href: how-to/model-customization.md
-        - name: Migrate a Custom Vision project to Image Analysis
+        - name: Migrate a Custom Vision project to Image Analysis (preview)
           href: how-to/migrate-from-custom-vision.md
-        - name: Verify a custom model COCO file
+        - name: Verify a custom model COCO file (preview)
           href: how-to/coco-verification.md
-      - name: Product Recognition
+      - name: Product Recognition (preview)
         items:
         - name: Prepare images for Product Recognition
           href: how-to/shelf-modify-images.md
@@ -164,9 +170,9 @@ items:
           href: how-to/shelf-model-customization.md
         - name: Check planogram compliance
           href: how-to/shelf-planogram.md
-      - name: Call the Multi-modal embeddings APIs
+      - name: Call the Multi-modal embeddings APIs (preview)
         href: how-to/image-retrieval.md
-      - name: Call the Background removal API
+      - name: Call the Background removal API (preview)
         href: how-to/background-removal.md
       - name: Configure a storage account
         href: how-to/blob-storage-search.md
@@ -180,7 +186,7 @@ items:
         href: how-to/generate-thumbnail.md
   - name: Concepts
     items:
-    - name: Version 4.0 (preview)
+    - name: Version 4.0
       items:
       - name: Image tagging
         href: concept-tag-images-40.md
@@ -196,11 +202,11 @@ items:
         href: concept-people-detection.md
       - name: Model customization
         href: concept-model-customization.md
-      - name: Product Recognition
+      - name: Product Recognition (preview)
         href: concept-shelf-analysis.md
-      - name: Multi-modal embeddings
+      - name: Multi-modal embeddings (preview)
         href: concept-image-retrieval.md
-      - name: Background removal
+      - name: Background removal (preview)
         href: concept-background-removal.md
     - name: Version 3.2
       items:   
@@ -234,18 +240,18 @@ items:
       href: Tutorials/storage-lab-tutorial.md
   - name: Reference
     items:
-    - name: Version 4.0 (preview)
+    - name: Version 4.0
       items:
       - name: Image Analysis REST API v4.0
         href: https://aka.ms/vision-4-0-ref
       - name: .NET
-        href: /dotnet/api/azure.ai.vision.imageanalysis
+        href: https://aka.ms/azsdk/image-analysis/ref-docs/csharp
       - name: Python
-        href: /python/api/azure-ai-vision
-      - name: C++
-        href: /cpp/cognitive-services/vision
+        href: https://aka.ms/azsdk/image-analysis/ref-docs/python
       - name: Java
-        href: /java/api/com.azure.ai.vision.imageanalysis
+        href: https://aka.ms/azsdk/image-analysis/ref-docs/java
+      - name: JavaScript
+        href: https://aka.ms/azsdk/image-analysis/ref-docs/js
     - name: Version 3.2
       items:
       - name: Image Analysis REST API v3.2
@@ -378,12 +384,8 @@ items:
     href: intro-to-spatial-analysis-public-preview.md
   - name: Responsible use of AI
     items:
-    - name: Transparency notes
-      items:
-      - name: Spatial Analysis use cases
-        href: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=/azure/ai-services/computer-vision/context/context
-      - name: Characteristics and limitations
-        href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/ai-services/computer-vision/context/context
+    - name: Transparency note
+      href: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=/azure/ai-services/computer-vision/context/context
     - name: Integration and responsible use
       items:
       - name: Responsible use in AI deployment 

@@ -306,13 +306,9 @@ Next, upload the SAP software files to the storage account:
 
         1. [S4HANA_2021_ISS_v0001ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/S4HANA_2021_ISS_v0001ms.yaml)
 
-        1. [HANA_2_00_067_v0005ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/HANA_2_00_067_v0005ms/HANA_2_00_067_v0005ms.yaml)
-      
     1. For S/4HANA 2022 ISS 00:
 
         1. [S42022SPS00_v0001ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S42022SPS00_v0001ms/S42022SPS00_v0001ms.yaml)
-
-        1. [HANA_2_00_071_v0001ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/HANA_2_00_071_v0001ms/HANA_2_00_071_v0001ms.yaml)
 
 1. Depending on your SAP version, go to the folder **S41909SPS03_v0011ms** or **S42020SPS03_v0003ms** or **S4HANA_2021_ISS_v0001ms** or **S42022SPS00_v0001ms**.
 
@@ -432,13 +428,9 @@ Next, upload the SAP software files to the storage account:
 
         1. [S4HANA_2021_ISS_v0001ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/S4HANA_2021_ISS_v0001ms/S4HANA_2021_ISS_v0001ms.yaml)
     
-        1. [HANA_2_00_067_v0005ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/HANA_2_00_067_v0005ms/HANA_2_00_067_v0005ms.yaml)
-      
     1. For S/4HANA 2022 ISS 00:
 
         1. [S42022SPS00_v0001ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/S42022SPS00_v0001ms/S42022SPS00_v0001ms.yaml)
-    
-        1. [HANA_2_00_071_v0001ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/HANA_2_00_071_v0001ms/HANA_2_00_071_v0001ms.yaml)
     
 1. Repeat the previous step for the main and dependent BOM files.
 

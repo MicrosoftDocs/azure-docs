@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 09/20/2022
+ms.date: 01/10/2024
 ---
 
 # Training - Azure AI Search
