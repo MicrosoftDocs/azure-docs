@@ -30,6 +30,9 @@ Below tutorials provide steps to enable SMART on FHIR applications with FHIR Ser
      
 ## SMART on FHIR using Azure Health Data Services Samples (SMART on FHIR (Enhanced))
 
+> [!NOTE]
+> SMART on FHIR Implementation Guide defines access to FHIR resource types with scopes. These scopes impact the access an application may have to FHIR resources. FHIR Service, supports scope for read API interactions. For write REST API interactions, scopes provided by the application are not honored. 
+
 ### Step 1: Set up FHIR SMART user role 
 Follow the steps listed under section [Manage Users: Assign Users to Role](../../role-based-access-control/role-assignments-portal.md). Any user added to this role would be able to access the FHIR Service, provided their requests comply with the SMART on FHIR implementation Guide.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
 
