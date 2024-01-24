@@ -14,10 +14,9 @@ ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2, event-tier1-b
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
+# Manage access to Azure Machine Learning workspaces
 
-# Manage access to an Azure Machine Learning workspace
-
-This article explains how to manage access (authorization) to an Azure Machine Learning workspace. You can use [Azure role-based access control](/azure/role-based-access-control/overview) (Azure RBAC) to manage access to Azure resources, giving users the ability to create new resources or use existing ones. Users in your Microsoft Entra ID are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles.
+This article explains how to manage access (authorization) to Azure Machine Learning workspaces. You can use [Azure role-based access control](/azure/role-based-access-control/overview) (Azure RBAC) to manage access to Azure resources, giving users the ability to create new resources or use existing ones. Users in your Microsoft Entra ID are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles.
 
 > [!TIP]
 > While this article focuses on Azure Machine Learning, individual services provide their own RBAC settings. For example, using the information in this article, you can configure who can submit scoring requests to a model deployed as a web service on Azure Kubernetes Service. But Azure Kubernetes Service provides its own set of Azure roles. For service specific RBAC information that might be useful with Azure Machine Learning, see the following links:
@@ -41,17 +40,16 @@ Azure Machine Learning workspaces have five built-in roles that are available by
 | **Contributor** | View, create, edit, or delete (where applicable) assets in a workspace. For example, contributors can create an experiment, create or attach a compute cluster, submit a run, and deploy a web service. |
 | **Owner** | Full access to the workspace, including the ability to view, create, edit, or delete (where applicable) assets in a workspace. Additionally, you can change role assignments. |
 
-In addition, [Azure Machine Learning registries](how-to-manage-registries.md) have an **AzureML Registry User** role that can be assigned to a registry resource to grant user-level permissions to data scientists. For administrator-level permissions to create or delete registries, use **Contributor** or **Owner** role.
+In addition, [Azure Machine Learning registries](how-to-manage-registries.md) have an AzureML Registry User role that can be assigned to a registry resource to grant user-level permissions to data scientists. For administrator-level permissions to create or delete registries, use the Contributor or Owner role.
 
 | Role | Access level |
 | --- | --- |
 | **AzureML Registry User** | Can get registries, and read, write, and delete assets within them. Can't create new registry resources or delete them. |
 
-You can combine the roles to grant different levels of access. For example, you can grant a workspace user both **AzureML Data Scientist** and **AzureML Compute Operator** roles to permit the user to perform experiments while creating computes in a self-service manner.
+You can combine the roles to grant different levels of access. For example, you can grant a workspace user both AzureML Data Scientist and AzureML Compute Operator roles to permit the user to perform experiments while creating computes in a self-service manner.
 
 > [!IMPORTANT]
 > Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How Azure RBAC works](/azure/role-based-access-control/overview#how-azure-rbac-works).
-
 
 ## Manage workspace access
 
@@ -91,7 +89,7 @@ If the built-in roles are insufficient, you can create custom roles. Custom role
 > [!NOTE]
 > You must be an owner of the resource at that level to create custom roles within that resource.
 
-To create a custom role, first construct a role definition JSON file that specifies the permission and scope for the role. The following example defines a custom role named "Data Scientist Custom" scoped at a specific workspace level:
+To create a custom role, first construct a role definition JSON file that specifies the permission and scope for the role. The following example defines a custom role named *Data Scientist Custom* scoped at a specific workspace level:
 
 *data_scientist_custom_role.json* :
 
@@ -180,12 +178,12 @@ If you anticipate that you'll need to recreate complex role assignments, an Azur
 The following table is a summary of Azure Machine Learning activities and the permissions required to perform them at the least scope. For example, if an activity can be performed with a workspace scope (Column 4), then all higher scope with that permission also work automatically. For certain activities, the permissions differ between V1 and V2 APIs.
 
 > [!IMPORTANT]
-> All paths in this table that start with `/` are **relative paths** to *Microsoft.MachineLearningServices/* :
+> All paths in this table that start with `/` are *relative paths* to `Microsoft.MachineLearningServices/` :
 
 | Activity | Subscription-level scope | Resource group-level scope | Workspace-level scope |
 | ----- | ----- | ----- | ----- |
-| Create new workspace <sub>1</sub> | Not required | Owner or contributor | N/A (becomes Owner or inherits higher scope role after creation) |
-| Request subscription level Amlcompute quota or set workspace level quota | Owner, or contributor, or custom role </br>allowing `/locations/updateQuotas/action`</br> at subscription scope | Not authorized | Not authorized |
+| Create new workspace | Not required | Owner or contributor | N/A (becomes Owner or inherits higher scope role after creation) |
+| Request subscription level Amlcompute quota or set workspace level quota | Owner, or contributor, or custom role <br>allowing `/locations/updateQuotas/action`<br> at subscription scope | Not authorized | Not authorized |
 | Create new compute cluster | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 | Create new compute instance | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 | Submitting any type of run (V1) | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
@@ -197,8 +195,8 @@ The following table is a summary of Azure Machine Learning activities and the pe
 | Scoring against a deployed AKS endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (when you don't use Microsoft Entra auth) OR `"/workspaces/read"` (when you use token auth) |
 | Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listStorageAccountKeys/action", "/workspaces/listNotebookAccessToken/read"`|
 | Create new custom role | Owner, contributor, or custom role allowing `Microsoft.Authorization/roleDefinitions/write` | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
-| Create/manage online endpoints and deployments | Not required | Not required | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. If you use studio to create/manage online endpoints/deployments, you need an additional permission "Microsoft.Resources/deployments/write" from the resource group owner. |
-| Retrieve authentication credentials for online endpoints | Not required | Not required | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` and `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listkeys/action`.
+| Create/manage online endpoints and deployments | Not required | Not required | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. If you use studio to create/manage online endpoints/deployments, you need an additional permission `Microsoft.Resources/deployments/write` from the resource group owner. |
+| Retrieve authentication credentials for online endpoints | Not required | Not required | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` and `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listkeys/action`. |
 
 1. If you receive a failure when trying to create a workspace for the first time, make sure that your role allows `Microsoft.MachineLearningServices/register/action`. This action allows you to register the Azure Machine Learning resource provider with your Azure subscription.
 
@@ -617,7 +615,7 @@ Here are a few things to be aware of while you use Azure RBAC:
 
 - To perform quota operations in a workspace, you need subscription level permissions. This means setting either subscription level quota or workspace level quota for your managed compute resources can only happen if you have write permissions at the subscription scope.
 
-- In order to deploy on studio, you need "Microsoft.Resources/deployments/write" AND "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments/write". For SDK/CLI deployments, you need "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments/write". Contact your workspace/resource group owner for the additional permissions.
+- In order to deploy on studio, you need `Microsoft.Resources/deployments/write` AND `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments/write`. For SDK/CLI deployments, you need `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments/write`. Contact your workspace/resource group owner for the additional permissions.
 
 - When there are two role assignments to the same Microsoft Entra user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they're also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
 
