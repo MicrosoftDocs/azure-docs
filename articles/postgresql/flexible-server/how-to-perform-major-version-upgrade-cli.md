@@ -8,7 +8,7 @@ ms.author: kabharati
 author: rajsell
 ms.reviewer: ""
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 01/02/2024
 ---
 
 #  Major version upgrade of Azure Database for PostgreSQL - Flexible Server with Azure CLI

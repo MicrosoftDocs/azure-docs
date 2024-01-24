@@ -7,7 +7,7 @@ ms.reviewer: kabharati
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 12/16/2023
+ms.date: 01/16/2024
 ---
 
 # Limits in Azure Database for PostgreSQL - Flexible Server
