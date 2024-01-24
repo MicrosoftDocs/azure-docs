@@ -88,7 +88,7 @@ In the diagram below,
 
 1. Before deleting your old key vault, verify that the new vault contains all of the required keys, secrets, and certificates. Ensure the key vault isn't needed to decrypt old encrypted backups of virtual machines, databases, or any other dependent Azure services in the source region.
 
-## Validate relocation
+## Validate
 
 Once the relocation is complete, the Azure Key Vault needs to be tested and validated. Below are some of the recommended guidelines.
 
