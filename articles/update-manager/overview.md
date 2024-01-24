@@ -4,7 +4,7 @@ description: This article tells what Azure Update Manager in Azure is and the sy
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 11/13/2023
+ms.date: 01/24/2024
 ms.topic: overview
 ---
 
@@ -89,6 +89,27 @@ Actions |Permission |Scope |
 |Create/modify configuration assignments |Microsoft.Maintenance/configurationAssignments/write |Subscription |
 |Read permission for Maintenance updates resource |Microsoft.Maintenance/updates/read |Machine |
 |Read permission for Maintenance apply updates resource |Microsoft.Maintenance/applyUpdates/read |Machine |
+
+#### Azure VMs
+
+Actions |Permission |Scope |
+--- | --- | --- |
+| Read assessment data for Azure VMs | Microsoft.Compute/virtualMachines/patchAssessmentResults/latest
+Microsoft.Compute/virtualMachines/patchAssessmentResults/latest/softwarePatches ||
+| Read patch installation data for Azure VMs | Microsoft.Compute/virtualMachines/patchInstallationResults
+Microsoft.Compute/virtualMachines/patchInstallationResults/softwarePatches ||
+| Read Azure VM properties | Microsoft.Compute/virtualMachines/read ||
+
+#### Arc-enabled VMs
+
+Actions |Permission |Scope |
+--- | --- | --- |
+|Read assessment data for Azure Arc-enabled server | Microsoft.HybridCompute/machines/patchAssessmentResults
+Microsoft.HybridCompute/machines/patchAssessmentResults/softwarePatches ||
+| Read patch installation data for Azure Arc-enabled server | Microsoft.HybridCompute/machines/patchInstallationResults||
+Microsoft.HybridCompute/machines/patchInstallationResults/softwarePatches||
+| Read Azure Arc-enabled server properties | Microsoft.HybridCompute/machines/read||
+
 
 ### VM images
 
