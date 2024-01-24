@@ -76,73 +76,74 @@ The following is a sample request body. The format is the same as the chat compl
 1. Enter the name of your GPT-4 Turbo with Vision model deployment.
 1. Create a client object using those values.
 
-```python
-api_base = '<your_azure_openai_endpoint>' # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
-api_key="<your_azure_openai_key>"
-deployment_name = '<your_deployment_name>'
-api_version = '2023-12-01-preview' # this might change in the future
+    ```python
+    api_base = '<your_azure_openai_endpoint>' # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
+    api_key="<your_azure_openai_key>"
+    deployment_name = '<your_deployment_name>'
+    api_version = '2023-12-01-preview' # this might change in the future
+    
+    client = AzureOpenAI(
+        api_key=api_key,  
+        api_version=api_version,
+        base_url=f"{api_base}openai/deployments/{deployment_name}/extensions",
+    )
+    ```
 
-client = AzureOpenAI(
-    api_key=api_key,  
-    api_version=api_version,
-    base_url=f"{api_base}openai/deployments/{deployment_name}/extensions",
-)
-```
-
-Then call the client's **create** method. The following code shows a sample request body. The format is the same as the chat completions API for GPT-4, except that the message content can be an array containing text and images (either a valid HTTP or HTTPS URL to an image, or a base-64-encoded image). Remember to set a `"max_tokens"` value, or the return output will be cut off.
-
-```python
-response = client.chat.completions.create(
-    model=deployment_name,
-    messages=[
-        { "role": "system", "content": "You are a helpful assistant." },
-        { "role": "user", "content": [  
-            { 
-                "type": "text", 
-                "text": "Describe this picture:" 
-            },
-            { 
-                "type": "image_url",
-                "image_url": {
-                    "url": "<URL or base 64 encoded image>"
+1. Then call the client's **create** method. The following code shows a sample request body. The format is the same as the chat completions API for GPT-4, except that the message content can be an array containing text and images (either a valid HTTP or HTTPS URL to an image, or a base-64-encoded image). Remember to set a `"max_tokens"` value, or the return output will be cut off.
+    
+    ```python
+    response = client.chat.completions.create(
+        model=deployment_name,
+        messages=[
+            { "role": "system", "content": "You are a helpful assistant." },
+            { "role": "user", "content": [  
+                { 
+                    "type": "text", 
+                    "text": "Describe this picture:" 
+                },
+                { 
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "<URL or base 64 encoded image>"
+                    }
                 }
-            }
-        ] } 
-    ],
-    max_tokens=2000 
-)
-print(response)
-```
+            ] } 
+        ],
+        max_tokens=2000 
+    )
+    print(response)
+    ```
 
 ---
 
-### Use a local image
-
-If you want to use a local image, you can use the following Python code to convert it to base64 so it can be passed to the API. Alternative file conversion tools are available elsewhere.
-
-```python
-import base64
-from mimetypes import guess_type
-
-# Function to encode a local image into data URL 
-def local_image_to_data_url(image_path):
-    # Guess the MIME type of the image based on the file extension
-    mime_type, _ = guess_type(image_path)
-    if mime_type is None:
-        mime_type = 'application/octet-stream'  # Default MIME type if none is found
-
-    # Read and encode the image file
-    with open(image_path, "rb") as image_file:
-        base64_encoded_data = base64.b64encode(image_file.read()).decode('utf-8')
-
-    # Construct the data URL
-    return f"data:{mime_type};base64,{base64_encoded_data}"
-
-# Example usage
-image_path = '<path_to_image>'
-data_url = local_image_to_data_url(image_path)
-print("Data URL:", data_url)
-```
+> [!TIP]
+> ### Use a local image
+>
+> If you want to use a local image, you can use the following Python code to convert it to base64 so it can be passed to the API. Alternative file conversion tools are available online.
+>
+> ```python
+> import base64
+> from mimetypes import guess_type
+> 
+> # Function to encode a local image into data URL 
+> def local_image_to_data_url(image_path):
+>     # Guess the MIME type of the image based on the file extension
+>     mime_type, _ = guess_type(image_path)
+>     if mime_type is None:
+>         mime_type = 'application/octet-stream'  # Default MIME type if none is found
+> 
+>     # Read and encode the image file
+>     with open(image_path, "rb") as image_file:
+>         base64_encoded_data = base64.b64encode(image_file.read()).decode('utf-8')
+> 
+>     # Construct the data URL
+>     return f"data:{mime_type};base64,{base64_encoded_data}"
+> 
+> # Example usage
+> image_path = '<path_to_image>'
+> data_url = local_image_to_data_url(image_path)
+> print("Data URL:", data_url)
+> ```
 
 ### Output
 
