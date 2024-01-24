@@ -14,10 +14,22 @@ ms.topic: how-to
 
 This article covers relocation guidance for Azure Monitor - Log Analytics Workspace across regions.
 
+Since many resources depend on Azure Log Analytics Workspace for data logging, prioritization sequencing is extremely important. A relocation plan for Log Analytics Workspace must include the relocation of any resources that log data with Log Analytics Workspace. 
+
+Log Analytics Workspace doesn't natively support migrating workspace data from one region to another and associated devices.  Instead, you must create a new Log Analytics Workspace in the target region and reconfigure the devices and settings in the new workspace. 
+
+The diagram below illustrates the relocation pattern for a Log Analytics workspace. The red flow lines represent the redeployment of the target instance along with data movement and updating domains and endpoints.
+
+
+:::image type="content" source="media/relocation/log-analytics/log-analytics-workspace-relocation-pattern.png" alt-text="Diagram illustrating Log Analytics Workspace relocation pattern.":::
+
+
+**Azure Resource Mover** doesn't support moving services used by the Log Analytics Workspace. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
+
 ## Prerequisites
 
 - Validate that the Azure subscription has the correct resource creation permissions to deploy Log Analytics workspaces in the target region. Also, check to see if there's any Azure policy region restriction.
-- Ensure that a Landing Zone has been deployed as per assessed architecture.
+
 - Collect all Log Analytics workspace dependent resources. Resources that Log Analytics Workspace depends on must be moved *prior* to the Log Analytics Workspace relocation process. The services below are some of the dependencies that you may need to move prior to a workspace relocation. Consult the corresponding service guidance to learn how to move resources to the target location.
 
     - [Virtual Network, Network Security Groups, and Route Tables](./relocation-virtual-network.md)
@@ -28,28 +40,22 @@ This article covers relocation guidance for Azure Monitor - Log Analytics Worksp
     - [Azure Sentinel](./relocation-sentinel.md)
     - [Microsoft Defender for Cloud (Azure Security Center)](./relocation-defender.md)
 
+## Prepare
 
-## Redeploy your Log Analytics Workspace
+To get started, export a Resource Manager template. This template contains settings that describe your Automation namespace.
 
-In a Landing Zone deployment, many resources depend on Azure Log Analytics Workspace for data logging. When planning for the relocation of the Landing Zone, prioritization sequencing is extremely important. A relocation plan for Log Analytics Workspace must include the relocation of any resources that log data with Log Analytics Workspace as soon as Log Analytics has completed its move. 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **All resources** and then select your Automation resource.
+3. Select **Export template**. 
+4. Choose **Download** in the **Export template** page.
+5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 
-Log Analytics Workspace doesn't natively support migrating workspace data from one region to another and associated devices.  Instead, a new Log Analytics Workspace is created in the desired region and then the devices and settings are reconfigured to the new workspace. 
+   This zip file contains the .json files that include the template and scripts to deploy the template.
 
-The diagram below illustrates the relocation pattern for a Log Analytics workspace. The red flow lines represent the redeployment of the target instance along with data movement and updating domains and endpoints.
+## Redeploy
 
-
-:::image type="content" source="media/relocation/log-analytics/log-analytics-workspace-relocation-pattern.png" alt-text="Diagram illustrating Log Analytics Workspace relocation pattern.":::
-
-
-**Azure Resource Mover** doesn't support moving services used by the Log Analytics Workspace. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
-
-**To redeploy your workspace:**
-
-
-1. From the Azure portal, export your Log Analytics Workspace into an [ARM template](/azure/azure-monitor/logs/resource-manager-workspace?tabs=bicep). 
-
-1. Adjust the template parameters:
-    - Remove linked-services resources (`microsoft.operationalinsights/workspaces/linkedservices``) if they’re present in the template.
+1. Adjust the exported template parameters:
+    - Remove linked-services resources (`microsoft.operationalinsights/workspaces/linkedservices`) if they’re present in the template.
     - Make the necessary changes to the template, such as updating all occurrences of the name and the location for the relocated Log Analytics Workspace. 
 
 1. Adjust the parameter file by changing the `value` property for each parameter, such as `workspacesName`, `alertName`, and `location`.
@@ -80,7 +86,7 @@ The diagram below illustrates the relocation pattern for a Log Analytics workspa
     - Reconfigure associated resources manually/or by using script updated in dependent resources, configs and apps.
 
 
-## Validate your Log Analytics relocation
+## Validate
 
 Once the relocation is complete, the Log Analytics Workspace must be tested and validated. Below are some of the recommended guidelines.
 

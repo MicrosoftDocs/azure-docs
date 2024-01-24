@@ -87,3 +87,10 @@ In the diagram below,
 1. Restore your exported secret, key, and certificates. If you used **encrypted backup**, add them to your new key vault by following the steps in [Azure Key Vault backup and restore](/azure/key-vault/general/backup?tabs=azure-cli). Otherwise, if you used **manual non-encrypted backup**, you can use [Azure portal](/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal) or [PowerShell](/azure/key-vault/secrets/quick-create-powershell) to import them to your new key vault.
 
 1. Before deleting your old key vault, verify that the new vault contains all of the required keys, secrets, and certificates. Ensure the key vault isn't needed to decrypt old encrypted backups of virtual machines, databases, or any other dependent Azure services in the source region.
+
+## Validate relocation
+
+Once the relocation is complete, the Azure Key Vault needs to be tested and validated. Below are some of the recommended guidelines.
+
+- Run manual or automated smoke and integration tests to ensure that configurations and dependent resources have been properly linked, and that configured data is accessible.
+- Test Azure Key Vault components and integration.

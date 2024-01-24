@@ -58,7 +58,7 @@ In the diagram below, the red flow lines illustrate redeployment of the target i
 
 1. Configure the target virtual machines with desired state configuration from the relocated Azure Automation instance as per source.
 
-## Validate relocation
+## Validate
 
 Once the relocation is complete, the Azure Automation needs to be tested and validated. Below are some of the recommended guidelines.
 
