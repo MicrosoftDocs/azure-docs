@@ -34,11 +34,11 @@ Once deployment is complete, you can use the Azure portal to navigate to the new
     - **Name**: Enter an Azure AI services account name.
     - **Pricing tier**: Select your pricing tier.
 
-    ![Screenshot of how to create new Azure AI services account.](media/create-health-insights.png) 
+     [ ![Screenshot of how to create new Azure AI services account.](media/create-health-insights.png)](media/create-health-insights.png#lightbox)
 
 5. Navigate to your newly created service.
     
-    ![Screenshot of the Overview of Azure AI services account.](media/created-health-insights.png) 
+    [ ![Screenshot of the Overview of Azure AI services account.](media/created-health-insights.png)](media/created-health-insights.png#lightbox)
 
 ## Configure private endpoints
 
@@ -46,7 +46,7 @@ With private endpoints, the network traffic between the clients on the VNet and 
 
 Once the Azure AI services account is successfully created, configure private endpoints from the Networking page under Resource Management. 
 
-![Screenshot of Private Endpoint.](media/private-endpoints.png) 
+[ ![Screenshot of Private Endpoint.](media/private-endpoints.png)](media/private-endpoints.png#lightbox)
 
 ## Next steps
 

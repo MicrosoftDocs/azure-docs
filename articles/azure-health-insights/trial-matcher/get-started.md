@@ -24,7 +24,8 @@ Once deployment is complete, you use the Azure portal to navigate to the newly c
 
 ## Submit a request and get results
 To send an API request, you need your Azure AI services account endpoint and key.
-![Screenshot of the Keys and Endpoints for the Trial Matcher.](../media/keys-and-endpoints.png) 
+
+![[Screenshot of the Keys and Endpoints for the Trial Matcher.](../media/keys-and-endpoints.png)](../media/keys-and-endpoints.png#lightbox)
 
 > [!IMPORTANT]
 > The Trial Matcher is an asynchronous API. Trial Matcher prediction is performed upon receipt of the API request and the results are returned asynchronously. The API results are available for 24 hours from the time the request was ingested and is indicated in the response. After the time period, the results are purged and are no longer available for retrieval.

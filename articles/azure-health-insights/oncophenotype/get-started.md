@@ -26,7 +26,7 @@ Once deployment is complete, you use the Azure portal to navigate to the newly c
 
 To send an API request, you need your Azure AI services account endpoint and key. You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/onco-phenotype/create-job). 
 
-![Screenshot of the Keys and Endpoints for the Onco-Phenotype.](../media/keys-and-endpoints.png) 
+![[Screenshot of the Keys and Endpoints for the Onco-Phenotype.](../media/keys-and-endpoints.png)](../media/keys-and-endpoints.png#lightbox)
 
 > [!IMPORTANT]
 > Prediction is performed upon receipt of the API request and the results will be returned asynchronously. The API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
