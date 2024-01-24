@@ -179,7 +179,7 @@ For this example, we assume that you create a new empty key vault `KV2` with the
 1. Navigate to **Recovery services vault** in the portal.
 1. Select *replicated item* > **Properties** > **Compute** 
 1. Select `KV2` from the menu to update the target key vault. 
-    ![Update target key vault](./media/azure-to-azure-how-to-enable-replication-ade-vms/portal.png)
+    ![Screenshot of the Update target key vault.](./media/azure-to-azure-how-to-enable-replication-ade-vms/portal.png)
 1. Select **Save** to copy the source keys to the new target key vault `KV2` with a new key/secret and update the Azure Site Recovery metadata.
     > [!NOTE]
     > Creating a new key vault might have cost implications. If you want to use your original target key vault (`KV1`) that you were using before, you can do so after completing the above steps with a different key vault. 
