@@ -1,12 +1,12 @@
 ---
-title: What is Document Translation?
+title: What is Batch Document Translation?
 description: An overview of the cloud-based batch Document Translation service and process.
 #services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: overview
-ms.date: 01/22/2024
+ms.date: 01/24/2024
 ms.author: lajanuar
 ms.custom: references_regions
 recommendations: false
@@ -21,11 +21,11 @@ recommendations: false
 
 # What is Batch Document Translation?
 
-Document Translation is a cloud-based feature of the [Azure AI Translator](../translator-overview.md) machine translation service that enable you to use our REST APIs and SDKs to translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format. The Document translation API supports two translation operations:
+Document Translation is a cloud-based machine translation feature of the [Azure AI Translator](../translator-overview.md) service.  You can translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format. The Document translation API supports two translation operations:
 
 * [Batch document translation](#batch-translation-key-features) supports asynchronous processing of multiple documents and files. The batch translation process requires an Azure Blob storage account with containers for your source and translated documents.
 
-* [File document translation](sync-file-overview.md#file-translation-key-features) supports synchronous processing of single file translations. The file translation process does not require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
+* [File document translation](sync-file-overview.md#file-translation-key-features) supports synchronous processing of single file translations. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
 
 ## Batch translation key features
 
@@ -110,10 +110,10 @@ Document Translation data residency depends on the Azure region where your Trans
 
 |Resource region| Request processing data center |
 |----------------------------------|-----------------------|
-|**Any region within Europe (except Switzerland)**| Europe — North Europe &bull; West Europe|
-|**Switzerland**|Switzerland — Switzerland North &bull; Switzerland West|
-|**Any region within Asia Pacific and Australia**| Asia — Southeast Asia &bull; Australia East|
-|**All other regions including Global, North America, and South America**  | US — East US &bull; West US 2|
+|**Any region within Europe (except Switzerland)**| Europe: North Europe &bull; West Europe|
+|**Switzerland**|Switzerland: Switzerland North &bull; Switzerland West|
+|**Any region within Asia Pacific and Australia**| Asia: Southeast Asia &bull; Australia East|
+|**All other regions including Global, North America, and South America**  | US: East US &bull; West US 2|
 
 ## Next steps
 

@@ -10,7 +10,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-translator
   ms.topic: landing-page
-  ms.date: 01/16/2024
+  ms.date: 01/31/2024
   ms.author: lajanuar
 
 
@@ -111,7 +111,7 @@ landingContent:
         links:
           - text: Custom Translation for beginners
             url: custom-translator/beginners-guide.md
-          - text: Create a manage a workspace
+          - text: Create a managed a workspace
             url: custom-translator/how-to/create-manage-workspace.md
           - text: Create and manage a project
             url: custom-translator/how-to/create-manage-project.md

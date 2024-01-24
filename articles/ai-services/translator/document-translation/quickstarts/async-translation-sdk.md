@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: devx-track-dotnet, devx-track-python
 ms.topic: quickstart
-ms.date: 09/28/2023
+ms.date: 01/24/2024
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-document-sdk
 ---
@@ -48,10 +48,10 @@ To learn more, *see* [Managed identities for Document Translation](../how-to-gui
 
   :::image type="content" source="../media/managed-identity-rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
 
-**✔️ Shared Access Signature (SAS)**.  A shared access signature is a URL that grants restricted access for a specified period of time to your Translator service. To use this method, you need to create Shared Access Signature (SAS) tokens for your source and target containers. The `sourceUrl`  and `targetUrl` must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs. 
+**✔️ Shared Access Signature (SAS)**.  A shared access signature is a URL that grants restricted access for a specified period of time to your Translator service. To use this method, you need to create Shared Access Signature (SAS) tokens for your source and target containers. The `sourceUrl`  and `targetUrl` must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs.
 
-* Your **source** container or blob must have designated  **read** and **list** access.
-* Your **target** container or blob must have designated  **write** and **list** access.
+* Your **source** container or blob must designate **read** and **list** access.
+* Your **target** container or blob must designate **write** and **list** access.
 
 To learn more, *see* [**Create SAS tokens**](../how-to-guides/create-sas-tokens.md).
 

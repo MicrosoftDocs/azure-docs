@@ -5,7 +5,7 @@ description: During the training execution, sentences present in parallel docume
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
-ms.date: 07/18/2023
+ms.date: 01/24/2024
 ms.author: lajanuar
 ms.topic: conceptual
 ms.custom: cogserv-non-critical-translator
@@ -22,21 +22,21 @@ able to pair as the Aligned Sentences in each of the data sets.
 
 Custom Translator learns translations of sentences one sentence at a time. It reads a sentence from the source text, and then the translation of this sentence from the target text. Then it aligns words and phrases in these two sentences to each other. This process enables it to create a map of the words and phrases in one sentence to the equivalent words and phrases in the translation of the sentence. Alignment tries to ensure that the system trains on sentences that are translations of each other.
 
-## Pre-aligned documents
+## Prealigned documents
 
-If you know you have parallel documents, you may override the
-sentence alignment by supplying pre-aligned text files. You can extract all
+If you know you have parallel documents, you can override the
+sentence alignment by supplying prealigned text files. You can extract all
 sentences from both documents into text file, organized one sentence per line,
 and upload with an `.align` extension. The `.align` extension signals Custom
 Translator that it should skip sentence alignment.
 
 For best results, try to make sure that you have one sentence per line in your
- files. Don't have newline characters within a sentence, it will cause poor
+ files. Don't have newline characters within a sentence, it causes poor
 alignments.
 
 ## Suggested minimum number of sentences
 
-For a training to succeed, the table below shows the minimum number of sentences required in each document type. This limitation is a safety net to ensure your parallel sentences contain enough unique vocabulary to successfully train a translation model. The general guideline is having more in-domain parallel sentences of human translation quality should produce higher-quality models.
+For a training to succeed, the following table shows the minimum number of sentences required in each document type. This limitation is a safety net to ensure your parallel sentences contain enough unique vocabulary to successfully train a translation model. The general guideline is having more in-domain parallel sentences of human translation quality should produce higher-quality models.
 
 | Document type   | Suggested minimum sentence count | Maximum sentence count |
 |------------|--------------------------------------------|--------------------------------|

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: event-tier1-build-2022, build-2023
 ms.topic: overview
-ms.date: 09/12/2023
+ms.date: 01/24/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -135,7 +135,7 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 
 ### [Text and document translation support for Basque and Galician](https://www.microsoft.com/translator/blog/2022/04/12/break-the-language-barrier-with-translator-now-with-two-new-languages/)
 
-* Translator service has [text and document translation language support](language-support.md) for Basque and Galician. Basque is a language isolate, meaning it isn't related to any other modern language. It's spoken in parts of northern Spain and southern France. Galician is spoken in northern Portugal and western Spain. Both Basque and Galician are official languages of Spain.
+* Translator service has [text and document translation language support](language-support.md) for Basque and Galician. Basque is a language isolate, meaning it isn't related to any other modern language and is spoken in parts of northern Spain and southern France. Galician is spoken in northern Portugal and western Spain. Both Basque and Galician are official languages of Spain.
 
 ## March 2022
 
@@ -147,7 +147,7 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 
 ### [Text and document translation support for Upper Sorbian](https://www.microsoft.com/translator/blog/2022/02/21/translator-celebrates-international-mother-language-day-by-adding-upper-sorbian/),
 
-* Translator service has [text and document translation language support](language-support.md) for Upper Sorbian. The Translator team has worked tirelessly to preserve indigenous and endangered languages around the world. Language data provided by the Upper Sorbian language community was instrumental in introducing this language to Translator.
+* Translator service has [text and document translation language support](language-support.md) for Upper Sorbian. The Translator team works tirelessly to preserve indigenous and endangered languages around the world. Language data provided by the Upper Sorbian language community was instrumental in introducing this language to Translator.
 
 ### [Text and document translation support for Inuinnaqtun and Romanized Inuktitut](https://www.microsoft.com/translator/blog/2022/02/01/introducing-inuinnaqtun-and-romanized-inuktitut/)
 
@@ -165,17 +165,17 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 
 ### [Text and document support for more than 100 languages](https://www.microsoft.com/translator/blog/2021/10/11/translator-now-translates-more-than-100-languages/)
 
-* Translator service has added [text and document language support](language-support.md) for the following languages:
+* Translator service adds [text and document language support](language-support.md) for the following languages:
   * **Bashkir**. A Turkic language spoken by approximately 1.4 million native speakers.  It has three regional language groups: Southern, Eastern, and Northwestern.
   * **Dhivehi**. Also known as Maldivian, it's an Indo-Iranian language primarily spoken in the island nation of Maldives.
   * **Georgian**. A Kartvelian language that is the official language of Georgia. It has approximately 4 million speakers.
   * **Kyrgyz**. A Turkic language that is the official language of Kyrgyzstan.
   * **Macedonian (Cyrillic)**. An Eastern South Slavic language that is the official language of North Macedonia. It has approximately 2 million people.
   * **Mongolian (Traditional)**. Traditional Mongolian script is the first writing system created specifically for the Mongolian language. Mongolian is the official language of Mongolia.
-  * **Tatar**. A Turkic language used by speakers in modern Tatarstan. It's closely related to Crimean Tatar and Siberian Tatar but each belongs to different subgroups.
+  * **Tatar**. A Turkic language used by speakers in modern Tatarstan closely related to Crimean Tatar and Siberian Tatar but each belongs to different subgroups.
   * **Tibetan**. It has nearly 6 million speakers and can be found in many Tibetan Buddhist publications.
   * **Turkmen**. The official language of Turkmenistan. It's similar to Turkish and Azerbaijani.
-  * **Uyghur**. A Turkic language with nearly 15 million speakers. It's spoken primarily in Western China.
+  * **Uyghur**. A Turkic language with nearly 15 million speakers spoken primarily in Western China.
   * **Uzbek (Latin)**. A Turkic language that is the official language of Uzbekistan. It has 34 million native speakers.
 
 These additions bring the total number of languages supported in Translator to 103.
@@ -198,7 +198,7 @@ These additions bring the total number of languages supported in Translator to 1
 
 ### [Translator service available in containers](https://www.microsoft.com/translator/blog/2021/05/25/translator-service-now-available-in-containers/)
 
-* **New release**: Translator service is available in containers as a gated preview. [Submit an online request](https://aka.ms/csgate-translator) and have it approved prior to getting started. Containers enable you to run several Translator service features in your own environment and are great for specific security and data governance requirements. *See*, [Install and run Translator containers (preview)](containers/translator-how-to-install-container.md)
+* **New release**: Translator service is available in containers as a gated preview. [Submit an online request](https://aka.ms/csgate-translator) for approval prior to getting started. Containers enable you to run several Translator service features in your own environment and are great for specific security and data governance requirements. *See*, [Install and run Translator containers (preview)](containers/translator-how-to-install-container.md)
 
 ## February 2021
 

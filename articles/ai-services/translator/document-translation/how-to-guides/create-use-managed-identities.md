@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 01/24/2024
 ms.author: lajanuar
 ---
 
@@ -246,7 +246,7 @@ For more information, _see_ [request parameters](#post-request-body).
 }
 ```
 
-Great! You've learned how to enable and use a system-assigned managed identity. With managed identity for Azure Resources and `Azure RBAC`, you granted Translator specific access rights to your storage resource without including SAS tokens with your HTTP requests.
+Great! You just learned how to enable and use a system-assigned managed identity. With managed identity for Azure Resources and `Azure RBAC`, you granted Translator specific access rights to your storage resource without including SAS tokens with your HTTP requests.
 
 ## Next steps
 

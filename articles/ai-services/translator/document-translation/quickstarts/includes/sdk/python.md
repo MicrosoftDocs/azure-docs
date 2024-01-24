@@ -5,7 +5,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: include
-ms.date: 07/18/2023
+ms.date: 01/24/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -14,7 +14,7 @@ recommendations: false
 
 ### Set up your project
 
-If you haven't done so, install the latest version of [Python](https://www.python.org/downloads/).
+Make sure that the latest version of [Python](https://www.python.org/downloads/) is installed.
 
 ### Install the client library
 
@@ -120,7 +120,7 @@ for document in result:
 
 ## Run your application
 
-Once you've added the code sample to your application type the following command in your terminal:
+Once you add the code sample to your application type the following command in your terminal:
 
   ```python
   python async-translation-sdk.py
@@ -130,4 +130,4 @@ Here's a snippet of the expected output:
 
   :::image type="content" source="../../../../media/quickstarts/python-output-document.png" alt-text="Screenshot of the Python output in the terminal window. ":::
 
-That's it! You've created a program to translate documents in a storage container using the Python client library.
+That's it! You just created a program to translate documents in a storage container using the Python client library.

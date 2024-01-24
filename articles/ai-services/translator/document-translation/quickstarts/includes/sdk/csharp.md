@@ -5,7 +5,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: include
-ms.date: 07/18/2023
+ms.date: 01/24/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -153,7 +153,7 @@ class Program {
 
 ## Run your application
 
-Once you've added the code sample to your application, run your application from the project directory by typing the following command in your terminal:
+Once you add the code sample to your application, run your application from the project directory by typing the following command in your terminal:
 
 ```csharp
   dotnet run
@@ -184,11 +184,11 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
 1. In the **Configure your new project** dialog window, enter `async-translation-sdk` in the Project name box. Then choose **Next**.
 
-    :::image type="content" source="../../../../media/quickstarts/configure-new-project-document.png" alt-text="Screenshot of Visual Studio 2022 configure new project set-up window.":::
+    :::image type="content" source="../../../../media/quickstarts/configure-new-project-document.png" alt-text="Screenshot of Visual Studio 2022 configure new project configuration window.":::
 
 1. In the **Additional information** dialog window, select **.NET 6.0 (Long-term support)**, and then select **Create**.
 
-    :::image type="content" source="../../../../media/quickstarts/additional-information.png" alt-text="Screenshot of Visual Studio 2022 additional information set-up window.":::
+    :::image type="content" source="../../../../media/quickstarts/additional-information.png" alt-text="Screenshot of Visual Studio 2022 additional information configuration window.":::
 
 ## Install the client library with NuGet
 
@@ -310,7 +310,7 @@ class Program {
 
 ## Run your application
 
-Once you've added the code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+Once you add the code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
   :::image type="content" source="../../../../media/quickstarts/run-application-document.png" alt-text="Screenshot: run your Visual Studio program.":::
 
@@ -320,4 +320,4 @@ Here's a snippet of the expected output:
 
 ---
 
-That's it! You've created a program to translate documents in a storage container using the .NET client library.
+That's it! You just created a program to translate documents in a storage container using the .NET client library.

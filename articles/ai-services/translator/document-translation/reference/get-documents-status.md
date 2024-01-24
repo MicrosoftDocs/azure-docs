@@ -8,7 +8,7 @@ ms.author: lajanuar
 author: laujan
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 01/24/2024
 ---
 
 # Get documents status
@@ -51,10 +51,10 @@ Request parameters passed on the query string are:
 |Query parameter|In|Required|Type|Description|
 |--- |--- |--- |--- |--- |
 |`id`|path|True|string|The operation ID.|
-|`$maxpagesize`|query|False|integer int32|`$maxpagesize` is the maximum items returned in a page. If more items are requested via `$top` (or `$top` isn't specified and there are more items to be returned), @nextLink will contain the link to the next page. Clients MAY request server-driven paging with a specific page size by specifying a `$maxpagesize` preference. The server SHOULD honor this preference if the specified page size is smaller than the server's default page size.|
+|`$maxpagesize`|query|False|integer int32|`$maxpagesize` is the maximum items returned in a page. If more items are requested via `$top` (or `$top` isn't specified and there are more items to be returned), @nextLink will contain the link to the next page. Clients can request server-driven paging with a specific page size by specifying a `$maxpagesize` preference. The server SHOULD honor this preference if the specified page size is smaller than the server's default page size.|
 |$orderBy|query|False|array|The sorting query for the collection (ex: `CreatedDateTimeUtc asc`, `CreatedDateTimeUtc desc`).|
 |`$skip`|query|False|integer int32|$skip indicates the number of records to skip from the list of records held by the server based on the sorting method specified. By default, we sort by descending start time. Clients MAY use $top and `$skip` query parameters to specify the number of results to return and an offset into the collection. When the client returns both `$top` and `$skip`, the server SHOULD first apply `$skip` and then `$top` on the collection. Note: If the server can't honor `$top` and/or `$skip`, the server MUST return an error to the client informing about it instead of just ignoring the query options.|
-|`$top`|query|False|integer int32|`$top` indicates the total number of records the user wants to be returned across all pages. Clients MAY use `$top` and `$skip` query parameters to specify the number of results to return and an offset into the collection. When the client returns both `$top` and `$skip`, the server SHOULD first apply `$skip` and then `$top` on the collection. Note: If the server can't honor `$top` and/or `$skip`, the server MUST return an error to the client informing about it instead of just ignoring the query options.|
+|`$top`|query|False|integer int32|`$top` indicates the total number of records the user wants to be returned across all pages. Clients can use `$top` and `$skip` query parameters to specify the number of results to return and an offset into the collection. When the client returns both `$top` and `$skip`, the server SHOULD first apply `$skip` and then `$top` on the collection. Note: If the server can't honor `$top` and/or `$skip`, the server MUST return an error to the client informing about it instead of just ignoring the query options.|
 |createdDateTimeUtcEnd|query|False|string date-time|The end datetime to get items before.|
 |createdDateTimeUtcStart|query|False|string date-time|The start datetime to get items after.|
 |`ids`|query|False|array|IDs to use in filtering.|
@@ -95,7 +95,7 @@ The following information is returned in a successful response.
 |value.path|string|Location of the document or folder.|
 |value.sourcePath|string|Location of the source document.|
 |value.createdDateTimeUtc|string|Operation created date time.|
-|value.lastActionDateTimeUtc|string|Date time in which the operation's status has been updated.|
+|value.lastActionDateTimeUtc|string|Date time in which the operation's status is updated.|
 |value.status|status|List of possible statuses for job or document.<ul><li>Canceled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
 |value.to|string|To language.|
 |value.progress|number|Progress of the translation if available.|
