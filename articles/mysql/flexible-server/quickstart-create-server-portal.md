@@ -38,27 +38,23 @@ Complete these steps to create an Azure Database for MySQL flexible server insta
 
     > :::image type="content" source="./media/quickstart-create-server-portal/azure-mysql-deployment-option.png" alt-text="Screenshot that shows the Flexible server option.":::
 
-4. On the **Basics** tab, enter the following information:
+1. On the **Basics** tab, enter the following information:
 
-    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Screenshot that shows the Basics tab of the Flexible server page.":::
-
-    |**Setting**|**Suggested value**|**Description**|
-    |---|---|---|
-    Subscription|Your subscription name|The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you want to be billed for the resource.|
-    Resource group|**myresourcegroup**| A new resource group name or an existing one from your subscription.|
-    Server name |**mydemoserver**|A unique name that identifies your Azure Database for MySQL flexible server instance. The domain name `mysql.database.azure.com` is appended to the server name you provide. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain between 3 and 63 characters.|
-    Region|The region closest to your users| The location that's closest to your users.|
-    Workload type| Development | For production workload, you can choose Small/Medium-size or Large-size depending on [max_connections](concepts-server-parameters.md#max_connections) requirements|
-    Availability zone| No preference | If your application client is provisioned in a specific availability zone, you can specify your Azure Database for MySQL flexible server instance in the same availability zone to collocate application cutting down network latency across zones.|
-    High Availability| Unchecked | For production servers, choose between [zone redundant high availability](concepts-high-availability.md#zone-redundant-ha-architecture) and [same-zone high availability](concepts-high-availability.md#same-zone-ha-architecture). This is highly recommended for business continuity and protection against VM failures|
-    |Standby availability zone| No preference| Choose the standby server zone location and colocate it with the application standby server in case of zone failure |
-    MySQL version|**5.7**| A MySQL major version.|
-    Admin username |**mydemouser**| Your own sign-in account to use when you connect to the server. The admin user name can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, **sa**, or **public**.|
-    Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. It must also contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, and so on).|
-    Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **100 iops**, **7 days** | The compute, storage, IOPS, and backup configurations for your new server. Select **Configure server**. **Burstable**, **Standard_B1ms**, **10 GiB**, **100 iops**, and **7 days** are the default values for **Compute tier**, **Compute size**, **Storage size**, **iops**, and backup **Retention period**. You can leave those values as is or adjust them. For faster data loads during migration, it is recommended to increase the IOPS to the maximum size supported by compute size and later scale it back to save cost. To save the compute and storage selection, select **Save** to continue with the configuration. The following screenshot shows the compute and storage options.|
-
-    > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Screenshot that shows compute and storage options.":::
-
+   |**Setting**|**Suggested value**|**Description**|
+   |---|---|---|
+   |Subscription|Your subscription name|The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you want to be billed for the resource.|
+   |Resource group|**myresourcegroup**| A new resource group name or an existing one from your subscription.|
+   |Server name |**mydemoserver**|A unique name that identifies your Azure Database for MySQL flexible server instance. The domain name `mysql.database.azure.com` is appended to the server name you provide. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain between 3 and 63 characters.|
+   |Region|The region closest to your users| The location that's closest to your users.|
+   |Workload type| Development | For production workload, you can choose Small/Medium-size or Large-size depending on [max_connections](concepts-server-parameters.md#max_connections) requirements|
+   |Availability zone| No preference | If your application client is provisioned in a specific availability zone, you can specify your Azure Database for MySQL flexible server instance in the same availability zone to collocate application cutting down network latency across zones.|
+   |High Availability| Unchecked | For production servers, choose between [zone redundant high availability](concepts-high-availability.md#zone-redundant-ha-architecture) and [same-zone high availability](concepts-high-availability.md#same-zone-ha-architecture). This is highly recommended for business continuity and protection against VM failures|
+   |Standby availability zone| No preference| Choose the standby server zone location and colocate it with the application standby server in case of zone failure |
+   |MySQL version|**5.7**| A MySQL major version.|
+   |Admin username |**mydemouser**| Your own sign-in account to use when you connect to the server. The admin user name can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, **sa**, or **public. The** maximum number of characters allowed is 32|
+   |Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. It must also contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, and so on).|
+   |Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **100 iops**, **7 days** | The compute, storage, IOPS, and backup configurations for your new server. Select **Configure server**. **Burstable**, **Standard_B1ms**, **10 GiB**, **100 iops**, and **7 days** are the default values for **Compute tier**, **Compute size**, **Storage size**, **iops**, and backup **Retention period**. You can leave those values as is or adjust them. For faster data loads during migration, it is recommended to increase the IOPS to the maximum size supported by compute size and later scale it back to save cost. To save the compute and storage selection, select **Save** to continue with the configuration. The following screenshot shows the compute and storage options.|
+   
 5. Configure networking options.
 
     On the **Networking** tab, you can choose how your server is reachable. Azure Database for MySQL flexible server provides two ways to connect to your server:
