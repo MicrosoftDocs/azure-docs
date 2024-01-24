@@ -3,7 +3,7 @@ title: Generate vector embeddings with Azure OpenAI
 description: Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL - Flexible Server.
 author: mulander
 ms.author: adamwolk
-ms.date: 11/02/2023
+ms.date: 01/02/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:
