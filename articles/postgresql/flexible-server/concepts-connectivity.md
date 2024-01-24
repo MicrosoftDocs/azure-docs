@@ -6,7 +6,7 @@ author: olmoloce
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 12/21/2023
 ---
 
 # Handling transient connectivity errors for Azure Database for PostgreSQL - Flexible Server

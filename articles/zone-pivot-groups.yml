@@ -2023,8 +2023,19 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
-- id: azure-maps-android
+
+# Owner: farazgis
+- id: azure-maps-coverage
+  title: Azure Maps coverage
+  prompt: Choose the API version
+  pivots:
+  - id: route-v1
+    title: Route
+  - id: route-v2
+    title: Route v2
+
 # Owner: richbrun
+- id: azure-maps-android
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -2098,7 +2109,7 @@ groups:
 # Owner: Brendanc
 - id: drawing-package-version
   title: Creator drawing package
-  prompt: Choose a drawing package Version
+  prompt: Choose a drawing package version
   pivots:
   - id: drawing-package-v1
     title: drawing package 1.0

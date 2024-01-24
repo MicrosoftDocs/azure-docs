@@ -6,7 +6,7 @@ author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: workspace
 ms.topic: reference
-ms.date: 1/18/2023
+ms.date: 01/22/2023
 ms.author: kavitagaddam 
 ms.custom: references_regions
 ---
@@ -35,6 +35,21 @@ Learn more:
 - [Bulk update DICOM files](dicom/update-files.md)
 
 ### FHIR service
+
+**FHIR service integration with Azure Active Directory B2C is generally available**
+
+Healthcare organizations can use the FHIR service in Azure Health Data Services with Azure Active Directory B2C (Azure AD B2C). This capability gives organizations a secure and convenient way to grant access to the FHIR service in Azure Health Data Services with fine-grained access control for different users or groups, without creating or comingling user accounts in their organization’s Microsoft Entra ID tenant. With this integration, organizations can:
+
+- Use additional identity providers to authenticate and access FHIR resources with SMART on FHIR scopes. 
+- Manage and customize user access rights or permissions with SMART on FHIR scopes that support fine-grained access control, FHIR resource types and interactions, and a user’s underlying privileges.
+
+Learn more:
+
+- [Use Azure Active Directory B2C to grant access to the FHIR service](fhir/azure-ad-b2c-setup.md)
+- [Configure multiple service identity providers for the FHIR service](fhir/configure-identity-providers.md)
+- [Troubleshoot identity provider configuration for the FHIR service](fhir/troubleshoot-identity-provider-configuration.md)
+- [SMART on FHIR](fhir/smart-on-fhir.md)
+- [Sample: Azure ONC (g)(10) SMART on FHIR](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/patientandpopulationservices-smartonfhir-oncg10)
 
 **Storage size support in FHIR service beyond 4TB** 
 

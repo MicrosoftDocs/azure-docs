@@ -6,7 +6,7 @@ ms.author: shaithal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to 
-ms.date: 12/12/2023
+ms.date: 01/02/2024
 ms.custom: template-how-to 
 ---
 
