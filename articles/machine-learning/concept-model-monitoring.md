@@ -3,8 +3,8 @@ title: Monitoring models in production
 titleSuffix: Azure Machine Learning
 description: Monitor the performance of models deployed to production on Azure Machine Learning.
 services: machine-learning
-author: Bozhong68
-ms.author: bozhlin
+author: ahughes-msft
+ms.author: alehughes
 ms.service: machine-learning
 ms.subservice: mlops
 ms.reviewer: mopeakande
