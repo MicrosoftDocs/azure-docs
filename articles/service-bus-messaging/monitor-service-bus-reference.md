@@ -298,6 +298,66 @@ Resource specific table entry:
 
 ```
 
+## Diagnostic Error Logs
+Diagnostic error logs capture error messages for any client side, throttling and Quota exceeded errors. They provide detailed diagnostics for error identification.
+
+Diagnostic Error Logs include elements listed in below table:
+
+Name | Description | Supported in Azure Diagnostics | Supported in AZMSDiagnosticErrorLogs (Resource specific table)
+---|---|---|---|
+`ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. | Yes | Yes
+`ActivityName` | Operation name  | Yes | Yes
+`NamespaceName` | Name of Namespace | Yes | yes
+`EntityType` | Type of Entity | Yes | Yes 
+`EntityName` | Name of Entity | Yes | Yes  
+`OperationResult` | Type of error in Operation (Clienterror or Serverbusy or quotaexceeded) | Yes | Yes
+`ErrorCount` | Count of identical errors during the aggregation period of 1 minute. | Yes | Yes 
+`ErrorMessage` | Detailed Error Message | Yes | Yes 
+`Provider` | Name of Service emitting the logs. Possible values: eventhub, relay, and servicebus | Yes | Yes 
+`Time Generated (UTC)` | Aggregated time | No | Yes
+`Status` | Status of the activity (success or failure).| Yes | Yes 
+`Category` | Log category | Yes | No
+`Type`  | Type of Logs emitted | No | Yes
+
+Here's an example of Diagnostic error log entry:
+
+```json
+{
+    "ActivityId": "<activity id>",
+    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage | PeekLockMessage",
+    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
+    "Time": "1/1/2021 8:40:06 PM +00:00",
+    "Status": "Success | Failure",
+    "Protocol": "AMQP | HTTP | SBMP", 
+    "AuthType": "SAS | AAD", 
+    "AuthKey": "<AAD Application Name| SAS policy name>",
+    "NetworkType": "Public | Private", 
+    "ClientIp": "x.x.x.x",
+    "Count": 1, 
+    "Category": "RuntimeAuditLogs"
+ }
+
+```
+Resource specific table entry:
+```json
+{
+    "ActivityId": "<activity id>", 
+    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage | PeekLockMessage",
+    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
+    "TimeGenerated (UTC)": "1/1/2021 8:40:06 PM +00:00",
+    "Status": "Success | Failure",
+    "Protocol": "AMQP | HTTP | SBMP", 
+    "AuthType": "SAS | AAD", 
+    "AuthKey": "<AAD Application Name| SAS policy name>",
+    "NetworkType": "Public | Private", 
+    "ClientIp": "x.x.x.x",
+    "Count": 1, 
+    "Provider": "SERVICEBUS",
+    "Type"   : "AZMSRuntimeAuditLogs"
+ }
+
+```
+
 [!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
 ## Azure Monitor Logs tables
