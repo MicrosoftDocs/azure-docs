@@ -1,14 +1,13 @@
 ---
-title: Create an autoscale scaling plan for Azure Virtual Desktop
-description: How to create an autoscale scaling plan to optimize deployment costs.
+title: Create and assign an autoscale scaling plan for Azure Virtual Desktop
+description: How to create and assign an autoscale scaling plan to optimize deployment costs.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 01/16/2024
 ms.author: helohr
-manager: femila
 ms.custom: references_regions
 ---
-# Create an autoscale scaling plan for Azure Virtual Desktop
+# Create and assign an autoscale scaling plan for Azure Virtual Desktop
 
 Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs.
 

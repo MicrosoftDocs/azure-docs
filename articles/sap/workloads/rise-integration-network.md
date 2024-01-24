@@ -2,12 +2,9 @@
 title: Network connectivity options in Azure with SAP RISE| Microsoft Docs
 description: Describes network connectivity between customer's own Azure environment and SAP RISE managed workloads
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msftrobiro
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article

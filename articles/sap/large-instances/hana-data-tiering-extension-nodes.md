@@ -2,10 +2,8 @@
 title: Data tiering and extension nodes for SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn about data tiering and extension nodes for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
-documentationcenter:
 author: ju-shim
 manager: bburns
-editor: ''
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article

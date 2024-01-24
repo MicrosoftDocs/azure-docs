@@ -2,7 +2,7 @@
 title: Data collection in Azure Monitor
 description: Monitoring data collected by Azure Monitor is separated into metrics that are lightweight and capable of supporting near real-time scenarios and logs that are used for advanced analysis.
 ms.topic: conceptual
-ms.date: 07/10/2022
+ms.date: 11/01/2023
 ---
 
 # Data collection in Azure Monitor
