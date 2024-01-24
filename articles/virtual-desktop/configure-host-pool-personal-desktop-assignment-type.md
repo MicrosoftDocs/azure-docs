@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.date: 05/04/2023
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
-manager: femila
 ---
 # Configure personal desktop assignment
 
