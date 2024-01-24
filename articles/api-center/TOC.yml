@@ -31,7 +31,7 @@
 #- name: API governance
 - name: API discovery and consumption
   items:
-      - name: Use Visual Studio Code extension
+      - name: Use VS Code extension
         href: use-vscode-extension.md
       - name: Discover APIs with GitHub Copilot Chat
         href: use-vscode-extension-copilot.md

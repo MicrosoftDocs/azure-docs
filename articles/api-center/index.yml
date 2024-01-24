@@ -50,7 +50,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use Visual Studio Code extension
+          - text: Use VS Code extension
             url: use-vscode-extension.md
           - text: Discover APIs with GitHub Copilot Chat
             url: use-vscode-extension-copilot.md

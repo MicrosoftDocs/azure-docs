@@ -4,7 +4,7 @@ description: Discover, try, and consume APIs from your Azure API center using th
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 01/23/2024
+ms.date: 01/24/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As a developer, I want to use my Visual Studio Code environment to discover, try, and consume APIs in my organization's API center.
@@ -16,7 +16,7 @@ To discover, try, and consume APIs in your [API center](overview.md), you can us
 
 * **Discover APIs** - Browse the APIs in your API center, and view their details and documentation.
 
-* **Try APIs** - Use a Swagger UI preview or a REST client to explore API requests and responses. 
+* **Try APIs** - Use Swagger UI or REST client to explore API requests and responses. 
 
 * **Consume APIs** - Generate API SDK clients for your favorite language including JavaScript, TypeScript, .NET, Python, and Java, using the Microsoft Kiota engine that generates SDKs for Microsoft Graph, GitHub, and more. 
 
@@ -35,8 +35,7 @@ To discover, try, and consume APIs in your [API center](overview.md), you can us
     
 The following Visual Studio Code extensions are optional and needed only for certain scenarios as indicated:
 
-* [REST client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - to generate HTTP requests
-
+* [REST client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - to send HTTP requests and view the responses in Visual Studio Code directly
 * [Microsoft Kiota extension](https://marketplace.visualstudio.com/items?itemName=ms-graph.kiota) - to generate API clients
 
     
