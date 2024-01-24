@@ -103,72 +103,6 @@ To use the default OS SKU, you create the node pool without specifying an OS SKU
     > [!NOTE]
     > Taints and VM sizes can only be set for node pools during node pool creation, but you can update autoscaler settings at any time.
 
-2. Create a namespace using the [`kubectl create namespace`][kubectl-create] command.
-
-    ```bash
-    kubectl create namespace gpu-resources
-    ```
-
-3. Create a file named *nvidia-device-plugin-ds.yaml* and paste the following YAML manifest provided as part of the [NVIDIA device plugin for Kubernetes project][nvidia-github]:
-
-    ```yaml
-    apiVersion: apps/v1
-    kind: DaemonSet
-    metadata:
-      name: nvidia-device-plugin-daemonset
-      namespace: gpu-resources
-    spec:
-      selector:
-        matchLabels:
-          name: nvidia-device-plugin-ds
-      updateStrategy:
-        type: RollingUpdate
-      template:
-        metadata:
-          # Mark this pod as a critical add-on; when enabled, the critical add-on scheduler
-          # reserves resources for critical add-on pods so that they can be rescheduled after
-          # a failure.  This annotation works in tandem with the toleration below.
-          annotations:
-            scheduler.alpha.kubernetes.io/critical-pod: ""
-          labels:
-            name: nvidia-device-plugin-ds
-        spec:
-          tolerations:
-          # Allow this pod to be rescheduled while the node is in "critical add-ons only" mode.
-          # This, along with the annotation above marks this pod as a critical add-on.
-          - key: CriticalAddonsOnly
-            operator: Exists
-          - key: nvidia.com/gpu
-            operator: Exists
-            effect: NoSchedule
-          - key: "sku"
-            operator: "Equal"
-            value: "gpu"
-            effect: "NoSchedule"
-          containers:
-          - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:v0.14.1
-            name: nvidia-device-plugin-ctr
-            securityContext:
-              allowPrivilegeEscalation: false
-              capabilities:
-                drop: ["ALL"]
-            volumeMounts:
-              - name: device-plugin
-                mountPath: /var/lib/kubelet/device-plugins
-          volumes:
-            - name: device-plugin
-              hostPath:
-                path: /var/lib/kubelet/device-plugins
-    ```
-
-4. Create the DaemonSet and confirm the NVIDIA device plugin is created successfully using the [`kubectl apply`][kubectl-apply] command.
-
-    ```bash
-    kubectl apply -f nvidia-device-plugin-ds.yaml
-    ```
-
-5. Now that you successfully installed the NVIDIA device plugin, you can check that your [GPUs are schedulable](#confirm-that-gpus-are-schedulable) and [run a GPU workload](#run-a-gpu-enabled-workload).
-
 ##### [Azure Linux node pool](#tab/add-azure-linux-gpu-node-pool)
 
 To use Azure Linux, you specify the OS SKU by setting `os-sku` to `AzureLinux` during node pool creation. The `os-type` is set to `Linux` by default.
@@ -200,6 +134,8 @@ To use Azure Linux, you specify the OS SKU by setting `os-sku` to `AzureLinux` d
     > [!NOTE]
     > Taints and VM sizes can only be set for node pools during node pool creation, but you can update autoscaler settings at any time.
 
+---
+
 2. Create a namespace using the [`kubectl create namespace`][kubectl-create] command.
 
     ```bash
@@ -265,8 +201,6 @@ To use Azure Linux, you specify the OS SKU by setting `os-sku` to `AzureLinux` d
     ```
 
 5. Now that you successfully installed the NVIDIA device plugin, you can check that your [GPUs are schedulable](#confirm-that-gpus-are-schedulable) and [run a GPU workload](#run-a-gpu-enabled-workload).
-
----
 
 ### Use NVIDIA GPU Operator with AKS
 
