@@ -121,7 +121,7 @@ Regardless of the installation method used, you need the workspace ID and key fo
 :::image type="content" source="media/log-analytics-agent/workspace-details.png" lightbox="media/log-analytics-agent/workspace-details.png" alt-text="Screenshot that shows workspace details.":::
 
 >[!NOTE]
->While regenerating the [Log Analytics Workspace shared keys](/rest/api/loganalytics/workspace-shared-keys) is possible, the intention for this is **not** to immediately restrict access to any agents currently using those keys. Agents use the key to generate a certificate that expires after three months. Regenerating the shared keys will only prevent agents from renewing their certificates, not continuing to use those certificates until they expire.
+>While regenerating the Log Analytics Workspace shared keys is possible, the intention for this is **not** to immediately restrict access to any agents currently using those keys. Agents use the key to generate a certificate that expires after three months. Regenerating the shared keys will only prevent agents from renewing their certificates, not continuing to use those certificates until they expire.
 
 ## Agent install package
 
