@@ -23,7 +23,7 @@ In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) a
 
 The following architecture diagram illustrates the implementation:
 
-![Diagram of the Transmit and Azure AD B2C architecture.](media/partner-bindid/partner-TransmitSecurity-architecture-diagram.png) 
+![Diagram of the Transmit and Azure AD B2C architecture.](media/partner-bindid/partner-transmit-security-architecture-diagram.png) 
 
 1. User opens the Azure AD B2C sign-in page, and signs in or signs up.
 2. Azure AD B2C redirects the user to Transmit Security using an OpenID Connect (OIDC) request.
