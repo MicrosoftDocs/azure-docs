@@ -152,7 +152,8 @@ The following sections describe how to validate the deployment.
 
 ### 5.1. Access the applications
 
-Using the endpoint assigned from Spring Cloud Gateway - for example, https://<your-Azure-Spring-Apps-instance-name>-gateway-xxxxx.svc.azuremicroservices.io. The application should look similar to the following screenshot:
+Using the endpoint assigned from Spring Cloud Gateway - for example, `https://<your-Azure-Spring-Apps-instance-name>-gateway-xxxxx.svc.azuremicroservices.io`. 
+The application should look similar to the following screenshot:
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/deployment-output-enterprise-plan.png" alt-text="Diagram that shows the enterprise URL of the ARM deployment outputs." lightbox="media/quickstart-deploy-microservice-apps/deployment-output-enterprise-plan.png":::
 
@@ -180,8 +181,8 @@ Copy the URL for Application Live View and open the Application Live View URL to
 
 ### 5.1. Access the applications
 
-Using the endpoint assigned from Spring Cloud Gateway - for example, `
-https://<your-Azure-Spring-Apps-instance-name>-gateway-xxxxx.svc.azuremicroservices.io`. The application should look similar to the following screenshot:
+Using the endpoint assigned from Spring Cloud Gateway - for example, `https://<your-Azure-Spring-Apps-instance-name>-gateway-xxxxx.svc.azuremicroservices.io`. 
+The application should look similar to the following screenshot:
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/application-enterprise.png" alt-text="Screenshot of the PetClinic application running on the Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/application-enterprise.png":::
 
