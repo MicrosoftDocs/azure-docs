@@ -21,8 +21,13 @@ landingContent:
   # Card
   - title: About Azure Programmable Connectivity
     linkLists:
-      - linkListType: overview
+      - linkListType: Overview
         links:
           - text: What is Azure Programmable Connectivity?
             url: azure-programmable-connectivity-overview.md
-  
+      - linkListType: Concepts
+        links:
+          - text: Key concepts for Azure Programmable Connectivity
+            url: azure-programmable-connectivity-key-concepts.md       
+          - text: What are Network APIs
+            url: azure-programmable-connectivity-network-apis.md
