@@ -143,6 +143,7 @@ To add or update an app setting using the Azure CLI, run the command `az logicap
 ```azurecli
 az logicapp config appsettings set --name MyLogicApp --resource-group MyResourceGroup --settings CUSTOM_LOGIC_APP_SETTING=12345 
 ```
+---
 
 <a name="reference-host-json"></a>
 
