@@ -88,7 +88,7 @@ The same share name can be used for:
 
 If you are using:
 * regional volumes (without availability zones) or
-* volumes within the same region, 
+* volumes within the same availability zone, 
 
 the same share name can be used, however the share name must be unique within each delegated subnet or assigned to different delegated subnets. 
 
