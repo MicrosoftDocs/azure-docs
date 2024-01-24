@@ -76,7 +76,7 @@ Within the Standard service tier, users who have subscribed to the Grafana Enter
 
 ### Other data sources
 
-More data sources can be added from the [Plugin management (preview) feature](how-to-manage-plugins.md).
+Customers with a Standard tier plan can access additional data sources from the [Plugin management (preview) feature](how-to-manage-plugins.md).
 
 For more information about data sources, go to [Data sources](https://grafana.com/docs/grafana/latest/datasources/) on the Grafana Labs website.
 

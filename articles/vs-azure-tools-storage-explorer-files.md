@@ -4,7 +4,6 @@ description: Learn how learn how to use Storage Explorer to work with file share
 services: storage
 author: cawaMS
 manager: paulyuk
-ms.assetid:
 ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 03/09/2017

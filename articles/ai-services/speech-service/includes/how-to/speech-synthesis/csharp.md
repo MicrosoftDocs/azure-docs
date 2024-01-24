@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/30/2023
+ms.date: 1/21/2024
 ms.author: eur
 ms.custom: devx-track-csharp
 ---
@@ -313,7 +313,7 @@ You can find more text to speech samples at [GitHub](https://aka.ms/csspeech/sam
 
 ## Use a custom endpoint
 
-The custom endpoint is functionally identical to the standard endpoint that's used for text to speech requests. 
+The custom endpoint is functionally identical to the standard endpoint used for text to speech requests. 
 
 One difference is that the `EndpointId` must be specified to use your custom voice via the Speech SDK. You can start with the [text to speech quickstart](../../../get-started-text-to-speech.md) and then update the code with the `EndpointId` and `SpeechSynthesisVoiceName`.
 

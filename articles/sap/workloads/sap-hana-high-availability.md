@@ -1,8 +1,6 @@
 ---
 title: High availability for SAP HANA on Azure VMs on SLES
 description: Learn how to set up and use high availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server.
-services: virtual-machines-linux
-documentationcenter: 
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
@@ -277,7 +275,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
 
    To install SAP HANA system replication, review chapter 4 in the [SAP HANA SR Performance Optimized Scenario](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/) guide.
 
-1. **[A]** Run the **hdblcm** program from the HANA DVD.
+1. **[A]** Run the **hdblcm** program from the HANA installation media.
 
    When you're prompted, enter the following values:
 
