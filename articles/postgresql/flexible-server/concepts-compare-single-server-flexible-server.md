@@ -6,7 +6,7 @@ author: AwdotiaRomanowna
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 12/11/2023
+ms.date: 12/21/2023
 ---
 
 # Comparison chart - Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server

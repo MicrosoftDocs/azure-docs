@@ -255,7 +255,15 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> You may need to assign a minimum of *Microsoft.Network/virtualNetworks/subnets/read* and *Microsoft.Network/virtualNetworks/subnets/join/action* permission to AKS MSI on the Azure Virtual Network resources. You can view the cluster identity with [az aks show][az-aks-show], such as `az aks show --resource-group myResourceGroup --name myAKSCluster --query "identity"`. To create a role assignment, use the [`az role assignment create`][az-role-assignment-create] command.
+>
+> The cluster identity used by the AKS cluster must at least have the [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) role on the virtual network resource. You can view the cluster identity using the [`az aks show`][az-aks-show] command, such as `az aks show --resource-group <resource-group-name> --name <cluster-name> --query "identity"`. You can assign the Network Contributor role using the [`az role assignment create`][az-role-assignment-create] command, such as `az role assignment create --assignee <identity-resource-id> --scope <virtual-network-resource-id> --role "Network Contributor"`.
+>
+> If you want to define a [custom role](../role-based-access-control/custom-roles-cli.md) instead, you need the following permissions:
+>
+> * `Microsoft.Network/virtualNetworks/subnets/join/action`
+> * `Microsoft.Network/virtualNetworks/subnets/read`
+>
+> For more information, see [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
 
 ### Specify a different subnet
 

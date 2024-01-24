@@ -107,9 +107,9 @@ sections:
               For detailed estimate on costs, run the deployment planner tool for [VMware](./site-recovery-deployment-planner.md) or [Hyper-V](https://aka.ms/asr-deployment-planner), and use the [cost estimation report](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
       - question: |
-         Managed disks are now used to replicate VMware VMs and physical servers. Do I incur additional charges for the cache storage account with managed disks?
+         Do I also incur charges for the cache storage account when using Site Recovery?
         answer: |
-             No, there are no additional charges for cache. When you replicate to standard storage account, this cache storage is part of the same target storage account.
+             Yes, there are additional charges for cache storage account usage when replicating VMs using Site Recovery. Note that the cache storage account costs will remain same when the replica storage is of type managed disks or unmanaged disks.  
 
       - question: |
          I have been an Azure Site Recovery user for over a month. Do I still get the first 31 days free for every protected instance?
