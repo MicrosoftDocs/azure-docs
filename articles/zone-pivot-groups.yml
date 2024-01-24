@@ -2455,10 +2455,10 @@ groups:
   title: ExpressRoute experience
   prompt: "Select your ExpressRoute create experience:"
   pivots:
-  - id: expressroute-preview
-    title: Preview
   - id: expressroute-current
     title: Current
+  - id: expressroute-preview
+    title: Preview
 # Owner: wiassaf
 - id: azure-sql-deployment-option-single-elastic
   title: Azure SQL deployment option, single or elastic
