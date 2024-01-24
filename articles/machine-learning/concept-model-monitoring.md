@@ -100,40 +100,60 @@ Azure Machine Learning model monitoring supports the following list of monitorin
 | Model performance - Regression (preview) | Model performance tracks the objective performance of a model's output in production by comparing it to collected ground truth data. | Mean Absolute Error (MAE), Mean Squared Error (MSE), Root Mean Squared Error (RMSE) | Regression (tabular data) | Production data - model outputs | Ground truth data (required) |
 |[Generative AI: Generation safety and quality](./prompt-flow/how-to-monitor-generative-ai-applications.md) (preview)|Evaluates generative AI applications for safety and quality, using GPT-assisted metrics.| Groundedness, relevance, fluency, similarity, coherence| Question & Answering | prompt, completion, context, and annotation template |N/A|
 
-### Data quality metrics details
+### Metrics for the data quality monitoring signal
 
-The data quality monitoring signal tracks the data integrity of a model's input. It does so by calculating three metrics, as defined below: 
+The data quality monitoring signal tracks the integrity of a model's input data by calculating the three metrics:
 
-**Null value rate**: The rate of null values in the model's input for each feature. For example, if the monitoring production data window contains 100 rows and the value for a specific feature `temperature` is null for 10 of those rows, the **Null value rate** for `temperature` would be 10%. 
+- Null value rate
+- Data type error rate
+- Out-of-bounds rate
+
+
+#### Null value rate
+
+The _null value rate_ is the rate of null values in the model's input for each feature. For example, if the monitoring production data window contains 100 rows and the value for a specific feature `temperature` is null for 10 of those rows, the null value rate for `temperature` is 10%.
+
 - Azure Machine Learning supports calculating the **Null value rate** for all feature data types. 
 
-**Data type error rate**: The rate of data type differences between the current production data window and the reference data. Azure Machine Learning model monitoring will infer the data type for each feature from the reference data during each monitoring run. For example, if the type for a feature `temperature` is inferred to be IntegerType from the reference data, but in the production data window 10 out of 100 values for `temperature` are not IntegerType (perhaps they are strings, etc.), then the **Data type error rate** for `temperature` would be 10%. 
-- Azure Machine Learning supports calculating the **Data type error rate** for the following list of data types (PySpark): ShortType, BooleanType, BinaryType, DoubleType, TimestampType, StringType, IntegerType, FloatType, ByteType, LongType, DateType
-- If the data type for a feature is not contained in this list, Azure Machine Learning model monitoring will still run but will not compute the **Data type error rate** for that specific feature.
+#### Data type error rate
 
-**Out-of-bounds rate**: The rate of values for each feature which fall outside of the appropriate range or set determined by the reference data. Azure Machine Learning model monitoring will determine the acceptable range or set for each feature from the reference data during each monitoring run. For numerical features, the appropriate range is a numerical interval of the mininum value in the reference dataset to the maximum value, such as [0, 100]. For categorical features, the appropriate range is a set of all values contained in the reference dataset, such as [`red`, `yellow`, `green`] for a feature `color`. For example, if you have a numerical feature `temperature` where all values fall within the range [37, 77] in the reference dataset, but in the production data window 10 out of 100 values for `temperature` fall outside of the range [37, 77], then the **Out-of-bounds** rate for `temperature` will be 10%. 
-- Azure Machine Learning supports calculating the **Out-of-bounds rate** for the following list of data types (PySpark): StringType, IntegerType, DoubleType, ByteType, LongType, FloatType
-- If the data type for a features is not contained in this list, Azure Machine Learning model monitoring will still run but will not compute the **Out-of-bounds rate** for that specific feature.
+The _data type error rate_ is the rate of data type differences between the current production data window and the reference data. During each monitoring run, Azure Machine Learning model monitoring infers the data type for each feature from the reference data. For example, if the data type for a feature `temperature` is inferred to be `IntegerType` from the reference data, but in the production data window, 10 out of 100 values for `temperature` aren't IntegerType (perhaps they're strings), then the data type error rate for `temperature` is  10%. 
 
-Azure Machine Learning model monitoring supports precision up to 0.00001 for these data quality metric calculations. 
+- Azure Machine Learning supports calculating the data type error rate for the following data types that are available in PySpark: `ShortType`, `BooleanType`, `BinaryType`, `DoubleType`, `TimestampType`, `StringType`, `IntegerType`, `FloatType`, `ByteType`, `LongType`, and `DateType`.
+- If the data type for a feature isn't contained in this list, Azure Machine Learning model monitoring still runs but won't compute the data type error rate for that specific feature.
+
+#### Out-of-bounds rate
+
+The _out-of-bounds rate_ is the rate of values for each feature, which fall outside of the appropriate range or set determined by the reference data. During each monitoring run, Azure Machine Learning model monitoring determines the acceptable range or set for each feature from the reference data.
+
+- For a numerical feature, the appropriate range is a numerical interval of the minimum value in the reference dataset to the maximum value, such as [0, 100].
+- For a categorical feature, such as `color`, the appropriate range is a set of all values contained in the reference dataset, such as [`red`, `yellow`, `green`].
+
+For example, if you have a numerical feature `temperature` where all values fall within the range [37, 77] in the reference dataset, but in the production data window, 10 out of 100 values for `temperature` fall outside of the range [37, 77], then the out-of-bounds rate for `temperature` is 10%.
+
+- Azure Machine Learning supports calculating the out-of-bounds rate for these data types that are available in PySpark: `StringType`, `IntegerType`, `DoubleType`, `ByteType`, `LongType`, and `FloatType`.
+- If the data type for a feature isn't contained in this list, Azure Machine Learning model monitoring still runs but won't compute the out-of-bounds rate for that specific feature.
+
+Azure Machine Learning model monitoring supports up to 0.00001 precision for calculations of the null value rate, data type error rate, and out-of-bounds rate.
 
 ## Recommended best practices for model monitoring
 
 Each machine learning model and its use cases are unique. Therefore, model monitoring is unique for each situation. The following is a list of recommended best practices for model monitoring:
-* **Start model monitoring as soon as your model is deployed to production.** 
-* **Work with data scientists that are familiar with the model to set up model monitoring.** Data scientists who have insight into the model and its use cases are in the best position to recommend monitoring signals and metrics as well as set the right alert thresholds for each metric (to avoid alert fatigue).
-* **Include multiple monitoring signals in your monitoring setup.** With multiple monitoring signals, you get both a broad view and granular view of monitoring. For example, you can combine both data drift and feature attribution drift signals to get an early warning about your model performance issue.
+* **Start model monitoring immediately you deploy a model to production.** 
+* **Work with data scientists that are familiar with the model to set up model monitoring.** Data scientists who have insight into the model and its use cases are in the best position to recommend monitoring signals and metrics and set the right alert thresholds for each metric (to avoid alert fatigue).
+* **Include multiple monitoring signals in your monitoring setup.** With multiple monitoring signals, you get both a broad view and granular view of monitoring. For example, you can combine data drift and feature attribution drift signals to get an early warning about your model performance issues.
 * **Use model training data as the reference data.** For reference data used as the comparison baseline, Azure Machine Learning allows you to use the recent past production data or historical data (such as training data or validation data). For a meaningful comparison, we recommend that you use the training data as the comparison baseline for data drift and data quality. For prediction drift, use the validation data as the comparison baseline.
-* **Specify the monitoring frequency based on how your production data will grow over time**. For example, if your production model has much traffic daily, and the daily data accumulation is sufficient for you to monitor, then you can set the monitoring frequency to daily. Otherwise, you can consider a weekly or monthly monitoring frequency, based on the growth of your production data over time.
+* **Specify the monitoring frequency, based on how your production data will grow over time**. For example, if your production model has much traffic daily, and the daily data accumulation is sufficient for you to monitor, then you can set the monitoring frequency to daily. Otherwise, you can consider a weekly or monthly monitoring frequency, based on the growth of your production data over time.
 * **Monitor the top N important features or a subset of features.** If you use training data as the comparison baseline, you can easily configure data drift monitoring or data quality monitoring for the top N features. For models that have a large number of features, consider monitoring a subset of those features to reduce computation cost and monitoring noise.
 
 ## Integrate Azure Machine Learning model monitoring with Azure Event Grid
 
-You can use events generated by Azure Machine Learning model monitoring runs to set up event driven applications, processes, or CI/CD workflows with [Azure EventGrid](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-use-event-grid?view=azureml-api-2). When drift, data quality issues, or model performance degredation is detected by your model monitor, you can track these events with Azure EventGrid and take action programmatically. For example, if the Accuracy of your classification model dips below a certain threshold in production, you can use Azure EventGrid to begin a re-training job using collected ground truth data. To learn how to integrate Azure Machine Learning with Azure EventGrid, see - [Perform continuous model monitoring in Azure Machine Learning](how-to-monitor-model-performance.md).
+You can use events generated by Azure Machine Learning model monitoring runs to set up event-driven applications, processes, or CI/CD workflows with [Azure Event Grid](how-to-use-event-grid.md).
 
-## Next steps
+When your model monitor detects drift, data quality issues, or model performance degradation, you can track these events with Event Grid and take action programmatically. For example, if the accuracy of your classification model in production dips below a certain threshold, you can use Event Grid to begin a retraining job that uses collected ground truth data. To learn how to integrate Azure Machine Learning with Event Grid, see [Perform continuous model monitoring in Azure Machine Learning](how-to-monitor-model-performance.md).
 
-- [Perform continuous model monitoring in Azure Machine Learning](how-to-monitor-model-performance.md)
+## Related content
+
 - [Model data collection](concept-data-collection.md)
 - [Collect production inference data](how-to-collect-production-data.md)
 - [Model monitoring for generative AI applications](./prompt-flow/how-to-monitor-generative-ai-applications.md)
