@@ -153,7 +153,6 @@ After you wait for Microsoft Sentinel to ingest the data, complete the following
 
    |Log Analytics tables |Data collected |
    |---------|---------|
-   |PowerPlatrformEnvironments_CL, PowerApps_CL, PowerAutomateFlows_CL, PowerAppsConnections_CL |Power Platform Environments, Power Apps and Power Automate inventory data     |
    |PowerAppsActivity |Power Apps activity logs |  
    |PowerAutomateActivity |Power Automate activity logs  |
    |PowerPlatformConnectorActivity |Power Platform connector activity logs |
@@ -161,6 +160,13 @@ After you wait for Microsoft Sentinel to ingest the data, complete the following
    |PowerPlatformAdminActivity|Power Platform administrative logs|
    |DataverseActivity |Dataverse and model-driven apps activity logging  |  
 
+|Parser  |Data returned |
+|---------|---------|
+|`InventoryApps` | Power Apps Inventory | 
+|`InventoryAppsConnections` |  Power Apps connections Inventoryconnections       |  
+|`InventoryEnvironments`   |Power Platform environments Inventory         | 
+|`InventoryFlows`   |  Power Automate flows Inventory       | 
+|`MSBizAppsTerminatedEmployees`    | Terminated employees watchlist (from watchlist template)  |  
 1. Verify that the results for each table show the activities you generated.
 
 ## Next steps
