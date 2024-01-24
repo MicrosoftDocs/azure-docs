@@ -15,7 +15,7 @@ ms.custom: devx-track-js
 ---
 # Calling SDK overview
 
-Azure Communication Services allows end-user browsers, apps, and services to drive voice and video communication. This page focuses on Calling client SDK, which can be embedded in websites and native applications. This page provides detailed descriptions of Calling client features such as platform and browser support information. Services programmatically manage and access calls using the [Call Automation APIs](../call-automation/call-automation.md). The [Rooms API](../rooms/room-concept.md) is an optional Azure Communication Services API that adds additional to a voice or video call, such as roles and permissions.
+Azure Communication Services allows end-user browsers, apps, and services to drive voice and video communication. This page focuses on Calling client SDK, which can be embedded in websites and native applications. This page provides detailed descriptions of Calling client features such as platform and browser support information. Services programmatically manage and access calls using the [Call Automation APIs](../call-automation/call-automation.md). The [Rooms API](../rooms/room-concept.md) is an optional Azure Communication Services API that adds additional features to a voice or video call, such as roles and permissions.
 
 [!INCLUDE [Survey Request](../../includes/survey-request.md)]
 
@@ -99,9 +99,9 @@ The following list presents the set of features that are currently available in 
 |                   | Custom background image                                                                                             | ✔️   | ❌       | ❌              | ❌                 |
 
 
-1. The capability to Mute Others is currently in public preview.
-2. The Share Screen capability can be achieved using Raw Media, if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
-3. The Calling SDK doesn't have an explicit API, you need to use the OS (Android & iOS) API to achieve it.
+<sup>1</sup> The capability to Mute Others is currently in public preview.
+<sup>2</sup> The Share Screen capability can be achieved using Raw Media APIs. To learn more visit [the raw media access quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
+<sup>3</sup> The Calling SDK doesn't have an explicit API for these functions, you should use the Android & iOS OS APIs to achieve instead.
 
 ## JavaScript Calling SDK support by OS and browser
 
@@ -109,7 +109,7 @@ The following table represents the set of supported browsers, which are currentl
 
 | Platform     | Chrome | Safari | Edge  | Firefox |  Webview |
 | ------------ | ------ | ------ | ------ | ------- | ------- |
-| Android      | ✔️      | ❌      | ✔️           | ❌      | ✔️ *    |
+| Android      | ✔️      | ❌      | ✔️           | ❌      | ✔️     |
 | iOS          | ✔️      | ✔️      | ❌           | ❌      | ✔️      |
 | macOS        | ✔️      | ✔️      | ✔️           | ✔️      | ❌      |
 | Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      |
@@ -117,13 +117,12 @@ The following table represents the set of supported browsers, which are currentl
 
 - Outgoing Screen Sharing isn't supported on iOS or Android mobile browsers.
 - Firefox support is in public preview.
-- Currently, the calling SDK only supports Android System WebView on Android, iOS WebView(WKWebView) in public preview. Other types of embedded browsers or WebView on other OS platforms aren't officially supported, for example, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
-Running JavaScript Calling SDK on these platforms isn't actively tested, it might or might not work.
+- Currently, the calling SDK only supports Android System WebView on Android, iOS WebView(WKWebView) in public preview. Other types of embedded browsers or WebView on other OS platforms aren't officially supported, for example, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2. Running JavaScript Calling SDK on these platforms isn't actively tested, it might or might not work.
 - [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth). This issue is a limitation of iOS, and the operating system controls default device selection.
 
 ## Calling client - browser security model
 
-### User WebRTC over HTTPS
+### Use WebRTC over HTTPS
 
 WebRTC APIs like `getUserMedia` require that the app that calls these APIs is served over HTTPS. For local development, you can use `http://localhost`.
 
@@ -157,7 +156,7 @@ For example, this iframe allows both camera and microphone access:
 
 **The maximum call duration is 30 hours**, participants that reach the maximum call duration lifetime of 30 hours will be disconnected from the call.
 
-## Limits to the number of simultanous video streams
+## Limits to the number of simultaneous video streams
 
 The Azure Communication Services Calling SDK supports the following streaming configurations:
 
