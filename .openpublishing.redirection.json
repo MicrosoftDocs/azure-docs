@@ -25758,6 +25758,15 @@
         {
             "source_path_from_root": "/articles/virtual-machines/extensions/dsc-linux.md",
             "redirect_url": "/azure/virtual-machines/extensions/dsc-overview"
+        },
+        {
+            "source_path_from_root": "/articles/azure-health-insights/request-info.md",
+            "redirect_url": "rest/api/cognitiveservices/healthinsights/overview"
+            
+        },
+        {
+            "source_path_from_root": "/articles/azure-health-insights/response-info.md",
+            "redirect_url": "rest/api/cognitiveservices/healthinsights/overview"
         }
-    ]
+        ]
 }
