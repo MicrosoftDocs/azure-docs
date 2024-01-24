@@ -121,7 +121,7 @@ items:
         href: quickstarts/rooms/join-rooms-call.md
     - name: Integrate with other SDKs
       items:
-      - name: Integrate DeepAR filters to your video calls
+      - name: Add DeepAR filters to your video calls
         href: quickstarts/voice-video-calling/get-started-deepar.md
     - name: Use UI components for voice and video
       href: quickstarts/ui-library/get-started-composites.md

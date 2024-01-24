@@ -13,7 +13,7 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-# QuickStart: Integrate DeepAR filters to your video calls
+# QuickStart: Add DeepAR filters to your video calls
 
 In some usage scenarios, you may want to apply some video processing to the original camera video, such as background blur or background replacement.
 This can provide a better user experience.
