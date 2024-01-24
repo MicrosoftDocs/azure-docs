@@ -187,12 +187,12 @@ For this example, we assume that you create a new empty key vault `KV2` with the
     > After you have updated the vault using a different key vault, to use your original target key vault (`KV1`), repeat the steps 1 to 4 and select `KV1` in the target key vault. This copies the new key / secret in `KV1` and uses that for the target.
 
 
-### Update target VM encryption settings by using REST API
+### Update target VM encryption settings using REST API
 
 1. You must copy the keys to target vault using the `Copy-Keys` script.
-2. Use the [`keyEncryptionKeyInfo`](https://learn.microsoft.com/rest/api/site-recovery/replication-protected-items/update?view=rest-site-recovery-2023-02-01&tabs=HTTP&tryIt=true&source=docs#diskencryptioninfo) Rest API to update the Azure Site Recovery metadata.
+2. Use the [`Replication Protected Items - Update`](https://learn.microsoft.com/rest/api/site-recovery/replication-protected-items/update?view=rest-site-recovery-2023-02-01&tabs=HTTP&tryIt=true&source=docs#diskencryptioninfo) Rest API to update the Azure Site Recovery metadata.
 
-### Update target VM encryption settings by using PowerShell
+### Update target VM encryption settings using PowerShell
 
 1. Copy the keys to target vault using the `Copy-Keys` script.
 1. Use the [`Set-AzRecoveryServicesAsrReplicationProtectedItem`](https://learn.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesasrreplicationprotecteditem?view=azps-11.1.0) command to update the Azure Site Recovery metadata.
