@@ -1,7 +1,7 @@
 ---
 title: CreateIndexes API
 titleSuffix: Azure Cosmos DB for MongoDB vCore
-description: Use vector indexing and search to integrate AI-based applications in Azure Cosmos DB for MongoDB vCore.
+description: Use Create Indexing for empty collections in Azure Cosmos DB for MongoDB vCore.
 author: khelanmodi
 ms.author: khelanmodi
 ms.reviewer: sidandrews
