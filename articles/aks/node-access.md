@@ -217,7 +217,6 @@ For convenience, the nodepools are exposed when the node has a public IP assigne
     ssh -i /path/to/private_key.pem azureuser@10.224.0.33
     ```
 
-3. Optionally, you can test with Azure Bastion. Follow these steps to set up bastion [for windows][azure-bastion] and [for linux][azure-bastion-linux], then test your connection to your virtual machines using a private IP address. Make sure that the Azure Bastion is hosted in the same virtual network as your cluster.
 
 
 ## Next steps
