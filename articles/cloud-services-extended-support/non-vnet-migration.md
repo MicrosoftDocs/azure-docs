@@ -17,7 +17,7 @@ Some legacy cloud services are still running without Vnet support. While there's
 - Your DNS and Public IP address is preserved.
 - Less downtime.
 
-## Disdvantages to direct migration
+## Disadvantages to direct migration
 - If using external sources, you may need to move the state of staging slot. 
 - Potential downtime while manually rebuilding network.
 
@@ -29,12 +29,12 @@ Some legacy cloud services are still running without Vnet support. While there's
 1. In the Azure portal, select the 'Staging' drop-down.
     ![The Staging drop-down in the Azure portal](./media/vnet-migrate-staging.png)
 
-1. Create a deployment with same configuration as existing deployment by selecting 'Upload'. The platform creates a Default Vnet deployment in staging slot.
+1. Create a deployment with same configuration as existing deployment by selecting 'Upload' next to the staging drop down. The platform creates a Default Vnet deployment in staging slot.
     ![The upload button in the Azure portal](./media/vnet-migrate-upload.png)
 
 1. Once staging deployment is created, the URL, IP address, and label populate.
     ![URL, IP, etc. data populated in the Azure portal](./media/vnet-migrate-populated.png)
-The staging deployment have a different Deployment Name, Deployment ID, and Public IP Address different to the production deployment.
+The staging deployment has a different Deployment Name, Deployment ID, and Public IP Address different to the production deployment.
 
 1. After verifying the data, select 'Swap' to swap the production and staging deployments.
     ![The swap button in the Azure portal](./media/vnet-migrate-swap.png)
