@@ -45,3 +45,12 @@ landingContent:
         links:
           - text: Manage inventory - Azure CLI
             url: manage-apis-azure-cli.md
+# Card
+  - title: Discover APIs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use VS Code extension
+            url: use-vscode-extension.md
+          - text: Discover APIs with GitHub Copilot Chat
+            url: use-vscode-extension-copilot.md
