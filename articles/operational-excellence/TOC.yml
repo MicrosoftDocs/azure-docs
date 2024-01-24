@@ -13,7 +13,7 @@
       - name: Azure Key Vault
         href: relocation-key-vault.md
       - name: Azure Event Hubs
-        href: not-yet.md
+        href: relocation-event-hub.md
       - name: Azure Virtual Network
         href: relocation-virtual-network.md 
     - name: Mainstream services

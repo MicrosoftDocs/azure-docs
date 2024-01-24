@@ -42,7 +42,7 @@ The following tables provide links to each Azure service relocation document.
 
 | **Product**  |
 | --- | 
-
+[Azure Event Hubs](relocation-event-hub.md)|
 [Azure Key Vault](./relocation-key-vault.md)|
 [Azure Virtual Network](./relocation-virtual-network.md)|
 

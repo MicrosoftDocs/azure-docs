@@ -16,8 +16,8 @@ This article covers relocation guidance for Azure Monitor - Log Analytics Worksp
 
 ### Prerequisites
 
-- Validate the Azure subscription resource creation permission to deploy Log Analytics workspaces in the target region. Also, check to see if there's any Azure policy region restriction.
-- Landing Zone has been deployed as per assessed architecture.
+- Validate that the Azure subscription has the correct resource creation permissions to deploy Log Analytics workspaces in the target region. Also, check to see if there's any Azure policy region restriction.
+- Ensure that a Landing Zone has been deployed as per assessed architecture.
 - Collect all Log Analytics workspace dependent resources. Resources that Log Analytics Workspace depends on must be moved *prior* to the Log Analytics Workspace relocation process. The services below are some of the dependencies that you may need to move prior to a workspace relocation. Consult the corresponding service guidance to learn how to move resources to the target location.
 
     - [Virtual Network, Network Security Groups, and Route Tables](./relocation-virtual-network.md)
