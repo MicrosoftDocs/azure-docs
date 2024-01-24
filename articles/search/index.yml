@@ -50,16 +50,6 @@ landingContent:
             url: search-get-started-vector.md
 
   # Card
-  - title: Azure AI Studio
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Build a question and answer copilot
-            url: /azure/ai-studio/tutorials/deploy-copilot-ai-studio
-          - text: Create a vector index in AI Studio
-            url: /azure/ai-studio/how-to/index-add
-
-  # Card
   - title: Develop apps
     linkLists:
       - linkListType: tutorial
@@ -106,7 +96,17 @@ landingContent:
             url: search-howto-index-cosmosdb.md
           - text: Index any data
             url: tutorial-optimize-indexing-push-api.md
-         
+
+  # Card
+  - title: Azure AI Studio
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Build a question and answer copilot
+            url: /azure/ai-studio/tutorials/deploy-copilot-ai-studio
+          - text: Create a vector index in AI Studio
+            url: /azure/ai-studio/how-to/index-add
+                     
   # Card
   - title: Query data
     linkLists:
