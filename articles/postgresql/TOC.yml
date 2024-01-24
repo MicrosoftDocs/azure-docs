@@ -443,10 +443,14 @@
       items:
       - name: Prerequisites
         href: migrate/migration-service/concepts-prerequisites-migration-service.md
-      - name: Migrate from on-premises and IaaS
+      - name: Migrate from on-premises and Azure VM
         href: migrate/migration-service/tutorial-migration-service-offline-iaas.md
+      - name: Migrate from AWS RDS
+        href: migrate/migration-service/tutorial-migration-service-offline-aws.md
     - name: How-to guides
       items:
+      - name: CLI command help
+        href: migrate/migration-service/how-to-cli-commands.md
       - name: Network setup
         href: migrate/migration-service/how-to-network-setup-migration-service.md
 - name: Azure Database for PostgreSQL - Single Server
