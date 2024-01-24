@@ -160,6 +160,8 @@ After you wait for Microsoft Sentinel to ingest the data, complete the following
    |PowerPlatformAdminActivity|Power Platform administrative logs|
    |DataverseActivity |Dataverse and model-driven apps activity logging  |  
 
+Use the following parsers to return inventory and watchlist data.
+
 |Parser  |Data returned |
 |---------|---------|
 |`InventoryApps` | Power Apps Inventory | 
