@@ -176,7 +176,6 @@ might have capabilities with limitations. For more information, see
 [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-* [32 TiB storage per node in multi-node clusters](./resources-compute.md#multi-node-cluster)
 * [Microsoft Entra ID authentication](./concepts-authentication.md#azure-active-directory-authentication-preview)
 
 ## Contact us
