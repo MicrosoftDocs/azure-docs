@@ -112,8 +112,8 @@ result = call_connection_client.add_participant(
 #Invite a PSTN user and set UUI and custom SIP headers
 caller_id_number = PhoneNumberIdentifier("+16044561234")
 sip_headers = {}
-sip_headers.add("User-To-User", "value")
-sip_headers.add("X-MS-Custom-headerName", "headerValue")
+sip_headers["User-To-User"] = "value"
+sip_headers["X-MS-Custom-headerName"] = "headerValue"
 target = PhoneNumberIdentifier("+16041234567")
 result = call_connection_client.add_participant(
     target,
@@ -202,8 +202,8 @@ result = call_connection_client.transfer_call_to_participant(
 transfer_destination = PhoneNumberIdentifer("<target_phoneNumber>")
 transferee = PhoneNumberIdentifer("transferee_phoneNumber")
 sip_headers={}
-sip_headers.add("X-MS-Custom-headerName", "headerValue")
-sip_headers.add("User-To-User","uuivale")
+sip_headers["X-MS-Custom-headerName"] = "headerValue"
+sip_headers["User-To-User"] = "uuivale"
 result = call_connection_client.transfer_call_to_participant(
     target_participant=transfer_destination,
     transferee=transferee,
@@ -276,7 +276,7 @@ voipHeaders = callCustomContext.voipHeaders
 sipHeaders = callCustomContext.sipHeaders
 
 # Get SIP UUI header value
-userToUser = sipHeaders.get("user-To-User")
+userToUser = sipHeaders["user-To-User"]
 
 # Proceed to answer or reject call as usual
 ```
