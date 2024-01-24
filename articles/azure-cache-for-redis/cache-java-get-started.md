@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis in Java'
-description: In this quickstart, you'll create a new Java app that uses Azure Cache for Redis
+description: In this quickstart, you create a new Java app that uses Azure Cache for Redis
 author: KarlErickson
 ms.author: zhihaoguo
 ms.date: 01/04/2022
@@ -31,22 +31,28 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 ## Set up the working environment
 
-Depending on your operating system, add environment variables for your **Host name** and **Primary access key** that you noted above. Open a command prompt, or a terminal window, and set up the following values:
+Depending on your operating system, add environment variables for your **Host name** and **Primary access key** that you noted previously. Open a command prompt, or a terminal window, and set up the following values:
+
+### [Windows](#tab/cmd)
 
 ```cmd
-set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
-set REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
+set REDISCACHEHOSTNAME=<your-host-name>.redis.cache.windows.net
+set REDISCACHEKEY=<your-primary-access-key>
 ```
 
+### [Linux](#tab/bash)
+
 ```bash
-export REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
-export REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
+export REDISCACHEHOSTNAME=<your-host-name>.redis.cache.windows.net
+export REDISCACHEKEY=<your-primary-access-key>
 ```
+
+---
 
 Replace the placeholders with the following values:
 
-- `<YOUR_HOST_NAME>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
-- `<YOUR_PRIMARY_ACCESS_KEY>`: The primary access key, obtained from the *Access keys* section of your Azure Cache for Redis resource in the Azure portal.
+- `<your-host-name>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
+- `<your-primary-access-key>`: The primary access key, obtained from the *Access keys* section of your Azure Cache for Redis resource in the Azure portal.
 
 ## Understand the Java sample
 
@@ -54,7 +60,7 @@ In this sample, you use Maven to run the quickstart app.
 
 1. Change to the new *redistest* project directory.
 
-1. Open the *pom.xml* file. In the file, you'll see a dependency for [Jedis](https://github.com/xetorthio/jedis):
+1. Open the *pom.xml* file. In the file, you see a dependency for [Jedis](https://github.com/xetorthio/jedis):
 
     ```xml
     <dependency>
@@ -127,23 +133,45 @@ In this sample, you use Maven to run the quickstart app.
 
 ## Build and run the app
 
-1. First, if you haven't already, you must set the environment variables as noted above.
+1. First, if you haven't already, you must set the environment variables as noted previously.
 
-    ```dos
-    set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
-    set REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
-    ```
+   ### [Windows](#tab/cmd)
+
+   ```cmd
+   set REDISCACHEHOSTNAME=<your-host-name>.redis.cache.windows.net
+   set REDISCACHEKEY=<your-primary-access-key>
+   ```
+
+   ### [Linux](#tab/bash)
+
+   ```bash
+   export REDISCACHEHOSTNAME=<your-host-name>.redis.cache.windows.net
+   export REDISCACHEKEY=<your-primary-access-key>
+   ```
+
+    ---
 
 1. Execute the following Maven command to build and run the app:
 
-    ```dos
-    mvn compile
-    mvn exec:java -D exec.mainClass=example.demo.App
-    ```
+   ### [Windows](#tab/cmd)
 
-In the example below, you see the `Message` key previously had a cached value. The value was updated  to a new value using `jedis.set`. The app also executed the `PING` and `CLIENT LIST` commands.
+   ```cmd
+   mvn compile
+   mvn exec:java -D exec.mainClass=example.demo.App
+   ```
 
-:::image type="content" source="./media/cache-java-get-started/azure-cache-redis-complete.png" alt-text="Azure Cache for Redis app completed":::
+   ### [Linux](#tab/bash)
+
+   ```bash
+   mvn compile
+   mvn exec:java -D exec.mainClass=example.demo.App
+   ```
+
+    ---
+
+In the following screenshot, you see the `Message` key previously had a cached value. The value was updated to a new value using `jedis.set`. The app also executed the `PING` and `CLIENT LIST` commands.
+
+:::image type="content" source="media/cache-java-get-started/azure-cache-redis-complete.png" alt-text="Screenshot of the terminal window that shows the output of the Maven command, including the previously cached value and the updated value." lightbox="media/cache-java-get-started/azure-cache-redis-complete.png":::
 
 ## Clean up resources
 
@@ -152,16 +180,16 @@ If you continue to use the quickstart code, you can keep the resources created i
 Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges.
 
 > [!IMPORTANT]
-> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually on the left instead of deleting the resource group.
+> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually instead of deleting the resource group.
 >
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
 
 1. In the **Filter by name** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
 
-   :::image type="content" source="./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png" alt-text="Azure resource group deleted":::
+   :::image type="content" source="media/cache-java-get-started/azure-cache-redis-delete-resource-group.png" alt-text="Screenshot of the Azure portal that shows the Resource groups page with the Delete resource group button highlighted." lightbox="media/cache-java-get-started/azure-cache-redis-delete-resource-group.png":::
 
-1. You'll be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and select **Delete**.
+1. Type the name of your resource group to confirm deletion and then select **Delete**.
 
 After a few moments, the resource group and all of its contained resources are deleted.
 
