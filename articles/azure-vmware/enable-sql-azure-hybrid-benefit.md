@@ -20,10 +20,15 @@ For example, if each host in Azure VMware Solution has 36 cores and you intend t
 
 [View a video tutorial for configuring Azure Hybrid Benefit for SQL Server in Azure VMware Solution](https://www.youtube.com/watch?v=vJIQ1K2KTa0)
 
-## Configure host-VM placement policy 
+## Configure VM-Host placement policy
 
-1. From your Azure VMware Solution private cloud, select Azure hybrid benefit, then Create host-VM placement policy.
+Users can configure the VM-Host placement policy to enable Azure Hybrid Benefit for SQL Server through the Azure Portal or Azure CLI. 
 
+To enable through the Azure CLI, reference [az vmware placement-policy vm-host](/cli/azure/vmware/placement-policy/vm-host?view=azure-cli-latest).
+
+For the Azure Portal step-by-step see below: 
+
+1. From your Azure VMware Solution private cloud, select Azure Hybrid Benefit, then Create VM-Host placement policy.
     :::image type="content" source="media/sql-azure-hybrid-benefit/azure-hybrid-benefit.png" alt-text="Diagram that shows how to create a host new virtual machine placement policy.":::
 
 1. Fill in the required fields for creating the placement policy.
@@ -43,10 +48,13 @@ For example, if each host in Azure VMware Solution has 36 cores and you intend t
 
 After creating the placement policy, you can review, manage, or edit the policy by way of the Placement policies menu in the Azure VMware Solution private cloud.  
 
-By checking the Azure Hybrid Benefit checkbox in the configuration setting, you can enable existing host-VM affinity policies with the Azure Hybrid Benefit for SQL Server. 
+By checking the Azure Hybrid Benefit checkbox in the configuration setting, you can enable existing VM-Host affinity policies with the Azure Hybrid Benefit for SQL Server. 
 
 :::image type="content" source="media/sql-azure-hybrid-benefit/placement-policies.png" alt-text="Diagram that shows how to configure virtual machine placement policies."::: 
 
 ## More information
 
 [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)
+
+[az vmware placement-policy vm-host](/cli/azure/vmware/placement-policy/vm-host?view=azure-cli-latest)
+

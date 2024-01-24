@@ -21,20 +21,43 @@ Different groups and associated user entitlements must be set for every *new dat
 
 The entitlement service enables three use cases for authorization:
 
-- **Data groups** are used to enable authorization for data.
-   - The data groups start with the word "data," such as `data.welldb.viewers` and `data.welldb.owners`.
-   - Individual users are added to the data groups, which are added in the ACL of individual data records to enable `viewer` and `owner` access of the data after the data is loaded in the system.
-   - To `upload` the data, you need to have entitlements of various OSDU services, which are used during the ingestion process. The combination of OSDU services depends on the method of ingestion. For example, for manifest ingestion, see [Manifest-based ingestion concepts](concepts-manifest-ingestion.md) to understand the OSDU services that APIs used. The user *doesn't need to be part of the ACL* to upload the data.
-- **Service groups** are used to enable authorization for services.
-   - The service groups start with the word "service," such as `service.storage.user` and `service.storage.admin`.
-   - The service groups are *predefined* when OSDU services are provisioned in each data partition of the Azure Data Manager for Energy instance.
-   - These groups enable `viewer`, `editor`, and `admin` access to call the OSDU APIs corresponding to the OSDU services.
-- **User groups** are used for hierarchical grouping of user and service groups.
-   - The service groups start with the word "users," such as `users.datalake.viewers` and `users.datalake.editors`.
-   - Some user groups are created by default when a data partition is provisioned. For information on these groups and their hierarchy scope, see [Bootstrapped OSDU entitlement groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
-   - There's one exception of this group naming rule for the "users" group. It gets created when a new data partition is provisioned and its name follows the pattern of `users@{partition}.{domain}`. It has the list of all the users with any type of access in a specific data partition. Before you add a new user to any entitlement groups, you also need to add the new user to the `users@{partition}.{domain}` group.
+### Data groups
+- Data groups are used to enable authorization for data.
+- The data groups start with the word "data," such as `data.welldb.viewers` and `data.welldb.owners`.
+- Individual users are added to the data groups, which are added in the ACL of individual data records to enable `viewer` and `owner` access of the data after the data is loaded in the system.
+- To `upload` the data, you need to have entitlements of various OSDU services, which are used during the ingestion process. The combination of OSDU services depends on the method of ingestion. For example, for manifest ingestion, see [Manifest-based ingestion concepts](concepts-manifest-ingestion.md) to understand the OSDU services that APIs used. The user *doesn't need to be part of the ACL* to upload the data.
+
+### Service groups
+- Service groups are used to enable authorization for services.
+- The service groups start with the word "service," such as `service.storage.user` and `service.storage.admin`.
+- The service groups are *predefined* when OSDU services are provisioned in each data partition of the Azure Data Manager for Energy instance.
+- These groups enable `viewer`, `editor`, and `admin` access to call the OSDU APIs corresponding to the OSDU services.
+
+### User groups
+- User groups are used for hierarchical grouping of user and service groups.
+- The service groups start with the word "users," such as `users.datalake.viewers` and `users.datalake.editors`.
+- Some user groups are created by default when a data partition is provisioned. For information on these groups and their hierarchy scope, see [Bootstrapped OSDU entitlement groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
+
+**Nested hierarchy** 
+- If user_1 is part of a data_group_1 and data_group_1 is added as a member to the user_group_1, OSDU code checks for the nested membership and authorize user_1 to access the entitlements for user_group_1. This is explained in [OSDU Entitlement Check API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/EntitlementsAndCacheServiceImpl.java?ref_type=heads#L105) and [OSDU Retrieve Group API](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/master/provider/entitlements-v2-azure/src/main/java/org/opengroup/osdu/entitlements/v2/azure/spi/gremlin/retrievegroup/RetrieveGroupRepoGremlin.java#:~:text=public%20ParentTreeDto%20loadAllParents(EntityNode%20memberNode)%20%7B).
+
+- You can add individual users to a `user group`. The `user group` is then added to a `data group`. The data group is added to the ACL of the data record. It enables abstraction for the data groups because individual users don't need to be added one by one to the data group. Instead, you can add users to the `user group`. Then you can use the `user group` repeatedly for multiple `data groups`. The nested structure helps provide scalability to manage memberships in OSDU.
+
+#### Peculiarity of `users@` group
+- There's one exception of this group naming rule for the "users" group. It gets created when a new data partition is provisioned and its name follows the pattern of `users@{partition}.{domain}`.
+- It has the list of all the users with any type of access in a specific data partition. Before you add a new user to any entitlement groups, you also need to add the new user to the `users@{partition}.{domain}` group.
+
+#### Peculiarity of `users.data.root@` group
+- users.data.root entitlement group is the default member of all data groups when groups are created. If you try to remove users.data.root from any data group, you get error since this membership is enforced by OSDU.
+- users.data.root is the default and permanent owner of all the data records as explained in [OSDU validate owner access API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/DataAuthorizationService.java?ref_type=heads#L66) and [OSDU users data root check API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/EntitlementsAndCacheServiceImpl.java#L98)
+
+As an example in the scenario, 
+- A data_record_1 has 2 ACLs: ACL_1 and ACL_2.
+- User_1 is a member of ACL_1 and users.data.root.
   
-You can add individual users to a `user group`. The `user group` is then added to a `data group`. The data group is added to the ACL of the data record. It enables abstraction for the data groups because individual users don't need to be added one by one to the data group. Instead, you can add users to the `user group`. Then you can use the `user group` repeatedly for multiple `data groups`. The nested structure helps provide scalability to manage memberships in OSDU.
+Now if you remove user_1 from  ACL_1, user_1 remains to have access of the data_record_1 via users.data.root group.
+
+And if ACL_1 and ACL_2 are removed from data_record_1, users.data.root continue to have owner access of the data. This preserves the data record from becoming orphan ever.
 
 ## Users
 
@@ -45,6 +68,8 @@ For each OSDU group, you can add a user as either an OWNER or a MEMBER:
 
 > [!NOTE]
 > Don't delete the OWNER of a group unless there's another OWNER to manage the users.
+
+
 
 ## Entitlement APIs
 
