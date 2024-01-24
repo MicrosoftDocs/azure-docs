@@ -34,6 +34,8 @@ Get the confidential ledger's name and the identity service URI from the Azure p
 Replace instances of `contoso` and  `https://contoso.confidential-ledger.azure.com` in the following code snippets with the respective values from the Azure portal.
 
 ::: zone pivot="programming-language-python"
+[!INCLUDE [Sign in to Azure](./includes/sign-in-to-azure-acl.md)]
+
 ## Python Client Library
 
 ### Install the packages
@@ -86,10 +88,11 @@ ledger_client.delete_user(user_id)
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
+[!INCLUDE [Sign in to Azure](./includes/sign-in-to-azure-acl.md)]
+
 ## .NET Client Library
 
 ### Install the packages
-
 
 ```
 dotnet add package Azure.Security.ConfidentialLedger
@@ -135,6 +138,8 @@ internal class ACLUserManagement
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+[!INCLUDE [Sign in to Azure](./includes/sign-in-to-azure-acl.md)]
+
 ## Java Client Library
 
 ### Install the packages
@@ -259,6 +264,8 @@ public class CreateOrUpdateUserSample {
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
+[!INCLUDE [Sign in to Azure](./includes/sign-in-to-azure-acl.md)]
+
 ## TypeScript Client Library
 
 ### Install the packages
