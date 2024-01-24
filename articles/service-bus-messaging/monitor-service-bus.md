@@ -117,7 +117,23 @@ Using Azure Monitor Log Analytics requires you to create a diagnostic configurat
 
 For a detailed reference of the logs and metrics, see [Azure Service Bus monitoring data reference](monitor-service-bus-reference.md).
 
-### Sample Kusto queries
+## Sample Scenarios
+
+- Let's say you're an IT administrator for a multinational corporation that uses Azure Service Bus for inter-departmental communication. Recently, you've been receiving complaints from various departments about delays in message delivery. You need to diagnose the problem to ensure smooth communication.
+Operational Logs record operations related to the service bus, such as creating or deleting entities. By analyzing these logs, you can gain insights into various diagnostic problems such as message delivery failures.
+Here's an example of a KQL query that retrieves operational logs:
+
+- Imagine you're a network administrator for a financial institution that uses Azure Service Bus for secure transactions. You've set up IP filtering rules for your Azure Service Bus to ensure only authorized IP addresses can send messages. However, some legitimate transactions are being blocked, and you're not sure why.
+Virtual Network and IP Filtering Logs capture information about virtual network usage and IP filtering. By analyzing these logs, you can identify if certain IP addresses are being incorrectly blocked or allowed.
+Here's an example of a KQL query that retrieves Virtual Network and IP Filtering Logs:
+
+- Let's consider a real-life scenario. You're a system administrator for a popular online retail company that heavily relies on Azure Service Bus for processing customer orders. During peak shopping seasons like Black Friday or Cyber Monday, you notice that the order processing time is significantly higher, leading to delays in order confirmation emails. You suspect that the Azure Service Bus might be getting overloaded during these peak times.
+Runtime Audit Logs record runtime information about the service bus. By analyzing these logs, you can identify issues such as throttling, which could indicate that the service bus is being overloaded.Here is sample Kusto query to fetch Runtime Audit logs:
+
+- Consider that you have been running service bus queues to communicate between different Business applications. For some time, you have started observing Client errors on Azure Portal Metrics chart and you would like to know the exact cause to fix it right away. With Diagnostic error logs, you can get detailed error message for the affected operation. Here is sample Kusto query for fetching Diagnostic Error logs.
+
+
+### Additional Kusto queries
 
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Service Bus menu, Log Analytics is opened with the query scope set to the current Azure Service Bus namespace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other workspaces or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
