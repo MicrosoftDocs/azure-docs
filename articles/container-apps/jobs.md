@@ -265,6 +265,7 @@ The following example Azure Resource Manager template creates an event-driven jo
                 "scale": {
                     "maxExecutions": 10,
                     "minExecutions": 0,
+                    "pollingInterval": 15,
                     "rules": [
                         {
                             "auth": [
