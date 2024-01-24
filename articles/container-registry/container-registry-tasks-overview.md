@@ -31,7 +31,7 @@ Each ACR Task has an associated [source code context](#context-locations) - the 
 
 Tasks can also take advantage of [run variables](container-registry-tasks-reference-yaml.md#run-variables), so you can reuse task definitions and standardize tags for images and artifacts.
 
-ACR is temporarily pausing ACR Tasks runs from Azure free credits. This may affect existing Tasks runs. If you encounter problems, open a [support case](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) for our team to provide additional guidance. We'll remove this note when this pause is lifted.
+ACR is temporarily pausing ACR Tasks runs from Azure free credits. This may affect existing Tasks runs. If you encounter problems, open a [support case](azure-portal/supportability/how-to-create-azure-support-request) for our team to provide additional guidance. We'll remove this note when this pause is lifted.
 ## Quick task
 
 The inner-loop development cycle, the iterative process of writing code, building, and testing your application before committing to source control, is really the beginning of container lifecycle management.
