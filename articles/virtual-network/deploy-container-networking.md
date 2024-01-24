@@ -12,9 +12,9 @@ ms.author: allensu
 
 The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine and brings virtual network capabilities to Kubernetes Pods and Docker containers. To learn more about the plug-in, see [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md). Additionally, the plug-in can be used with the Azure Kubernetes Service (AKS) by choosing the [Advanced Networking](../aks/configure-azure-cni.md?toc=%2fazure%2fvirtual-network%2ftoc.json) option, which automatically places AKS containers in a virtual network.
 
-## Deploy plug-in for ACS-Engine Kubernetes cluster
+## Deploy plug-in for Azure Container Service-Engine Kubernetes cluster
 
-The ACS-Engine deploys a Kubernetes cluster with an Azure Resource Manager template. The cluster configuration is specified in a JSON file that is passed to the tool when generating the template. To learn more about the entire list of supported cluster settings and their descriptions, see [Microsoft Azure Container Service Engine - Cluster Definition](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md). The plug-in is the default networking plug-in for clusters created using the ACS-Engine. The following network configuration settings are important when configuring the plug-in:
+The Azure Container Service-Engine deploys a Kubernetes cluster with an Azure Resource Manager template. The cluster configuration is specified in a JSON file that is passed to the tool when generating the template. To learn more about the entire list of supported cluster settings and their descriptions, see [Microsoft Azure Container Service Engine - Cluster Definition](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md). The plug-in is the default networking plug-in for clusters created using the Azure Container Service-Engine. The following network configuration settings are important when configuring the plug-in:
 
   | Setting                              | Description                                                                                                           |
   |--------------------------------------|------------------------------------------------------------------------------------------------------                 |

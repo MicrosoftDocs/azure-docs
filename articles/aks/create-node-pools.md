@@ -3,7 +3,7 @@ title: Create node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create multiple node pools for a cluster in Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, build-2023
-ms.date: 11/06/2023
+ms.date: 12/08/2023
 ---
 
 # Create node pools for a cluster in Azure Kubernetes Service (AKS)
@@ -27,7 +27,7 @@ This article shows you how to create one or more node pools in an AKS cluster.
 The following limitations apply when you create AKS clusters that support multiple node pools:
 
 * See [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)](quotas-skus-regions.md).
-* You can delete system node pools if you have another system node pool to take its place in the AKS cluster.
+* You can delete system node pools if you have another system node pool to take its place in the AKS cluster. Otherwise, you cannot delete the system node pool.
 * System pools must contain at least one node, and user node pools may contain zero or more nodes.
 * The AKS cluster must use the Standard SKU load balancer to use multiple node pools. This feature isn't supported with Basic SKU load balancers.
 * The AKS cluster must use Virtual Machine Scale Sets for the nodes.

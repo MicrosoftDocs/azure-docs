@@ -285,5 +285,5 @@ The following tables can only be queried with complete schema:
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 
-## Next steps
+## Related content
 For a list of supported data stores by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -162,7 +162,7 @@ When incoming audio is muted, the participant will still receive the call audio 
 
 ## Mute other participants
 > [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK version 1.18.1 or higher
+> This API is provided as a preview for developers and may change based on feedback that we receive. To use this API please use 'beta' release of Azure Communication Services Calling Web SDK version 1.18.1 or higher. 
 
 To mute all other participants or mute a specific participant, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant:
 
@@ -288,7 +288,7 @@ Get the local participant Id:
 ```js
 const participantId: string = call.info.participantId;
 ```
-*Note: An ACS identity can use the web calling sdk in many endpoints, and each endpoint will have its own unique `participantId`. `participantId` is different from the ACS identity raw Id.*
+*Note: An Azure Communication Services identity can use the web calling sdk in many endpoints, and each endpoint will have its own unique `participantId`. `participantId` is different from the Azure Communication Services identity raw Id.*
 
 Retrieve the thread ID if joining a Teams meeting:
 > [!NOTE]

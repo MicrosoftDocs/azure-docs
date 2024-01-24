@@ -4,7 +4,8 @@ description: Understand how to use the warmup trigger in Azure Functions.
 keywords: azure functions, functions, event processing, warmup, cold start, premium, dynamic compute, serverless architecture
 ms.service: azure-functions
 ms.topic: reference
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 09/04/2023
 zone_pivot_groups: programming-languages-set-functions
@@ -84,17 +85,9 @@ public void warmup( @WarmupTrigger Object warmupContext, ExecutionContext contex
 
 # [Model v4](#tab/nodejs-v4)
 
-The following example shows a warmup trigger [JavaScript function](functions-reference-node.md) that runs on each new instance when added to your app.
+The following example shows a [JavaScript function](functions-reference-node.md) with a warmup trigger that runs on each new instance when added to your app:
 
-```javascript
-import { app } from "@azure/functions";
-
-app.warmup('warmupTrigger1', {
-    handler: (warmupContext, context) => {
-        context.log('Function App instance is warm.');
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/warmupTrigger1.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -124,26 +117,20 @@ module.exports = async function (warmupContext, context) {
 };
 ```
 
+---
+
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
 # [Model v4](#tab/nodejs-v4)
 
-The following example shows a warmup trigger [JavaScript function](functions-reference-node.md) that runs on each new instance when added to your app.
+The following example shows a [TypeScript function](functions-reference-node.md) with a warmup trigger that runs on each new instance when added to your app:
 
-```TypeScript
-import { app, InvocationContext, WarmupContextOptions } from "@azure/functions";
-
-export async function warmupFunction(warmupContext: WarmupContextOptions, context: InvocationContext): Promise<void> {
-    context.log('Function App instance is warm.');
-}
-
-app.warmup('warmup', {
-    handler: warmupFunction,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/warmupTrigger1.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 TypeScript samples aren't documented for model v3.
+
+---
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  

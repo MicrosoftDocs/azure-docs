@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Monitor
 description: Lists Azure Policy built-in policy definitions for Azure Monitor. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 11/29/2023
+ms.date: 01/22/2024
 ms.topic: reference
 author: bwren
 ms.author: bwren

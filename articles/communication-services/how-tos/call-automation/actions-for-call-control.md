@@ -494,7 +494,6 @@ options.customCallingContext = customCallingContext;
 const result = await callConnection.transferCallToParticipant(transferDestination, options);
 
 // Transfer pstn User
-const result = await callConnection.transferCallToParticipant(transferDestination, options);
 const transferDestination = { phoneNumber: "<taget_phoneNumber>" };
 const transferee = { phoneNumber: "<transferee_phoneNumber>" };
 const options = { transferee: transferee, operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
@@ -663,8 +662,8 @@ caller_id_number = PhoneNumberIdentifier(
     "+18888888888"
 ) # This is the Azure Communication Services provisioned phone number for the caller
 sip_headers = {}
-sip_headers.add("User-To-User", "value")
-sip_headers.add("X-MS-Custom-headerName", "headerValue")
+sip_headers["User-To-User"] = "value"
+sip_headers["X-MS-Custom-headerName"] = "headerValue"
 target = PhoneNumberIdentifier("+18008008800"),
 
 call_connection_client = call_automation_client.get_call_connection(

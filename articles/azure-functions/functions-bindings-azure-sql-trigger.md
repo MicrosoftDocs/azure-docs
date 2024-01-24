@@ -15,7 +15,7 @@ ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Azure SQL trigger for Functions
+# Azure SQL trigger for Functions (Preview)
 
 > [!NOTE]
 > In consumption plan functions, automatic scaling is not supported for SQL trigger. If the automatic scaling process stops the function, all processing of events will stop and it will need to be manually restarted.
@@ -514,16 +514,15 @@ The following table explains the binding configuration properties that you set i
 
 ## Optional Configuration
 
-In addition to the required ConnectionStringSetting [application setting](./functions-how-to-use-azure-function-app-settings.md#settings), the following optional settings can be configured for the SQL trigger:
+The following optional settings can be configured for the SQL trigger:
 
-| App Setting | Description|
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-host-json-section-intro.md)]
+
+| Setting | Description|
 |---------|---------|
 |**Sql_Trigger_BatchSize** |The maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function. The default value is 100.|
 |**Sql_Trigger_PollingIntervalMs**|The delay in milliseconds between processing each batch of changes. The default value is 1000 (1 second).|
 |**Sql_Trigger_MaxChangesPerWorker**|The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it might result in a scale-out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling). The default value is 1000.|
-
-
-[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Set up change tracking (required)
 

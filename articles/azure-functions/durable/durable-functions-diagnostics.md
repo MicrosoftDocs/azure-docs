@@ -5,7 +5,8 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 12/07/2022
 ms.author: azfuncdf
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ---
 
 # Diagnostics in Durable Functions in Azure

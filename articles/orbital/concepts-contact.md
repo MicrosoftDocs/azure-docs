@@ -12,9 +12,9 @@ ms.author: hrshelar
 
 # Ground station contact resource
 
-A contact occurs when the spacecraft passes over a specified ground station. You can find available passes and schedule contacts for your spacecraft through the Azure Orbital Ground Station platform. A contact and ground station pass mean the same thing.
+To establish connectivity with your spacecraft, schedule and execute a contact on a ground station. A contact, sometimes called a ground station 'pass,' can only occur when the spacecraft passes over a specified ground station while orbiting. You can find available contact opportunities and schedule contacts for your spacecraft through the Azure Orbital Ground Station [API](/rest/api/orbital/) or [Azure portal](https://aka.ms/orbital/portal).
 
-When you schedule a contact for a spacecraft, a contact resource is created under your spacecraft resource in your resource group. The contact is only associated with that particular spacecraft and can't be transferred to another spacecraft, resource group, or region.
+Contacts are scheduled for a particular combination of a [spacecraft](spacecraft-object.md) and [contact profile](concepts-contact-profile.md). When you schedule a contact for a spacecraft, a contact resource is created under your spacecraft resource in your Azure resource group. The contact is only associated with that particular spacecraft and can't be transferred to another spacecraft, resource group, or region.
 
 ## Contact parameters
 
@@ -36,47 +36,31 @@ The contact resource contains the start time and end time of the pass and other 
 
 The RX and TX start/end times might differ depending on the individual station masks. Billing meters are engaged between the Reservation Start Time and Reservation End Time.
 
-## Create a contact
+## Schedule a contact
 
-In order to create a contact, you must have the following prerequisites:
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An [authorized](register-spacecraft.md) spacecraft resource.
-- A [contact profile](contact-profile.md) with links in accordance with the spacecraft resource above.
-
-Contacts are created on a per-pass and per-site basis. If you already know the pass timings for your spacecraft and desired ground station, you can directly proceed to schedule the pass with these times. The service will succeed in creating the contact resource if the window is available and fail if the window is unavailable.
-
-If you don't know your spacecraft's pass timings or which ground station sites are available, you can use the [Azure portal](https://aka.ms/orbital/portal) or [Azure Orbital Ground Station API](/rest/api/orbital/) to determine those details. Query the available passes and use the results to schedule your passes accordingly.
-
-| Method | List available contacts | Schedule contacts | Notes |
-|-|-|-|-|
-|Portal| Yes | Yes | Custom pass timings aren't supported. You must use the results from the query. |
-|API | Yes | Yes | Custom pass timings are supported. |
-
-See [how-to schedule a contact](schedule-contact.md) for instructions to use the Azure portal. See [API documentation](/rest/api/orbital/) for instructions to use the Azure Orbital Ground Station API.
+Use the [Azure portal](https://aka.ms/orbital/portal) or [Azure Orbital Ground Station API](/rest/api/orbital/) to [create a contact resource](schedule-contact.md) for your spacecraft resource.
 
 ## Cancel a scheduled contact
 
-In order to cancel a scheduled contact, you must delete the contact resource. You must have the following prerequisites:
+In order to cancel a scheduled contact, you must delete the contact resource. 
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An [authorized](register-spacecraft.md) spacecraft resource.
-- A [contact profile](contact-profile.md) with links in accordance with the spacecraft resource above.
-- A [scheduled contact](schedule-contact.md).
-
+To delete a contact resource via the [Azure portal](https://aka.ms/orbital/portal):  
 1. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
-2. In the **Spacecraft** page, select the name of the spacecraft for the scheduled contact.
-3. Select **Contacts** from the left menu bar in the spacecraft’s overview page.
+2. In the **Spacecraft** page, click the spacecraft associated with the scheduled contact.
+3. Click **Contacts** from the left menu bar in the spacecraft’s overview page.
 
    :::image type="content" source="media/orbital-eos-delete-contact.png" alt-text="Select a scheduled contact" lightbox="media/orbital-eos-delete-contact.png":::
 
-4. Select the name of the contact to be deleted
-5. Select **Delete** from the top bar of the contact's configuration view
+4. Click the contact to be deleted.
+5. Click **Delete** from the top bar of the contact's configuration view.
 
    :::image type="content" source="media/orbital-eos-contact-config-view.png" alt-text="Delete a scheduled contact" lightbox="media/orbital-eos-contact-config-view.png":::
 
 6. The scheduled contact will be canceled once the contact entry is deleted.
 
+Alternatively, use the Contacts REST Operation Group to [delete a contact](/rest/api/orbital/azureorbitalgroundstation/contacts/delete/) with the Azure Orbital Ground Station API.
+
 ## Next steps
 
 - [Schedule a contact](schedule-contact.md)
-- [Update the Spacecraft TLE](update-tle.md)
+- [Update the spacecraft TLE](update-tle.md)

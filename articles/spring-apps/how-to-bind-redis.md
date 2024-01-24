@@ -58,7 +58,7 @@ For the default environment variable names, see [Integrate Azure Cache for Redis
 ### [Service Connector](#tab/Service-Connector)
 
 > [!NOTE]
-> Service Connectors are created at the deployment level. So, if another deployment is created, you need to create the connections again.
+> By default, Service Connectors are created at the application level. To override the connections, you can create other connections again in the deployments.
 
 1. Use the Azure CLI to configure your Spring app to connect to a Redis database with an access key using the `az spring connection create` command, as shown in the following example.
 

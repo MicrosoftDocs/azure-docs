@@ -429,7 +429,7 @@ For example, say you have a Scheduler trigger, "Trigger A," that I wish to kick 
 }
 ```
 
-## Next steps
+## Related content
 See the following tutorials for step-by-step instructions for creating pipelines with activities:
 
 - [Build a pipeline with a copy activity](quickstart-create-data-factory-powershell.md)

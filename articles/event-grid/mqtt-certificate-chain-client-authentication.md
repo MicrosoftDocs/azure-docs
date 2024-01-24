@@ -6,8 +6,9 @@ ms.custom:
   - build-2023
   - ignite-2023
 ms.date: 11/15/2023
-author: veyaddan
-ms.author: veyaddan
+author: george-guirguis
+ms.author: geguirgu
+ms.subservice: mqtt
 ---
 
 # Client authentication using CA certificate chain

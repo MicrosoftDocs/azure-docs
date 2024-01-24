@@ -152,7 +152,7 @@ The data factory team has provided a [sample pre- and post-deployment script](co
 >[!WARNING]
 >Make sure to use **PowerShell Core** in ADO task to run the script
 
-## Next steps
+## Related content
 
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Manually promote a Resource Manager template to each environment](continuous-integration-delivery-manual-promotion.md)

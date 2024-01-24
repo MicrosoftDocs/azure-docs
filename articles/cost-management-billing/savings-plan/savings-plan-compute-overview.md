@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 11/17/2023
+ms.date: 01/04/2024
 ms.author: banders
 ---
 
@@ -93,7 +93,9 @@ Savings plan purchases can't be canceled or refunded.
 - Azure Container Apps
 - Azure Premium Functions
 - Azure App Services - The Azure savings plan for compute can only be applied to the App Service upgraded Premium v3 plan and the upgraded Isolated v2 plan.
+- Azure Spring Apps - The Azure savings plan for compute can only be applied to the Azure Spring Apps Enterprise plan.
 - On-demand Capacity Reservation
+- Azure Spring Apps Enterprise
 
 Exclusions apply to the above services.
 

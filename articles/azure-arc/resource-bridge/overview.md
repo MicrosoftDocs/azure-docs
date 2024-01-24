@@ -98,21 +98,27 @@ In order to use Arc resource bridge in a region, Arc resource bridge and the Arc
 
 Arc resource bridge supports the following Azure regions:
 
-* East US
-* East US 2
+- * East US
+- East US 
+- East US 2
 * West US 2
 * West US 3
-* Central US
+- Central US
+- North Central US
+
 * South Central US
 * West Europe
 * North Europe
 * UK South
 * UK West
 * Sweden Central
-* Canada Central
-* Australia East
+- * Canada Central
+- Australia East
+- Japan East
+
 * Southeast Asia
-* East Asia
+- East Asia
+- Central India
 
 ### Regional resiliency
 
@@ -144,6 +150,7 @@ Arc resource bridge typically releases a new version on a monthly cadence, at th
 ## Next steps
 
 * Learn how [Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure](../vmware-vsphere/overview.md).
-* Learn how [Azure Arc-enabled SCVMM extends Azure's governance and management capabilities to System Center managed infrastructure(../system-center-virtual-machine-manager/overview.md).
+* Learn how [Azure Arc-enabled SCVMM extends Azure's governance and management capabilities to System Center managed infrastructure](../system-center-virtual-machine-manager/overview.md).
 * Learn about [provisioning and managing on-premises Windows and Linux VMs running on Azure Stack HCI clusters](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
 * Review the [system requirements](system-requirements.md) for deploying and managing Arc resource bridge.
+

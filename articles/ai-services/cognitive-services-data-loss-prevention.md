@@ -5,7 +5,7 @@ author: gclarkmt
 ms.author: gregc
 ms.service: azure-ai-services
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 01/20/2024
 ms.custom: template-concept
 ---
 
@@ -15,13 +15,12 @@ Azure AI services data loss prevention capabilities allow customers to configure
 
 ## Prerequisites
 
-Before you make a request, you need an Azure account and an Azure AI services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create a multi-service resource](multi-service-resource.md?pivots=azportal).
-
-You can get your subscription key from the [Azure portal](multi-service-resource.md?pivots=azportal#get-the-keys-for-your-resource) after [creating your account](https://azure.microsoft.com/free/cognitive-services/).
+- Before you make a request, you need an Azure account and an Azure AI services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create a multi-service resource](multi-service-resource.md?pivots=azportal).
+    - You can get your subscription key from the [Azure portal](multi-service-resource.md?pivots=azportal#get-the-keys-for-your-resource) after [creating your account](https://azure.microsoft.com/free/cognitive-services/).
 
 ## Enabling data loss prevention
 
-There are two parts to enable data loss prevention. First the property restrictOutboundNetworkAccess must be set to true. When this is set to true, you also need to provide the list of approved URLs. The list of URLs is added to the allowedFqdnList property. The allowedFqdnList property contains an array of comma-separated URLs.
+There are two parts to enable data loss prevention. First, the resource property `restrictOutboundNetworkAccess` must be set to `true`. When this is set to true, you also need to provide the list of approved URLs. The list of URLs is added to the `allowedFqdnList` property. The `allowedFqdnList` property contains an array of comma-separated URLs.
 
 >[!NOTE]
 >
@@ -102,6 +101,15 @@ The following services support data loss prevention configuration:
 * Document Intelligence
 * Speech Service
 * QnA Maker
+
+
+## Limitations
+
+[Azure OpenAI on your data - text](./openai/concepts/use-your-data.md) features don't support data loss prevention yet. When `restrictOutboundNetworkAccess` is set as true, all requests to the following APIs will fail immediately to prevent potential data loss.
+
+* /extensions/chat/completions (with text models)
+* /extensions/on-your-data/ingestion-jobs
+
 
 ## Next steps
 

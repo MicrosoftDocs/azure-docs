@@ -2,15 +2,9 @@
 title: Cross-region replication of Azure NetApp Files volumes | Microsoft Docs
 description: Describes what Azure NetApp Files cross-region replication does, supported region pairs, service-level objectives, data durability, and cost model.  
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/08/2023
 ms.author: anfdocs
@@ -76,6 +70,8 @@ Azure NetApp Files volume replication is supported between various [Azure region
 ## Service-level objectives
 
 Recovery Point Objective (RPO) indicates the point in time to which data can be recovered. The RPO target is typically less than twice the replication schedule, but it can vary. In some cases, it can go beyond the target RPO based on factors such as the total dataset size, the change rate, the percentage of data overwrites, and the replication bandwidth available for transfer.   
+
+Cross-region replication supports three replication schedules: 10 minutes, hourly, and daily. 
 
 * For the replication schedule of 10 minutes, the typical RPO is less than 20 minutes.  
 * For the hourly replication schedule, the typical RPO is less than two hours.  

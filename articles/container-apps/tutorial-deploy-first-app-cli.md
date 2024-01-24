@@ -85,7 +85,7 @@ az containerapp create \
   --name my-container-app \
   --resource-group $RESOURCE_GROUP \
   --environment $CONTAINERAPPS_ENVIRONMENT \
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
+  --image mcr.microsoft.com/k8se/quickstart:latest \
   --target-port 80 \
   --ingress 'external' \
   --query properties.configuration.ingress.fqdn
@@ -101,7 +101,7 @@ By setting `--ingress` to `external`, you make the container app available to pu
 ```azurepowershell
 $ImageParams = @{
     Name = 'my-container-app'
-    Image = 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest'
+    Image = 'mcr.microsoft.com/k8se/quickstart:latest'
 }
 $TemplateObj = New-AzContainerAppTemplateObject @ImageParams
 $EnvId = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).Id

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/01/2023
+ms.date: 01/05/2024
 ---
 
 # Security considerations for data movement in Azure Data Factory
@@ -206,6 +206,6 @@ Yes. More details [here](https://azure.microsoft.com/blog/sharing-a-self-hosted-
 
 The self-hosted integration runtime makes HTTP-based connections to access the internet. The outbound ports 443 must be opened for the self-hosted integration runtime to make this connection. Open inbound port 8060 only at the machine level (not the corporate firewall level) for credential manager application. If Azure SQL Database or Azure Synapse Analytics is used as the source or the destination, you need to open port 1433 as well. For more information, see the [Firewall configurations and allow list setting up for IP addresses](#firewall-configurations-and-allow-list-setting-up-for-ip-addresses) section.
 
-## Next steps
+## Related content
 
 For information about Azure Data Factory Copy Activity performance, see [Copy Activity performance and tuning guide](copy-activity-performance.md).

@@ -5,7 +5,7 @@ ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022
-ms.date: 10/03/2022
+ms.date: 12/13/2023
 ---
 
 # Determine multicloud dependencies
@@ -76,7 +76,7 @@ Defender for Servers offers two different plans:
 
     Review the [features of each plan](./defender-for-servers-introduction.md) before onboarding to Defender for Servers.
 
-#### Review components
+#### Review components - Defender for Servers
 
 The following components and requirements are needed to receive full protection from the Defender for Servers plan:
 
@@ -93,14 +93,9 @@ Machines must meet [network requirements](../azure-arc/servers/network-requireme
 
 ### Defender for Containers
 
-Enabling Defender for Containers provides GKE and EKS clusters and underlying hosts with threat detection capabilities that include:
+Enabling Defender for Containers provides GKE and EKS clusters and underlying hosts with [these security capabilities](defender-for-containers-introduction.md#agentless-capabilities).
 
-- Kubernetes behavioral analytics
-- Anomaly detection
-- Security best practices
-- Built-in admission control policies and more
-
-#### Review components-Defender for Containers
+#### Review components - Defender for Containers
 
 The required [components](./defender-for-containers-introduction.md) are as follows:
 
@@ -109,7 +104,7 @@ The required [components](./defender-for-containers-introduction.md) are as foll
 - **Azure Policy for Kubernetes**: Extends the Gatekeeper v3 to monitor every request to the Kubernetes API server, and ensures that security best practices are being followed on clusters and workloads.
 - **Kubernetes audit logs**: Audit logs from the API server allow Defender for Containers to identify suspicious activity within your multicloud servers, and provide deeper insights while investigating alerts. Sending of the “Kubernetes audit logs” needs to be enabled on the connector level.
 
-#### Check networking requirements-Defender for Containers
+#### Check networking requirements - Defender for Containers
 
 Make sure to check that your clusters meet network requirements so that the Defender agent can connect with Defender for Cloud.
 
@@ -117,7 +112,7 @@ Make sure to check that your clusters meet network requirements so that the Defe
 
 Defender for SQL provides threat detection for the GCP Compute Engine and AWS. The Defender for SQL Server on Machines plan must be enabled on the subscription where the connector is located.
 
-#### Review components-Defender for SQL
+#### Review components - Defender for SQL
 
 To receive the full benefits of Defender for SQL on your multicloud workload, you need these components:
 

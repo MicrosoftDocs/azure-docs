@@ -4,7 +4,7 @@ description: Deploy an existing container image to Azure Container Apps with the
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022, devx-track-azurecli, devx-track-azurepowershell, devx-track-linux
+ms.custom: event-tier1-build-2022, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.topic: quickstart
 ms.date: 08/31/2022
 ms.author: cshoe
@@ -175,7 +175,7 @@ If you have enabled ingress on your container app, you can add `--query properti
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$TemplateObj = New-AzContainerAppTemplateObject -Name my-container-app  -Image "<REGISTRY_CONTAINER_NAME>" 
+$TemplateObj = New-AzContainerAppTemplateObject -Name my-container-app  -Image "<REGISTRY_CONTAINER_NAME>"
 ```
 
 (Replace the \<REGISTRY_CONTAINER_NAME\> with your value.)
@@ -195,7 +195,7 @@ New-AzContainerApp @ContainerAppArgs
 
 ---
 
-Before you run this command, replace `<REGISTRY_CONTAINER_NAME>` with the full name the public container registry location, including the registry path and tag. For example, a valid container name is `mcr.microsoft.com/azuredocs/containerapps-helloworld:latest`.
+Before you run this command, replace `<REGISTRY_CONTAINER_NAME>` with the full name the public container registry location, including the registry path and tag. For example, a valid container name is `mcr.microsoft.com/k8se/quickstart:latest`.
 
 ::: zone-end
 

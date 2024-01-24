@@ -1,7 +1,6 @@
 ---
 title: 'Using ExpressRoute for Microsoft 365 Services | Microsoft Docs'
 description: This document discusses objectively on using ExpressRoute circuit for Microsoft 365 SaaS services.
-documentationcenter: na
 services: expressroute
 author: rambk
 manager: tracsman

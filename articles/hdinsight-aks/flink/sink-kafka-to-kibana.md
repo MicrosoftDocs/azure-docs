@@ -29,7 +29,7 @@ Kibana is a free and open frontend application that sits on top of the elastic s
 
 For more information, refer 
 * [Elasticsearch](https://www.elastic.co)
-* [Kibana](https://www.elastic.co/what-is/kibana)
+* [Kibana](https://www.elastic.co/guide/en/kibana/current/index.html)
 
 
 ## Prerequisites
