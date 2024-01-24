@@ -359,7 +359,7 @@ To add a user, click on the `Add/Remove` button, pick a user and select the role
 
 ![Select role dropdown](./media/portal-manage-users/select-role-dropdown.png)
 
-To remove a user from the ledger, select the "Not Assigned" role, and click on the `Apply` button. The user will be removed from the list of users.
+To remove a user from the ledger, select the `Not Assigned` role, and click on the `Apply` button. The user will be removed from the list of users.
 ::: zone-end
 
 ## Next steps
