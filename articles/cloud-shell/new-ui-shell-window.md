@@ -13,7 +13,7 @@ This document explains how to use the Cloud Shell window. Cloud Shell recently u
 interface for the Cloud Shell terminal window. The new toolbar uses text-based menu items rather
 than icons, making it easier to find the desired action.
 
-![Screenshot of the new Cloud Shell user experience.][05]
+[![Screenshot of the new Cloud Shell user experience.][05i]][05x]
 
 ## Switch between Bash and PowerShell
 
@@ -22,13 +22,13 @@ environments. When Cloud Shell is configured to start in PowerShell, the button 
 to Bash**. When Cloud Shell is configured to start in Bash, the button is labeled **Switch to
 PowerShell**.
 
-![Screenshot of the Switch shells button.][08]
+[![Screenshot of the Switch shells button.][08i]][08x]
 
 ## Restart Cloud Shell
 
 Select the restart icon in the Cloud Shell toolbar to reset machine state.
 
-![Screenshot of the Restart button.][06]
+[![Screenshot of the Restart button.][06i]][06x]
 
 > [!WARNING]
 > Restarting Cloud Shell resets machine state and any files not persisted in an Azure fileshare are
@@ -43,14 +43,14 @@ across sessions unless you select **Reset User Settings**.
 When you select **Reset User Settings**, the current session is closed and your settings are reset.
 You're prompted to restart as if this is your first time using Cloud Shell.
 
-![Screenshot of the Settings menu.][07]
+[![Screenshot of the Settings menu.][07i]][07x]
 
 ## Manage files menu
 
 The **Manage files** menu contains items to **Upload** or **Download** files. The **Open file
 share** button opens the Azure portal view of your Cloud Shell file share.
 
-![Screenshot of the Manage files menu.][03]
+[![Screenshot of the Manage files menu.][03i]][03x]
 
 - When you select **Upload**, Cloud Shell opens a file dialog box. Use this file dialog to browse
   to the files on your local computer, select the desired file, and select the **Open** button. The
@@ -69,7 +69,7 @@ Cloud Shell allows you to have multiple concurrent sessions across browser tabs.
 as a separate process on the same machine. When exiting Cloud Shell, be sure to exit from each
 session window as each process runs independently.
 
-![Screenshot of the New session button][04]
+[![Screenshot of the New session button.][04i]][04x]
 
 To start a new session, select **New session** button on toolbar. A new browser tab opens with
 another session connected to the existing container.
@@ -81,7 +81,7 @@ The editor uses the Classic user interface. When you select the **Editor** butto
 displays a confirmation form before switching you to the Classic user experience. Select the
 **Confirm** button to continue.
 
-![Screenshot of the Cloud Shell editor button][02]
+[![Screenshot of the Cloud Shell editor button.][02i]][02x]
 
 For more information, see [Using the Azure Cloud Shell editor][11].
 
@@ -91,7 +91,7 @@ The **Web preview** feature allows you to open ports on your Cloud Shell contain
 with running applications. The **Web preview** menu allows you to enter the port number that you
 want to open.
 
-![Screenshot of the Web preview button.][10]
+[![Screenshot of the Web preview button.][10i]][10x]
 
 Select **Open port** to only open the port. Select **Open and browse** to open the port and preview
 the port in a new browser tab.
@@ -99,7 +99,7 @@ the port in a new browser tab.
 After opening a port, the **Web preview** menu allows you to connect to the open port, close the
 port, or open another port.
 
-![Screenshot of Web Preview menu with open ports.][01]
+[![Screenshot of Web Preview menu with open ports.][01i]][01x]
 
 To preview an open port in a new tab, select the web preview icon on the top left of the window then
 select **Preview port \<number\>**.
@@ -107,11 +107,18 @@ select **Preview port \<number\>**.
 To close the open port, select the web preview icon on the top left of the window the select **Close
 port \<number\>**.
 
+## Help menu
+
+The **Help** menu contains links to the Cloud Shell and other related documentation and Cloud Shell
+feedback form.
+
+[![Screenshot of the Help menu.][11i]][11x]
+
 ## Minimize, maximize, or close the Cloud Shell window
 
 The icons on the top right of the window are used to manage the state of the Cloud Shell window.
 
-![Screenshot of Cloud Shell toolbar.][09]
+[![Screenshot of Cloud Shell toolbar.][09i]][09x]
 
 When you select the **Minimize** button, the Cloud Shell terminal is hidden and the Azure portal is
 displayed. The Cloud Shell session is still running. Select the Cloud Shell icon again to unhide the
@@ -119,6 +126,8 @@ terminal window.
 
 When you select the **Maximize** button, the Azure portal is hidden and the terminal window fills
 the browser.
+
+When you select the **Close** button, the Cloud Shell session is terminated.
 
 ## Copy and paste
 
@@ -147,17 +156,29 @@ minutes without interaction.
 
 ## Next steps
 
-[Using the Azure Cloud Shell editor][11]
+[Using the Azure Cloud Shell editor][12]
 
 <!-- link references -->
-[01]: media/new-ui-shell-window/close-port.png
-[02]: media/new-ui-shell-window/editor.png
-[03]: media/new-ui-shell-window/manage-files.png
-[04]: media/new-ui-shell-window/new-session.png
-[05]: media/new-ui-shell-window/new-ui-fullscreen.png
-[06]: media/new-ui-shell-window/restart-cloud-shell.png
-[07]: media/new-ui-shell-window/settings-menu.png
-[08]: media/new-ui-shell-window/switch-to-bash.png
-[09]: media/new-ui-shell-window/toolbar.png
-[10]: media/new-ui-shell-window/web-preview.png
-[11]: using-cloud-shell-editor.md
+[01i]: media/new-ui-shell-window/close-port.png
+[02i]: media/new-ui-shell-window/editor.png
+[03i]: media/new-ui-shell-window/manage-files.png
+[04i]: media/new-ui-shell-window/new-session.png
+[05i]: media/new-ui-shell-window/new-ui-fullscreen.png
+[06i]: media/new-ui-shell-window/restart-cloud-shell.png
+[07i]: media/new-ui-shell-window/settings-menu.png
+[08i]: media/new-ui-shell-window/switch-to-bash.png
+[09i]: media/new-ui-shell-window/toolbar.png
+[10i]: media/new-ui-shell-window/web-preview.png
+[11i]: media/new-ui-shell-window/help-menu.png
+[01x]: media/new-ui-shell-window/close-port.png#lightbox
+[02x]: media/new-ui-shell-window/editor.png#lightbox
+[03x]: media/new-ui-shell-window/manage-files.png#lightbox
+[04x]: media/new-ui-shell-window/new-session.png#lightbox
+[05x]: media/new-ui-shell-window/new-ui-fullscreen.png#lightbox
+[06x]: media/new-ui-shell-window/restart-cloud-shell.png#lightbox
+[07x]: media/new-ui-shell-window/settings-menu.png#lightbox
+[08x]: media/new-ui-shell-window/switch-to-bash.png#lightbox
+[09x]: media/new-ui-shell-window/toolbar.png#lightbox
+[10x]: media/new-ui-shell-window/web-preview.png#lightbox
+[11x]: media/new-ui-shell-window/help-menu.png#lightbox
+[12]: using-cloud-shell-editor.md
