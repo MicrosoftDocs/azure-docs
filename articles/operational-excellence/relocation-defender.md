@@ -20,7 +20,7 @@ To relocate Microsoft Defender for Cloud to a new region, you must select the ap
 
 ## Prerequisites
 
-If there's a subscription change in the new region, [ you must enable Defender for Cloud on the new subscription](/azure/defender-for-cloud/connect-azure-subscription). 
+If there's a subscription change in the new region, [you must enable Defender for Cloud on the new subscription](/azure/defender-for-cloud/connect-azure-subscription). 
 
 
 ## General recommendations
