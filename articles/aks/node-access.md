@@ -14,9 +14,9 @@ Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you eve
 
 You access a node through authentication, which methods vary depending on your Node OS and method of connection. You securely authenticate against AKS Linux and Windows nodes through two options discussed in this article. One requires that you have Kubernetes API access, and the other is through the AKS ARM API, which provides direct private IP information. For security reasons, AKS nodes aren't exposed to the internet. Instead, to connect directly to any AKS nodes, you need to use either `kubectl debug` or the host's private IP address.
 
-## Access to Nodes via Kubernetes API
+## Access nodes using the Kubernetes API
 
-This method requires usage of `kubectl debug` command. 
+This method requires usage of `kubectl debug` command.
 
 ### Before you begin
 
@@ -24,11 +24,11 @@ This guide shows you how to create a connection to an AKS node and update the SS
 
 Complete these steps if you don't have an SSH key. Create an SSH key depending on your Node OS Image, for [macOS and Linux][ssh-nix], or [Windows][ssh-windows]. Make sure you save the key pair in the OpenSSH format, avoid unsupported formats such as `.ppk`. Next, refer to [Manage SSH configuration][manage-ssh-node-access] to add the key to your cluster.
 
-## Linux and macOS
+### Linux and macOS
 
 Linux and macOS users can SSH to access their node using `kubectl debug` or their private IP Address. Windows users should skip to the Windows Server Proxy section for a workaround to SSH via proxy.
 
-### SSH using kubectl debug
+#### SSH using kubectl debug
 
 To create an interactive shell connection, use the `kubectl debug` command to run a privileged container on your node.
 
@@ -66,7 +66,7 @@ To create an interactive shell connection, use the `kubectl debug` command to ru
     > [!NOTE]
     > You can interact with the node session by running `chroot /host` from the privileged container.
 
-### Exit kubectl debug mode
+#### Exit kubectl debug mode
 
 When you're done with your node, enter the `exit` command to end the interactive shell session. After the interactive container session closes, delete the debugging pod used with `kubectl delete pod`.
 
@@ -74,11 +74,11 @@ When you're done with your node, enter the `exit` command to end the interactive
 kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 ```
 
-## Windows Server proxy connection for SSH
+### Windows Server proxy connection for SSH
 
 Follow these steps as a workaround to connect with SSH on a Windows Server node.
 
-### Create a proxy server
+#### Create a proxy server
 
 At this time, you can't connect to a Windows Server node directly by using `kubectl debug`. Instead, you need to first connect to another node in the cluster with `kubectl`, then connect to the Windows Server node from that node using SSH.
 
