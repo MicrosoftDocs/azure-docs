@@ -9,7 +9,7 @@
     expanded: true
     items:
     - name: Aggregation
-      href: azure-programmable-connectivity-overview.md
+      href: azure-programmable-connectivity-aggregation.md
     - name: Abstraction
       href: azure-programmable-connectivity-abstraction.md
     - name: Billing
