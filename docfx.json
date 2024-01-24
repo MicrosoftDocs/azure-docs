@@ -813,6 +813,7 @@
         "articles/quotas/**/*.md": "rayoflores",
         "articles/remote-rendering/**/*.md": "jlyons",
         "articles/site-recovery/**/*.md": "evansma",
+        "articles/virtual-desktop/**/*.md": "femila",
         "articles/virtual-machines/**/*.md": "mamccrea",
         "articles/virtual-machine-scale-sets/**/*.md": "mamccrea"
       },

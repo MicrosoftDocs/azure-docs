@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 07/26/2023
 ms.author: helohr
-manager: femila
 ---
 
 # Supported features for Microsoft Teams on Azure Virtual Desktop
