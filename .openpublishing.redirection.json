@@ -472,36 +472,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/security/develop/security-code-analysis-customize.md",
-            "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-customize",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/security/develop/security-code-analysis-faq.yml",
-            "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-faq",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/security/develop/security-code-analysis-onboard.md",
-            "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-onboard",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/security/develop/security-code-analysis-overview.md",
-            "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/security/develop/security-code-analysis-releases.md",
-            "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-releases",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/security/develop/yaml-configuration.md",
-            "redirect_url": "/previous-versions/azure/security/develop/yaml-configuration",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/vmware-cloudsimple/access-cloudsimple-portal.md",
             "redirect_url": "/previous-versions/azure/vmware-cloudsimple/access-cloudsimple-portal",
             "redirect_document_id": false
@@ -1065,11 +1035,6 @@
         {
             "source_path": "articles/germany/germany-get-started-connect-with-ps.md",
             "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-ps",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/security/fundamentals/azure-disk-encryption-vms-vmss.md",
-            "redirect_url": "/azure/virtual-machines/disk-encryption-overview",
             "redirect_document_id": false
         },
         {
