@@ -152,12 +152,11 @@ The following sections describe how to validate the deployment.
 
 ### 5.1. Access the applications
 
-Using the endpoint assigned from Spring Cloud Gateway - for example, `https://<your-Azure-Spring-Apps-instance-name>-gateway-xxxxx.svc.azuremicroservices.io`. 
-The application should look similar to the following screenshot:
+After the deployment finishes, you can find the Spring Cloud Gateway URL from the deployment outputs:
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/deployment-output-enterprise-plan.png" alt-text="Diagram that shows the enterprise URL of the ARM deployment outputs." lightbox="media/quickstart-deploy-microservice-apps/deployment-output-enterprise-plan.png":::
 
-The application should look similar to the following screenshot:
+Access the gateway URL, the application should look similar to the following screenshot:
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/application-enterprise.png" alt-text="Screenshot of the PetClinic application running on Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/application-enterprise.png":::
 
@@ -173,7 +172,7 @@ Application Insights monitors the application dependencies, as shown by the foll
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png" alt-text="Screenshot of the Azure portal that shows the Application map page for Azure Spring Apps Enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png":::
 
-Copy the URL for Application Live View and open the Application Live View URL to monitor application runtimes, as shown in the following screenshot:
+You can find the Application Live View URL from the deployment outputs. Open the Application Live View URL to monitor application runtimes, as shown in the following screenshot:
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/application-live-view.png" alt-text="Screenshot of the Application Live View for the PetClinic application." lightbox="media/quickstart-deploy-microservice-apps/application-live-view.png":::
 
