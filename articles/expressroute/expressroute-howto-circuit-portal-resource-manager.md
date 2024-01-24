@@ -105,7 +105,7 @@ Sign in to the Azure portal with this [Preview link](https://aka.ms/expressroute
 
     | Setting | Value |
     | ---     | ---   |
-    | Use existing circuit or create new | You have the option to create a new circuit or use an existing circuit. If you select **Use existing**, you can select the circuit from the list of existing circuits and then skip to **Location 2 Circuit Details**. If you select **Create new**, enter following information for the new ExpressRoute circuit. |
+    | Use existing circuit or create new | You have the option to create a new circuit or use an existing circuit. If you select **Use existing**, you can select the circuit from the list of existing circuits and then enter information for the second circuit. If you select **Create new**, enter following information for both the new ExpressRoute circuit. |
     | Region   | Select the same region as the resource group. |
     | Name   | Enter a name for the first ExpressRoute circuit. |
     | Port type | Select if you're connecting to a service provider or directly into Microsoft's global network at a peering location. |
@@ -113,7 +113,7 @@ Sign in to the Azure portal with this [Preview link](https://aka.ms/expressroute
     | Provider (Provider port type)| Select the internet service provider who you are requesting your service from. |
     | ExpressRoute Direct resource (Direct port type) | Select the ExpressRoute Direct resource that you want to use. |
     | Bandwidth | Select the bandwidth for the ExpressRoute circuit. |
-    | SKU   | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard and Premium. |
+    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard and Premium. |
     | Billing model | Select the billing type for egress data charge. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. You can change the billing type from **Metered** to **Unlimited**. |
 
     > [!IMPORTANT]
@@ -121,7 +121,7 @@ Sign in to the Azure portal with this [Preview link](https://aka.ms/expressroute
     > * You can't change the SKU from **Standard/Premium** to **Local** in Azure portal. To downgrade the SKU to **Local**, you can use [Azure PowerShell](expressroute-howto-circuit-arm.md) or [Azure CLI](howto-circuit-cli.md).
     > * You can't change the type from **Unlimited** to **Metered**.
 
-    Complete the same information for the second ExpressRoute circuit. When selecting an ExpressRoute location for the second circuit, you'll be provided with distances information from the first ExpressRoute location. This information can help you select the second ExpressRoute location.
+    Complete the same information for the second ExpressRoute circuit. When selecting an ExpressRoute location for the second circuit, you are provided with distances information from the first ExpressRoute location. This information can help you select the second ExpressRoute location.
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/peering-location-distance.png" alt-text="Screenshot of distance information from first ExpressRoute circuit.":::
 
