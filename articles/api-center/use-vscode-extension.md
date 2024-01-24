@@ -72,7 +72,7 @@ You can view the documentation for an API definition in your API center and try 
 
 ## Generate HTTP file
 
-You can view a .http file based on the API definition in your API center. If the REST Client extension is installed, you can make requests directory from the Visual Studio Code editor. This feature is only available for OpenAPI-based APIs in your API center.
+You can view a `.http` file based on the API definition in your API center. If the REST Client extension is installed, you can make requests directory from the Visual Studio Code editor. This feature is only available for OpenAPI-based APIs in your API center.
 
 1. Expand the API Center tree view to show an API definition. 
 1. Right-click on the definition, and select **Generate HTTP File**. A new tab appears that renders a .http document populated by the API specification.
