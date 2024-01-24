@@ -61,7 +61,7 @@ Setting `{ "blocking": true }` blocks all write operations (delete, update, inse
 The introduction of the blocking option in the `CreateIndexes` API of Azure Cosmos DB for MongoDB (vCore) is a strategic enhancement for optimizing index creation for an empty collection. This feature complements the existing method, providing an additional tool for scenarios requiring efficient index creation on empty collections.
 
 ## Related content
-[Check out text indexing, which allows for efficient searching and querying of text-based data.](how-to-create-text-index.md)
+Check out [text indexing](how-to-create-text-index.md), which allows for efficient searching and querying of text-based data.
 
 ## Next step
 > [!div class="nextstepaction"]
