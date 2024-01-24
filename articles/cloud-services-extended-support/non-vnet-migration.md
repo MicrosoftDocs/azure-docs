@@ -8,7 +8,7 @@ ms.author: hirshah
 ms.reviewer: mattmcinnes
 ms.date: 01/23/2024
 ---
- 
+
 Some legacy cloud services are still running without Vnet support. While there's a process for migrating directly through the portal, there are certain considerations that should be made prior to migration. This article walks you through the process of migrating a non Vnet supporting Cloud Service to a Vnet supporting Cloud Service.
 
 ## Advantages to direct migration
@@ -29,7 +29,7 @@ Some legacy cloud services are still running without Vnet support. While there's
 1. In the Azure portal, select the 'Staging' drop-down.
     ![The Staging drop-down in the Azure portal](./media/vnet-migrate-staging.png)
 
-1. Create a deployment with same configuration as existing deployment by selecting 'Upload' next to the staging drop down. The platform creates a Default Vnet deployment in staging slot.
+1. Create a deployment with same configuration as existing deployment by selecting 'Upload' next to the staging drop-down. The platform creates a Default Vnet deployment in staging slot.
     ![The upload button in the Azure portal](./media/vnet-migrate-upload.png)
 
 1. Once staging deployment is created, the URL, IP address, and label populate.
