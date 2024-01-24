@@ -17,9 +17,9 @@ ms.custom: mode-other
 
 In some usage scenarios, you may want to apply some video processing to the original camera video, such as background blur or background replacement.
 This can provide a better user experience.
-The Azure Communication Calling video effects package provide several video processing functions. However, this is not the only choice.
+The Azure Communication Calling video effects package provides several video processing functions. However, this is not the only choice.
 You can also integrate other video effects library with ACS raw media access API.
-Let's try DeepAR to enrich your video with Argumented Reality!
+Let's try DeepAR to enrich your video with Augmented Reality!
 
 ## Prerequisites
 
@@ -67,7 +67,7 @@ const camera = cameras[0]
 const localVideoStream = new LocalVideoStream(camera);
 await call.startVideo(localVideoStream);
 ```
-By doing this, ACS SDK will directly send out the video from camera without being processed by DeepAR.
+By doing this, ACS SDK directly sends out the video from camera without being processed by DeepAR.
 We need to create a path to forward the video acquired from ACS SDK to DeepAR SDK.
 
 ```javascript
@@ -118,7 +118,7 @@ To disable the background blur, you can pass `false` to `deepar.backgroundBlur` 
 
 In case you want to disable DeepAR during the video call.
 You need to call `deepar.stopVideo`.
-Invoking `deepar.stopVideo` will also end the current media stream captured from the canvas.
+Invoking `deepar.stopVideo` also ends the current media stream captured from the canvas.
 
 ```javascript
 await outputVideoStream.switchSource(cameras[0]);
