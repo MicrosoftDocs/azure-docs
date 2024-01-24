@@ -79,11 +79,7 @@ In this section, you create a Virtual Machine Scale Set that is attached to a lo
 
 ### Configure load balancer settings
 
-In this section, you create a backend pool for **load-balancer**.
-
-You create a health probe to monitor **HTTP** and **Port 80**. The health probe monitors the health of the virtual machines in the backend pool. 
-
-You create a load-balancing rule for **Port 80** with outbound SNAT disabled. The NAT gateway you created earlier handles the outbound connectivity of the virtual machines.
+In this section, you create a backend pool for load-balancer. You create a health probe to monitor HTTP and Port 80 to ensure the health of the virtual machines in the backend pool. Additionally, you create a load-balancing rule for Port 80 with outbound SNAT disabled. The outbound connectivity of the virtual machines is handled by the NAT gateway created earlier.
 
 1. In the search box at the top of the portal, enter **Load balancer**.
 
