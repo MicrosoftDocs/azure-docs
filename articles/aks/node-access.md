@@ -189,7 +189,7 @@ For convenience, the nodepools are exposed when the node has a public IP assigne
         az aks machine list --resource-group myResourceGroup  --cluster-name myAKSCluster --nodepool-name nodepool1 -o table
      ```
 
-    Sample output:
+    The following example output shows the internal IP addresses of all the nodes in the node pool:
 
      ```output
        Name                               Ip         Family    
