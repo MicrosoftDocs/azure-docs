@@ -1,5 +1,5 @@
 ---
-title: Getting started with Azure App Service
+title: Getting started with Azure App Service.
 description: Take the first steps toward working with Azure App Service.
 ms.author: msangapu
 author: msangapu-msft
