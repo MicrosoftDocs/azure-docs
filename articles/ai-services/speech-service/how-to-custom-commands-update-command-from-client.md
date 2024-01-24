@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 1/18/2024
 ms.author: eur
 ms.custom: cogserv-non-critical-speech
 ---
@@ -15,7 +15,7 @@ ms.custom: cogserv-non-critical-speech
 
 [!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
 
-In this article, you'll learn how to update an ongoing command from a client application.
+In this article, you learn how to update an ongoing command from a client application.
 
 ## Prerequisites
 > [!div class = "checklist"]
@@ -73,7 +73,7 @@ Note how the value for the parameter `"OnOff"` was set to `"on"` through an acti
 
 When you configure the list of valid options for a parameter, the values for the parameter are defined globally for the application. 
 
-In our example, the `SubjectDevice` parameter will have a fixed list of supported values regardless of the conversation.
+In our example, the `SubjectDevice` parameter has a fixed list of supported values regardless of the conversation.
 
 If you want to add new entries to the parameter's catalog per conversation, you can send the following activity:
 
@@ -111,7 +111,7 @@ Note a couple of things:
 
 ## Add more context from the client application
 
-You can set additional context from the client application per conversation that can later be used in your Custom Commands application. 
+You can set more context from the client application per conversation that can later be used in your Custom Commands application. 
 
 For example, think about the scenario where you want to send the ID and name of the device connected to the Custom Commands application.
 

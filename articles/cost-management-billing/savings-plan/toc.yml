@@ -58,4 +58,4 @@
     - name: Troubleshoot utilization
       href: troubleshoot-savings-plan-utilization.md
     - name: Not available due to conflict error
-      href: ../manage/troubleshoot-not-available-conflict.md
+      href: ../troubleshoot-subscription/troubleshoot-not-available-conflict.md

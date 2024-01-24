@@ -65,6 +65,10 @@ additionalContent:
               url: ../../firewall/index.yml
             - text: Learn about the Azure Firewall solution for Microsoft Sentinel
               url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/new-detections-hunting-queries-and-response-automation-in-azure/ba-p/2688746
+            - text: Detect malware
+              url: ../../firewall/detect-malware-with-sentinel.md
+            - text: Detect new threats
+              url: ../../web-application-firewall/waf-new-threat-detection.md
         - title: Training
           links:
             - text: Introduction to Azure Firewall

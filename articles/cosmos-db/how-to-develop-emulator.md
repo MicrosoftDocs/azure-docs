@@ -477,7 +477,6 @@ Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to 
     >         ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
     >     }),
     >     ConnectionMode = ConnectionMode.Gateway,
-    >     LimitToEndpoint = true
     > };
     >
     > using CosmosClient client = new(

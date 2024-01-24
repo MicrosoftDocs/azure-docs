@@ -113,18 +113,47 @@ The chaos agent is an application that runs in your VM or virtual machine scale 
 
 1. Install the Chaos Studio VM extension. Replace `$VM_RESOURCE_ID` with the resource ID of your VM or replace `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$VMSS_NAME` with those properties for your virtual machine scale set. Replace `$AGENT_PROFILE_ID` with the agent Profile ID. Replace `$USER_IDENTITY_CLIENT_ID` with the client ID of your managed identity. Replace `$APP_INSIGHTS_KEY` with your Application Insights instrumentation key. If you aren't using Application Insights, remove that key/value pair.
 
+   #### Full list of default Agent virtual machine extension configuration
+
+   Here is the **minimum agent vm extension configuration** required by the user:
+
+    ```azcli-interactive
+    {
+        "profile": "$AGENT_PROFILE_ID",
+        "auth.msi.clientid": "$USER_IDENTITY_CLIENT_ID"
+    }
+    ```
+
+    Here is **all values for agent vm extension configuration**
+    
+   ```azcli-interactive
+    {
+       "profile": "$AGENT_PROFILE_ID",
+       "auth.msi.clientid": "$USER_IDENTITY_CLIENT_ID",
+       "appinsightskey": "$APP_INSIGHTS_KEY",
+       "overrides": {
+           "region": string, default to be null
+           "logLevel": {
+               "default" : string , default to be Information
+               },
+           "checkCertRevocation": boolean, default to be false.
+       }
+   }
+    ```
+
+
     #### Install the agent on a virtual machine
 
     Windows
 
     ```azurecli-interactive
-    az vm extension set --ids $VM_RESOURCE_ID --name ChaosWindowsAgent --publisher Microsoft.Azure.Chaos --version 1.0 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"}'
+    az vm extension set --ids $VM_RESOURCE_ID --name ChaosWindowsAgent --publisher Microsoft.Azure.Chaos --version 1.0 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"{"Overrides": "CheckCertRevocation" = true}}'
     ```
 
     Linux
 
     ```azurecli-interactive
-    az vm extension set --ids $VM_RESOURCE_ID --name ChaosLinuxAgent --publisher Microsoft.Azure.Chaos --version 1.0 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"}'
+    az vm extension set --ids $VM_RESOURCE_ID --name ChaosLinuxAgent --publisher Microsoft.Azure.Chaos --version 1.0 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"{"Overrides": "CheckCertRevocation" = true}}'
     ```
 
     #### Install the agent on a virtual machine scale set
@@ -132,13 +161,13 @@ The chaos agent is an application that runs in your VM or virtual machine scale 
     Windows
 
     ```azurecli-interactive
-    az vmss extension set --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --vmss-name $VMSS_NAME --name ChaosWindowsAgent --publisher Microsoft.Azure.Chaos --version 1.0 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"}'
+    az vmss extension set --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --vmss-name $VMSS_NAME --name ChaosWindowsAgent --publisher Microsoft.Azure.Chaos --version 1.0 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"{"Overrides": "CheckCertRevocation" = true}}'
     ```
 
     Linux
 
     ```azurecli-interactive
-    az vmss extension set --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --vmss-name $VMSS_NAME --name ChaosLinuxAgent --publisher Microsoft.Azure.Chaos --version 1.0 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"}'
+    az vmss extension set --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --vmss-name $VMSS_NAME --name ChaosLinuxAgent --publisher Microsoft.Azure.Chaos --version 1.0 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"{"Overrides": "CheckCertRevocation" = true}}'
     ```
 1. If you're setting up a virtual machine scale set, verify that the instances were upgraded to the latest model. If needed, upgrade all instances in the model.
 

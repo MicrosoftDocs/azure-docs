@@ -9,7 +9,6 @@ ms.service: azure-ai-vision
 ms.topic: quickstart
 ms.date: 01/24/2023
 ms.author: pafarley
-ms.devlang: csharp, golang, java, javascript, python
 ms.custom: devx-track-python, devx-track-csharp, mode-api, devx-track-dotnet, devx-track-extended-java
 zone_pivot_groups: programming-languages-computer-vision-40
 keywords: Azure AI Vision, Azure AI Vision service
@@ -31,15 +30,15 @@ Get started with the Image Analysis 4.0 REST API or client SDK to set up a basic
 
 ::: zone-end
 
-::: zone pivot="programming-language-cpp"
-
-[!INCLUDE [C++ SDK quickstart](../includes/quickstarts-sdk/image-analysis-cpp-sdk-40.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-java"
 
 [!INCLUDE [Java SDK quickstart](../includes/quickstarts-sdk/image-analysis-java-sdk-40.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [JavaScript SDK quickstart](../includes/quickstarts-sdk/image-analysis-node-sdk-40.md)]
 
 ::: zone-end
 

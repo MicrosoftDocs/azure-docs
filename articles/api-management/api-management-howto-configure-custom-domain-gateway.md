@@ -3,7 +3,6 @@
 title: Configure a custom domain name for your self-hosted Azure API Management gateway | Microsoft Docs
 description: This topic describes the steps for configuring a custom domain name for self-hosted Azure API Management gateway.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management

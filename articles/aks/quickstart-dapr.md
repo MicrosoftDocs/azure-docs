@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.topic: quickstart
 ms.date: 12/27/2023
-ms.custom: template-quickstart, mode-other, event-tier1-build-2022, ignite-2022, devx-track-js, devx-track-python, devx-track-linux
+ms.custom: template-quickstart, mode-other, event-tier1-build-2022, ignite-2022, devx-track-js, devx-track-python, linux-related-content
 ---
 
 # Quickstart: Deploy an application using the Dapr cluster extension for Azure Kubernetes Service (AKS) or Arc-enabled Kubernetes
@@ -213,7 +213,7 @@ Now that both the Node.js and Python applications are deployed, you watch messag
 
 ### [Azure CLI](#tab/azure-cli)
 
-* Remove the resource group, cluster, namespace, and all related resources using the [`az group delete`][az-group-delete] command.
+* Remove the resource group, cluster, namespace, and all related resources using the [az group delete][az-group-delete] command.
 
     ```azurecli-interactive
     az group delete --name MyResourceGroup
@@ -221,7 +221,7 @@ Now that both the Node.js and Python applications are deployed, you watch messag
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* Remove the resource group, cluster, namespace, and all related resources using the [`Remove-AzResourceGroup`][remove-azresourcegroup] command.
+* Remove the resource group, cluster, namespace, and all related resources using the [Remove-AzResourceGroup][remove-azresourcegroup] command.
 
     ```azurepowershell-interactive
     Remove-AzResourceGroup -Name MyResourceGroup
