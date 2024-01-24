@@ -6,7 +6,7 @@ ms.author: aritraghosh
 ms.service: azure-kubernetes-service
 ms.custom: 
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 01/24/2024
 
 #CustomerIntent: As a platform engineer, I want to collect metrics from the control plane and monitor them for any potential issues
 ---
@@ -75,11 +75,8 @@ Control plane metrics are stored in an Azure monitor workspace in the cluster's 
 
 If you are using Azure Managed Grafana to visualize the data, you can import the following dashboards. AKS provides dashboard templates to help you view and analyze your control plane telemetry data in real-time.
 
-* API server
-* ETCD
-* Scheduler
-* Autoscaler
-* Controller manager
+* [API server][grafana-dashboard-template-api-server]
+* [ETCD][grafana-dashboard-template-etcd]
 
 ## Customize control plane metrics
 
@@ -217,6 +214,8 @@ After evaluating this preview feature, [share your feedback][share-feedback]. We
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [ama-metrics-settings-configmap]: https://github.com/Azure/prometheus-collector/blob/89e865a73601c0798410016e9beb323f1ecba335/otelcollector/configmaps/ama-metrics-settings-configmap.yaml
 [share-feedback]: https://forms.office.com/r/Mq4hdZ1W7W
+[grafana-dashboard-template-api-server]: https://grafana.com/grafana/dashboards/20331-kubernetes-api-server/
+[grafana-dashboard-template-etcd]: https://grafana.com/grafana/dashboards/20330-kubernetes-etcd/
 
 <!-- INTERNAL LINKS -->
 [managed-prometheus-overview]: ../azure-monitor/essentials/prometheus-metrics-overview.md
