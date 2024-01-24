@@ -52,11 +52,9 @@ landingContent:
             url: search-get-started-vector.md
           - text: Query a vector store
             url: vector-search-how-to-query.md
-          - text: Chunk data
-            url: vector-search-how-to-chunk-documents.md
       - linkListType: sample
         links:
-          - text: Vector search samples
+          - text: Vector samples
             url: https://github.com/Azure/azure-search-vector-samples/blob/main/README.md
 
   # Card
@@ -68,6 +66,28 @@ landingContent:
             url: /azure/ai-studio/how-to/index-add
           - text: Build a question and answer copilot
             url: /azure/ai-studio/tutorials/deploy-copilot-ai-studio
+
+  # Card
+  - title: Index data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What's a search index?
+            url: search-what-is-an-index.md
+          - text: Importing data
+            url: search-what-is-data-import.md
+          - text: Indexer overview
+            url: search-indexer-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Index from Azure Blob Storage
+            url: search-blob-storage-integration.md
+          - text: Index from Azure SQL Database
+            url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+          - text: Index from Azure Cosmos DB
+            url: search-howto-index-cosmosdb.md
+          - text: Index any data
+            url: tutorial-optimize-indexing-push-api.md
 
   # Card
   - title: Develop apps
@@ -94,28 +114,6 @@ landingContent:
             url: /java/api/overview/azure/search-documents-readme
           - text: Azure SDK for JavaScript
             url: /javascript/api/overview/azure/search-documents-readme
-
-  # Card
-  - title: Index data
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: What's a search index?
-            url: search-what-is-an-index.md
-          - text: Importing data
-            url: search-what-is-data-import.md
-          - text: Indexer overview
-            url: search-indexer-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Index from Azure Blob Storage
-            url: search-blob-storage-integration.md
-          - text: Index from Azure SQL Database
-            url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-          - text: Index from Azure Cosmos DB
-            url: search-howto-index-cosmosdb.md
-          - text: Index any data
-            url: tutorial-optimize-indexing-push-api.md
 
   # Card
   - title: Query data
