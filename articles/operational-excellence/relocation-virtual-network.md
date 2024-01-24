@@ -4,12 +4,12 @@ description: Find out about relocation guidance for Azure Virtual Network
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
-ms.date: 12/11/2023
+ms.date: 01/24/2023
 ms.service: virtual-network
 ms.topic: how-to
 ms.custom:
   - references_regions
-  - subject-reliability
+  - subject-relocation
 ---
 
 
@@ -17,8 +17,7 @@ ms.custom:
 
 This article covers the recommended approaches, guidelines and practices for relocating an Azure Virtual Network.
 
-To move Azure Virtual Network to a new region, you can choose either to use Azure Resource Mover or  redeployment. However, it's recommended that you use the [redeployment method](#redeployment-strategy-recommended) to move your network.
-
+To move Azure Virtual Network to a new region, it's highly recommended that you [redeployment](#redeploy) your virtual network. However, you can choose to use Azure Resource Mover or simply redeploy. 
 
 ## Prerequisites
 
