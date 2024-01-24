@@ -76,7 +76,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
                 { 
                     "type": "image_url",
                     "image_url": {
-                        "url": "<URL or base 64 encoded image>"
+                        "url": "<image URL>"
                     }
                 }
             ] } 
@@ -87,9 +87,13 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     print(response)
     ```
 
+
+
 1. Make the following changes:
     1. Enter the name of your GPT-4 Turbo with Vision deployment in the appropriate field.
-    1. Change the value of the `"url"` field to the URL or base 64 byte data of your image.
+    1. Change the value of the `"url"` field to the URL of your image.
+        > [!TIP]
+        > You can also use a base 64 encoded image data instead of a URL. For more information, see the [GPT-4 Turbo with Vision how-to guide](../how-to/gpt-with-vision.md#use-a-local-image).
 1. Run the application with the `python` command:
 
     ```console
@@ -135,7 +139,7 @@ The **object grounding** integration brings a new layer to data analysis and use
                 { 
                     "type": "image_url",
                     "image_url": {
-                        "url": "<URL or base 64 encoded image>"
+                        "url": "<image URL>"
                     }
                 }
             ] } 
@@ -167,7 +171,9 @@ The **object grounding** integration brings a new layer to data analysis and use
 1. Make the following changes:
     1. Enter your GPT-4 Turbo with Vision deployment name in the appropriate field. 
     1. Enter your Computer Vision endpoint URL and key in the appropriate fields.
-    1. Change the value of the `"url"` field to the URL or base 64 byte data of your image.
+    1. Change the value of the `"url"` field to the URL of your image.
+        > [!TIP]
+        > You can also use a base 64 encoded image data instead of a URL. For more information, see the [GPT-4 Turbo with Vision how-to guide](../how-to/gpt-with-vision.md#use-a-local-image).
 1. Run the application with the `python` command:
 
     ```console

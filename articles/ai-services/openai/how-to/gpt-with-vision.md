@@ -59,7 +59,7 @@ The following is a sample request body. The format is the same as the chat compl
 	            {
 	                "type": "image_url",
 	                "image_url": {
-                        "url": "<URL or base-64-encoded image>"
+                        "url": "<image URL>"
                     }
                 } 
            ] 
@@ -104,7 +104,7 @@ The following is a sample request body. The format is the same as the chat compl
                 { 
                     "type": "image_url",
                     "image_url": {
-                        "url": "<URL or base 64 encoded image>"
+                        "url": "<image URL>"
                     }
                 }
             ] } 
@@ -143,6 +143,17 @@ The following is a sample request body. The format is the same as the chat compl
 > image_path = '<path_to_image>'
 > data_url = local_image_to_data_url(image_path)
 > print("Data URL:", data_url)
+> ```
+>
+> When your base64 image data is ready, you can pass it to the API in the request body like this:
+> 
+> ```json
+> ...
+> "type": "image_url",
+> "image_url": {
+>    "url": "data:image/jpeg;base64,<your_image_data>"
+> }
+> ...
 > ```
 
 ### Output
@@ -291,7 +302,7 @@ You must also include the `enhancements` and `dataSources` objects. `enhancement
 	            {
 	                "type": "image_url",
 	                "image_url": {
-                        "url":"<URL or base-64-encoded image>" 
+                        "url":"<image URL>" 
                     }
                 }
            ] 
@@ -323,7 +334,7 @@ response = client.chat.completions.create(
             { 
                 "type": "image_url",
                 "image_url": {
-                    "url": "<URL or base 64 encoded image>"
+                    "url": "<image URL>"
                 }
             }
         ] } 
