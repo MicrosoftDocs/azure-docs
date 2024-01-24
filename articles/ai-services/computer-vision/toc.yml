@@ -102,7 +102,7 @@ items:
   items:
   - name: Image Analysis overview
     href: overview-image-analysis.md
-  - name: Vision SDK
+  - name: Image Analysis SDK
     items:
     - name: Overview
       href: sdk/overview-sdk.md
@@ -118,8 +118,14 @@ items:
     items:
     - name: Version 4.0
       items:
-      - name: Azure Image Analysis samples
-        href: https://github.com/Azure-Samples/azure-ai-vision-sdk
+      - name: Azure Image Analysis Java SDK samples
+        href: https://aka.ms/azsdk/image-analysis/samples/java
+      - name: Azure Image Analysis Python SDK samples
+        href: https://aka.ms/azsdk/image-analysis/samples/python
+      - name: Azure Image Analysis .NET SDK samples
+        href: https://aka.ms/azsdk/image-analysis/samples/csharp
+      - name: Azure Image Analysis JavaScript SDK samples
+        href: https://aka.ms/azsdk/image-analysis/samples/js
     - name: Version 3.2
       items:
       - name: Azure AI services .NET SDK samples
@@ -239,13 +245,13 @@ items:
       - name: Image Analysis REST API v4.0
         href: https://aka.ms/vision-4-0-ref
       - name: .NET
-        href: /dotnet/api/azure.ai.vision.imageanalysis
+        href: https://aka.ms/azsdk/image-analysis/ref-docs/csharp
       - name: Python
-        href: /python/api/azure-ai-vision
-      - name: C++
-        href: /cpp/cognitive-services/vision
+        href: https://aka.ms/azsdk/image-analysis/ref-docs/python
       - name: Java
-        href: /java/api/com.azure.ai.vision.imageanalysis
+        href: https://aka.ms/azsdk/image-analysis/ref-docs/java
+      - name: JavaScript
+        href: https://aka.ms/azsdk/image-analysis/ref-docs/js
     - name: Version 3.2
       items:
       - name: Image Analysis REST API v3.2
@@ -378,12 +384,8 @@ items:
     href: intro-to-spatial-analysis-public-preview.md
   - name: Responsible use of AI
     items:
-    - name: Transparency notes
-      items:
-      - name: Spatial Analysis use cases
-        href: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=/azure/ai-services/computer-vision/context/context
-      - name: Characteristics and limitations
-        href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/ai-services/computer-vision/context/context
+    - name: Transparency note
+      href: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=/azure/ai-services/computer-vision/context/context
     - name: Integration and responsible use
       items:
       - name: Responsible use in AI deployment 

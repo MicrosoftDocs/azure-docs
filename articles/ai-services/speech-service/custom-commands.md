@@ -6,7 +6,7 @@ author: trrwilson
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 03/11/2020
+ms.date: 1/18/2024
 ms.author: travisw
 ms.custom: cogserv-non-critical-speech
 ---
@@ -17,7 +17,7 @@ ms.custom: cogserv-non-critical-speech
 
 Applications such as [Voice assistants](voice-assistants.md) listen to users and take an action in response, often speaking back. They use [speech to text](speech-to-text.md) to transcribe the user's speech, then take action on the natural language understanding of the text. This action frequently includes spoken output from the assistant generated with [text to speech](text-to-speech.md). Devices connect to assistants with the Speech SDK's `DialogServiceConnector` object.
 
-Custom Commands makes it easy to build rich voice commanding apps optimized for voice-first interaction experiences. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity, helping you focus on building the best solution for your voice commanding scenarios.
+Custom Commands makes it easy to build rich voice commanding apps optimized for voice-first interaction experiences. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity. Custom Commands helps you focus on building the best solution for your voice commanding scenarios.
 
 Custom Commands is best suited for task completion or command-and-control scenarios such as "Turn on the overhead light" or "Make it 5 degrees warmer". Custom Commands is well suited for Internet of Things (IoT) devices, ambient and headless devices. Examples include solutions for Hospitality, Retail and Automotive industries, where you want voice-controlled experiences for your guests, in-store inventory management or in-car functionality.
 

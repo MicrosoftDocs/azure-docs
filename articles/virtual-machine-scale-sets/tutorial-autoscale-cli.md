@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 12/16/2022
 ms.reviewer: mimckitt
-ms.custom: avverma, devx-track-azurecli, devx-track-linux
+ms.custom: avverma, devx-track-azurecli, linux-related-content
 ---
 # Tutorial: Automatically scale a Virtual Machine Scale Set with the Azure CLI
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app. In this tutorial you learn how to:
@@ -92,14 +92,14 @@ To connect to an individual instance, see [Tutorial: Connect to Virtual Machine 
 
 Once logged in, install the **stress** or **stress-ng** utility. Start *10* **stress** workers that generate CPU load. These workers run for *420* seconds, which is enough to cause the autoscale rules to implement the desired action.
 
-# [Ubuntu, Debian](#tab/Ubuntu) 
+# [Ubuntu, Debian](#tab/Ubuntu)
 
 ```bash
 sudo apt-get update
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
-# [RHEL, CentOS](#tab/redhat) 
+# [RHEL, CentOS](#tab/redhat)
 
 ```bash
 sudo dnf install stress-ng
@@ -136,14 +136,14 @@ ssh azureuser@13.92.224.66 -p 50003
 
 Install and run **stress** or **stress-ng**, then start ten workers on this second VM instance.
 
-# [Ubuntu, Debian](#tab/Ubuntu) 
+# [Ubuntu, Debian](#tab/Ubuntu)
 
 ```bash
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-# [RHEL, CentOS](#tab/redhat) 
+# [RHEL, CentOS](#tab/redhat)
 
 ```bash
 sudo dnf install stress-ng

@@ -1,19 +1,27 @@
 ---
-title: Update DICOM files in the DICOM service
+title: Update files in the DICOM service in Azure Health Data Services
 description: Learn how to use the bulk update API in Azure Health Data Services to modify DICOM attributes for multiple files in the DICOM service. This article explains the benefits, requirements, and steps of the bulk update operation.
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: dicom
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 1/18/2024
 ms.author: mmitrik
 ---
 
 # Update DICOM files
 
-The bulk update operation allows you to make changes to imaging metadata for multiple files stored in the DICOM&reg; service. For example, bulk update enables you to modify DICOM attributes for one or more studies in a single, asynchronous operation. You can use this API to perform updates to patient demographic changes and avoid the costs of repeating time-consuming uploads. 
+The bulk update operation lets you make changes to imaging metadata for multiple files stored in the DICOM&reg; service. For example, bulk update enables you to modify DICOM attributes for one or more studies in a single, asynchronous operation. You can use this API to perform updates to patient demographic changes and avoid the costs of repeating time-consuming uploads. 
 
-Beyond the efficiency gains, the bulk update capability preserves a record of the changes in the [change feed](dicom-change-feed-overview.md) and persists the original, unmodified instances for future retrieval. 
+Beyond the efficiency gains, the bulk update capability preserves a record of the changes in the [change feed](change-feed-overview.md) and persists the original, unmodified instances for future retrieval. 
+
+## Limitations
+There are a few limitations when you use the bulk update operation:
+
+- A maximum of 50 studies can be updated in a single operation.
+- Only one bulk update operation can be performed at a time.
+- You can't delete only the latest version of a study or revert back to the original version. 
+- You can't update any field from non-null to a null value.
 
 ## Use the bulk update operation
 Bulk update is an asynchronous, long-running operation available at the studies endpoint. The request payload includes one or more studies to update, the set of attributes to update, and the new values for those attributes. 
@@ -68,7 +76,7 @@ Content-Type: application/json
 }
 ```
 
-If the operation fails to start successfully, the response will include information about the failure in the errors list, including UIDs of the failing instance(s). 
+If the operation fails to start successfully, the response includes information about the failure in the errors list, including UIDs of the failing instance(s). 
 
 ```http
 {
@@ -91,7 +99,7 @@ If the operation fails to start successfully, the response will include informat
 
 | Name              | Type                | Description                                                  |
 | ----------------- | ------------------- | ------------------------------------------------------------ |
-| 202 (Accepted)    | Operation Reference | A long-running operation has been started to update DICOM attributes |
+| 202 (Accepted)    | Operation Reference | A long-running operation was started to update DICOM attributes |
 | 400 (Bad Request) |                     | Request body has invalid data                                |
 
 ### Operation Status
@@ -127,7 +135,7 @@ GET {dicom-service-url}/{version}/operations/{operationId}
 
 | Name            | Type      | Description                                  |
 | --------------- | --------- | -------------------------------------------- |
-| 200 (OK)        | Operation | The operation with the specified ID has completed |
+| 200 (OK)        | Operation | The operation with the specified ID is complete |
 | 202 (Accepted)  | Operation | The operation with the specified ID is running |
 | 404 (Not Found) |           | Operation not found                   |
 
@@ -145,7 +153,7 @@ Content-Type: application/dicom
 The [delete](dicom-services-conformance-statement-v2.md#delete) method deletes both the original and latest version of a study, series, or instance.
 
 ## Change feed
-The [change feed](dicom-change-feed-overview.md) records update actions in the same manner as create and delete actions. 
+The [change feed](change-feed-overview.md) records update actions in the same manner as create and delete actions. 
 
 ## Supported DICOM modules
 Any attributes in the [Patient Identification Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-2) and [Patient Demographic Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-3) that aren't sequences can be updated using the bulk update operation. Supported attributes are called out in the tables.
@@ -156,7 +164,7 @@ Any attributes in the [Patient Identification Module](https://dicom.nema.org/dic
 | Patient's Name   | (0010,0010)   | Patient's full name   |
 | Patient ID       | (0010,0020)   | Primary hospital identification number or code for the patient. |
 | Other Patient IDs| (0010,1000) | Other identification numbers or codes used to identify the patient. 
-| Type of Patient ID| (0010,0022) |  The type of identifier in this item. Enumerated Values: TEXT RFID BARCODE Note The identifier is coded as a string regardless of the type, not as a binary value. 
+| Type of Patient ID| (0010,0022) |  The type of identifier in this item. Enumerated Values: TEXT RFID BARCODE Note that the identifier is coded as a string regardless of the type, not as a binary value. 
 | Other Patient Names| (0010,1001) | Other names used to identify the patient. 
 | Patient's Birth Name| (0010,1005) | Patient's birth name. 
 | Patient's Mother's Birth Name| (0010,1060) | Birth name of patient's mother. 
@@ -176,8 +184,8 @@ Any attributes in the [Patient Identification Module](https://dicom.nema.org/dic
 | Patient's Weight | (0010,1030) | Weight of the patient in kilograms  |
 | Patient's Address | (0010,1040) | Legal address of the named patient  |
 | Military Rank | (0010,1080) | Military rank of patient  |
-| Branch of Service | (0010,1081) | Branch of the military. The country allegiance may also be included (for example, U.S. Army). |
-| Country of Residence | (0010,2150) | Country in which patient currently resides  |
+| Branch of Service | (0010,1081) | Branch of the military. The country or regional allegiance might also be included (for example, U.S. Army). |
+| Country of Residence | (0010,2150) | Country where a patient currently resides  |
 | Region of Residence | (0010,2152) | Region within patient's country of residence  |
 | Patient's Telephone Numbers | (0010,2154) | Telephone numbers at which the patient can be reached  |
 | Ethnic Group | (0010,2160) | Ethnic group or race of patient  |
@@ -189,7 +197,7 @@ Any attributes in the [Patient Identification Module](https://dicom.nema.org/dic
 | Patient Species Description | (0010,2201) | The species of the patient. |
 | Patient Breed Description | (0010,2292) | The breed of the patient. See Section C.7.1.1.1.1. |
 | Breed Registration Number | (0010,2295) | Identification number of a veterinary patient within the registry. |
-| Issuer of Patient ID | (0010,0021) | Identifier of the Assigning Authority (system, organization, agency, or department) that issued the Patient ID. ```
+| Issuer of Patient ID | (0010,0021) | Identifier of the Assigning Authority (system, organization, agency, or department) that issued the Patient ID.
 
 #### General study module
 | Attribute Name   | Tag           | Description           |
@@ -198,11 +206,4 @@ Any attributes in the [Patient Identification Module](https://dicom.nema.org/dic
 | Accession Number | (0008,0050) | A RIS generated number that identifies the order for the Study. |
 | Study Description | (0008,1030) | Institution-generated description or classification of the Study (component) performed. |
 
-## Limitations
-There are a few limitations when you use the bulk update operation:
-
-- A maximum of 50 studies can be updated in a single operation.
-- Only one bulk update operation can be performed at a time.
-- You can't delete only the latest version of a study or revert back to the original version. 
-- You can't update any field from non-null to a null value.
 [!INCLUDE [DICOM trademark statements](../includes/healthcare-apis-dicom-trademark.md)]

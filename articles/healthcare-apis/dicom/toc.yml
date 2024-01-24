@@ -45,10 +45,14 @@ items:
       href: dicom-configure-azure-rbac.md
     - name: Enable audit and diagnostic logging
       href: enable-diagnostic-logging.md
+    - name: Access DICOM Change Feed logs 
+      href: pull-dicom-changes-from-change-feed.md
     - name: Import DICOM files
       href: import-files.md
     - name: Export DICOM files
       href: export-files.md
+    - name: Bulk update DICOM files
+      href: update-files.md
 - name: API reference
   expanded: true
   items: 
@@ -67,11 +71,9 @@ items:
       expanded: false
       items: 
         - name: Change feed overview
-          href: dicom-change-feed-overview.md
+          href: change-feed-overview.md
         - name: Extended query tags
           href: dicom-extended-query-tags-overview.md
-        - name: Bulk update
-          href: update-files.md
     - name: API versioning
       expanded: false
       items: 

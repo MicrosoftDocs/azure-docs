@@ -6,7 +6,7 @@ author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 08/07/2023
+ms.date: 01/21/2024
 ---
 
 # Azure Cosmos DB for PostgreSQL limits and limitations
@@ -65,6 +65,14 @@ be scaled down (decreased).
 Up to 32 TiB of storage is supported on coordinator and worker nodes in multi-node configuration. Up to 2 TiB of storage is supported for single node configurations. See [the available storage options and IOPS calculation](resources-compute.md)
 for various node and cluster sizes.
 
+### Customer-managed keys for storage encryption
+
+[Data encryption with customer-managed keys (CMK)](./concepts-customer-managed-keys.md) for Azure Cosmos DB for PostgreSQL clusters has the following limitations.
+* CMK encryption can only be enabled during the creation of a new Azure Cosmos DB for PostgreSQL cluster.
+    * CMK encryption **can be** enabled or disabled on a [restored cluster](./concepts-backup.md#restore)
+    * CMK encryption **can be** enabled or disabled on a [cluster read replica](./concepts-read-replicas.md)
+* CMK encryption isn't supported with private access (Private Link).
+
 ## Compute
 
 ### Subscription vCore limits
@@ -92,11 +100,10 @@ currently **not supported**:
 
 <a name='azure-active-directory-authentication'></a>
 
-### Microsoft Entra authentication
+### Microsoft Entra ID authentication
 If [Microsoft Entra ID](./concepts-authentication.md#azure-active-directory-authentication-preview) is enabled on an Azure Cosmos DB for PostgreSQL cluster, the following is currently **not supported**:
 
 * PostgreSQL 11, 12, and 13
-* PgBouncer
 * Microsoft Entra groups
 
 ### Database creation
@@ -109,12 +116,12 @@ By default this database is called `citus`. Azure Cosmos DB for PostgreSQL suppo
 
 ## Backup and restore
 
-### Geo-redundant backup and restore (preview)
+### Geo-redundant backup and restore
 * Geo-redundant backup can be enabled only during cluster creation.
-    * You can enable geo-redundant backup when you perform a cluster restore.
+    * You can enable geo-redundant backup when you perform a [cluster restore](./howto-restore-portal.md).
     * You can enable geo-redundant backup when you [promote a cluster read-replica to an independent cluster](./howto-read-replicas-portal.md#promote-a-read-replica).
-* Geo-redundant backup can't be enabled on single node clusters with [burstable compute](./concepts-burstable-compute.md).
 * Geo-redundant backup can't be disabled once cluster is created.
+* Geo-redundant backup can't be enabled on single node clusters with [burstable compute](./concepts-burstable-compute.md).
 * [Customer managed key (CMK)](./concepts-customer-managed-keys.md) isn't supported for clusters with geo-redundant backup enabled.
 * Azure Cosmos DB for PostgreSQL cluster with geo-redundant backup enabled can't have a [cluster read replica](./concepts-read-replicas.md) in the region where geo-redundant backup is stored.
 

@@ -1,9 +1,9 @@
 ---
  title: include file
  description: include file
- author: eur
- ms.author: eric-urban
- ms.service: azure-ai-services
+ author: eric-urban
+ ms.author: eur
+ ms.service: azure-ai-speech
  ms.topic: include
  ms.date: 12/1/2023
  ms.custom: include
@@ -11,7 +11,7 @@
 
 You need a training dataset to create a professional voice. A training dataset includes audio and script files. The audio files are recordings of the voice talent reading the script files. The script files are the text of the audio files. 
 
-In this article, you [create a training set](#create-a-training-set) and get it's resource ID. Then, using the resource ID, you can [upload a set of audio and script files](#upload-training-set-data).
+In this article, you [create a training set](#create-a-training-set) and get its resource ID. Then, using the resource ID, you can [upload a set of audio and script files](#upload-training-set-data).
 
 ## Create a training set
 
@@ -53,15 +53,20 @@ You should receive a response body in the following format:
 
 ## Upload training set data
 
-To upload a training set of audio and scripts, use the `TrainingSets_UploadData` operation of the custom voice API. Construct the request body according to the following instructions:
+To upload a training set of audio and scripts, use the `TrainingSets_UploadData` operation of the custom voice API.
+
+Before calling this API, please store recording and script files in Azure Blob. In the example below, recording files are https://contoso.blob.core.windows.net/voicecontainer/jessica300/*.wav, script files are
+https://contoso.blob.core.windows.net/voicecontainer/jessica300/*.txt. 
+
+Construct the request body according to the following instructions:
 
 - Set the required `kind` property to `AudioAndScript`. The kind determines the type of training set. 
 - Set the required `audios` property. Within the `audios` property, set the following properties:
-  - Set the required `containerUrl` property to the URL of the Azure Blob Storage container that contains the audio files.
+  - Set the required `containerUrl` property to the URL of the Azure Blob Storage container that contains the audio files. Use [shared access signatures (SAS) for a container](/azure/storage/blobs/sas-service-create-dotnet-container#create-a-service-sas-for-a-container) with both read and list permissions.
   - Set the required `extensions` property to the extensions of the audio files. 
   - Optionally, set the `prefix` property to set a prefix for the blob name. 
 - Set the required `scripts` property. Within the `scripts` property, set the following properties:
-  - Set the required `containerUrl` property to the URL of the Azure Blob Storage container that contains the script files.
+  - Set the required `containerUrl` property to the URL of the Azure Blob Storage container that contains the script files. Use [shared access signatures (SAS) for a container](/azure/storage/blobs/sas-service-create-dotnet-container#create-a-service-sas-for-a-container) with both read and list permissions.
   - Set the required `extensions` property to the extensions of the script files.
   - Optionally, set the `prefix` property to set a prefix for the blob name.
 

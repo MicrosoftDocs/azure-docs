@@ -2,12 +2,13 @@
 title: Get started using GPT-4 Turbo with Vision on your images and videos in Azure AI Studio 
 titleSuffix: Azure AI Studio
 description: Get started using GPT-4 Turbo with Vision on your images and videos in Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: quickstart
 ms.date: 12/11/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Quickstart: Get started using GPT-4 Turbo with Vision on your images and videos in Azure AI Studio 

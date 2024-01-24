@@ -6,12 +6,9 @@ summary: Learn how to train and deploy models and manage the ML lifecycle (MLOps
 metadata:
   title: Azure Machine Learning documentation
   description: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more. 
- 
-  services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
   ms.topic: landing-page
-  ms.collection: collection
   ms.author: sgilley
   author: sdgilley
   ms.date: 03/10/2023

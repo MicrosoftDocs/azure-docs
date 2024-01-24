@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 08/25/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---

@@ -3,6 +3,7 @@ title: 'Azure Virtual WAN FAQ'
 description: See answers to frequently asked questions about Azure Virtual WAN networks, clients, gateways, devices, partners, and connections.
 author: cherylmc
 ms.service: virtual-wan
+ms.custom: devx-track-azurepowershell
 ms.topic: faq
 ms.date: 10/30/2023
 ms.author: cherylmc
@@ -429,6 +430,10 @@ No. Virtual WAN does not support ASN changes for VPN gateways.
 [!INCLUDE [ExpressRoute Performance](../../includes/virtual-wan-expressroute-performance.md)]
 
 ### <a name="update-router"></a>Why am I seeing a message and button called "Update router to latest software version" in portal?
+
+> [!NOTE]
+> As of January 2024, the Virtual WAN team has started upgrading virtual hubs to the latest version. If you did not upgrade your hub but now notice that your hub's Router Version says "latest", then your hub was upgraded by the Virtual WAN team.
+>
 
 Azure-wide Cloud Services-based infrastructure is deprecating. As a result, the Virtual WAN team has been working on upgrading virtual routers from their current Cloud Services infrastructure to Virtual Machine Scale Sets based deployments. **All newly created Virtual Hubs will automatically be deployed on the latest Virtual Machine Scale Sets based infrastructure.** If you navigate to your Virtual WAN hub resource and see this message and button, then you can upgrade your router to the latest version by clicking on the button. If you would like to take advantage of new Virtual WAN features, such as [BGP peering with the hub](create-bgp-peering-hub-portal.md), you'll have to update your virtual hub router via Azure portal. If the button isn't visible, open a support case.
 

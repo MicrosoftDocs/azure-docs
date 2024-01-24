@@ -10,7 +10,7 @@ description: "Learn how to resolve common issues with Azure Arc-enabled Kubernet
 
 This document provides troubleshooting guides for issues with Azure Arc-enabled Kubernetes connectivity, permissions, and agents. It also provides troubleshooting guides for Azure GitOps, which can be used in either Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters.
 
-For help troubleshooting issues related to extensions, see [Troubleshoot extension issues for Azure Arc-enabled Kubernetes clusters](extensions-troubleshooting.md).
+For help troubleshooting issues related to extensions, such as GitOps (Flux v2), Azure Monitor Container Insights, Open Service Mesh, see [Troubleshoot extension issues for Azure Arc-enabled Kubernetes clusters](extensions-troubleshooting.md).
 
 ## Azure CLI
 
