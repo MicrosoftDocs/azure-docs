@@ -76,7 +76,7 @@ items:
       href: how-to-run-a-reindex.md
     - name: Search examples
       href: search-samples.md
-    - name: Selectable search parameters
+    - name: Selectable search parameters (Preview)
       href: selectable-search-parameters.md
 - name: FHIR operations
   items: 

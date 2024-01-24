@@ -10,6 +10,10 @@ ms.author: kesheth
 ---
 
 # Selectable search parameters 
+
+> [!IMPORTANT]
+> The selectable search parameter capability is available for preview. Preview APIs and SDKs are provided without a service-level agreement (SLA). We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Searching for resources is fundamental to the FHIR&reg; service. Each resource in the FHIR service carries information as a set of elements. Search parameters work to query the information in these elements. When the FHIR service is deployed, [predefined search parameters](https://www.hl7.org/fhir/searchparameter-registry.html) are enabled by default. The FHIR service performs efficient searches by extracting and indexing specific properties from FHIR resources during the ingestion of data. 
 
 Selectable search parameters allow you to enable or disable predefined search parameters. This capability helps you store more resources in allocated storage space and improve performance by enabling only the search parameters you need.
@@ -21,10 +25,6 @@ To perform status updates on search parameters, follow these main steps:
 1. [Execute a reindex job](#execute-a-reindex-job).
 
 In this article, we demonstrate FHIR search syntax in example API calls with the {{FHIR_URL}} placeholder to represent the FHIR server URL. 
-
-> [!IMPORTANT]
-> The selectable search parameter capability is available for preview. Preview APIs and SDKs are provided without a service-level agreement (SLA). We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 ## Get the status of search parameters
 An API endpoint (‘$status’) is provided to view the status of search parameters. There are four statuses for the response: 
