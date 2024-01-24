@@ -85,7 +85,7 @@ Kali is a Linux distribution that includes tools for penetration testing and sec
     1. Download the **Kali Linux Hyper-V 64-Bit (7z)** image for Hyper-V.
     1. Extract the .7z file.  If you don’t already have 7-zip, download it from [https://www.7-zip.org/download.html](https://www.7-zip.org/download.html).
 
-1. Follow the instructions to [import premade Kali Linux image(https://www.kali.org/docs/virtualization/import-premade-hyperv/) into Hyper-V.
+1. Follow the instructions to [import a premade Kali Linux image](https://www.kali.org/docs/virtualization/import-premade-hyperv/) into Hyper-V.
 
 1. The Kali-Linux image is now ready for use. From **Hyper-V Manager**, choose **Action** -> **Start**, then choose **Action** -> **Connect** to connect to the virtual machine. The default username is `kali` and the password is `kali`.
 
@@ -126,7 +126,7 @@ To install the Metasploitable nested VM on the template VM:
     1. On the **Specify Generation** page, accept the defaults, and select **Next**.
     1. On the **Assign Memory** page, enter **512 MB** for the **startup memory**, and select **Next**.
         :::image type="content" source="./media/class-type-ethical-hacking/assign-memory-page.png" alt-text="Screenshot of Assign Memory page of New Virtual Machine Wizard in Hyper V.":::
-    1. On the **Configure Networking** page, leave the connection as **Not Connected**. You'll set up the network adapter later.
+    1. On the **Configure Networking** page, leave the connection as **Not Connected**. You'll set the network adapter later.
     1. On the **Connect Virtual Hard Disk** page, select **Use an existing virtual hard disk**. Browse to the location for the **metasploitable.vhdx** file created in the previous step, and select **Next**.
         :::image type="content" source="./media/class-type-ethical-hacking/connect-virtual-network-disk.png" alt-text="Screenshot of Connect Virtual Hard Disk  page of New Virtual Machine Wizard in Hyper V.":::
     1. On the **Completing the New Virtual Machine Wizard** page, and select **Finish**.
