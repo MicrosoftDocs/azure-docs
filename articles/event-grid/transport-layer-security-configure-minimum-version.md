@@ -5,7 +5,7 @@ ms.service: event-grid
 author: spelluru
 ms.author: spelluru
 ms.topic: how-to
-ms.date: 01/22/2024
+ms.date: 01/24/2024
 ---
 
 # Configure the minimum TLS version for an Event Grid topic or domain
