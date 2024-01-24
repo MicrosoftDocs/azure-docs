@@ -369,9 +369,14 @@ main().catch((err) => {
 ::: zone pivot="programming-language-portal"
 ## Azure Portal
 
-### Create a user
+Navigate to the Azure Portal and access the `Manage users` blade. You can add, update, and delete users from this blade.
+![Manage Users blade](./media/portal-manage-users/manage-users-blade.png)
 
+To add a user, click on the `Add/Remove` button, pick a user and select the role for the user, and `Apply` the changes. The user will be added to the list of users with the selected role.
 
+![Select role dropdown](./media/portal-manage-users/select-role-dropdown.png)
+
+To remove a user from the ledger, select the "Not Assigned" role, and click on the `Apply` button. The user will be removed from the list of users.
 ::: zone-end
 
 ## Next steps
