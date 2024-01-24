@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 06/18/2023
+ms.date: 01/24/2024
 ---
 
 # Microsoft Defender for Cloud troubleshooting guide
@@ -13,9 +13,9 @@ ms.date: 06/18/2023
 This guide is for IT professionals, information security analysts, and cloud administrators whose organizations need to troubleshoot problems related to Microsoft Defender for Cloud.
 
 > [!TIP]
-> When you're facing a problem or need advice from our support team, the **Diagnose and solve problems** section of the Azure portal is good place to look for solutions.
+> When you're facing a problem or need advice from our support team, the **Diagnose and solve problems** section of the Azure portal is a good place to look for solutions.
 >
-> :::image type="content" source="media/release-notes/solve-problems.png" alt-text="Screenshot of the Azure portal that shows the page for diagnosing and solving problems in Defender for Cloud.":::
+> :::image type="content" source="media/release-notes/solve-problems.png" alt-text="Screenshot of the Azure portal that shows the page for diagnosing and solving problems in Defender for Cloud." lightbox="media/release-notes/solve-problems.png":::
 
 ## Use the audit log to investigate problems
 
@@ -156,11 +156,11 @@ Just like Azure Monitor, Defender for Cloud uses the Log Analytics agent to coll
 
 Open the services management console (*services.msc*) to make sure that the Log Analytics agent service is running.
 
-:::image type="content" source="./media/troubleshooting-guide/troubleshooting-guide-fig5.png" alt-text="Screenshot of the Log Analytics agent service in Task Manager.":::
+:::image type="content" source="./media/troubleshooting-guide/troubleshooting-guide-fig5.png" alt-text="Screenshot of the Log Analytics agent service in Task Manager." lightbox="media/troubleshooting-guide/troubleshooting-guide-fig5.png":::
 
 To see which version of the agent you have, open Task Manager. On the **Processes** tab, locate the Log Analytics agent service, right-click it, and then select **Properties**. On the **Details** tab, look for the file version.
 
-:::image type="content" source="./media/troubleshooting-guide/troubleshooting-guide-fig6.png" alt-text="Screenshot of details for the Log Analytics agent service.":::
+:::image type="content" source="./media/troubleshooting-guide/troubleshooting-guide-fig6.png" alt-text="Screenshot of details for the Log Analytics agent service." lightbox="media/troubleshooting-guide/troubleshooting-guide-fig6.png":::
 
 ### Check installation scenarios for the Log Analytics agent
 
@@ -216,11 +216,13 @@ If you experience problems with loading the workload protection dashboard, make 
 
 If you can't onboard your Azure DevOps organization, try the following troubleshooting tips:
 
+- Make sure you're using a non-preview version of the [Azure portal]( https://portal.azure.com); the authorize step doesn't work in the Azure preview portal.
+
 - It's important to know which account you're signed in to when you authorize the access, because that will be the account that the system uses for onboarding. Your account can be associated with the same email address but also associated with different tenants. Make sure that you select the right account/tenant combination. If you need to change the combination:
 
   1. On your [Azure DevOps profile page](https://app.vssps.visualstudio.com/profile/view), use the dropdown menu to select another account.
 
-     :::image type="content" source="./media/troubleshooting-guide/authorize-select-tenant.png" alt-text="Screenshot of the Azure DevOps profile page that's used to select an account.":::
+     :::image type="content" source="./media/troubleshooting-guide/authorize-select-tenant.png" alt-text="Screenshot of the Azure DevOps profile page that's used to select an account." lightbox="media/troubleshooting-guide/authorize-select-tenant.png":::
 
   1. After you select the correct account/tenant combination, go to **Environment settings** in Defender for Cloud and edit your Azure DevOps connector. Reauthorize the connector to update it with the correct account/tenant combination. You should then see the correct list of organizations on the dropdown menu.
 
@@ -234,7 +236,7 @@ You can also find troubleshooting information for Defender for Cloud at the [Def
 
 If you need more assistance, you can open a new support request on the Azure portal. On the **Help + support** page, select **Create a support request**.
 
-:::image type="content" source="media/troubleshooting-guide/troubleshooting-guide-fig2.png" alt-text="Screenshot of selections for creating a support request in the Azure portal.":::
+:::image type="content" source="media/troubleshooting-guide/troubleshooting-guide-fig2.png" alt-text="Screenshot of selections for creating a support request in the Azure portal." lightbox="media/troubleshooting-guide/troubleshooting-guide-fig2.png":::
 
 ## See also
 
