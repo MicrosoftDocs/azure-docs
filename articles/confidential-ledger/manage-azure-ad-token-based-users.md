@@ -357,7 +357,7 @@ Navigate to the Azure portal and access the `Manage users` blade. You can add, u
 
 To add a user, click on the `Add/Remove` button, pick a user and select the role for the user, and `Apply` the changes. The user will be added to the list of users with the selected role.
 
-![Select role dropdown](./media/portal-manage-users/select-role-dropdown.png)
+![Screenshot of the select role dropdown.](./media/portal-manage-users/select-role-dropdown.png)
 
 To remove a user from the ledger, select the `Not Assigned` role, and click on the `Apply` button. The user will be removed from the list of users.
 ::: zone-end
