@@ -7,6 +7,7 @@ ms.date: 02/09/2023
 ms.service: confidential-ledger
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
+zone_pivot_groups: azure-confidential-ledger-programming-languages
 ---
 
 # Manage Microsoft Entra token-based users in Azure confidential ledger
@@ -32,6 +33,7 @@ Get the confidential ledger's name and the identity service URI from the Azure p
 
 Replace instances of `contoso` and  `https://contoso.confidential-ledger.azure.com` in the following code snippets with the respective values from the Azure portal.
 
+::: zone pivot="programming-language-python"
 ## Python Client Library
 
 ### Install the packages
@@ -81,7 +83,9 @@ assert user["assignedRole"] == "Contributor"
 # Delete the user
 ledger_client.delete_user(user_id)
 ```
+::: zone-end
 
+::: zone pivot="programming-language-csharp"
 ## .NET Client Library
 
 ### Install the packages
@@ -128,7 +132,9 @@ internal class ACLUserManagement
     }
 }
 ```
+::: zone-end
 
+::: zone pivot="programming-language-java"
 ## Java Client Library
 
 ### Install the packages
@@ -250,7 +256,9 @@ public class CreateOrUpdateUserSample {
 	}
 }
 ```
+::: zone-end
 
+::: zone pivot="programming-language-typescript"
 ## TypeScript Client Library
 
 ### Install the packages
@@ -349,6 +357,15 @@ main().catch((err) => {
   console.error(err);
 });
 ```
+::: zone-end
+
+::: zone pivot="programming-language-portal"
+## Azure Portal
+
+### Create a user
+
+
+::: zone-end
 
 ## Next steps
 
