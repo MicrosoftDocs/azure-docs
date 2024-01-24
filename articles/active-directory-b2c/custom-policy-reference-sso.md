@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 02/03/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer configuring session behavior in Azure Active Directory B2C, I want to understand how to use session providers to manage single sign-on (SSO) sessions for different technical profiles, so that I can customize the SSO behavior and control the flow of my custom policy.
+
 ---
 
 # Single sign-on session providers in Azure Active Directory B2C

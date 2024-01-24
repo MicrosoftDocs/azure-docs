@@ -3,9 +3,9 @@ title: Deploy an agent-based Linux Hybrid Runbook Worker in Automation
 description: This article tells how to install an agent-based  Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.date: 09/17/2023
-ms.topic: conceptual 
+ms.topic: conceptual
 ---
 
 # Deploy an agent-based Linux Hybrid Runbook Worker in Automation
@@ -45,15 +45,15 @@ The Hybrid Runbook Worker feature supports the following distributions. All oper
 * Oracle Linux 6, 7, and 8
 * Red Hat Enterprise Linux Server 5, 6, 7, and 8
 * Debian GNU/Linux 6, 7, and 8
-* SUSE Linux Enterprise Server 12, 15, and 15.1 (SUSE didn't release versions numbered 13 or 14) 
+* SUSE Linux Enterprise Server 12, 15, and 15.1 (SUSE didn't release versions numbered 13 or 14)
 * Ubuntu
 
    **Linux OS** | **Name** |
   ---|--- |
-  20.04 LTS | Focal Fossa 
-  18.04 LTS | Bionic Beaver 
-  16.04 LTS | Xenial Xerus   
-  14.04 LTS | Trusty Tahr  
+  20.04 LTS | Focal Fossa
+  18.04 LTS | Bionic Beaver
+  16.04 LTS | Xenial Xerus
+  14.04 LTS | Trusty Tahr
 
 > [!IMPORTANT]
 > Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/operating-system-requirements.md).
@@ -237,7 +237,7 @@ Run the following commands as root on the agent-based Linux Hybrid Worker:
 
 
    > [!NOTE]
-   > - This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role. 
+   > - This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role.
    > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
    > - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
 
@@ -265,7 +265,7 @@ To check the version of agent-based Linux Hybrid Runbook Worker, go to the follo
 ```bash
    sudo cat /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION
 ```
-The file *VERSION* has the version number of Hybrid Runbook Worker. 
+The file *VERSION* has the version number of Hybrid Runbook Worker.
 
 ## Next steps
 

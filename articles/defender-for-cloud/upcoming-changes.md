@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/09/2024
+ms.date: 01/11/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,6 +25,9 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Update to agentless VM scanning built-in Azure role](#update-to-agentless-vm-scanning-built-in-azure-role) |January 14, 2024 | February 2024 |
+| [Deprecation of two recommendations related to PCI](#deprecation-of-two-recommendations-related-to-pci) |January 14, 2024 | February 2024 |
+| [Four new recommendations for Azure Stack HCI resource type](#four-new-recommendations-for-azure-stack-hci-resource-type) | January 11, 2024 | February 2024 |
 | [Defender for Servers built-in vulnerability assessment (Qualys) retirement path](#defender-for-servers-built-in-vulnerability-assessment-qualys-retirement-path) | January 9, 2024 | May 2024 |
 | [Retirement of the Defender for Cloud Containers Vulnerability Assessment powered by Qualys](#retirement-of-the-defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys) | January 9, 2023 | March 2024 |
 | [New version of Defender Agent for Defender for Containers](#new-version-of-defender-agent-for-defender-for-containers) | January 4, 2024 | February 2024 |
@@ -40,14 +43,48 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
 
+## Update to agentless VM scanning built-in Azure role
+
+**Announcement date: January 14, 2024**
+
+**Estimated date of change: February 2024**
+
+In Azure, agentless scanning for VMs uses a built-in role (called [VM scanner operator](/azure/defender-for-cloud/faq-permissions)) with the minimum necessary permissions required to scan and assess your VMs for security issues. To continuously provide relevant scan health and configuration recommendations for VMs with encrypted volumes, an update to this role's permissions is planned. The update includes the addition of the ```Microsoft.Compute/DiskEncryptionSets/read``` permission. This permission solely enables improved identification of encrypted disk usage in VMs. It does not provide Defender for Cloud any additional capabilities to decrypt or access the content of these encrypted volumes beyond the encryption methods [already supported](/azure/defender-for-cloud/concept-agentless-data-collection#availability) prior to this change. This change is expected to take place during February 2024 and no action is required on your end.
+
+## Deprecation of two recommendations related to PCI
+
+**Announcement date: January 14, 2024**
+
+**Estimated date for change: February 2024**
+
+The following two recommendations related to PCI (Permission Creep Index) are set for deprecation:
+
+- `Over-provisioned identities in accounts should be investigated to reduce the Permission Creep Index (PCI)`
+- `Over-Provisioned identities in subscriptions should be investigated to reduce the Permission Creep Index (PCI)`
+
+## Four new recommendations for Azure Stack HCI resource type
+
+**Announcement date: January 11, 2024**
+
+**Estimated date for change: February 2024**
+
+Azure Stack HCI is set to be a new resource type that can be managed through Microsoft Defender for Cloud. We're adding four recommendations that are specific to the HCI resource type:
+
+| Recommendation | Description  | Severity |
+|----------|----------|----------|
+| Azure Stack HCI servers should meet Secured-core requirements | Ensure that all Azure Stack HCI servers meet the Secured-core requirements. (Related policy: [Guest Configuration extension should be installed on machines - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6c99f570-2ce7-46bc-8175-cde013df43bc)) | Low |
+| Azure Stack HCI servers should have consistently enforced application control policies | At a minimum, apply the Microsoft WDAC base policy in enforced mode on all Azure Stack HCI servers. Applied Windows Defender Application Control (WDAC) policies must be consistent across servers in the same cluster. | High |
+| Azure Stack HCI systems should have encrypted volumes | Use BitLocker to encrypt the OS and data volumes on Azure Stack HCI systems | High |
+| Host and VM networking should be protected on Azure Stack HCI systems | Protect data on the Azure Stack HCI host’s network and on virtual machine network connections. | Low |
+
 ## Defender for Servers built-in vulnerability assessment (Qualys) retirement path
 
 **Announcement date: January 9, 2024**
 
 **Estimated date for change: May 2024**
 
-The Defender for Servers built-in vulnerability assessment solution powered by Qualys is on a retirement path which is estimated to complete on **May 1st, 2024**. If you are currently using the vulnerability assessment solution powered by Qualys, you should plan your [transition to the integrated Microsoft defender vulnerability management solution](how-to-transition-to-built-in.md).
- 
+The Defender for Servers built-in vulnerability assessment solution powered by Qualys is on a retirement path which is estimated to complete on **May 1st, 2024**. If you're currently using the vulnerability assessment solution powered by Qualys, you should plan your [transition to the integrated Microsoft Defender vulnerability management solution](how-to-transition-to-built-in.md).
+
 For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, you can read [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 
 You can also check out the [common questions about the transition to Microsoft Defender Vulnerability Management solution](faq-scanner-detection.yml).
@@ -58,7 +95,7 @@ You can also check out the [common questions about the transition to Microsoft D
 
 **Estimated date for change: March 2024**
 
-The Defender for Cloud Containers Vulnerability Assessment powered by Qualys is now on a retirement path completing on **March 1st, 2024**. If you are currently using container vulnerability assessment powered by Qualys, start planning your transition to [Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-azure.md).
+The Defender for Cloud Containers Vulnerability Assessment powered by Qualys is now on a retirement path completing on **March 1st, 2024**. If you're currently using container vulnerability assessment powered by Qualys, start planning your transition to [Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-azure.md).
 
 For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, see [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 
@@ -330,7 +367,7 @@ The following table explains how each capability will be provided after the Log 
 
 | **Feature**                                                  | **Deprecation plan**                                                  | **Alternative**                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Defender for Endpoint/Defender for Cloud integration  for down level machines (Windows Server  2012 R2, 2016) | Defender for Endpoint integration that uses the  legacy Defender for Endpoint sensor and the Log Analytics agent (for Windows Server 2016 and Windows  Server 2012 R2 machines) won’t be supported after August 2024. | Enable the GA [unified agent](/microsoft-365/security/defender-endpoint/configure-server-endpoints#new-windows-server-2012-r2-and-2016-functionality-in-the-modern-unified-solution) integration to  maintain support for machines, and receive the full extended feature set. For more information, see [Enable the Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md#windows). |
+| Defender for Endpoint/Defender for Cloud integration  for down level machines (Windows Server  2012 R2, 2016) | Defender for Endpoint integration that uses the  legacy Defender for Endpoint sensor and the Log Analytics agent (for Windows Server 2016 and Windows  Server 2012 R2 machines) won’t be supported after August 2024. | Enable the GA [unified agent](/microsoft-365/security/defender-endpoint/configure-server-endpoints#new-windows-server-2012-r2-and-2016-functionality-in-the-modern-unified-solution) integration to  maintain support for machines, and receive the full extended feature set. For more information, see [Enable the Microsoft Defender for Endpoint integration](enable-defender-for-endpoint.md#windows). |
 | OS-level threat detection (agent-based)                      | OS-level threat detection based  on the Log Analytics agent won’t be available after August 2024.  A full list of deprecated detections will be provided soon. | OS-level detections are provided by Defender for Endpoint integration  and are already GA. |
 | Adaptive application controls                                | The [current GA version](adaptive-application-controls.md) based on the  Log Analytics agent will be deprecated in August 2024, along with the preview version based on the Azure monitoring agent. | Adaptive Application Controls feature as it is today will be discontinued, and new capabilities in the application control space (on top of what Defender for Endpoint and Windows Defender Application Control offer today) will be considered as part of future Defender for Servers roadmap. |
 | Endpoint protection discovery recommendations                | The current [GA recommendations](endpoint-protection-recommendations-technical.md) to install endpoint protection and fix health issues in the detected solutions will be deprecated in August 2024. The preview recommendations available today over Log analytic agent will be deprecated when the alternative is provided over Agentless Disk Scanning capability. | A new agentless version will be provided for discovery and configuration gaps by April 2024. As part of this upgrade, this feature will be provided as a component of Defender for Servers plan 2 and Defender CSPM, and won’t cover on-premises or Arc-connected machines. |
