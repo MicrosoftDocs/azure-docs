@@ -10,7 +10,7 @@ ms.custom:
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 12/11/2023
+ms.date: 01/04/2024
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
