@@ -169,9 +169,24 @@ In this sample, you use Maven to run the quickstart app.
 
     ---
 
-In the following screenshot, you see the `Message` key previously had a cached value. The value was updated to a new value using `jedis.set`. The app also executed the `PING` and `CLIENT LIST` commands.
+In the following output, you can see that the `Message` key previously had a cached value. The value was updated to a new value using `jedis.set`. The app also executed the `PING` and `CLIENT LIST` commands.
 
-:::image type="content" source="media/cache-java-get-started/azure-cache-redis-complete.png" alt-text="Screenshot of the terminal window that shows the output of the Maven command, including the previously cached value and the updated value." lightbox="media/cache-java-get-started/azure-cache-redis-complete.png":::
+```output
+Cache Command  : Ping
+Cache Response : PONG
+
+Cache Command  : GET Message
+Cache Response : Hello! The cache is working from Java!
+
+Cache Command  : SET Message
+Cache Response : OK
+
+Cache Command  : GET Message
+Cache Response : Hello! The cache is working from Java!
+
+Cache Command  : CLIENT LIST
+Cache Response : id=777430 addr=             :58989 fd=22 name= age=1 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=0 qbuf-free=32768 obl=0 oll=0 omem=0 ow=0 owmem=0 events=r cmd=client numops=6
+```
 
 ## Clean up resources
 

@@ -265,9 +265,17 @@ mvn compile exec:java -Dexec.mainClass=example.demo.App
 
 ---
 
-In the following screenshot, you can see the `Message` key previously had a cached value, which was set in the last run. The app updated that cached value.
+In the following output, you can see that the `Message` key previously had a cached value, which was set in the last run. The app updated that cached value.
 
-:::image type="content" source="media/cache-java-redisson-get-started/redis-cache-app-complete.png" alt-text="Screenshot of the terminal window that shows the output of the Maven command, including the previously cached value and the updated value." lightbox="media/cache-java-redisson-get-started/redis-cache-app-complete.png":::
+```output
+Cache Command  : GET Message
+Cache Response : Hello! The cache is working from Java! 2023-12-05T15:13:11.398873
+
+Cache Command  : SET Message
+
+Cache Command  : GET Message
+Cache Response : Hello! The cache is working from Java! 2023-12-05T15:45:45.748667
+```
 
 ## Clean up resources
 
