@@ -36,13 +36,13 @@ Learn more:
 
 ### FHIR service
 
-**Selectable search parameters capability is available for preview**
+**Selectable search parameter capability is available for preview**
 
-The selectable search parameters capability allows you to customize and optimzize searches on FHIR resources. The capability lets choose which predefined search parameters to enable or disable for the FHIR service. By enabling only the search parameters you need, you can save storage space, improve performance, and tailor searches to specific use cases. 
+The selectable search parameter capability allows you to customize and optimize searches on FHIR resources. The capability lets you choose which inbuilt search parameters to enable or disable for the FHIR service. By enabling only the search parameters you need, you can store more FHIR resources and potentially improve performance of FHIR search queries
 
 Learn more: 
 
-- [Selectable search parameters for the FHIR service](/fhir/selectable-search-parameters.md)
+- [Selectable search parameters for the FHIR service](fhir/selectable-search-parameters.md)
 
 **FHIR service integration with Azure Active Directory B2C is generally available**
 
