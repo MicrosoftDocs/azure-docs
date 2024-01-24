@@ -211,7 +211,7 @@ For convenience, the nodepools are exposed when the node has a public IP assigne
     aks-nodepool1-33555069-vmss000000  10.224.0.5   IPv4
        ```
 
-2. SSH using your private IP address to access your node. Applicable for Linux machines only.
+2. SSH to the node using the private IP address you obtained in the previous step. This step is applicable for Linux machines only. For Windows machines, see [Connect with Azure Bastion][azure-bastion].
 
     ```bash
     ssh -i /path/to/private_key.pem azureuser@10.224.0.33
