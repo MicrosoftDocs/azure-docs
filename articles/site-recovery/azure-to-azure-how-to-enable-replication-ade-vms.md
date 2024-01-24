@@ -163,16 +163,18 @@ In the following scenarios, you'll be required to update the target VM encryptio
   - You enabled Site Recovery replication on the VM. Later, you enabled disk encryption on the source VM.
   - You enabled Site Recovery replication on the VM. Later, you changed the disk encryption key or key encryption key on the source VM.
 
-Currently as the keys are not in sync between source and target, you have the ability to update the properties of the VM and disks stored in Azure Site Recovery metadata storage through:
+Because of the above reasons, the keys are not in sync between source and target. So, you need to copy the keys to target and update the Azure Site Recovery metadata storage through:
 - Portal
 - REST API
 - PowerShell
 
 ### Update target VM encryption settings from the Azure portal
 
-If you are using a Key Vault, for example `KV1`, in the target settings, you can change the keys by using a different key vault in the target region. You can choose either an existing key vault that is different from original key vault `KV1` or use a new key vault. As Azure Site Recovery doesn't allow changing the keys in place, you must use a different key vault in the target region.
+If you are using Site Recovery on a VM and have enabled disk encryption on it at a later point, then you might not have any key vault in the target settings. You must add a new key vault in the target. 
 
-For this example, we assume that you create a new empty key vault `KV2` with the [necessary privileges](#required-user-permissions). You can then update the vault using the following steps:
+If you are using a key vault, for example `KV1`, in the target settings, you can change the keys by using a different key vault in the target region. You can choose either an existing key vault that is different from original key vault `KV1` or use a new key vault. As Azure Site Recovery doesn't allow changing the keys in place, you must use a different key vault in the target region.
+
+For this example, we assume that you create a new empty key vault `KV2` with the [necessary permissions](#required-user-permissions). You can then update the vault using the following steps:
 
 1. Navigate to **Recovery services vault** in the portal.
 1. Select *replicated item* > **Properties** > **Compute and Network** 
@@ -180,36 +182,21 @@ For this example, we assume that you create a new empty key vault `KV2` with the
     ![Update target key vault](./media/azure-to-azure-how-to-enable-replication-ade-vms/portal.png)
 1. Select **Save** to copy the source keys to the new target key vault `KV2` with a new key/secret and update the Azure Site Recovery metadata.
     > [!NOTE]
-    > Creating a new Key vault might have cost implications. In case you want to use your original target key vault (`KV1`) that you were using before, repeat the steps 1 to 4 above and select KV1 again in the target key vault. This will copy the new key / secret in KV1 and use that for the target.
+    > Creating a new key vault might have cost implications. If you want to use your original target key vault (`KV1`) that you were using before, you can do so after completing the above steps with a different key vault. 
+    > <br>
+    > After you have updated the vault using a different key vault, to use your original target key vault (`KV1`), repeat the steps 1 to 4 and select `KV1` in the target key vault. This copies the new key / secret in `KV1` and uses that for the target.
 
 
 ### Update target VM encryption settings by using REST API
 
-1. You must copy the keys to target vault using [Copy-Keys]() script.
-2. Use the [`DiskEncryptionInfo`](https://learn.microsoft.com/rest/api/site-recovery/replication-protected-items/update?view=rest-site-recovery-2023-02-01&tabs=HTTP&tryIt=true&source=docs#diskencryptioninfo) Rest API to update the Azure Site Recovery metadata.
+1. You must copy the keys to target vault using the `Copy-Keys` script.
+2. Use the [`keyEncryptionKeyInfo`](https://learn.microsoft.com/rest/api/site-recovery/replication-protected-items/update?view=rest-site-recovery-2023-02-01&tabs=HTTP&tryIt=true&source=docs#diskencryptioninfo) Rest API to update the Azure Site Recovery metadata.
 
 ### Update target VM encryption settings by using PowerShell
 
 1. Copy the keys to target vault using the `Copy-Keys` script.
 1. Use the [`Set-AzRecoveryServicesAsrReplicationProtectedItem`](https://learn.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesasrreplicationprotecteditem?view=azps-11.1.0) command to update the Azure Site Recovery metadata.
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-![Update ADE settings dialog window](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 
 ## <a id="trusted-root-certificates-error-code-151066"></a>Troubleshoot key vault permission issues during  Azure-to-Azure VM replication
 
