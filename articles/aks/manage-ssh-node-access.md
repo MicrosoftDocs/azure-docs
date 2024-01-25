@@ -304,7 +304,7 @@ The following sample output shows the json message returned:
 }
 ```
 
-Search for the word **Active** and the value reported should be `Active: inactive (dead)`, which indicates SSH is disabled on the node.
+Search for the word **Active** and its value should be `Active: inactive (dead)`, which indicates SSH is disabled on the node.
 
 ---
 
