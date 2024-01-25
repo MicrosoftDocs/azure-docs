@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.custom: devx-track-arm-template, devx-track-azurepowershell
 ms.date: 01/31/2022
 ms.author: helohr
-manager: femila
 ---
 
 # Migrate automatically from Azure Virtual Desktop (classic)
