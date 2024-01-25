@@ -25,10 +25,6 @@ Resource Health alert signals for ARO clusters include the following:
 
 - **Cluster API server is unreachable:** This signal indicates that the Azure Red Hat OpenShift service Resource Provider is unable to reach your cluster's API server. Your cluster is hence unable to be monitored and is unmanageable. 
 
-- **Unsupported version:** This signal is enabled whenever the software version of an ARO cluster falls off the ARO supported versions list. The signal should provide more details of how the customer can remediate the situation (details like versions to which the customer can upgrade, and expected duration for which those versions may be supported). 
-
-- **Cluster unreachable:** This signal is enabled whenever the ARO RP detects a failure to reach a customer cluster. 
-
 Once the underlying condition causing an alert signal is remediated, the signal is cleared and the alert condition ends.
 
 ## Creating alert rules
