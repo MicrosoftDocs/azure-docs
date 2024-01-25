@@ -219,6 +219,21 @@ You can also set up the application bindings from the Azure portal, as shown in 
 >
 > If you change the binding/unbinding status, you'll need to restart or redeploy the application.
 
+If you want to bind a new creating service to Azure Service Registry when creating a new app, use the following command:
+
+```azurecli
+az spring app create \ 
+    --resource-group <resource-group> \ 
+    --service <service-name> \ 
+    --name <app-name> \ 
+    --instance-count 1 \ 
+    --memory 2Gi \ 
+    --assign-endpoint \ 
+    --bind-service-registry
+```
+
+You can also bind the new creating apps from the Azure portal, as shown in the following screenshot.
+
 ### Deploy an application to Azure Spring Apps
 
 Now that you've bound your application, you'll deploy the Spring Boot artifact file *Sample-Service-A-A-0.0.1-SNAPSHOT.jar* to Azure Spring Apps. To deploy, use the following command:
