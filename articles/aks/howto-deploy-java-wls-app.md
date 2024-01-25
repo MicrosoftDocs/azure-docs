@@ -10,7 +10,16 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 
 # Deploy a Java application with WebLogic Server on an Azure Kubernetes Service (AKS) cluster
 
-This article shows you how to quickly deploy WebLogic Application Server (WLS) on Azure Kubernetes Service (AKS) with the simplest possible set of configuration choices using the Azure portal. For a more full featured tutorial, including the use of Azure Application Gateway to make WLS on AKS securely visible on the public Internet, see [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway).
+This article demonstrates how to:
+
+- Run your Java, Java EE, or Jakarta EE on Oracle WebLogic Server (WLS).
+- Stand up a WLS cluster using Azure Marketplace offer.
+- Build the application Docker image and serve as auxiliary image to provide WDT models and applications.
+- Deploy the containerized application to the existing WLS cluster on AKS.
+
+This article uses the Azure Marketplace offer for WLS to accelerate your journey to AKS. The offer automatically provisions a number of Azure resources including an Azure Container Registry (ACR) instance, an AKS cluster, an Azure App Gateway Ingress Controller (AGIC) instance, the WebLogic Operator, a container image including WebLogic runtime and a WLS cluster without application. Then, this article introduces using auxiliary image to update an existing WLS cluster. The auxiliary image is to provide application and WDT models.
+
+For full automation, you can select your appliation and configure datasource connetion from Azure portal before the offer deployment. To see the offer, visit the [Azure portal](https://aka.ms/wlsaks). 
 
 For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Service, see the official documentation from Oracle at [Azure Kubernetes Service](https://oracle.github.io/weblogic-kubernetes-operator/samples/azure-kubernetes-service/).
 
@@ -27,8 +36,8 @@ For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Serv
     > Get a support entitlement from Oracle before going to production. Failure to do so results in running insecure images that are not patched for critical security flaws. For more information on Oracle's critical patch updates, see [Critical Patch Updates, Security Alerts and Bulletins](https://www.oracle.com/security-alerts/) from Oracle.
   - Accept the license agreement.
 - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux). 
-  - [Azure CLI](https://docs.microsoft.com/cli/azure); use az --version to test if az works. This document was tested with version 2.55.1.
-  - [Docker](https://docs.docker.com/get-docker). This document was tested with Docker version 20.10.7.
+  - [Azure CLI](/cli/azure); use `az --version`` to test if az works. This document was tested with version 2.55.1.
+  - [Docker](https://docs.docker.com/get-docker). This document was tested with Docker version 20.10.7. Use `docker info` to test if Docker Daemon is running.
   - [kubectl](https://kubernetes-io-vnext-staging.netlify.com/docs/tasks/tools/install-kubectl/); use `kubectl version` to test if kubectl works. This document was tested with version v1.21.2.
   - A Java JDK, Version 11. Azure recommends [Microsoft Build of OpenJDK](/java/openjdk/download). Ensure that your JAVA_HOME environment variable is set correctly in the shells in which you run the commands.
   - [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
@@ -40,14 +49,14 @@ The steps in this section direct you to deploy WLS on AKS in the simplest possib
 
 The following steps show you how to find the WLS on AKS offer and fill out the **Basics** pane.
 
-1. In the search bar at the top of the Azure portal, enter *weblogic*. In the auto-suggested search results, in the **Marketplace** section, select **Oracle WebLogic Server on Azure Kubernetes Service**.
+1. In the search bar at the top of the Azure portal, enter *weblogic*. In the auto-suggested search results, in the **Marketplace** section, select **WebLogic Server on AKS**.
 
    :::image type="content" source="media/howto-deploy-java-wls-app/marketplace-search-results.png" alt-text="Screenshot of the Azure portal showing WLS in search results." lightbox="media/howto-deploy-java-wls-app/marketplace-search-results.png":::
 
-   You can also go directly to the [Oracle WebLogic Server on Azure Kubernetes Service](https://aka.ms/wlsaks) offer.
+   You can also go directly to the [WebLogic Server on AKS](https://aka.ms/wlsaks) offer.
 
 1. On the offer page, select **Create**.
-1. On the **Basics** pane, ensure the value shown in the **Subscription** field is the same one that has the roles listed in the prerequisites section.
+1. On the **Basics** pane, ensure the value shown in the **Subscription** field is the same one that you logged in Azure. Make sure you have the roles listed in the prerequisites section.
 
    :::image type="content" source="media/howto-deploy-java-wls-app/portal-start-experience.png" alt-text="Screenshot of the Azure portal showing WebLogic Server on AKS." lightbox="media/howto-deploy-java-wls-app/portal-start-experience.png":::
 
@@ -73,11 +82,11 @@ The following steps make it so the WLS admin console and the sample app are expo
 1. Select the **Load balancing** pane.
 1. Next to **Load Balancing Options**, select **Application Gateway Ingress Controller**.
 1. Under the **Application Gateway Ingress Controller**, you should see all fields pre-populated with the defaults for **Virtual network** and **Subnet**. Leave the default values.
-1. For **Create ingress for Administration Console. Make sure no application with path \/console*, it will cause conflict with Administration Console path.**, select **Yes**.
+1. For **Create ingress for Administration Console. Make sure no application with path /console\*, it will cause conflict with Administration Console path.**, select **Yes**.
 
-    :::image type="content" source="media/howto-deploy-java-wls-app/configure-appgateway-ingress-admin-console.png" alt-text="Screenshot of the Azure portal showing Application Gateway Ingress Controllor configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/configure-appgateway-ingress-admin-console.png":::
+    :::image type="content" source="media/howto-deploy-java-wls-app/configure-appgateway-ingress-admin-console.png" alt-text="Screenshot of the Azure portal showing Application Gateway Ingress Controllor configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-appgateway-ingress-admin-console.png":::
 
-1. Leave default values for other fileds.
+1. Leave default values for other fields.
 1. Select **Review + create**. Ensure the green **Validation Passed** message appears at the top. If it doesn't, fix any validation problems, then select **Review + create** again.
 1. Select **Create**.
 1. Track the progress of the deployment on the **Deployment is in progress** page.
@@ -109,7 +118,7 @@ The other values in the outputs are beyond the scope of this article, but are ex
 
 [!INCLUDE [create-an-azure-sql-database](includes/jakartaee/create-an-azure-sql-database.md)]
 
-1. Create schema for the sample application. Follow [Query the database](/azure/azure-sql/database/single-database-create-quickstart#query-the-database) to open **Query editor** pane. Enter and run the following query.
+2. Create schema for the sample application. Follow [Query the database](/azure/azure-sql/database/single-database-create-quickstart#query-the-database) to open **Query editor** pane. Enter and run the following query.
 
    ```sql
    CREATE TABLE COFFEE (ID NUMERIC(19) NOT NULL, NAME VARCHAR(255) NULL, PRICE FLOAT(32) NULL, PRIMARY KEY (ID));
@@ -118,11 +127,13 @@ The other values in the outputs are beyond the scope of this article, but are ex
 
    After a successful run, you should see the message **Query succeeded: Affected rows: 0**.
 
-Now that the database, tables and AKS cluster have been created, we can proceed to preparing AKS to host your WebLogic application.
+Now that the database, tables, AKS cluster and WLS cluster have been created, you can access admin console by opening a browser and navigating to the address of **adminConsoleExternalUrl**.
+
+You can proceed to preparing AKS to host your WebLogic application.
 
 ## Configure and deploy the sample application
 
-The offer provisions WLS cluster via [model in image](https://oracle.github.io/weblogic-kubernetes-operator/samples/domains/model-in-image/). You can access WebLogic Server Admin Console with value of **adminConsoleExternalUrl**. While, currently, the WLS cluster has no application deployed.
+The offer provisions WLS cluster via [model in image](https://oracle.github.io/weblogic-kubernetes-operator/samples/domains/model-in-image/). While, currently, the WLS cluster has no application deployed.
 
 This section updates the WLS cluster by deploying a sample application using [auxiliary image](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/#using-docker-to-create-an-auxiliary-image).
 
@@ -130,7 +141,43 @@ This section updates the WLS cluster by deploying a sample application using [au
 
 Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/azure-cafe).
 
-You'll use `weblogic-cafe/`. Here's the file structure of the application. Clone the repository, checkout tag `20231206`.
+You'll use `weblogic-cafe/`. Here's the file structure of the application. 
+```text
+weblogic-cafe
+├── pom.xml
+└── src
+    └── main
+        ├── java
+        │   └── cafe
+        │       ├── model
+        │       │   ├── CafeRepository.java
+        │       │   └── entity
+        │       │       └── Coffee.java
+        │       └── web
+        │           ├── rest
+        │           │   └── CafeResource.java
+        │           └── view
+        │               └── Cafe.java
+        ├── resources
+        │   ├── META-INF
+        │   │   └── persistence.xml
+        │   └── cafe
+        │       └── web
+        │           ├── messages.properties
+        │           └── messages_es.properties
+        └── webapp
+            ├── WEB-INF
+            │   ├── beans.xml
+            │   ├── faces-config.xml
+            │   ├── web.xml
+            │   └── weblogic.xml
+            ├── index.xhtml
+            └── resources
+                └── components
+                    └── inputPrice.xhtml
+```
+
+Clone the repository, checkout tag `20231206`.
 
 ```bash
 export BASE_DIR=~
@@ -160,7 +207,9 @@ Follow the steps to build an auxiliary image including Model in Image model file
     cd /tmp/mystaging/models
     ```
 
-    Copy the existing model file to `/tmp/mystaging/models`, just past the value of **shellCmdtoOutputWlsImageModelYaml**. You get a file `/tmp/mystaging/models/model.yaml`. Content of *model.yaml* is similar to the following text.
+    Copy the existing model file to `/tmp/mystaging/models`. Paste the value of **shellCmdtoOutputWlsImageModelYaml**. You get a file `/tmp/mystaging/models/model.yaml`. 
+    
+    Content of *model.yaml* is similar to the following text.
 
     ```yaml
     # Copyright (c) 2020, 2021, Oracle and/or its affiliates.
@@ -215,7 +264,9 @@ Follow the steps to build an auxiliary image including Model in Image model file
             MaxThreadsConstraint: "SampleMaxThreads"
     ```
 
-    Copy the existing model property file to `/tmp/mystaging/models`, just past the value of **shellCmdtoOutputWlsImageProperties**. You get a file `/tmp/mystaging/models/model.properties`. Content of *model.properties* is similar to the following text.
+    Copy the existing model property file to `/tmp/mystaging/models`. Paste the value of **shellCmdtoOutputWlsImageProperties**. You get a file `/tmp/mystaging/models/model.properties`. 
+    
+    Content of *model.properties* is similar to the following text.
 
     ```text
     # Copyright (c) 2021, Oracle Corporation and/or its affiliates.
@@ -238,13 +289,15 @@ Follow the steps to build an auxiliary image including Model in Image model file
 
     Create the application model file with the following content. Save the model file to `/tmp/mystaging/models/appmodel.yaml`.
 
-    ```yaml
+    ```bash
+    cat <<EOF >appmodel.yaml
     appDeployments:
       Application:
           myapp:
             SourcePath: 'wlsdeploy/applications/weblogic-cafe.war'
             ModuleType: ear
             Target: 'cluster-1'
+    EOF
     ```
 
 1. Download and install Microsoft SQL Server JDBC driver to `wlsdeploy/externalJDBCLibraries`.
@@ -254,20 +307,21 @@ Follow the steps to build an auxiliary image including Model in Image model file
     export MSSQL_DRIVER_URL="https://repo.maven.apache.org/maven2/com/microsoft/sqlserver/mssql-jdbc/${DRIVER_VERSION}/mssql-jdbc-${DRIVER_VERSION}.jar"
 
     mkdir /tmp/mystaging/models/wlsdeploy/externalJDBCLibraries
-    curl -m 120 -fL ${MSSQL_DRIVER_URL} /tmp/mystaging/models/wlsdeploy/externalJDBCLibraries/mssql-jdbc-${DRIVER_VERSION}.jar
+    curl -m 120 -fL ${MSSQL_DRIVER_URL} -o /tmp/mystaging/models/wlsdeploy/externalJDBCLibraries/mssql-jdbc-${DRIVER_VERSION}.jar
     ```
 
     Next, create the database connection model with the following content. Save the model file to `/tmp/mystaging/models/dbmodel.yaml`. The model uses placeholder (secret `sqlserver-secret`) for database username, password, and Url. Make sure the following fields are set correcly. The following model names the resource with **jdbc/WebLogicCafeDB**.
 
     | Item Name | Field | Value |
-    |-----------|-------------|
+    |--------------------|----------------------------|----------------|
     | JNDI name | `resources.JDBCSystemResource.<resource-name>.JdbcResource.JDBCDataSourceParams.JNDIName`  | `jdbc/WebLogicCafeDB` |
     | Driver name | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.DriverName` | `com.microsoft.sqlserver.jdbc.SQLServerDriver` |
     | Database Url | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.URL`  | `@@SECRET:sqlserver-secret:url@@` |
-    | Database password | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.PasswordEncrypted` | '@@SECRET:sqlserver-secret:password@@' |
+    | Database password | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.PasswordEncrypted` | `@@SECRET:sqlserver-secret:password@@` |
     | Database username | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.Properties.user.Value`  |  `'@@SECRET:sqlserver-secret:user@@'` |
 
-    ```yaml
+    ```bash
+    cat <<EOF >dbmodel.yaml
     resources:
       JDBCSystemResource:
         jdbc/WebLogicCafeDB:
@@ -288,6 +342,7 @@ Follow the steps to build an auxiliary image including Model in Image model file
             JDBCConnectionPoolParams:
                 TestTableName: SQL SELECT 1
                 TestConnectionsOnReserve: true
+    EOF
     ```
 
 1. Create application archive file using `zip` command. Remove `wlsdeploy` folder as you'll not use it anymore.
@@ -304,6 +359,7 @@ Follow the steps to build an auxiliary image including Model in Image model file
     ```bash
     cd /tmp/mystaging
     curl -m 120 -fL https://github.com/oracle/weblogic-deploy-tooling/releases/latest/download/weblogic-deploy.zip -o weblogic-deploy.zip
+    
     unzip weblogic-deploy.zip -d .
     rm ./weblogic-deploy/bin/*.cmd
     ```
@@ -318,24 +374,25 @@ Follow the steps to build an auxiliary image including Model in Image model file
 
     Copy the following content and save it to `/tmp/mystaging/Dockerfile`
 
-    ```dockerfile
+    ```bash
+    cat <<EOF >Dockerfile
     FROM busybox
     ARG AUXILIARY_IMAGE_PATH=/auxiliary
     ARG USER=oracle
     ARG USERID=1000
     ARG GROUP=root
-    ENV AUXILIARY_IMAGE_PATH=${AUXILIARY_IMAGE_PATH}
-    RUN adduser -D -u ${USERID} -G $GROUP $USER
+    ENV AUXILIARY_IMAGE_PATH=\${AUXILIARY_IMAGE_PATH}
+    RUN adduser -D -u \${USERID} -G \$GROUP \$USER
     # ARG expansion in COPY command's --chown is available in docker version 19.03.1+.
     # For older docker versions, change the Dockerfile to use separate COPY and 'RUN chown' commands.
-    COPY --chown=$USER:$GROUP ./ ${AUXILIARY_IMAGE_PATH}/
-    USER $USER
+    COPY --chown=\$USER:\$GROUP ./ \${AUXILIARY_IMAGE_PATH}/
+    USER \$USER
+    EOF
     ```
 
     Run the `docker build` command using `/tmp/mystaging/Dockerfile`.
 
     ```bash
-    cd /tmp/mystaging
     docker build --build-arg AUXILIARY_IMAGE_PATH=/auxiliary --tag model-in-image:WLS-v1 .
     ```
 
@@ -361,7 +418,7 @@ Follow the steps to build an auxiliary image including Model in Image model file
 
     If you have successfully created the image, then it should now be in your local machine’s Docker repository. For example:
 
-    ```bash
+    ```text
     $ docker images model-in-image:WLS-v1
     REPOSITORY       TAG       IMAGE ID       CREATED       SIZE
     model-in-image   WLS-v1    76abc1afdcc6   2 hours ago   8.61MB
@@ -369,7 +426,7 @@ Follow the steps to build an auxiliary image including Model in Image model file
 
     After the image is created, it should have the WDT executables in /auxiliary/weblogic-deploy, and WDT model, property, and archive files in /auxiliary/models. You can run ls in the Docker image to verify this:
 
-    ```bash
+    ```text
     $ docker run -it --rm model-in-image:WLS-v1 ls -l /auxiliary
     total 12
     -rw-r--r--    1 oracle   root           434 Jan 24 06:08 Dockerfile
@@ -402,7 +459,10 @@ Follow the steps to build an auxiliary image including Model in Image model file
         # replace the ACR name with yours.
         export ACR_NAME=wlsaksacrafvzeyyswhxek
         export ACR_LOGIN_SERVER=$(az acr show -n $ACR_NAME --query "loginServer" -o tsv)
+        ```
 
+        ```bash
+        az acr login -n $ACR_NAME
         docker tag model-in-image:WLS-v1 $ACR_LOGIN_SERVER/wlsaks-auxiliary-image:1.0
         docker push $ACR_LOGIN_SERVER/wlsaks-auxiliary-image:1.0
         ```
