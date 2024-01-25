@@ -4,7 +4,7 @@ description: An introduction to ACR Tasks, a suite of features in Azure Containe
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/31/2023
+ms.date: 01/24/2024
 ms.service: container-registry
 ---
 
@@ -15,6 +15,8 @@ Containers provide new levels of virtualization, isolating application and devel
 ## What is ACR Tasks?
 
 **ACR Tasks** is a suite of features within Azure Container Registry. It provides cloud-based container image building for [platforms](#image-platforms) including Linux, Windows, and ARM, and can automate [OS and framework patching](#automate-os-and-framework-patching) for your Docker containers. ACR Tasks not only extends your "inner-loop" development cycle to the cloud with on-demand container image builds, but also enables automated builds triggered by source code updates, updates to a container's base image, or timers. For example, with base image update triggers, you can automate your OS and application framework patching workflow, maintaining secure environments while adhering to the principles of immutable containers.
+
+ACR is temporarily pausing ACR Tasks runs from Azure free credits. This may affect existing Tasks runs. If you encounter problems, open a [support case](../azure-portal/supportability/how-to-create-azure-support-request.md) for our team to provide additional guidance. We'll remove this note when this pause is lifted.
 
 ## Task scenarios
 
