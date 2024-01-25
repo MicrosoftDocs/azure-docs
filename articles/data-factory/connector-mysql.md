@@ -103,7 +103,7 @@ The following properties are supported for MySQL linked service:
              "password": {
                 "type": "SecureString",
                 "value": "<password>"
-            }
+             },
              "sslmode": <sslmode>,
              "usesystemtruststore": <UseSystemTrustStore>,
              "driverVersion": "v2"
