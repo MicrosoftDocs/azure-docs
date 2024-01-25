@@ -11,10 +11,10 @@ ms.date: 01/24/2024
 
 > [!VIDEO https://aka.ms/docs/player?id=a6d91bc3-2b57-4365-8fc9-35214d6ffb15]
 
-- [01:28](/shows/mdc-in-the-field/unified-insights#time=01m28s) -  Understanding the value of agentless malware detection
-- [03:51](/shows/mdc-in-the-field/unified-insights#time=03m51s) -  Which Microsoft Defender for Cloud plan enables this feature?
-- [04:38](/shows/mdc-in-the-field/unified-insights#time=04m38s) -  How does agentless malware detection work?
-- [07:58](/shows/mdc-in-the-field/unified-insights#time=07m58s) -  Scan frequency
+- [01:28](/shows/mdc-in-the-field/unified-insights#time=01m28s) - Understanding the value of agentless malware detection
+- [03:51](/shows/mdc-in-the-field/unified-insights#time=03m51s) - Which Microsoft Defender for Cloud plan enables this feature?
+- [04:38](/shows/mdc-in-the-field/unified-insights#time=04m38s) - How does agentless malware detection work?
+- [07:58](/shows/mdc-in-the-field/unified-insights#time=07m58s) - Scan frequency
 - [08:17](/shows/mdc-in-the-field/unified-insights#time=08m17s) - Demonstration
 
 ## Recommended resources
