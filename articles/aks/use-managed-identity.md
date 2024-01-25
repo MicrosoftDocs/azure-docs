@@ -33,7 +33,7 @@ AKS doesn't automatically create a [service principal](kubernetes-service-princi
 * If the cluster has Microsoft Entra pod-managed identity (`aad-pod-identity`) enabled, Node-Managed Identity (NMI) pods modify the iptables of the nodes to intercept calls to the Azure Instance Metadata (IMDS) endpoint. This configuration means any request made to the Metadata endpoint is intercepted by NMI, even if the pod doesn't use `aad-pod-identity`. AzurePodIdentityException CRD can be configured to inform `aad-pod-identity` of any requests to the Metadata endpoint originating from a pod that matches labels defined in CRD should be proxied without any processing in NMI. The system pods with `kubernetes.azure.com/managedby: aks` label in *kube-system* namespace should be excluded in  `aad-pod-identity` by configuring the AzurePodIdentityException CRD.
   * For more information, see [Disable Microsoft Entra ID-pod-identity for a specific pod or application](./use-azure-ad-pod-identity.md#clean-up).
   * To configure an exception, install the [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
-* AKS doesn't support the use of a system-assigned managed identity if using a custom private DNS zone.
+* AKS doesn't support the use of a system-assigned managed identity when using a custom private DNS zone.
 
 ## Summary of managed identities
 
@@ -63,7 +63,7 @@ AKS uses several managed identities for built-in services and add-ons.
 > AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][use-a-pre-created-kubelet-managed-identity].
 
 > [!NOTE]
-> If your cluster is already using managed identity and the identity was changed, for example you update the cluster identity type from system-assigned to user-assigned, there will be a delay for control plane components to switch to the new identity. Control plane components keep using the old identity until its token expires. After the token is refreshed, they switch to the new identity. This process can take several hours.
+> If your cluster is already using managed identity and the identity was changed, for example you update the cluster identity type from system-assigned to user-assigned, there is a delay for control plane components to switch to the new identity. Control plane components keep using the old identity until its token expires. After the token is refreshed, they switch to the new identity. This process can take several hours.
 
 1. Create an Azure resource group using the [`az group create`][az-group-create] command.
 
@@ -211,7 +211,7 @@ A custom user-assigned managed identity for the control plane enables access to 
 ### Update managed identity on an existing cluster
 
 > [!NOTE]
-> Migrating a managed identity for the control plane, from system-assigned to user-assigned, doesn't cause any downtime for control plane and agent pools. Meanwhile, control plane components will keep using the old system-assigned identity for several hours until the next token refresh.
+> Migrating a managed identity for the control plane, from system-assigned to user-assigned, doesn't cause any downtime for control plane and agent pools. Meanwhile, control plane components keep using the old system-assigned identity for several hours until the next token refresh.
 
 * If you don't have a managed identity, create one using the [`az identity create`][az-identity-create] command.
 
@@ -370,7 +370,7 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 ### Update an existing cluster using kubelet identity
 
 > [!WARNING]
-> Updating kubelet managed identity upgrades node pools, which causes downtime for your AKS cluster as the nodes in the node pools will be cordoned/drained and reimaged.
+> Updating kubelet managed identity upgrades node pools, which causes downtime for your AKS cluster as the nodes in the node pools are cordoned/drained and reimaged.
 
 > [!NOTE]
 > If your cluster was using `--attach-acr` to pull from images from Azure Container Registry, you need to run the `az aks update --resource-group myResourceGroup --name myAKSCluster --attach-acr <ACR Resource ID>` command after updating your cluster to let the newly-created kubelet used for managed identity get the permission to pull from ACR. Otherwise, you won't be able to pull from ACR after the upgrade.
