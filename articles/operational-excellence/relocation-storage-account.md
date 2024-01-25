@@ -1,10 +1,10 @@
 ---
-title: Relocation guidance for Azure Storage Account
-description: Learn how to relocate Azure Storage Account to a new region
+title: Relocate Azure Storage Account to another region
+description: Learn how to relocate Azure Storage Account to another region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
-ms.date: 01/17/2024
+ms.date: 01/25/2024
 ms.service: azure-storage
 ms.topic: how-to
 ms.custom:
@@ -14,7 +14,7 @@ ms.custom:
 
 # Relocate Azure Storage Account to another region
 
-This article shows you how to relocate your storage accounts to a new region. To relocate a storage account, you need to:
+This article shows you how to:
 
 1. Create a copy of your storage account in another region. 
 1. Move your data to that account by using AzCopy, or another tool of your choice.
@@ -23,21 +23,13 @@ This article shows you how to relocate your storage accounts to a new region. To
 ### Prerequisites
 
 - Ensure that the services and features that your account uses are supported in the target region.
-- For preview features, ensure that your subscription is allowlisted for the target region. Depending on your Storage Account deployment, the following dependent resources may need to be deployed and configured in the target region *prior* to relocation:
+- For preview features, ensure that your subscription is allowlisted for the target region. 
+- Depending on your Storage Account deployment, the following dependent resources may need to be deployed and configured in the target region *prior* to relocation:
     - [Virtual Network, Network Security Groups, and User Defined Route](./relocation-virtual-network.md)
     - [Azure Key Vault](./relocation-key-vault.md)
     - [Azure Automation](./relocation-automation.md)
     - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
     - [Azure Private Link](./relocation-private-link.md)
-- Capture the below list of internal resources/settings of the Storage Account instance.
-    - Lifecycle management policies
-    - Static websites
-    - Event subscriptions
-    - Alerts
-    - Content Delivery Network (CDN)
-- Confirm that the Storage Account instance is deployed in [one of the paired regions](/azure/reliability/cross-region-replication-azure#azure-paired-regions) with Geo-redundant storage (GRS) or Read-Access Geo-Redundant Storage (RA-GRS) support.
-    >[!IMPORTANT]
-    >If the Storage Account instance is operating in a production layer of a landing zone, such as hosting a static website or CDN, then you must reevaluate dependent resources as per configured resources like Traffic Manager.
 
 ## Prepare
 
