@@ -25,8 +25,6 @@ If you're looking for items older than six months, you can find them in the [Arc
 |Date | Update |
 |----------|----------|
 | January 25 | [Deprecation of security alerts and update of security alerts to informational severity level](#deprecation-of-security-alerts-and-update-of-security-alerts-to-informational-severity-level) |
-| Date | Update |
-|--|--|
 | January 24 | [Agentless container posture for GCP in Defender for Containers and Defender CSPM (Preview)](#agentless-container-posture-for-gcp-in-defender-for-containers-and-defender-cspm-preview) |
 | January 16 | [Public preview of agentless malware scanning for servers](#public-preview-of-agentless-malware-scanning-for-servers)|
 | January 15 | [General availability of Defender for Cloud's integration with Microsoft Defender XDR](#general-availability-of-defender-for-clouds-integration-with-microsoft-defender-xdr) |
@@ -93,6 +91,7 @@ The following security alerts are updated to the **informational** severity leve
   - `Privileged custom role created for your subscription in a suspicious way (Preview)(ARM_PrivilegedRoleDefinitionCreation)`
   
 See the full [list of security alerts](alerts-reference.md).
+
 ### Agentless container posture for GCP in Defender for Containers and Defender CSPM (Preview)
 
 January 24, 2024
