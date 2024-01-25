@@ -1,6 +1,6 @@
 ---
-title: Relocate Azure Storage Account to another region
-description: Learn how to relocate Azure Storage Account to another region
+title: Relocate Azure network security group (NSG) to another region
+description: Learn hjow to relocate Azure network security group (NSG) to another region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris

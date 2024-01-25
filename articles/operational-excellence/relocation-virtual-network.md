@@ -92,7 +92,7 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 ### Connected Scenario
 
 | Relocation with no IP Address Change  | Relocation with IP Address Change |
-|  |  |
+|--|--|
 | No additional IP address ranges are needed.| Additional IP Address ranges are needed. |
 | No IP Address change for resources after relocation.  | IP Address change of resources after relocation. 
 | All workloads with dependencies on each other need to be relocated together.   | Workload relocation without considering dependencies possible (Take communication latency into account).  |
