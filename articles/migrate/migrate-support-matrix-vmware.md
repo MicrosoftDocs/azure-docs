@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 01/19/2024
+ms.date: 01/25/2024
 ms.custom: engagement-fy23
 ---
 
@@ -342,14 +342,14 @@ As part of your migration journey to Azure using the Azure Migrate appliance, yo
 
 #### [Business case considerations](#tab/businesscase)
 
-If you're importing servers by using an RVTools XLSX (preview) file and building a business case, listed below are few limitations: 
+If you're importing servers by using an RVTools XLSX file and building a business case, listed below are few limitations: 
 
 - Performance history duration in Azure settings aren't applicable.
 - Servers are classified as unknown in the business case utilization insights chart and are sized as-is without right sizing for Azure or AVS cost.
 
 #### [Assessment considerations](#tab/assessmentcase)
 
-If you're importing servers by using an RVTools XLSX (preview) file for creating an assessment with the following criteria:
+If you're importing servers by using an RVTools XLSX file for creating an assessment with the following criteria:
 - Sizing criteria as **performance-based** on the configured CPU and memory (based on the CPUs and Memory columns from the RVTools XLSX).
 - Storage criteria (In use MiB and In use MB for versions prior to 4.1.2)
 
