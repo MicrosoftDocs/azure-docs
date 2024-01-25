@@ -24,23 +24,23 @@ Running software in Azure VMware Solution, as a private cloud in Azure, offers s
 
 To take advantage of these benefits if you are running in an Azure VMware Solution it is important to enable Arc through this document to fully integrate the experience with the AVS private cloud. Alternatively, Arc-enabling VMs through the following mechanisms will not create the necessary attributes to register the VM and software as part of Azure VMware Solution and therefore result in billing for SQL Server ESUs for:
 
-·        Arc-enabled servers,
+- Arc-enabled servers,
 
-·        Arc-enabled VMware vSphere
+- Arc-enabled VMware vSphere
 
-·        SQL Server enabled by Azure Arc
+- SQL Server enabled by Azure Arc
 
 ## How to manually integrate an Arc-enabled VM into Azure VMware Solutions
 
-If a VM in AVS was Arc-enabled using a method distinct from the one outlined in this document, the following steps are provided to refresh the integration between the Arc-enabled VMs and Azure VMware Solution
+When a VM in Azure VMware Solution private cloud is Arc-enabled using a method distinct from the one outlined in this document, the following steps are provided to refresh the integration between the Arc-enabled VMs and Azure VMware Solution
 
-These steps will change the VM machine type from _Machine – Azure Arc_ to type _Machine – Azure Arc (AVS),_ which has the necessary integrations with Azure VMware Solution. 
+These steps change the VM machine type from _Machine – Azure Arc_ to type _Machine – Azure Arc (AVS),_ which has the necessary integrations with Azure VMware Solution. 
 
-There are two ways to accomplish this:  
+There are two ways to refresh the integration between the Arc-enabled VMs and Azure VMware Solution:  
 
-1.      In the Azure VMware Solution private cloud, navigate to the vCenter Server inventory and Virtual Machines section within the portal. Locate the virtual machine that requires updating and follow the process to 'Enable in Azure.' If the option is grayed out, you must first 'Remove from Azure' and then proceed to 'Enable in Azure.'
+1. In the Azure VMware Solution private cloud, navigate to the vCenter Server inventory and Virtual Machines section within the portal. Locate the virtual machine that requires updating and follow the process to 'Enable in Azure'. If the option is grayed out, you must first **Remove from Azure** and then proceed to **Enable in Azure**
 
-2.        Run the [az connectedvmware vm create ](/cli/azure/connectedvmware/vm?view=azure-cli-latest%22%20\l%20%22az-connectedvmware-vm-create)Azure CLI command on the VM in Azure VMware Solution which will update the machine type. 
+2. Run the [az connectedvmware vm create ](/cli/azure/connectedvmware/vm?view=azure-cli-latest%22%20\l%20%22az-connectedvmware-vm-create)Azure CLI command on the VM in Azure VMware Solution to update the machine type. 
 
 
 ```azurecli
