@@ -5,7 +5,7 @@ author: pagienge
 ms.service: azure-disk-storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 01/25/2024
 ms.author: pagienge
 ms.custom: references_regions, ignite-fall-2021, devx-track-azurecli, linux-related-content
 ---
@@ -14,7 +14,7 @@ ms.custom: references_regions, ignite-fall-2021, devx-track-azurecli, linux-rela
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-This article describes how to expand managed disks for a Linux virtual machine (VM). You can [add data disks](add-disk.md) to provide for additional storage space, and you can also expand an existing data disk. The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux VM in Azure. This article covers expanding either OS disks or data disks.
+This article describes how to expand managed disks for a Linux virtual machine (VM). You can [add data disks](add-disk.md) to provide for additional storage space, and you can also expand an existing data disk. The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux VM in Azure. This article covers expanding either OS disks or data disks. You can't expand the size of striped volumes.
 
 An OS disk has a maximum capacity of 4,095 GiB. However, many operating systems are partitioned with [master boot record (MBR)](https://wikipedia.org/wiki/Master_boot_record) by default. MBR limits the usable size to 2 TiB. If you need more than 2 TiB, create and attach data disks and use them for data storage. If you need to store data on the OS disk and require the additional space, convert it to GUID Partition Table (GPT).
 
