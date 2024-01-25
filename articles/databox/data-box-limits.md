@@ -44,6 +44,7 @@ Data Box caveats for an export order include:
 - Data Box is a Windows-based device and doesn’t support case-sensitive file names. For example, you may have two different files in Azure with names that just differ in casing. Don't use Data Box to export such files as the files will be overwritten on the device.
 - If you have duplicate tags in input files or tags referring to the same data, the Data Box export might skip or overwrite the files. The number of files and size of data that the Azure portal displays might differ from the actual size of data on the device. 
 - Data Box exports data to Windows-based system over SMB and is limited by SMB limitations for files and folders. Files and folders with unsupported names aren't exported.
+- Importing data into NFS Azure file shares isn't supported by Azure Data Box. Copying data from Data Box into an existing NFS Azure file share with an identical name as your source folder creates a conflict. To resolve this conflict, Data Box renames the source share to 'databox-[GUID]' and uploads it to the target storage account as an SMB Azure file share. 
 - There is a 1:1 mapping from prefix to container.
 - Maximum filename size is 1024 characters. Filenames that exceed this length aren't exported. 
 - Duplicate prefixes in the *xml* file (uploaded during order creation) are exported. Duplicate prefixes are not ignored.
