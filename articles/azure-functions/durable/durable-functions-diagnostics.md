@@ -540,10 +540,10 @@ Clients will get the following response:
 
 ## Distributed Tracing
 
-Distributed Tracing tracks requests and shows how different services interact with each other. In Durable Functions, it also correlates orchestrations and activities together. This is helpful to understand how much time steps of the orchestration take relative to the entire orchestration. It is also usefult to understand where an application is having an issue or where an exception was thrown. This feature is supported for all languages and storage providers.
+Distributed Tracing tracks requests and shows how different services interact with each other. In Durable Functions, it also correlates orchestrations and activities together. This is helpful to understand how much time steps of the orchestration take relative to the entire orchestration. It is also useful to understand where an application is having an issue or where an exception was thrown. This feature is supported for all languages and storage providers.
 
 > [!NOTE]
-> Distributed Tracing V2 requires a minimum version of [Durable Functions v2.12.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.12.0). Also, Distributed Tracing V2 is in a preview state and therefore some Durable Functions patterns are not instrumented and unsupported with distributed tracing. For example, Durable Entities operations are not instrumented and traces will not show up in Application Insights.
+> Distributed Tracing V2 requires [Durable Functions v2.12.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.12.0) or greater. Also, Distributed Tracing V2 is in a preview state and therefore some Durable Functions patterns are not instrumented and unsupported with distributed tracing. For example, Durable Entities operations are not instrumented and traces will not show up in Application Insights.
 
 ### Setting up Distributed Tracing
 
