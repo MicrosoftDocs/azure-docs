@@ -419,8 +419,7 @@ If cloud tiering is enabled, solutions that directly back up the server endpoint
 If you prefer to use an on-premises backup solution, backups should be performed on a server in the sync group that has cloud tiering disabled and make sure there are no tiered files. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will be synced to all endpoints in the sync group, and existing files will be replaced with the version restored from backup.  Volume-level restores won't replace newer file versions in the Azure file share or other server endpoints.
 
 > [!NOTE]  
-> Bare-metal (BMR) restore, VM restore, System restore (windows built in OS restore) & file level restore with it's tiered version (happens when backup software backs up a tiered file instead of a full file)
-can cause unexpected results and isn't currently supported when cloud tiering is enabled. VSS snapshots (including Previous Versions tab) are supported on volumes which have cloud tiering enabled. However, you must enable previous version compatibility through PowerShell. [Learn how](file-sync-deployment-guide.md#optional-self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
+> Bare-metal (BMR) restore, VM restore, System restore (windows built in OS restore) & file level restore with it's tiered version (happens when backup software backs up a tiered file instead of a full file) can cause unexpected results and isn't currently supported when cloud tiering is enabled. VSS snapshots (including Previous Versions tab) are supported on volumes which have cloud tiering enabled. However, you must enable previous version compatibility through PowerShell. [Learn how](file-sync-deployment-guide.md#optional-self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
 ## Data Classification
 
