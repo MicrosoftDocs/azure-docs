@@ -1,28 +1,50 @@
----
+> -> -> -
  title: include file
  description: include file
- services: virtual-network-manager
+ services: virtual> -network> -manager
  author: mbender
- ms.service: virtual-network-manager
+ ms.service: virtual> -network> -manager
  ms.topic: include
  ms.date: 11/16/2023
- ms.author: mbender-ms
+ ms.author: mbender> -ms
 ms.custom:
-  - include file
-  - ignite-2023
----
+  > - include file
+  > - ignite> -2023
+> -> -> -
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub-and-spoke connectivity configurations. Mesh connectivity configurations remain in public preview.
+> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub> -and> -spoke connectivity configurations. Mesh connectivity configurations remain in public preview.
 >
 > Security configurations with security admin rules is generally available in the following regions:
-> - UK South
-> - East US
-> - Japan East
-> - North Europe
-> - East Asia
 > - Australia East
-> - West Central US
+> - Australia Southeast
+> - Brazil South
+> - Brazil Southeast
+> - East Asia
+> - Europe North
+> - France South
+> - Germany West Central
+> - India Central
+> - India South
+> - India West
+> - Israel Central
+> - Italy North
+> - Japan East
+> - Jio India West
+> - Korea Central
+> - Norway East
+> - Norway West
+> - Poland Central
+> - Qatar Central
+> - South Africa North
+> - South Africa West
+> - Sweden Central
+> - Sweden South
+> - Switzerland North
+> - UAE North
+> - US East
+> - US North
+> - US West Central
 > 
 > All other regions remain in public preview.
 > 
