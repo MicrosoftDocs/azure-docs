@@ -1832,7 +1832,7 @@
         },
         {
             "source_path_from_root": "/articles/marketplace/partner-center-portal/get-paid.md",
-            "redirect_url": "/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context",
+            "redirect_url": "/partner-center/marketplace-get-paid",
             "redirect_document_id": false
         },
         {
@@ -1887,22 +1887,22 @@
         },
         {
             "source_path_from_root": "/articles/marketplace/partner-center-portal/payment-thresholds-methods-timeframes.md",
-            "redirect_url": "/partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context",
+            "redirect_url": "/partner-center/payment-thresholds-methods-timeframes",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/marketplace/partner-center-portal/payout-policy-details.md",
-            "redirect_url": "/partner-center/payout-policy-details?context=/azure/marketplace/context/context",
+            "redirect_url": "/partner-center/payout-policy-details",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/marketplace/partner-center-portal/payout-summary-overview.md",
-            "redirect_url": "/partner-center/payout-statement?context=/azure/marketplace/context/context",
+            "redirect_url": "/partner-center/payout-statement",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/marketplace/partner-center-portal/payout-summary.md",
-            "redirect_url": "/partner-center/payout-statement?context=/azure/marketplace/context/context",
+            "redirect_url": "/partner-center/payout-statement",
             "redirect_document_id": false
         },
         {
@@ -1917,7 +1917,7 @@
         },
         {
             "source_path_from_root": "/articles/marketplace/partner-center-portal/set-up-your-payout-account-tax-forms.md",
-            "redirect_url": "/partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context",
+            "redirect_url": "/partner-center/set-up-your-payout-account",
             "redirect_document_id": false
         },
         {
@@ -1932,7 +1932,7 @@
         },
         {
             "source_path_from_root": "/articles/marketplace/partner-center-portal/tax-details-paid-transactions.md",
-            "redirect_url": "/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context",
+            "redirect_url": "/partner-center/tax-details-marketplace",
             "redirect_document_id": false
         },
         {
@@ -2022,7 +2022,7 @@
         },
         {
             "source_path_from_root": "/articles/marketplace/company-work-accounts.md",
-            "redirect_url": "/partner-center/azure-active-directory-tenants-and-partner-center?context=/azure/marketplace/context/context",
+            "redirect_url": "/partner-center/azure-active-directory-tenants-and-partner-center",
             "redirect_document_id": false
         },
         {
@@ -3453,6 +3453,11 @@
         {
             "source_path_from_root": "/articles/marketplace/partner-center-portal/saas-fulfillment-apis-faq.yml",
             "redirect_url": "/partner-center/marketplace/partner-center-portal/saas-fulfillment-apis-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/context/context.yml",
+            "redirect_url": "/partner-center/marketplace/",
             "redirect_document_id": false
         }
     ]

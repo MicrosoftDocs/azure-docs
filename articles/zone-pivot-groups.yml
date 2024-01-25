@@ -2945,3 +2945,18 @@ groups:
     title: Management group
   - id: sub
     title: Subscription
+# Owner: accledgerdevs
+- id: azure-confidential-ledger-programming-languages
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
+  - id: programming-language-portal
+    title: Azure Portal
