@@ -184,7 +184,7 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
     > [!NOTE] 
     > If you change resource settings on other tabs after creating tags, your tags will be automatically updated.
 
-1. Once you're done, go to the **Review + create** tab and select **Create** to deploy your host pool.
+1. Once you're done, go to the **Review + create** tab and select **Create** to create and assign your scaling plan to the host pools you selected.
 
 ### [PowerShell](#tab/powershell)
 
