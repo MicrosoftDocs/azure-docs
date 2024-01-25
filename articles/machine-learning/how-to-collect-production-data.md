@@ -246,11 +246,11 @@ For more information on how to format your deployment YAML for data collection w
 
 __Blob storage output/format__:
 
-By default, the collected data is stored at the following path in your workspace Blob Storage: `azureml://datastores/workspaceblobstore/paths/modelDataCollector`.
+- By default, the collected data is stored at the following path in your workspace Blob Storage: `azureml://datastores/workspaceblobstore/paths/modelDataCollector`.
 
-The final path in the blob will be appended with `{endpoint_name}/{deployment_name}/{collection_name}/{yyyy}/{MM}/{dd}/{HH}/{instance_id}.jsonl`.
+- The final path in the blob will be appended with `{endpoint_name}/{deployment_name}/{collection_name}/{yyyy}/{MM}/{dd}/{HH}/{instance_id}.jsonl`.
 
-Each line in the file is a JSON object representing a single inference request/response that was logged.
+- Each line in the file is a JSON object representing a single inference request/response that was logged.
 
 > [!NOTE]
 > `collection_name` refers to the data collection name (e.g., `model_inputs` or `model_outputs`).
@@ -321,7 +321,7 @@ To view the collected data in Blob Storage from the studio UI:
 
 In addition to custom logging with the provided Python SDK, you can collect request and response HTTP payload data directly without the need to augment your scoring script (`score.py`). 
 
-1.To enable payload logging, in your deployment YAML, use the names `request` and `response`:
+1. To enable payload logging, in your deployment YAML, use the names `request` and `response`:
 
     ```yml
     $schema: http://azureml/sdk-2-0/OnlineDeployment.json
@@ -344,8 +344,7 @@ In addition to custom logging with the provided Python SDK, you can collect requ
     $ az ml online-deployment create -f deployment.YAML
     ```
 
-> [!NOTE]
-> With payload logging, the collected data is not guaranteed to be in tabular format. Therefore, if you want to use collected payload data with model monitoring, you'll be required to provide a preprocessing component to make the data tabular. If you're interested in a seamless model monitoring experience, we recommend using the [custom logging Python SDK](#perform-custom-logging-for-model-monitoring).
+With payload logging, the collected data is not guaranteed to be in tabular format. Therefore, if you want to use collected payload data with model monitoring, you'll be required to provide a preprocessing component to make the data tabular. If you're interested in a seamless model monitoring experience, we recommend using the [custom logging Python SDK](#perform-custom-logging-for-model-monitoring).
 
 As your deployment is used, the collected data flows to your workspace Blob storage. The following JSON code is an example of an HTTP _request_ collected:
 
