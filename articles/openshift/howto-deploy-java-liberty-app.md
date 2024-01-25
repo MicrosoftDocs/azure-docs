@@ -16,22 +16,20 @@ This article uses the Azure Marketplace offer for Open/WebSphere Liberty to acce
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
+[!INCLUDE [aro-support](includes/aro-support.md)]
+
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [aro-quota](includes/aro-quota.md)]
 
-- A Red Hat account with complete profile. If you don't have one, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register).
+Complete the following prerequisites to successfully use this guide.
 
-- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the Bash environment; make sure the Azure CLI version is 2.43.0 or higher.
-
-  [![Image of button to launch Cloud Shell in a new window.](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
-
-  > [!NOTE]
-  > You can also execute this guidance from a local developer command line with the Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
-
-- Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
-
-- Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. Ensure your subscription has sufficient quota.
+1. Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux).
+1. Install a Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
+1. Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
+1. Install [Docker](https://docs.docker.com/get-docker/) for your OS.
+1. Install [Azure CLI](/cli/azure/install-azure-cli) 2.31.0 or later.
+1. Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
 ## Get a Red Hat pull secret
 
@@ -157,9 +155,9 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 1. In the navigation pane, select **Outputs**. This list shows the output values from the deployment, which includes some useful information.
 
-1. Open Azure Cloud Shell and paste the value from the **cmdToGetKubeadminCredentials** field. You'll see the admin account and credential for logging in to the OpenShift cluster console portal. The following content is an example of an admin account.
+1. Open your terminal and paste the value from the **cmdToGetKubeadminCredentials** field. You'll see the admin account and credential for logging in to the OpenShift cluster console portal. The following content is an example of an admin account.
 
-   ```azurecli-interactive
+   ```bash
    az aro list-credentials --resource-group abc1228rg --name clusterf9e8b9
    {
      "kubeadminPassword": "xxxxx-xxxxx-xxxxx-xxxxx",
