@@ -38,46 +38,46 @@ To manage control plane permissions for the Managed HSM resource, you must use [
 > - All the data action names have the prefix **Microsoft.KeyVault/managedHsm**, which is omitted in the table for brevity.
 > - All role names have the prefix **Managed HSM**, which is omitted in the following table for brevity.
 
-|Data action | Administrator | Crypto Officer | Crypto User | Policy Administrator | Crypto Service Encryption User | Backup | Crypto Auditor|
-|---|---|---|---|---|---|---|---|
-|**Security domain management**|
-/securitydomain/download/action|<center>X</center>||||||
-/securitydomain/upload/action|<center>X</center>||||||
-/securitydomain/upload/read|<center>X</center>||||||
-/securitydomain/transferkey/read|<center>X</center>||||||
-|**Key management**|
-|/keys/read/action|||<center>X</center>||<center>X</center>||<center>X</center>|
-|/keys/write/action|||<center>X</center>||||
-|/keys/rotate/action|||<center>X</center>||||
-|/keys/create|||<center>X</center>||||
-|/keys/delete|||<center>X</center>||||
-|/keys/deletedKeys/read/action||<center>X</center>|||||
-|/keys/deletedKeys/recover/action||<center>X</center>|||||
-|/keys/deletedKeys/delete||<center>X</center>|||||<center>X</center>|
-|/keys/backup/action|||<center>X</center>|||<center>X</center>|
-|/keys/restore/action|||<center>X</center>||||
-|/keys/release/action|||<center>X</center>||||
-|/keys/import/action|||<center>X</center>||||
-|**Key cryptographic operations**|
-|/keys/encrypt/action|||<center>X</center>||||
-|/keys/decrypt/action|||<center>X</center>||||
-|/keys/wrap/action|||<center>X</center>||<center>X</center>||
-|/keys/unwrap/action|||<center>X</center>||<center>X</center>||
-|/keys/sign/action|||<center>X</center>||||
-|/keys/verify/action|||<center>X</center>||||
-|**Role management**|
-|/roleAssignments/read/action|<center>X</center>|<center>X</center>|<center>X</center>|<center>X</center>|||<center>X</center>
-|/roleAssignments/write/action|<center>X</center>|<center>X</center>||<center>X</center>|||
-|/roleAssignments/delete/action|<center>X</center>|<center>X</center>||<center>X</center>|||
-|/roleDefinitions/read/action|<center>X</center>|<center>X</center>|<center>X</center>|<center>X</center>|||<center>X</center>
-|/roleDefinitions/write/action|<center>X</center>|<center>X</center>||<center>X</center>|||
-|/roleDefinitions/delete/action|<center>X</center>|<center>X</center>||<center>X</center>|||
-|**Backup and restore management**|
-|/backup/start/action|<center>X</center>|||||<center>X</center>|
-|/backup/status/action|<center>X</center>|||||<center>X</center>|
-|/restore/start/action|<center>X</center>||||||
-|/restore/status/action|<center>X</center>||||||
-||||||||
+|Data action | Administrator | Crypto Officer | Crypto User | Policy Administrator | Crypto Service Encryption User | Backup | Crypto Auditor| Crypto Service Released User|
+|---|---|---|---|---|---|---|---||
+|**Security domain management**||
+/securitydomain/download/action|<center>X</center>|||||||
+/securitydomain/upload/action|<center>X</center>|||||||
+/securitydomain/upload/read|<center>X</center>|||||||
+/securitydomain/transferkey/read|<center>X</center>|||||||
+|**Key management**||
+|/keys/read/action|||<center>X</center>||<center>X</center>||<center>X</center>||
+|/keys/write/action|||<center>X</center>|||||
+|/keys/rotate/action|||<center>X</center>|||||
+|/keys/create|||<center>X</center>|||||
+|/keys/delete|||<center>X</center>|||||
+|/keys/deletedKeys/read/action||<center>X</center>||||||
+|/keys/deletedKeys/recover/action||<center>X</center>||||||
+|/keys/deletedKeys/delete||<center>X</center>|||||<center>X</center>||
+|/keys/backup/action|||<center>X</center>|||<center>X</center>||
+|/keys/restore/action|||<center>X</center>|||||
+|/keys/release/action|||<center>X</center>|||| ggg |
+|/keys/import/action|||<center>X</center>|||||
+|**Key cryptographic operations**||
+|/keys/encrypt/action|||<center>X</center>|||||
+|/keys/decrypt/action|||<center>X</center>|||||
+|/keys/wrap/action|||<center>X</center>||<center>X</center>|||
+|/keys/unwrap/action|||<center>X</center>||<center>X</center>|||
+|/keys/sign/action|||<center>X</center>|||||
+|/keys/verify/action|||<center>X</center>|||||
+|**Role management**||
+|/roleAssignments/read/action|<center>X</center>|<center>X</center>|<center>X</center>|<center>X</center>|||<center>X</center>|
+|/roleAssignments/write/action|<center>X</center>|<center>X</center>||<center>X</center>||||
+|/roleAssignments/delete/action|<center>X</center>|<center>X</center>||<center>X</center>||||
+|/roleDefinitions/read/action|<center>X</center>|<center>X</center>|<center>X</center>|<center>X</center>|||<center>X</center>|
+|/roleDefinitions/write/action|<center>X</center>|<center>X</center>||<center>X</center>||||
+|/roleDefinitions/delete/action|<center>X</center>|<center>X</center>||<center>X</center>||||
+|**Backup and restore management**||
+|/backup/start/action|<center>X</center>|||||<center>X</center>||
+|/backup/status/action|<center>X</center>|||||<center>X</center>||
+|/restore/start/action|<center>X</center>|||||||
+|/restore/status/action|<center>X</center>|||||||
+|||||||||
 
 ## Next steps
 
