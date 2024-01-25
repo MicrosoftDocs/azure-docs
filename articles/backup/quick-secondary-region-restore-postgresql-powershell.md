@@ -9,7 +9,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Quickstart: Restore Azure Database for PostgreSQL server with PowerShell by using Azure Backup
+# Quickstart: Restore Azure Database for PostgreSQL server across regions with PowerShell by using Azure Backup
 
 This quickstart describes how to configure and perform cross-region restore for Azure Database for PostgreSQL server with PowerShell.
 
