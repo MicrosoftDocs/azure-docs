@@ -57,6 +57,31 @@ The following table has a list of all the default targets that the Azure Monitor
 
 If you want to turn on the scraping of the default targets that aren't enabled by default, edit the [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) `ama-metrics-settings-configmap` to update the targets listed under `default-scrape-settings-enabled` to `true`. Apply the configmap to your cluster.
 
+### Enable pod annotation-based scraping
+To scrape application pods without needing to create a custom Prometheus config, annotations can be added to the pods. The annotation `prometheus.io/scrape: "true"` is required for the pod to be scraped. The annotations `prometheus.io/path` and `prometheus.io/port` indicate the path and port that the metrics are hosted at on the pod. The annotations for a pod that is hosting metrics at `<pod IP>:8080/metrics` would be:
+```yaml
+metadata:   
+  annotations:
+    prometheus.io/scrape: 'true'
+    prometheus.io/path: '/metrics'
+    prometheus.io/port: '8080'
+```
+
+Scraping these pods with specific annotations is disabled by default. To enable, in the `ama-metrics-settings-configmap`, add the regex for the namespace(s) of the pods with annotations you wish to scrape as the value of the field `podannotationnamespaceregex`.
+
+For example, the following will scrape pods with annotations only in the namespaces `kube-system` and `default`:
+```yaml
+pod-annotation-based-scraping: |-
+    podannotationnamespaceregex = "kube-system|my-namespace"
+```
+
+To enable scraping for pods with annotations in all namespaces, use:
+```yaml
+pod-annotation-based-scraping: |-
+    podannotationnamespaceregex = ".*"
+```
+
+
 ### Customize metrics collected by default targets
 By default, for all the default targets, only minimal metrics used in the default recording rules, alerts, and Grafana dashboards are ingested as described in [minimal-ingestion-profile](prometheus-metrics-scrape-configuration-minimal.md). To collect all metrics from default targets, update the keep-lists in the settings configmap under `default-targets-metrics-keep-list`, and set `minimalingestionprofile` to `false`.
 
@@ -279,66 +304,6 @@ metric_relabel_configs:
   action: keep
   regex: '.+'
 ```
-
-### Pod annotation-based scraping
-
-The following scrape config uses the `__meta_*` labels added from the `kubernetes_sd_configs` for the `pod` role to filter for pods with certain annotations.
-
-To scrape certain pods, specify the port, path, and scheme through annotations for the pod and the following job scrapes only the address specified by the annotation:
-
-- `prometheus.io/scrape`: Enable scraping for this pod.
-- `prometheus.io/scheme`: If the metrics endpoint is secured, you need to set scheme to `https` and most likely set the TLS config.
-- `prometheus.io/path`: If the metrics path isn't /metrics, define it with this annotation.
-- `prometheus.io/port`: Specify a single port that you want to scrape.
-
-```yaml
-scrape_configs:
-  - job_name: 'kubernetespods-sample'
-
-    kubernetes_sd_configs:
-    - role: pod
-
-    relabel_configs:
-    # Scrape only pods with the annotation: prometheus.io/scrape = true
-    - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
-      action: keep
-      regex: true
-
-    # If prometheus.io/path is specified, scrape this path instead of /metrics
-    - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
-      action: replace
-      target_label: __metrics_path__
-      regex: (.+)
-
-    # If prometheus.io/port is specified, scrape this port instead of the default
-    - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
-      action: replace
-      regex: ([^:]+)(?::\d+)?;(\d+)
-      replacement: $1:$2
-      target_label: __address__
-
-    # If prometheus.io/scheme is specified, scrape with this scheme instead of http
-    - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scheme]
-      action: replace
-      regex: (http|https)
-      target_label: __scheme__
-
-    # Include the pod namespace as a label for each metric
-    - source_labels: [__meta_kubernetes_namespace]
-      action: replace
-      target_label: kubernetes_namespace
-
-    # Include the pod name as a label for each metric
-    - source_labels: [__meta_kubernetes_pod_name]
-      action: replace
-      target_label: kubernetes_pod_name
-
-    # [Optional] Include all pod labels as labels for each metric
-    - action: labelmap
-      regex: __meta_kubernetes_pod_label_(.+)
-```
-
-See the [Apply config file](prometheus-metrics-scrape-validate.md#deploy-config-file-as-configmap) section to create a configmap from the Prometheus config.
 
 ## Next steps
 
