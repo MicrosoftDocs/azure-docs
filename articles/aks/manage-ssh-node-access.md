@@ -246,11 +246,11 @@ Only after all the nodes are reimaged, does the disable/enable SSH Access operat
 >[!IMPORTANT]
 >During this operation, all Virtual Machine Scale Set instances are upgraded and reimaged to use the new SSH public key.
 
-## Inspect status of SSH
+## SSH service status
 
 #### [Node-shell](#tab/node-shell)
 
-Perform the following steps to use node-shell onto one node and inspect SSH status using `systemctl`.
+Perform the following steps to use node-shell onto one node and inspect SSH service status using `systemctl`.
 
 1. Get standard bash shell by running the command `kubectl node-shell <node>` command.
 
@@ -282,7 +282,7 @@ ssh.service - OpenBSD Secure Shell server
 
 #### [Using run-command](#tab/run-command)
 
-If node-shell isn't available, you can use the Virtual Machine Scale Set [`az vmss run-command invoke`][run-command-invoke] to check SSH status.
+If node-shell isn't available, you can use the Virtual Machine Scale Set [`az vmss run-command invoke`][run-command-invoke] to check SSH service status.
 
 ```azurecli-interactive
 az vmss run-command invoke --resource-group myResourceGroup --name myVMSS --command-id RunShellScript --instance-id 0 --scripts "systemctl status ssh"
