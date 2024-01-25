@@ -233,7 +233,7 @@ main().catch((err) => {
 
 ```
 
-This code snippet shows how to use the `MapsSearch` method from the Azure Maps Search client library to create a `client` object with your Azure credentials. You can use either your Azure Maps subscription key or the [Microsoft Entra credential](#using-a-microsoft-entra-credential) from the previous section. The `path` parameter specifies the API endpoint, which is "/geocode" in this case. The `get` method sends an HTTP GET request with the query parameters. The query searches for the coordinate of "1301 Alaskan Way, Seattle, WA 98101, US". The SDK returns the results as a [GeocodingResponseOutput] object and writes them to the console. Note that the results are ordered by confidence score and in this example only the first result returned with be displayed to the screen. For more information, see the [GetGeocoding] documentation.
+This code snippet shows how to use the `MapsSearch` method from the Azure Maps Search client library to create a `client` object with your Azure credentials. You can use either your Azure Maps subscription key or the [Microsoft Entra credential](#using-a-microsoft-entra-credential). The `path` parameter specifies the API endpoint, which in this case is "/geocode". The `get` method sends an HTTP GET request with the query parameters. The query searches for the coordinate of "1301 Alaskan Way, Seattle, WA 98101, US". The SDK returns the results as a [GeocodingResponseOutput] object and writes them to the console. The results are ordered by confidence score in this example and only the first result is displayed to the screen. For more information, see [GetGeocoding].
 
 Run `search.js` with Node.js:
 
@@ -347,7 +347,7 @@ main().catch(console.error);
 
 ## Use V1 SDK
 
-We'll bring all the V1 features to V2 in the near future, but if you want to use V1 SDK, you can install the packages as below:
+We are working to make all V1 features available in V2, until then, install the following V1 SDK packages if needed:
 
 ```bash
 npm install @azure-rest/map-search-v1@npm:@azure-rest/map-search@^1.0.0
@@ -361,7 +361,7 @@ const MapsSearchV1 = require("@azure-rest/map-search-v1").default;
 const MapsSearchV2 = require("@azure-rest/map-search-v2").default;
 ```
 
-In the following example, you will create a function that accept an address and search POIs around it. You'll use V2 SDK to get the coordinate of the address(/geocode), and use V1 SDK to search POIs around it(/search/nearby).
+The following example demonstrates creating a function that accepts an address and search POIs around it. Use V2 SDK to get the coordinates of the address(/geocode) and V1 SDK to search POIs around it(/search/nearby).
 
 ```javascript
 const MapsSearchV1 = require("@azure-rest/map-search-v1").default;
