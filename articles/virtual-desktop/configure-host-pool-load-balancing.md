@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
-manager: femila
 ---
 # Configure the Azure Virtual Desktop load-balancing method
 
