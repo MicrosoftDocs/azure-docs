@@ -136,7 +136,7 @@ Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size
 
 #### Summary
 
-The following table provides a comparison of disk capacities and performance maximums to help you decide which to use.
+The following table provides an overview of disk capacities and performance maximums to help you decide which to use.
 
 [!INCLUDE [disks-premv2-performance](../../includes/disks-premv2-performance.md)]
 
