@@ -37,7 +37,7 @@ To restore the database to a secondary region after enabling Cross Region Restor
    Search-AzDataProtectionBackupInstanceInAzGraph -Subscription $subscriptionId  -ResourceGroup  $resourceGroupName  -Vault $vaultName -DatasourceType AzureDatabaseForPostgreSQL
    ```
 
-2. Once you identify the backed-up instance, fetch the relevant recovery  point by using the  `Get-AzDataProtectionRecoveryPoint`` cmdlet.
+2. Once you identify the backed-up instance, fetch the relevant recovery  point by using the  `Get-AzDataProtectionRecoveryPoint` cmdlet.
 
    ```azurepowershell
    $recoveryPointsCrr = Get-AzDataProtectionRecoveryPoint -BackupInstanceName $instance.Name -ResourceGroupName $resourceGroupName -ResourceGroupName $resourceGroupName e -SubscriptionId $subscriptionId -UseSecondaryRegion
@@ -58,7 +58,7 @@ To restore the database to a secondary region after enabling Cross Region Restor
       ```azurepowershell
       $targetResourceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/providers/Microsoft.DBforPostgreSQL/servers/targetossserver/databases/emprestored21"
       ```
-   2. Use the `Intialize-AzDataProtectionRestoreRequest`` cmdlet to prepare the restore request with relevant details.
+   2. Use the `Intialize-AzDataProtectionRestoreRequest` cmdlet to prepare the restore request with relevant details.
 
       ```azurepowershell
       $OssRestoreReq = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureDatabaseForPostgreSQL -SourceDataStore VaultStore -RestoreLocation $vault.ReplicatedRegion[0] -RestoreType AlternateLocation -RecoveryPoint $recoveryPointsCrr[0].Property.RecoveryPointId -TargetResourceId $targetResourceId -SecretStoreURI $secretURI -SecretStoreType AzureKeyVault
