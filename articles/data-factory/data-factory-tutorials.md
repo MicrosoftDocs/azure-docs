@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # Azure Data Factory tutorials

@@ -31,9 +31,9 @@ This article contains known issues for Azure IoT Operations Preview.
 
 - Even though IoT MQ's [diagnostic service](../monitor/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
 
-- Some clusters that have slow Kubernetes API calls might result in selftest ping failures and "Status {Failed}. Probe failed: Ping: 1/2" messages from az iot ops check
+- Some clusters that have slow Kubernetes API calls may result in selftest ping failures: `Status {Failed}. Probe failed: Ping: 1/2` from running `az iot ops check` command.
 
-- When implementing Azure Event Grid and Kafka, you might encounter timeout errors in the logs. Despite these errors, the connector will continue to function and forward messages
+- You may encounter timeout errors in the Kafka connector and Event Grid connector logs. Despite this, the connector will continue to function and forward messages. 
 
 
 ## Layered Network Management (preview)

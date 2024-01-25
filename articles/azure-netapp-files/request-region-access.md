@@ -2,15 +2,9 @@
 title: Request region access for Azure NetApp Files | Microsoft Docs
 description: Describes how to request access to a region for using Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 11/15/2021
 ms.author: anfdocs

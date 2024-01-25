@@ -1,7 +1,7 @@
 ---
 title: Maintain Defender for IoT OT network sensors from the GUI - Microsoft Defender for IoT
 description: Learn how to perform maintenance activities on individual OT network sensors using the OT sensor console.
-ms.date: 07/04/2023
+ms.date: 12/19/2023
 ms.topic: how-to
 ---
 
@@ -9,7 +9,7 @@ ms.topic: how-to
 
 This article describes extra OT sensor maintenance activities that you might perform outside of a larger deployment process.
 
-OT sensors can also be maintained from the OT sensor [CLI](cli-ot-sensor.md), the [Azure portal](how-to-manage-sensors-on-the-cloud.md), and an [on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md).
+OT sensors can also be maintained from the OT sensor [CLI](cli-ot-sensor.md), the [Azure portal](how-to-manage-sensors-on-the-cloud.md), and an [on-premises management console](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md).
 
 [!INCLUDE [caution do not use manual configurations](includes/caution-manual-configurations.md)]
 
@@ -417,7 +417,7 @@ After clearing data on a cloud-connected sensor:
 
 **To clear system data**:
 
-1. Sign in to the OT sensor as the *support* user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users). 
+1. Sign in to the OT sensor as the *admin* user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users). 
 
 1. Select **Support** > **Clear data**.
 
@@ -427,10 +427,37 @@ After clearing data on a cloud-connected sensor:
 
 A confirmation message appears that the action was successful. All learned data, allowlists, policies, and configuration settings are cleared from the sensor.
 
+## Manage sensor plugins and monitor plugin performance
+
+View data for each protocol monitored by your sensor using the **Protocols DPI (Horizon Plugins)** page in the sensor console.
+
+1. Sign into your OT sensor console and select **System settings > Network monitoring > Protocols DPI (Horizon Plugins)**.
+
+1. Do one of the following:
+
+    - To limit the protocols monitored by your sensor, select the **Enable/Disable** toggle for each plugin as needed.
+
+    - To monitor plugin performance, view the data shown on the **Protocols DPI (Horizon Plugins)** page for each plugin. To help locate a specific plugin, use the **Search** box to enter part or all of a plugin name.
+
+The **Protocols DPI (Horizon Plugins)** lists the following data per plugin:
+
+|Column name  |Description |
+|---------|---------|
+|**Plugin**     | Defines the plugin name.        |
+|**Type**     |   The plugin type, including APPLICATION or INFRASTRUCTURE.      |
+|**Time**     |  The time that data was last analyzed using the plugin. The time stamp is updated every five seconds.       |
+|**PPS**     |   The number of packets analyzed per second by the plugin.  |
+|**Bandwidth**     |    The average bandwidth detected by the plugin within the last five seconds.     |
+|**Malforms**     |  The number of malform errors detected in the last five seconds. Malformed validations are used after the protocol has been positively validated. If there's a failure to process the packets based on the protocol, a failure response is returned.       |
+|**Warnings**     | The number of warnings detected, such as when packets match the structure and specifications, but unexpected behavior is detected, based on the plugin warning configuration.        |
+| **Errors** | The number of errors detected in the last five seconds for packets that failed basic protocol validations for the packets that match protocol definitions. |
+
+Log data is available for export in the **Dissection statistics** and **Dissection Logs**, log files. For more information, see [Export troubleshooting logs](how-to-troubleshoot-sensor.md).
+
 ## Next steps
 
 For more information, see:
 
-- [Manage sensors from the on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+- [Manage sensors from the on-premises management console](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md)
 - [Track sensor activity](how-to-track-sensor-activity.md)
 - [Troubleshoot the sensor](how-to-troubleshoot-sensor.md)

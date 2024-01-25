@@ -3,7 +3,7 @@ title: Azure EA agreements and amendments
 description: This article explains how Azure EA agreements and amendments affect your Azure EA portal use.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/10/2023
+ms.date: 01/04/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -16,7 +16,7 @@ The article describes how Azure EA agreements and amendments might affect your a
 
 ## Enrollment provisioning status
 
-The date that the regional operations center processes the new Azure Prepayment (previously called monetary commitment) defines the new start date. Since Azure Prepayment orders via the Azure portal are processed in the UTC time zone, you may experience some delay if your Azure Prepayment purchase order was processed in a different region. The coverage start date on the purchase order shows the start of the Azure Prepayment. The coverage start date is when the Azure Prepayment appears in the Azure portal.
+The date that the regional operations center processes the new Azure Prepayment (previously called monetary commitment) defines the new start date. Since Azure Prepayment orders via the Azure portal are processed in the UTC time zone, you might experience some delay if your Azure Prepayment purchase order was processed in a different region. The coverage start date on the purchase order shows the start of the Azure Prepayment. The coverage start date is when the Azure Prepayment appears in the Azure portal.
 
 ## Support for enterprise customers
 
@@ -24,7 +24,7 @@ The date that the regional operations center processes the new Azure Prepayment 
 
 ## Enrollment status
 
-An enrollment has one of the following status values. Each value determines how you can use and access an enrollment. The enrollment status determines at which stage your enrollment is. It tells you if the enrollment needs to be activated before it can be used. Or, if the initial period has expired and you're charged for usage overage.
+An enrollment has one of the following status values. Each value determines how you can use and access an enrollment. The enrollment status determines at which stage your enrollment is. It tells you if the enrollment needs to be activated before it can be used. Or, if the initial period expired and you're charged for usage overage.
 
 **Pending** - The enrollment administrator needs to sign in to the Azure portal. After the administrator signs in, the enrollment switches to **Active** status.
 
@@ -87,8 +87,17 @@ Make sure to review the commercial information - monetary balance information, p
 #### Partner markup view limitations
 
 - If the user has both Partner admin and EA admin role, the partner admin role takes precedence and prices are displayed without markup.
-- If partners want to see the cost with markup and download reports with markup in they Azure portal, they should only have the EA admin role.
 - The Partner admin sees prices without markup in the downloaded usage files. However, the Partner admin can download the Charges by service file that includes markup details.
+- Partners can switch from the default Partner view to the Customer view to see the costs with markup. As a Partner admin, use the following steps to view costs as a customer:
+    1. In the [Azure portal](https://portal.azure.com/), sign in with your partner administrator credentials.
+    1. Search for **Cost management + Billing** and select it.
+    1. In the left navigation menu, select **Billing scopes** and then select the billing account that you want to work with.
+    1. In the left navigation menu, select **Billing profiles** and then select the billing profile that you want to work with.
+    1. Select the agreement number that you want to check.
+    1. In the left navigation menu, select **Usage + charges**.
+    1. In the list of Usage + Charges, select a month.
+    1. On the Monthly Usage Details page, in the top-right corner, change from Partner view to **Customer view**.
+        :::image type="content" source="./media/ea-portal-agreements/customer-view.png" alt-text="Screenshot showing the Customer view option." lightbox="./media/ea-portal-agreements/customer-view.png" :::
 
 #### Azure savings plan purchases
 
@@ -226,7 +235,7 @@ Select **Subscriptions**, select the subscription you created, and then select *
 
 Update the subscription name and service administrator and select the checkmark. The subscription name appears on reports and it's also the name of the project associated with the subscription on the development portal.
 
-New subscriptions may take up to 24 hours to propagate in the subscriptions list.
+New subscriptions might take up to 24 hours to propagate in the subscriptions list.
 
 Only account owners can view and manage subscriptions.
 
@@ -240,17 +249,17 @@ When new Account Owners (AO) are added to the enrollment for the first time, the
 
 **Usages being charged after Plan SKUs are purchased**
 
-This scenario occurs when the customer has deployed services under the wrong enrollment number or selected the wrong services.
+This scenario occurs when the customer deployed services under the wrong enrollment number or selected the wrong services.
 
 To validate if you're deploying under the right enrollment, you can check your included units information via the price sheet. Sign in as an Enterprise Administrator and select **Reports** on the left navigation and select **Price Sheet** tab. Select the Download symbol in the top-right corner and find the corresponding Plan SKU part numbers with filter on column **Included Quantity** and select values greater than "0."
 
-Ensure that your OMS plan is showing on the price sheet under included units. If there are no included units for OMS plan on your enrollment, your OMS plan may be under another enrollment. Contact Azure Enterprise Portal Support at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
+Ensure that your OMS plan is showing on the price sheet under included units. If there are no included units for OMS plan on your enrollment, your OMS plan might be under another enrollment. Contact Azure Enterprise Portal Support at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
 
-If the included units for the services on the price sheet don't match with what you have deployed, then you may have deployed services that aren't covered by the plan. For example, Operational Insights Premium Data Analyzed vs. Operational Insights Standard Data Analyzed. In this example, contact Azure Enterprise Portal Support at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) so we can assist you further.
+If the included units for the services on the price sheet don't match with what you deployed, you may have deployed services that aren't covered by the plan. For example, Operational Insights Premium Data Analyzed vs. Operational Insights Standard Data Analyzed. In this example, contact Azure Enterprise Portal Support at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) so we can assist you further.
 
 **Provisioned Plan SKU services on wrong enrollment**
 
-If you have multiple enrollments and have deployed services under the wrong enrollment number, which doesn't have an OMS plan, contact Azure Enterprise Portal Support at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
+If you have multiple enrollments and you deployed services under the wrong enrollment number, which doesn't have an OMS plan, contact Azure Enterprise Portal Support at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
 
 ## Next steps
 

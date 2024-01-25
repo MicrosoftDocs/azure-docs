@@ -2,21 +2,20 @@
 title: Microphone array recommendations - Speech service
 titleSuffix: Azure AI services
 description: Speech SDK microphone array recommendations. These array geometries are recommended for use with the Microsoft Audio Stack.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 12/27/2021
+ms.date: 1/22/2024
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
 # Microphone array recommendations
 
-In this article, you learn how to design a microphone array customized for use with the Speech SDK. This is most pertinent if you are selecting, specifying, or building hardware for speech solutions. 
+In this article, you learn how to design a microphone array customized for use with the Speech SDK. This is most pertinent if you're selecting, specifying, or building hardware for speech solutions. 
 
-The Speech SDK works best with a microphone array that has been designed according to these guidelines, including the microphone geometry, component selection, and architecture. 
+The Speech SDK works best with a microphone array designed according to these guidelines, including the microphone geometry, component selection, and architecture. 
 
 ## Microphone geometry
 
@@ -29,7 +28,7 @@ The following array geometries are recommended for use with the Microsoft Audio 
 |Linear - 4 Microphones|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|Length = 120 mm, Spacing = 40 mm|
 |Linear - 2 Microphones|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|Spacing = 40 mm|
 
-Microphone channels should be ordered ascending from 0, according to the numbering depicted above for each array. The Microsoft Audio Stack will require an additional reference stream of audio playback to perform echo cancellation.
+Microphone channels should be ordered ascending from 0, according to the numbering previously described for each array. The Microsoft Audio Stack requires another reference stream of audio playback to perform echo cancellation.
 
 ## Component selection
 
@@ -48,35 +47,35 @@ The recommended properties when selecting microphones are:
 | Frequency Response | ± 3 dB, 200-8000 Hz Floating Mask\* |
 | Reliability | Storage Temperature Range -40°C to 70°C<br />Operating Temperature Range -20°C to 55°C |
 
-\*_Higher sampling rates or "wider" frequency ranges may be necessary for high-quality communications (VoIP) applications_
+\*_Higher sampling rates or "wider" frequency ranges might be necessary for high-quality communications (VoIP) applications_
 
-Good component selection must be paired with good electroacoustic integration in order to avoid impairing the performance of the components used. Unique use cases may also necessitate additional requirements (for example: operating temperature ranges).
+Good component selection must be paired with good electroacoustic integration in order to avoid impairing the performance of the components used. Unique use cases might also necessitate more requirements (such as operating temperature ranges).
 
 ## Microphone array integration
 
-The performance of the microphone array when integrated into a device will differ from the component specification. It is important to ensure that the microphones are well matched after integration. Therefore the device performance measured after any fixed gain or EQ should meet the following recommendations:
+The performance of the microphone array when integrated into a device differs from the component specification. It's important to ensure that the microphones are well matched after integration. Therefore the device performance measured after any fixed gain or EQ should meet the following recommendations:
 
 | Parameter          | Recommended                                        |
 | ------------------ | -------------------------------------------------- |
-| SNR                | \> 63 dB (1 kHz signal 94 dBSPL, A-weighted noise) |
+| SNR                | \>= 64 dB (1 kHz signal 94 dBSPL, A-weighted noise) |
 | Output Sensitivity | -26 dBFS/Pa @ 1 kHz (recommended)                  |
 | Amplitude Matching | ± 2 dB, 200-8000 Hz                                |
-| THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5th Order             |
-| Frequency Response | ± 6 dB, 200-8000 Hz Floating Mask\*\*              |
+| THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL            |
+| Frequency Response | ± 6 dB, 200-12000 Hz Floating Mask\*\*              |
 
-\*\*_A low distortion speaker is required to measure THD (e.g. Neumann KH120)_
+\*\*_A low distortion speaker is required to measure THD (for example, Neumann KH120)_
 
-\*\*_"Wider" frequency ranges may be necessary for high-quality communications (VoIP) applications_
+\*\*_"Wider" frequency ranges might be necessary for high-quality communications (VoIP) applications_
 
 ## Speaker integration recommendations
 
-As echo cancellation is necessary for speech recognition devices that contain speakers, additional recommendations are provided for speaker selection and integration.
+As echo cancellation is necessary for speech recognition devices that contain speakers, more recommendations are provided for speaker selection and integration.
 
 | Parameter | Recommended |
 | --------- | ----------- |
-| Linearity Considerations | No non-linear processing after speaker reference, otherwise a hardware-based loopback reference stream is required |
+| Linearity Considerations | No nonlinear processing after speaker reference, otherwise a hardware-based loopback reference stream is required |
 | Speaker Loopback | Provided via WASAPI, private APIs, custom ALSA plug-in (Linux), or provided via firmware channel |
-| THD% | 3rd Octave Bands minimum 5th Order, 70 dBA Playback @ 0.8 m ≤ 6.3%, 315-500 Hz ≤ 5%, 630-5000 Hz |
+| THD% | Third Octave Bands minimum fifth Order, 70 dBA Playback @ 0.8 m ≤ 6.3%, 315-500 Hz ≤ 5%, 630-5000 Hz |
 | Echo Coupling to Microphones | \> -10 dB TCLw using ITU-T G.122 Annex B.4 method, normalized to mic level<br />TCLw = TCLwmeasured \+ (Measured Level - Target Output Sensitivity)<br />TCLw = TCLwmeasured \+ (Measured Level - (-26)) |
 
 ## Integration design architecture
@@ -94,12 +93,12 @@ The following guidelines for architecture are necessary when integrating microph
 | Record Capability   | The device must be able to record individual channel raw streams simultaneously |
 | USB                 | All USB audio input devices must set descriptors according to the [USB Audio Devices Rev3 Spec](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
 | Microphone Geometry | Drivers must implement [Microphone Array Geometry Descriptors](/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) correctly |
-| Discoverability     | Devices must not have any undiscoverable or uncontrollable hardware, firmware, or 3rd party software-based non-linear audio processing algorithms to/from the device |
+| Discoverability     | Devices must not have any undiscoverable or uncontrollable hardware, firmware, or third party software-based nonlinear audio processing algorithms to/from the device |
 | Capture Format      | Capture formats must use a minimum sampling rate of 16 kHz and recommended 24-bit depth |
 
 ## Electrical architecture considerations
 
-Where applicable, arrays may be connected to a USB host (such as a SoC that runs the [Microsoft Audio Stack (MAS)](audio-processing-overview.md)) and interfaces to Speech services or other applications.
+Where applicable, arrays can be connected to a USB host (such as a SoC that runs the [Microsoft Audio Stack (MAS)](audio-processing-overview.md)) and interfaces to Speech services or other applications.
 
 Hardware components such as PDM-to-TDM conversion should ensure that the dynamic range and SNR of the microphones is preserved within re-samplers.
 

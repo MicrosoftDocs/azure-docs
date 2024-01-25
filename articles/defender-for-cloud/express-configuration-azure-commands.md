@@ -5,12 +5,14 @@ ms.topic: sample
 ms.custom: devx-track-azurecli
 author: dcurwin
 ms.author: dacurwin
-ms.date: 06/04/2023
+ms.date: 01/15/2024
 ---
 
 # Express configuration Azure Command Line Interface (CLI) commands reference
 
 This article lists the Azure Command Line Interface (CLI) commands that can be used with SQL vulnerability assessment express configuration.
+
+The examples in this article should be run in PowerShell; they aren't for use "as is" with Bash.
 
 - [Set SQL vulnerability assessment baseline on system database](#set-sql-vulnerability-assessment-baseline-on-system-database)
 - [Get SQL vulnerability assessment baseline on system database](#get-sql-vulnerability-assessment-baseline-on-system-database)

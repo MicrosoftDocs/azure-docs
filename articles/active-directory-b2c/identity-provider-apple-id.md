@@ -2,18 +2,17 @@
 title: Set up sign-up and sign-in with an Apple ID
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Apple ID in your applications using Azure Active Directory B2C.
-
 author: garrodonnell
 manager: CelesteDG
-
 ms.service: active-directory
-
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer using Azure Active Directory B2C, I want to set up sign-up and sign-in with an Apple ID, so that users can authenticate using their Apple ID.
+
 ---
 
 # Set up sign-up and sign-in with an Apple ID  using Azure Active Directory B2C

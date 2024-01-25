@@ -3,7 +3,7 @@ title: Autoinstrumentation for Azure Monitor Application Insights
 description: Overview of autoinstrumentation for Azure Monitor Application Insights codeless application performance management.
 ms.topic: conceptual
 ms.custom: devx-track-js
-ms.date: 11/15/2023
+ms.date: 12/15/2023
 ms.reviewer: abinetabate
 ---
 
@@ -26,6 +26,9 @@ If your language and platform are supported, select the corresponding link in th
 The following table shows the current state of autoinstrumentation availability.
 
 Links are provided to more information for each supported scenario.
+
+> [!NOTE]
+> If your hosting environment or resource provider is not listed in the following table, autoinstrumentation is not supported. You can manually instrument your code using Application Insights SDKs or Azure Monitor OpenTelemetry Distros. For more information, see [Data Collection Basics of Azure Monitor Application Insights](opentelemetry-overview.md).
 
 |Environment/Resource provider                    | .NET Framework                                                                                                                                        | .NET Core / .NET                                                                                                                                      | Java                                                                                                                                                      | Node.js                                                                                                                                                                                      | Python                                                                                           |
 |-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|

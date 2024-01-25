@@ -1,16 +1,15 @@
 ---
-title: 'Tutorial: Configure route filters for Microsoft peering - Azure PowerShell'
-description: This tutorial describes how to configure route filters for Microsoft Peering using PowerShell.
+title: 'Configure route filters for Microsoft peering - Azure PowerShell'
+description: This article describes how to configure route filters for Microsoft Peering using PowerShell.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
-ms.topic: tutorial
-ms.date: 07/20/2022
+ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.date: 12/28/2023
 ms.author: duau
-ms.custom: seodec18, devx-track-azurepowershell, template-tutorial
 ---
-# Tutorial: Configure route filters for Microsoft peering using PowerShell
+# Configure route filters for Microsoft peering using PowerShell
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](how-to-routefilter-portal.md)
@@ -31,12 +30,6 @@ Connectivity to all Azure and Microsoft 365 services causes a large number of pr
 * Define route filters and apply them to your ExpressRoute circuit. A route filter is a new resource that lets you select the list of services you plan to consume through Microsoft peering. ExpressRoute routers only send the list of prefixes that belong to the services identified in the route filter.
 
 :::image type="content" source="./media/how-to-routefilter-portal/route-filter-diagram.png" alt-text="Diagram of a route filter applied to the ExpressRoute circuit to allow only certain prefixes to be broadcast to the on-premises network.":::
-
-In this tutorial, you learn how to:
-> [!div class="checklist"]
-> - Get BGP community values.
-> - Create route filter and filter rule.
-> - Associate route filter to an ExpressRoute circuit.
 
 ### <a name="about"></a>About route filters
 
@@ -75,7 +68,7 @@ To attach route filters with Microsoft 365 services, you must have authorization
 
 ## <a name="filter"></a>Create a route filter and a filter rule
 
-A route filter can have only one rule, and the rule must be of type 'Allow'. This rule can have a list of BGP community values associated with it. The command `az network route-filter create` only creates a route filter resource. After you create the resource, you must then create a rule and attach it to the route filter object.
+A route filter can have only one rule, and the rule must be of type `Allow`. This rule can have a list of BGP community values associated with it. The command `az network route-filter create` only creates a route filter resource. After you create the resource, you must then create a rule and attach it to the route filter object.
 
 1. To create a route filter resource, run the following command:
 

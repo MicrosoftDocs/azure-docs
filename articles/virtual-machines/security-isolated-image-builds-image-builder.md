@@ -1,14 +1,13 @@
 ---
 title: Isolated Image Builds for Azure VM Image Builder
-description: Isolated Image Builds is achieved by transitioning core process of VM image customization/validation from shared infrastructure to dedicated Azure Container Instances resources in your subscription providing compute and network isolation. 
+description: Isolated Image Builds is achieved by transitioning core process of VM image customization/validation from shared infrastructure to dedicated Azure Container Instances resources in your subscription providing compute and network isolation.
 ms.date: 11/10/2023
 ms.topic: sample
 author: kof-f
-ms.author: erd
-ms.reviewer: erd
+ms.author: jushiman
+ms.reviewer: jushiman
 ms.service: virtual-machines
 ms.subservice: image-builder
-
 ---
 
 # What is Isolated Image Builds for Azure Image Builder?
