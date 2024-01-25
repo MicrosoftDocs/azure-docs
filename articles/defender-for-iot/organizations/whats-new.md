@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Sensor update in Azure portal now supports selecting a specific version](#sensor-update-in-azure-portal-now-supports-selecting-a-specific-version) <br> - [New protocols supported for sensor version 24.1.0](#new-protocols-supported-for-sensor-version-2410) |
+| **OT networks** |  **Version 24.1.0**:<br> - [Newly supported protocols](#newly-supported-protocols)<br> **Cloud features**:<br> - [Sensor update in Azure portal now supports selecting a specific version](#sensor-update-in-azure-portal-now-supports-selecting-a-specific-version)  |
 
 ### Sensor update in Azure portal now supports selecting a specific version
 
@@ -32,9 +32,19 @@ You might want to update your sensor to a specific version for various reasons, 
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md#send-the-software-update-to-your-ot-sensor).
 
-### New protocols supported for sensor version 24.1.0
+### Newly supported protocols
 
-The list of supported protocols for sensor version 24.1.0 is updated to include newly supported protocols. For the updated protocol list, see [Defender for IoT supported IoT, OT, ICS, and SCADA protocols](concept-supported-protocols.md).
+We now support these protocols:
+
+- HART-IP
+- FANUC FOCAS
+- Dicom
+- ABB NetConfig
+- Rockwell AADvance Discover
+- Rockwell AADvance SNCP/IXL
+- Schneider NetManage
+
+[See the updated protocol list](concept-supported-protocols.md).
 
 ## December 2023
 
@@ -70,7 +80,6 @@ For example, use the privileged *admin* user in the following scenarios:
 > The legacy *support* user is available and supported only on versions earlier than 23.2.0.
 
 For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
-
 
 ### New architecture for hybrid and air-gapped support
 
@@ -180,7 +189,6 @@ From your sensor, do one of the following to open the **Cloud connectivity troub
 
 - On the **Overview** page, select the **Troubleshoot** link at the top of the page
 - Select **System settings > Sensor management > Health and troubleshooting > Cloud connectivity troubleshooting**
-
 
 For more information, see [Check sensor - cloud connectivity issues](how-to-troubleshoot-sensor.md#check-sensor---cloud-connectivity-issues).
 
