@@ -2,7 +2,7 @@
 title: Configure monitoring coverage
 description: Learn how to configure the different monitoring components that are available in Defender for Servers in Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 01/24/2024
+ms.date: 01/25/2024
 ---
 
 # Configure monitoring coverage
