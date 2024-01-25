@@ -12,10 +12,11 @@ ms.author: janschietse
 ---
 # Radiology Insights Frequently Asked Questions
 
-- Radiology Insights Question?
+- Does the Radiology Insights service take into account specific formatting like bold and italic?
 
-  Radiology Insights answer
+  Radiology Insights expects plain text, bolding or other formatting is not taken into account.
 
-Radiology Insights Question?
 
-  Radiology Insights answer
+- What happens when you process a document with non radiology content?
+
+  The Radiology Insights service processes any document as a radiology document.

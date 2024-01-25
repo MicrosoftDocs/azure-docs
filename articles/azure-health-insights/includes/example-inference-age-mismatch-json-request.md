@@ -1,17 +1,12 @@
 ---
-title: Radiology Insights Inference Example finding input
-titleSuffix: Azure AI Health Insights
-description: Radiology Insights Inference Example finding input
-services: azure-health-insights
 author: JanSchietse
-manager: JoeriVDV
-ms.service: azure-health-insights
-ms.topic: quickstart
-ms.date: 12/06/2023
 ms.author: janschietse
+ms.date: 01/25/2024
+ms.topic: include
+ms.service: azure-health-insights
 ---
 
-# Inference example finding input
+
 
 ```json
 {
@@ -26,16 +21,16 @@ ms.author: janschietse
         "provideFocusedSentenceEvidence" : false
       }
     },
-    "inferenceTypes" : [ "finding" ],
+    "inferenceTypes" : [ "ageMismatch" ],
     "locale" : "en-US",
     "verbose" : false,
     "includeEvidence" : false
   },
   "patients" : [ {
-    "id" : "11111",
+    "id" : "111111",
     "info" : {
       "sex" : "female",
-      "birthDate" : "2011-08-31T18:00:00+00:00",
+      "birthDate" : "1986-07-01T21:00:00+00:00",
       "clinicalInfo" : [ {
         "resourceType" : "Observation",
         "status" : "unknown",
@@ -52,8 +47,8 @@ ms.author: janschietse
     "encounters" : [ {
       "id" : "encounterid1",
       "period" : {
-        "start" : "2021-8-28T00:00:00",
-        "end" : "2021-8-28T00:00:00"
+        "start" : "2021-08-28T00:00:00",
+        "end" : "2021-08-28T00:00:00"
       },
       "class" : "inpatient"
     } ],
@@ -67,23 +62,23 @@ ms.author: janschietse
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
-      "createdDateTime" : "2021-8-28T00:00:00",
+	    "createdDateTime" : "2021-8-28T00:00:00",
       "administrativeMetadata" : {
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
               "system" : "Https://loinc.org",
-              "code" : "24627-2",
-              "display" : "CT CHEST"
+              "code" : "41806-1",
+              "display" : "CT ABDOMEN"
             } ]
           },
-          "description" : "CT CHEST"
+          "description" : "CT ABDOMEN"
         } ],
         "encounterId" : "encounterid1"
       },
       "content" : {
         "sourceType" : "inline",
-        "value" : "\n\n\nFINDINGS:\nIn the right upper lobe, there is a new mass measuring 5.6 x 4.5 x 3.4 cm.\nA lobulated soft tissue mass is identified in the superior right lower lobe abutting the major fissure measuring 5.4 x 4.3 x 3.7 cm (series 3 image 94, coronal image 110).\nA 4 mm nodule in the right lower lobe (series 3, image 72) is increased dating back to 6/29/2012. This may represent lower lobe metastasis.\n\nIMPRESSION: 4 cm pulmonary nodule posterior aspect of the right upper lobe necessitating additional imaging as described.\n\t\t"
+        "value" : "CT ABDOMEN AND PELVIS\n\nProvided history: \n78 years old Female\nAbnormal weight loss\n\nTechnique: Routine protocol helical CT of the abdomen and pelvis were performed after the injection of intravenous nonionic iodinated contrast. Axial, Sagittal and coronal 2-D reformats were obtained. Oral contrast was also administered.\n\nFindings:\nLimited evaluation of the included lung bases demonstrates no evidence of abnormality. \n\nGallbladder is absent. "
       }
     } ]
   } ]
