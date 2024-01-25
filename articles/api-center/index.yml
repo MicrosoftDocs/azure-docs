@@ -47,3 +47,12 @@ landingContent:
             url: manage-apis-azure-cli.md
           - text: Import APIs from API Management
             url: import-api-management-apis.md
+# Card
+  - title: Discover APIs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use VS Code extension
+            url: use-vscode-extension.md
+          - text: Discover APIs with GitHub Copilot Chat
+            url: use-vscode-extension-copilot.md
