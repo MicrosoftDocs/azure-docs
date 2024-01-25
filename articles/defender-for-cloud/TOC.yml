@@ -480,6 +480,9 @@
       items:
       - name: Deploy Defender for Servers
         href: tutorial-enable-servers-plan.md
+      - name: Configure monitoring coverage
+        displayName: Defender for Servers, monitoring coverage, Log analytics, agentless scanning, Vulnerability assessment, Endpoint protection
+        href: configure-servers-coverage.md
       - name: Plan Defender for Servers deployment
         items:
           - name: Get started
@@ -614,6 +617,8 @@
             href: agentless-vulnerability-assessment-azure.md
           - name: Vulnerability assessments for AWS
             href: agentless-vulnerability-assessment-aws.md
+          - name: Vulnerability assessments for GCP
+            href: agentless-vulnerability-assessment-gcp.md
           - name: Enable vulnerability assessments
             href: enable-vulnerability-assessment.md
           - name: View and remediate vulnerabilities for registry images
