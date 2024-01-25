@@ -6,7 +6,7 @@ ms.author: rdunstan
 ms.topic: reference
 ms.service: communications-gateway
 ms.custom: subject-monitoring
-ms.date: 01/25/2023
+ms.date: 01/25/2024
 ---
 
 
@@ -32,6 +32,20 @@ This section lists all the automatically collected metrics collected for Azure C
 | Active Calls | Count | Count of the total number of active calls. |
 | Active Emergency Calls | Count | Count of the total number of active emergency calls.|
 
+### Connectivity metrics
+
+| Metric | Unit | Description |
+|:-------|:----|:------------|
+| SIP 2xx Responses Received | Count | Count of the total number of 2xx OPTIONS and INVITEs received.
+| SIP 2xx Responses Sent | Count | Count of the total number of 2xx OPTIONS and INVITEs sent.|
+| SIP 3xx Responses Received | Count | Count of the total number of 3xx OPTIONS and INVITEs received.
+| SIP 3xx Responses Sent | Count | Count of the total number of 3xx OPTIONS and INVITEs sent.|
+| SIP 4xx Responses Received | Count | Count of the total number of 4xx OPTIONS and INVITEs received.
+| SIP 4xx Responses Sent | Count | Count of the total number of 4xx OPTIONS and INVITEs sent.|
+| SIP 5xx Responses Received | Count | Count of the total number of 5xx OPTIONS and INVITEs received.
+| SIP 5xx Responses Sent | Count | Count of the total number of 5xx OPTIONS and INVITEs sent.|
+| SIP 6xx Responses Received | Count | Count of the total number of 6xx OPTIONS and INVITEs received.
+| SIP 6xx Responses Sent | Count | Count of the total number of 6xx OPTIONS and INVITEs sent.|
 
 ## Metric Dimensions
 
@@ -42,6 +56,7 @@ Azure Communications Gateway has the following dimensions associated with its me
 | Dimension Name | Description |
 | ------------------- | ----------------- |
 | **Region** | The Service Locations defined in your Azure Communications Gateway resource. |
+| **OPTIONS or INVITE** | The type of SIP message being sent and received:<br>- SIP OPTIONS messages sent and received by your Azure Communications Gateway resource to monitor its connectivity to its peers<br>- SIP INVITE messages sent and received by your Azure Communications Gateway resource. |
 
 
 ## Next steps
