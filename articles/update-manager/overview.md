@@ -82,8 +82,8 @@ Actions |Permission |Scope |
 --- | --- | --- |
 |Install update on Azure VMs |Microsoft.Compute/virtualMachines/installPatches/action ||
 |Update assessment on Azure VMs |Microsoft.Compute/virtualMachines/assessPatches/action ||
-|Read assessment data for Azure VMs | Microsoft.Compute/virtualMachines/patchAssessmentResults/latest/Microsoft.Compute/virtualMachines/patchAssessmentResults/latest/softwarePatches ||
-|Read patch installation data for Azure VMs | Microsoft.Compute/virtualMachines/patchInstallationResults/Microsoft.Compute/virtualMachines/patchInstallationResults/softwarePatches ||
+|Read assessment data for Azure VMs | Microsoft.Compute/virtualMachines/patchAssessmentResults/latest </br> Microsoft.Compute/virtualMachines/patchAssessmentResults/latest/softwarePatches ||
+|Read patch installation data for Azure VMs | Microsoft.Compute/virtualMachines/patchInstallationResults </br> Microsoft.Compute/virtualMachines/patchInstallationResults/softwarePatches ||
 |Read Azure VM properties | Microsoft.Compute/virtualMachines/read ||
 |Install update on Azure Arc-enabled server |Microsoft.HybridCompute/machines/installPatches/action ||
 |Update assessment on Azure Arc-enabled server |Microsoft.HybridCompute/machines/assessPatches/action ||
