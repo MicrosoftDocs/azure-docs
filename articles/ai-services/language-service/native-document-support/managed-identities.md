@@ -12,7 +12,7 @@ ms.date: 01/31/2024
 
 # Managed identities for Language resources
 
-Managed identities for Azure resources are service principals that create a Microsoft Entra identity and specific permissions for Azure managed resources. Managed identities are a safer way to grant access to storage data and replace the requirement for you to include shared access signature tokens (SAS) with your [source and target URLs](#post-request-body).
+Managed identities for Azure resources are service principals that create a Microsoft Entra identity and specific permissions for Azure managed resources. Managed identities are a safer way to grant access to storage data and replace the requirement for you to include shared access signature tokens (SAS) with your [source and target container URLs](native-document-support.md#create-azure-blob-storage-containers).
 
    :::image type="content" source="media/managed-identity-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
 
@@ -24,9 +24,9 @@ Managed identities for Azure resources are service principals that create a Micr
 
 > [!IMPORTANT]
 >
-> * When using managed identities, don't include a SAS token URL with your HTTP requests—your requests will fail. Using managed identities replaces the requirement for you to include shared access signature tokens (SAS) with your [source and target URLs](#post-request-body).
+> * When using managed identities, don't include a SAS token URL with your HTTP requests—your requests will fail. Using managed identities replaces the requirement for you to include shared access signature tokens (SAS) with your [source and target container URLs](native-document-support.md#create-azure-blob-storage-containers).
 >
-> * To use managed identities for Language operations, you must [create your Language resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in a specific geographic Azure region such as **East US**. If your Language resource region is set to **Global**, then you can't use managed identity authentication. You can, however, still use [Shared Access Signature tokens (SAS)](create-sas-tokens.md).
+> * To use managed identities for Language operations, you must [create your Language resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in a specific geographic Azure region such as **East US**. If your Language resource region is set to **Global**, then you can't use managed identity authentication. You can, however, still use [Shared Access Signature tokens (SAS)](shared-access-signature.md)).
 >
 
 ## Prerequisites
@@ -52,7 +52,7 @@ To get started, you need the following resources:
     1. Deselect all check boxes.
     1. Make sure **Microsoft network routing** is selected.
     1. Under the **Resource instances** section, select **Microsoft.CognitiveServices/accounts** as the resource type and select your Language resource as the instance name.
-    1. Make certain that the **Allow Azure services on the trusted services list to access this storage account** box is checked. For more information about managing exceptions, _see_ [Configure Azure Storage firewalls and virtual networks](../../../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions).
+    1. Make certain that the **Allow Azure services on the trusted services list to access this storage account** box is checked. For more information about managing exceptions, _see_ [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions).
 
         :::image type="content" source="media/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot: allow trusted services checkbox, portal view.":::
 
@@ -114,15 +114,15 @@ You must grant the Language resource access to your storage account before it ca
     |**Resource**| **_The name of your storage resource_**.|
     |**Role** | **_Storage Blob Data Contributor_**.|
 
-     :::image type="content" source="../../media/managed-identities/add-role-assignment-window.png" alt-text="Screenshot: add role assignments page in the Azure portal.":::
+     :::image type="content" source="media/add-role-assignment-window.png" alt-text="Screenshot: add role assignments page in the Azure portal.":::
 
 1. After the _Added Role assignment_ confirmation message appears, refresh the page to see the added role assignment.
 
-    :::image type="content" source="../../media/managed-identities/add-role-assignment-confirmation.png" alt-text="Screenshot: Added role assignment confirmation pop-up message.":::
+    :::image type="content" source="media/add-role-assignment-confirmation.png" alt-text="Screenshot: Added role assignment confirmation pop-up message.":::
 
 1. If you don't see the new role assignment right away, wait and try refreshing the page again. When you assign or remove role assignments, it can take up to 30 minutes for changes to take effect.
 
-    :::image type="content" source="../../media/managed-identities/assigned-roles-window.png" alt-text="Screenshot: Azure role assignments window.":::
+    :::image type="content" source="media/assigned-roles-window.png" alt-text="Screenshot: Azure role assignments window.":::
 
 ## HTTP requests
 
@@ -138,5 +138,3 @@ You must grant the Language resource access to your storage account before it ca
 
 > [!div class="nextstepaction"]
 > [Get started with native document support](native-document-support.md#include-native-documents-with-an-http-request)
-
-
