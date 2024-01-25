@@ -628,7 +628,7 @@
     - name: Deprecated (legacy) developer portal (October 2023)
       href: breaking-changes/legacy-portal-retirement-oct-2023.md
     - name: Workspaces breaking changes (April 2024)
-      href: breaking-changes/workspaces-breaking-changes-apr-2024.md
+      href: breaking-changes/workspaces-breaking-changes-april-2024.md
     - name: stv1 compute platform retirement (August 2024)
       href: breaking-changes/stv1-platform-retirement-august-2024.md
     - name: ADAL-based identity provider retirement (September 2025)
