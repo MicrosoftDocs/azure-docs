@@ -318,9 +318,6 @@ az spring app create \
     --resource-group <resource-group> \ 
     --service <service-name> \ 
     --name <app-name> \ 
-    --instance-count 1 \ 
-    --memory 2Gi \ 
-    --assign-endpoint \ 
     --bind-application-configuration-service 
 ```
 
