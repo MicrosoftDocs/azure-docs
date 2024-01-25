@@ -175,38 +175,45 @@ For this quickstart, you need a **source document** uploaded to your **source co
 
 1. Copy and paste the following Personally Identifiable Information (PII) **request sample** into your `pii-detection.json` file. Replace **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance:
 
-  `**Request sample**`
+  ***Request sample***
 
   ```json
   {
-    "kind": "PiiEntityRecognition",
-    "parameters": {
-        "modelVersion": "latest"
-    },
-    "analysisInput":{
-        "documents":[
-            {
-          "source":{
-            "location":"{your-source-container-SAS-URL}"
+    "tasks": [
+      {
+        "kind": "PiiEntityRecognition",
+        "parameters": {
+          "modelVersion": "latest"
+        }
+      }
+    ],
+    "analysisInput": {
+      "documents": [
+        {
+          "id": "doc_0",
+          "language": "en",
+          "source": {
+            "kind": "AzureBlob",
+            "location": "https://myaccount.blob.core.windows.net/sample-input/input.pdf?{SAS-Token}"
           },
-          "targets":
-            {
-              "location":"{your-target-container-SAS-URL}",
-            }
-            }
-        ]
+          "target": {
+            "kind": "AzureBlob",
+            "location": "https://myaccount.blob.core.windows.net/sample-output?{SAS-Token}"
+          }
+        }
+      ]
     }
   }
+
 
   ```
 
 ### Run the POST request
 
-1. Here's the structure of the POST request:
+1. Here's the preliminary structure of the POST request:
 
-  ```http
-   POST {cognitive-service-endpoint}/language/analyze-documents/jobs?api-version=2023-11-15-preview
-
+  ```bash
+     POST {your-language-endpoint}/language/analyze-documents/jobs?api-version=2023-11-15-preview
   ```
 
 1. Before you run the **POST** request, replace `{your-language-resource-endpoint}` and `{your-key}` with the values from your Azure portal Language service instance.
@@ -217,14 +224,14 @@ For this quickstart, you need a **source document** uploaded to your **source co
     ***PowerShell***
 
     ```powershell
-    cmd /c curl "{your-language-resource-endpoint}/language/:analyze-text?api-version=11-15-preview" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@pii-detection.json"
+       cmd /c curl "{your-language-resource-endpoint}/language/analyze-documents/jobs?api-version=2023-11-15-preview" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@pii-detection.json"
     ```
 
     ***command prompt / terminal***
 
-    ```bash
-    curl "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=11-15-preview" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@pii-detection.json"
-    ```
+     ```bash
+        curl -v -X POST "{your-language-resource-endpoint}/language/analyze-documents/jobs?api-version=2023-11-15-preview" --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@pii-detection.json"
+     ```
 
 1. Here's a sample response:
 
@@ -247,10 +254,10 @@ You receive a 202 (Success) response that includes a read-only Operation-Locatio
 
 1. After your successful **POST** request, poll the operation-location header returned in the POST request to view the processed data.
 
-1. Here's the structure of the **GET** request:
+1. Here's the preliminary structure of the **GET** request:
 
-  ```http
-  GET {cognitive-service-endpoint}/language/analyze-documents/jobs/{jobId}?api-version=2023-11-15-preview
+  ```bash
+    GET {your-language-endpoint}/language/analyze-documents/jobs/{jobId}?api-version=2023-11-15-preview
   ```
 
 1. Before you run the command, make these changes:
@@ -375,8 +382,8 @@ Before you run the **POST** request, replace `{your-language-resource-endpoint}`
 
   ***command prompt / terminal***
 
-  ```curl
-  curl "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-summarization.json"
+  ```bash
+  curl -v -X POST "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-summarization.json"
   ```
 
 ---
