@@ -543,7 +543,7 @@ Clients will get the following response:
 Distributed Tracing tracks requests and shows how different services interact with each other. In Durable Functions, it also correlates orchestrations and activities together. This is helpful to understand how much time steps of the orchestration take relative to the entire orchestration. It is also useful to understand where an application is having an issue or where an exception was thrown. This feature is supported for all languages and storage providers.
 
 > [!NOTE]
-> Distributed Tracing V2 requires [Durable Functions v2.12.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.12.0) or greater. Also, Distributed Tracing V2 is in a preview state and therefore some Durable Functions patterns are not instrumented and unsupported with distributed tracing. For example, Durable Entities operations are not instrumented and traces will not show up in Application Insights.
+> Distributed Tracing V2 requires [Durable Functions v2.12.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.12.0) or greater. Also, Distributed Tracing V2 is in a preview state and therefore some Durable Functions patterns are not instrumented. For example, Durable Entities operations are not instrumented and traces will not show up in Application Insights.
 
 ### Setting up Distributed Tracing
 
@@ -568,7 +568,7 @@ In the Application Insights resource, navigate to **Transaction Search**. In the
 ![Application Insights Distributed Trace Gantt Chart](./media/durable-functions-diagnostics/app-insights-distributed-trace-gantt-chart.png)
 
 ### Troubleshooting
-If you don't see the traces in Application Insights, please make sure to wait about five minutes after running the application to make sure all of the data propagated to the Application Insights resource.
+If you don't see the traces in Application Insights, please make sure to wait about five minutes after running the application to ensure that all of the data is propagated to the Application Insights resource.
 
 ## Debugging
 
