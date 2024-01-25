@@ -67,7 +67,7 @@ Extensions are extra features that can be added to PostgreSQL to enhance its fun
 
 - Save the parameter changes and restart the Azure Database for PostgreSQL to apply the new configuration if necessary.
 
-  :::image type="content" source="../media/concepts-prerequisites-migration-service/extensions-enable-flexible-server.png" alt-text="SCreenshot of extensions.":::
+  :::image type="content" source="../media/concepts-prerequisites-migration-service/extensions-enable-flexible-server.png" alt-text="Screenshot of extensions.":::
 
 - Check if the list contains any of the following extensions:
     - PG_CRON

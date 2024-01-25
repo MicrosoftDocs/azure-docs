@@ -196,7 +196,7 @@ In this tutorial, the source PostgreSQL version used is 14.8, and it's installed
 
 We're going to migrate "ticketdb","inventorydb","salesdb" into Azure Database for PostgreSQL flexible server.
 
-:::image type="content" source="media\tutorial-migration-service-offline-iaas\az-migration-source-CLI.png" alt-text="Screenshot of the az migration source page." lightbox="media\tutorial-migration-service-offline-iaas\az-migration-source-CLI.png":::
+:::image type="content" source="media\tutorial-migration-service-offline-iaas\az-migration-source-cli.png" alt-text="Screenshot of the az migration source page." lightbox="media\tutorial-migration-service-offline-iaas\az-migration-source-cli.png":::
 
 ## Perform migration using CLI
 
@@ -250,7 +250,7 @@ We're going to migrate "ticketdb","inventorydb","salesdb" into Azure Database fo
 
 - The status of the migration progress is shown in the CLI.
 
-    :::image type="content" source="media\tutorial-migration-service-offline-iaas\status-migration-cli.png" alt-text="Screenshot of status migration cli." lightbox="media\tutorial-migration-service-offline-iaas\status-migration-cli.png":::
+    :::image type="content" source="media\tutorial-migration-service-offline-iaas\status-migration-cli.png" alt-text="Screenshot of status migration CLI." lightbox="media\tutorial-migration-service-offline-iaas\status-migration-cli.png":::
 
 - You can also see the status in the Azure Database for PostgreSQL flexible server portal.
 

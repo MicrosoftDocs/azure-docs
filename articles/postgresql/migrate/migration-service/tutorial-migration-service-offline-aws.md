@@ -197,13 +197,13 @@ To begin migrating using Azure CLI, you need to install the Azure CLI on your lo
 
 - For this tutorial, we're going to migrate "ticketdb," "inventorydb," and "timedb" into Azure Database for PostgreSQL flexible server.
 
-:::image type="content" source="media\tutorial-migration-service-offline-iaas\az-migration-source-cli-aws.png" alt-text="Screenshot of the az migration source page." lightbox="media\tutorial-migration-service-offline-iaas\az-migration-source-CLI-aws.png":::
+:::image type="content" source="media\tutorial-migration-service-offline-iaas\az-migration-source-cli-aws.png" alt-text="Screenshot of the az migration source page." lightbox="media\tutorial-migration-service-offline-iaas\az-migration-source-cli-aws.png":::
 
 ## Perform migration using CLI
 
 - Open the command prompt and sign in into Azure using the `az login` command
 
-    :::image type="content" source="media\tutorial-migration-service-offline-iaas\success-az-login-CLI.png" alt-text="Screenshot of the az success sign in." lightbox="media\tutorial-migration-service-offline-iaas\success-az-login-CLI.png":::
+    :::image type="content" source="media\tutorial-migration-service-offline-iaas\success-az-login-cli.png" alt-text="Screenshot of the az success sign in." lightbox="media\tutorial-migration-service-offline-iaas\success-az-login-cli.png":::
 
 - Edit the below placeholders `<< >>` in the JSON lines and store them in the local machine as `<<filename>>.json` where the CLI is being invoked. In this tutorial, we have saved the file in C:\migration-CLI\migration_body.json
 
@@ -251,7 +251,7 @@ To begin migrating using Azure CLI, you need to install the Azure CLI on your lo
 
 - The status of the migration progress is shown in the CLI.
 
-    :::image type="content" source="media\tutorial-migration-service-offline-iaas\status-migration-cli-aws.png" alt-text="Screenshot of status migration cli." lightbox="media\tutorial-migration-service-offline-iaas\status-migration-cli-aws.png":::
+    :::image type="content" source="media\tutorial-migration-service-offline-iaas\status-migration-cli-aws.png" alt-text="Screenshot of status migration CLI." lightbox="media\tutorial-migration-service-offline-iaas\status-migration-cli-aws.png":::
 
 - You can also see the status of the PostgreSQL flexible server portal in the Azure Database.
 
