@@ -161,7 +161,7 @@ You can get the SAS token using [`AzureMapsManagementClient.accounts.listSas`][l
 
 Second, follow [Managed identities for Azure Maps][managedIdentity] to create a managed identity for your Azure Maps account. Copy the principal ID (object ID) of the managed identity.
 
-Third, you will need to install [Azure Core Authentication Package] package to use `AzureSASCredential`:
+next, install [Azure Core Authentication Package] package to use `AzureSASCredential`:
 
 ```bash
 npm install @azure/core-auth
