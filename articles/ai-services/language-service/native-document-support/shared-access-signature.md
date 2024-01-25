@@ -108,19 +108,20 @@ Here's a sample REST API request:
 
 ```json
 {
-  "inputs":[
-    {
-      "source":{
-        "sourceUrl":"{your-source-container-SAS-URL}"
-      },
-      "targets":[
-        {
-          "targetUrl":"{your-target-container-SAS-URL}",
-          "language":"fr"
+  "analysisInput": {
+    "documents": [
+      {
+        "id": "doc_0",
+        "language": "en",
+        "source": {
+          "location": "myaccount.blob.core.windows.net/sample-input/input.pdf?{SAS-Token}"
+        },
+        "target": {
+          "location": "https://myaccount.blob.core.windows.net/sample-output?{SAS-Token}"
         }
-      ]
-    }
-  ]
+      }
+    ]
+  }
 }
 ```
 
