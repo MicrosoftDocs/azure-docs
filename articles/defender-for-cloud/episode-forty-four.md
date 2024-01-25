@@ -9,7 +9,7 @@ ms.date: 01/24/2024
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Gal Fenigshtein joins Yuri Diogenes to talk about the new agentless malware detection for virtual machines in Microsoft Defender for Cloud. Gal explains the use case scenario for this feature, how this feature works, and the prerequisites to enable this feature. Gal also demonstrates the user experience when a new malware is detected, using the security alert dashboard in Defender for Cloud.
 
-> [!VIDEO https://aka.ms/docs/player?id=28414ce1-1acb-486a-a327-802a654edc38]
+> [!VIDEO https://aka.ms/docs/player?id=a6d91bc3-2b57-4365-8fc9-35214d6ffb15]
 
 - [01:28](/shows/mdc-in-the-field/unified-insights#time=01m28s) -  Understanding the value of agentless malware detection
 - [03:51](/shows/mdc-in-the-field/unified-insights#time=03m51s) -  Which Microsoft Defender for Cloud plan enables this feature?
