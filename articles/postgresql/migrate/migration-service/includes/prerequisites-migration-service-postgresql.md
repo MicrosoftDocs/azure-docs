@@ -57,7 +57,7 @@ The following table can help set up the network between the source and target.
 
 For more information about network setup, visit [Network guide for migration service in Azure Database for PostgreSQL - Flexible Server](../how-to-network-setup-migration-service.md).
 
-### Extensionsan
+### Extensions
 
 Extensions are extra features that can be added to PostgreSQL to enhance its functionality. Extensions are supported in Azure Database for PostgreSQL but must be enabled manually. To enable extensions, follow these steps:
 
