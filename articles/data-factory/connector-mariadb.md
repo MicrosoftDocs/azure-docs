@@ -79,7 +79,7 @@ The following properties are supported for MariaDB linked service:
 | port | The port number to connect to the MariaDB server. | No |
 | database | Your MariaDB database name. | Yes |
 | username | Your user name. | Yes |
-| password | The password for the user name. | Yes |
+| password | The password for the user name. Mark this field as SecureString to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -94,6 +94,10 @@ The following properties are supported for MariaDB linked service:
             "port": "<port>",
             "database": "<database>",
             "username": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            },
             "driverVersion": "v2"
         },
         "connectVia": {
@@ -116,7 +120,7 @@ The following properties are supported for MariaDB linked service:
             "port": "<port>",
             "database": "<database>",
             "username": "<username>",
-            "pwd": {
+            "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": {
                     "referenceName": "<Azure Key Vault linked service name>",
@@ -252,7 +256,7 @@ When copying data from MariaDB, the following mappings are used from MariaDB dat
 | `int unsigned` |`Int64`|
 | `integer` |`Int32` |
 | `integer unsigned` |`Int64` |
-| `json` |`String` |
+| `JSON` |`String` |
 | `long varbinary` |`Byte[]` |
 | `long varchar` |`String` |
 | `longblob` |`Byte[]` |
