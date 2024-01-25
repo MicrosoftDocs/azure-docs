@@ -79,6 +79,7 @@ The following table lists the various sources supported by the migration service
 Get started with the Single to Flexible migration tool by using any of the following methods:
 
 [Offline migration from on-premises or IaaS](tutorial-migration-service-offline-iaas.md)
+[Offline migration from AWS RDS for PostgreSQL](tutorial-migration-service-offline-aws.md)
 
 ## Additional information
 

@@ -51,13 +51,13 @@ The following table can help set up the network between the source and target.
 
 - **pg_hba.conf Configuration**: Verify the `pg_hba.conf` file to ensure the target PostgreSQL can connect to the source. This might require restarting the source PostgreSQL instance.
 
-**Resources for Networking Setup:**
+    > [!NOTE]
+    > The `pg_hba.conf` file is located in the `data` directory of the PostgreSQL installation.
+    > If the source is on-premises PostgreSQAL server or a PostgreSQL server on an Azure VM then make sure the pg_hba.conf file is configured. The `pg_hba.conf`file is not applicable to AWS RDS or any other source apart from onpremises/Azure VM
 
-- To establish an **ExpressRoute** connection, refer to the [Azure ExpressRoute Overview](/azure/expressroute/expressroute-introduction).
-- For setting up an **IPsec VPN**, consult the guide on [Azure Point-to-Site VPN connections](/azure/vpn-gateway/point-to-site-about).
-- For virtual network Peering, [Azure Virtual Network peering](/azure/virtual-network/virtual-network-peering-overview)
+For more information about network setup, visit [Network guide for migration service in Azure Database for PostgreSQL - Flexible Server](../how-to-network-setup-migration-service.md).
 
-### Extensions
+### Extensionsan
 
 Extensions are extra features that can be added to PostgreSQL to enhance its functionality. Extensions are supported in Azure Database for PostgreSQL but must be enabled manually. To enable extensions, follow these steps:
 
