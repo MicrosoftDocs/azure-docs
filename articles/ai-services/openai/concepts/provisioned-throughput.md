@@ -69,7 +69,7 @@ While we make every attempt to ensure that quota is deployable, quota doesn't re
 
 ### Determining the number of PTUs needed for a workload
 
-PTUs represent an amount of undelrying model processing capacity. Similar to your computer or databases, different workloads or requests to the model will consume different amounts of underlying processing capacity. The conversion from call shape characteristics (prompt size, generation size and call rate) to PTUs is complex and non-linear. To simplify this process, you can use the [Azure OpenAI Capacity calculator](https://oai.azure.com/portal/calculator) to size specific workload shapes. 
+PTUs represent an amount of model processing capacity. Similar to your computer or databases, different workloads or requests to the model will consume different amounts of underlying processing capacity. The conversion from call shape characteristics (prompt size, generation size and call rate) to PTUs is complex and non-linear. To simplify this process, you can use the [Azure OpenAI Capacity calculator](https://oai.azure.com/portal/calculator) to size specific workload shapes. 
 
 A few high-level considerations:
 - Generations require more capacity than prompts
@@ -104,7 +104,7 @@ We use a variation of the leaky bucket algorithm to maintain utilization below 1
 4.	The overall utilization is decremented down at a continuous rate based on the number of PTUs deployed. 
 
 > [!NOTE]
-> Since calls are accepted until utilization reaches 100%, you're allowed to burst over 100% utilization when first increasing traffic. For sizeable calls and small sized deployments, you might then be over 100% utilization for up to several minutes. This can also appear as a burst of high requests-per-minute (RPM) to your deployment followed by a steady decrease in RPM as the deployment stabilizes.
+> Calls are accepted until utilization reaches 100%. Bursts just over 100% maybe permitted in short periods, but over time, your traffic is capped at 100% utilization.
 
 
 :::image type="content" source="../media/provisioned/utilization.jpg" alt-text="Diagram showing how subsequent calls are added to the utilization." lightbox="../media/provisioned/utilization.jpg":::
