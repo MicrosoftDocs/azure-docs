@@ -26,8 +26,12 @@
     items: 
     - name: Back up the database - Azure portal
       href: quick-backup-postgresql-database-portal.md
-    - name: Restore the database across regions
-      href: quick-cross-region-restore.md  
+    - name: Restore the PostgreSQL database across regions
+      items:
+      - name: Using the Azure portal
+        href: quick-cross-region-restore.md  
+      - name: With Azure PowerShell
+        href: quick-secondary-region-restore-postgresql-powershell.md  
   - name: Configure AKS cluster backup
     href: quick-backup-aks.md
   - name: Install Backup extension in AKS cluster
