@@ -293,6 +293,39 @@ az spring app deploy \
     --config-file-pattern <config-file-pattern>
 ```
 
+## Bind aApps to Application Configuration Service during Creation
+
+When you create new apps, you can also bind them to the Application Configuration Service as you create them.
+
+### [Azure portal](#tab/Portal)
+
+Here's how to bind your new apps to the Application Configuration Service while creating them:
+
+1. First, go to the menu and pick **Apps** to see all your apps.
+
+1. Press the **Create App** button to start creating new apps.
+
+1. Enter the name for your new app.
+
+1. In the **Bind** dropdown, choose **Application Configuration Service**.
+
+1. Click **Create** button to finish creating your app and bind it to Application Configuration Service.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to use create application and bind the new creating App to Application Configuration Service:
+
+```azurecli
+az spring app create \ 
+    --resource-group <resource-group> \ 
+    --service <service-name> \ 
+    --name <app-name> \ 
+    --instance-count 1 \ 
+    --memory 2Gi \ 
+    --assign-endpoint \ 
+    --bind-application-configuration-service 
+```
+
 ---
 
 ## Enable/disable Application Configuration Service after service creation
