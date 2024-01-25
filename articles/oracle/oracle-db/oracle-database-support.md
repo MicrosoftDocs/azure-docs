@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 12/12/2023
+ms.date: 1/24/2024
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay
 ---
@@ -14,18 +14,6 @@ ms.author: jacobjaygbay
 # Oracle Database@Azure support information 
 
 In this article, you learn how to get information and support for Oracle Database@Azure.
-
-## Azure Support scope and contact information
-
-Azure Support is your first line of support for all Oracle Database@Azure issues. Get help in the **Help + support** section of the Azure portal. Create an Azure support request for your issue, as you do with other Azure services.
-
-Azure provides support for the following, collaborating with OCI as needed:
-
-- Virtual networking issues including those involving network address translation \(NAT\), firewalls, DNS and traffic management, and delegated Azure subnets.
-- Bastion and virtual machine (VM) issues including database host connection, software installation, latency, and host performance.
-- VM metrics, database logs, database events
-
-See [Contact Microsoft Azure Support](https://support.microsoft.com/topic/contact-microsoft-azure-support-2315e669-8b1f-493b-5fb1-d88a8736ffe4) in the Azure documentation for information on Azure support.
 
 ## Oracle Support scope and contact information 
 
@@ -49,6 +37,16 @@ If you contact Oracle Support, be sure to tell your Oracle Support agent that yo
 5. Let the agent know that you have an issue with your multicloud system, and the name of the product (for example, or). An internal Service Request is opened on your behalf and a  support engineer contacts you directly.
 
 You can also submit a question to the Oracle Database@Azure forum in Oracle's [Cloud Customer Connect](https://community.oracle.com/customerconnect/categories/oracle-cloud-infrastructure-and-platform) community. This option is available to all customers.
+
+## Azure Support scope and contact information
+
+Azure provides support for the following, collaborating with OCI as needed:
+
+- Virtual networking issues including those involving network address translation (NAT), firewalls, DNS and traffic management, and delegated Azure subnets.
+- Bastion and virtual machine (VM) issues including database host connection, software installation, latency, and host performance.
+- VM metrics, database logs, database events.
+
+See [Contact Microsoft Azure Support](https://support.microsoft.com/topic/contact-microsoft-azure-support-2315e669-8b1f-493b-5fb1-d88a8736ffe4) in the Azure documentation for information on Azure support.
 
 ## Next steps
 

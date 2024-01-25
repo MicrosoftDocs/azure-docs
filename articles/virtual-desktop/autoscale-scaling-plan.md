@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 01/16/2024
 ms.author: helohr
-manager: femila
 ms.custom: references_regions
 ---
 # Create and assign an autoscale scaling plan for Azure Virtual Desktop

@@ -44,7 +44,7 @@ The appliance scale targets vary depending on region and redundancy of the SAN i
 |Maximum base capacity units (TiB)    |100         |100         |400        |400 | 400|400       |400        |400        |400        |400        | 100 |100 |
 |Minimum total SAN capacity (TiB)    |1         |1         |1        |1        |1        |1        |1        |1        | 1 | 1 | 1 |1|
 |Maximum total IOPS     |500,000         |500,000         |2,000,000        |2,000,000|2,000,000   |2,000,000        |2,000,000        |2,000,000        |2,000,000        |2,000,000        | 500,000 |500,000 |
-|Maximum total throughput (MB/s)    |8,000         |8,000         |32,000        |32,000 |32,000|32,000        |32,000        |32,000        |32,000        |32,000        | 8,000|8,000|
+|Maximum total throughput (MB/s)    |20,000         |20,000         |80,000        |80,000 |80,000|80,000        |80,000        |80,000        |80,000        |80,000        | 20,000|20,000|
 
 
 #### ZRS
@@ -58,7 +58,7 @@ ZRS is only available in France Central, North Europe, West Europe and West US 2
 |Maximum base capacity units (TiB)    |100         |100        |100        |100        |
 |Minimum total SAN capacity (TiB)    |1         |1        |1        |1        |
 |Maximum total IOPS     |500,000         |500,000        |500,000        |500,000        |
-|Maximum total throughput (MB/s)    |8,000         |8,000        |8,000        |8,000        |
+|Maximum total throughput (MB/s)    |20,000         |20,000        |20,000        |20,000        |
 
 #### Quota and Capacity Increases
 To increase quota, raise a support ticket with the subscription ID and region information to request for an increase in quota for the “Maximum number of Elastic SAN that can be deployed per subscription per region”.
