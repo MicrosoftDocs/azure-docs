@@ -4,7 +4,7 @@ description: Learn about the capacity, IOPS, and throughput rates for Azure file
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 01/22/2024
+ms.date: 01/25/2024
 ms.author: kendownie
 ---
 
@@ -94,9 +94,9 @@ File scale targets apply to individual files stored in Azure file shares.
 
 <sup>2 Subject to machine network limits, available bandwidth, I/O sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./smb-performance.md).</sup>
 
-<sup>3 Azure Files supports 10,000 open handles on the root directory and 2,000 open handles per file and directory within the share. The number of active users supported per share is dependent on the applications that are accessing the share. If your applications aren't opening a handle on the root directory, Azure Files can support more than 10,000 active users per share. However, if you're using Azure Files to store disk images for large-scale virtual desktop workloads, you might run out of handles for the root directory or per file/directory. In this case, you might need to use multiple Azure file shares. For more information, see [Virtual desktop sizing guidance for Azure Files](#virtual-desktop-sizing-guidance-for-azure-files).</sup>
+<sup>3 Azure Files supports 10,000 open handles on the root directory and 2,000 open handles per file and directory within the share. The number of active users supported per share is dependent on the applications that are accessing the share. If your applications aren't opening a handle on the root directory, Azure Files can support more than 10,000 active users per share. However, if you're using Azure Files to store disk images for large-scale virtual desktop workloads, you might run out of handles for the root directory or per file/directory. In this case, you might need to use multiple Azure file shares. For more information, see [Azure Files sizing guidance for Azure Virtual Desktop](#azure-files-sizing-guidance-for-azure-virtual-desktop).</sup>
 
-### Virtual desktop sizing guidance for Azure Files
+### Azure Files sizing guidance for Azure Virtual Desktop
 
 A popular use case for Azure Files is storing user profile containers and disk images for Azure Virtual Desktop, using either FSLogix or App attach. In large scale Azure Virtual Desktop deployments, you might run out of handles for the root directory or per file/directory if you're using a single Azure file share. This section describes how handles are consumed by various types of disk images, and provides sizing guidance depending on the technology you're using.
 
