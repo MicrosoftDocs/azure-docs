@@ -15,7 +15,9 @@ Every Data Product working on Azure Operator Insights platform has built-in supp
 
 Azure Operator Insights platform monitors data quality when data is ingested into Data Product input storage (first AOI Data Product Storage block in the following image) and after data is processed and made available to customers (AOI Data Product Compute in following image).
 
-:::image type="content" source="media/concept-data-quality-monitoring/operator-insights-architecture.svg" alt-text="Diagram of Azure Operator Insights Data Product architecture. It shows ingestion from on-premises data sources, processing in a Data Product, and analysis and use in Logic Apps and Power BI." lightbox="media/concept-data-quality-monitoring/operator-insights-architecture.svg":::
+:::image type="complex" source="media/operator-insights-architecture.svg" alt-text="Diagram of ingestion agents and Data Products for Azure Operator Insights " lightbox="media/operator-insights-architecture.svg":::
+    Diagram of the Azure Operator Insights architecture. It shows ingestion by ingestion agents from on-premises data sources, processing in a Data Product, and analysis and use in Logic Apps and Power BI.
+:::image-end:::
 
 ## Quality dimensions
 

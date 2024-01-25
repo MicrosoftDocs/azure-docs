@@ -107,15 +107,7 @@ Try extracting text from forms and documents using the Document Intelligence Stu
 
 ### Microsoft Office and HTML text extraction
 
-Use the parameter `api-version=2023-07-31` when using the REST API or the corresponding SDKs of that API version to extract text from Microsoft Word, Excel, PowerPoint, and HTML files. The following illustration shows extraction of the digital text and text in the Word document by running OCR on the images. Text from embedded images isn't included in the extraction.
-
-> [!NOTE]
->
-> * [Add-on capabilities](concept-add-on-capabilities.md) are not supported for Microsoft Word, Excel, PowerPoint, and HTML file formats.
-
-:::image type="content" source="media/office-to-ocr.png" alt-text="Screenshot of a Microsoft Word document extracted by Document Intelligence Read OCR.":::
-
-The page units in the model output are computed as shown:
+When analyzing Microsft Office and HTML files, the page units in the model output are computed as shown:
 
  **File format**   | **Computed page unit**   | **Total pages**  |
 | --- | --- | --- |

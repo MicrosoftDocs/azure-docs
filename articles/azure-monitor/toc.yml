@@ -125,19 +125,15 @@ items:
         items:
         - name: .NET
           items:
-            - name: ASP.NET Core
-              items:
-              - name: ASP.NET Core App Monitoring
-                displayName: Core, .NET Core, services.add, dotnetcore, c#, csharp
-                href: app/asp-net-core.md
-              - name: ILogger
-                displayName: ilogger, logging, log
-                href: app/ilogger.md
-            - name: ASP.NET
-              items:
-              - name: ASP.NET App Monitoring
-                displayName: ASP.NET, c#, csharp, .NET, NET, dotnet
-                href: app/asp-net.md
+            - name: ASP.NET Core App Monitoring
+              displayName: Core, .NET Core, services.add, dotnetcore, c#, csharp
+              href: app/asp-net-core.md
+            - name: ILogger
+              displayName: ilogger, logging, log
+              href: app/ilogger.md
+            - name: ASP.NET App Monitoring
+              displayName: ASP.NET, c#, csharp, .NET, NET, dotnet
+              href: app/asp-net.md
             - name: Non-HTTP, console, and background apps
               displayName: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
               href: app/worker-service.md
@@ -192,8 +188,6 @@ items:
           - name: Sampling
             displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
             href: app/sampling-classic-api.md
-          - name: SDK support policy
-            href: app/sdk-support-guidance.md
           - name: Statsbeat
             href: app/statsbeat.md
           - name: TelemetryProcessors
@@ -448,14 +442,15 @@ items:
         href: vm/tutorial-monitor-vm-guest.md
   - name: Monitor containers
     items:
+    - name: Azure Monitor features
+      displayName: containers, kubernetes
+      href: containers/container-insights-overview.md
     - name: Full stack monitoring
       displayName: containers
       href: containers/monitor-kubernetes.md
     - name: Best practices
       displayName: containers, kubernetes
       href: best-practices-containers.md
-    - name: Container insights overview
-      href: containers/container-insights-overview.md
     - name: Enable monitoring
       items:
       - name: Onboard cluster
@@ -477,36 +472,40 @@ items:
           href: ../managed-grafana/how-to-connect-to-data-source-privately.md
         - name: Container insights
           href: containers/container-insights-private-link.md
-      - name: Enable remote write
+      - name: Configure Prometheus
         items:
-        - name: Overview
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write.md
-        - name: Managed identity
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write-managed-identity.md
-        - name: Microsoft Entra ID
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write-active-directory.md
-        - name: Microsoft Entra pod identity
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write-azure-ad-pod-identity.md
-        - name: Microsoft Entra Workload ID (preview)
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write-azure-workload-identity.md
-      - name: KEDA integration
-        displayName: Prometheus
-        href: containers/integrate-keda.md
-      - name: Prometheus Microsoft Entra authorization proxy
-        displayName: Prometheus
-        href: containers/prometheus-authorization-proxy.md
+        - name: Enable remote write
+          items:
+          - name: Overview
+            displayName: Prometheus,remote-write
+            href: containers/prometheus-remote-write.md
+          - name: Managed identity
+            displayName: Prometheus,remote-write
+            href: containers/prometheus-remote-write-managed-identity.md
+          - name: Microsoft Entra ID
+            displayName: Prometheus,remote-write
+            href: containers/prometheus-remote-write-active-directory.md
+          - name: Microsoft Entra pod identity
+            displayName: Prometheus,remote-write
+            href: containers/prometheus-remote-write-azure-ad-pod-identity.md
+          - name: Microsoft Entra Workload ID (preview)
+            displayName: Prometheus,remote-write
+            href: containers/prometheus-remote-write-azure-workload-identity.md
+          - name: KEDA integration
+            displayName: Prometheus
+            href: containers/integrate-keda.md
+          - name: Entra authorization proxy
+            displayName: Prometheus
+            href: containers/prometheus-authorization-proxy.md
       - name: Legacy authentication
         href: containers/container-insights-authentication.md
       - name: Supported region mappings
         href: containers/container-insights-region-mapping.md
       - name: Transition from Container monitoring solution
         href: containers/container-insights-transition-solution.md
-    - name: Configure monitoring
+    - name: Disable monitoring
+      href: containers/kubernetes-monitoring-disable.md
+    - name: Configure data collection
       items:
       - name: Prometheus (metrics)
         items:
@@ -532,10 +531,11 @@ items:
         items:
         - name: Configure data collection
           items:
-          - name: ConfigMap
+          - name: Configure with ConfigMap
             displayName: Container insights
             href: containers/container-insights-data-collection-configmap.md
-          - name: Data collection rule
+          - name: Configure with  Data collection rule
+            displayName: Container insights
             href: containers/container-insights-data-collection-dcr.md
         - name: Log schema
           href: containers/container-insights-logs-schema.md
@@ -546,8 +546,6 @@ items:
           href: containers/container-insights-authentication.md
         - name: Send Prometheus metrics to Logs
           href: containers/container-insights-prometheus-logs.md
-      - name: Disable monitoring
-        href: containers/kubernetes-monitoring-disable.md
     - name: Monitor
       items:
       - name: Monitor performance
@@ -723,6 +721,8 @@ items:
         href: agents/azure-monitor-agent-migration.md
       - name: Migration tools
         href: agents/azure-monitor-agent-migration-tools.md
+      - name: MMA removal tool
+        href: agents/azure-monitor-agent-mma-removal-tool.md
       - name: Migration custom text log tables
         href: agents/azure-monitor-agent-custom-text-log-migration.md
     - name: Performance
@@ -1435,8 +1435,6 @@ items:
       items:
         - name: Create a resource
           href: app/resource-manager-app-resource.md
-    - name: Container insights
-      href: containers/resource-manager-container-insights.md
     - name: Data collection rules
       href: agents/resource-manager-data-collection-rules.md
     - name: Data collection endpoints

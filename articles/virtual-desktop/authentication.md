@@ -7,7 +7,6 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/14/2023
 ms.author: helohr
-manager: femila
 ---
 # Supported identities and authentication methods
 

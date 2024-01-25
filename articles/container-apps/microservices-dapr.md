@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 09/29/2022
 ms.author: aawislan
-ms.custom: devx-track-azurecli, ignite-2022, devx-track-azurepowershell, devx-track-linux
+ms.custom: devx-track-azurecli, ignite-2022, devx-track-azurepowershell, linux-related-content
 ms.devlang: azurecli
 ---
 
@@ -25,7 +25,7 @@ You learn how to:
 
 With Azure Container Apps, you get a [fully managed version of the Dapr APIs](./dapr-overview.md) when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities. Available Dapr APIs include [Service to Service calls](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/), [Pub/Sub](https://docs.dapr.io/developing-applications/building-blocks/pubsub/), [Event Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/), [State Stores](https://docs.dapr.io/developing-applications/building-blocks/state-management/), and [Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/).
 
-In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/tutorials/hello-kubernetes) quickstart. 
+In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/tutorials/hello-kubernetes) quickstart.
 
 The application consists of:
 

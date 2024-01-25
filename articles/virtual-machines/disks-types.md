@@ -3,7 +3,7 @@ title: Select a disk type for Azure IaaS VMs - managed disks
 description: Learn about the available Azure disk types for virtual machines, including ultra disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 11/15/2023
+ms.date: 01/10/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ms.custom: references_regions
@@ -66,11 +66,9 @@ The following table provides a comparison of disk sizes and performance caps to 
 |512     |153,600         |4,000         |
 |1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |160,000         |4,000         |
 
-Ultra disks are designed to provide submillisecond latencies and target IOPS and throughput described in the preceding table 99.99% of the time.
-
 ### Ultra disk performance
 
-Ultra disks feature a flexible performance configuration model that allows you to independently configure IOPS and throughput  both before and after you provision the disk. Ultra disks come in several fixed sizes, ranging from 4 GiB up to 64 TiB.
+ Ultra disks are designed to provide low sub millisecond latencies and provisioned IOPS and throughput 99.99% of the time. Ultra disks also feature a flexible performance configuration model that allows you to independently configure IOPS and throughput, before and after you provision the disk. Ultra disks come in several fixed sizes, ranging from 4 GiB up to 64 TiB.
 
 ### Ultra disk IOPS
 
@@ -104,6 +102,7 @@ Premium SSD v2 is suited for a broad range of workloads such as SQL server, Orac
 
 Premium SSD v2 support a 4k physical sector size by default, but can be configured to use a 512E sector size as well. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks.
 
+
 ### Differences between Premium SSD and Premium SSD v2
 
 Unlike Premium SSDs, Premium SSD v2 doesn't have dedicated sizes. You can set a Premium SSD v2 to any supported size you prefer, and make granular adjustments to the performance without downtime. Premium SSD v2 doesn't support host caching but, benefits significantly from lower latency, which addresses some of the same core problems host caching addresses. The ability to adjust IOPS, throughput, and size at any time also means you can avoid the maintenance overhead of having to stripe disks to meet your needs.
@@ -118,7 +117,7 @@ Unlike Premium SSDs, Premium SSD v2 doesn't have dedicated sizes. You can set a 
 
 ### Premium SSD v2 performance
 
-With Premium SSD v2 disks, you can individually set the capacity, throughput, and IOPS of a disk based on your workload needs, providing you with more flexibility and reduced costs. Each of these values determines the cost of your disk.  
+Premium SSD v2 disks are designed to provide sub millisecond latencies and provisioned IOPS and throughput 99.9% of the time. With Premium SSD v2 disks, you can individually set the capacity, throughput, and IOPS of a disk based on your workload needs, providing you with more flexibility and reduced costs. Each of these values determines the cost of your disk. 
 
 #### Premium SSD v2 capacities
 

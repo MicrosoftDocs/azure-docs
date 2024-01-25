@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 09/12/2023
 ms.author: helohr
-manager: femila
 ---
 # Troubleshoot Azure Virtual Desktop Insights
 
