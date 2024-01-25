@@ -16,7 +16,6 @@ ignite> -2023
 > Azure Virtual Network Manager is generally available for Virtual Network Manager and hub-and-spoke connectivity configurations. Mesh connectivity configurations remain in public preview.
 >
 > Security configurations with security admin rules is generally available in the following regions:
-
 > - Australia East
 > - Australia Southeast
 > - Brazil South
