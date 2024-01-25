@@ -79,8 +79,10 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
     1. Check your workbooks, dashboards, and alerts for variances from typical behavior following the migration.   
     
 1. Clean up: After you confirm that Azure Monitor Agent is collecting data properly, **disable or uninstall the legacy Log Analytics agents**.
-    - If you have need to continue using both agents, [disable data collection with the Log Analytics agent](./agent-data-sources.md#configure-data-sources).
-    - If you've migrated to Azure Monitor Agent for all your requirements, [uninstall the Log Analytics agent](./agent-manage.md#uninstall-agent) from monitored resources. Clean up any configuration files, workspace keys, or certificates that were used previously by the Log Analytics agent. Continue using the legacy Log Analytics for features and solutions that Azure Monitor Agent doesn't support.     
+
+    - If you've migrated to Azure Monitor Agent for all your requirements, [uninstall the Log Analytics agent](./agent-manage.md#uninstall-agent) from monitored resources. Clean up any configuration files, workspace keys, or certificates that were used previously by the Log Analytics agent. Continue using the legacy Log Analytics for features and solutions that Azure Monitor Agent doesn't support.
+    
+        Use the [MMA removal tool](../agents/azure-monitor-agent-mma-removal-tool.md) to discovery and remove the Log Analytics agent extension from all machines within your tenant.     
     - Don't uninstall the legacy agent if you need to use it to upload data to System Center Operations Manager.
 
 <sup>1</sup> The DCR generator only converts the configurations for Windows event logs, Linux syslog and performance counters. Support for more features and solutions will be available soon  
