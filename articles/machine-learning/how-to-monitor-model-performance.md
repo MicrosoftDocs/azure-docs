@@ -137,16 +137,16 @@ created_monitor = poller.result()
 
    :::image type="content" source="media/how-to-monitor-models/add-model-monitoring.png" alt-text="Screenshot showing how to add model monitoring." lightbox="media/how-to-monitor-models/add-model-monitoring.png":::
 
-1. Select the model to monitor. The **Select deployment** dropdown list should be automatically populated if the model is deployed to an Azure Machine Learning online endpoint.
-1. Select the deployment in the **Select deployment** box.
+1. On the **Settings** page, use **(Optional) Select model** to choose the model to monitor.
+1. The **(Optional) Select deployment with data collection enabled** dropdown list should be automatically populated if the model is deployed to an Azure Machine Learning online endpoint. Select the deployment from the dropdown list.
 1. Select the training data to use as the comparison baseline in the **(Optional) Select training data** box.
-1. Enter a name for the monitoring in **Monitor name**.
-1. Select VM instance type for Spark pool in the **Select compute type** box.
+1. Enter a name for the monitoring in **Monitor name** or keep the default name.
+1. Notice that the virtual machine size is alsready selected for you.
 1. Select your **Time zone**. 
 1. Select **Recurrence** or **Cron expression** scheduling.
-1. For **Recurrence** scheduling, specify the repeat frequency, day, and time. For **Cron expression** scheduling, you would have to enter cron expression for monitoring run.
+1. For **Recurrence** scheduling, specify the repeat frequency, day, and time. For **Cron expression** scheduling, enter a cron expression for monitoring run.
 
-   :::image type="content" source="media/how-to-monitor-models/monitoring-2.png" alt-text="Screenshot of settings for model monitoring." lightbox="media/how-to-monitor-models/model-monitoring-basic-setup.png":::
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-basic-setup.png" alt-text="Screenshot of basic settings page for model monitoring." lightbox="media/how-to-monitor-models/model-monitoring-basic-setup.png":::
 
 1. Select **Next**, leave the **Configure data asset** and **Select monitoring signals** sections as they are. 
 1. Add your email in the **Notifications** section.
