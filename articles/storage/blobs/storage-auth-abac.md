@@ -76,11 +76,12 @@ The following table shows the current status of ABAC by storage account performa
 | Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal<br/>request<br/>resource | All attributes | Preview |
 
 
-> [!NOTE] If a feature isn't supported for Data Lake Storage Gen2 storage accounts, which use a hierarchical namespace, then that attribute isn't supported through ABAC. The following attributes aren't supported when hierarchical namespace is enabled for a storage account:
+> [!NOTE] Some storage features aren't supported for Data Lake Storage Gen2 storage accounts, which use a hierarchical namespace (HNS). To learn more, see [Blob storage feature support](storage-feature-support-in-storage-accounts.md).
+>
+>The following ABAC attributes aren't supported when hierarchical namespace is enabled for a storage account:
 >
 > - [Blob index tags [Keys]](storage-auth-abac-attributes.md#blob-index-tags-keys)
 > - [Blob index tags [Values in key]](storage-auth-abac-attributes.md##blob-index-tags-values-in-key)
-> - [Snapshot](storage-auth-abac-attributes.md#snapshot)
 > - [Version ID](storage-auth-abac-attributes.md#version-id)
 
 ## Next steps
