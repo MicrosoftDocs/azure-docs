@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 08/06/2021
 ms.author: helohr
-manager: femila
 ---
 
 # Troubleshoot the Azure Virtual Desktop getting started feature
