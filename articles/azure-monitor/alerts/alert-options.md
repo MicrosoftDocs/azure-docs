@@ -28,7 +28,7 @@ Using [Azure Policy](../../governance/policy/overview.md), you can automatically
 See [Resource Manager template samples for metric alert rules in Azure Monitor](./resource-manager-alerts-metric.md) and [Resource Manager template samples for log alert rules in Azure Monitor](./resource-manager-alerts-log.md) for ARM templates that can be used in policy definitions.
 
 ## Azure Monitor Baseline Alerts
-Azure Monitor Baseline Alerts (AMBA) provides a library of alert rules for different Azure services. ARM templates are provided for each in addition to Azure Policy definitions to ensure that all of your existing and new resources are monitored. AMBA is primarily focused on services included in [Azure Landing Zones](/azure/cloud-adoption-framework/ready/landing-zone/).
+Azure Monitor Baseline Alerts (AMBA) provides a library of alert rules for different Azure services. ARM templates are provided for each in addition to Azure Policy definitions to ensure that all of your existing and new resources are monitored.
 
 See [Azure Monitor Baseline Alerts](https://aka.ms/amba) for details.
 
