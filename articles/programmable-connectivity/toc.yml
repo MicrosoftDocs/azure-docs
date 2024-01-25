@@ -32,10 +32,8 @@
     href: azure-programmable-connectivity-modify-apis.md
 - name: Tutorials
   items:
-  - name: Create VM using Go SDK
-    href: tutorial-create-vm-using-go-sdk.md
-  - name: Create VM using Python SDK
-    href: tutorial-create-vm-using-python-sdk.md
+  - name: Modify APIs
+    href: azure-programmable-connectivity-modify-apis.md
 - name: Resources
   items:
   - name: Azure Programmable Connectivity product page
