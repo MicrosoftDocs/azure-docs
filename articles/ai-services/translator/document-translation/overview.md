@@ -110,7 +110,7 @@ Document Translation supports the following glossary file types:
 |**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
 |**Apply custom glossaries**|Translate a document using a custom glossary.|
 
-## Synchronous supported document formats
+### Synchronous supported document formats
 
 |File type| File extension|Description|
 |---|---|--|
