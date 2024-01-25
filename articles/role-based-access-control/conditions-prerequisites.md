@@ -9,7 +9,7 @@ ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 11/15/2023
+ms.date: 12/01/2023
 ms.author: rolyon
 ---
 
@@ -48,7 +48,7 @@ For more information, see [API versions of Azure RBAC REST APIs](/rest/api/autho
 
 ## Permissions
 
-Just like role assignments, to add or update conditions, you must be signed in to Azure with a user that has the `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner).
+Just like role assignments, to add or update conditions, you must be signed in to Azure with a user that has the `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator).
 
 ## Principal attributes
 

@@ -2,7 +2,6 @@
 title: Azure Workbooks graph visualizations
 description: Learn about all the Azure Workbooks graph visualizations.
 services: azure-monitor
-ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/21/2023

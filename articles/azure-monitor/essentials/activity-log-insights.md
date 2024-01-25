@@ -4,7 +4,7 @@ description: Learn how to monitor changes to resources and resource groups in an
 author: guywi-ms
 services: azure-monitor
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 12/11/2023
 ms.author: guywild
 ms.reviewer: orens
 

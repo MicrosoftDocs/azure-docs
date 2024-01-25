@@ -189,7 +189,7 @@ To get the number of rows read from a source named 'source1' that was used in th
 > [!NOTE]
 > If a sink has zero rows written, it won't show up in metrics. Existence can be verified using the `contains` function. For example, `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')` checks whether any rows were written to sink1.
 
-## Next steps
+## Related content
 
 See supported control flow activities: 
 

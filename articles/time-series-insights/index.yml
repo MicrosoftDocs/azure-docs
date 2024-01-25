@@ -6,11 +6,9 @@ summary: Learn how to run Azure IoT analytics in the cloud with fully managed ev
 metadata:
   title: Azure Time Series Insights Documentation - Quickstarts, Tutorials, API Reference | Microsoft Docs
   description: Learn how to run Azure IoT analytics in the cloud with fully managed event processing using quickstarts, tutorials, JavaScript samples, and REST API documentation.
-  services: time-series-insights
   ms.service: time-series-insights
   ms.subservice: time-series-insights
   ms.topic: landing-page
-  ms.collection: collection
   author: shreyasharmamsft
   ms.author: shresha
   ms.date: 07/09/2020

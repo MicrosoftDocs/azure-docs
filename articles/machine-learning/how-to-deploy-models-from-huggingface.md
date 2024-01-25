@@ -1,9 +1,10 @@
 ---
-title: Deploy models from HuggingFace hub to Azure Machine Learning online endpoints for real-time inference (Preview)
+title: Deploy models from HuggingFace hub to Azure Machine Learning online endpoints for real-time inference
 titleSuffix: Azure Machine Learning
 description: Deploy and score transformers based large language models from the Hugging Face hub. 
 services: machine-learning
 ms.service: machine-learning
+ms.subservice: training
 ms.custom: devx-track-python
 ms.topic: how-to
 ms.reviewer: ssalgado
@@ -12,16 +13,13 @@ ms.author: swatig
 ms.date: 05/15/2023
 ---
 
-# Deploy models from HuggingFace hub to Azure Machine Learning online endpoints for real-time inference (Preview)
-
-> [!IMPORTANT]
-> Items marked (preview) in this article are currently in public preview. The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-
+# Deploy models from HuggingFace hub to Azure Machine Learning online endpoints for real-time inference 
 
 
 Microsoft has partnered with Hugging Face to bring open-source models from Hugging Face Hub to Azure Machine Learning. Hugging Face is the creator of Transformers, a widely popular library for building large language models. The Hugging Face model hub that has thousands of open-source models. The integration with Azure Machine Learning enables you to deploy open-source models of your choice to secure and scalable inference infrastructure on Azure. You can search from thousands of transformers models in Azure Machine Learning model catalog and deploy models to managed online endpoint with ease through the guided wizard. Once deployed, the managed online endpoint gives you secure REST API to score your model in real time. 
 
+> [!NOTE] 
+> Models from Hugging Face are subject to third party license terms available on the Hugging Face model details page. It is your responsibility to comply with the model's license terms.
 
 ## Benefits of using online endpoints for real-time inference
 
@@ -166,7 +164,7 @@ Follow this link to find [hugging face model example code](https://github.com/Az
 HuggingFace hub has thousands of models with hundreds being updated each day. Only the most popular models in the collection are tested and others may fail with one of the below errors.
 
 ### Gated models
-[Gated models](https://huggingface.co/docs/hub/models-gated) require users to agree to share their contact information and accept the model owners’ terms and conditions in order to access the model. Attempting to deploy such models will fail with a `KeyError`.
+[Gated models](https://huggingface.co/docs/hub/models-gated) require users to agree to share their contact information and accept the model owners' terms and conditions in order to access the model. Attempting to deploy such models will fail with a `KeyError`.
 
 ### Models that need to run remote code
 Models typically use code from the transformers SDK but some models run code from the model repo. Such models need to set the parameter `trust_remote_code` to `True`. Follow this link to learn more about using [remote code](https://huggingface.co/docs/transformers/custom_models#using-a-model-with-custom-code). Such models are not supported from keeping security in mind. Attempting to deploy such models will fail with the following error: `ValueError: Loading <model> requires you to execute the configuration file in that repo on your local machine. Make sure you have read the code there to avoid malicious use, then set the option trust_remote_code=True to remove this error.`
@@ -201,6 +199,7 @@ Community registries are Azure Machine Learning registries created by trusted Az
 **Where can users submit questions and concerns regarding Hugging Face within Azure Machine Learning?**
 Submit your questions in the [Azure Machine Learning discussion forum.](https://discuss.huggingface.co/t/about-the-azure-machine-learning-category/40677) 
 
-## Learn more
+### Regional availability
 
-Learn [how to use foundation models in Azure Machine Learning](./how-to-use-foundation-models.md) for fine-tuning, evaluation and deployment using Azure Machine Learning studio UI or code based methods.
+The Hugging Face Collection is currently available in all regions of the public cloud only.  
+

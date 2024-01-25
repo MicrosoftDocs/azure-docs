@@ -10,10 +10,14 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 11/06/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to create and read user accounts using custom policies, so that I can store and retrieve user information from Microsoft Entra ID storage and issue JWT tokens.
+
 ---
 
 # Create and read a user account by using Azure Active Directory B2C custom policy

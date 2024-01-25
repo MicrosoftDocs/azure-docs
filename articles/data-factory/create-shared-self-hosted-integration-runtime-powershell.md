@@ -249,7 +249,7 @@ Remove-AzDataFactoryV2IntegrationRuntime `
   > This feature is available only in Data Factory V2.
 
 
-### Next steps
+### Related content
 
 - Review [integration runtime concepts in Azure Data Factory](./concepts-integration-runtime.md).
 

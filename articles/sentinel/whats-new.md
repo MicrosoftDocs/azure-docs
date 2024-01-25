@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 10/25/2023
+ms.date: 01/11/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -21,10 +21,39 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## January 2024
+
+### Reduce false positives for SAP systems with analytics rules
+
+Use analytics rules together with the [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md) to lower the number of false positives triggered from your SAP® systems. The Microsoft Sentinel solution for SAP® applications now includes the following enhancements:
+
+- The [**SAPUsersGetVIP**](sap/sap-solution-log-reference.md#sapusersgetvip) function now supports excluding users according to their SAP-given roles or profile.
+
+- The **SAP_User_Config** watchlist now supports using wildcards in the **SAPUser** field to exclude all users with a specific syntax.
+
+For more information, see [Microsoft Sentinel solution for SAP® applications data reference](sap/sap-solution-log-reference.md) and [Handle false positives in Microsoft Sentinel](false-positives.md).
+
 ## November 2023
 
+- [Take advantage of Microsoft Defender for Cloud integration with Microsoft Defender XDR (Preview)](#take-advantage-of-microsoft-defender-for-cloud-integration-with-microsoft-defender-xdr-preview)
 - [Near-real-time rules now generally available](#near-real-time-rules-now-generally-available)
 - [Elevate your cybersecurity intelligence with enrichment widgets (Preview)](#elevate-your-cybersecurity-intelligence-with-enrichment-widgets-preview)
+
+### Take advantage of Microsoft Defender for Cloud integration with Microsoft Defender XDR (Preview)
+
+Microsoft Defender for Cloud is now [integrated with Microsoft Defender XDR](../defender-for-cloud/release-notes.md#defender-for-cloud-is-now-integrated-with-microsoft-365-defender-preview), formerly known as Microsoft 365 Defender. This integration, currently **in Preview**, allows Defender XDR to collect alerts from Defender for Cloud and create Defender XDR incidents from them.
+
+Thanks to this integration, Microsoft Sentinel customers who have enabled [Defender XDR incident integration](microsoft-365-defender-sentinel-integration.md) will now be able to ingest and synchronize Defender for Cloud incidents, with all their alerts, through Microsoft Defender XDR.
+
+To support this integration, Microsoft has added a new **Tenant-based Microsoft Defender for Cloud (Preview)** connector. This connector will allow Microsoft Sentinel customers to receive Defender for Cloud alerts and incidents across their entire tenants, without having to monitor and maintain the connector's enrollment to all their Defender for Cloud subscriptions.
+
+This connector can be used to ingest Defender for Cloud alerts, regardless of whether you have Defender XDR incident integration enabled.
+
+- Learn more about [Microsoft Defender for Cloud integration with Microsoft Defender XDR](../defender-for-cloud/release-notes.md#defender-for-cloud-is-now-integrated-with-microsoft-365-defender-preview).
+- Learn more about [ingesting Defender for Cloud incidents into Microsoft Sentinel](ingest-defender-for-cloud-incidents.md).
+<!--
+- Learn how to [connect the tenant-based Defender for Cloud data connector](connect-defender-for-cloud-tenant.md) (in Preview).
+-->
 
 ### Near-real-time rules now generally available
 

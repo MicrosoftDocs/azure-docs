@@ -72,7 +72,10 @@ To connect your Azure DevOps organization to Defender for Cloud by using a nativ
     - Select **all existing organizations** to auto-discover all projects and repositories in organizations you are currently a Project Collection Administrator in.
     - Select **all existing and future organizations** to auto-discover all projects and repositories in all current and future organizations you are a Project Collection Administrator in.
 
-Since Azure DevOps repositories are onboarded at no additional cost, autodiscover is applied across the organization to ensure Defender for Cloud can comprehensively assess the security posture and respond to security threats across your entire DevOps ecosystem. Organizations can later be manually added and removed through **Microsoft Defender for Cloud** > **Environment settings**.
+    > [!NOTE]
+    > **Third-party application access via OAuth** must be set to `On` on for each Azure DevOps Organization. [Learn more about OAuth and how to enable it in your organizations](/azure/devops/organizations/accounts/change-application-access-policies).
+
+    Since Azure DevOps repositories are onboarded at no additional cost, autodiscover is applied across the organization to ensure Defender for Cloud can comprehensively assess the security posture and respond to security threats across your entire DevOps ecosystem. Organizations can later be manually added and removed through **Microsoft Defender for Cloud** > **Environment settings**.
 
 1. Select **Next: Review and generate**.
 
@@ -87,4 +90,4 @@ The **DevOps security** blade shows your onboarded repositories grouped by Organ
 
 - Learn more about [DevOps security in Defender for Cloud](defender-for-devops-introduction.md).
 - Configure the [Microsoft Security DevOps task in your Azure Pipelines](azure-devops-extension.md).
-- [Troubleshoot your Azure DevOps connector](troubleshooting-guide.md#troubleshoot-azure-devops-organization-connector-issues)
+- [Troubleshoot your Azure DevOps connector](troubleshooting-guide.md#troubleshoot-connector-problems-for-the-azure-devops-organization)

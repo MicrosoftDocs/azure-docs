@@ -8,14 +8,14 @@ manager: nitinme
 
 ms.service: azure-ai-custom-vision
 ms.topic: how-to
-ms.date: 06/28/2021
+ms.date: 01/22/2024
 ms.author: pafarley
 ms.devlang: python
 ---
 
 # Export a model programmatically
 
-All of the export options available on the [Custom Vision website](https://www.customvision.ai/) can be done programmatically through the client libraries as well. You may want to do this so you can fully automate the process of retraining and updating the model iteration you use on a local device.
+All of the export options available on the [Custom Vision website](https://www.customvision.ai/) are also available programmatically through the client libraries. You may want to use client libraries so you can fully automate the process of retraining and updating the model iteration you use on a local device.
 
 This guide shows you how to export your model to an ONNX file with the Python SDK.
 
@@ -25,7 +25,7 @@ You need to have a [CustomVisionTrainingClient](/python/api/azure-cognitiveservi
 
 ```python
 ENDPOINT = "PASTE_YOUR_CUSTOM_VISION_TRAINING_ENDPOINT_HERE"
-training_key = "PASTE_YOUR_CUSTOM_VISION_TRAINING_SUBSCRIPTION_KEY_HERE"
+training_key = "PASTE_YOUR_CUSTOM_VISION_TRAINING_KEY_HERE"
 
 credentials = ApiKeyCredentials(in_headers={"Training-key": training_key})
 trainer = CustomVisionTrainingClient(ENDPOINT, credentials)
@@ -93,3 +93,4 @@ Integrate your exported model into an application by exploring one of the follow
 * See the sample for [CoreML model in an iOS application](https://go.microsoft.com/fwlink/?linkid=857726) for real-time image classification with Swift.
 * See the sample for [Tensorflow model in an Android application](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) for real-time image classification on Android.
 * See the sample for [CoreML model with Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) for real-time image classification in a Xamarin iOS app.
+* See the sample for how to use the exported model [(VAIDK/OpenVino)](https://github.com/Azure-Samples/customvision-export-samples)

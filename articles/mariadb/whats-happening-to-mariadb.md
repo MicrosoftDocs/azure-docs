@@ -4,7 +4,7 @@ description: The Azure Database for MariaDB service is being deprecated.
 author: karla-escobar
 ms.author: karlaescobar
 ms.reviewer: maghan
-ms.date: 09/19/2023
+ms.date: 1/24/2024
 ms.service: mariadb
 ms.topic: overview
 ms.custom: deprecation announcement
@@ -51,6 +51,10 @@ A. Your existing Azure Database for MariaDB workloads will continue to function 
 **Q. Can I choose to continue running Azure Database for MariaDB beyond the sunset date?**
 
 A. Unfortunately, we don't plan to support Azure Database for MariaDB beyond the sunset date of September 19, 2025. Hence, we advise that you start planning your migration as soon as possible.
+
+**Q. How do I manage my reserved instances for MariaDB?**
+
+A. Since MariaDB service is on deprecation path you will not be able to purchase new MariaDB reserved instances. For any existing reserved instances, you will continue to use the benefits of your reserved instances until the September, 1 2025 when MariaDB service will no longer be available. 
 
 **Q. After the Azure Database for MariaDB retirement announcement, what if I still need to create a new MariaDB server to meet my business needs?**
 

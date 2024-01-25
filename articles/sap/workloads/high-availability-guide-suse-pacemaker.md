@@ -10,7 +10,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
 ms.custom: devx-track-azurepowershell
-ms.date: 10/09/2023
+ms.date: 01/22/2024
 ms.author: radeltch
 ---
 
@@ -550,11 +550,11 @@ This section applies only if you want to use a fencing device with an Azure fenc
 
 This section applies only if you're using a fencing device that's based on an Azure fence agent. The fencing device uses either a managed identity or a service principal to authorize against Microsoft Azure.
 
-#### Using managed identity
+#### [Managed identity](#tab/msi)
 
 To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities shouldn't be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and above.  
 
-#### Using service principal
+#### [Service principal](#tab/spn)
 
 To create a service principal, do the following:
 
@@ -568,6 +568,8 @@ To create a service principal, do the following:
 7. Enter a description for a new key, select **Two years**, and then select **Add**.
 8. Write down the value, which you'll use as the password for the service principal.
 9. Select **Overview**, and then write down the application ID, which you'll use as the username of the service principal.
+
+---
 
 ### **[1]** Create a custom role for the fence agent
 
@@ -596,18 +598,22 @@ Use the following content for the input file. You need to adapt the content to y
 
 ### **[A]** Assign the custom role
 
-#### Using Managed Identity
+Use managed identity or service principal.
+
+#### [Managed identity](#tab/msi)
 
 Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Verify each VM's managed identity role assignment contains all cluster VMs.
 
 > [!IMPORTANT]
 > Be aware assignment and removal of authorization with managed identities [can be delayed](../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization) until effective.
 
-#### Using Service Principal
+#### [Service principal](#tab/spn)
 
 Assign the custom role *Linux fence agent Role* that you already created to the service principal. Do *not* use the *Owner* role anymore. For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-Make sure to assign the custom role to the service principal at all VM (cluster node) scopes.  
+Make sure to assign the custom role to the service principal at all VM (cluster node) scopes.
+
+---
 
 ## Install the cluster
 
@@ -929,39 +935,41 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    > The 'pcmk_host_map' option is required in the command only if the hostnames and the Azure VM names are *not* identical. Specify the mapping in the format *hostname:vm-name*.
    > Refer to the bold section in the following command.
 
-   If using **managed identity** for your fence agent, run the following command
+    #### [Managed identity](#tab/msi)
 
-   ```bash
-   # replace the bold strings with your subscription ID and resource group of the VM
+    ```bash
+    # replace the bold strings with your subscription ID and resource group of the VM
    
-   sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-   params msi=true subscriptionId="subscription ID" resourceGroup="resource group" \
-   pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
-   op monitor interval=3600 timeout=120
+    sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
+    params msi=true subscriptionId="subscription ID" resourceGroup="resource group" \
+    pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
+    op monitor interval=3600 timeout=120
    
-   sudo crm configure property stonith-timeout=900
-   ```
+    sudo crm configure property stonith-timeout=900
+    ```
 
-   If using **service principal** for your fence agent, run the following command
+    #### [Service principal](#tab/spn)
 
-   ```bash
-   # replace the bold strings with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
+    ```bash
+    # replace the bold strings with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
    
-   sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-   params subscriptionId="subscription ID" resourceGroup="resource group" tenantId="tenant ID" login="application ID" passwd="password" \
-   pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
-   op monitor interval=3600 timeout=120
+    sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
+    params subscriptionId="subscription ID" resourceGroup="resource group" tenantId="tenant ID" login="application ID" passwd="password" \
+    pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
+    op monitor interval=3600 timeout=120
    
-   sudo crm configure property stonith-timeout=900
-   ```
+    sudo crm configure property stonith-timeout=900
+    ```
+   
+    ---
 
-   If you're using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
+    If you're using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
-   > [!IMPORTANT]
-   > The monitoring and fencing operations are deserialized. As a result, if there's a longer-running monitoring operation and simultaneous fencing event, there's no delay to the cluster failover because the monitoring operation is already running.
+    > [!IMPORTANT]
+    > The monitoring and fencing operations are deserialized. As a result, if there's a longer-running monitoring operation and simultaneous fencing event, there's no delay to the cluster failover because the monitoring operation is already running.
 
-   > [!TIP]
-   >The Azure fence agent requires outbound connectivity to the public endpoints, as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+    > [!TIP]
+    >The Azure fence agent requires outbound connectivity to the public endpoints, as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 ## Configure Pacemaker for Azure scheduled events
 

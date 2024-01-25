@@ -23,15 +23,15 @@ This page shows the supported authentication types, client types and sample code
 
 Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
 
-| Client type        | System-assigned managed identity   | User-assigned managed identity     | Secret / connection string         | Service principal                  |
-| ------------------ | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot |                                    |                                    | ![yes icon](./media/green-check.png) |                                    |
-| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| None               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
+|--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
+| .NET               | Yes                              | Yes                            | Yes                        | Yes               |
+| Java               | Yes                              | Yes                            | Yes                        | Yes               |
+| Java - Spring Boot | No                               | No                             | Yes                        | No                |
+| Node.js            | Yes                              | Yes                            | Yes                        | Yes               |
+| Python             | Yes                              | Yes                            | Yes                        | Yes               |
+| Go                 | Yes                              | Yes                            | Yes                        | Yes               |
+| None               | Yes                              | Yes                            | Yes                        | Yes               |
 
 ---
 
@@ -77,13 +77,13 @@ For default environment variables and sample code of other authentication type, 
 | azure.storage.account-name  | Your Blob storage-account-name | `<storage-account-name>`                                |
 | azure.storage.account-key   | Your Blob Storage account key  | `<account-key>`                                         |
 | azure.storage.blob-endpoint | Your Blob Storage endpoint     | `https://<storage-account-name>.blob.core.windows.net/` |
+| spring.cloud.azure.storage.blob.account-name | Your Blob storage-account-name for Spring Cloud Azure version 4.0 or above | `<storage-account-name>`                                |
+| spring.cloud.azure.storage.blob.account-key   | Your Blob Storage account key for Spring Cloud Azure version 4.0 or above  | `<account-key>`                                         |
+| spring.cloud.azure.storage.blob.endpoint | Your Blob Storage endpoint for Spring Cloud Azure version 4.0 or above    | `https://<storage-account-name>.blob.core.windows.net/` |
 
 #### Other client types
 | Default environment variable name  | Description                    | Example value                                                                                                       |
 |------------------------------------|--------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| AZURE_STORAGEBLOB_CONNECTIONSTRING | Blob Storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
-| Default environment variable name  | Description                    | Example value                                                                                                          |
-| ---------------------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
 | AZURE_STORAGEBLOB_CONNECTIONSTRING | Blob Storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
 
 #### Sample code

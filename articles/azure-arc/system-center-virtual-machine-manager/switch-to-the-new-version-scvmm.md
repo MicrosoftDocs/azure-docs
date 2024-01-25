@@ -3,11 +3,11 @@ title: Switch to the new version of Arc-enabled SCVMM
 description: Learn how to switch to the new version and use its capabilities.
 ms.service: azure-arc
 ms.subservice: azure-arc-scvmm
-author: PriskeyJeronika-MS
-ms.author: v-gjeronika
+author: Farha-Bano
+ms.author: v-farhabano
 manager: jsuri
 ms.topic: how-to 
-ms.date: 11/15/2023
+ms.date: 11/29/2023
 keywords: "VMM, Arc, Azure"
 
 #Customer intent: As a VI admin, I want to switch to the new version of Arc-enabled SCVMM and leverage the associated capabilities
@@ -28,7 +28,7 @@ If you've onboarded to Arc-enabled SCVMM before September 22, 2023, for VMs that
 > If you had enabled guest management on any of the VMs, [disconnect](/azure/azure-arc/servers/manage-agent?tabs=windows#step-2-disconnect-the-server-from-azure-arc) and [uninstall agents](/azure/azure-arc/servers/manage-agent?tabs=windows#step-3a-uninstall-the-windows-agent).
 
 1.	From your browser, go to the SCVMM management servers blade on [Azure Arc Center](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/overview) and select the SCVMM management server resource.
-2.	Select all the virtual machines that are Azure enabled with the older version.
+2.	Select all the virtual machines that are Azure enabled with the older version. The virtual machines in the older version will have *Enabled (Deprecated)* set under the Virtual hardware management column.
 3.	Select **Remove from Azure**. 
     :::image type="Virtual Machines" source="media/switch-to-the-new-version-scvmm/virtual-machines.png" alt-text="Screenshot of virtual machines.":::
 4.	After successful removal from Azure, enable the same resources again in Azure.

@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 07/19/2023
+ms.date: 11/28/2023
 ---
 
 # Add custom analyzers to string fields in an Azure AI Search index

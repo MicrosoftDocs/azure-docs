@@ -289,10 +289,11 @@ Add following key-values to the App Configuration store and leave **Label** and 
               mountPath: /app
           volumes:
           - name: config-volume 
-            configMap: configmap-created-by-appconfig-provider 
-            items:
-            - key: mysettings.json
-              path: mysettings.json
+            configMap: 
+              name: configmap-created-by-appconfig-provider
+              items:
+              - key: mysettings.json
+                path: mysettings.json
     ```
 
 3. Run the following command to deploy the changes. Replace the namespace if you are using your existing AKS application.

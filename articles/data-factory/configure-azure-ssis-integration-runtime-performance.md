@@ -1,7 +1,7 @@
 ---
 title: Configure performance for the Azure-SSIS Integration Runtime 
 description: Learn how to configure the properties of the Azure-SSIS Integration Runtime for high performance
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: integration-services
@@ -157,5 +157,5 @@ You can also adjust the database pricing tier based on [database transaction uni
 ## Design for high performance
 Designing an SSIS package to run on Azure is different from designing a package for on-premises execution. Instead of combining multiple independent tasks in the same package, separate them into several packages for more efficient execution in the Azure-SSIS IR. Create a package execution for each package, so that they don’t have to wait for each other to finish. This approach benefits from the scalability of the Azure-SSIS integration runtime and improves the overall throughput.
 
-## Next steps
+## Related content
 Learn more about the Azure-SSIS Integration Runtime. See [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime).

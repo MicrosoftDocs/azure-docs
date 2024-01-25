@@ -26,7 +26,7 @@ This article provides suggestions to troubleshoot common problems with the file 
 - **Recommendation**: Using command line from [Set up an existing self-hosted IR via local PowerShell](create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell) , you could allow or disallow local SHIR file system access.
 
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

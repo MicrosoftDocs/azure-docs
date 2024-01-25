@@ -28,7 +28,7 @@ This tenant-level setting allows you to automatically and natively onboard any n
 
 ## How it works
 
-Direct onboarding is a seamless integration between Defender for Endpoint and Defender for Cloud that doesn’t require extra software deployment on your servers. Once enabled, it also shows your non-Azure server devices onboarded to Defender for Endpoint in Defender for Cloud, under a designated Azure Subscription you configure (in addition to their regular representation in  the Microsoft 365 Defender portal). The Azure Subscription is used for licensing, billing, alerts, and security insights but doesn't provide server management capabilities such as Azure Policy, Extensions, or Guest configuration. To enable server management capabilities, refer to the deployment of Azure Arc.
+Direct onboarding is a seamless integration between Defender for Endpoint and Defender for Cloud that doesn’t require extra software deployment on your servers. Once enabled, it also shows your non-Azure server devices onboarded to Defender for Endpoint in Defender for Cloud, under a designated Azure Subscription you configure (in addition to their regular representation in  the Microsoft Defender Portal). The Azure Subscription is used for licensing, billing, alerts, and security insights but doesn't provide server management capabilities such as Azure Policy, Extensions, or Guest configuration. To enable server management capabilities, refer to the deployment of Azure Arc.
 
 ## Enabling direct onboarding
 
@@ -43,9 +43,9 @@ Before you begin:
 ### Enabling in the Defender for Cloud portal
 
 1. Go to **Defender for Cloud** > **Environment Settings** > **Direct onboarding**.
-2. Switch the **Direct onboarding** toggle to **On**.
-3. Select the subscription you would like to use for servers onboarded directly with Defender for Endpoint
-4. Select **Save**.
+1. Switch the **Direct onboarding** toggle to **On**.
+1. Select the subscription you would like to use for servers onboarded directly with Defender for Endpoint
+1. Select **Save**.
 
 :::image type="content" source="media/onboard-machines-with-defender-for-endpoint/onboard-with-defender-for-endpoint.png" alt-text="Screenshot of Onboard non-Azure servers with Defender for Endpoint.":::
 

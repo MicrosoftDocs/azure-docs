@@ -25,7 +25,7 @@ For example, in JavaScript, you can create a Reliable PubSub WebSocket client wi
 var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'protobuf.reliable.webpubsub.azure.v1');
 ```
 
-To correctly use `json.reliable.webpubsub.azure.v1` subprotocol, the client must follow the [How to create reliable clients](./howto-develop-reliable-clients.md) to implement reconnection, publisher and subscriber.
+To correctly use `protobuf.reliable.webpubsub.azure.v1` subprotocol, the client must follow the [How to create reliable clients](./howto-develop-reliable-clients.md) to implement reconnection, publisher and subscriber.
 
 > [!NOTE]
 > Currently, the Web PubSub service supports only [proto3](https://developers.google.com/protocol-buffers/docs/proto3).

@@ -11,7 +11,7 @@ Dashboards are a focused and organized view of your cloud resources in the Azure
 
 The Azure portal provides a default dashboard as a starting point. You can edit this default dashboard, and you can create and customize additional dashboards.
 
-All dashboards are private when created, and each user can create up to 100 private dashboards. If you publish and share a dashboard with other users in your organization](azure-portal-dashboard-share-access.md), the shared dashboard is implemented as an Azure resource in your subscription, and doesn't count towards the private dashboard limit. 
+All dashboards are private when created, and each user can create up to 100 private dashboards. If you publish and [share a dashboard with other users in your organization](azure-portal-dashboard-share-access.md), the shared dashboard is implemented as an Azure resource in your subscription, and doesn't count towards the private dashboard limit. 
 
 ## Create a new dashboard
 

@@ -9,7 +9,7 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to
-ms.date: 03/02/2023
+ms.date: 01/19/2024
 ms.author: aahi
 keywords: on-premises, Docker, container
 ---
@@ -391,7 +391,7 @@ If you run the container with an output [mount](luis-container-configuration.md#
 
 ## Billing
 
-The LUIS container sends billing information to Azure, using a _Azure AI services_ resource on your Azure account.
+The LUIS container sends billing information to Azure, using an _Azure AI services_ resource on your Azure account.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

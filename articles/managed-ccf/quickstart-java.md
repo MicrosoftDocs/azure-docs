@@ -25,7 +25,7 @@ Azure Managed CCF (Managed CCF) is a new and highly secure service for deploying
 
 ## Setup
 
-This quickstart uses the Azure Identity library, along with Azure CLI or Azure PowerShell, to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls. For more information, see [Authenticate the client with Azure Identity client library](/python/api/overview/azure/identity-readme).
+This quickstart uses the Azure Identity library, along with Azure CLI or Azure PowerShell, to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studi- [OpenSSL](https://www.openssl.org/) on a computer running Windows or Linux.o Code to authenticate their calls. For more information, see [Authenticate the client with Azure Identity client library](/python/api/overview/azure/identity-readme).
 
 ### Sign in to Azure
 
@@ -134,7 +134,7 @@ az group delete --resource-group myResourceGroup
 
 ## Next steps
 
-In this quickstart, you created a Managed CCF resource by using the Azure Python SDK for Confidential Ledger. To learn more about Azure Managed CCF and how to integrate it with your applications, continue on to these articles:
+In this quickstart, you created a Managed CCF resource by using the Azure SDK for Java. To learn more about Azure Managed CCF and how to integrate it with your applications, continue on to these articles:
 
 - [Azure Managed CCF overview](overview.md)
 - [Quickstart: Azure portal](quickstart-portal.md)

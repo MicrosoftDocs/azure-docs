@@ -8,6 +8,19 @@ ms.author: eur
 
 ### November 2023 release
 
+#### Introducing Bilingual Speech Modeling!
+We're thrilled to unveil a groundbreaking addition to our real-time speech modeling—Bilingual Speech Modeling. This significant enhancement allows our speech model to seamlessly support bilingual language pairs, such as English and Spanish, as well as English and French. This feature empowers users to effortlessly switch between languages during real-time interactions, marking a pivotal moment in our commitment to enhancing communication experiences.
+ 
+Key Highlights:
+- Bilingual Support: With our latest release, users can seamlessly switch between English and Spanish or between English and French during real-time speech interactions. This functionality is tailored to accommodate bilingual speakers who frequently transition between these two languages.
+- Enhanced User Experience: Bilingual speakers, whether at work, home, or in various community settings, will find this feature immensely beneficial. The model's ability to comprehend and respond to both English and Spanish in real time opens up new possibilities for effective and fluid communication.
+ 
+How to Use:
+
+Choose es-US (Spanish and English) or fr-CA (French and English) when you call the Speech Service API or try it out on Speech Studio. Feel free to speak either language or mix them together—the model is designed to adapt dynamically, providing accurate and context-aware responses in both languages.
+
+It's time to elevate your communication game with our latest feature release—seamless, multilingual communication at your fingertips!
+
 #### Speech To text models update
 
 We're excited to introduce a significant update to our speech models, promising enhanced accuracy, improved readability, and refined entity recognition. This upgrade comes with a robust new structure, bolstered by an expanded training dataset, ensuring a marked advancement in overall performance. It includes newly released models for en-US, zh-CN, ja-JP, it-IT, pt-BR, es-MX, es-ES, fr-FR, de-DE, ko-KR, tr-TR, sv-SE, and he-IL.
@@ -92,31 +105,7 @@ Speech to text supports two new locales as shown in the following table. Refer t
 
 - Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 3 additional languages generally available in English (Canada), English (India), and French (Canada), with 3 additional languages available in preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
 
-  | Language | Locale (BCP-47) | 
-  |--|--|
-  |Arabic (Saudi Arabia)|`ar-SA`<sup>1</sup> |
-  |Chinese (Mandarin, Simplified)|`zh-CN`|
-  |English (Australia)|`en-AU`|
-  |English (Canada)|`en-CA` |
-  |English (India)|`en-IN` |
-  |English (United Kingdom)|`en-GB`|
-  |English (United States)|`en-US`|  
-  |French (Canada)|`fr-CA`| 
-  |French (France)|`fr-FR`|  
-  |German (Germany)|`de-DE`|
-  |Italian (Italy)|`it-IT`<sup>1</sup>|
-  |Japanese (Japan)|`ja-JP`|
-  |Korean (Korea)|`ko-KR`<sup>1</sup>|
-  |Malay (Malaysia)|`ms-MY`<sup>1</sup>|
-  |Norwegian Bokmål (Norway)|`nb-NO`<sup>1</sup>|
-  |Portuguese (Brazil)|`pt-BR`<sup>1</sup>|
-  |Russian (Russia)|`ru-RU`<sup>1</sup>|
-  |Spanish (Mexico)|`es-MX` | 
-  |Spanish (Spain)|`es-ES` | 
-  |Tamil (India)|`ta-IN`<sup>1</sup> | 
-  |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
-
-  <sup>1</sup> The language is in public preview for pronunciation assessment.
+ 
 
 ### May 2023 release
 
@@ -139,13 +128,13 @@ Speech to text supports two new locales as shown in the following table. Refer t
   - **Python**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#L915).
   - **Swift**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/speech-samples/speech-samples/ViewController.swift#L191).
 
-#### Custom Speech
+#### Custom speech
 
 Support for audio + human-labeled transcript is added for the `de-AT` locales.
 
 ### January 2023 release
 
-#### Custom Speech
+#### Custom speech
 
 Support for audio + human-labeled transcript is added for additional locales: `ar-BH`, `ar-DZ`, `ar-EG`, `ar-MA`, `ar-SA`, `ar-TN`, `ar-YE`, and `ja-JP`.
 

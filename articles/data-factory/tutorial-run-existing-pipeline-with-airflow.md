@@ -95,7 +95,7 @@ Data Factory pipelines provide 100+ data source connectors that provide scalable
 
    :::image type="content" source="media/tutorial-run-existing-pipeline-with-airflow/airflow-environment.png" alt-text="Screenshot showing the data factory management tab with the Airflow section selected.":::
 
-## Next steps
+## Related content
 
 - [Managed Airflow pricing](airflow-pricing.md)
 - [Changing password for Managed Airflow environments](password-change-airflow.md)

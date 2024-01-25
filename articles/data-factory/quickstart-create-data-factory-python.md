@@ -466,6 +466,6 @@ To delete the data factory, add the following code to the program:
 adf_client.factories.delete(rg_name, df_name)
 ```
 
-## Next steps
+## Related content
 
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios.

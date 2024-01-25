@@ -132,7 +132,7 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
+To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, or Java, see the documentation for the respective language or web platform.
 
 ## Load certificate in Linux/Windows containers
 
@@ -178,7 +178,7 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
+To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, or Java, see the documentation for the respective language or web platform.
 
 ## When updating (renewing) a certificate
 

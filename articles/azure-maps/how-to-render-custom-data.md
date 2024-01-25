@@ -147,9 +147,9 @@ Similarly, you can change, add, and remove other style modifiers.
 [Postman]: https://www.postman.com/
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 
-[Get Map Static Image]: /rest/api/maps/render-v2/get-map-static-image
+[Get Map Static Image]: /rest/api/maps/render/get-map-static-image
 [Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
-[path]: /rest/api/maps/render-v2/get-map-static-image#uri-parameters
-[pins]: /rest/api/maps/render-v2/get-map-static-image#uri-parameters
-[Render]: /rest/api/maps/render-v2/get-map-static-image
-[Render - Get Map Static Image]: /rest/api/maps/render-v2/get-map-static-image
+[path]: /rest/api/maps/render/get-map-static-image#uri-parameters
+[pins]: /rest/api/maps/render/get-map-static-image#uri-parameters
+[Render]: /rest/api/maps/render/get-map-static-image
+[Render - Get Map Static Image]: /rest/api/maps/render/get-map-static-image

@@ -11,7 +11,7 @@ ms.reviewer: mopeakande
 ms.date: 11/15/2023
 reviewer: msakande
 ms.topic: how-to
-ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2
+ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2, update-code
 ---
 
 # Deploy and score a machine learning model by using an online endpoint
@@ -75,9 +75,9 @@ For managed online endpoints, Azure Machine Learning reserves 20% of your comput
 
 There are certain VM SKUs that are exempted from extra quota reservation. To view the full list, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 
-Azure Machine Learning provides a [shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota) pool from which all users can access quota to perform testing for a limited time. When you use the studio to deploy Llama models (from the model catalog) to a managed online endpoint, Azure Machine Learning allows you to access this shared quota for a short time. 
+Azure Machine Learning provides a [shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota) pool from which all users can access quota to perform testing for a limited time. When you use the studio to deploy Llama-2, Phi, Nemotron, Mistral, Dolly and Deci-DeciLM models from the model catalog to a managed online endpoint, Azure Machine Learning allows you to access this shared quota for a short time. 
 
-To deploy a _Llama-2-70b_ or _Llama-2-70b-chat_ model, however, you must have an [Enterprise Agreement subscription](/azure/cost-management-billing/manage/create-enterprise-subscription) before you can deploy using the shared quota. For more information on how to use the shared quota for online endpoint deployment, see [How to deploy foundation models using the studio](how-to-use-foundation-models.md#deploying-using-the-studio).
+For more information on how to use the shared quota for online endpoint deployment, see [How to deploy foundation models using the studio](how-to-use-foundation-models.md#deploying-using-the-studio).
 
 ## Prepare your system
 
@@ -1066,7 +1066,7 @@ To view log output, select the **Deployment logs** tab in the endpoint's **Detai
 
 :::image type="content" source="media/how-to-deploy-online-endpoints/deployment-logs.png" lightbox="media/how-to-deploy-online-endpoints/deployment-logs.png" alt-text="A screenshot of observing deployment logs in the studio.":::
 
-By default, logs are pulled from the inference server. To see logs from the storage initializer container, use the Azure CLI or Python SDK (see each tab for details). For more information on deployment logs, see [Get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs).
+By default, logs are pulled from the inference server. To see logs from the storage initializer container, use the Azure CLI or Python SDK (see each tab for details). Logs from the storage initializer container provide information on whether code and model data were successfully downloaded to the container. For more information on deployment logs, see [Get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs).
 
 # [ARM template](#tab/arm)
 
@@ -1281,7 +1281,7 @@ If you aren't going use the deployment, you should delete it by running the foll
 
 ---
 
-## Next steps
+## Related content
 
 - [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 - [Deploy models with REST](how-to-deploy-with-rest.md)

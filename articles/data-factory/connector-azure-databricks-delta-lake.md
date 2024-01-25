@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # Copy data to and from Azure Databricks Delta Lake using Azure Data Factory or Azure Synapse Analytics
@@ -495,6 +495,6 @@ The same [copy activity monitoring experience](copy-activity-monitoring.md) is p
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 
 For a list of data stores supported as sources and sinks by Copy activity, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

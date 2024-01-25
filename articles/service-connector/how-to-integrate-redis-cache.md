@@ -23,15 +23,15 @@ This page shows supported authentication methods and clients, and shows sample c
 
 Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
 
-| Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string         | Service principal |
-| ------------------ | -------------------------------- | ------------------------------ | ---------------------------------- | ----------------- |
-| .NET               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Go                 |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java - Spring Boot |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Node.js            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Python             |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| None               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
+|--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
+| .NET               | No                               | No                             | Yes                        | No                |
+| Go                 | No                               | No                             | Yes                        | No                |
+| Java               | No                               | No                             | Yes                        | No                |
+| Java - Spring Boot | No                               | No                             | Yes                        | No                |
+| Node.js            | No                               | No                             | Yes                        | No                |
+| Python             | No                               | No                             | Yes                        | No                |
+| None               | No                               | No                             | Yes                        | No                |
 
 ## Default environment variable names or application properties and sample code
 
@@ -78,6 +78,16 @@ Use the environment variable names and application properties listed below to co
 | Default environment variable name | Description                  | Example value                                                                |
 | --------------------------------- | ---------------------------- | ---------------------------------------------------------------------------- |
 | AZURE_REDIS_CONNECTIONSTRING      | node-redis connection string | `rediss://:<redis-key>@<redis-server-name>.redis.cache.windows.net:6380/0` |
+
+#### [Other](#tab/none)
+
+| Default environment variable name | Description    | Example value                                   |
+| --------------------------------- | -------------- | ----------------------------------------------- |
+| AZURE_REDIS_HOST                  | Redis host     | `<redis-server-name>.redis.cache.windows.net`   |
+| AZURE_REDIS_PORT                  | Redis port     | `6380`                                          |
+| AZURE_REDIS_DATABASE              | Redis database | `0`                                             |
+| AZURE_REDIS_PASSWORD              | Redis key      | `<redis-key>`                                   |
+| AZURE_REDIS_SSL                   | SSL setting    | `true`                                          |
 
 ---
 

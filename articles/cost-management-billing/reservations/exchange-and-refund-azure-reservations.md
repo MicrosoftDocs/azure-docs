@@ -7,7 +7,7 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 10/16/2023
+ms.date: 11/30/2023
 ms.author: banders
 ---
 
@@ -116,7 +116,7 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 - Only reservation owners can process an exchange. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 - An exchange is processed as a refund and a repurchase – different transactions are created for the cancellation and the new reservation purchase. The prorated reservation amount is refunded for the reservations that's traded-in. You're charged fully for the new purchase. The prorated reservation amount is the daily prorated residual value of the reservation being returned.
 - You can exchange or refund reservations even if the enterprise agreement used to purchase the reservation is expired and was renewed as a new agreement.
-- The new reservation's lifetime commitment should equal or be greater than the returned reservation's remaining commitment. Example: for a three-year reservation that's $100 per month and exchanged after the 18th payment, the new reservation's lifetime commitment should be $1,800 or more (paid monthly or upfront).
+- The new reservation's lifetime commitment should equal or be greater than the returned reservation's remaining commitment. Example: for a three-year reservation that's 100 USD per month and exchanged after the 18th payment, the new reservation's lifetime commitment should be 1,800 USD or more (paid monthly or upfront).
 - The new reservation purchased as part of exchange has a new term starting from the time of exchange.
 - There's no penalty or annual limits for exchanges.
 - Exchanges will be unavailable for all compute reservations - Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations - purchased on or after **January 1, 2024**. Compute reservations purchased **prior to January 1, 2024** will reserve the right to **exchange one more time** after the policy change goes into effect. For more information about the exchange policy change, see [Changes to the Azure reservation exchange policy](reservation-exchange-policy-changes.md).
@@ -131,7 +131,7 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 - Only reservation order owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 - For CSP program, the 50,000 USD limit is per customer.
 
-Let's look at an example with the previous points in mind. If you bought a $300,000 reservation, you can exchange it at any time for another reservation that equals or costs more (of the remaining reservation balance, not the original purchase price). For this example:
+Let's look at an example with the previous points in mind. If you bought a 300,000 USD reservation, you can exchange it at any time for another reservation that equals or costs more (of the remaining reservation balance, not the original purchase price). For this example:
 - There's no penalty or annual limits for exchanges. 
 - The refund that results from the exchange doesn't count against the refund limit. 
 

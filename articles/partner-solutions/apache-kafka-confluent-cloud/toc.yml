@@ -21,6 +21,8 @@ items:
     href: add-connectors.md
   - name: Manage
     href: manage.md
+  - name: Manage access
+    href: manage-access.md
     displayName: Azure CLI, az confluent organization delete
   - name: Troubleshoot
     items:

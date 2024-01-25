@@ -740,7 +740,7 @@ Checking copy activity run details...
 Press any key to exit...
 ```
 
-## Next steps
+## Related content
 
 You did the following tasks in this tutorial:
 

@@ -1364,34 +1364,11 @@ This issue can happen when there's a failure in accessing a workspace's associat
 <!--/issueDescription-->
 
 **Troubleshooting steps**
-
-:::moniker range="azureml-api-1"
-
-[!INCLUDE [machine-learning-sdk-v1](includes/machine-learning-sdk-v1.md)]
-
-Update the workspace image build compute property using SDK:
-
-```python
-from azureml.core import Workspace
-ws = Workspace.from_config()
-ws.update(image_build_compute = 'mycomputecluster')
-```
-
-:::moniker-end
-
-[!INCLUDE [machine-learning-cli-v1](includes/machine-learning-cli-v1.md)]
-[!INCLUDE [machine-learning-cli-v2](includes/machine-learning-cli-v2.md)]
-
-Update the workspace image build compute property using Azure CLI:
-
-```
-az ml workspace update --name myworkspace --resource-group myresourcegroup --image-build-compute mycomputecluster
-```
+* Verify the compute cluster's VNet has access to the workspace's ACR.
+* Ensure the compute cluster is CPU based.
 
 > [!NOTE]
 > * Only Azure Machine Learning compute clusters are supported. Compute, Azure Kubernetes Service (AKS), or other instance types are not supported for image build compute.
-> * Make sure the compute cluster's VNet that's used for the image build compute has access to the workspace's ACR.
-> * Make sure the compute cluster is CPU based.
 
 **Resources**
 * [Enable Azure Container Registry (ACR)](https://aka.ms/azureml/environment/acr-private-endpoint)

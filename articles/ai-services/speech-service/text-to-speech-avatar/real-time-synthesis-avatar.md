@@ -26,7 +26,7 @@ To get started, make sure you have the following prerequisites:
 - **Your speech resource key and region:** After your Speech resource is deployed, select **Go to resource** to view and manage keys. For more information about Azure AI services resources, see [Get the keys for your resource](/azure/ai-services/multi-service-resource?pivots=azportal&tabs=windows#get-the-keys-for-your-resource).
 - If you build an application of real time avatar: 
    - **Communication resource:** Create a [Communication resource](https://portal.azure.com/#create/Microsoft.Communication) in the Azure portal (for real-time avatar synthesis only).
-   - You also need your network relay token for real-time avatar synthesis. After deploying your Communication resource, select **Go to resource** to view the endpoint and connection string under **Settings** -> **Keys** tab, and then follow [Access TURN relays](/azure/ai-services/speech-service/quickstarts/setup-platform#install-the-speech-sdk-for-javascript) to generate the relay token with the endpoint and connection string filled.
+   - You also need your network relay token for real-time avatar synthesis. After deploying your Communication resource, select **Go to resource** to view the endpoint and connection string under **Settings** -> **Keys** tab, and then follow [Access TURN relays](/azure/communication-services/quickstarts/relay-token) to generate the relay token with the endpoint and connection string filled.
 
 ## Set up environment
 
@@ -76,8 +76,8 @@ The following code snippet shows how to set avatar character and style:
 
 ```JavaScript
 const avatarConfig = new SpeechSDK.AvatarConfig(
-"lisa", // Set avatar character here.
-"casual-sitting", // Set avatar style here.
+    "lisa", // Set avatar character here.
+    "casual-sitting", // Set avatar style here.
 );  
 ```
 
@@ -138,7 +138,7 @@ var avatarSynthesizer = new SpeechSDK.AvatarSynthesizer(speechConfig, avatarConf
 
 // Start avatar and establish WebRTC connection
 avatarSynthesizer.startAvatarAsync(peerConnection).then(
-(r) => { console.log("Avatar started.") }
+    (r) => { console.log("Avatar started.") }
 ).catch(
     (error) => { console.log("Avatar failed to start. Error: " + error) }
 );
@@ -172,7 +172,7 @@ avatarSynthesizer.speakTextAsync(spokenText).then(
 });
 ```
 
-You can find end-to-end working samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser).
+You can find end-to-end working samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar).
 
 ## Edit background
 

@@ -336,7 +336,7 @@ Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
 $result.Error -join "`r`n"
 ```
 
-## Next steps
+## Related content
 
 See other control flow activities supported by Data Factory: 
 

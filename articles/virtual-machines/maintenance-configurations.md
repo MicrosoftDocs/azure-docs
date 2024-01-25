@@ -1,14 +1,13 @@
 ---
 title: Overview of Maintenance Configurations for Azure virtual machines
 description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/06/2021
-ms.author: cynthn
-#pmcontact: ApnaLakshay
+ms.author: jushiman
 ---
 
 # Managing VM updates with Maintenance Configurations
@@ -99,7 +98,8 @@ The following are the recommended limits for the mentioned indicators
 | Total number of Resource associations to a schedule | 3000 |
 | Resource associations on each dynamic scope    | 1000 |
 | Number of dynamic scopes per Resource Group or Subscription per Region     | 250  |
-| Number of dynamic scopes per Maintenance Configuration   | 50  |
+| Number of dynamic scopes per schedule   | 30  |
+| Total number of subscriptions attached to all dynamic scopes per schedule   | 30  |
 
 The following are the Dynamic Scope recommended limits for **each dynamic scope**
 

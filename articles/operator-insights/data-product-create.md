@@ -3,6 +3,7 @@ title: Create an Azure Operator Insights Data Product
 description: In this article, learn how to create an Azure Operator Insights Data Product resource. 
 author: rcdun
 ms.author: rdunstan
+ms.reviewer: rathishr
 ms.service: operator-insights
 ms.topic: quickstart
 ms.date: 10/16/2023
@@ -51,31 +52,31 @@ You create the Azure Operator Insights Data Product resource.
 1. In the search bar, search for Operator Insights and select **Azure Operator Insights - Data Products**.
 1. On the Azure Operator Insights - Data Products page, select **Create**.
 1. On the Basics tab of the **Create a Data Product** page:
-   1. Select your subscription.
-   1. Select the resource group you previously created for the Key Vault resource.
-   1. Under the Instance details, complete the following fields:
-      - Name - Enter the name for your Data Product resource. The name must start with a lowercase letter and can contain only lowercase letters and numbers.
-      - Publisher - Select Microsoft.
-      - Product - Select MCC.
-      - Version - Select the version.
+    1. Select your subscription.
+    1. Select the resource group you previously created for the Key Vault resource.
+    1. Under the Instance details, complete the following fields:
+       - Name - Enter the name for your Data Product resource. The name must start with a lowercase letter and can contain only lowercase letters and numbers.
+       - Publisher - Select Microsoft.
+       - Product - Select Quality of Experience - Affirmed MCC GIGW or Monitoring - Affirmed MCC Data Product.
+       - Version - Select the version.
 
      Select **Next**.
    
 1. In the Advanced tab of the **Create a Data Product** page:
-   1. Enable Purview if you're integrating with Microsoft Purview.
+    1. Enable Purview if you're integrating with Microsoft Purview.
       Select the subscription for your Purview account, select your Purview account, and enter the Purview collection ID.
-   1. Enable Customer managed key if you're using CMK for data encryption.
-   1. Select the user-assigned managed identity that you set up as a prerequisite.
-   1. Carefully paste the Key Identifier URI that was created when you set up Azure Key Vault as a prerequisite.
+    1. Enable Customer managed key if you're using CMK for data encryption.
+    1. Select the user-assigned managed identity that you set up as a prerequisite.
+    1. Carefully paste the Key Identifier URI that was created when you set up Azure Key Vault as a prerequisite.
    
 1. To add owner(s) for the Data Product, which will also appear in Microsoft Purview, select **Add owner**, enter the email address, and select **Add owners**.
 1. In the Tags tab of the **Create a Data Product** page, select or enter the name/value pair used to categorize your data product resource.
 1. Select **Review + create**.
-1. Select **Create**. Your Data Product instance is created in about 20-25 minutes. During this time, all the underlying components are provisioned post which you can work with your data ingestion, exploring sample dashboards, queries etc.
+1. Select **Create**. Your Data Product instance is created in about 20-25 minutes. During this time, all the underlying components are provisioned. After this process completes, you can work with your data ingestion, explore sample dashboards and queries, and so on.
 
 ## Deploy Sample Insights
 
-Once your Data Product instance is created, you can deploy sample insights dashboard which works against the sample data that came along with the Data Product instance.
+Once your Data Product instance is created, you can deploy a sample insights dashboard. This dashboard works with the sample data that came along with the Data Product instance.
 
 1. Navigate to your Data Product resource on the Azure portal and select the Permissions tab on the Security section.
 1. Select **Add Reader**. Type the user's email address to be added to Data Product reader role. 
@@ -83,7 +84,9 @@ Once your Data Product instance is created, you can deploy sample insights dashb
 > [!NOTE] 
 > The reader role is required for you to have access to the insights consumption URL.
 
-3.	Download the sample JSON template file from the Data product overview page by clicking on the link shown after the text “Sample Dashboard”. Alternatively [download the sample JSON template file here](https://aka.ms/aoidashboard).
+3. Download the sample JSON template file for your data product's dashboard:
+    * Quality of Experience - Affirmed MCC GIGW: [https://go.microsoft.com/fwlink/p/?linkid=2254536](https://go.microsoft.com/fwlink/p/?linkid=2254536)
+    * Monitoring - Affirmed MCC: [https://go.microsoft.com/fwlink/p/?linkid=2254551](https://go.microsoft.com/fwlink/?linkid=2254551)
 1. Copy the consumption URL from the Data Product overview screen into the clipboard.
 1. Open a web browser, paste in the URL and select enter.
 1. When the URL loads, select on the Dashboards option on the left navigation pane.
@@ -101,20 +104,36 @@ Once your Data Product instance is created, you can deploy sample insights dashb
 The consumption URL also allows you to write your own Kusto query to get insights from the data.
 
 1. On the Overview page, copy the consumption URL and paste it in a new browser tab to see the database and list of tables.
-1. Use the ADX query plane to write Kusto queries. For example:
+1. Use the ADX query plane to write Kusto queries.
 
- ```
- enriched_flow_events_sample
- | summarize Application_count=count() by flowRecord_dpiStringInfo_application
- | order by Application_count desc
- | take 10
- ```
+    * For Quality of Experience - Affirmed MCC GIGW, try the following queries:
 
-```
-enriched_flow_events_sample
-| summarize SumDLOctets = sum(flowRecord_dataStats_downLinkOctets) by bin(eventTimeFlow, 1h)
-| render columnchart
-```
+      ```kusto
+      enriched_flow_events_sample
+      | summarize Application_count=count() by flowRecord_dpiStringInfo_application
+      | order by Application_count desc
+      | take 10
+      ```
+
+      ```kusto
+      enriched_flow_events_sample
+      | summarize SumDLOctets = sum(flowRecord_dataStats_downLinkOctets) by bin(eventTimeFlow, 1h)
+      | render columnchart
+      ```
+
+    * For Monitoring - Affirmed MCC Data Product, try the following queries:
+
+      ```kusto
+      SYSTEMCPUSTATISTICSCORELEVEL_SAMPLE
+      | where systemCpuStats_core >= 25 and systemCpuStats_core <= 36
+      | summarize p90ssm_avg_1_min_cpu_util=round(percentile(ssm_avg_1_min_cpu_util, 90), 2) by resourceId
+      ```
+
+      ```kusto
+      PGWCALLPERFSTATSGRID_SAMPLE
+      | summarize clusterTotal=max(NumUniqueSubscribers) by bin(timestamp, 1d)
+      | render linechart
+      ```
 
 ## Delete Azure resources
 

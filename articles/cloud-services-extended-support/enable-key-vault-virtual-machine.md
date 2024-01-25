@@ -7,7 +7,6 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.reviewer: gachandw
 ms.date: 05/12/2021
-ms.custom: 
 ---
 
 # Apply the Key Vault VM extension to Azure Cloud Services (extended support)

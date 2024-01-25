@@ -1,5 +1,5 @@
 ---
-title: Azure Write Accelerator 
+title: Azure Write Accelerator
 description: Documentation on how to enable and use Write Accelerator
 author: raiye
 manager: markkie
@@ -8,8 +8,8 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 04/11/2023
 ms.author: raiye
-ms.subservice: disks 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
+ms.subservice: disks
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 ---
 
 # Enable Write Accelerator
@@ -82,7 +82,7 @@ A new switch parameter, **-WriteAccelerator** has been added to the following cm
 - [Add-AzVmssDataDisk](/powershell/module/az.compute/Add-AzVmssDataDisk)
 
 >[!NOTE]
-> If enabling Write Accelerator on Virtual Machine Scale Sets using Flexible Orchestration Mode, you need to enable it on each individual instance. 
+> If enabling Write Accelerator on Virtual Machine Scale Sets using Flexible Orchestration Mode, you need to enable it on each individual instance.
 
 Not giving the parameter sets the property to false and will deploy disks that have no support by Write Accelerator.
 
@@ -148,8 +148,8 @@ $vmName="myVM"
 #Specify your Resource Group
 $rgName = "myWAVMs"
 #data disk name
-$datadiskname = "test-log001" 
-#new Write Accelerator status ($true for enabled, $false for disabled) 
+$datadiskname = "test-log001"
+#new Write Accelerator status ($true for enabled, $false for disabled)
 $newstatus = $true
 #Pulls the VM info for later
 $vm=Get-AzVM -ResourceGroupName $rgname -Name $vmname

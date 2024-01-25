@@ -45,10 +45,18 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where Switzerland phone numbers are available
 | Country/Region |
 | :---------- |
-|Switzerland|
-|United States|
+|Australia|
 |Canada|
+|France|
+|Germany|
+|Italy|
+|Japan|
+|Netherlands|
+|Spain|
+|Switzerland|
 |United Kingdom|
+|United States|
+
 
 ## Azure subscription billing locations where Switzerland alphanumeric sender IDs are available
 | Country/Region |

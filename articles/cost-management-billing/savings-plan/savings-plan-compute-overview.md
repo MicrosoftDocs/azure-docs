@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 11/17/2023
+ms.date: 01/04/2024
 ms.author: banders
 ---
 
@@ -22,7 +22,7 @@ You can buy savings plans in the [Azure portal](https://portal.azure.com/) or wi
 
 ## Why buy a savings plan?
 
-If you have consistent compute spend, but your use of disparate resources makes reservations infeasible, buying a savings plan gives you the ability to reduce your costs. For example, If you consistently spend at least $X every hour, but your usage comes from different resources and/or different datacenter regions, you likely can't effectively cover these costs with reservations. When you buy a savings plan, your hourly usage, up to your commitment amount, is discounted. For this usage, you no longer charged at the pay-as-you-go rates.
+If you have consistent compute spend, but your use of disparate resources makes reservations infeasible, buying a savings plan gives you the ability to reduce your costs. For example, if you consistently spend at least $X every hour, but your usage comes from different resources and/or different datacenter regions, you likely can't effectively cover these costs with reservations. When you buy a savings plan, your hourly usage, up to your commitment amount, is discounted. For this usage, you no longer charged at the pay-as-you-go rates.
 
 ## How savings plan benefits are applied
 
@@ -93,7 +93,9 @@ Savings plan purchases can't be canceled or refunded.
 - Azure Container Apps
 - Azure Premium Functions
 - Azure App Services - The Azure savings plan for compute can only be applied to the App Service upgraded Premium v3 plan and the upgraded Isolated v2 plan.
+- Azure Spring Apps - The Azure savings plan for compute can only be applied to the Azure Spring Apps Enterprise plan.
 - On-demand Capacity Reservation
+- Azure Spring Apps Enterprise
 
 Exclusions apply to the above services.
 
