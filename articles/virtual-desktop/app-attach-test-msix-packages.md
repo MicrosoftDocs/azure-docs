@@ -46,19 +46,17 @@ Staging and destaging are machine-level operations, while registering and deregi
 
 ## Prepare to stage an MSIX package
 
-The staging script prepares your machine to receive the MSIX package and mounts the relevant package to your machine. You only need to run the following commands once per machine.
-
-However, if you're using an image in CimFS format, or a version of PowerShell greater than 5.1, the instructions are different. Later versions of PowerShell are multi-platform, which means the Windows application parts are split off into their own package called [Windows Runtime](/windows/uwp/winrt-components/). You need to use a variation of the commands to install a package with a multi-platform version of PowerShell.
+The staging script prepares your machine to receive the MSIX package and mounts the relevant package to your machine.
 
 Select the relevant tab for the version of PowerShell you're using.
 
 # [PowerShell 6 and later](#tab/posh6)
 
-To stage packages at boot using PowerShell 6 or later, you need to run the following commands before the staging operations to bring the capabilities of the Windows Runtime package to PowerShell.
+To stage packages using PowerShell 6 or later, you need to run the following commands before the staging operations to bring the capabilities of the Windows Runtime package to PowerShell.
 
 1. Open a PowerShell prompt as an administrator.
 
-1. Run the following command to download and install the Windows Runtime Package:
+1. Run the following command to download and install the Windows Runtime Package. You only need to run the following commands once per machine.
 
    ```powershell
    #Required for PowerShell 6 and later
@@ -81,7 +79,7 @@ To stage packages at boot using PowerShell 6 or later, you need to run the follo
 
 # [PowerShell 5.1 and earlier](#tab/posh5)
 
-To stage packages at boot with PowerShell version 5.1 or earlier, you need to run the following command before the staging operations to bring the capabilities of the Windows Runtime package to PowerShell.
+To stage packages with PowerShell version 5.1 or earlier, you need to run the following command before the staging operations to bring the capabilities of the Windows Runtime package to PowerShell.
 
 1. Open a PowerShell prompt as an administrator.
 
@@ -206,11 +204,11 @@ $manifestPath = Join-Path (Join-Path $Env:ProgramFiles 'WindowsApps') (Join-Path
 Add-AppxPackage -Path $manifestPath -DisableDevelopmentMode -Register
 ```
 
-Now that your MSIX package is registered, your application should be available for use in your session. You can now open the application for testing and troubleshooting. Once you're finished, you can deregister and destage your MSIX package.
+Now that your MSIX package is registered, your application should be available for use in your session. You can now open the application for testing and troubleshooting. Once you're finished, you need to deregister and destage your MSIX package.
 
 ## Deregister an MSIX package
 
-Once you're finished with your MSIX package and are ready to remove it, you need to deregister it. To deregister an MSIX package, run the following commands in the same PowerShell session. These commands get the disk's `DeviceId` parameter again, and removes the package using the `$msixPackageFullName` variable created in a previous section.
+Once you're finished with your MSIX package and are ready to remove it, first you need to deregister it. To deregister the MSIX package, run the following commands in the same PowerShell session. These commands get the disk's `DeviceId` parameter again, and removes the package using the `$msixPackageFullName` variable created in a previous section.
 
 ```powershell
 $appPath = Join-Path (Join-Path $Env:ProgramFiles 'WindowsApps') $msixPackageFullName
@@ -223,7 +221,7 @@ Remove-AppxPackage $msixPackageFullName -PreserveRoamableApplicationData
 
 ## Destage an MSIX package
 
-To destage an MSIX package, you need to dismount your disk image, run the following command in the same PowerShell session to ensure that the package isn't still registered for any user. This command uses the `$msixPackageFullName` variable created in a previous section.
+Finally, to destage the MSIX package, you need to dismount your disk image, run the following command in the same PowerShell session to ensure that the package isn't still registered for any user. This command uses the `$msixPackageFullName` variable created in a previous section.
 
 ```powershell
 Remove-AppxPackage -AllUsers -Package $msixPackageFullName -ErrorAction SilentlyContinue
