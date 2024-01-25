@@ -221,7 +221,8 @@ For this quickstart, you need a **source document** uploaded to your **source co
     ***command prompt / terminal***
 
     ```curl
-    curl "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@pii-detection.json"
+    curl "{your-language-resource-endpoint}/language/analyze-documents/jobs?api-version=2023-11-15-preview" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@pii-detection.json"
+
     ```
 
 ### [Document Summarization](#tab/summarization)
