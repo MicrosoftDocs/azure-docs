@@ -199,14 +199,14 @@ Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShel
     
     ```azurepowershell
     $scalingPlanParams = @{
-        ResourceGroupName = 'scalingPlan-rg'
-        Name = 'scalingPlanPooled'
-        Location = 'westus'
-        Description = 'Scaling plan description'
-        FriendlyName = 'Scaling plan friendly name'
-        HostPoolType = 'Pooled'
-        TimeZone = 'Pacific Standard Time'
-        HostPoolReference = @(@{'hostPoolArmPath' = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scalingPlan-rg/providers/Microsoft.DesktopVirtualization/hostPools/scalingPlan-hp'; 'scalingPlanEnabled' = $true;})
+        ResourceGroupName = '<resourceGroup>'
+        Name = '<scalingPlanName>'
+        Location = '<AzureRegion>'
+        Description = '<Scaling plan description>'
+        FriendlyName = '<Scaling plan friendly name>'
+        HostPoolType = '<Pooled or personal>'
+        TimeZone = '<Time zone, such as Pacific Standard Time>'
+        HostPoolReference = @(@{'hostPoolArmPath' = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/<resourceGroup/providers/Microsoft.DesktopVirtualization/hostPools/<hostPoolName>'; 'scalingPlanEnabled' = $true;})
     }
 
     $scalingPlan = New-AzWvdScalingPlan @scalingPlanParams
