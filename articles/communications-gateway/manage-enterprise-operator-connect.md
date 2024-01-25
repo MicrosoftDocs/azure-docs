@@ -58,9 +58,22 @@ When an enterprise customer uses the Teams Admin Center to request service, the 
 
 The Number Management Portal displays a consent as a *Request for Information* and allows you to update the status. Finding the Request for Information for an enterprise is also the easiest way to manage numbers for an enterprise.
 
-1. From the overview page for your Communications Gateway resource, find the **Unified Number Management** section in the sidebar. Select **Requests for Information**.
+1. From the overview page for your Communications Gateway resource, find the **Unified Number Management** section in the sidebar. 
+1. Select **Requests for Information**.
 1. Find the enterprise that you want to manage. You can use the **Add filter** options to search for the enterprise.
 1. If you need to change the status of the relationship, select the enterprise **Tenant ID** then select **Update relationship status**. Use the drop-down to select the new status. For example, if you're agreeing to provide service to a customer, set the status to **Agreement signed**. If you set the status to **Consent declined** or **Contract terminated**, you must provide a reason.
+
+## Create an Account for the enterprise
+
+You must create an Account for each enterprise that you manage using the Number Management Portal.
+
+1. From the overview page for your Communications Gateway resource, find the **Unified Number Management** section in the sidebar. 
+1. Select **Accounts**.
+1. Select **Create account**.
+1. Fill in the enterprise **Account name**.
+1. Select the checkboxes for the services you want to enable for the enterprise.
+1. Fill in any additional information requested under the **Communications Services Settings** heading.
+1. Select **Create**.
 
 ## Manage numbers for the enterprise
 
