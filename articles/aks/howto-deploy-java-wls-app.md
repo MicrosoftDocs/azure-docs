@@ -26,11 +26,13 @@ For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Serv
     > [!NOTE]
     > Get a support entitlement from Oracle before going to production. Failure to do so results in running insecure images that are not patched for critical security flaws. For more information on Oracle's critical patch updates, see [Critical Patch Updates, Security Alerts and Bulletins](https://www.oracle.com/security-alerts/) from Oracle.
   - Accept the license agreement.
-- [Azure CLI](https://docs.microsoft.com/cli/azure); use az --version to test if az works. This document was tested with version 2.55.1.
-- [Docker for Desktop](https://www.docker.com/products/docker-desktop). This document was tested with Docker version 20.10.7.
-- [kubectl](https://kubernetes-io-vnext-staging.netlify.com/docs/tasks/tools/install-kubectl/); use kubectl version to test if kubectl works. This document was tested with version v1.21.2.
-- A Java JDK, Version 11. Azure recommends [Microsoft Build of OpenJDK](/java/openjdk/download). Ensure that your JAVA_HOME environment variable is set correctly in the shells in which you run the commands.
-- Ensure that you have the zip/unzip utility installed; use `zip/unzip -v` to test if `zip/unzip` works.
+- Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, Azure Linux, macOS, Windows Subsystem for Linux). 
+  - [Azure CLI](https://docs.microsoft.com/cli/azure); use az --version to test if az works. This document was tested with version 2.55.1.
+  - [Docker](https://docs.docker.com/get-docker). This document was tested with Docker version 20.10.7.
+  - [kubectl](https://kubernetes-io-vnext-staging.netlify.com/docs/tasks/tools/install-kubectl/); use `kubectl version` to test if kubectl works. This document was tested with version v1.21.2.
+  - A Java JDK, Version 11. Azure recommends [Microsoft Build of OpenJDK](/java/openjdk/download). Ensure that your JAVA_HOME environment variable is set correctly in the shells in which you run the commands.
+  - [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
+  - Ensure that you have the zip/unzip utility installed; use `zip/unzip -v` to test if `zip/unzip` works.
 
 ## Deploy WLS on AKS
 
@@ -72,6 +74,9 @@ The following steps make it so the WLS admin console and the sample app are expo
 1. Next to **Load Balancing Options**, select **Application Gateway Ingress Controller**.
 1. Under the **Application Gateway Ingress Controller**, you should see all fields pre-populated with the defaults for **Virtual network** and **Subnet**. Leave the default values.
 1. For **Create ingress for Administration Console. Make sure no application with path \/console*, it will cause conflict with Administration Console path.**, select **Yes**.
+
+    :::image type="content" source="media/howto-deploy-java-wls-app/configure-appgateway-ingress-admin-console.png" alt-text="Screenshot of the Azure portal showing Application Gateway Ingress Controllor configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/configure-appgateway-ingress-admin-console.png":::
+
 1. Leave default values for other fileds.
 1. Select **Review + create**. Ensure the green **Validation Passed** message appears at the top. If it doesn't, fix any validation problems, then select **Review + create** again.
 1. Select **Create**.
@@ -100,210 +105,410 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 The other values in the outputs are beyond the scope of this article, but are explained in detail in the [WebLogic on AKS user guide](https://aka.ms/wls-aks-docs).
 
-## Deploy a sample application
+## Create an Azure SQL Database
+
+[!INCLUDE [create-an-azure-sql-database](includes/jakartaee/create-an-azure-sql-database.md)]
+
+1. Create schema for the sample application. Follow [Query the database](/azure/azure-sql/database/single-database-create-quickstart#query-the-database) to open **Query editor** pane. Enter and run the following query.
+
+   ```sql
+   CREATE TABLE COFFEE (ID NUMERIC(19) NOT NULL, NAME VARCHAR(255) NULL, PRICE FLOAT(32) NULL, PRIMARY KEY (ID));
+   CREATE TABLE SEQUENCE (SEQ_NAME VARCHAR(50) NOT NULL, SEQ_COUNT NUMERIC(28) NULL, PRIMARY KEY (SEQ_NAME));
+   ```
+
+   After a successful run, you should see the message **Query succeeded: Affected rows: 0**.
+
+Now that the database, tables and AKS cluster have been created, we can proceed to preparing AKS to host your WebLogic application.
+
+## Configure and deploy the sample application
 
 The offer provisions WLS cluster via [model in image](https://oracle.github.io/weblogic-kubernetes-operator/samples/domains/model-in-image/). You can access WebLogic Server Admin Console with value of **adminConsoleExternalUrl**. While, currently, the WLS cluster has no application deployed.
 
 This section updates the WLS cluster by deploying a sample application using [auxiliary image](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/#using-docker-to-create-an-auxiliary-image).
 
+### Check out the application
+
+Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/azure-cafe).
+
+You'll use `weblogic-cafe/`. Here's the file structure of the application. Clone the repository, checkout tag `20231206`.
+
+```bash
+export BASE_DIR=~
+git clone --branch 20231206 https://github.com/Azure-Samples/azure-cafe.git $BASE_DIR/azure-cafe
+```
+
+Build `weblogic-cafe/`.
+
+```bash
+mvn clean package --file $BASE_DIR/azure-cafe/weblogic-cafe/pom.xml
+```
+
+The package should be successfully generated and located at `$BASE_DIR/azure-cafe/weblogic-cafe/target/weblogic-cafe.war`. If you don't see the package, you must troubleshoot and resolve the issue before you continue.
+
+### Use Docker to create an auxiliary image
+
 This section requires a Linux terminal with Azure CLI and kubectl installed.
 
-Firstly, build an auxiliary image including Model in Image model files, application archive files, and the WebLogic Deploy Tooling installation. 
+Follow the steps to build an auxiliary image including Model in Image model files, application, JDBC driver archive file, and the WebLogic Deploy Tooling installation. 
 
-Create a directory to stage the models and application.
+1. Create a directory to stage the models and application.
 
-```bash
-mkdir /tmp/mystaging
-mkdir /tmp/mystaging/models
+    ```bash
+    mkdir /tmp/mystaging
+    mkdir /tmp/mystaging/models
 
-cd /tmp/mystaging/models
-```
+    cd /tmp/mystaging/models
+    ```
 
-Copy the existing model file to `/tmp/mystaging/models`, just past the value of **shellCmdtoOutputWlsImageModelYaml**. You get a file `/tmp/mystaging/models/model.yaml`. Content of *model.yaml* is similar to the following text.
+    Copy the existing model file to `/tmp/mystaging/models`, just past the value of **shellCmdtoOutputWlsImageModelYaml**. You get a file `/tmp/mystaging/models/model.yaml`. Content of *model.yaml* is similar to the following text.
 
-```yaml
-# Copyright (c) 2020, 2021, Oracle and/or its affiliates.
-# Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+    ```yaml
+    # Copyright (c) 2020, 2021, Oracle and/or its affiliates.
+    # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
 
-# Based on ./kubernetes/samples/scripts/create-weblogic-domain/model-in-image/model-images/model-in-image__WLS-v1/model.10.yaml
-# in https://github.com/oracle/weblogic-kubernetes-operator.
+    # Based on ./kubernetes/samples/scripts/create-weblogic-domain/model-in-image/model-images/model-in-image__WLS-v1/model.10.yaml
+    # in https://github.com/oracle/weblogic-kubernetes-operator.
 
-domainInfo:
-  AdminUserName: "@@SECRET:__weblogic-credentials__:username@@"
-  AdminPassword: "@@SECRET:__weblogic-credentials__:password@@"
-  ServerStartMode: "prod"
+    domainInfo:
+      AdminUserName: "@@SECRET:__weblogic-credentials__:username@@"
+      AdminPassword: "@@SECRET:__weblogic-credentials__:password@@"
+      ServerStartMode: "prod"
 
-topology:
-  Name: "@@ENV:CUSTOM_DOMAIN_NAME@@"
-  ProductionModeEnabled: true
-  AdminServerName: "admin-server"
-  Cluster:
-    "cluster-1":
-      DynamicServers:
-        ServerTemplate: "cluster-1-template"
-        ServerNamePrefix: "@@ENV:MANAGED_SERVER_PREFIX@@"
-        DynamicClusterSize: "@@PROP:CLUSTER_SIZE@@"
-        MaxDynamicClusterSize: "@@PROP:CLUSTER_SIZE@@"
-        MinDynamicClusterSize: "0"
-        CalculatedListenPorts: false
-  Server:
-    "admin-server":
-      ListenPort: 7001
-  ServerTemplate:
-    "cluster-1-template":
-      Cluster: "cluster-1"
-      ListenPort: 8001
-  SecurityConfiguration:
-    NodeManagerUsername: "@@SECRET:__weblogic-credentials__:username@@"
-    NodeManagerPasswordEncrypted: "@@SECRET:__weblogic-credentials__:password@@"
+    topology:
+      Name: "@@ENV:CUSTOM_DOMAIN_NAME@@"
+      ProductionModeEnabled: true
+      AdminServerName: "admin-server"
+      Cluster:
+        "cluster-1":
+          DynamicServers:
+            ServerTemplate: "cluster-1-template"
+            ServerNamePrefix: "@@ENV:MANAGED_SERVER_PREFIX@@"
+            DynamicClusterSize: "@@PROP:CLUSTER_SIZE@@"
+            MaxDynamicClusterSize: "@@PROP:CLUSTER_SIZE@@"
+            MinDynamicClusterSize: "0"
+            CalculatedListenPorts: false
+      Server:
+        "admin-server":
+          ListenPort: 7001
+      ServerTemplate:
+        "cluster-1-template":
+          Cluster: "cluster-1"
+          ListenPort: 8001
+      SecurityConfiguration:
+        NodeManagerUsername: "@@SECRET:__weblogic-credentials__:username@@"
+        NodeManagerPasswordEncrypted: "@@SECRET:__weblogic-credentials__:password@@"
+        
+    resources:
+      SelfTuning:
+        MinThreadsConstraint:
+          SampleMinThreads:
+            Target: "cluster-1"
+            Count: 1
+        MaxThreadsConstraint:
+          SampleMaxThreads:
+            Target: "cluster-1"
+            Count: 10
+        WorkManager:
+          SampleWM:
+            Target: "cluster-1"
+            MinThreadsConstraint: "SampleMinThreads"
+            MaxThreadsConstraint: "SampleMaxThreads"
+    ```
+
+    Copy the existing model property file to `/tmp/mystaging/models`, just past the value of **shellCmdtoOutputWlsImageProperties**. You get a file `/tmp/mystaging/models/model.properties`. Content of *model.properties* is similar to the following text.
+
+    ```text
+    # Copyright (c) 2021, Oracle Corporation and/or its affiliates.
+    # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+
+    # Based on ./kubernetes/samples/scripts/create-weblogic-domain/model-in-image/model-images/model-in-image__WLS-v1/model.10.properties
+    # in https://github.com/oracle/weblogic-kubernetes-operator.
+
+    CLUSTER_SIZE=5
+    ```
+
+1. Create the application model file.
+
+    Copy `weblogic-cafe.war` and save it to `wlsdeploy/applications`.
+
+    ```bash
+    mkdir -p /tmp/mystaging/models/wlsdeploy/applications
+    cp $BASE_DIR/azure-cafe/weblogic-cafe/target/weblogic-cafe.war /tmp/mystaging/models/wlsdeploy/applications/weblogic-cafe.war
+    ```
+
+    Create the application model file with the following content. Save the model file to `/tmp/mystaging/models/appmodel.yaml`.
+
+    ```yaml
+    appDeployments:
+      Application:
+          myapp:
+            SourcePath: 'wlsdeploy/applications/weblogic-cafe.war'
+            ModuleType: ear
+            Target: 'cluster-1'
+    ```
+
+1. Download and install Microsoft SQL Server JDBC driver to `wlsdeploy/externalJDBCLibraries`.
+
+    ```bash
+    export DRIVER_VERSION="10.2.1.jre8"
+    export MSSQL_DRIVER_URL="https://repo.maven.apache.org/maven2/com/microsoft/sqlserver/mssql-jdbc/${DRIVER_VERSION}/mssql-jdbc-${DRIVER_VERSION}.jar"
+
+    mkdir /tmp/mystaging/models/wlsdeploy/externalJDBCLibraries
+    curl -m 120 -fL ${MSSQL_DRIVER_URL} /tmp/mystaging/models/wlsdeploy/externalJDBCLibraries/mssql-jdbc-${DRIVER_VERSION}.jar
+    ```
+
+    Next, create the database connection model with the following content. Save the model file to `/tmp/mystaging/models/dbmodel.yaml`. The model uses placeholder (secret `sqlserver-secret`) for database username, password, and Url. Make sure the following fields are set correcly. The following model names the resource with **jdbc/WebLogicCafeDB**.
+
+    | Item Name | Field | Value |
+    |-----------|-------------|
+    | JNDI name | `resources.JDBCSystemResource.<resource-name>.JdbcResource.JDBCDataSourceParams.JNDIName`  | `jdbc/WebLogicCafeDB` |
+    | Driver name | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.DriverName` | `com.microsoft.sqlserver.jdbc.SQLServerDriver` |
+    | Database Url | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.URL`  | `@@SECRET:sqlserver-secret:url@@` |
+    | Database password | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.PasswordEncrypted` | '@@SECRET:sqlserver-secret:password@@' |
+    | Database username | `resources.JDBCSystemResource.<resource-name>.JDBCDriverParams.Properties.user.Value`  |  `'@@SECRET:sqlserver-secret:user@@'` |
+
+    ```yaml
+    resources:
+      JDBCSystemResource:
+        jdbc/WebLogicCafeDB:
+          Target: 'cluster-1'
+          JdbcResource:
+            JDBCDataSourceParams:
+              JNDIName: [
+                jdbc/WebLogicCafeDB
+              ]
+              GlobalTransactionsProtocol: None
+            JDBCDriverParams:
+              DriverName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+              URL: '@@SECRET:sqlserver-secret:url@@'
+              PasswordEncrypted: '@@SECRET:sqlserver-secret:password@@'
+              Properties:
+                user:
+                  Value: '@@SECRET:sqlserver-secret:user@@'
+            JDBCConnectionPoolParams:
+                TestTableName: SQL SELECT 1
+                TestConnectionsOnReserve: true
+    ```
+
+1. Create application archive file using `zip` command. Remove `wlsdeploy` folder as you'll not use it anymore.
+
+    ```bash
+    cd /tmp/mystaging/models
+    zip -r archive.zip wlsdeploy
+
+    rm -f -r wlsdeploy
+    ```
+
+1. Download and install [WebLogic Deploy Tooling](https://oracle.github.io/weblogic-deploy-tooling/)(WDT) in the staging directory and remove its weblogic-deploy/bin/*.cmd files, which are not used in UNIX environments:
+
+    ```bash
+    cd /tmp/mystaging
+    curl -m 120 -fL https://github.com/oracle/weblogic-deploy-tooling/releases/latest/download/weblogic-deploy.zip -o weblogic-deploy.zip
+    unzip weblogic-deploy.zip -d .
+    rm ./weblogic-deploy/bin/*.cmd
+    ```
+
+    Remove the WDT installer.
+
+    ```bash
+    rm weblogic-deploy.zip
+    ```
+
+1. Build an auxiliary image using docker.
+
+    Copy the following content and save it to `/tmp/mystaging/Dockerfile`
+
+    ```dockerfile
+    FROM busybox
+    ARG AUXILIARY_IMAGE_PATH=/auxiliary
+    ARG USER=oracle
+    ARG USERID=1000
+    ARG GROUP=root
+    ENV AUXILIARY_IMAGE_PATH=${AUXILIARY_IMAGE_PATH}
+    RUN adduser -D -u ${USERID} -G $GROUP $USER
+    # ARG expansion in COPY command's --chown is available in docker version 19.03.1+.
+    # For older docker versions, change the Dockerfile to use separate COPY and 'RUN chown' commands.
+    COPY --chown=$USER:$GROUP ./ ${AUXILIARY_IMAGE_PATH}/
+    USER $USER
+    ```
+
+    Run the `docker build` command using `/tmp/mystaging/Dockerfile`.
+
+    ```bash
+    cd /tmp/mystaging
+    docker build --build-arg AUXILIARY_IMAGE_PATH=/auxiliary --tag model-in-image:WLS-v1 .
+    ```
+
+    You'll find output as following when you build the image successfully.
+
+    ```text
+    [+] Building 12.0s (8/8) FINISHED                                   docker:default
+    => [internal] load build definition from Dockerfile                          0.8s
+    => => transferring dockerfile: 473B                                          0.0s
+    => [internal] load .dockerignore                                             1.1s
+    => => transferring context: 2B                                               0.0s
+    => [internal] load metadata for docker.io/library/busybox:latest             5.0s
+    => [1/3] FROM docker.io/library/busybox@sha256:6d9ac9237a84afe1516540f40a0f  0.0s
+    => [internal] load build context                                             0.3s
+    => => transferring context: 21.89kB                                          0.0s
+    => CACHED [2/3] RUN adduser -D -u 1000 -G root oracle                        0.0s
+    => [3/3] COPY --chown=oracle:root ./ /auxiliary/                             1.5s
+    => exporting to image                                                        1.3s
+    => => exporting layers                                                       1.0s
+    => => writing image sha256:2477d502a19dcc0e841630ea567f50d7084782499fe3032a  0.1s
+    => => naming to docker.io/library/model-in-image:WLS-v1                      0.2s
+    ```
+
+    If you have successfully created the image, then it should now be in your local machine’s Docker repository. For example:
+
+    ```bash
+    $ docker images model-in-image:WLS-v1
+    REPOSITORY       TAG       IMAGE ID       CREATED       SIZE
+    model-in-image   WLS-v1    76abc1afdcc6   2 hours ago   8.61MB
+    ```
+
+    After the image is created, it should have the WDT executables in /auxiliary/weblogic-deploy, and WDT model, property, and archive files in /auxiliary/models. You can run ls in the Docker image to verify this:
+
+    ```bash
+    $ docker run -it --rm model-in-image:WLS-v1 ls -l /auxiliary
+    total 12
+    -rw-r--r--    1 oracle   root           434 Jan 24 06:08 Dockerfile
+    drwxr-xr-x    2 oracle   root          4096 Jan 24 06:02 models
+    drwxr-x---    6 oracle   root          4096 Jan 10 10:30 weblogic-deploy
+    $ docker run -it --rm model-in-image:WLS-v1 ls -l /auxiliary/models
+    total 16
+    -rw-r--r--    1 oracle   root           171 Jan 24 06:03 appmodel.yaml
+    -rw-r--r--    1 oracle   root           170 Jan 24 05:36 archive.zip
+    -rw-r--r--    1 oracle   root           171 Jan 24 06:03 dbmodel.yaml
+    -rw-r--r--    1 oracle   root           381 Jan 24 05:56 model.properties
+    -rw-r--r--    1 oracle   root          1670 Jan 24 05:56 model.yaml
+    $ docker run -it --rm model-in-image:WLS-v1 ls -l /auxiliary/weblogic-deploy
+    total 24
+    -rw-r-----    1 oracle   root          1839 Jan 10 10:28 LICENSE.txt
+    -rw-r-----    1 oracle   root            29 Jan 10 10:30 VERSION.txt
+    drwxr-x---    2 oracle   root          4096 Jan 24 06:05 bin
+    drwxr-x---    2 oracle   root          4096 Jan 10 10:30 etc
+    drwxr-x---    6 oracle   root          4096 Jan 10 10:30 lib
+    drwxr-x---    2 oracle   root          4096 Jan 10 10:28 samples
+    ```
+
+1. Push the auxiliary image to ACR. 
+
+    * Open Azure portal and go to the resource group that was provisioned in [Deploy WSL on AKS](#deploy-wls-on-aks).
+    * Select the ACR from resource list. Write down the resource name.
+    * Run the following command to tag and push the image.
+
+        ```bash
+        # replace the ACR name with yours.
+        export ACR_NAME=wlsaksacrafvzeyyswhxek
+        export ACR_LOGIN_SERVER=$(az acr show -n $ACR_NAME --query "loginServer" -o tsv)
+
+        docker tag model-in-image:WLS-v1 $ACR_LOGIN_SERVER/wlsaks-auxiliary-image:1.0
+        docker push $ACR_LOGIN_SERVER/wlsaks-auxiliary-image:1.0
+        ```
+
+    You can run `az acr repository show` to test if the image is push to remote repository successfully.
+
+    ```bash
+    az acr repository show --name ${ACR_NAME} --image wlsaks-auxiliary-image:1.0
+    ```
+
+    You'll find the output is similar to the following content.
+
+    ```text
+    {
+      "changeableAttributes": {
+        "deleteEnabled": true,
+        "listEnabled": true,
+        "readEnabled": true,
+        "writeEnabled": true
+      },
+      "createdTime": "2024-01-24T06:14:19.4546321Z",
+      "digest": "sha256:a1befbefd0181a06c6fe00848e76f1743c1fecba2b42a975e9504ba2aaae51ea",
+      "lastUpdateTime": "2024-01-24T06:14:19.4546321Z",
+      "name": "1.0",
+      "quarantineState": "Passed",
+      "signed": false
+    }
+    ```
+
+### Apply the auxiliary image
+
+Now you have the auxiliary image including models and WDT. Before you apply the auxiliary image to the WLS cluster, you have to create the secret for datasource Url, username and password. The secret is used as part of the placeholder in the *dbmodel.yaml*.
+
+1. Connect to the AKS cluster.
+
+   * Open Azure portal and go to the resource group that was provisioned in [Deploy WSL on AKS](#deploy-wls-on-aks).
+   * Select the AKS cluster from resource list. Select button **Connect**, you find the guidance of how to connect the AKS cluster.
+   * Select **Azure CLI** and follow the steps to connect to the AKS cluster in your local terminal.
+
+1. Create secret for datasource connection.
+
+    This article uses secret name `sqlserver-secret` for secret of datasource connection. Run the following command to create the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/). If you use a different name, make sure the value is the same with that used in *dbmodel.yaml*.
+
+    ```bash
+    # replace with your values
+    export DB_CONNECTION_STRING=
+    export DB_USER=weblogic@
+    export DB_PASSWORD=Secret123456
+    export WLS_DOMAIN_NS=sample-domain1-ns
+    export SECRET_NAME=sqlserver-secret
+
+    kubectl -n ${WLS_DOMAIN_NS} create secret generic \
+        ${SECRET_NAME} \
+        --from-literal=password="${DB_PASSWORD}" \
+        --from-literal=url="${DB_CONNECTION_STRING}" \
+        --from-literal=user="${DB_USER}"
+    ```
+
+2. Apply the auxiliary image by patching the domain CRD.
+
+    The auxiliary image is defined in `spec.configuration.model.auxiliaryImages`, as the following snippet shows. For more information, see [auxiliary images](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/).
+
+    ```yaml
+    spec:
+      clusters:
+      - name: sample-domain1-cluster-1
+      configuration:
+        model:
+          auxiliaryImages:
+          - image: wlsaksacrafvzeyyswhxek.azurecr.io/wlsaks-auxiliary-image:1.0
+            imagePullPolicy: IfNotPresent
+            sourceModelHome: /auxiliary/models
+            sourceWDTInstallHome: /auxiliary/weblogic-deploy
+    ```
+
+    Run `kubectl patch` command increase the `restartVersion` and apply the auxiliary image with the following definition in domain CRD.
+
+    ```bash
+    export WLS_DOMAIN_UID=sample-domain1
+    export VERSION=$(kubectl -n ${WLS_DOMAIN_NS} get domain ${WLS_DOMAIN_UID} -o=jsonpath='{.spec.restartVersion}' | tr -d "\"")
+    ```
     
-resources:
-  SelfTuning:
-    MinThreadsConstraint:
-      SampleMinThreads:
-        Target: "cluster-1"
-        Count: 1
-    MaxThreadsConstraint:
-      SampleMaxThreads:
-        Target: "cluster-1"
-        Count: 10
-    WorkManager:
-      SampleWM:
-        Target: "cluster-1"
-        MinThreadsConstraint: "SampleMinThreads"
-        MaxThreadsConstraint: "SampleMaxThreads"
-```
+    ```bash
+    VERSION=$((VERSION+1))
 
-Copy the existing model property file to `/tmp/mystaging/models`, just past the value of **shellCmdtoOutputWlsImageProperties**. You get a file `/tmp/mystaging/models/model.properties`. Content of *model.properties* is similar to the following text.
+    cat <<EOF >patch-file.json
+    [
+      {
+        "op": "replace",
+        "path": "/spec/restartVersion",
+        "value": "${VERSION}"
+      },
+      {
+        "op": "add",
+        "path": "/spec/configuration/model/auxiliaryImages",
+        "value": [{"image": "$ACR_LOGIN_SERVER/wlsaks-auxiliary-image:1.0", "imagePullPolicy": "IfNotPresent", "sourceModelHome": "/auxiliary/models", "sourceWDTInstallHome": "/auxiliary/weblogic-deploy"}]
+      }
+    ]
+    EOF
 
-```text
-# Copyright (c) 2021, Oracle Corporation and/or its affiliates.
-# Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+    kubectl -n ${WLS_DOMAIN_NS} patch domain ${WLS_DOMAIN_UID} \
+            --type=json \
+            --patch-file patch-file.json
 
-# Based on ./kubernetes/samples/scripts/create-weblogic-domain/model-in-image/model-images/model-in-image__WLS-v1/model.10.properties
-# in https://github.com/oracle/weblogic-kubernetes-operator.
-
-CLUSTER_SIZE=5
-```
-
-Next, prepare the application archive file.
-
-Download the sample application [testwebapp.war](https://aka.ms/wls-aks-testwebapp) and save it to `/tmp/mystaging/models/wlsdeploy/application`.
-
-```bash
-mkdir -p /tmp/mystaging/models/wlsdeploy/application
-curl -m 120 -fL https://aka.ms/wls-aks-testwebapp -o /tmp/mystaging/models/wlsdeploy/application/testwebapp.war
-```
-
-Create application archive file using `zip` command. Remove `wlsdeploy` folder as you'll not use it anymore.
-
-```bash
-cd /tmp/mystaging/models
-zip -r archive.zip wlsdeploy
-
-rm -f -r wlsdeploy
-```
-
-Next, create the application model file with the following content. Save the model file to `/tmp/mystaging/models/appmodel.yaml`.
-
-```yaml
-appDeployments:
-   Application:
-      myapp:
-         SourcePath: 'wlsdeploy/applications/testwebapp.war'
-         ModuleType: ear
-         Target: 'cluster-1'
-```
-
-Next, download and install [WebLogic Deploy Tooling](https://oracle.github.io/weblogic-deploy-tooling/)(WDT) in the staging directory and remove its weblogic-deploy/bin/*.cmd files, which are not used in UNIX environments:
-
-```bash
-cd /tmp/mystaging
-curl -m 120 -fL https://github.com/oracle/weblogic-deploy-tooling/releases/latest/download/weblogic-deploy.zip -o weblogic-deploy.zip
-unzip weblogic-deploy.zip -d .
-rm ./weblogic-deploy/bin/*.cmd
-```
-
-Remove the WDT installer.
-
-```bash
-rm weblogic-deploy.zip
-```
-
-Next, prepare the Dockerfile. Copy the following content and save it to `/tmp/mystaging/Dockerfile`
-
-```dockerfile
-FROM busybox
-ARG AUXILIARY_IMAGE_PATH=/auxiliary
-ARG USER=oracle
-ARG USERID=1000
-ARG GROUP=root
-ENV AUXILIARY_IMAGE_PATH=${AUXILIARY_IMAGE_PATH}
-RUN adduser -D -u ${USERID} -G $GROUP $USER
-# ARG expansion in COPY command's --chown is available in docker version 19.03.1+.
-# For older docker versions, change the Dockerfile to use separate COPY and 'RUN chown' commands.
-COPY --chown=$USER:$GROUP ./ ${AUXILIARY_IMAGE_PATH}/
-USER $USER
-```
-
-Run the `docker build` command using `/tmp/mystaging/Dockerfile`.
-
-```bash
-cd /tmp/mystaging
-docker build --build-arg AUXILIARY_IMAGE_PATH=/auxiliary --tag model-in-image:WLS-v1 .
-```
-
-You'll find output as following when you build the image successfully.
-
-```text
-[+] Building 12.0s (8/8) FINISHED                                   docker:default
- => [internal] load build definition from Dockerfile                          0.8s
- => => transferring dockerfile: 473B                                          0.0s
- => [internal] load .dockerignore                                             1.1s
- => => transferring context: 2B                                               0.0s
- => [internal] load metadata for docker.io/library/busybox:latest             5.0s
- => [1/3] FROM docker.io/library/busybox@sha256:6d9ac9237a84afe1516540f40a0f  0.0s
- => [internal] load build context                                             0.3s
- => => transferring context: 21.89kB                                          0.0s
- => CACHED [2/3] RUN adduser -D -u 1000 -G root oracle                        0.0s
- => [3/3] COPY --chown=oracle:root ./ /auxiliary/                             1.5s
- => exporting to image                                                        1.3s
- => => exporting layers                                                       1.0s
- => => writing image sha256:2477d502a19dcc0e841630ea567f50d7084782499fe3032a  0.1s
- => => naming to docker.io/library/model-in-image:WLS-v1                      0.2s
-```
-
-If you have successfully created the image, then it should now be in your local machine’s Docker repository. For example:
-
-```bash
-$ docker images model-in-image:WLS-v1
-REPOSITORY       TAG       IMAGE ID       CREATED       SIZE
-model-in-image   WLS-v1    76abc1afdcc6   2 hours ago   8.61MB
-```
-
-After the image is created, it should have the WDT executables in /auxiliary/weblogic-deploy, and WDT model, property, and archive files in /auxiliary/models. You can run ls in the Docker image to verify this:
-
-```bash
-$ docker run -it --rm model-in-image:WLS-v1 ls -l /auxiliary
-total 12
--rw-r--r--    1 oracle   root           434 Jan 24 06:08 Dockerfile
-drwxr-xr-x    2 oracle   root          4096 Jan 24 06:02 models
-drwxr-x---    6 oracle   root          4096 Jan 10 10:30 weblogic-deploy
-$ docker run -it --rm model-in-image:WLS-v1 ls -l /auxiliary/models
-total 16
--rw-r--r--    1 oracle   root           171 Jan 24 06:03 appmodel.yaml
--rw-r--r--    1 oracle   root           170 Jan 24 05:36 archive.zip
--rw-r--r--    1 oracle   root           381 Jan 24 05:56 model.properties
--rw-r--r--    1 oracle   root          1670 Jan 24 05:56 model.yaml
-$ docker run -it --rm model-in-image:WLS-v1 ls -l /auxiliary/weblogic-deploy
-total 24
--rw-r-----    1 oracle   root          1839 Jan 10 10:28 LICENSE.txt
--rw-r-----    1 oracle   root            29 Jan 10 10:30 VERSION.txt
-drwxr-x---    2 oracle   root          4096 Jan 24 06:05 bin
-drwxr-x---    2 oracle   root          4096 Jan 10 10:30 etc
-drwxr-x---    6 oracle   root          4096 Jan 10 10:30 lib
-drwxr-x---    2 oracle   root          4096 Jan 10 10:28 samples
-```
+    kubectl get pod -n ${WLS_DOMAIN_NS} -w
+    ```
 
 ## Verify the functionality of the deployment
 
