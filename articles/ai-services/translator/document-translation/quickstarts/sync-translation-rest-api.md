@@ -19,7 +19,7 @@ recommendations: false
 
 # Get started with synchronous document translation
 
-Document Translation is a cloud-based machine translation feature of the [Azure AI Translator](../translator-overview.md) service.  You can translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format.
+Document Translation is a cloud-based machine translation feature of the [Azure AI Translator](../../translator-overview.md) service.  You can translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format.
 
 Synchronous document translation supports immediate-response processing of single-page files. The synchronous translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
 
@@ -35,7 +35,7 @@ You need an active Azure subscription. If you don't have an Azure subscription, 
 
   * You need the key and endpoint from the resource to connect your application to the Translator service. You paste your key and endpoint into the code later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
 
-    :::image type="content" source="media/quickstarts/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
+    :::image type="content" source="../../media/quickstarts/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
     > [!NOTE]
     >

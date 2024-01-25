@@ -1,6 +1,6 @@
 ---
-title: Get started with synchronous document translation
-description: "How to translate documents synchronously using the REST API"
+title: Synchronous document translation REST API guide
+description: "Synchronous translation HTTP REST API guide"
 #services: cognitive-services
 author: laujan
 manager: nitinme

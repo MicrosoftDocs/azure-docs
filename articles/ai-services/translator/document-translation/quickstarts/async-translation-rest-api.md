@@ -1,5 +1,5 @@
 ---
-title: Get started with Document Translation
+title: Get started with asynchronous Document Translation
 description: "How to create a Document Translation service using C#, Go, Java, Node.js, or Python programming languages and the REST API"
 #services: cognitive-services
 author: laujan
@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-set-translator
 
 # Get started with asynchronous document translation
 
-Document Translation is a cloud-based feature of the [Azure AI Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#supported-document-formats). In this quickstart, learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
+Document Translation is a cloud-based feature of the [Azure AI Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#batch-supported-document-formats). In this quickstart, learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
 
 ## Prerequisites
 

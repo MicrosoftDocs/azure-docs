@@ -166,7 +166,7 @@ items:
     items:
     - name: "Quickstart: synchronous document translation"
       displayName: get started,keys,endpoint,headers,setup
-      href: document-translation/quickstarts/sync-translation-rest-api.md
+      href: document-translation/quickstarts/synchronous-translation-rest-api.md
     - name: "Reference: synchronous translation REST API guide"
       displayName: get,post,cancel,delete
       href: document-translation/reference/sync-rest-api-guide.md

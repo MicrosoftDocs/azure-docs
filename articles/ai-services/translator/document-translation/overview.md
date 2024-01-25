@@ -23,9 +23,9 @@ recommendations: false
 
 Document Translation is a cloud-based machine translation feature of the [Azure AI Translator](../translator-overview.md) service.  You can translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format. The Document translation API supports two translation operations:
 
-* [Asynchronous batch](#batch-translation) document translation supports asynchronous processing of multiple documents and large files. The batch translation process requires an Azure Blob storage account with containers for your source and translated documents.
+* [Asynchronous batch](#asynchronous-batch-translation) document translation supports asynchronous processing of multiple documents and large files. The batch translation process requires an Azure Blob storage account with containers for your source and translated documents.
 
-* [Synchronous](#file-translation.md) document translation supports synchronous processing of single file translations. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
+* [Synchronous](#synchronous-document-translation) document translation supports synchronous processing of single file translations. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
 
 ## Asynchronous batch translation
 
@@ -51,7 +51,7 @@ You can add Document Translation to your applications using the REST API or a cl
 
 * The [**client-library SDKs**](./quickstarts/async-translation-sdk.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](https://pypi.org/project/azure-ai-translation-document/).
 
-### Batch translation supported document formats
+### Batch supported document formats
 
 The [Get supported document formats method](reference/get-supported-document-formats.md) returns a list of document formats supported by the Document Translation service. The list includes the common file extension, and the content-type if using the upload API.
 
@@ -94,11 +94,11 @@ Document Translation supports the following glossary file types:
 |Localization Interchange File Format| `xlf` , `xliff`| A parallel document format, export of Translation Memory systems The languages used are defined inside the file.|
 |Tab-Separated Values/TAB|`tsv`, `tab`| A tab-delimited raw-data file used by spreadsheet programs.|
 
-## Sync document translation
+## Synchronous document translation
 
  Use synchronous translation processing to send a document as part of the HTTP request body and receive the translated document in the HTTP response.
 
-### Sync translation key features
+### Synchronous translation key features
 
 |Feature | Description |
 | ---------| -------------|
@@ -110,7 +110,7 @@ Document Translation supports the following glossary file types:
 |**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
 |**Apply custom glossaries**|Translate a document using a custom glossary.|
 
-## Sync supported document formats
+## Synchronous supported document formats
 
 |File type| File extension|Description|
 |---|---|--|
@@ -126,7 +126,7 @@ Document Translation supports the following glossary file types:
 |OpenDocument Spreadsheet|`ods`|An open-source spreadsheet file.|
 |OneNoteJson|`json`|
 
-### Sync supported glossary formats
+### Synchronous supported glossary formats
 
 Document Translation supports the following glossary file types:
 
@@ -136,7 +136,7 @@ Document Translation supports the following glossary file types:
 |Localization Interchange File Format| `xlf` , `xliff`| An XML-based format designed to standardize how data is passed during the localization process. |
 |Tab-Separated Values/TAB|`tsv`, `tab`| A tab-delimited raw-data file used by spreadsheet programs.|
 
-## Document Translatin Request limits
+## Document Translation Request limits
 
 For detailed information regarding Azure AI Translator Service request limits, *see* [**Document Translation request limits**](../service-limits.md#document-translation).
 
