@@ -170,8 +170,6 @@ az networkcloud baremetalmachine run-read-command --name "bareMetalMachineName" 
     --subscription "<subscription>"
 ```
 
-In the response, an HTTP status code of 202 is returned as the operation is performed asynchronously.
-
 ## Checking command status and viewing output
 
 Sample output is shown. It prints the top 4,000 characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz).
