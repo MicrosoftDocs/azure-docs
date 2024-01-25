@@ -20,11 +20,26 @@ When attempting to connect to Azure Database for PostgreSQL - Flexible Server, y
 psql: error: connection to server at "<server-name>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  password authentication failed for user "<user-name>"
 ```
 
-This error indicates that the password provided for the user `<user-name>` is incorrect or not being accepted by the server.
+This error indicates that the password provided for the user `<user-name>` is incorrect.
 
+Following the initial password authentication error, you might see another error message indicating that the client is trying to reconnect to the server, this time without SSL encryption. The failure here is due to the server's `pg_hba.conf` configuration not permitting unencrypted connections.
 
 ```bash
 connection to server at "<server-name>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  no pg_hba.conf entry for host "y.y.y.y", user "<user-name>", database "postgres", no encryption
+```
+
+The combined error message you will receive in this scenario will look like this:
+
+```bash
+psql: error: connection to server at "<server-name>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  password authentication failed for user "<user-name>"
+connection to server at "<server-name>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  no pg_hba.conf entry for host "y.y.y.y", user "<user-name>", database "postgres", no encryption
+```
+
+
+When using a `libpq` client that supports SSL, such as tools like `psql`, `pg_dump`, or `pgbench`, it is standard behavior to try connecting once with SSL and once without. This approach is not as unreasonable as it might seem, as the server could have different `pg_hba` rules for SSL and non-SSL connections. To avoid this dual attempt and specify the desired SSL mode, you can use the `sslmode` connection option in your client configuration. For instance, if you are using `libpq` variables in the bash shell, you can set the SSL mode by using the following command:
+
+```bash
+export PGSSLMODE=require
 ```
 
 
