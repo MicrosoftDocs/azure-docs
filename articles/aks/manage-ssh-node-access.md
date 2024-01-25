@@ -13,7 +13,7 @@ This article describes how to configure the SSH keys (preview) on your AKS clust
 
 AKS supports the following configuration options to manage SSH keys on cluster nodes:
 
-* Create a cluster with an SSH keys
+* Create a cluster with SSH keys
 * Update the SSH keys on an existing AKS cluster
 * Disable and enable the SSH service
 
@@ -71,13 +71,13 @@ AKS supports the following configuration options to manage SSH keys on cluster n
 
 ## Create an AKS cluster with SSH keys
 
-Use the [az aks create][az-aks-create] command to deploy an AKS cluster with an SSH public key. You can either specify the key or a key file using the --ssh-key-value argument.
+Use the [az aks create][az-aks-create] command to deploy an AKS cluster with an SSH public key. You can either specify the key or a key file using the `--ssh-key-value` argument.
 
 |SSH parameter |Description |Default value |
 |-----|-----|-----|
-|--generate-ssh-key |If you don't have your own SSH keys, specify `--generate-ssh-key`. The Azure CLI automatically generates a set of SSH keys and saves them in the default directory `~/.ssh/`.||
+|`--generate-ssh-key` |If you don't have your own SSH keys, specify `--generate-ssh-key`. The Azure CLI automatically generates a set of SSH keys and saves them in the default directory `~/.ssh/`.||
 |--ssh-key-value |Public key path or key contents to install on node VMs for SSH access. For example, `ssh-rsa AAAAB...snip...UcyupgH azureuser@linuxvm`.|`~/.ssh/id_rsa.pub` |
-|--no-ssh-key | If you don't require SSH keys, specify this argument. However, AKS automatically generates a set of SSH keys because the Azure Virtual Machine resource dependency doesn't support an empty SSH keys file. As a result, the keys aren't returned and can't be used to SSH into the node VMs. The private key is discarded and not saved.||
+|`--no-ssh-key` | If you don't require SSH keys, specify this argument. However, AKS automatically generates a set of SSH keys because the Azure Virtual Machine resource dependency doesn't support an empty SSH keys file. As a result, the keys aren't returned and can't be used to SSH into the node VMs. The private key is discarded and not saved.||
 
 >[!NOTE]
 >If no parameters are specified, the Azure CLI defaults to referencing the SSH keys stored in the `~/.ssh/id_rsa.pub` file. If the keys aren't found, the command returns the message `An RSA key file or key value must be supplied to SSH Key Value`.
