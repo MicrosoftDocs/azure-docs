@@ -22,6 +22,14 @@ Translator is a language service that enables users to translate text and docume
 
 Translator service supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
 
+## January 2024
+
+The Document translation API now supports two translation operations:
+
+* [Asynchronous Batch](document-translation/overview.md#batch-translation) document translation supports asynchronous processing of multiple documents and files. The batch translation process requires an Azure Blob storage account with containers for your source and translated documents.
+
+* [Synchronous](document-translation/overview.md#file-translation.md) document translation supports synchronous processing of single file translations. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.Document Trans
+
 ## September 2023
 
 * Translator service has [text, document translation, and container language support](language-support.md) for the following 18 languages:

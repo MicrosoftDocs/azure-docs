@@ -43,10 +43,8 @@ landingContent:
         links:
           - text: Text Translation
             url: text-translation-overview.md
-          - text: Batch Document Translation
+          - text: Document Translation
             url:  document-translation/overview.md
-          - text: File Document Translation
-            url: document-translation/sync-file-overview.md
           - text: Custom Translator
             url: custom-translator/overview.md
       - linkListType: get-started

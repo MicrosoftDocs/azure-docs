@@ -23,13 +23,15 @@ recommendations: false
 
 Document Translation is a cloud-based machine translation feature of the [Azure AI Translator](../translator-overview.md) service.  You can translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format. The Document translation API supports two translation operations:
 
-* [Batch](#batch-translation) document translation supports asynchronous processing of multiple documents and files. The batch translation process requires an Azure Blob storage account with containers for your source and translated documents.
+* [Asynchronous batch](#batch-translation) document translation supports asynchronous processing of multiple documents and large files. The batch translation process requires an Azure Blob storage account with containers for your source and translated documents.
 
-* [File](#file-translation.md) document translation supports synchronous processing of single file translations. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
+* [Synchronous](#file-translation.md) document translation supports synchronous processing of single file translations. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
 
-## [Batch translation](#tab/asynchronous)
+## Asynchronous batch translation
 
-### Batch translation key features
+Use asynchronous document processing to translate multiple documents and large files.
+
+### Batch key features
 
   | Feature | Description |
   | ---------| -------------|
@@ -41,20 +43,13 @@ Document Translation is a cloud-based machine translation feature of the [Azure 
   |**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
   |**Translate documents with content in multiple languages**|Use the autodetect feature to translate documents with content in multiple languages into your target language.|
 
-### Development options
+### Batch development options
 
 You can add Document Translation to your applications using the REST API or a client-library SDK:
 
 * The [**REST API**](reference/rest-api-guide.md). is a language agnostic interface that enables you to create HTTP requests and authorization headers to translate documents.
 
 * The [**client-library SDKs**](./quickstarts/async-translation-sdk.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](https://pypi.org/project/azure-ai-translation-document/).
-
-### Get started
-
-In our quickstart, you learn how to rapidly get started using Document Translation. To begin, you need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
-
-> [!div class="nextstepaction"]
-> [Start here](./quickstarts/async-translation-rest-api.md "Learn how to use batch document translation with HTTP REST")
 
 ### Batch translation supported document formats
 
@@ -99,9 +94,11 @@ Document Translation supports the following glossary file types:
 |Localization Interchange File Format| `xlf` , `xliff`| A parallel document format, export of Translation Memory systems The languages used are defined inside the file.|
 |Tab-Separated Values/TAB|`tsv`, `tab`| A tab-delimited raw-data file used by spreadsheet programs.|
 
-## [File document translation](#tab/synchronous)
+## Sync document translation
 
-## File translation key features
+ Use synchronous translation processing to send a document as part of the HTTP request body and receive the translated document in the HTTP response.
+
+### Sync translation key features
 
 |Feature | Description |
 | ---------| -------------|
@@ -109,13 +106,16 @@ Document Translation supports the following glossary file types:
 |**Preserve source file presentation**| Translate files while preserving the original layout and format.|
 |**Apply custom translation**| Translate documents using general and [custom translation](../custom-translator/concepts/customization.md#custom-translator) models.|
 |**Apply custom glossaries**|Translate documents using custom glossaries.|
+|**Single language translation**|Translate to and from one [supported language](../language-support.md).|
 |**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
+|**Apply custom glossaries**|Translate a document using a custom glossary.|
 
-## Supported document formats
+## Sync supported document formats
 
 |File type| File extension|Description|
 |---|---|--|
 |HTML|`html`, `htm`|Hyper Text Markup Language.|
+|Plain Text|`txt`| An unformatted text document.|
 |M&#8203;HTML|`mthml`, `mht`| A web page archive format used to combine HTML code and its companion resources.|
 |Microsoft Excel|`xls`, `xlsx`|A spreadsheet file for data analysis and documentation.|
 |Microsoft Outlook|`msg`|An email message created or saved within Microsoft Outlook.|
@@ -124,15 +124,23 @@ Document Translation supports the following glossary file types:
 |OpenDocument Text|`odt`|An open-source text document file.|
 |OpenDocument Presentation|`odp`|An open-source presentation file.|
 |OpenDocument Spreadsheet|`ods`|An open-source spreadsheet file.|
-|Plain Text|`txt`| An unformatted text document.|
+|OneNoteJson|`json`|
 
----
+### Sync supported glossary formats
 
-## Request limits
+Document Translation supports the following glossary file types:
+
+| File type| File extension|Description|
+|---|---|--|
+|Comma-Separated Values| `csv` |A comma-delimited raw-data file used by spreadsheet programs.|
+|Localization Interchange File Format| `xlf` , `xliff`| An XML-based format designed to standardize how data is passed during the localization process. |
+|Tab-Separated Values/TAB|`tsv`, `tab`| A tab-delimited raw-data file used by spreadsheet programs.|
+
+## Document Translatin Request limits
 
 For detailed information regarding Azure AI Translator Service request limits, *see* [**Document Translation request limits**](../service-limits.md#document-translation).
 
-## Data residency
+## Document Translation data residency
 
 Document Translation data residency depends on the Azure region where your Translator resource was created:
 
@@ -140,8 +148,6 @@ Document Translation data residency depends on the Azure region where your Trans
 * Translator resources **created** in any region in Switzerland are **processed** at data center in Switzerland North and Switzerland West
 * Translator resources **created** in any region in Asia Pacific or Australia are **processed** at data center in Southeast Asia and Australia East.
 * Translator resource **created** in all other regions including Global, North America, and South America are **processed** at data center in East US and West US 2.
-
-### Document Translation data residency
 
 ✔️ Feature: **Document Translation**</br>
 ✔️ Service endpoint:  **Custom:** &#8198;&#8198;&#8198; **`<name-of-your-resource.cognitiveservices.azure.com/translator/text/batch/v1.1`**
@@ -155,5 +161,7 @@ Document Translation data residency depends on the Azure region where your Trans
 
 ## Next steps
 
+In our quickstart, you learn how to rapidly get started using Document Translation. To begin, you need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
+
 > [!div class="nextstepaction"]
-> [Get Started with Document Translation](./quickstarts/async-translation-rest-api.md)
+> [Get Started with Batch document translation](./quickstarts/async-translation-rest-api.md) [Get started with sync document translation](quickstarts/sync-translation-rest-api.md)

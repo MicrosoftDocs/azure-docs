@@ -43,12 +43,6 @@ You need an active Azure subscription. If you don't have an Azure subscription, 
     > * If you choose to use an Azure AI multi-service or regional Translator resource, two authentication headers will be required: (**Ocp-Api-Subscription-Key** and **Ocp-Apim-Subscription-Region**). The value for Ocp-Apim-Subscription-Region is the region associated with your subscription.
     > * For more information on how to use the **Ocp-Apim-Subscription-Region** header, _see_ [Text Translation REST API headers](translator-text-apis.md#headers).
 
-<!-- checked -->
-<!--
- > [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=prerequisites)
--->
-
 ## Headers
 
 To call the Translator service via the [REST API](reference/rest-api-guide.md), you need to include the following headers with each request. Don't worry, we include the headers for you in the sample code for each programming language.
