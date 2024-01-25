@@ -33,28 +33,32 @@ Document summarization uses natural language processing techniques to generate a
 
 Extractive summarization extracts sentences that collectively represent the most important or relevant information within the original content. Abstractive summarization generates a summary with concise, coherent sentences or words that aren't verbatim extract sentences from the original document. These features are designed to shorten content that could be considered too long to read.
 
-## Supported document formats
+## Native document support
 
- Currently **Document summarization** supports the following native document formats:
+A native document refers to the file format used to create the original document such as Microsoft Word (docx) or a portable document file (pdf). Native document support eliminates the need for text preprocessing prior to using Azure AI Language resource capabilities.  Currently, native document support is available for both [**AbstractiveSummarization**](../summarization/how-to/document-summarization.md#try-document-abstractive-summarization) and [**ExtractiveSummarization**](../summarization/how-to/document-summarization.md#try-document-extractive-summarization) capabilities.
+
+ Currently **Document Summarization** supports the following native document formats:
 
 |File type|File extension|Description|
 |---------|--------------|-----------|
 |Text| `.txt`|An unformatted text document.|
 |Adobe PDF| `.pdf`       |A portable document file formatted document.|
-|Microsoft Word| `.doc` `.docx`|A text document file.|
+|Microsoft Word|`.docx`|A Microsoft Word document file.|
 
 ## Key features
 
 There are two types of document summarization this API provides:
 
 * **Extractive summarization**: Produces a summary by extracting salient sentences within the document.
-    * Multiple extracted sentences: These sentences collectively convey the main idea of the document. They're original sentences extracted from the input document's content.
-    * Rank score: The rank score indicates how relevant a sentence is to a document's main topic. Document summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
-    * Multiple returned sentences: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary extractive summarization returns the three highest scored sentences.
-    * Positional information: The start position and length of extracted sentences.
+
+  * Multiple extracted sentences: These sentences collectively convey the main idea of the document. They're original sentences extracted from the input document's content.
+  * Rank score: The rank score indicates how relevant a sentence is to a document's main topic. Document summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
+  * Multiple returned sentences: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary extractive summarization returns the three highest scored sentences.
+  * Positional information: The start position and length of extracted sentences.
+
 * **Abstractive summarization**: Generates a summary that may not use the same words as in the document, but captures the main idea.
-    * Summary texts: Abstractive summarization returns a summary for each contextual input range within the document. A long document may be segmented so multiple groups of summary texts may be returned with their contextual input range. 
-    * Contextual input range: The range within the input document that was used to generate the summary text.
+  * Summary texts: Abstractive summarization returns a summary for each contextual input range within the document. A long document may be segmented so multiple groups of summary texts may be returned with their contextual input range. 
+  * Contextual input range: The range within the input document that was used to generate the summary text.
 
 As an example, consider the following paragraph of text:
 

@@ -21,10 +21,14 @@ ms.author: lajanuar
 
 > [!IMPORTANT]
 >
+> * Native document support is a gated preview. To request access to the native document support feature, complete and submit the [**Apply for access to Language Service previews**](https://aka.ms/gating-native-document) form.
+>
 > * Azure AI Language public preview releases provide early access to features that are in active development.
 > * Features, approaches, and processes may change, prior to General Availability (GA), based on user feedback.
 
-Azure AI Language is a cloud-based service that applies Natural Language Processing (NLP) features to text-based data. A native document refers to the file format used to create the original document such as Microsoft Word (docx) or a portable document file (pdf). Native document support eliminates the need for text preprocessing prior to using Azure AI Language resource capabilities.  Currently, native document support is available for the following capabilities:
+Azure AI Language is a cloud-based service that applies Natural Language Processing (NLP) features to text-based data. The native document support capability enables you to send API requests asynchronously, using an HTTP POST request body to send your data and HTTP GET request query string to retrieve the processed data.
+
+A native document refers to the file format used to create the original document such as Microsoft Word (docx) or a portable document file (pdf). Native document support eliminates the need for text preprocessing prior to using Azure AI Language resource capabilities.  Currently, native document support is available for the following capabilities:
 
 * [Personally Identifiable Information (PII)](../personally-identifiable-information/overview.md). The PII detection feature can identify, categorize, and redact sensitive information in unstructured text. The `PiiEntityRecognition` API supports native document processing.
 
@@ -46,8 +50,8 @@ Native document support can be integrated into your applications using the [Azur
 |File type|File extension|Description|
 |---------|--------------|-----------|
 |Text| `.txt`|An unformatted text document.|
-|Adobe PDF| `.pdf`       |A portable document file formatted document.|
-|Microsoft Word| `.doc` `.docx`|A text document file.|
+|Adobe PDF| `.pdf`|A portable document file formatted document.|
+|Microsoft Word| `.docx`|A Microsoft Word document file.|
 
 ## Input guidelines
 
@@ -55,16 +59,16 @@ Native document support can be integrated into your applications using the [Azur
 
 |Type|support and limitations|
 |---|---|
-|**PDFs**| Fully digital and fully scanned PDFs aren't supported.|
+|**PDFs**| Fully scanned PDFs aren't supported.|
 |**Text within images**| Digital images with imbedded text aren't supported.|
-|**Digital tables**| Tables in digital documents are supported, however scanned table quality isn't guaranteed.|
+|**Digital tables**| Tables in scanned documents aren't supported.|
 
 ***Document Size***
 
 |Attribute|Input limit|
 |---|---|
 |**Total number of documents per request** |**≤ 20**|
-|**Total content size per request**| **≤ 1 M**|
+|**Total content size per request**| **≤ 1 MB**|
 
 ## Include native documents with an HTTP request
 
@@ -144,7 +148,7 @@ For this project, we authenticate access to the `source location` and `target lo
 
 > [!TIP]
 >
-> * Since we're processing a single file (blob) **delegate SAS access at the blob level**.
+> * Since we're processing a single file (blob), we recommend that you **delegate SAS access at the blob level**.
 
 ## Request headers and parameters
 
@@ -198,6 +202,13 @@ For this quickstart, you need a **source document** uploaded to your **source co
 
 ### Run the POST request
 
+1. Here's the structure of the POST request:
+
+  ```http
+   POST {cognitive-service-endpoint}/language/analyze-documents/jobs?api-version=2023-11-15-preview
+
+  ```
+
 1. Before you run the **POST** request, replace `{your-language-resource-endpoint}` and `{your-key}` with the values from your Azure portal Language service instance.
 
     > [!IMPORTANT]
@@ -206,14 +217,111 @@ For this quickstart, you need a **source document** uploaded to your **source co
     ***PowerShell***
 
     ```powershell
-    cmd /c curl "{your-language-resource-endpoint}/language/:analyze-text?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@pii-detection.json"
+    cmd /c curl "{your-language-resource-endpoint}/language/:analyze-text?api-version=11-15-preview" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@pii-detection.json"
     ```
 
     ***command prompt / terminal***
 
-    ```curl
-    curl "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@pii-detection.json"
+    ```bash
+    curl "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=11-15-preview" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@pii-detection.json"
     ```
+
+1. Here's a sample response:
+
+   ```http
+   HTTP/1.1 202 Accepted
+   Content-Length: 0
+   operation-location: https://{your-language-resource-endpoint}/language/analyze-documents/jobs/f1cc29ff-9738-42ea-afa5-98d2d3cabf94?api-version=2023-11-15-preview
+   apim-request-id: e7d6fa0c-0efd-416a-8b1e-1cd9287f5f81
+   x-ms-region: West US 2
+   Date: Thu, 25 Jan 2024 15:12:32 GMT
+   ```
+
+### POST response (jobId)
+
+You receive a 202 (Success) response that includes a read-only Operation-Location header. The value of this header contains a **jobId** that can be queried to get the status of the asynchronous operation and retrieve the results using a **GET** request:
+
+  :::image type="content" source="media/operation-location-result-id.png" alt-text="Screenshot showing the operation-location value in the POST response.":::
+
+### Get analyze results (GET request)
+
+1. After your successful **POST** request, poll the operation-location header returned in the POST request to view the processed data.
+
+1. Here's the structure of the **GET** request:
+
+  ```http
+  GET {cognitive-service-endpoint}/language/analyze-documents/jobs/{jobId}?api-version=2023-11-15-preview
+  ```
+
+1. Before you run the command, make these changes:
+
+    * Replace {**jobId**} with the Operation-Location header from the POST response.
+
+    * Replace {**your-language-resource-endpoint**} and {**your-key**} with the values from your Language service instance in the Azure portal.
+
+### Get request
+
+```powershell
+    cmd /c curl "{your-language-resource-endpoint}/language/analyze-documents/jobs/{jobId}?api-version=2023-11-15-preview" -i -X GET --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}"
+```
+
+```bash
+    curl -v -X GET "{your-language-resource-endpoint}/language/analyze-documents/jobs/{jobId}?api-version=2023-11-15-preview" --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}"
+```
+
+#### Examine the response
+
+You receive a 200 (Success) response with JSON output. The **status** field indicates the result of the operation. If the operation isn't complete, the value of **status** is "running" or "notStarted", and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
+
+#### Sample response
+
+```json
+{
+  "jobId": "f1cc29ff-9738-42ea-afa5-98d2d3cabf94",
+  "lastUpdatedDateTime": "2024-01-24T13:17:58Z",
+  "createdDateTime": "2024-01-24T13:17:47Z",
+  "expirationDateTime": "2024-01-25T13:17:47Z",
+  "status": "succeeded",
+  "errors": [],
+  "tasks": {
+    "completed": 1,
+    "failed": 0,
+    "inProgress": 0,
+    "total": 1,
+    "items": [
+      {
+        "kind": "PiiEntityRecognitionLROResults",
+        "lastUpdateDateTime": "2024-01-24T13:17:58.33934Z",
+        "status": "succeeded",
+        "results": {
+          "documents": [
+            {
+              "id": "doc_0",
+              "source": {
+                "kind": "AzureBlob",
+                "location": "https://myaccount.blob.core.windows.net/sample-input/input.pdf"
+              },
+              "targets": [
+                {
+                  "kind": "AzureBlob",
+                  "location": "https://myaccount.blob.core.windows.net/sample-output/df6611a3-fe74-44f8-b8d4-58ac7491cb13/PiiEntityRecognition-0001/input.result.json"
+                },
+                {
+                  "kind": "AzureBlob",
+                  "location": "https://myaccount.blob.core.windows.net/sample-output/df6611a3-fe74-44f8-b8d4-58ac7491cb13/PiiEntityRecognition-0001/input.docx"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "errors": [],
+          "modelVersion": "2023-09-01"
+        }
+      }
+    ]
+  }
+}
+```
 
 ### [Document Summarization](#tab/summarization)
 
@@ -273,11 +381,104 @@ Before you run the **POST** request, replace `{your-language-resource-endpoint}`
 
 ---
 
+1. Here's a sample response:
+
+   ```http
+   HTTP/1.1 202 Accepted
+   Content-Length: 0
+   operation-location: https://{your-language-resource-endpoint}/language/analyze-documents/jobs/f1cc29ff-9738-42ea-afa5-98d2d3cabf94?api-version=2023-11-15-preview
+   apim-request-id: e7d6fa0c-0efd-416a-8b1e-1cd9287f5f81
+   x-ms-region: West US 2
+   Date: Thu, 25 Jan 2024 15:12:32 GMT
+   ```
+
+### POST response (jobId)
+
+You receive a 202 (Success) response that includes a read-only Operation-Location header. The value of this header contains a jobId that can be queried to get the status of the asynchronous operation and retrieve the results using a GET request:
+
+  :::image type="content" source="media/operation-location-result-id.png" alt-text="Screenshot showing the operation-location value in the POST response.":::
+
+### Get analyze results (GET request)
+
+1. After your successful **POST** request, poll the operation-location header returned in the POST request to view the processed data.
+
+1. Here's the structure of the **GET** request:
+
+  ```http
+  GET {cognitive-service-endpoint}/language/analyze-documents/jobs/{jobId}?api-version=2023-11-15-preview
+  ```
+
+1. Before you run the command, make these changes:
+
+    * Replace {**jobId**} with the Operation-Location header from the POST response.
+
+    * Replace {**your-language-resource-endpoint**} and {**your-key**} with the values from your Language service instance in the Azure portal.
+
+### Get request
+
+```powershell
+    cmd /c curl "{your-language-resource-endpoint}/language/analyze-documents/jobs/{jobId}?api-version=2023-11-15-preview" -i -X GET --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}"
+```
+
+```bash
+    curl -v -X GET "{your-language-resource-endpoint}/language/analyze-documents/jobs/{jobId}?api-version=2023-11-15-preview" --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}"
+```
+
+#### Examine the response
+
+You receive a 200 (Success) response with JSON output. The **status** field indicates the result of the operation. If the operation isn't complete, the value of **status** is "running" or "notStarted", and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
+
+#### Sample response
+
+```json
+{
+  "jobId": "f1cc29ff-9738-42ea-afa5-98d2d3cabf94",
+  "lastUpdatedDateTime": "2024-01-24T13:17:58Z",
+  "createdDateTime": "2024-01-24T13:17:47Z",
+  "expirationDateTime": "2024-01-25T13:17:47Z",
+  "status": "succeeded",
+  "errors": [],
+  "tasks": {
+    "completed": 1,
+    "failed": 0,
+    "inProgress": 0,
+    "total": 1,
+    "items": [
+      {
+        "kind": "ExtractiveSummarizationLROResults",
+        "lastUpdateDateTime": "2024-01-24T13:17:58.33934Z",
+        "status": "succeeded",
+        "results": {
+          "documents": [
+            {
+              "id": "doc_0",
+              "source": {
+                "kind": "AzureBlob",
+                "location": "https://myaccount.blob.core.windows.net/sample-input/input.pdf"
+              },
+              "targets": [
+                {
+                  "kind": "AzureBlob",
+                  "location": "https://myaccount.blob.core.windows.net/sample-output/df6611a3-fe74-44f8-b8d4-58ac7491cb13/ExtractiveSummarization-0001/input.result.json"
+                }
+              ],
+              "warnings": []
+            }
+          ],
+          "errors": [],
+          "modelVersion": "2023-02-01-preview"
+        }
+      }
+    ]
+  }
+}
+```
+
 ***Upon successful completion***:
 
 * The analyzed documents can be found in your target container.
 * The successful POST method returns a `202 Accepted` response code indicating that the service created the batch request.
-* The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
+* The POST request also returned response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
 ## Clean up resources
 
@@ -287,8 +488,6 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 * [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps
-
-You can get started with our quickstart. You need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
 
 > [!div class="nextstepaction"]
 > [PII detection overview](../personally-identifiable-information/overview.md "Learn more about Personally Identifiable Information detection.")

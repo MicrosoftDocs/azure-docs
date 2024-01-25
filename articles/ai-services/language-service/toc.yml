@@ -418,6 +418,7 @@ items:
     items:
     - name: PII overview
       href: personally-identifiable-information/overview.md
+      displayName: native, native document
     - name: PII quickstart
       href: personally-identifiable-information/quickstart.md
     - name: PII language support
@@ -729,6 +730,7 @@ items:
     items:
     - name: Summarization overview
       href: summarization/overview.md
+      displayName: native, native document
     - name: Summarization region support
       href: summarization/region-support.md
     - name: Summarization language support

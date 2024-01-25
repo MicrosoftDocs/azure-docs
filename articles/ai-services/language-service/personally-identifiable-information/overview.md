@@ -27,7 +27,9 @@ PII comes into two shapes:
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
-## Supported document formats
+## Native document support
+
+A native document refers to the file format used to create the original document such as Microsoft Word (docx) or a portable document file (pdf). Native document support eliminates the need for text preprocessing prior to using Azure AI Language resource capabilities.  Currently, native document support is available for the [**PiiEntityRecognition**](../personally-identifiable-information/concepts/entity-categories.md) capability.
 
  Currently **PII** supports the following native document formats:
 
@@ -35,7 +37,7 @@ PII comes into two shapes:
 |---------|--------------|-----------|
 |Text| `.txt`|An unformatted text document.|
 |Adobe PDF| `.pdf`       |A portable document file formatted document.|
-|Microsoft Word| `.doc` `.docx`|A text document file.|
+|Microsoft Word|`.docx`|A Microsoft Word document file.|
 
 ## Get started with PII detection
 
