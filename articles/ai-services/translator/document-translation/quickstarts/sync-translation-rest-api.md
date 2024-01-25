@@ -73,7 +73,7 @@ To call the synchronous document translation feature via the [REST API](../refer
 
 1. Before you run the **POST** request, replace `{your-language-resource-endpoint}` and `{your-key}` with the values from your Azure portal Language service instance.
 
-> [!IMPORTANT]
+    > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information, *see* Azure AI services [security](/azure/ai-services/security-features).
 
     ***PowerShell***
@@ -90,42 +90,44 @@ To call the synchronous document translation feature via the [REST API](../refer
     like 1
     ```
 
-   Here's a closer look at each cURL value  in a sample HTTP calls:
+Here's a closer look at each cURL value  in a sample HTTP calls:
 
-   ***Global resource with glossary***
+***Global resource with glossary***
 
-    * curl "https://global.document.microsofttranslator.com/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview"
+* curl "https:&#8203;//global.document.microsofttranslator.com/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview"
 
-    * -i -X POST
+* -i -X POST
 
-    * -H "Ocp-Apim-Subscription-Key: <KEY>"
+* -H "Ocp-Apim-Subscription-Key: <KEY>"
 
-    * -H "Ocp-Apim-Subscription-Region: <REGION>"
+* -H "Ocp-Apim-Subscription-Region: <REGION>"
 
-    * -data "document=@C:\Test\Test-file.txt;type=text/html"
+* -data "document=@C:\Test\Test-file.txt;type=text/html"
 
-    *  -data "glossary=@C:\Test\SDT\test-simple-glossary.csv;type=text/csv"
+* -data "glossary=@C:\Test\SDT\test-simple-glossary.csv;type=text/csv"
 
-    * --output "C:\Test\Test-file-output.txt"
+* --output "C:\Test\Test-file-output.txt"
 
 ***Regional resource with glossary***
 
-    * curl "https://regional.document.microsofttranslator.com/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview"
+* curl "https:&#8203;//regional.document.microsofttranslator.com/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview"
 
-    * -i -X POST
+* -i -X POST
 
-    * -H "Ocp-Apim-Subscription-Key: <KEY>"
+* -H "Ocp-Apim-Subscription-Key: <KEY>"
 
-    * -data "document=@C:\Test\Test-file.txt;type=text/html"
+* -data "document=@C:\Test\Test-file.txt;type=text/html"
 
-    *  -data "glossary=@C:\Test\SDT\test-simple-glossary.csv;type=text/csv"
+* -data "glossary=@C:\Test\SDT\test-simple-glossary.csv;type=text/csv"
 
-    * --output "C:\Test\Test-file-output.txt"
+* --output "C:\Test\Test-file-output.txt"
 
 ***Upon successful completion***:
 
 * The translated document is returned with the response.
 * The successful POST method returns a `202 Accepted` response code indicating that the service created the request.
+
+That's it, congratulations! You just learned to synchronously translate a document using the Azure AI Translator service.
 
 ## Next steps
 

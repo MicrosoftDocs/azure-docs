@@ -8,7 +8,7 @@ ms.author: lajanuar
 author: laujan
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 01/24/2024
 ---
 
 # Get document status
@@ -70,7 +70,7 @@ The following are the possible HTTP status codes that a request returns.
 |path|string|Location of the document or folder.|
 |sourcePath|string|Location of the source document.|
 |createdDateTimeUtc|string|Operation created date time.|
-|lastActionDateTimeUtc|string|Date time in which the operation's status has been updated.|
+|lastActionDateTimeUtc|string|Date time in which the operation's status was updated.|
 |status|String|List of possible statuses for job or document: <ul><li>Canceled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
 |to|string|Two letter language code of To Language. [See the list of languages](../../language-support.md).|
 |progress|number|Progress of the translation if available|

@@ -172,7 +172,7 @@ class Program
 
 ### Run your C# application
 
-Once you've added a code sample to your application, choose the green **start button** next to formRecognizer_quickstart to build and run your program, or press **F5**.
+Once you add a code sample to your application, choose the green **start button** next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
 :::image type="content" source="media/quickstarts/run-program-visual-studio.png" alt-text="Screenshot of the run program button in Visual Studio.":::
 
@@ -216,7 +216,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 >
 > If you're new to Go, try the [Get started with Go](/training/modules/go-get-started/) Learn module.
 
-1. If you haven't done so already, [download and install Go](https://go.dev/doc/install).
+1. Make sure the latest version of [Go](https://go.dev/doc/install) is installed:
 
     * Download the Go version for your operating system.
     * Once the download is complete, run the installer.
@@ -309,7 +309,7 @@ func main() {
 
 ### Run your Go application
 
-Once you've added a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **translator-app** folder and use the following command:
+Once you add a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **translator-app** folder and use the following command:
 
 ```console
  go run translation.go
@@ -499,7 +499,7 @@ public class TranslatorText {
 
 ### Build and run your Java application
 
-Once you've added a code sample to your application, navigate back to your main project directory—**translator-text-app**, open a console window, and enter the following commands:
+Once you add a code sample to your application, navigate back to your main project directory—**translator-text-app**, open a console window, and enter the following commands:
 
 1. Build your application with the `build` command:
 
@@ -543,7 +543,7 @@ After a successful call, you should see the following response:
 
 ### Set up your Node.js Express project
 
-1. If you haven't done so already, install the latest version of [Node.js](https://nodejs.org/en/download/). Node Package Manager (npm) is included with the Node.js installation.
+1. Make sure the latest version of [Node.js](https://nodejs.org/en/download/) is installed. Node Package Manager (npm) is included with the Node.js installation.
 
     > [!TIP]
     >
@@ -570,7 +570,7 @@ After a successful call, you should see the following response:
     * The most important attributes are name, version number, and entry point.
     * We recommend keeping `index.js` for the entry point name. The description, test command, GitHub repository, keywords, author, and license information are optional attributes—they can be skipped for this project.
     * Accept the suggestions in parentheses by selecting **Return** or **Enter**.
-    * After you've completed the prompts, a `package.json` file will be created in your translator-app directory.
+    * After you complete the prompts, a `package.json` file will be created in your translator-app directory.
 
 1. Open a console window and use npm to install the `axios` HTTP library and `uuid` package:
 
@@ -639,7 +639,7 @@ Add the following code sample to your `index.js` file. **Make sure you update th
 
 ### Run your JavaScript application
 
-Once you've added the code sample to your application, run your program:
+Once you add the code sample to your application, run your program:
 
 1. Navigate to your application directory (translator-app).
 
@@ -679,7 +679,7 @@ After a successful call, you should see the following response:
 
 ### Set up your Python project
 
-1. If you haven't done so already, install the latest version of [Python 3.x](https://www.python.org/downloads/). The Python installer package (pip) is included with the Python installation.
+1. Make sure the latest version of [Python 3.x](https://www.python.org/downloads/) is installed. The Python installer package (pip) is included with the Python installation.
 
     > [!TIP]
     >
@@ -750,7 +750,7 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 ### Run your Python application
 
-Once you've added a code sample to your application, build and run your program:
+Once you add a code sample to your application, build and run your program:
 
 1. Navigate to your **translator-app.py** file.
 
@@ -790,7 +790,7 @@ After a successful call, you should see the following response:
 
 ## Next steps
 
-That's it, congratulations! You've learned to use the Translator service to translate text.
+That's it, congratulations! You just learned to use the Translator service to translate text.
 
  Explore our how-to documentation and take a deeper dive into Translation service capabilities:
 

@@ -95,7 +95,7 @@ The following information is returned in a successful response.
 |value|TranslationStatus[]|TranslationStatus[] Array|
 |value.id|string|ID of the operation.|
 |value.createdDateTimeUtc|string|Operation created date time.|
-|value.lastActionDateTimeUtc|string|Date time in which the operation's status has been updated.|
+|value.lastActionDateTimeUtc|string|Date time in which the operation's status was updated.|
 |value.status|String|List of possible statuses for job or document: <ul><li>Canceled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
 |value.summary|StatusSummary[]|Summary containing the listed details.|
 |value.summary.total|integer|Count of total documents.|
