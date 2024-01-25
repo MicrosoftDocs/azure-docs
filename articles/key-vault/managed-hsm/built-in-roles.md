@@ -30,6 +30,7 @@ To manage control plane permissions for the Managed HSM resource, you must use [
 |Managed HSM Crypto Auditor|Grants read permissions to read (but not use) key attributes.|2c18b078-7c48-4d3a-af88-5a3a1b3f82b3|
 |Managed HSM Crypto Service Encryption User| Grants permissions to use a key for service encryption. |33413926-3206-4cdd-b39a-83574fe37a17|
 |Managed HSM Backup| Grants permissions to perform single-key or whole-HSM backup.|7b127d3c-77bd-4e3e-bbe0-dbb8971fa7f8|
+|Managed HSM Crypto Service Release User| Grants permissions to release a key to a trusted execution environment. |21dbd100-6940-42c2-9190-5d6cb909625c|
 
 ## Permitted operations
 
@@ -39,28 +40,28 @@ To manage control plane permissions for the Managed HSM resource, you must use [
 > - All role names have the prefix **Managed HSM**, which is omitted in the following table for brevity.
 
 |Data action | Administrator | Crypto Officer | Crypto User | Policy Administrator | Crypto Service Encryption User | Backup | Crypto Auditor| Crypto Service Released User|
-|---|---|---|---|---|---|---|---||
-|**Security domain management**||
-/securitydomain/download/action|<center>X</center>|||||||
-/securitydomain/upload/action|<center>X</center>|||||||
-/securitydomain/upload/read|<center>X</center>|||||||
-/securitydomain/transferkey/read|<center>X</center>|||||||
-|**Key management**||
+|---|---|---|---|---|---|---|---|---|
+|**Security domain management**|||||||||
+|/securitydomain/download/action|<center>X</center>|||||||||
+|/securitydomain/upload/action|<center>X</center>|||||||||
+|/securitydomain/upload/read|<center>X</center>|||||||||
+|/securitydomain/transferkey/read|<center>X</center>|||||||
+|**Key management**|||||||||
 |/keys/read/action|||<center>X</center>||<center>X</center>||<center>X</center>||
-|/keys/write/action|||<center>X</center>|||||
+|/keys/write/action|||<center>X</center>||||||
 |/keys/rotate/action|||<center>X</center>|||||
 |/keys/create|||<center>X</center>|||||
 |/keys/delete|||<center>X</center>|||||
 |/keys/deletedKeys/read/action||<center>X</center>||||||
-|/keys/deletedKeys/recover/action||<center>X</center>||||||
+|/keys/deletedKeys/recover/action||<center>X</center>|||||||
 |/keys/deletedKeys/delete||<center>X</center>|||||<center>X</center>||
-|/keys/backup/action|||<center>X</center>|||<center>X</center>||
-|/keys/restore/action|||<center>X</center>|||||
-|/keys/release/action|||<center>X</center>|||| ggg |
-|/keys/import/action|||<center>X</center>|||||
-|**Key cryptographic operations**||
-|/keys/encrypt/action|||<center>X</center>|||||
-|/keys/decrypt/action|||<center>X</center>|||||
+|/keys/backup/action|||<center>X</center>|||<center>X</center>|||
+|/keys/restore/action|||<center>X</center>||||||
+|/keys/release/action|||<center>X</center>|||||<center>X</center>|
+|/keys/import/action|||<center>X</center>||||||
+|**Key cryptographic operations**|||||||||
+|/keys/encrypt/action|||<center>X</center>||||||
+|/keys/decrypt/action|||<center>X</center>||||||
 |/keys/wrap/action|||<center>X</center>||<center>X</center>|||
 |/keys/unwrap/action|||<center>X</center>||<center>X</center>|||
 |/keys/sign/action|||<center>X</center>|||||
@@ -75,9 +76,10 @@ To manage control plane permissions for the Managed HSM resource, you must use [
 |**Backup and restore management**||
 |/backup/start/action|<center>X</center>|||||<center>X</center>||
 |/backup/status/action|<center>X</center>|||||<center>X</center>||
-|/restore/start/action|<center>X</center>|||||||
-|/restore/status/action|<center>X</center>|||||||
-|||||||||
+|/restore/start/action|<center>X</center>||||||||
+|/restore/status/action|<center>X</center>||||||||
+
+
 
 ## Next steps
 
