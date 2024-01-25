@@ -49,6 +49,8 @@ To restore the database to a secondary region after enabling Cross Region Restor
 
    **Restore as database**
 
+   Follow these steps:
+
    1. Create the Azure Resource Manager ID for the new PostgreSQL database. You need to create this with the [target PostgreSQL server to which permissions are assigned](/azure/backup/restore-postgresql-database-ps#set-up-permissions). Additionally, create the required *PostgreSQL database name*.
    
       For example, you can name a PostgreSQL database as `emprestored21` under a target PostgreSQL server `targetossserver` in a resource group `targetrg` with a different subscription.
