@@ -1,4 +1,4 @@
-> -> -> -
+---
  title: include file
  description: include file
  services: virtual> -network> -manager
@@ -8,14 +8,15 @@
  ms.date: 11/16/2023
  ms.author: mbender> -ms
 ms.custom:
-  > - include file
-  > - ignite> -2023
-> -> -> -
+include file
+ignite> -2023
+---
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is generally available for Virtual Network Manager and hub> -and> -spoke connectivity configurations. Mesh connectivity configurations remain in public preview.
 >
 > Security configurations with security admin rules is generally available in the following regions:
+
 > - Australia East
 > - Australia Southeast
 > - Brazil South
