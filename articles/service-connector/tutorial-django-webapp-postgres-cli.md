@@ -53,7 +53,7 @@ In this tutorial, you'll use the Azure CLI to complete the following tasks:
 
 ## Set up your initial environment
 
-1. Install [Python 3.6 or higher](https://www.python.org/downloads/). To check if your Python version is 3.6 or higher, run the following code in a terminal window:
+1. Install [Python 3.8 or higher](https://www.python.org/downloads/). To check if your Python version is 3.8 or higher, run the following code in a terminal window:
 
     ### [Bash](#tab/bash)
 
@@ -123,14 +123,14 @@ Open a terminal window in that *djangoapp* folder.
 
 ---
 
-The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/3.1/intro/tutorial01/) in the Django documentation. The completed app is provided here for your convenience.
+The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/5.0/intro/tutorial01/) in the Django documentation. The completed app is provided here for your convenience.
 
 The sample is also modified to run in a production environment like App Service:
 
 * Production settings are in the *azuresite/production.py* file. Development settings are in *azuresite/settings.py*.
 * The app uses production settings when the `WEBSITE_HOSTNAME` environment variable is set. Azure App Service automatically sets this variable to the URL of the web app, such as `msdocs-django.azurewebsites.net`.
 
-The production settings are specific to configuring Django to run in any production environment and aren't particular to App Service. For more information, see the [Django deployment checklist](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/). Also see [Production settings for Django on Azure](../app-service/configure-language-python.md#production-settings-for-django-apps) for details on some of the changes.
+The production settings are specific to configuring Django to run in any production environment and aren't particular to App Service. For more information, see the [Django deployment checklist](https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/). Also see [Production settings for Django on Azure](../app-service/configure-language-python.md#production-settings-for-django-apps) for details on some of the changes.
 
 Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
