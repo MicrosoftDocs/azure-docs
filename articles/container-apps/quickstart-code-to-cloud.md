@@ -183,14 +183,14 @@ Extract the download and navigate into the *containerapps-albumapi-go-main/src* 
 
 # [C#](#tab/csharp)
 
-[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-csharp/zip/refs/heads/buildpack) from the [azure-samples/containerapps-albumapi-csharp/tree/buildpack repo (buildpack branch)](https://github.com/azure-samples/containerapps-albumapi-csharp/tree/buildpack).
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-csharp/zip/refs/heads/buildpack) on your machine.
 
-Extract the download and navigate into the `containerapps-albumapi-csharp-buildpack/src` directory and proceed to the next step.
+Extract the download and change into the *containerapps-albumapi-csharp-buildpack/src* folder.
 
 
 # [Java](#tab/java)
 
-[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-java/zip/refs/heads/buildpack) from the [azure-samples/containerapps-albumapi-java/tree/buildpack repo (buildpack branch)](https://github.com/azure-samples/containerapps-albumapi-java/tree/buildpack).
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-java/zip/refs/heads/buildpack) to your machine.
 
 Extract the download and navigate into the `containerapps-albumapi-java-buildpack/src` directory and proceed to the next step.
 
@@ -209,7 +209,7 @@ Extract the download and navigate into the `containerapps-albumapi-javascript-bu
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-python/zip/refs/heads/buildpack) from the [azure-samples/containerapps-albumapi-python/tree/buildpack repo (buildpack branch)](https://github.com/azure-samples/containerapps-albumapi-javascript/tree/buildpack).
 
-Extract the download and navigate into the `containerapps-albumapi-python-buildpack/src` directory and proceed to the next step.
+Extract the download and change into the *containerapps-albumapi-python-buildpack/src* folder.
 
 
 # [Go](#tab/go)
