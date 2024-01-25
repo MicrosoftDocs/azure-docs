@@ -54,9 +54,9 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 
 | Operating System | AMD64 | ARM32v7 | ARM64 | End of support |
 | ---------------- | ----- | ------- | ----- | -------------- |
-| Debian 11 (Bullseye) |  | ![Debian + ARM32v7](./media/support/green-check.png) |  | June 2026 |
-| Red Hat Enterprise Linux 9 | ![Red Hat Enterprise Linux 9 + AMD64](./media/support/green-check.png) | | | May 2032 |
-| Red Hat Enterprise Linux 8 | ![Red Hat Enterprise Linux 8 + AMD64](./media/support/green-check.png) | | | May 2029 |
+| Debian 11 (Bullseye) |  | ![Debian + ARM32v7](./media/support/green-check.png) |  | [June 2026](https://wiki.debian.org/LTS) |
+| Red Hat Enterprise Linux 9 | ![Red Hat Enterprise Linux 9 + AMD64](./media/support/green-check.png) | | | [May 2032](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204) |
+| Red Hat Enterprise Linux 8 | ![Red Hat Enterprise Linux 8 + AMD64](./media/support/green-check.png) | | | [May 2029](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204)) |
 | Ubuntu Server 22.04 | ![Ubuntu Server 22.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 22.04 + ARM64](./media/support/green-check.png) | June 2027 |
 | Ubuntu Server 20.04 | ![Ubuntu Server 20.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 20.04 + ARM64](./media/support/green-check.png) | May 2025 |
 | Windows 10/11 Pro | ![Windows 10/11 Pro + AMD64](./media/support/green-check.png) |  | ![Win 10 Pro + ARM64](./media/support/green-check.png) |  |
@@ -82,12 +82,12 @@ The systems listed in the following table are considered compatible with Azure I
 
 | Operating System | AMD64 | ARM32v7 | ARM64 | End of support |
 | ---------------- | ----- | ------- | ----- | -------------- |
-| [CentOS-7](https://docs.centos.org/en-US/docs/) | ![CentOS + AMD64](./media/support/green-check.png) | ![CentOS + ARM32v7](./media/support/green-check.png) | ![CentOS + ARM64](./media/support/green-check.png) | June 2024 |
-| [Debian 10 <sup>1</sup>](https://www.debian.org/releases/buster/) | ![Debian 10 + AMD64](./media/support/green-check.png) | ![Debian 10 + ARM32v7](./media/support/green-check.png) | ![Debian 10 + ARM64](./media/support/green-check.png) | June 2024 |
-| [Debian 11](https://www.debian.org/releases/bullseye/) | ![Debian 11 + AMD64](./media/support/green-check.png) |  | ![Debian 11 + ARM64](./media/support/green-check.png) | June 2026 |
+| [CentOS-7](https://docs.centos.org/en-US/docs/) | ![CentOS + AMD64](./media/support/green-check.png) | ![CentOS + ARM32v7](./media/support/green-check.png) | ![CentOS + ARM64](./media/support/green-check.png) | [June 2024](https://www.redhat.com/en/topics/linux/centos-linux-eol) |
+| [Debian 10 <sup>1</sup>](https://www.debian.org/releases/buster/) | ![Debian 10 + AMD64](./media/support/green-check.png) | ![Debian 10 + ARM32v7](./media/support/green-check.png) | ![Debian 10 + ARM64](./media/support/green-check.png) | [June 2024](https://wiki.debian.org/LTS) |
+| [Debian 11](https://www.debian.org/releases/bullseye/) | ![Debian 11 + AMD64](./media/support/green-check.png) |  | ![Debian 11 + ARM64](./media/support/green-check.png) | [June 2026](https://wiki.debian.org/LTS) |
 | [Mentor Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/support/green-check.png) |  |
 | [Mentor Embedded Linux Omni OS](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![Mentor Embedded Linux Omni OS + AMD64](./media/support/green-check.png) |  | ![Mentor Embedded Linux Omni OS + ARM64](./media/support/green-check.png) |  |
-| [RHEL 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7) | ![RHEL 7 + AMD64](./media/support/green-check.png) | ![RHEL 7 + ARM32v7](./media/support/green-check.png) | ![RHEL 7 + ARM64](./media/support/green-check.png) | June 2024 |
+| [RHEL 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7) | ![RHEL 7 + AMD64](./media/support/green-check.png) | ![RHEL 7 + ARM32v7](./media/support/green-check.png) | ![RHEL 7 + ARM64](./media/support/green-check.png) | [June 2024](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204)) |
 | [Ubuntu 20.04 <sup>2</sup>](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) |  | ![Ubuntu 20.04 + ARM32v7](./media/support/green-check.png) |  | May 2025 |
 | [Ubuntu 22.04 <sup>2</sup>](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) |  | ![Ubuntu 22.04 + ARM32v7](./media/support/green-check.png) |  | June 2027 |
 | [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Wind River 8 + AMD64](./media/support/green-check.png) |  |  |  |
