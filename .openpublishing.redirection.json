@@ -9195,11 +9195,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/governance/policy/samples/new-zealand-ism.md",
-            "redirect_url": "/azure/governance/",
-            "redirect_document_id": false
-        },        
-        {
             "source_path_from_root": "/articles/governance/blueprints/samples/azure-security-benchmark/control-mapping.md",
             "redirect_url": "/azure/governance/blueprints/samples/azure-security-benchmark",
             "redirect_document_id": false
@@ -16707,11 +16702,6 @@
         {
             "source_path_from_root": "/articles/deployment-environments/concept-environments-reliability-availability.md",
             "redirect_url": "/azure/reliability/reliability-deployment-environments",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/spring-apps/how-to-enable-redundancy-and-disaster-recovery.md",
-            "redirect_url": "/azure/reliability/reliability-spring-apps",
             "redirect_document_id": false
         },
         {

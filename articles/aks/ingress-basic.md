@@ -35,6 +35,9 @@ This article shows you how to deploy the [NGINX ingress controller][nginx-ingres
 
 To create a basic NGINX ingress controller without customizing the defaults, you'll use Helm. The following configuration uses the default configuration for simplicity. You can add parameters for customizing the deployment, like `--set controller.replicaCount=3`.
 
+> [!NOTE]
+> If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When you're using an ingress controller with client source IP preservation enabled, TLS pass-through won't work.
+
 ### [Azure CLI](#tab/azure-cli)
 
 ```console
@@ -46,7 +49,8 @@ helm repo update
 helm install ingress-nginx ingress-nginx/ingress-nginx \
   --create-namespace \
   --namespace $NAMESPACE \
-  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz \
+  --set controller.service.externalTrafficPolicy=Local
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -60,7 +64,8 @@ helm repo update
 helm install ingress-nginx ingress-nginx/ingress-nginx `
   --create-namespace `
   --namespace $Namespace `
-  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz `
+  --set controller.service.externalTrafficPolicy=Local
 ```
 
 ---
@@ -148,6 +153,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
     --set controller.image.digest="" \
     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
     --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz \
+    --set controller.service.externalTrafficPolicy=Local \
     --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
     --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
     --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
@@ -181,6 +187,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx `
     --set controller.image.digest="" `
     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux `
     --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz `
+    --set controller.service.externalTrafficPolicy=Local `
     --set controller.admissionWebhooks.patch.image.registry=$AcrUrl `
     --set controller.admissionWebhooks.patch.image.image=$PatchImage `
     --set controller.admissionWebhooks.patch.image.tag=$PatchTag `
