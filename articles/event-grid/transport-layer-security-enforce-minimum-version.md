@@ -1,20 +1,22 @@
 ---
-title: Enforce a minimum TLS version for requests to an Azure Event Grid topic or domain
-description: Configure an Azure Event Grid topic or domain to require a minimum version of Transport Layer Security (TLS) for clients making requests against the topic or domain.
+title: Enforce a minimum TLS version for requests to an Azure Event Grid topic, domain, or subscription
+description: Configure an Azure Event Grid topic or domain to require a minimum version of Transport Layer Security (TLS) for clients making requests against the topic, domain, or subscription.
 ms.service: event-grid
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/22/2024
 ms.author: spelluru
 author: spelluru
 ---
 
-# Enforce a minimum required version of Transport Layer Security (TLS) for requests to an Event Grid topic or domain
+# Enforce a minimum required version of Transport Layer Security (TLS) for an Event Grid topic, domain, or subscription
 
-Communication between a client application and an Azure Grid topic or domain is encrypted using Transport Layer Security (TLS). TLS is a standard cryptographic protocol that ensures privacy and data integrity between clients and services over the Internet. For more information about TLS, see [Transport Layer Security](https://datatracker.ietf.org/wg/tls/about/).
+Communication between a client application and an Azure Grid topic, domain, or subscription is encrypted using Transport Layer Security (TLS). For information about TLS in general, see [Transport Layer Security](https://datatracker.ietf.org/wg/tls/about/).
 
-Azure Event Grid supports choosing a specific TLS version for topics or domains. Currently Azure Event Grid uses TLS 1.2 on public endpoints by default, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
+Azure Event Grid supports choosing a specific TLS version for topics, domains, or subscriptions (when using a Web Hook destination). Currently Azure Event Grid uses TLS 1.2 on public endpoints by default, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
 
-Azure Event Grid topics or domains permit clients to send and receive data with TLS 1.0 and above. To enforce stricter security measures, you can configure your Event Grid topic or domain to require that clients send and receive data with a newer version of TLS. If an Event Grid topic or domain requires a minimum version of TLS, then any requests made with an older version fail.
+Azure Event Grid topics or domains permit clients to send and receive data with TLS 1.0 and above. To enforce stricter security measures, you can configure your Event Grid topic or domain to require that clients send and receive data with a newer version of TLS. If an Event Grid topic or domain requires a minimum version of TLS, then any requests made with an older version fail. 
+
+When creating a Web Hook event subscription, you can configure it to use the same TLS version as the topic or explicitly specify the minimum TLS version. If you do so, Event Grid will fail to deliver events to a Web Hook that doesn't support the minimum version of TLS or above.
 
 > [!IMPORTANT]
 > If the client is a service, ensure that the service uses the appropriate version of TLS to send requests to Event Grid before you set the required minimum version for an Event Grid topic or domain.
