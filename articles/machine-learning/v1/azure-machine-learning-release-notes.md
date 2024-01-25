@@ -22,7 +22,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2024-01-29
 ### Azure Machine Learning SDK for Python v1.55.0
   + **azureml-core**
-    + Enable Application Insights re-mapping for new region China East 3, since it doesn't support classic resource mode. Also fixed the missing update for China North 3. We don't need to update the Azure Storage SKU mapping for China East 3, tested and it looks to be supported: ![image.png](https://dev.azure.com/msdata/3adb301f-9ede-41f2-933b-fcd1a486ff7f/_apis/git/repositories/1f1e7f17-65c5-4d5a-a5fa-487802b4e71b/pullRequests/1248709/attachments/image.png)
+    + Enable Application Insights re-mapping for new region China East 3, since it doesn't support classic resource mode. Also fixed the missing update for China North 3.
   + **azureml-defaults**
     + Bumped azureml-inference-server-http pin to 1.0.0 in azureml-defaults.
   + **azureml-interpret**
