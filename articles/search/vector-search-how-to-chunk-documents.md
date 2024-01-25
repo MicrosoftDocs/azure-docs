@@ -62,6 +62,54 @@ The following examples demonstrate how chunking strategies from the [text split 
 
 ### Text Split Skill
 
+There following [parameters](https://learn.microsoft.com/azure/search/cognitive-search-skill-textsplit#skill-parameters) are used to customize text split chunking:
+
+1. `textSplitMode`. There are 2 ways to break up content into smaller chunks:
+  1. `pages`. Chunks are made up of multiple sentences.
+  1. `sentences`. Chunks are made up of sentences.
+  1. What constitutes a sentence is language dependent. For example, in English standard sentence ending punctuation such as `.` or `!` are used. The language the text splitter uses is controlled by the `defaultLanguageCode` parameter.
+
+When `textSplitMode` is `pages`, the following additional parameters are available:
+1. `maximumPageLength`. This parameter defines the maximum amount of characters <sup>1</sup> are in each chunk. The text splitter avoids breaking up sentences, so the actual amount of characters depends on the content.
+1. `pageOverlapLength`. This parameter defines how many characters from the end of the previous page are included at the start of the next page. If set, this must be less than half the maximum page length.
+1. `maximumPagesToTake`. This parameter defines how many pages / chunks to take from a document. The default value is 0 which means take all pages / chunks from the document.
+
+<sup>1</sup> Characters do not align to the defintion of a [token](https://learn.microsoft.com/azure/ai-services/openai/concepts/prompt-engineering#space-efficiency). The amount of tokens measured by the LLM may be different than the character size measured by the text split skill.
+
+The following table shows how the choice of parameters affects the total chunk count from the Earth at Night e-book:
+
+| `textSplitMode` | `maximumPageLength` | `pageOverlapLength` | Total Chunk Count |
+|-----------------|-----------------|-----------------|-----------------|
+| `pages` | 1000 | 0 | 172 |
+| `pages` | 1000 | 200 | 216 |
+| `pages` | 2000 | 0 | 85 |
+| `pages` | 2000 | 500 | 113 |
+| `pages` | 5000 | 0 | 34 |
+| `pages` | 5000 | 500 | 38 |
+| `sentences` | N/A | N/A | 13361 |
+
+Using a `textSplitMode` of `pages` results in a majority of chunks having total character counts close to `maximumPageLength`. Chunk character count varies due to differences on where sentence boundaries fall inside the chunk. Chunk token length varies due to differences in the contents of the chunk.
+
+The following histograms show how the distribution of chunk character length compares to chunk token length for [gpt-35-turbo](https://learn.microsoft.com/azure/ai-services/openai/how-to/chatgpt) when using a `textSplitMode` of `pages`, a `maximumPageLength` of 2000, and a `pageOverlapLength` of 500 on the Earth at Night e-book:
+
+   :::image type="content" source="media/vector-search-how-to-chunk-documents/maximumpagelength-2000-pageoverlaplength-500-charaters.png" alt-text="Histogram of chunk character count for maximumPageLength 2000 and pageOverlapLength 500.":::
+
+   :::image type="content" source="media/vector-search-how-to-chunk-documents/maximumpagelength-2000-pageoverlaplength-500-tokens.png" alt-text="Histogram of chunk token count for maximumPageLength 2000 and pageOverlapLength 500.":::
+
+Using a `textSplitMode` of `sentences` results in a large number of chunks consisting of individual sentences. These chunks are significantly smaller than those produced by `pages`, and the token count of the chunks more closely matches the character counts.
+
+The following histograms show how the distribution of chunk character length compares to chunk token length for [gpt-35-turbo](https://learn.microsoft.com/azure/ai-services/openai/how-to/chatgpt) when using a `textSplitMode` of `sentences` on the Earth at Night e-book:
+
+   :::image type="content" source="media/vector-search-how-to-chunk-documents/sentences-characters.png" alt-text="Histogram of chunk character count for sentences.":::
+
+   :::image type="content" source="media/vector-search-how-to-chunk-documents/sentences-tokens.png" alt-text="Histogram of chunk token count for sentences.":::
+
+The optimal choice of parameters depends on how the chunks will be used. For most applications, it's recommended to start with the following default parameters:
+
+| `textSplitMode` | `maximumPageLength` | `pageOverlapLength` |
+|-----------------|-----------------|-----------------|
+| `pages` | 2000 | 500 |
+
 ### LangChain
 
 ### Semantic Kernel
