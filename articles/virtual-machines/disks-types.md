@@ -121,7 +121,7 @@ Premium SSD v2 disks are designed to provide sub millisecond latencies and provi
 
 #### Premium SSD v2 capacities
 
-Premium SSD v2 capacities range from 1 GiB to 64 TiBs, in 1-GiB increments. With a 100 TiB maximum per region per subscription. You're billed on a per GiB ratio, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
+Premium SSD v2 capacities range from 1 GiB to 64 TiBs, in 1-GiB increments. You're billed on a per GiB ratio, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
 
 Premium SSD v2 offers up to 100 TiBs per region per subscription by default, but supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
 
