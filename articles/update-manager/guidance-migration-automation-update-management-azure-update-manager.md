@@ -4,7 +4,7 @@ description: Guidance overview on migration from Automation Update Management to
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 12/13/2023
+ms.date: 01/23/2024
 ms.author: sudhirsneha
 ---
 
@@ -39,10 +39,224 @@ Guidance to move various capabilities is provided in table below:
 7 | Customize workflows using pre and post scripts. | Available as Automation runbooks. | We recommend that you try out the Public Preview for pre and post scripts on your non-production machines and use the feature on production workloads once the feature enters General Availability. |[Manage pre and post events (preview)](manage-pre-post-events.md) | |
 8 | Create alerts based on updates data for your environment | Alerts can be set up on updates data stored in Log Analytics. | We recommend that you try out the Public Preview for alerts on your non-production machines and use the feature on production workloads once the feature enters General Availability. |[Create alerts (preview)](manage-alerts.md) | |
 
+## Scripts to migrate from Automation Update Management to Azure Update Manager
 
+Using the migration runbooks, you can automatically migrate all workloads (machines and schedules) from Automation Update Management to Azure Update Manager. This section details on how to run the script, what the script does at the backend, expected behavior, and any limitations, if applicable. The script can migrate all the machines and schedules in one automation account at one go. If you have multiple automation accounts, you have to run the runbook for all the automation accounts.
+
+At a high level, you need to follow the below steps to migrate your machines and schedules from Automation Update Management to Azure Update Manager. 
+
+### Prerequisites summary
+
+1. Onboard [non-Azure machines on to Azure Arc](../azure-arc/servers/onboard-service-principal.md).
+1. Download and run the PowerShell script for the creation of User Identity and Role Assignments locally on your system. See detailed instructions in the [step-by-step guide](#step-by-step-guide) as it also has certain prerequisites.
+
+### Steps summary
+
+1. Run migration automation runbook for migrating machines and schedules from Automation Update Management to Azure Update Manager. See detailed instructions in the [step-by-step guide](#step-by-step-guide). 
+1. Run cleanup scripts to deboard from Automation Update Management. See detailed instructions in the [step-by-step guide](#step-by-step-guide).
+
+### Unsupported scenarios
+
+1. Update schedules having Pre/Post tasks won't be migrated for now.
+1. Non-Azure Saved Search Queries won't be migrated. These have to be migrated manually.
+
+For the complete list of limitations and things to note, see the last section of this article.
+
+### Step-by-step guide
+
+The information mentioned in each of the above steps is explained in detail below.
+
+#### Prerequisite 1: Onboarding of Non-Azure Machines to Arc
+
+**What to do**: The Migration automation runbook ignores resources that aren't onboarded to Arc. It's therefore a prerequisite to onboard all non-Azure machines on to Azure Arc before running the migration runbook. Follow the steps to [onboard machines on to Azure Arc](../azure-arc/servers/onboard-service-principal.md).
+
+#### Prerequisite 2: Creation of User Identity and Role Assignments by running PowerShell script
+
+**A. Prerequisites to run the script**
+
+   - Run the command `Install-Module -Name Az -Repository PSGallery -Force` in PowerShell. The prerequisite script depends on Az.Modules. This step is required if Az.Modules isn't present or updated.
+   - To run this prerequisite script, you must have *Microsoft.Authorization/roleAssignments/write* permissions on all the subscriptions that contain Automation Update Management resources such as machines, schedules, log analytics workspace, and automation account. See [how to assign an Azure role](../role-based-access-control/role-assignments-rest.md#assign-an-azure-role).
+   - You must have the [Update Management Permissions](../automation/automation-role-based-access-control.md).
  
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/prerequisite-install-module.png" alt-text="Screenshot that shows how the command to install module." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/prerequisite-install-module.png":::
+
+
+**B. Run the script** 
+
+   Download and run the PowerShell script `MigrationPrerequisiteScript` locally. This script takes AutomationAccountResourceId of the Automation account to be migrated as the input.
+    
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/run-script.png" alt-text="Screenshot that shows how to download and run the script." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/run-script.png":::
+
+   You can fetch AutomationAccountResourceId by going to **Automation Account** > **Properties**.
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-resource-id.png" alt-text="Screenshot that shows how to fetch the resource id." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-resource-id.png":::
+
+**C. Verify** 
+
+   After you run the script, verify that a user managed identity is created in the automation account. **Automation account** > **Identity** > **User Assigned**.
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/script-verification.png" alt-text="Screenshot that shows how verfiy that a user managed identity is created." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/script-verification.png":::
+
+**D. Backend operations by the script**
+
+ 1. Updating the Az.Modules for the Automation account which will be required for running migration and deboarding scripts
+ 1. Creation of User Identity in the same Subscription and resource group as the Automation Account. Name of User Identity will be like *AutomationAccount_aummig_umsi*. 
+ 1. Attaching the User Identity to the Automation Account.
+ 1. The script assigns the following permissions to the user managed identity: [Update Management Permissions Required](../automation/automation-role-based-access-control.md#update-management-permissions).
+
+
+     1. For this, the script will fetch all the machines onboarded to Automation Update Management under this automation account and parse their subscription IDs to be given the required RBAC to the User Identity. 
+     1. The script will give a proper RBAC to the User Identity on the subscription to which the automation account belongs so that the MRP configs can be created here.
+     1. The script will assign the required roles for the Log Analytics workspace and solution. 
+ 
+#### Step 1: Migration of machines and schedules
+
+This step includes using an automation runbook to migrate all the machines and schedules from an automation account to Azure Update Manager.
+
+**Follow these steps:**
+
+1. Import migration runbook from the runbooks gallery and publish. Search for **azure automation update** from browse gallery, and import the migration runbook named **Migrate from Azure Automation Update Management to Azure Update Manager** and publish the runbook.
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-from-automation-update-management.png" alt-text="Screenshot that shows how to migrate from Automation Update Management." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-from-automation-update-management.png":::
+
+   Runbook supports PowerShell 5.1.
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/runbook-support.png" alt-text="Screenshot that shows runbook supports PowerShell 5.1 while importing" lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/runbook-support.png":::
+
+1. Set Verbose Logging to True for the runbook. 
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/verbose-log-records.png" alt-text="Screenshot that shows how to set verbose log records." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/verbose-log-records.png":::
+
+1. Run the runbook and pass the required parameters like AutomationAccountResourceId, UserManagedServiceIdentityClientId, etc. 
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/run-runbook-parameters.png" alt-text="Screenshot that shows how to run the runbook and pass the required parameters." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/run-runbook-parameters.png":::
+
+   1. You can fetch AutomationAccountResourceId from **Automation Account** > **Properties**.
+
+      :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-resource-id-portal.png" alt-text="Screenshot that shows how to fetch Automation account resource id." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-resource-id-portal.png":::
+
+   1. You can fetch UserManagedServiceIdentityClientId from **Automation Account** > **Identity** > **User Assigned** > **Identity** > **Properties** > **Client ID**.
+
+      :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-client-id.png" alt-text="Screenshot that shows how to fetch client id." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-client-id.png":::
+
+   1. Setting **EnablePeriodicAssessmentForMachinesOnboardedToUpdateManagement** to **TRUE** would enable periodic assessment property on all the machines onboarded to Automation Update Management. 
+
+   1. Setting **MigrateUpdateSchedulesAndEnablePeriodicAssessmentonLinkedMachines** to **TRUE** would migrate all the update schedules in Automation Update Management to Azure Update Manager and would also turn on periodic assessment property to **True** on all the machines linked to these schedules. 
+
+   1. You need to specify **ResourceGroupForMaintenanceConfigurations** where all the maintenance configurations in Azure Update Manager would be created. If you supply a new name, a resource group would be created where all the maintenance configurations would be created. However, if you supply a name with which a resource group already exists, all the maintenance configurations would be created in the existing resource group.
+
+1. Check Azure Runbook Logs for the Status of Execution and Migration Status of SUCs.
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/log-status.png" alt-text="Screenshot that shows the runbook logs." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-client-id.png":::
+
+**Runbook operations in backend** 
+
+The migration of runbook does the following tasks:
+
+- Enables periodic assessment on all machines.
+- All schedules in the automation account are migrated to Azure Update Manager and a corresponding maintenance configuration is created for each of them, having same properties.
+
+**About the script**
+
+The following is the behavior of the migration script:
+
+- Check if a resource group with the name taken as input is already present in the subscription of the automation account or not. If not, then create a resource group with the name specified by the Cx. This resource group will be used for creating the MRP configs for V2. 
+- The script will ignore the update schedules that have pre and post scripts associated with them. For pre and post scripts update schedules, migrate them manually.
+- RebootOnly Setting isn't available in Azure Update Manager. Schedules having RebootOnly Setting won't be migrated.
+- Filter out SUCs that are in errored/expired/provisioningFailed/disabled state and mark them as **Not Migrated**, and print the appropriate logs indicating such SUCs won't be migrated. 
+- The config assignment name will be a string that will be in the format **AUMMig_AAName_SUCName** 
+- Figure out if this Dynamic Scope is already assigned to the Maintenance config or not by checking against Azure Resource Graph. If not assigned, then only assign with assignment name in the format **AUMMig_ AAName_SUCName_SomeGUID**.
+- A summarized set of logs is printed to the Output stream to give an overall status of machines and SUCs. 
+- Detailed logs are printed to the Verbose Stream.  
+- Post-Migration, a Software Update Configuration can have any one of the following four Migration Statuses:
+
+    - **MigrationFailed**
+    - **PartiallyMigrated**
+    - **NotMigrated**
+    - **Migrated**
+ 
+The below table shows the scenarios associated with each Migration Status. 
+
+| **MigrationFailed** |	**PartiallyMigrated** |	**NotMigrated** | **Migrated** |
+|---|---|---|---|
+|Failed to create Maintenance Configuration for the Software Update Configuration.| Non-Zero number of Machines where Patch-Settings failed to apply.| Failed to get software update configuration from the API due to some client/server error like maybe **internal Service Error**.|  |
+|  | Non-Zero number of Machines with failed Configuration Assignments.| Software Update Configuration is having reboot setting as reboot only. This isn't supported today in Azure Update Manager.|  |
+|  | Non-Zero number of Dynamic Queries failed to resolve that is failed to execute the query against Azure Resource Graph.| Software Update Configuration is having Pre/Post Tasks. Currently, Pre/Post in Preview in Azure Update Manager and such schedules won't be migrated.|  |
+|  | Non-Zero number of Dynamic Scope Configuration assignment failures.| Software Update Configuration isn't having succeeded provisioning state in DB.|  |
+|  | Software Update Configuration is having Saved Search Queries.| Software Update Configuration is in errored state in DB.|  |
+|  |  | Schedule associated with Software Update Configuration is already expired at the time of migration.|  |
+|  |  | Schedule associated with Software Update Configuration is disabled.|  |
+|  |  | Unhandled exception while migrating software update configuration.| Zero Machines where Patch-Settings failed to apply.<br><br> **And** <br><br> Zero Machines with failed Configuration Assignments. <br><br> **And** <br><br> Zero Dynamic Queries failed to resolve that is failed to execute the query against Azure Resource Graph. <br><br> **And** <br><br> Zero Dynamic Scope Configuration assignment failures. <br><br> **And** <br><br> Software Update Configuration has zero Saved Search Queries.|
+
+To figure out from the table above which scenario/scenarios correspond to why the software update configuration is having a specific status, look at the verbose/failed/warning logs to get the error code and error message.
+
+You can also search with the name of the update schedule to get logs specific to it for debugging. 
+
+:::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/debug-logs.png" alt-text="Screenshot that shows how to view logs specific for debugging." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/debug-logs.png":::
+
+#### Step 2: Deboarding from Automation Update Management solution
+
+**Follow these steps:**
+
+1. Import the migration runbook from runbooks gallery. Search for **azure automation update** from browse gallery, and import the migration runbook named **Deboard from Azure Automation Update Management** and publish the runbook.
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-from-automation-update-management.png" alt-text="Screenshot that shows how to view logs specific for debugging." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-from-automation-update-management.png":::
+
+   Runbook supports PowerShell 5.1.
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-runbook-support.png" alt-text="Screenshot that shows the runbook supports PowerShell 5.1 while deboarding." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-runbook-support.png":::
+
+1. Set Verbose Logging to **True** for the Runbook.
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/verbose-log-records-deboard.png" alt-text="Screenshot that shows log verbose records setting while deboarding." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/verbose-log-records-deboard.png":::
+
+1. Start the runbook and pass parameters like Automation AccountResourceId, UserManagedServiceIdentityClientId, etc.
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-runbook-parameters.png" alt-text="Screenshot that shows how to start runbook and pass parameters while deboarding." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-runbook-parameters.png":::
+
+   You can fetch AutomationAccountResourceId from **Automation Account** > **Properties**.
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/fetch-resource-id-deboard.png" alt-text="Screenshot that shows how fetch resource id while deboarding." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-runbook-parameters.png":::
+
+   You can fetch UserManagedServiceIdentityClientId from **Automation Account** > **Identity** > **User Assigned** > **Identity** > **Properties** > **Client ID**.
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-fetch-client-id.png" alt-text="Screenshot that shows how fetch client id while deboarding." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-fetch-client-id.png":::
+
+1. Check Azure runbook logs for status of deboarding of machines and schedules.
+
+   :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-debug-logs.png" alt-text="Screenshot that shows how runbook logs while deboarding." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-debug-logs.png":::
+
+**Deboarding script operations in the backend**
+
+- Disable all the underlying schedules for all the software update configurations present in this Automation account. This is done to ensure that Patch-MicrosoftOMSComputers Runbook isn't triggered for SUCs that were partially migrated to V2. 
+- Delete the Updates Solution from the Linked Log Analytics Workspace for the Automation Account being Deboarded from Automation Update Management in V1. 
+- A summarized log of all SUCs disabled and status of removing updates solution from linked log analytics workspace is also printed to the output stream. 
+- Detailed logs are printed on the verbose streams. 
+ 
+**Callouts for the migration process:**
+
+- Schedules having pre/post tasks won't be migrated for now.
+- Non-Azure Saved Search Queries won't be migrated. 
+- The Migration and Deboarding Runbooks need to have the Az.Modules updated to work. 
+- The prerequisite script will update the Az.Modules to the latest version 8.0.0.
+- The StartTime of the MRP Schedule will be equal to the nextRunTime of the Software Update Configuration. 
+- Data from LA won't be migrated. 
+- User Managed Identities [do not support](../entra/identity/managed-identities-azure-resources/managed-identities-faq.md#can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant) cross tenant scenarios.
+- RebootOnly Setting isn't available in Azure Update Manager. Schedules having RebootOnly Setting won't be migrated.
+- For Recurrence, Automation schedules support values between (1 to 100) for Hourly/Daily/Weekly/Monthly schedules, whereas Azure Update Manager’s maintenance configuration supports between (6 to 35) for Hourly and (1 to 35) for Daily/Weekly/Monthly.
+   - For example, if automation schedule has a recurrence of every 100 Hours, then the equivalent maintenance configuration schedule will have it for every 100/24 = 4.16 (Round to Nearest Value) -> 4 days will be the recurrence for the maintenance configuration. 
+   - For example, if the automation schedule has a recurrence of every 1 hour, then the equivalent maintenance configuration schedule will have it for every 6 hours.
+   - Apply the same convention for Weekly & Daily. 
+     - If the automation schedule has daily recurrence of say 100 days, then 100/7 = 14.28 (Round to Nearest Value) -> 14 weeks will be the recurrence for the maintenance configuration schedule.
+     - If the automation schedule has weekly recurrence of say 100 weeks, then 100/4.34 = 23.04 (Round to Nearest Value) -> 23 Months will be the recurrence for the maintenance configuration schedule. 
+     - If I have an automation schedule that should recur Every 100 Weeks and has to be Executed on Fridays. When translated to maintenance configuration, it will be Every 23 Months (100/4.34). But there's no way in Azure Update Manager to say that execute every 23 Months on all Fridays of that Month, so the schedule won't be migrated. 
+     - If an automation schedule has a recurrence of more than 35 Months, then in maintenance configuration it will always have 35 Months Recurrence. 
+   - SUC supports between 30 Minutes to 6 Hours for the Maintenance Window. MRP supports between 1 Hour 30 minutes to 4 hours.
+     - For Example, if SUC has a Maintenance Window of 30 Minutes, then the equivalent MRP schedule will have it for 1 hour 30 minutes.
+     - For example, if SUC has a Maintenance Window of 6 hours, then the equivalent MRP schedule will have it for 4 hours. 
+- When the migration runbook is executed multiple times, say you did Migrate All automation schedules and then again tried to migrate all the schedules, then migration runbook will run the same logic. Doing it again will update the MRP schedule if any new change is present in SUC. It won't make duplicate config assignments. Also, operations are carried only for automation schedules having enabled schedules. If a SUC was **Migrated** before, it will be skipped in the next turn as its underlying schedule will be **Disabled**. 
+- We can end up resolving more machines from Azure Resource Graph as in Azure Update Manager; we don't check if Hybrid Runbook Worker is reporting or not, unlike in Automation Update Management where it was an intersection of Dynamic Queries and Hybrid Runbook Worker.
+
 ## Next steps
-- [An overview on Azure Update Manager](overview.md)
-- [Check update compliance](view-updates.md) 
-- [Deploy updates now (on-demand) for single machine](deploy-updates.md) 
-- [Schedule recurring updates](scheduled-patching.md)
+
+- [Guidance on migrating Azure VMs from Microsoft Configuration Manager to Azure Update Manager](./guidance-migration-azure.md)
