@@ -9,7 +9,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Restore Azure Database for PostgreSQL server with PowerShell by using Azure Backup
+# Quickstart: Restore Azure Database for PostgreSQL server with PowerShell by using Azure Backup
 
 This quickstart describes how to configure and perform cross-region restore for Azure Database for PostgreSQL server with PowerShell.
 
@@ -110,53 +110,6 @@ To monitor the restore job progress, choose one of the methods:
   $restoreJob = Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $instance.Name -ResourceGroupName $ResourceGroupName -VaultName $vaultName -SubscriptionId $SubscriptionId -Parameter $OssRestoreReq -RestoreToSecondaryRegion  # -Debug
   ```
 
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Next steps
 
-In this quickstart, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point.
-
-- [Learn how](tutorial-backup-vm-at-scale.md) to back up VMs in the Azure portal.
-- [Learn how](tutorial-restore-disk.md) to quickly restore a VM
+- Learn how to [configure and run Cross Region Restore for Azure database for PostgreSQL](tutorial-cross-region-restore.md).
