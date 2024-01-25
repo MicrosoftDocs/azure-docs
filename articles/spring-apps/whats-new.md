@@ -1,5 +1,5 @@
 ---
-title: What's new in Azure Spring Apps
+title: What's new in Azure Spring Apps?
 description: Learn about the new features and recent improvements in Azure Spring Apps.
 author: KarlErickson
 ms.author: hangwan
@@ -9,7 +9,7 @@ ms.custom: devx-track-java
 ms.date: 05/23/2023
 ---
 
-# What's new in Azure Spring Apps
+# What's new in Azure Spring Apps?
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
