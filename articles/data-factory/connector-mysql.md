@@ -83,7 +83,7 @@ The following properties are supported for MySQL linked service:
 | port | The port number to connect to the MySQL server. |No|
 | database | Your MySQL database name. |Yes|
 | username | Your user name.|Yes|
-| password | The password for the user name. | Yes |  
+| password | The password for the user name. Mark this field as SecureString to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |  
 | sslMode | This option specifies whether the driver uses TLS encryption and verification when connecting to MySQL. E.g., `SSLMode=<0/1/2/3/4>`.<br/>Options: DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Yes |
 | useSystemTrustStore | This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. `UseSystemTrustStore=<0/1>`;<br/>Options: Enabled (1) / Disabled (0) **(Default)** | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
@@ -100,6 +100,10 @@ The following properties are supported for MySQL linked service:
              "port": 3306,
              "database": "<database>",
              "username": "<username>",
+             "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
              "sslmode": <sslmode>,
              "usesystemtruststore": <UseSystemTrustStore>,
              "driverVersion": "v2"
@@ -281,7 +285,7 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `int unsigned` |`Int64`|
 | `integer` |`Int32` |
 | `integer unsigned` |`Int64` |
-| `json` |`String` |
+| `JSON` |`String` |
 | `long varbinary` |`Byte[]` |
 | `long varchar` |`String` |
 | `longblob` |`Byte[]` |
