@@ -5,7 +5,7 @@ ms.topic: article
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
-ms.date: 01/24/2024
+ms.date: 01/25/2024
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
@@ -14,8 +14,10 @@ Azure Kubernetes Service (AKS) clusters require an identity to access Azure reso
 
 AKS doesn't automatically create a [service principal](kubernetes-service-principal.md), so you have to create one. Clusters that use a service principal eventually expire, and the service principal must be renewed to avoid impacting cluster authentication with the identity. Managing service principals adds complexity, so it's easier to use managed identities instead. The same permission requirements apply for both service principals and managed identities. Managed identities use certificate-based authentication. Each managed identity's credentials have an expiration of *90 days* and are rolled after *45 days*. AKS uses both system-assigned and user-assigned managed identity types, and these identities are immutable.
 
-> [!NOTE]
-> If you're considering implementing [Microsoft Entra pod-managed identity][aad-pod-identity] on your AKS cluster, we recommend you first review the [Microsoft Entra Workload ID overview][workload-identity-overview]. This authentication method replaces Microsoft Entra pod-managed identity (preview) and is the recommended method.
+> [!IMPORTANT]
+> The open source [Microsoft Entra pod-managed identity][entra-id-pod-managed-identity] (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022, and the project will be archived in Sept. 2023. For more information, see the [deprecation notice](https://github.com/Azure/aad-pod-identity#-announcement). The AKS Managed add-on begins deprecation in Sept. 2024.
+>
+> We recommend you first review [Microsoft Entra Workload ID][workload-identity-overview] overview. This authentication method replaces Microsoft Entra pod-managed identity (preview) and is the recommended method.
 
 ## Before you begin
 
@@ -473,6 +475,7 @@ Use [Azure Resource Manager templates][aks-arm-template] to create a managed ide
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
+[entra-id-pod-managed-identity]: https://github.com/furkanyildiz/azure-docs/blob/feature/inform-deprecated-aks-identity/articles/aks/use-azure-ad-pod-identity.md
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
@@ -483,7 +486,6 @@ Use [Azure Resource Manager templates][aks-arm-template] to create a managed ide
 [use-a-pre-created-kubelet-managed-identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
 [update-managed-identity-on-an-existing-cluster]: use-managed-identity.md#update-managed-identity-on-an-existing-cluster
 [workload-identity-overview]: workload-identity-overview.md
-[aad-pod-identity]: use-azure-ad-pod-identity.md
 [add-role-assignment-for-managed-identity]: use-managed-identity.md#add-role-assignment-for-managed-identity
 [az-group-create]: /cli/azure/group#az_group_create
 [az-aks-create]: /cli/azure/aks#az_aks_create
