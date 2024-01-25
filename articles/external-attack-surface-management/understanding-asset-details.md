@@ -20,7 +20,7 @@ For more information, see [Understanding inventory assets](understanding-invento
 
 You can view the asset details page for any asset by selecting its name from your inventory list. On the left pane of this page, you can view an asset summary that provides key information about that particular asset. This section primarily includes data that applies to all asset types, although more fields are available in some cases. For more information on the metadata provided for each asset type in the summary section, see the following chart.
 
-![Screenshot that shows an asset details page with the summary pane highlighted.](media/inventory-1.png)
+![Screenshot that shows an asset details page with the summary pane highlighted.](media/Inventory_1.png)
 
 ### General information
 
@@ -105,7 +105,12 @@ The following data is specific to the issuer of an SSL certificate.
 
 ## Data tabs
 
-On the rightmost pane of the asset details page, users can access more expansive data related to the selected asset. This data is organized in a series of categorized tabs. The available metadata tabs change depending on the type of asset you're viewing.
+On the rightmost pane of the asset details page, users can access more expansive data related to the selected asset. This data is organized in a series of categorized tabs. The available metadata tabs change depending on the type of asset you're viewing. 
+
+Certain tabs display a "Recent only" toggle in the upper-right corner. By default, Defender EASM displays all data that we've collected for each asset, including historical observations that may not be actively running on your current attack surface. While this historical context is very valuable for certain use cases, the "Recent only" toggle will limit all results on the Asset Details page to those most recently observed on the asset. It is recommended that you use the "Recent only" toggle when you only wish to view data that represents the current state of the asset for remediation purposes. 
+
+![Screenshot that highlights the "Recent only" toggle from the Overview page of Asset Details.](media/Inventory_1b.png)
+
 
 ### Overview
 
