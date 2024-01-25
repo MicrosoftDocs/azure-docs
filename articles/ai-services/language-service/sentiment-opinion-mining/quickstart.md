@@ -16,7 +16,7 @@ keywords: text mining, key phrase
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
-# Quickstart: Sentiment analysis and opinion mining (preview) 
+# Quickstart: Sentiment analysis and opinion mining  
 
 ::: zone pivot="programming-language-csharp"
 
