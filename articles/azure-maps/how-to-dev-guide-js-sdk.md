@@ -157,7 +157,7 @@ const client = MapsSearch(credential);
 
 Shared access signature (SAS) tokens are authentication tokens created using the JSON Web token (JWT) format and are cryptographically signed to prove authentication for an application to the Azure Maps REST API.
 
-You can get the SAS token using [`AzureMapsManagementClient.accounts.listSas`][listSas] package. Please follow the section [Create and authenticate a `AzureMapsManagementClient`][azureMapsManagementClient] to setup first.
+You can get the SAS token using [`AzureMapsManagementClient.accounts.listSas`][listSas] package. Follow the section [Create and authenticate a `AzureMapsManagementClient`][azureMapsManagementClient] to setup first.
 
 Second, follow [Managed identities for Azure Maps][managedIdentity] to create a managed identity for your Azure Maps account. Copy the principal ID (object ID) of the managed identity.
 
