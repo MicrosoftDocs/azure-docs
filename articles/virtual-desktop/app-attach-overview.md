@@ -236,7 +236,7 @@ Any disaster recovery plans for Azure Virtual Desktop must include replicating t
 
 ### Azure Files 
 
-Azure Files has limits on the number of open handles per root directory, directory, and file. When using MSIX app attach or app attach, VHDX or CimFS disk images are mounted using the computer account of the session host, meaning one handle is opened per session host per disk image, rather than per user. For more information on the limits, see [Azure Files scalability and performance targets](../storage/files/storage-files-scale-targets.md#file-scale-targets).
+Azure Files has limits on the number of open handles per root directory, directory, and file. When using MSIX app attach or app attach, VHDX or CimFS disk images are mounted using the computer account of the session host, meaning one handle is opened per session host per disk image, rather than per user. For more information on the limits and sizing guidance, see [Azure Files scalability and performance targets](../storage/files/storage-files-scale-targets.md#file-scale-targets) and [Azure Files sizing guidance for Azure Virtual Desktop](../storage/files/storage-files-scale-targets.md#azure-files-sizing-guidance-for-azure-virtual-desktop).
 
 ## Next steps
 

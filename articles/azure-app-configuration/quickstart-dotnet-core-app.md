@@ -64,7 +64,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 
 4. Use App Configuration by calling the `builder.AddAzureAppConfiguration()` method in the `Program.cs` file.
 
-    ### [ASP.NET Core 6.0+](#tab/core6x)
+    ### [.NET 6.0+](#tab/core6x)
 
     ```csharp
     var builder = new ConfigurationBuilder();
@@ -74,7 +74,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     Console.WriteLine(config["TestApp:Settings:Message"] ?? "Hello world!");
     ```
 
-    ### [ASP.NET Core 3.x](#tab/core3x)
+    ### [.NET Core 3.x](#tab/core3x)
     
     ```csharp
     static void Main(string[] args)
