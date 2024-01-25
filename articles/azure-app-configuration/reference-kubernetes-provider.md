@@ -26,6 +26,7 @@ An `AzureAppConfigurationProvider` resource has the following top-level child pr
 |auth|The authentication method to access Azure App Configuration.|false|object|
 |configuration|The settings for querying and processing key-values in Azure App Configuration.|false|object|
 |secret|The settings for Key Vault references in Azure App Configuration.|conditional|object|
+|featureFlag|The settings for feature flags in Azure App Configuration.|false|object|
 
 The `spec.target` property has the following child property.
 
@@ -126,12 +127,33 @@ The authentication method of each *Key Vault* can be specified with the followin
 |workloadIdentity|The settings of the workload identity used for authentication with a Key Vault. It has the same child properties as `spec.auth.workloadIdentity`.|false|object|
 |managedIdentityClientId|The client ID of a user-assigned managed identity of virtual machine scale set used for authentication with a Key Vault.|false|string|
 
-The `spec.secret.refresh` property has the following child property.
+The `spec.secret.refresh` property has the following child properties.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
 |enabled|The setting that determines whether data from Key Vaults is automatically refreshed. If the property is absent, a default value of `false` will be used.|false|bool|
 |interval|The interval at which the data will be refreshed from Key Vault. It must be greater than or equal to 1 minute. The Key Vault refresh is independent of the App Configuration refresh configured via `spec.configuration.refresh`.|true|duration string|
+
+The `spec.featureFlag` property has the following child properties. It is required if any feature flags are expected to be downloaded.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|selectors|The list of selectors for feature flag filtering.|false|object array|
+|refresh|The settings for refreshing feature flags from Azure App Configuration. If the property is absent, feature flags from Azure App Configuration will not be refreshed.|false|object|
+
+If the `spec.featureFlag.selectors` property isn't set, feature flag settings will NOT be downloaded. It contains an array of *selector* objects, which have the following child properties.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|keyFilter|The key filter for querying feature flags.|true|string|
+|labelFilter|The label filter for querying feature flags.|false|string|
+
+The `spec.featureFlag.refresh` property has the following child properties. It's independent of the App Configuration refresh configured via `spec.configuration.refresh`.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|enabled|The setting that determines whether feature flags from Azure App Configuration are automatically refreshed. If the property is absent, a default value of `false` will be used.|false|bool|
+|interval|The interval at which the feature flags will be refreshed from Azure App Configuration. It must be greater than or equal to 1 minute.|true|duration string|
 
 ## Examples
 
@@ -385,6 +407,51 @@ spec:
     refresh:
       enabled: true
       interval: 1h
+```
+
+### Feature Flags
+
+Use `featureFlag.selectors` property to filter the feature flags to be downloaded from Azure App Configuration.
+
+The following sample downloads feature flags that start with `app1` in their key name and have the label `common`.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  featureFlag:
+    selectors:
+      - keyFilter: app1*
+        labelFilter: common
+```
+
+### Refresh of feature flags
+
+When you update feature flag values in Azure App Configuration, you might want those changes to be refreshed automatically in your Kubernetes cluster. With `spec.featureFlag.refresh` property, the Kubernetes provider will periodically poll latest values.
+
+The following sample refreshes selected feature flags from Azure App Configuration every 10 minutes.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  featureFlag:
+    selectors:
+      - keyFilter: app1*
+        labelFilter: common
+    refresh:
+      enabled: true
+      interval: 10m
 ```
 
 ### ConfigMap Consumption
