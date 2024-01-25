@@ -17,6 +17,9 @@ The Azure Well-Architected Framework, WAF, is a design framework that helps you 
 
 Microsoft now offers WAF Assessment recommendations related to Azure resources based on the five pillars of WAF to Azure Advisor customers with the goal of enabling you to take assessments on, and receive recommendations directly within, the Advisor platform.
 
+> [!NOTE]
+> Only the Assessments initiated via Advisor are visible on Advisor for the selected subscription and/or workload. 
+
 Microsoft WAF Assessments help you work through a scenario of questions and recommendations that result in a curated guidance report that is actionable and informative. Assessments take time but it's time well-spent. 
 Azure Advisor WAF Assessments help you identify gaps in your workloads across five pillars: Reliability, Cost, Operational Excellence, Performance, and Security via a set of curated questions on your workload.  Assessments need you to work through a scenario of questions on your workloads and then provide recommendations that are actionable and informative. For the preview launch, we enabled the following two assessments via Advisor 
 
