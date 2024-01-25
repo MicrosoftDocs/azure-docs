@@ -32,7 +32,7 @@ If you have any questions or issues, contact our support team.
 
 To migrate from FCM legacy to FCM v1, here's what you can expect:
 
-1. Provide credentials for FCM v1: you must provide your FCM v1 credentials to set up notifications. You can find the [instructions on how to do this here](/azure/notification-hubs/configure-notification-hub-portal-pns-settings?tabs=azure-portal#google-firebase-cloud-messaging-fcm).
+1. Provide credentials for FCM v1: you must provide your FCM v1 credentials to set up notifications.
 1. Update the client app to start registering as FCM v1 devices: once you're ready to start supporting FCMv1 devices, update your client app so that any new devices start registering as **FCM v1** instead of **FCM legacy**. This ensures that notifications are sent to users appropriately once FCM legacy is deprecated.
 1. Update the server app to send notifications to FCM v1: once you complete the previous steps, you can start sending notifications using the new API.
 1. Stop sending notifications to FCM legacy: once all existing devices are registered as FCM v1 devices, stop sending notifications to FCM legacy. You should send all notifications exclusively to FCM v1 at this point, and you should be fully migrated.  
