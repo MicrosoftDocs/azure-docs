@@ -11,6 +11,11 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/storage-actions/index.yml",
+        "redirect_url": "/azure/storage-actions/storage-tasks/",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-preview-version.md",
         "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version-vmware",
         "redirect_document_id": false
