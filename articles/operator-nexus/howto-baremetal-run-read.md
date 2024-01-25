@@ -38,8 +38,8 @@ baremetal host, such as `ipmitool` and `racadm`.
 The current list of supported commands is as follows. Each column is a different category of commands, and
 each row in the table is an individual command. Commands in *`italics`* don't allow `arguments`; all others do.
 
-| Standard commands       | nc-toolbox-runread ipmitool commands                                                  | nc-toolbox-runread racadm commands                                                           | nc-toolbox-runread Mellanox troubleshooting commands |
-| ----------------------- | --------------------------------------------------------------------------------------| -------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| Standard commands       | nc-toolbox-runread ipmitool commands (introduced in NC 3.8)                           | nc-toolbox-runread racadm commands (introduced in NC 3.8)                                    |
+| ----------------------- | --------------------------------------------------------------------------------------| -------------------------------------------------------------------------------------------- |
 | `arp`                   | `nc-toolbox nc-toolbox-runread ipmitool channel authcap`                              | *`nc-toolbox nc-toolbox-runread racadm arp`*                                                 |
 | `brctl show`            | `nc-toolbox nc-toolbox-runread ipmitool channel info`                                 | *`nc-toolbox nc-toolbox-runread racadm coredump`*                                            |
 | `dmidecode`             | `nc-toolbox nc-toolbox-runread ipmitool chassis status`                               | `nc-toolbox nc-toolbox-runread racadm diagnostics`                                           |
