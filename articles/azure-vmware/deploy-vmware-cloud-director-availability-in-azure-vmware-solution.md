@@ -59,7 +59,7 @@ The following diagram shows VMware Cloud Director availability appliances instal
 
 ## Install and configure VMware Cloud Director availability on Azure VMware Solution
 
-Verify the following prerequisites to ensure you're ready to install and confiture VMware Cloud DIrector availability using Run commands.
+Verify the following prerequisites to ensure you're ready to install and configure VMware Cloud Director availability using Run commands.
 
 ### Prerequisites
 
