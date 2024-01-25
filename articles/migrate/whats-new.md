@@ -6,7 +6,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 01/09/2024
+ms.date: 01/24/2024
 ms.custom: mvc, engagement-fy24
 ---
 
@@ -16,7 +16,7 @@ ms.custom: mvc, engagement-fy24
 
 ## Update (January 2024)
 
-- Public preview: Using the RVTools XLSX, you can import on-premises server configuration into a VMware environment and create quick business case by assessing the cost of Azure and Azure VMware Solution (AVS) environments. [Learn more](migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview). 
+- Public preview: Using the RVTools XLSX, you can import on-premises servers' configuration into a VMware environment and create quick business case by assessing the cost of Azure and Azure VMware Solution (AVS) environments. [Learn more](migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview). 
 
 ## Update (December 2023)
 
