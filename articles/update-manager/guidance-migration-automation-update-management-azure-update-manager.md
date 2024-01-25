@@ -243,7 +243,7 @@ You can also search with the name of the update schedule to get logs specific to
 - The prerequisite script updates the Az.Modules to the latest version 8.0.0.
 - The StartTime of the MRP Schedule will be equal to the nextRunTime of the Software Update Configuration. 
 - Data from Log Analytics won't be migrated. 
-- User Managed Identities [don't support](../entra/identity/managed-identities-azure-resources/managed-identities-faq.md#can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant) cross tenant scenarios.
+- User Managed Identities [don't support](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/managed-identities-faq#can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant) cross tenant scenarios.
 - RebootOnly Setting isn't available in Azure Update Manager. Schedules having RebootOnly Setting won't be migrated.
 - For Recurrence, Automation schedules support values between (1 to 100) for Hourly/Daily/Weekly/Monthly schedules, whereas Azure Update Manager’s maintenance configuration supports between (6 to 35) for Hourly and (1 to 35) for Daily/Weekly/Monthly.
    - For example, if the automation schedule has a recurrence of every 100 Hours, then the equivalent maintenance configuration schedule will have it for every 100/24 = 4.16 (Round to Nearest Value) -> Four days will be the recurrence for the maintenance configuration. 
