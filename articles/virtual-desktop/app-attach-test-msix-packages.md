@@ -4,7 +4,7 @@ description: Learn how to mount disk images for testing and troubleshooting outs
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 11/27/2023
+ms.date: 01/25/2024
 ---
 
 # Test MSIX packages for app attach
@@ -73,8 +73,8 @@ To stage packages at boot using PowerShell 6 or later, you need to run the follo
    #Required for PowerShell 6 and later
    $nuGetPackageName = 'Microsoft.Windows.SDK.NET.Ref'
    $winRT = Get-Package $nuGetPackageName
-   $dllWinRT = Get-Childitem (Split-Path -Parent $winRT.Source) -Recurse -File WinRT.Runtime.dll
-   $dllSdkNet = Get-Childitem (Split-Path -Parent $winRT.Source) -Recurse -File Microsoft.Windows.SDK.NET.dll
+   $dllWinRT = Get-ChildItem (Split-Path -Parent $winRT.Source) -Recurse -File WinRT.Runtime.dll
+   $dllSdkNet = Get-ChildItem (Split-Path -Parent $winRT.Source) -Recurse -File Microsoft.Windows.SDK.NET.dll
    Add-Type -AssemblyName $dllWinRT.FullName
    Add-Type -AssemblyName $dllSdkNet.FullName
    ```
@@ -110,9 +110,9 @@ To mount a CimFS disk image:
 1. In the same PowerShell session, run the following command:
 
    ```powershell
-   $diskImage = "<UNC path to the Disk Image>"
+   $diskImage = "<Local or UNC path to the disk image>"
 
-   $mount = Mount-CimDiskimage -ImagePath $diskImage -PassThru -NoMountPath
+   $mount = Mount-CimDiskImage -ImagePath $diskImage -PassThru -NoMountPath
 
    #We can now get the Device Id for the mounted volume, this will be useful for the destage step.
    $deviceId = $mount.DeviceId
@@ -130,9 +130,9 @@ To mount a VHDX or VHD disk image:
 1. In the same PowerShell session, run the following command:
 
    ```powershell
-   $diskImage = "<UNC path to the Disk Image>"
+   $diskImage = "<Local or UNC path to the disk image>"
 
-   $mount = Mount-Diskimage -ImagePath $diskImage -PassThru -NoDriveLetter -Access ReadOnly
+   $mount = Mount-DiskImage -ImagePath $diskImage -PassThru -NoDriveLetter -Access ReadOnly
 
    #We can now get the Device Id for the mounted volume, this will be useful for the destage step. 
    $partition = Get-Partition -DiskNumber $mount.Number
@@ -153,7 +153,7 @@ Finally, you need to run the following commands for all image formats to complet
 1. In the same PowerShell session, retrieve the application information by running the following commands:
 
    ```powershell
-   $manifest = Get-Childitem -LiteralPath $deviceId -Recurse -File AppxManifest.xml
+   $manifest = Get-ChildItem -LiteralPath $deviceId -Recurse -File AppxManifest.xml
    $manifestFolder = $manifest.DirectoryName
    ```
 
@@ -180,12 +180,18 @@ Finally, you need to run the following commands for all image formats to complet
    $packageManager = New-Object -TypeName Windows.Management.Deployment.PackageManager
    
    $asyncOperation = $packageManager.StagePackageAsync($folderAbsoluteUri, $null, "StageInPlace")
-   $stagingResult = $asTaskAsyncOperation.Invoke($null, @($asyncOperation))
    ```
 
-1. Check the `$stagingResult` variable to monitor the staging progress for the application package by running the following command:
+1. Monitor the staging progress for the application package by running the following commands. The time it takes to stage the package depends on its size. The `Status` property of the `$stagingResult` variable will be `RanToCompletion` when the staging is complete.
 
    ```powershell
+   $stagingResult = $asTaskAsyncOperation.Invoke($null, @($asyncOperation))
+
+   while ($stagingResult.Status -eq "WaitingForActivation") {
+       Write-Output "Waiting for activation..."
+       Start-Sleep -Seconds 5
+   }
+
    Write-Output $stagingResult
    ```
 
@@ -204,27 +210,26 @@ Now that your MSIX package is registered, your application should be available f
 
 ## Deregister an MSIX package
 
-Once you're finished with your MSIX package and are ready to remove it, you need to deregister it. To deregister an MSIX package, run the following command in the same PowerShell session. This command uses the `$msixPackageFullName` variable created in a previous section.
+Once you're finished with your MSIX package and are ready to remove it, you need to deregister it. To deregister an MSIX package, run the following commands in the same PowerShell session. These commands get the disk's `DeviceId` parameter again, and removes the package using the `$msixPackageFullName` variable created in a previous section.
 
 ```powershell
+$appPath = Join-Path (Join-Path $Env:ProgramFiles 'WindowsApps') $msixPackageFullName
+$folderInfo = Get-Item $appPath
+$deviceId = '\\?\' + $folderInfo.Target.Split('\')[0] +'\'
+Write-Output $deviceId #Save this for later
+
 Remove-AppxPackage $msixPackageFullName -PreserveRoamableApplicationData
 ```
 
 ## Destage an MSIX package
 
-To destage an MSIX package, run the following commands in the same PowerShell session to get the disk's `DeviceId` parameter. This command uses the `$msixPackageFullName` variable created in a previous section.
+To destage an MSIX package, you need to dismount your disk image, run the following command in the same PowerShell session to ensure that the package isn't still registered for any user. This command uses the `$msixPackageFullName` variable created in a previous section.
 
- ```powershell
-$appPath = Join-Path (Join-Path $Env:ProgramFiles 'WindowsApps') $msixPackageFullName
-$folderInfo = Get-Item $appPath
-$deviceId = '\\?\' + $folderInfo.LinkTarget.Split('\')[0] +'\'
-Write-Output $deviceId #Save this for later
-
-Remove-AppxPackage -AllUsers -Package $msixPackageFullName
-Remove-AppxPackage -Package $msixPackageFullName
+```powershell
+Remove-AppxPackage -AllUsers -Package $msixPackageFullName -ErrorAction SilentlyContinue
 ```
 
-### Dismount the disks from the system
+### Dismount the disks image
 
 To finish the destaging process, you need to dismount the disks from the system. The command you need to use depends on the format of your disk image. Select the relevant tab for the format you're using.
 
@@ -233,7 +238,7 @@ To finish the destaging process, you need to dismount the disks from the system.
 To dismount a CimFS disk image, run the following commands in the same PowerShell session:
 
 ```powershell
-DisMount-CimDiskimage -DeviceId $deviceId
+Dismount-CimDiskImage -DeviceId $deviceId
 ```
 
 ### [VHDX or VHD](#tab/vhdx)
@@ -241,7 +246,7 @@ DisMount-CimDiskimage -DeviceId $deviceId
 To dismount a VHDX or VHD disk image, run the following command in the same PowerShell session:
 
 ```powershell
-DisMount-DiskImage -DevicePath $deviceId.TrimEnd('\')
+Dismount-DiskImage -DevicePath $deviceId.TrimEnd('\')
 ```
 
 ---
@@ -250,7 +255,7 @@ Once you finished dismounting your disks, you've safely removed your MSIX packag
 
 ## Set up simulation scripts for the MSIX app attach agent
 
-If you want to add and remove MSIX packages to your device automatically, you can use the PowerShell commands in this article to create scripts that run at startup, logon, logoff, and shutdown. To learn more, see [Using startup, shutdown, logon, and logoff scripts in Group Policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/).
+If you want to add and remove MSIX packages to your device automatically, you can use the PowerShell commands in this article to create scripts that run at startup, logon, logoff, and shutdown. To learn more, see [Using startup, shutdown, logon, and logoff scripts in Group Policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/). You need to make sure that any variables required for each phase are available in each script.
 
 You create a script for each phase:
 
@@ -304,7 +309,7 @@ Here's how to set up a license for offline use:
       }
       catch [Exception]
       {
-          Write-Host $_ | out-string
+          Write-Host $_ | Out-String
       }
       ```
 
