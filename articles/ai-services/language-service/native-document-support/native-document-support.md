@@ -135,9 +135,9 @@ Requests to the Language service require a read-only key and custom endpoint to 
 
 Your Language resource needs granted access to your storage account before it can create, read, or delete blobs. There are two primary methods you can use to grant access to your storage data:
 
-1. **Shared access signature (SAS) tokens**. User delegation SAS tokens are secured with Microsoft Entra credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
+1. *[*Shared access signature (SAS) tokens**](shared-access-signature.md). User delegation SAS tokens are secured with Microsoft Entra credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
-1. [**Managed identity role-based access control (RBAC)**](../concepts/role-based-access-control.md). Managed identities for Azure resources are service principals that create a Microsoft Entra identity and specific permissions for Azure managed resources
+1. [**Managed identity role-based access control (RBAC)**](managed-identities.md). Managed identities for Azure resources are service principals that create a Microsoft Entra identity and specific permissions for Azure managed resources
 
 For this project, we authenticate access to the `source location` and `target location` URLs with Shared Access Signature (SAS) tokens appended as query strings. Each token is assigned to a specific blob (file).
 
@@ -386,8 +386,6 @@ Before you run the **POST** request, replace `{your-language-resource-endpoint}`
   curl -v -X POST "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-summarization.json"
   ```
 
----
-
 1. Here's a sample response:
 
    ```http
@@ -480,6 +478,8 @@ You receive a 200 (Success) response with JSON output. The **status** field indi
   }
 }
 ```
+
+---
 
 ***Upon successful completion***:
 

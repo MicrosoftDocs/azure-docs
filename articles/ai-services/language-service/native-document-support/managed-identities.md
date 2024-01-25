@@ -35,7 +35,7 @@ To get started, you need the following resources:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/). If you don't have one, you can [create a free account](https://azure.microsoft.com/free/).
 
-* An [**single-service Azure AI Language**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource.
+* An [**single-service Azure AI Language**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource created in a regional location.
 
 * A brief understanding of [**Azure role-based access control (`Azure RBAC`)**](/azure/role-based-access-control/role-assignments-portal) using the Azure portal.
 
@@ -61,7 +61,7 @@ To get started, you need the following resources:
         > [!NOTE]
         > It may take up to 5 min for the network changes to propagate.
 
-    Although network access is now permitted, your Language resource is still unable to access the data in your Storage account. You need to [create a managed identity](#managed-identity-assignments) for and [assign a specific access role](#) to your Language resource.
+    Although network access is now permitted, your Language resource is still unable to access the data in your Storage account. You need to [create a managed identity](#managed-identity-assignments) for and [assign a specific access role](#enable-a-system-assigned-managed-identity) to your Language resource.
 
 ## Managed identity assignments
 
@@ -126,7 +126,7 @@ You must grant the Language resource access to your storage account before it ca
 
 ## HTTP requests
 
-* A batch Language service operation request is submitted to your Language service endpoint via a POST request.
+* A native document Language service operation request is submitted to your Language service endpoint via a POST request.
 
 * With managed identity and `Azure RBAC`, you no longer need to include SAS URLs.
 
