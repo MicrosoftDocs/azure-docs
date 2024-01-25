@@ -67,7 +67,7 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 All Windows operating systems must be minimum build 17763 with all current cumulative updates installed.
 
 > [!NOTE]
-> [Standard support for Ubuntu 18.04 LTS ends on May 31st, 2023](https://ubuntu.com/blog/18-04-end-of-standard-support). Beginning June 2023, Ubuntu 18.04 LTS won't be an IoT Edge *tier 1* supported platform. Ubuntu 18.04 LTS IoT Edge packages are available until Nov 30th, 2023. IoT Edge system modules Edge Agent and Edge Hub aren't impacted. If you take no action, Ubuntu 18.04 LTS based IoT Edge devices continue to work but ongoing security patches and bug fixes in the host packages for Ubuntu 18.04 won't be available after Nov 30th, 2023. To continue to receive support and security updates, we recommend that you update your host OS to a *tier 1* supported platform. For more information, see the [Update your IoT Edge devices on Ubuntu 18.04 LTS announcement](https://azure.microsoft.com/updates/update-ubuntu-1804/).
+> When a *Tier 1* operating system reaches its end of support date, it's removed from the *Tier 1* supported platform list. If you take no action, IoT Edge devices running on the unsupported operating system continue to work but ongoing security patches and bug fixes in the host packages for the operating system won't be available after the end of support date. To continue to receive support and security updates, we recommend that you update your host OS to a *Tier 1* supported platform.
 
 #### Windows containers
 
@@ -99,7 +99,7 @@ The systems listed in the following table are considered compatible with Azure I
 <sup>2</sup> Installation packages are made available on the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
 > [!NOTE]
-> CentOS Linux 7 will reach [end of life (EOL) on June 30, 2024](https://www.redhat.com/topics/linux/centos-linux-eol). In July 2024, CentOS 7 will be removed from IoT Edge *Tier 2* supported platform. If you take no action, CentOS 7 based IoT Edge devices continue to work but ongoing security patches and bug fixes in the host packages for CentOS 7 won't be available after June 30, 2024. To continue to receive support and security updates, we recommend that you update your host OS to a *Tier 1* supported platform. To learn more about CentOS 7 EOL, see [What to know about CentOS Linux EOL](https://www.redhat.com/topics/linux/centos-linux-eol) article.
+> When a *Tier 2* operating system reaches its end of support date, it's removed from the supported platform list. If you take no action, IoT Edge devices running on the unsupported operating system continue to work but ongoing security patches and bug fixes in the host packages for the operating system won't be available after the end of support date. To continue to receive support and security updates, we recommend that you update your host OS to a *Tier 1* supported platform.
 
 ## Releases
 
