@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: quickstart
-ms.date: 12/19/2023
+ms.date: 01/25/2024
 ms.author: aahi
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
@@ -16,7 +16,7 @@ keywords: text mining, key phrase
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
-# Quickstart: Sentiment analysis and opinion mining  
+# Quickstart: Sentiment analysis and opinion mining (preview) 
 
 ::: zone pivot="programming-language-csharp"
 

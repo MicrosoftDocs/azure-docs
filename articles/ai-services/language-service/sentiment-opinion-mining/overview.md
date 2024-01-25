@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: overview
-ms.date: 12/19/2023
+ms.date: 01/25/2024
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 ---
