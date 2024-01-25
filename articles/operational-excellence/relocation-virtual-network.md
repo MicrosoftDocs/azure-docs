@@ -19,8 +19,23 @@ This article shows you how to relocate your Azure Virtual Network to a new regio
 
 [Redeployment](#redeploy) is the recommended way to move your virtual network to a new region.  Redeployment supports both independent relocation of multiple workloads, as well as private IP address range change in the target region. To redeploy, you'll use a Resource Manager template.
 
-However, in certain circumstances, you may choose to move your virtual network with [Azure Resource Mover](#azure-resource-mover).
+However, if you choose to move your virtual network with Azure Resource Mover, make sure you understand the following considerations:
 
+- All workloads in a virtual network must be relocated together.
+
+- A relocation using Azure Resource Mover doesn't support private IP address range change.
+
+- Azure Resource Mover can move resources such as Network Security Group and User Defined Route along with the virtual network. However, its recommended that you move them separately. Moving them altogether can lead to failure of the Validate dependencies stage.
+
+- Resource Mover cannot directly move NAT gateway instances from one region to another. To work around this limitation, see Create and configure NAT gateway after moving resources to another region.
+
+- Azure Resource Mover doesn’t support any changes to the address space during the relocation process. As a result, when movement completes, both source and target have the same, and thus conflicting, address space. It's recommended that you do manual update of address space as soon as relocation completes.
+
+- Virtual Network Peering must be reconfigured after the relocation. Its recommended that you move the peering virtual network either before or with the source virtual network.
+
+- While performing the Initiate move steps with Azure Resource Mover, resources may be temporarily unavailable.
+
+To learn how to move your virtual network using Resource Mover, see [Move Azure VMs across regions](/azure/resource-mover/tutorial-move-region-virtual-machines).
 
 ## Prerequisites
 
@@ -509,30 +524,3 @@ To commit your changes and complete the virtual network move, do either of the f
     ```
 
 ---
-
-
-
-## Azure Resource Mover
-
-Although it's not recommended, you can choose to use Azure Resource Mover to migrate your virtual network to another region. 
-
-Below are some features and limitations of using the migration strategy.
-
-- All workloads in a virtual network must be relocated together.
-
-- A relocation using Azure Resource Mover doesn't support private IP address range change.
-
-- Azure Resource Mover can move resources such as Network Security Group and User Defined Route along with the virtual network. However, its recommended that you move them separately. Moving them altogether can lead to failure of the  `Validate dependencies` stage.
-
-- Resource Mover cannot directly move NAT gateway instances from one region to another. To work around this limitation, see [Create and configure NAT gateway after moving resources to another region](/azure/nat-gateway/region-move-nat-gateway).
-
-- Azure Resource Mover doesn’t support any changes to the address space during the relocation process. As a result, when movement completes, both source and target have the same, and thus conflicting, address space. It's recommended that you do manual update of address space as soon as relocation completes.
-
-- Virtual Network Peering must be reconfigured after the relocation. Its recommended that you move the peering virtual network either before or with the source virtual network.
-
-- While performing the Initiate move steps with Azure Resource Mover, resources may be temporarily unavailable.
-
-To relocate your virtual network across regions with Resource Mover, follow the steps in [move Azure Virtual Network across Azure regions](/azure/resource-mover/overview#move-across-regions).
-
->[!IMPORTANT]
->During the Resource Mover validation step, you may see a list of dependencies that can also be prepared to move with the virtual network. It's highly recommended that you move dependent resources separately by detaching them from the move collection.
