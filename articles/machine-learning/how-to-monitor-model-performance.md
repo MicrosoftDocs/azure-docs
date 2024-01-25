@@ -137,7 +137,7 @@ created_monitor = poller.result()
 
    :::image type="content" source="media/how-to-monitor-models/add-model-monitoring.png" alt-text="Screenshot showing how to add model monitoring." lightbox="media/how-to-monitor-models/add-model-monitoring.png":::
 
-1. On the **Settings** page, use **(Optional) Select model** to choose the model to monitor.
+1. On the **Basic settings** page, use **(Optional) Select model** to choose the model to monitor.
 1. The **(Optional) Select deployment with data collection enabled** dropdown list should be automatically populated if the model is deployed to an Azure Machine Learning online endpoint. Select the deployment from the dropdown list.
 1. Select the training data to use as the comparison baseline in the **(Optional) Select training data** box.
 1. Enter a name for the monitoring in **Monitor name** or keep the default name.
@@ -148,29 +148,38 @@ created_monitor = poller.result()
 
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-basic-setup.png" alt-text="Screenshot of basic settings page for model monitoring." lightbox="media/how-to-monitor-models/model-monitoring-basic-setup.png":::
 
-1. Select **Next**, leave the **Configure data asset** and **Select monitoring signals** sections as they are. 
-1. Add your email in the **Notifications** section.
+1. Select **Next** to go to the **Advanced settings** section. 
+1. Select **Next** on the **Configure data asset** page to leave the default datasets.
+1. Select **Next** to go to the **Select monitoring signals** page.
+1. Select **Next** to go to the **Notifications** page. Add your email to receive email notifications.
 1. Review your monitoring details and select **Create** to create the monitor.
 
 ---
 
 ## Set up advanced model monitoring
 
-Azure Machine Learning provides many capabilities for continuous model monitoring. See [Capabilities of model monitoring](concept-model-monitoring.md#capabilities-of-model-monitoring) for a comprehensive list of these capabilities. In many cases, you need to set up model monitoring with advanced monitoring capabilities. In the following example, we set up model monitoring with these capabilities:
+Azure Machine Learning provides many capabilities for continuous model monitoring. See [Capabilities of model monitoring](concept-model-monitoring.md#capabilities-of-model-monitoring) for a comprehensive list of these capabilities. In many cases, you need to set up model monitoring with advanced monitoring capabilities. In the following sections, you set up model monitoring with these capabilities:
 
-* Use of multiple monitoring signals for a broad view
-* Use of historical model training data or validation data as the comparison baseline dataset
-* Monitoring of top N most important features and individual features
+* Use of multiple monitoring signals for a broad view.
+* Use of historical model training data or validation data as the comparison baseline dataset.
+* Monitoring of top N most important features and individual features.
 
 ## Configure feature importance
 
-Feature importance represents the relative importance of each input feature to a model's output. For example, `temperature` might be more important to a model's prediction compared `elevation`. Enabling feature importance can give you visibility into which features you do not want drifting or having data quality issues in production. To enable feature importance with any of your signals (such as data drift or data quality), you need to provide a `reference_data` dataset, which must be your training dataset. You must also provide the `reference_data.target_column_name` property, which is the name of your model's output/prediction column. After enabling feature importance, you will see a feature importance for each feature you are monitoring in the Azure Machine Learning model monitoring studio UI. 
+Feature importance represents the relative importance of each input feature to a model's output. For example, `temperature` might be more important to a model's prediction compared to `elevation`. Enabling feature importance can give you visibility into which features you do not want drifting or having data quality issues in production. 
 
-You can use Azure CLI, the Python SDK, or Azure Machine Learning studio for advanced setup of model monitoring.
+To enable feature importance with any of your signals (such as data drift or data quality), you need to provide:
+
+- Your training dataset as the `reference_data` dataset.
+- The `reference_data.target_column_name` property, which is the name of your model's output/prediction column. 
+ 
+After enabling feature importance, you'll see a feature importance for each feature you're monitoring in the Azure Machine Learning model monitoring studio UI.
+
+You can use Azure CLI, the Python SDK, or the studio for advanced setup of model monitoring.
 
 # [Azure CLI](#tab/azure-cli)
 
-You can create advanced model monitoring setup with the following CLI command and YAML definition:
+Create advanced model monitoring setup with the following CLI command and YAML definition:
 
 ```azurecli
 az ml schedule create -f ./advanced-model-monitoring.yaml
@@ -182,7 +191,7 @@ The following YAML contains the definition for advanced model monitoring.
 
 # [Python SDK](#tab/python)
 
-You can use the following code for advanced model monitoring setup:
+Use the following code for advanced model monitoring setup:
 
 ```python
 from azure.identity import InteractiveBrowserCredential
@@ -323,57 +332,70 @@ created_monitor = poller.result()
 
 # [Studio](#tab/azure-studio)
 
-1. Complete the entires on the basic settings page as described in the [Set up out-of-box model monitoring](#set-up-out-of-the-box-model-monitoring) section.
-1. Select **Next** to open the **Configure data asset** section.
+To set up advanced monitoring:
 
-1. In the **Configure dataset** section, add a dataset to be used as the reference dataset. We recommend using the model training data as the comparison reference dataset for data drift and data quality, and using the model validation data as the comparison reference dataset for prediction drift.
+1. Complete the entires on the **Basic settings** page as described earlier in the [Set up out-of-box model monitoring](#set-up-out-of-box-model-monitoring) section.
 
-1. Select **Next**.
+1. 
+1. Select **Next** on the **Configure data asset** page to leave the default datasets.
+1. Select **Next** to go to the **Select monitoring signals** page.
+1. **Delete** the **feature-attribution-drift-signal** from the default selection of the monitoring signals. You'll use it later when you set up advanced monitoring.
+1. Select **Next** to go to the **Notifications** page. Add your email to receive email notifications.
+1. Review your monitoring details and select **Create** to create the monitor.
 
-   :::image type="content" source="media/how-to-monitor-models/monitoring-4.png" alt-text="Screenshot showing how to add datasets for the monitoring signals to use." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-data.png":::
+<!-- 1. Select **Next** to go to the **Advanced settings** section. 
 
-1. In the **Select monitoring signals** section, you see three monitoring signals already added if you have selected an Azure Machine Learning online deployment earlier. These signals are: data drift, prediction drift, and data quality. All three of these prepopulated monitoring signals use recent past production data as the comparison reference dataset and use smart defaults for metrics and thresholds.
+1. **Configure data asset** page. Keep the added datasets as they are.
+1. Select **Next**.  to go to the **Select monitoring signals** page, and keep the default selections. 
+1. Add your email in the **Notifications** section.
+1. Review your monitoring details and select **Create** to create the monitor. -->
 
-   :::image type="content" source="media/how-to-monitor-models/monitoring-5.png" alt-text="Screenshot showing how to select monitoring signals." lightbox="media/how-to-monitor-models/model-monitoring-advanced-select-signals.png":::
+ 
+1. Select **Next** to open the **Configure data asset** page of the **Advanced settings** section.
+
+1. **Add** a dataset to be used as the reference dataset. We recommend using the model training data as the comparison reference dataset for data drift and data quality, and using the model validation data as the comparison reference dataset for prediction drift.
+
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-data.png" alt-text="Screenshot showing how to add datasets for the monitoring signals to use." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-data.png":::
+
+1. Select **Next** to go to the **Select monitoring signals** page. On this page, you see some monitoring signals already added (if you selected an Azure Machine Learning online deployment earlier).  The signals (data drift, prediction drift, and data quality) use recent, past production data as the comparison reference dataset and use smart defaults for metrics and thresholds.
+1. 
+<!-- 1. **Delete** the feature attribution drift signal and keep the other three signals (data drift, prediction drift, and data quality). These signals use recent, past production data as the comparison reference dataset and use smart defaults for metrics and thresholds. -->
 
 1. Select **Edit** next to the data drift signal.
 
-   :::image type="content" source="media/how-to-monitor-models/monitoring-6.png" alt-text="Screenshot showing how to select monitoring signals." lightbox="media/how-to-monitor-models/model-monitoring-advanced-select-signals.png":::
-
 1. In the data drift **Edit signal** window, configure the following:
-    1. Select the production data asset with your model inputs and the desired lookback window size. 
-    1. Select your training dataset to use as the reference dataset. 
-    1. Select the target (output) column and select monitor drift for the top N most important features, or monitor drift for a specific set of features.
+1. 
+    1. For the production data asset, select your model inputs with the desired lookback window size.
+    1. Select your training dataset to use as the reference dataset.
+    1. Select the target (output) column.
+    1. Select to monitor drift for the top N most important features, or monitor drift for a specific set of features.
     1. Select your preferred metrics and thresholds.
-1. Select **Save** to return to the **Select monitoring signals** section. 
-1. Select **Edit** next to the feature attribution drift (preview) signal.
 
-   :::image type="content" source="media/how-to-monitor-models/monitoring-7.png" alt-text="Screenshot showing how to select monitoring signals." lightbox="media/how-to-monitor-models/model-monitoring-advanced-select-signals.png":::
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-configure-signals.png" alt-text="Screenshot showing how to configure selected monitoring signals." lightbox="media/how-to-monitor-models/model-monitoring-configure-signals.png":::
 
-1. In the feature attribution drift (preview) **Edit signal** window, configure the following:
+1. Select **Save** to return to the **Select monitoring signals** section.
+1. Select **Add** to open the **Edit Signal** window.
+1. Select **Feature attribution drift (preview)** to configure the feature attribution drift signal as follows:
+
     1. Select the production data asset with your model inputs and the desired lookback window size. 
     1. Select the production data asset with your model outputs.
-    1. Select the common column between these data assets to join them on. If the data was collected with the [Data collector](#how-to-collect-production-data.md), the common column is `correlationid`. 
-    1. (Optional)  If you used the [Data collector](how-to-collect-production-data.md) to collect data where your model inputs and outputs are already joined, select the joined dataset as your production data asset and **Remove** step 2 in the configuration panel.  
+    1. Select the common column between these data assets to join them on. If the data was collected with the [data collector](#how-to-collect-production-data.md), the common column is `correlationid`.
+    1. (Optional)  If you used the data collector to collect data where your model inputs and outputs are already joined, select the joined dataset as your production data asset and **Remove** step 2 in the configuration panel.  
     1. Select your training dataset to use as the reference dataset. 
     1. Select the target (output) column for your training dataset. 
     1. Select your preferred metric and threshold. 
-1. Select **Save** to return to the **Select monitoring signals** section.
-1. When you are finished with your monitoring signals configuration, select **Next**. 
 
-:::image type="content" source="media/how-to-monitor-models/monitoring-8.png" alt-text="Screenshot showing how to configure a custom data asset with inputs and outputs joined." lightbox="media/how-to-monitor-models/feature-attribution-drift-inputs-outputs.png":::
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-configure-feature-attribution-drift.png" alt-text="Screenshot showing how to configure feature attribution drift signal." lightbox="media/how-to-monitor-models/model-monitoring-configure-feature-attribution-drift.png":::
+
+1. Select **Save** to return to the **Select monitoring signals** section.
+1. When you're finished with your monitoring signals configuration, select **Next** to go to the **Notifications** section. 
+
+:::image type="content" source="media/how-to-monitor-models/model-monitoring-configured-signals.png" alt-text="Screenshot showing the configured signals." lightbox="media/how-to-monitor-models/model-monitoring-configured-signals.png":::
       
-1. Select **Save** to return to the **Select monitoring signals** section.
-1. When you are done with editing or adding signals, select **Next**.
 1. In the **Notifications** section, enable alert notifications for each signal and select **Next**.
-
-   :::image type="content" source="media/how-to-monitor-models/monitoring-9.png" alt-text="Screenshot of settings on the notification screen." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-notification.png":::
-
 1. Review your settings on the **Review monitoring settings** page.
 
-   :::image type="content" source="media/how-to-monitor-models/monitoring-10.png" alt-text="Screenshot showing review page of the advanced configuration for model monitoring." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-review.png":::
-
-   :::image type="content" source="media/how-to-monitor-models/monitoring-11.png" alt-text="Screenshot showing review page of the advanced configuration for model monitoring." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-review.png":::
+   :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-review.png" alt-text="Screenshot showing review page of the advanced configuration for model monitoring." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-review.png":::
 
 1. Select **Create** to create your advanced model monitor.
 ---
