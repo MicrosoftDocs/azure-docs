@@ -8,7 +8,6 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
-ms.custom: 
 ---
 
 # Configure scaling options with Azure Cloud Services (extended support) 

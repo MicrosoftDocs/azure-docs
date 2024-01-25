@@ -2,14 +2,11 @@
 title: Azure classic subscription administrators
 description: Describes how to add or change the Azure Co-Administrator and Service Administrator roles, and how to view the Account Administrator.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: amycolannino
 
-ms.assetid: 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/07/2023
 ms.author: rolyon

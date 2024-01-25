@@ -5,7 +5,6 @@ ms.service: data-factory
 ms.subservice: orchestration
 author: chez-charlie
 ms.author: chez
-ms.reviewer: 
 ms.topic: conceptual
 ms.date: 07/20/2023
 ---

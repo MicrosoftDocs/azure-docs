@@ -251,7 +251,7 @@ while (queryable.HasMoreResults)
     }
 ```             
 
-The request charge that's returned in this header is a fraction of your provisioned throughput (that is, 2,000 RU/s). For example, if the preceding query returns 1,000 1-KB documents, the cost of the operation is 1,000. So, within one second, the server honors only two such requests before it rate-limits later requests. For more information, see [Request Units](../request-units.md) and the [Request Unit calculator](https://www.documentdb.com/capacityplanner).
+The request charge that's returned in this header is a fraction of your provisioned throughput (that is, 2,000 RU/s). For example, if the preceding query returns 1,000 1-KB documents, the cost of the operation is 1,000. So, within one second, the server honors only two such requests before it rate-limits later requests. For more information, see [Request Units](../request-units.md) and the [Request Unit calculator](https://cosmos.azure.com/capacitycalculator).
 <a id="429"></a>
 
 **Handle rate limiting/request rate too large**

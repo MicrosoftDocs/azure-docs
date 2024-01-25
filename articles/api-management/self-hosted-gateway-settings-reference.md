@@ -114,11 +114,12 @@ This guidance helps you provide the required information to define how to authen
 
 ## Sovereign clouds
 
-Here is an overview of settings that need to be configured to be able to work with sovereign clouds
+Here is an overview of settings that need to be configured to be able to work with sovereign clouds:
 
 | Name                              | Public                                         | Azure China                          | US Government  |
 |-----------------------------------|------------------------------------------------|--------------------------------------|----------------|
 | config.service.auth.tokenAudience | `https://azure-api.net/configuration` (Default) | `https://azure-api.cn/configuration` | `https://azure-api.us/configuration` |
+| logs.applicationinsights.endpoint | `https://dc.services.visualstudio.com/v2/track` (Default) | `https://dc.applicationinsights.azure.cn/v2/track` | `https://dc.applicationinsights.us/v2/track` |
 
 ## How to configure settings
 
