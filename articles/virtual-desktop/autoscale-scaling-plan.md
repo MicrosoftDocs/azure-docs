@@ -34,7 +34,7 @@ To use scaling plans, make sure you follow these guidelines:
     > [!IMPORTANT]
     > Hibernation is currently in PREVIEW.
     > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-- If you are using PowerShell to create your scaling plan, you will need module [Az.DesktopVirtualization](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) version 4.2.0 or later. 
+- If you are using PowerShell to create and assign your scaling plan, you will need module [Az.DesktopVirtualization](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) version 4.2.0 or later. 
 
 ## Assign the Desktop Virtualization Power On Off Contributor role with the Azure portal
 
