@@ -12,9 +12,9 @@ ms.reviewer: larryfr
 ms.date: 01/24/2024
 ---
 
-# Troubleshoot connection to a workspace with a private endpoint
+# Troubleshoot private endpoint connection problems
 
-When you connect to a workspace that's configured with a private endpoint, you might encounter a 403 or a message saying that access is forbidden. This article explains how you can check for common configuration problems that cause this error.
+When you connect to an Azure Machine Learning workspace that's configured with a private endpoint, you might encounter a *403* error or a message saying that access is forbidden. This article explains how you can check for common configuration problems that cause this error.
 
 > [!TIP]
 > Before using the steps in this article, try the Azure Machine Learning workspace diagnostic API. It can help identify configuration problems with your workspace. For more information, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
@@ -27,11 +27,11 @@ The troubleshooting steps for DNS configuration differ based on whether you use 
 
 1. From the **Overview** page, select the **Network Interface** link.
 
-    :::image type="content" source="./media/how-to-troubleshoot-secure-connection-workspace/private-endpoint-overview.png" alt-text="Screenshot of the private endpoint overview with network interface link highlighted.":::
+    :::image type="content" source="media/how-to-troubleshoot-secure-connection-workspace/private-endpoint-overview.png" alt-text="Screenshot of the private endpoint overview with network interface link highlighted." lightbox="media/how-to-troubleshoot-secure-connection-workspace/private-endpoint-overview.png":::
 
 1. Under **Settings**, select **IP Configurations** and then select the **Virtual network** link.
 
-    :::image type="content" source="./media/how-to-troubleshoot-secure-connection-workspace/network-interface-ip-configurations.png" alt-text="Screenshot of the IP configuration with virtual network link highlighted.":::
+    :::image type="content" source="media/how-to-troubleshoot-secure-connection-workspace/network-interface-ip-configurations.png" alt-text="Screenshot of the IP configuration with virtual network link highlighted." lightbox="media/how-to-troubleshoot-secure-connection-workspace/network-interface-ip-configurations.png":::
 
 1. From the **Settings** section on the left of the page, select the **DNS servers** entry.
 
@@ -54,7 +54,7 @@ Use the following steps to verify if your custom DNS solution is correctly resol
 
 1. In the portal, select the private endpoint for the workspace. Make a list of FQDNs listed for the private endpoint.
 
-    :::image type="content" source="./media/how-to-troubleshoot-secure-connection-workspace/custom-dns-settings.png" alt-text="Screenshot of the private endpoint with custom DNS settings highlighted.":::
+    :::image type="content" source="media/how-to-troubleshoot-secure-connection-workspace/custom-dns-settings.png" alt-text="Screenshot of the private endpoint with custom DNS settings highlighted." lightbox="media/how-to-troubleshoot-secure-connection-workspace/custom-dns-settings.png":::
 
 1. Open a command prompt, PowerShell, or other command line and run the following command for each FQDN returned from the previous step. Each time you run the command, verify that the IP address returned matches the IP address listed in the portal for the FQDN:
 
@@ -62,7 +62,7 @@ Use the following steps to verify if your custom DNS solution is correctly resol
 
     For example, running the command `nslookup 29395bb6-8bdb-4737-bf06-848a6857793f.workspace.eastus.api.azureml.ms` returns a value similar to the following text:
 
-    ```text
+    ```output
     Server: yourdnsserver
     Address: yourdnsserver-IP-address
 
@@ -78,7 +78,7 @@ When using Azure DNS for name resolution, use the following steps to verify that
 
 1. On the Private Endpoint, select **DNS configuration**. For each entry in the **Private DNS zone** column, there should also be an entry in the **DNS zone group** column.
 
-    :::image type="content" source="./media/how-to-troubleshoot-secure-connection-workspace/dns-zone-group.png" alt-text="Screenshot of the DNS configuration with Private DNS zone and group highlighted.":::
+    :::image type="content" source="media/how-to-troubleshoot-secure-connection-workspace/dns-zone-group.png" alt-text="Screenshot of the DNS configuration with Private DNS zone and group highlighted." lightbox="media/how-to-troubleshoot-secure-connection-workspace/dns-zone-group.png":::
 
     * If there's a **Private DNS zone** entry, but no **DNS zone group** entry, delete and recreate the Private Endpoint. When recreating the private endpoint, enable **Private DNS zone integration**.
     * If **DNS zone group** isn't empty, select the link for the **Private DNS zone** entry.
