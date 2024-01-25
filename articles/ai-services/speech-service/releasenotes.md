@@ -20,7 +20,7 @@ Azure AI Speech is updated on an ongoing basis. To stay up-to-date with recent d
 
 ## Recent highlights
 
-* Azure AI Speech now supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](./batch-transcription-create.md#using-whisper-models) guide. 
+* Azure AI Speech now supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](./batch-transcription-create.md#use-a-whisper-model) guide. 
 * [Speech to text REST API version 3.2](./migrate-v3-1-to-v3-2.md) is available in public preview.
 * [Real-time diarization](./get-started-stt-diarization.md) is in public preview.  
 

@@ -53,7 +53,7 @@ Perform these steps to execute Batch transcription with BYOS-enabled Speech reso
     > [!IMPORTANT]
     > Don't use `destinationContainerUrl` parameter in your transcription request. If you use BYOS, the transcription results are stored in the BYOS-associated Storage account automatically. 
     >
-    > If you use `destinationContainerUrl` parameter, it will work, but provide significantly less security for your data, because of ad hoc SAS usage. See details [here](batch-transcription-create.md#destination-container-url).
+    > If you use `destinationContainerUrl` parameter, it will work, but provide significantly less security for your data, because of ad hoc SAS usage. See details [here](batch-transcription-create.md#specify-a-destination-container-url).
 
 1. When transcription is complete, get transcription results according to [this guide](batch-transcription-get.md). Consider using `sasValidityInSeconds` parameter (see the following section).  
 
