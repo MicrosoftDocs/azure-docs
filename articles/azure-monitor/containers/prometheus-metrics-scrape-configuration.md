@@ -59,6 +59,7 @@ If you want to turn on the scraping of the default targets that aren't enabled b
 
 ### Enable pod annotation-based scraping
 To scrape application pods without needing to create a custom Prometheus config, annotations can be added to the pods. The annotation `prometheus.io/scrape: "true"` is required for the pod to be scraped. The annotations `prometheus.io/path` and `prometheus.io/port` indicate the path and port that the metrics are hosted at on the pod. The annotations for a pod that is hosting metrics at `<pod IP>:8080/metrics` would be:
+
 ```yaml
 metadata:   
   annotations:
@@ -70,12 +71,14 @@ metadata:
 Scraping these pods with specific annotations is disabled by default. To enable, in the `ama-metrics-settings-configmap`, add the regex for the namespace(s) of the pods with annotations you wish to scrape as the value of the field `podannotationnamespaceregex`.
 
 For example, the following will scrape pods with annotations only in the namespaces `kube-system` and `default`:
+
 ```yaml
 pod-annotation-based-scraping: |-
     podannotationnamespaceregex = "kube-system|my-namespace"
 ```
 
 To enable scraping for pods with annotations in all namespaces, use:
+
 ```yaml
 pod-annotation-based-scraping: |-
     podannotationnamespaceregex = ".*"
