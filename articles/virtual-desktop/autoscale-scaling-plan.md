@@ -354,11 +354,11 @@ Here's how to update a scaling plan using the Az.DesktopVirtualization PowerShel
 
     ```azurepowershell
     $scalingPlanPersonalScheduleParams = @{
-       ResourceGroupName = 'resourceGroup'
-       ScalingPlanName = 'scalingPlanPersonal'
-       ScalingPlanScheduleName = 'personalSchedule1'
-       RampUpStartTimeHour = '5'
-       RampUpStartTimeMinute = '30'
+        ResourceGroupName = 'resourceGroup'
+        ScalingPlanName = 'scalingPlanPersonal'
+        ScalingPlanScheduleName = 'personalSchedule1'
+        RampUpStartTimeHour = '5'
+        RampUpStartTimeMinute = '30'
     }
     
     Update-AzWvdScalingPlanPersonalSchedule @scalingPlanPersonalScheduleParams
@@ -369,7 +369,7 @@ Here's how to update a scaling plan using the Az.DesktopVirtualization PowerShel
 
 ## Assign scaling plans to existing host pools
 
-You can assign a scaling plan to any existing host pools in your deployment. When you assign a scaling plan to your host pool, the plan will apply to all session hosts within that host pool. The scaling plan also automatically applies to any new session hosts you create in the assigned host pool.
+You can assign a scaling plan to any existing host pools of the same type in your deployment. When you assign a scaling plan to your host pool, the plan will apply to all session hosts within that host pool. The scaling plan also automatically applies to any new session hosts you create in the assigned host pool.
 
 If you disable a scaling plan, all assigned resources will remain in the state they were in at the time you disabled it.
 
@@ -397,9 +397,9 @@ To assign a scaling plan to existing host pools:
 
     ```azurepowershell
    $scalingPlanParams = @{
-       ResourceGroupName = 'resourceGroup'
-       Name = 'scalingPlanPersonal'
-       HostPoolReference = @(
+        ResourceGroupName = 'resourceGroup'
+        Name = 'scalingPlanPersonal'
+        HostPoolReference = @(
             @{
                'hostPoolArmPath' = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Microsoft.DesktopVirtualization/hostPools/scalingPlanPersonal';
                 'scalingPlanEnabled' = $true;
