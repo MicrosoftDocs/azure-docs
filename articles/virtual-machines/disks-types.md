@@ -29,7 +29,7 @@ The following table provides a comparison of the five disk types to help you dec
 | ------- | ---------- | ----------- | ------------ | ------------ | ------------ |
 | **Disk type** | SSD | SSD |SSD | SSD | HDD |
 | **Scenario**  | IO-intensive workloads such as [SAP HANA](workloads/sap/hana-vm-operations-storage.md), top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads. | Production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput | Production and performance sensitive workloads | Web servers, lightly used enterprise applications and dev/test | Backup, non-critical, infrequent access |
-| **Max disk size** | 65,536 GiB | 102,400 GiB |32,767 GiB | 32,767 GiB | 32,767 GiB |
+| **Max disk size** | 65,536 GiB | 65,536 GiB |32,767 GiB | 32,767 GiB | 32,767 GiB |
 | **Max throughput** | 4,000 MB/s | 1,200 MB/s | 900 MB/s | 750 MB/s | 500 MB/s |
 | **Max IOPS** | 160,000 | 80,000 | 20,000 | 6,000 | 2,000, 3,000* |
 | **Usable as OS Disk?** | No | No | Yes | Yes | Yes |
@@ -121,7 +121,7 @@ Premium SSD v2 disks are designed to provide sub millisecond latencies and provi
 
 #### Premium SSD v2 capacities
 
-Premium SSD v2 capacities range from 1 GiB to 100 TiBs, in 1-GiB increments. You're billed on a per GiB ratio, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
+Premium SSD v2 capacities range from 1 GiB to 64 TiBs, in 1-GiB increments. With a 100 TiB maximum per region per subscription. You're billed on a per GiB ratio, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
 
 #### Premium SSD v2 IOPS
 
