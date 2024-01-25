@@ -27,7 +27,7 @@ Update-AzDataProtectionBackupVault -SubscriptionId <String> -ResourceGroupName $
 >You can't disable Cross Region Restore once protection has started with this feature enabled.
 
 
-## Prepare for the PostgreSQL database restore to a secondary region
+## Configure    restore for the PostgreSQL database to a secondary region
 
 To restore the database to a secondary region after enabling Cross Region Restore, run the following cmdlets:
 
@@ -82,18 +82,20 @@ To restore the database to a secondary region after enabling Cross Region Restor
       $OssRestoreReq = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureDatabaseForPostgreSQL -SourceDataStore VaultStore -RestoreLocation $vault.ReplicatedRegion[0] -RestoreType RestoreAsFiles -RecoveryPoint $recoveryPointsCrr[0].Property.RecoveryPointId -TargetContainerURI $targetContainerURI -FileNamePrefix $fileNamePrefix
       ```
 
-## Trigger the restore operation
+## Validate the PostgreSQK database restore configuration
 
-To trigger the restore operation, run the following cmdlets:
-
-```azurepowershell
-$restoreJob = Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $instance.Name -ResourceGroupName $ResourceGroupName -VaultName $vaultName -SubscriptionId $SubscriptionId -Parameter $OssRestoreReq -RestoreToSecondaryRegion  # -Debug
-```
-
-If you want to validate the probabilities for the restore operation, run the following cmdlet:
+To validate the probabilities of success for the restore operation, run the following cmdlet:
 
 ```azurepowershell
 $validate = Test-AzDataProtectionBackupInstanceRestore -ResourceGroupName $ResourceGroupName -Name $instance[0].Name -VaultName $VaultName -RestoreRequest $OssRestoreReq -SubscriptionId $SubscriptionId -RestoreToSecondaryRegion #-Debug
+```
+
+## Trigger the restore operation
+
+To trigger the restore operation, run the following cmdlet:
+
+```azurepowershell
+$restoreJob = Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $instance.Name -ResourceGroupName $ResourceGroupName -VaultName $vaultName -SubscriptionId $SubscriptionId -Parameter $OssRestoreReq -RestoreToSecondaryRegion  # -Debug
 ```
 
 ## Track the restore job
