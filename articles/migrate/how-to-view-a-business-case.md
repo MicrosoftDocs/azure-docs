@@ -53,9 +53,6 @@ It covers the cost of running all the servers scoped in the business case using 
 ### Estimated Azure cost
 It covers the cost of all servers and workloads that have been identified as ready for migration/modernization as per the recommendation. Refer to the respective [Azure IaaS](how-to-view-a-business-case.md#azure-iaas-report) and [Azure PaaS](how-to-view-a-business-case.md#azure-paas-report) report for details. The Azure cost is calculated based on the right sized Azure configuration, ideal migration target and most suitable pricing offers for your workloads. You can override the migration strategy, target location or other settings in the 'Azure cost' assumptions to see how your savings could change by migrating to Azure.
 
-### Estimated AVS cost
-It covers the cost of hosting all servers and workloads that have been identified as ready for migration to AVS. Refer to the respective AVS report for details. The AVS cost is calculated based on the right-sized configuration. A default CPU over-subscription of 4:1, 100% memory overcommit and compression and deduplication factor of 1.5 is assumed to get the compute cost of AVS. You can learn more about this [here](concepts-azure-vmware-solution-assessment-calculation.md#whats-in-an-azure-vmware-solution-assessment). You can override the migration strategy, target location or other settings in the 'Azure cost' assumptions to see how your savings could change by migrating to Azure.
-
 ### YoY estimated current vs future state cost
 As you plan to migrate to Azure in phases, this line chart shows your cashflow per year based on the estimated migration completed that year. By default, it's assumed that you'll migrate 0% in the current year, 20% in Year 1, 50% in Year 2, and 100% in Year 3.
 - Current state cost shows how your net cashflow will be on-premises, given your infrastructure is growing 5% per year.
@@ -154,7 +151,7 @@ It covers cost components for on-premises and AVS, savings, and insights to unde
 
 This section contains the cost estimate by recommended target (Annual cost includes Compute, Storage, Network, labor components) and savings from Hybrid benefits.
 - AVS cost estimate:
-    - **Estimated AVS cost**: This card includes the total cost of ownership for hosting all workloads on AVS including the AVS nodes cost (which includes storage cost), networking and labor cost. The node cost is computed by taking the most cost optimum AVS node SKU External storage options like ANF aren’t a part of the business case yet. 
+    - **Estimated AVS cost**: This card includes the total cost of ownership for hosting all workloads on AVS including the AVS nodes cost (which includes storage cost), networking and labor cost. The node cost is computed by taking the most cost optimum AVS node SKU A default CPU over-subscription of 4:1, 100% memory overcommit and compression and deduplication factor of 1.5 is assumed to get the compute cost of AVS. You can learn more about this [here](concepts-azure-vmware-solution-assessment-calculation.md#whats-in-an-azure-vmware-solution-assessment). External storage options like ANF aren’t a part of the business case yet. 
     - **Compute and license cost**: This card shows the comparison of compute and license cost when using Azure hybrid benefit and without Azure hybrid benefit. 
 - Savings and optimization:
     - **Savings with 3-year RI**: This card shows the node cost with 3-year RI.
