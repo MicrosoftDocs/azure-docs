@@ -226,13 +226,12 @@ az spring app create \
     --resource-group <resource-group> \ 
     --service <service-name> \ 
     --name <app-name> \ 
-    --instance-count 1 \ 
-    --memory 2Gi \ 
-    --assign-endpoint \ 
     --bind-service-registry
 ```
 
 You can also bind the new creating apps from the Azure portal, as shown in the following screenshot.
+
+:::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-service-registry-bind-app-when-creation.png" alt-text="Azure portal screenshot of 'Create App' screen with 'Bind' dropdown showing.":::
 
 ### Deploy an application to Azure Spring Apps
 
