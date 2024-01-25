@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/16/2023
+ms.date: 01/25/2024
 ms.author: duau
 ms.custom: ignite-2023
 ---
@@ -46,17 +46,20 @@ For all other downgrade scenarios, you need to delete and recreate the gateway. 
 
 ### <a name="gatewayfeaturesupport"></a>Feature support by gateway SKU
 
-The following table shows the features supported across each gateway type.
+The following table shows the features supported across each gateway types and max number of ExpressRoute circuit connections supported by each gateway SKU.
 
-|Gateway SKU|VPN Gateway and ExpressRoute coexistence|FastPath|Max Number of Circuit Connections|
-| --- | --- | --- | --- |
-|**Standard SKU/ERGw1Az**|Yes|No|4|
-|**High Perf SKU/ERGw2Az**|Yes|No|8
-|**Ultra Performance SKU/ErGw3Az**|Yes|Yes|16
+| Gateway SKU | VPN Gateway and ExpressRoute coexistence | FastPath | Max Number of Circuit Connections |
+|--|--|--|--|
+| **Standard SKU/ERGw1Az** | Yes | No | 4 |
+| **High Perf SKU/ERGw2Az** | Yes | No | 8 |
+| **Ultra Performance SKU/ErGw3Az** | Yes | Yes | 16 |
+| **ErGwScale (Preview)** | Yes | Yes (>= 10 scale units) | 4 - minimum 1 scale unit<br>8 - minimum of 2 scale units<br>16 - minimum of 10 scale units |
 
 >[!NOTE]
 > The maximum number of ExpressRoute circuits from the same peering location that can connect to the same virtual network is 4 for all gateways.
 >
+
+## Virtual network gateway limitations and performance
 
 ### <a name="aggthroughput"></a>Estimated performances by gateway SKU
 
