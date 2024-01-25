@@ -296,7 +296,7 @@ Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShel
         ```
 
         >[!NOTE]
-        > It is highly recommended that `RampUpStartVMOnConnect` is enabled for the ramp up phase of the schedule if you opt out of having autoscale start session host VMs. More information about Start VM on Connect can be found [here](start-virtual-machine-connect.md).  
+        > We recommended that `RampUpStartVMOnConnect` is enabled for the ramp up phase of the schedule if you opt out of having autoscale start session host VMs. For more information, see [Start VM on Connect](start-virtual-machine-connect.md).
 
 4. Use [Get-AzWvdScalingPlan](/powershell/module/az.desktopvirtualization/get-azwvdscalingplan) to get the host pool(s) that your scaling plan is assigned to.
 
