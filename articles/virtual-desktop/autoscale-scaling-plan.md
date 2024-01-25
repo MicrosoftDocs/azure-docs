@@ -302,8 +302,8 @@ Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShel
 
    ```azurepowershell
    $params = @{
-      ResourceGroupName = 'resourceGroup'
-      Name = 'scalingPlanPersonal'
+       ResourceGroupName = 'resourceGroup'
+       Name = 'scalingPlanPersonal'
    }
     
    (Get-AzWvdScalingPlan @params).HostPoolReference | FL HostPoolArmPath,ScalingPlanEnabled
