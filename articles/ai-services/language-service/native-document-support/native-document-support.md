@@ -175,24 +175,32 @@ For this quickstart, you need a **source document** uploaded to your **source co
 
   ```json
   {
-    "kind": "PiiEntityRecognition",
-    "parameters": {
-        "modelVersion": "latest"
-    },
-    "analysisInput":{
-        "documents":[
-            {
-          "source":{
-            "location":"{your-source-container-SAS-URL}"
+    "tasks": [
+      {
+        "kind": "PiiEntityRecognition",
+        "parameters": {
+          "modelVersion": "latest"
+        }
+      }
+    ],
+    "analysisInput": {
+      "documents": [
+        {
+          "id": "doc_0",
+          "language": "en",
+          "source": {
+            "kind": "AzureBlob",
+            "location": "https://myaccount.blob.core.windows.net/sample-input/input.pdf?{SAS-Token}"
           },
-          "targets":
-            {
-              "location":"{your-target-container-SAS-URL}",
-            }
-            }
-        ]
+          "target": {
+            "kind": "AzureBlob",
+            "location": "https://myaccount.blob.core.windows.net/sample-output?{SAS-Token}"
+          }
+        }
+      ]
     }
   }
+
 
   ```
 
