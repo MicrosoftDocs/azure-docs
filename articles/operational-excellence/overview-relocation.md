@@ -46,6 +46,7 @@ The following tables provide links to each Azure service relocation document.
 [Azure Event Hubs](relocation-event-hub.md)|
 [Azure Key Vault](./relocation-key-vault.md)|
 [Azure Virtual Network](./relocation-virtual-network.md)|
+[Azure Virtual Network - Network Security Groups](./relocation-virtual-network-nsg.md)|
 
 ### ![An icon that signifies this service is mainstream.](./media/relocation/icon-mainstream.svg) Mainstream services
 

@@ -16,6 +16,8 @@
         href: relocation-event-hub.md
       - name: Azure Virtual Network
         href: relocation-virtual-network.md 
+      - name: Network Security Groups (NSG)
+        href: relocation-virtual-network.md
     - name: Mainstream services
       items:
       - name: Azure Database for PostgreSQL
