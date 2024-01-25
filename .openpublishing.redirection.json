@@ -16940,6 +16940,26 @@
             "source_path_from_root": "/articles/virtual-network/move-across-regions-vnet-powershell.md",
             "redirect_url": "/azure/operational-excellence/relocation-virtual-network",
             "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-multi-tier-application.md",
+            "redirect_url": "/azure/app-service/tutorial-secure-ntier-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/virtual-networks-static-private-ip-classic-pportal.md",
+            "redirect_url": "/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/virtual-networks-static-private-ip-classic-ps.md",
+            "redirect_url": "/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/orbital/overview-analytics.md",
+            "redirect_url": "/azure/orbital/overview",
+            "redirect_document_id": false
         }
         
     ]
