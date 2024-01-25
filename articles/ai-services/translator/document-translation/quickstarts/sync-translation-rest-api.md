@@ -63,8 +63,8 @@ To call the synchronous document translation feature via the [REST API](../refer
 |parameter  |Description  | Condition|
 |---------|---------|-----|
 |`-X POST <endpoint>`     | Specifies your Language resource endpoint for accessing the API.|&bullet; ***Required***|
-|`--header "Ocp-Apim-Subscription-Key:<key>`    | Specifies the Language resource key for accessing the API.|&bullet; ***Required***|
-|`--header "Ocp-Apim-Subscription-Region:<region>"`|The region where your resource was created. |&bullet; ***Required*** when using an Azure AI multi-service or regional (geographic) resource like **West US**.</br>&bullet; ***Optional*** when using a single-service global Translator Resource.|
+|`--header "Ocp-Apim-Subscription-Key:{KEY}`    | Specifies the Language resource key for accessing the API.|&bullet; ***Required***|
+|`--header "Ocp-Apim-Subscription-Region:{REGION}"`|The region where your resource was created. |&bullet; ***Required*** when using an Azure AI multi-service or regional (geographic) resource like **West US**.</br>&bullet; ***Optional*** when using a single-service global Translator Resource.|
 |`--data`     | The JSON file containing the data you want to pass with your request including an **optional** glossary.|&bullet; ***Required***|
 
 ## Build and run the POST request
@@ -98,9 +98,9 @@ Here's a closer look at each cURL value  in a sample HTTP calls:
 
 * -i -X POST
 
-* -H "Ocp-Apim-Subscription-Key: <KEY>"
+* -H "Ocp-Apim-Subscription-Key: {KEY}"
 
-* -H "Ocp-Apim-Subscription-Region: <REGION>"
+* -H "Ocp-Apim-Subscription-Region: {REGION}"
 
 * -data "document=@C:\Test\Test-file.txt;type=text/html"
 
@@ -114,7 +114,7 @@ Here's a closer look at each cURL value  in a sample HTTP calls:
 
 * -i -X POST
 
-* -H "Ocp-Apim-Subscription-Key: <KEY>"
+* -H "Ocp-Apim-Subscription-Key: {KEY}"
 
 * -data "document=@C:\Test\Test-file.txt;type=text/html"
 
