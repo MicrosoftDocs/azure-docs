@@ -10,12 +10,11 @@ title: include file
  ms.custom: include file
 ---
 
-> [!NOTE]
-> The core capabilities for the integration of Azure Notification Hubs (ANH) with Firebase Cloud Messaging (FCM) v1 are ready for testing. As a reminder, Google will stop supporting FCM Legacy HTTP on June 20, 2024, so you must migrate your applications and notification payloads to the new format before then. All methods of onboarding will be ready for migration by March 1, 2024.
->
-> To help with this transition, we invite you to join our preview program and test the FCM v1 onboarding process for REST APIs in February 2024. This gives you early access to the new features and capabilities, as well as the opportunity to provide feedback and report any issues.
->
-> If you are interested in joining the preview program, [contact us by email](mailto:nhtalk@microsoft.com) by January 25, 2024. We will reply with instructions on how to onboard to FCM v1 using the Azure portal or the REST API. You will also receive a link to our documentation and support channels.
+The core capabilities for the integration of Azure Notification Hubs with Firebase Cloud Messaging (FCM) v1 are ready for testing. As a reminder, Google will stop supporting FCM legacy HTTP on June 20, 2024, so you must migrate your applications and notification payloads to the new format before then. All methods of onboarding will be ready for migration by March 1, 2024.
+
+To help with this transition, we invite you to join our preview program and test the FCM v1 onboarding process for REST APIs in February 2024. This gives you early access to the new features and capabilities, as well as the opportunity to provide feedback and report any issues.
+
+If you are interested in joining the preview program, [contact us by email](mailto:nhtalk@microsoft.com) by January 25, 2024. We will reply with instructions on how to onboard to FCM v1 using the Azure portal or the REST API. You will also receive a link to our documentation and support channels.
 
 ## Concepts for FCM v1
 
