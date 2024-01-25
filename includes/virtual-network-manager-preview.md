@@ -13,7 +13,7 @@ ignite> -2023
 ---
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub> -and> -spoke connectivity configurations. Mesh connectivity configurations remain in public preview.
+> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub-and-spoke connectivity configurations. Mesh connectivity configurations remain in public preview.
 >
 > Security configurations with security admin rules is generally available in the following regions:
 
