@@ -82,12 +82,14 @@ landingContent:
         links:
           - text: How to manage users
             url: how-to-manage-users.md
+          - text: How to manage ACLs
+            url: how-to-manage-acls.md  
           - text: How to manage legal tags
             url: how-to-manage-legal-tags.md
           - text: How to add more data partitions
             url: how-to-add-more-data-partitions.md
-          - text: How to generate a refresh token
-            url: how-to-generate-refresh-token.md
+          - text: How to generate auth token
+            url: how-to-generate-auth-token.md
       - linkListType: concept
         links:
           - text: Entitlement concepts

@@ -16,6 +16,7 @@ ms.custom:
   - devplatv2
   - event-tier1-build-2023
   - ignite-2023
+  - update-code
 ---
 
 # How to deploy a pipeline to perform batch scoring with preprocessing
@@ -346,7 +347,10 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
     :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/deploy-and-run.sh" ID="invoke_deployment_file" :::
     
     # [Python](#tab/python)
-    
+
+    > [!TIP]
+    > [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
+
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=invoke_deployment)]
     
 1. You can monitor the progress of the show and stream the logs using:

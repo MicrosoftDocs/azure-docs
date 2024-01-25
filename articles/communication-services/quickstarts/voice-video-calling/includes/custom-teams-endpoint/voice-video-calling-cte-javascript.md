@@ -173,7 +173,7 @@ startCallButton.onclick = async () => {
     try {
         const localVideoStream = await createLocalVideoStream();
         const videoOptions = localVideoStream ? { localVideoStreams: [localVideoStream] } : undefined;
-        call = teamsCallAgent.startCall([{ microsoftTeamsUserId: calleeTeamsUserId.value.trim() }], { videoOptions: videoOptions });
+        call = teamsCallAgent.startCall({ microsoftTeamsUserId: calleeTeamsUserId.value.trim() }, { videoOptions: videoOptions });
         // Subscribe to the call's properties and events.
         subscribeToCall(call);
     } catch (error) {

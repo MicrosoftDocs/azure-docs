@@ -30,11 +30,11 @@ A user must have an Owner role on an Enrollment Account to create a subscription
 * The Enterprise Administrator of your enrollment can [make you an Account Owner](https://ea.azure.com/helpdocs/addNewAccount) (sign in required) which makes you an Owner of the Enrollment Account.
 * An existing Owner of the Enrollment Account can [grant you access](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put).
 
-To use a service principal (SPN) to create an EA subscription, an Owner of the Enrollment Account must [grant that service principal the ability to create subscriptions](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put).
+To use a service principal to create an EA subscription, an Owner of the Enrollment Account must [grant that service principal the ability to create subscriptions](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put).
 
-When using an SPN to create subscriptions, use the ObjectId of the Microsoft Entra Enterprise application as the Service Principal ID using [Microsoft Graph PowerShell](/powershell/module/microsoft.graph.applications/get-mgserviceprincipal) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list). You can also use the steps at [Find your SPN and tenant ID](assign-roles-azure-service-principals.md#find-your-spn-and-tenant-id) to find the object ID in the Azure portal for an existing SPN.
+When using a service principal to create subscriptions, use the ObjectId of the Microsoft Entra Enterprise application as the Service Principal ID using [Microsoft Graph PowerShell](/powershell/module/microsoft.graph.applications/get-mgserviceprincipal) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list). You can also use the steps at [Find your service principal and tenant IDs](assign-roles-azure-service-principals.md#find-your-service-principal-and-tenant-ids) to find the object ID in the Azure portal for an existing service principal.
 
-For more information about the EA role assignment API request, see [Assign roles to Azure Enterprise Agreement service principal names](assign-roles-azure-service-principals.md). The article includes a list of roles (and role definition IDs) that can be assigned to an SPN.
+For more information about the EA role assignment API request, see [Assign roles to Azure Enterprise Agreement service principal names](assign-roles-azure-service-principals.md). The article includes a list of roles (and role definition IDs) that can be assigned to a service principal.
 
   > [!NOTE]
   > - Ensure that you use the correct API version to give the enrollment account owner permissions. For this article and for the APIs documented in it, use the [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put) API.
@@ -292,7 +292,7 @@ You get the subscriptionId as part of the response from the command.
 
 ## Create subscriptions in a different enrollment
 
-Using the subscription [Alias](/rest/api/subscription/2021-10-01/alias/create) REST API, you can use the `subscriptionTenantId` parameter in the request body. Your SPN must get the token from the home tenant to create the subscription. After you create the SPN, you get the token from `subscriptionTenantId` and accept the transfer using the [Accept Ownership](/rest/api/subscription/2021-10-01/subscription/accept-ownership) API.
+Using the subscription [Alias](/rest/api/subscription/2021-10-01/alias/create) REST API, you can use the `subscriptionTenantId` parameter in the request body. Your service principal must get the token from the home tenant to create the subscription. After you create the service principal, you get the token from `subscriptionTenantId` and accept the transfer using the [Accept Ownership](/rest/api/subscription/2021-10-01/subscription/accept-ownership) API.
 
 For more information about creating EA subscriptions in another tenant, see [Create subscription in other tenant and view transfer requests](direct-ea-administration.md#create-subscription-in-other-tenant-and-view-transfer-requests).
 

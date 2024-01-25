@@ -1,9 +1,7 @@
 ---
 title: Update IoT Edge version on devices
 description: How to update IoT Edge devices to run the latest versions of the security subsystem and the IoT Edge runtime
-keywords: 
 author: PatAltimore
-
 ms.author: patricka
 ms.date: 04/03/2023
 ms.topic: conceptual

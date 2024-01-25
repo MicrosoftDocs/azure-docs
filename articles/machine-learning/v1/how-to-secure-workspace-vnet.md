@@ -50,8 +50,8 @@ In this article you learn how to enable the following workspaces resources in a 
 
 + An existing virtual network and subnet to use with your compute resources.
 
-    > [!IMPORTANT]
-    > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
+    > [!WARNING]
+    > Do not use the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network, and will result in errors if used for your VNet. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
 [!INCLUDE [network-rbac](../includes/network-rbac.md)]
 

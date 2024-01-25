@@ -2,13 +2,14 @@
 title: Python tool for flows in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article introduces the Python tool for flows in Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom: ignite-2023, devx-track-python
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/15/2023
-ms.author: eur
+ms.reviewer: keli19
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Python tool for flows in Azure AI Studio

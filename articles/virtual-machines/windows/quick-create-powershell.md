@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Create a Windows VM with Azure PowerShell
 description: Learn how to use the Azure PowerShell module to deploy a virtual machine (VM) in Azure that runs Windows Server 2016.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 04/04/2023
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 ---
 
@@ -51,6 +51,8 @@ New-AzVm `
     -PublicIpAddressName 'myPublicIpAddress' `
     -OpenPorts 80,3389
 ```
+
+Cost information isn't presented during the virtual machine creation process for PowerShell like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
 
 ## Install web server
 

@@ -49,7 +49,7 @@ Azure CNI powered by Cilium currently has the following limitations:
 
 * Hubble is disabled.
 
-* Network policies cannot use `ipBlock` to allow access to node or pod IPs ([Cilium issue #9209](https://github.com/cilium/cilium/issues/9209) and [#12277](https://github.com/cilium/cilium/issues/12277)).
+* Network policies cannot use `ipBlock` to allow access to node or pod IPs. See [frequently asked questions](#frequently-asked-questions) for details and recommended workaround.
 
 * Kubernetes services with `internalTrafficPolicy=Local` aren't supported ([Cilium issue #17796](https://github.com/cilium/cilium/issues/17796)).
 
@@ -141,6 +141,49 @@ az aks update -n <clusterName> -g <resourceGroupName> \
 - **Can I use `CiliumNetworkPolicy` custom resources instead of Kubernetes `NetworkPolicy` resources?**
 
     `CiliumNetworkPolicy` custom resources aren't officially supported. We recommend that customers use Kubernetes `NetworkPolicy` resources to configure network policies.
+
+- **Why is traffic being blocked when the `NetworkPolicy` has an `ipBlock` that allows the IP address?**
+
+    A limitation of Azure CNI Powered by Cilium is that a `NetworkPolicy`'s `ipBlock` cannot select pod or node IPs.
+
+    For example, this `NetworkPolicy` has an `ipBlock` that allows all egress to `0.0.0.0/0`:
+    ```yaml
+    apiVersion: networking.k8s.io/v1
+    kind: NetworkPolicy
+    metadata:
+      name: example-ipblock
+    spec:
+      podSelector: {}
+      policyTypes:
+        - Egress
+      egress:
+        - to:
+          - ipBlock:
+              cidr: 0.0.0.0/0 # This will still block pod and node IPs.
+    ```
+
+    However, when this `NetworkPolicy` is applied, Cilium will block egress to pod and node IPs even though the IPs are within the `ipBlock` CIDR.
+
+    As a workaround, you can add `namespaceSelector` and `podSelector` to select pods. The example below selects all pods in all namespaces:
+    ```yaml
+    apiVersion: networking.k8s.io/v1
+    kind: NetworkPolicy
+    metadata:
+      name: example-ipblock
+    spec:
+      podSelector: {}
+      policyTypes:
+        - Egress
+      egress:
+        - to:
+          - ipBlock:
+              cidr: 0.0.0.0/0
+          - namespaceSelector: {}
+          - podSelector: {}
+    ```
+
+    > [!NOTE]
+    > It is not currently possible to specify a `NetworkPolicy` with an `ipBlock` to allow traffic to node IPs.
 
 - **Does AKS configure CPU or memory limits on the Cilium `daemonset`?**
 

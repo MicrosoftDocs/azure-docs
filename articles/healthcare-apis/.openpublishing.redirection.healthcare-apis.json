@@ -486,10 +486,16 @@
     {   "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-configure-azure-rbac-old.md",
         "redirect_url": "/azure/healthcare-apis/dicom/dicom-configure-azure-rbac",
         "redirect_document_id": true     
-      },
-    {  "source_path_from_root": "/articles/healthcare-apis/dicom/export-dicom-files.md",
+    },
+    {  
+       "source_path_from_root": "/articles/healthcare-apis/dicom/export-dicom-files.md",
        "redirect_url": "/azure/healthcare-apis/dicom/export-files",
        "redirect_document_id": true     
+    },
+    {  
+       "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-change-feed-overview.md",
+       "redirect_url": "/azure/healthcare-apis/dicom/change-feed-overview",
+       "redirect_document_id": true   
     },     
       {
           "source_path_from_root": "/articles/healthcare-apis/fhir/configure-azure-rbac-for-fhir.md",

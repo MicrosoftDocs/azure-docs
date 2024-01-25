@@ -187,8 +187,6 @@ Follow these steps to get started:
        artifact: 'ArmTemplates'
        publishLocation: 'pipeline'
    ```
-> [!NOTE]
-> Node version 10.x is currently still supported but may be deprected in the future. We highly recommend upgrading to the latest version.
 
 4. Enter your YAML code. We recommend that you use the YAML file as a starting point.
 

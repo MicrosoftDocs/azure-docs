@@ -248,7 +248,7 @@ At times, you may have a long running workload on a certain pod and it cannot be
 
 #### Set node soak time value (preview)
 
-To stagger a node upgrade in a controlled manner and minimize application downtime during an upgrade, you can set the node soak time to a value between 0 and 30 minutes. If no node soak time value is specified, the default is 0 minutes.
+To allow for a duration of time to wait between draining a node and proceeding to reimage it and move on to the next node, you can set the soak time to a value between 0 and 30 minutes. If no node soak time value is specified, the default is 0 minutes.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 10/30/2023
+ms.date: 01/09/2024
 ---
 
 # Limits and configuration reference for Azure Logic Apps
 
 > For Power Automate, review [Limits and configuration in Power Automate](/power-automate/limits-and-config).
 
-This reference guide describes the limits and configuration information for Azure Logic Apps and related resources. Based on your scenario, solution requirements, the capabilities that you want, and the environment where you want to run your workflows, you choose whether to create a Consumption logic app workflow that runs in *multi-tenant* Azure Logic Apps or an integration service environment (ISE). Or, create a Standard logic app workflow that runs in *single-tenant* Azure Logic Apps or an App Service Environment (v3 - Windows plans only).
+This reference guide describes the limits and configuration information for Azure Logic Apps and related resources. Based on your scenario, solution requirements, the capabilities that you want, and the environment where you want to run your workflows, you choose whether to create a Consumption logic app workflow that runs in *multitenant* Azure Logic Apps or an integration service environment (ISE). Or, create a Standard logic app workflow that runs in *single-tenant* Azure Logic Apps or an App Service Environment (v3 - Windows plans only).
 
 > [!NOTE]
 > Many limits are the same across the available environments where Azure Logic Apps runs, but differences are noted where they exist. 
 
-The following table briefly summarizes differences between a Consumption logic app and a Standard logic app. You'll also learn how single-tenant Azure Logic Apps compares to multi-tenant Azure Logic Apps and an ISE for deploying, hosting, and running your logic app workflows.
+The following table briefly summarizes differences between a Consumption logic app and a Standard logic app. You'll also learn how single-tenant Azure Logic Apps compares to multitenant Azure Logic Apps and an ISE for deploying, hosting, and running your logic app workflows.
 
 [!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
 
@@ -49,7 +49,7 @@ The following tables list the values for a single workflow definition:
 
 The following table lists the values for a single workflow run:
 
-| Name | Multi-tenant | Single-tenant | Integration service environment | Notes |
+| Name | Multitenant | Single-tenant | Integration service environment | Notes |
 |------|--------------|---------------|---------------------------------|-------|
 | Run history retention in storage | 90 days | 90 days <br>(Default) | 366 days | The amount of time to keep a workflow's run history in storage after a run starts. <br><br>**Note**: If the workflow's run duration exceeds the retention limit, this run is removed from the run history in storage. If a run isn't immediately removed after reaching the retention limit, the run is removed within 7 days. <br><br>Whether a run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <br><br>For more information, review [Change duration and run history retention in storage](#change-retention). |
 | Run duration | 90 days | - Stateful workflow: 90 days <br>(Default) <br><br>- Stateless workflow: 5 min <br>(Default) | 366 days | The amount of time that a workflow can continue running before forcing a timeout. The run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <br><br>**Important**: Make sure the run duration value is always less than or equal to the run history retention in storage value. Otherwise, run histories might be deleted before the associated jobs are complete. <br><br>For more information, review [Change run duration and history retention in storage](#change-duration). |
@@ -66,7 +66,7 @@ If a run's duration exceeds the current run history retention limit, the run is 
 
 For Consumption logic app workflows, the same setting controls the maximum number of days that a workflow can run and for keeping run history in storage.
 
-* In multi-tenant Azure Logic Apps, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
+* In multitenant Azure Logic Apps, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
 
 * In an ISE, you can decrease or increase the 90-day default limit.
 
@@ -146,10 +146,10 @@ The following table lists the values for a single workflow run:
 
 The following table lists the values for a **For each** loop:
 
-| Name | Multi-tenant | Single-tenant | Integration service environment | Notes |
+| Name | Multitenant | Single-tenant | Integration service environment | Notes |
 |------|--------------|---------------|---------------------------------|-------|
 | Array items | 100,000 items | - Stateful workflow: 100,000 items <br>(Default) <br><br>- Stateless workflow: 100 items <br>(Default) | 100,000 items | The number of array items that a **For each** loop can process. <br><br>To filter larger arrays, you can use the [query action](logic-apps-perform-data-operations.md#filter-array-action). <br><br>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Concurrent iterations | Concurrency off: 20 <br><br>Concurrency on: <br><br>- Default: 20 <br>- Min: 1 <br>- Max: 50 | Concurrency off: 20 <br>(Default) <br><br>Concurrency on: <br><br>- Default: 20 <br>- Min: 1 <br>- Max: 50 | Concurrency off: 20 <br><br>Concurrency on: <br><br>- Default: 20 <br>- Min: 1 <br>- Max: 50 | The number of **For each** loop iterations that can run at the same time, or in parallel. <br><br>To change this value in the multi-tenant service, see [Change **For each** concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run **For each** loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). <br><br>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Concurrent iterations | Concurrency off: 20 <br><br>Concurrency on: <br><br>- Default: 20 <br>- Min: 1 <br>- Max: 50 | Concurrency off: 20 <br>(Default) <br><br>Concurrency on: <br><br>- Default: 20 <br>- Min: 1 <br>- Max: 50 | Concurrency off: 20 <br><br>Concurrency on: <br><br>- Default: 20 <br>- Min: 1 <br>- Max: 50 | The number of **For each** loop iterations that can run at the same time, or in parallel. <br><br>To change this value in multitenant Azure Logic Apps, see [Change **For each** concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run **For each** loops sequentially](logic-apps-workflow-actions-triggers.md#sequential-for-each). <br><br>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 
 <a name="until-loop"></a>
 
@@ -157,19 +157,19 @@ The following table lists the values for a **For each** loop:
 
 The following table lists the values for an **Until** loop:
 
-| Name | Multi-tenant | Single-tenant | Integration service environment | Notes |
+| Name | Multitenant | Single-tenant | Integration service environment | Notes |
 |------|--------------|---------------|---------------------------------|-------|
-| Iterations | - Default: 60 <br>- Min: 1 <br>- Max: 5,000 | Stateful workflow: <br><br>- Default: 60 <br>- Min: 1 <br>- Max: 5,000 <br><br>Stateless workflow: <br><br>- Default: 60 <br>- Min: 1 <br>- Max: 100 | - Default: 60 <br>- Min: 1 <br>- Max: 5,000 | The number of cycles that an **Until** loop can have during a workflow run. <br><br>To change this value in the multi-tenant service, in the **Until** loop shape, select **Change limits**, and specify the value for the **Count** property. <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Timeout | Default: PT1H (1 hour) | Stateful workflow: PT1H (1 hour) <br><br>Stateless workflow: PT5M (5 min) | Default: PT1H (1 hour) | The amount of time that the **Until** loop can run before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. <br><br>To change this value in the multi-tenant service, in the **Until** loop shape, select **Change limits**, and specify the value for the **Timeout** property. <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Iterations | - Default: 60 <br>- Min: 1 <br>- Max: 5,000 | Stateful workflow: <br><br>- Default: 60 <br>- Min: 1 <br>- Max: 5,000 <br><br>Stateless workflow: <br><br>- Default: 60 <br>- Min: 1 <br>- Max: 100 | - Default: 60 <br>- Min: 1 <br>- Max: 5,000 | The number of cycles that an **Until** loop can have during a workflow run. <br><br>To change this value in multitenant Azure Logic Apps, in the **Until** loop shape, select **Change limits**, and specify the value for the **Count** property. <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Timeout | Default: PT1H (1 hour) | Stateful workflow: PT1H (1 hour) <br><br>Stateless workflow: PT5M (5 min) | Default: PT1H (1 hour) | The amount of time that the **Until** loop can run before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. <br><br>To change this value in multitenant Azure Logic Apps, in the **Until** loop shape, select **Change limits**, and specify the value for the **Timeout** property. <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 
 <a name="concurrency-debatching"></a>
 
 ### Concurrency and debatching
 
-| Name | Multi-tenant | Single-tenant | Integration service environment | Notes |
+| Name | Multitenant | Single-tenant | Integration service environment | Notes |
 |------|--------------|---------------|---------------------------------|-------|
-| Trigger - concurrent runs | Concurrency off: Unlimited <br><br>Concurrency on (irreversible): <br><br>- Default: 25 <br>- Min: 1 <br>- Max: 100 | Concurrency off: Unlimited <br><br>Concurrency on (irreversible): <br><br>- Default: 100 <br>- Min: 1 <br>- Max: 100 | Concurrency off: Unlimited <br><br>Concurrency on (irreversible): <br><br>- Default: 25 <br>- Min: 1 <br>- Max: 100 | The number of concurrent runs that a trigger can start at the same time, or in parallel. <br><br>**Note**: When concurrency is turned on, the **SplitOn** limit is reduced to 100 items for [debatching arrays](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <br><br>To change this value in the multi-tenant service, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Maximum waiting runs | Concurrency off: <br><br>- Min: 1 run <br><br>- Max: 50 runs <br><br>Concurrency on: <br><br>- Min: 10 runs plus the number of concurrent runs <br><br>- Max: 100 runs | Concurrency off: <br><br>- Min: 1 run <br>(Default) <br><br>- Max: 50 runs <br>(Default) <br><br>Concurrency on: <br><br>- Min: 10 runs plus the number of concurrent runs <br><br>- Max: 200 runs <br>(Default) | Concurrency off: <br><br>- Min: 1 run <br><br>- Max: 50 runs <br><br>Concurrency on: <br><br>- Min: 10 runs plus the number of concurrent runs <br><br>- Max: 100 runs | The number of workflow instances that can wait to run when your current workflow instance is already running the maximum concurrent instances. <br><br>To change this value in the multi-tenant service, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Trigger - concurrent runs | Concurrency off: Unlimited <br><br>Concurrency on (irreversible): <br><br>- Default: 25 <br>- Min: 1 <br>- Max: 100 | Concurrency off: Unlimited <br><br>Concurrency on (irreversible): <br><br>- Default: 100 <br>- Min: 1 <br>- Max: 100 | Concurrency off: Unlimited <br><br>Concurrency on (irreversible): <br><br>- Default: 25 <br>- Min: 1 <br>- Max: 100 | The number of concurrent runs that a trigger can start at the same time, or in parallel. <br><br>**Note**: When concurrency is turned on, the **SplitOn** limit is reduced to 100 items for [debatching arrays](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <br><br>To change this value in multitenant Azure Logic Apps, see [Change trigger concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Maximum waiting runs | Concurrency off: <br><br>- Min: 1 run <br><br>- Max: 50 runs <br><br>Concurrency on: <br><br>- Min: 10 runs plus the number of concurrent runs <br><br>- Max: 100 runs | Concurrency off: <br><br>- Min: 1 run <br>(Default) <br><br>- Max: 50 runs <br>(Default) <br><br>Concurrency on: <br><br>- Min: 10 runs plus the number of concurrent runs <br><br>- Max: 200 runs <br>(Default) | Concurrency off: <br><br>- Min: 1 run <br><br>- Max: 50 runs <br><br>Concurrency on: <br><br>- Min: 10 runs plus the number of concurrent runs <br><br>- Max: 100 runs | The number of workflow instances that can wait to run when your current workflow instance is already running the maximum concurrent instances. <br><br>To change this value in multitenant Azure Logic Apps, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 | **SplitOn** items | Concurrency off: 100,000 items <br><br>Concurrency on: 100 items | Concurrency off: 100,000 items <br><br>Concurrency on: 100 items | Concurrency off: 100,000 items <br>(Default) <br><br>Concurrency on: 100 items <br>(Default) | For triggers that return an array, you can specify an expression that uses a **SplitOn** property that [splits or debatches array items into multiple workflow instances](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a **For each** loop. This expression references the array to use for creating and running a workflow instance for each array item. <br><br>**Note**: When concurrency is turned on, the **SplitOn** limit is reduced to 100 items. |
 
 <a name="throughput-limits"></a>
@@ -178,11 +178,11 @@ The following table lists the values for an **Until** loop:
 
 The following table lists the values for a single workflow definition:
 
-| Name | Multi-tenant | Single-tenant | Notes |
+| Name | Multitenant | Single-tenant | Notes |
 |------|--------------|---------------|-------|
-| Action - Executions per 5-minute rolling interval | Default: 100,000 executions <br>- High throughput mode: 300,000 executions | None | In the multi-tenant service, you can raise the default value to the maximum value for your workflow. For more information, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one workflow](handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
+| Action - Executions per 5-minute rolling interval | Default: 100,000 executions <br>- High throughput mode: 300,000 executions | None | In multitenant Azure Logic Apps, you can raise the default value to the maximum value for your workflow. For more information, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one workflow](handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
 | Action - Concurrent outbound calls | ~2,500 calls | None | You can reduce the number of concurrent requests or reduce the duration as necessary. |
-| Managed connector throttling | Throttling limit varies based on connector | Throttling limit varies based on connector | For multi-tenant, review [each managed connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors). <br><br>For more information about handling connector throttling, review [Handle throttling problems ("429 - Too many requests" errors)](handle-throttling-problems-429-errors.md#connector-throttling). |
+| Managed connector throttling | Throttling limit varies based on connector | Throttling limit varies based on connector | For multitenant, review [each managed connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors). <br><br>For more information about handling connector throttling, review [Handle throttling problems ("429 - Too many requests" errors)](handle-throttling-problems-429-errors.md#connector-throttling). |
 | Runtime endpoint - Concurrent inbound calls | ~1,000 calls | None | You can reduce the number of concurrent requests or reduce the duration as necessary. |
 | Runtime endpoint - Read calls per 5 min  | 60,000 read calls | None | This limit applies to calls that get the raw inputs and outputs from a workflow's run history. You can distribute the workload across more than one workflow as necessary. |
 | Runtime endpoint - Invoke calls per 5 min | 45,000 invoke calls | None | You can distribute workload across more than one workflow as necessary. |
@@ -190,11 +190,109 @@ The following table lists the values for a single workflow definition:
 
 <a name="run-high-throughput-mode"></a>
 
-### Run in high throughput mode
+## Scale for high throughput
 
-For a single workflow definition, the number of actions that run every 5 minutes has a [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise the default value to the [maximum value](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) for your workflow, which is three times the default value, you can enable high throughput mode, which is in preview. Or, you can [distribute the workload across more than one workflow](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary.
+### [Standard](#tab/standard)
 
-#### [Portal (multi-tenant service)](#tab/azure-portal)
+Single-tenant Azure Logic Apps uses storage and compute as the primary resources to run your Standard logic app workflows.
+
+### Storage
+
+Stateful workflows use Azure Table storage and Azure Blob storage for persistenting data storage during runtime and for maintaining run histories. These workflows also use Azure Queues for scheduling. A single storage account enables a substantial number of requests with rates of up to 2K per partition and 20K requests per second at the account level. Beyond these thresholds, request rates are subject to throttling. For storage scalability limits, see [Targets for data operations](../storage/tables/storage-performance-checklist.md#targets-for-data-operations).
+
+Although a single storage account can handle reasonably high throughput, as the workflow execution rate increases, you might encounter partition level throttling or account level throttling. To ensure smooth operations, make sure that you understand the possible limitations and ways that you can address them.
+
+##### Share workload across multiple workflows
+
+Single-tenant Azure Logic Apps minimizes partition level throttling by distributing storage transactions across multiple partitions. However, to improve distribution and mitigate partition level throttling, [distribute the workload across multiple workflows](handle-throttling-problems-429-errors.md#logic-app-throttling), rather than a single workflow.
+
+##### Share workload across multiple storage accounts
+
+  If your logic app's workflows require high throughput, use multiple storage accounts, rather than a single account. You can significantly increase throughput by distributing your logic app's workload across multiple storage accounts with 32 as the limit. To determine the number of storage accounts that you need, use the general guideline for ~100,000 action executions per minute, per storage account. While this estimate works well for most scenarios, the number of actions might be lower if your workflow actions are compute heavy, for example, a query action that processes large data arrays. Make sure that you perform load testing and tune your solution before using in production.
+
+  To enable using multiple storage accounts, follow these steps before you create your Standard logic app. Otherwise, if you change the settings after creation, you might experience data loss or not achieve the necessary scalability.
+
+  1. [Create the storage accounts](../storage/common/storage-account-create.md?tabs=azure-portal) that you want to use. Save the connection string for each storage account.
+
+  1. Find and open your Standard logic app, and then [edit your logic app's host settings (**host.json** file)](edit-app-settings-host-settings.md?tabs=azure-portal#manage-host-settings---hostjson) to include the following **`extensions`** object, which contains the **`workflow`** and **`settings`** objects with the **Runtime.ScaleUnitsCount** setting:
+
+     ```json
+     "extensions": {
+         "workflow": {
+             "settings": {
+                 "Runtime.ScaleUnitsCount": "<storage-accounts-number>"
+             }
+         }
+     }
+     ```
+
+     The following example specifies **3** as the number of storage accounts:
+
+     ```json
+     {
+         "version": "2.0",
+         "extensionBundle": {
+             "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+             "version": "[1.*, 2.0.0)"
+         },
+         "extensions": {
+             "workflow": {
+                 "settings": {
+                     "Runtime.ScaleUnitsCount": "3"
+                 }
+             }
+         }
+     }
+     ```
+
+  1. [Edit your logic app's application configuration settings (**local.settings.json**)](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings---localsettingsjson) to add an app setting named **CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU0\<*storage-account-number*>\.ConnectionString** and the corresponding storage account connection string using the following syntax where the first storage account number is **`00`** up to the number of storage accounts minus 1, for example:
+
+     | App setting name | Value |
+     |------------------|-------|
+     | **CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU00.ConnectionString** | `<connection-string-1>` |
+     | **CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU01.ConnectionString** | `<connection-string-2>` |
+     | **CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU02.ConnectionString** | `<connection-string-3>` | 
+
+   1. In your logic app's application configuration settings, update the **AzureWebJobsStorage** setting value with the same connection string that's in the **CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU00.ConnectionString** setting.
+
+#### Compute
+
+A Standard logic app runs by using one of the [available compute plans](logic-apps-pricing.md#standard-pricing-tiers), which provide different levels of virtual CPU and memory, or by using an App Service Environment v3, which provides more compute options.
+
+Single-tenant Azure Logic Apps dynamically scales to effectively handle increasing loads. Your logic app uses the following primary factors to determine whether to scale.
+
+> [!NOTE]
+>
+> For a Standard logic app in an App Service Environment v3, dynamic scaling isn't available. 
+> You must set scaling rules on the associated App Service Plan. As a commonly used scaling rule, 
+> you can use the CPU metric, and scale your App Service Plan to keep the virtual CPU between 50-70%. 
+> For more information, see [Get started with autoscale in Azure](../azure-monitor/autoscale/autoscale-get-started.md).
+
+- Trigger
+
+  To determine scaling requirements, the scaler analyzes the trigger that starts each workflow in your logic app. For example, for a workflow with a Service Bus trigger, if the queue length continuously grows, the scaler takes action to add worker instances, which enable processing more messages. Likewise, for a workflow with a Request trigger, if the request latency experiences an upward trend, the scaler increases the number of worker instances to distribute the request load more efficiently. For more information about worker instances, see [Azure Logic Apps (Standard) - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
+
+- Workflow job execution delay
+
+  At runtime, workflow actions are divided into individual jobs that are queued for execution. Job dispatchers regularly poll the job queue to retrieve and execute these jobs. However, if compute capacity is insufficient to pick up these jobs, they stay in the queue for a longer time, resulting in increased execution delays. The scaler monitors this situation and make scaling decisions to keep the execution delays under control. For more information about how the runtime schedules and runs jobs, see [Azure Logic Apps (Standard) - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
+ 
+  The scaler also considers the minimum and maximum worker instance counter configuration to determine whether to make scaling decisions, such as adding, removing, or maintaining the current number of worker instances. Typically, the scaler makes these decisions at intervals of approximately 15-30 seconds. So, consider this ramp-up time and its impact on your logic app's scaling speed to effectively handle peak loads. For example, if your workload requires scaling your logic app from just 1 worker instance to 100 worker instances, the ramp-up alone might take 25-50 minutes. Single-tenant Azure Logic Apps scaling shares the same [Azure Functions scaling infrastructure](../azure-functions/event-driven-scaling.md).
+
+##### Configure your logic app compute for faster scaling
+
+- Share workload across multiple logic apps.
+
+  Each logic app can scale independently, so distributing your workload across more than one logic app can significantly accelerate the scaling speed. For example, two logic apps can scale to twice the number of worker instances in the same timeframe as a single logic app. By splitting your workload across multiple apps, you can effectively multiply the scalability and achieve faster scaling results.
+
+- Use prewarmed instances.
+
+  If your scenario requires quicker ramp-up time, consider using prewarmed instances. If your peak load times are deterministic, you can use an automation task to adjust these prewarm instances on a schedule. For more information, see [Manage Azure resources and monitor costs by creating automation tasks (preview)](create-automation-tasks-azure-resources.md).
+
+### [Consumption](#tab/consumption)
+
+Multitenant Azure Logic Apps has a [default limit](#throughput-limits) on the number of actions that run every 5 minutes. To raise the default value to the [maximum value](#throughput-limits), you can enable high throughput mode, which is in preview. Or, [distribute the workload across multiple logic apps and workflows](handle-throttling-problems-429-errors.md#logic-app-throttling), rather than rely on a single logic app and workflow.
+
+#### Enable high throughput in the portal
 
 1. In the Azure portal, on your logic app's menu, under **Settings**, select **Workflow settings**.
 
@@ -202,7 +300,7 @@ For a single workflow definition, the number of actions that run every 5 minutes
 
    ![Screenshot that shows logic app menu in Azure portal with "Workflow settings" and "High throughput" set to "On".](./media/logic-apps-limits-and-config/run-high-throughput-mode.png)
 
-#### [Resource Manager Template](#tab/azure-resource-manager)
+#### Enable high throughput in a Resource Manager template
 
 To enable this setting in an ARM template for deploying your logic app, in the `properties` object for your logic app's resource definition, add the `runtimeConfiguration` object with the `operationOptions` property set to `OptimizedForHighThroughput`:
 
@@ -277,8 +375,8 @@ The following table lists the retry policy limits for a trigger or action, based
 
 The following table lists the values for a single workflow definition:
 
-| Name | Multi-tenant | Single-tenant | Integration service environment | Notes |
-|------|--------------|---------------|---------------------------------|-------|
+| Name | Multitenant | Single-tenant | Integration service environment | Notes |
+|------|-------------|---------------|---------------------------------|-------|
 | Variables per workflow | 250 variables | 250 variables <br>(Default) | 250 variables ||
 | Variable - Maximum content size | 104,857,600 characters | Stateful workflow: 104,857,600 characters <br>(Default) <br><br>Stateless workflow: 1,024 characters <br>(Default) | 104,857,600 characters | To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 | Variable (Array type) - Maximum number of array items | 100,000 items | 100,000 items <br>(Default) | Premium SKU: 100,000 items <br><br>Developer SKU: 5,000 items | To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
@@ -298,8 +396,8 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 > [!NOTE]
 > For the **Logic App (Standard)** resource type in the single-tenant service, stateless workflows can only run *synchronously*.
 
-| Name | Multi-tenant | Single-tenant | Integration service environment | Notes |
-|------|--------------|---------------|---------------------------------|-------|
+| Name | Multitenant | Single-tenant | Integration service environment | Notes |
+|------|-------------|---------------|---------------------------------|-------|
 | Outbound request | 120 sec <br>(2 min) | 235 sec <br>(3.9 min) <br>(Default) | 240 sec <br>(4 min) | Examples of outbound requests include calls made by the HTTP trigger or action. <br><br>**Tip**: For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an ["Until" loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). To work around timeout limits when you call another workflow that has a [callable endpoint](logic-apps-http-endpoint.md), you can use the built-in Azure Logic Apps action instead, which you can find in the designer's operation picker under **Built-in**. <br><br>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 | Inbound request | 120 sec <br>(2 min) | 235 sec <br>(3.9 min) <br>(Default) | 240 sec <br>(4 min) | Examples of inbound requests include calls received by the Request trigger, HTTP Webhook trigger, and HTTP Webhook action. <br><br>**Note**: For the original caller to get the response, all steps in the response must finish within the limit unless you call another nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). <br><br>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 
@@ -307,16 +405,16 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 
 ### Request trigger and webhook trigger size limits
 
-| Name | Multi-tenant | Single-tenant | Notes |
-|------|--------------|---------------|-------|
-| Request trigger (inbound) and webhook-based triggers - Content size limit per 5-minute rolling interval per workflow | 3,145,728 KB | None | This limit applies only to the content size for inbound requests received by the Request trigger or any webhook trigger. <br><br>For example, suppose the backend has 100 workers. Each worker has a limit of 31,457,280 bytes, which is the result from dividing 3,145,728,000 bytes by 100 workers. To avoid experiencing premature throttling for the Request trigger, use a new HTTP client for each request, which helps evenly distribute the calls across all nodes. For a webhook trigger, you might have to use multiple workflows, which splits the load and avoids throttling. |
+| Name | Multitenant | Single-tenant | Notes |
+|------|-------------|---------------|-------|
+| Request trigger (inbound) and webhook-based triggers - Content size limit per 5-minute rolling interval per workflow | 3,145,728 KB | None | This limit applies only to the content size for inbound requests received by the Request trigger or any webhook trigger. <br><br>For example, suppose the backend has 100 workers. Each worker has a limit of 31,457,280 bytes, which is the result from dividing 3,145,728,000 bytes by 100 workers. To avoid experiencing premature throttling for the Request trigger, use a new HTTP client for each request, which helps evenly distribute the calls across all nodes. For a webhook trigger, you might have to use multiple workflows, which split the load and avoids throttling. |
 
 <a name="message-size-limits"></a>
 
 ### Messages
 
-| Name | Chunking enabled | Multi-tenant | Single-tenant | Integration service environment | Notes |
-|------|------------------|--------------|-------------------------|---------------------------------|-------|
+| Name | Chunking enabled | Multitenant | Single-tenant | Integration service environment | Notes |
+|------|------------------|-------------|-------------------------|---------------------------------|-------|
 | Content download - Maximum number of requests | Yes | 1,000 requests | 1,000 requests <br>(Default) | 1,000 requests ||
 | Message size | No | 100 MB | 100 MB | 200 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs don't support chunking or even the default limit. <br><br>- Connectors such as AS2, X12, and EDIFACT have their own [B2B message limits](#b2b-protocol-limits). <br><br>- ISE connectors use the ISE limit, not the non-ISE connector limits. <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 | Message size per action | Yes | 1 GB | 1,073,741,824 bytes <br>(1 GB) <br>(Default) | 5 GB | This limit applies to actions that either natively support chunking or let you enable chunking in their runtime configuration. <br><br>If you're using an ISE, the Azure Logic Apps engine supports this limit, but connectors have their own chunking limits up to the engine limit, for example, see the [Azure Blob Storage connector's API reference](/connectors/azureblob/). For more information about chunking, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
@@ -357,8 +455,8 @@ The following table lists the values for a single workflow definition:
 
 The following table lists the values for a single workflow definition:
 
-| Name | Multi-tenant | Single-tenant | Integration service environment | Notes |
-|------|--------------|---------------|---------------------------------|-------|
+| Name | Multitenant | Single-tenant | Integration service environment | Notes |
+|------|-------------|---------------|---------------------------------|-------|
 | Maximum number of code characters | 1,024 characters | 100,000 characters | 1,024 characters | To use the higher limit, create a **Logic App (Standard)** resource, which runs in single-tenant Azure Logic Apps, either [by using the Azure portal](create-single-tenant-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Standard)** extension](create-single-tenant-workflows-visual-studio-code.md). |
 | Maximum duration for running code | 5 sec | 15 sec | 1,024 characters | To use the higher limit, create a **Logic App (Standard)** resource, which runs in single-tenant Azure Logic Apps, either [by using the Azure portal](create-single-tenant-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Standard)** extension](create-single-tenant-workflows-visual-studio-code.md). |
 
@@ -366,12 +464,12 @@ The following table lists the values for a single workflow definition:
 
 ## Custom connector limits
 
-In multi-tenant Azure Logic Apps and the integration service environment only, you can create and use [custom managed connectors](/connectors/custom-connectors), which are wrappers around an existing REST API or SOAP API. In single-tenant Azure Logic Apps, you can create and use only [custom built-in connectors](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+In multitenant Azure Logic Apps and the integration service environment only, you can create and use [custom managed connectors](/connectors/custom-connectors), which are wrappers around an existing REST API or SOAP API. In single-tenant Azure Logic Apps, you can create and use only [custom built-in connectors](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
 The following table lists the values for custom connectors:
 
-| Name | Multi-tenant | Single-tenant | Integration service environment | Notes |
-|------|--------------|---------------|---------------------------------|-------|
+| Name | Multitenant | Single-tenant | Integration service environment | Notes |
+|------|-------------|---------------|---------------------------------|-------|
 | Custom connectors | 1,000 per Azure subscription | Unlimited | 1,000 per Azure subscription ||
 | APIs per service | SOAP-based: 50 | Not applicable | SOAP-based: 50 ||
 | Parameters per API | SOAP-based: 50 | Not applicable | SOAP-based: 50 ||
@@ -390,7 +488,7 @@ For more information, review the following documentation:
 | Name | Limit |
 |------|-------|
 | Managed identities per logic app resource | - Consumption: Either the system-assigned identity *or* only one user-assigned identity <br><br>- Standard: The system-assigned identity *and* any number of user-assigned identities <br><br>**Note**: By default, a **Logic App (Standard)** resource has the system-assigned managed identity automatically enabled to authenticate connections at runtime. This identity differs from the authentication credentials or connection string that you use when you create a connection. If you disable this identity, connections won't work at runtime. To view this setting, on your logic app's menu, under **Settings**, select **Identity**. |
-| Number of logic apps that have a managed identity in an Azure subscription per region | - Consumption: 1,000 logic apps <br>- Standard: Per [Azure App Service limits, if any](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) |
+| Number of logic apps that have a managed identity in an Azure subscription per region | - Consumption: 5,000 logic apps <br>- Standard: Per [Azure App Service limits, if any](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) |
 
 <a name="integration-account-limits"></a>
 
@@ -459,8 +557,8 @@ The following tables list the values for the number of artifacts limited to each
 
 The following table lists the message size limits that apply to B2B protocols:
 
-| Name | Multi-tenant | Single-tenant | Integration service environment | Notes |
-|------|--------------|---------------|---------------------------------|-------|
+| Name | Multitenant | Single-tenant | Integration service environment | Notes |
+|------|-------------|---------------|---------------------------------|-------|
 | AS2 | v2 - 100 MB<br>v1 - 25 MB | Unavailable | v2 - 200 MB <br>v1 - 25 MB | Applies to decode and encode |
 | X12 | 50 MB | Unavailable | 50 MB | Applies to decode and encode |
 | EDIFACT | 50 MB | Unavailable | 50 MB | Applies to decode and encode |
@@ -526,13 +624,13 @@ For Azure Logic Apps to receive incoming communication through your firewall, yo
 > - **Office 365**: The return caller is actually the Office 365 connector. You can specify the managed connector outbound 
 > IP address prefixes for each region, or optionally, you can use the **AzureConnectors** service tag for these managed connectors.
 >
-> - **SAP**: The return caller depends on whether the deployment environment is either multi-tenant Azure or ISE. 
-> In the multi-tenant environment, the on-premises data gateway makes the call back to the Azure Logic Apps service. 
+> - **SAP**: The return caller depends on whether the deployment environment is either multitenant Azure or ISE. 
+> In the multitenant environment, the on-premises data gateway makes the call back to the Azure Logic Apps service. 
 > In an ISE, the SAP connector makes the call back to Azure Logic Apps.
 
-<a name="multi-tenant-inbound"></a>
+<a name="multitenant-inbound"></a>
 
-#### Multi-tenant - Inbound IP addresses
+#### Multitenant - Inbound IP addresses
 
 | Region | Azure Logic Apps IP |
 |--------|---------------------|
@@ -551,6 +649,8 @@ For Azure Logic Apps to receive incoming communication through your firewall, yo
 | France South | 52.136.131.145, 52.136.129.121, 52.136.130.89, 52.136.131.4, 52.136.134.128, 52.136.143.218 |
 | Germany North | 51.116.211.29, 51.116.208.132, 51.116.208.37, 51.116.208.64, 20.113.206.147, 20.113.197.46 |
 | Germany West Central | 51.116.168.222, 51.116.171.209, 51.116.233.40, 51.116.175.0, 20.113.12.69, 20.113.11.8 |
+| Israel Central | 20.217.134.130, 20.217.134.135 |
+| Italy North | 4.232.12.165, 4.232.12.191 |
 | Japan East | 13.71.146.140, 13.78.84.187, 13.78.62.130, 13.78.43.164, 20.191.174.52, 20.194.207.50 |
 | Japan West | 40.74.140.173, 40.74.81.13, 40.74.85.215, 40.74.68.85, 20.89.226.241, 20.89.227.25 |
 | Jio India West | 20.193.206.48,20.193.206.49,20.193.206.50,20.193.206.51 |
@@ -568,7 +668,7 @@ For Azure Logic Apps to receive incoming communication through your firewall, yo
 | Southeast Asia | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6, 20.195.49.246, 20.198.130.155, 23.98.121.180 |
 | Switzerland North | 51.103.128.52, 51.103.132.236, 51.103.134.138, 51.103.136.209, 20.203.230.170, 20.203.227.226 |
 | Switzerland West | 51.107.225.180, 51.107.225.167, 51.107.225.163, 51.107.239.66, 51.107.235.139,51.107.227.18 |
-| UAE Central | 20.45.75.193, 20.45.64.29, 20.45.64.87, 20.45.71.213 |
+| UAE Central | 20.45.75.193, 20.45.64.29, 20.45.64.87, 20.45.71.213, 40.126.212.77, 40.126.209.97 |
 | UAE North | 20.46.42.220, 40.123.224.227, 40.123.224.143, 20.46.46.173, 20.74.255.147, 20.74.255.37 |
 | UK South | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81, 20.108.102.180, 20.90.204.232, 20.108.148.173, 20.254.10.157 |
 | UK West | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150, 51.104.62.166, 51.141.123.161 |
@@ -609,9 +709,9 @@ If your workflow also uses any [managed connectors](../connectors/managed.md), s
 * [Adjust communication settings for the on-premises data gateway](/data-integration/gateway/service-gateway-communication)
 * [Configure proxy settings for the on-premises data gateway](/data-integration/gateway/service-gateway-proxy)
 
-<a name="multi-tenant-outbound"></a>
+<a name="multitenant-outbound"></a>
 
-#### Multi-tenant - Outbound IP addresses
+#### Multitenant - Outbound IP addresses
 
 This section lists the outbound IP addresses that Azure Logic Apps requires in your logic app's Azure region to communicate through your firewall. Also, if your workflow uses any managed connectors or custom connectors, your firewall has to allow traffic in your logic app's Azure region for [*all the managed connectors' outbound IP addresses*](/connectors/common/outbound-ip-addresses/#azure-logic-apps). If you have custom connectors that access on-premises resources through the on-premises data gateway resource in Azure, set up your *gateway installation* to allow access for the corresponding managed connector outbound IP addresses. 
 
@@ -632,6 +732,8 @@ This section lists the outbound IP addresses that Azure Logic Apps requires in y
 | France South | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51, 52.136.139.71, 52.136.135.74, 52.136.133.225, 52.136.139.96 |
 | Germany North | 51.116.211.168, 51.116.208.165, 51.116.208.175, 51.116.208.192, 51.116.208.200, 51.116.208.222, 51.116.208.217, 51.116.208.51, 20.113.195.253, 20.113.196.183, 20.113.206.134, 20.113.206.170 |
 | Germany West Central | 51.116.233.35, 51.116.171.49, 51.116.233.33, 51.116.233.22, 51.116.168.104, 51.116.175.17, 51.116.233.87, 51.116.175.51, 20.113.11.136, 20.113.11.85, 20.113.10.168, 20.113.8.64 |
+| Israel Central | 20.217.134.127, 20.217.134.126, 20.217.134.132, 20.217.129.229 |
+| Italy North | 4.232.12.164, 4.232.12.173, 4.232.12.190, 4.232.12.169 |
 | Japan East | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232, 20.191.172.255, 20.46.187.174, 20.194.206.98, 20.194.205.189 |
 | Japan West | 40.74.140.4, 104.214.137.243, 138.91.26.45, 40.74.64.207, 40.74.76.213, 40.74.77.205, 40.74.74.21, 40.74.68.85, 20.89.227.63, 20.89.226.188, 20.89.227.14, 20.89.226.101 |
 | Jio India West | 20.193.206.128, 20.193.206.129, 20.193.206.130, 20.193.206.131, 20.193.206.132, 20.193.206.133, 20.193.206.134, 20.193.206.135 |
@@ -649,7 +751,7 @@ This section lists the outbound IP addresses that Azure Logic Apps requires in y
 | Southeast Asia | 13.76.133.155, 52.163.228.93, 52.163.230.166, 13.76.4.194, 13.67.110.109, 13.67.91.135, 13.76.5.96, 13.67.107.128, 20.195.49.240, 20.195.49.29, 20.198.130.152, 20.198.128.124, 23.98.121.179, 23.98.121.115 |
 | Switzerland North | 51.103.137.79, 51.103.135.51, 51.103.139.122, 51.103.134.69, 51.103.138.96, 51.103.138.28, 51.103.136.37, 51.103.136.210, 20.203.230.58, 20.203.229.127, 20.203.224.37, 20.203.225.242 |
 | Switzerland West | 51.107.239.66, 51.107.231.86, 51.107.239.112, 51.107.239.123, 51.107.225.190, 51.107.225.179, 51.107.225.186, 51.107.225.151, 51.107.239.83, 51.107.232.61, 51.107.234.254, 51.107.226.253, 20.199.193.249 |
-| UAE Central | 20.45.75.200, 20.45.72.72, 20.45.75.236, 20.45.79.239, 20.45.67.170, 20.45.72.54, 20.45.67.134, 20.45.67.135 |
+| UAE Central | 20.45.75.200, 20.45.72.72, 20.45.75.236, 20.45.79.239, 20.45.67.170, 20.45.72.54, 20.45.67.134, 20.45.67.135, 40.126.210.93, 40.126.209.151, 40.126.208.156, 40.126.214.92 |
 | UAE North | 40.123.230.45, 40.123.231.179, 40.123.231.186, 40.119.166.152, 40.123.228.182, 40.123.217.165, 40.123.216.73, 40.123.212.104, 20.74.255.28, 20.74.250.247, 20.216.16.75, 20.74.251.30 |
 | UK South | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24, 20.108.102.142, 20.108.102.123, 20.90.204.228, 20.90.204.188, 20.108.146.132, 20.90.223.4, 20.26.15.70, 20.26.13.151 |
 | UK West | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63, 51.104.58.40, 51.104.57.160, 51.141.121.72, 51.141.121.220 |
@@ -673,5 +775,5 @@ This section lists the outbound IP addresses that Azure Logic Apps requires in y
 
 ## Next steps
 
-* [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
+* [Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
 * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)

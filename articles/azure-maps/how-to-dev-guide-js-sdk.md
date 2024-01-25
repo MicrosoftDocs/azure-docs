@@ -205,7 +205,7 @@ main().catch((err) => {
 
 ```
 
-This code snippet shows how to use the `MapsSearch` method from the Azure Maps Search client library to create a `client` object with your Azure credentials. You can use either your Azure Maps subscription key or the [Microsoft Entra credential](#using-a-microsoft-entra-credential) from the previous section. The `path` parameter specifies the API endpoint, which is "/search/fuzzy/{format}" in this case. The `get` method sends an HTTP GET request with the query parameters, such as `query`, `coordinates`, and `countryFilter`. The query searches for Starbucks locations near Seattle in the US. The SDK returns the results as a [FuzzySearchResult] object and writes them to the console. For more information, see the [FuzzySearchRequest] documentation.
+This code snippet shows how to use the `MapsSearch` method from the Azure Maps Search client library to create a `client` object with your Azure credentials. You can use either your Azure Maps subscription key or the [Microsoft Entra credential](#using-a-microsoft-entra-credential) from the previous section. The `path` parameter specifies the API endpoint, which is "/search/fuzzy/{format}" in this case. The `get` method sends an HTTP GET request with the query parameters, such as `query`, `coordinates`, and `countryFilter`. The query searches for Starbucks locations near Seattle in the US. The SDK returns the results as a FuzzySearchResult object and writes them to the console. For more information, see the FuzzySearchRequest documentation.
 
 Run `search.js` with Node.js:
 
@@ -215,7 +215,7 @@ node search.js
 
 ## Search an Address
 
-The [searchAddress] query can be used to get the coordinates of an address. Modify the `search.js` from the sample as follows:
+The searchAddress query can be used to get the coordinates of an address. Modify the `search.js` from the sample as follows:
 
 ```JavaScript
 const MapsSearch = require("@azure-rest/maps-search").default;
@@ -404,6 +404,6 @@ main().catch(console.error);
 [search package]: https://www.npmjs.com/package/@azure-rest/maps-search
 [search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search-rest/README.md
 [search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search-rest/samples/v2-beta
-[Search service]: /rest/api/maps/search
+[Search service]: /rest/api/maps/search?view=rest-maps-1.0
 [searchAddress]: /javascript/api/@azure-rest/maps-search/searchaddress
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

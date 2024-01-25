@@ -14,7 +14,8 @@ ms.subservice: calling
 
 # Data Channel
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
+> [!Important]
+> The native ACS SDK (Android, iOS, Windows) support for data channel is in public preview status. The WebJS SDK support for data channel in General Availability (GA). Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review Supplemental Terms of Use for Microsoft Azure Previews.
 
 > [!NOTE]
 > This document delves into the Data Channel feature present in the Azure Communication Services Calling SDK.

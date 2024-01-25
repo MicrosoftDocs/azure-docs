@@ -4,7 +4,7 @@ description: Overview of the SAP workload zone configuration process within SAP 
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 09/13/2022
+ms.date: 12/14/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -277,11 +277,15 @@ ANF_service_level         = "Ultra"
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                         | Description                                                               | Type      | Notes                                          |
 > | -------------------------------- | ------------------------------------------------------------------------- | --------- | ---------------------------------------------- |
-> | `utility_vm_count`               | Defines the number of utility virtual machines to deploy                 | Optional  | Use the utility virtual machine to host SAPGui |
-> | `utility_vm_image`               | Defines the virtual machine image to use                                 | Optional  | Default: Windows Server 2019                   |
-> | `utility_vm_nic_ips`             | Defines the IP addresses for the virtual machines                        | Optional  |                                                |
-> | `utility_vm_size`                | Defines the SKU for the utility virtual machines                         | Optional  | Default: Standard_D4ds_v4                      |
-> | `utility_vm_useDHCP`             | Defines if Azure subnet provided IPs should be used                      | Optional  |                                                |
+> | `utility_vm_count`               | Defines the number of utility virtual machines to deploy                  | Optional  | Use the utility virtual machine to host SAPGui |
+> | `utility_vm_image`               | Defines the virtual machine image to use                                  | Optional  | Default: Windows Server 2019                   |
+> | `utility_vm_nic_ips`             | Defines the IP addresses for the virtual machines                         | Optional  |                                                |
+> | `utility_vm_os_disk_size`        | Defines the size of the OS disk for the Virtual Machine                   | Optional  | Default: 128                                   |
+> | `utility_vm_os_disk_type`        | Defines the type of the OS disk for the Virtual Machine                   | Optional  | Default: Premium_LRS                           |
+> | `utility_vm_size`                | Defines the SKU for the utility virtual machines                          | Optional  | Default: Standard_D4ds_v4                      |
+> | `utility_vm_useDHCP`             | Defines if Azure subnet provided IPs should be used                       | Optional  |                                                |
+
+
 
 ## Terraform parameters
 

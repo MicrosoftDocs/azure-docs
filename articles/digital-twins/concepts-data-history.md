@@ -34,7 +34,7 @@ Data history requires the following resources:
 
 These resources are connected into the following flow:
 
-:::image type="content" source="media/concepts-data-history/data-history-architecture.png" alt-text="Diagram showing the flow of telemetry data into Azure Digital Twins, through an event hub, to Azure Data Explorer.":::
+:::image type="content" source="media/concepts-data-history/data-history-architecture.png" alt-text="Diagram showing the flow of device telemetry data into Azure Digital Twins, through an event hub, to Azure Data Explorer.":::
 
 When the digital twin graph is updated, the information passes through the event hub into the target Azure Data Explorer cluster, where Azure Data Explorer stores the data as a timestamped record in the corresponding table.
 

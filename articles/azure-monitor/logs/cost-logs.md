@@ -99,7 +99,12 @@ For more information on Basic Logs, including how to configure them and query th
 
 In addition to data ingestion, there's a charge for the retention of data in each Log Analytics workspace. You can set the retention period for the entire workspace or for each table. After this period, the data is either removed or archived. Archived logs have a reduced retention charge, and there's a charge to search against them. Use archived logs to reduce your costs for data that you must store for compliance or occasional investigation.
 
+[Deleting a custom table](create-custom-table.md#delete-a-table) does not remove data associated with that table, so retention and archive charges will continue to apply. 
+
 For more information on data retention and archiving, including how to configure these settings and access archived data, see [Configure data retention and archive policies in Azure Monitor Logs](data-retention-archive.md).
+
+>[!NOTE]
+>Deleting data from your Log Analytics workspace using the Log Analytics Purge feature doesn't affect your retention costs. To lower retention costs, decrease the retention period for the workspace or for specific tables. 
 
 ## Search jobs
 
@@ -308,5 +313,4 @@ This query isn't an exact replication of how usage is calculated, but it provide
 - See [Analyze usage in Log Analytics workspace](analyze-usage.md) for details on analyzing the data in your workspace to determine the source of any higher-than-expected usage and opportunities to reduce your amount of data collected.
 - See [Set daily cap on Log Analytics workspace](daily-cap.md) to control your costs by configuring a maximum volume that might be ingested in a workspace each day.
 - See [Azure Monitor best practices - Cost management](../best-practices-cost.md) for best practices on configuring and managing Azure Monitor to minimize your charges.
-
 

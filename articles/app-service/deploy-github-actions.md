@@ -76,7 +76,7 @@ You can create a [service principal](../active-directory/develop/app-objects-and
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
                             --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> \
-                            --sdk-auth
+                            --json-auth
 ```
 
 In the previous example, replace the placeholders with your subscription ID, resource group name, and app name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to the following JSON snippet. Copy this JSON object for later.

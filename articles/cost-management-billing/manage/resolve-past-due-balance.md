@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/13/2023
+ms.date: 01/08/2024
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -19,8 +19,6 @@ This article applies to customers who signed up for Azure online with a credit c
 If you have a Microsoft Customer Agreement billing account, see [Pay Microsoft Customer Agreement bill](../understand/pay-bill.md) instead.
 
 You get an email and see an alert in the Azure portal when your payment isn't received or if we can't process your payment. Both inform you that your subscription is past due. The email contains a link that takes you to the Settle balance page.
-
-[!INCLUDE [Pay by check](../../../includes/cost-management-pay-check.md)]
 
 If your default payment method is credit card, the [Account Administrator](add-change-subscription-administrator.md#whoisaa) can settle the outstanding charges in the Azure portal. If you pay by invoice (wire transfer), send your payment to the location listed at the bottom of your invoice.
 

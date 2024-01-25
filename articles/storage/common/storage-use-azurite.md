@@ -8,7 +8,8 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ai-video-demo
+ai-usage: ai-assisted
 ---
 
 # Use the Azurite emulator for local Azure Storage development
@@ -17,7 +18,10 @@ The Azurite open-source emulator provides a free local environment for testing y
 
 Azurite supersedes the [Azure Storage Emulator](storage-use-emulator.md), and continues to be updated to support the latest versions of Azure Storage APIs.
 
-There are several different ways to install and run Azurite on your local system. Select any of these tabs.
+This video shows you how to install and run the Azurite emulator.
+> [!VIDEO c3badd75-fddb-4f6c-b27d-bab2700c79f1]
+
+The steps in the video are also described in the following sections. Select any of these tabs.
 
 ## Install Azurite
 
@@ -47,7 +51,7 @@ The following settings are supported:
    - **azurite.tablePort** - The Table service listening port, by default 10002.
    - **azurite.cert** - Path to a locally trusted PEM or PFX certificate file path to enable HTTPS mode.
    - **azurite.debug** - Output the debug log to the Azurite channel. The default value is **false**.
-   - **azurite.key** - Path to a locally trusted PEM key file, required when 
+   - **azurite.key** - Path to a locally trusted PEM key file, required when **Azurite: Cert** points to a PEM file.
    - **azurite.location** - The workspace location path. The default is the Visual Studio Code working folder.
    - **azurite.loose** - Enable loose mode, which ignores unsupported headers and parameters.
    - **azurite.oauth** - Optional OAuth level.

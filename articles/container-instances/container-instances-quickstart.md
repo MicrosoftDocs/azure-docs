@@ -24,6 +24,9 @@ In this quickstart, you use the Azure CLI to deploy an isolated Docker container
 
 - This quickstart requires version 2.0.55 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
+  > [!WARNING]
+  > Best practice: User’s credentials passed via command line interface (CLI) are stored as plain text in the backend. Storing credentials in plain text is a security risk; Microsoft advises customers to store user credentials in CLI environment variables to ensure they are encrypted/transformed when stored in the backend.     
+
 ## Create a resource group
 
 Azure container instances, like all Azure resources, must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
