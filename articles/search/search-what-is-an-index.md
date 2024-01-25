@@ -26,11 +26,11 @@ If you want to create and manage a search index, this article helps you understa
 
 Prefer to be hands-on right away? See [Create a search index](search-how-to-create-search-index.md) instead.
 
-## Content of a search index
+## Schema of a search index
 
 In Azure AI Search, indexes contain *search documents*. Conceptually, a document is a single unit of searchable data in your index. For example, a retailer might have a document for each product, a news organization might have a document for each article, a travel site might have a document for each hotel and destination, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* equates to a *table*, and *documents* are roughly equivalent to *rows* in a table.
 
-The structure of a document is determined by the index schema, as illustrated in the following example. The "fields" collection is typically the largest part of an index, where each field is named, assigned a [data type](/rest/api/searchservice/Supported-data-types), and attributed with allowable behaviors that determine how it's used.
+The structure of a document is determined by the *index schema*, as illustrated in the following example. The "fields" collection is typically the largest part of an index, where each field is named, assigned a [data type](/rest/api/searchservice/Supported-data-types), and attributed with allowable behaviors that determine how it's used.
 
 ```json
 {
