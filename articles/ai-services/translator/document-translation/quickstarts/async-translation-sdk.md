@@ -1,7 +1,7 @@
 ---
-title: "Document Translation C#/.NET or Python client library"
+title: "Batch Document Translation C#/.NET or Python client library"
 titleSuffix: Azure AI services
-description: Use the Document Translator C#/.NET or Python client library (SDK) for cloud-based batch document translation service and process
+description: Use the Batch Document Translator C#/.NET or Python client library (SDK) for cloud-based batch document translation service and process
 #services: cognitive-services
 author: laujan
 manager: nitinme
@@ -13,11 +13,11 @@ ms.author: lajanuar
 zone_pivot_groups: programming-languages-document-sdk
 ---
 
-# Document Translation client-library SDKs
+# Batch Document Translation client-library SDKs
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD001 -->
 
-Document Translation is a cloud-based feature of the [Azure AI Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#supported-document-formats). In this quickstart, learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
+Document Translation is a cloud-based feature of the [Azure AI Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#batch-supported-document-formats). In this quickstart, learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
 
 > [!IMPORTANT]
 >
