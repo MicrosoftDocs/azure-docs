@@ -4,7 +4,7 @@ description: Learn how to import on-premises servers in a VMware environment by 
 author: snehasudhirG
 ms.author: sudhirsneha
 ms.topic: tutorial
-ms.date: 01/09/2024
+ms.date: 01/25/2024
 ms.service: azure-migrate
 #Customer intent: As an VMware admin, I want to import my on-premises servers running in a VMware environment.
 ---
@@ -32,9 +32,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin this tutorial, ensure that you have the following prerequisites in place:
 
-- 20,000 servers in a single XLSX file and in an Azure Migrate project.
-- Operating system names specified in the RVTools XLSX (preview) file contains and matches the supported names.
-- File protection is set to **General** or **Any user**.
+- 20,000 servers in a single XLSX file and 35,000 in an Azure Migrate project.
+- The file format should be XLSX.
+- File sensitivity is set to **General** or file protection is set to **Any user**.
+- [Operating system names](migrate-support-matrix.md) specified in the RVTools XLSX (preview) file contains and matches the supported names.
+- The XLSX file should contain the vInfo & vDisk sheets and the VM, Powerstate, Disks, CPUs, Memory, Provisioned MiB, In use MiB, OS according to the configuration file, VM UUID columns from the vInfo sheet and the VM, Capacity MiB columns from the vDisk sheet should be present.
+ 
 
 ## Prepare an Azure user account
 
