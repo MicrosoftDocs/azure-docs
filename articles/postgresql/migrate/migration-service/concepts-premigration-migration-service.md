@@ -4,7 +4,7 @@ description: premigration validations to identify issues before running migratio
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 01/22/2024
+ms.date: 01/30/2024
 ms.service: postgresql
 ms.topic: conceptual
 ---
@@ -23,35 +23,34 @@ To use premigration validation when migrating to Azure Database for PostgreSQL -
 
 - Navigate to the migration tab within the Azure Database for PostgreSQL.
 
-- Create a new migration project or select an existing one.
+- Select the **Create** button
 
-- Start a new migration activity within your project.
-
-- When prompted, choose the migration option that includes validation. This could be labeled as **validate**, **validate and migrate**, or a similar term depending on the context of the portal's interface.
+- In the Setup page, choose the migration option that includes validation. This could be labeled as **validate**, **validate and migrate**
 
     :::image type="content" source="media\concepts-premigration-migration-service\premigration-option.png" alt-text="Screenshot of premigration option to start migration." lightbox="media\concepts-premigration-migration-service\premigration-option.png":::
 
 ### Use Azure CLI
 
-1. Open your command-line interface.
+- Open your command-line interface.
 
-1. Ensure you have the Azure CLI installed and you're logged into your Azure account using az sign-in.
+- Ensure you have the Azure CLI installed and you're logged into your Azure account using az sign-in.
+
+- The version should be at least 2.56.0 or above to use the migration option.  
 
 Construct your migration task creation command with the Azure CLI.
 
-Include the `--migration-option` parameter followed by the option validate to perform only the premigration **validation**, or **validate and migrate** to perform 
-validation and then proceed with the migration if the validation is successful.
+```bash
+az postgres flexible-server migration create --subscription <subscription ID> --resource-group <Resource group Name> --name <Flexible server Name> --migration-name <Unique migration ID> --migration-option ValidateAndMigrate --properties "Path of the JSON File" --migration-mode offline
+```
+
+Include the `--migration-option` parameter followed by the option validate to perform only the premigration **validate**, or **validateAndMigrate** to perform validation and then proceed with the migration if the validation is successful.
+
+## Pre-migration validation options
 
 You can pick any of the following options.
 
 - **Validate** - Use this option to check your server and database readiness for migration to the target. **This option will not start data migration and will not require any server downtime.**
-
-    - The result of the validated option can be:
-        - **Succeeded** - No issues were found, and you can plan for the migration
-        - **Failed** - There were errors found during validation, which can cause the migration to fail. Review the list of errors and their suggested workarounds and take corrective measures before planning the migration.
-        - **Warning** - Warnings are informative messages you must remember while planning the migration.
-
-Plan your migrations better by performing premigration validations in advance to know the potential issues you might encounter while performing migrations.
+     - Plan your migrations better by performing premigration validations in advance to know the potential issues you might encounter while performing migrations.
 
 - **Migrate** - Use this option to kickstart the migration without going through a validation process. Perform validation before triggering a migration to increase the chances of success. Once validation is done, you can use this option to start the migration process.
 
@@ -67,9 +66,17 @@ We recommend that customers use premigration validations to identify issues befo
 
 1. Start the migration using the **Validate and Migrate** option on the planned date and time.
 
+## Validation states 
+
+The result post running the validated option can be:
+
+- **Succeeded** - No issues were found, and you can plan for the migration
+- **Failed** - There were errors found during validation, which can cause the migration to fail. Review the list of errors and their suggested workarounds and take corrective measures before planning the migration.
+- **Warning** - Warnings are informative messages you must remember while planning the migration. 
+
+
 ## Related content
 
 - [Migration service](concepts-migration-service-postgresql.md)
 - [Known issues and limitations](concepts-known-issues-migration-service.md)
 - [Network setup](how-to-network-setup-migration-service.md)
-- [Prerequisites](concepts-prerequisites-migration-service.md)

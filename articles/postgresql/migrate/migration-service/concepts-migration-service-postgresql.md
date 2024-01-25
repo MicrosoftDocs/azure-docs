@@ -4,7 +4,7 @@ description: Concepts about migrating into Azure database for PostgreSQL - Flexi
 author: hariramt
 ms.author: hariramt
 ms.reviewer: maghan
-ms.date: 01/22/2024
+ms.date: 01/30/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -54,25 +54,23 @@ Azure Database for PostgreSQL powered by the PostgreSQL community edition is ava
 
 The options you can consider migrating from the source PostgreSQL instance to the Flexible server are:
 
-**Offline Migration** – In an offline migration, all applications connecting to your source instance are stopped, and the database(s) are copied to a flexible server.
+**Offline migration** – In an offline migration, all applications connecting to your source instance are stopped, and the database(s) are copied to a flexible server.
 
-**Online Migration** - In an online migration, applications connecting to your source instance aren't stopped while database(s) are copied to a flexible server. The initial copy of the databases is followed by replication to keep the flexible server in sync with the source instance. A cutover is performed when the flexible server completely syncs with the source instance, resulting in minimal downtime.
+**Online migration** - In an online migration, applications connecting to your source instance aren't stopped while database(s) are copied to a flexible server. The initial copy of the databases is followed by replication to keep the flexible server in sync with the source instance. A cutover is performed when the flexible server completely syncs with the source instance, resulting in minimal downtime.
 
-The following table gives an overview of Offline and Online modes of migration.
+The following table gives an overview of offline and online options.
 
-| MODE | PROs | CONs |
+| Option | PROs | CONs |
 |------|------|------|
 | Offline | - Simple, easy, and less complex to execute.- Very fewer chances of failure.<br />- No restrictions regarding database objects it can handle | Downtime to applications. |
 | Online | - Very minimal downtime to application. <br /> - Ideal for large databases and customers having limited downtime requirements. | - Replication used in online migration has multiple [restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html) (for example, Primary Keys needed in all tables). <br /> - Tough and more complex to execute than offline migration. <br /> - Greater chances of failure due to the complexity of migration. <br /> - There's an impact on the source instance's storage and computing if the migration runs for a long time. The impact needs to be monitored closely during migration. |
 
-
 The following table lists the various sources supported by the migration service.
-
 
 | PostgreSQL Source Type | Offline Migration | Online Migration |
 |------------------------|-------------------|------------------| 
 | [Azure Database for PostgreSQL – Single server](../how-to-migrate-single-to-flexible-portal.md) | Supported | Supported |
-| AWS RDS for PostgreSQL | Supported | Not supported |
+| [AWS RDS for PostgreSQL](tutorial-migration-service-offline-aws.md) | Supported | Not supported |
 | [On-premises](tutorial-migration-service-offline-iaas.md) | Supported | Not supported |
 | [Azure VM](tutorial-migration-service-offline-iaas.md) | Supported | Not supported |
 
@@ -89,6 +87,8 @@ The migration service is a hosted solution where we use binary called [pgcopydb]
 ## Related content
 
 - [Premigration validations](concepts-premigration-migration-service.md)
-- [Prerequisites](concepts-prerequisites-migration-service.md)
+- [Migrate from on-premises and Azure VMs](tutorial-migration-service-offline-iaas.md)
+- [Migrate from AWS RDS for PostgreSQL](tutorial-migration-service-offline-aws.md)
 - [Network setup](how-to-network-setup-migration-service.md)
 - [Known issues and limitations](concepts-known-issues-migration-service.md)
+

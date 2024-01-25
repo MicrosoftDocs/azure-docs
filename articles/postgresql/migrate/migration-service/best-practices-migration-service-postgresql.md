@@ -4,7 +4,7 @@ description: Best practices for a seamless migration into Azure database for Pos
 author: hariramt
 ms.author: hariramt
 ms.reviewer: maghan
-ms.date: 01/22/2024
+ms.date: 01/30/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -22,9 +22,11 @@ As a first step in the migration, run the premigration validation before you per
 
 ## Target Flexible server configuration
 
-During the initial base copy of data, multiple insert statements are executed on the target, which generates WALs (Write Ahead Logs). Until these WALs are archived, the logs consume storage at the target and the storage required by the database. To calculate the number,
+During the initial base copy of data, multiple insert statements are executed on the target, which generates WALs (Write Ahead Logs). Until these WALs are archived, the logs consume storage at the target and the storage required by the database.
 
-- Sign in to the source instance and execute this command for all the Database(s) to be migrated: `SELECT pg_size_pretty( pg_database_size('dbname') );`
+To calculate the number, sign in to the source instance and execute this command for all the Database(s) to be migrated:
+
+`SELECT pg_size_pretty( pg_database_size('dbname') );`
 
 It's advisable to allocate sufficient storage on the Flexible server, equivalent to 1.25 times or 25% more storage than what is being used per the output to the command above. [Storage Autogrow](../../flexible-server/how-to-auto-grow-storage-portal.md) can also be used.
 
@@ -43,7 +45,11 @@ The time taken for a migration to complete depends on several factors. It includ
 
 The following phases are considered for calculating the total downtime to perform production server migration.
 
-### Data Validation
+- **Migration of PITR** - The best way to get a good estimate on the time taken to migrate your production database server would be to take a point-in time restore of your production server and run the offline migration on this newly restored server.
+
+- **Migration of Buffer** - After completing the above step, you can plan for actual production migration during a time period when the application traffic is low. This migration can be planned on the same day or probably a week away. By this time, the size of the source server might have increased. Update your estimated migration time for your production server based on the amount of this increase. If the increase is significant, you can consider doing another test using the PITR server. But for most servers the size increase shouldn't be significant enough.
+
+- **Data Validation**
 
 Once the migration is completed for the production server, you need to verify if the data in the flexible server is an exact copy of the source instance. Customers can use open-source/third-party tools or can do the validation manually. Prepare the validation steps you would like to do before the actual migration. Validation can include:
     
@@ -53,8 +59,8 @@ Once the migration is completed for the production server, you need to verify if
 
 - Comparing max or min IDs of key application-related columns
 
-> [!NOTE]  
-> The size of databases needs to be the right metric for validation. The source instance might have bloats/dead tuples, which can bump up the size of the source instance. It's completely normal to have size differences between source instances and target servers. If there's an issue in the first three steps of validation, it indicates a problem with the migration.
+    > [!NOTE]  
+    > The size of databases needs to be the right metric for validation. The source instance might have bloats/dead tuples, which can bump up the size of the source instance. It's completely normal to have size differences between source instances and target servers. If there's an issue in the first three steps of validation, it indicates a problem with the migration.
 
 - **Migration of server settings** - Any custom server parameters, firewall rules (if applicable), tags, and alerts must be manually copied from the source instance to the target.
 
@@ -157,6 +163,8 @@ VACUUMLO;
 Regularly incorporating these vacuuming strategies ensures a well-maintained PostgreSQL database.
 
 ## Special consideration
+
+There are special conditions that typically refer to unique circumstances, configurations, or prerequisites that learners need to be aware of before proceeding with a tutorial or module. These conditions could include specific software versions, hardware requirements, or additional tools that are necessary for successful completion of the learning content.
 
 ### Database with postgres_fdw extension
 

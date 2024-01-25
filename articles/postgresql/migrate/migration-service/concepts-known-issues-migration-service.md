@@ -4,7 +4,7 @@ description: Providing the limitations of the migration service in Azure Databas
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 01/22/2024
+ms.date: 01/30/2024
 ms.service: postgresql
 ms.topic: conceptual
 ---
@@ -43,6 +43,7 @@ Here are common limitations that apply to migration scenarios:
     - Create casts
     - Creation of FTS parsers and FTS templates
     - Users with superuser roles
+    - Create TYPE
 
 - The migration service doesn't support migration at the object level, that is, at the table level or schema level.
 
@@ -53,4 +54,3 @@ Here are common limitations that apply to migration scenarios:
 - [Migration service](concepts-migration-service-postgresql.md)
 - [Network setup](how-to-network-setup-migration-service.md)
 - [Premigration validations](concepts-premigration-migration-service.md)
-- [Prerequisites](concepts-prerequisites-migration-service.md)
