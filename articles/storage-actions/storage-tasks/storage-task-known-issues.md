@@ -57,6 +57,10 @@ For more information about scale limits, see [Scalability and performance target
 > [!NOTE]
 > You can request higher capacity and ingress limits. To request an increase, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
+## Storage task runs can write to the report export container without permission to the container
+
+As you create a task assignment, you select a role to assign to the system-assigned managed identity of the storage task. Because that role must first be assigned to your identity in the context of the target storage account or container, you're essentially transferring the role onto the system-assigned managed identity. When the task runs, it can operate only on containers where it's managed identity has the required role. This is not the case with the report export container that you choose during task assignment. A storage task run does not require the correct role to write reports to that container.
+
 ## String operators on container metadata, blob metadata, and blob index tags don't work if the values are numbers
 
 You can't use string operators on container metadata, blob metadata and blob index tags along with numbers as value. For example, equals(Tags.Value[Year], '2022') where the value '2022' is a number, along with string operator equals, doesn't evaluate correctly.
