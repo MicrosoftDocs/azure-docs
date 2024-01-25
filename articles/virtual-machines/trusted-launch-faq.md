@@ -7,7 +7,7 @@ ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: faq
-ms.date: 01/11/2024
+ms.date: 01/25/2024
 ms.custom: template-faq, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -369,7 +369,12 @@ In secure boot chain, each step in the boot process checks a cryptographic signa
 
 ### Why is Trusted Launch Virtual Machine not booting correctly? 
 
-If unsigned components are detected from the UEFI firmware, bootloader, operating system, or boot drivers, Trusted Launch Virtual Machine won't boot. The Secure Boot dependency in the virtual machine blocks all unsigned components or comes a untrusted driver signature.  
+If unsigned components are detected from the UEFI (firmware), bootloader, operating system, or boot drivers, the Trusted Launch Virtual Machine will not boot. The Secure Boot dependency in the virtual machine blocks all unsigned components and untrusted driver signatures. Only trusted bootloaders can be loaded by the UEFI firmware to ensure the bootloader's digital signature hasn't been modified. Please ensure the image OS 
+bootloader is signed with one of the two provided certificates to securely boot the Trusted Launch VM.
+
+- Windows cert: [Microsoft Windows Production PCA 2011](https://go.microsoft.com/fwlink/p/?linkid=321192)
+
+- Linux cert: [Microsoft Corporation UEFI CA 2011](https://go.microsoft.com/fwlink/p/?linkid=321194)
 
 ![The trusted launch pipeline from secure boot to third party drivers](./media/trusted-launch/trusted-launch-pipeline.png)
 
@@ -377,7 +382,95 @@ If unsigned components are detected from the UEFI firmware, bootloader, operatin
 > Turning off Secure Boot within the configuration can temporarily mitigate boot issues and help you check which component is improperly signed. Make sure to re-enable Secure Boot after resolving the issue. [Learn more about updating Trusted Launch configurations](/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal3%2Cportal2). 
 
 > [!NOTE]
-> Images that are created from the source of Marketplace (Platform Image Repository) or a custom image created from the Secure Image Gallery, you shouldn't be encountering Secure Boot failures. If a no-boot issue occurs from either of these avenues, there is potential of rootkits, malware with the virtual machine. Please proceed to delete the virtual machine, and re-create a new VM from the same source image. 
+> Trusted Launch Virtual machines that are created directly from Azure Marketplace images or Azure Compute Gallery image, Managed Disks, with an original image source from Marketplace, and snapshots created from Trusted Launch VM should not encounter Secure Boot failures. If a no-boot issue occurs from one of these avenues, there is potential of bootkits/rootkits, malware within the virtual machine. Please consider deleting the virtual machine and re-create a new VM from the same source image.
+
+### How would I verify a no-boot scenario in the Azure portal? 
+When a virtual machine becomes unavailable from a Secure Boot failure, 'no-boot' means that virtual machine has an operating system component that is signed by a trusted authority which blocks booting a Trusted Launch VM. On VM deployment, customers may see information from resource health within the Azure portal stating that there's a validation error in secure boot.
+
+To access resource health from the virtual machine configuration page, navigate to Resource Health under the 'Help' panel.
+
+:::image type="content" source="./media/trusted-launch/resource-health-error.png" lightbox="./media/trusted-launch/resource-health-error.png" alt-text="A resource health error message alerting a failed secure boot.":::
+
+Follow the 'Recommended Steps' outlined in the resource health screen. This will include a screenshot and downloadable serial log from the boot diagnostics of the virtual machine.
+
+## Verifying secure boot failures
+
+### Linux Virtual Machines 
+To verify which boot components are responsible for Secure Boot failures within an Azure Linux Virtual Machine, end-users can use the SBInfo tool from the Linux Security Package.
+
+1. Turn off secure boot
+1. Connect to your Azure Linux Trusted Launch virtual machine.
+2. Install the SBInfo tool for the distro your virtual machine is running. It resides within the Linux Security Package
+
+#### [Debian-based distros](#tab/debianbased)
+
+These commands apply to Ubuntu, Debian, and other debian-based distros.
+
+```bash
+echo "deb [arch=amd64] http://packages.microsoft.com/repos/azurecore/ trusty main" | sudo tee -a /etc/apt/sources.list.d/azure.list
+        echo "deb [arch=amd64] http://packages.microsoft.com/repos/azurecore/ xenial main" | sudo tee -a /etc/apt/sources.list.d/azure.list
+        echo "deb [arch=amd64] http://packages.microsoft.com/repos/azurecore/ bionic main" | sudo tee -a /etc/apt/sources.list.d/azure.list
+
+wget https://packages.microsoft.com/keys/microsoft.asc
+
+wget https://packages.microsoft.com/keys/msopentech.asc
+
+sudo apt-key add microsoft.asc && sudo apt-key add msopentech.asc
+
+sudo apt update && sudo apt install azure-security
+
+```
+
+#### [Red Hat-based distros](#tab/rhelbased)
+
+These commands apply to RHEL, CentOS, and other Red Hat-based distros.
+
+```bash
+echo "[packages-microsoft-com-azurecore]" | tee -a /etc/yum.repos.d/azurecore.repo
+        echo "name=packages-microsoft-com-azurecore" | tee -a /etc/yum.repos.d/azurecore.repo
+        echo "baseurl=https://packages.microsoft.com/yumrepos/azurecore/" | tee -a /etc/yum.repos.d/azurecore.repo
+        echo "enabled=1" | tee -a /etc/yum.repos.d/azurecore.repo
+        echo "gpgcheck=0" | tee -a /etc/yum.repos.d/azurecore.repo
+
+yum install azure-security
+```
+
+#### [SUSE-based distros](#tab/susebased)
+
+These commands apply to SLES, openSUSE, and other SUSE-based distros.
+
+```bash
+ zypper ar -t rpm-md -n "packages-microsoft-com-azurecore" --no-gpgcheck https://packages.microsoft.com/yumrepos/azurecore/ azurecore
+
+zypper install azure-security
+```
+
+---
+
+After installing the Linux Security Package for your distro, run the following command to verify which boot components are responsible for Secure Boot failures:
+
+```bash
+sudo sbinfo -u -m -k -b 
+```
+
+To learn more about the SBInfo diagnostic tool, you can run 'sudo sbinfo -help'
+
+
+### Windows Virtual Machines
+
+'Signtool.exe' is a PowerShell tool used for verifying if a driver is signed or not on Windows. It shows signature status, timestamp, and certificate chain.
+
+[Learn more about the PowerShell utility SignTool](/windows/win32/seccrypto/signtool)
+
+> [!NOTE]
+> Using a Marketplace TrustedLaunch tagged image which has been updated to the latest version available version shouldn't cause an error state.
+>
+> For Azure Compute Gallery images, ensure it is either based on TLTagged Image or boot components from a trusted signer.
+
+![Signtool.exe verification results page.](./media/trusted-launch/signtool-verification-results.png)
+
+> [!IMPORTANT]
+> You can't sign drivers using this tool. This approach is primarily for understand which drivers are unsigned. 
 
 ### Why am I getting a boot integrity monitoring fault?
 
@@ -388,56 +481,6 @@ Microsoft Defender for Cloud periodically performs attestation. If the attestati
 - The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). This deviation indicates an untrusted module(s) were loaded and the OS may be compromised.
 - The attestation quote could not be verified to originate from the vTPM of the attested VM. This verification failure indicates a malware is present and may be intercepting traffic to the TPM.
 - The attestation extension on the VM isn't responding. This unresponsive extension indicates a denial-of-service attack by malware or an OS admin.
-
-### How would I verify a no-boot scenario in the Azure portal? 
-When a virtual machine becomes unavailable from a Secure Boot failure, 'no-boot' means that virtual machine has an operating system component that is signed by a trusted authority which blocks booting a Trusted Launch VM. When the VM is running, customers may see information from resource health within the Azure portal stating that there's a validation error in secure boot.
-
-To access resource health from the virtual machine configuration page, navigate to Resource Health under the 'Help' panel.
-
-:::image type="content" source="./media/trusted-launch/resource-health-error.png" lightbox="./media/trusted-launch/resource-health-error.png" alt-text="A resource health error message alerting a failed secure boot.":::
-
-## Drivers
-
-### Linux
-Certain Linux components that aren't included in the kernel may require signing. For example, the NVIDIA driver requires signing. To verify if a driver is signed, use the ['modinfo' command](https://www.man7.org/linux/man-pages/man8/modinfo.8.html):
-
-```bash
-modinfo <driver_name>
-```
-
-### Windows
-There are several ways to verity if a driver is signed on Windows.
-
-#### [Driver file properties](#tab/fileproperties)
-1. Right click and check the properties of the file.  
-1. Go to the Digital Signature Tab. If the tab doesn't exist, the module/driver isn't signed. 
-![Digital signature tab on an example file showing the name of the signer as Microsoft Windows.](./media/trusted-launch/valid-signature-example-in-file.png)
-1. If the tab is present, check the signature list. One of the signers should be Microsoft Windows.  
-1. Validate the signer entity by clicking on the signer’s name to open the digital signer detail window.
-1. Click 'View Certificate' to check the certificate of the issuer.  
-![Extra digital signature information from the certificate tab of the file.](./media/trusted-launch/valid-signature-example-certificate.png)
-1. The certificate should be issued to the signer “Microsoft Windows” and issuer should be 'Microsoft Windows Production PCA'.  
-
-#### [Windows Device Manager](#tab/devicemanager)
-1. Open 'Device Manager' 
-1. In Device Manager, expand the category for which you want to check the driver signing status.
-1. Right-click on the specific device for which you want to check the driver signing status and select "Properties" from the context menu.  
-1. In the device's properties window, go to the "Driver" tab.  
-1. Look for the "Digital Signer" information. This field displays whether the driver is digitally signed or not.  
-1. If the driver is signed with a valid digital signature, it will display the name of the signer or the certificate authority that issued the signature. If the driver isn't signed or has an invalid signature, it may show "Not digitally signed" or "Unsigned."  
-![Digital Signer info in the Device Manager.](./media/trusted-launch/valid-signature-example-device-manager.png)
-
-#### [Signtool.exe](#tab/signtool)
-'Signtool.exe' is a PowerShell tool used for verifying if a driver is signed or not. It shows signature status, timestamp, and certificate chain.
-
-[Learn more about the PowerShell utility SignTool](/windows/win32/seccrypto/signtool)
-
-> [!NOTE]
-> This approach is primarily for understand which drivers are unsigned. You can't sign drivers using this tool.
-
-![Signtool.exe verification results page.](./media/trusted-launch/signtool-verification-results.png)
-
----
 
 ## Certificates
 
