@@ -220,8 +220,6 @@ az spring application-configuration-service git repo add \
     --label <git-branch-name>
 ```
 
----
-
 ## Configure the TLS certificate to access the Git backend with a self-signed certificate for Gen2
 
 This step is optional. If you use a self-signed certificate for the Git backend, you must configure the TLS certificate to access the Git backend.
@@ -249,8 +247,6 @@ az spring application-configuration-service git repo add \
     --label <git-branch-name> \
     --ca-cert-name <ca-certificate-name>
 ```
-
----
 
 ## Use Application Configuration Service with applications
 
@@ -293,8 +289,6 @@ az spring app deploy \
     --config-file-pattern <config-file-pattern>
 ```
 
----
-
 ## Bind Apps to Application Configuration Service during Creation
 
 When you create new apps, you can also bind them to the Application Configuration Service as you create them.
@@ -330,8 +324,6 @@ az spring app create \
     --bind-application-configuration-service 
 ```
 
----
-
 ## Enable/disable Application Configuration Service after service creation
 
 You can enable and disable Application Configuration Service after service creation using the Azure portal or the Azure CLI. Before disabling Application Configuration Service, you're required to unbind all of your apps from it.
@@ -360,8 +352,6 @@ az spring application-configuration-service delete \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
-
----
 
 ## Check logs
 
