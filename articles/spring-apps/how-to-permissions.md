@@ -59,15 +59,15 @@ The Developer role includes permissions to restart apps and see their log stream
 
 1. Select **Next**:
 
-   :::image type="content" source="media/spring-cloud-permissions/create-custom-role.png" alt-text="Screenshot that shows the Basics tab of the Create a custom role window." lightbox="media/spring-cloud-permissions/create-custom-role.png":::
+   :::image type="content" source="media/how-to-permissions/create-custom-role.png" alt-text="Screenshot that shows the Basics tab of the Create a custom role window." lightbox="media/how-to-permissions/create-custom-role.png":::
 
 1. Select **Add permissions**:
 
-   :::image type="content" source="media/spring-cloud-permissions/add-permissions.png" alt-text="Screenshot that shows the Add permissions button." lightbox="media/spring-cloud-permissions/add-permissions.png":::
+   :::image type="content" source="media/how-to-permissions/add-permissions.png" alt-text="Screenshot that shows the Add permissions button." lightbox="media/how-to-permissions/add-permissions.png":::
 
 1. In the search box, search for **Microsoft.app**. Select **Microsoft Azure Spring Apps**:
 
-   :::image type="content" source="media/spring-cloud-permissions/spring-cloud-permissions.png" alt-text="Screenshot that shows the results of searching for Microsoft.app." lightbox="media/spring-cloud-permissions/spring-cloud-permissions.png":::
+   :::image type="content" source="media/how-to-permissions/spring-cloud-permissions.png" alt-text="Screenshot that shows the results of searching for Microsoft.app." lightbox="media/how-to-permissions/spring-cloud-permissions.png":::
 
 1. Select the permissions for the Developer role.
 
@@ -146,7 +146,7 @@ The Developer role includes permissions to restart apps and see their log stream
 
    * **Read : Read operation status**
 
-   :::image type="content" source="media/spring-cloud-permissions/developer-permissions-box.png" alt-text="Screenshot of Azure portal that shows the selections for Developer permissions." lightbox="media/spring-cloud-permissions/developer-permissions-box.png":::
+   :::image type="content" source="media/how-to-permissions/developer-permissions-box.png" alt-text="Screenshot of Azure portal that shows the selections for Developer permissions." lightbox="media/how-to-permissions/developer-permissions-box.png":::
 
 1. Select **Add**.
 
@@ -170,7 +170,7 @@ The Developer role includes permissions to restart apps and see their log stream
 
 1. Select **Edit**, and then delete the default text:
 
-   :::image type="content" source="media/spring-cloud-permissions/create-custom-role-edit-json.png" alt-text="Screenshot that shows the default JSON text." lightbox="media/spring-cloud-permissions/create-custom-role-edit-json.png":::
+   :::image type="content" source="media/how-to-permissions/create-custom-role-edit-json.png" alt-text="Screenshot that shows the default JSON text." lightbox="media/how-to-permissions/create-custom-role-edit-json.png":::
 
 1. Paste in the following JSON to define the Developer role:
 
@@ -266,7 +266,7 @@ The Developer role includes permissions to restart apps and see their log stream
       }
       ```
 
-   :::image type="content" source="media/spring-cloud-permissions/create-custom-role-json.png" alt-text="Screenshot that shows the JSON for the Developer role." lightbox="media/spring-cloud-permissions/create-custom-role-json.png":::
+   :::image type="content" source="media/how-to-permissions/create-custom-role-json.png" alt-text="Screenshot that shows the JSON for the Developer role." lightbox="media/how-to-permissions/create-custom-role-json.png":::
 
 1. Select **Save**.
 
@@ -380,7 +380,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
    * **Read : List available skus**
 
-   :::image type="content" source="media/spring-cloud-permissions/dev-ops-permissions.png" alt-text="Screenshot of Azure portal that shows the selections for DevOps permissions." lightbox="media/spring-cloud-permissions/dev-ops-permissions.png":::
+   :::image type="content" source="media/how-to-permissions/dev-ops-permissions.png" alt-text="Screenshot of Azure portal that shows the selections for DevOps permissions." lightbox="media/how-to-permissions/dev-ops-permissions.png":::
 
 1. Select **Add**.
 
@@ -398,7 +398,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
 1. Select **Edit**, and then delete the default text:
 
-   :::image type="content" source="media/spring-cloud-permissions/create-custom-role-edit-json.png" alt-text="Screenshot that shows the default JSON text." lightbox="media/spring-cloud-permissions/create-custom-role-edit-json.png":::
+   :::image type="content" source="media/how-to-permissions/create-custom-role-edit-json.png" alt-text="Screenshot that shows the default JSON text." lightbox="media/how-to-permissions/create-custom-role-edit-json.png":::
 
 1. Paste in the following JSON to define the DevOps Engineer role:
 
@@ -558,7 +558,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
    * **Read : Read operation status**
 
-   :::image type="content" source="media/spring-cloud-permissions/ops-sre-permissions.png" alt-text="Screenshot of Azure portal that shows the selections for Ops - Site Reliability Engineering permissions." lightbox="media/spring-cloud-permissions/ops-sre-permissions.png":::
+   :::image type="content" source="media/how-to-permissions/ops-sre-permissions.png" alt-text="Screenshot of Azure portal that shows the selections for Ops - Site Reliability Engineering permissions." lightbox="media/how-to-permissions/ops-sre-permissions.png":::
 
 1. Select **Add**.
 
@@ -576,7 +576,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
 1. Select **Edit**, and then delete the default text:
 
-   :::image type="content" source="media/spring-cloud-permissions/create-custom-role-edit-json.png" alt-text="Screenshot that shows the default JSON text." lightbox="media/spring-cloud-permissions/create-custom-role-edit-json.png":::
+   :::image type="content" source="media/how-to-permissions/create-custom-role-edit-json.png" alt-text="Screenshot that shows the default JSON text." lightbox="media/how-to-permissions/create-custom-role-edit-json.png":::
 
 1. Paste in the following JSON to define the Ops - Site Reliability Engineering role:
 
@@ -720,7 +720,7 @@ This role can create and configure everything in Azure Spring Apps and apps with
 
    * **Read : List available skus**
 
-   :::image type="content" source="media/spring-cloud-permissions/pipelines-permissions-box.png" alt-text="Screenshot of Azure portal that shows the selections for Azure Pipelines / Jenkins / GitHub Actions permissions." lightbox="media/spring-cloud-permissions/pipelines-permissions-box.png":::
+   :::image type="content" source="media/how-to-permissions/pipelines-permissions-box.png" alt-text="Screenshot of Azure portal that shows the selections for Azure Pipelines / Jenkins / GitHub Actions permissions." lightbox="media/how-to-permissions/pipelines-permissions-box.png":::
 
 1. Select **Add**.
 
@@ -738,7 +738,7 @@ This role can create and configure everything in Azure Spring Apps and apps with
 
 1. Select **Edit**, and then delete the default text:
 
-   :::image type="content" source="media/spring-cloud-permissions/create-custom-role-edit-json.png" alt-text="Screenshot that shows the default JSON text." lightbox="media/spring-cloud-permissions/create-custom-role-edit-json.png":::
+   :::image type="content" source="media/how-to-permissions/create-custom-role-edit-json.png" alt-text="Screenshot that shows the default JSON text." lightbox="media/how-to-permissions/create-custom-role-edit-json.png":::
 
 1. Paste in the following JSON to define the Azure Pipelines / Jenkins / GitHub Actions role:
 
