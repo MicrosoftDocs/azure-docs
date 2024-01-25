@@ -13,7 +13,7 @@ ms.custom:
 ---
 
 
-# Relocation guidance for Azure Virtual Network
+# Relocate Azure Virtual Network to another region
 
 This article covers the recommended approaches, guidelines and practices for relocating an Azure Virtual Network.
 
@@ -164,14 +164,4 @@ As soon as the virtual network get deployed in a specific region, Network Watche
 - To get a centralized view of the Network Monitoring, you'll need to enable Connection Monitor ([Migrate to Connection monitor from Network performance monitor](/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor)). 
 
 - Recreate the NSG flow logs for the target virtual network.
-
-## Validate
-
-Once the entire relocation is completed, you need to test and validate the virtual network by doing the following:
-
-- Once the virtual network is relocated to the target region, run a smoke test and integration test (either through a script or manually) to validate and ensure that all configurations and dependent resources have been properly linked and all configured data are accessible.
-
-- Validate all virtual network components and integration.
-
-- If you relocated source peering, use Network Watcher to validate connectivity and communication once the peering is reconfigured. 
 

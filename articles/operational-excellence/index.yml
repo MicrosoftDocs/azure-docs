@@ -26,5 +26,5 @@ landingContent:
       - linkListType: concept
         links:
           - text: Relocation guides by service
-            url: relocation-concept-guidance-overview.md
+            url: overview-relocation.md
 

@@ -12,7 +12,7 @@ ms.custom:
   - subject-relocation
 ---
 
-# Relocation guidance for Azure Public IP
+# Relocate Azure Public IP to another region
 
 This article shows you how to relocate [Azure Private Link](/azure/private-link/private-link-overview) when moving a Platform as a Service (PaaS) service to another region. 
 

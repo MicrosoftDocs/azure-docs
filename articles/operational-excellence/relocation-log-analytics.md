@@ -12,7 +12,7 @@ ms.custom:
   - subject-relocation
 ---
 
-# Relocation guidance for Azure Monitor - Log Analytics Workspace
+# Relocate Azure Monitor - Log Analytics Workspace to another region
 
 This article covers relocation guidance for Azure Monitor - Log Analytics Workspace across regions.
 

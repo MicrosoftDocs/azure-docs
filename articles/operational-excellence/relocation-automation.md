@@ -7,9 +7,11 @@ ms.reviewer: anaharris
 ms.date: 01/19/2024
 ms.service: automation
 ms.topic: how-to
+ms.custom:
+  - subject-relocation
 ---
 
-# Relocation guidance for Azure Automation
+# Relocate Azure Automation to another region
 
 This article covers relocation guidance for [Azure Automation](../automation/overview.md) across regions.
 
@@ -58,9 +60,3 @@ In the diagram below, the red flow lines illustrate redeployment of the target i
 
 1. Configure the target virtual machines with desired state configuration from the relocated Azure Automation instance as per source.
 
-## Validate
-
-Once the relocation is complete, the Azure Automation needs to be tested and validated. Below are some of the recommended guidelines.
-
-- Run manual or automated smoke and integration tests to ensure that configurations and dependent resources have been properly linked, and that configured data is accessible.
-- Test Azure Automation components and integration.

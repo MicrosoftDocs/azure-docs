@@ -10,7 +10,7 @@ ms.custom:
   - subject-relocation
 ---
 
-# Relocation guidance for Microsoft Sentinel
+# Relocate Microsoft Sentinel to another region
 
 This article covers relocation guidance for Microsoft Sentinel across regions. Because Sentinel is a global resource, you don't need to move it as an instance. Instead, you must reconfigure Sentinel with the associated resources, such as Workbooks, Data Connectors, and Log Analytics Workspace, at target.
 
@@ -45,11 +45,3 @@ To relocate Microsoft Sentinel to a new region, you must reconfigure Sentinel to
 1. Connect the workbooks to Sentinel.
 1. Reconfigure the target data connectors as per source. 
 1. Connect the connectors to Sentinel.
-
-### Validate relocation
-
-Once the relocation is complete, Sentinel needs to be tested and validated. Below are some of the recommended guidelines.
-
-- Run manual or automated smoke and integration tests to ensure that configurations and dependent resources have been properly linked, and that configured data is accessible.
-
-- Test Sentinel components and integration.

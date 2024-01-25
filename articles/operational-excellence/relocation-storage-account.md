@@ -12,44 +12,23 @@ ms.custom:
 ---
 
 
-# Relocation guidance for Azure Storage Account
+# Relocate Azure Storage Account to another region
 
-This article covers relocation guidance for Azure Storage Account across regions.
+This article shows you how to relocate your storage accounts to a new region. To relocate a storage account, you need to:
 
-To relocate Azure Storage account to a new region, you can choose to [redeploy without data migration](#redeploy-without-data) or [redeploy with data migration](#redeploy-with-data) strategies.
+1. Create a copy of your storage account in another region. 
+1. Move your data to that account by using AzCopy, or another tool of your choice.
 
-**Azure Resource Mover** doesn't support moving Azure Storage accounts. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
 
-## Redeploy without data
+### Prerequisites
 
-If your Azure Storage Account instance doesn't have any client specific data and the instance itself needs to be moved alone, you can choose to redeploy without data migration. A simple redeployment without data is also your best option for [Azure Queues](/azure/storage/queues/storage-queues-introduction), as no data migration is required for a service that only supports live messaging transactions.
-
-**To redeploy your Storage Account instance without data:**
-
-1. Redeploy the Storage Account instance by using [Bicep, ARM Template, or Terraform](/azure/templates/microsoft.storage/storageaccounts?tabs=json&pivots=deployment-language-arm-template).
-
-1. Depending on your Storage Account deployment, the following dependent resources may need to be deployed and configured in the target region *prior* to relocation:
+- Ensure that the services and features that your account uses are supported in the target region.
+- For preview features, ensure that your subscription is allowlisted for the target region. Depending on your Storage Account deployment, the following dependent resources may need to be deployed and configured in the target region *prior* to relocation:
     - [Virtual Network, Network Security Groups, and User Defined Route](./relocation-virtual-network.md)
     - [Azure Key Vault](./relocation-key-vault.md)
     - [Azure Automation](./relocation-automation.md)
     - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
     - [Azure Private Link](./relocation-private-link.md)
-    
-    To view the available configuration templates, see [the complete Azure Template library](/azure/templates/).
-
-## Redeploy with data
-
-To redeploy your storage account with data, you can choose between the following tools:
-    
-- [AzCopy](#redeploy-using-azcopy) supports Blob and File storage accounts only.
-- [Azure Data Factory](#redeploy-using-azure-data-factory) supports all storage types.
-- [Azure portal](/azure/storage/common/storage-account-move?tabs=azure-portal)
-
-### Prerequisites
-
-- Identify all Azure Storage Account dependant resources.
-- Confirm that all services and features that are used by Azure Storage Account are supported in the target region.
-- For preview features, confirm that your subscription is supported in the target region.
 - Capture the below list of internal resources/settings of the Storage Account instance.
     - Lifecycle management policies
     - Static websites
@@ -57,140 +36,242 @@ To redeploy your storage account with data, you can choose between the following
     - Alerts
     - Content Delivery Network (CDN)
 - Confirm that the Storage Account instance is deployed in [one of the paired regions](/azure/reliability/cross-region-replication-azure#azure-paired-regions) with Geo-redundant storage (GRS) or Read-Access Geo-Redundant Storage (RA-GRS) support.
-- Depending on your Storage Account deployment, the following dependent resources may need to be deployed and configured in the target region *prior* to relocation:
-    - [Virtual Network, Network Security Groups, and User Defined Route](./relocation-virtual-network.md)
-    - [Azure Key Vault](./relocation-key-vault.md)
-    - [Azure Automation](./relocation-automation.md)
-    - [Public IP](/azure/virtual-network/move-across-regions-publicip-portal)
-    - [Azure Private Link](./relocation-private-link.md)
-
     >[!IMPORTANT]
     >If the Storage Account instance is operating in a production layer of a landing zone, such as hosting a static website or CDN, then you must reevaluate dependent resources as per configured resources like Traffic Manager.
-- Choose which relocation tool you wish to use:
-    - [AzCopy](#redeploy-using-azcopy) supports Blob and File storage accounts only.
-    - [Azure Data Factory](#redeploy-using-azure-data-factory) supports all storage types.
-    - [Azure portal](/azure/storage/common/storage-account-move?tabs=azure-portal)
-    
 
-### Redeploy using AzCopy
+## Prepare
 
-AzCopy only supports the following storage types:
+To prepare, you must export and then modify a Resource Manager template.
 
-| Storage type	| Currently supported method of authorization |
-|---------------|---------------------------------------------|
-|Blob storage|	Microsoft Entra ID & shared access signature (SAS)|
-|Blob storage (hierarchical namespace)	|Microsoft Entra ID & SAS|
-|File storage|	SAS only|
+### Export a template
+
+A Resource Manager template contains settings that describe your storage account.
+
+# [Portal](#tab/azure-portal)
+
+To export a template by using Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. Select **All resources** and then select your storage account.
+
+3. Select > **Automation** > **Export template**.
+
+4. Choose **Download** in the **Export template** blade.
+
+5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
+
+   This zip file contains the .json files that comprise the template and scripts to deploy the template.
+
+# [PowerShell](#tab/azure-powershell)
+
+To export a template by using PowerShell:
+
+1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions:
+
+   ```azurepowershell-interactive
+   Connect-AzAccount
+   ```
+
+2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want to move.
+
+   ```azurepowershell-interactive
+   $context = Get-AzSubscription -SubscriptionId <subscription-id>
+   Set-AzContext $context
+   ```
+
+3. Export the template of your source storage account. These commands save a json template to your current directory.
+
+   ```azurepowershell-interactive
+   $resource = Get-AzResource `
+     -ResourceGroupName <resource-group-name> `
+     -ResourceName <storage-account-name> `
+     -ResourceType Microsoft.Storage/storageAccounts
+   Export-AzResourceGroup `
+     -ResourceGroupName <resource-group-name> `
+     -Resource $resource.ResourceId
+   ```
+
+---
 
 
->[!NOTE]
->Multiple number of parallel operations in a low-bandwidth environment can increase load on the network connection and prevent the operations from fully completion. Make sure to throttle parallel operations based on actual available network bandwidth.
+### Modify the template
 
-1. [Export the source Storage Account template](/azure/azure-resource-manager/templates/export-template-portal). 
+Modify the template by changing the storage account name and region.
 
-1. Reconfigure the template parameters for the target, such as Storage Account name, replication type, SKU, target location etc.
+# [Portal](#tab/azure-portal)
 
-1. [Generate an SAS](/azure/storage/blobs/sas-service-create-dotnet) to connect to azure blob storage.
+To deploy the template by using Azure portal:
 
-1. Use [AZCopy](/azure/storage/common/storage-use-azcopy-v10) to migrate the data.
+1. In the Azure portal, select **Create a resource**.
 
-    - For Blob storage relocation, run:
+2. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
 
+3. Select **Template deployment**.
+
+    ![Azure Resource Manager templates library](../storage/common/media/storage-account-move/azure-resource-manager-template-library.png)
+
+4. Select **Create**.
+
+5. Select **Build your own template in the editor**.
+
+6. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
+
+7. In the **template.json** file, name the target storage account by setting the default value of the storage account name. This example sets the default value of the storage account name to `mytargetaccount`.
+
+    ```json
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccounts_mysourceaccount_name": {
+            "defaultValue": "mytargetaccount",
+            "type": "String"
+        }
+    },
+
+8. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `centralus`.
+
+    ```json
+    "resources": [{
+         "type": "Microsoft.Storage/storageAccounts",
+         "apiVersion": "2019-04-01",
+         "name": "[parameters('storageAccounts_mysourceaccount_name')]",
+         "location": "centralus"
+         }]          
     ```
-        # cp switch will copy the data
-        azcopy cp "https://[srcaccount].blob.core.windows.net?[SAS]" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
-        
-        # sync switch will copy the data in case data is not already copied/missing.
-        azcopy sync "https://[srcaccount].blob.core.windows.net?[SAS]" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
+
+    To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
+
+# [PowerShell](#tab/azure-powershell)
+
+To deploy the template by using PowerShell:
+
+1. In the **template.json** file, name the target storage account by setting the default value of the storage account name. This example sets the default value of the storage account name to `mytargetaccount`.
+
+    ```json
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccounts_mysourceaccount_name": {
+            "defaultValue": "mytargetaccount",
+            "type": "String"
+        }
+    },
     ```
 
-    - For File share relocation, run:
+2. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `eastus`.
 
+    ```json
+    "resources": [{
+         "type": "Microsoft.Storage/storageAccounts",
+         "apiVersion": "2019-04-01",
+         "name": "[parameters('storageAccounts_mysourceaccount_name')]",
+         "location": "eastus"
+         }]          
     ```
-        # cp switch will copy the data
-        azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path><SAS-token>' --preserve-smb-permissions=true --preserve-smb-info=true
-        # sync switch will copy the data in case data is not already copied/missing.
-        azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path><SAS-token>' --preserve-smb-permissions=true --preserve-smb-info=true
-    
+
+    You can obtain region codes by running the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command.
+
+    ```azurepowershell-interactive
+    Get-AzLocation | format-table 
     ```
-    >[!IMPORTANT]
-    >To copy the File share along with current NTFS permissions, add the `--preserver-smb-permissions=true` switch.
-1. Once the relocation completes, reconfigure the following associated settings that were copied from the source account.
-    
-    - Network firewall reconfiguration
-    - Lifecycle management rules
-    - Validate the configuration of the storage account like Secure transfer required, Allow Blob public access, Allow storage account key access etc.
-    - Diagnostic settings reconfiguration
-    - Source alert configuration.
 
-1. If the source Storage Account is being used for one or more of the following services, you'll need to reconfigure the services on the target storage account.
+---
 
-    - [Static website hosting](/azure/storage/blobs/storage-blob-static-website)
-    - [Azure Content Delivery Network](/azure/cdn/cdn-overview). Change the origin of existing CDN to the primary blob service endpoint (or the primary static website endpoint) of your new account.
-    - [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+## Redeploy
+
+Deploy the template to create a new storage account in the target region.
+
+# [Portal](#tab/azure-portal)
+
+1. Save the **template.json** file.
+
+2. Enter or select the property values:
+
+   - **Subscription**: Select an Azure subscription.
+
+   - **Resource group**: Select **Create new** and give the resource group a name.
+
+   - **Location**: Select an Azure location.
+
+3. Select **I agree to the terms and conditions stated above**, and then select **Select Purchase**.
+
+# [PowerShell](#tab/azure-powershell)
+
+1. Obtain the subscription ID where you want to deploy the target public IP with [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription):
+
+   ```azurepowershell-interactive
+   Get-AzSubscription
+   ```
+
+2. Use these commands to deploy your template:
+
+   ```azurepowershell-interactive
+   $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+   $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+   New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+   New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "<name of your local template file>"  
+   ```
+
+---
+
+> [!TIP]
+> If you receive an error which states that the XML specified is not syntactically valid, compare the JSON in your template with the schemas described in the [Azure Resource Manager documentation](/azure/templates/microsoft.storage/allversions).
+
+### Configure the new storage account
+
+Some features won't export to a template, so you'll have to add them to the new storage account.
+
+The following table lists these features along with guidance for adding them to your new storage account.
+
+| Feature    | Guidance    |
+|--------|-----------|
+| **Lifecycle management policies** | [Manage the Azure Blob storage lifecycle](../blobs/storage-lifecycle-management-concepts.md) |
+| **Static websites** | [Host a static website in Azure Storage](../blobs/storage-blob-static-website-how-to.md) |
+| **Event subscriptions** | [Reacting to Blob storage events](../blobs/storage-blob-event-overview.md) |
+| **Alerts** | [Create, view, and manage activity log alerts by using Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md) |
+| **Content Delivery Network (CDN)** | [Use Azure CDN to access blobs with custom domains over HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
+
+> [!NOTE]
+> If you set up a CDN for the source storage account, just change the origin of your existing CDN to the primary blob service endpoint (or the primary static website endpoint) of your new account.
+
+### Move data to the new storage account
+
+AzCopy is the preferred tool to move your data over. It's optimized for performance.  One way that it's faster, is that data is copied directly between storage servers, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script. See [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=/azure/storage/blobs/toc.json).
+
+You can also use Azure Data Factory to move your data over. It provides an intuitive user interface. To use Azure Data Factory, see any of these links:.
+
+  - [Copy data to or from Azure Blob storage by using Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
+  - [Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory](/azure/data-factory/connector-azure-data-lake-storage)
+  - [Copy data from or to Azure Files by using Azure Data Factory](/azure/data-factory/connector-azure-file-storage)
+  - [Copy data to and from Azure Table storage by using Azure Data Factory](/azure/data-factory/connector-azure-table-storage)
 
 
-### Redeploy using Azure Data Factory
 
-Azure Data Factory supports all Storage Account types from one region to another. 
+## Discard or clean up
 
->[!TIP]
-> You can perform the steps below using a JSON automation script. The JSON can be edited and used as many times as you need.[NEED LINK](). 
+After the deployment, if you want to start over, you can delete the target storage account, and repeat the steps described in the [Prepare](#prepare) and [Redeploy](#redeploy) sections of this article.
 
-**To move your storage account with Data Factory:**
+To commit the changes and complete the move of a storage account, delete the source storage account.
 
-1. You must secure any data store credentials that are to be used with Azure Data factory.
-    
-    - Store encrypted credentials in an Azure Data Factory managed store.
-    - Store credentials in Azure Key Vault.
+# [Portal](#tab/azure-portal)
 
-1. If using a private network connection, you must open the following ports:
-    - *.core.windows.net/443
-    - Required by the PowerShell encryption cmdlet/8060 (TCP)
+To remove a storage account by using the Azure portal:
 
-1. [Export the source Storage Account template](/azure/azure-resource-manager/templates/export-template-portal). 
+1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Storage accounts** to display the list of your storage accounts.
 
-1. Reconfigure the template parameters for the target, such as Storage Account name, replication type, SKU, target location etc.
+2. Locate the target storage account to delete, and right-click the **More** button (**...**) on the right side of the listing.
 
-1. Deploy a new or use an existing [Azure Data Factory template](/azure/templates/microsoft.datafactory/factories?tabs=json&pivots=deployment-language-arm-template). 
+3. Select **Delete**, and confirm.
 
-1. Choose the authentication types for source and target. Azure Data Factory's support for authenticate types depends on the data type that's being migrate. Use the table below to see which authentication types are supported for each storage type.
+# [PowerShell](#tab/azure-powershell)
 
-    | Authentication type	| Azure Blob storage| 	Azure Data Lake Storage Gen2	| Azure Files share	| Azure Table storage| 
-    |---------------------------| ----------------------| ---------------------| ------------------| ---------| 
-    | Account key authentication| 	Yes	| Yes	| Yes| 	Yes| 
-    | Shared access signature authentication	| Yes	| No	| Yes	| Yes| 
-    | Service principal authentication	| Yes| 	Yes| 	No| 	No| 
-    | System-assigned managed identity authentication| 	Yes| 	Yes	| No| 	No| 
-    | User-assigned managed identity authentication| 	Yes	| Yes| 	No| 	No| 
+To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzStorageAccount](/powershell/module/az.storage/remove-azstorageaccount) command:
 
-1. [Define Azure Data Factory linked service pipelines and configure connectors](/azure/data-factory/concepts-linked-services?tabs=data-factory) for the migrating data.
+```powershell
+Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storageAccount
+```
 
-    >[!IMPORTANT]
-    >If you choose to author a pipeline in JSON, add the `encryption` property and set it to `true` in the connection string.
+---
 
-1. Test the linked service connections. 
-
-1. Configure the validation of data with various file format for pre/post migration. All folders and files that share the same schema in the storage account can be segmented. 
-
-1. Once the relocation completes, reconfigure the following associated settings that were copied from the source account.
-    
-    - Network firewall reconfiguration
-    - Lifecycle management rules
-    - Validate the configuration of the storage account like Secure transfer required, Allow Blob public access, Allow storage account key access etc.
-    - Diagnostic settings reconfiguration
-    - Source alert configuration.
-
-1. If the source Storage Account is being used for one or more of the following services, you'll need to reconfigure the services on the target storage account.
-
-    - [Static website hosting](/azure/storage/blobs/storage-blob-static-website)
-    - [Azure Content Delivery Network](/azure/cdn/cdn-overview). Change the origin of existing CDN to the primary blob service endpoint (or the primary static website endpoint) of your new account.
-    - [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-
-### Validate
-
-Once the relocation is complete, the Azure Storage Account needs to be tested and validated. Below are some of the recommended guidelines.
-
-- Run manual or automated smoke and integration tests to ensure that configurations and dependent resources have been properly linked, and that configured data is accessible.
-
-- Test Storage Account components and integration.

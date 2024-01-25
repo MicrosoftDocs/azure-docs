@@ -11,7 +11,7 @@ ms.custom:
   - subject-relocation
 ---
 
-# Relocation guidance for Azure Event Hubs
+# Relocate Azure Event Hubs to another region
 
 
 This article covers relocation guidance for Azure Event Hubs across regions. 
@@ -103,9 +103,3 @@ To delete an Event Hubs namespace (source or target) by using the Azure portal:
     ![Delete namespace - button](../event-hubs//media/move-across-regions/delete-namespace-button.png)
 3. On the **Delete Namespace** page, confirm the deletion by typing the **namespace name**, and then select **Delete**. 
 
-## Validate
-
-Once the relocation is complete, the Azure Event Hub needs to be tested and validated. Below are some of the recommended guidelines.
-
-- Run manual or automated smoke and integration tests to ensure that configurations and dependent resources have been properly linked, and that configured data is accessible.
-- Test Azure Key Vault components and integration.

@@ -5,7 +5,7 @@
 - name: Azure region relocation
   items:
   - name: Overview
-    href: relocation-concept-guidance-overview.md
+    href: overview-relocation.md
   - name: Relocation guides by service
     items:
     - name: Foundational services

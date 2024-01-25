@@ -7,9 +7,11 @@ ms.topic: conceptual
 ms.date: 01/16/2024
 ms.author: anaharris
 ms.custom: subject-reliability
+ms.custom:
+  - subject-relocation
 ---
 
-# Relocation guidance overview (Preview)
+# Azure services relocation guidance overview (Preview)
 
 As Microsoft continues to expand Azure global infrastructure and launch new Azure regions worldwide, there's an increasing number options available for you to relocate your workloads into new regions.  Region relocation options vary by service and by workload architecture.  To successfully relocate a workload to another region, you need to plan your relocation strategy with an understanding of what each service in your workload requires and supports. 
 

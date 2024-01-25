@@ -17,7 +17,7 @@ The Azure operational excellence documentation is an organized collection of ser
 
 Currently in preview, the operational excellence documentation set contains the following service-specific content:
 
-- [Service region relocation](./relocation-concept-guidance-overview.md). The region relocation documentation is designed to provide service-specific relocation guidance, so that you can move your services from one region to another safely and with confidence, in accordance with the following Well-architected Framework (WAF) principles:
+- [Service region relocation](./overview-relocation.md). The region relocation documentation is designed to provide service-specific relocation guidance, so that you can move your services from one region to another safely and with confidence, in accordance with the following Well-architected Framework (WAF) principles:
     - [Deploy with confidence](/azure/well-architected/operational-excellence/principles#deploy-with-confidence) 
     - [Adopt safe deployment practices](/azure/well-architected/operational-excellence/principles#adopt-safe-deployment-practices)  
 

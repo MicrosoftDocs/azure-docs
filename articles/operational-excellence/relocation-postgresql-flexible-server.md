@@ -13,7 +13,7 @@ ms.custom:
 
 
 
-# Relocation guidance for Azure Database for PostgreSQL
+# Relocate Azure Database for PostgreSQL to another region
 
 This article covers relocation guidance for Azure Database for PostgreSQL, Single Server, and Flexible Servers across geographies, where region pairs aren't available for replication and geo-restore.  
 
@@ -114,9 +114,3 @@ Redeployment with data migration for Azure Database for PostgreSQL is based on l
         1. Ensure that the `ignoreMissingVnetServiceEndpoint` flag is set to `False`, so that the IaC fails to deploy the database when the service endpoint isn’t configured in the target region. 
         
         
-## Validate
-
-Once the relocation is complete, the Azure PostgreSQL server needs to be tested and validated. Below are some of the recommended guidelines.
-
-- Run manual or automated smoke and integration tests to ensure that configurations and dependent resources have been properly linked, and that configured data is accessible.
-- Test Azure Key Vault components and integration.

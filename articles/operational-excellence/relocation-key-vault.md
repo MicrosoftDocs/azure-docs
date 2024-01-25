@@ -11,7 +11,7 @@ ms.custom:
   - subject-relocation
 ---
 
-# Relocation guidance for Azure Key Vault
+# Relocate Azure Key Vault to another region
 
 This article covers relocation guidance for Azure Key Vault across regions. Azure Key Vault does not allow you to move a key vault from one region to another. You can, however, create a key vault in the new region, manually copy each individual key, secret, or certificate from your existing key vault to the new key vault, and then remove the original key vault.
 
@@ -90,9 +90,3 @@ In the diagram below,
 
 1. Before deleting your old key vault, verify that the new vault contains all of the required keys, secrets, and certificates. Ensure the key vault isn't needed to decrypt old encrypted backups of virtual machines, databases, or any other dependent Azure services in the source region.
 
-## Validate
-
-Once the relocation is complete, the Azure Key Vault needs to be tested and validated. Below are some of the recommended guidelines.
-
-- Run manual or automated smoke and integration tests to ensure that configurations and dependent resources have been properly linked, and that configured data is accessible.
-- Test Azure Key Vault components and integration.
