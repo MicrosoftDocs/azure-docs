@@ -497,6 +497,4 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [PII detection overview](../personally-identifiable-information/overview.md "Learn more about Personally Identifiable Information detection.")
->
->[Document Summarization overview](../summarization/overview.md "Learn more about automatic document summarization.")
+> [PII detection overview](../personally-identifiable-information/overview.md "Learn more about Personally Identifiable Information detection.") [Document Summarization overview](../summarization/overview.md "Learn more about automatic document summarization.")
