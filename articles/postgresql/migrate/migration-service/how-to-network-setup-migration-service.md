@@ -78,11 +78,15 @@ When an Azure VM and Azure Database for PostgreSQL are within the same virtual n
 - Configure NSG rules to allow traffic within the virtual network on the PostgreSQL port.
 - No other firewall rules are needed for the Azure Database for PostgreSQL since the traffic is internal to the virtual network.
 
-## Conclusion
-The migration service requires direct connectivity to the source database to perform the migration. Ensure all network security and compliance requirements are met when configuring public access or cross-network connections. Always test connectivity thoroughly before initiating the migration process.
+## Resources for Networking Setup
+
+- To establish an **ExpressRoute** connection, refer to the [Azure ExpressRoute Overview](/azure/expressroute/expressroute-introduction).
+- For setting up an **IPsec VPN**, consult the guide on [Azure Point-to-Site VPN connections](/azure/vpn-gateway/point-to-site-about).
+- For virtual network peering, [Azure Virtual Network peering](/azure/virtual-network/virtual-network-peering-overview)
 
 ## Related content
 
 - [Migration service](concepts-migration-service-postgresql.md)
 - [Known issues and limitations](concepts-known-issues-migration-service.md)
 - [Premigration validations](concepts-premigration-migration-service.md)
+- https://ops.microsoft.com/#/repos/b6b6fd6c-9d21-fafb-c32b-81062ab07537

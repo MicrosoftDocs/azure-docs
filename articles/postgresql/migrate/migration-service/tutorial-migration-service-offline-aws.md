@@ -11,6 +11,7 @@ ms.topic: tutorial
 ---
 
 # Tutorial: Migrate offline using the migration service from an AWS RDS PostgreSQL server to Azure Database for PostgreSQL - Flexible Server Preview
+
 [!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 
 This tutorial guides you in migrating a PostgreSQL instance from your AWS RDS to Azure Database for a PostgreSQL flexible server using the Azure portal and Azure CLI.
