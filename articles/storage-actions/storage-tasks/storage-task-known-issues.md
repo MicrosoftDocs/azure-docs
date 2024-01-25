@@ -59,7 +59,7 @@ For more information about scale limits, see [Scalability and performance target
 
 ## Storage task runs can write to the report export container without permission to the container
 
-As you create a task assignment, you select a role to assign to the system-assigned managed identity of the storage task. Because that role must first be assigned to your identity in the context of the target storage account or container, you're essentially transferring the role onto the system-assigned managed identity. When the task runs, it can operate only on containers where it's managed identity has the required role. This is not the case with the report export container that you choose during task assignment. A storage task run does not require the correct role to write reports to that container.
+As you create a task assignment, you'll assign a role to the system-assigned managed identity of the storage task. When the task runs, it can operate only on containers where it's managed identity is assigned the required role. This is not the case with the report export container that you choose during task assignment. A storage task run does not require the correct role to write reports to that container.
 
 ## String operators on container metadata, blob metadata, and blob index tags don't work if the values are numbers
 
