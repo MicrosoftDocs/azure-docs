@@ -49,7 +49,7 @@ However, in certain circumstances, you may choose to move your virtual network w
 
 ## Plan
 
-To plan for your relocation of an Azure Virtual Network, you must understand whether the virtual network is being used in either a connected or disconnected scenario. In a connected scenario, the virtual network has a routed IP connection to an on-premise datacenter using a hub, VPN Gateway or an ExpressRoute connection. In a disconnected scenario, the virtual network is used by workload components to communicate with each other.
+To plan for your relocation of an Azure Virtual Network, you must understand whether you are relocating your virtual network in a connected or disconnected scenario. In a connected scenario, the virtual network has a routed IP connection to an on-premise datacenter using a hub, VPN Gateway or an ExpressRoute connection. In a disconnected scenario, the virtual network is used by workload components to communicate with each other.
 
 
 :::image type="content" source="media/relocation/vnet-connected-scenarios.png" alt-text="Diagrams showing both connect scenario and disconnect scenarios for virtual network.":::
@@ -76,12 +76,12 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 
 ### Connected Scenario
 
-| Relocation with no IP Address Change                                                                                                                                                     | Relocation with IP Address Change                                                                                                                                    |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| No additional IP address ranges are needed.                                                                                                                                              | Additional IP Address ranges are needed.                                                                                                                             |
-| No IP Address change for resources after relocation.                                                                                                                                     | IP Address change of resources after relocation.                                                                                                                     |
-| All workloads with dependencies on each other need to be relocated together.                                                                                                             | Workload relocation without considering dependencies possible (Take communication latency into account).                                                             |
-| No communication between the two virtual networks in the source and target regions is possible.                                                                                          | Possible to enable communication between source and target region using vNetwork peering.                                                                            |
+| Relocation with no IP Address Change  | Relocation with IP Address Change |
+|  |  |
+| No additional IP address ranges are needed.| Additional IP Address ranges are needed. |
+| No IP Address change for resources after relocation.  | IP Address change of resources after relocation. 
+| All workloads with dependencies on each other need to be relocated together.   | Workload relocation without considering dependencies possible (Take communication latency into account).  |
+| No communication between the two virtual networks in the source and target regions is possible. | Possible to enable communication between source and target region using vNetwork peering.|
 | Data migrations scenarios where an communication between source and target region is needed, are not possible (using virtual networks) or can only established through public endpoints. | Enable data migration scenarios where communication between source and target region is needed by establishing a network peering for the duration of the relocation. |
 
 #### Connected relocation with the same IP-address range

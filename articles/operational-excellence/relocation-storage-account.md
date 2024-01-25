@@ -219,11 +219,11 @@ The following table lists these features along with guidance for adding them to 
 
 | Feature    | Guidance    |
 |--------|-----------|
-| **Lifecycle management policies** | [Manage the Azure Blob storage lifecycle](../blobs/storage-lifecycle-management-concepts.md) |
-| **Static websites** | [Host a static website in Azure Storage](../blobs/storage-blob-static-website-how-to.md) |
-| **Event subscriptions** | [Reacting to Blob storage events](../blobs/storage-blob-event-overview.md) |
-| **Alerts** | [Create, view, and manage activity log alerts by using Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md) |
-| **Content Delivery Network (CDN)** | [Use Azure CDN to access blobs with custom domains over HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
+| **Lifecycle management policies** | [Manage the Azure Blob storage lifecycle](../storage/blobs/storage-lifecycle-management-concepts.md) |
+| **Static websites** | [Host a static website in Azure Storage](../storage/blobs/storage-blob-static-website-how-to.md) |
+| **Event subscriptions** | [Reacting to Blob storage events](../storage/blobs/storage-blob-event-overview.md) |
+| **Alerts** | [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md) |
+| **Content Delivery Network (CDN)** | [Use Azure CDN to access blobs with custom domains over HTTPS](../storage/blobs/storage-https-custom-domain-cdn.md) |
 
 > [!NOTE]
 > If you set up a CDN for the source storage account, just change the origin of your existing CDN to the primary blob service endpoint (or the primary static website endpoint) of your new account.
