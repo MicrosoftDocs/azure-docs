@@ -342,9 +342,9 @@ Here's how to update a scaling plan using the Az.DesktopVirtualization PowerShel
 
     ```azurepowershell
     $scalingPlanParams = @{
-       ResourceGroupName = 'resourceGroup'
-       Name = 'scalingPlanPersonal'
-       Timezone = 'Eastern Standard Time'
+        ResourceGroupName = 'resourceGroup'
+        Name = 'scalingPlanPersonal'
+        Timezone = 'Eastern Standard Time'
     }
     
     Update-AzWvdScalingPlan @scalingPlanParams
