@@ -86,7 +86,7 @@ For example, usage from Log Analytics can be found by first filtering on the **M
 
 Add a filter on the **Instance ID** column for **contains workspace** or **contains cluster**. The usage is shown in the **Consumed Quantity** column. The unit for each entry is shown in the **Unit of Measure** column.
 
-#### Viewing data benefits used
+#### View data benefits used
 
 Since the usage export has both the number of units of usage and their cost, you can use this export to see the amount of benefits you are receiving from various offers such as the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). In the usage export, to see the benefits, look for the meters named:
 
