@@ -422,23 +422,25 @@ items:
     - name: Overview
       href: /rest/api/maps
     - name: Data
-      href: /rest/api/maps/data
+      href: /rest/api/maps/data?view=rest-maps-1.0
     - name: Data V2
-      href: /rest/api/maps/data-v2
+      href: /rest/api/maps/data
     - name: Data Registry
       href: /rest/api/maps/data-registry
     - name: Geolocation
       href: /rest/api/maps/geolocation
     - name: Render
-      href: /rest/api/maps/render
+      href: /rest/api/maps/render?view=rest-maps-1.0
     - name: Render V2
-      href: /rest/api/maps/render-v2
+      href: /rest/api/maps/render
     - name: Route
       href: /rest/api/maps/route
+    - name: Route V2 (Preview)
+      href: /rest/api/maps/route?view=rest-maps-2023-10-01-preview
     - name: Search
-      href: /rest/api/maps/search
+      href: /rest/api/maps/search?view=rest-maps-1.0
     - name: Search V2
-      href: /rest/api/maps/search-v2
+      href: /rest/api/maps/search
     - name: Spatial
       href: /rest/api/maps/spatial
     - name: Timezone

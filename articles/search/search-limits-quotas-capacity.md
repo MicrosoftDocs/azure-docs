@@ -69,21 +69,21 @@ Document size is actually a limit on the size of the Index API request body. Sin
 
 When estimating document size, remember to consider only those fields that can be consumed by a search service. Any binary or image data in source documents should be omitted from your calculations.
 
-## Vector index size limits
+## Vector storage limits
 
 When you index documents with vector fields, Azure AI Search constructs internal vector indexes using the algorithm parameters you provide. The size of these vector indexes is restricted by the memory reserved for vector search for your service's tier (or SKU).
 
-The service enforces a vector index size quota **for every partition** in your search service. Each extra partition increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded results in failure. You can resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
+The service enforces a vector storage quota **for every partition** in your search service. Each extra partition increases the available vector storage quota. This quota is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded results in failure. You can resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
-The table describes the vector index size quota per partition across the service tiers (or SKU). For context, it includes:
+The table describes the vector storage quota per partition across the service tiers (or SKU). For context, it includes:
 
 + [Partition storage limits](#service-limits) for each tier, repeated here for context.
 + Amount of each partition (in GB) available for vector indexes (created when you add vector fields to an index).
 + Approximate number of embeddings (floating point values) per partition.
 
-Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota. See our [documentation on vector index size](vector-search-index-size.md) for more details.
+Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice/get-service-statistics) to retrieve your vector storage quota. See our [documentation on vector storage](vector-search-index-size.md) for more details.
 
-### Services created prior to July 1, 2023
+### Services created before July 1, 2023
 
 | Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 | ----- | ------------------ | ------------------------------------------ | ---------------------------- |
@@ -96,13 +96,13 @@ Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice
 
 ### Services created after July 1, 2023 in supported regions
 
-Azure AI Search is rolling out increased vector index size limits worldwide for **new search services**, but the team is building out infrastructure capacity in certain regions. Unfortunately, existing services can't be migrated to the new limits.
+Azure AI Search is rolling out increased vector storage limits worldwide for **new search services**, but the team is building out infrastructure capacity in certain regions. Unfortunately, existing services can't be migrated to the new limits.
 
 The following regions **do not** support increased limits:
 
-- Germany West Central
-- Jio India West
-- Qatar Central
++ Germany West Central
++ West India
++ Qatar Central
 
 | Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 | ----- | ------------------ | ------------------------------------------ | ---------------------------- |
@@ -138,7 +138,7 @@ Maximum running times exist to provide balance and stability to the service as a
 
 <sup>4</sup> Maximum of 30 skills per skillset.
 
-<sup>5</sup> Regarding the 2 or 24 hour maximum duration for indexers: a 2-hour maximum is the most common and it's what you should plan for. The 24-hour limit is from an older indexer implementation. If you have unscheduled indexers that run continuously for 24 hours, it's because those indexers couldn't be migrated to the newer runtime behavior. For extra large data sets, indexers can be made to run longer than maximum limits if you put them on a [2-hour run time schedule](search-howto-schedule-indexers.md). When the first 2-hour interval is complete, the indexer picks up where it left off to start the next 2-hour interval.
+<sup>5</sup> Regarding the 2 or 24 hour maximum duration for indexers: a 2-hour maximum is the most common and it's what you should plan for. The 24-hour limit is from an older indexer implementation. If you have unscheduled indexers that run continuously for 24 hours, it's because those indexers couldn't be migrated to the newer infrastructure. As a general rule, for indexing jobs that can't finish within two hours, put the indexer on a [2-hour schedule](search-howto-schedule-indexers.md). When the first 2-hour interval is complete, the indexer picks up where it left off when starting the next 2-hour interval.
 
 <sup>6</sup> Skillset execution, and image analysis in particular, are computationally intensive and consume disproportionate amounts of available processing power. Running time for these workloads has been shortened to give other jobs in the queue more opportunity to run.
 

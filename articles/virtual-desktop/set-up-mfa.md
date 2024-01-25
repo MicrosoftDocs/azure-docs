@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 10/27/2023
 ms.author: helohr
-manager: femila
 ---
 
 # Enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access

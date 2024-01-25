@@ -79,6 +79,10 @@
          href: onboard-ansible-playbooks.md
        - name: Connect machines from Automation Update Management
          href: onboard-update-management-machines.md
+       - name: Connect VMware vCenter managed machines
+         href: ../vmware-vsphere/enable-guest-management-at-scale.md?toc=/azure/azure-arc/servers/toc.json
+       - name: Connect SCVMM managed machines
+         href: ../system-center-virtual-machine-manager/enable-guest-management-at-scale.md?toc=/azure/azure-arc/servers/toc.json
   - name: Migrate
     items:
     - name: Migrate machine to Azure

@@ -49,8 +49,8 @@
         href: how-to/sdk-install.md
     - name: Get started with the Azure AI CLI
       href: how-to/cli-install.md
-    - name: Get started with projects in VS Code (Web)
-      href: how-to/vscode-web.md
+    - name: Work with Azure AI projects in VS Code
+      href: how-to/develop-in-vscode.md
   - name: Create Azure AI projects and resources
     items:
     - name: Azure AI resources overview
@@ -111,6 +111,8 @@
         href: how-to/prompt-flow-tools/python-tool.md
       - name: Azure OpenAI GPT-4 Turbo with Vision tool
         href: how-to/prompt-flow-tools/azure-open-ai-gpt-4v-tool.md
+      - name: Index Lookup tool
+        href: how-to/prompt-flow-tools/index-lookup-tool.md
       - name: Vector Index Lookup tool
         href: how-to/prompt-flow-tools/vector-index-lookup-tool.md
       - name: Content Safety tool
@@ -189,6 +191,8 @@
         href: how-to/configure-managed-network.md
       - name: Configure private link
         href: how-to/configure-private-link.md
+      - name: Troubleshoot secure project connectivity
+        href: how-to/troubleshoot-secure-connection-project.md
     - name: Data protection & encryption
       items:
       - name: Rotate keys

@@ -1,5 +1,5 @@
 ---
-title:  "Tutorial: Connect Azure Spring Apps to Key Vault using managed identities"
+title:  Connect Azure Spring Apps to Key Vault using managed identities
 description: Set up managed identity to connect Key Vault to an app deployed to Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
@@ -9,7 +9,7 @@ ms.date: 05/07/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Tutorial: Connect Azure Spring Apps to Key Vault using managed identities
+# Connect Azure Spring Apps to Key Vault using managed identities
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -148,7 +148,7 @@ This app has access to get secrets from Azure Key Vault. Use the Azure Key Vault
 1. Use the following command to generate a sample project from `start.spring.io` with Azure Key Vault Spring Starter.
 
    ```bash
-   curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault -d baseDir=springapp -d bootVersion=2.7.9 -d javaVersion=17 -d type=maven-project | tar -xzvf -
+   curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault -d baseDir=springapp -d bootVersion=3.2.1 -d javaVersion=17 -d type=maven-project | tar -xzvf -
    ```
 
 1. Specify your Key Vault in your app.

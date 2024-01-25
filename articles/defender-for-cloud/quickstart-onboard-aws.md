@@ -2,8 +2,8 @@
 title: Connect your AWS account
 description: Defend your AWS resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.custom: devx-track-linux
-ms.date: 11/23/2023
+ms.custom: linux-related-content
+ms.date: 01/03/2024
 ---
 
 # Connect your AWS account to Microsoft Defender for Cloud
@@ -88,7 +88,7 @@ AWS Systems Manager (SSM) manages autoprovisioning by using the SSM Agent. Some 
 Ensure that your SSM Agent has the managed policy [AmazonSSMManagedInstanceCore](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html). It enables core functionality for the AWS Systems Manager service.
 
 Enable these other extensions on the Azure Arc-connected machines:
-  
+
 - Microsoft Defender for Endpoint
 - A vulnerability assessment solution (TVM or Qualys)
 - The Log Analytics agent on Azure Arc-connected machines or the Azure Monitor agent
@@ -114,7 +114,7 @@ AWS Systems Manager manages autoprovisioning by using the SSM Agent. Some Amazon
 
 Ensure that your SSM Agent has the managed policy [AmazonSSMManagedInstanceCore](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html), which enables core functionality for the AWS Systems Manager service.
 
-**You must have the SSM Agent for auto provisioning Arc agent on EC2 machines. If the SSM doesn't exist, or is removed from the EC2, the Arc provisioning won’t be able to proceed.**
+**You must have the SSM Agent for auto provisioning Arc agent on EC2 machines. If the SSM doesn't exist, or is removed from the EC2, the Arc provisioning won't be able to proceed.**
 
 > [!NOTE]
 > As part of the cloud formation template that is run during the onboarding process, an automation process is created and triggered every 30 days, over all the EC2s that existed during the initial run of the cloud formation. The goal of this scheduled scan is to ensure that all the relevant EC2s have an IAM profile with the required IAM policy that allows Defender for Cloud to access, manage, and provide the relevant security features (including the Arc agent provisioning). The scan does not apply to EC2s that were created after the run of the cloud formation.
@@ -122,7 +122,7 @@ Ensure that your SSM Agent has the managed policy [AmazonSSMManagedInstanceCore]
 If you want to manually install Azure Arc on your existing and future EC2 instances, use the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation to identify instances that don't have Azure Arc installed.
 
 Enable these other extensions on the Azure Arc-connected machines:
-  
+
 - Microsoft Defender for Endpoint
 - A vulnerability assessment solution (TVM or Qualys)
 - The Log Analytics agent on Azure Arc-connected machines or the Azure Monitor agent
@@ -236,27 +236,27 @@ Deploy the CloudFormation template by using Stack (or StackSet if you have a man
 - **Upload a template file**: AWS automatically creates an S3 bucket that the CloudFormation template is saved to. The automation for the S3 bucket has a security misconfiguration that causes the `S3 buckets should require requests to use Secure Socket Layer` recommendation to appear. You can remediate this recommendation by applying the following policy:
 
     ```bash
-    {  
-      "Id": "ExamplePolicy",  
-      "Version": "2012-10-17",  
-      "Statement": [  
-        {  
-          "Sid": "AllowSSLRequestsOnly",  
-          "Action": "s3:*",  
-          "Effect": "Deny",  
-          "Resource": [  
-            "<S3_Bucket ARN>",  
-            "<S3_Bucket ARN>/*"  
-          ],  
-          "Condition": {  
-            "Bool": {  
-              "aws:SecureTransport": "false"  
-            }  
-          },  
-          "Principal": "*"  
-        }  
-      ]  
-    }  
+    { 
+      "Id": "ExamplePolicy", 
+      "Version": "2012-10-17", 
+      "Statement": [ 
+        { 
+          "Sid": "AllowSSLRequestsOnly", 
+          "Action": "s3:*", 
+          "Effect": "Deny", 
+          "Resource": [ 
+            "<S3_Bucket ARN>", 
+            "<S3_Bucket ARN>/*" 
+          ], 
+          "Condition": { 
+            "Bool": { 
+              "aws:SecureTransport": "false" 
+            } 
+          }, 
+          "Principal": "*" 
+        } 
+      ] 
+    } 
     ```
 
     > [!NOTE]
@@ -275,7 +275,7 @@ To view all the active recommendations for your resources by resource type, use 
 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Screenshot of AWS options in the asset inventory page's resource type filter." lightbox="media/quickstart-onboard-aws/aws-resource-types-in-inventory.png":::
 
-## Integrate with Microsoft Defender XDR (Preview)
+## Integrate with Microsoft Defender XDR
 
 When you enable Defender for Cloud, Defender for Cloud alerts are automatically integrated into the Microsoft Defender Portal. No further steps are needed.
 
@@ -301,5 +301,5 @@ Connecting your AWS account is part of the multicloud experience available in Mi
 - [Protect all of your resources with Defender for Cloud](enable-all-plans.md).
 - Set up your [on-premises machines](quickstart-onboard-machines.md) and [GCP projects](quickstart-onboard-gcp.md).
 - Get answers to [common questions](faq-general.yml) about onboarding your AWS account.
-- [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector).
+- [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshoot-connectors).
 

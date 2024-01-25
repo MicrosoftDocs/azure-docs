@@ -6,7 +6,7 @@ author: goergenj
 ms.author: jagoerge
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 1/18/2024
 ms.custom: template-concept
 ---
 

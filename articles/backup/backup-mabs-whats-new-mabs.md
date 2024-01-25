@@ -3,7 +3,7 @@ title: What's new in Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more.
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/04/2023
+ms.date: 01/09/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -74,6 +74,21 @@ The following table lists the included features in MABS V4:
 | Parallel Restore of VMware and Hyper-V VMs | MABS V4 supports parallel restore of [VMware](restore-azure-backup-server-vmware.md) and [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) virtual machines. With earlier versions of MABS, restore of VMware VM and Hyper-V virtual machine was restricted to only one restore job at a time. With MABS V4, by default you can restore *eight* VMs in parallel and this number can be increased using a registry key. |
 | Parallel online backup jobs - limit enhancement | MABS V4 supports increasing the maximum parallel online backup jobs from *eight* to a configurable limit based on your hardware and network limitations through a registry key for faster online backups. [Learn more](backup-azure-microsoft-azure-backup.md). |
 | Faster Item Level Recoveries | MABS V4 moves away from File Catalog for online backup of file/folder workloads. File Catalog was necessary to restore individual files and folders from online recovery points, but increased backup time by uploading file metadata. <br><br> MABS V4 uses an *iSCSI mount* to provide faster individual file restores and reduces backup time, because file metadata doesn't need to be uploaded. |
+
+## What's new in MABS V3 UR2 Hotfix?
+
+This update contains the following enhancement to improve the backup time. For more information on the enhancements and the installation, see the [KB article](https://support.microsoft.com/topic/hotfix-for-update-rollup-2-for-microsoft-azure-backup-server-v3-3ef522f7-c307-47e2-827d-8e14f1e84017).
+
+**Removed File Catalog dependency for online backup of file/folder workloads**: This update removes the dependency of MABS V3 on File Catalog (list of files in a recovery point maintained in the cloud) which was needed to restore individual files and folders from the online recovery points. This Hotfix allows MABS V3 UR2 to use a modern *iSCSI mount* method to provide individual file restoration.
+
+**Advantages**:
+
+- Reduces the backup time by up to *15%* because file catalog metadata (list of files in a recovery point) isn't generated during the backup operation.
+- - Item-level recovery errors due to inconsistent file catalog metadata are avoided because *iSCSI mounts* are used.
+- - After the recovery point is mounted, file browsing during item-level recovery is faster for recovery points with many files and folders.
+
+>[!Note]
+>We recommend that you update your MABS V3 installation to Hotfix for Update Rollup 2 to benefit from the enhancement. Ensure that you also update your MARS Agent to the latest version (2.0.9262.0 or higher).
 
 ## What’s new in MABS v3 UR2?
 

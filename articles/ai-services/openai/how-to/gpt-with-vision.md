@@ -5,11 +5,9 @@ description: Learn about the options for using GPT-4 Turbo with Vision
 author: PatrickFarley #dereklegenzoff
 ms.author: pafarley #delegenz
 ms.service: azure-ai-openai
-ms.custom: 
 ms.topic: how-to
 ms.date: 11/06/2023
 manager: nitinme
-keywords:
 ---
 
 # Use GPT-4 Turbo with Vision
@@ -313,7 +311,7 @@ Follow these steps to set up a video retrieval system and integrate it with your
         {
             "type": "AzureComputerVisionVideoIndex",
             "parameters": {
-                "computerVisionBaseUrl": "<your_computer_vision_endpoint>",
+                "endpoint": "<your_computer_vision_endpoint>",
                 "computerVisionApiKey": "<your_computer_vision_key>",
                 "indexName": "<name_of_your_index>",
                 "videoUrls": ["<your_video_SAS_URL>"]
@@ -330,12 +328,7 @@ Follow these steps to set up a video retrieval system and integrate it with your
                         {
                             "type": "text",
                             "text": "Describe this video:"
-                        }
-                    ]
-            },
-            {
-                "role": "user",
-                "content": [
+                        },
                         {
                             "type": "acv_document_id",
                             "acv_document_id": "<your_video_ID>"

@@ -35,6 +35,8 @@ items:
     href: data-factory-tutorials.md
   - name: Copy and ingest data
     items:
+    - name: Copy data to and from a Fabric Lakehouse
+      href: /fabric/data-factory/how-to-ingest-data-into-fabric-from-azure-data-factory?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
     - name: From Azure Blob Storage to Azure SQL Database
       items:
       - name: Copy data tool
@@ -555,9 +557,16 @@ items:
       href: connector-rest.md
       displayName: timeout
     - name: Salesforce
-      href: connector-salesforce.md
+      items:
+      - name: Salesforce
+        href: connector-salesforce.md
+      - name: Salesforce (legacy)
+        href: connector-salesforce-legacy.md
     - name: Salesforce Service Cloud
       href: connector-salesforce-service-cloud.md
+      items:
+      - name: Salesforce Service Cloud (legacy)
+        href: connector-salesforce-service-cloud-legacy.md
     - name: Salesforce Marketing Cloud
       href: connector-salesforce-marketing-cloud.md
     - name: SAP Business Warehouse Open Hub
@@ -1325,8 +1334,8 @@ items:
       href: delete-dags-in-managed-airflow.md
     - name: How to change the Airflow password
       href: password-change-airflow.md
-    - name: Create a private requirement Package
-      href: airflow-create-private-requirement-package.md
+    - name: Install a Private Package
+      href: airflow-install-private-package.md
     - name: Enable Azure Key Vault for Airflow
       href: enable-azure-key-vault-for-managed-airflow.md
     - name: Kubernetes secret to access private container registry
