@@ -82,7 +82,7 @@ To restore the database to a secondary region after enabling Cross Region Restor
       $OssRestoreReq = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureDatabaseForPostgreSQL -SourceDataStore VaultStore -RestoreLocation $vault.ReplicatedRegion[0] -RestoreType RestoreAsFiles -RecoveryPoint $recoveryPointsCrr[0].Property.RecoveryPointId -TargetContainerURI $targetContainerURI -FileNamePrefix $fileNamePrefix
       ```
 
-## Validate the PostgreSQK database restore configuration
+## Validate the PostgreSQL database restore configuration
 
 To validate the probabilities of success for the restore operation, run the following cmdlet:
 
