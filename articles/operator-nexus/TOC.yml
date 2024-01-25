@@ -28,6 +28,8 @@
       href: concepts-observability.md 
     - name: Security
       href: concepts-security.md
+    - name: Control Plane Resiliency
+      href: concepts-rack-resiliency.md
 - name: Quickstarts
   items:
     - name: Before you start workload deployment
@@ -174,6 +176,8 @@
           href: howto-baremetal-run-read.md
         - name: BareMetal Run-Data-Extract Execution
           href: howto-baremetal-run-data-extract.md
+    - name: Troubleshoot Control Plane Quorum
+      href: troubleshoot-control-plane-quorum.md
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference

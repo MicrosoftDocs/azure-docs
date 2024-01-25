@@ -659,8 +659,8 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
-  - id: programming-language-cpp
-    title: C++
+  - id: programming-language-javascript
+    title: JavaScript
   - id: programming-language-rest-api
     title: REST API
 - id: programming-languages-vision-40-sdk
@@ -673,8 +673,8 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
-  - id: programming-language-cpp
-    title: C++
+  - id: programming-language-javascript
+    title: JavaScript
 - id: programming-languages-ocr
   title: Programming languages
   prompt: Choose a programming language.
@@ -2023,8 +2023,19 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
-- id: azure-maps-android
+
+# Owner: farazgis
+- id: azure-maps-coverage
+  title: Azure Maps coverage
+  prompt: Choose the API version
+  pivots:
+  - id: route-v1
+    title: Route
+  - id: route-v2
+    title: Route v2
+
 # Owner: richbrun
+- id: azure-maps-android
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -2098,7 +2109,7 @@ groups:
 # Owner: Brendanc
 - id: drawing-package-version
   title: Creator drawing package
-  prompt: Choose a drawing package Version
+  prompt: Choose a drawing package version
   pivots:
   - id: drawing-package-v1
     title: drawing package 1.0
@@ -2440,6 +2451,14 @@ groups:
     title: Standard/Premium
   - id: front-door-classic
     title: Classic
+- id: expressroute-experience
+  title: ExpressRoute experience
+  prompt: "Select your ExpressRoute create experience:"
+  pivots:
+  - id: expressroute-current
+    title: Current
+  - id: expressroute-preview
+    title: Preview
 # Owner: wiassaf
 - id: azure-sql-deployment-option-single-elastic
   title: Azure SQL deployment option, single or elastic
@@ -2934,3 +2953,18 @@ groups:
     title: Management group
   - id: sub
     title: Subscription
+# Owner: accledgerdevs
+- id: azure-confidential-ledger-programming-languages
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
+  - id: programming-language-portal
+    title: Azure Portal

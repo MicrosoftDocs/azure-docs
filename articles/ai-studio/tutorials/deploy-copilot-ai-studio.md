@@ -407,18 +407,18 @@ In this section, you use the built-in evaluation to evaluate your flow with a qu
 You need a question and answer evaluation dataset that contains questions and answers that are relevant to your scenario. Create a new file locally named **qa-evaluation.jsonl**. Copy and paste the following questions and answers (`"truth"`) into the file.
 
 ```json
-{"question": "What color is the CozyNights Sleeping Bag?", "truth": "Red"}
-{"question": "When did Daniel Wilson order the BaseCamp Folding Table?", "truth": "May 7th, 2023"}
-{"question": "How much do TrailWalker Hiking Shoes cost? ", "truth": "$110"}
-{"question": "What kind of tent did Sarah Lee buy?", "truth": "SkyView 2 person tent"}
-{"question": "What is Melissa Davis's phone number?", "truth": "555-333-4444"}
-{"question": "What is the proper care for trailwalker hiking shoes?", "truth": "After each use, remove any dirt or debris by brushing or wiping the shoes with a damp cloth."}
-{"question": "Does TrailMaster Tent come with a warranty?", "truth": "2 years"}
-{"question": "How much did David Kim spend on the TrailLite Daypack?", "truth": "$240"}
-{"question": "What items did Amanda Perez purchase?", "truth": "TrailMaster X4 Tent, TrekReady Hiking Boots (quantity 3), CozyNights Sleeping Bag, TrailBlaze Hiking Pants, RainGuard Hiking Jacket, and CompactCook Camping Stove"}
-{"question": "What is the Brand for TrekReady Hiking Boots", "truth": "TrekReady"}
-{"question": "How many items did Karen Williams buy?", "truth": "three items of the Summit Breeze Jacket"}
-{"question": "France is in Europe", "truth": "Sorry, I can only truth questions related to outdoor/camping gear and equipment"}
+{"question": "What color is the CozyNights Sleeping Bag?", "truth": "Red", "chat_history": [], }
+{"question": "When did Daniel Wilson order the BaseCamp Folding Table?", "truth": "May 7th, 2023", "chat_history": [] }
+{"question": "How much does TrailWalker Hiking Shoes cost? ", "truth": "$110", "chat_history": [] }
+{"question": "What kind of tent did Sarah Lee buy?", "truth": "SkyView 2 person tent", "chat_history": [] }
+{"question": "What is Melissa Davis's phone number?", "truth": "555-333-4444", "chat_history": [] }
+{"question": "What is the proper care for trailwalker hiking shoes?", "truth": "After each use, remove any dirt or debris by brushing or wiping the shoes with a damp cloth.", "chat_history": [] }
+{"question": "Does TrailMaster Tent come with a warranty?", "truth": "2 years", "chat_history": [] }
+{"question": "How much did David Kim spend on the TrailLite Daypack?", "truth": "$240", "chat_history": [] }
+{"question": "What items did Amanda Perez purchase?", "truth": "TrailMaster X4 Tent, TrekReady Hiking Boots (quantity 3), CozyNights Sleeping Bag, TrailBlaze Hiking Pants, RainGuard Hiking Jacket, and CompactCook Camping Stove", "chat_history": [] }
+{"question": "What is the Brand for TrekReady Hiking Boots", "truth": "TrekReady", "chat_history": [] }
+{"question": "How many items did Karen Williams buy?", "truth": "three items of the Summit Breeze Jacket", "chat_history": [] }
+{"question": "France is in Europe", "truth": "Sorry, I can only truth questions related to outdoor/camping gear and equipment", "chat_history": [] }
 ```
 
 Now that you have your evaluation dataset, you can evaluate your flow by following these steps:

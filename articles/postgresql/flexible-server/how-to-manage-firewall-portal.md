@@ -8,7 +8,7 @@ ms.subservice: flexible-server
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.date: 01/02/2024
 ---
 
 # Create and manage firewall rules for Azure Database for PostgreSQL - Flexible Server using the Azure portal

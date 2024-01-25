@@ -177,7 +177,7 @@ Here are some property options that you can use to configure a transcription whe
 |`languageIdentification`|Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md?tabs=language-identification).<br/><br/>If you set the `languageIdentification` property, then you must also set its enclosed `candidateLocales` property.|
 |`languageIdentification.candidateLocales`|The candidate locales for language identification such as `"properties": { "languageIdentification": { "candidateLocales": ["en-US", "de-DE", "es-ES"]}}`. A minimum of 2 and a maximum of 10 candidate locales, including the main locale for the transcription, is supported.|
 |`locale`|The locale of the batch transcription. This should match the expected locale of the audio data to transcribe. The locale can't be changed later.<br/><br/>This property is required.|
-|`model`|You can set the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. If you don't specify the `model`, the default base model for the locale is used. For more information, see [Using custom models](#using-custom-models) and [Using Whisper models](#using-whisper-models).|
+|`model`|You can set the `model` property to use a specific base model or [custom speech](how-to-custom-speech-train-model.md) model. If you don't specify the `model`, the default base model for the locale is used. For more information, see [Using custom models](#using-custom-models) and [Using Whisper models](#using-whisper-models).|
 |`profanityFilterMode`|Specifies how to handle profanity in recognition results. Accepted values are `None` to disable profanity filtering, `Masked` to replace profanity with asterisks, `Removed` to remove all profanity from the result, or `Tags` to add profanity tags. The default value is `Masked`. |
 |`punctuationMode`|Specifies how to handle punctuation in recognition results. Accepted values are `None` to disable punctuation, `Dictated` to imply explicit (spoken) punctuation, `Automatic` to let the decoder deal with punctuation, or `DictatedAndAutomatic` to use dictated and automatic punctuation. The default value is  `DictatedAndAutomatic`.<br/><br/>This property isn't applicable for Whisper models.|
 |`timeToLive`|A duration after the transcription job is created, when the transcription results will be automatically deleted. The value is an ISO 8601 encoded duration. For example, specify `PT12H` for 12 hours. As an alternative, you can call [Transcriptions_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Delete) regularly after you retrieve the transcription results.|
@@ -200,7 +200,7 @@ spx help batch transcription create advanced
 
 Batch transcription uses the default base model for the locale that you specify. You don't need to set any properties to use the default base model. 
 
-Optionally, you can modify the previous [create transcription example](#create-a-batch-transcription) by setting the `model` property to use a specific base model or [Custom Speech](how-to-custom-speech-train-model.md) model. 
+Optionally, you can modify the previous [create transcription example](#create-a-batch-transcription) by setting the `model` property to use a specific base model or [custom speech](how-to-custom-speech-train-model.md) model. 
 
 ::: zone pivot="rest-api"
 
@@ -231,12 +231,12 @@ spx batch transcription create --name "My Transcription" --language "en-US" --co
 
 ::: zone-end
 
-To use a Custom Speech model for batch transcription, you need the model's URI. You can retrieve the model location when you create or get a model. The top-level `self` property in the response body is the model's URI. For an example, see the JSON response example in the [Create a model](how-to-custom-speech-train-model.md?pivots=rest-api#create-a-model) guide. 
+To use a custom speech model for batch transcription, you need the model's URI. You can retrieve the model location when you create or get a model. The top-level `self` property in the response body is the model's URI. For an example, see the JSON response example in the [Create a model](how-to-custom-speech-train-model.md?pivots=rest-api#create-a-model) guide. 
 
 > [!TIP]
 > A [hosted deployment endpoint](how-to-custom-speech-deploy-model.md) isn't required to use custom speech with the batch transcription service. You can conserve resources if the [custom speech model](how-to-custom-speech-train-model.md) is only used for batch transcription.
 
-Batch transcription requests for expired models fail with a 4xx error. You want to set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model. For more information, see [Choose a model](how-to-custom-speech-create-project.md#choose-your-model) and [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md).
+Batch transcription requests for expired models fail with a 4xx error. You want to set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model. For more information, see [Choose a model](how-to-custom-speech-create-project.md#choose-your-model) and [custom speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
 ## Using Whisper models 
 
