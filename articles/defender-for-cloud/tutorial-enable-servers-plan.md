@@ -1,11 +1,11 @@
 ---
-title: Protect your servers with Defender for Servers
+title: Deploy Defender for Servers
 description: Learn how to enable the Defender for Servers on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 12/21/2023
+ms.date: 01/23/2024
 ---
 
-# Protect your servers with Defender for Servers
+# Deploy Defender for Servers
 
 Defender for Servers in Microsoft Defender for Cloud brings threat detection and advanced defenses to your Windows and Linux machines that run in Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP), and on-premises environments. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
 
@@ -73,35 +73,30 @@ When you enable the Defender for Servers plan, you're then given the option to s
 
 ### Configure monitoring coverage
 
-There are three components that can be enabled and configured to provide extra protections to your environments in the Defender for Servers plans.
+There are components that can be enabled and configured to provide extra protections to your environments in the Defender for Servers plans.
 
 | Component | Description | Learn more |
 |:--:|:--:|:--:|
-| [Log Analytics agent/Azure Monitor agent](plan-defender-for-servers-agents.md) | Collects security-related configurations and event logs from the machine and stores the data in your Log Analytics workspace for analysis. | [Learn more](../azure-monitor/agents/log-analytics-agent.md) about the Log Analytics agent. |
-| Vulnerability assessment for machines | Enables vulnerability assessment on your Azure and hybrid machines. | [Learn more](monitoring-components.md) about how Defender for Cloud collects data. |
+| [Log Analytics agent](plan-defender-for-servers-agents.md) | Collects security-related configurations and event logs from the machine and stores the data in your Log Analytics workspace for analysis. | [Learn more](../azure-monitor/agents/log-analytics-agent.md) about the Log Analytics agent. |
+| [Vulnerability assessment for machines](deploy-vulnerability-assessment-defender-vulnerability-management.md) | Enables vulnerability assessment on your Azure and hybrid machines. | [Learn more](monitoring-components.md) about how Defender for Cloud collects data. |
+| [Endpoint protection](integration-defender-for-endpoint.md) | Enables protection powered by Microsoft Defender for Endpoint, including automatic agent deployment to your servers, and security data integration with Defender for Cloud | [Learn more](integration-defender-for-endpoint.md) about endpoint protection |
 | [Agentless scanning for machines](concept-agentless-data-collection.md) | Scans your machines for installed software and vulnerabilities without relying on agents or impacting machine performance. | [Learn more](concept-agentless-data-collection.md) about agentless scanning for machines. |
 
 Toggle the corresponding switch to **On**, to enable any of these options.
 
-### Configure Log Analytics agent/Azure Monitor agent
+### Configure Log Analytics agent
 
-After enabling the Log Analytics agent/Azure Monitor agent, you'll be presented with the option to select either the Log Analytics agent or the Azure Monitor agent and which workspace should be utilized.
+After enabling the Log Analytics agent, you'll be presented with the option to select which workspace should be utilized.
 
-**To configure the Log Analytics agent/Azure Monitor agent**:
+**To configure the Log Analytics agent**:
 
 1. Select **Edit configuration**.
 
     :::image type="content" source="media/tutorial-enable-servers-plan/edit-configuration-log.png" alt-text="Screenshot that shows you where on the screen you need to select edit configuration, to edit the log analytics agent/azure monitor agent." lightbox="media/tutorial-enable-servers-plan/edit-configuration-log.png":::
 
-1. In the Auto provisioning configuration window, select one of the following two agent types:
-
-    - **Log Analytic Agent (Default)** - Collects security-related configurations and event logs from the machine and stores the data in your Log Analytics workspace for analysis.
-
-    - **Azure Monitor Agent (Preview)** - Collects security-related configurations and event logs from the machine and stores the data in your Log Analytics workspace for analysis.
+1. Select either a **Default workspace(s)** or a **Custom workspace** depending on your need.
 
     :::image type="content" source="media/tutorial-enable-servers-plan/auto-provisioning-screen.png" alt-text="Screenshot of the auto provisioning configuration screen with the available options to select." lightbox="media/tutorial-enable-servers-plan/auto-provisioning-screen.png":::
-
-1. Select either a **Default workspace(s)** or a **Custom workspace** depending on your need.
 
 1. Select **Apply**.
 
@@ -122,6 +117,14 @@ Vulnerability assessment for machines allows you to select between two vulnerabi
 
 1. Select **Apply**.
 
+## Configure endpoint protection
+
+With Microsoft Defender for Servers, you enable the protections provided by [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide) to your server resources. Defender for Endpoint includes automatic agent deployment to your servers, and security data integration with Defender for Cloud.
+
+**To configure endpoint protection**:
+
+1. Toggle the switch to **On**.
+
 ### Configure agentless scanning for machines
 
 Defender for Cloud has the ability to scan your Azure machines for installed software and vulnerabilities without requiring you to install agents, have network connectivity or affect your machine's performance.
@@ -136,9 +139,11 @@ Defender for Cloud has the ability to scan your Azure machines for installed sof
 
 1. Select **Apply**.
 
+Learn more about agentless scanning and how to [enable agentless scanning](enable-agentless-scanning-vms.md) on other cloud environments.
+
 ## Enable the plan at the resource level
 
-While our recommendation is to enable Defender for Servers on the entire Azure subscription, to protect all existing and future resources in it, there are some cases where more flexibility is required for excluding specific resources or to manage security configurations at a lower hierarchy level than subscription. Resource level enablement is available for **Azure machines** and on-premises with **Azure Arc** as part of Defender for Servers plans:
+While our recommendation is to enable Defender for Servers on the entire Azure subscription, to protect all existing and future resources in it, there are some cases where more flexibility is required to exclude specific resources or to manage security configurations at a lower hierarchy level than subscription. Resource level enablement is available for **Azure machines** and on-premises with **Azure Arc** as part of Defender for Servers plans:
 
 - **Defender for Servers Plan 1**: you can enable / disable the plan at the resource level.
 - **Defender for Servers Plan 2**: you can only disable the plan at the resource level. For example, it’s possible to enable the plan at the subscription level and disable specific resources, however it’s not possible to enable the plan only for specific resources.
@@ -149,7 +154,7 @@ Supported resource types include:
 
 - Azure VMs
 - On-premises with Azure Arc
-- VMSS Flex
+- Azure Virtual Machine Scale Sets Flex
 
 ### Enablement via REST API
 

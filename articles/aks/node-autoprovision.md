@@ -1,20 +1,24 @@
 ---
-title: Node autoprovisioning (Preview)
-description: Learn about Azure Kubernetes Service (AKS) Node autoprovisioning
+title: Node autoprovisioning (preview)
+description: Learn about Azure Kubernetes Service (AKS) node autoprovisioning (preview).
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 10/19/2023
+ms.date: 01/18/2024
 ms.author: juda
 #Customer intent: As a cluster operator or developer, how to scale my cluster based on workload requirements and right size my nodes automatically
 ---
 
-# Node autoprovision
-When deploying workloads onto AKS, you need to make a decision about the node pool configuration regarding the VM size needed.  As your workloads become more complex, and require different CPU, Memory and capabilities to run, the overhead of having to design your VM configuration for numerous resource requests becomes difficult.
+# Node autoprovisioning (preview)
 
-Node autoprovision (NAP) decides based on pending pod resource requirements the optimal VM configuration to run those workloads in the most efficient and cost effective manner.
+When you deploy workloads onto AKS, you need to make a decision about the node pool configuration regarding the VM size needed.  As your workloads become more complex, and require different CPU, memory, and capabilities to run, the overhead of having to design your VM configuration for numerous resource requests becomes difficult.
+
+Node autoprovisioning (NAP) (preview) decides based on pending pod resource requirements the optimal VM configuration to run those workloads in the most efficient and cost effective manner.
 
 NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and the [AKS provider](https://github.com/Azure/karpenter) is also Open Source.  NAP automatically deploys and configures and manages Karpenter on your AKS clusters.
 
+> [!IMPORTANT]
+> Node autoprovisioning (NAP) for AKS is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Before you begin
 
@@ -60,13 +64,14 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
     ```
 
 ## Limitations
-* Windows and Azure Linux node pools aren't supported yet
-* Kubelet configuration through Node pool configuration is not supported
-* NAP can only be enabled on new clusters currently
+
+- Windows and Azure Linux node pools aren't supported yet
+- Kubelet configuration through Node pool configuration is not supported
+- NAP can only be enabled on new clusters currently
 
 ## Enable node autoprovisioning
-To enable node autoprovisioning, create a new cluster using the az aks create command and set --node-provisioning-mode to "Auto". You'll also need to use overlay networking and the cilium network policy.  
 
+To enable node autoprovisioning, create a new cluster using the az aks create command and set --node-provisioning-mode to "Auto". You'll also need to use overlay networking and the cilium network policy.  
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -76,6 +81,7 @@ az aks create --name karpuktest --resource-group karpuk --node-provisioning-mode
 ```
 
 ### [Azure ARM](#tab/azure-arm)
+
 ```azurecli-interactive
 az deployment group create --resource-group napcluster --template-file ./nap.json  
 ```
@@ -125,15 +131,16 @@ az deployment group create --resource-group napcluster --template-file ./nap.jso
   ]
 }
 ```
----
-## Node pools
-Node autoprovision uses a list of VM SKUs as a starting point to decide which is best suited for the workloads that are in a pending state.  Having control over what SKU you want in the initial pool allows you to specify specific SKU families, or VM types and the maximum amount of resources a provisioner uses.
 
+---
+
+## Node pools
+
+Node autoprovision uses a list of VM SKUs as a starting point to decide which is best suited for the workloads that are in a pending state.  Having control over what SKU you want in the initial pool allows you to specify specific SKU families, or VM types and the maximum amount of resources a provisioner uses.
 
 If you have specific VM SKUs that are reserved instances, for example, you may wish to only use those VMs as the starting pool.
 
 You can have multiple node pool definitions in a cluster, but AKS deploys a default node pool definition that you can modify:
-
 
 ```yaml
 apiVersion: karpenter.sh/v1beta1
@@ -172,29 +179,27 @@ spec:
         - D
 ```
 
-### Supported node provisioner requirements 
+### Supported node provisioner requirements
 
-#### SKU selectors with well known labels 
+#### SKU selectors with well known labels
 
-|  Selector | Description | Example |
----|---|---|
-| karpenter.azure.com/sku-family | VM SKU Family | D, F, L etc. |  
-| karpenter.azure.com/sku-name | Explicit SKU name | Standard_A1_v2 |  
-| karpenter.azure.com/sku-version | SKU version (without "v", can use 1) | 1 , 2 |  
+| Selector | Description | Example |
+|--|--|--|
+| karpenter.azure.com/sku-family | VM SKU Family | D, F, L etc. |
+| karpenter.azure.com/sku-name | Explicit SKU name | Standard_A1_v2 |
+| karpenter.azure.com/sku-version | SKU version (without "v", can use 1) | 1 , 2 |
 | karpenter.sh/capacity-type | VM allocation type (Spot / On Demand) | spot or on-demand |
 | karpenter.azure.com/sku-cpu | Number of CPUs in VM | 16 |
-| karpenter.azure.com/sku-memory | Memory in VM in MiB | 131072 |  
-| karpenter.azure.com/sku-gpu-name | GPU name | A100 |  
-| karpenter.azure.com/sku-gpu-manufacturer | GPU manufacturer | nvidia |  
+| karpenter.azure.com/sku-memory | Memory in VM in MiB | 131072 |
+| karpenter.azure.com/sku-gpu-name | GPU name | A100 |
+| karpenter.azure.com/sku-gpu-manufacturer | GPU manufacturer | nvidia |
 | karpenter.azure.com/sku-gpu-count | GPU count per VM | 2 |
 | karpenter.azure.com/sku-networking-accelerated | Whether the VM has accelerated networking | [true, false] |
 | karpenter.azure.com/sku-storage-premium-capable | Whether the VM supports Premium IO storage | [true, false] |
 | karpenter.azure.com/sku-storage-ephemeralos-maxsize | Size limit for the Ephemeral OS disk in Gb | 92 |
-| topology.kubernetes.io/zone | The Availability Zone(s)         | [uksouth-1,uksouth-2,uksouth-3]  | 
-| kubernetes.io/os    | Operating System (Linux only during preview)                                           | linux       |                    
-| kubernetes.io/arch    | CPU architecture (AMD64 or ARM64)                                         | [amd64, arm64]       |
-                     
-
+| topology.kubernetes.io/zone | The Availability Zone(s) | [uksouth-1,uksouth-2,uksouth-3] |
+| kubernetes.io/os | Operating System (Linux only during preview) | linux |
+| kubernetes.io/arch | CPU architecture (AMD64 or ARM64) | [amd64, arm64] |
 
 To list the VM SKU capabilities and allowed values, use the `vm list-skus` command from the Azure CLI.
 
@@ -203,7 +208,8 @@ az vm list-skus --resource-type virtualMachines --location <location> --query '[
 ```
 
 ## Node pool limits
-By default, NAP attempts to schedule your workloads within the Azure quota you have available.  You can also specify the upper limit of resources that is used by a Nodepool, specifying limits within the Node pool spec. 
+
+By default, NAP attempts to schedule your workloads within the Azure quota you have available.  You can also specify the upper limit of resources that is used by a node pool, specifying limits within the node pool spec.
 
 ```
   # Resource limits constrain the total size of the cluster.
@@ -213,9 +219,9 @@ By default, NAP attempts to schedule your workloads within the Azure quota you h
     memory: 1000Gi
 ```
 
-
 ## Node pool weights
-When you have multiple Nodepools defined, it's possible to set a preference of where a workload should be scheduled.  Define the relative weight on your Node pool definitions.
+
+When you have multiple node pools defined, it's possible to set a preference of where a workload should be scheduled.  Define the relative weight on your Node pool definitions.
 
 ```
   # Priority given to the node pool when the scheduler considers which to select. Higher weights indicate higher priority when comparing node pools.
@@ -223,13 +229,16 @@ When you have multiple Nodepools defined, it's possible to set a preference of w
   weight: 10
 ```
 
-## Kubernetes and node image updates 
+## Kubernetes and node image updates
+
 AKS with NAP manages the Kubernetes version upgrades and VM OS disk updates for you by default.
 
 ### Kubernetes upgrades
+
 Kubernetes upgrades for NAP node pools follows the Control Plane Kubernetes version.  If you perform a cluster upgrade, your NAP nodes are updated automatically to follow the same versioning.
 
 ### Node image updates
+
 By default NAP node pool virtual machines are automatically updated when a new image is available.  If you wish to pin a node pool at a certain node image version, you can set the imageVersion on the node class:
 
 ```kubectl
@@ -266,13 +275,11 @@ spec:
 
 Removing the imageVersion spec would revert the node pool to be updated to the latest node image version.
 
-
 ## Node disruption
 
 When the workloads on your nodes scale down, NAP uses disruption rules on the Node pool specification to decide when and how to remove those nodes and potentially reschedule your workloads to be more efficient.
 
 You can remove a node manually using `kubectl delete node`, but NAP can also control when it should optimize your nodes.
-
 
 ```yaml
   disruption:
@@ -288,7 +295,8 @@ You can remove a node manually using `kubectl delete node`, but NAP can also con
     consolidateAfter: 30s
 ```
 
-## Monitoring selection events 
+## Monitoring selection events
+
 Node autoprovision produces cluster events that can be used to monitor deployment and scheduling decisions being made.  You can view events through the Kubernetes events stream.
 
 ```
@@ -297,4 +305,3 @@ kubectl get events -A --field-selector source=karpenter -w
 
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-register]: /cli/azure/feature#az-feature-register

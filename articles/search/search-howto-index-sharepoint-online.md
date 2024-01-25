@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 12/19/2023
+ms.date: 01/16/2024
 ---
 
 # Index data from SharePoint document libraries
@@ -19,7 +19,7 @@ ms.date: 12/19/2023
 >
 > Be sure to visit the [known limitations](#limitations-and-considerations) section before you start.
 >
->To use this preview, [request access](https://aka.ms/azure-cognitive-search/indexer-preview). Any access request submitted after December 15, 2023 will be reviewed after January 15, 2024 for approval, with no exceptions. After access is enabled, use a [preview REST API (2023-10-01-Preview or later)](search-api-preview.md) to index your content. 
+>To use this preview, [request access](https://aka.ms/azure-cognitive-search/indexer-preview). Any access request is automatically accepted after submission. After access is enabled, use a [preview REST API (2023-10-01-Preview or later)](search-api-preview.md) to index your content. 
 
 This article explains how to configure a [search indexer](search-indexer-overview.md) to index documents stored in SharePoint document libraries for full text search in Azure AI Search. Configuration steps are first, followed by behaviors and scenarios
 
