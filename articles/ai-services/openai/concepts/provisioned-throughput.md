@@ -73,7 +73,7 @@ PTUs represent an amount of undelrying model processing capacity. Similar to you
 
 A few high-level considerations:
 - Generations require more capacity than prompts
-- Larger calls are progressively more expensive to compute. For example, 100 calls of with a 1000 token prompt size will require less capacity than 1 call with 100,000 tokens in the prompt. This also means that the distribution of these call shapes is important in overall throghput. Traffic patterns with a wide distribtion that includes some very large calls may experience lower throughput per PTU than a narrower distribution with the same average prompt & completion token sizes. 
+- Larger calls are progressively more expensive to compute. For example, 100 calls of with a 1000 token prompt size will require less capacity than 1 call with 100,000 tokens in the prompt. This also means that the distribution of these call shapes is important in overall throughput. Traffic patterns with a wide distribution that includes some very large calls may experience lower throughput per PTU than a narrower distribution with the same average prompt & completion token sizes. 
 
 
 ### How utilization enforcement works
