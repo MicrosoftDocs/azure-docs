@@ -1,17 +1,10 @@
 ---
-title: Radiology Insights Inference Example age mismatch input
-titleSuffix: Azure AI Health Insights
-description: Radiology Insights Inference Example age mismatch input
-services: azure-health-insights
 author: JanSchietse
-manager: JoeriVDV
-ms.service: azure-health-insights
-ms.topic: quickstart
-ms.date: 12/06/2023
 ms.author: janschietse
+ms.date: 01/25/2024
+ms.topic: include
+ms.service: azure-health-insights
 ---
-
-# Inference example age mismatch input
 
 
 ```json
@@ -27,13 +20,13 @@ ms.author: janschietse
         "provideFocusedSentenceEvidence" : false
       }
     },
-    "inferenceTypes" : [ "ageMismatch" ],
+    "inferenceTypes" : [  "criticalResult" ],
     "locale" : "en-US",
     "verbose" : false,
     "includeEvidence" : false
   },
   "patients" : [ {
-    "id" : "111111",
+    "id" : "11111",
     "info" : {
       "sex" : "female",
       "birthDate" : "1986-07-01T21:00:00+00:00",
@@ -53,8 +46,8 @@ ms.author: janschietse
     "encounters" : [ {
       "id" : "encounterid1",
       "period" : {
-        "start" : "2021-08-28T00:00:00",
-        "end" : "2021-08-28T00:00:00"
+        "start" : "2017-9-4T00:00:00",
+        "end" : "2017-9-4T00:00:00"
       },
       "class" : "inpatient"
     } ],
@@ -68,23 +61,23 @@ ms.author: janschietse
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
-	    "createdDateTime" : "2021-8-28T00:00:00",
+	   "createdDateTime" : "2017-9-4T00:00:00",
       "administrativeMetadata" : {
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
               "system" : "Https://loinc.org",
-              "code" : "41806-1",
-              "display" : "CT ABDOMEN"
+              "code" : "26086-9",
+              "display" : "XR KNEE - LEFT 2 VIEWS"
             } ]
           },
-          "description" : "CT ABDOMEN"
+          "description" : "XR KNEE - LEFT 2 VIEWS"
         } ],
         "encounterId" : "encounterid1"
       },
       "content" : {
         "sourceType" : "inline",
-        "value" : "CT ABDOMEN AND PELVIS\n\nProvided history: \n78 years old Female\nAbnormal weight loss\n\nTechnique: Routine protocol helical CT of the abdomen and pelvis were performed after the injection of intravenous nonionic iodinated contrast. Axial, Sagittal and coronal 2-D reformats were obtained. Oral contrast was also administered.\n\nFindings:\nLimited evaluation of the included lung bases demonstrates no evidence of abnormality. \n\nGallbladder is absent. "
+        "value" : "Indication: Pain.\n\nComparison: None available.\n\nTechnique: knee routine right\n\nFindings: \nMinimally displaced fibular head fracture, best seen on lateral view. No additional acute fracture is detected. The visualized joint spaces appear maintained. No evidence of joint effusion.\n\nImpression:\nMinimally displaced fracture of the fibular head, best seen on lateral view. Suggest MRI of the left knee for further evaluation.\n\n"
       }
     } ]
   } ]

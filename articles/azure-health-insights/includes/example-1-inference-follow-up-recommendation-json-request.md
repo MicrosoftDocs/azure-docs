@@ -1,32 +1,26 @@
 ---
-title: Radiology Insights Inference Example followupRecommendation input 2
-titleSuffix: Azure AI Health Insights
-description: Radiology Insights Inference Example followupRecommendation 2
-services: azure-health-insights
 author: JanSchietse
-manager: JoeriVDV
-ms.service: azure-health-insights
-ms.topic: quickstart
-ms.date: 12/06/2023
 ms.author: janschietse
+ms.date: 01/25/2024
+ms.topic: include
+ms.service: azure-health-insights
 ---
 
-# Inference example followupRecommendation input 2
 
 ```json
 {
   "configuration" : {
     "inferenceOptions" : {
       "followupRecommendationOptions" : {
-        "includeRecommendationsWithNoSpecifiedModality" : false,
-        "includeRecommendationsInReferences" : true,
-        "provideFocusedSentenceEvidence" : true
+        "includeRecommendationsWithNoSpecifiedModality" : true,
+        "includeRecommendationsInReferences" : false,
+        "provideFocusedSentenceEvidence" : false
       },
       "findingOptions" : {
-        "provideFocusedSentenceEvidence" : false
+        "provideFocusedSentenceEvidence" : true
       }
     },
-    "inferenceTypes" : [ "followupRecommendation" ],
+    "inferenceTypes" : [ "finding",  "followupRecommendation" ],
     "locale" : "en-US",
     "verbose" : false,
     "includeEvidence" : true

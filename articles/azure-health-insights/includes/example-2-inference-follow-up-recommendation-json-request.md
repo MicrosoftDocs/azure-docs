@@ -1,17 +1,11 @@
 ---
-title: Radiology Insights Inference Example lateralityDiscrepancy input
-titleSuffix: Azure AI Health Insights
-description: Radiology Insights Inference Example lateralityDiscrepancy input
-services: azure-health-insights
 author: JanSchietse
-manager: JoeriVDV
-ms.service: azure-health-insights
-ms.topic: quickstart
-ms.date: 12/06/2023
 ms.author: janschietse
+ms.date: 01/25/2024
+ms.topic: include
+ms.service: azure-health-insights
 ---
 
-# Inference example lateralityDiscrepancy input
 
 ```json
 {
@@ -19,23 +13,22 @@ ms.author: janschietse
     "inferenceOptions" : {
       "followupRecommendationOptions" : {
         "includeRecommendationsWithNoSpecifiedModality" : false,
-        "includeRecommendationsInReferences" : false,
-        "provideFocusedSentenceEvidence" : false
+        "includeRecommendationsInReferences" : true,
+        "provideFocusedSentenceEvidence" : true
       },
       "findingOptions" : {
         "provideFocusedSentenceEvidence" : false
       }
     },
-    "inferenceTypes" : [ "lateralityDiscrepancy" ],
+    "inferenceTypes" : [ "followupRecommendation" ],
     "locale" : "en-US",
     "verbose" : false,
-    "includeEvidence" : false
+    "includeEvidence" : true
   },
   "patients" : [ {
     "id" : "11111",
     "info" : {
-      "sex" : "female",
-      "birthDate" : "1986-07-01T21:00:00+00:00",
+      "sex" : "male",
       "clinicalInfo" : [ {
         "resourceType" : "Observation",
         "status" : "unknown",
@@ -52,8 +45,8 @@ ms.author: janschietse
     "encounters" : [ {
       "id" : "encounterid1",
       "period" : {
-        "start" : "2021-08-28T00:00:00",
-        "end" : "2021-08-28T00:00:00"
+        "start" : "2014-2-20T00:00:00",
+        "end" : "2014-2-20T00:00:00"
       },
       "class" : "inpatient"
     } ],
@@ -67,23 +60,23 @@ ms.author: janschietse
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
-	  "createdDateTime" : "2021-8-28T00:00:00",
+	  "createdDateTime" : "2014-2-20T00:00:00",
       "administrativeMetadata" : {
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
               "system" : "Https://loinc.org",
-              "code" : "26688-1",
-              "display" : "US BREAST - LEFT LIMITED"
+              "code" : "LP207608-3",
+              "display" : "ULTRASOUND"
             } ]
           },
-          "description" : "US BREAST - LEFT LIMITED"
+          "description" : "ULTRASOUND"
         } ],
         "encounterId" : "encounterid1"
       },
       "content" : {
         "sourceType" : "inline",
-        "value" : "Exam:   US LT BREAST TARGETED\r\n\r\nTechnique:  Targeted imaging of the  right breast  is performed.\r\n\r\nFindings:\r\n\r\nTargeted imaging of the left breast is performed from the 6:00 to the 9:00 position.  \r\n\r\nAt the 6:00 position, 5 cm from the nipple, there is a 3 x 2 x 4 mm minimally hypoechoic mass with a peripheral calcification. This may correspond to the mammographic finding. No other cystic or solid masses visualized.\r\n"
+        "value" : " \n\nIMPRESSION:   \n \n1. Given its size, surgical \nconsultation is recommended.\n2. Recommend ultrasound.\n3. Recommend screening.\n\nRECOMMENDATION:\n\nTHIS IS A (AAA) CASE. An aneurysm follow up program has been developed to facilitate the monitoring of your patient and the next ultrasound will be arranged based on approved guidelines. \nKP NW Practice Guidelines for Surveillance of a AAA: Recommended Imaging Intervals \n<3cm No need for followup \n3-3.9cm Every 3 years \n4-4.4cm Every 2 years \n4.5-4.9cm Female every 6 months, Male every year \n5.0-5.5cm Male every 6 months \nReferral to Vascular Surgery: \nFemale >5cm \nMale <60 years of age; >5cm \nMale >61 years of age; >5.5cm.\nIf infrarenal aorta not well seen on US, repeat in 1 month with 24 hour liquid diet. If still not well seen, CT non-contrast abd/pelvis.\n"
       }
     } ]
   } ]

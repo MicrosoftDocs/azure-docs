@@ -1,17 +1,11 @@
 ---
-title: Radiology Insights Inference Example criticalResult input
-titleSuffix: Azure AI Health Insights
-description: Radiology Insights Inference Example criticalResult input
-services: azure-health-insights
 author: JanSchietse
-manager: JoeriVDV
-ms.service: azure-health-insights
-ms.topic: quickstart
-ms.date: 12/06/2023
 ms.author: janschietse
+ms.date: 01/25/2024
+ms.topic: include
+ms.service: azure-health-insights
 ---
 
-# Inference example criticalResult input
 
 ```json
 {
@@ -26,7 +20,7 @@ ms.author: janschietse
         "provideFocusedSentenceEvidence" : false
       }
     },
-    "inferenceTypes" : [  "criticalResult" ],
+    "inferenceTypes" : [  "radiologyProcedure" ],
     "locale" : "en-US",
     "verbose" : false,
     "includeEvidence" : false
@@ -35,7 +29,7 @@ ms.author: janschietse
     "id" : "11111",
     "info" : {
       "sex" : "female",
-      "birthDate" : "1986-07-01T21:00:00+00:00",
+      "birthDate" : "1959-11-11T19:00:00+00:00",
       "clinicalInfo" : [ {
         "resourceType" : "Observation",
         "status" : "unknown",
@@ -52,8 +46,8 @@ ms.author: janschietse
     "encounters" : [ {
       "id" : "encounterid1",
       "period" : {
-        "start" : "2017-9-4T00:00:00",
-        "end" : "2017-9-4T00:00:00"
+        "start" : "2021-8-28T00:00:00",
+        "end" : "2021-8-28T00:00:00"
       },
       "class" : "inpatient"
     } ],
@@ -67,23 +61,32 @@ ms.author: janschietse
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
-	   "createdDateTime" : "2017-9-4T00:00:00",
+	  "createdDateTime" : "2021-8-28T00:00:00",
       "administrativeMetadata" : {
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
               "system" : "Https://loinc.org",
-              "code" : "26086-9",
-              "display" : "XR KNEE - LEFT 2 VIEWS"
+              "code" : "24727-0",
+              "display" : "CT HEAD W CONTRAST IV"
             } ]
           },
-          "description" : "XR KNEE - LEFT 2 VIEWS"
+          "description" : "CT HEAD W CONTRAST IV"
+        }, {
+          "code" : {
+            "coding" : [ {
+              "system" : "Http://hl7.org/fhir/ValueSet/cpt-all",
+              "code" : "70460",
+              "display" : "Ct head/brain w/dye"
+            } ]
+          },
+          "description" : "Ct head/brain w/dye"
         } ],
         "encounterId" : "encounterid1"
       },
       "content" : {
         "sourceType" : "inline",
-        "value" : "Indication: Pain.\n\nComparison: None available.\n\nTechnique: knee routine right\n\nFindings: \nMinimally displaced fibular head fracture, best seen on lateral view. No additional acute fracture is detected. The visualized joint spaces appear maintained. No evidence of joint effusion.\n\nImpression:\nMinimally displaced fracture of the fibular head, best seen on lateral view. Suggest MRI of the left knee for further evaluation.\n\n"
+        "value" : "\nExam:  Head CT with Contrast\r\n\r\nHistory:  Headaches for 2 months\r\n\r\nTechnique: Axial, sagittal, and coronal images were reconstructed from helical CT through the head without IV contrast.\r\n\r\nIV contrast:  100 mL IV Omnipaque 300.\r\n\r\nFindings: There is no mass effect. There is no abnormal enhancement of the brain or within injuries with IV contrast.\nHowever, there is no evidence of enhancing lesion in either internal auditory canal.\n\r\nImpression: Negative CT of the brain without IV contrast.\r I recommend a new brain CT within nine months.\n"
       }
     } ]
   } ]

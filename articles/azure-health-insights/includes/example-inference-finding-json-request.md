@@ -1,17 +1,11 @@
 ---
-title: Radiology Insights Inference Example radiologyProcedure input
-titleSuffix: Azure AI Health Insights
-description: Radiology Insights Inference Example radiologyProcedure input
-services: azure-health-insights
 author: JanSchietse
-manager: JoeriVDV
-ms.service: azure-health-insights
-ms.topic: quickstart
-ms.date: 12/06/2023
 ms.author: janschietse
+ms.date: 01/25/2024
+ms.topic: include
+ms.service: azure-health-insights
 ---
 
-# Inference example radiologyProcedure input
 
 ```json
 {
@@ -26,7 +20,7 @@ ms.author: janschietse
         "provideFocusedSentenceEvidence" : false
       }
     },
-    "inferenceTypes" : [  "radiologyProcedure" ],
+    "inferenceTypes" : [ "finding" ],
     "locale" : "en-US",
     "verbose" : false,
     "includeEvidence" : false
@@ -35,7 +29,7 @@ ms.author: janschietse
     "id" : "11111",
     "info" : {
       "sex" : "female",
-      "birthDate" : "1959-11-11T19:00:00+00:00",
+      "birthDate" : "2011-08-31T18:00:00+00:00",
       "clinicalInfo" : [ {
         "resourceType" : "Observation",
         "status" : "unknown",
@@ -67,32 +61,23 @@ ms.author: janschietse
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
-	  "createdDateTime" : "2021-8-28T00:00:00",
+      "createdDateTime" : "2021-8-28T00:00:00",
       "administrativeMetadata" : {
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
               "system" : "Https://loinc.org",
-              "code" : "24727-0",
-              "display" : "CT HEAD W CONTRAST IV"
+              "code" : "24627-2",
+              "display" : "CT CHEST"
             } ]
           },
-          "description" : "CT HEAD W CONTRAST IV"
-        }, {
-          "code" : {
-            "coding" : [ {
-              "system" : "Http://hl7.org/fhir/ValueSet/cpt-all",
-              "code" : "70460",
-              "display" : "Ct head/brain w/dye"
-            } ]
-          },
-          "description" : "Ct head/brain w/dye"
+          "description" : "CT CHEST"
         } ],
         "encounterId" : "encounterid1"
       },
       "content" : {
         "sourceType" : "inline",
-        "value" : "\nExam:  Head CT with Contrast\r\n\r\nHistory:  Headaches for 2 months\r\n\r\nTechnique: Axial, sagittal, and coronal images were reconstructed from helical CT through the head without IV contrast.\r\n\r\nIV contrast:  100 mL IV Omnipaque 300.\r\n\r\nFindings: There is no mass effect. There is no abnormal enhancement of the brain or within injuries with IV contrast.\nHowever, there is no evidence of enhancing lesion in either internal auditory canal.\n\r\nImpression: Negative CT of the brain without IV contrast.\r I recommend a new brain CT within nine months.\n"
+        "value" : "\n\n\nFINDINGS:\nIn the right upper lobe, there is a new mass measuring 5.6 x 4.5 x 3.4 cm.\nA lobulated soft tissue mass is identified in the superior right lower lobe abutting the major fissure measuring 5.4 x 4.3 x 3.7 cm (series 3 image 94, coronal image 110).\nA 4 mm nodule in the right lower lobe (series 3, image 72) is increased dating back to 6/29/2012. This may represent lower lobe metastasis.\n\nIMPRESSION: 4 cm pulmonary nodule posterior aspect of the right upper lobe necessitating additional imaging as described.\n\t\t"
       }
     } ]
   } ]
