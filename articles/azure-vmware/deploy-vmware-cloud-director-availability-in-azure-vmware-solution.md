@@ -11,15 +11,15 @@ ms.date: 1/22/2024
 
 In this article, learn how to deploy VMware Cloud Director availability in Azure VMware Solution.
 
-Customers can use [VMware Cloud Director availability](https://docs.vmware.com/en/VMware-Cloud-Director-Availability/index.html), a Disaster Recovery as a Service (DRaaS) solution, to protect and migrate workloads both to and from the VMware Cloud Director service associated with Azure VMware Soltution. The native integration of VMware Cloud Director availability with VMware Cloud director (VCD) and VMware Cloud Director service (CDS) enables provider and their tenants to efficiently manage migration and disaster recovery for workloads through the VMware Cloud Director availability provider and tenant portal. 
+Customers can use [VMware Cloud Director availability](https://docs.vmware.com/en/VMware-Cloud-Director-Availability/index.html), a Disaster Recovery as a Service (DRaaS) solution, to protect and migrate workloads both to and from the VMware Cloud Director service associated with Azure VMware Soltution. The native integration of VMware Cloud Director availability with VMware Cloud director and VMware Cloud Director service (CDS) enables provider and their tenants to efficiently manage migration and disaster recovery for workloads through the VMware Cloud Director availability provider and tenant portal. 
 
 ## VMware Cloud Director availability scenarios on Azure VMware Solution
 
 You can use VMware Cloud Director availability with Azure VMware Solution for the following two scenarios:
 
-- On Premise to Azure VMware Solution
+- On Premises to Azure VMware Solution
 
-    VMware Cloud Director availability provides migration, protection, failover, and reverse failover of VMs, vApps, and templates across on-premises VMware vCenter, VMware Cloud Director (VCD), or VMware Cloud Director service (VMware CDS) to VMware CDS on Azure VMware Solution. 
+    VMware Cloud Director availability provides migration, protection, failover, and reverse failover of VMs, vApps, and templates across on-premises VMware vCenter, VMware Cloud director, or VMware Cloud Director service (CDS) to VMware CDS on Azure VMware Solution. 
 
 - Azure VMware Solution to Azure VMware Solution
 
@@ -57,7 +57,7 @@ The following diagram shows VMware Cloud Director availability appliances instal
 
 :::image type="content" source="media/deploy-vmware-cloud-director-availability/vmware-cloud-director-availability-diagram.png" alt-text="Diagram shows VMware Cloud Director availability appliances installed in both on-premises and Azure VMware Solution."lightbox="media/deploy-vmware-cloud-director-availability/vmware-cloud-director-availability-diagram.png"::: 
 
-## Install and configure VMware Cloud Director availabilityy on Azure VMware Solution
+## Install and configure VMware Cloud Director availability on Azure VMware Solution
 
 Verify the following prerequisites to ensure you're ready to install and confiture VMware Cloud DIrector availability using Run commands.
 
