@@ -86,7 +86,7 @@ These code snippets show you how to do the following tasks with the Content Mode
 
 ## Authenticate the client
 
-Instantiate a client with your endpoint and key. Create a [CognitiveServicesCredentials](/python/api/msrest/msrest.authentication.cognitiveservicescredentials) object with your key, and use it with your endpoint to create an [ContentModeratorClient](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient) object.
+Instantiate a client with your endpoint and key. Create a CognitiveServicesCredentials](/python/api/msrest/msrest.authentication.cognitiveservicescredentials object with your key, and use it with your endpoint to create an [ContentModeratorClient](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient) object.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_client)]
 
