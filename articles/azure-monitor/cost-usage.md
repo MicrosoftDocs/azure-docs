@@ -127,7 +127,7 @@ B. Billable data ingestion by table from the past month.
 
 To investigate your Application Insights usage more deeply, open the **Metrics** page, add the metric named *Data point volume*, and then select the *Apply splitting* option to split the data by "Telemetry item type".
 
-## Viewing all data allocation benefits
+## Viewing data allocation benefits
 
 To view data allocation benefits from sources such as [Microsoft Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/), [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5 and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/), or the [Sentinel Free Trial](https://azure.microsoft.com/pricing/details/microsoft-sentinel/), you need to [export your usage details](#export-usage-details). 
 
