@@ -2,12 +2,12 @@
 title: Upcoming Breaking Changes in Azure API Management | Microsoft Docs
 description: A list of all the upcoming breaking changes for Azure API Management
 services: api-management
-author: adrianhall
+author: dlepow
 
 ms.service: api-management
 ms.topic: reference
 ms.date: 01/25/2024
-ms.author: adhal
+ms.author: danlep
 ---
 
 # Upcoming breaking changes
