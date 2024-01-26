@@ -3,13 +3,13 @@ title: Azure Monitor Logs Dedicated Clusters
 description: Customers meeting the minimum commitment tier could use dedicated clusters
 ms.topic: conceptual
 ms.reviewer: yossiy
-ms.date: 12/01/2023
+ms.date: 01/25/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Create and manage a dedicated cluster in Azure Monitor Logs 
 
-Linking a Log Analytics workspace to a dedicated cluster in Azure Monitor provides advanced capabilities and higher query utilization. You can link and unlink workspaces from a dedicated cluster without any data loss or service interruption. 
+Linking a Log Analytics workspace to a dedicated cluster in Azure Monitor provides advanced capabilities and higher query utilization. Clusters require a minimum ingestion commitment of 100 GB per day. You can link and unlink workspaces from a dedicated cluster without any data loss or service interruption. 
 
 ## Advanced capabilities
 Capabilities that require dedicated clusters:
@@ -56,7 +56,7 @@ Provide the following properties when creating new dedicated cluster:
 - **ClusterName**: Must be unique for the resource group.
 - **ResourceGroupName**: Use a central IT resource group because many teams in the organization usually share clusters. For more design considerations, review [Design a Log Analytics workspace configuration](../logs/workspace-design.md).
 - **Location**
-- **SkuCapacity**: You can set the commitment tier (formerly called capacity reservations) to 100, 100, 1000, 2000 or 1000 GB/day. For more information on cluster costs, see [Dedicate clusters](./cost-logs.md#dedicated-clusters). 
+- **SkuCapacity**: You can set the commitment tier to 100, 200, 300, 400, 500, 1000, 2000, 5000, 10000, 25000, 50000 GB per day. For more information on cluster costs, see [Dedicate clusters](./cost-logs.md#dedicated-clusters). 
 - **Managed identity**: Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): 
   - System-assigned managed identity - Generated automatically with the cluster creation when identity `type` is set to "*SystemAssigned*". This identity can be used later to grant storage access to your Key Vault for wrap and unwrap operations.
 
@@ -507,7 +507,7 @@ The same as for 'clusters in a resource group', but in subscription scope.
 
 ## Update commitment tier in cluster
 
-When the data volume to linked workspaces changes over time, you can update the Commitment Tier level appropriately to optimize cost. The tier is specified in units of Gigabytes (GB) and can have values of 100, 100, 1000, 2000 or 1000 GB per day. You don't have to provide the full REST request body, but you must include the sku.
+When the data volume to linked workspaces changes over time, you can update the Commitment Tier level appropriately to optimize cost. The tier is specified in units of Gigabytes (GB) and can have values of 100, 200, 300, 400, 500, 1000, 2000, 5000, 10000, 25000, 50000 GB per day. You don't have to provide the full REST request body, but you must include the sku.
 
 During the commitment period, you can change to a higher commitment tier, which restarts the 31-day commitment period. You can't move back to pay-as-you-go or to a lower commitment tier until after you finish the commitment period.
 
@@ -736,9 +736,9 @@ Authorization: Bearer <token>
 -  400--The body of the request is null or in bad format.
 -  400--SKU name is invalid. Set SKU name to capacityReservation.
 -  400--Capacity was provided but SKU isn't capacityReservation. Set SKU name to capacityReservation.
--  400--Missing Capacity in SKU. Set Capacity value to 100, 1000, 2000 or 1000 GB/day.
+-  400--Missing Capacity in SKU. Set Capacity value to 100, 200, 300, 400, 500, 1000, 2000, 5000, 10000, 25000, 50000 GB per day.
 -  400--Capacity is locked for 30 days. Decreasing capacity is permitted 30 days after update.
--  400--No SKU was set. Set the SKU name to capacityReservation and Capacity value to 100, 1000, 2000 or 1000 GB/day.
+-  400--No SKU was set. Set the SKU name to capacityReservation and Capacity value to 100, 200, 300, 400, 500, 1000, 2000, 5000, 10000, 25000, 50000 GB per day.
 -  400--Identity is null or empty. Set Identity with systemAssigned type.
 -  400--KeyVaultProperties are set on creation. Update KeyVaultProperties after cluster creation.
 -  400--Operation can't be executed now. Async operation is in a state other than succeeded. Cluster must complete its operation before any update operation is performed.
