@@ -16,7 +16,7 @@ Heavy use of the [metrics API](/rest/api/monitor/metrics/list?tabs=HTTP) can res
 ## Request format 
  The metrics:getBatch API request has the following format:
  ```http
-POST /subscriptions/<subscriptionId>/metrics:getBatch?metricNamespace=<resource type namespace>&api-version=2023-03-01-preview
+POST /subscriptions/<subscriptionId>/metrics:getBatch?metricNamespace=<resource type namespace>&api-version=2023-10-01
 Host: <region>.metrics.monitor.azure.com
 Content-Type: application/json
 Authorization: Bearer <token>
@@ -28,7 +28,7 @@ Authorization: Bearer <token>
 
 For example,
 ```http
-POST /subscriptions/12345678-1234-1234-1234-123456789abc/metrics:getBatch?metricNamespace=microsoft.compute/virtualMachines&api-version=2023-03-01-preview
+POST /subscriptions/12345678-1234-1234-1234-123456789abc/metrics:getBatch?metricNamespace=microsoft.compute/virtualMachines&api-version=2023-10-01
 Host: eastus.metrics.monitor.azure.com
 Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhb...TaXzf6tmC4jhog
@@ -75,7 +75,7 @@ GET https://management.azure.com/subscriptions/12345678-1234-1234-1234-123456789
      to `/subscriptions/12345678-1234-1234-1234-123456789abc/metrics:getBatch`
 
 1. The `metricNamespace` query param is required for metrics:getBatch. For Azure standard metrics, the namespace name is usually the resource type of the resources you've specified. To check the namespace value to use, see the [metrics namespaces API](/rest/api/monitor/metric-namespaces/list?tabs=HTTP)
-1. Update the api-version query parameter as follows: `&api-version=2023-03-01-preview`
+1. Update the api-version query parameter as follows: `&api-version=2023-10-01`
 1. The filter query param isn't prefixed with a `$` in the metrics:getBatch API. Change the query param from `$filter=` to `filter=`.
 1.  The metrics:getBatch API is a POST call with a body that contains a comma-separated list of resourceIds in the following format:
     For example:
@@ -106,7 +106,7 @@ GET https://management.azure.com/subscriptions/12345678-1234-1234-1234-123456789
 
 The following example shows the converted batch request.
 ```http
-    POST https://westus2.metrics.monitor.azure.com/subscriptions/12345678-1234-1234-1234-123456789abc/metrics:getBatch?timespan=2023-04-20T12:00:00.000Z/2023-04-22T12:00:00.000Z&interval=PT6H&metricNamespace=microsoft.storage%2Fstorageaccounts&metricnames=Ingress,Egress&aggregation=total,average,minimum,maximum&top=10&orderby=total desc&filter=ApiName eq '*'&api-version=2023-03-01-preview
+    POST https://westus2.metrics.monitor.azure.com/subscriptions/12345678-1234-1234-1234-123456789abc/metrics:getBatch?timespan=2023-04-20T12:00:00.000Z/2023-04-22T12:00:00.000Z&interval=PT6H&metricNamespace=microsoft.storage%2Fstorageaccounts&metricnames=Ingress,Egress&aggregation=total,average,minimum,maximum&top=10&orderby=total desc&filter=ApiName eq '*'&api-version=2023-10-01
         
     {
       "resourceids": [
