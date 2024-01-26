@@ -98,6 +98,8 @@ To add a user-assigned identity, you need to create a user-assigned identity res
     ```
 <!-- Haven't figured out how to set the user-assigned identity -->
 
+---
+
 ## Assign the managed identity the API Management Service Reader role
 
 To allow import of APIs, assign your API center's managed identity the `API Management Service Reader` role in your API Management instance. You can use the [portal](../role-based-access-control/role-assignments-portal-managed-identity.md) or the Azure CLI.
