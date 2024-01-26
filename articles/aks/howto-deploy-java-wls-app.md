@@ -17,7 +17,7 @@ This article demonstrates how to:
 - Build the application Docker image and serve as auxiliary image to provide WDT models and applications.
 - Deploy the containerized application to the existing WLS cluster on AKS.
 
-This article uses the Azure Marketplace offer for WLS to accelerate your journey to AKS. The offer automatically provisions a number of Azure resources including an Azure Container Registry (ACR) instance, an AKS cluster, an Azure App Gateway Ingress Controller (AGIC) instance, the WebLogic Operator, a container image including WebLogic runtime and a WLS cluster without application. Then, this article introduces using auxiliary image to update an existing WLS cluster. The auxiliary image is to provide application and WDT models.
+This article uses the Azure Marketplace offer for WLS to accelerate your journey to AKS. The offer automatically provisions a number of Azure resources including an Azure Container Registry (ACR) instance, an AKS cluster, an Azure App Gateway Ingress Controller (AGIC) instance, the WebLogic Operator, a container image including WebLogic runtime and a WLS cluster without application. Then, this article introduces building an auxiliary image step by step to update an existing WLS cluster. The auxiliary image is to provide application and WDT models.
 
 For full automation, you can select your appliation and configure datasource connetion from Azure portal before the offer deployment. To see the offer, visit the [Azure portal](https://aka.ms/wlsaks). 
 
@@ -139,9 +139,9 @@ This section updates the WLS cluster by deploying a sample application using [au
 
 ### Check out the application
 
-Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/azure-cafe).
+Clone the sample code for this guide. The sample is on [GitHub](https://github.com/microsoft/weblogic-on-azure).
 
-You'll use `weblogic-cafe/`. Here's the file structure of the application. 
+You'll use `javaee/weblogic-cafe/`. Here's the file structure of the application. 
 ```text
 weblogic-cafe
 ├── pom.xml
@@ -169,28 +169,27 @@ weblogic-cafe
             ├── WEB-INF
             │   ├── beans.xml
             │   ├── faces-config.xml
-            │   ├── web.xml
-            │   └── weblogic.xml
+            │   └── web.xml
             ├── index.xhtml
             └── resources
                 └── components
                     └── inputPrice.xhtml
 ```
 
-Clone the repository, checkout tag `20231206`.
+Clone the repository.
 
 ```bash
 export BASE_DIR=~
-git clone --branch 20231206 https://github.com/Azure-Samples/azure-cafe.git $BASE_DIR/azure-cafe
+git clone https://github.com/microsoft/weblogic-on-azure.git $BASE_DIR/weblogic-on-azure
 ```
 
-Build `weblogic-cafe/`.
+Build `javaee/weblogic-cafe/`.
 
 ```bash
-mvn clean package --file $BASE_DIR/azure-cafe/weblogic-cafe/pom.xml
+mvn clean package --file $BASE_DIR/weblogic-on-azure/javaee/weblogic-cafe/pom.xml
 ```
 
-The package should be successfully generated and located at `$BASE_DIR/azure-cafe/weblogic-cafe/target/weblogic-cafe.war`. If you don't see the package, you must troubleshoot and resolve the issue before you continue.
+The package should be successfully generated and located at `$BASE_DIR/weblogic-on-azure/javaee/weblogic-cafe/target/weblogic-cafe.war`. If you don't see the package, you must troubleshoot and resolve the issue before you continue.
 
 ### Use Docker to create an auxiliary image
 
@@ -284,7 +283,7 @@ Follow the steps to build an auxiliary image including Model in Image model file
 
     ```bash
     mkdir -p /tmp/mystaging/models/wlsdeploy/applications
-    cp $BASE_DIR/azure-cafe/weblogic-cafe/target/weblogic-cafe.war /tmp/mystaging/models/wlsdeploy/applications/weblogic-cafe.war
+    cp $BASE_DIR/weblogic-on-azure/javaee/weblogic-cafe/target/weblogic-cafe.war /tmp/mystaging/models/wlsdeploy/applications/weblogic-cafe.war
     ```
 
     Create the application model file with the following content. Save the model file to `/tmp/mystaging/models/appmodel.yaml`.
@@ -293,10 +292,10 @@ Follow the steps to build an auxiliary image including Model in Image model file
     cat <<EOF >appmodel.yaml
     appDeployments:
       Application:
-          myapp:
-            SourcePath: 'wlsdeploy/applications/weblogic-cafe.war'
-            ModuleType: ear
-            Target: 'cluster-1'
+        myapp:
+          SourcePath: 'wlsdeploy/applications/weblogic-cafe.war'
+          ModuleType: ear
+          Target: 'cluster-1'
     EOF
     ```
 
@@ -340,8 +339,8 @@ Follow the steps to build an auxiliary image including Model in Image model file
                 user:
                   Value: '@@SECRET:sqlserver-secret:user@@'
             JDBCConnectionPoolParams:
-                TestTableName: SQL SELECT 1
-                TestConnectionsOnReserve: true
+              TestTableName: SQL SELECT 1
+              TestConnectionsOnReserve: true
     EOF
     ```
 
@@ -504,21 +503,29 @@ Now you have the auxiliary image including models and WDT. Before you apply the 
 
 1. Create secret for datasource connection.
 
-    This article uses secret name `sqlserver-secret` for secret of datasource connection. Run the following command to create the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/). If you use a different name, make sure the value is the same with that used in *dbmodel.yaml*.
+    This article uses secret name `sqlserver-secret` for secret of datasource connection. Run the following command to create the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/). If you use a different name, make sure the value is the same with that used in *dbmodel.yaml*. Make sure the following variables for database connection are set correctly.
 
     ```bash
     # replace with your values
-    export DB_CONNECTION_STRING=
-    export DB_USER=weblogic@
-    export DB_PASSWORD=Secret123456
+    export DB_CONNECTION_STRING=<example-jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125;>
+    # replace with your values
+    export DB_USER=<example-welogic@sqlserverforwlsaks>
+    # replace with your values
+    export DB_PASSWORD=<example-Secret123456>
+
     export WLS_DOMAIN_NS=sample-domain1-ns
+    export WLS_DOMAIN_UID=sample-domain1
     export SECRET_NAME=sqlserver-secret
 
     kubectl -n ${WLS_DOMAIN_NS} create secret generic \
-        ${SECRET_NAME} \
-        --from-literal=password="${DB_PASSWORD}" \
-        --from-literal=url="${DB_CONNECTION_STRING}" \
-        --from-literal=user="${DB_USER}"
+      ${SECRET_NAME} \
+      --from-literal=password="${DB_PASSWORD}" \
+      --from-literal=url="${DB_CONNECTION_STRING}" \
+      --from-literal=user="${DB_USER}"
+
+    kubectl -n ${WLS_DOMAIN_NS} label secret \
+      ${SECRET_NAME} \
+      weblogic.domainUID=${WLS_DOMAIN_UID}
     ```
 
 2. Apply the auxiliary image by patching the domain CRD.
@@ -541,7 +548,6 @@ Now you have the auxiliary image including models and WDT. Before you apply the 
     Run `kubectl patch` command increase the `restartVersion` and apply the auxiliary image with the following definition in domain CRD.
 
     ```bash
-    export WLS_DOMAIN_UID=sample-domain1
     export VERSION=$(kubectl -n ${WLS_DOMAIN_NS} get domain ${WLS_DOMAIN_UID} -o=jsonpath='{.spec.restartVersion}' | tr -d "\"")
     ```
     
@@ -559,13 +565,18 @@ Now you have the auxiliary image including models and WDT. Before you apply the 
         "op": "add",
         "path": "/spec/configuration/model/auxiliaryImages",
         "value": [{"image": "$ACR_LOGIN_SERVER/wlsaks-auxiliary-image:1.0", "imagePullPolicy": "IfNotPresent", "sourceModelHome": "/auxiliary/models", "sourceWDTInstallHome": "/auxiliary/weblogic-deploy"}]
+      },
+      {
+        "op": "add",
+        "path": "/spec/configuration/secrets",
+        "value": ["${SECRET_NAME}"]
       }
     ]
     EOF
 
     kubectl -n ${WLS_DOMAIN_NS} patch domain ${WLS_DOMAIN_UID} \
-            --type=json \
-            --patch-file patch-file.json
+      --type=json \
+      --patch-file patch-file.json
 
     kubectl get pod -n ${WLS_DOMAIN_NS} -w
     ```
@@ -581,11 +592,11 @@ The following steps show you how to verify the functionality of the deployment b
    > [!NOTE]
    > This article shows the WLS admin console merely by way of demonstration. Don't use the WLS admin console for any durable configuration changes when running WLS on AKS. The cloud-native design of WLS on AKS requires that any durable configuration must be represented in the initial docker images or applied to the running AKS cluster using CI/CD techniques such as updating the model, as described in the [Oracle documentation](https://aka.ms/wls-aks-docs-update-model).
 
-1. Understand the `context-path` of the sample app you deployed. If you deployed the recommended sample app, the `context-path` is `testwebapp`.
-1. Construct a fully qualified URL for the sample app by appending the `context-path` to the value of **clusterExternalUrl**. If you deployed the recommended sample app, the fully qualified URL will be something like `http://123.456.789.012:8001/testwebapp/`.
+1. Understand the `context-path` of the sample app you deployed. If you deployed the recommended sample app, the `context-path` is `weblogic-cafe`.
+1. Construct a fully qualified URL for the sample app by appending the `context-path` to the value of **clusterExternalUrl**. If you deployed the recommended sample app, the fully qualified URL will be something like `http://wlsgw202401-haiche-wls-aks-domain1.eastus.cloudapp.azure.com/weblogic-cafe/`.
 1. Paste the fully qualified URL in an Internet-connected web browser. If you deployed the recommended sample app, you should see results similar to the following screenshot.
 
-   :::image type="content" source="media/howto-deploy-java-wls-app/test-web-app.png" alt-text="Screenshot of test web app." border="false":::
+   :::image type="content" source="media/howto-deploy-java-wls-app/weblogic-cafe-app.png" alt-text="Screenshot of test web app." border="false":::
 
 ## Clean up resources
 
