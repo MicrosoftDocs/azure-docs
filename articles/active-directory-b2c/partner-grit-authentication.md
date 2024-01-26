@@ -2,16 +2,16 @@
 title: Configure Grit's biometric authentication with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how Grit's biometric authentication with Azure AD B2C secures your account
-
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-
 ms.topic: how-to
-ms.date: 1/25/2023
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C 
+
+#customer intent: I'm a developer integrating biometric authentication with Azure AD B2C. I need to configure Grit biometric authentication with Azure AD B2C, so users can sign in using biometric options like fingerprint, face ID, or Windows Hello. My goal is to provide a more secure and convenient authentication method.
 ---
 
 # Configure Grit's biometric authentication with Azure Active Directory B2C
