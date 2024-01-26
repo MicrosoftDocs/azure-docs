@@ -5,7 +5,7 @@ ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
 ms.date: 01/26/2024
-author: vanjanikolin
+author: vnikolin
 ms.author: vanjanikolin
 ---
 
@@ -21,10 +21,10 @@ This article describes how to troubleshoot a failed server hardware validation. 
 
 ## Locating Hardware Validation Results
 
-1. Navigate to cluster resource group in the sucbscription
+1. Navigate to cluster resource group in the subscription
 2. Expand the cluster Log Analytics Workspace (LAW) resource for the cluster
 3. Navigate to the Logs tab
-4. Hardware validataion results can be fetched with a query against the HWVal_CL table (example below)
+4. Hardware validation results can be fetched with a query against the HWVal_CL table as per the following example
 
 :::image type="content" source="media\hardware-validation-cluster-law.png" alt-text="Cluster LAW Custom table query." lightbox="media\hardware-validation-cluster-law.png":::
 
@@ -38,7 +38,7 @@ The Hardware Validation result for a given Dell server includes the following ca
 - health_info
 - boot_info
 
-Expanding `result_detail` for a given category will show detailed results.
+Expanding `result_detail` for a given category shows detailed results.
 
 ## Troubleshooting Specific Failures
 
@@ -71,7 +71,7 @@ Expanding `result_detail` for a given category will show detailed results.
     ```
 
 * Model Check Failure (Model)
-    * Failed `Model` check indicates that wrong server is racked in the slot or there is a cabling mismatch.
+    * Failed `Model` check indicates that wrong server is racked in the slot or there's a cabling mismatch.
 
     ```json
         {
@@ -170,7 +170,7 @@ Expanding `result_detail` for a given category will show detailed results.
     ```
 
 * NIC Check L2 Switch Information
-    * HW Validation will report L2 switch information for each of the server interfaces.
+    * HW Validation reports L2 switch information for each of the server interfaces.
     * The switch connection ID (switch interface MAC) and switch port connection ID (switch interface label) are informational.
 
     ```json
@@ -192,8 +192,8 @@ Expanding `result_detail` for a given category will show detailed results.
     ```
 
 * Release 3.6 introduced cable checks for bonded interfaces.
-    * Mismatched cabling will be reported in the result_log.
-    * Cable check validates that that bonded NICs connect to switch ports with same Port ID. In the example below PCI 3/1 and 3/2 connect to "Ethernet1/1" and "Ethernet1/3" respectively on TOR, triggering a failure for HWV.
+    * Mismatched cabling is reported in the result_log.
+    * Cable check validates that that bonded NICs connect to switch ports with same Port ID. In the following example PCI 3/1 and 3/2 connect to "Ethernet1/1" and "Ethernet1/3" respectively on TOR, triggering a failure for HWV.
 
   ```json
       {
@@ -221,7 +221,7 @@ Expanding `result_detail` for a given category will show detailed results.
 * Health Check Sensor Failure
     * Dell server health checks cover various hardware component sensors.
     * A failed health sensor indicates a problem with the corresponding hardware component.
-    * Examples below indicate fan, drive and CPU failures respectively.
+    * The following examples indicate fan, drive and CPU failures respectively.
 
     ```json
         {
@@ -251,10 +251,10 @@ Expanding `result_detail` for a given category will show detailed results.
     ```
 
 * Health Check Lifecycle Log (LC Log) Failures
-    * Dell server health checks will fail for recent Critical LC Log Alarms.
-    * The hardware validation plugin will log the alarm ID, name, and timestamp.
+    * Dell server health checks fail for recent Critical LC Log Alarms.
+    * The hardware validation plugin logs the alarm ID, name, and timestamp.
     * Recent LC Log critical alarms indicate need for further investigation.
-    * Example below shows a failure for a critical Backplane voltage alarm.
+    * The following example shows a failure for a critical Backplane voltage alarm.
 
     ```json
         {
@@ -266,9 +266,9 @@ Expanding `result_detail` for a given category will show detailed results.
     ```
 
 * Health Check Server Power Action Failures
-    * Dell server health checks will fail for failed server power up or failed iDRAC reset.
+    * Dell server health check fail for failed server power-up or failed iDRAC reset.
     * A failed server control action indicates an underlying hardware issue.
-    * Example below shows failed power on attempt.
+    * The following example shows failed power on attempt.
 
     ```json
         {
@@ -286,9 +286,9 @@ Expanding `result_detail` for a given category will show detailed results.
     ```
 
 * Health Check Power Supply Failure and Redundancy Considerations
-    * Dell server health checks will warn when one power supply is missing or failed.
-    * Power supply "field_name" may be displayed as 0/PS0/Power Supply 0 and 1/PS1/Power Supply 1 for the first and second power supplies respectively.
-    * A failure of one power supply will not trigger a HW validation device failure.
+    * Dell server health checks warn when one power supply is missing or failed.
+    * Power supply "field_name" might be displayed as 0/PS0/Power Supply 0 and 1/PS1/Power Supply 1 for the first and second power supplies respectively.
+    * A failure of one power supply doesn't trigger an HW validation device failure.
 
     ```json
         {
@@ -312,7 +312,7 @@ Expanding `result_detail` for a given category will show detailed results.
 
 * Boot Device Check Considerations
     * The `boot_device_name` check is currently informational.
-    * Mismatched boot device name should not trigger a device failure.
+    * Mismatched boot device name shouldn't trigger a device failure.
 
     ```json
         {
@@ -326,7 +326,7 @@ Expanding `result_detail` for a given category will show detailed results.
 * PXE Device Check Considerations
     * This check validates the PXE device settings.
     * Failed `pxe_device_1_name` or `pxe_device_1_state` checks indicate a problem with the PXE configuration.
-    * Failed settings will need to be fixed to enable system boot up during deployment.
+    * Failed settings need to be fixed to enable system boot during deployment.
 
     ```json
         {
@@ -348,7 +348,7 @@ Expanding `result_detail` for a given category will show detailed results.
 
 ## Adding Node(s) Back in to the Cluster After Repair
 
-After HW is fixed run geneva action to patch the HW Validation annotation `hwvalidation-failed` to false.
+After Hardware is fixed, run BMM Replace following instructions from the following page [BMM actions](howto-baremetal-functions.md)
 
 
 
