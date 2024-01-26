@@ -348,7 +348,7 @@ Expanding `result_detail` for a given category will show detailed results.
 
 ## Adding Node(s) Back in to the Cluster After Repair
 
-After HW is fixed refer to the following instructions to update BMM Hardware Annotation Flag [update BMM HW Validation Annotation](./patch-hw-annotation.md)
+After HW is fixed run geneva action to patch the HW Validation annotation `hwvalidation-failed` to false.
 
 
 
