@@ -19,7 +19,7 @@ zone_pivot_groups: container-apps-code-to-cloud-segmemts
 This article demonstrates how to build and deploy a microservice to Azure Container Apps from local source code using the programming language of your choice. In this quickstart, you create a backend web API service that returns a static collection of music albums.  
 
 > [!NOTE]
-> This sample application is available in two versions. One version includes a container, where the source contains a Dockerfile. The other version has no Dockerfile. Select the version that best reflects your source code. If you are new to containers, select the **No  Dockerfile** option at the top.
+> This sample application is available in two versions. One version where the source contains a Dockerfile. The other version has no Dockerfile. Select the version that best reflects your source code. If you are new to containers, select the **No  Dockerfile** option at the top.
 
 The following screenshot shows the output from the album API service you deploy.
 
@@ -183,7 +183,7 @@ Extract the download and navigate into the *containerapps-albumapi-go-main/src* 
 
 # [C#](#tab/csharp)
 
-[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-csharp/zip/refs/heads/buildpack) on your machine.
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-csharp/zip/refs/heads/buildpack) to your machine.
 
 Extract the download and change into the *containerapps-albumapi-csharp-buildpack/src* folder.
 
@@ -192,22 +192,22 @@ Extract the download and change into the *containerapps-albumapi-csharp-buildpac
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-java/zip/refs/heads/buildpack) to your machine.
 
-Extract the download and navigate into the `containerapps-albumapi-java-buildpack/src` directory and proceed to the next step.
+Extract the download and change into the *containerapps-albumapi-java-buildpack/src* folder.
 
 > [!NOTE] 
-> The Java sample only supports a Maven build, which results in an executable JAR file. The build uses the default settings, as passing in environment variables is not supported.
+> The Java Builpack currently supports the [Maven tool](https://maven.apache.org/what-is-maven.html) to build your application.
 
 
 # [JavaScript](#tab/javascript)
 
-[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-javascript/zip/refs/heads/buildpack) from the [azure-samples/containerapps-albumapi-javascript/tree/buildpack repo (buildpack branch)](https://github.com/azure-samples/containerapps-albumapi-javascript/tree/buildpack).
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-javascript/zip/refs/heads/buildpack) to your machine.
 
-Extract the download and navigate into the `containerapps-albumapi-javascript-buildpack/src` directory and proceed to the next step.
+Extract the download and change into the *containerapps-albumapi-javascript-buildpack/src* folder.
 
 
 # [Python](#tab/python)
 
-[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-python/zip/refs/heads/buildpack) from the [azure-samples/containerapps-albumapi-python/tree/buildpack repo (buildpack branch)](https://github.com/azure-samples/containerapps-albumapi-javascript/tree/buildpack).
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-python/zip/refs/heads/buildpack) to your machine.
 
 Extract the download and change into the *containerapps-albumapi-python-buildpack/src* folder.
 
@@ -219,9 +219,6 @@ Azure Container Apps cloud build doesn't currently support Buildpacks for Go.
 ::: zone-end
 
 ---
-
-
-
 
 ## Build and deploy the container app
 
@@ -238,7 +235,7 @@ Build and deploy your first container app with the `containerapp up` command. Th
 ::: zone pivot="without-dockerfile"
 - Create the resource group
 - Create a default registry as part of your environment
-- Detect the language and runtime of your application and build the image using the appropuiate Buildpack
+- Detect the language and runtime of your application and build the image using the appropriate Buildpack
 - Push the image into the Azure Container Apps default registry
 - Create the Container Apps environment with a Log Analytics workspace
 - Create and deploy the container app using the built container image
