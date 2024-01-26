@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
 
-ms.date: 01/11/2024
+ms.date: 01/22/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -37,6 +37,8 @@ In Azure Active Directory B2C (Azure AD B2C), you can send event data directly t
 - Troubleshoot your own policies in development or in production.
 - Measure performance.
 - Create notifications from Application Insights.
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-public-preview.md)]
 
 ## Overview
 
