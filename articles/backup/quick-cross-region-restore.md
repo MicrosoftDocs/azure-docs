@@ -14,7 +14,8 @@ This quickstart describes how to enable Cross Region Restore on your Backup vaul
 The Cross Region Restore option allows you to restore data in a secondary [Azure paired region](/azure/availability-zones/cross-region-replication-azure) even when no outage occurs in the primary region; thus, enabling you to perform drills drills when there's an audit or compliance requirement.
 
 > [!NOTE]
-> Currently, Cross Regional Restore (CRR) with CSR is not supported. 
+>- Currently, Geo-redundant Storage (GRS) vaults with Cross Region Restore enabled can't be reverted to ZRS or LRS after the protection starts for the first time.
+>- Cross Regional Restore (CRR) with CSR is currently not supported. 
 
 ## Prerequisites
 
