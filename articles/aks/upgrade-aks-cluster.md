@@ -295,7 +295,9 @@ To allow for a duration of time to wait between draining a node and proceeding t
 
 ## Next steps
 
-To learn how to configure automatic upgrades, see [Configure automatic upgrades for an AKS cluster][configure-automatic-aks-upgrades]. For a detailed discussion of upgrade best practices and other considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
+To learn how to configure automatic upgrades, see [Configure automatic upgrades for an AKS cluster][configure-automatic-aks-upgrades]. 
+
+For a detailed discussion of upgrade best practices and other considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

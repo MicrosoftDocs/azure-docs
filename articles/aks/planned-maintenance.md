@@ -214,7 +214,7 @@ Create an `autoUpgradeWindow.json` file with the following contents:
 }
 ```
 
-The above JSON file specifies maintenance windows every three months on the first of the month between 9:00 AM - 1:00 PM in the `UTC-08` timezone. There's also an exception from `2023-12-23``` to `2024-01-05` where maintenance isn't allowed even if it overlaps with a maintenance window.
+The above JSON file specifies maintenance windows every three months on the first of the month between 9:00 AM - 1:00 PM in the `UTC-08` timezone. There's also an exception from `2023-12-23` to `2024-01-05` where maintenance isn't allowed even if it overlaps with a maintenance window.
 
 The following command adds the maintenance windows from `default.json` and `autoUpgradeWindow.json`:
 
