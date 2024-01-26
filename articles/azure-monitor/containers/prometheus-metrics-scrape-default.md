@@ -25,7 +25,7 @@ Following targets are **enabled/ON** by default - meaning you don't have to prov
 - `kubelet` (`job=kubelet`)
 - `kube-state-metrics` (`job=kube-state-metrics`)
 - `controlplane-apiserver` (`job=controlplane-apiserver`)
-- `controlplane-etcds` (`job=controlplane-etcd`)
+- `controlplane-etcd` (`job=controlplane-etcd`)
 
 ## Metrics collected from default targets
 
