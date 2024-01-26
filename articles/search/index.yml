@@ -51,7 +51,7 @@ landingContent:
           - text: Create a vector store
             url: search-get-started-vector.md
           - text: Chat with your data
-            url: search-get-started-rag-retrieval-augmented-generation.md
+            url: search-get-started-retrieval-augmented-generation.md
           - text: Query a vector store
             url: vector-search-how-to-query.md
       - linkListType: sample

@@ -20,7 +20,7 @@
   - name: Semantic ranking
     href: search-get-started-semantic.md
   - name: Retrieval Augmented Generation (RAG)
-    href: search-get-started-rag-retrieval-augmented-generation.md
+    href: search-get-started-retrieval-augmented-generation.md
   - name: Portal
     items:
     - name: Create an index
