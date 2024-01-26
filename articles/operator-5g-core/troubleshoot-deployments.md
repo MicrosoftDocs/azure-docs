@@ -3,7 +3,7 @@ title: Troubleshoot Azure Operator 5G Core deployment issues
 description: Review troubleshooting solutions for common Azure Operator 5G Core deployment issues.
 author: HollyCl
 ms.author: HollyCl
-ms.service: private-5g-core
+ms.service: azure
 ms.topic: troubleshooting-problem-resolution #don't change.
 ms.date: 01/18/2024
 

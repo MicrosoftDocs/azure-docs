@@ -1,11 +1,12 @@
 ---
-title: What is Azure Operator 5G Core?
-description: Learn about Azure Operator 5G Core and its components.
+title: What is a Mobile Packet Core?
+description: Learn what a Mobile Packet Core is, and how it is used in Azure Operator 5G Core
 author: HollyCl
 ms.author: HollyCl
-ms.service: private-5g-core
+ms.service: azure
 ms.topic: overview #required; leave this attribute/value as-is.
 ms.date: 01/18/2024
+#CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
 
 <!--
@@ -32,7 +33,8 @@ Use the format "What is <service>?"
 You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
 
 -->
-# What is Azure Operator 5G Core?
+
+# What is a Mobile Packet Core (MPC)? 
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
@@ -91,7 +93,7 @@ Optional: You have two options for manually curated links in this pattern: Next 
 TODO: Add your next step link(s)
 
 > [!div class="nextstepaction"]
->
+> 
 
 <!-- OR -->
 
@@ -99,7 +101,7 @@ TODO: Add your next step link(s)
 
 TODO: Add your next step link(s)
 
--
+- 
 <!--
 Remove all the comments in this template before you sign-off or merge to the main branch.
 -->

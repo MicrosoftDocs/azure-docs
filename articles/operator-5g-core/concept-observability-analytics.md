@@ -3,7 +3,7 @@ title: Observability analytics in Azure Operator 5G Core
 description: Learn how observability analytics are used in Azure Operator 5G Core
 author: HollyCl
 ms.author: HollyCl
-ms.service: private-5g-core
+ms.service: azure
 ms.topic: concept-article #required; leave this attribute/value as-is.
 ms.date: 01/18/2024
 

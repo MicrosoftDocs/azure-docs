@@ -3,7 +3,7 @@ title: Deploy a cluster on Nexus Azure Kubernetes Services
 description: Learn the high-level process to deploy a cluster on Nexus Advanced Kubernetes services.
 author: HollyCl
 ms.author: HollyCl
-ms.service: private-5g-core
+ms.service: azure
 ms.topic: quickstart #required; leave this attribute/value as-is
 ms.date: 01/18/2024
 

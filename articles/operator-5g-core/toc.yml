@@ -8,10 +8,6 @@ items:
     href: overview-product.md
   - name: Azure Operator 5G Core architecture
     href: overview-architecture.md
-  - name: What is a Mobile Packet Core?
-    href: overview-packet-core.md
-  - name: What is a network function?
-    href: overview-network-function.md
   - name: Azure Operator 5G Core architecture
 - name: Quickstarts
   expanded: false
@@ -22,8 +18,6 @@ items:
     href: quickstart-create-mobile-packet-core.md
   - name: Configure a network function
     href: quickstart-configure-network-function.md
-  - name: Set deployment areas for your subscription
-    href: quickstart-set-deployment-areas.md
   - name: Azure Kubernetes Service (AKS)
     expanded: false
     items:
@@ -42,8 +36,6 @@ items:
         href: quickstart-deploy-network-functions-nexus.md
       - name: Deploy observability for Nexus Azure Kubernetes services
     href: quickstart-deploy-observability-nexus.md
-  - name: Restart a packet core instance
-    href: quickstart-restart-packet-core-instance.md
   - name: Delete a network function/cluster
     href: quickstart-delete-network-function-cluster.md
 - name: Tutorials

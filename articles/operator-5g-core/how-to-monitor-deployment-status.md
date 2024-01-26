@@ -3,7 +3,7 @@ title: Monitoring the deployment status of Azure Operator 5G Core
 description: Monitor the deployment status of your Azure Operator 5G Core and its components
 author: HollyCl
 ms.author: HollyCl
-ms.service: private-5g-core
+ms.service: azure
 ms.topic: how-to #required; leave this attribute/value as-is.
 ms.date: 01/18/2024
 

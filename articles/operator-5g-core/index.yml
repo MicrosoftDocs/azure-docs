@@ -6,7 +6,7 @@ summary: Learn how to securely deploy and manage  mobile networks for 5G Interne
 metadata:
   title: Azure Operator 5G Core documentation
   description: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Operator 5G Core.
-  ms.service: private-5g-core
+  ms.service: azure
   ms.topic: landing-page
   author: hollycl
   ms.author: hollycl
@@ -42,28 +42,11 @@ landingContent:
         links:
           - text: Getting an Azure Operator 5G Core subscription
             url: quickstart-subscription.md
-# Card
-  - title: Learn about Mobile Packet Core
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is a Mobile Packet Core?
-            url: overview-packet-core.md
-      - linkListType: quickstart
-        links:
           - text: Create a Mobile Packet Core in your subscription
-            url: quickstart-create-mobile-packet-core.md
-          - text: Set deployment areas for your subscription
-            url: quickstart-set-deployment-areas.md
-          - text: Restart a packet core instance
-            url: quickstart-restart-packet-core-instance.md
-  # Card                   
+            url: quickstart-create-mobile-packet-core.md         
+# Card                   
   - title: Learn about network functions
     linkLists:
-      - linkListType: overview
-        links:
-          - text: What is a network function?
-            url: overview-network-function.md
       - linkListType: quickstart
         links:
           - text: Configure a network function
