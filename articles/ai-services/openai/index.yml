@@ -48,7 +48,7 @@ landingContent:
              url: whisper-quickstart.md
 
 #Card 2
-   - title: Azure OpenAI Concepts
+   - title: Azure OpenAI concepts
      linkLists:
       - linkListType: concept
         links:
@@ -103,7 +103,7 @@ landingContent:
      linkLists:
       - linkListType: reference
         links:
-        - text: Transparency Note
+        - text: Transparency note
           url: /legal/cognitive-services/openai/transparency-note?context=/azure/ai-services/openai/context/context
         - text: Limited access
           url: /legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context
@@ -125,7 +125,7 @@ landingContent:
             url: ./concepts/abuse-monitoring.md
  
 # Card 6
-   - title: Retrieval Augmented Generation (RAG) Templates
+   - title: Retrieval Augmented Generation (RAG) templates
      linkLists:
       - linkListType: deploy
         links:
@@ -141,7 +141,7 @@ landingContent:
 
 # Card 7
 
-   - title: Architecture & Training
+   - title: Architecture & training
      linkLists:
       - linkListType: architecture
         links:
