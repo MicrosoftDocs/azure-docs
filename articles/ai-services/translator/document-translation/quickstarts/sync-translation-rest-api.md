@@ -79,48 +79,15 @@ To call the synchronous document translation feature via the [REST API](../refer
     ***PowerShell***
 
     ```powershell
-    cmd /c curl "{your-language-resource-endpoint}/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -i -X POST  --header "Ocp-Apim-Subscription-Key: {your-key}" --data "{path-to-your-document-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}
+    cmd /c curl "{your-language-resource-endpoint}/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -i -X POST  --header "Ocp-Apim-Subscription-Key: {your-key}" -H "Ocp-Apim-Subscription-Region: {your-region}" --data "{path-to-your-document-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}
     ```
 
     ***command prompt / terminal***
 
     ```bash
 
-    curl  "{your-language-resource-endpoint}/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -i -X POST -H "Ocp-Apim-Subscription-Key:{your-key}" -H "Ocp-Apim-Subscription-Region: {your-region}" --data "path-to-your-document-with-file-extension};type=text/{file-extension}" -data "glossary={path-to-your-glossary-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}"
-    like 1
+    curl -i -X POST "{your-language-resource-endpoint}/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}" -H "Ocp-Apim-Subscription-Region: {your-region}" --data "{path-to-your-document-with-file-extension};type=text/{file-extension}" -data "glossary={path-to-your-glossary-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}"
     ```
-
-Here's a closer look at each cURL value  in a sample HTTP calls:
-
-***Global resource with glossary***
-
-* curl "https:&#8203;//global.document.microsofttranslator.com/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview"
-
-* -i -X POST
-
-* -H "Ocp-Apim-Subscription-Key: {KEY}"
-
-* -H "Ocp-Apim-Subscription-Region: {REGION}"
-
-* -data "document=@C:\Test\Test-file.txt;type=text/html"
-
-* -data "glossary=@C:\Test\SDT\test-simple-glossary.csv;type=text/csv"
-
-* --output "C:\Test\Test-file-output.txt"
-
-***Regional resource with glossary***
-
-* curl "https:&#8203;//regional.document.microsofttranslator.com/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview"
-
-* -i -X POST
-
-* -H "Ocp-Apim-Subscription-Key: {KEY}"
-
-* -data "document=@C:\Test\Test-file.txt;type=text/html"
-
-* -data "glossary=@C:\Test\SDT\test-simple-glossary.csv;type=text/csv"
-
-* --output "C:\Test\Test-file-output.txt"
 
 ***Upon successful completion***:
 

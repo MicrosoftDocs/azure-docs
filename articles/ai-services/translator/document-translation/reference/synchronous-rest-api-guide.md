@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 01/23/2024
+ms.date: 01/31/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -51,19 +51,19 @@ Query string parameters:
 
 |Query parameter | Description |
 | --- | --- |
-|**api-version** | _Required parameter_.<\br>Version of the API requested by the client. Current value is `2023-11-01-preview`. |
-|**targetLanguage**|_Required parameter_.<\br>Specifies the language of the output document. The target language must be one of the supported languages included in the translation scope.|
+|**api-version** | _Required parameter_.<br>Version of the API requested by the client. Current value is `2023-11-01-preview`. |
+|**targetLanguage**|_Required parameter_.<br>Specifies the language of the output document. The target language must be one of the supported languages included in the translation scope.|
+|&bull; **document=**<br> &bull;**type=**|_Required parameters_.<br>&bull; Path to the file location for your source document and file format type.</br> &bull; Ex: **"document=@C:\Test\Test-file.txt;type=text/html**|
+|**--output**|_Required parameter_.<br> &bull; Path to the target file location for the translated file.</br> &bull; Ex: **"C:\Test\Test-file-output.txt"**. The file extension should be the same as the source file.|
 
 ### Optional parameters
 
 |Query parameter | Description |
 | --- | --- |
 |**sourceLanguage**|Specifies the language of the input document. If the `sourceLanguage` parameter isn't specified, automatic language detection is applied to determine the source language.|
+|&bull; **glossary=**<br> &bull;**type=**|br>&bull; Path to the file location for your custom glossary and file format type.</br> &bull; Ex:**"glossary=@D:\Test\SDT\test-simple-glossary.csv;type=text/csv**|
 
-## Request body
+## Next steps
 
-The body of the request is a JSON array. Each array element is a JSON object with a string property
-
-## Response body
-
-If the request is successful, then the response body contains translated document with same document format provided for translation.
+> [!div class="nextstepaction"]
+> [Try the synchronous batch translation quickstart](../quickstarts/sync-translation-rest-api.md "Learn more about batch translation for multiple files.")
