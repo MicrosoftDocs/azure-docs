@@ -46,10 +46,12 @@ landingContent:
             url: vector-search-integrated-vectorization.md
           - text: Retrieval Augmented Generation (RAG)
             url: retrieval-augmented-generation-overview.md
-      - linkListType: how-to-guide
+      - linkListType: quickstart
         links:
           - text: Create a vector store
             url: search-get-started-vector.md
+          - text: Build a RAG app
+            url: search-get-started-rag.md
           - text: Query a vector store
             url: vector-search-how-to-query.md
       - linkListType: sample
