@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: how-to
 author: ahughes-msft
 ms.author: alehughes
-ms.date: 04/25/2023
+ms.date: 01/29/2024
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.custom: devplatv2, build-2023
