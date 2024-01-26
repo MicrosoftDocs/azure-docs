@@ -61,7 +61,7 @@ This section contains information for creating, updating, and deleting a data hi
 
 ### Create a data history connection
 
-Once all the [resources](#resources-and-data-flow) and [permissions](#required-permissions) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to create the data history connection between them. The CLI command set is [az dt data-history](/cli/azure/dt/data-history).
+Once all the [resources](#prerequisites-resources-and-permissions) and [permissions](#required-permissions) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to create the data history connection between them. The CLI command set is [az dt data-history](/cli/azure/dt/data-history).
 
 The command will always create a table for historized twin property events, which can use the default name or a custom name that you provide. Twin property deletions can optionally be included in this table. You can also provide table names for relationship lifecycle events and twin lifecycle events, and the command will create tables with those names to historize those event types.
 
@@ -83,7 +83,7 @@ This will require creating new tables in your Azure Data Explorer cluster for th
 
 **If you want to continue using your existing table for twin property updates:** Use the instructions in [Create a data history connection](how-to-create-data-history-connection.md) to create a new data history connection with the new capabilities. The data history connection name can be the same as the original one, or a different name. Use the parameter options to provide new names for the two new event type tables, and to pass in the original table name for the twin property updates table. The new connection will override the old one, and continue to use the original table for future historized twin property updates.
 
-**If you want to use all new tables:** First, [delete your original data history connection](#deleting-a-data-history-connection). Then, use the instructions in [Create a data history connection](how-to-create-data-history-connection.md) to create a new data history connection with the new capabilities. The data history connection name can be the same as the original one, or a different name. Use the parameter options to provide new names for all three event type tables.
+**If you want to use all new tables:** First, [delete your original data history connection](#delete-a-data-history-connection). Then, use the instructions in [Create a data history connection](how-to-create-data-history-connection.md) to create a new data history connection with the new capabilities. The data history connection name can be the same as the original one, or a different name. Use the parameter options to provide new names for all three event type tables.
 
 ### Delete a data history connection
 
