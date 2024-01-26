@@ -496,24 +496,24 @@ items:
       - name: KEDA integration
         displayName: Prometheus
         href: containers/integrate-keda.md
-      - name: Entra authorization proxy
+      - name: Microsoft Entra authorization proxy
         displayName: Prometheus
         href: containers/prometheus-authorization-proxy.md
-      - name: Remote Write
+      - name: Remote write
         items:
         - name: Overview
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write.md
-        - name: Managed identity
+        - name: Managed identity authentication
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-managed-identity.md
-        - name: Microsoft Entra ID
+        - name: Microsoft Entra authentication
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-active-directory.md
-        - name: Microsoft Entra pod identity
+        - name: Microsoft Entra pod-managed identity authentication
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-azure-ad-pod-identity.md
-        - name: Microsoft Entra Workload ID (preview)
+        - name: Microsoft Entra Workload ID (preview) authentication
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-azure-workload-identity.md
       - name: Send to multiple metric workspaces
