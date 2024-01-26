@@ -52,7 +52,7 @@ The migration tool comes with a simple, wizard-based experience on the Azure por
 
     :::image type="content" source="./media/concepts-single-to-flexible/flexible-overview.png" alt-text="Screenshot of the flexible Overview page." lightbox="./media/concepts-single-to-flexible/flexible-overview.png":::
 
-4. Select the **Migrate from Single Server** button to start a migration from Single Server to Flexible Server. If this is the first time you're using the migration tool, an empty grid appears with a prompt to begin your first migration.
+4. Select the **Create** button to start a migration from Single Server to Flexible Server. If this is the first time you're using the migration tool, an empty grid appears with a prompt to begin your first migration.
 
     :::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-grid.png" alt-text="Screenshot of the Migration tab in flexible." lightbox="./media/concepts-single-to-flexible/flexible-migration-grid.png":::
 
@@ -153,7 +153,7 @@ After you click the start button, a notification appears in a few seconds to say
 
 :::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-monitor.png" alt-text="Screenshot of recently created migration details." lightbox="./media/concepts-single-to-flexible/flexible-migration-monitor.png":::
 
-The grid that displays the migrations has these columns: **Name**, **Status**,  **Source DB server**, **Resource group**, **Region**, **Databases**, and **Start time**. The entries are displayed in the descending order of the start time with the most recent entry on the top.
+The grid that displays the migrations has these columns: **Name**, **Status**, **Migration type**, **Migration mode**, **Source server**, **Source server type**, **Databases**, **Start time** and **Duration**. The entries are displayed in the descending order of the start time with the most recent entry on the top.
 
 You can use the refresh button to refresh the status of the validation or migration.
 You can also select the migration name in the grid to see the associated details.
