@@ -27,7 +27,7 @@ For more information, see [Azure Container Apps documentation](../container-apps
 
 - An Azure subscription. If you don't have an Azure subscription, see [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - An Azure Spring Apps Standard consumption and dedicated plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](quickstart-provision-standard-consumption-service-instance.md).
-- A Spring app deployed to Azure Spring Apps. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md).
+- A Spring app deployed to Azure Spring Apps.
 
 ## Scale definition
 
@@ -68,7 +68,7 @@ Use the following steps to define autoscale settings and rules.
 1. Set up the instance limits of your deployment.
 1. Select **Add** to add your scale rules. 
 
-:::image type="content" source="media/quickstart-apps-autoscale/autoscale-setting.png" alt-text="Screenshot of the Azure portal preview version showing the Scale out page for an app in an Azure Spring Apps instance." lightbox="media/quickstart-apps-autoscale/autoscale-setting.png":::
+:::image type="content" source="media/quickstart-apps-autoscale-standard-consumption/autoscale-setting.png" alt-text="Screenshot of the Azure portal preview version showing the Scale out page for an app in an Azure Spring Apps instance." lightbox="media/quickstart-apps-autoscale-standard-consumption/autoscale-setting.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
