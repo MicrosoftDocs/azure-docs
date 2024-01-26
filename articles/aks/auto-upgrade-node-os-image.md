@@ -145,6 +145,10 @@ The same details also be looked up in the Azure portal under the node label view
 
 :::image type="content" source="./media/auto-upgrade-node-os-image/nodeimage-securitypatch-inline.png" alt-text="A screenshot of the nodes page for an AKS cluster in the Azure portal. The label for node image version clearly shows the base node image as well as the latest applied security patch date." lightbox="./media/auto-upgrade-node-os-image/nodeimage-securitypatch.png":::
 
+## Next steps
+
+For a detailed discussion of additional upgrade best practices and considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
+
 
 <!-- LINKS -->
 [planned-maintenance]: planned-maintenance.md
@@ -160,6 +164,7 @@ The same details also be looked up in the Azure portal under the node label view
 [monitor-aks]: ./monitor-aks-reference.md
 [aks-eventgrid]: ./quickstart-event-grid.md
 [aks-upgrade]: ./upgrade-cluster.md
+[upgrade-operators-guide]: /architecture/operator-guides/aks/aks-upgrade-practices
 
 <!-- LINKS - external -->
 [Blog]: https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/increased-security-and-resiliency-of-canonical-workloads-on/ba-p/3970623

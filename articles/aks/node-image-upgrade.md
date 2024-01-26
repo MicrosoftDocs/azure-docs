@@ -157,6 +157,7 @@ az aks nodepool show \
 - Learn how to upgrade the Kubernetes version with [Upgrade an AKS cluster][upgrade-cluster].
 - [Automatically apply cluster and node pool upgrades with GitHub Actions][github-schedule].
 - Learn more about multiple node pools with [Create multiple node pools][use-multiple-node-pools].
+- For a detailed discussion of upgrade best practices and additional considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
 
 <!-- LINKS - external -->
 [kubernetes-json-path]: https://kubernetes.io/docs/reference/kubectl/jsonpath/
@@ -173,3 +174,4 @@ az aks nodepool show \
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool#az_aks_nodepool_update
 [az-aks-upgrade]: /cli/azure/aks#az_aks_upgrade
 [az-aks-show]: /cli/azure/aks#az_aks_show
+[upgrade-operators-guide]: /architecture/operator-guides/aks/aks-upgrade-practices

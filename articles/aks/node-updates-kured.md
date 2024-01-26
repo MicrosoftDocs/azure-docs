@@ -106,6 +106,8 @@ This article detailed how to use `kured` to reboot Linux nodes automatically as 
 
 For AKS clusters that use Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
+For a detailed discussion of upgrade best practices and additional considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
+
 <!-- LINKS - external -->
 [kured]: https://github.com/kubereboot/kured
 [kured-install]: https://github.com/kubereboot/charts/tree/main/charts/kured
@@ -118,3 +120,4 @@ For AKS clusters that use Windows Server nodes, see [Upgrade a node pool in AKS]
 [aks-upgrade]: upgrade-cluster.md
 [nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [node-image-upgrade]: node-image-upgrade.md
+[upgrade-operators-guide]: /architecture/operator-guides/aks/aks-upgrade-practices

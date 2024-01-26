@@ -106,6 +106,8 @@ Use the following best practices to help maximize your success when using auto-u
 * Follow [PDB best practices][pdb-best-practices].
 * For upgrade troubleshooting information, see the [AKS troubleshooting documentation][aks-troubleshoot-docs].
 
+For a detailed discussion of additional upgrade best practices and considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
+
 <!-- INTERNAL LINKS -->
 [supported-kubernetes-versions]: ./supported-kubernetes-versions.md
 [upgrade-aks-cluster]: ./upgrade-cluster.md
@@ -115,6 +117,7 @@ Use the following best practices to help maximize your success when using auto-u
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [aks-troubleshoot-docs]: /support/azure/azure-kubernetes/welcome-azure-kubernetes
+[upgrade-operators-guide]: /architecture/operator-guides/aks/aks-upgrade-practices
 
 <!-- EXTERNAL LINKS -->
 [pdb-best-practices]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
