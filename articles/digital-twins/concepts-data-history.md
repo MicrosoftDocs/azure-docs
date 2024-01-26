@@ -231,6 +231,9 @@ Ensure that `<table_name>` is replaced with the name of the table that was set u
 
 For more detailed information about using the data history explorer, see [Validate and explore historized properties](how-to-use-azure-digital-twins-explorer.md#validate-and-explore-historized-properties). 
 
+>[!NOTE]
+> If you encounter issues selecting a property in the visual data history explorer experience, this might mean there's an error in some model in your instance. For example, having non-unique enum values in the attributes of a model will break this visualization feature. If this happens, [review your model definitions](how-to-use-azure-digital-twins-explorer.md#view-model-definition) and make sure all properties are valid.
+
 ## Next steps
 
 Once twin data has been historized to Azure Data Explorer, you can use the Azure Digital Twins query plugin for Azure Data Explorer to run queries across the data. Read more about the plugin here: [Querying with the Azure Data Explorer plugin](concepts-data-explorer-plugin.md).
