@@ -115,14 +115,14 @@ landingContent:
           url: /legal/cognitive-services/openai/customer-copyright-commitment?context=/azure/ai-services/openai/context/context
       - linkListType: concept
         links:
+          - text: Asynchronous content filtering
+            url: ./concepts/content-filter.md#asynchronous-modified-filter
           - text: Red teaming large language models (LLMs)
             url: ./concepts/red-teaming.md
           - text: System message templates
             url: ./concepts/system-message.md
           - text: Abuse monitoring
             url: ./concepts/abuse-monitoring.md
-          - text: Asynchronous content filtering
-            url: ./concepts/content-filter.md#asynchronous-modified-filter
  
 # Card 6
    - title: Retrieval Augmented Generation (RAG) Templates
