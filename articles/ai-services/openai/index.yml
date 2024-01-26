@@ -48,10 +48,8 @@ landingContent:
              url: use-your-data-quickstart.md
            - text: Whisper (preview)
              url: whisper-quickstart.md
-   - title: Tutorials
-     linkLists:
-     - linkListType: tutorial
-       links:
+      - linkListType: tutorial
+        links:
          - text: Embeddings
            url: ./tutorials/embeddings.md
          - text: Fine-tuning GPT-3.5 Turbo
