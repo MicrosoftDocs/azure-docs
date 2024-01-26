@@ -265,49 +265,49 @@ If you were using `RelationalSource` typed source, it is still supported as-is, 
 
 When copying data from MySQL, the following mappings are used from MySQL data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-| MySQL data type | Interim service data type |
-|:--- |:--- |
-| `bigint` |`Int64` |
-| `bigint unsigned` |`Decimal` |
-| `bit(1)` |`UInt64` |
-| `bit(M), M>1`|`UInt64`|
-| `blob` |`Byte[]` |
-| `bool` |`Boolean` <br/>(If TreatTinyAsBoolean=false, it is mapped as `SByte`. TreatTinyAsBoolean is true by defult ) |
-| `char` |`String` |
-| `date` |`Datetime` |
-| `datetime` |`Datetime` |
-| `decimal` |`Decimal` |
-| `double` |`Double` |
-| `double precision` |`Double` |
-| `enum` |`String` |
-| `float` |`Single` |
-| `int` |`Int32` |
-| `int unsigned` |`Int64`|
-| `integer` |`Int32` |
-| `integer unsigned` |`Int64` |
-| `JSON` |`String` |
-| `long varbinary` |`Byte[]` |
-| `long varchar` |`String` |
-| `longblob` |`Byte[]` |
-| `longtext` |`String` |
-| `mediumblob` |`Byte[]` |
-| `mediumint` |`Int32` |
-| `mediumint unsigned` |`Int64` |
-| `mediumtext` |`String` |
-| `numeric` |`Decimal` |
-| `real` |`Double` |
-| `set` |`String` |
-| `smallint` |`Int16` |
-| `smallint unsigned` |`Int32` |
-| `text` |`String` |
-| `time` |`TimeSpan` |
-| `timestamp` |`Datetime` |
-| `tinyblob` |`Byte[]` |
-| `tinyint` |`SByte` |
-| `tinyint unsigned` |`Int16` |
-| `tinytext` |`String` |
-| `varchar` |`String` |
-| `year` |`Int` |
+| MySQL data type | Interim service data type | Interim service data type (for the legacy driver version) |
+|:--- |:--- |:--- |
+| `bigint` |`Int64` |`Int64` |
+| `bigint unsigned` |`Decimal` |`Decimal` |
+| `bit(1)` |`UInt64` |`Boolean` |
+| `bit(M), M>1`|`UInt64`|`Byte[]`|
+| `blob` |`Byte[]` |`Byte[]` |
+| `bool` |`Boolean` <br/>(If TreatTinyAsBoolean=false, it is mapped as `SByte`. TreatTinyAsBoolean is true by defult ) |`Int16` |
+| `char` |`String` |`String` |
+| `date` |`Datetime` |`Datetime` |
+| `datetime` |`Datetime` |`Datetime` |
+| `decimal` |`Decimal` |`Decimal, String` |
+| `double` |`Double` |`Double` |
+| `double precision` |`Double` |`Double` |
+| `enum` |`String` |`String` |
+| `float` |`Single` |`Single` |
+| `int` |`Int32` |`Int32` |
+| `int unsigned` |`Int64`|`Int64`|
+| `integer` |`Int32` |`Int32` |
+| `integer unsigned` |`Int64` |`Int64` |
+| `JSON` |`String` |-|
+| `long varbinary` |`Byte[]` |`Byte[]` |
+| `long varchar` |`String` |`String` |
+| `longblob` |`Byte[]` |`Byte[]` |
+| `longtext` |`String` |`String` |
+| `mediumblob` |`Byte[]` |`Byte[]` |
+| `mediumint` |`Int32` |`Int32` |
+| `mediumint unsigned` |`Int64` |`Int64` |
+| `mediumtext` |`String` |`String` |
+| `numeric` |`Decimal` |`Decimal` |
+| `real` |`Double` |`Double` |
+| `set` |`String` |`String` |
+| `smallint` |`Int16` |`Int16` |
+| `smallint unsigned` |`Int32` |`Int32` |
+| `text` |`String` |`String` |
+| `time` |`TimeSpan` |`TimeSpan` |
+| `timestamp` |`Datetime` |`Datetime` |
+| `tinyblob` |`Byte[]` |`Byte[]` |
+| `tinyint` |`SByte` |`Int16` |
+| `tinyint unsigned` |`Int16` |`Int16` |
+| `tinytext` |`String` |`String` |
+| `varchar` |`String` |`String` |
+| `year` |`Int` |`Int` |
 
 ## Lookup activity properties
 
