@@ -44,8 +44,13 @@ export PGSSLMODE=require
 
 
 ## Cause
-The root cause of this issue is that the read replica in PostgreSQL is a continuously recovering system. This situation means that while the replica is catching up with the primary, it's essentially in a state of constant recovery.
-If a query on a read replica tries to read a row that is simultaneously being updated by the recovery process (because the primary has made a change), PostgreSQL might cancel the query to allow the recovery to proceed without interruption.
+The error encountered when connecting to Azure Database for PostgreSQL - Flexible Server primarily stems from issues related to password authentication:
+
+1. **Incorrect password**
+The password authentication failed for user `<user-name>` error occurs when the password for the user is incorrect. This could happen due to a mistyped password, a recent password change that hasn't been updated in the connection settings, or other similar issues.
+
+2. **User or role created without a password**
+Another possible cause of this error is creating a user or role in PostgreSQL without specifying a password. Executing commands like CREATE USER antek2; or CREATE ROLE antek; without an accompanying password statement results in a user or role with no password set. Attempting to connect with such a user or role without setting a password will lead to authentication failure.
 
 ## Resolution
 1. **Adjust `max_standby_streaming_delay`**:  Increase the `max_standby_streaming_delay` parameter on the read replica. Increasing the value of the setting allows the replica more time to resolve conflicts before it decides to cancel a query. However, this might also increase replication lag, so it's a trade-off. This parameter is dynamic, meaning changes take effect without requiring a server restart.
