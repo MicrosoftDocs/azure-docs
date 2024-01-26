@@ -161,6 +161,8 @@
       href: troubleshoot-bmm-node-reboot.md
     - name: Troubleshoot Resolve CSN storage pod stuck in ContainerCreating
       href: troubleshoot-csn-storage-pod-container-stuck-in-creating.md
+    - name: Troubleshoot Hardware Validation Failure
+      href: troubleshoot-hardware-validation-failure.md
     - name: Enable node down cleaner
       href: troubleshoot-enable-node-down-cleaner.md
     - name: BareMetal Actions
