@@ -49,11 +49,11 @@ In this quickstart:
    + [text-embedding-ada-002](/azure/ai-services/openai/concepts/models#embeddings)
    + [gpt-35-turbo](/azure/ai-services/openai/concepts/models#gpt-35)
 
-Deploy more chat models if you want to test them with your data. Note that Text-Davinci-002 isn't supported. 
+   Deploy more chat models if you want to test them with your data. Note that Text-Davinci-002 isn't supported. 
 
-If you create new deployments, the default configurations are suited for this tutorial. It's helpful to name each deployment after the model. For example, "text-embedding-ada-002" as the deployment name of the text-embedding-ada-002 model.
+   If you create new deployments, the default configurations are suited for this tutorial. It's helpful to name each deployment after the model. For example, "text-embedding-ada-002" as the deployment name of the text-embedding-ada-002 model.
 
-## Load your vector data into the playground
+## Generate a vector store for the playground
 
 1. Download the sample famous-speeches-pdf PDFs in [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/famous-speeches-pdf).
 
@@ -65,7 +65,7 @@ If you create new deployments, the default configurations are suited for this tu
 
 1. From the dropdown list, select **Upload files**.
 
-    :::image type="content" source="media/search-get-started-rag/azure-openai-data-source.png" lightbox="media/search-get-started-rag/azure-openai-data-source.png" alt-text="Screenshot of a chat session.":::
+   :::image type="content" source="media/search-get-started-rag/azure-openai-data-source.png" lightbox="media/search-get-started-rag/azure-openai-data-source.png" alt-text="Screenshot of a upload files option.":::
 
 1. In Data source, select your Azure Blob storage resource. Enable cross-origin scripting if prompted.
 
@@ -85,9 +85,9 @@ If you create new deployments, the default configurations are suited for this tu
 
 1. Select **Next**.
 
-1. In Data Management, choose **Hybrid + semantic** if [semantic ranking is enabled]((semantic-how-to-enable-disable.md)) on your search service. If semantic ranking is disabled, choose **Hybrid (vector + keyword)**. Hybrid is a better choice because vector (similarity) search and keyword search execute the same query input in parallel, which can produce a more relevant response.
+1. In Data Management, choose **Hybrid + semantic** if [semantic ranking is enabled](semantic-how-to-enable-disable.md) on your search service. If semantic ranking is disabled, choose **Hybrid (vector + keyword)**. Hybrid is a better choice because vector (similarity) search and keyword search execute the same query input in parallel, which can produce a more relevant response.
 
-   :::image type="content" source="media/search-get-started-rag/azure-openai-data-manage.png" lightbox="media/search-get-started-rag/azure-openai-data-manage.png" alt-text="Screenshot of a chat session.":::
+   :::image type="content" source="media/search-get-started-rag/azure-openai-data-manage.png" lightbox="media/search-get-started-rag/azure-openai-data-manage.png" alt-text="Screenshot of the data management options.":::
 
 1. Acknowledge that vectorization of the sample data is billed at the usage rate of the Azure OpenAI embedding model.
 
@@ -95,7 +95,7 @@ If you create new deployments, the default configurations are suited for this tu
 
 ## Chat with your data
 
-1. Review advanced settings that determine how much flexibility the chat model has in supplementing the grounding data, and how many chunks are returned in the query to the vector store.
+1. Review advanced settings that determine how much flexibility the chat model has in supplementing the grounding data, and how many chunks are returned from the query to the vector store.
 
    Strictness determines whether the model supplements the query with its own information. A level of 5 is no supplementation. Only your grounding data is used, which means the search engine plays a large role in the quality of the response. Semantic ranking can be helpful in this scenario because the ranking models do a better job of interpreting the intent of the query.
 
