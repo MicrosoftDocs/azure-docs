@@ -74,6 +74,7 @@ In addition, the following Python packages are required to run (all should be pr
 
 ### Troubleshooter Existence Check
 Check for the existence of the AMA Agent Troubleshooter directory on the machine to be diagnosed to confirm the installation of the agent troubleshooter:
+
 ***/var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-{version}***
 
 To verify the Azure Monitor Agent Troubleshooter is present, copy the following command and run in Bash as root:
