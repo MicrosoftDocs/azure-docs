@@ -190,6 +190,7 @@ The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure Io
 
     ```bash
     mkdir c:\dev\iotedgesolution
+    cd c:\dev\iotedgesolution
     ```
 
 1. Use the **iotedgedev solution init** command to create a solution and set up your Azure IoT Hub in the development language of your choice.
@@ -1045,10 +1046,10 @@ Open the Visual Studio Code integrated terminal by selecting **Terminal** > **Ne
 
 # [C\#](#tab/csharp)
 
-Use the `dotnet publish` command to build the container image for Linux and amd64 architecture.
+Use the `dotnet publish` command to build the container image for Linux and amd64 architecture. Change directory to the *filtermodule* directory in your project and run the *dotnet publish* command.
 
 ```bash
-dotnet publish --os linux --arch x64
+dotnet publish --os linux --arch x64 /t:PublishContainer
 ```
 
 Currently, the *iotedgedev* tool template targets .NET 7.0. If you want to target a different version of .NET, you can edit the *filtermodule.csproj* file and change the *TargetFramework* and *PackageReference* values. For example to target .NET 8.0, your *filtermodule.csproj* file should look like this:
