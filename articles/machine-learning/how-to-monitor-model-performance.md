@@ -149,7 +149,7 @@ created_monitor = poller.result()
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-basic-setup.png" alt-text="Screenshot of basic settings page for model monitoring." lightbox="media/how-to-monitor-models/model-monitoring-basic-setup.png":::
 
 1. Select **Next** to go to the **Advanced settings** section. 
-1. Select **Next** on the **Configure data asset** page to leave the default datasets.
+1. Select **Next** on the **Configure data asset** page to keep the default datasets.
 1. Select **Next** to go to the **Select monitoring signals** page.
 1. Select **Next** to go to the **Notifications** page. Add your email to receive email notifications.
 1. Review your monitoring details and select **Create** to create the monitor.
@@ -335,36 +335,33 @@ created_monitor = poller.result()
 To set up advanced monitoring:
 
 1. Complete the entires on the **Basic settings** page as described earlier in the [Set up out-of-box model monitoring](#set-up-out-of-box-model-monitoring) section.
-
-1. 
-1. Select **Next** on the **Configure data asset** page to leave the default datasets.
+1. Select **Next** on the **Configure data asset** page to keep the default datasets.
 1. Select **Next** to go to the **Select monitoring signals** page.
 1. **Delete** the **feature-attribution-drift-signal** from the default selection of the monitoring signals. You'll use it later when you set up advanced monitoring.
 1. Select **Next** to go to the **Notifications** page. Add your email to receive email notifications.
 1. Review your monitoring details and select **Create** to create the monitor.
 
-<!-- 1. Select **Next** to go to the **Advanced settings** section. 
+    <!-- 1. Select **Next** to go to the **Advanced settings** section. 
+    
+    1. **Configure data asset** page. Keep the added datasets as they are.
+    1. Select **Next**.  to go to the **Select monitoring signals** page, and keep the default selections. 
+    1. Add your email in the **Notifications** section.
+    1. Review your monitoring details and select **Create** to create the monitor. -->
 
-1. **Configure data asset** page. Keep the added datasets as they are.
-1. Select **Next**.  to go to the **Select monitoring signals** page, and keep the default selections. 
-1. Add your email in the **Notifications** section.
-1. Review your monitoring details and select **Create** to create the monitor. -->
-
- 
 1. Select **Next** to open the **Configure data asset** page of the **Advanced settings** section.
-
 1. **Add** a dataset to be used as the reference dataset. We recommend using the model training data as the comparison reference dataset for data drift and data quality, and using the model validation data as the comparison reference dataset for prediction drift.
 
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-data.png" alt-text="Screenshot showing how to add datasets for the monitoring signals to use." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-data.png":::
 
 1. Select **Next** to go to the **Select monitoring signals** page. On this page, you see some monitoring signals already added (if you selected an Azure Machine Learning online deployment earlier).  The signals (data drift, prediction drift, and data quality) use recent, past production data as the comparison reference dataset and use smart defaults for metrics and thresholds.
-1. 
-<!-- 1. **Delete** the feature attribution drift signal and keep the other three signals (data drift, prediction drift, and data quality). These signals use recent, past production data as the comparison reference dataset and use smart defaults for metrics and thresholds. -->
+
+    :::image type="content" source="media/how-to-monitor-models/model-monitoring-monitoring-signals.png" alt-text="Screenshot showing default monitoring signals signals." lightbox="media/how-to-monitor-models/model-monitoring-monitoring-signals.png":::
+
+    <!-- 1. **Delete** the feature attribution drift signal and keep the other three signals (data drift, prediction drift, and data quality). These signals use recent, past production data as the comparison reference dataset and use smart defaults for metrics and thresholds. -->
 
 1. Select **Edit** next to the data drift signal.
-
 1. In the data drift **Edit signal** window, configure the following:
-1. 
+
     1. For the production data asset, select your model inputs with the desired lookback window size.
     1. Select your training dataset to use as the reference dataset.
     1. Select the target (output) column.
@@ -390,14 +387,15 @@ To set up advanced monitoring:
 1. Select **Save** to return to the **Select monitoring signals** section.
 1. When you're finished with your monitoring signals configuration, select **Next** to go to the **Notifications** section. 
 
-:::image type="content" source="media/how-to-monitor-models/model-monitoring-configured-signals.png" alt-text="Screenshot showing the configured signals." lightbox="media/how-to-monitor-models/model-monitoring-configured-signals.png":::
-      
+    :::image type="content" source="media/how-to-monitor-models/model-monitoring-configured-signals.png" alt-text="Screenshot showing the configured signals." lightbox="media/how-to-monitor-models/model-monitoring-configured-signals.png":::
+
 1. In the **Notifications** section, enable alert notifications for each signal and select **Next**.
 1. Review your settings on the **Review monitoring settings** page.
 
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-review.png" alt-text="Screenshot showing review page of the advanced configuration for model monitoring." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-review.png":::
 
 1. Select **Create** to create your advanced model monitor.
+
 ---
 
 ## Set up model performance monitoring
