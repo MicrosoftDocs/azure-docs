@@ -4,7 +4,7 @@ description: Shows you how to quickly stand up Red Hat JBoss EAP on Azure Red Ha
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 05/09/2023
+ms.date: 01/25/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-azurecli
 ---
 
@@ -26,6 +26,8 @@ This article uses the Azure Marketplace offer for JBoss EAP to accelerate your j
 
   > [!NOTE]
   > You can also execute this guidance from a local developer command line with the Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+  > 
+  > If you are using a local developer command line, you must install the `mysql` CLI. For instructions see [How To Install MySQL](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04).
 
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
@@ -336,20 +338,21 @@ Next, use the following steps to connect to the OpenShift cluster using the Open
    ```azurecli-interactive
    oc login \
        $(az aro show \
-           --resource-group eaparo033123rg \
+           --resource-group ${RG_NAME} \
            --name aro-cluster \
            --query apiserverProfile.url \
            --output tsv) \
        -u $(az aro list-credentials \
-           --resource-group eaparo033123rg \
+           --resource-group ${RG_NAME} \
            --name aro-cluster \
            --query kubeadminUsername \
            --output tsv) \
        -p $(az aro list-credentials \
-           --resource-group eaparo033123rg \
+           --resource-group ${RG_NAME} \
            --name aro-cluster \
            --query kubeadminPassword \
            --output tsv)
+   ```
 
    This command produces output similar to the following example:
 
@@ -405,7 +408,7 @@ Use the following steps to deploy the app to the cluster. The app is hosted in t
    EOF
    ```
 
-   You must see `secret/eaparo-sample-pull-secret created` to indicate successful creation of the secret. If you don't see this output, troubleshoot and resolve the problem before proceeding. Finally, link the secret.
+   You must see `secret/eaparo-sample-pull-secret created` to indicate successful creation of the secret. If you don't see this output, troubleshoot and resolve the problem before proceeding. Finally, link the secret to the default service account for downloading container images so the cluster can run them.
 
    ```azurecli-interactive
    oc secrets link default ${CON_REG_SECRET_NAME} --for=pull
@@ -489,7 +492,7 @@ Next, use the following steps to create a secret:
    javaee-cafe-0         1/1     Running             0          30s
    ```
 
-   It may take a few minutes to reach the proper state.
+   It may take a few minutes to reach the proper state. You may even see `STATUS` column values including `ErrImagePull` and `ImagePullBackOff` before `Running` is shown.
 
 1. Run the following command to return the URL of the application. You can use this URL to access the deployed sample app. Copy the output to the clipboard.
 
@@ -500,6 +503,8 @@ Next, use the following steps to create a secret:
 1. Paste the output into an Internet-connected web browser, and then press <kbd>Enter</kbd>. You should see the UI of **Java EE Cafe** app similar to the following screenshot:
 
    :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/javaee-cafe-ui.png" alt-text="Screenshot of Java EE Cafe app UI." lightbox="media/howto-deploy-java-enterprise-application-platform-app/javaee-cafe-ui.png":::
+   
+1. Add and delete some rows to verify the database connectivity is correctly functioning.
 
 ## Clean up resources
 
