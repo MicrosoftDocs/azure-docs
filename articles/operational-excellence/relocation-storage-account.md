@@ -16,8 +16,7 @@ ms.custom:
 
 This article shows you how to:
 
-1. Create a copy of your storage account in another region. 
-1. Move your data to that account by using AzCopy, or another tool of your choice.
+This article shows you how to relocate an Azure Storage Account to a new region by creating a copy of your storage account into another region. You also learn how to relocate your data to that account by using AzCopy, or another tool of your choice.
 
 
 ### Prerequisites
