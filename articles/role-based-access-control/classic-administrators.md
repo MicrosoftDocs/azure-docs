@@ -16,7 +16,7 @@ ms.reviewer: bagovind
 # Azure classic subscription administrators
 
 > [!IMPORTANT]
-> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting February 15, 2024, you won't be able to add any new Co-Administrators. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
+> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting February 15, 2024, you won't be able to add new Co-Administrators. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
 
 Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). However, if you are still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For information about how to migrate your resources from classic deployment to Resource Manager deployment, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
@@ -63,7 +63,7 @@ Use the following table to assess how to remove or re-assign Co-Administrators.
 ## Remove a Co-Administrator
 
 > [!IMPORTANT]
-> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting February 15, 2024, you won't be able to add any new Co-Administrators. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
+> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting February 15, 2024, you won't be able to add new Co-Administrators. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
 
 Follow these steps to remove a Co-Administrator.
 
@@ -86,7 +86,7 @@ Follow these steps to remove a Co-Administrator.
 ## Add a Co-Administrator
 
 > [!IMPORTANT]
-> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting February 15, 2024, you won't be able to add any new Co-Administrators. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
+> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting February 15, 2024, you won't be able to add new Co-Administrators. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
 > 
 > You only need to add a Co-Administrator if the user needs to manage Azure classic deployments by using [Azure Service Management PowerShell Module](/powershell/azure/servicemanagement/install-azure-ps). If the user only uses the Azure portal to manage the classic resources, you won’t need to add the classic administrator for the user.
 
