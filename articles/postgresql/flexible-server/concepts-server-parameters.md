@@ -6,7 +6,7 @@ ms.author: varundhawan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 12/21/2023
+ms.date: 1/25/2024
 ---
 
 # Server parameters in Azure Database for PostgreSQL - Flexible Server
