@@ -1973,6 +1973,8 @@ groups:
   pivots:
   - id: programming-language-studio
     title: Studio
+  - id: programming-language-python
+    title: Python
   - id: rest-api
     title: REST
 # Owner: mbullwin
@@ -2451,6 +2453,14 @@ groups:
     title: Standard/Premium
   - id: front-door-classic
     title: Classic
+- id: expressroute-experience
+  title: ExpressRoute experience
+  prompt: "Select your ExpressRoute create experience:"
+  pivots:
+  - id: expressroute-current
+    title: Current
+  - id: expressroute-preview
+    title: Preview
 # Owner: wiassaf
 - id: azure-sql-deployment-option-single-elastic
   title: Azure SQL deployment option, single or elastic

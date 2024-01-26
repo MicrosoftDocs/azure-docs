@@ -24,7 +24,7 @@ Azure OpenAI provides two methods for authentication. you can use  either API Ke
 
 - **API Key authentication**: For this type of authentication, all API requests must include the API Key in the ```api-key``` HTTP header. The [Quickstart](./quickstart.md) provides guidance for how to make calls with this type of authentication.
 
-- **Microsoft Entra authentication**: You can authenticate an API call using a Microsoft Entra token. Authentication tokens are included in a request as the ```Authorization``` header. The token provided must be preceded by ```Bearer```, for example ```Bearer YOUR_AUTH_TOKEN```. You can read our how-to guide on [authenticating with Microsoft Entra ID](./how-to/managed-identity.md).
+- **Microsoft Entra ID authentication**: You can authenticate an API call using a Microsoft Entra token. Authentication tokens are included in a request as the ```Authorization``` header. The token provided must be preceded by ```Bearer```, for example ```Bearer YOUR_AUTH_TOKEN```. You can read our how-to guide on [authenticating with Microsoft Entra ID](./how-to/managed-identity.md).
 
 ### REST API versioning
 
@@ -77,7 +77,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 | ```logprobs``` | integer | Optional | null | Include the log probabilities on the logprobs most likely tokens, as well the chosen tokens. For example, if logprobs is 10, the API will return a list of the 10 most likely tokens. the API will always return the logprob of the sampled token, so there might be up to logprobs+1 elements in the response. This parameter cannot be used with `gpt-35-turbo`. |
 | ```suffix```| string | Optional | null | The suffix that comes after a completion of inserted text. |
 | ```echo``` | boolean | Optional | False | Echo back the prompt in addition to the completion. This parameter cannot be used with `gpt-35-turbo`. |
-| ```stop``` | string or array | Optional | null | Up to four sequences where the API will stop generating further tokens. The returned text won't contain the stop sequence. |
+| ```stop``` | string or array | Optional | null | Up to four sequences where the API will stop generating further tokens. The returned text won't contain the stop sequence. For GPT-4 Turbo with Vision, up to two sequences are supported. |
 | ```presence_penalty``` | number | Optional | 0 | Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. |
 | ```frequency_penalty``` | number | Optional | 0 | Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim. |
 | ```best_of``` | integer | Optional | 1 | Generates best_of completions server-side and returns the "best" (the one with the lowest log probability per token). Results can't be streamed. When used with n, best_of controls the number of candidate completions and n specifies how many to return – best_of must be greater than n. Note: Because this parameter generates many completions, it can quickly consume your token quota. Use carefully and ensure that you have reasonable settings for max_tokens and stop. This parameter cannot be used with `gpt-35-turbo`. |
@@ -361,7 +361,7 @@ POST {your-resource-name}/openai/deployments/{deployment-id}/extensions/chat/com
 - `2023-12-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
 #### Example request
 
-You can make requests using [Azure AI Search](./concepts/use-your-data.md?tabs=ai-search#ingesting-your-data), [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db#ingesting-your-data), [Azure Machine learning](/azure/machine-learning/overview-what-is-azure-machine-learning), [Pinecone](https://www.pinecone.io/), and [Elasticsearch](https://www.elastic.co/).
+You can make requests using [Azure AI Search](./concepts/use-your-data.md?tabs=ai-search#ingesting-your-data), [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db#ingesting-your-data), [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning), [Pinecone](https://www.pinecone.io/), and [Elasticsearch](https://www.elastic.co/).
 
 ##### Azure AI Search
 
@@ -677,7 +677,7 @@ The following parameters are used inside of the optional `embeddingDependency` p
 },
 ```
 
-### Azure CosmosDB for MongoDB vCore parameters
+### Azure Cosmos DB for MongoDB vCore parameters
 
 The following parameters are used for Azure Cosmos DB for MongoDB vCore.
 
@@ -799,7 +799,7 @@ The following parameters are used for Pinecone.
 | `filepathField` (found inside of `fieldsMapping`) | string | Required | null | The name of the index field to use as a file path. |
 | `contentFields` (found inside of `fieldsMapping`) | string | Required | null | The name of the index fields that should be treated as content. |
 | `vectorFields` | dictionary | Optional  | null | The names of fields that represent vector data |
-| `contentFieldsSeparator` (found inside of `fieldsMapping`) | string | Required  | null | The separator for the your content fields. Use `\n` by default.  |
+| `contentFieldsSeparator` (found inside of `fieldsMapping`) | string | Required  | null | The separator for your content fields. Use `\n` by default.  |
 
 The following parameters are used inside of the optional `embeddingDependency` parameter, which contains details of a vectorization source that is based on an internal embeddings model deployment name in the same Azure OpenAI resource.
 
