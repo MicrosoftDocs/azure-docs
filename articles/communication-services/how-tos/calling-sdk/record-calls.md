@@ -60,7 +60,7 @@ const isComplianceRecordingActiveChangedHandler = () => {
 callRecordingApi.on('isRecordingActiveChanged', isComplianceRecordingActiveChangedHandler);
 ```
 
-Compliance recording could be implemented by using custom recording bot [HitGub Example](https://github.com/microsoftgraph/microsoft-graph-comms-samples/tree/a3943bafd73ce0df780c0e1ac3428e3de13a101f/Samples/BetaSamples/LocalMediaSamples/ComplianceRecordingBot).<br>
+Compliance recording could be implemented by using custom recording bot [GitHub Example](https://github.com/microsoftgraph/microsoft-graph-comms-samples/tree/a3943bafd73ce0df780c0e1ac3428e3de13a101f/Samples/BetaSamples/LocalMediaSamples/ComplianceRecordingBot).<br>
 To hide this bot from participant roster we need to add specific metadata information, it will be used by Azure Communication SDK and Teams client:
 ```json
     "metadata": {"__platform":{"ui":{"hidden":true}
