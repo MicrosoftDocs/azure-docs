@@ -116,6 +116,8 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 | gpt-4 (1106-preview) | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | |  
 | gpt-4 (vision-preview) |   | Sweden Central <br> Switzerland North<br>Australia East <br> West US |  
 
+> [!NOTE]
+> As a temporary measure, GPT-4 Turbo with Vision is currently unavailable to new customers.
 
 ### GPT-3.5 models
 
