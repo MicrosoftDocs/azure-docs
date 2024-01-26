@@ -1,7 +1,7 @@
 ---
-title: Approve private link connections across subscriptions
+title: Approve private endpoint connections across subscriptions
 titleSuffix: Azure Private Link
-description: Get started learning how to approve and manage private link connections across subscriptions with Azure Private Link.
+description: Get started learning how to approve and manage private endpoint connections across subscriptions by using Azure Private Link.
 author: asudbring
 ms.author: allensu
 ms.service: private-link
@@ -37,7 +37,7 @@ Sign in to **subscription-1** in the [Azure portal](https://portal.azure.com).
 
 ## Register the resource providers for subscription-1
 
-For the private endpoint connection to complete successfully, the `Microsoft.Network` and `Microsoft.Storage` resource providers must be registered in **subscription-1**. Use the following steps to register the resource providers. If the `Microsoft.Network` and `Microsoft.Storage` resource providers are already registered, skip this step.
+For the private endpoint connection to complete successfully, the `Microsoft.Storage` and `Microsoft.Network` resource providers must be registered in **subscription-1**. Use the following steps to register the resource providers. If the `Microsoft.Storage` and `Microsoft.Network` resource providers are already registered, skip this step.
 
 > [!IMPORTANT]
 > If you're using a different resource type, you must register the resource provider for that resource type if it's not already registered.
@@ -52,7 +52,7 @@ For the private endpoint connection to complete successfully, the `Microsoft.Net
 
 1. Select **Register**.
 
-1. Repeat the previous steps to register the **Microsoft.Network** resource provider.
+1. Repeat the previous steps to register the `Microsoft.Network` resource provider.
 
 ## Create a resource group
 
@@ -75,7 +75,7 @@ For the private endpoint connection to complete successfully, the `Microsoft.Net
 
 [!INCLUDE [create-storage-account.md](../../includes/create-storage-account.md)]
 
-## Obtain storage account resource ID
+## Obtain the storage account resource ID
 
 You need the storage account resource ID to create the private endpoint connection in **subscription-2**. Use the following steps to obtain the storage account resource ID.
 
@@ -93,7 +93,7 @@ Sign in to **subscription-2** in the [Azure portal](https://portal.azure.com).
 
 ## Register the resource providers for subscription-2
 
-For the private endpoint connection to complete successfully, the `Microsoft.Storage` and `Microsoft.Network` resource provider must be registered in **subscription-2**. Use the following steps to register the resource providers. If the `Microsoft.Storage` and `Microsoft.Network` resource providers are already registered, skip this step.
+For the private endpoint connection to complete successfully, the `Microsoft.Storage` and `Microsoft.Network` resource providers must be registered in **subscription-2**. Use the following steps to register the resource providers. If the `Microsoft.Storage` and `Microsoft.Network` resource providers are already registered, skip this step.
 
 > [!IMPORTANT]
 > If you're using a different resource type, you must register the resource provider for that resource type if it's not already registered.
@@ -108,7 +108,7 @@ For the private endpoint connection to complete successfully, the `Microsoft.Sto
 
 1. Select **Register**.
 
-1. Repeat the previous steps to register the **Microsoft.Network** resource provider.
+1. Repeat the previous steps to register the `Microsoft.Network` resource provider.
 
 [!INCLUDE [virtual-network-create.md](../../includes/virtual-network-create.md)]
 
