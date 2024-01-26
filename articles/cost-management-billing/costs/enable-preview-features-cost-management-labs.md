@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to explore preview features and provides a list of the recent previews you might be interested in.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/25/2024
+ms.date: 01/26/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -143,6 +143,9 @@ You can easily handle large datasets through features like file partitioning, br
 You can choose the latest or any of the previous dataset schema versions during the export creation. Selecting a version ensures that the data processing layers that you build on top of the datasets can be reused without compromising on the latest API functionality.
 
 And, you can enhance security and compliance by configuring exports to storage accounts behind a firewall, which provides access control for the public endpoint of the storage account.
+
+>[!NOTE]
+> After you enable **Exports (preview)** in Cost Management Labs, you might have to refresh your browser to see the new **Export** menu item in the Cost Management menu.
 
 :::image type="content" source="./media/enable-preview-features-cost-management-labs/export-preview.png" alt-text="Screenshot showing the Export window with various fields." lightbox="./media/enable-preview-features-cost-management-labs/export-preview.png" :::
 
