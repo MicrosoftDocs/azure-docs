@@ -22,7 +22,7 @@ The Azure Monitor Agent Troubleshooter (AMA) is designed to help identify issues
 ### Python requirement
 The linux Troubleshooter requires **Python 2.6+** or any **Python 3** version installed on the machine.
 
-To check if python has been installed on your machine, copy the following command and run in Bash as root:
+To check if python is installed on your machine, copy the following command and run in Bash as root:
 ```Bash
 sudo python -V
 sudo python3 -V
@@ -30,7 +30,7 @@ sudo python3 -V
 
 :::image type="content" source="media/agent-linux/python-version-check.png" alt-text="commands to check python version in linux" lightbox="media/agent-linux/python-version-check.png":::
 
-Multiple versions of Python can be installed and aliased – if multiple versions are installed, this can be used:
+Multiple versions of Python can be installed and aliased – if multiple versions are installed, use:
 
 ```Bash
 ls -ls /usr/bing/python*
@@ -38,7 +38,7 @@ ls -ls /usr/bing/python*
 
 :::image type="content" source="media/agent-linux/python-multiple-version-check.png" alt-text="command to check multiple versions of python for linux" lightbox="media/agent-linux/python-version-check.png":::
 
-If your virtual machine is using a distro that doesn't include Python 3 by default, then you must install it. The following sample commands will install Python 3 on different distros:
+If your virtual machine is using a distro that doesn't include Python 3 by default, then you must install it. The following sample commands install Python 3 on different distros:
 
 # [Red Hat, CentOS, Oracle](#tab/redhat)
 ```Bash
