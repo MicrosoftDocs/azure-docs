@@ -34,10 +34,10 @@ To manage control plane permissions for the Managed HSM resource, you must use [
 
 ## Permitted operations
 
-[!NOTE]  
-- In the following table, an **X** indicates that a role is allowed to perform the data action. An empty cell indicates that the role does not have pemissions to perform that data action.
-- All the data action names have the prefix **Microsoft.KeyVault/managedHsm**, which is omitted in the table for brevity.
-- All role names have the prefix **Managed HSM**, which is omitted in the following table for brevity.
+> [!NOTE]  
+> - In the following table, an **X** indicates that a role is allowed to perform the data action. An empty cell indicates that the role does not have pemissions to perform that data action.
+> - All the data action names have the prefix **Microsoft.KeyVault/managedHsm**, which is omitted in the table for brevity.
+> - All role names have the prefix **Managed HSM**, which is omitted in the following table for brevity.
 
 |Data action | Administrator | Crypto Officer | Crypto User | Policy Administrator | Crypto Service Encryption User | Backup | Crypto Auditor| Crypto Service Released User|
 |---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
