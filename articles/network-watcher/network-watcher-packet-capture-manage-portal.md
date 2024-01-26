@@ -1,5 +1,5 @@
 ---
-title: Manage packet captures in VMs - Azure portal
+title: Manage packet captures for VMs - Azure portal
 titleSuffix: Azure Network Watcher
 description: Learn how to start, stop, download, and delete Azure virtual machines packet captures with the packet capture feature of Network Watcher using the Azure portal.
 author: halkazwini
@@ -10,17 +10,11 @@ ms.date: 01/26/2024
 # CustomerIntent: As an administrator, I want to capture IP packets to and from a virtual machine (VM) so I can review and analyze the data to help diagnose and solve network problems.
 ---
 
-# Manage virtual machines packet captures with Azure Network Watcher using the Azure portal
-
-> [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-packet-capture-manage-portal.md)
-> - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
+# Manage packet captures for virtual machines with Azure Network Watcher using the Azure portal
 
 The Network Watcher packet capture tool allows you to create capture sessions to record network traffic to and from an Azure virtual machine. Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps in diagnosing network anomalies both reactively and proactively. Its applications extend beyond anomaly detection to include gathering network statistics, acquiring insights into network intrusions, debugging client-server communication, and addressing various other networking challenges. Network Watcher packet capture enables you to initiate packet captures remotely, alleviating the need for manual execution on a specific virtual machine.
 
-
-In this article, you learn how to remotely configure, start, stop, download, and delete a virtual machine packet capture using the Azure portal. 
+In this article, you learn how to remotely configure, start, stop, download, and delete a virtual machine packet capture using the Azure portal. To learn how to manage packet captures using PowerShell or Azure CLI, see [Manage packet captures for virtual machines using PowerShell](network-watcher-packet-capture-manage-powershell.md) or [Manage packet captures for virtual machines using the Azure CLI](network-watcher-packet-capture-manage-cli.md).
 
 ## Prerequisites
 
@@ -112,7 +106,7 @@ To download a packet capture file saved to Azure storage, follow these steps:
 > [!NOTE]
 > You can also download the capture file from the storage account container using the Azure portal or Storage Explorer<sup>1</sup> at the following path: 
 > ```
-> https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{virtualMachineName}/{year}/{month}/{day}/packetCapture_{UTCcreationTime}.cap
+> https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{virtualMachineName}/{year}/{month}/{day}/packetcapture_{UTCcreationTime}.cap
 > ```
 > <sup>1</sup> Storage Explorer is a standalone app that you can conveniently use to access and work with Azure Storage data. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
