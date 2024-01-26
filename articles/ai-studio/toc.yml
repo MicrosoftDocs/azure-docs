@@ -191,6 +191,8 @@
         href: how-to/configure-managed-network.md
       - name: Configure private link
         href: how-to/configure-private-link.md
+      - name: Troubleshoot secure project connectivity
+        href: how-to/troubleshoot-secure-connection-project.md
     - name: Data protection & encryption
       items:
       - name: Rotate keys
