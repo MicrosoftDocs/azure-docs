@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: tutorial
 ---
 
-# Tutorial: Migrate offline using the migration service from an AWS RDS PostgreSQL server to Azure Database for PostgreSQL - Flexible Server Preview
+# Tutorial: Offline migration to Azure Database for PostgreSQL from AWS RDS PostgreSQL using migration service Preview
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 
@@ -183,6 +183,7 @@ You can cancel any ongoing validations or migrations. The workflow must be in th
 
 - Canceling a validation stops further validation activity, and the validation moves to a **Can be called** state.
 - Canceling a migration stops further migration activity on your target server and moves to a **Can be called** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server involved in a canceled migration.
+---
 
 #### [CLI](#tab/cli)
 
@@ -257,6 +258,7 @@ To begin migrating using Azure CLI, you need to install the Azure CLI on your lo
 - You can also see the status of the PostgreSQL flexible server portal in the Azure Database.
 
     :::image type="content" source="media\tutorial-migration-service-offline-iaas\status-migration-portal-aws.png" alt-text="Screenshot of status migration portal." lightbox="media\tutorial-migration-service-offline-iaas\status-migration-portal-aws.png":::
+---
 
 ## Post migration
 
@@ -277,10 +279,6 @@ After migration, you can perform the following tasks:
 - Make changes to your application to point the connection strings to a flexible server.
 
 - Monitor the database performance closely to see if it requires performance tuning.
-
-## Migration best practices
-
-For a successful end-to-end migration, follow the post-migration steps in [Migrate to Azure Database for PostgreSQL - Flexible Server](best-practices-migration-service-postgresql.md). After you complete the preceding steps, you can change your application code to point database connection strings to Flexible Server. You can then start using the target as the primary database server.
 
 ## Related content
 

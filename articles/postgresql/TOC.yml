@@ -415,18 +415,10 @@
       href: migrate/how-to-migrate-single-to-flexible-portal.md
     - name: Migration tool - Azure CLI
       href: migrate/how-to-migrate-single-to-flexible-cli.md
-    - name: Common errors
-      href: migrate/common-errors-and-special-scenarios-fms.md
     - name: Best practices for a seamless migration
       href: migrate/best-practices-seamless-migration-single-to-flexible.md
     - name: Troubleshoot networking and connectivity issues
       href: migrate/troubleshooting-networking-and-connectivity-issues.md  
-    - name: Migrate data with pg_dump
-      href: migrate/how-to-migrate-using-dump-and-restore.md
-    - name: Minimal-downtime migration with DMS
-      href: single-server/how-to-migrate-online.md
-    - name: Migrate from Oracle
-      href: single-server/how-to-migrate-from-oracle.md
   - name: Migration Service
     items:
     - name: Overview
@@ -449,6 +441,12 @@
       items:
       - name: Network setup
         href: migrate/migration-service/how-to-network-setup-migration-service.md
+  - name: Migrate data with pg_dump
+    href: migrate/how-to-migrate-using-dump-and-restore.md
+  - name: Minimal-downtime migration with DMS
+    href: single-server/how-to-migrate-online.md
+  - name: Migrate from Oracle
+    href: single-server/how-to-migrate-from-oracle.md
 - name: Azure Database for PostgreSQL - Single Server
   expanded: false
   items:

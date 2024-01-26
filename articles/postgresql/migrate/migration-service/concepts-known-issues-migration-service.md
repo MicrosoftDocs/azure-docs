@@ -9,7 +9,7 @@ ms.service: postgresql
 ms.topic: conceptual
 ---
 
-# Known issues and limitations - migration service in Azure Database for PostgreSQL
+# Known issues and limitations - migration service in Azure Database for PostgreSQL Preview
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 

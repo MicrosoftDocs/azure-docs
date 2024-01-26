@@ -9,7 +9,7 @@ ms.service: postgresql
 ms.topic: conceptual
 ---
 
-# Premigration validations for the migrations service in Azure Database for PostgreSQL - Flexible Server
+# Premigration validations for the migrations service in Azure Database for PostgreSQL Preview
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 
@@ -43,7 +43,7 @@ Construct your migration task creation command with the Azure CLI.
 az postgres flexible-server migration create --subscription <subscription ID> --resource-group <Resource group Name> --name <Flexible server Name> --migration-name <Unique migration ID> --migration-option ValidateAndMigrate --properties "Path of the JSON File" --migration-mode offline
 ```
 
-Include the `--migration-option` parameter followed by the option validate to perform only the premigration **validate**, or **validateAndMigrate** to perform validation and then proceed with the migration if the validation is successful.
+Include the `--migration-option` parameter followed by the option validate to perform only the premigration **Validate**, **Migrate**, or **ValidateAndMigrate** to perform validation and then proceed with the migration if the validation is successful.
 
 ## Pre-migration validation options
 
@@ -54,7 +54,7 @@ You can pick any of the following options.
 
 - **Migrate** - Use this option to kickstart the migration without going through a validation process. Perform validation before triggering a migration to increase the chances of success. Once validation is done, you can use this option to start the migration process.
 
-- **Validate and Migrate** - This option performs validations, and migration gets triggered if all checks are in the **succeeded** or **warning** state. Validation failures don't start the migration between source and target servers.
+- **ValidateandMigrate** - This option performs validations, and migration gets triggered if all checks are in the **succeeded** or **warning** state. Validation failures don't start the migration between source and target servers.
 
 We recommend that customers use premigration validations to identify issues before running migrations. This helps you to plan your migrations better and avoid any surprises during the migration process.
 

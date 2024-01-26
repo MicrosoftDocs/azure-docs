@@ -49,11 +49,10 @@ The following table can help set up the network between the source and target.
 
 **Additional Networking Considerations:**
 
-- **pg_hba.conf Configuration**: Verify the `pg_hba.conf` file to ensure the target PostgreSQL can connect to the source. This might require restarting the source PostgreSQL instance.
+- pg_hba.conf Configuration: To facilitate connectivity between the source and target PostgreSQL instances, it is essential to verify and potentially modify the pg_hba.conf file. This file includes client authentication and must be configured to allow the target PostgreSQL to connect to the source. Changes to the pg_hba.conf file typically require a restart of the source PostgreSQL instance to take effect.
 
-    > [!NOTE]
-    > The `pg_hba.conf` file is located in the `data` directory of the PostgreSQL installation.
-    > If the source is on-premises PostgreSQAL server or a PostgreSQL server on an Azure VM then make sure the pg_hba.conf file is configured. The `pg_hba.conf`file is not applicable to AWS RDS or any other source apart from onpremises/Azure VM
+> [!NOTE]
+> The pg_hba.conf file is located in the data directory of the PostgreSQL installation. This file should be checked and configured if the source database is an on-premises PostgreSQL server or a PostgreSQL server hosted on an Azure VM. For PostgreSQL instances on AWS RDS or similar managed services, the pg_hba.conf file is not directly accessible or applicable. Instead, access is controlled through the service's provided security and network access configurations.
 
 For more information about network setup, visit [Network guide for migration service in Azure Database for PostgreSQL - Flexible Server](../how-to-network-setup-migration-service.md).
 

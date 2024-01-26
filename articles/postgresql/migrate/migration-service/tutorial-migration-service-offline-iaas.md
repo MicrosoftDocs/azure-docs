@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: tutorial
 ---
 
-# Tutorial: Migrate offline using the migration service from an on-premises PostgreSQL server or a PostgreSQL server in an Azure virtual machine to Azure Database for PostgreSQL - Flexible Server Preview
+# Tutorial: Offline migration to Azure Database for PostgreSQL from On-Premises or Azure VM-hosted PostgreSQL using migration service Preview
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 
@@ -183,6 +183,7 @@ You can cancel any ongoing validations or migrations. The workflow must be in th
 - Canceling a validation stops further validation activity, and the validation moves to a **Can be called** state.
 
 - Canceling a migration stops further migration activity on your target server and moves to a **Can be called** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server involved in a canceled migration.
+---
 
 #### [CLI](#tab/cli)
 
@@ -255,6 +256,7 @@ We're going to migrate "ticketdb","inventorydb","salesdb" into Azure Database fo
 - You can also see the status in the Azure Database for PostgreSQL flexible server portal.
 
     :::image type="content" source="media\tutorial-migration-service-offline-iaas\status-migration-portal.png" alt-text="Screenshot of status migration portal." lightbox="media\tutorial-migration-service-offline-iaas\status-migration-portal.png":::
+---
 
 ## Post migration
 
