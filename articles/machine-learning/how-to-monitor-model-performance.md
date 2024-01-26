@@ -38,7 +38,7 @@ Before following the steps in this article, make sure you have the following pre
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* An Azure Machine Learning workspace and a compute instance. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them.
+* An Azure Machine Learning workspace and a compute instance. If you don't have these resources, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them.
 
 ---
 
@@ -62,11 +62,11 @@ Before following the steps in this article, make sure you have the following pre
 
 ## Set up out-of-box model monitoring
 
-If you deploy your model to production in an Azure Machine Learning online endpoint and enable [data collection](how-to-collect-production-data.md) at deployment time, Azure Machine Learning collects production inference data and automatically stores it in Microsoft Azure Blob Storage. You can then use Azure Machine Learning model monitoring to continuously monitor this production inference data.
+Suppose you deploy your model to production in an Azure Machine Learning online endpoint and enable [data collection](how-to-collect-production-data.md) at deployment time. In this scenario, Azure Machine Learning collects production inference data, and automatically stores it in Microsoft Azure Blob Storage. You can then use Azure Machine Learning model monitoring to continuously monitor this production inference data.
 
 You can use the Azure CLI, the Python SDK, or the studio for an out-of-box setup of model monitoring. The out-of-box model monitoring configuration provides the following monitoring capabilities:
 
-* Azure Machine Learning automatically detects the production inference dataset that's associated with an Azure Machine Learning online deployment and uses the dataset for model monitoring.
+* Azure Machine Learning automatically detects the production inference dataset associated with an Azure Machine Learning online deployment and uses the dataset for model monitoring.
 * The comparison baseline dataset is set as the recent, past production inference dataset.
 * Monitoring setup automatically includes and tracks the built-in monitoring signals: **data drift**, **prediction drift**, and **data quality**. For each monitoring signal, Azure Machine Learning uses:
   * the recent, past production inference dataset as the comparison baseline dataset.
@@ -141,7 +141,7 @@ created_monitor = poller.result()
 1. The **(Optional) Select deployment with data collection enabled** dropdown list should be automatically populated if the model is deployed to an Azure Machine Learning online endpoint. Select the deployment from the dropdown list.
 1. Select the training data to use as the comparison baseline in the **(Optional) Select training data** box.
 1. Enter a name for the monitoring in **Monitor name** or keep the default name.
-1. Notice that the virtual machine size is alsready selected for you.
+1. Notice that the virtual machine size is already selected for you.
 1. Select your **Time zone**. 
 1. Select **Recurrence** or **Cron expression** scheduling.
 1. For **Recurrence** scheduling, specify the repeat frequency, day, and time. For **Cron expression** scheduling, enter a cron expression for monitoring run.
@@ -164,9 +164,9 @@ Azure Machine Learning provides many capabilities for continuous model monitorin
 * Use of historical model training data or validation data as the comparison baseline dataset.
 * Monitoring of top N most important features and individual features.
 
-## Configure feature importance
+### Configure feature importance
 
-Feature importance represents the relative importance of each input feature to a model's output. For example, `temperature` might be more important to a model's prediction compared to `elevation`. Enabling feature importance can give you visibility into which features you do not want drifting or having data quality issues in production. 
+Feature importance represents the relative importance of each input feature to a model's output. For example, `temperature` might be more important to a model's prediction compared to `elevation`. Enabling feature importance can give you visibility into which features you don't want drifting or having data quality issues in production. 
 
 To enable feature importance with any of your signals (such as data drift or data quality), you need to provide:
 
@@ -335,29 +335,14 @@ created_monitor = poller.result()
 To set up advanced monitoring:
 
 1. Complete the entires on the **Basic settings** page as described earlier in the [Set up out-of-box model monitoring](#set-up-out-of-box-model-monitoring) section.
-1. Select **Next** on the **Configure data asset** page to keep the default datasets.
-1. Select **Next** to go to the **Select monitoring signals** page.
-1. **Delete** the **feature-attribution-drift-signal** from the default selection of the monitoring signals. You'll use it later when you set up advanced monitoring.
-1. Select **Next** to go to the **Notifications** page. Add your email to receive email notifications.
-1. Review your monitoring details and select **Create** to create the monitor.
-
-    <!-- 1. Select **Next** to go to the **Advanced settings** section. 
-    
-    1. **Configure data asset** page. Keep the added datasets as they are.
-    1. Select **Next**.  to go to the **Select monitoring signals** page, and keep the default selections. 
-    1. Add your email in the **Notifications** section.
-    1. Review your monitoring details and select **Create** to create the monitor. -->
-
 1. Select **Next** to open the **Configure data asset** page of the **Advanced settings** section.
-1. **Add** a dataset to be used as the reference dataset. We recommend using the model training data as the comparison reference dataset for data drift and data quality, and using the model validation data as the comparison reference dataset for prediction drift.
+1. **Add** a dataset to be used as the reference dataset. We recommend that you use the model training data as the comparison reference dataset for data drift and data quality. Also, use the model validation data as the comparison reference dataset for prediction drift.
 
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-data.png" alt-text="Screenshot showing how to add datasets for the monitoring signals to use." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-data.png":::
 
 1. Select **Next** to go to the **Select monitoring signals** page. On this page, you see some monitoring signals already added (if you selected an Azure Machine Learning online deployment earlier).  The signals (data drift, prediction drift, and data quality) use recent, past production data as the comparison reference dataset and use smart defaults for metrics and thresholds.
 
-    :::image type="content" source="media/how-to-monitor-models/model-monitoring-monitoring-signals.png" alt-text="Screenshot showing default monitoring signals signals." lightbox="media/how-to-monitor-models/model-monitoring-monitoring-signals.png":::
-
-    <!-- 1. **Delete** the feature attribution drift signal and keep the other three signals (data drift, prediction drift, and data quality). These signals use recent, past production data as the comparison reference dataset and use smart defaults for metrics and thresholds. -->
+    :::image type="content" source="media/how-to-monitor-models/model-monitoring-monitoring-signals.png" alt-text="Screenshot showing default monitoring signals." lightbox="media/how-to-monitor-models/model-monitoring-monitoring-signals.png":::
 
 1. Select **Edit** next to the data drift signal.
 1. In the data drift **Edit signal** window, configure the following:
@@ -385,10 +370,10 @@ To set up advanced monitoring:
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-configure-feature-attribution-drift.png" alt-text="Screenshot showing how to configure feature attribution drift signal." lightbox="media/how-to-monitor-models/model-monitoring-configure-feature-attribution-drift.png":::
 
 1. Select **Save** to return to the **Select monitoring signals** page.
-1. When you're finished with your monitoring signals configuration, select **Next** to go to the **Notifications** page. 
 
     :::image type="content" source="media/how-to-monitor-models/model-monitoring-configured-signals.png" alt-text="Screenshot showing the configured signals." lightbox="media/how-to-monitor-models/model-monitoring-configured-signals.png":::
 
+1. When you're finished with your monitoring signals configuration, select **Next** to go to the **Notifications** page.
 1. On the **Notifications** page, enable alert notifications for each signal and select **Next**.
 1. Review your settings on the **Review monitoring settings** page.
 
@@ -408,9 +393,9 @@ Before you can configure your model performance signal, you need to satisfy the 
 * Have ground truth data (or actuals) with a unique ID for each row. This data will be joined with production data.
 * (Optional) Have a prejoined dataset with model outputs and ground truth data.
 
-The key requirement for enabling model performance monitoring is that you've collected ground truth data. Since ground truth data is encountered at the application level, it's your responsibility to collect it as it becomes available and to maintain a data asset in Azure Machine Learning with this ground truth data.
+The key requirement for enabling model performance monitoring is that you already collected ground truth data. Since ground truth data is encountered at the application level, it's your responsibility to collect it as it becomes available. You should also maintain a data asset in Azure Machine Learning with this ground truth data.
 
-To illustrate, suppose you have a deployed model to predict if a credit card transaction is fraudulent or not fraudulent. As you use this model in production, you can collect the model output data with the [model data collector](how-to-collect-production-data.md). Ground truth data will become available when a credit card holder specifies whether or not the transaction was fraudulent or not. This `is_fraud` ground truth should be collected at the application level and maintained within an Azure Machine Learning data asset that the model performance monitoring signal can use.
+To illustrate, suppose you have a deployed model to predict if a credit card transaction is fraudulent or not fraudulent. As you use this model in production, you can collect the model output data with the [model data collector](how-to-collect-production-data.md). Ground truth data becomes available when a credit card holder specifies whether or not the transaction was fraudulent or not. This `is_fraud` ground truth should be collected at the application level and maintained within an Azure Machine Learning data asset that the model performance monitoring signal can use.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -623,7 +608,7 @@ You can also set up model monitoring for models deployed to Azure Machine Learni
 * Register the production inference data as an Azure Machine Learning data asset, and ensure continuous updates of the data.
 * Provide a custom data preprocessing component and register it as an Azure Machine Learning component. 
 
-You're required to provide a custom data preprocessing component if your data is not collected with the [data collector](#how-to-collect-production-data.md) since the Azure Machine Learning model monitoring system doesn't know how to process your data into tabular form with support for time windowing.
+You must provide a custom data preprocessing component if your data isn't collected with the [data collector](#how-to-collect-production-data.md). Without this custom data preprocessing component, the Azure Machine Learning model monitoring system won't know how to process your data into tabular form with support for time windowing.
 
 Your custom preprocessing component must have these input and output signatures:
 
@@ -798,7 +783,7 @@ Once you've configured your monitor with the CLI or SDK, you can view the monito
 
 ## Set up model monitoring with custom signals and metrics
 
-With Azure Machine Learning model monitoring, you have the option to define your own custom signal and implement any metric of your choice to monitor your model. You can register this signal as an Azure Machine Learning component. When your Azure Machine Learning model monitoring job runs on the specified schedule, it computes the metric(s) you've defined within your custom signal, just as it does for the prebuilt signals (data drift, prediction drift, and data quality).
+With Azure Machine Learning model monitoring, you can define your own custom signal and implement any metric of your choice to monitor your model. You can register this signal as an Azure Machine Learning component. When your Azure Machine Learning model monitoring job runs on the specified schedule, it computes the metric(s) you've defined within your custom signal, just as it does for the prebuilt signals (data drift, prediction drift, and data quality).
 
 To set up a custom signal to use for model monitoring, you must first define the custom signal and register it as an Azure Machine Learning component. The Azure Machine Learning component must have these input and output signatures:
 
@@ -921,51 +906,53 @@ After you've configured your model monitor and the first run has completed, you 
 
    :::image type="content" source="media/how-to-monitor-models/data-drift-individual-feature.png" alt-text="Screenshot showing the data drift details for an individual feature." lightbox="media/how-to-monitor-models/data-drift-individual-feature.png":::
 
-- Return to the monitoring dashboard and select **data quality** to view the data quality signal page. On this page, you can see the null value rates, out-of-bounds rates, and data type error rates for each feature you're monitoring.
+- Return to the monitoring dashboard and select **data_quality** to view the data quality signal page. On this page, you can see the null value rates, out-of-bounds rates, and data type error rates for each feature you're monitoring.
 
    :::image type="content" source="media/how-to-monitor-models/data-quality-details-page.png" alt-text="Screenshot showing the details page of the data quality signal." lightbox="media/how-to-monitor-models/data-quality-details-page.png":::
 
 Model monitoring is a continuous process. With Azure Machine Learning model monitoring, you can configure multiple monitoring signals to obtain a broad view into the performance of your models in production.
 
----
 
-## Integrate Azure Machine Learning model monitoring with Azure EventGrid
+## Integrate Azure Machine Learning model monitoring with Azure Event Grid
 
-You can use events generated by Azure Machine Learning model monitoring to set up event driven applications, processes, or CI/CD workflows with [Azure EventGrid](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-use-event-grid?view=azureml-api-2). You can consume events through various event handlers such as Azure EventHubs, Azure Functions, Logic Apps, and others. Based on drift detected by your monitors, you can take action programmatically, such as setting up an ML pipeline to re-train a model and re-deploy it. 
+You can use events generated by Azure Machine Learning model monitoring to set up event-driven applications, processes, or CI/CD workflows with [Azure Event Grid](how-to-use-event-grid.md). You can consume events through various event handlers, such as Azure Event Hubs, Azure functions, and logic apps. Based on the drift detected by your monitors, you can take action programmatically, such as by setting up a machine learning pipeline to re-train a model and re-deploy it.
 
-To get started with integrating Azure Machine Learning model monitoring with Azure EventGrid, follow the steps in [Set up in Azure portal](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-use-event-grid?view=azureml-api-2#set-up-in-azure-portal). Give your **Event Subscription** a name, such as MonitoringEvent, and select only the **Run status changed** box under **Event Types**. 
+To get started with integrating Azure Machine Learning model monitoring with Event Grid:
 
-> [!WARNING]
->
-> Unintutively, you do not want to select **Dataset drift detected**, as it applies to data drift v1, rather than Azure Machine Learning model monitoring. Make sure you select **Run status changed**. 
+1. Follow the steps in see [Set up in Azure portal](how-to-use-event-grid.md#set-up-in-azure-portal). Give your **Event Subscription** a name, such as MonitoringEvent, and select only the **Run status changed** box under **Event Types**. 
 
-Next, follow the steps in [Filter and subscribe to events](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-use-event-grid?view=azureml-api-2#filter--subscribe-to-events) to set up event filtering for your scenario. Navigate to the **Filters** tab and add the following **Key**, **Operator**, and **Value** under **Advanced Filters**:
+    > [!WARNING]
+    >
+    > Be sure to select **Run status changed** for the event type. Don't select **Dataset drift detected**, as it applies to data drift v1, rather than Azure Machine Learning model monitoring.
 
-- **Key**: data.RunTags.azureml_modelmonitor_threshold_breached
-- **Value**: has failed due to one or more features violating metric thresholds 
-- **Operator**: String contains  
+1. Follow the steps in [Filter & subscribe to events](how-to-use-event-grid.md#filter--subscribe-to-events) to set up event filtering for your scenario. Navigate to the **Filters** tab and add the following **Key**, **Operator**, and **Value** under **Advanced Filters**:
 
-With this filter, events will be generated when the run status has changed (from Completed to Failed, or from Failed to Completed) for any monitor within your Azure Machine Learning workspace. To filter at the monitoring level, use the following **Key**, **Operator**, and **Value** under **Advanced Filters**:
+    - **Key**: `data.RunTags.azureml_modelmonitor_threshold_breached`
+    - **Value**: has failed due to one or more features violating metric thresholds
+    - **Operator**: String contains
 
-- **Key**: data.RunTags.azureml_modelmonitor_threshold_breached
-- **Value**: `your_monitor_name_signal_name`
-- **Operator**: String contains
+    With this filter, events are generated when the run status changes (from Completed to Failed, or from Failed to Completed) for any monitor within your Azure Machine Learning workspace.
 
-Ensure that `your_monitor_name_signal_name` is the name of a signal in the specific monitor you want to filter events for. For example, `credit_card_fraud_monitor_data_drift`. For this filter to work, this string must match the name of your monitoring signal. You should name your signal with both the monitor name and the signal name for this case.
+1. To filter at the monitoring level, use the following **Key**, **Operator**, and **Value** under **Advanced Filters**:
 
-When you have completed your **Event Subscription** configuration, select the desired endpoint to serve as your event handler, such as Azure Event Hub. 
+    - **Key**: `data.RunTags.azureml_modelmonitor_threshold_breached`
+    - **Value**: `your_monitor_name_signal_name`
+    - **Operator**: String contains
 
-After events have been captured, you can view them from the endpoint page:
+    Ensure that `your_monitor_name_signal_name` is the name of a signal in the specific monitor you want to filter events for. For example, `credit_card_fraud_monitor_data_drift`. For this filter to work, this string must match the name of your monitoring signal. You should name your signal with both the monitor name and the signal name for this case.
 
-   :::image type="content" source="media/how-to-monitor-models/monitoring-event-grid1.png" alt-text="Screenshot showing how to add model monitoring." lightbox="media/how-to-monitor-models/add-model-monitoring.png":::
+1. When you've completed your **Event Subscription** configuration, select the desired endpoint to serve as your event handler, such as Azure Event Hubs.
+1. After events have been captured, you can view them from the endpoint page:
+
+   :::image type="content" source="media/how-to-monitor-models/events-on-endpoint-page.png" alt-text="Screenshot showing events viewed from the endpoint page." lightbox="media/how-to-monitor-models/events-on-endpoint-page.png":::
 
 You can also view events in the Azure Monitor **Metrics** tab: 
 
-   :::image type="content" source="media/how-to-monitor-models/monitoring-event-grid2.png" alt-text="Screenshot showing how to add model monitoring." lightbox="media/how-to-monitor-models/add-model-monitoring.png":::
+   :::image type="content" source="media/how-to-monitor-models/events-in-azure-monitor-metrics-tab.png" alt-text="Screenshot showing events viewed from the Azure monitor metrics tab." lightbox="media/how-to-monitor-models/events-in-azure-monitor-metrics-tab.png":::
 
 ---
 
-## Next steps
+## Related content
 
 - [Data collection from models in production (preview)](concept-data-collection.md)
 - [Collect production data from models deployed for real-time inferencing](how-to-collect-production-data.md)
