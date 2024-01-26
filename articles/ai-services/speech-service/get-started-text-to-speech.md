@@ -1,7 +1,7 @@
 ---
 title: "Text to speech quickstart - Speech service"
 titleSuffix: Azure AI services
-description: In this quickstart, you create a app that converts text to speech. Learn about supported audio formats and custom configuration options.
+description: In this quickstart, you create an app that converts text to speech. Learn about supported audio formats and custom configuration options.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -36,6 +36,18 @@ keywords: text to speech
 
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [JavaScript include](includes/quickstarts/text-to-speech-basics/javascript.md)]
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+Azure Speech services are not supported.
+
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+
+Azure Speech services are not supported.
+
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
