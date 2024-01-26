@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: tutorial
 ---
 
-# Tutorial: Offline migration to Azure Database for PostgreSQL from On-Premises or Azure VM-hosted PostgreSQL using migration service Preview
+# Tutorial: Offline migration to Azure Database for PostgreSQL from on-premises or Azure VM-hosted PostgreSQL using migration service Preview
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 
