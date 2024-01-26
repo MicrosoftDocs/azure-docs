@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: RAG app'
 titleSuffix: Azure AI Search
-description: Use Azure OpenAI Studio to chat with your grounding data in Azure AI Search.
+description: Use Azure OpenAI Studio to chat with a search index on Azure AI Search. Explore the Retrieval Augmented Generation (RAG) pattern for your search solution.
 
 author: HeidiSteen
 ms.author: heidist
