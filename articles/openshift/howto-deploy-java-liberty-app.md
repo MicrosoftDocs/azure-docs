@@ -127,7 +127,7 @@ The following steps show you how to fill out the **Operator and application** pa
 1. Leave the default option of **No** for **Deploy an application?**.
 
    > [!NOTE]
-   > This quickstart doesn't deploy an application, but you can select **Yes** for **Deploy an application?** if you prefer.
+   > This quickstart manually deploys a sample application later, but you can select **Yes** for **Deploy an application?** if you prefer.
 
 1. Select **Review + create**. Ensure that the green **Validation Passed** message appears at the top. If the message doesn't appear, fix any validation problems and then select **Review + create** again.
 
@@ -181,9 +181,206 @@ If you navigated away from the **Deployment is in progress** page, the following
    Using project "default".
    ```
 
+## Create an Azure SQL Database
+
+The following steps guide you through creating an Azure SQL Database single database for use with your app.
+
+1. Create a single database in Azure SQL Database by following the steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart), carefully noting the differences in the box below. Return to this article after creating and configuring the database server.
+
+   > [!NOTE]
+   > At the **Basics** step, write down **Resource group**, **Database name**, **_\<server-name>_.database.windows.net**, **Server admin login**, and **Password**. The database **Resource group** will be referred to as `<db-resource-group>` later in this article.
+   >
+   > At the **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
+   >
+   > :::image type="content" source="media/howto-deploy-java-liberty-app/create-sql-database-networking.png" alt-text="Screenshot of the Azure portal that shows the Networking tab of the Create SQL Database page with the Connectivity method and Firewall rules settings highlighted." lightbox="media/howto-deploy-java-liberty-app/create-sql-database-networking.png":::
+
+Now that the database and ARO cluster have been created, you can proceed to preparing ARO to host your WebSphere Liberty application.
+
+## Configure and deploy the sample application
+
+Follow the steps in this section to deploy the sample application on the Liberty runtime. These steps use Maven.
+
+### Check out the application
+
+Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro).
+
+There are a few samples in the repository. We'll use *3-integration/connect-db/mssql/*. Here's the file structure of the application.
+
+```bash
+git clone https://github.com/Azure-Samples/open-liberty-on-aro.git
+cd open-liberty-on-aro/3-integration/connect-db/mssql
+git checkout 20240116
+```
+
+If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
+
+```
+mssql
+├─ src/main/
+│  ├─ aro/
+│  │  ├─ db-secret.yaml
+│  │  ├─ openlibertyapplication.yaml
+│  │  ├─ webspherelibertyapplication.yaml
+│  ├─ docker/
+│  │  ├─ Dockerfile
+│  │  ├─ Dockerfile-ol
+│  ├─ liberty/config/
+│  │  ├─ server.xml
+│  ├─ java/
+│  ├─ resources/
+│  ├─ webapp/
+├─ pom.xml
+```
+
+The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
+
+In the *aro* directory, there are three deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *webspherelibertyapplication.yaml* is used in this quickstart to deploy the WebSphere Liberty Application. Use the file *openlibertyapplication.yaml* to deploy the Open Liberty Application if you deployed Open Liberty Operator in section [Deploy IBM WebSphere Liberty or Open Liberty on Azure Red Hat OpenShift](#deploy-ibm-websphere-liberty-or-open-liberty-on-azure-red-hat-openshift).
+
+In the *docker* directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty. These files are *Dockerfile* and *Dockerfile-ol*, respectively. You use the file *Dockerfile* to build the application image with WebSphere Liberty in this quickstart. Similarly, use the file *Dockerfile-ol* to build the application image with Open Liberty if you deployed Open Liberty Operator in section [Deploy IBM WebSphere Liberty or Open Liberty on Azure Red Hat OpenShift](#deploy-ibm-websphere-liberty-or-open-liberty-on-azure-red-hat-openshift).
+
+In directory *liberty/config*, the *server.xml* file is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
+
+### Build the project
+
+Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many variables from the environment. As part of the Maven build, these variables are used to populate values in the YAML files located in *src/main/aro*. You can do something similar for your application outside Maven if you prefer.
+
+```bash
+cd <path-to-your-repo>/3-integration/connect-db/mssql
+
+# The following variables will be used for deployment file generation into target.
+export DB_SERVER_NAME=<server-name>.database.windows.net
+export DB_NAME=<database-name>
+export DB_USER=<server-admin-login>@<server-name>
+export DB_PASSWORD=<server-admin-password>
+
+mvn clean install
+```
+
+### (Optional) Test your project locally
+
+You can now run and test the project locally before deploying to Azure. For convenience, we use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism, such as your local IDE. You can also consider using the `liberty:devc` option intended for development with containers. You can read more about `liberty:devc` in the [Liberty docs](https://openliberty.io/docs/latest/development-mode.html#_container_support_for_dev_mode).
+
+1. Start the application using `liberty:run`. `liberty:run` will also use the environment variables defined in the previous step.
+
+   ```bash
+   cd <path-to-your-repo>/3-integration/connect-db/mssql
+   mvn liberty:run
+   ```
+
+1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` or `https://localhost:9443/` in your browser and verify the application is accessible and all functions are working.
+
+1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
+
+Next, you can containerize your project using Docker and run it as a container locally before deploying to Azure.
+
+1. Run the `docker build` command to build the image.
+
+   ```bash
+   cd <path-to-your-repo>/3-integration/connect-db/mssql/target
+   docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
+   ```
+
+1. Run the image using the following command. Note we're using the environment variables defined previously.
+
+   ```bash
+   docker run -it --rm -p 9080:9080 -p 9443:9443 \
+       -e DB_SERVER_NAME=${DB_SERVER_NAME} \
+       -e DB_NAME=${DB_NAME} \
+       -e DB_USER=${DB_USER} \
+       -e DB_PASSWORD=${DB_PASSWORD} \
+       javaee-cafe:v1
+   ```
+
+1. Once the container starts, go to `http://localhost:9080/` or `https://localhost:9443/` in your browser to access the application.
+
+1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
+
+### Build image and push to the image stream
+
+When you're satisfied with the state of the application, you build the image remotely on the cluster by executing the following commands.
+
+1. Identity the source directory and the Dockerfile.
+
+   ```bash
+   cd <path-to-your-repo>/3-integration/connect-db/mssql/target
+
+   # If you are deploying the application with WebSphere Liberty Operator, the existing Dockerfile is ready for you
+
+   # If you are deploying the application with Open Liberty Operator, uncomment and execute the following two commands to rename Dockerfile-ol to Dockerfile
+   # mv Dockerfile Dockerfile.backup
+   # mv Dockerfile-ol Dockerfile
+   ```
+
+1. Create an image stream.
+
+   ```bash
+   oc create imagestream javaee-cafe
+   ```
+
+1. Create a build configuration that specifies the image stream tag of the build output.
+
+   ```bash
+   oc new-build --name javaee-cafe-config --binary --strategy docker --to javaee-cafe:v1
+   ```
+
+1. Start the build to upload local contents, containerize, and output to the image stream tag specified before.
+
+   ```bash
+   oc start-build javaee-cafe-config --from-dir . --follow
+   ```
+
+### Deploy and test the application
+
+Use the following steps to deploy and test the application:
+
+1. Apply the DB secret.
+
+   ```bash
+   cd <path-to-your-repo>/3-integration/connect-db/mssql/target
+   oc apply -f db-secret.yaml
+   ```
+
+   You'll see the output `secret/db-secret-mssql created`.
+
+1. Apply the deployment file.
+
+   ```bash
+   oc apply -f webspherelibertyapplication.yaml
+   ```
+
+1. Wait until all pods are started and running successfully by using the following command:
+
+   ```bash
+   oc get pods -l app.kubernetes.io/name=javaee-cafe --watch
+   ``` 
+
+   You should see output similar to the following example to indicate that all the pods are running:
+
+   ```output
+   NAME                          READY   STATUS    RESTARTS   AGE
+   javaee-cafe-67cdc95bc-2j2gr   1/1     Running   0          29s
+   javaee-cafe-67cdc95bc-fgtt8   1/1     Running   0          29s
+   javaee-cafe-67cdc95bc-h47qm   1/1     Running   0          29s
+   ```
+
+1. Verify the results.
+
+   1. Get *host* of the Route resource deployed with the application
+
+      ```bash
+      echo "route host: https://$(oc get route javaee-cafe --template='{{ .spec.host }}')"
+      ```    
+
+   1. Copy the value of **route host** from the output, open it in your browser to test the application. If the web page doesn't render correctly, that's because the app is still starting in the background. Wait for a few minutes and then try again.
+
 ## Clean up resources
 
-If you're not going to continue to use the OpenShift cluster, navigate back to your working resource group. At the top of the page, under the text **Resource group**, select the resource group. Then, select **Delete resource group**.
+To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, ARO cluster, Azure SQL Database, and all related resources.
+
+```bash
+az group delete --name abc1228rg --yes --no-wait
+az group delete --name <db-resource-group> --yes --no-wait
+```
 
 ## Next steps
 
