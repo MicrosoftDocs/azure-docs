@@ -58,7 +58,7 @@ landingContent:
             url: ./concepts/provisioned-throughput.md
           - text: Content filtering
             url: ./concepts/content-filter.md
-          - text: Intro to prompt engineering
+          - text: Prompt engineering
             url: ./concepts/prompt-engineering.md
           - text: Fine-tuning
             url: ./concepts/fine-tuning-considerations.md
@@ -80,6 +80,10 @@ landingContent:
                url:  ./how-to/chatgpt.md
              - text: GPT-4 Turbo with Vision
                url:  ./how-to/gpt-with-vision.md
+             - text: Provisioned Throughput Unit (PTU) 
+               url: ./how-to/provisioned-throughput-onboarding.md
+             - text: Securing Azure OpenAI on your data
+               url: ./how-to/use-your-data-securely.md
              - text: Resource creation & deployment
                url: ./how-to/create-resource.md 
 
