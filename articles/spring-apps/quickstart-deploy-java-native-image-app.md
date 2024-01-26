@@ -150,6 +150,9 @@ az group delete --name ${RESOURCE_GROUP}
 > [!div class="nextstepaction"]
 > [Run the polyglot ACME fitness store apps on Azure Spring Apps](./quickstart-sample-app-acme-fitness-store-introduction.md)
 
+> > [!div class="nextstepaction"]
+> [Monitor your Spring Boot Native Image application](https://aka.ms/AzMonSpringNative)
+
 For more information, see the following articles:
 
 - [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples).
