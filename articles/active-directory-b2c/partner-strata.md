@@ -2,16 +2,17 @@
 title: Tutorial to configure Azure Active Directory B2C with Strata
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with whoIam for user verification 
-
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
+
+#customer intent: As an IT admin, I want to integrate Azure Active Directory B2C with StrataMaverics Identity Orchestrator. I need to protect on-premises applications and enable customer single sign-on (SSO) to hybrid apps.
+
 ---
 
 # Tutorial to configure Azure Active Directory B2C with Strata
