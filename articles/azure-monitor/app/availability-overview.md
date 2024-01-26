@@ -45,7 +45,7 @@ This section provides answers to common questions.
 
 Our [web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) run on points of presence that are distributed around the globe. There are two solutions:
           
-* **Firewall door**: Allow requests to your server from [the long and changeable list of web test agents](./ip-addresses.md).
+* **Firewall door**: Allow requests to your server from [the long and changeable list of web test agents](../ip-addresses.md).
 * **Custom code**: Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights by using the `TrackAvailability()` API.
 
 ## Next steps
