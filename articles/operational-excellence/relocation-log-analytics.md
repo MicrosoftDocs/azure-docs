@@ -23,7 +23,7 @@ Log Analytics Workspace doesn't natively support migrating workspace data from o
 The diagram below illustrates the relocation pattern for a Log Analytics workspace. The red flow lines represent the redeployment of the target instance along with data movement and updating domains and endpoints.
 
 
-:::image type="content" source="../azure-monitor/media/relocation/log-analytics/log-analytics-workspace-relocation-pattern.png" alt-text="Diagram illustrating Log Analytics Workspace relocation pattern.":::
+:::image type="content" source="media/relocation/log-analytics/log-analytics-workspace-relocation-pattern.png" alt-text="Diagram illustrating Log Analytics Workspace relocation pattern.":::
 
 ## Prerequisites
 
@@ -115,8 +115,6 @@ The following procedures show how to prepare the workspace and resources for the
 
 ## Edit the template
 
-
-### Edit the template
 
 1. Select **Edit template** on the toolbar to open the *template.json* file in the online editor.
 1. To edit the target region where the Log Analytics workspace will be deployed, change the `location` property under `resources` in the online editor. 
