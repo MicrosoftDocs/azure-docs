@@ -256,7 +256,7 @@ rule_scale_in = ScaleRule(
         metric_resource_uri = deployment.id, 
         time_grain = datetime.timedelta(minutes = 1),
         statistic = "Average",
-        operator = "less Than", 
+        operator = "LessThan", 
         time_aggregation = "Last",
         time_window = datetime.timedelta(minutes = 5), 
         threshold = 30
