@@ -14,9 +14,9 @@ zone_pivot_groups: spring-apps-tier-selection
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+>
+> With Spring Boot Native Image applications, use the [Azure Monitor OpenTelemetry Distro / Application Insights in Spring Boot native image Java application](https://aka.ms/AzMonSpringNative) project instead of the Application Insights Java agent.
 
-> [!NOTE]
-> With Spring Boot Native Image applications use [this project](https://aka.ms/AzMonSpringNative) instead of the Application Insights Java agent.
 
 **This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌️ Enterprise
 
