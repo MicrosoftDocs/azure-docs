@@ -31,7 +31,7 @@ Azurite is automatically available with [Visual Studio 2022](https://visualstudi
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-In Visual Studio Code, select the **Extensions** icon and search for **Azurite**.
+In Visual Studio Code, select the **Extensions** icon and search for **Azurite**. Select the **Install** button to install the Azurite extension.
 
 :::image type="content" source="./media/storage-use-azurite/azurite-vs-code-extension.png" alt-text="A screenshot showing how to search for and install the Azurite extension in Visual Studio Code." lightbox="media/storage-use-azurite/azurite-vs-code-extension.png":::
 
