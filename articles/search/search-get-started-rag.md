@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 01/25/2024
 ---
 
-# Quickstart: Chat with search content in Azure OpenAI Studio
+# Quickstart: Chat with your search index in Azure OpenAI Studio
 
 Get started with generative search using Azure OpenAI Studio's **Add your own data** option to implement a Retrieval Augmented Generation (RAG) experience powered by Azure AI Search.
 
@@ -34,22 +34,24 @@ In this quickstart:
 
 + [Azure Storage](/azure/storage/common/storage-account-create)
 
-+ [Azure AI Search](search-create-app-portal.md), in any region, on a billable tier (Basic and above). Determine whether your search service has [semantic ranking enabled](semantic-how-to-enable-disable.md).
++ [Azure AI Search](search-create-app-portal.md), in any region, on a billable tier (Basic and above), preferrably with [semantic ranking enabled](semantic-how-to-enable-disable.md)
 
-+ Contributor permissions in the Azure subscription for creating resources. 
++ Contributor permissions in the Azure subscription for creating resources
 
 ## Set up model deployments
 
 1. Start [Azure OpenAI Studio](https://oai.azure.com/portal).
 
-1. When prompted to sign in, select your Azure subscription and Azure OpenAI resource, and then select **Use resource**.
+1. Sign in, select your Azure subscription and Azure OpenAI resource, and then select **Use resource**.
 
 1. Under **Management > Deployments**, find or create a deployment for each of the following models:
 
    + [text-embedding-ada-002](/azure/ai-services/openai/concepts/models#embeddings)
    + [gpt-35-turbo](/azure/ai-services/openai/concepts/models#gpt-35)
 
-Deploy more chat models if you want to test them with your data. You can only test with GPT-35-Turbo, GPT-35-Turbo-Instruct and GPT-4. Text-Davinci-002 isn't supported. If you create new deployments, the default configurations are suited for this tutorial. It's helpful to name each deployment after the model. For example, "text-embedding-ada-002" as the deployment name of the text-embedding-ada-002 model.
+Deploy more chat models if you want to test them with your data. Note that Text-Davinci-002 isn't supported. 
+
+If you create new deployments, the default configurations are suited for this tutorial. It's helpful to name each deployment after the model. For example, "text-embedding-ada-002" as the deployment name of the text-embedding-ada-002 model.
 
 ## Load your vector data into the playground
 
@@ -62,6 +64,8 @@ Deploy more chat models if you want to test them with your data. You can only te
 1. Select **Add data source**.
 
 1. From the dropdown list, select **Upload files**.
+
+    :::image type="content" source="media/search-get-started-rag/azure-openai-data-source.png" lightbox="media/search-get-started-rag/azure-openai-data-source.png" alt-text="Screenshot of a chat session.":::
 
 1. In Data source, select your Azure Blob storage resource. Enable cross-origin scripting if prompted.
 
@@ -81,7 +85,9 @@ Deploy more chat models if you want to test them with your data. You can only te
 
 1. Select **Next**.
 
-1. In Data Management, choose **Hybrid + semantic** if semantic ranking is enabled on your search service. If semantic ranking is disabled, choose **Hybrid (vector + keyword)**. Hybrid is a better choice because vector (similarity) search and keyword search execute the same query input in parallel, which can produce a more relevant response.
+1. In Data Management, choose **Hybrid + semantic** if [semantic ranking is enabled]((semantic-how-to-enable-disable.md)) on your search service. If semantic ranking is disabled, choose **Hybrid (vector + keyword)**. Hybrid is a better choice because vector (similarity) search and keyword search execute the same query input in parallel, which can produce a more relevant response.
+
+   :::image type="content" source="media/search-get-started-rag/azure-openai-data-manage.png" lightbox="media/search-get-started-rag/azure-openai-data-manage.png" alt-text="Screenshot of a chat session.":::
 
 1. Acknowledge that vectorization of the sample data is billed at the usage rate of the Azure OpenAI embedding model.
 
@@ -109,9 +115,9 @@ Deploy more chat models if you want to test them with your data. You can only te
 
    Queries that require deeper analysis, such as "how many speeches are in the vector store", might fail to return a response. In RAG pattern chat scenarios, information retrieval is keyword and similarity search against the query string, where the search engine looks for chunks having exact or similar terms, phrases, or construction. The payload might have insufficient data for the model to work with.
 
-   Finally, chats are constrained by the number of documents (chunks) returned in the response (3-20 in Azure OpenAI Studio playground). For a question asking about "all of the titles", you need an exhaustive scan of the entire vector store, which requires a different tool or approach.
+   Finally, chats are constrained by the number of documents (chunks) returned in the response (limited to 3-20 in Azure OpenAI Studio playground). As you can imagine, posing a question about "all of the titles" requires a full scan of the entire vector store, which means pivoting to a different tool or approach, or modifying the generated code to allow for [exhaustive search](vector-search-how-to-create-index.md#add-a-vector-search-configuration) in the vector search configuration.
 
-   :::image type="content" source="media/search-get-started-rag/chat-results.png" lightbox="media/search-get-started-rag/chat-results.png"alt-text="Screenshot of a chat session.":::
+   :::image type="content" source="media/search-get-started-rag/chat-results.png" lightbox="media/search-get-started-rag/chat-results.png" alt-text="Screenshot of a chat session.":::
 
 ## Clean up
 
