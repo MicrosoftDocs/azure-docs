@@ -911,23 +911,23 @@ After you've configured your model monitor and the first run has completed, you 
 >
 > The nature of your monitoring dashboard will depend on the monitoring signals you included in your monitoring configuration. In this example, we included both data drift and data quality. 
 
-   :::image type="content" source="media/how-to-monitor-models/monitoring-12.png" alt-text="Screenshot showing how to add model monitoring." lightbox="media/how-to-monitor-models/add-model-monitoring.png":::
+   :::image type="content" source="media/how-to-monitor-models/monitoring-12.png" alt-text="Screenshot showing how to add model monitoring." lightbox="media/how-to-monitor-models/monitoring-12.png":::
 
 In the **Notifications** menu, you can see, for each signal, which features breached the configured threshold for their respective metrics:
 
-   :::image type="content" source="media/how-to-monitor-models/monitoring-13.png" alt-text="Screenshot showing how to add model monitoring." lightbox="media/how-to-monitor-models/add-model-monitoring.png":::
+   :::image type="content" source="media/how-to-monitor-models/monitoring-13.png" alt-text="Screenshot showing how to add model monitoring." lightbox="media/how-to-monitor-models/monitoring-13.png":::
 
 By clicking into the **data drift** signal, you will arrive at the data drift details page. In this view you can see the data drift metric value for each numerical and categorical feature you have included in your monitoring configuration. When your monitor has more than one run, you will see a trendline for each feature.
 
-   :::image type="content" source="media/how-to-monitor-models/monitoring-14.png" alt-text="Screenshot showing how to add model monitoring." lightbox="media/how-to-monitor-models/add-model-monitoring.png":::
+   :::image type="content" source="media/how-to-monitor-models/monitoring-14.png" alt-text="Screenshot showing how to add model monitoring." lightbox="media/how-to-monitor-models/monitoring-14.png":::
 
 To view an individual feature in detail, click on the name of the feature to view the production distribution compared to the reference distribution. This view also affords you the ability to track drift over time for that specific feature. 
 
-   :::image type="content" source="media/how-to-monitor-models/monitoring-15.png" alt-text="Screenshot showing how to add model monitoring." lightbox="media/how-to-monitor-models/add-model-monitoring.png":::
+   :::image type="content" source="media/how-to-monitor-models/monitoring-15.png" alt-text="Screenshot showing how to add model monitoring." lightbox="media/how-to-monitor-models/monitoring-15.png":::
 
 Lastly, from the monitoring dashboard, click on **data quality** to view the data quality signal page. In this view you can see the null value rates, out-of-bounds rates, and data type error rates for each feature you are monitoring. 
 
-   :::image type="content" source="media/how-to-monitor-models/monitoring-16.png" alt-text="Screenshot showing how to add model monitoring." lightbox="media/how-to-monitor-models/add-model-monitoring.png":::
+   :::image type="content" source="media/how-to-monitor-models/monitoring-16.png" alt-text="Screenshot showing how to add model monitoring." lightbox="media/how-to-monitor-models/monitoring-16.png":::
 
 Model monitoring is a continuous process. With Azure Machine Learning model monitoring, you can configure multiple monitoring signals to obtain a broad view into the performance of your models in production.
 
