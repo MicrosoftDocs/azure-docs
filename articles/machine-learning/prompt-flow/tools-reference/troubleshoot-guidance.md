@@ -100,7 +100,7 @@ This type of error related to runtime lacks required packages. If you're using a
 
 ### Where to find the serverless instance used by automatic runtime?
 
-Automatic runtime running on a serverless instance, you can find the serverless instance under compute quota page, [View your usage and quotas in the Azure portal](../../how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal). The serverless instances with have with name like this `sessionxxxxyyyy`.
+Automatic runtime is running on a serverless instance, you can find the serverless instance under compute quota page, [View your usage and quotas in the Azure portal](../../how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal). The serverless instances with have with name like this `sessionxxxxyyyy`.
 
 
 ### Request timeout issue
