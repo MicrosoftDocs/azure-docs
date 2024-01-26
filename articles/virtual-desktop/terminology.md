@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 11/01/2023
 ms.author: helohr
-manager: femila
 ---
 # Azure Virtual Desktop terminology
 
@@ -29,21 +28,21 @@ The following table goes into more detail about the differences between each typ
 |Feature|Personal host pools|Pooled host pools|
 |---|---|---|
 |Load balancing| User sessions are always load balanced to the session host the user is assigned to. If the user isn't currently assigned to a session host, the user session is load balanced to the next available session host in the host pool. | User sessions are load balanced to session hosts in the host pool based on user session count. You can choose which [load balancing algorithm](host-pool-load-balancing.md) to use: breadth-first or depth-first. |
-|Maximum session limit| One. | As configured by the **Max session limit** value of the properties of a host pool. Under high concurrent connection load when multiple users connect to the host pool at the same time, the number of sessions created on a session host can exceed the maximum session limit. |
-|User assignment process| Users can either be directly assigned to session hosts or be automatically assigned to the first available session host. Users always have sessions on the session hosts they are assigned to. | Users aren't assigned to session hosts. After a user signs out and signs back in, their user session might get load balanced to a different session host. |
+|Maximum session limit| One. | As configured by the [maximum session limit](configure-host-pool-load-balancing.md#configure-breadth-first-load-balancing) value of the properties of a host pool. Under high concurrent connection load when multiple users connect to the host pool at the same time, the number of sessions created on a session host can exceed the maximum session limit. |
+|User assignment process| Users can either be directly assigned to session hosts or be automatically assigned to the first available session host. Users always have sessions on the session hosts they are assigned to. | Users aren't assigned to session hosts. After a user signs out and signs back in, their user session might get load balanced to a different session host. To learn more, see [Configure personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md). |
 |Scaling| [Autoscale](autoscale-scaling-plan.md) for personal host pools starts session host virtual machines according to schedule or using Start VM on Connect and then deallocates/hibernates session host virtual machines based on the user session state (log off/disconnect). | [Autoscale](autoscale-scaling-plan.md) for pooled host pools turns VMs on and off based on the capacity thresholds and schedules the customer defines. |
 |Windows Updates|Updated with Windows Updates, [Microsoft Configuration Manager (ConfigMgr)](configure-automatic-updates.md), or other software distribution configuration tools.|Updated by redeploying session hosts from updated images instead of traditional updates.|
 |User data| Each user only ever uses one session host, so they can store their user profile data on the operating system (OS) disk of the VM. | Users can connect to different session hosts every time they connect, so they should store their user profile data in [FSLogix](/fslogix/configure-profile-container-tutorial). |
 
 ### Validation environment
 
-You can set a host pool to be a *validation environment*. Validation environments let you monitor service updates before the service applies them to your production or non-validation environment. Without a validation environment, you may not discover changes that introduce errors, which could result in downtime for users in your production environment.
+You can set a host pool to be a [validation environment](configure-validation-environment.md). Validation environments let you monitor service updates before the service applies them to your production or non-validation environment. Without a validation environment, you may not discover changes that introduce errors, which could result in downtime for users in your production environment.
 
 To ensure your apps work with the latest updates, the validation environment should be as similar to host pools in your non-validation environment as possible. Users should connect as frequently to the validation environment as they do to the production environment. If you have automated testing on your host pool, you should include automated testing on the validation environment.
 
 ## Application groups
 
-An application group is a logical grouping of applications installed on session hosts in the host pool.
+An [application group](deploy-azure-virtual-desktop.md#create-an-application-group) is a logical grouping of applications installed on session hosts in the host pool.
 
 An application group can be one of two types:
 
@@ -73,7 +72,7 @@ To publish resources to users, you must assign them to application groups. When 
 
 ## Workspaces
 
-A workspace is a logical grouping of application groups in Azure Virtual Desktop. Each Azure Virtual Desktop application group must be associated with a workspace for users to see the desktops and applications published to them.
+A [workspace](deploy-azure-virtual-desktop.md#create-a-workspace) is a logical grouping of application groups in Azure Virtual Desktop. Each Azure Virtual Desktop application group must be associated with a workspace for users to see the desktops and applications published to them.
 
 ## End users
 

@@ -33,8 +33,8 @@ The sample is forked from this [repository](https://github.com/StackAbuse/spring
 Clone the sample repository to your develop environment:
 
 ```bash
-git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples.git
-cd Azure-Spring-Cloud-Samples/hystrix-turbine-sample
+git clone https://github.com/Azure-Samples/azure-spring-apps-samples.git
+cd azure-spring-apps-samples/hystrix-turbine-sample
 ```
 
 Build the three applications that are in this tutorial:
@@ -93,7 +93,7 @@ Verify using public endpoints or private test endpoints.
 
 Access hystrix-turbine with the path `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/hystrix` from your browser.  The following figure shows the Hystrix dashboard running in this app.
 
-:::image type="content" source="media/spring-cloud-circuit-breaker/hystrix-dashboard.png" alt-text="Screenshot of the Hystrix dashboard.":::
+:::image type="content" source="media/spring-cloud-circuit-breaker/hystrix-dashboard.png" alt-text="Screenshot of the Hystrix dashboard." lightbox="media/spring-cloud-circuit-breaker/hystrix-dashboard.png":::
 
 Copy the Turbine stream url `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/turbine.stream?cluster=default` into the text box, and select **Monitor Stream**.  This action displays the dashboard. If nothing shows in the viewer, hit the `user-service` endpoints to generate streams.
 

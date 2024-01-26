@@ -2,12 +2,11 @@
 title: Migrate to Batch synthesis API - Speech service
 titleSuffix: Azure AI services
 description: This document helps developers migrate code from Long Audio REST API to Batch synthesis REST API.
-#services: cognitive-services
 author: heikora
 manager: dongli
 ms.service: azure-ai-speech
 ms.topic: reference
-ms.date: 09/01/2022
+ms.date: 1/21/2024
 ms.author: heikora
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -15,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Migrate code from Long Audio API to Batch synthesis API
 
-The [Batch synthesis API](batch-synthesis.md) (Preview) provides asynchronous synthesis of long-form text to speech. Benefits of upgrading from Long Audio API to Batch synthesis API, and details about how to do so, are described in the sections below.
+The [Batch synthesis API](batch-synthesis.md) (Preview) provides asynchronous synthesis of long-form text to speech. This article describes the benefits of upgrading from Long Audio API to Batch synthesis API, and details about how to do so.
 
 > [!IMPORTANT]
 > [Batch synthesis API](batch-synthesis.md) is currently in public preview. Once it's generally available, the Long Audio API will be deprecated.
@@ -54,7 +53,7 @@ Long Audio API text inputs are uploaded from a file that meets the following req
 * One plain text (.txt) or SSML text (.txt) file encoded as [UTF-8 with Byte Order Mark (BOM)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom). Don't use compressed files such as ZIP. If you have more than one input file, you must submit multiple requests.
 * Contains more than 400 characters for plain text or 400 [billable characters](./text-to-speech.md#pricing-note) for SSML text, and less than 10,000 paragraphs. For plain text, each paragraph is separated by a new line. For SSML text, each SSML piece is considered a paragraph. Separate SSML pieces by different paragraphs.
 
-With Batch synthesis API, you can use any of the [supported SSML elements](speech-synthesis-markup.md), including the `audio`, `mstts:backgroundaudio`, and `lexicon` elements. The `audio`, `mstts:backgroundaudio`, and `lexicon` elements aren't supported by Long Audio API.
+With Batch synthesis API, you can use any of the [supported SSML elements](speech-synthesis-markup.md), including the `audio`, `mstts:backgroundaudio`, and `lexicon` elements. The long audio API doesn't support the `audio`, `mstts:backgroundaudio`, and `lexicon` elements.
 
 ## Audio output formats
 
@@ -75,13 +74,13 @@ The Long Audio API is limited to the following set of audio output formats. The 
 
 ## Getting results
 
-With batch synthesis API, use the URL from the `outputs.result` property of the GET batch synthesis response. The [results](batch-synthesis.md#batch-synthesis-results) are in a ZIP file that contains the audio (such as `0001.wav`), summary, and debug details. 
+With batch synthesis API, use the URL from the `outputs.result` property of the HTTP GET batch synthesis response. The [results](batch-synthesis.md#batch-synthesis-results) are in a ZIP file that contains the audio (such as `0001.wav`), summary, and debug details. 
 
 Long Audio API text inputs and results are returned via two separate content URLs as shown in the following example. The one with `"kind": "LongAudioSynthesisScript"` is the input script submitted. The other one with `"kind": "LongAudioSynthesisResult"` is the result of this request. Both ZIP files can be downloaded from the URL in their `links.contentUrl` property.
 
 ## Cleaning up resources
 
-Batch synthesis API supports up to 200 batch synthesis jobs that don't have a status of "Succeeded" or "Failed". The Speech service will keep each synthesis history for up to 31 days, or the duration of the request `timeToLive` property, whichever comes sooner. The date and time of automatic deletion (for synthesis jobs with a status of "Succeeded" or "Failed") is equal to the `lastActionDateTime` + `timeToLive` properties.
+Batch synthesis API supports up to 200 batch synthesis jobs that don't have a status of "Succeeded" or "Failed". The Speech service keeps each synthesis history for up to 31 days, or the duration of the request `timeToLive` property, whichever comes sooner. The date and time of automatic deletion (for synthesis jobs with a status of "Succeeded" or "Failed") is equal to the `lastActionDateTime` + `timeToLive` properties.
 
 The Long Audio API is limited to 20,000 requests for each Azure subscription account. The Speech service doesn't remove job history automatically. You must remove the previous job run history before making new requests that would otherwise exceed the limit.   
 

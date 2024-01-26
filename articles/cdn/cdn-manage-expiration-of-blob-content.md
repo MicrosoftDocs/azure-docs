@@ -8,7 +8,6 @@ manager: kumudd
 ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
 ms.service: azure-cdn
 ms.workload: media
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 02/27/2023
@@ -37,7 +36,7 @@ You can also control cache settings from the Azure portal by setting CDN caching
 The preferred method for setting a blob's `Cache-Control` header is to use caching rules in the Azure portal. For more information about CDN caching rules, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Caching rules are available only for **Azure CDN Standard from Edgio** and **Azure CDN Standard from Akamai** profiles. For **Azure CDN Premium from Edgio** profiles, you must use the [Azure CDN rules engine](./cdn-verizon-premium-rules-engine.md) in the **Manage** portal for similar functionality.
+> Caching rules are available only for **Azure CDN Standard from Edgio** profiles. For **Azure CDN Premium from Edgio** profiles, you must use the [Azure CDN rules engine](./cdn-verizon-premium-rules-engine.md) in the **Manage** portal for similar functionality.
 
 **To navigate to the CDN caching rules page**:
 

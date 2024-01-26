@@ -621,7 +621,7 @@ items:
                   href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
                 - name: Node.js
                   href: /javascript/api/overview/azure/ai-language-text-readme?view=azure-node-preview&preserve-view=true
-      - name: Custom
+      - name: Custom (preview)
         items:
           - name: Quickstart
             href: sentiment-opinion-mining/custom/quickstart.md

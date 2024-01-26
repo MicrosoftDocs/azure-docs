@@ -2,14 +2,10 @@
 title: Configure local metrics and logs for Azure API Management self-hosted gateway | Microsoft Docs
 description: Learn how to configure local metrics and logs for Azure API Management self-hosted gateway on a Kubernetes cluster
 services: api-management
-documentationcenter: ''
 author: dlepow
 manager: gwallace
-editor: ''
-
 ms.service: api-management
 ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/11/2021
 ms.author: danlep

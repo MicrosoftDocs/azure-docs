@@ -3,9 +3,10 @@ title: Add an NSX-T Data Center network segment using Azure VMware Solution
 description: Steps to add an NSX-T Data Center network segment for Azure VMware Solution in the Azure portal.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 4/22/2023
+ms.date: 1/03/2024
 author: suzizuber
 ms.author: v-szuber
+ms.custom: engagement-fy23
 ---
 
 <!-- Used in configure-dhcp-azure-vmware-solution.md and tutorial-nsx-t-network-segment.md -->

@@ -11,26 +11,26 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 06/29/2023
+ms.date: 01/19/2024
 ---
 
 # Indexes in Azure AI Search
 
-In Azure AI Search, a *search index* is your searchable content, available to the search engine for indexing, full text search, and filtered queries. An index is defined by a schema and saved to the search service, with data import following as a second step. This content exists within your search service, apart from your primary data stores, which is necessary for the millisecond response times expected in modern applications. Except for specific indexing scenarios, the search service will never connect to or query your local data.
+In Azure AI Search, a *search index* is your searchable content, available to the search engine for indexing, full text search, vector search, hybrid search, and filtered queries. An index is defined by a schema and saved to the search service, with data import following as a second step. This content exists within your search service, apart from your primary data stores, which is necessary for the millisecond response times expected in modern search applications. Except for indexer-driven indexing scenarios, the search service never connects to or queries your source data.
 
-If you're creating and managing a search index, this article helps you understand the following:
+If you want to create and manage a search index, this article helps you understand the following points:
 
 + Content (documents and schema)
-+ Physical representation
++ Physical data structure
 + Basic operations
 
 Prefer to be hands-on right away? See [Create a search index](search-how-to-create-search-index.md) instead.
 
-## Content of a search index
+## Schema of a search index
 
 In Azure AI Search, indexes contain *search documents*. Conceptually, a document is a single unit of searchable data in your index. For example, a retailer might have a document for each product, a news organization might have a document for each article, a travel site might have a document for each hotel and destination, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* equates to a *table*, and *documents* are roughly equivalent to *rows* in a table.
 
-The structure of a document is determined by the index schema, as illustrated below. The "fields" collection is typically the largest part of an index, where each field is named, assigned a [data type](/rest/api/searchservice/Supported-data-types), and attributed with allowable behaviors that determine how it's used.
+The structure of a document is determined by the *index schema*, as illustrated in the following example. The "fields" collection is typically the largest part of an index, where each field is named, assigned a [data type](/rest/api/searchservice/Supported-data-types), and attributed with allowable behaviors that determine how it's used.
 
 ```json
 {
@@ -38,7 +38,7 @@ The structure of a document is determined by the index schema, as illustrated be
   "fields": [
     {
       "name": "name_of_field",
-      "type": "Edm.String | Collection(Edm.String) | Edm.Int32 | Edm.Int64 | Edm.Double | Edm.Boolean | Edm.DateTimeOffset | Edm.GeographyPoint",
+      "type": "Edm.String | Collection(Edm.String) | Collection(Edm.Single) | Edm.Int32 | Edm.Int64 | Edm.Double | Edm.Boolean | Edm.DateTimeOffset | Edm.GeographyPoint",
       "searchable": true (default where applicable) | false (only Edm.String and Collection(Edm.String) fields can be searchable),
       "filterable": true (default) | false,
       "sortable": true (default where applicable) | false (Collection(Edm.String) fields cannot be sortable),
@@ -48,7 +48,10 @@ The structure of a document is determined by the index schema, as illustrated be
       "analyzer": "name_of_analyzer_for_search_and_indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
       "searchAnalyzer": "name_of_search_analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
       "indexAnalyzer": "name_of_indexing_analyzer", (only if 'searchAnalyzer' is set and 'analyzer' is not set)
-      "synonymMaps": [ "name_of_synonym_map" ] (optional, only one synonym map per field is currently supported)
+      "normalizer":  "name_of_normalizer", (applies to fields that are filterable)
+      "synonymMaps": "name_of_synonym_map", (optional, only one synonym map per field is currently supported)
+      "dimensions": "number of dimensions used by an emedding models", (applies to vector fields only, of type Collection(Edm.Single))
+      "vectorSearchProfile": "name_of_vector_profile" (indexes can have many configurations, a field can use just one)
     }
   ],
   "suggesters": [ ],
@@ -59,24 +62,27 @@ The structure of a document is determined by the index schema, as illustrated be
   "tokenFilters":(optional)[ ... ],
   "defaultScoringProfile": (optional) "...",
   "corsOptions": (optional) { },
-  "encryptionKey":(optional){ }
-  }
+  "encryptionKey":(optional){ },
+  "semantic":(optional){ },
+  "vectorSearch":(optional){ }
 }
 ```
 
-Other elements are collapsed for brevity, but the following links can provide the detail: 
+Other elements are collapsed for brevity, but the following links provide details: 
 
-+ [Suggesters](index-add-suggesters.md) support type-ahead queries like autocomplete
-+ [Scoring Profiles](index-add-scoring-profiles.md) are used for relevance tuning
-+ [Analyzers](search-analyzers.md) are used to process strings into tokens according to linguistic rules or other characteristics supported by the analyzer
-+ [Cross-origin remote scripting (CORS)](search-how-to-create-search-index.md#corsoptions) is used for apps that issues requests from different domains
-+ [Encryption key](search-security-manage-encryption-keys.md) is used for double-encryption of sensitive content in the index.
++ [suggesters](index-add-suggesters.md) support type-ahead queries like autocomplete.
++ [scoringProfiles](index-add-scoring-profiles.md) are used for relevance tuning.
++ [analyzers](search-analyzers.md) are used to process strings into tokens according to linguistic rules or other characteristics supported by the analyzer.
++ [corsOptions](search-how-to-create-search-index.md#corsoptions), or Cross-origin remote scripting (CORS), is used for apps that issues requests from different domains.
++ [encryptionKey](search-security-manage-encryption-keys.md) configures double-encryption of sensitive content in the index.
++ [semantic](semantic-how-to-query-request.md) configures semantic reranking in full text and hybrid search.
++ [vectorSearch](vector-search-how-to-create-index.md) configures vector fields and queries.
 
 ### Field definitions
 
-A search document is defined by the "fields" collection in the body of [Create Index request](/rest/api/searchservice/create-index). You need fields for document identification (keys), storing searchable text, and fields for supporting filters, facets, and sorts. You might also need fields for data that a user never sees. For example, you might want fields for profit margins or marketing promotions that you can use to modify search rank.
+A search document is defined by the "fields" collection in the body of [Create Index request](/rest/api/searchservice/create-index). You need fields for document identification (keys), storing searchable text, and fields for supporting filters, facets, and sorting. You might also need fields for data that a user never sees. For example, you might want fields for profit margins or marketing promotions that you can use in a scoring profile to boost a search score.
 
-If incoming data is hierarchical in nature, you can represent it within an index as a [complex type](search-howto-complex-data-types.md), used to represent nested structures. The built-in sample data set, Hotels, illustrates complex types using an Address (contains multiple subfields) that has a one-to-one relationship with each hotel, and a Rooms complex collection, where multiple rooms are associated with each hotel. 
+If incoming data is hierarchical in nature, you can represent it within an index as a [complex type](search-howto-complex-data-types.md), used for nested structures. The built-in sample data set, Hotels, illustrates complex types using an Address (contains multiple subfields) that has a one-to-one relationship with each hotel, and a Rooms complex collection, where multiple rooms are associated with each hotel. 
 
 <a name="index-attributes"></a>
 
@@ -88,7 +94,7 @@ String fields are often marked as "searchable" and "retrievable". Fields used to
 
 |Attribute|Description|  
 |---------------|-----------------|  
-|"searchable" |Full-text searchable, subject to lexical analysis such as word-breaking during indexing. If you set a searchable field to a value like "sunny day", internally it's split into the individual tokens "sunny" and "day". For details, see [How full text search works](search-lucene-query-architecture.md).|  
+|"searchable" |Full-text or vector searchable. Text fields are subject to lexical analysis such as word-breaking during indexing. If you set a searchable field to a value like "sunny day", internally it's split into the individual tokens "sunny" and "day". For details, see [How full text search works](search-lucene-query-architecture.md).|  
 |"filterable" |Referenced in $filter queries. Filterable fields of type `Edm.String` or `Collection(Edm.String)` don't undergo word-breaking, so comparisons are for exact matches only. For example, if you set such a field f to "sunny day", `$filter=f eq 'sunny'` finds no matches, but `$filter=f eq 'sunny day'` will. |  
 |"sortable" |By default the system sorts results by score, but you can configure sort based on fields in the documents. Fields of type `Collection(Edm.String)` can't be "sortable". |  
 |"facetable" |Typically used in a presentation of search results that includes a hit count by category (for example, hotels in a specific city). This option can't be used with fields of type `Edm.GeographyPoint`. Fields of type `Edm.String` that are filterable, "sortable", or "facetable" can be at most 32 kilobytes in length. For details, see [Create Index (REST API)](/rest/api/searchservice/create-index).|  
@@ -116,7 +122,7 @@ The size of an index is determined by:
 
 Document composition and quantity are determined by what you choose to import. Remember that a search index should only contain searchable content. If source data includes binary fields, omit those fields unless you're using AI enrichment to crack and analyze the content to create text searchable information.
 
-Field attributes determine behaviors. To support those behaviors, the indexing process creates the necessary data structures. For example, "searchable" invokes [full text search](search-lucene-query-architecture.md), which scans inverted indices for the tokenized term. In contrast, a "filterable" or "sortable" attribute supports iteration over unmodified strings. The example in the next section shows variations in index size based on the selected attributes.
+Field attributes determine behaviors. To support those behaviors, the indexing process creates the necessary data structures. For example, for a field of type `Edm.String`, "searchable" invokes [full text search](search-lucene-query-architecture.md), which scans inverted indices for the tokenized term. In contrast, a "filterable" or "sortable" attribute supports iteration over unmodified strings. The example in the next section shows variations in index size based on the selected attributes.
 
 [**Suggesters**](index-add-suggesters.md) are constructs that support type-ahead or autocomplete queries. As such, when you include a suggester, the indexing process creates the data structures necessary for verbatim character matches. Suggesters are implemented at the field level, so choose only those fields that are reasonable for type-ahead.
 
@@ -132,7 +138,7 @@ Although these index variants are somewhat artificial, we can refer to them for 
 + "filterable", "sortable", "facetable" consume more storage.
 + **suggester** has a large potential for increasing index size, but not as much as the screenshot would indicate (all fields that could be made suggester-aware were selected, which isn't a likely scenario in most indexes).
 
-Also not reflected in the above table is the effect of [analyzers](search-analyzers.md). If you're using the edgeNgram tokenizer to store verbatim sequences of characters (`a, ab, abc, abcd`), the size of the index will be larger than if you used a standard analyzer.
+Also not reflected in the previous table is the effect of [analyzers](search-analyzers.md). If you use the edgeNgram tokenizer to store verbatim sequences of characters (`a, ab, abc, abcd`), the index is larger than if you use the standard analyzer.
 
 ## Basic operations and interaction
 
@@ -143,7 +149,7 @@ Now that you have a better idea of what an index is, this section introduces ind
 
 ### Index isolation
   
-In Azure AI Search, you'll work with one index at a time, where all index-related operations target a single index. There's no concept of related indexes or the joining of independent indexes for either indexing or querying. 
+In Azure AI Search, you work with one index at a time, where all index-related operations target a single index. There's no concept of related indexes or the joining of independent indexes for either indexing or querying. 
 
 ### Continuously available
 
@@ -172,8 +178,10 @@ But you'll also want to become familiar with methodologies for loading an index 
 
 + [Create a search index](search-how-to-create-search-index.md)
 
++ [Create a vector index](vector-search-how-to-create-index.md)
+
 + [Create an index alias](search-how-to-alias.md)
 
 + [Data import overview](search-what-is-data-import.md)
 
-+ [Add, Update or Delete Documents (REST)](/rest/api/searchservice/addupdate-or-delete-documents) 
++ [Load an index](search-how-to-load-search-index.md)

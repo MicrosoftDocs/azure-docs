@@ -7,7 +7,7 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ms.custom: synapse
 ---
 

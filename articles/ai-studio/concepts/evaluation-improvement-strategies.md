@@ -2,14 +2,15 @@
 title: Harms mitigation strategies with Azure AI
 titleSuffix: Azure AI Studio
 description: Explore various strategies for addressing the challenges posed by large language models and mitigating potential harms.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Harms mitigation strategies with Azure AI

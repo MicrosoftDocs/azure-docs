@@ -7,7 +7,8 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
-ms.devlang: python, scala
+ms.devlang: python
+# ms.devlang: python, scala
 ms.date: 02/27/2023
 ms.custom: ignite-2022
 ---

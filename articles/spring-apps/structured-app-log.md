@@ -257,7 +257,7 @@ Use the following procedure:
 
 4. Application logs return as shown in the following image:
 
-   ![Json Log show](media/spring-cloud-structured-app-log/json-log-query.png)
+   :::image type="content" source="media/spring-cloud-structured-app-log/json-log-query.png" alt-text="Screenshot of the Azure portal showing the log Results pane." lightbox="media/spring-cloud-structured-app-log/json-log-query.png":::
 
 ### Show log entries containing errors
 

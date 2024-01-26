@@ -29,13 +29,14 @@ string searchKey = GetEnvironmentVariable("SearchKey");
 string searchIndex = GetEnvironmentVariable("SearchIndex");
 string deploymentName = GetEnvironmentVariable("AOAIDeploymentId");
 
+
 var client = new OpenAIClient(new Uri(azureOpenAIEndpoint), new AzureKeyCredential(azureOpenAIKey));
 
 var chatCompletionsOptions = new ChatCompletionsOptions()
 {
     Messages =
     {
-        new ChatMessage(ChatRole.User, "What are the differences between Azure Machine Learning and Azure AI services?"),
+        new ChatRequestUserMessage("What are the differences between Azure Machine Learning and Azure AI services?"),
     },
     AzureExtensionsOptions = new AzureChatExtensionsOptions()
     {
@@ -44,16 +45,17 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
             new AzureCognitiveSearchChatExtensionConfiguration()
             {
                 SearchEndpoint = new Uri(searchEndpoint),
-                SearchKey = new AzureKeyCredential(searchKey),
+                Key = searchKey,
                 IndexName = searchIndex,
             },
         }
-    }
+    },
+    DeploymentName = deploymentName
 };
 
-Response<ChatCompletions> response = client.GetChatCompletions(deploymentName, chatCompletionsOptions);
+Response<ChatCompletions> response = client.GetChatCompletions(chatCompletionsOptions);
 
-ChatMessage responseMessage = response.Value.Choices[0].Message;
+ChatResponseMessage responseMessage = response.Value.Choices[0].Message;
 
 Console.WriteLine($"Message from {responseMessage.Role}:");
 Console.WriteLine("===");
@@ -62,7 +64,7 @@ Console.WriteLine("===");
 
 Console.WriteLine($"Context information (e.g. citations) from chat extensions:");
 Console.WriteLine("===");
-foreach (ChatMessage contextMessage in responseMessage.AzureExtensionsContext.Messages)
+foreach (ChatResponseMessage contextMessage in responseMessage.AzureExtensionsContext.Messages)
 {
     string contextContent = contextMessage.Content;
     try
@@ -126,11 +128,6 @@ using Azure.AI.OpenAI;
 using System.Text.Json;
 using static System.Environment;
 
-string endpoint = GetEnvironmentVariable("AOAIEndpoint");
-string key = GetEnvironmentVariable("AOAIKey");
-
-var client = new OpenAIClient(new Uri(endpoint), new AzureKeyCredential(key));
-
 string azureOpenAIEndpoint = GetEnvironmentVariable("AOAIEndpoint");
 string azureOpenAIKey = GetEnvironmentVariable("AOAIKey");
 string searchEndpoint = GetEnvironmentVariable("SearchEndpoint");
@@ -138,13 +135,15 @@ string searchKey = GetEnvironmentVariable("SearchKey");
 string searchIndex = GetEnvironmentVariable("SearchIndex");
 string deploymentName = GetEnvironmentVariable("AOAIDeploymentId");
 
+
 var client = new OpenAIClient(new Uri(azureOpenAIEndpoint), new AzureKeyCredential(azureOpenAIKey));
 
 var chatCompletionsOptions = new ChatCompletionsOptions()
 {
+    DeploymentName = deploymentName,
     Messages =
     {
-        new ChatMessage(ChatRole.User, "What are the differences between Azure Machine Learning and Azure AI services?"),
+        new ChatRequestUserMessage("What are the differences between Azure Machine Learning and Azure AI services?"),
     },
     AzureExtensionsOptions = new AzureChatExtensionsOptions()
     {
@@ -153,50 +152,21 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
             new AzureCognitiveSearchChatExtensionConfiguration()
             {
                 SearchEndpoint = new Uri(searchEndpoint),
-                SearchKey = new AzureKeyCredential(searchKey),
+                Key = searchKey,
                 IndexName = searchIndex,
             },
         }
     }
 };
-
-Response<StreamingChatCompletions> response = await client.GetChatCompletionsStreamingAsync(
-    deploymentName,
-    chatCompletionsOptions);
-
-using StreamingChatCompletions streamingChatCompletions = response.Value;
-
-await foreach (StreamingChatChoice streamingChatChoice in streamingChatCompletions.GetChoicesStreaming())
+await foreach (StreamingChatCompletionsUpdate chatUpdate in client.GetChatCompletionsStreaming(chatCompletionsOptions))
 {
-    await foreach (ChatMessage chatMessage in streamingChatChoice.GetMessageStreaming())
+    if (chatUpdate.Role.HasValue)
     {
-        if (chatMessage.Role != default)
-        {
-            Console.WriteLine($"Message from {chatMessage.Role}: ");
-        }
-        if (chatMessage.Content != default)
-        {
-            Console.Write(chatMessage.Content);
-        }
-        if (chatMessage.AzureExtensionsContext != default)
-        {
-            Console.WriteLine($"Context information (e.g. citations) from chat extensions:");
-            foreach (var contextMessage in chatMessage.AzureExtensionsContext.Messages)
-            {
-                string contextContent = contextMessage.Content;
-                try
-                {
-                    var contextMessageJson = JsonDocument.Parse(contextMessage.Content);
-                    contextContent = JsonSerializer.Serialize(contextMessageJson, new JsonSerializerOptions()
-                    {
-                        WriteIndented = true,
-                    });
-                }
-                catch (JsonException)
-                {}
-                Console.WriteLine($"{contextMessage.Role}: {contextContent}");
-            }
-        }
+        Console.Write($"{chatUpdate.Role.Value.ToString().ToUpperInvariant()}: ");
+    }
+    if (!string.IsNullOrEmpty(chatUpdate.ContentUpdate))
+    {
+        Console.Write(chatUpdate.ContentUpdate);
     }
 }
 ```

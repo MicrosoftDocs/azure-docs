@@ -52,7 +52,7 @@ The default cadence means there's no planned maintenance window applied.
 |Channel|Updates Ownership|Default cadence|
 |---|---|
 | `Unmanaged`|OS driven security updates. AKS has no control over these updates.|Nightly around 6AM UTC for Ubuntu and Azure Linux. Monthly for Windows.|
-| `SecurityPatch`|AKS|Weekly.|
+| `SecurityPatch`|AKS-tested, fully managed, and applied with safe deployment practices. For more information, refer to [Increased security and resiliency of Canonical workloads on Azure][Blog].|Weekly.|
 | `NodeImage`|AKS|Weekly.|
 
 ## SecurityPatch channel requirements
@@ -121,6 +121,31 @@ To view the status of your node OS auto upgrades, look up [activity logs][monito
 
  No. Currently, when you set the [cluster auto-upgrade channel][Autoupgrade] to `node-image`, it also automatically sets the node OS auto-upgrade channel to `NodeImage`. You can't change the node OS auto-upgrade channel value if your cluster auto-upgrade channel is `node-image`. In order to be able to change the node OS auto-upgrade channel values, make sure the [cluster auto-upgrade channel][Autoupgrade] isn't `node-image`.
 
+ * Why is `SecurityPatch` recommended over `Unmanaged` channel?
+
+On the `Unmanaged` channel, AKS has no control over how and when the security updates are delivered. With `SecurityPatch`, the security updates are fully tested and follow safe deployment practices. `SecurityPatch` also honors maintenance windows. For more details, see [Increased security and resiliency of Canonical workloads on Azure][Blog].
+
+ * How do I know if a `SecurityPatch` or `NodeImage` upgrade is applied on my node?
+ 
+ Run the following command to obtain node labels:
+ 
+```azurecli-interactive
+kubectl get nodes --show-labels
+```
+
+Among the labels in the output, you'll see a line similar to the following:
+
+```output
+kubernetes.azure.com/node-image-version=AKSUbuntu-2204gen2containerd-202311.07.0
+```
+
+Here, the base node image version is `AKSUbuntu-2204gen2containerd`. If applicable, the security patch version typically follows. In the above example it is `202311.07.0`.  
+
+The same details also be looked up in the Azure portal under the node label view as illustrated below. 
+
+:::image type="content" source="./media/auto-upgrade-node-os-image/nodeimage-securitypatch-inline.png" alt-text="A screenshot of the nodes page for an AKS cluster in the Azure portal. The label for node image version clearly shows the base node image as well as the latest applied security patch date." lightbox="./media/auto-upgrade-node-os-image/nodeimage-securitypatch.png":::
+
+
 <!-- LINKS -->
 [planned-maintenance]: planned-maintenance.md
 [release-tracker]: release-tracker.md
@@ -135,3 +160,6 @@ To view the status of your node OS auto upgrades, look up [activity logs][monito
 [monitor-aks]: ./monitor-aks-reference.md
 [aks-eventgrid]: ./quickstart-event-grid.md
 [aks-upgrade]: ./upgrade-cluster.md
+
+<!-- LINKS - external -->
+[Blog]: https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/increased-security-and-resiliency-of-canonical-workloads-on/ba-p/3970623
