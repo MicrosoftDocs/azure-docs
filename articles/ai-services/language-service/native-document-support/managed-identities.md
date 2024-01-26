@@ -26,7 +26,7 @@ Managed identities for Azure resources are service principals that create a Micr
 >
 > * When using managed identities, don't include a SAS token URL with your HTTP requests—your requests will fail. Using managed identities replaces the requirement for you to include shared access signature tokens (SAS) with your [source and target container URLs](native-document-support.md#create-azure-blob-storage-containers).
 >
-> * To use managed identities for Language operations, you must [create your Language resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in a specific geographic Azure region such as **East US**. If your Language resource region is set to **Global**, then you can't use managed identity authentication. You can, however, still use [Shared Access Signature tokens (SAS)](shared-access-signature.md)).
+> * To use managed identities for Language operations, you must [create your Language resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in a specific geographic Azure region such as **East US**. If your Language resource region is set to **Global**, then you can't use managed identity authentication. You can, however, still use [Shared Access Signature tokens (SAS)](shared-access-signatures.md).
 >
 
 ## Prerequisites
@@ -43,23 +43,23 @@ To get started, you need the following resources:
 
 * **If your storage account is behind a firewall, you must enable the following configuration**:
     1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
-    1. Select the Storage account.
+    1. Select your Storage account.
     1. In the **Security + networking** group in the left pane, select **Networking**.
     1. In the **Firewalls and virtual networks** tab, select **Enabled from selected virtual networks and IP addresses**.
 
-          :::image type="content" source="media/firewalls-and-virtual-networks.png" alt-text="Screenshot: Selected networks radio button selected.":::
+          :::image type="content" source="media/firewalls-and-virtual-networks.png" alt-text="Screenshot that shows the elected networks radio button selected.":::
 
     1. Deselect all check boxes.
     1. Make sure **Microsoft network routing** is selected.
     1. Under the **Resource instances** section, select **Microsoft.CognitiveServices/accounts** as the resource type and select your Language resource as the instance name.
     1. Make certain that the **Allow Azure services on the trusted services list to access this storage account** box is checked. For more information about managing exceptions, _see_ [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions).
 
-        :::image type="content" source="media/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot: allow trusted services checkbox, portal view.":::
+        :::image type="content" source="media/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot that shows the allow trusted services checkbox in the Azure portal.":::
 
     1. Select **Save**.
 
         > [!NOTE]
-        > It may take up to 5 min for the network changes to propagate.
+        > It may take up to 5 minutes for the network changes to propagate.
 
     Although network access is now permitted, your Language resource is still unable to access the data in your Storage account. You need to [create a managed identity](#managed-identity-assignments) for and [assign a specific access role](#enable-a-system-assigned-managed-identity) to your Language resource.
 
@@ -79,13 +79,13 @@ You must grant the Language resource access to your storage account before it ca
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select your Language resource.
-1. In the **Resource Management** group in the left pane, select **Identity**.
+1. In the **Resource Management** group in the left pane, select **Identity**. If your resource was created in the global region, the **Identity** tab will not be visible. You can still use [Shared Access Signature tokens (SAS)](shared-access-signatures.md) for authentication.
 1. Within the **System assigned** tab, turn on the **Status** toggle.
 
-    :::image type="content" source="media/resource-management-identity-tab.png" alt-text="Screenshot: resource management identity tab in the Azure portal.":::
+    :::image type="content" source="media/resource-management-identity-tab.png" alt-text="Screenshot that shows the resource management identity tab in the Azure portal.":::
 
     > [!IMPORTANT]
-    > User assigned managed identity won't meet requirements for the batch processing storage account scenario. Be sure to enable system assigned managed identity.
+    > User assigned managed identities don't meet the requirements for the batch processing storage account scenario. Be sure to enable system assigned managed identity.
 
 1. Select **Save**.
 
@@ -99,11 +99,11 @@ You must grant the Language resource access to your storage account before it ca
 1. In the **Resource Management** group in the left pane, select **Identity**.
 1. Under **Permissions** select **Azure role assignments**:
 
-    :::image type="content" source="media/enable-system-assigned-managed-identity-portal.png" alt-text="Screenshot: enable system-assigned managed identity in Azure portal.":::
+    :::image type="content" source="media/enable-system-assigned-managed-identity-portal.png" alt-text="Screenshot that shows the enable system-assigned managed identity in Azure portal.":::
 
 1. On the Azure role assignments page that opened, choose your subscription from the drop-down menu then select **&plus; Add role assignment**.
 
-    :::image type="content" source="media/azure-role-assignments-page-portal.png" alt-text="Screenshot: Azure role assignments page in the Azure portal.":::
+    :::image type="content" source="media/azure-role-assignments-page-portal.png" alt-text="Screenshot that shows the Azure role assignments page in the Azure portal.":::
 
 1. Next, assign a **Storage Blob Data Contributor** role to your Language service resource. The **Storage Blob Data Contributor** role gives Language (represented by the system-assigned managed identity) read, write, and delete access to the blob container and data. In the **Add role assignment** pop-up window, complete the fields as follows and select **Save**:
 
@@ -114,15 +114,13 @@ You must grant the Language resource access to your storage account before it ca
     |**Resource**| **_The name of your storage resource_**.|
     |**Role** | **_Storage Blob Data Contributor_**.|
 
-     :::image type="content" source="media/add-role-assignment-window.png" alt-text="Screenshot: add role assignments page in the Azure portal.":::
+     :::image type="content" source="media/add-role-assignment-window.png" alt-text="Screenshot that shows the add role assignments page in the Azure portal.":::
 
 1. After the _Added Role assignment_ confirmation message appears, refresh the page to see the added role assignment.
 
-    :::image type="content" source="media/add-role-assignment-confirmation.png" alt-text="Screenshot: Added role assignment confirmation pop-up message.":::
+    :::image type="content" source="media/add-role-assignment-confirmation.png" alt-text="Screenshot that shows the added role assignment confirmation pop-up message.":::
 
 1. If you don't see the new role assignment right away, wait and try refreshing the page again. When you assign or remove role assignments, it can take up to 30 minutes for changes to take effect.
-
-    :::image type="content" source="media/assigned-roles-window.png" alt-text="Screenshot: Azure role assignments window.":::
 
 ## HTTP requests
 

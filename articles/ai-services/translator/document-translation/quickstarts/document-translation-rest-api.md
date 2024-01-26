@@ -134,4 +134,5 @@ That's it, congratulations! In this quickstart, you used Document Translation to
 
 ## Next steps
 
-
+> [!div class="nextstepaction"]
+> [**Learn more about Document Translation operations**](../reference/rest-api-guide.md)

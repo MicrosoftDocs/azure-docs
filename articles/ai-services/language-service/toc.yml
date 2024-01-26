@@ -817,10 +817,14 @@ items:
     href: tutorials/use-kubernetes-service.md
   - name: Use language in power automate flows
     href: tutorials/power-automate.md
-  - name: 🆕 Use native documents for language processing
-    href: native-document-support/native-document-support.md
-  - name: Create SAS tokens for storage containers
-    href: native-document-support/shared-access-signature.md
+  - name: 🆕 Native document support
+    items:
+    - name: 🆕 Use native documents for language processing
+      href: native-document-support/native-document-support.md
+    - name: 🆕 Create SAS tokens for storage containers
+      href: native-document-support/shared-access-signatures.md
+    - name: 🆕 Create a managed identity for storage containers
+      href: native-document-support/managed-identities.md  
   - name: Scenario deep-dives
     items:
       - name: Call Center

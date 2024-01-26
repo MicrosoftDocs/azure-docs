@@ -1,5 +1,5 @@
 ---
-title: Native document support for Azure AI Language (preview)?
+title: Native document support for Azure AI Language (preview)
 titleSuffix: Azure AI services
 description: How to use native document with Azure AI Languages Personally Identifiable Information and Summarization capabilities.
 author: laujan
@@ -135,9 +135,9 @@ Requests to the Language service require a read-only key and custom endpoint to 
 
 Your Language resource needs granted access to your storage account before it can create, read, or delete blobs. There are two primary methods you can use to grant access to your storage data:
 
-1. *[*Shared access signature (SAS) tokens**](shared-access-signature.md). User delegation SAS tokens are secured with Microsoft Entra credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
+* [**Shared access signature (SAS) tokens**](shared-access-signatures.md). User delegation SAS tokens are secured with Microsoft Entra credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
-1. [**Managed identity role-based access control (RBAC)**](managed-identities.md). Managed identities for Azure resources are service principals that create a Microsoft Entra identity and specific permissions for Azure managed resources
+* [**Managed identity role-based access control (RBAC)**](managed-identities.md). Managed identities for Azure resources are service principals that create a Microsoft Entra identity and specific permissions for Azure managed resources
 
 For this project, we authenticate access to the `source location` and `target location` URLs with Shared Access Signature (SAS) tokens appended as query strings. Each token is assigned to a specific blob (file).
 
@@ -148,7 +148,7 @@ For this project, we authenticate access to the `source location` and `target lo
 
 > [!TIP]
 >
-> * Since we're processing a single file (blob), we recommend that you **delegate SAS access at the blob level**.
+> Since we're processing a single file (blob), we recommend that you **delegate SAS access at the blob level**.
 
 ## Request headers and parameters
 
@@ -163,7 +163,7 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 
 ### [Personally Identifiable Information (PII)](#tab/pii)
 
-#### PII Sample document
+### PII Sample document
 
 For this quickstart, you need a **source document** uploaded to your **source container**. You can download our [Microsoft Word sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-pii.docx) or [Adobe PDF](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl//Language/native-document-pii.pdf) for this project. The source language is English.
 
@@ -177,44 +177,42 @@ For this quickstart, you need a **source document** uploaded to your **source co
 
   ***Request sample***
 
-  ```json
-  {
-    "tasks": [
-      {
-        "kind": "PiiEntityRecognition",
-        "parameters": {
-          "modelVersion": "latest"
-        }
-      }
-    ],
+```json
+{
+    "displayName": "Extracting Location & US Region",
     "analysisInput": {
-      "documents": [
+        "documents": [
+            {
+                "language": "en-US",
+                "id": "Output-excel-file",
+                "source": {
+                    "location": "{your-source-container-with-SAS-URL}"
+                },
+                "target": {
+                    "location": "{your-target-container-with-SAS-URL}"
+                }
+            } 
+        ]
+    },
+    "tasks": [
         {
-          "id": "doc_0",
-          "language": "en",
-          "source": {
-            "kind": "AzureBlob",
-            "location": "https://myaccount.blob.core.windows.net/sample-input/input.pdf?{SAS-Token}"
-          },
-          "target": {
-            "kind": "AzureBlob",
-            "location": "https://myaccount.blob.core.windows.net/sample-output?{SAS-Token}"
-          }
+            "kind": "PiiEntityRecognition",
+            "parameters":{
+                "excludePiiCategoriesredac" : ["PersonType", "Category2", "Category3"],
+                "redactionPolicy": "UseEntityTypeName" 
+            }
         }
-      ]
-    }
-  }
-
-
-  ```
+    ]
+}
+```
 
 ### Run the POST request
 
 1. Here's the preliminary structure of the POST request:
 
-  ```bash
-     POST {your-language-endpoint}/language/analyze-documents/jobs?api-version=2023-11-15-preview
-  ```
+   ```bash
+      POST {your-language-endpoint}/language/analyze-documents/jobs?api-version=2023-11-15-preview
+   ```
 
 1. Before you run the **POST** request, replace `{your-language-resource-endpoint}` and `{your-key}` with the values from your Azure portal Language service instance.
 
@@ -256,9 +254,9 @@ You receive a 202 (Success) response that includes a read-only Operation-Locatio
 
 1. Here's the preliminary structure of the **GET** request:
 
-  ```bash
-    GET {your-language-endpoint}/language/analyze-documents/jobs/{jobId}?api-version=2023-11-15-preview
-  ```
+   ```bash
+     GET {your-language-endpoint}/language/analyze-documents/jobs/{jobId}?api-version=2023-11-15-preview
+   ```
 
 1. Before you run the command, make these changes:
 
@@ -332,7 +330,7 @@ You receive a 200 (Success) response with JSON output. The **status** field indi
 
 ### [Document Summarization](#tab/summarization)
 
-##### Summarization sample document
+### Summarization sample document
 
 For this project, you need a **source document** uploaded to your **source container**. You can download our [Microsoft Word sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-summarization.docx) or [Adobe PDF](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-summarization.pdf) for this quickstart. The source language is English.
 
@@ -386,7 +384,7 @@ Before you run the **POST** request, replace `{your-language-resource-endpoint}`
   curl -v -X POST "{your-language-resource-endpoint}/language/analyze-text/jobs?api-version=2023-04-01" --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-summarization.json"
   ```
 
-1. Here's a sample response:
+Here's a sample response:
 
    ```http
    HTTP/1.1 202 Accepted
@@ -409,9 +407,9 @@ You receive a 202 (Success) response that includes a read-only Operation-Locatio
 
 1. Here's the structure of the **GET** request:
 
-  ```http
-  GET {cognitive-service-endpoint}/language/analyze-documents/jobs/{jobId}?api-version=2023-11-15-preview
-  ```
+   ```http
+   GET {cognitive-service-endpoint}/language/analyze-documents/jobs/{jobId}?api-version=2023-11-15-preview
+   ```
 
 1. Before you run the command, make these changes:
 
