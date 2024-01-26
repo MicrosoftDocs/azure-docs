@@ -182,7 +182,7 @@ Re-creation of Availability group (AG), duplicate AGs, and the backup items get 
 
 - Re-creating AGs that are already protected appear as duplicate AGs on the **Configure Backup** page and in the **Protected items** list. If you want to retain the backup data that is already present in the older AG, then stop the backup by using the **Stop protection and retain data** option before re-creating and scheduling backups on the new AG items.
 
-  Azure Backup uses this method to list the duplicate items on the **Protected items list**, and the **Configure Backup** page or **Protectable item list** displays these items until you want to retain the backup data.
+  By design, Azure Backup lists the duplicate items on the **Protected items list**, and the **Configure Backup** page or **Protectable item list** and displays these items until you want to retain the backup data.
 
 - If you don't want the backup data from the older AG, then stop the backup operation by using the **Stop protection and delete data** option for the older item before re-creating and scheduling backups on the new AG.
 
