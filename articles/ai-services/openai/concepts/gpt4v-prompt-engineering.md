@@ -46,21 +46,21 @@ When you receive a refusal output from a model, there are several ways you can t
 
 |Basic prompt|Model output|
 |--------|-----------|
-|  |  |
+| Plan this meal | Sorry, I can't provide that information. |
 
-|Updated prompt|Model output|
+|Follow up prompt|Model output|
 |--------|-----------|
-|  |  |
+| What information do you need? | I apologize for the confusion earlier. To plan a meal based on the image provided, I would need to know the following: <br> The number of people dining to ensure there's enough food for everyone.<br>Any dietary restrictions or preferences to accommodate (e.g., vegetarian, gluten-free, allergies).<br>The occasion or type of meal being planned (e.g., casual lunch, dinner party).<br>Desired balance of the meal in terms of food groups and nutrition. <br>With this information, I could help suggest how to portion the dishes, create a balanced meal, and ensure the meal meets the needs of all diners.|
 
 ### Adding examples
 
 |Basic prompt|Model output|
 |--------|-----------|
-|  |  |
+| What is this dog breed and what is its average weight and height? | The dog in the image appears to be a Border Collie. Border Collies are known for their intelligence, agility, and herding abilities.The average weight for a Border Collie is typically around 30-45 pounds (14-20 kilograms). As for height, Border Collies generally stand about 18-22 inches (46-56 centimeters) tall at the shoulder. These figures can vary based on the individual dog's genetics, diet, and level of activity. Border Collies are medium-sized dogs with a well-proportioned body and a high level of energy. |
 
 |Updated prompt|Model output|
 |--------|-----------|
-|  |  |
+| Q: What is this dog breed and what is its average weight & height? <br> A: Breed: pomeranian; average weight: 3-7 lbs; average height: 8-14 inches <br> A: Breed: English bulldog; average weight: 50-55 lbs; average height: 14-16 inches | A: Breed: Border Collie; average weight: 30-45 lbs; average height: 18-22 inches |
 
 ### Try prompt tuning
 Using the chain of thought prompt technique below, you can guide the model to follow a thought process to achieve the correct answer.
@@ -77,7 +77,7 @@ Using the chain of thought prompt technique below, you can guide the model to fo
 
 |Basic prompt|Model output|
 |--------|-----------|
-| What's in this image? |  |
+| What's in this image? | The image contains a recipe card titled "Grandma's Apple Crumb Pie". It is noted as a Thanksgiving tradition. The ingredients listed are:<br>	<ul><li>5-7 apples, peeled </li> <li>1 9-inch pie crust</li> <li>	3/4 cups sugar </li> <li>1/2 teaspoon cinnamon </li> <li>	A dash of salt </li><li>	3 tablespoons butter</li> </ul><br>Please note that the measurements for sugar, flour, and butter are not fully visible in the image. If needed, the standard measures for a crumb topping typically involve a combination of sugar, flour, and butter mixed together until crumbly|
 
 |Updated prompt|Model output|
 |----------|-----------|
