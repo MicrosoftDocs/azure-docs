@@ -390,9 +390,9 @@ The following list shows the options available for Autoscale demand management:
 
 On the Azure portal, choose how you want to scale. The following screenshot shows the **Custom autoscale** option and mode settings:
 
-:::image type="content" source="media/spring-cloud-autoscale/custom-autoscale.png" alt-text="Screenshot of the Azure portal that shows the Autoscale setting page with the Custom autoscale option highlighted.":::
+:::image type="content" source="media/spring-cloud-autoscale/custom-autoscale.png" alt-text="Screenshot of the Azure portal that shows the Autoscale setting page with the Custom autoscale option highlighted." lightbox="media/spring-cloud-autoscale/custom-autoscale.png":::
 
-#### [Azure CLI](#tab/Azure-CLI) 
+#### [Azure CLI](#tab/Azure-CLI)
 
 Use the following command to create an autoscale setting:
 
