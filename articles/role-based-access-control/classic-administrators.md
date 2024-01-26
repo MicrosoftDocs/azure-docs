@@ -24,9 +24,9 @@ This article describes how to remove or change the Co-Administrator and Service 
 
 ## Frequently asked questions
 
-Will all Co-Administrators lose access after August 31, 2024?
+Will Co-Administrators lose access after August 31, 2024?
 
-- Yes. Starting on August 31, 2024, Co-Administrators will begin to lose access.
+- Starting on August 31, 2024, Microsoft will start the process to remove access for Co-Administrators.
 
 What is the equivalent Azure role I should assign for Co-Administrators?
 
