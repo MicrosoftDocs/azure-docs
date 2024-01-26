@@ -361,7 +361,7 @@ To set up advanced monitoring:
 
     1. Select the production data asset with your model inputs and the desired lookback window size. 
     1. Select the production data asset with your model outputs.
-    1. Select the common column between these data assets to join them on. If the data was collected with the [data collector](#how-to-collect-production-data.md), the common column is `correlationid`.
+    1. Select the common column between these data assets to join them on. If the data was collected with the [data collector](how-to-collect-production-data.md), the common column is `correlationid`.
     1. (Optional)  If you used the data collector to collect data where your model inputs and outputs are already joined, select the joined dataset as your production data asset and **Remove** step 2 in the configuration panel.  
     1. Select your training dataset to use as the reference dataset. 
     1. Select the target (output) column for your training dataset. 
@@ -608,7 +608,7 @@ You can also set up model monitoring for models deployed to Azure Machine Learni
 * Register the production inference data as an Azure Machine Learning data asset, and ensure continuous updates of the data.
 * Provide a custom data preprocessing component and register it as an Azure Machine Learning component. 
 
-You must provide a custom data preprocessing component if your data isn't collected with the [data collector](#how-to-collect-production-data.md). Without this custom data preprocessing component, the Azure Machine Learning model monitoring system won't know how to process your data into tabular form with support for time windowing.
+You must provide a custom data preprocessing component if your data isn't collected with the [data collector](how-to-collect-production-data.md). Without this custom data preprocessing component, the Azure Machine Learning model monitoring system won't know how to process your data into tabular form with support for time windowing.
 
 Your custom preprocessing component must have these input and output signatures:
 
