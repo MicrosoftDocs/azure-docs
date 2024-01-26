@@ -58,7 +58,7 @@ For this scenario, your API center uses a [managed identity](/entra/identity/man
 
 #### [Azure CLI](#tab/cli)
 
-Substitute your API center name and resource group name in the following [az apic service update](/cli/azure/apic/service#az-apic-service-update) command:
+Set the system-assigned identity in your API center using the following [az apic service update](/cli/azure/apic/service#az-apic-service-update) command. Substitute the names of your API center and resource group:
 
 ```azurecli 
 az apic service update --name <api-center-name> \
@@ -81,29 +81,45 @@ To add a user-assigned identity, you need to create a user-assigned identity res
 
 #### [Azure CLI](#tab/cli)
 
-1. Create a user-assigned identity
+1. Create a user-assigned identity.
 
     ```azurecli
-    identityID=$(az identity create \
-        --resource-group <resource-group-name> \
-        --name <identity-name> --query id --output tsv)
+    az identity create --resource-group <resource-group-name> --name <identity-name> 
     ```
 
-1. Substitute your API center name and resource group name in the following [az apic service update](/cli/azure/apic/service#az-apic-service-update) command:
+    In the command output, note the value of the identity's `id` property. The `id` property should look something like this:
+
+    ```json
+    {
+    [...]
+        "id": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity-name>"
+    [...]
+    }
+    ```
+
+1. Create a JSON file with the following content, substituting the value of the `id` property from the previous step.
+
+    ```json
+    {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+            "<identity-id>": {}
+        }
+    }
+    ```
+
+1. Add the user-assigned identity to your API center using the following [az apic service update](/cli/azure/apic/service#az-apic-service-update) command. Substitute the names of your API center and resource group, and pass the JSON file as the value of the `--identity` parameter. Here, the JSON file is named `identity.json`.
 
     ```azurecli 
     az apic service update --name <api-center-name> \
         --resource-group <resource-group-name> \
-        --identity '{"type": "UserAssigned", "userAssignedIdentities": {something goes here}}'
+        --identity @identity.json
     ```
-<!-- Haven't figured out how to set the user-assigned identity -->
-
 ---
 
 ## Assign the managed identity the API Management Service Reader role
 
-To allow import of APIs, assign your API center's managed identity the `API Management Service Reader` role in your API Management instance. You can use the [portal](../role-based-access-control/role-assignments-portal-managed-identity.md) or the Azure CLI.
-
+To allow import of APIs, assign your API center's managed identity the **API Management Service Reader** role in your API Management instance. You can use the [portal](../role-based-access-control/role-assignments-portal-managed-identity.md) or the Azure CLI.
 
 #### [Portal](#tab/portal)
 
@@ -118,7 +134,7 @@ To allow import of APIs, assign your API center's managed identity the `API Mana
 
 #### [Azure CLI](#tab/cli)
 
-1. Get the principal ID of the identity using the [az apic service show](/cli/azure/apic/service#az-apic-service-show) or [az identity show](/cli/azure/identity#az-identity-show) command.
+1. Get the principal ID of the identity. If you're configuring a system-assigned identity, use the [az apic service show](/cli/azure/apic/service#az-apic-service-show) command. For a user-assigned identity, use [az identity show](/cli/azure/identity#az-identity-show).
 
     **System-assigned identity**
     ```azurecli
@@ -143,7 +159,7 @@ To allow import of APIs, assign your API center's managed identity the `API Mana
         --query id --output tsv)
     ```
 
-1. Use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the managed identity the **API Management Service Reader** role in your API Management instance.
+1. Assign the managed identity the **API Management Service Reader** role in your API Management instance using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
     ```azurecli
     az role assignment create \
         --role "API Management Service Reader Role"\
@@ -164,44 +180,51 @@ Use the [az apic service import-from-apim](/cli/azure/apic/service#az-apic-servi
 
 ### Import all APIs from an API Management instance
 
-Use a wildcard (`*`) to specify all APIs from the API Management instance. Substitute the names of your API center and resource group in the `az apic service import-from-apim` command:
+Use a wildcard (`*`) to specify all APIs from the API Management instance. 
 
-```azurecli
-# Get the resource ID of your API Management instance
-apimID=$(az apim show --name <apim-name> \
-    --resource-group <resource-group-name> \
-    --query id --output tsv)
+1. Get the resource ID of your API Management instance using the [az apim show](/cli/azure/apim#az-apim-show) command.
 
-# Use wildcard * to import all APIs from the API Management instance
-az apic service import-from-apim --service-name <api-center-name> \
+    ```azurecli
+    apimID=$(az apim show --name <apim-name> \
+        --resource-group <resource-group-name> \
+        --query id --output tsv)
+    ```
+    
+1. Use the `az apic service import-from-apim` command to import the APIs. Substitute the names of your API center and resource group, and use `*` to specify all APIs from the API Management instance.
+
+    ```azurecli
+    az apic service import-from-apim --service-name <api-center-name> \
     --resource-group <resource-group-name> \
     --source-resource-ids $apimID/apis/*    
-```
+    ```
 
-> [!NOTE]
-> If your API Management instance has a large number of APIs, import to your API center might take some time.
-
+    > [!NOTE]
+    > If your API Management instance has a large number of APIs, import to your API center might take some time.
+    
 ### Import a specific API from an API Management instance
 
-Specify an API to import using its name from the API Management instance. Substitute the names of your API center, resource group, and API in the `az apic service import-from-apim` command:
+Specify an API to import using its name from the API Management instance. 
 
+1. Get the resource ID of your API Management instance using the [az apim show](/cli/azure/apim#az-apim-show) command.
 
-```azurecli
-# Get the resource ID of your API Management instance
-apimID=$(az apim show --name <apim-name> \
+    ```azurecli
+    apimID=$(az apim show --name <apim-name> \
+        --resource-group <resource-group-name> \
+        --query id --output tsv)
+    ```
+    
+1. Use the `az apic service import-from-apim` command to import the API. Substitute the names of your API center and resource group, and specify an API name from the API Management instance.
+
+    ```azurecli
+    az apic service import-from-apim --service-name <api-center-name> \
     --resource-group <resource-group-name> \
-    --query id --output tsv)
+    --source-resource-ids $apimID/apis/<api-name>    
+    ```
 
-# Import a specific API from the API Management instance
-az apic service import-from-apim --service-name <api-center-name> \
-    --resource-group <resource-group-name> \
-    --source-resource-ids $apimID/apis/<api-name>
-```
-
-> [!NOTE]
-> Specify `<api-name>` according to the API resource name in the API Management instance, not the display name. Example: `petstore-api` instead of `Petstore API`.
-
-After running the command, you can view and manage the imported APIs in your API center.
+    > [!NOTE]
+    > Specify `<api-name>` using the API resource name in the API Management instance, not the display name. Example: `petstore-api` instead of `Petstore API`.
+    
+After importing APIs from API Management, you can view and manage the imported APIs in your API center.
 
 ## Related content
 
