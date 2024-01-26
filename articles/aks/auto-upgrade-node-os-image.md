@@ -167,7 +167,7 @@ For a detailed discussion of additional upgrade best practices and consideration
 [monitor-aks]: ./monitor-aks-reference.md
 [aks-eventgrid]: ./quickstart-event-grid.md
 [aks-upgrade]: ./upgrade-cluster.md
-[upgrade-operators-guide]: /architecture/operator-guides/aks/aks-upgrade-practices
+[upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices
 
 <!-- LINKS - external -->
 [Blog]: https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/increased-security-and-resiliency-of-canonical-workloads-on/ba-p/3970623

@@ -117,7 +117,7 @@ For a detailed discussion of additional upgrade best practices and consideration
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [aks-troubleshoot-docs]: /support/azure/azure-kubernetes/welcome-azure-kubernetes
-[upgrade-operators-guide]: /architecture/operator-guides/aks/aks-upgrade-practices
+[upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices
 
 <!-- EXTERNAL LINKS -->
 [pdb-best-practices]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/

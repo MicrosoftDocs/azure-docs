@@ -317,7 +317,7 @@ To learn how to configure automatic upgrades, see [Configure automatic upgrades 
 [az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az_aks_nodepool_upgrade
 [configure-automatic-aks-upgrades]: ./upgrade-cluster.md#configure-automatic-upgrades
 [release-tracker]: release-tracker.md
-[upgrade-operators-guide]: /architecture/operator-guides/aks/aks-upgrade-practices
+[upgrade-operators-guide]: azure/architecture/operator-guides/aks/aks-upgrade-practices
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

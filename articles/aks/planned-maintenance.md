@@ -348,4 +348,4 @@ az aks maintenanceconfiguration delete -g myResourceGroup --cluster-name myAKSCl
 [monitor-aks]: monitor-aks-reference.md
 [aks-eventgrid]:quickstart-event-grid.md
 [aks-support-policy]:support-policies.md
-[upgrade-operators-guide]: /architecture/operator-guides/aks/aks-upgrade-practices
+[upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices

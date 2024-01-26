@@ -226,4 +226,4 @@ For a detailed discussion of upgrade best practices and additional consideration
 [azure-built-in-roles]: ../role-based-access-control/built-in-roles.md
 [azure-rbac-scope-levels]: ../role-based-access-control/scope-overview.md#scope-format
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[upgrade-operators-guide]: /architecture/operator-guides/aks/aks-upgrade-practices
+[upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices

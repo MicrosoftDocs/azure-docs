@@ -174,4 +174,5 @@ az aks nodepool show \
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool#az_aks_nodepool_update
 [az-aks-upgrade]: /cli/azure/aks#az_aks_upgrade
 [az-aks-show]: /cli/azure/aks#az_aks_show
-[upgrade-operators-guide]: /architecture/operator-guides/aks/aks-upgrade-practices
+[upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices
+

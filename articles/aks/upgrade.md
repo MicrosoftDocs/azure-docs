@@ -51,7 +51,7 @@ To find details and solutions to specific issues, view the following troubleshoo
 
 ## Next steps
 
-For more information what cluster operations may trigger specific upgrade events, see the [AKS operator's guide on patching][operator-guide-patching].
+For more information what cluster operations may trigger specific upgrade events, as well as best practices and additional considerations, see the [AKS operator's guide on patching][operator-guide-patching].
 
 <!-- LINKS -->
 [auto-upgrade]: ./auto-upgrade-cluster.md
@@ -60,7 +60,7 @@ For more information what cluster operations may trigger specific upgrade events
 [release-tracker]: ./release-tracker.md
 [node-image-upgrade]: ./node-image-upgrade.md
 [gh-actions-upgrade]: ./node-upgrade-github-actions.md 
-[operator-guide-patching]: /azure/architecture/operator-guides/aks/aks-upgrade-practices#considerations
+[operator-guide-patching]: /azure/architecture/operator-guides/aks/aks-upgrade-practices
 [supported-k8s-versions]: ./supported-kubernetes-versions.md#kubernetes-version-support-policy
 [ts-nsg]: /troubleshoot/azure/azure-kubernetes/upgrade-fails-because-of-nsg-rules
 [ts-pod-drain]: /troubleshoot/azure/azure-kubernetes/error-code-poddrainfailure

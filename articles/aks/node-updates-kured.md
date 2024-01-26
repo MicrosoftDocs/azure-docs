@@ -120,4 +120,4 @@ For a detailed discussion of upgrade best practices and additional consideration
 [aks-upgrade]: upgrade-cluster.md
 [nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [node-image-upgrade]: node-image-upgrade.md
-[upgrade-operators-guide]: /architecture/operator-guides/aks/aks-upgrade-practices
+[upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices
