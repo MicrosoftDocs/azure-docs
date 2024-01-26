@@ -197,6 +197,7 @@ The *.loganalytics.io domain is owned by the Log Analytics team.
 
 ## Application Insights SDKs
 :::image type="content" source="/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png" alt-text="A diagram illustrating the ingestion flow of telemetry." lightbox="/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png":::
+
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
 | Application Insights JS SDK CDN | az416426.vo.msecnd.net<br/>js.monitor.azure.com | dynamic | 80,443 |
