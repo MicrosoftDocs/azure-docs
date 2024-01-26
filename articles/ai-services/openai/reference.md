@@ -361,7 +361,7 @@ POST {your-resource-name}/openai/deployments/{deployment-id}/extensions/chat/com
 - `2023-12-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
 #### Example request
 
-You can make requests using [Azure AI Search](./concepts/use-your-data.md?tabs=ai-search#ingesting-your-data), [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db#ingesting-your-data), [Azure Machine learning](/azure/machine-learning/overview-what-is-azure-machine-learning), [Pinecone](https://www.pinecone.io/), and [Elasticsearch](https://www.elastic.co/).
+You can make requests using [Azure AI Search](./concepts/use-your-data.md?tabs=ai-search#ingesting-your-data), [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db#ingesting-your-data), [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning), [Pinecone](https://www.pinecone.io/), and [Elasticsearch](https://www.elastic.co/).
 
 ##### Azure AI Search
 
@@ -677,7 +677,7 @@ The following parameters are used inside of the optional `embeddingDependency` p
 },
 ```
 
-### Azure CosmosDB for MongoDB vCore parameters
+### Azure Cosmos DB for MongoDB vCore parameters
 
 The following parameters are used for Azure Cosmos DB for MongoDB vCore.
 
@@ -799,7 +799,7 @@ The following parameters are used for Pinecone.
 | `filepathField` (found inside of `fieldsMapping`) | string | Required | null | The name of the index field to use as a file path. |
 | `contentFields` (found inside of `fieldsMapping`) | string | Required | null | The name of the index fields that should be treated as content. |
 | `vectorFields` | dictionary | Optional  | null | The names of fields that represent vector data |
-| `contentFieldsSeparator` (found inside of `fieldsMapping`) | string | Required  | null | The separator for the your content fields. Use `\n` by default.  |
+| `contentFieldsSeparator` (found inside of `fieldsMapping`) | string | Required  | null | The separator for your content fields. Use `\n` by default.  |
 
 The following parameters are used inside of the optional `embeddingDependency` parameter, which contains details of a vectorization source that is based on an internal embeddings model deployment name in the same Azure OpenAI resource.
 
