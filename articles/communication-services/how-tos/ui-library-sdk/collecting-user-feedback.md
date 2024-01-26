@@ -111,7 +111,3 @@ Use the processed data to create a ticket in Azure DevOps for tracking and resol
 ## Conclusion
 
 By following these client-side and server-side steps, you will integrate a comprehensive and efficient support system into your ACS UI Library application. This system not only enhances user experience through effective communication but also leverages the power of Azure services for seamless back-end processing and issue resolution.
-
----
-
-This structured approach ensures that each aspect of the support system integration is addressed thoroughly, providing a clear path for developers to follow.
