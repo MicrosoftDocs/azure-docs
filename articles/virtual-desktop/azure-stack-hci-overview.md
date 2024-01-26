@@ -79,7 +79,6 @@ Azure Virtual Desktop for Azure Stack HCI has the following limitations:
     - [Autoscale](autoscale-scaling-plan.md)
     - [Session host scaling with Azure Automation](set-up-scaling-script.md)
     - [Start VM On Connect](start-virtual-machine-connect.md)
-    - [Multimedia redirection](multimedia-redirection.md)
     - [Per-user access pricing](./remote-app-streaming/licensing.md)
 
 - Each host pool must only contain session hosts on Azure or on Azure Stack HCI. You can't mix session hosts on Azure and on Azure Stack HCI in the same host pool.
