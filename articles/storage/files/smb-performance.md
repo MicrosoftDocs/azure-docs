@@ -4,7 +4,7 @@ description: Learn about different ways to improve performance for premium SMB A
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 01/17/2024
+ms.date: 01/26/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -151,18 +151,22 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 
 ## Metadata caching for premium SMB file shares (preview)
 
-Metadata caching introduces a layer of cache to the Azure Files service to reduce metadata latency, increase available IOPS, and boost network throughput. To onboard, [sign up for the limited public preview](https://aka.ms/PremiumFilesMetadataCachingPreview) and we'll provide you with additional details. Currently this preview feature is only available for premium SMB file shares (file shares in the FileStorage storage account kind). There are no additional costs associated with using this feature.
+Metadata caching introduces a layer of cache to the Azure Files service to reduce metadata latency, increase available IOPS, and boost network throughput. This feature improves the following metadata APIs and can be used from both Windows and Linux clients:
+
+- Create
+- Open
+- Close
+- Delete
+
+To onboard, [sign up for the limited public preview](https://aka.ms/PremiumFilesMetadataCachingPreview) and we'll provide you with additional details. Currently this preview feature is only available for premium SMB file shares (file shares in the FileStorage storage account kind). There are no additional costs associated with using this feature.
 
 ### Regional availability
 
 Currently the metadata caching preview is only available in the following Azure regions.
 
 - Australia East
-- Brazil South East
-- France South
 - Germany West Central
 - Switzerland North
-- UAE Central
 - UAE North
 - US West Central
 
