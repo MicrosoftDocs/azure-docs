@@ -21,9 +21,6 @@ To try out GPT-4 Turbo with Vision, see the [quickstart](/azure/ai-services/open
 
 The GPT-4 Turbo with Vision model answers general questions about what's present in the images or videos you upload.
 
-> [!IMPORTANT]
-> GPT-4 Turbo with Vision does not do face analysis. The model automatically blurs detected faces in images before analyzing them. This is to protect the privacy of people in the images.
-
 ## Enhancements
 
 Enhancements let you incorporate other Azure AI services (such as Azure AI Vision) to add new functionality to the chat-with-vision experience.
