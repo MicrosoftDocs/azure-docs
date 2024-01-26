@@ -74,7 +74,7 @@ If a network security group is associated to the network interface, or subnet th
 
     <sup>1</sup> Premium storage accounts are currently not supported for storing packet captures.
     
-    <sup>2</sup> Port and IP address values can be a single value, multiple values such as 80, 443, or a range, such as 80-1024.
+    <sup>2</sup> Port and IP address values can be a single value, a range such as 80-1024, or multiple values such as 80, 443.
 
 1. Select **Start packet capture**.
 
@@ -107,14 +107,14 @@ To download a packet capture file saved to Azure storage, follow these steps:
 
     :::image type="content" source="./media/network-watcher-packet-capture-manage-portal/packet-capture-file.png" alt-text="Screenshot that shows how to select the packet capture file in the Azure portal.":::
 
-1. In the blob page, select **Download** 
+1. In the blob page, select **Download**.
 
 > [!NOTE]
-> You can also download the packet capture file from the storage account container at the following path using the Azure portal or Storage Explorer<sup>1</sup>: 
+> You can also download the capture file from the storage account container using the Azure portal or Storage Explorer<sup>1</sup> at the following path: 
 > ```
 > https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{virtualMachineName}/{year}/{month}/{day}/packetCapture_{UTCcreationTime}.cap
 > ```
-> <sup>1</sup> Storage Explorer is a convenient standalone app used to access and work with Azure Storage data. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+> <sup>1</sup> Storage Explorer is a standalone app that you can conveniently use to access and work with Azure Storage data. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 To download a packet capture file saved to the virtual machine (VM), connect to the VM and download the file from the local path specified during the packet capture creation. 
 
@@ -132,8 +132,8 @@ To download a packet capture file saved to the virtual machine (VM), connect to 
 
 1. Select **Yes**.
 
-> [!NOTE]
-> Deleting a packet capture does not delete the capture file in the storage account or on the virtual machine.
+> [!IMPORTANT]
+> Deleting a packet capture in Network Watcher doesn't delete the capture file from the storage account or the virtual machine. If you don't need the capture file anymore, you must manually delete it from the storage account to avoid incurring storage costs.
 
 ## Related content
 
