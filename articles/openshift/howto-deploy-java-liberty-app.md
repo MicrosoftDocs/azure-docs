@@ -4,7 +4,7 @@ description: Shows you how to quickly stand up IBM WebSphere Liberty and Open Li
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
-ms.date: 06/24/2023
+ms.date: 01/26/2023
 ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java
 ---
 
@@ -170,6 +170,8 @@ If you navigated away from the **Deployment is in progress** page, the following
 1. Verify the appropriate Kubernetes operator for Liberty has been installed. In the left navigation pane, select **Operators**, then **Installed Operators**, as shown in the following screenshot.
 
    :::image type="content" source="media/howto-deploy-java-liberty-app/red-hat-openshift-cluster-console-portal.png" alt-text="Screenshot of Red Hat OpenShift cluster console portal showing Installed Operators page." lightbox="media/howto-deploy-java-liberty-app/red-hat-openshift-cluster-console-portal.png":::
+   
+   Take note if you have installed the WebSphere Liberty operator or the Open Liberty operator. The operator variant will match what you selected at deployment time. If you selected **IBM Supported**, you will have the WebSphere Liberty operator. Otherwise you will have the Open Liberty operator. This is important to know in later steps.
 
 1. Download and install the OpenShift CLI `oc` by following steps in tutorial [Install the OpenShift CLI](tutorial-connect-cluster.md#install-the-openshift-cli), then return to this documentation.
 
@@ -374,6 +376,10 @@ Use the following steps to deploy and test the application:
       ```    
 
    1. Copy the value of **route host** from the output, open it in your browser to test the application. If the web page doesn't render correctly, that's because the app is still starting in the background. Wait for a few minutes and then try again.
+   
+   1. Add and delete a few coffees to verify the functionality of the app and the database connection.
+   
+      :::image type="content" source="media/howto-deploy-java-liberty-app/cafe-app-running.png" alt-text="Screenshot of the running app." lightbox="media/howto-deploy-java-liberty-app/cafe-app-running.png":::
 
 ## Clean up resources
 
