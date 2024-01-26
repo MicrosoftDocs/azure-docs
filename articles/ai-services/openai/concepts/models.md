@@ -108,10 +108,14 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 ### GPT-4 and GPT-4 Turbo Preview model availability
 
-| Model Availability | gpt-4 (0314) | gpt-4 (0613) | gpt-4 (1106-preview) | gpt-4 (vision-preview) | 
-|---|:---|:---|:---|:---|
-| Available to all subscriptions with Azure OpenAI access | | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | Sweden Central <br> Switzerland North <br> West US | 
-| Available to subscriptions with current access to the model version in the region | East US <br> France Central <br> South Central US <br> UK South | East US <br> East US 2 <br> Japan East <br> UK South | | Australia East |
+   
+| Model | Regions where model is available to all subscriptions with Azure OpenAI access | Regions where model is available only to subscriptions with previous access to that model/region |  
+|---|:---|:---|  
+| gpt-4 (0314) | | East US <br> France Central <br> South Central US <br> UK South |  
+| gpt-4 (0613) | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | East US <br> East US 2 <br> Japan East <br> UK South |  
+| gpt-4 (1106-preview) | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | |  
+| gpt-4 (vision-preview) | Sweden Central <br> Switzerland North  | Australia East <br> West US |  
+
 
 ### GPT-3.5 models
 
