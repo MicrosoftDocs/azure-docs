@@ -353,9 +353,6 @@ items:
         href: app/powershell.md
       - name: Access control
         href: app/resources-roles-access-control.md
-      - name: IP addresses, ports, and firewall settings
-        href: app/ip-addresses.md
-        displayName: firewall, firewall exceptions, whitelist
     - name: Help and support
       items:
       - name: Create an Azure support ticket
@@ -1485,6 +1482,9 @@ items:
     href: alerts/azure-cli-metrics-alert-sample.md
 - name: Reference
   items:
+  - name: IP addresses, ports, and firewall settings
+    href: app/ip-addresses.md
+    displayName: firewall, firewall exceptions, whitelist
   - name: Service limits
     href: service-limits.md
   - name: Security
