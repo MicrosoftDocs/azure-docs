@@ -2,6 +2,8 @@
 
 title: Azure OpenAI Service documentation # < 60 chars
 summary: Azure OpenAI Service provides access to OpenAI's powerful language models including the GPT-4, GPT-4 Turbo with Vision, GPT-3.5-Turbo, and Embeddings model series, with the security and enterprise capabilities of Azure. 
+  
+metadata:
   title: Azure OpenAI Service documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs
   description: Learn how to use Azure OpenAI's powerful models including the GPT-4, GPT-4 Turbo with Vision, GPT-3.5-Turbo, DALL-E 3 and Embeddings model series
   ms.service: azure-ai-openai
@@ -27,7 +29,7 @@ landingContent:
           - text: Azure OpenAI FAQ
             url: faq.yml
           - text: Programming languages/SDKs
-            href: supported-languages.md
+            url: supported-languages.md
       - linkListType: whats-new
         links:
           - text: What's new in Azure OpenAI?
@@ -42,9 +44,9 @@ landingContent:
              url: gpt-v-quickstart.md  
            - text: DALL-E (preview)
              url: dall-e-quickstart.md
-          - text: Use your data (preview)
+           - text: Use your data (preview)
              url: use-your-data-quickstart.md
-          - text: Whisper (preview)
+           - text: Whisper (preview)
              url: whisper-quickstart.md
 
 #Card 2
@@ -63,9 +65,9 @@ landingContent:
           - text: Intro to prompt engineering
             url: ./concepts/prompt-engineering.md
           - text: Applied prompt engineering
-            href: ./concepts/advanced-prompt-engineering.md
+            url: ./concepts/advanced-prompt-engineering.md
           - text: Fine-tuning
-            href: ./concepts/fine-tuning-considerations.md
+            url: ./concepts/fine-tuning-considerations.md
 
   #Card 3
    - title: Tutorials
@@ -85,9 +87,9 @@ landingContent:
              - text: Migrate to OpenAI Python 1.x
                url: ./how-to/migration.md
              - text: Manage models
-                url: ./how-to/working-with-models.md
+               url: ./how-to/working-with-models.md
              - text: OpenAI versus Azure OpenAI (Python)
-               href: ./how-to/switching-endpoints.md
+               url: ./how-to/switching-endpoints.md
              - text: Role-based access control (Azure RBAC)
                url: ./how-to/role-based-access-control.md 
              - text: GPT-3.5 Turbo & GPT-4
@@ -111,16 +113,16 @@ landingContent:
         - text: Data, privacy, and security
           url: /legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context
         - text: Customer Copyright Commitment
-          href: /legal/cognitive-services/openai/customer-copyright-commitment?context=/azure/ai-services/openai/context/context
+          url: /legal/cognitive-services/openai/customer-copyright-commitment?context=/azure/ai-services/openai/context/context
       - linkListType: concepts
         links:
-          - text: Red teaming large lanugage models (LLMs)
-            href: ./concepts/red-teaming.md
+          - text: Red teaming large language models (LLMs)
+            url: ./concepts/red-teaming.md
           - text: System message templates
             url: ./concepts/system-message.md
           - text: Abuse monitoring
             url: ./concepts/abuse-monitoring.md
-          - text: Asyncronous content filtering
+          - text: Asynchronous content filtering
             url: ./concepts/content-filter.md#asynchronous-modified-filter
  
 # Card 6
