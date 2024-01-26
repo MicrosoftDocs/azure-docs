@@ -92,9 +92,16 @@ First, go to the compute instance terminal and run `docker ps` to find the root 
 
 Use `docker images` to check if the image was pulled successfully. If your image was pulled successfully, check if the Docker container is running. If it's already running, locate this runtime. It attempts to restart the runtime and compute instance.
 
+If you are using compute instance runtime AI studio, this is not scenario currently supported, please try use automatic runtime instead, [Switch compute instance runtime to automatic runtime](../how-to-create-manage-runtime.md#switch-compute-instance-runtime-to-automatic-runtime-preview).
+
 ### Run failed because of "No module named XXX"
 
 This type of error related to runtime lacks required packages. If you're using a default environment, make sure the image of your runtime is using the latest version. For more information, see [Runtime update](../how-to-create-manage-runtime.md#update-a-runtime-on-the-ui). If you're using a custom image and you're using a conda environment, make sure you installed all the required packages in your conda environment. For more information, see [Customize a prompt flow environment](../how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+
+### Where to find the serverless instance used by automatic runtime?
+
+Automatic runtime is running on a serverless instance, you can find the serverless instance under compute quota page, [View your usage and quotas in the Azure portal](../../how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal). The serverless instances with have with name like this `sessionxxxxyyyy`.
+
 
 ### Request timeout issue
 

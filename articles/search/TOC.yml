@@ -151,8 +151,6 @@
     items:
     - name: Search indexes
       href: search-what-is-an-index.md
-    - name: Vector index size limit
-      href: vector-search-index-size.md
     - name: Import
       href: search-what-is-data-import.md
     - name: Import Data wizard
@@ -200,6 +198,8 @@
       href: search-sku-tier.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
+    - name: Vector storage limits
+      href: vector-search-index-size.md
     - name: Plan capacity
       href: search-capacity-planning.md
     - name: Plan and manage costs
@@ -250,11 +250,11 @@
     items:
     - name: Create a vector index
       href: vector-search-how-to-create-index.md
-    - name: Configure a vectorizer (vectors)
+    - name: Configure a vectorizer (preview)
       href: vector-search-how-to-configure-vectorizer.md
-    - name: Chunk documents (vectors)
+    - name: Chunk documents
       href: vector-search-how-to-chunk-documents.md
-    - name: Generate embeddings (vectors)
+    - name: Generate embeddings
       href: vector-search-how-to-generate-embeddings.md
 
   - name: Analyzers

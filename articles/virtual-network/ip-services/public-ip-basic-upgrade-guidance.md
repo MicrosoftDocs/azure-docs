@@ -39,8 +39,8 @@ We recommend the following approach to upgrade to Standard SKU public IP address
   | ------ | ------ |
   | Virtual Machine or Virtual Machine Scale Sets (flex model) | Disassociate IP(s) and utilize the upgrade options detailed after the table. For virtual machines, you can use the [upgrade script](public-ip-upgrade-vm.md). |
   | Load Balancer (Basic SKU) | New LB SKU required. Use the upgrade script [Upgrade Basic Load Balancer to Standard SKU](../../load-balancer/upgrade-basic-standard-with-powershell.md) to upgrade to Standard Load Balancer |
-  | VPN Gateway (Basic SKU or VpnGw1-5 SKU using Basic IPs) | No action required for existing VPN gateways that use Basic SKU public IP addresses. For new VPN gateways, we recommend that you use Standard SKU public IP addresses.|
-| ExpressRoute Gateway (using Basic IPs) | New ExpressRoute Gateway required. Create a [new ExpressRoute Gateway with a Standard SKU IP](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md). |
+  | VPN Gateway (Basic SKU or VpnGw1-5 SKU using Basic IPs) | New VPN Gateway SKU required. Create a [new VPN Gateway with a Standard SKU IP](../../vpn-gateway/tutorial-create-gateway-portal.md). |
+| ExpressRoute Gateway (using Basic IPs) | New ExpressRoute Gateway required. Create a [new ExpressRoute Gateway with a Standard SKU IP](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md). For non-production workloads, use this [migration script (Preview)](../../expressroute/gateway-migration.md). |
   | Application Gateway (v1 SKU) | New AppGW SKU required. Use this [migration script to migrate from v1 to v2](../../application-gateway/migrate-v1-v2.md).  |
 
 > [!NOTE]

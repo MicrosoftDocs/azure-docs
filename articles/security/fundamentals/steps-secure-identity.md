@@ -132,7 +132,7 @@ Microsoft Entra built-in and custom roles operate on concepts similar to roles f
 
 Both systems contain similarly used role definitions and role assignments. However, Microsoft Entra role permissions can't be used in Azure custom roles and vice versa. As part of deploying your privileged account process, follow the best practice to create at least two emergency accounts to make sure you still have access to Microsoft Entra ID if you lock yourself out.
 
-For more information, see the article [Plan a Privileged Identity Management deployment](../../active-directory/privileged-identity-management/pim-deployment-plan.md) and [securing privileged access](/security/compass/overview).
+For more information, see the article [Plan a Privileged Identity Management deployment](../../active-directory/privileged-identity-management/pim-deployment-plan.md) and securing privileged access.
 
 ### Restrict user consent operations
 

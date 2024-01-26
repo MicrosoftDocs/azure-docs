@@ -147,8 +147,8 @@
 - name: Database and service connection
   items:
     - name: Connectivity scenarios overview
-      href: tutorial-connect-overview.md
-    - name: Connect to database (tutorials)
+      href: tutorial-connect-overview.md   
+    - name: Connect to database (tutorials)  
       items:
         - name: ASP.NET Core with SQL DB
           href: tutorial-dotnetcore-sqldb-app.md
@@ -163,7 +163,7 @@
         - name: Java with Spring Data
           href: tutorial-java-spring-cosmosdb.md
         - name: Quarkus with Postgres
-          href: tutorial-java-quarkus-postgresql-app.md
+          href: tutorial-java-quarkus-postgresql-app.md            
     - name: Connect by using secrets
       items:
         - name: Use secrets in app settings
@@ -172,16 +172,20 @@
           href: app-service-key-vault-references.md
         - name: End-to-end tutorials
           items:
-            - name: Connect to Azure AI services with secrets in Key Vault
-              items: 
-              - name: Use .NET
-                href: tutorial-connect-msi-key-vault.md
-              - name: Use JavaScript
-                href: tutorial-connect-msi-key-vault-javascript.md    
-              - name: Use PHP
-                href: tutorial-connect-msi-key-vault-php.md
-            - name: Connect to Logic Apps
-              href: tutorial-send-email.md
+            - name: Secrets in app settings
+              items:
+                - name: Connect to Logic Apps
+                  href: tutorial-send-email.md
+            - name: Secrets in Key Vault
+              items:
+              - name: Connect to Azure AI services
+                items: 
+                - name: Use .NET
+                  href: tutorial-connect-msi-key-vault.md
+                - name: Use JavaScript
+                  href: tutorial-connect-msi-key-vault-javascript.md    
+                - name: Use PHP
+                  href: tutorial-connect-msi-key-vault-php.md                            
     - name: Connect by using app identity
       items:
         - name: Managed identity overview

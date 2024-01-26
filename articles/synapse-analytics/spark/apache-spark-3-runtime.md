@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Runtime for Apache Spark 3.1 (EOLA)
+title: Azure Synapse Runtime for Apache Spark 3.1 (unsupported)
 description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 3.1.
 author: ekote
 ms.author: eskot 
@@ -10,15 +10,17 @@ ms.date: 11/28/2022
 ms.custom: has-adal-ref, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.1 (EOLA)
+# Azure Synapse Runtime for Apache Spark 3.1 (unsupported)
 
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.1.
 
 > [!IMPORTANT]
-> * End of life announced (EOLA) for Azure Synapse Runtime for Apache Spark 3.1 has been announced January 26, 2023. 
-> * End of life announced (EOLA) runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.
-> * In accordance with the Synapse runtime for Apache Spark lifecycle policy, Azure Synapse runtime for Apache Spark 3.1 will be retired and disabled as of January 26, 2024. After the EOL date, the retired runtimes are unavailable for new Spark pools and existing workflows can't execute. Metadata will temporarily remain in the Synapse workspace.
-> * We recommend that you upgrade your Apache Spark 3.1 workloads to version 3.3 at your earliest convenience. 
+> * End of life announced (EOLA) for Azure Synapse Runtime for Apache Spark 3.1 has been announced January 26, 2023.
+> * Effective January 26, 2024, the Azure Synapse has stopped official support for Spark 3.1 Runtimes.
+> * Post January 26, 2024, we will not be addressing any support tickets related to Spark 3.1. There will be no release pipeline in place for bug or security fixes for Spark 3.1. Utilizing Spark 3.1 post the support cutoff date is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.
+> * Recognizing that certain customers may need additional time to transition to a higher runtime version, we are temporarily extending the usage option for Spark 3.1, but we will not provide any official support for it.
+> * We strongly advise to proactively upgrade their workloads to a more recent version of the runtime (e.g., [Azure Synapse Runtime for Apache Spark 3.3 (GA)](./apache-spark-33-runtime.md)).
+
 
 ## Component versions
 

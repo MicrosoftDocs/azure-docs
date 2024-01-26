@@ -139,7 +139,7 @@ Use the following command to enable Confidential Containers (preview) by creatin
    * **--cluster-name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
    * **--name**: Enter a unique name for your clusters node pool, such as *nodepool2*.
    * **--workload-runtime**: Specify *KataCcIsolation* to enable the feature on the node pool. Along with the `--workload-runtime` parameter, these other parameters shall satisfy the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
-   * **--os-sku**: **AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
+   * **--os-sku**: *AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
    * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Standard_DC8as_cc_v5][DC8as-series] VMs.
 
    The following example adds a user node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup*:
@@ -175,8 +175,8 @@ To configure the workload identity, perform the following steps described in the
 * Create Kubernetes service account
 * Establish federated identity credential
 
->[!IMPORTANT]
->For the step to **Export environmental variables**, set the value for the variable `SERVICE_ACCOUNT_NAMESPACE` to `kafka`.
+> [!IMPORTANT]
+> You need to set the *environment variables* from the section **Export environmental variables** in the [Deploy and configure workload identity][deploy-and-configure-workload-identity] article to continue completing this tutorial. Remember to set the variable `SERVICE_ACCOUNT_NAMESPACE` to `kafka`, and execute the command `kubectl create namespace kafka` before configuring workload identity.
 
 ## Deploy a trusted application with kata-cc and attestation container
 
@@ -192,11 +192,13 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 
 1. Grant the managed identity you created earlier, and your account, access to the key vault. [Assign][assign-key-vault-access-cli] both identities the **Key Vault Crypto Officer** and **Key Vault Crypto User** Azure RBAC roles.
 
-   >[!NOTE]
-   >The managed identity is the value you assigned to the `USER_ASSIGNED_IDENTITY_NAME` variable.
-
-   >[!NOTE]
-   >To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac], or [Owner][owner-rbac].
+   > [!NOTE]
+   >
+   > - The managed identity is the value you assign to the `USER_ASSIGNED_IDENTITY_NAME` variable.
+   > 
+   > - To add role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator][key-vault-data-access-admin-rbac], [User Access Administrator][user-access-admin-rbac], or [Owner][owner-rbac].
+   > 
+   > - You must use the Key Vault Premium SKU to support HSM-protected keys. 
 
    Run the following command to set the scope:
 
@@ -215,6 +217,134 @@ For this preview release, we recommend for test and evaluation purposes to eithe
     ```azurecli-interactive
     az role assignment create --role "Key Vault Crypto User" --assignee "${USER_ASSIGNED_IDENTITY_NAME}" --scope $AKV_SCOPE
     ``````
+
+1. Install the Kafka cluster in the kafka namespace by running the following command:
+
+    ```bash
+    kubectl create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
+    ```
+
+1. Run the following command to apply the `kafka` cluster CR file.
+
+    ```bash
+    kubectl apply -f https://strimzi.io/examples/latest/kafka/kafka-persistent-single.yaml -n kafka
+    ```
+
+1. Prepare the RSA Encryption/Decryption key using the [bash script](https://github.com/microsoft/confidential-container-demos/raw/main/kafka/setup-key.sh) for the workload from GitHub. Save the file as `setup-key.sh`.
+
+1. Set the `MAA_ENDPOINT` environment variable with the FQDN of Attest URI by running the following command.
+
+   ```bash
+   export MAA_ENDPOINT="$(az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup" --query 'attestUri' -o tsv | cut -c 9-)"
+   ```
+
+   Check if the FQDN of Attest URI is in correct format (the MAA_ENDPOINT should not include the prefix "https://"):
+   
+   ```bash
+   echo $MAA_ENDPOINT
+   ```
+   
+    > [!NOTE]
+    > To set up Microsoft Azure Attestation, see [Quickstart: Set up Azure Attestation with Azure CLI][attestation-quickstart-azure-cli].
+  
+1. Copy the following YAML manifest and save it as `consumer.yaml`.
+
+    ```yml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: kafka-golang-consumer
+      namespace: kafka
+      labels:
+        azure.workload.identity/use: "true"
+        app.kubernetes.io/name: kafka-golang-consumer
+    spec:
+      serviceAccountName: workload-identity-sa
+      runtimeClassName: kata-cc-isolation
+      containers:
+        - image: "mcr.microsoft.com/aci/skr:2.7"
+          imagePullPolicy: Always
+          name: skr
+          env:
+            - name: SkrSideCarArgs
+              value: ewogICAgImNlcnRjYWNoZSI6IHsKCQkiZW5kcG9pbnRfdHlwZSI6ICJMb2NhbFRISU0iLAoJCSJlbmRwb2ludCI6ICIxNjkuMjU0LjE2OS4yNTQvbWV0YWRhdGEvVEhJTS9hbWQvY2VydGlmaWNhdGlvbiIKCX0gIAp9
+          command:
+            - /bin/skr
+          volumeMounts:
+            - mountPath: /opt/confidential-containers/share/kata-containers/reference-info-base64
+              name: endor-loc
+        - image: "mcr.microsoft.com/acc/samples/kafka/consumer:1.0"
+          imagePullPolicy: Always
+          name: kafka-golang-consumer
+          env:
+            - name: SkrClientKID
+              value: kafka-encryption-demo
+            - name: SkrClientMAAEndpoint
+              value: sharedeus2.eus2.test.attest.azure.net
+            - name: SkrClientAKVEndpoint
+              value: "myKeyVault.vault.azure.net"
+            - name: TOPIC
+              value: kafka-demo-topic
+          command:
+            - /consume
+          ports:
+            - containerPort: 3333
+              name: kafka-consumer
+          resources:
+            limits:
+              memory: 1Gi
+              cpu: 200m
+      volumes:
+        - name: endor-loc
+          hostPath:
+            path: /opt/confidential-containers/share/kata-containers/reference-info-base64
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: consumer
+      namespace: kafka
+    spec:
+      type: LoadBalancer
+      selector:
+        app.kubernetes.io/name: kafka-golang-consumer
+      ports:
+        - protocol: TCP
+          port: 80
+          targetPort: kafka-consumer
+    ```
+
+    > [!NOTE]
+    > Update the value for the pod environment variable `SkrClientAKVEndpoint` to match the URL of your Azure Key Vault, excluding the protocol value `https://`. The current value placeholder value is `myKeyVault.vault.azure.net`. 
+    > Update the value for the pod environment variable `SkrClientMAAEndpoint` with the value of `MAA_ENDPOINT`. You can find the value of `MAA_ENDPOINT` by running the command `echo $MAA_ENDPOINT` or the command `az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup" --query 'attestUri' -o tsv | cut -c 9-`.
+
+1. Generate the security policy for the Kafka consumer YAML manifest and obtain the hash of the security policy stored in the `WORKLOAD_MEASUREMENT` variable by running the following command:
+
+    ```bash
+    export WORKLOAD_MEASUREMENT=$(az confcom katapolicygen -y consumer.yaml --print-policy | base64 -d | sha256sum | cut -d' ' -f1)
+    ```
+1. To generate an RSA asymmetric key pair (public and private keys), run the `setup-key.sh` script using the following command. The `<Azure Key Vault URL>` value should be `<your-unique-keyvault-name>.vault.azure.net`
+
+    ```bash
+    export MANAGED_IDENTITY=${USER_ASSIGNED_CLIENT_ID}
+    bash setup-key.sh "kafka-encryption-demo" <Azure Key Vault URL>
+    ```
+    > [!NOTE]
+    > 
+    > - The envionment variable `MANAGED_IDENTITY` is required by the bash script `setup-key.sh`.
+    > 
+    > - The public key will be saved as `kafka-encryption-demo-pub.pem` after executing the bash script. 
+
+    > [!IMPORTANT]
+    > If you receive the error `ForbiddenByRbac`,you might need to wait up to 24 hours as the backend services for managed identities maintain a cache per resource URI for up to 24 hours. See also: [Troubleshoot Azure RBAC][symptom-role-assignment-changes-are-not-being-detected].
+
+
+1. To verify the keys have been successfully uploaded to the key vault, run the following commands:
+
+    ```azurecli-interactive
+    az account set --subscription <Subscription ID>
+    az keyvault key list --vault-name <KeyVault Name> -o table
+    ```
 
 1. Copy the following YAML manifest and save it as `producer.yaml`.
 
@@ -246,120 +376,9 @@ For this preview release, we recommend for test and evaluation purposes to eithe
               cpu: 200m
     ```
 
-   Copy the following YAML manifest and save it as `consumer.yaml`. Update the value for the pod environmental variable `SkrClientAKVEndpoint` to match the URL of your Azure Key Vault, excluding the protocol value `https://`. The current value placeholder value is `myKeyVault.vault.azure.net`.
-
-    ```yml
-    apiVersion: v1
-    kind: Pod
-    metadata:
-      name: kafka-golang-consumer
-      namespace: kafka
-      labels:
-        azure.workload.identity/use: "true"
-        app.kubernetes.io/name: kafka-golang-consumer
-    spec:
-      serviceAccountName: workload-identity-sa
-      runtimeClassName: kata-cc-isolation
-      containers:
-        - image: "mcr.microsoft.com/aci/skr:2.7"
-          imagePullPolicy: Always
-          name: skr
-          env:
-            - name: SkrSideCarArgs
-              value: ewogICAgImNlcnRjYWNoZSI6IHsKCQkiZW5kcG9pbnRfdHlwZSI6ICJMb2NhbFRISU0iLAoJCSJlbmRwb2ludCI6ICIxNjkuMjU0LjE2OS4yNTQvbWV0YWRhdGEvVEhJTS9hbWQvY2VydGlmaWNhdGlvbiIKCX0gIAp9
-          command:
-            - /bin/skr
-          volumeMounts:
-            - mountPath: /opt/confidential-containers/share/kata-containers/reference-info-base64d
-              name: endor-loc
-        - image: "mcr.microsoft.com/acc/samples/kafka/consumer:1.0"
-          imagePullPolicy: Always
-          name: kafka-golang-consumer
-          env:
-            - name: SkrClientKID
-              value: kafka-encryption-demo
-            - name: SkrClientMAAEndpoint
-              value: sharedeus2.eus2.test.attest.azure.net
-            - name: SkrClientAKVEndpoint
-              value: "myKeyVault.vault.azure.net"
-            - name: TOPIC
-              value: kafka-demo-topic
-          command:
-            - /consume
-          ports:
-            - containerPort: 3333
-              name: kafka-consumer
-          resources:
-            limits:
-              memory: 1Gi
-              cpu: 200m
-      volumes:
-        - name: endor-loc
-          hostPath:
-            path: /opt/confidential-containers/share/kata-containers/reference-info-base64d
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: consumer
-      namespace: kafka
-    spec:
-      type: LoadBalancer
-      selector:
-        app.kubernetes.io/name: kafka-golang-consumer
-      ports:
-        - protocol: TCP
-          port: 80
-          targetPort: kafka-consumer
-    ```
-
-1. Create a kafka namespace by running the following command:
-
-    ```bash
-    kubectl create namespace kafka
-    ```
-
-1. Install the Kafka cluster in the kafka namespace by running the following command:
-
-    ```bash
-    kubectl create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
-    ```
-
-1. Run the following command to apply the `kafka` cluster CR file.
-
-    ```bash
-    kubectl apply -f https://strimzi.io/examples/latest/kafka/kafka-persistent-single.yaml -n kafka
-    ```
-
-1. Generate the security policy for the Kafka consumer YAML manifest and obtain the hash of the security policy stored in the `WORKLOAD_MEASUREMENT` variable by running the following command:
-
-    ```bash
-    export WORKLOAD_MEASUREMENT=$(az confcom katapolicygen -y consumer.yaml --print-policy | base64 --decode | sha256sum | cut -d' ' -f1)
-
-    ```
-
-1. Prepare the RSA Encryption/Decryption key by the [bash script](https://github.com/microsoft/confidential-container-demos/raw/main/kafka/setup-key.sh) for the workload from GitHub. Save the file as `setup-key.sh`.
-
-1. Set the `MAA_ENDPOINT` environmental variable to match the value for the `SkrClientMAAEndpoint` from the `consumer.yaml` manifest file by running the following command.
-
-   ```bash
-   export MAA_ENDPOINT="<SkrClientMMAEndpoint value>"
-   ```
-
-1. To generate an RSA asymmetric key pair (public and private keys), run the `setup-key.sh` script using the following command. The `<Azure Key Vault URL>` value should be `<your-unique-keyvault-name>.vault.azure.net`
-
-    ```bash
-    bash setup-key.sh "kafka-encryption-demo" <Azure Key Vault URL>
-    ```
-
-   Once the public key is downloaded, replace the `PUBKEY` environmental variable in the `producer.yaml` manifest with the public key. Paste the contents between the `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC KEY-----` strings.
-
-1. To verify the keys have been successfully uploaded to the key vault, run the following commands:
-
-    ```azurecli-interactive
-    az account set --subscription <Subscription ID>
-    az keyvault key list --vault-name <Name of vault> -o table
-    ```
+    > [!NOTE]
+    > Update the value which begin with `-----BEGIN PUBLIC KEY-----` and ends with `-----END PUBLIC KEY-----` strings with the content from `kafka-encryption-demo-pub.pem` which was created in the previous step. 
+  
 
 1. Deploy the `consumer` and `producer` YAML manifests using the files you saved earlier.
 
@@ -379,7 +398,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 
 1. Copy and paste the external IP address of the consumer service into your browser and observe the decrypted message.
 
-    The following resembles the output of the command:
+    The following example resembles the output of the command:
 
     ```output
     Welcome to Confidential Containers on AKS!
@@ -447,3 +466,5 @@ kubectl delete pod pod-name
 [user-access-admin-rbac]: ../role-based-access-control/built-in-roles.md#user-access-administrator
 [owner-rbac]: ../role-based-access-control/built-in-roles.md#owner
 [az-attestation-show]: /cli/azure/attestation#az-attestation-show
+[attestation-quickstart-azure-cli]: ../attestation/quickstart-azure-cli.md
+[symptom-role-assignment-changes-are-not-being-detected]: ../role-based-access-control/troubleshooting.md#symptom---role-assignment-changes-are-not-being-detected

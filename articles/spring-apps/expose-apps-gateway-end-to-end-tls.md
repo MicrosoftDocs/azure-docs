@@ -184,9 +184,9 @@ az network public-ip create \
     --sku Standard
 ```
 
-## Create a Managed Identity for Application Gateway
+## Create a managed identity for Application Gateway
 
-Application Gateway will need to be able to access Key Vault to read the certificate. To do so, it will use a User-assigned [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md). Create the Managed Identity by using the following command:
+Application Gateway will need to be able to access Key Vault to read the certificate. To do so, it will use a user-assigned [managed identity](/entra/identity/managed-identities-azure-resources/overview). Create the managed identity by using the following command:
 
 ```azurecli
 export APPGW_IDENTITY_NAME='name-for-appgw-managed-identity'
@@ -195,7 +195,7 @@ az identity create \
     --name $APPGW_IDENTITY_NAME
 ```
 
-Then fetch the objectId for the Managed Identity as it will be used later on to give rights to access the certificate in Key Vault:
+Then fetch the objectId for the managed identity as it will be used later on to give rights to access the certificate in Key Vault:
 
 ```azurecli
 export APPGW_IDENTITY_CLIENTID=$(az identity show \
@@ -211,7 +211,7 @@ export APPGW_IDENTITY_OID=$(az ad sp show \
 
 ## Set policy on Key Vault
 
-Configure Key Vault using the following command so that the Managed Identity for Application Gateway is allowed to access the certificate stored in Key Vault:
+Configure Key Vault using the following command so that the managed identity for Application Gateway is allowed to access the certificate stored in Key Vault:
 
 ```azurecli
 az keyvault set-policy \
@@ -224,7 +224,7 @@ az keyvault set-policy \
 
 ## Create Application Gateway
 
-Create an application gateway using `az network application-gateway create` and specify your application's private fully qualified domain name (FQDN) as servers in the backend pool. Make sure to use the user-assigned Managed Identity and to point to the certificate in Key Vault using the certificate's Secret ID. Then update the HTTP setting using `az network application-gateway http-settings update` to use the public host name.
+Create an application gateway using `az network application-gateway create` and specify your application's private fully qualified domain name (FQDN) as servers in the backend pool. Make sure to use the user-assigned managed identity and to point to the certificate in Key Vault using the certificate's Secret ID. Then update the HTTP setting using `az network application-gateway http-settings update` to use the public host name.
 
 ```azurecli
 export APPGW_NAME='name-for-application-gateway'

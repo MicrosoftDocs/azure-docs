@@ -8,7 +8,6 @@ metadata:
   description: Azure API Center helps you develop and maintain a structured inventory of your organization's APIs. API Center enables API discovery, reuse, and governance at scale.
   ms.service: api-center
   ms.topic: landing-page
-  ms.collection: 
   author: dlepow
   ms.author: danlep
   ms.date: 05/24/2023
@@ -46,3 +45,12 @@ landingContent:
         links:
           - text: Manage inventory - Azure CLI
             url: manage-apis-azure-cli.md
+# Card
+  - title: Discover APIs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use VS Code extension
+            url: use-vscode-extension.md
+          - text: Discover APIs with GitHub Copilot Chat
+            url: use-vscode-extension-copilot.md
