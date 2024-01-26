@@ -16942,6 +16942,11 @@
             "redirect_document_id": false  
         },
         {
+            "source_path_from_root": "/articles/virtual-network/move-across-regions-publicip-powershell.md",
+            "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
+            "redirect_document_id": false 
+        },
+        {
             "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-multi-tier-application.md",
             "redirect_url": "/azure/app-service/tutorial-secure-ntier-app",
             "redirect_document_id": false
