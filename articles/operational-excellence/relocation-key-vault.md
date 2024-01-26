@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 01/18/2024
-ms.service: microsoft-sentinel
+ms.service:  key-vault
 ms.topic: how-to
 ms.custom:
   - subject-relocation

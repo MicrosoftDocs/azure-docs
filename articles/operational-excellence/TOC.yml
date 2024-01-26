@@ -34,8 +34,6 @@
         href: relocation-automation.md
       - name: Microsoft Defender for Cloud
         href: relocation-defender.md
-      - name: Microsoft Sentinel
-        href: relocation-sentinel.md
 - name: Resources
   items:
   - name: Operational Excellence in Microsoft Azure Well-Architected Framework

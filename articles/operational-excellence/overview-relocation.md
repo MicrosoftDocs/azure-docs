@@ -65,7 +65,7 @@ The following tables provide links to each Azure service relocation document.
 | --- | 
 [Azure Automation](./relocation-automation.md)|
 [Microsoft Defender for Cloud](relocation-defender.md)
-[Microsoft Sentinel](relocation-sentinel.md)|
+
 
 ## Additional information
 
