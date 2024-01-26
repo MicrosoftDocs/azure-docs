@@ -54,6 +54,7 @@ sudo apt-get install -y python3
 sudo zypper install -y python3
 ```
 
+---
 
 In addition, the following Python packages are required to run (all should be present on a default install of Python 2 or Python 3):
 
