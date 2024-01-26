@@ -145,6 +145,22 @@ When Defender for Cloud protects a cluster hosted in Google Kubernetes Engine, t
 
 :::image type="content" source="./media/defender-for-containers/architecture-gke.png" alt-text="Diagram of high-level architecture of the interaction between Microsoft Defender for Containers, Google GKE clusters, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-gke.png":::
 
+### How does agentless discovery for Kubernetes in GCP work?
+
+The discovery process is based on snapshots taken at intervals:
+
+When you enable the agentless discovery for Kubernetes extension, the following process occurs:
+
+- **Create**:
+  - The service account *mdc-containers-k8s-operator* is created. The name can be customized.
+
+- **Assign**: Defender for Cloud attaches the following roles to the service account *mdc-containers-k8s-operator*:
+
+  - The custom role `MDCGkeClusterWriteRole`, which has the `container.clusters.update` permission
+  - The built-in role `container.viewer`
+
+- **Discover**: Using the system assigned identity, Defender for Cloud performs a discovery of the GKE clusters in your environment using API calls to the API server of GKE.
+
 ---
 
 ## Next steps

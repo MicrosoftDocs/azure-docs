@@ -29,9 +29,16 @@
       - name: Manage inventory - Azure CLI
         href: manage-apis-azure-cli.md
 #- name: API governance
-#- name: API discovery and consumption
+- name: API discovery and consumption
+  items:
+      - name: Use VS Code extension
+        href: use-vscode-extension.md
+      - name: Discover APIs with GitHub Copilot Chat
+        href: use-vscode-extension-copilot.md
 - name: Reference
   items:
+      - name: Azure CLI
+        href: /cli/azure/apic
       - name: REST API
         href: /rest/api/apicenter/
       - name: REST API SDKs

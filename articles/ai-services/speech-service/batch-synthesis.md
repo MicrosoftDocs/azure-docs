@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 1/18/2024
 ms.author: eur
 ---
 
@@ -240,7 +240,7 @@ The `values` property in the json response lists your synthesis requests. The li
 
 ## Delete batch synthesis
 
-Delete the batch synthesis job history after you retrieved the audio output results. The Speech service will keep each synthesis history for up to 31 days, or the duration of the request `timeToLive` property, whichever comes sooner. The date and time of automatic deletion (for synthesis jobs with a status of "Succeeded" or "Failed") is equal to the `lastActionDateTime` + `timeToLive` properties.
+Delete the batch synthesis job history after you retrieved the audio output results. The Speech service keeps batch synthesis history for up to 31 days, or the duration of the request `timeToLive` property, whichever comes sooner. The date and time of automatic deletion (for synthesis jobs with a status of "Succeeded" or "Failed") is equal to the `lastActionDateTime` + `timeToLive` properties.
 
 To delete a batch synthesis job, make an HTTP DELETE request using the URI as shown in the following example. Replace `YourSynthesisId` with your batch synthesis ID, replace `YourSpeechKey` with your Speech resource key, and replace `YourSpeechRegion` with your Speech resource region.
 
@@ -292,7 +292,7 @@ The summary file contains the synthesis results for each text input. Here's an e
 }
 ```
 
-If sentence boundary data was requested (`"sentenceBoundaryEnabled": true`), then a corresponding `[nnnn].sentence.json` file will be included in the results. Likewise, if word boundary data was requested (`"wordBoundaryEnabled": true`), then a corresponding `[nnnn].word.json` file will be included in the results. 
+If sentence boundary data was requested (`"sentenceBoundaryEnabled": true`), then a corresponding `[nnnn].sentence.json` file is included in the results. Likewise, if word boundary data was requested (`"wordBoundaryEnabled": true`), then a corresponding `[nnnn].word.json` file is included in the results. 
 
 Here's an example word data file with both audio offset and duration in milliseconds:
 
@@ -342,7 +342,7 @@ The latency for batch synthesis is as follows (approximately):
 
 ### Best practices
 
-When considering batch synthesis for your application, it's recommended to assess whether the latency meets your requirements. If the latency aligns with your desired performance, batch synthesis can be a suitable choice. However, if the latency does not meet your needs, you might consider using real-time API.
+When considering batch synthesis for your application, it's recommended to assess whether the latency meets your requirements. If the latency aligns with your desired performance, batch synthesis can be a suitable choice. However, if the latency doesn't meet your needs, you might consider using real-time API.
 
 ## HTTP status codes
 
@@ -369,7 +369,7 @@ Here are examples that can result in the 400 error:
 - The number of requested text inputs exceeded the limit of 1,000.
 - The `top` query parameter exceeded the limit of 100.
 - You tried to use an invalid deployment ID or a custom voice that isn't successfully deployed. Make sure the Speech resource has access to the custom voice, and the custom voice is successfully deployed. You must also ensure that the mapping of `{"your-custom-voice-name": "your-deployment-ID"}` is correct in your batch synthesis request.
-- You tried to delete a batch synthesis job that hasn't started or hasn't completed running. You can only delete batch synthesis jobs that have a status of "Succeeded" or "Failed".
+- You tried to delete a batch synthesis job that isn't started or hasn't completed running. You can only delete batch synthesis jobs that have a status of "Succeeded" or "Failed".
 - You tried to use a *F0* Speech resource, but the region only supports the *Standard* Speech resource pricing tier. 
 - You tried to create a new batch synthesis job that would exceed the limit of 200 active jobs. Each Speech resource can have up to 200 batch synthesis jobs that don't have a status of "Succeeded" or "Failed".
 
@@ -401,9 +401,9 @@ Here's an example request that results in an HTTP 400 error, because the `top` q
 curl -v -X GET "https://YourSpeechRegion.customvoice.api.speech.microsoft.com/api/texttospeech/3.1-preview1/batchsynthesis?skip=0&top=200" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
 ```
 
-In this case, the response headers will include `HTTP/1.1 400 Bad Request`.
+In this case, the response headers include `HTTP/1.1 400 Bad Request`.
 
-The response body will resemble the following JSON example:
+The response body resembles the following JSON example:
 
 ```json
 {

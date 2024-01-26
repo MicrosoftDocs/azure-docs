@@ -103,7 +103,7 @@ To understand how to create a complex DCR with multiple data flows, see the [DCR
 
 This component renders the UI for the data connector in the Microsoft Sentinel data connector gallery. Each data connector may have only one UI definition. 
 
-Build the data connector user interface with the [**Data Connector Definition**](/rest/api/securityinsights/preview/data-connector-definitions/create-or-update) API. Use the [Data connector definitions reference](data-connector-ui-definitions-reference.md) as a supplement to explain the API elements in greater detail.
+Build the data connector user interface with the **Data Connector Definition** API. Use the [Data connector definitions reference](data-connector-ui-definitions-reference.md) as a supplement to explain the API elements in greater detail.
 
 Notes: 
 1)	The `kind` property for API polling connector should always be `Customizable`.

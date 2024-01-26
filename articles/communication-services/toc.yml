@@ -304,6 +304,8 @@ items:
         href: how-tos/calling-sdk/lobby.md
       - name: Manage Audio Filters
         href: how-tos/calling-sdk/manage-audio-filters.md
+      - name: PowerPoint Live
+        href: how-tos/calling-sdk/powerpoint-live.md
       - name: Record calls
         href: how-tos/calling-sdk/record-calls.md
       - name: Raise Hand
@@ -1205,6 +1207,8 @@ items:
       href: concepts/numbers/phone-number-management-for-slovakia.md
     - name: Phone number management for Slovenia
       href: concepts/numbers/phone-number-management-for-slovenia.md
+    - name: Phone number management for South Africa
+      href: concepts/numbers/phone-number-management-for-south-africa.md
     - name: Phone number management for South Korea
       href: concepts/numbers/phone-number-management-for-south-korea.md
     - name: Phone number management for Spain

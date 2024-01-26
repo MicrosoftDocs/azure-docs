@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-moderator
 ms.topic: overview
-ms.date: 11/06/2021
+ms.date: 01/18/2024
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, Azure Content Moderator, online moderator, content filtering software, content moderation service, content moderation
