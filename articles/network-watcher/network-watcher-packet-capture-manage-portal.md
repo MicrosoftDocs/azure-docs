@@ -12,7 +12,7 @@ ms.date: 01/26/2024
 
 # Manage packet captures for virtual machines with Azure Network Watcher using the Azure portal
 
-The Network Watcher packet capture tool allows you to create capture sessions to record network traffic to and from an Azure virtual machine. Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps in diagnosing network anomalies both reactively and proactively. Its applications extend beyond anomaly detection to include gathering network statistics, acquiring insights into network intrusions, debugging client-server communication, and addressing various other networking challenges. Network Watcher packet capture enables you to initiate packet captures remotely, alleviating the need for manual execution on a specific virtual machine.
+The Network Watcher packet capture tool allows you to create capture sessions to record network traffic to and from an Azure virtual machine (VM). Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps in diagnosing network anomalies both reactively and proactively. Its applications extend beyond anomaly detection to include gathering network statistics, acquiring insights into network intrusions, debugging client-server communication, and addressing various other networking challenges. Network Watcher packet capture enables you to initiate packet captures remotely, alleviating the need for manual execution on a specific virtual machine.
 
 In this article, you learn how to remotely configure, start, stop, download, and delete a virtual machine packet capture using the Azure portal. To learn how to manage packet captures using PowerShell or Azure CLI, see [Manage packet captures for virtual machines using PowerShell](network-watcher-packet-capture-manage-powershell.md) or [Manage packet captures for virtual machines using the Azure CLI](network-watcher-packet-capture-manage-cli.md).
 
@@ -25,7 +25,8 @@ In this article, you learn how to remotely configure, start, stop, download, and
     - to 168.63.129.16 over port 8037
 
 > [!NOTE]
-> The ports mentioned in the latter two cases are common across all Network Watcher features that involve the Network Watcher extension and might occasionally change.
+> - Network Watcher packet capture requires Network Watcher agent VM extension to be installed on the target virtual machine. When you use Network Watcher packet capture for the first time, Azure installs the agent on the VM if it wasn't previously installed. To update an already installed agent, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md).
+> - The last two ports mentioned in the Prerequisites are common across all Network Watcher features that involve the Network Watcher agent and might occasionally change.
 
 If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist to allow outbound connectivity over the previous ports. Similarly, ensure outbound connectivity over the previous ports when adding user-defined routes to your network.
 
