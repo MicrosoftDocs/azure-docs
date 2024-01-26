@@ -41,13 +41,13 @@ To create an assignment, your identity must be assigned a custom role that conta
 
 - The `Microsot.Authorization.roleAssignments/write` action.
 
-- All of the RBAC actions that are available in the `Microsoft.Storage/StorageAccounts` set of RBAC action
+- All of the RBAC actions that are available in the `Microsoft.Storage/StorageAccounts` set of RBAC action.
 
 To learn how to create a custom role, see [Azure custom roles](../../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
 ## Permission for a task to perform operations
 
-As you create an assignment, you must choose an Azure Built-in or custom role that has the permission necessary to perform the specified operations on the target storage account. You can choose only roles that are assigned to your user identity. If you prefer to use a custom role, you must make sure that your role contains the RBAC actions necessary to perform the operations. 
+As you create an assignment, you must choose an Azure Built-in or custom role that has the permission necessary to perform the specified operations on the target storage account or storage account container. You can choose only roles that are assigned to your user identity. If you prefer to use a custom role, you must make sure that your role contains the RBAC actions necessary to perform the operations.
 
 The following table shows the least privileged built-in Azure role as well as the RBAC actions required by each operation.
 
