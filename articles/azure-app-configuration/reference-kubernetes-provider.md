@@ -432,7 +432,7 @@ spec:
 
 ### Refresh of feature flags
 
-When you update feature flag values in Azure App Configuration, you might want those changes to be refreshed automatically in your Kubernetes cluster. With `spec.featureFlag.refresh` property, the Kubernetes provider will periodically poll latest values.
+When you update feature flag values in Azure App Configuration, you might want those changes to be refreshed automatically in your Kubernetes cluster. With `spec.featureFlag.refresh` property, the Kubernetes provider will periodically poll latest feature flag values and update the ConfigMap accordingly.
 
 The following sample refreshes selected feature flags from Azure App Configuration every 10 minutes.
 
