@@ -1,5 +1,5 @@
 ---
-title: Use Azure Monitor Agent Troubleshooter for Windows
+title: How to use the Windows Operating System (OS) Azure Monitor Agent Troubleshooter
 description: Detailed instructions on using the Windows agent troubleshooter tool to diagnose potential issues.
 ms.topic: conceptual
 author: RepinStyle
@@ -11,7 +11,7 @@ ms.reviewer: jeffwo
 # customer-intent: When AMA is experiencing issues, I want to investigate the issues and determine if I can resolve the issue on my own.
 ---
 
-# Use the Azure Monitor Agent Troubleshooter for Windows
+# How to use the Windows Operating System (OS) Azure Monitor Agent Troubleshooter
 The Azure Monitor Agent (AMA) Troubleshooter is designed to help identify issues with the agent and perform general health assessments. It can perform various checks to ensure that the agent is properly installed and connected, and can also gather AMA-related logs from the machine being diagnosed.
 
 > [!Note]
