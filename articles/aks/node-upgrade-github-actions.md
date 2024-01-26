@@ -209,7 +209,7 @@ For more information about AKS upgrades, see the following articles and resource
 * [AKS release notes](https://github.com/Azure/AKS/releases)
 * [Upgrade an AKS cluster][cluster-upgrades-article]
 
-For a detailed discussion of upgrade best practices and additional considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
+For a detailed discussion of upgrade best practices and other considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
 
 <!-- LINKS - external -->
 [github]: https://github.com

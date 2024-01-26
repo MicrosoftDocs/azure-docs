@@ -29,7 +29,7 @@ The following upgrade channels are available. You're allowed to choose one of th
 |Channel|Description|OS-specific behavior|
 |---|---|
 | `None`| Your nodes don't have security updates applied automatically. This means you're solely responsible for your security updates.|N/A|
-| `Unmanaged`|OS updates are applied automatically through the OS built-in patching infrastructure. Newly allocated machines are unpatched initially. The OS's infrastructure patches them at some point.|Ubuntu and Azure Linux (CPU node pools) apply security patches through unattended upgrade/dnf-automatic roughly once per day around 06:00 UTC. Windows doesn't automatically apply security patches, so this option behaves equivalently to `None`. You will need to manage the reboot process by using a tool like [kured][kured].|
+| `Unmanaged`|OS updates are applied automatically through the OS built-in patching infrastructure. Newly allocated machines are unpatched initially. The OS's infrastructure patches them at some point.|Ubuntu and Azure Linux (CPU node pools) apply security patches through unattended upgrade/dnf-automatic roughly once per day around 06:00 UTC. Windows doesn't automatically apply security patches, so this option behaves equivalently to `None`. You'll need to manage the reboot process by using a tool like [kured][kured].|
 | `SecurityPatch`|This channel is in preview and requires enabling the feature flag `NodeOsUpgradeChannelPreview`. Refer to the prerequisites section for details. AKS regularly updates the node's virtual hard disk (VHD) with patches from the image maintainer labeled "security only." There might be disruptions when the security patches are applied to the nodes. When the patches are applied, the VHD is updated and existing machines are upgraded to that VHD, honoring maintenance windows and surge settings. This option incurs the extra cost of hosting the VHDs in your node resource group. If you use this channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default.|Azure Linux doesn't support this channel on GPU-enabled VMs. `SecurityPatch` works on patch versions that are deprecated, so long as the minor Kubernetes version is still supported.|
 | `NodeImage`|AKS updates the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. The update to the new VHD is disruptive, following maintenance windows and surge settings. No extra VHD cost is incurred when choosing this option. If you use this channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default. Node image upgrades support patch versions that are deprecated, so long as the minor Kubernetes version is still supported.|
 
@@ -136,21 +136,21 @@ On the `Unmanaged` channel, AKS has no control over how and when the security up
 kubectl get nodes --show-labels
 ```
 
-Among the labels in the output, you'll see a line similar to the following:
+Among the returned labels, you should see a line similar to the following output:
 
 ```output
 kubernetes.azure.com/node-image-version=AKSUbuntu-2204gen2containerd-202311.07.0
 ```
 
-Here, the base node image version is `AKSUbuntu-2204gen2containerd`. If applicable, the security patch version typically follows. In the above example it is `202311.07.0`.  
+Here, the base node image version is `AKSUbuntu-2204gen2containerd`. If applicable, the security patch version typically follows. In the above example, it's `202311.07.0`.  
 
-The same details also be looked up in the Azure portal under the node label view as illustrated below. 
+The same details also be looked up in the Azure portal under the node label view:
 
-:::image type="content" source="./media/auto-upgrade-node-os-image/nodeimage-securitypatch-inline.png" alt-text="A screenshot of the nodes page for an AKS cluster in the Azure portal. The label for node image version clearly shows the base node image as well as the latest applied security patch date." lightbox="./media/auto-upgrade-node-os-image/nodeimage-securitypatch.png":::
+:::image type="content" source="./media/auto-upgrade-node-os-image/nodeimage-securitypatch-inline.png" alt-text="A screenshot of the nodes page for an AKS cluster in the Azure portal. The label for node image version clearly shows the base node image and the latest applied security patch date." lightbox="./media/auto-upgrade-node-os-image/nodeimage-securitypatch.png":::
 
 ## Next steps
 
-For a detailed discussion of additional upgrade best practices and considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
+For a detailed discussion of upgrade best practices and other considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
 
 
 <!-- LINKS -->
