@@ -45,7 +45,7 @@ If the directory exists, the cd command changes directories successfully.
 
 ---
 
-If not, the directory doesn't exist and the installation failed. In this case, follow [Basic troubleshooting steps](../agents/azure-monitor-agent-troubleshoot-windows-vm.md#basic-troubleshooting-steps-installation-agent-not-running-configuration-issues) instead.
+If directory doesn't exist or the installation is failed, follow [Basic troubleshooting steps](../agents/azure-monitor-agent-troubleshoot-windows-vm.md#basic-troubleshooting-steps-installation-agent-not-running-configuration-issues).
 
 Yes, the directory exists. Proceed to [Run the Troubleshooter](#run-the-troubleshooter).
 
