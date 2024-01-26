@@ -78,7 +78,7 @@ The JSON file contains the following information:
 | `dbsToMigrate` | Specify the list of databases that you want to migrate to Flexible Server. You can include a maximum of eight database names at a time. Providing the list of DBs in array format. |
 | `OverwriteDBsInTarget` | When set to true (default), if the target server happens to have an existing database with the same name as the one you're trying to migrate, the migration tool automatically overwrites the database |
 | `MigrationMode` | Mode of the migration. The supported value is "Offline" |
-| `sourceType` | Required parameter. Values can be - on-premises, AWS, AzureVM, PostgreSQLSingleServer |
+| `sourceType` | Required parameter. Values can be - OnPremises, AWS, AzureVM, PostgreSQLSingleServer |
 | `sslMode` | SSL modes for migration. SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer/Require for other source types |
 
 #### The list command

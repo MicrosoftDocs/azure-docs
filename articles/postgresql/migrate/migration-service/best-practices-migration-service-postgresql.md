@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Best practices for seamless migration into Azure Database for PostgreSQL
+# Best practices for seamless migration into Azure Database for PostgreSQL Preview
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 
