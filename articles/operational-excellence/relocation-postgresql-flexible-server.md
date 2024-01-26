@@ -22,7 +22,6 @@ To learn how to relocate Azure Cosmos DB for PostgreSQL (formerly called Azure D
 For an overview of the region pairs supported by native replication, see [cross-region replication](../postgresql/concepts-read-replicas.md#cross-region-replication).
 
 
-**Azure Resource Mover** doesn't support moving services used by the Azure Database for PostgreSQL. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
 
 ### Prerequisites
 

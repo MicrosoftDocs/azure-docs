@@ -26,7 +26,6 @@ The diagram below illustrates the relocation pattern for a Log Analytics workspa
 :::image type="content" source="media/relocation/log-analytics/log-analytics-workspace-relocation-pattern.png" alt-text="Diagram illustrating Log Analytics Workspace relocation pattern.":::
 
 
-**Azure Resource Mover** doesn't support moving services used by the Log Analytics Workspace. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
 
 ## Prerequisites
 

@@ -16,7 +16,6 @@ Microsoft Defender for Cloud is an environment-based management feature of Azure
 
 To relocate Microsoft Defender for Cloud to a new region, you must select the appropriate [relocation strategy for each Azure service](overview-relocation.md) that uses Defender for Cloud. This section contains general guidance and recommendations to help you prepare for a relocation of services that use Microsoft Defender.
 
-**Azure Resource Mover** doesn't support moving services used by the Microsoft Defender for Cloud. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
 
 ## Prerequisites
 

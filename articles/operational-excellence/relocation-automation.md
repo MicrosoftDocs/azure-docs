@@ -17,8 +17,6 @@ This article covers relocation guidance for [Azure Automation](../automation/ove
 
 If your Azure Automation instance doesn't have any configuration and the instance itself needs to be moved alone, you can simply choose to redeploy the NetApp File instance by using [Bicep, ARM Template, or Terraform](/azure/templates/microsoft.automation/automationaccounts?tabs=bicep&pivots=deployment-language-bicep).
 
-**Azure Resource Mover** doesn't support moving services used by the Azure Automation. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
-
 
 ## Prerequisites
 
