@@ -4,7 +4,7 @@ description: Learn how to use Apache Spark streaming to get data into or out of 
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,seodec18,seoapr2020
-ms.date: 11/17/2022
+ms.date: 12/05/2023
 
 #Customer intent: As a developer, I want to learn how to use Spark Structured Streaming with Kafka on HDInsight.
 ---

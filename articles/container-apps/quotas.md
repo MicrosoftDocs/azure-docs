@@ -4,7 +4,9 @@ description: Learn about quotas for Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
+ms.custom:
+  - event-tier1-build-2022
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 02/17/2023
 ms.author: cshoe
@@ -49,11 +51,12 @@ The *Is Configurable* column in the following tables denotes a feature maximum m
 | Cores | Subscription | 2000 | Yes  | Maximum number of dedicated workload profile cores within one subscription | 
 | Cores | Replica | Up to maximum cores a workload profile supports | No | Maximum number of cores available to a revision replica. |
 | Cores | General Purpose Workload Profiles | 100 | Yes | The total cores available to all general purpose (D-series) profiles within an environment. |
-| Cores | Memory Optimized Workload Profiles | 50 | Yes | The total cores available to all memory optimised (E-series) profiles within an environment. |
-
-
+| Cores | Memory Optimized Workload Profiles | 50 | Yes | The total cores available to all memory optimized (E-series) profiles within an environment. |
 
 For more information regarding quotas, see the [Quotas roadmap](https://github.com/microsoft/azure-container-apps/issues/503) in the Azure Container Apps GitHub repository.
+
+> [!NOTE]
+> For GPU enabled workload profiles, you need to request capacity via a [support ticket](https://azure.microsoft.com/support/create-ticket/).
 
 > [!NOTE]
 > [Free trial](https://azure.microsoft.com/offers/ms-azr-0044p) and [Azure for Students](https://azure.microsoft.com/free/students/) subscriptions are limited to one environment per subscription globally and ten (10) cores per environment.

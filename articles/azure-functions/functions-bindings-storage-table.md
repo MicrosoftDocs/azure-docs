@@ -52,10 +52,10 @@ Using the .NET CLI:
 
 ```dotnetcli
 # Install the Azure Tables extension
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Tables --version 1.0.0
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Tables
 
 # Update the combined Azure Storage extension (to a version which no longer includes Azure Tables)
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 5.0.0
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
 ``` 
 
 [!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
@@ -96,6 +96,15 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage --version
 ``` 
 
 [!INCLUDE [functions-bindings-storage-extension-v5-isolated-worker-tables-note](../../includes/functions-bindings-storage-extension-v5-isolated-worker-tables-note.md)]
+
+If you're writing your application using F#, you must also configure this extension as part of the app's [startup configuration](./dotnet-isolated-process-guide.md#start-up-and-configuration). In the call to `ConfigureFunctionsWorkerDefaults()` or `ConfigureFunctionsWebApplication()`, add a delegate that takes an `IFunctionsWorkerApplication` parameter. Then within the body of that delegate, call `ConfigureTablesExtension()` on the object:
+
+```fsharp
+let hostBuilder = new HostBuilder()
+hostBuilder.ConfigureFunctionsWorkerDefaults(fun (context: HostBuilderContext) (appBuilder: IFunctionsWorkerApplicationBuilder) ->
+    appBuilder.ConfigureTablesExtension() |> ignore
+) |> ignore
+```
 
 # [Combined Azure Storage extension](#tab/storage-extension/isolated-process)
 

@@ -5,7 +5,6 @@ author: dknappettmsft
 ms.topic: how-to
 ms.date: 07/29/2022
 ms.author: daknappe
-manager: femila
 ms.custom: subject-rbac-steps
 ---
 

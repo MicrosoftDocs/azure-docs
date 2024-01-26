@@ -5,6 +5,8 @@ description: In this quickstart, you'll learn to use the Document Intelligence S
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: quickstart
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -18,7 +20,7 @@ monikerRange: 'doc-intel-2.1.0'
 <!-- markdownlint-disable MD029 -->
 # Get started with the Document Intelligence Sample Labeling tool
 
-**This article applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**.
+**This content applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **v2.1**.
 
 >[!TIP]
 >

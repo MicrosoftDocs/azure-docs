@@ -2,20 +2,20 @@
 title: "Tutorial: IoT Visual Alerts sample"
 titleSuffix: "Azure AI services"
 description: In this tutorial, you use Custom Vision with an IoT device to recognize and report visual states from a camera's video feed.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
 ms.service: azure-ai-custom-vision
 ms.topic: tutorial
-ms.date: 11/23/2020
+ms.date: 01/22/2024
 ms.author: pafarley
 ms.devlang: csharp
 ---
 
 # Tutorial: Use Custom Vision with an IoT device to report visual states
 
-This sample app illustrates how to use Custom Vision to train a device with a camera to detect visual states. You can run this detection scenario on an IoT device by using an exported ONNX model.
+This sample app illustrates how to use Custom Vision to train a device with a camera to detect visual states. You can run this detection scenario on an IoT device using an exported ONNX model.
 
 A visual state describes the content of an image: an empty room or a room with people, an empty driveway or a driveway with a truck, and so on. In the image below, you can see the app detect when a banana or an apple is placed in front of the camera.
 
@@ -127,7 +127,7 @@ If you're running the app on a device and need to retrieve the IP address again 
 
 ## Clean up resources
 
-Delete your Custom Vision project if you no longer want to maintain it. On the [Custom Vision website](https://customvision.ai), navigate to **Projects** and select the trash can under your new project.
+Delete your Custom Vision project if you no longer want to maintain it. On the [Custom Vision website](https://customvision.ai), navigate to **Projects** and select the trash can icon under your new project.
 
 ![Screenshot of a panel labeled My New Project with a trash can icon](./media/csharp-tutorial/delete_project.png)
 

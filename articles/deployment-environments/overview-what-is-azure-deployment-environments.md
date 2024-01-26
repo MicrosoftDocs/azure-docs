@@ -48,17 +48,18 @@ Developers have the following self-service experience when working with [environ
 
 ### Platform engineering scenarios
 
-Azure Deployment Environments helps your platform engineer apply the right set of policies and settings on various types of environments, control the resource configuration that developers can create, and centrally track environments across projects by doing the following tasks:  
+Azure Deployment Environments helps your platform engineer apply the right set of policies and settings on various types of environments, control the resource configuration that developers can create, and track environments across projects. They perform the following tasks:  
 
 - Provide a project-based, curated set of reusable IaC templates.
 - Define specific Azure deployment configurations per project and per environment type.
 - Provide a self-service experience without giving control over subscriptions.
 - Track costs and ensure compliance with enterprise governance policies.
 
-Azure Deployment Environments supports two [built-in roles](../role-based-access-control/built-in-roles.md):
+Azure Deployment Environments supports three [built-in roles](../role-based-access-control/built-in-roles.md):
 
 - **Dev Center Project Admin**: Creates environments and manages the environment types for a project.
-- **Deployment Environments User**: Creates environments based on appropriate access. 
+- **Deployment Environments User**: Creates environments based on appropriate access.
+- **Deployment Environments Reader**: Reads environments that other users created. 
 
 
 ## Benefits
@@ -84,7 +85,7 @@ Use APIs to provision environments directly from your preferred CI tool, integra
 
 [Microsoft Dev Box](../dev-box/overview-what-is-microsoft-dev-box.md) and Azure Deployment Environments are complementary services that share certain architectural components. Dev Box provides developers with a cloud-based development workstation, called a dev box, which is configured with the tools they need for their work. Dev centers and projects are common to both services, and they help organize resources in an enterprise.
 
-When configuring Deployment Environments, you may see Dev Box resources and components. You may even see informational messages regarding Dev Box features. If you're not configuring any Dev Box features, you can safely ignore these messages.
+When configuring Deployment Environments, you might see Dev Box resources and components. You might even see informational messages regarding Dev Box features. If you're not configuring any Dev Box features, you can safely ignore these messages.
 
 ## Next steps
 Start using Azure Deployment Environments:

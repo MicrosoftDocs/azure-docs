@@ -2,16 +2,20 @@
 title: Cookie definitions
 titleSuffix: Azure AD B2C
 description: Provides definitions for the cookies used in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 03/20/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure AD B2C into my application, I want to understand the cookies used by Azure AD B2C, so that I can properly handle and manage them in my application's authentication flow.
+
 ---
 
 # Cookies definitions for Azure AD B2C

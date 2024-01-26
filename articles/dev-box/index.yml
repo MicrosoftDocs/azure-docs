@@ -6,10 +6,8 @@ summary: Microsoft Dev Box gives you self-service access to high-performance, pr
 metadata:
   title: Microsoft Dev Box documentation
   description: Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations. 
-  services: dev-box
   ms.service: dev-box
   ms.topic: landing-page
-  ms.collection: collection
   ms.author: rosemalcolm
   author: RoseHJM
   ms.date: 06/06/2023
@@ -24,6 +22,8 @@ landingContent:
         links:
           - text: What is Microsoft Dev Box?
             url: overview-what-is-microsoft-dev-box.md
+          - text: Architecture overview
+            url: concept-dev-box-architecture.md
           - text: Microsoft Dev Box concepts
             url: concept-dev-box-concepts.md
 

@@ -5,10 +5,9 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.workload: infrastructure
 ms.topic: how-to
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 11/7/2023
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Automatic Extension Upgrade for VMs and Scale Sets in Azure
@@ -74,8 +73,7 @@ Automatic Extension Upgrade supports the following extensions (and more are adde
 - [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md)
 - [Log Analytics Agent for Linux](../azure-monitor/agents/log-analytics-agent.md)
 - [Azure Diagnostics extension for Linux](../azure-monitor/agents/diagnostics-extension-overview.md)
-- [DSC extension for Linux](extensions/dsc-linux.md)
-
+- Service Fabric – [Linux](../service-fabric/service-fabric-tutorial-create-vnet-and-linux-cluster.md#service-fabric-extension)
 
 ## Enabling Automatic Extension Upgrade
 

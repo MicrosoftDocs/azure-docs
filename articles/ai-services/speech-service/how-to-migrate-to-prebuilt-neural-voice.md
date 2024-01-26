@@ -2,12 +2,11 @@
 title: Migrate from prebuilt standard voice to prebuilt neural voice - Speech service
 titleSuffix: Azure AI services
 description: This document helps users migrate from prebuilt standard voice to prebuilt neural voice.
-services: cognitive-services
 author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/12/2021
+ms.date: 1/21/2024
 ms.author: v-baolianzou
 ---
 

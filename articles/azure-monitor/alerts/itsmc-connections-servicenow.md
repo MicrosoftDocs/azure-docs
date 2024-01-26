@@ -26,10 +26,11 @@ For information about installing ITSMC, see [Add the IT Service Management Conne
 
 ### OAuth setup
 
-ServiceNow supported versions include Utah, Tokyo, San Diego, Rome, Quebec,  Paris, Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, and Geneva.
+ServiceNow supported versions include Vancouver, Utah, Tokyo, San Diego, Rome, Quebec,  Paris, Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, and Geneva.
 
 ServiceNow admins must generate a client ID and client secret for their ServiceNow instance. See the following information as required:
 
+- [Set up OAuth for Vancouver](https://docs.servicenow.com/bundle/vancouver-platform-administration/page/administer/general/concept/intro-now-platform-landing.html)
 - [Set up OAuth for Utah](https://docs.servicenow.com/bundle/utah-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Tokyo](https://docs.servicenow.com/bundle/tokyo-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for San Diego](https://docs.servicenow.com/bundle/sandiego-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -119,7 +120,7 @@ Use the following procedure to create a ServiceNow connection.
    | **Server Url**   | Enter the URL of the ServiceNow instance that you want to connect to ITSMC. The URL should point to a supported SaaS version with the suffix *.servicenow.com* (for example `https://XXXXX.service-now.com/`).|
    | **Username**   | Enter the integration username that you created in the ServiceNow app to support the connection to ITSMC.|
    | **Password**   | Enter the password associated with this username. **Note**: The username and password are used for generating authentication tokens only. They're not stored anywhere within the ITSMC service.  |
-   | **Client Id**   | Enter the client ID that you want to use for OAuth2 authentication, which you generated earlier. For more information on generating a client ID and a secret, see [Set up OAuth](https://old.wiki/index.php/OAuth_Setup). |
+   | **Client Id**   | Enter the client ID that you want to use for OAuth2 authentication, which you generated earlier. For more information on generating a client ID and a secret, see [Set up OAuth](https://learn.microsoft.com/azure/azure-monitor/alerts/itsmc-connections-servicenow#oauth-setup). |
    | **Client Secret**   | Enter the client secret generated for this ID.   |
    | **Data Sync Scope (in Days)** | Enter the number of past days that you want the data from. The limit is 120 days. |
    | **Work Items To Sync**   | Select the ServiceNow work items that you want to sync to Azure Log Analytics, through ITSMC. The selected values are imported into Log Analytics. Options are incidents and change requests.|
@@ -140,9 +141,9 @@ When you're successfully connected and synced:
 
 The payload that is sent to ServiceNow has a common structure. The structure has a section of `<Description>` that contains all the alert data.
 
-The structure of the payload for all alert types except log search alert is [common schema](./alerts-common-schema.md).
+The structure of the payload for all alert types except log search V1 alert is [common schema](./alerts-common-schema.md).
 
-For Log Search Alerts, the structure is:
+For Log Search Alerts (V1 only), the structure is:
 
 - Alert  (alert rule name) : \<value>
 - Search Query : \<value>

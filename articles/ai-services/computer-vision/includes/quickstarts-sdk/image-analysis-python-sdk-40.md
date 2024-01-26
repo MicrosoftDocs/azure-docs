@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Image Analysis 4.0 client SDK for Python"
 description: Get started with the Image Analysis 4.0 client SDK for Python with this quickstart.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
@@ -13,9 +13,9 @@ ms.author: pafarley
 
 <a name="HOLTop"></a>
 
-Use the Image Analysis client SDK for Python to analyze a remote image to read text and generate an image caption. This quickstart uses the client object to analyze a remote image and print the results to the console.
+Use the Image Analysis client SDK for Python to analyze an image to read text and generate an image caption. This quickstart analyzes a remote image and prints the results to the console.
 
-[Reference documentation](/python/api/azure-ai-vision) | [Package (PyPi)](https://pypi.org/project/azure-ai-vision/) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
+[Reference documentation](https://aka.ms/azsdk/image-analysis/ref-docs/python) | [Package (PyPi)](https://aka.ms/azsdk/image-analysis/package/pypi) | [Samples](https://aka.ms/azsdk/image-analysis/samples/python)
 
 > [!TIP]
 > The Analysis 4.0 API can do many different operations. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
@@ -24,33 +24,28 @@ Use the Image Analysis client SDK for Python to analyze a remote image to read t
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/). Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Vision resource"  target="_blank">create a Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US, East Asia. After it deploys, select **Go to resource**.
-
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Computer Vision resource"  target="_blank">create a Computer Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the supported Azure regions (see [Image captions](/azure/ai-services/computer-vision/concept-describe-images-40) for the list of regions). After it deploys, select **Go to resource**.
     * You need the key and endpoint from the resource you create to connect your application to the Azure AI Vision service.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 
-
-
 [!INCLUDE [create environment variables](../environment-variables.md)]
 
-## Analyze Image
+## Analyze image
 
 1. Open a command prompt where you want the new project, and create a new file named *quickstart.py*.
-1. Run this command to install the Azure AI Vision client SDK:
+1. Run this command to install the Image Analysis SDK:
 
     ```console
-    python -m pip install azure-ai-vision
+    pip install azure-ai-vision-imageanalysis
     ```
-
-    For more information, see the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-python).
 
 1. Copy the following code into *quickstart.py*:
 
-> [!TIP]
-> The code shows analyzing an image URL. You can also analyze a local image file, or an image from a memory buffer. For more information, see the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md).
+    > [!TIP]
+    > The code shows analyzing an image URL. You can also analyze an image from the program memory buffer. For more information, see the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md).
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/quick-start/main.py?name=snippet_single)]
+    [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/quickstart.py?name=snippet_single)]
 
 1. Then run the application with the `python` command on your quickstart file.
 
@@ -129,7 +124,6 @@ Text:
 ```
 
 
-
 ## Clean up resources
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
@@ -146,4 +140,4 @@ In this quickstart, you learned how to install the Image Analysis client SDK and
 >[Call the Analyze Image 4.0 API](../../how-to/call-analyze-image-40.md)
 
 * [Image Analysis overview](../../overview-image-analysis.md)
-* Sample source code can be found on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk).
+* Sample source code can be found on [GitHub](https://aka.ms/azsdk/image-analysis/samples/python).

@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Use a Resource Manager template to create a Windows VM'
 description: Learn how to use a Resource Manager template to create, deploy and clean up a Windows virtual machine.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 04/03/2023
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: subject-armqs, mode-arm
 ---
 
@@ -61,6 +61,8 @@ Several resources are defined in the template:
     - **VM size**: select the [size](../sizes.md) to use for the VM.
     - **Location**: the default is the same location as the resource group, if it already exists.
 1. Select **Review + create**. After validation completes, select **Create** to create and deploy the VM.
+
+Cost information isn't presented during the virtual machine creation process for ARM templates like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
 

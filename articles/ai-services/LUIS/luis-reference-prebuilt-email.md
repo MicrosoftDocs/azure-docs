@@ -2,7 +2,7 @@
 title: LUIS Prebuilt entities email reference
 titleSuffix: Azure AI services
 description: This article contains email prebuilt entity information in Language Understanding (LUIS).
-services: cognitive-services
+#services: cognitive-services
 ms.author: aahi
 author: aahill
 manager: nitinme
@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference
-ms.date: 09/27/2019
+ms.date: 01/19/2024
 ---
 
 # Email prebuilt entity for a LUIS app

@@ -4,15 +4,16 @@ description: This article describes how to debug a U-SQL failed vertex using Azu
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 12/20/2023
 ---
+
 # Debug user-defined C# code for failed U-SQL jobs
 
 [!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 U-SQL provides an extensibility model using C#. In U-SQL scripts, it's easy to call C# functions and perform analytic functions that SQL-like declarative language doesn't support. To learn more for U-SQL extensibility, see [U-SQL programmability guide](./data-lake-analytics-u-sql-programmability-guide.md#use-user-defined-functions-udf). 
 
-In practice, any code may need debugging, but it's hard to debug a distributed job with custom code on the cloud with limited log files. [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs) provides a feature called **Failed Vertex Debug**, which helps you more easily debug the failures that occur in your custom code. When U-SQL job fails, the service keeps the failure state and the tool helps you to download the cloud failure environment to the local machine for debugging. The local download captures the entire cloud environment, including any input data and user code.
+In practice, any code could need debugging, but it's hard to debug a distributed job with custom code on the cloud with limited log files. [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs) provides a feature called **Failed Vertex Debug**, which helps you more easily debug the failures that occur in your custom code. When U-SQL job fails, the service keeps the failure state and the tool helps you to download the cloud failure environment to the local machine for debugging. The local download captures the entire cloud environment, including any input data and user code.
 
 The following video demonstrates Failed Vertex Debug in Azure Data Lake Tools for Visual Studio.
 
@@ -40,11 +41,11 @@ When you open a failed job in Azure Data Lake Tools for Visual Studio, you see a
 
 :::image type="content" source="./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-clr-exception-setting.png" alt-text="Screenshot of the user-defined C# source code, showing the exceptions settings with Common Language Runtime Exceptions set." lightbox="./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-clr-exception-setting.png":::
 
-In the new launched Visual Studio instance, you may or may not find the user-defined C# source code:
+In the new launched Visual Studio instance, you might or might not find the user-defined C# source code:
 
 1. [I can find my source code in the solution](#source-code-is-included-in-debugging-solution)
 
-2. [I can't find my source code in the solution](#source-code-is-not-included-in-debugging-solution)
+2. [I can't find my source code in the solution](#source-code-isnt-included-in-debugging-solution)
 
 ### Source code is included in debugging solution
 
@@ -62,7 +63,7 @@ If the source code is imported to the solution, you can use the Visual Studio de
 
     :::image type="content" source="./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-exception.png" alt-text="Screenshot of user-defined code with a breakpoint set, showing an exception at the highlighted line." lightbox="./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-exception.png":::
 
-### Source code is not included in debugging solution
+### Source code isn't included in debugging solution
 
 If the user code isn't included in code-behind file, or you didn't register the assembly with **debug info**, then the source code isn't included automatically in the debugging solution. In this case, you need extra steps to add your source code:
 
@@ -74,7 +75,7 @@ If the user code isn't included in code-behind file, or you didn't register the 
 
 3. Right-Click **the added assembly source code project > Properties**, select the **Build** tab at left, and paste the copied path ending with \bin\debug as **Output > Output path**. The final output path is like `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`.
 
-    :::image type="content" source="./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png" alt-text="Screenshot of build tab in Visual Studio code, with the outbound path highlighted under Output." lightbox="./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png":::
+    :::image type="content" source="./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png" alt-text="Screenshot of build tab in Visual Studio Code, with the outbound path highlighted under Output." lightbox="./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png":::
 
 After these settings, start debugging with **F5** and breakpoints. You can also use the Visual Studio debugging tools (watch, variables, etc.) to troubleshoot the problem.
 

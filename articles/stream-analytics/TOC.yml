@@ -195,6 +195,8 @@
     href: stream-analytics-stream-analytics-query-patterns.md
   - name: Parse JSON and AVRO data
     href: stream-analytics-parsing-json.md
+  - name: Parsing Protobuf
+    href: stream-analytics-parsing-protobuf.md
   - name: Event ordering
     items:
     - name: Event ordering overview
@@ -446,12 +448,6 @@
       href: stream-analytics-machine-learning-anomaly-detection.md
     - name: Use ML REST APIs
       href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
-  - name: Export from Application Insights
-    items:
-    - name: Export to Stream Analytics
-      href: app-insights-export-stream-analytics.md
-    - name: Export to SQL using Stream Analytics
-      href: app-insights-export-sql-stream-analytics.md
   - name: Scale with ML functions
     href: stream-analytics-scale-with-machine-learning-functions.md
   - name: Run job in your virtual network
@@ -791,6 +787,9 @@
           maintainContext: true
         - name: Parsing JSON and AVRO data
           href: stream-analytics-parsing-json.md
+          maintainContext: true
+        - name: Parsing Protobuf
+          href: stream-analytics-parsing-protobuf.md
           maintainContext: true
     - name: Query Language Elements
       items:

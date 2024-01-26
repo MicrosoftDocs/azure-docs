@@ -12,7 +12,12 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/cognitive-services-and-machine-learning.md",
-      "redirect_url": "/azure/ai-services/cognitive-services-and-machine-learning",
+      "redirect_url": "/azure/ai-services/ai-services-and-ecosystem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/cognitive-services-and-machine-learning.md",
+      "redirect_url": "/azure/ai-services/ai-services-and-ecosystem",
       "redirect_document_id": true
     },
     {
@@ -47,8 +52,13 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/cognitive-services-development-options.md",
-      "redirect_url": "/azure/ai-services/cognitive-services-development-options",
-      "redirect_document_id": true
+      "redirect_url": "/azure/ai-services/ai-services-and-ecosystem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/cognitive-services-development-options.md",
+      "redirect_url": "/azure/ai-services/ai-services-and-ecosystem",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/cognitive-services-environment-variables.md",
@@ -113,11 +123,16 @@
     {
       "source_path_from_root": "/articles/ai-services/manage-resources.md",
       "redirect_url": "/azure/ai-services/recover-purge-resources",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/plan-manage-costs.md",
-      "redirect_url": "/azure/ai-services/plan-manage-costs",
+      "redirect_url": "/azure/ai-studio/how-to/costs-plan-manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/plan-manage-costs.md",
+      "redirect_url": "/azure/ai-studio/how-to/costs-plan-manage",
       "redirect_document_id": true
     },
     {
@@ -1801,33 +1816,58 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-voice-create-voice.md",
-      "redirect_url": "/azure/ai-services/speech-service/how-to-custom-voice-create-voice",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-voice-prepare-data.md",
-      "redirect_url": "/azure/ai-services/speech-service/how-to-custom-voice-prepare-data",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-voice-talent.md",
-      "redirect_url": "/azure/ai-services/speech-service/how-to-custom-voice-talent",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-voice-training-data.md",
       "redirect_url": "/azure/ai-services/speech-service/how-to-custom-voice-training-data",
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-voice-create-voice.md",
+      "redirect_url": "/azure/ai-services/speech-service/professional-voice-train-voice",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-voice-prepare-data.md",
+      "redirect_url": "/azure/ai-services/speech-service/professional-voice-create-training-set",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-voice-talent.md",
+      "redirect_url": "/azure/ai-services/speech-service/professional-voice-create-consent",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-voice.md",
-      "redirect_url": "/azure/ai-services/speech-service/how-to-custom-voice",
-      "redirect_document_id": true
+      "redirect_url": "/azure/ai-services/speech-service/professional-voice-create-project",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-deploy-and-use-endpoint.md",
-      "redirect_url": "/azure/ai-services/speech-service/how-to-deploy-and-use-endpoint",
+      "redirect_url": "/azure/ai-services/speech-service/professional-voice-deploy-endpoint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/speech-service/how-to-custom-voice-create-voice.md",
+      "redirect_url": "/azure/ai-services/speech-service/professional-voice-train-voice",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/speech-service/how-to-custom-voice-prepare-data.md",
+      "redirect_url": "/azure/ai-services/speech-service/professional-voice-create-training-set",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/speech-service/how-to-custom-voice-talent.md",
+      "redirect_url": "/azure/ai-services/speech-service/professional-voice-create-consent",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/speech-service/how-to-custom-voice.md",
+      "redirect_url": "/azure/ai-services/speech-service/professional-voice-create-project",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/speech-service/how-to-deploy-and-use-endpoint.md",
+      "redirect_url": "/azure/ai-services/speech-service/professional-voice-deploy-endpoint",
       "redirect_document_id": true
     },
     {

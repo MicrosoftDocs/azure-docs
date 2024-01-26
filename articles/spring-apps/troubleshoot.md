@@ -105,7 +105,7 @@ Before you onboard your application, ensure that it meets the following criteria
 
 * The application can run locally with the specified Java runtime version.
 * The environment config (CPU/RAM/Instances) meets the minimum requirement set by the application provider.
-* The configuration items have their expected values. For more information, see [Set up a Spring Cloud Config Server instance for your service](./how-to-config-server.md). For Enterpriseplan, see [Use Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
+* The configuration items have their expected values. For more information, see [Set up a Spring Cloud Config Server instance for your service](./how-to-config-server.md). For the Enterprise plan, see [Use Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
 * The environment variables have their expected values.
 * The JVM parameters have their expected values.
 * We recommended that you disable or remove the embedded *Config Server* and *Spring Service Registry* services from the application package.
@@ -126,7 +126,7 @@ But if you try to set up the Azure Spring Apps service instance by using the [Az
 
 If you want to set up the Azure Spring Apps service instance by using the Resource Manager template, first refer to [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
-The name of the Azure Spring Apps service instance is used for requesting a subdomain name under `azureapps.io`, so the setup fails if the name conflicts with an existing one. You might find more details in the activity logs.
+The name of the Azure Spring Apps service instance is used for requesting a subdomain name under `azuremicroservices.io`, so the setup fails if the name conflicts with an existing one. You might find more details in the activity logs.
 
 ### I can't deploy a .NET Core app
 

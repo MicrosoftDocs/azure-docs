@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.date: 08/16/2020
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
-manager: femila
 ---
 # Customize the feed for Azure Virtual Desktop users
 
@@ -121,7 +120,7 @@ You can change the display name for a published remote desktop by setting a frie
 
 ## Next steps
 
-Now that you've customized the feed for users, you can sign in to a Azure Virtual Desktop client to test it out. To do so, continue to the Connect to Azure Virtual Desktop How-tos:
+Now that you've customized the feed for users, you can sign in to an Azure Virtual Desktop client to test it out. To do so, continue to the Connect to Azure Virtual Desktop How-tos:
 
  * [Connect with Windows](./users/connect-windows.md)
  * [Connect with the web client](./users/connect-web.md)

@@ -1348,6 +1348,11 @@
         "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-storage.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-development-using-azure-resource-manager.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
     }
   ]
 }

@@ -20,15 +20,6 @@
   - name: Assign a policy - Azure PowerShell
     displayName: assign, compliance
     href: ./assign-policy-powershell.md
-  - name: Assign a policy - .NET
-    displayName: assign, compliance
-    href: ./assign-policy-dotnet.md
-  - name: Assign a policy - JavaScript
-    displayName: assign, compliance
-    href: ./assign-policy-javascript.md
-  - name: Assign a policy - Python
-    displayName: assign, compliance
-    href: ./assign-policy-python.md
   - name: Assign a policy - REST
     displayName: armclient, postman
     href: ./assign-policy-rest-api.md
@@ -63,6 +54,9 @@
   - name: "Add user assign identities to virtual machines"
     displayName: remediate, identity, user assign, virtual machines, monitoring agent
     href: ./tutorials/modify-virtual-machine-identity.md
+  - name: Disallow resource types
+    displayName: assign, definition, resource, type, exclusion, allow, disallow
+    href: ./tutorials/disallowed-resources.md
 - name: Samples
   items:
   - name: Index
@@ -126,6 +120,10 @@
         href: ./samples/iso-27001.md
       - name: Microsoft cloud security benchmark
         href: ./samples/azure-security-benchmark.md
+      - name: Microsoft Cloud for Sovereignty Confidential
+        href: ./samples/mcfs-baseline-confidential.md
+      - name: Microsoft Cloud for Sovereignty Global
+        href: ./samples/mcfs-baseline-global.md
       - name: New Zealand ISM Restricted
         href: ./samples/new-zealand-ism.md
       - name: New Zealand ISM Restricted v3.5
@@ -150,6 +148,8 @@
         href: ./samples/rmit-malaysia.md
       - name: SWIFT CSP-CSCF 2021
         href: ./samples/swift-csp-cscf-2021.md
+      - name: SWIFT CSP-CSCF 2022
+        href: ./samples/swift-csp-cscf-2022.md
       - name: UK OFFICIAL and UK NHS
         href: ./samples/ukofficial-uknhs.md
     - name: Azure Government built-ins

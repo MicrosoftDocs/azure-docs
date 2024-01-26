@@ -5,7 +5,7 @@ titleSuffix: Azure Virtual WAN
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/14/2022
+ms.date: 11/21/2023
 ms.author: cherylmc
 
 ---

@@ -2,7 +2,7 @@
 title: Profanity filtering - Translator
 titleSuffix: Azure AI services
 description: Use Translator profanity filtering to determine the level of profanity translated in your text.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator

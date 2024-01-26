@@ -284,7 +284,7 @@ See also the following SSIS documentation:
 - [Schedule package executions in Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages) 
 - [Connect to on-premises data sources with Windows authentication](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth) 
 
-## Next steps
+## Related content
 
 To learn about customizing your Azure-SSIS integration runtime, advance to the following article: 
 

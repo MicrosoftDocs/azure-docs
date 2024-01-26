@@ -1,10 +1,17 @@
 ---
-title: Develop Azure Functions by using Visual Studio Code 
+title: Develop Azure Functions by using Visual Studio Code
 description: Learn how to develop and test Azure Functions by using the Azure Functions extension for Visual Studio Code.
 ms.topic: conceptual
-ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devdivchpfy22, vscode-azure-extension-update-complete, devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 09/01/2023
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
+ms.custom:
+  - devdivchpfy22
+  - vscode-azure-extension-update-complete
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - ignite-2023
+ms.date: 11/14/2023
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---
@@ -65,7 +72,7 @@ If you want to get started right away, complete the [Visual Studio Code quicksta
 
 These prerequisites are only required to [run and debug your functions locally](#run-functions-locally). They aren't required to create or publish projects to Azure Functions.
 
-+ The [Azure Functions Core Tools](functions-run-local.md), which enables an integrated local debugging experience. When using the Azure Functions extension, the easiest way to install Core Tools is by running the `Azure Functions: Install or Update Azure Functions Core Tools` command from the command pallet.    
++ The [Azure Functions Core Tools](functions-run-local.md), which enables an integrated local debugging experience. When you have the Azure Functions extension installed, the easiest way to install or update Core Tools is by running the `Azure Functions: Install or Update Azure Functions Core Tools` command from the command pallet.    
 ::: zone pivot="programming-language-csharp"    
 + The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.
 
@@ -93,14 +100,13 @@ These prerequisites are only required to [run and debug your functions locally](
 
 + [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 
-[!INCLUDE [functions-x86-emulation-on-arm64-note](../../includes/functions-x86-emulation-on-arm64-note.md)]
 ::: zone-end  
 
 ## Create an Azure Functions project
 
 The Functions extension lets you create a function app project, along with your first function. The following steps show how to create an HTTP-triggered function in a new Functions project. [HTTP trigger](functions-bindings-http-webhook.md) is the simplest function trigger template to demonstrate.
 
-1. 1. Choose the Azure icon in the Activity bar, then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
+1. choose the Azure icon in the Activity bar, then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
 
     :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
 
@@ -111,6 +117,9 @@ The Functions extension lets you create a function app project, along with your 
 1. Select the **HTTP trigger** function template, or you can select **Skip for now** to create a project without a function. You can always [add a function to your project](#add-a-function-to-your-project) later.
 
     :::image type="content" source="./media/functions-develop-vs-code/select-http-trigger.png" alt-text="Screenshot for selecting H T T P trigger.":::
+
+    > [!TIP]
+    > You can view additional templates by selecting the `Change template filter` option and setting it to "Core" or "All".
 
 1. Type **HttpExample** for the function name and select Enter, and then select **Function** authorization. This authorization level requires you to provide a [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) when you call the function endpoint.
 
@@ -140,7 +149,7 @@ The project template creates a project in your chosen language and installs requ
 Depending on your language, these other files are created:
 
 ::: zone pivot="programming-language-csharp"  
-An HttpExample.cs class library file, the contents of which vary depending on whether your project runs in an [isolated worker process](dotnet-isolated-process-guide.md#net-isolated-worker-process-project) or [in-process](functions-dotnet-class-library.md#functions-class-library-project) with the Functions host.
+An HttpExample.cs class library file, the contents of which vary depending on whether your project runs in an [isolated worker process](dotnet-isolated-process-guide.md#project-structure) or [in-process](functions-dotnet-class-library.md#functions-class-library-project) with the Functions host.
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + A pom.xml file in the root folder that defines the project and deployment parameters, including project dependencies and the [Java version](functions-reference-java.md#java-versions). The pom.xml also contains information about the Azure resources that are created during a deployment.
@@ -203,7 +212,7 @@ At this point, you can do one of these tasks:
 
 ## Add a function to your project
 
-You can add a new function to an existing project by using one of the predefined Functions trigger templates. To add a new function trigger, select F1 to open the command palette, and then search for and run the command **Azure Functions: Create Function**. Follow the prompts to choose your trigger type and define the required attributes of the trigger. If your trigger requires an access key or connection string to connect to a service, get it ready before you create the function trigger.
+You can add a new function to an existing project based on one of the predefined Functions trigger templates. To add a new function trigger, select F1 to open the command palette, and then search for and run the command **Azure Functions: Create Function**. Follow the prompts to choose your trigger type and define the required attributes of the trigger. If your trigger requires an access key or connection string to connect to a service, get it ready before you create the function trigger.
 
 ::: zone pivot="programming-language-csharp"  
 The results of this action are that a new C# class library (.cs) file is added to your project.
@@ -358,7 +367,7 @@ The Azure Functions extension lets you run individual functions. You can run fun
 
 For HTTP trigger functions, the extension calls the HTTP endpoint. For other kinds of triggers, it calls administrator APIs to start the function. The message body of the request sent to the function depends on the type of trigger. When a trigger requires test data, you're prompted to enter data in a specific JSON format.
 
-### Run functions in Azure.
+### Run functions in Azure
 
 To execute a function in Azure from Visual Studio Code.
 
@@ -396,7 +405,7 @@ For more information, see [Local settings file](#local-settings).
 
 #### <a name="debugging-functions-locally"></a>Debug functions locally  
 
-To debug your functions, select F5. If you haven't already downloaded [Core Tools][Azure Functions Core Tools], you're prompted to do so. When Core Tools is installed and running, output is shown in the Terminal. This step is the same as running the `func start` Core Tools command from the Terminal, but with extra build tasks and an attached debugger.  
+To debug your functions, select F5. If [Core Tools][Azure Functions Core Tools] isn't available, you're prompted to install it. When Core Tools is installed and running, output is shown in the Terminal. This step is the same as running the `func start` Core Tools command from the Terminal, but with extra build tasks and an attached debugger.  
 
 When the project is running, you can use the **Execute Function Now...** feature of the extension to trigger your functions as you would when the project is deployed to Azure. With the project running in debug mode, breakpoints are hit in Visual Studio Code as you would expect.
 
@@ -520,8 +529,6 @@ To learn more, see [Streaming logs](functions-monitoring.md?tabs=vs-code#streami
 You should monitor the execution of your functions by integrating your function app with Application Insights. When you create a function app in the Azure portal, this integration occurs by default. When you create your function app during Visual Studio publishing, you need to integrate Application Insights yourself. To learn how, see [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration).
 
 To learn more about monitoring using Application Insights, see [Monitor Azure Functions](functions-monitoring.md).
-
-[!INCLUDE [functions-x86-emulation-on-arm64](../../includes/functions-x86-emulation-on-arm64.md)]
 
 ### Enable emulation in Visual Studio Code
 

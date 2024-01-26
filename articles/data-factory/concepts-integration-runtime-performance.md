@@ -8,7 +8,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 04/21/2023
+ms.date: 01/05/2024
 ---
 
 # Optimizing performance of the Azure Integration Runtime
@@ -71,7 +71,7 @@ However, if most of your data flows execute in parallel, it is not recommended t
 > [!NOTE]
 > Time to live is not available when using the auto-resolve integration runtime (default).
 
-## Next steps
+## Related content
 
 See other Data Flow articles related to performance:
 

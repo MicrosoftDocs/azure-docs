@@ -13,9 +13,6 @@ ms.subservice: calling
 
 The Data Channel feature API enables real-time messaging during audio and video calls. In this quickstart guide, we'll illustrate how to integrate the Data Channel feature, enabling the exchange of text messages among participants within a group call. Please note that there are many different messaging solutions other than the Data Channel feature, and you should choose the suitable solution for your specific usage scenario.
 
-
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
-
 >[!IMPORTANT]
 > Please be aware that our current implementation of the DataChannel feature API doesn't support direct messaging between a web browser and a native app in a peer-to-peer call scenario.
 

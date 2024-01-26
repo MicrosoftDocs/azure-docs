@@ -2,22 +2,22 @@
 title: Color scheme detection - Azure AI Vision
 titleSuffix: Azure AI services
 description: Concepts related to detecting the color scheme in images using the Azure AI Vision API.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 11/17/2021
+ms.date: 01/19/2024
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Color schemes detection
+# Color scheme detection
 
 Azure AI Vision analyzes the colors in an image to provide three different attributes: the dominant foreground color, the dominant background color, and the larger set of dominant colors in the image. The set of possible returned colors is: black, blue, brown, gray, green, orange, pink, purple, red, teal, white, and yellow.
 
-Azure AI Vision also extracts an accent color, which represents the most vibrant color in the image, based on a combination of the dominant color set and saturation. The accent color is returned as a hexadecimal HTML color code (for example, `#00CC00`).
+Azure AI Vision also extracts an accent color, which represents the most vibrant color in the image, based on a combination of the dominant color set and saturation. The accent color is returned as a hexadecimal HTML color code (for example, `00CC00`).
 
 Azure AI Vision also returns a boolean value indicating whether the image is a black-and-white image.
 
@@ -78,6 +78,6 @@ The following table shows Azure AI Vision's black and white evaluation in the sa
 
 ## Use the API
 
-The color scheme detection feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Color` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"color"` section.
+The color scheme detection feature is part of the [Analyze Image 3.2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Color` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"color"` section.
 
 * [Quickstart: Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

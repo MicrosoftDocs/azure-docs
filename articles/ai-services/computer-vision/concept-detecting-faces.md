@@ -2,23 +2,23 @@
 title: Face detection - Azure AI Vision
 titleSuffix: Azure AI services
 description: Learn concepts related to the face detection feature of the Azure AI Vision API.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 12/27/2022
+ms.date: 01/19/2024
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Face detection with Image Analysis
+# Face detection with Image Analysis 3.2
 
-Image Analysis can detect human faces within an image and generate rectangle coordinates for each detected face.
+Image Analysis 3.2 can detect human faces within an image and generate rectangle coordinates for each detected face.
 
 > [!NOTE]
-> This feature is also offered by the dedicated [Face](./overview-identity.md) service. Use this alternative for more detailed face analysis, including face identification and head pose detection. 
+> This feature is also offered by the dedicated [Face](./overview-identity.md) service. Use this alternative for more detailed face analysis, including face identification and head pose detection.
 
 [!INCLUDE [Sensitive attributes notice](./includes/identity-sensitive-attributes.md)]
 

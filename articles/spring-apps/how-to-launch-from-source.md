@@ -148,4 +148,4 @@ az spring app show-deploy-log --name <app-name>
 
 * [Quickstart: Monitoring Azure Spring Apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
 
-More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples).

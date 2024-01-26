@@ -3,6 +3,7 @@ title: 'Azure Virtual WAN FAQ'
 description: See answers to frequently asked questions about Azure Virtual WAN networks, clients, gateways, devices, partners, and connections.
 author: cherylmc
 ms.service: virtual-wan
+ms.custom: devx-track-azurepowershell
 ms.topic: faq
 ms.date: 10/30/2023
 ms.author: cherylmc
@@ -363,9 +364,13 @@ The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub 
 
 * Configure AS-Path as the Hub Routing Preference for your Virtual Hub. This ensures traffic between the 2 hubs traverses through the Virtual hub router in each hub and uses the hub-to-hub path instead of the ExpressRoute path (which traverses through the Microsoft Edge routers). For more information, see  [Configure virtual hub routing preference](howto-virtual-hub-routing-preference.md).
 
-### When there's an ExpressRoute circuit connected as a bow-tie to a Virtual WAN hub and a non Virtual WAN VNet, what is the path for the non Virtual WAN VNet to reach the Virtual WAN hub? 
+### When there's an ExpressRoute circuit connected as a bow-tie to a Virtual WAN hub and a standalone VNet, what is the path for the standalone VNet to reach the Virtual WAN hub? 
 
-The current behavior is to prefer the ExpressRoute circuit path for non Virtual WAN VNet to Virtual WAN connectivity. It's recommended that the customer [create a Virtual Network connection](howto-connect-vnet-hub.md) to directly connect the non Virtual WAN VNet to the Virtual WAN hub. Afterwards, VNet to VNet traffic will traverse through the Virtual WAN router instead of the ExpressRoute path (which traverses through the Microsoft Enterprise Edge routers/MSEE).
+The current behavior is to prefer the ExpressRoute circuit path for standalone (non-Virtual WAN) VNet to Virtual WAN connectivity. It's recommended that the customer [create a Virtual Network connection](howto-connect-vnet-hub.md) to directly connect the standalone VNet to the Virtual WAN hub. Afterwards, VNet to VNet traffic will traverse through the Virtual WAN hub router instead of the ExpressRoute path (which traverses through the Microsoft Enterprise Edge routers/MSEE).
+
+In Azure portal, the **Allow traffic from remote Virtual WAN networks** and **Allow traffic from non Virtual WAN networks** toggles allow connectivity between the standalone virtual network (VNet 4) and the spoke virtual networks directly connected to the Virtual WAN hub (VNet 2 and VNet 3). To allow this connectivity, both toggles need to be enabled: the **Allow traffic from remote Virtual WAN networks** toggle for the ExpressRoute gateway in the standalone virtual network and the **Allow traffic from non Virtual WAN networks** for the ExpressRoute gateway in the Virtual WAN hub. In the diagram below, if both of these toggles are enabled, then connectivity would be allowed between the standalone VNet 4 and the VNets directly connected to hub 2 (VNet 2 and VNet 3). If an Azure Route Server is deployed in standalone VNet 4, and the Route Server has [branch-to-branch](../route-server/quickstart-configure-route-server-portal.md#configure-route-exchange) enabled, then connectivity will be blocked between VNet 1 and standalone VNet 4. 
+
+:::image type="content" source="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png" alt-text="Diagram of a standalone virtual network connecting to a virtual hub via ExpressRoute circuit." lightbox="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png":::
 
 ### Can hubs be created in different resource groups in Virtual WAN?
 
@@ -430,6 +435,10 @@ No. Virtual WAN does not support ASN changes for VPN gateways.
 
 ### <a name="update-router"></a>Why am I seeing a message and button called "Update router to latest software version" in portal?
 
+> [!NOTE]
+> As of January 2024, the Virtual WAN team has started upgrading virtual hubs to the latest version. If you did not upgrade your hub but now notice that your hub's Router Version says "latest", then your hub was upgraded by the Virtual WAN team.
+>
+
 Azure-wide Cloud Services-based infrastructure is deprecating. As a result, the Virtual WAN team has been working on upgrading virtual routers from their current Cloud Services infrastructure to Virtual Machine Scale Sets based deployments. **All newly created Virtual Hubs will automatically be deployed on the latest Virtual Machine Scale Sets based infrastructure.** If you navigate to your Virtual WAN hub resource and see this message and button, then you can upgrade your router to the latest version by clicking on the button. If you would like to take advantage of new Virtual WAN features, such as [BGP peering with the hub](create-bgp-peering-hub-portal.md), you'll have to update your virtual hub router via Azure portal. If the button isn't visible, open a support case.
 
 You’ll only be able to update your virtual hub router if all the resources (gateways/route tables/VNet connections) in your hub are in a succeeded state. Make sure all your spoke virtual networks are in active/enabled subscriptions and that your spoke virtual networks aren't deleted. Additionally, as this operation requires deployment of new virtual machine scale sets based virtual hub routers, you’ll face an expected downtime of 1-2 minutes for VNet-to-VNet traffic through the same hub and 5-7 minutes for all other traffic flows through the hub. Within a single Virtual WAN resource, hubs should be updated one at a time instead of updating multiple at the same time. When the Router Version says “Latest”, then the hub is done updating. There will be no routing behavior changes after this update. 
@@ -460,7 +469,49 @@ The SLA for each component is calculated individually. For example, if ExpressRo
 
 Yes, this can be done automatically with no update or reset required on the peering connection. You can find more information on how to change the VNet address space [here](../virtual-network/manage-virtual-network.md).
 
-[!INCLUDE [customer-controlled network gateway maintenance](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-faq.md)]
+## <a name="vwan-customer-controlled-maintenance"></a>Virtual WAN customer-controlled gateway maintenance
+
+### Which services are included in the Maintenance Configuration scope of Network Gateways? 
+
+For Virtual WAN, you can configure maintenance windows for site-to-site VPN gateways and ExpressRoute gateways.
+
+### Which maintenance is supported or not supported by customer-controlled maintenance?
+
+Azure services go through periodic maintenance updates to improve functionality, reliability, performance, and security. Once you configure a maintenance window for your resources, Guest OS and Service maintenance are performed during that window. These updates account for most of the maintenance items that cause concern for customers. 
+
+Underlying host hardware and datacenter infrastructure updates are not covered by customer-controlled maintenance. Additionally, if there's a high-severity security issue that might endanger our customers, Azure might need to override customer control of the maintenance window and roll out the change. These are rare occurrences that would only be used in extreme cases. 
+
+### Can I get advanced notification of the maintenance?
+
+At this time, advanced notification can't be enabled for the maintenance of Network Gateway resources.
+
+### Can I configure a maintenance window shorter than five hours?
+
+At this time, you need to configure a minimum of a five hour window in your preferred time zone.
+
+### Can I configure a maintenance schedule that does not repeat daily?
+
+At this time, you need to configure a daily maintenance window.
+
+### Do Maintenance Configuration resources need to be in the same region as the gateway resource?
+
+Yes.
+
+### Do I need to deploy a minimum gateway scale unit to be eligible for customer-controlled maintenance?
+
+No.
+
+### How long does it take for maintenance configuration policy to become effective after it gets assigned to the gateway resource?
+
+It might take up to 24 hours for Network Gateways to follow the maintenance schedule after the maintenance policy is associated with the gateway resource.  
+
+### How should I plan maintenance windows when using VPN and ExpressRoute in a coexistence scenario?
+
+When working with VPN and ExpressRoute in a coexistence scenario or whenever you have resources acting as backups, we recommend setting up separate maintenance windows. This approach ensures that maintenance doesn't affect your backup resources at the same time.
+
+### I've scheduled a maintenance window for a future date for one of my resources. Will maintenance activities be paused on this resource until then?
+
+No, maintenance activities won't be paused on your resource during the period before the scheduled maintenance window. For the days not covered in your maintenance schedule, maintenance continues as usual on the resource.
 
 ## Next steps
 

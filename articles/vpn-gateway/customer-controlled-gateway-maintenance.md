@@ -4,6 +4,7 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to configure customer-controlled maintenance for your VPN Gateway virtual network gateways using the Azure portal, or PowerShell.
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/01/2023
 ms.author: cherylmc

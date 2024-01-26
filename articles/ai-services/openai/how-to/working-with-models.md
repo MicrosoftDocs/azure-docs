@@ -5,12 +5,11 @@ description: Learn about managing model deployment life cycle, updates, & retire
 ms.service: azure-ai-openai
 ms.topic: conceptual 
 ms.date: 10/04/2023
-ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
+ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai, devx-track-azurepowershell
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
 recommendations: false
-keywords: 
 ---
 
 # Working with Azure OpenAI models

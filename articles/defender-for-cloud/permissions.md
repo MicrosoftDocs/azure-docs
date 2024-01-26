@@ -30,7 +30,7 @@ The following table displays roles and allowed actions in Defender for Cloud.
 | Edit security policy | - | ✔ | - | - | ✔ |
 | Enable / disable Microsoft Defender plans | - | ✔ | - | ✔ | ✔ |
 | Dismiss alerts | - | ✔ | - | ✔ | ✔ |
-| Apply security recommendations for a resource</br> (and use [Fix](implement-security-recommendations.md#fix-button)) | - | - | ✔ | ✔ | ✔ |
+| Apply security recommendations for a resource</br> (and use [Fix](implement-security-recommendations.md)) | - | - | ✔ | ✔ | ✔ |
 | View alerts and recommendations | ✔ | ✔ | ✔ | ✔ | ✔ |
 | Exempt security recommendations | - | - | ✔ | ✔ | ✔ |
 

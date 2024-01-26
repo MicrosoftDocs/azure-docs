@@ -91,76 +91,9 @@ Before deploying the proxy, find your managed identity and assign it the `Monito
 
     For more information about the parameters, see the [Parameters](#parameters) table.
 
-    proxy-ingestion.yaml
+    proxy-ingestion.yaml  
 
-    ```yml
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-        labels:
-            app: azuremonitor-ingestion
-        name: azuremonitor-ingestion
-        namespace: observability
-    spec:
-        replicas: 1
-        selector:
-            matchLabels:
-                app: azuremonitor-ingestion
-        template:
-            metadata:
-                labels:
-                    app: azuremonitor-ingestion
-                name: azuremonitor-ingestion
-            spec:
-                containers:
-                - name: aad-auth-proxy
-                  image: mcr.microsoft.com/azuremonitor/auth-proxy/prod/aad-auth-proxy/images/aad-auth-proxy:0.1.0-main-05-24-2023-b911fe1c
-                  imagePullPolicy: Always
-                  ports:
-                  - name: auth-port
-                    containerPort: 8081
-                  env:
-                  - name: AUDIENCE
-                    value: https://monitor.azure.com/.default
-                  - name: TARGET_HOST
-                    value: http://<workspace-endpoint-hostname>
-                  - name: LISTENING_PORT
-                    value: "8081"
-                  - name: IDENTITY_TYPE
-                    value: userAssigned
-                  - name: AAD_CLIENT_ID
-                    value: <clientId>
-                  - name: AAD_TOKEN_REFRESH_INTERVAL_IN_PERCENTAGE
-                    value: "10"
-                  - name: OTEL_GRPC_ENDPOINT
-                    value: <YOUR-OTEL-GRPC-ENDPOINT> # "otel-collector.observability.svc.cluster.local:4317"
-                  - name: OTEL_SERVICE_NAME
-                    value: <YOUE-SERVICE-NAME>
-                  livenessProbe:
-                    httpGet:
-                      path: /health
-                      port: auth-port
-                    initialDelaySeconds: 5
-                    timeoutSeconds: 5
-                  readinessProbe:
-                    httpGet:
-                      path: /ready
-                      port: auth-port
-                    initialDelaySeconds: 5
-                    timeoutSeconds: 5
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-        name: azuremonitor-ingestion
-        namespace: observability
-    spec:
-        ports:
-            - port: 80
-              targetPort: 8081
-        selector:
-            app: azuremonitor-ingestion
-    ```  
+      [!INCLUDE [prometheus-auth-proxy-yaml](../includes/prometheus-authorization-proxy-ingestion-yaml.md)]
 
 
  1. Deploy the proxy using commands:
@@ -376,7 +309,7 @@ A successful query returns a response similar to the following:
 
 | Image Parameter | Helm chart Parameter name | Description | Supported values | Mandatory |
 | --------- | --------- | --------------- | --------- | --------- |
-|  `TARGET_HOST` | `targetHost` | Target host where you want to forward the request to. <br>When sending data to an Azure Monitor workspace, use the `Metrics ingestion endpoint` from the workspaces Overview page. <br> When reading data from an Azure Monitor workspace, use the `Data collection rule` from the workspaces Overview page| | Yes |
+|  `TARGET_HOST` | `targetHost` | Target host where you want to forward the request to. <br>When sending data to an Azure Monitor workspace, use the `Metrics ingestion endpoint` from the workspaces Overview page. <br> When reading data from an Azure Monitor workspace, use the `Query endpoint` from the workspaces Overview page| | Yes |
 |  `IDENTITY_TYPE` | `identityType` | Identity type that is used to authenticate requests. This proxy supports three types of identities. | `systemassigned`, `userassigned`, `aadapplication` | Yes |
 | `AAD_CLIENT_ID` | `aadClientId` | Client ID of the identity used. This is used for `userassigned` and `aadapplication` identity types. Use `az aks show -g <AKS-CLUSTER-RESOURCE-GROUP> -n <AKS-CLUSTER-NAME> --query "identityProfile"` to retrieve the Client ID | | Yes for `userassigned` and `aadapplication` |
 | `AAD_TENANT_ID` | `aadTenantId` | Tenant ID  of the identity used. Tenant ID is used for `aadapplication` identity types. | | Yes for `aadapplication` |

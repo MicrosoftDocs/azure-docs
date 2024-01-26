@@ -2,18 +2,18 @@
 title: Quickstart - Custom sentiment analysis
 titleSuffix: Azure AI services
 description: Quickly start building an AI model to identify the sentiment of text.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: quickstart
-ms.date: 07/19/2023
+ms.date: 01/25/2024
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining
 zone_pivot_groups: usage-custom-language-features
 ---
 
-# Quickstart: Custom sentiment analysis
+# Quickstart: Custom sentiment analysis (preview)
 
 Use this article to get started with creating a Custom sentiment analysis project where you can train custom models for detecting the sentiment of text. A model is artificial intelligence software that's trained to do a certain task. For this system, the models classify text, and are trained by learning from tagged data.
 

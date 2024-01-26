@@ -2,7 +2,7 @@
 title: Translator V3.0 Reference
 titleSuffix: Azure AI services
 description: Reference documentation for the Translator V3.0. Version 3.0 of the Translator provides a modern JSON-based Web API.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator

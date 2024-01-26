@@ -39,6 +39,8 @@ landingContent:
             url: how-to-data-source-plugins-managed-identity.md
           - text: Manage plugins
             url: how-to-manage-plugins.md
+          - text: Add an Azure Monitor workspace
+            url: how-to-connect-azure-monitor-workspace.md
           - text: Create a dashboard
             url: how-to-create-dashboard.md
           - text: Share a dashboard

@@ -93,6 +93,8 @@ Azure Files geo-redundancy for large file shares preview is currently available 
 - UAE North
 - UK South
 - UK West
+- US DoD Central
+- US DoD East
 - US Gov Arizona
 - US Gov Texas
 - US Gov Virginia

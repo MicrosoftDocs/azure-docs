@@ -5,22 +5,22 @@ description: Learn how to view and disconnect Point-to-Site VPN sessions.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/26/2021
+ms.date: 11/27/2023
 ms.author: cherylmc
 
 ---
 
 # Point-to-site VPN session management
 
-Azure virtual network gateways provide an easy way to view and disconnect current Point-to-site VPN sessions. This article helps you view and disconnect current sessions. The session status is updated every 5 minutes. It is not updated immediately. 
+VPN Gateway provides an easy way to view and disconnect current point-to-site VPN sessions. This article helps you view and disconnect current sessions. The session status is updated every 5 minutes. It isn't updated immediately.
 
-As this feature allows the disconnection of VPN clients, Reader permissions on the VPN gateway resource are not sufficient. Contributor role is needed to visualize Point-to-site VPN sessions correctly.
+Because this feature allows the disconnection of VPN clients, Reader permissions on the VPN gateway resource aren't sufficient. The Contributor role is needed to visualize point-to-site VPN sessions correctly.
 
 ## Portal
 
->[!NOTE]
+> [!NOTE]
 > Connection source info is provided for IKEv2 and OpenVPN connections only.
-> 
+>
 
 To view and disconnect a session in the portal:
 
@@ -42,9 +42,11 @@ To view and disconnect a session using PowerShell:
    ```azurepowershell-interactive
    Get-AzVirtualNetworkGatewayVpnClientConnectionHealth -VirtualNetworkGatewayName <name of the gateway>  -ResourceGroupName <name of the resource group>
    ```
+
 1. Copy the **VpnConnectionId** of the session that you want to disconnect.
 
    :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="PowerShell example":::
+
 1. To disconnect the session, run the following command:
 
    ```azurepowershell-interactive
@@ -53,4 +55,4 @@ To view and disconnect a session using PowerShell:
 
 ## Next steps
 
-For more information about Point-to-site connections, see [About Point-to-site VPN](point-to-site-about.md).
+For more information about point-to-site connections, see [About Point-to-site VPN](point-to-site-about.md).

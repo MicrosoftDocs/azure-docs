@@ -2,7 +2,7 @@
 title: 'Quickstart - Deploy a model and generate text using Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.custom: devx-track-dotnet, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-go
@@ -39,6 +39,12 @@ Use this article to get started making your first calls to Azure OpenAI.
 ::: zone pivot="programming-language-java"
 
 [!INCLUDE [Java quickstart](includes/java.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-spring"
+
+[!INCLUDE [Spring quickstart](includes/spring.md)]
 
 ::: zone-end
 

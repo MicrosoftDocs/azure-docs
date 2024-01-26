@@ -7,7 +7,7 @@ ms.custom: references_regions, ignite-2022
 author: EliotSeattle
 ms.author: eliotgra
 recommendations: false
-ms.date: 04/02/2023
+ms.date: 01/04/2024
 ---
 
 # Isolation guidelines for Impact Level 5 workloads
@@ -62,9 +62,9 @@ Be sure to review the entry for each service you're using and ensure that all is
 
 For AI and machine learning services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=project-bonsai,genomics,search,bot-service,databricks,machine-learning-service,cognitive-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
-### [Azure Cognitive Search](../search/index.yml)
+### [Azure AI Search](../search/index.yml)
 
-- Configure encryption at rest of content in Azure Cognitive Search by [using customer-managed keys in Azure Key Vault](../search/search-security-manage-encryption-keys.md).
+- Configure encryption at rest of content in Azure AI Search by [using customer-managed keys in Azure Key Vault](../search/search-security-manage-encryption-keys.md).
 
 ### [Azure Machine Learning](../machine-learning/index.yml)
 
@@ -157,6 +157,9 @@ For Analytics services availability in Azure Government, see [Products available
 
 - Configure encryption at rest of content in Azure Event Hubs by [using customer-managed keys in Azure Key Vault](../event-hubs/configure-customer-managed-key.md).
 
+### [Power BI]( /power-bi/fundamentals/)
+
+- Configure encryption at rest of content in Power BI by [using customer-managed keys in Azure Key Vault]( /power-bi/enterprise/service-encryption-customer-managed-keys).
 
 ## Compute
 

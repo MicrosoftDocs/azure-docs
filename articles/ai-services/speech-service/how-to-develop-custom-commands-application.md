@@ -2,13 +2,11 @@
 title: 'How-to: Develop Custom Commands applications - Speech service'
 titleSuffix: Azure AI services
 description: Learn how to develop and customize Custom Commands applications. These voice-command apps are best suited for task completion or command-and-control scenarios.
-services: cognitive-services
-
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 1/21/2024
 ms.author: eur
 ms.custom: cogserv-non-critical-speech
 ---
@@ -17,7 +15,7 @@ ms.custom: cogserv-non-critical-speech
 
 [!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
 
-In this how-to article, you learn how to develop and configure Custom Commands applications. The Custom Commands feature helps you build rich voice-command apps that are optimized for voice-first interaction experiences. The feature is best suited to task completion or command-and-control scenarios. It's particularly well suited for Internet of Things (IoT) devices and for ambient and headless devices.
+In this how-to article, you learn how to develop and configure Custom Commands applications. The Custom Commands feature helps you build rich voice-command apps that are optimized for voice-first interaction experiences. The feature is best suited to task completion or command-and-control scenarios. It's well suited for Internet of Things (IoT) devices and for ambient and headless devices.
 
 In this article, you create an application that can turn a TV on and off, set the temperature, and set an alarm. After you create these basic commands, you'll learn about the following options for customizing commands:
 
@@ -25,7 +23,7 @@ In this article, you create an application that can turn a TV on and off, set th
 * Adding configurations to command parameters
 * Building interaction rules
 * Creating language-generation templates for speech responses
-* Using Custom Voice tools
+* Using custom voice tools
 
 ## Create an application by using simple commands
 
@@ -46,7 +44,7 @@ A prediction resource is used for recognition when your Custom Commands applicat
 
 ### Add a TurnOn command
 
-In the empty Smart-Room-Lite Custom Commands application you created, add a command. The command will process an utterance, `Turn on the tv`. It will respond with the message `Ok, turning the tv on`.
+In the empty Smart-Room-Lite Custom Commands application you created, add a command. The command processes an utterance, `Turn on the tv`. It responds with the message `Ok, turning the tv on`.
 
 1. Create a new command by selecting **New command** at the top of the left pane. The **New command** window opens.
 1. For the **Name** field, provide the value `TurnOn`.
@@ -108,7 +106,7 @@ For more information about rules and completion rules, see [Custom Commands conc
 
 ### Add a SetTemperature command
 
-Now add one more command, `SetTemperature`. This command will take a single utterance, `Set the temperature to 40 degrees`, and respond with the message `Ok, setting temperature to 40 degrees`.
+Now add one more command, `SetTemperature`. This command takes a single utterance, `Set the temperature to 40 degrees`, and respond with the message `Ok, setting temperature to 40 degrees`.
 
 To create the new command, follow the steps you used for the `TurnOn` command, but use the example sentence `Set the temperature to 40 degrees`.
 
@@ -146,7 +144,7 @@ Try out the following utterance examples by using voice or text:
 - You type: *set the temperature to 40 degrees*
 - Expected response: Ok, setting temperature to 40 degrees
 - You type: *turn on the tv*
-- Expected response: Ok, turning the tv on
+- Expected response: Ok, turning on the tv
 - You type: *set an alarm for 9 am tomorrow*
 - Expected response: Ok, setting an alarm for 9 am tomorrow
 
@@ -164,7 +162,7 @@ In this section, you learn how to add parameters to your commands. Commands requ
 
 Start by editing the existing `TurnOn` command to turn on and turn off multiple devices.
 
-1. Now that the command will handle both on and off scenarios, rename the command as *TurnOnOff*.
+1. Now that the command handles both on and off scenarios, rename the command as *TurnOnOff*.
    1. In the pane on the left, select the **TurnOn** command. Then next to **New command** at the top of the pane, select the edit button.
 
    1. In the **Rename command** window, change the name to *TurnOnOff*.
@@ -172,7 +170,7 @@ Start by editing the existing `TurnOn` command to turn on and turn off multiple 
 1. Add a new parameter to the command. The parameter represents whether the user wants to turn the device on or off.
    1. At top of the middle pane, select  **Add**. From the drop-down menu, select **Parameter**.
    1. In the pane on the right, in the **Parameters** section, in the **Name** box, add `OnOff`.
-   1. Select **Required**. In the **Add response for a required parameter** window, select **Simple editor**. In the **First variation** field, add *On or Off?*.
+   1. Select **Required**. In the **Add response for a required parameter** window, select **Simple editor**. In the **First variation** field, add *On or Off*.
    1. Select **Update**.
 
        > [!div class="mx-imgBorder"]
@@ -335,11 +333,11 @@ Test the three commands together by using utterances related to different comman
 - Input: *Set an alarm*
 - Output: For what time?
 - Input: *Turn on the tv*
-- Output: Ok, turning the tv on
+- Output: Ok, turning on the tv
 - Input: *Set an alarm*
 - Output: For what time?
 - Input: *5 pm*
-- Output: Ok, alarm set for 2020-05-01 17:00:00
+- Output: Ok, alarm set for `2020-05-01 17:00:00`
 
 ## Add configurations to command parameters
 
@@ -354,7 +352,7 @@ The Custom Commands feature allows you to configure string-type parameters to re
 
 Reuse the `SubjectDevice` parameter from the `TurnOnOff` command. The current configuration for this parameter is **Accept predefined inputs from internal catalog**. This configuration refers to a static list of devices in the parameter configuration. Move out this content to an external data source that can be updated independently.
 
-To move the content, start by adding a new web endpoint. In the pane on the left, go to the **Web endpoints** section. There, add a new web endpoint URL. Use the following configuration.
+To move the content, start by adding a new web endpoint. In the pane on the left, go to the **Web endpoints** section. Add a new web endpoint URL. Use the following configuration.
 
 | Setting | Suggested value |
 |----|----|
@@ -362,7 +360,7 @@ To move the content, start by adding a new web endpoint. In the pane on the left
 | **URL** | `<Your endpoint of getDevices.json>` |
 | **Method** | **GET** |
 
-Then, configure and host a web endpoint that returns a JSON file that lists the devices that can be controlled. The web endpoint should return a JSON file that's formatted like this example:
+Then, configure and host a web endpoint that returns a JSON file that lists the devices that can be controlled. The web endpoint should return a JSON file formatted like this example:
 
 ```json
 {
@@ -433,13 +431,13 @@ Try it out by selecting the **Train** icon at the top of the pane on the right. 
 - Input: *Set the temperature to 72 degrees*
 - Output: Ok, setting temperature to 72 degrees
 - Input: *Set the temperature to 45 degrees*
-- Output: Sorry, I can only set temperature between 60 and 80 degrees
+- Output: Sorry, I can only set temperature between 60 degrees and 80 degrees
 - Input: *make it 72 degrees instead*
 - Output: Ok, setting temperature to 72 degrees
 
 ## Add interaction rules
 
-Interaction rules are *additional* rules that handle specific or complex situations. Although you're free to author your own interaction rules, in this example you use interaction rules for the following scenarios:
+Interaction rules are extra rules that handle specific or complex situations. Although you're free to author your own interaction rules, in this example you use interaction rules for the following scenarios:
 
 * Confirming commands
 * Adding a one-step correction to commands
@@ -457,7 +455,7 @@ To add a confirmation, you use the `SetTemperature` command. To achieve confirma
 
     1. Modify the **Confirm command** interaction rule by using the following configuration:
         1. Change the name to **Confirm temperature**.
-        1. The condition **All required parameters** has already been added.
+        1. The condition **All required parameters** is already set.
         1. Add a new action: **Type** > **Send speech response** > **Are you sure you want to set the temperature as {TemperatureValue} degrees?**
         1. In the **Expectations** section, leave the default value of **Expecting confirmation from user**.
 
@@ -496,7 +494,7 @@ Try out the changes by selecting **Train**. When the training finishes, select *
 
 ### Implement corrections in a command
 
-In this section, you'll configure a one-step correction. This correction is used after the fulfillment action has run. You'll also see an example of how a correction is enabled by default if the command isn't fulfilled yet. To add a correction when the command isn't finished, add the new parameter `AlarmTone`.
+In this section, you configure a one-step correction. This correction is used after the fulfillment action has run. You'll also see an example of how a correction is enabled by default if the command isn't fulfilled yet. To add a correction when the command isn't finished, add the new parameter `AlarmTone`.
 
 In the left pane, select the **SetAlarm** command. Then and add the new parameter **AlarmTone**.
 
@@ -518,7 +516,7 @@ Next, update the response for the **DateTime** parameter to **Ready to set alarm
 
 #### Implement a correction when a command is finished
 
-The Custom Commands platform allows for one-step correction even when the command has finished. This feature isn't enabled by default. It must be explicitly configured.
+The Custom Commands platform allows for one-step correction even when the command finishes. This feature isn't enabled by default. It must be explicitly configured.
 
 Use the following steps to configure a one-step correction:
 
@@ -533,7 +531,7 @@ Try out the changes by selecting **Train**. Wait for the training to finish, and
 - **Input**: *Set an alarm.*
 - **Output**: Ready to set alarm with tone as Chimes. For what time?
 - **Input**: *Set an alarm with the tone as Jingle for 9 am tomorrow.*
-- **Output**: OK, alarm set for 2020-05-21 09:00:00. The alarm tone is Jingle.
+- **Output**: OK, alarm set for `2020-05-21 09:00:00`. The alarm tone is Jingle.
 - **Input**: *No, 8 am.*
 - **Output**: Updating previous alarm time to 2020-05-29 08:00.
 
@@ -605,7 +603,7 @@ Edit the **Actions** section of the existing completion rule **ConfirmationRespo
 Train and test your application by using the following input and output. Notice the variation of responses. The variation is created by multiple alternatives of the template value and also by use of adaptive expressions.
 
 * Input: *turn on the tv*
-* Output: Ok, turning the tv on
+* Output: Ok, turning on the tv
 * Input: *turn on the tv*
 * Output: Done, turned on the tv
 * Input: *turn off the lights*
@@ -618,7 +616,7 @@ Train and test your application by using the following input and output. Notice 
 Another way to customize Custom Commands responses is to select an output voice. Use the following steps to switch the default voice to a custom voice:
 
 1. In your Custom Commands application, in the pane on the left, select **Settings**.
-1. In the middle pane, select **Custom Voice**.
+1. In the middle pane, select **Custom voice**.
 1. In the table, select a custom voice or public voice.
 1. Select **Save**.
 
@@ -628,9 +626,9 @@ Another way to customize Custom Commands responses is to select an output voice.
 > [!NOTE]
 > For public voices, neural types are available only for specific regions. For more information, see [Speech service supported regions](./regions.md#speech-service).
 >
-> You can create custom voices on the **Custom Voice** project page. For more information, see [Get started with Custom Voice](./how-to-custom-voice.md).
+> You can create custom voices on the **Custom voice** project page. For more information, see [Get started with custom voice](./professional-voice-create-project.md).
 
-Now the application will respond in the selected voice, instead of the default voice.
+Now the application responds in the selected voice, instead of the default voice.
 
 ## Next steps
 

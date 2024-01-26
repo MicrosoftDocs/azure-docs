@@ -138,7 +138,7 @@ Here's an example of copy activity JSON configuration (see `preserve`):
 ]
 ```
 
-## Next steps
+## Related content
 
 See the other Copy Activity articles:
 
