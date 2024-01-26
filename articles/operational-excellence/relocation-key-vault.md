@@ -90,3 +90,9 @@ In the diagram below,
 
 1. Before deleting your old key vault, verify that the new vault contains all of the required keys, secrets, and certificates. Ensure the key vault isn't needed to decrypt old encrypted backups of virtual machines, databases, or any other dependent Azure services in the source region.
 
+## Next steps
+
+To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)

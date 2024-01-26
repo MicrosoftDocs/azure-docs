@@ -114,3 +114,9 @@ Redeployment with data migration for Azure Database for PostgreSQL is based on l
         1. Ensure that the `ignoreMissingVnetServiceEndpoint` flag is set to `False`, so that the IaC fails to deploy the database when the service endpoint isn’t configured in the target region. 
         
         
+## Next steps
+
+To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)

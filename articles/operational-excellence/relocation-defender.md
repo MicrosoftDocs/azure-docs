@@ -67,5 +67,11 @@ If Defender for Storage plan is enabled for the subscription and if the Storage 
 - If you want to use Logic App connectors, you may need additional credentials to sign in to their respective services such as your Outlook/Teams/Slack instances.
     
 
+## Next steps
+
+To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)
 
 

@@ -34,3 +34,10 @@ This article shows you how to relocate [Azure Private Link](/azure/private-link/
 1. Configure your DNS settings by following guidance in [Private DNS zone values](../private-link/private-endpoint-dns.md)
 
 :::image type="content" source="media/relocation/consumer-provider-endpoint.png" alt-text="Diagram that illustrates relocation process for Private Link service.":::
+
+## Next steps
+
+To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)

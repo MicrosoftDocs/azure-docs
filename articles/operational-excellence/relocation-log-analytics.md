@@ -108,3 +108,9 @@ Once the relocation is complete, the Log Analytics Workspace must be tested and 
         | sort by TimeGenerated desc
     ```
 
+## Next steps
+
+To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)

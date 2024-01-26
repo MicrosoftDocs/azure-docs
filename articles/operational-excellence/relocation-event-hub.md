@@ -100,3 +100,13 @@ To delete an Event Hubs namespace (source or target) by using the Azure portal:
     ![Delete namespace - button](../event-hubs//media/move-across-regions/delete-namespace-button.png)
 3. On the **Delete Namespace** page, confirm the deletion by typing the **namespace name**, and then select **Delete**. 
 
+## Next steps
+
+In this how-to, you learned how to move an Event Hubs namespace from one region to another. 
+
+See the [Relocate Event Hubs to another region](relocate-event-hub.md) article for instructions on moving an Event Hubs cluster from one region to another region. 
+
+To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)

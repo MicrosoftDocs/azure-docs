@@ -45,3 +45,10 @@ To relocate Microsoft Sentinel to a new region, you must reconfigure Sentinel to
 1. Connect the workbooks to Sentinel.
 1. Reconfigure the target data connectors as per source. 
 1. Connect the connectors to Sentinel.
+
+## Next steps
+
+To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)
