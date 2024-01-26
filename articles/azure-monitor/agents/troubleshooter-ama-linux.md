@@ -72,11 +72,10 @@ In addition, the following Python packages are required to run (all should be pr
 |url lib|yes|no|
 |xml.dom.minidom|yes|yes|
 
-### Directory Existence Check
-On the machine to be diagnosed, verify directory exists:
+### Troubleshooter Existence Check
+Check for the existence of the AMA Agent Troubleshooter directory on the machine to be diagnosed to confirm the installation of the agent troubleshooter:
 ***/var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-{version}***
 
-### Troubleshooter Existence Check
 To verify the Azure Monitor Agent Troubleshooter is present, copy the following command and run in Bash as root:
 
 ```Bash
@@ -92,9 +91,7 @@ Yes, the directory exists. Proceed to [Run the Troubleshooter](#run-the-troubles
 ## Run the Troubleshooter
 On the machine to be diagnosed, run the Agent Troubleshooter. 
 
-**Log Mode** enables the collection of logs, which can then be compressed into .tgz format for export or review. 
-
-**Interactive Mode** allows users to actively engage in troubleshooting scenarios and view the output directly within the shell.
+**Log Mode** enables the collection of logs, which can then be compressed into .tgz format for export or review. **Interactive Mode** allows users to actively engage in troubleshooting scenarios and view the output directly within the shell.
 
 # [Log Mode](#tab/GenerateLogs)
 

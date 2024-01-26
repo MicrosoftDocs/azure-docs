@@ -18,8 +18,8 @@ The Azure Monitor Agent (AMA) Troubleshooter is designed to help identify issues
 > The AMA Troubleshooter is a command line executable that is shipped with the agent for all versions newer than **1.12.0.0** for Windows. 
 
 ## Prerequisites
-### Directory Existence Check
-On the machine to be diagnosed, verify directory exists:
+### Troubleshooter Existence Check
+Check for the existence of the AMA Agent Troubleshooter directory on the machine to be diagnosed to confirm the installation of the agent troubleshooter:
 ***C:/Packages/Plugins/Microsoft.Azure.Monitor.AzureMonitorWindowsAgent***
 
 # [PowerShell](#tab/WindowsPowerShell)
