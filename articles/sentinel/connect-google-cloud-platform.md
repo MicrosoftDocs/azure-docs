@@ -222,9 +222,9 @@ Set up Continuous exports for Audit Logs.
 
 1. Select the **GCP Pub/Sub Audit Logs (Preview)** connector.
 
-1. Below the connector description, select **Open connector page**. 
+1. In the details pane, select **Open connector page**. 
 
-1. In the **Configuration** area, select **Add new**. 
+1. In the **Configuration** area, select **Add new collector**. 
 
 1. Type the resource parameters you created when you [created the GCP resources](#set-up-gcp-environment). Make sure that the Data Collection Endpoint Name and the Data Collection Rule Name begin with **Microsoft-Sentinel-** and select **Connect**. 
 
