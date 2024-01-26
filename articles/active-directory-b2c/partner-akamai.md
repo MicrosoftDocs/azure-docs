@@ -2,16 +2,16 @@
 title: Configure Azure Active Directory B2C with Akamai Web Application Protector
 titleSuffix: Azure AD B2C
 description: Configure Akamai Web Application Protector with Azure AD B2C
-
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
+
+#customer intent: I'm an Azure AD B2C administrator, and I want to configure Akamai Web Application Protector (WAP) with Azure AD B2C using custom domains. I need to protect my web applications from malicious attacks and ensure secure traffic management to my services.
 ---
 
 # Configure Azure Active Directory B2C with Akamai Web Application Protector
