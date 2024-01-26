@@ -3,14 +3,15 @@ title: IP addresses used by Azure Monitor | Microsoft Docs
 description: This article discusses server firewall exceptions that are required by Azure Monitor
 ms.topic: reference
 ms.date: 11/15/2023
+ms.servce: azure-monitor
+ms.author: aaronmax
 ms.reviewer: saars
+Author: AaronMaxwell
 ---
 
 # IP addresses used by Azure Monitor
 
 [Azure Monitor](../overview.md) uses several IP addresses. Azure Monitor is made up of core platform metrics and logs in addition to Log Analytics and Application Insights. You might need to know IP addresses if the app or infrastructure that you're monitoring is hosted behind a firewall.
-
-:::image type="content" source="/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png" alt-text="A diagram illustrating the ingestion flow of telemetry" lightbox="/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png":::
 
 > [!NOTE]
 > Although these addresses are static, it's possible that we'll need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhook action groups, which also require inbound firewall rules.
@@ -195,10 +196,12 @@ The *.loganalytics.io domain is owned by the Log Analytics team.
 | Application Insights extension CDN | insightsportal-prod2-cdn.aisvc.visualstudio.com<br/>insightsportal-prod2-asiae-cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | dynamic | 80,443 |
 
 ## Application Insights SDKs
-
+:::image type="content" source="/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png" alt-text="A diagram illustrating the ingestion flow of telemetry" lightbox="/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png":::sdks
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
 | Application Insights JS SDK CDN | az416426.vo.msecnd.net<br/>js.monitor.azure.com | dynamic | 80,443 |
+
+:::image type="content" source="/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png" alt-text="A diagram illustrating the ingestion flow of telemetry" lightbox="/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png":::
 
 ## Action group webhooks
 
