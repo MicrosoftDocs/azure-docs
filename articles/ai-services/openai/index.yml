@@ -28,6 +28,8 @@ landingContent:
             url: overview.md
           - text: Models
             url: ./concepts/models.md
+          - text: Quotas & limits
+            url: quotas-limits.md
           - text: Programming languages/SDKs
             url: supported-languages.md
       - linkListType: whats-new
@@ -46,6 +48,14 @@ landingContent:
              url: use-your-data-quickstart.md
            - text: Whisper (preview)
              url: whisper-quickstart.md
+   - title: Tutorials
+     linkLists:
+     - linkListType: tutorial
+       links:
+         - text: Embeddings
+           url: ./tutorials/embeddings.md
+         - text: Fine-tuning GPT-3.5 Turbo
+           url: ./tutorials/fine-tune.md
 
 #Card 2
    - title: Azure OpenAI concepts
@@ -88,15 +98,20 @@ landingContent:
                url: ./how-to/create-resource.md 
 
 
-  #Card 4
-   - title: Tutorials
+# Card 4   
+
+   - title: Architecture & training
      linkLists:
-     - linkListType: tutorial
-       links:
-         - text: Embeddings
-           url: ./tutorials/embeddings.md
-         - text: Fine-tuning GPT-3.5 Turbo
-           url: ./tutorials/fine-tune.md
+      - linkListType: architecture
+        links:
+           - text: End-to-end chat reference architecture
+             url: /azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat
+      - linkListType: learn
+        links:
+           - text: Azure OpenAI training
+             url: https://learn.microsoft.com/training/browse/?terms=Azure%20OpenAI            
+
+
 
   #Card 5
    - title: Responsible AI
@@ -139,15 +154,3 @@ landingContent:
              url: /azure/developer/python/get-started-app-chat-template
 
 
-# Card 7
-
-   - title: Architecture & training
-     linkLists:
-      - linkListType: architecture
-        links:
-           - text: End-to-end chat reference architecture
-             url: /azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat
-      - linkListType: learn
-        links:
-           - text: Azure OpenAI training
-             url: https://learn.microsoft.com/training/browse/?terms=Azure%20OpenAI            
