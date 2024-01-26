@@ -25,7 +25,7 @@ In this article, you learn how to remotely configure, start, stop, download, and
     - to 168.63.129.16 over port 8037
 
 > [!NOTE]
-> - Network Watcher packet capture requires Network Watcher agent VM extension to be installed on the target virtual machine. When you use Network Watcher packet capture for the first time, Azure installs the agent on the VM if it wasn't previously installed. To update an already installed agent, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json).
+> - Network Watcher packet capture requires Network Watcher agent VM extension to be installed on the target virtual machine. Whenever you use Network Watcher packet capture, Azure installs the agent on the target VM or scale set if it wasn't previously installed. To update an already installed agent, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json).
 > - The last two ports mentioned in the Prerequisites are common across all Network Watcher features that use the Network Watcher agent and might occasionally change.
 
 If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist to allow outbound connectivity over the previous ports. Similarly, ensure outbound connectivity over the previous ports when adding user-defined routes to your network.
