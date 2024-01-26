@@ -169,7 +169,17 @@ If you navigated away from the **Deployment is in progress** page, the following
 
    :::image type="content" source="media/howto-deploy-java-liberty-app/red-hat-openshift-cluster-console-portal.png" alt-text="Screenshot of Red Hat OpenShift cluster console portal showing Installed Operators page." lightbox="media/howto-deploy-java-liberty-app/red-hat-openshift-cluster-console-portal.png":::
 
-You can use the output commands to create an application or manage the cluster.
+1. Download and install the OpenShift CLI `oc` by following steps in tutorial [Install the OpenShift CLI](tutorial-connect-cluster.md#install-the-openshift-cli), then return to this documentation.
+
+1. Switch to **Outputs** pane, copy the value from the **cmdToLoginWithKubeadmin** field and past it in your terminal. Run the command to login to the OpenShift cluster's API server. You should see the similar outputs in the console.
+   
+   ```text
+   Login successful.
+
+   You have access to 71 projects, the list has been suppressed. You can list all projects with 'oc projects'
+
+   Using project "default".
+   ```
 
 ## Clean up resources
 
