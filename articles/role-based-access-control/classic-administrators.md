@@ -30,7 +30,7 @@ Will Co-Administrators lose access after August 31, 2024?
 
 What is the equivalent Azure role I should assign for Co-Administrators?
 
-- [Owner](built-in-roles.md#owner) role at subscription scope has the equivalent access. However, Owner is a [privileged administrator role](role-assignments-steps.md#privileged-administrator-roles) and grants full access to manage Azure resources. You should consider another Azure role with few permissions or reduce the scope.
+- [Owner](built-in-roles.md#owner) role at subscription scope has the equivalent access. However, Owner is a [privileged administrator role](role-assignments-steps.md#privileged-administrator-roles) and grants full access to manage Azure resources. You should consider another Azure role with fewer permissions or reduce the scope.
 
 What should I do if I have a strong dependency on Co-Administrators?
 
