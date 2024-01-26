@@ -17,9 +17,8 @@ This article shows you how to list and download Azure Database for PostgreSQL fl
 
 ## Prerequisites
 
-This article requires that you're running the Azure CLI version 2.39.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-
-You need to sign in to your account by using the [az login](/cli/azure/reference-index#az-login) command. The `id` property refers to the **Subscription ID** for your Azure account.
+- You must be running the Azure CLI version 2.39.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+- Sign in to your account by using the [az login](/cli/azure/reference-index#az-login) command. The `id` property refers to the **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
@@ -69,5 +68,5 @@ az postgres flexible-server server-logs download --resource-group <myresourcegro
 
 ## Next steps
 
-- To enable and disable server logs from the portal, see [Enable, list, and download server logs for Azure Database for PostgreSQL - Flexible server](./how-to-server-logs-portal.md).
+- To enable and disable server logs from the portal, see [Enable, list, and download server logs for Azure Database for PostgreSQL flexible server](./how-to-server-logs-portal.md).
 - Learn more about [logging](./concepts-logging.md).

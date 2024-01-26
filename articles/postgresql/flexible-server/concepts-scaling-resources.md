@@ -13,7 +13,7 @@ ms.date:         1/4/2024
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-Azure Database for PostgreSQL flexible server supports both vertical and horizontal scaling options:
+Azure Database for PostgreSQL flexible server supports both vertical and horizontal scaling options.
 
 **Vertical scaling**: You can scale vertically by adding more resources to the Azure Database for PostgreSQL flexible server instance, such as increasing the instance-assigned number of CPUs and memory. Network throughput of your instance depends on the values you choose for CPU and memory.
 
