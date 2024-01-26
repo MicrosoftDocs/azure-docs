@@ -48,7 +48,7 @@ Follow these steps to view the Co-Administrators for a subscription using the Az
 
 1. Click the **Classic administrators** tab to view a list of the Co-Administrators.
 
-    ![Screenshot that opens Classic administrators](./media/shared/classic-administrators.png)
+    ![Screenshot that opens Classic administrators.](./media/shared/classic-administrators.png)
 
 ## Assess Co-Administrators
 
@@ -81,7 +81,7 @@ Follow these steps to remove a Co-Administrator.
 
 1. In the message box that appears, click **Yes**.
 
-    ![Screenshot that removes co-administrator](./media/classic-administrators/remove-coadmin.png)
+    ![Screenshot that removes co-administrator.](./media/classic-administrators/remove-coadmin.png)
 
 ## Add a Co-Administrator
 
