@@ -25,7 +25,7 @@ To follow the Azure Spring Apps deployment examples, you only need the location 
 
 The following diagram shows the architecture of the PetClinic application.
 
-:::image type="content" source="media/build-and-deploy/microservices-architecture-diagram.jpg" alt-text="Diagram that shows the architecture of the PetClinic app." lightbox="media/build-and-deploy/microservices-architecture-diagram.jpg":::
+:::image type="content" source="media/quickstart-sample-app-introduction/microservices-architecture-diagram.jpg" alt-text="Diagram that shows the architecture of the PetClinic app." lightbox="media/quickstart-sample-app-introduction/microservices-architecture-diagram.jpg":::
 
 > [!NOTE]
 > When the application is hosted in Azure Spring Apps Enterprise plan, the managed Application Configuration Service for VMware Tanzu assumes the role of Spring Cloud Config Server and the managed VMware Tanzu Service Registry assumes the role of Eureka Service Discovery without any code changes to the application. For more information, see the [Infrastructure services hosted by Azure Spring Apps](#infrastructure-services-hosted-by-azure-spring-apps) section later in this article.
