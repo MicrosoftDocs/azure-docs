@@ -297,7 +297,8 @@ To allow for a duration of time to wait between draining a node and proceeding t
 
 ## Next steps
 
-To learn how to configure automatic upgrades, see [Configure automatic upgrades for an AKS cluster][configure-automatic-aks-upgrades].
+To learn how to configure automatic upgrades, see [Configure automatic upgrades for an AKS cluster][configure-automatic-aks-upgrades]. For a detailed discussion of upgrade best practices and additional considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
+
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
@@ -316,6 +317,7 @@ To learn how to configure automatic upgrades, see [Configure automatic upgrades 
 [az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az_aks_nodepool_upgrade
 [configure-automatic-aks-upgrades]: ./upgrade-cluster.md#configure-automatic-upgrades
 [release-tracker]: release-tracker.md
+[upgrade-operators-guide]: /architecture/operator-guides/aks/aks-upgrade-practices
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

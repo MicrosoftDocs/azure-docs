@@ -660,7 +660,7 @@
             items:
             - name: Upgrade an AKS cluster
               href: upgrade-aks-cluster.md
-            - name: Upgrade the node image
+            - name: Upgrade node operating system images
               href: node-image-upgrade.md
             - name: Customize node surge upgrade
               href: upgrade-aks-cluster.md#customize-node-surge-upgrade
@@ -673,8 +673,8 @@
               - name: Use Planned Maintenance to schedule and control upgrades
                 href: planned-maintenance.md
               - name: Automatically upgrade AKS cluster node operating system images
-                href: auto-upgrade-node-image.md
-              - name: Upgrade the node image automatically with GitHub Actions
+                href: auto-upgrade-node-os-image.md
+              - name: Upgrade node operating system images automatically with GitHub Actions
                 href: node-upgrade-github-actions.md
 
     - name: Azure Linux container host for AKS

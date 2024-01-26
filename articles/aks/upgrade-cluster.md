@@ -54,13 +54,9 @@ The combination of [Planned Maintenance Window][planned-maintenance], [Max Surge
     > [!NOTE] 
     > To use node soak duration (preview), you must have the aks-preview Azure CLI extension version 0.5.173 or later installed.
 
-
 ## Next steps
 
-This article listed different upgrade options for AKS clusters. To learn more about deploying and managing AKS clusters, see the following tutorial:
-
-> [!div class="nextstepaction"]
-> [AKS tutorials][aks-tutorial-prepare-app]
+This article listed different upgrade options for AKS clusters. For a detailed discussion of upgrade best practices and additional considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
 
 <!-- LINKS - external -->
 [pdb-spec]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
@@ -73,3 +69,4 @@ This article listed different upgrade options for AKS clusters. To learn more ab
 [nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [planned-maintenance]: planned-maintenance.md
 [specific-nodepool]: node-image-upgrade.md#upgrade-a-specific-node-pool
+[upgrade-operators-guide]: /architecture/operator-guides/aks/aks-upgrade-practices
