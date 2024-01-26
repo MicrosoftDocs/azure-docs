@@ -45,7 +45,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 ::: zone-end
 
 ### Compliance Recording
-Compliance recording is Teams policy based recording that could be enabled using this tutorial: [Introduction to Teams policy-based recording for callings](https://learn.microsoft.com/microsoftteams/teams-recording-policy).<br>
+Compliance recording is Teams policy based recording that could be enabled using this tutorial: [Introduction to Teams policy-based recording for callings](/microsoftteams/teams-recording-policy).<br>
 Policy based recording will be started automatically when user with this policy will join a call. To get notification from Azure Communication Service about recording - we can use Cloud Recording section from this article.
 
 ```js
