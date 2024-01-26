@@ -94,7 +94,7 @@ If your mount failed, it's possible that your private endpoint wasn't set up cor
 
 ## NFS file share snapshots
 
-Customers using NFS Azure file shares can create, list, and delete NFS Azure file share snapshots. This capability allows users to roll back entire file systems or recover files that were accidentally deleted or corrupted.
+Customers using NFS Azure file shares can create, list, and delete NFS Azure file share snapshots. This capability allows users to roll back entire file systems or recover files that were accidentally deleted or corrupted. This feature is now available in all Azure public cloud regions.
 
 > [!IMPORTANT]
 > You should mount your file share before creating snapshots. If you create a new NFS file share and take snapshots before mounting the share, attempting to list the snapshots for the share will return an empty list. We recommend deleting any snapshots taken before the first mount and re-creating them after you've mounted the share.
