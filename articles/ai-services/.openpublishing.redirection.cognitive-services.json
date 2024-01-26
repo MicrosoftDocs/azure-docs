@@ -1975,6 +1975,11 @@
             "redirect_url": "/azure/ai-services/computer-vision/how-to/specify-recognition-model",
             "redirect_document_id": false
         },
+	{
+            "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/specity-detection-model.md",
+            "redirect_url": "/azure/ai-services/computer-vision/how-to/specify-detection-model",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/specify-detection-model.md",
             "redirect_url": "/azure/ai-services/computer-vision/how-to/specify-detection-model",
