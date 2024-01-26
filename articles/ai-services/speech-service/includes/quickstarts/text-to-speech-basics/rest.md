@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/25/2023
+ms.date: 01/29/2024
 ms.author: eur
 ---
 
@@ -20,7 +20,7 @@ ms.author: eur
 
 ## Synthesize to a file
 
-At a command prompt, run the following cURL command. Optionally, you can rename *output.mp3* to another output filename.
+At a command prompt, run the following cURL command. Optionally, you can rename *output.mp3* to another output file name.
 
 # [Windows](#tab/windows)
 

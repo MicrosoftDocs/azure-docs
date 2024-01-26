@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/25/2023
+ms.date: 01/29/2024
 ms.author: eur
 ---
 
@@ -24,9 +24,9 @@ Install the Speech SDK for Go. For requirements and instructions, see [Install t
 
 ## Synthesize to speaker output
 
-Follow these steps to create a new Go module.
+Follow these steps to create a Go module.
 
-1. Open a console window where you want the new module, and then create a new file named *speech-synthesis.go*.
+1. Open a Command Prompt window in the folder where you want the new project. Create a new file named *speech-synthesis.go*.
 1. Copy the following code into *speech-synthesis.go*:
 
     ```go

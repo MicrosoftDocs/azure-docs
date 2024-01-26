@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/25/2023
+ms.date: 01/29/2024
 ms.author: eur
 ---
 
@@ -24,14 +24,9 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 ## Synthesize to speaker output
 
-Follow these steps to create a new console application and install the Speech SDK.
+Follow these steps to create a console application and install the Speech SDK.
 
 1. Create a C++ console project in [Visual Studio Community](https://visualstudio.microsoft.com/downloads/) named `SpeechSynthesis`.
-1. Install the Speech SDK in your new project with the NuGet package manager.
-
-   ```powershell
-   Install-Package Microsoft.CognitiveServices.Speech
-   ```
 
 1. Replace the contents of *SpeechSynthesis.cpp* with the following code:
 
@@ -109,6 +104,12 @@ Follow these steps to create a new console application and install the Speech SD
         return value ? value : "";
     #endif
     }  
+    ```
+
+1. Select **Tools** > **Nuget Package Manager** > **Packet Manager Console**. In the **Packet Manager Console**, run this command:
+
+    ```console
+    Install-Package Microsoft.CognitiveServices.Speech
     ```
 
 1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
