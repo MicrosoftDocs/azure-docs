@@ -2,15 +2,9 @@
 title: Cost model for Azure NetApp Files | Microsoft Docs
 description: Describes the cost model for Azure NetApp Files for managing expenses from the service.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/08/2021
 ms.author: anfdocs

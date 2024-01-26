@@ -38,7 +38,7 @@ Before you can access your resources, you'll need to meet the prerequisites:
   - [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)
   - [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
-- .NET Framework 4.6.2 or later. You may need to install this on Windows Server 2012 R2, Windows Server 2016, and some versions of Windows 10. To download the latest version, see [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
+- .NET Framework 4.6.2 or later. You may need to install this on Windows Server 2016, and some versions of Windows 10. To download the latest version, see [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 
 ## Install the Remote Desktop client
 

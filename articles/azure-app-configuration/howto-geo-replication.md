@@ -88,9 +88,9 @@ To delete a replica in the portal, follow the steps below.
 
 --- -->
 
-## Use replicas
+## Scale and failover with replicas
 
-Each replica you create has its dedicated endpoint. If your application resides in multiple geolocations, you can update each deployment of your application in a location to connect to the replica closer to that location, which helps minimize the network latency between your application and App Configuration. Since each replica has its separate request quota, this setup also helps the scalability of your application while it grows to a multi-region distributed service.
+Each replica you create has its dedicated endpoint. If your application resides in multiple geo-locations, you can update each deployment of your application in a location to connect to the replica closer to that location, which helps minimize the network latency between your application and App Configuration. Since each replica has its separate request quota, this setup also helps the scalability of your application while it grows to a multi-region distributed service.
 
 When geo-replication is enabled, and if one replica isn't accessible, you can let your application failover to another replica for improved resiliency. App Configuration provider libraries have built-in failover support by accepting multiple replica endpoints. You can provide a list of your replica endpoints in the order of the most preferred to the least preferred endpoint. When the current endpoint isn't accessible, the provider library will fail over to a less preferred endpoint, but it will try to connect to the more preferred endpoints from time to time. When a more preferred endpoint becomes available, it will switch to it for future requests.
 
@@ -110,7 +110,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
         new Uri("<first-replica-endpoint>"),
         new Uri("<second-replica-endpoint>") };
     
-    // Connect to replica endpoints using Azure AD authentication
+    // Connect to replica endpoints using Microsoft Entra authentication
     options.Connect(endpoints, new DefaultAzureCredential());
 
     // Other changes to options
@@ -172,6 +172,30 @@ The failover may occur if the App Configuration provider observes the following 
 - Requests are throttled (HTTP status code 429).
 
 The failover won't happen for client errors like authentication failures.
+
+## Automatic replica discovery
+
+You can specify one or more endpoints of a geo-replication-enabled App Configuration store that you want your application to connect or failover to. However, if none of these endpoints are accessible, the App Configuration provider libraries can automatically discover any additional replicas and attempt to connect to them. This feature allows you to benefit from geo-replication without having to change your code or redeploy your application. This means you can enable geo-replication or add extra replicas even after your application has been deployed.
+
+The automatically discovered replicas will be selected and used randomly. If you have a preference for specific replicas, you can explicitly specify their endpoints. This feature is enabled by default, but you can refer to the following sample code to disable it.
+
+Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
+
+```csharp
+configurationBuilder.AddAzureAppConfiguration(options =>
+{
+    // Disable automatic replica discovery
+    options.ReplicaDiscoveryEnabled = false;
+
+    // Other changes to options
+});
+```
+
+> [!NOTE]
+> The automatic replica discovery support is available if you use version **7.1.0-preview** or later of any of the following packages.
+> - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
+> - `Microsoft.Azure.AppConfiguration.AspNetCore`
+> - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
 ## Next steps
 

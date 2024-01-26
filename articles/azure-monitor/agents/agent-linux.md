@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.custom: linux-related-content
 ms.date: 06/01/2023
 ms.reviewer: JeffWo
+ms.author: JeffWo
 ---
 
 # Install the Log Analytics agent on Linux computers
@@ -56,13 +57,13 @@ If you're using an older version of the agent, you must have the virtual machine
  ```bash
     sudo yum install -y python2
  ```
- - **Ubuntu, Debian**:
+- **Ubuntu, Debian**:
 
  ```bash
     sudo apt-get update
     sudo apt-get install -y python2
  ```
- - **SUSE**:
+- **SUSE**:
 
  ```bash
     sudo zypper install -y python2
@@ -121,7 +122,7 @@ Regardless of the installation method used, you need the workspace ID and key fo
 :::image type="content" source="media/log-analytics-agent/workspace-details.png" lightbox="media/log-analytics-agent/workspace-details.png" alt-text="Screenshot that shows workspace details.":::
 
 >[!NOTE]
->While regenerating the [Log Analytics Workspace shared keys](/rest/api/loganalytics/workspace-shared-keys) is possible, the intention for this is **not** to immediately restrict access to any agents currently using those keys. Agents use the key to generate a certificate that expires after three months. Regenerating the shared keys will only prevent agents from renewing their certificates, not continuing to use those certificates until they expire.
+>While regenerating the Log Analytics Workspace shared keys is possible, the intention for this is **not** to immediately restrict access to any agents currently using those keys. Agents use the key to generate a certificate that expires after three months. Regenerating the shared keys will only prevent agents from renewing their certificates, not continuing to use those certificates until they expire.
 
 ## Agent install package
 

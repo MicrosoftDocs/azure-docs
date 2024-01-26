@@ -2,10 +2,7 @@
 title: Azure API Management backends | Microsoft Docs
 description: Learn about custom backends in Azure API Management
 services: api-management
-documentationcenter: ''
 author: dlepow
-editor: ''
-
 ms.service: api-management
 ms.topic: article
 ms.date: 01/09/2024
@@ -199,8 +196,8 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-05-01-previ
   properties: {
     description: 'Load balancer for multiple backends'
     type: 'Pool'
-    protocol: 'http'
-    url: 'http://google.com'
+    protocol: 'https'
+    url: 'https://example.com'
     pool: {
       services: [
         {
@@ -226,8 +223,8 @@ Include a JSON snippet similar to the following in your ARM template for a backe
   "properties": {
     "description": "Load balancer for multiple backends",
     "type": "Pool",
-    "protocol": "http",
-    "url": "http://google.com",
+    "protocol": "https",
+    "url": "https://example.com",
     "pool": {
       "services": [
         {

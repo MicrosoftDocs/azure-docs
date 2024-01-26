@@ -8,7 +8,7 @@ ms.subservice: flexible-server
 ms.custom: mvc, mode-other
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/20/2022
+ms.date: 12/21/2023
 ---
 
 # Security and compliance certifications in Azure Database for PostgreSQL - Flexible Server

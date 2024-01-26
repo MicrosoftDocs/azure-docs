@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: include
-ms.date: 06/03/2020
+ms.date: 01/19/2024
 
 ms.custom: devx-track-js
 ---

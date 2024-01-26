@@ -61,5 +61,4 @@ Spring Cloud Gateway supports rolling restarts to ensure zero downtime and disru
 
 ## Next steps
 
-- [Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md)
 - [Scale an application in Azure Spring Apps](how-to-scale-manual.md)

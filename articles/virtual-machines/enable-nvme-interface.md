@@ -162,7 +162,7 @@ NVMe can be enabled during VM creation using various methods such as: Azure port
                     } 
                 } 
             ], 
-            "diskControllerType": "NVME" 
+            "diskControllerTypes": "NVME" 
         }, 
         "securityProfile": { 
             "encryptionAtHost": "[parameters('encryptionAtHost')]" 

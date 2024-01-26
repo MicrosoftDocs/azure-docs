@@ -10,6 +10,9 @@ ms.date: 09/16/2021
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer using Azure Active Directory B2C, I want to set up sign-up and sign-in with an Amazon account, so that users can authenticate using their Amazon credentials.
+
 ---
 
 # Set up sign-up and sign-in with an Amazon account using Azure Active Directory B2C
