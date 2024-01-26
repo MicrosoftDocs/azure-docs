@@ -26,8 +26,8 @@ landingContent:
         links:
           - text: What is Azure OpenAI?
             url: overview.md
-          - text: Azure OpenAI FAQ
-            url: faq.yml
+          - text: Models
+            url: ./concepts/models.md
           - text: Programming languages/SDKs
             url: supported-languages.md
       - linkListType: whats-new
@@ -36,8 +36,6 @@ landingContent:
             url: whats-new.md
       - linkListType: quickstart
         links:
-           - text: Completions
-             url: quickstart.md
            - text: Chat completions
              url: chatgpt-quickstart.md
            - text: GPT-4 Turbo with Vision
@@ -56,30 +54,16 @@ landingContent:
         links:
           - text: Quota
             url: ./how-to/quota.md
-          - text: Models
-            url: ./concepts/models.md
           - text: Provisioned Throughput Units (PTU)
             url: ./concepts/provisioned-throughput.md
           - text: Content filtering
             url: ./concepts/content-filter.md
           - text: Intro to prompt engineering
             url: ./concepts/prompt-engineering.md
-          - text: Applied prompt engineering
-            url: ./concepts/advanced-prompt-engineering.md
           - text: Fine-tuning
             url: ./concepts/fine-tuning-considerations.md
 
   #Card 3
-   - title: Tutorials
-     linkLists:
-     - linkListType: tutorial
-       links:
-         - text: Embeddings
-           url: ./tutorials/embeddings.md
-         - text: Fine-tuning GPT-3.5 Turbo
-           url: ./tutorials/fine-tune.md
-
-  #Card 4
    - title: Azure OpenAI getting started
      linkLists:
          - linkListType: get-started
@@ -98,6 +82,17 @@ landingContent:
                url:  ./how-to/gpt-with-vision.md
              - text: Resource creation & deployment
                url: ./how-to/create-resource.md 
+
+
+  #Card 4
+   - title: Tutorials
+     linkLists:
+     - linkListType: tutorial
+       links:
+         - text: Embeddings
+           url: ./tutorials/embeddings.md
+         - text: Fine-tuning GPT-3.5 Turbo
+           url: ./tutorials/fine-tune.md
 
   #Card 5
    - title: Responsible AI
@@ -147,7 +142,7 @@ landingContent:
       - linkListType: architecture
         links:
            - text: End-to-end chat reference architecture
-             url: /architecture/ai-ml/architecture/baseline-openai-e2e-chat
+             url: /azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat
       - linkListType: learn
         links:
            - text: Azure OpenAI training
