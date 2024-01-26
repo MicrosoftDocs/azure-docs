@@ -29,6 +29,7 @@ The benefits of custom-mounted storage include:
 The limitations of custom-mounted storage include:
 - [Storage firewall](../../../storage/common/storage-network-security.md) is supported only through [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) and [private endpoints](../../../storage/common/storage-private-endpoints.md) (when [VNET integration](../../overview-vnet-integration.md) is used).
 - FTP/FTPS access to custom-mounted storage isn't supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
+- Storage account shared access keys are the only means of authentication that are supported; [Entra ID and RBAC Roles](https://learn.microsoft.com/en-us/rest/api/storageservices/authorize-with-azure-active-directory#manage-access-rights-with-rbac) are not supported.
 - Azure CLI, Azure PowerShell, and Azure SDK support is in preview.
 - Mapping `/` or `/home` to custom-mounted storage isn't supported.
 - Don't map the storage mount to `/tmp` or its subdirectories as this action may cause a timeout during app startup.
