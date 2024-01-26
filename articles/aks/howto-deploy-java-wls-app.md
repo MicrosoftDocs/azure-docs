@@ -91,7 +91,7 @@ The following steps make it so the WLS admin console and the sample app are expo
 1. Select **Create**.
 1. Track the progress of the deployment on the **Deployment is in progress** page.
 
-Depending on network conditions and other activity in your selected region, the deployment may take up to 30 minutes to complete.
+Depending on network conditions and other activity in your selected region, the deployment may take up to 50 minutes to complete.
 
 ## Examine the deployment output
 
@@ -452,7 +452,7 @@ Follow the steps to build an auxiliary image including Model in Image model file
 
     * Open Azure portal and go to the resource group that was provisioned in [Deploy WSL on AKS](#deploy-wls-on-aks).
     * Select the ACR from resource list. Write down the resource name.
-    * Run the following command to tag and push the image.
+    * Run the following command to tag and push the image. Replace value of **ACR_NAME** with yours.
 
         ```bash
         # replace the ACR name with yours.
@@ -503,16 +503,24 @@ Now you have the auxiliary image including models and WDT. Before you apply the 
 
 1. Create secret for datasource connection.
 
-    This article uses secret name `sqlserver-secret` for secret of datasource connection. Run the following command to create the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/). If you use a different name, make sure the value is the same with that used in *dbmodel.yaml*. Make sure the following variables for database connection are set correctly.
+    This article uses secret name `sqlserver-secret` for secret of datasource connection. Run the following command to create the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/). If you use a different name, make sure the value is the same with that used in *dbmodel.yaml*. Make sure variable **DB_CONNECTION_STRING**, **DB_USER** and **DB_PASSWORD**  for database connection are set correctly.
+
+    | Variable | Value | Example |
+    |----------|-------|---------|
+    |`DB_CONNECTION_STRING` |  The connection string of SQL server. You can obtain it from portal. | `jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125`
+    | `DB_USER` | The username to login the SQL server. | `welogic@sqlserverforwlsaks` |
+    | `DB_PASSWORD` | The password to login the sQL server. | `Secret123456` |
 
     ```bash
     # replace with your values
-    export DB_CONNECTION_STRING=<example-jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125;>
+    export DB_CONNECTION_STRING=<example-jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125>
     # replace with your values
     export DB_USER=<example-welogic@sqlserverforwlsaks>
     # replace with your values
     export DB_PASSWORD=<example-Secret123456>
-
+    ```
+    
+    ```bash
     export WLS_DOMAIN_NS=sample-domain1-ns
     export WLS_DOMAIN_UID=sample-domain1
     export SECRET_NAME=sqlserver-secret
@@ -593,7 +601,7 @@ The following steps show you how to verify the functionality of the deployment b
    > This article shows the WLS admin console merely by way of demonstration. Don't use the WLS admin console for any durable configuration changes when running WLS on AKS. The cloud-native design of WLS on AKS requires that any durable configuration must be represented in the initial docker images or applied to the running AKS cluster using CI/CD techniques such as updating the model, as described in the [Oracle documentation](https://aka.ms/wls-aks-docs-update-model).
 
 1. Understand the `context-path` of the sample app you deployed. If you deployed the recommended sample app, the `context-path` is `weblogic-cafe`.
-1. Construct a fully qualified URL for the sample app by appending the `context-path` to the value of **clusterExternalUrl**. If you deployed the recommended sample app, the fully qualified URL will be something like `http://wlsgw202401-haiche-wls-aks-domain1.eastus.cloudapp.azure.com/weblogic-cafe/`.
+1. Construct a fully qualified URL for the sample app by appending the `context-path` to the value of **clusterExternalUrl**. If you deployed the recommended sample app, the fully qualified URL will be something like `http://wlsgw202401-wls-aks-domain1.eastus.cloudapp.azure.com/weblogic-cafe/`.
 1. Paste the fully qualified URL in an Internet-connected web browser. If you deployed the recommended sample app, you should see results similar to the following screenshot.
 
    :::image type="content" source="media/howto-deploy-java-wls-app/weblogic-cafe-app.png" alt-text="Screenshot of test web app." border="false":::
