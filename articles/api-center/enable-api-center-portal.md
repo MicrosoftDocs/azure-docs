@@ -4,7 +4,7 @@ description: Enable the API Center portal, an automatically generated website th
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 01/22/2024
+ms.date: 01/26/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API program manager, I want to enable a portal for developers and other API stakeholders in my organization to discover the APIs in my organization's API center.
