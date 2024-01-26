@@ -20,11 +20,11 @@ This document contains information about new features and other changes to the M
 
 #### New features (3.1.1)
 
-- Added a new option, `enableAccessibilityLocationFallback`, to toggle the ability to enable or disable location fallback using the REST API for accessibility.
+- Added a new option, `enableAccessibilityLocationFallback`, to enable or disable reverse-geocoding API fallback for accessibility (screen reader).
 
 #### Bug fixes (3.1.1)
 
-- Resolved an issue where ApplicationInsights was potentially sending a large number of requests.
+- Resolved an issue where ApplicationInsights v3.0.5 was potentially sending a large number of requests.
 
 ### [3.1.0] (January 12, 2024)
 
