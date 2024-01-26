@@ -165,7 +165,9 @@ If you navigated away from the **Deployment is in progress** page, the following
    }
    ```
 
-1. Paste the value from the **clusterConsoleUrl** field into an Internet-connected web browser, and then press <kbd>Enter</kbd>. Fill in the admin user name and password, which you can find in the list of installed IBM WebSphere Liberty operators, as shown in the following screenshot.
+1. Paste the value from the **clusterConsoleUrl** field into an Internet-connected web browser, and then press <kbd>Enter</kbd>. Fill in the admin user name and password and sign in.
+
+1. Verify the appropriate Kubernetes operator for Liberty has been installed. In the left navigation pane, select **Operators**, then **Installed Operators**, as shown in the following screenshot.
 
    :::image type="content" source="media/howto-deploy-java-liberty-app/red-hat-openshift-cluster-console-portal.png" alt-text="Screenshot of Red Hat OpenShift cluster console portal showing Installed Operators page." lightbox="media/howto-deploy-java-liberty-app/red-hat-openshift-cluster-console-portal.png":::
 
