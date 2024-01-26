@@ -44,6 +44,8 @@ Additionally, you can downgrade the virtual network gateway SKU. The following d
 
 For all other downgrade scenarios, you need to delete and recreate the gateway. Recreating a gateway incurs downtime.
 
+## Virtual network gateway limitations and performance
+
 ### <a name="gatewayfeaturesupport"></a>Feature support by gateway SKU
 
 The following table shows the features supported across each gateway types and max number of ExpressRoute circuit connections supported by each gateway SKU.
@@ -53,13 +55,11 @@ The following table shows the features supported across each gateway types and m
 | **Standard SKU/ERGw1Az** | Yes | No | 4 |
 | **High Perf SKU/ERGw2Az** | Yes | No | 8 |
 | **Ultra Performance SKU/ErGw3Az** | Yes | Yes | 16 |
-| **ErGwScale (Preview)** | Yes | Yes (>= 10 scale units) | 4 - minimum 1 scale unit<br>8 - minimum of 2 scale units<br>16 - minimum of 10 scale units |
+| **ErGwScale (Preview)** | Yes | Yes - minimum 10 of scale units | 4 - minimum 1 of scale unit<br>8 - minimum of 2 scale units<br>16 - minimum of 10 scale units |
 
 >[!NOTE]
 > The maximum number of ExpressRoute circuits from the same peering location that can connect to the same virtual network is 4 for all gateways.
 >
-
-## Virtual network gateway limitations and performance
 
 ### <a name="aggthroughput"></a>Estimated performances by gateway SKU
 
