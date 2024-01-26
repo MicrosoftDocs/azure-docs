@@ -14,14 +14,11 @@ ms.custom:
 # Relocate Azure Event Hubs to another region
 
 
-This article covers relocation guidance for Azure Event Hubs across regions. 
+This article shows you how to to copy an Event Hubs namespace and configuration settings to another region. 
 
-This article shows you how to export an Azure Resource Manager template for an existing Event Hubs namespace and then use the template to create a namespace with same configuration settings in another region. However, this process doesn't move events that aren't processed yet. You need to process the events from the original namespace before deleting it.
+If you have other resources in the Azure resource group that contains the Event Hubs namespace, you may want to export the template at the resource group level so that all related resources can be moved to the new region in one step.  To learn how to export a **resource group** to the template, see [Move resources across regions(from resource group)](/azure/resource-mover/move-region-within-resource-group).
+
  
-If you have other resources in the Azure resource group that contains the Event Hubs namespace, you may want to export the template at the resource group level so that all related resources can be moved to the new region in one step. The steps in this article show you how to export a **namespace** to the template. The steps for exporting a **resource group** to the template are similar. 
-
-**Azure Resource Mover** doesn't support moving services used by the Azure Event Hub. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
-
 ## Prerequisites
 
 - Ensure that the services and features that your account uses are supported in the target region.
