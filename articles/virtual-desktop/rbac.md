@@ -142,7 +142,7 @@ The Desktop Virtualization Power On Contributor role is used to allow the Azure 
 
 | Action type | Permissions |
 |--|--|
-| actions | <ul><li>Microsoft.Compute/virtualMachines/start/action</li><li>Microsoft.Compute/virtualMachines/read</li><li>Microsoft.Compute/virtualMachines/instanceView/read</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li></ul> |
+| actions | <ul><li>Microsoft.Compute/virtualMachines/start/action</li><li>Microsoft.Compute/virtualMachines/read</li><li>Microsoft.Compute/virtualMachines/instanceView/read</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/read</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/start/action</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/stop/action</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/restart/action</li><li>Microsoft.HybridCompute/machines/read</li><li>Microsoft.HybridCompute/operations/read</li><li>Microsoft.HybridCompute/locations/operationresults/read</li><li>Microsoft.HybridCompute/locations/operationstatus/read</li></ul> |
 | notActions | None |
 | dataActions | None |
 | notDataActions | None |
