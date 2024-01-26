@@ -16,7 +16,7 @@ ms.custom:
 
 # Relocate Azure network security group (NSG) to another region
 
-This article shows you how to relocate an NSG to a new region by creating a copy of the source configuration and security rules of the NSG in another region.
+This article shows you how to relocate an NSG to a new region by creating a copy of the source configuration and security rules of the NSG to another region.
 
 
 ## Prerequisites

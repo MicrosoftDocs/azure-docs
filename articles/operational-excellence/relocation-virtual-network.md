@@ -15,11 +15,9 @@ ms.custom:
 
 # Relocate Azure Virtual Network to another region
 
-This article shows you how to relocate your Azure Virtual Network to a new region. To relocate a virtual network, you need to:
+This article shows you how to relocate a virtual network to a new region by redeploying the virtual network. Redeployment supports both independent relocation of multiple workloads, as well as private IP address range change in the target region. To redeploy, you'll use a Resource Manager template.
 
-[Redeployment](#redeploy) is the recommended way to move your virtual network to a new region.  Redeployment supports both independent relocation of multiple workloads, as well as private IP address range change in the target region. To redeploy, you'll use a Resource Manager template.
-
-However, if you choose to move your virtual network with Azure Resource Mover, make sure you understand the following considerations:
+You can also choose to move your virtual network with Azure Resource Mover. However, if you choose to move your virtual network with Azure Resource Mover, make sure that you understand the following considerations:
 
 - All workloads in a virtual network must be relocated together.
 
