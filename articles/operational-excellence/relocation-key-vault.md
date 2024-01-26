@@ -13,9 +13,8 @@ ms.custom:
 
 # Relocate Azure Key Vault to another region
 
-This article covers relocation guidance for Azure Key Vault across regions. Azure Key Vault does not allow you to move a key vault from one region to another. You can, however, create a key vault in the new region, manually copy each individual key, secret, or certificate from your existing key vault to the new key vault, and then remove the original key vault.
+This article shows you how to create a key vault in a new region, by manually coping each individual key, secret, or certificate from your existing key vault to the new key vault.
 
-**Azure Resource Mover** doesn't support moving services used by the Azure Key Vault. To see which resources Resource Mover supports, see [What resources can I move across regions?](/azure/resource-mover/overview#what-resources-can-i-move-across-regions).
 
 ## Prerequisites
 
