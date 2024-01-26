@@ -3,8 +3,6 @@ title: Details of the policy exemption structure
 description: Describes the policy exemption definition used by Azure Policy to exempt resources from evaluation of initiatives or definitions.
 ms.date: 11/03/2022
 ms.topic: conceptual
-ms.author: davidsmatlak
-author: davidsmatlak
 ---
 # Azure Policy exemption structure
 
