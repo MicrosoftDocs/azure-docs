@@ -53,9 +53,9 @@ You can explicitly set the API version used to read/write data via [`apiVersion`
 
 ## Salesforce Bulk API 2.0 Limits
 
-We use Salesforce Bulk API 2.0 to query and ingest data. In Bulk API 2.0, batches are created for you automatically.You can submit up to **15,000** batches per rolling 24-hour period. If batches exceed the limit, you will see failures.
+We use Salesforce Bulk API 2.0 to query and ingest data. In Bulk API 2.0, batches are created for you automatically. You can submit up to **15,000** batches per rolling 24-hour period. If batches exceed the limit, you will see failures.
 
-In Bulk API 2.0, only ingest jobs consume batches. Query jobs don' t. For details, see [How Requests Are Processed in the Bulk API 2.0 Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/how_requests_are_processed.htm).
+In Bulk API 2.0, only ingest jobs consume batches. Query jobs don't. For details, see [How Requests Are Processed in the Bulk API 2.0 Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/how_requests_are_processed.htm).
 
 For more information, see the "General Limits" section in [Salesforce developer limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_bulkapi.htm).
 
