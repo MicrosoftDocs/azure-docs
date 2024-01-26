@@ -3,7 +3,7 @@ title: Use Azurite emulator for local Azure Storage development
 description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 12/05/2023
+ms.date: 01/26/2024
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
@@ -31,15 +31,17 @@ Azurite is automatically available with [Visual Studio 2022](https://visualstudi
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-Within Visual Studio Code, select the **EXTENSIONS** pane and search for *Azurite* in the **EXTENSIONS:MARKETPLACE**.
+In Visual Studio Code, select the **Extensions** icon and search for **Azurite**. Select the **Install** button to install the Azurite extension.
 
-![Visual Studio Code extensions marketplace](media/storage-use-azurite/azurite-vs-code-extension.png)
+:::image type="content" source="./media/storage-use-azurite/azurite-vs-code-extension.png" alt-text="A screenshot showing how to search for and install the Azurite extension in Visual Studio Code." lightbox="media/storage-use-azurite/azurite-vs-code-extension.png":::
 
 You can also navigate to [Visual Studio Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) in your browser. Select the **Install** button to open Visual Studio Code and go directly to the Azurite extension page.
 
-To configure Azurite within Visual Studio Code, select the extensions pane. Select the **Manage** (gear) icon for **Azurite**. Select **Extension Settings**.
+#### Configure Azurite extension settings
 
-![Azurites configure extension settings](media/storage-use-azurite/azurite-configure-extension-settings.png)
+To configure Azurite settings within Visual Studio Code, select the **Extensions** icon. Select the **Manage** gear button for the **Azurite** entry. Select **Extension Settings**.
+
+:::image type="content" source="./media/storage-use-azurite/azurite-configure-extension-settings.png" alt-text="A screenshot showing how to modify the Azurite extension settings." lightbox="media/storage-use-azurite/azurite-configure-extension-settings.png":::
 
 The following settings are supported:
 
@@ -60,7 +62,6 @@ The following settings are supported:
    - **azurite.silent** - Silent mode disables the access log. The default value is **false**.
    - **azurite.skipApiVersionCheck** - Skip the request API version check. The default value is **false**.
    - **azurite.disableProductStyleUrl** Force the parsing of the storage account name from request Uri path, instead of from request Uri host.
-
 
 ### [npm](#tab/npm)
 
@@ -161,9 +162,9 @@ This configuration option can be changed later by modifying the project's **Conn
 ### [Visual Studio Code](#tab/visual-studio-code)
 
 > [!NOTE]
-> Azurite cannot be run from the command line if you only installed the Visual Studio Code extension. Instead, use the Visual Studio Code command palette.
+> Azurite cannot be run from the command line if you only installed the Visual Studio Code extension. Instead, use the Visual Studio Code command palette to run commands. Configuration settings are detailed at [Configure Azurite extension settings](#configure-azurite-extension-settings).
 
-The extension supports the following Visual Studio Code commands. To open the command palette, press F1 in Visual Studio Code.
+The Azurite extension supports the following Visual Studio Code commands. To open the command palette, press **F1** in Visual Studio Code.
 
    - **Azurite: Clean** - Reset all Azurite services persistency data
    - **Azurite: Clean Blob Service** - Clean blob service

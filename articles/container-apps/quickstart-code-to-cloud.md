@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: quickstart
-ms.date: 01/16/2024
+ms.date: 01/26/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-code-to-cloud-segmemts
 ---
@@ -243,7 +243,7 @@ Build and deploy your first container app with the `containerapp up` command. Th
 
 ::: zone pivot="with-dockerfile"
 
-The `up` command uses the Dockerfile in the root of the repository to build the container image. The target port is defined by the `EXPOSE` instruction in the Dockerfile, which is the port used to send ingress traffic to the container.
+The `up` command uses the Dockerfile in the root of the repository to build the container image. The `EXPOSE` instruction in the Dockerfile defined the target port, which is the port used to send ingress traffic to the container.
 
 ::: zone-end
 ::: zone pivot="without-dockerfile"
