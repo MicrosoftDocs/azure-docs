@@ -17,7 +17,7 @@ Customers can use [VMware Cloud Director availability](https://docs.vmware.com/e
 
 You can use VMware Cloud Director availability with Azure VMware Solution for the following two scenarios:
 
-- On Premises to Azure VMware Solution
+- On-Premises to Azure VMware Solution
 
     VMware Cloud Director availability provides migration, protection, failover, and reverse failover of VMs, vApps, and templates across on-premises VMware vCenter, VMware Cloud Director, or VMware Cloud Director service (CDS) to VMware CDS on Azure VMware Solution. 
 
