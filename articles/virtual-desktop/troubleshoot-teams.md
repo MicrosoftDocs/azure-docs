@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 03/07/2023
 ms.author: helohr
-manager: femila
 ---
 
 # Troubleshoot Microsoft Teams for Azure Virtual Desktop

@@ -1,11 +1,11 @@
 ---
-title: Container security 
+title: Overview of Container security in Microsoft Defender for Containers
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
 author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022
-ms.date: 12/12/2023
+ms.date: 01/09/2024
 ---
 
 # Overview of Container security in Microsoft Defender for Containers
@@ -16,7 +16,7 @@ Defender for Containers assists you with four core domains of container security
 
 - [**Security posture management**](#security-posture-management) - performs continuous monitoring of cloud APIs,  Kubernetes APIs, and Kubernetes workloads to discover cloud resources, provide comprehensive inventory capabilities, detect misconfigurations and provide guidelines to  mitigate them,  provide contextual risk assessment, and empowers users to perform enhanced risk hunting capabilities through the Defender for Cloud security explorer.
 
-- [**Vulnerability assessment**](#vulnerability-assessment) -  provides agentless vulnerability assessment for Azure and AWS with remediation guidelines, zero configuration, daily rescans, coverage for OS and language packages, and exploitability insights.
+- [**Vulnerability assessment**](#vulnerability-assessment) -  provides agentless vulnerability assessment for Azure, AWS, and GCP with remediation guidelines, zero configuration, daily rescans, coverage for OS and language packages, and exploitability insights.
 
 - [**Run-time threat protection**](#run-time-protection-for-kubernetes-nodes-and-clusters) - a rich threat detection suite for Kubernetes clusters, nodes, and workloads, powered by Microsoft leading threat intelligence, provides mapping to MITRE ATT&CK framework for easy understanding of risk and relevant context, automated response, and SIEM/XDR integration.
 
@@ -65,7 +65,7 @@ You can learn more about [Kubernetes data plane hardening](kubernetes-workload-p
 
 ## Vulnerability assessment
 
-Defender for Containers scans the container images in Azure Container Registry (ACR) and Amazon AWS Elastic Container Registry (ECR) to provide agentless vulnerability assessment for your container images, including registry and runtime recommendations, remediation guidance, quick scans of new images, real-world exploit insights, exploitability insights, and more.
+Defender for Containers scans the container images in Azure Container Registry (ACR), Amazon AWS Elastic Container Registry (ECR), Google Artifact Registry (GAR), and Google Container Registry (GCR) to provide agentless vulnerability assessment for your container images, including registry and runtime recommendations, remediation guidance, quick scans of new images, real-world exploit insights, exploitability insights, and more.
 
 Vulnerability information powered by Microsoft Defender Vulnerability Management is added to the [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph) for contextual risk, calculation of attack paths, and hunting capabilities.
 
@@ -77,8 +77,8 @@ There are two solutions for vulnerability assessment in Azure, one powered by Mi
 Learn more about:
 
 - [Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-azure.md)
-- [Vulnerability assessment for Azure powered by Qualys](defender-for-containers-vulnerability-assessment-azure.md)
-- [Vulnerability assessment for Amazon AWS Elastic Container Registry (ECR)](defender-for-containers-vulnerability-assessment-elastic.md)
+- [Vulnerability assessments for AWS with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md)
+- [Vulnerability assessments for GCP with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-gcp.md)
 
 ## Run-time protection for Kubernetes nodes and clusters
 
