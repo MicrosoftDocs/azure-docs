@@ -11,14 +11,16 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-The proxy feature is available starting in the public preview version [1.13.0-beta.4](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.0-beta.4) of the Calling SDK. Make sure that you use this SDK or a newer SDK when you try to use this feature. This tutorial uses the Azure Communication Services Calling SDK version greater than `1.13.0`.
+The proxy feature is available starting in the public preview version [1.13.0-beta.4](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.0-beta.4) of Azure Communication Services Calling SDK. Make sure that you use this SDK or a later version of the SDK when you try to use this feature. This tutorial uses a version of the Calling SDK version later than 1.13.0.
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
 ## Proxy calling media traffic
 
 The following sections describe how to proxy call your media traffic.
 
 ### What is a TURN server?
+
 Many times, establishing a network connection between two peers isn't straightforward. A direct connection might not work because of:
 
 - Firewalls with strict rules.
@@ -28,6 +30,7 @@ Many times, establishing a network connection between two peers isn't straightfo
 To solve these network connection issues, you can use a server that uses the Traversal Using Relay NAT (TURN) protocol for relaying network traffic. Session Traversal Utilities for NAT (STUN) and TURN servers are the relay servers here. To learn more about how Azure Communication Services mitigates network challenges by using STUN and TURN, see [Network traversal concepts](../../concepts/network-traversal.md).
 
 ### Provide your TURN server details to the SDK
+
 To provide the details of your TURN servers, you need to pass details of what TURN server to use as part of `CallClientOptions` while initializing `CallClient`. For more information on how to set up a call, see [Azure Communication Services Web SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web) for the quickstart on how to set up voice and video.
 
 ```js
@@ -70,7 +73,7 @@ const callClient = new CallClient({
 ```
 
 > [!IMPORTANT]
-> If you provided your TURN server details while you initialized `CallClient`, all the media traffic <i>exclusively</i> flows through these TURN servers. Any other ICE candidates that are normally generated when you create a call won't be considered while trying to establish connectivity between peers. That means only `relay` candidates are considered. To learn more about different types of Ice candidates see [RTCIceCandidate: type property](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/type).
+> If you provided your TURN server details while you initialized `CallClient`, all the media traffic *exclusively* flows through these TURN servers. Any other ICE candidates that are normally generated when you create a call won't be considered while trying to establish connectivity between peers. That means only `relay` candidates are considered. To learn more about different types of Ice candidates see [RTCIceCandidate: type property](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/type).
 
 If the `?transport` query parameter isn't present as part of the TURN URL or isn't one of the `udp`, `tcp`, or `tls` values, the default behavior is UDP.
 
@@ -79,13 +82,14 @@ If any of the URLs provided are invalid or don't have one of the `turn:`, `turns
 For the API reference for the `CallClientOptions` object, and the `networkConfiguration` property within it, see [CallClientOptions](/javascript/api/azure-communication-services/@azure/communication-calling/callclientoptions?view=azure-communication-services-js&preserve-view=true).
 
 ### Set up a TURN server in Azure
+
 You can create a Linux virtual machine in the Azure portal. For more information, see [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu). To deploy a TURN server, use [coturn](https://github.com/coturn/coturn). Coturn is a free and open-source implementation of a TURN and STUN server for VoIP and WebRTC.
 
 After you set up a TURN server, you can test it by using the instructions on the [WebRTC Trickle ICE](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/) webpage.
 
 ## Proxy signaling traffic
 
-To provide the URL of a proxy server, you need to pass it in as part of `CallClientOptions` while initializing `CallClient`. For more information on how to set up a call, see [Azure Communication Services Web SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web)) for the quickstart on how to set up voice and video.
+To provide the URL of a proxy server, you need to pass it in as part of `CallClientOptions` while initializing `CallClient`. For more information on how to set up a call, see [Azure Communication Services Web SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web) for the quickstart on how to set up voice and video.
 
 ```js
 import { CallClient } from '@azure/communication-calling'; 
@@ -107,9 +111,9 @@ const callClient = new CallClient({
 
 For the API reference for the `CallClientOptions` object, and the `networkConfiguration` property within it, see [CallClientOptions](/javascript/api/azure-communication-services/@azure/communication-calling/callclientoptions?view=azure-communication-services-js&preserve-view=true).
 
-### Set up a signaling proxy middleware in express js
+### Set up a signaling proxy middleware in Express.js
 
-You can also create a proxy middleware in your express js server setup to have all the URLs redirected through it by using the [http-proxy-middleware](https://www.npmjs.com/package/http-proxy-middleware) npm package. The `createProxyMiddleware` function from that package should cover what you need for a simple redirect proxy setup. Here's an example usage of it with some option settings that the SDK needs so that all of our URLs work as expected:
+You can also create a proxy middleware in your Express.js server setup to have all the URLs redirected through it by using the [http-proxy-middleware](https://www.npmjs.com/package/http-proxy-middleware) npm package. The `createProxyMiddleware` function from that package should cover what you need for a simple redirect proxy setup. Here's an example usage of it with some option settings that the SDK needs so that all of our URLs work as expected:
 
 ```js
 const proxyRouter = (req) => {
@@ -147,11 +151,12 @@ app.use('/proxy', myProxyMiddleware);
 > If you're having SSL issues, see the [cors](https://www.npmjs.com/package/cors) package.
 
 ### Set up a signaling proxy server on Azure
+
 You can create a Linux virtual machine in the Azure portal and deploy an NGINX server on it. For more information, see [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu).
 
 Here's an NGINX configuration that you can use as a sample:
 
-```
+```js
 events {
     multi_accept       on;
     worker_connections 65535;
