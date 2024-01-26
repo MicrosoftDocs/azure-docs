@@ -20,7 +20,7 @@ The Azure Monitor Agent Troubleshooter (AMA) is designed to help identify issues
 ## Prerequisites
 
 ### Python requirement
-The linux Troubleshooter requires **Python 2.6+** or any **Python 3** installed on the machine.
+The linux Troubleshooter requires **Python 2.6+** or any **Python 3** version installed on the machine.
 
 To check if python has been installed on your machine, copy the following command and run in Bash as root:
 ```Bash
@@ -28,11 +28,15 @@ sudo python -V
 sudo python3 -V
 ```
 
+:::image type="content" source="media/agent-linux/python-version-check.png" alt-text="commands to check python version in linux" lightbox="media/agent-linux/python-version-check.png":::
+
 Multiple versions of Python can be installed and aliased – if multiple versions are installed, this can be used:
 
 ```Bash
 ls -ls /usr/bing/python*
 ```
+
+:::image type="content" source="media/agent-linux/python-multiple-version-check.png" alt-text="command to check multiple versions of python for linux" lightbox="media/agent-linux/python-version-check.png":::
 
 If your virtual machine is using a distro that doesn't include Python 3 by default, then you must install it. The following sample commands will install Python 3 on different distros:
 
@@ -126,7 +130,7 @@ It runs a series of scenarios and displays the results.
 > [!Note]
 > The interactive mode will **not** generate log files, but will **only** output results to the screen. Switch to log mode, if you need to generate log files.
 
-:::image type="content" source="media/use-azure-monitor-agent-troubleshooter/ama-nix-run-the-troubleshooter-option-l-shell.png" alt-text="Screenshot of the Bash window, which shows the result of the AgentTroubleshooter running with the -A option to output Troubleshooter results to the screen." lightbox="media/use-azure-monitor-agent-troubleshooter/ama-nix-run-the-troubleshooter-option-l-shell.png":::
+:::image type="content" source="media/agent-linux/ama-troubleshooter-interactive-mode.png" alt-text="Screenshot of the Bash window, which shows the result of the AgentTroubleshooter running with the -A option to output Troubleshooter results to the screen." lightbox="media/agent-linux/ama-troubleshooter-interactive-mode.png":::
 
 ---
 
