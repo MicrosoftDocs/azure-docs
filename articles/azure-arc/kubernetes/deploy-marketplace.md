@@ -1,6 +1,6 @@
 ---
 title: "Deploy and manage applications from Azure Marketplace on Azure Arc-enabled Kubernetes clusters"
-ms.date: 01/23/2024
+ms.date: 01/26/2024
 ms.custom: references-regions
 ms.topic: how-to
 description: "Learn how to discover Kubernetes applications in Azure Marketplace and deploy them to your Arc-enabled Kubernetes clusters."
@@ -143,7 +143,7 @@ az vm image terms accept --offer <offerID> --plan <planId> --publisher <publishe
 ```
 
 > [!NOTE]
-> Although this command is for VMs, it also works for containers, including Arc-enabled Kubernetes clusters. For more information, see the [az cm image terms](/cli/azure/vm/image/terms) reference.
+> Although this command is for VMs, it also works for containers, including Arc-enabled Kubernetes clusters. For more information, see the [az vm image terms](/cli/azure/vm/image/terms) reference.
 
 #### Deploy the application
 
