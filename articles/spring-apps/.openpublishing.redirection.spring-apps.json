@@ -49,6 +49,11 @@
             "source_path": "principles-microservice-apps.md",
             "redirect_url": "/azure/spring-apps/index",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "how-to-enable-redundancy-and-disaster-recovery.md",
+            "redirect_url": "/azure/reliability/reliability-spring-apps",
+            "redirect_document_id": false
         }
     ]
 }

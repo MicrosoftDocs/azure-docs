@@ -51,7 +51,7 @@ This extension is available by installing the [Microsoft.Azure.WebJobs.Extension
 Using the .NET CLI:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage.Queues --version 5.0.0
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage.Queues
 ``` 
 
 [!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]

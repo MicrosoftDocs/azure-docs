@@ -168,7 +168,7 @@ az spring app create \
 
 ## Build a sample Spring Boot app to invoke the Function
 
-This sample invokes the HTTP triggered function by first requesting an access token from the MSI endpoint and using that token to authenticate the function HTTP request. For more information, see the [Get a token using HTTP](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http) section of [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+This sample invokes the HTTP triggered function by first requesting an access token from the MSI endpoint and using that token to authenticate the function HTTP request. For more information, see the [Get a token using HTTP](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) section of [How to use managed identities for Azure resources on an Azure VM to acquire an access token](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token).
 
 1. Use the following command clone the sample project:
 
@@ -222,5 +222,5 @@ This sample invokes the HTTP triggered function by first requesting an access to
 ## Next steps
 
 - [How to enable system-assigned managed identity for applications in Azure Spring Apps](./how-to-enable-system-assigned-managed-identity.md)
-- [Learn more about managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+- [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 - [Configure client apps to access your App Service](../app-service/configure-authentication-provider-aad.md#configure-client-apps-to-access-your-app-service)

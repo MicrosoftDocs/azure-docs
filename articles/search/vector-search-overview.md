@@ -26,7 +26,7 @@ We recommend this article for background, but if you'd rather get started, follo
 > + [Load vector data](search-what-is-data-import.md) into an index using push or pull methodologies. 
 > + [Query vector data](vector-search-how-to-query.md) using the Azure portal, REST APIs, or Azure SDK packages.
 
-You could also begin with the [vector quickstart](search-get-started-vector.md) or the [code samples on GitHub](https://github.com/Azure/cognitive-search-vector-pr). 
+You could also begin with the [vector quickstart](search-get-started-vector.md) or the [code samples on GitHub](https://github.com/Azure/azure-search-vector-samples). 
 
 Vector search is in the Azure portal and the Azure SDKs for [.NET](https://www.nuget.org/packages/Azure.Search.Documents), [Python](https://pypi.org/project/azure-search-documents), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2).
 
@@ -119,9 +119,9 @@ In vector search, the search engine searches through the vectors within the embe
 
 Azure AI Search currently supports the following algorithms:
 
-+ Hierarchical Navigable Small World (HNSW): HNSW is a leading ANN algorithm optimized for high-recall, low-latency applications where data distribution is unknown or can change frequently. It organizes high-dimensional data points into a hierarchical graph structure that enables fast and scalable similarity search while allowing a tunable a trade-off between search accuracy and computational cost. Because the algorithm requires all data points to reside in memory for fast random access, this algorithm consumes [vector index size](vector-search-index-size.md) quota.
++ Hierarchical Navigable Small World (HNSW): HNSW is a leading ANN algorithm optimized for high-recall, low-latency applications where data distribution is unknown or can change frequently. It organizes high-dimensional data points into a hierarchical graph structure that enables fast and scalable similarity search while allowing a tunable a trade-off between search accuracy and computational cost. Because the algorithm requires all data points to reside in memory for fast random access, this algorithm consumes [vector storage](vector-search-index-size.md) quota.
 
-+ Exhaustive K-nearest neighbors (KNN): Calculates the distances between the query vector and all data points. It's computationally intensive, so it works best for smaller datasets. Because the algorithm doesn't require fast random access of data points, this algorithm doesn't consume vector index size quota. However, this algorithm will provide the global set of nearest neighbors.
++ Exhaustive K-nearest neighbors (KNN): Calculates the distances between the query vector and all data points. It's computationally intensive, so it works best for smaller datasets. Because the algorithm doesn't require fast random access of data points, this algorithm doesn't consume vector storage quota. However, this algorithm will provide the global set of nearest neighbors.
 
 Within an index definition, you can specify one or more algorithms, and then for each vector field specify which algorithm to use:
 
