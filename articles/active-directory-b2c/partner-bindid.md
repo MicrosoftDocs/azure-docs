@@ -2,17 +2,17 @@
 title: Configure Transmit Security with Azure Active Directory B2C for passwordless authentication
 titleSuffix: Azure AD B2C
 description: Configure Azure AD B2C with Transmit Security hosted sign in for passwordless customer authentication
-
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-
 ms.topic: how-to
-ms.date: 01/23/2024
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#customer intent: I'm a developer integrating Azure Active Directory B2C with Transmit Security BindID. I need instructions to configure the integration, so I can enable passwordless authentication using FIDO2 biometrics for my application.
 ---
 
 # Configure Transmit Security with Azure Active Directory B2C for passwordless authentication
