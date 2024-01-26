@@ -16,6 +16,16 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
+### [3.1.1] (January 26, 2024)
+
+#### New features (3.1.1)
+
+- Added a new option, `enableAccessibilityLocationFallback`, to toggle the ability to enable or disable location fallback using the REST API for accessibility.
+
+#### Bug fixes (3.1.1)
+
+- Resolved an issue where ApplicationInsights was potentially sending a large number of requests.
+
 ### [3.1.0] (January 12, 2024)
 
 #### New features (3.1.0)
@@ -548,6 +558,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.1.1]: https://www.npmjs.com/package/azure-maps-control/v/3.1.1
 [3.1.0]: https://www.npmjs.com/package/azure-maps-control/v/3.1.0
 [3.0.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.3
 [3.0.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.2
