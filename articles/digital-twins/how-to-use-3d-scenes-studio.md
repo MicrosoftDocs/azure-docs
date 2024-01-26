@@ -259,8 +259,7 @@ Choose a **Display name** for the rule.
 
 Next, choose whether the rule is dependent on a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The result of your expression must match the result type that you specify in the **Type** field. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
->[!NOTE]
-> If you can't select a property from the dropdown list because the list is not responding, this might mean there's an error in some model in your instance. For example, having non-unique enum values in the attributes of a model will break this feature. If this happens, [review your model definitions](how-to-use-azure-digital-twins-explorer.md#view-model-definition) and make sure all properties are valid.
+[!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
 
 Once you've defined your property expression, select **Add condition** to define the conditional visual effects.
 
@@ -294,8 +293,7 @@ Here are the types of widget that you can create:
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png" alt-text="Screenshot of creating a new gauge-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png":::
 
-    >[!NOTE]
-    > If you can't select a property from the dropdown list because the list is not responding, this might mean there's an error in some model in your instance. For example, having non-unique enum values in the attributes of a model will break this feature. If this happens, [review your model definitions](how-to-use-azure-digital-twins-explorer.md#view-model-definition) and make sure all properties are valid.
+    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
 
 * **Link**: For including externally-referenced content via a linked URL
 
@@ -311,8 +309,7 @@ Here are the types of widget that you can create:
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value.png" alt-text="Screenshot of creating a new value-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value.png":::
 
-    >[!NOTE]
-    > If you can't select a property from the dropdown list because the list is not responding, this might mean there's an error in some model in your instance. For example, having non-unique enum values in the attributes of a model will break this feature. If this happens, [review your model definitions](how-to-use-azure-digital-twins-explorer.md#view-model-definition) and make sure all properties are valid.
+    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
 
     Below is an example of a value widget that checks if the `InFlow` value of the primary twin exceeds 99. If so, it outputs a string with an expression containing the twin's `$dtId`. Otherwise, there will be no expression in the output, so no backticks are required. 
 
@@ -328,8 +325,7 @@ Here are the types of widget that you can create:
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-data-history.png" alt-text="Screenshot of creating a new data history widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-data-history.png":::
 
-    >[!NOTE]
-    > If you can't select a property from the dropdown list because the list is not responding, this might mean there's an error in some model in your instance. For example, having non-unique enum values in the attributes of a model will break this feature. If this happens, [review your model definitions](how-to-use-azure-digital-twins-explorer.md#view-model-definition) and make sure all properties are valid.
+    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
 
 ### Use custom (advanced) expressions
 

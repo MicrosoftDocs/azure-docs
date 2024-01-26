@@ -159,8 +159,7 @@ If your Azure Digital Twins instance has [data history](concepts-data-history.md
 
     :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-property.png" alt-text="Screenshot of the Data history explorer with the property details highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-property.png":::
 
-    >[!NOTE]
-    > If you can't select a property from the dropdown list because the list is not responding, this might mean there's an error in some model in your instance. For example, having non-unique enum values in the attributes of a model will break this feature. If this happens, [review your model definitions](how-to-use-azure-digital-twins-explorer.md#view-model-definition) and make sure all properties are valid.
+    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
 
 1. Choose a **Label** for the time series and select **Update**.  
 
