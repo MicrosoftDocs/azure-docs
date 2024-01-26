@@ -56,7 +56,7 @@ Application Insights Agent configuration is needed only when you're making chang
 This is the list of addresses from which [availability web tests](./app/availability-overview.md) are run. If you want to run web tests on your app but your web server is restricted to serving specific clients, you'll have to permit incoming traffic from our availability test servers.
 
 > [!NOTE]
-> For resources located inside private virtual networks that can't allow direct inbound communication with the availability test agents in public Azure, the only option is to [create and host your own custom availability tests](./app/availavailability-azure-functions.md).
+> For resources located inside private virtual networks that can't allow direct inbound communication with the availability test agents in public Azure, the only option is to [create and host your own custom availability tests](app/availability-azure-functions.md#review-trackavailability-test-results).
 
 ### Service tag
 
@@ -217,14 +217,14 @@ Managing changes to source IP addresses can be time consuming. Using *service ta
    1. Add the resource group name, and then enter **Instance details** information.
    1. Select **Review + Create**, and then select **Create**.
    
-   :::image type="content" source="../alerts/media/action-groups/action-group-create-security-group.png" alt-text="Screenshot that shows how to create a network security group."border="true":::
+   :::image type="content" source="alerts/media/action-groups/action-group-create-security-group.png" alt-text="Screenshot that shows how to create a network security group."border="true":::
 
 1. Go to **Resource Group**, and then select the network security group you created:
 
     1. Select **Inbound security rules**.
     1. Select **Add**.
     
-    :::image type="content" source="../alerts/media/action-groups/action-group-add-service-tag.png" alt-text="Screenshot that shows how to add inbound security rules." border="true":::
+    :::image type="content" source="alerts/media/action-groups/action-group-add-service-tag.png" alt-text="Screenshot that shows how to add inbound security rules." border="true":::
 
 1. A new window opens in the right pane:
 
@@ -232,7 +232,7 @@ Managing changes to source IP addresses can be time consuming. Using *service ta
     1.  Under **Source service tag**, enter **ActionGroup**.
     1.  Select **Add**.
     
-    :::image type="content" source="../alerts/media/action-groups/action-group-service-tag.png" alt-text="Screenshot that shows how to add a service tag." border="true":::
+    :::image type="content" source="alerts/media/action-groups/action-group-service-tag.png" alt-text="Screenshot that shows how to add a service tag." border="true":::
 
 ## Profiler
 
