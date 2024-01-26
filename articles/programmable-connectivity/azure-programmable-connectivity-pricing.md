@@ -1,5 +1,5 @@
 ---
-title: APC Pricing
+title: AAzure Programmable ConnectivityPC Pricing
 description: Azure Programmable Connectivity is a cloud service that provides a simple and uniform way for developers to access programmable networks, regardless of substrate or location.
 author: anzaman
 ms.author: alzam

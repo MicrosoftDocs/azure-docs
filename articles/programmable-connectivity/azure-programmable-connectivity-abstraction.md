@@ -1,5 +1,6 @@
 ---
-title: API Abstraction
+title: API abstraction
+titleSuffix: Azure Programmable Connectivity
 description: Azure Programmable Connectivity is a cloud service that provides a simple and uniform way for developers to access programmable networks, regardless of substrate or location.
 author: anzaman
 ms.author: alzam
