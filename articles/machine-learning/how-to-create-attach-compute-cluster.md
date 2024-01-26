@@ -56,7 +56,7 @@ Compute clusters can run jobs securely in either a [managed virtual network](how
 
 * Azure allows you to place *locks* on resources, so that they can't be deleted or are read only. **Do not apply resource locks to the resource group that contains your workspace**. Applying a lock to the resource group that contains your workspace prevents scaling operations for Azure Machine Learning compute clusters. For more information on locking resources, see [Lock resources to prevent unexpected changes](../azure-resource-manager/management/lock-resources.md).
 
-## Create a compute cluster
+## Create
 
 **Time estimate**: Approximately five minutes.
 
