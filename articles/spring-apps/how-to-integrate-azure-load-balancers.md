@@ -50,9 +50,9 @@ Add endpoints in traffic manager:
 1. Input fully qualified domain name (FQDN) of each Azure Spring Apps public endpoint.
 1. Select **OK**.
 
-   :::image type="content" source="media/spring-cloud-load-balancers/traffic-manager-1.png" alt-text="Screenshot of the Azure portal that shows the Add endpoint page with an eastus FQDN with Priority 1." lightbox="media/spring-cloud-load-balancers/traffic-manager-1.png":::
+   :::image type="content" source="media/how-to-integrate-azure-load-balancers/traffic-manager-1.png" alt-text="Screenshot of the Azure portal that shows the Add endpoint page with an eastus FQDN with Priority 1." lightbox="media/how-to-integrate-azure-load-balancers/traffic-manager-1.png":::
 
-   :::image type="content" source="media/spring-cloud-load-balancers/traffic-manager-2.png" alt-text="Screenshot of the Azure portal that shows the Add endpoint page with a westus FQDN with Priority 2." lightbox="media/spring-cloud-load-balancers/traffic-manager-2.png":::
+   :::image type="content" source="media/how-to-integrate-azure-load-balancers/traffic-manager-2.png" alt-text="Screenshot of the Azure portal that shows the Add endpoint page with a westus FQDN with Priority 2." lightbox="media/how-to-integrate-azure-load-balancers/traffic-manager-2.png":::
 
 ### Configure Custom Domain
 
@@ -69,14 +69,14 @@ To integrate with Azure Spring Apps service, complete the following configuratio
 1. Specify **Target type** as *IP address* or *FQDN*.
 1. Enter your Azure Spring Apps public endpoints.
 
-   :::image type="content" source="media/spring-cloud-load-balancers/app-gateway-1.png" alt-text="Screenshot of the Azure portal that shows the Add backend pool page with the Backend targets values highlighted." lightbox="media/spring-cloud-load-balancers/app-gateway-1.png":::
+   :::image type="content" source="media/how-to-integrate-azure-load-balancers/app-gateway-1.png" alt-text="Screenshot of the Azure portal that shows the Add backend pool page with the Backend targets values highlighted." lightbox="media/how-to-integrate-azure-load-balancers/app-gateway-1.png":::
 
 ### Add Custom Probe
 
 1. Select **Health Probes** then **Add** to open custom **Probe** dialog.
 1. The key point is to select **No** for **Pick host name from backend HTTP settings** option and explicitly specify the host name. For more information, see [Application Gateway configuration for host name preservation](/azure/architecture/best-practices/host-name-preservation#application-gateway).
 
-   :::image type="content" source="media/spring-cloud-load-balancers/app-gateway-2.png" alt-text="Screenshot of the Azure portal that shows the probe page." lightbox="media/spring-cloud-load-balancers/app-gateway-2.png":::
+   :::image type="content" source="media/how-to-integrate-azure-load-balancers/app-gateway-2.png" alt-text="Screenshot of the Azure portal that shows the probe page." lightbox="media/how-to-integrate-azure-load-balancers/app-gateway-2.png":::
 
 ### Configure Backend Setting
 
@@ -84,7 +84,7 @@ To integrate with Azure Spring Apps service, complete the following configuratio
 1. **Override with new host name:** select **No**.
 1. **Use custom probe**: select **Yes** and pick the custom probe created above.
 
-   :::image type="content" source="media/spring-cloud-load-balancers/app-gateway-3.png" alt-text="Screenshot of the Azure portal that shows the Add Backend setting page." lightbox="media/spring-cloud-load-balancers/app-gateway-3.png":::
+    :::image type="content" source="media/how-to-integrate-azure-load-balancers/app-gateway-3.png" alt-text="Screenshot of the Azure portal that shows the Add Backend setting page." lightbox="media/how-to-integrate-azure-load-balancers/app-gateway-3.png":::
 
 ## Integrate Azure Spring Apps with Azure Front Door
 
@@ -93,13 +93,13 @@ To integrate with Azure Spring Apps service and configure an origin group, use t
 1. **Add origin group**.
 1. Specify the backend endpoints by adding origins for the different Azure Spring Apps instances.
 
-   :::image type="content" source="media/spring-cloud-load-balancers/front-door-1.png" alt-text="Screenshot of the Azure portal that shows the Add an origin group page with the Add an origin button highlighted." lightbox="media/spring-cloud-load-balancers/front-door-1.png":::
+    :::image type="content" source="media/how-to-integrate-azure-load-balancers/front-door-1.png" alt-text="Screenshot of the Azure portal that shows the Add an origin group page with the Add an origin button highlighted." lightbox="media/how-to-integrate-azure-load-balancers/front-door-1.png":::
 
 1. Specify **origin type** as *Azure Spring Apps*.
 1. Select your Azure Spring Apps instance for the **host name**.
 1. Keep the **origin host header** empty, so that the incoming host header will be used towards the backend. For more information, see [Azure Front Door configuration for host name preservation](/azure/architecture/best-practices/host-name-preservation#azure-front-door).
 
-   :::image type="content" source="media/spring-cloud-load-balancers/front-door-2.png" alt-text="Screenshot of the Azure portal that shows the Add an origin page." lightbox="media/spring-cloud-load-balancers/front-door-2.png":::
+    :::image type="content" source="media/how-to-integrate-azure-load-balancers/front-door-2.png" alt-text="Screenshot of the Azure portal that shows the Add an origin page." lightbox="media/how-to-integrate-azure-load-balancers/front-door-2.png":::
 
 ## Next steps
 
