@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/15/2024
+ms.date: 01/26/2024
 ---
 
 # Copy data from and to Salesforce Service Cloud using Azure Data Factory or Azure Synapse Analytics
@@ -37,7 +37,7 @@ For a list of data stores that are supported as sources or sinks, see the [Suppo
 Specifically, this Salesforce Service Cloud connector supports:
 
 - Salesforce Developer, Professional, Enterprise, or Unlimited editions.
-- Copying data from and to custom domain.
+- Copying data from and to custom domain (Custom domain can be configured in both production and sanbox environments).
 
 You can explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service. When copying data to Salesforce Service Cloud, the connector uses BULK API 2.0.
 
@@ -51,14 +51,13 @@ You can explicitly set the API version used to read/write data via [`apiVersion`
     > - The execution user must have the API Only permission.
     > - Access Token expire time could be changed through session policies instead of the refresh token.
 
-## Salesforce request limits
+## Salesforce Bulk API 2.0 Limits
 
-Salesforce has limits for both total API requests and concurrent API requests. Note the following points:
+We use Salesforce Bulk API 2.0 to query and ingest data. In Bulk API 2.0, batches are created for you automatically.You can submit up to **15,000** batches per rolling 24-hour period. If batches exceed the limit, you will see failures.
 
-- If the number of concurrent requests exceeds the limit, throttling occurs and you see random failures.
-- If the total number of requests exceeds the limit, the Salesforce Service Cloud account is blocked for 24 hours.
+In Bulk API 2.0, only ingest jobs consume batches. Query jobs don' t. For details, see [How Requests Are Processed in the Bulk API 2.0 Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/how_requests_are_processed.htm).
 
-You might also receive the "REQUEST_LIMIT_EXCEEDED" error message in both scenarios. For more information, see the "API request limits" section in [Salesforce developer limits](https://developer.salesforce.com/docs/atlas.en-us.218.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm).
+For more information, see the "General Limits" section in [Salesforce developer limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_bulkapi.htm).
 
 ## Get started
 
@@ -98,9 +97,10 @@ The following properties are supported for the Salesforce Service Cloud linked s
 |:--- |:--- |:--- |
 | type |The type property must be set to **SalesforceServiceCloudV2**. |Yes |
 | environmentUrl | Specify the URL of the Salesforce Service Cloud instance. <br>For example, specify `"https://<domainName>.my.salesforce.com"` to copy data from the custom domain. Learn how to configure or view your custom domain referring to this [article](https://help.salesforce.com/s/articleView?id=sf.domain_name_setting_login_policy.htm&type=5). |Yes |
+| authenticationType | Type of authentication used to connect to the Salesforce Service Cloud. <br/>The allowed value is **OAuth2ClientCredentials**. | Yes |
 | clientId |Specify the client ID of the Salesforce OAuth 2.0 Connected App. For more information, go to this [article](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) |Yes |
 | clientSecret |Specify the client secret of the Salesforce OAuth 2.0 Connected App. For more information, go to this [article](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) |Yes |
-| apiVersion | Specify the Salesforce Bulk API 2.0 version to use, e.g. `52.0`. The Bulk API 2.0 only support API version >= 47.0. To learn about Bulk API 2.0 version, see [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/bulk_common_diff_two_versions.htm). If you use a lower API version, it will result in a failure. | Yes |
+| apiVersion | Specify the Salesforce Bulk API 2.0 version to use, e.g. `52.0`. The Bulk API 2.0 only supports API version >= 47.0. To learn about Bulk API 2.0 version, see [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/bulk_common_diff_two_versions.htm). If you use a lower API version, it will result in a failure. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No |
 
 **Example: Store credentials**
@@ -112,6 +112,7 @@ The following properties are supported for the Salesforce Service Cloud linked s
         "type": "SalesforceServiceCloudV2",
         "typeProperties": {
             "environmentUrl": "<environment URL>",
+            "authenticationType": "OAuth2ClientCredentials",
             "clientId": "<client ID>",
             "clientSecret": {
                 "type": "SecureString",
@@ -136,6 +137,7 @@ The following properties are supported for the Salesforce Service Cloud linked s
         "type": "SalesforceServiceCloudV2",
         "typeProperties": {
             "environmentUrl": "<environment URL>",
+            "authenticationType": "OAuth2ClientCredentials",
             "clientId": "<client ID>",
             "clientSecret": {
                 "type": "AzureKeyVaultSecret",
