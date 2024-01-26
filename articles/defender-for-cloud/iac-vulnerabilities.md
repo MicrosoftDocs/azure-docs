@@ -12,10 +12,10 @@ After you set up the Microsoft Security DevOps GitHub action or Azure DevOps ext
 
 ## Prerequisites
 
-- Configure Microsoft Security DevOps for GitHub and/or Azure DevOps based on your source code management system:
+- Configure the Microsoft Security DevOps GitHub action or the Azure DevOps-based extension depending on your source code management system:
   - [Microsoft Security DevOps GitHub action](github-action.md)
   - [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
-- Ensure you have an IaC template in your repository.
+- Ensure that you have an IaC template in your repository.
 
 ## Set up IaC scanning and view the results in GitHub
 
@@ -190,7 +190,7 @@ To view the results of the IaC scan in Azure DevOps:
 
 ## View details and remediation information on IaC rules included with Microsoft Security DevOps
 
-The IaC scanning tools that are included with Microsoft Security DevOps, are [Template Analyzer](https://github.com/Azure/template-analyzer) (which contains [PSRule](https://aka.ms/ps-rule-azure)) and [Terrascan](https://github.com/tenable/terrascan).
+The IaC scanning tools that are included with Microsoft Security DevOps are [Template Analyzer](https://github.com/Azure/template-analyzer) (which contains [PSRule](https://aka.ms/ps-rule-azure)) and [Terrascan](https://github.com/tenable/terrascan).
 
 Template Analyzer runs rules on Azure Resource Manager templates (ARM templates) and Bicep templates. You can learn more about [Template Analyzer rules and remediation details](https://github.com/Azure/template-analyzer/blob/main/docs/built-in-rules.md#built-in-rules).
 
@@ -202,7 +202,7 @@ Terrascan runs rules on templates for ARM, CloudFormation, Docker, Helm, Kuberne
 - Learn more about [PSRule](https://aka.ms/ps-rule-azure).
 - Learn more about [Terrascan](https://runterrascan.io/).
 
-In this tutorial, you learned how to configure the Microsoft Security DevOps GitHub Action and Azure DevOps Extension to scan for Infrastructure as Code (IaC) security misconfigurations and how to view the results.
+In this tutorial, you learned how to configure the Microsoft Security DevOps GitHub action and Azure DevOps extension to scan for Infrastructure as Code (IaC) security misconfigurations and how to view the results.
 
 ## Related content
 
