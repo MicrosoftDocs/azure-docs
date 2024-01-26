@@ -156,7 +156,7 @@ You can create a Linux virtual machine in the Azure portal and deploy an NGINX s
 
 Here's an NGINX configuration that you can use as a sample:
 
-```js
+```
 events {
     multi_accept       on;
     worker_connections 65535;
