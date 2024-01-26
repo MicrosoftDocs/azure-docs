@@ -34,7 +34,7 @@ In this quickstart:
 
 + [Azure Storage](/azure/storage/common/storage-account-create)
 
-+ [Azure AI Search](search-create-app-portal.md), in any region, on a billable tier (Basic and above), preferrably with [semantic ranking enabled](semantic-how-to-enable-disable.md)
++ [Azure AI Search](search-create-app-portal.md), in any region, on a billable tier (Basic and above), preferably with [semantic ranking enabled](semantic-how-to-enable-disable.md)
 
 + Contributor permissions in the Azure subscription for creating resources
 
@@ -65,7 +65,7 @@ In this quickstart:
 
 1. From the dropdown list, select **Upload files**.
 
-   :::image type="content" source="media/search-get-started-rag/azure-openai-data-source.png" lightbox="media/search-get-started-rag/azure-openai-data-source.png" alt-text="Screenshot of a upload files option.":::
+   :::image type="content" source="media/search-get-started-rag/azure-openai-data-source.png" lightbox="media/search-get-started-rag/azure-openai-data-source.png" alt-text="Screenshot of the upload files option.":::
 
 1. In Data source, select your Azure Blob storage resource. Enable cross-origin scripting if prompted.
 
@@ -115,14 +115,14 @@ In this quickstart:
 
    Queries that require deeper analysis, such as "how many speeches are in the vector store", might fail to return a response. In RAG pattern chat scenarios, information retrieval is keyword and similarity search against the query string, where the search engine looks for chunks having exact or similar terms, phrases, or construction. The payload might have insufficient data for the model to work with.
 
-   Finally, chats are constrained by the number of documents (chunks) returned in the response (limited to 3-20 in Azure OpenAI Studio playground). As you can imagine, posing a question about "all of the titles" requires a full scan of the entire vector store, which means pivoting to a different tool or approach, or modifying the generated code to allow for [exhaustive search](vector-search-how-to-create-index.md#add-a-vector-search-configuration) in the vector search configuration.
+   Finally, chats are constrained by the number of documents (chunks) returned in the response (limited to 3-20 in Azure OpenAI Studio playground). As you can imagine, posing a question about "all of the titles" requires a full scan of the entire vector store, which means a different approach, or modifying the generated code to allow for [exhaustive search](vector-search-how-to-create-index.md#add-a-vector-search-configuration) in the vector search configuration.
 
    :::image type="content" source="media/search-get-started-rag/chat-results.png" lightbox="media/search-get-started-rag/chat-results.png" alt-text="Screenshot of a chat session.":::
-
-## Clean up
-
-Azure AI Search is a billable resource for as long as the service exists. If it's no longer needed, delete it from your subscription to avoid charges.
 
 ## Next steps
 
 Now that you're familiar with the benefits of Azure OpenAI Studio for scenario testing, review code samples that demonstrate the full range of APIs for RAG applications. Samples are available in [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet), and [JavaScript](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript).
+
+## Clean up
+
+Azure AI Search is a billable resource for as long as the service exists. If it's no longer needed, delete it from your subscription to avoid charges.
