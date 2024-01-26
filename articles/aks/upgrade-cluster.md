@@ -69,4 +69,4 @@ This article listed different upgrade options for AKS clusters. For a detailed d
 [nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [planned-maintenance]: planned-maintenance.md
 [specific-nodepool]: node-image-upgrade.md#upgrade-a-specific-node-pool
-[upgrade-operators-guide]: azure/architecture/operator-guides/aks/aks-upgrade-practices
+[upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices
