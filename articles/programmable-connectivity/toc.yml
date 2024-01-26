@@ -5,3 +5,44 @@
   items:
   - name: What is Azure Programmable Connectivity?
     href: azure-programmable-connectivity-overview.md
+  - name: Features
+    expanded: true
+    items:
+    - name: Aggregation
+      href: azure-programmable-connectivity-aggregation.md
+    - name: Abstraction
+      href: azure-programmable-connectivity-abstraction.md
+    - name: Billing
+      href: azure-programmable-connectivity-billing.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Key concepts
+    href: azure-programmable-connectivity-key-concepts.md
+  - name: Network APIs
+    href: azure-programmable-connectivity-network-apis.md
+  - name: Locations and partners
+    href: azure-programmable-connectivity-locations-partners.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an APC Gateway
+    href: azure-programmable-connectivity-create-gateway.md
+  - name: Modify APIs
+    href: azure-programmable-connectivity-modify-apis.md
+- name: Tutorials
+  items:
+  - name: Modify APIs
+    href: azure-programmable-connectivity-modify-apis.md
+- name: Resources
+  items:
+  - name: Azure Programmable Connectivity product page
+    href: https://go.microsoft.com/fwlink/?linkid=2186926
+  - name: Azure Marketplace
+    href: https://azuremarketplace.microsoft.com/marketplace/
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Blog
+    href: https://aka.ms/apcblog
+  - name: Pricing
+    href: azure-programmable-connectivity-pricing.md
