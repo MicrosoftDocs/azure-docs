@@ -6,7 +6,7 @@ author: hasyashah
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 09/07/2022
+ms.date: 1/18/2024
 ms.author: hasshah
 ms.custom: ignite-fall-2021
 ---
@@ -19,11 +19,11 @@ The Microsoft Audio Stack is a set of enhancements optimized for speech processi
 * **Beamforming** - Localize the origin of sound and optimize the audio signal using multiple microphones.
 * **Dereverberation** - Reduce the reflections of sound from surfaces in the environment.
 * **Acoustic echo cancellation** - Suppress audio being played out of the device while microphone input is active.
-* **Automatic gain control** - Dynamically adjust the person’s voice level to account for soft speakers, long distances, or non-calibrated microphones.
+* **Automatic gain control** - Dynamically adjust the person’s voice level to account for soft speakers, long distances, or noncalibrated microphones.
 
 [ ![Block diagram of Microsoft Audio Stack's enhancements.](media/audio-processing/mas-block-diagram.png) ](media/audio-processing/mas-block-diagram.png#lightbox)
 
-Different scenarios and use-cases can require different optimizations that influence the behavior of the audio processing stack. For example, in telecommunications scenarios such as telephone calls, it is acceptable to have minor distortions in the audio signal after processing has been applied. This is because humans can continue to understand the speech with high accuracy. However, it is unacceptable and disruptive for a person to hear their own voice in an echo. This contrasts with speech processing scenarios, where distorted audio can adversely impact a machine-learned speech recognition model’s accuracy, but it is acceptable to have minor levels of echo residual. 
+Different scenarios and use-cases can require different optimizations that influence the behavior of the audio processing stack. For example, in telecommunications scenarios such as telephone calls, it's acceptable to have minor distortions in the audio signal after processing has been applied. This is because humans can continue to understand the speech with high accuracy. However, it's unacceptable and disruptive for a person to hear their own voice in an echo. This contrasts with speech processing scenarios, where distorted audio can adversely affect a machine-learned speech recognition model's accuracy, but it's acceptable to have minor levels of echo residual. 
 
 Processing is performed fully locally where the Speech SDK is being used. No audio data is streamed to Microsoft’s cloud services for processing by the Microsoft Audio Stack. The only exception to this is for the Conversation Transcription Service, where raw audio is sent to Microsoft’s cloud services for processing. 
 
@@ -35,7 +35,7 @@ The Microsoft Audio Stack also powers a wide range of Microsoft products:
 
 The Speech SDK integrates Microsoft Audio Stack (MAS), allowing any application or product to use its audio processing capabilities on input audio. Some of the key Microsoft Audio Stack features available via the Speech SDK include:
 * **Real-time microphone input & file input** - Microsoft Audio Stack processing can be applied to real-time microphone input, streams, and file-based input. 
-* **Selection of enhancements** - To allow for full control of your scenario, the SDK allows you to disable individual enhancements like dereverberation, noise suppression, automatic gain control, and acoustic echo cancellation. For example, if your scenario does not include rendering output audio that needs to be suppressed from the input audio, you have the option to disable acoustic echo cancellation.
+* **Selection of enhancements** - To allow for full control of your scenario, the SDK allows you to disable individual enhancements like dereverberation, noise suppression, automatic gain control, and acoustic echo cancellation. For example, if your scenario doesn't include rendering output audio that needs to be suppressed from the input audio, you have the option to disable acoustic echo cancellation.
 * **Custom microphone geometries** - The SDK allows you to provide your own custom microphone geometry information, in addition to supporting preset geometries like linear two-mic, linear four-mic, and circular 7-mic arrays (see more information on supported preset geometries at [Microphone array recommendations](speech-sdk-microphone.md#microphone-geometry)).
 * **Beamforming angles** - Specific beamforming angles can be provided to optimize audio input originating from a predetermined location, relative to the microphones.
 

@@ -44,7 +44,7 @@ To create a dev box in the Microsoft Dev Box developer portal:
    |---|---|
    | **Name** | Enter a name for your dev box. Dev box names must be unique within a project. |
    | **Project** | Select a project from the dropdown list. |
-   | **Dev box pool** | Select a pool from the dropdown list, which includes all the dev box pools for that project. |
+   | **Dev box pool** | Select a pool from the dropdown list, which includes all the dev box pools for that project. Choose a dev box pool near to you for least latency.|
 
    :::image type="content" source="./media/quickstart-create-dev-box/create-dev-box.png" alt-text="Screenshot of the dialog for adding a dev box.":::
 

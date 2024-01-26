@@ -4,7 +4,7 @@ description: Learn about VPN Gateway SKUs.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/04/2024
+ms.date: 01/23/2024
 ms.author: cherylmc 
 
 ---
@@ -50,7 +50,7 @@ When you configure a virtual network gateway SKU, select the SKU that satisfies 
 
 (*) You can configure "PolicyBasedTrafficSelectors" to connect a route-based VPN gateway to multiple on-premises policy-based firewall devices. Refer to [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md) for details.
 
-(\*\*) The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature limitations. Verify that the feature that you need is supported before you use the Basic SKU. The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.
+(\*\*) The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature and performance limitations and should not be used for production purposes. Verify that the feature that you need is supported before you use the Basic SKU. The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.
 
 ## <a name="workloads"></a>Gateway SKUs - Production vs. Dev-Test workloads
 
@@ -58,11 +58,11 @@ Due to the differences in SLAs and feature sets, we recommend the following SKUs
 
 | **Workload**                       | **SKUs**               |
 | ---                                | ---                    |
-| **Production, critical workloads** | All Generation1 and Generation2 SKUs except Basic |
-| **Dev-test or proof of concept**   | Basic (**)                 |
+| **Production, critical workloads** | All Generation1 and Generation2 SKUs, except Basic and VpnGw1 |
+| **Dev-test or proof of concept**   | Basic (**) and VpnGw1                |
 |                                    |                        |
 
-(\*\*) The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature limitations. Verify that the feature that you need is supported before you use the Basic SKU. The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.
+(\*\*) The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature and performance limitations and should not be used for production purposes. Verify that the feature that you need is supported before you use the Basic SKU. The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.
 
 If you're using the old SKUs (legacy), the production SKU recommendations are Standard and HighPerformance. For information and instructions for old SKUs, see [Gateway SKUs (legacy)](vpn-gateway-about-skus-legacy.md).
 

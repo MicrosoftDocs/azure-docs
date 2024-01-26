@@ -8,13 +8,13 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/24/2023
-ms.custom: template-how-to, devx-track-azurecli, devx-track-linux
+ms.custom: template-how-to, devx-track-azurecli, linux-related-content
 ms.devlang: azurecli
 ---
 
 # Create an Azure Virtual Machine with a dual-stack network using the Azure CLI
 
-In this article, you create a virtual machine in Azure with the Azure CLI. The virtual machine is created along with the dual-stack network as part of the procedures.  When completed, the virtual machine supports IPv4 and IPv6 communication.  
+In this article, you create a virtual machine in Azure with the Azure CLI. The virtual machine is created along with the dual-stack network as part of the procedures.  When completed, the virtual machine supports IPv4 and IPv6 communication.
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to 
 
 ## Create public IP addresses
 
-You create two public IP addresses in this section, IPv4 and IPv6. 
+You create two public IP addresses in this section, IPv4 and IPv6.
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create the public IP addresses.
 

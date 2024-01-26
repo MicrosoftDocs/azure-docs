@@ -3,12 +3,12 @@ title: Create and assign an autoscale scaling plan for Azure Virtual Desktop
 description: How to create and assign an autoscale scaling plan to optimize deployment costs.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/16/2024
+ms.date: 01/10/2024
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
 ---
-# Create an autoscale scaling plan for Azure Virtual Desktop
+# Create and assign an autoscale scaling plan for Azure Virtual Desktop
 
 Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs.
 
@@ -34,6 +34,7 @@ To use scaling plans, make sure you follow these guidelines:
     > [!IMPORTANT]
     > Hibernation is currently in PREVIEW.
     > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+- If you are using PowerShell to create and assign your scaling plan, you will need module [Az.DesktopVirtualization](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) version 4.2.0 or later. 
 
 ## Assign the Desktop Virtualization Power On Off Contributor role with the Azure portal
 
@@ -43,7 +44,9 @@ To learn how to assign the *Desktop Virtualization Power On Off Contributor* rol
 
 ## Create a scaling plan
 
-Now that you've assigned the *Desktop Virtualization Power On Off Contributor* role to the service principal on your subscriptions, you can create a scaling plan. To create a scaling plan:
+### [Portal](#tab/portal)
+
+Now that you've assigned the *Desktop Virtualization Power On Off Contributor* role to the service principal on your subscriptions, you can create a scaling plan. To create a scaling plan using the portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -73,7 +76,7 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
 
 1. Select **Next**, which should take you to the **Schedules** tab. Schedules let you define when autoscale turns VMs on and off throughout the day. The schedule parameters are different based on the **Host pool type** you chose for the scaling plan.
 
-    #### [Pooled host pools](#tab/pooled-autoscale)
+    #### Pooled host pools
 
     In each phase of the schedule, autoscale only turns off VMs when in doing so the used host pool capacity won't exceed the capacity threshold. The default values you'll see when you try to create a schedule are the suggested values for weekdays, but you can change them as needed. 
     
@@ -125,7 +128,7 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
           - Load-balancing algorithm. We recommend choosing **depth-first** to gradually reduce the number of session hosts based on sessions on each VM.
           - Just like peak hours, you can't configure the capacity threshold here. Instead, the value you entered in **Ramp-down** will carry over.
     
-    #### [Personal host pools](#tab/personal-autoscale)
+    #### Personal host pools
     
     In each phase of the schedule, define whether VMs should be deallocated based on the user session state. 
     
@@ -181,9 +184,141 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
     > [!NOTE] 
     > If you change resource settings on other tabs after creating tags, your tags will be automatically updated.
 
-1. Once you're done, go to the **Review + create** tab and select **Create** to deploy your host pool.
+1. Once you're done, go to the **Review + create** tab and select **Create** to create and assign your scaling plan to the host pools you selected.
+
+### [PowerShell](#tab/powershell)
+
+Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShell module. The following examples show you how to create a scaling plan and scaling plan schedule.
+
+> [!IMPORTANT]
+> In the following examples, you'll need to change the `<placeholder>` values for your own.
+
+[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
+
+2. Create a scaling plan for your pooled or personal host pool(s) using the [New-AzWvdScalingPlan](/powershell/module/az.desktopvirtualization/new-azwvdscalingplan) cmdlet:
+    
+    ```azurepowershell
+    $scalingPlanParams = @{
+        ResourceGroupName = '<resourceGroup>'
+        Name = '<scalingPlanName>'
+        Location = '<AzureRegion>'
+        Description = '<Scaling plan description>'
+        FriendlyName = '<Scaling plan friendly name>'
+        HostPoolType = '<Pooled or personal>'
+        TimeZone = '<Time zone, such as Pacific Standard Time>'
+        HostPoolReference = @(@{'hostPoolArmPath' = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/<resourceGroup/providers/Microsoft.DesktopVirtualization/hostPools/<hostPoolName>'; 'scalingPlanEnabled' = $true;})
+    }
+
+    $scalingPlan = New-AzWvdScalingPlan @scalingPlanParams
+    ``` 
+    
+
+
+
+3. Create a scaling plan schedule.
+
+    * For pooled host pools, use the [New-AzWvdScalingPlanPooledSchedule](/powershell/module/az.desktopvirtualization/new-azwvdscalingplanpooledschedule) cmdlet. This example creates a pooled scaling plan that runs on Monday through Friday, ramps up at 6:30 AM, starts peak hours at 8:30 AM, ramps down at 4:00 PM, and starts off-peak hours at 10:45 PM. 
+
+
+        ```azurepowershell
+        $scalingPlanPooledScheduleParams = @{
+            ResourceGroupName = 'resourceGroup'
+            ScalingPlanName = 'scalingPlanPooled'
+            ScalingPlanScheduleName = 'pooledSchedule1'
+            DaysOfWeek = 'Monday','Tuesday','Wednesday','Thursday','Friday'
+            RampUpStartTimeHour = '6'
+            RampUpStartTimeMinute = '30'
+            RampUpLoadBalancingAlgorithm = 'BreadthFirst'
+            RampUpMinimumHostsPct = '20'
+            RampUpCapacityThresholdPct = '20'
+            PeakStartTimeHour = '8'
+            PeakStartTimeMinute = '30'
+            PeakLoadBalancingAlgorithm = 'DepthFirst'
+            RampDownStartTimeHour = '16'
+            RampDownStartTimeMinute = '0'
+            RampDownLoadBalancingAlgorithm = 'BreadthFirst'
+            RampDownMinimumHostsPct = '20'
+            RampDownCapacityThresholdPct = '20'
+            RampDownForceLogoffUser:$true
+            RampDownWaitTimeMinute = '30'
+            RampDownNotificationMessage = '"Log out now, please."'
+            RampDownStopHostsWhen = 'ZeroSessions'
+            OffPeakStartTimeHour = '22'
+            OffPeakStartTimeMinute = '45'
+            OffPeakLoadBalancingAlgorithm = 'DepthFirst'
+        }
+        
+        $scalingPlanPooledSchedule = New-AzWvdScalingPlanPooledSchedule @scalingPlanPooledScheduleParams
+        ```
+    
+
+    * For personal host pools, use the [New-AzWvdScalingPlanPersonalSchedule](/powershell/module/az.desktopvirtualization/new-azwvdscalingplanpersonalschedule) cmdlet. The following example creates a personal scaling plan that runs on Monday, Tuesday, and Wednesday, ramps up at 6:00 AM, starts peak hours at 8:15 AM, ramps down at 4:30 PM, and starts off-peak hours at 6:45 PM.
+
+
+        ```azurepowershell
+        $scalingPlanPersonalScheduleParams = @{
+            ResourceGroupName = 'resourceGroup'
+            ScalingPlanName = 'scalingPlanPersonal'
+            ScalingPlanScheduleName = 'personalSchedule1'
+            DaysOfWeek = 'Monday','Tuesday','Wednesday'
+            RampUpStartTimeHour = '6'
+            RampUpStartTimeMinute = '0'
+            RampUpAutoStartHost = 'WithAssignedUser'
+            RampUpStartVMOnConnect = 'Enable'
+            RampUpMinutesToWaitOnDisconnect = '30'
+            RampUpActionOnDisconnect = 'Deallocate'
+            RampUpMinutesToWaitOnLogoff = '3'
+            RampUpActionOnLogoff = 'Deallocate'
+            PeakStartTimeHour = '8'
+            PeakStartTimeMinute = '15'
+            PeakStartVMOnConnect = 'Enable'
+            PeakMinutesToWaitOnDisconnect = '10'
+            PeakActionOnDisconnect = 'Hibernate'
+            PeakMinutesToWaitOnLogoff = '15'
+            PeakActionOnLogoff = 'Deallocate'
+            RampDownStartTimeHour = '16'
+            RampDownStartTimeMinute = '30'
+            RampDownStartVMOnConnect = 'Disable'
+            RampDownMinutesToWaitOnDisconnect = '10'
+            RampDownActionOnDisconnect = 'None'
+            RampDownMinutesToWaitOnLogoff = '15'
+            RampDownActionOnLogoff = 'Hibernate'
+            OffPeakStartTimeHour = '18'
+            OffPeakStartTimeMinute = '45'
+            OffPeakStartVMOnConnect = 'Disable'
+            OffPeakMinutesToWaitOnDisconnect = '10'
+            OffPeakActionOnDisconnect = 'Deallocate'
+            OffPeakMinutesToWaitOnLogoff = '15'
+            OffPeakActionOnLogoff = 'Deallocate'
+        }
+        
+        $scalingPlanPersonalSchedule = New-AzWvdScalingPlanPersonalSchedule @scalingPlanPersonalScheduleParams
+        ```
+
+        >[!NOTE]
+        > We recommended that `RampUpStartVMOnConnect` is enabled for the ramp up phase of the schedule if you opt out of having autoscale start session host VMs. For more information, see [Start VM on Connect](start-virtual-machine-connect.md).
+
+4. Use [Get-AzWvdScalingPlan](/powershell/module/az.desktopvirtualization/get-azwvdscalingplan) to get the host pool(s) that your scaling plan is assigned to.
+
+   ```azurepowershell
+   $params = @{
+       ResourceGroupName = 'resourceGroup'
+       Name = 'scalingPlanPersonal'
+   }
+    
+   (Get-AzWvdScalingPlan @params).HostPoolReference | FL HostPoolArmPath,ScalingPlanEnabled
+   ```
+
+    
+ You have now created a new scaling plan, 1 or more schedules, assigned it to your pooled or personal host pool(s), and enabled autoscale. 
+
+
+
+---
 
 ## Edit an existing scaling plan
+
+### [Portal](#tab/portal)
 
 To edit an existing scaling plan:
 
@@ -199,32 +334,61 @@ To edit an existing scaling plan:
 
 1. To edit the plan's friendly name, description, time zone, or exclusion tags, go to the **Properties** tab.
 
+### [PowerShell](#tab/powershell)
+
+Here's how to update a scaling plan using the Az.DesktopVirtualization PowerShell module. The following examples show you how to update a scaling plan and scaling plan schedule.
+
+* Update a scaling plan using [Update-AzWvdScalingPlan](/powershell/module/az.desktopvirtualization/update-azwvdscalingplan). This example updates the scaling plan's timezone.
+
+    ```azurepowershell
+    $scalingPlanParams = @{
+        ResourceGroupName = 'resourceGroup'
+        Name = 'scalingPlanPersonal'
+        Timezone = 'Eastern Standard Time'
+    }
+    
+    Update-AzWvdScalingPlan @scalingPlanParams
+    ```
+
+* Update a scaling plan schedule using [Update-AzWvdScalingPlanPersonalSchedule](/powershell/module/az.desktopvirtualization/update-azwvdscalingplanpersonalschedule). This example updates the ramp up start time.
+
+    ```azurepowershell
+    $scalingPlanPersonalScheduleParams = @{
+        ResourceGroupName = 'resourceGroup'
+        ScalingPlanName = 'scalingPlanPersonal'
+        ScalingPlanScheduleName = 'personalSchedule1'
+        RampUpStartTimeHour = '5'
+        RampUpStartTimeMinute = '30'
+    }
+    
+    Update-AzWvdScalingPlanPersonalSchedule @scalingPlanPersonalScheduleParams
+    ```
+
+* Update a pooled scaling plan schedule using [Update-AzWvdScalingPlanPooledSchedule](/powershell/module/az.desktopvirtualization/update-azwvdscalingplanpooledschedule). This example updates the peak hours start time.
+
+    ```azurepowershell
+    $scalingPlanPooledScheduleParams = @{
+        ResourceGroupName = 'resourceGroup'
+        ScalingPlanName = 'scalingPlanPooled'
+        ScalingPlanScheduleName = 'pooledSchedule1'
+        PeakStartTimeHour = '9'
+        PeakStartTimeMinute = '15'
+    }
+    
+    Update-AzWvdScalingPlanPooledSchedule @scalingPlanPooledScheduleParams
+    ```
+
+---
+
 ## Assign scaling plans to existing host pools
 
-You can assign a scaling plan to any existing host pools in your deployment. When you assign a scaling plan to your host pool, the plan will apply to all session hosts within that host pool. The scaling plan also automatically applies to any new session hosts you create in the assigned host pool.
+You can assign a scaling plan to any existing host pools of the same type in your deployment. When you assign a scaling plan to your host pool, the plan will apply to all session hosts within that host pool. The scaling plan also automatically applies to any new session hosts you create in the assigned host pool.
 
 If you disable a scaling plan, all assigned resources will remain in the state they were in at the time you disabled it.
 
-### Assign a scaling plan to a single existing host pool
-To assign a scaling plan to an existing host pool:
+### [Portal](#tab/portal)
 
-1. Open the [Azure portal](https://portal.azure.com).
-
-1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
-
-1. Select **Host pools**, and select the host pool you want to assign the scaling plan to.
-
-1. Under the **Settings** heading, select **Scaling plan**, and then select **+ Assign**. Select the scaling plan you want to assign and select **Assign**. The scaling plan must be in the same Azure region as the host pool and the scaling plan's host pool type must match the type of host pool that you're trying to assign it to.
-
-> [!TIP]
-> If you've enabled the scaling plan during deployment, then you'll also have the option to disable the plan for the selected host pool in the **Scaling plan** menu by unselecting the **Enable autoscale** checkbox, as shown in the following screenshot.
->
-> [!div class="mx-imgBorder"]
-> ![A screenshot of the scaling plan window. The "enable autoscale" check box is selected and highlighted with a red border.](media/enable-autoscale.png)
-
-### Assign a scaling plan to multiple existing host pools
-
-To assign a scaling plan to multiple existing host pools at the same time:
+To assign a scaling plan to existing host pools:
 
 1. Open the [Azure portal](https://portal.azure.com).
 
@@ -233,6 +397,49 @@ To assign a scaling plan to multiple existing host pools at the same time:
 1. Select **Scaling plans**, and select the scaling plan you want to assign to host pools.
 
 1. Under the **Manage** heading, select **Host pool assignments**, and then select **+ Assign**. Select the host pools you want to assign the scaling plan to and select **Assign**. The host pools must be in the same Azure region as the scaling plan and the scaling plan's host pool type must match the type of host pools you're trying to assign it to.
+
+> [!TIP]
+> If you've enabled the scaling plan during deployment, then you'll also have the option to disable the plan for the selected host pool in the **Scaling plan** menu by unselecting the **Enable autoscale** checkbox, as shown in the following screenshot.
+>
+> [!div class="mx-imgBorder"]
+> ![A screenshot of the scaling plan window. The "enable autoscale" check box is selected and highlighted with a red border.](media/enable-autoscale.png)
+
+### [PowerShell](#tab/powershell)
+
+1. Assign a scaling plan to existing host pools using [Update-AzWvdScalingPlan](/powershell/module/az.desktopvirtualization/update-azwvdscalingplan). The following example assigns a personal scaling plan to two existing personal host pools.
+
+    ```azurepowershell
+   $scalingPlanParams = @{
+        ResourceGroupName = 'resourceGroup'
+        Name = 'scalingPlanPersonal'
+        HostPoolReference = @(
+            @{
+               'hostPoolArmPath' = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Microsoft.DesktopVirtualization/hostPools/scalingPlanPersonal';
+                'scalingPlanEnabled' = $true;
+            },
+            @{
+               'hostPoolArmPath' = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Microsoft.DesktopVirtualization/hostPools/scalingPlanPersonal2';
+                'scalingPlanEnabled' = $true;
+            }
+        )
+    }
+    
+    $scalingPlan = Update-AzWvdScalingPlan @scalingPlanParams
+    ```
+
+2. Use [Get-AzWvdScalingPlan](/powershell/module/az.desktopvirtualization/get-azwvdscalingplan) to get the host pool(s) that your scaling plan is assigned to.
+
+    ```azurepowershell
+    $params = @{
+        ResourceGroupName = 'resourceGroup'
+        Name = 'scalingPlanPersonal'
+    }
+    
+    (Get-AzWvdScalingPlan @params).HostPoolReference | FL HostPoolArmPath,ScalingPlanEnabled
+    ```
+
+---
+
 
 ## Next steps
 

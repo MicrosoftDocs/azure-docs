@@ -224,7 +224,7 @@
           href: edge-zones.md
         - name: Cluster configuration options
           href: cluster-configuration.md 
-        - name: Scale an AKS cluster
+        - name: Manually scale nodes in an AKS cluster
           href: scale-cluster.md
         - name: Stop an AKS cluster
           href: start-stop-cluster.md
@@ -254,6 +254,8 @@
                        href: istio-deploy-addon.md
                      - name: Deploy external or internal Istio Ingress
                        href: istio-deploy-ingress.md
+                     - name: Plug in CA certificates for Istio
+                       href: istio-plugin-ca.md
                      - name: Upgrade Istio service mesh add-on
                        href: istio-upgrade.md
                  - name: Open Service Mesh AKS add-on

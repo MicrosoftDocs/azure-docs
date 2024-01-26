@@ -3,10 +3,9 @@ title: Tutorial - Connect a generic Azure IoT Plug and Play module | Microsoft D
 description: Tutorial - Use sample C# IoT Plug and Play device code in a generic module.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/17/2022
+ms.date: 1/23/2024
 ms.topic: tutorial
 ms.service: iot-develop
-services: iot-develop
 
 #Customer intent: As a device builder, I want to learn how to implement a module that works with IoT Plug and Play.
 ---
