@@ -223,6 +223,14 @@ To enable streaming ingestion for your Azure Digital Twins data history table, t
 
 Ensure that `<table_name>` is replaced with the name of the table that was set up for you. It may take 5-10 minutes for the policy to take effect. 
 
+## Visualize historized properties
+
+[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md), a developer tool for visualizing and interacting with Azure Digital Twins data, offers a **Data history explorer** feature for viewing historized properties over time in a chart or a table. This feature is also available in [3D Scenes Studio](concepts-3d-scenes-studio.md), an immersive 3D environment for giving Azure Digital Twins the visual context of 3D assets.
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/data-history-explorer.png" alt-text="Screenshot of data history explorer for 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/data-history-explorer.png":::
+
+For more detailed information about using the data history explorer, see [Validate and explore historized properties](how-to-use-azure-digital-twins-explorer.md#validate-and-explore-historized-properties). 
+
 ## Next steps
 
 Once twin data has been historized to Azure Data Explorer, you can use the Azure Digital Twins query plugin for Azure Data Explorer to run queries across the data. Read more about the plugin here: [Querying with the Azure Data Explorer plugin](concepts-data-explorer-plugin.md).
