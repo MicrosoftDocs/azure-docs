@@ -19,6 +19,10 @@ The `swa start` command launches the emulator with default settings. By default,
 
 For more information about individual commands, see the [CLI reference](/azure/static-web-apps/static-web-apps-cli#swa-start).
 
+## Serve static files from your filesystem
+
+The SWA CLI provides the ability to directly serve your static content from your filesystem with no additional tools required. You can either serve the static content from your current directory or a specific folder.
+
 | Serve from... | Command | Notes |
 |---|---|---|
 | Current folder | `swa start` | By default, the CLI starts and serves static content (HTML, image, script, and CSS files) from the current working directory. |
@@ -71,21 +75,6 @@ swa start http://localhost:4200 --run "./startup.sh"
 
 Using the above command, you can access the application with the emulated services from `http://localhost:4280`
 
-## Default dev server ports
-
-The following table lists some default ports used by popular frameworks.
-
-| Tool | Port | Command |
-|--|--|--|
-| [Angular](https://angular.io/cli) | 4200 | `swa start http://localhost:4200` |
-| [Blazor WebAssembly](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) | 5000 | `swa start http://localhost:5000` |
-| [Gatsby](https://www.gatsbyjs.com/docs/gatsby-cli/) | 8000 | `swa start http://localhost:8000` |
-| [Hugo](https://gohugo.io/commands/hugo_server/) | 1313 | `swa start http://localhost:1313` |
-| [Next.js](https://nextjs.org/) | 3000 | `swa start http://localhost:3000` |
-| [React (Create React App)](https://reactjs.org/docs/create-a-new-react-app.html) | 3000 | `swa start http://localhost:3000` |
-| [Svelte (sirv-cli)](https://github.com/lukeed/sirv/tree/master/packages/sirv-cli/) | 5000 | `swa start http://localhost:5000` |
-| [Vue](https://cli.vuejs.org/) | 8080 | `swa start http://localhost:8080` |
-| [Vite-based frameworks](https://vitejs.dev/) | 5173 | `swa start http://localhost:5173` |
 
 ## Next steps
 
