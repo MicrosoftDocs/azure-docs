@@ -20,7 +20,7 @@ In this article, you learn how to remotely configure, start, stop, download, and
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A virtual machine with the following outbound TCP connectivity:
-    - to the chosen storage account over port 443
+    - to the storage account over port 443
     - to 169.254.169.254 over port 80
     - to 168.63.129.16 over port 8037
 
