@@ -3,7 +3,7 @@ title: Azure Operator 5G Core Deployment ordering on Azure Kubernetes Services
 description: Outlines the deployment order for components on Azure Kubernetes Services
 author: HollyCl
 ms.author: HollyCl
-ms.service: private-5g-core
+ms.service: azure
 ms.topic: concept-article #required; leave this attribute/value as-is.
 ms.date: 01/18/2024
 

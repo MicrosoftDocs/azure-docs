@@ -3,7 +3,7 @@ title: How to update existing deployments of Azure Operator 5G Core
 description: Learn how to update existing Azure Operator 5G Core deployments
 author: HollyCl
 ms.author: HollyCl
-ms.service: private-5g-core
+ms.service: azure
 ms.topic: how-to #required; leave this attribute/value as-is.
 ms.date: 01/18/2024
 

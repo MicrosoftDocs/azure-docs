@@ -3,7 +3,7 @@ title: Supported region map for Azure Operator 5G Core
 description: A visual representation of the regions that support Azure Operator 5G Core deployment.
 author: HollyCl
 ms.author: HollyCl
-ms.service: private-5g-core
+ms.service: azure
 ms.topic: concept-article #required; leave this attribute/value as-is.
 ms.custom: references_regions 
 ms.date: 01/18/2024

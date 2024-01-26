@@ -3,7 +3,7 @@ title: Delete a network function and/or cluster in Azure Operator 5G Core
 description: Learn the high-level process to delete a network function and/or cluster.
 author: HollyCl
 ms.author: HollyCl
-ms.service: private-5g-core
+ms.service: azure
 ms.topic: quickstart #required; leave this attribute/value as-is
 ms.date: 01/08/2024
 
