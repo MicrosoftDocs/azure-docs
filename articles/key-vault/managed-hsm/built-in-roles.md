@@ -58,7 +58,7 @@ To manage control plane permissions for the Managed HSM resource, you must use [
 > |/keys/deletedKeys/delete||X|||||X||
 > |/keys/backup/action|||X|||X|||
 > |/keys/restore/action|||X||||||
-> |/keys/release/action|||X|||||ggg |
+> |/keys/release/action|||X|||||X |
 > |/keys/import/action|||X||||||
 > |**Key cryptographic operations**|||||||||
 > |/keys/encrypt/action|||X||||||
