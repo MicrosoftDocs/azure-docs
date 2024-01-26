@@ -1,7 +1,6 @@
 ---
 title: Integrating with GitHub Actions
 description: This article gives an instruction on how to create a workflow using GitHub Actions to deploy a Stream Analytics job. 
-services: stream-analytics
 author: alexlzx
 ms.author: zhenxilin
 ms.service: stream-analytics

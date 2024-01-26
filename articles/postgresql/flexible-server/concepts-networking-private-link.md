@@ -4,7 +4,7 @@ description: Learn about connectivity and networking options for Azure Database 
 author: GennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 10/12/2023
+ms.date: 01/22/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:
@@ -113,8 +113,7 @@ Network policies can be enabled either for Network Security Groups only, for Use
 Limitations to Network Security Groups (NSG) and Private Endpoints are listed [here](../../private-link/private-endpoint-overview.md)
 
  > [!IMPORTANT]
- > High availability and other features of Azure Database for PostgreSQL flexible server require the ability to send/receive traffic to **destination port 5432** within the Azure virtual network subnet where Azure Database for PostgreSQL flexible server is deployed, as well as to **Azure storage** for log archival. If you create **[Network Security Groups (NSG)](../../virtual-network/network-security-groups-overview.md)** to deny traffic flow to or from your Azure Database for PostgreSQL flexible server instance within the subnet where it's deployed, **make sure to allow traffic to  destination port 5432** within the subnet, and also to Azure storage by using **[service tag](../../virtual-network/service-tags-overview.md) Azure Storage** as a destination. Also, if you elect to use [Microsoft Entra authentication](concepts-azure-ad-authentication.md) to authenticate logins to your Azure Database for PostgreSQL flexible server instance, allow outbound traffic to Microsoft Entra ID using Microsoft Entra [service tag](../../virtual-network/service-tags-overview.md).
-  > When setting up [Read Replicas across Azure regions](./concepts-read-replicas.md), Azure Database for PostgreSQL flexible server requires the ability to send/receive traffic to **destination port 5432** for both primary and replica, as well as to **[Azure storage](../../virtual-network/service-tags-overview.md#available-service-tags)** in primary and replica regions from both primary and replica servers. 
+ > Protection against data leakage: A private endpoint is mapped to an instance of a PaaS resource instead of the entire service. Consumers can only connect to the specific resource. Access to any other resource in the service is blocked. This mechanism provides basic protection against data leakage risks.
 
 ## Private Link combined with firewall rules
 

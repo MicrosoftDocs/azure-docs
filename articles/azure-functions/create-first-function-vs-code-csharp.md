@@ -45,11 +45,13 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |--|--|
     |**Select a language for your function project**|Choose `C#`.|
     | **Select a .NET runtime** | Choose `.NET 8.0 Isolated (LTS)`.|
-    |**Select a template for your project's first function**|Choose `HTTP trigger`.|
+    |**Select a template for your project's first function**|Choose `HTTP trigger`.<sup>1</sup>|
     |**Provide a function name**|Type `HttpExample`.|
     |**Provide a namespace** | Type `My.Functions`. |
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
     |**Select how you would like to open your project**|Select `Open in current window`.|
+
+    <sup>1</sup> Depending on your VS Code settings, you may need to use the `Change template filter` option to see the full list of templates.
 
 1. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=csharp#generated-project-files).
 

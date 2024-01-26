@@ -1,17 +1,10 @@
 ---
 title: Site Recovery limits table
 description: Describes system limits for Site Recovery.
-services: site recovery
-documentationcenter: NA
 author: csilauraa
 manager: jwhit
-editor: ''
-
 ms.service: site recovery
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
 

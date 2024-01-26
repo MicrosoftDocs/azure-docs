@@ -4,7 +4,7 @@ description: Azure Storage Extension in Azure Database for PostgreSQL - Flexible
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 10/12/2023
+ms.date: 01/22/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:
@@ -196,6 +196,9 @@ When the Azure Database for PostgreSQL flexible server administrator decides tha
 ```sql
 SELECT * FROM azure_storage.account_user_remove('mystorageaccount', 'support');
 ```
+
+## Limitations and known issues
+[!INCLUDE [Note Query store and Azure storage compability](includes/note-query-store-azure-storage-compability.md)]
 
 ## Next steps
 

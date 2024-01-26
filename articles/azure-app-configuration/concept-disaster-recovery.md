@@ -26,7 +26,7 @@ Your application loads its configuration from the more preferred replica. If the
 
 ## Failover between replicas
 
-If you want to leverage automatic failover between replicas, follow [these instructions](./howto-geo-replication.md#use-replicas) to set up failover using App Configuration provider libraries. This is the recommended approach for building resiliency in your application.
+If you want to leverage automatic failover between replicas, follow [these instructions](./howto-geo-replication.md#scale-and-failover-with-replicas) to set up failover using App Configuration provider libraries. This is the recommended approach for building resiliency in your application.
 
 If the App Configuration provider libraries don't meet your requirements, you can still implement your own failover strategy. When geo-replication is enabled, and if one replica isn't accessible, you can let your application failover to another replica for accessing your configuration.
 

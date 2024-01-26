@@ -617,11 +617,21 @@ You can get pronunciation assessment scores for:
 - Syllable groups
 - Phonemes in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) or [IPA](https://en.wikipedia.org/wiki/IPA) format
 
+## Supported features per locale
+
+The following table summarizes which feature are supported per locale. You can read more on the specific feature in the sections below.
+
+| Phoneme alphabet | IPA | SAPI |
+|-----------|-------------|-------------|
+| Phoneme name | `en-US` | `en-US`, `en-GB`, `zh-CN` |
+| Syllable group | `en-US` | `en-US`, `en-GB` |
+| Spoken phoneme | `en-US` | `en-US`, `en-GB` |
+
 ## Syllable groups
 
 Pronunciation assessment can provide syllable-level assessment results. Grouping in syllables is more legible and aligned with speaking habits, as a word is typically pronounced syllable by syllable rather than phoneme by phoneme.
 
-Pronunciation assessment supports syllable groups in `en-US` with IPA and in both `en-US` and `en-GB` with SAPI.
+Pronunciation assessment supports syllable groups only in `en-US` with IPA and in both `en-US` and `en-GB` with SAPI.
 
 The following table compares example phonemes with the corresponding syllables.
 
