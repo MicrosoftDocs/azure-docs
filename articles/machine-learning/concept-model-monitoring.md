@@ -59,11 +59,23 @@ Azure Machine Learning provides the following capabilities for continuous model 
 
 ## Lookback window size and offset
 
-The **lookback window size** is the duration of time (in ISO 8601 format) for your production or reference data window, looking back from the date of your monitoring run. For example, a lookback window size of `P7D` (seven days) for a monitor running on January 7 at 3:15pm UTC means that the monitor will use data from January 1 at 3:15pm UTC to January 7 at 3:15pm UTC in the data window. Both rolling windows and fixed windows are supported.
+The **lookback window size** is the duration of time (in ISO 8601 format) for your production or reference data window, looking back from the date of your monitoring run.
 
-The **lookback window offset** is the duration of time (in ISO 8601 format) to offset the end of your data window from the date of your monitoring run. For example, if your monitor is scheduled to run weekly on Mondays at 3:15pm UTC, but you don't want to use data from the weekend in your monitoring run, you can use a lookback window size of `P5D` (five days) and a lookback window offset of `P2D` (two days). Then, your data window starts on the prior Monday at 3:15pm UTC and ends on Friday at 3:15pm UTC. The following diagram illustrates this example.
+The **lookback window offset** is the duration of time (in ISO 8601 format) to offset the end of your data window from the date of your monitoring run.
 
-With Azure Machine Learning model monitoring, you can use smart defaults for your lookback window size and lookback window offset, or you can customize them to meet your needs.
+For example, suppose your model is in production and you have a monitor set to run on January 31 at 3:15pm UTC, if you set a production lookback window size of `P7D` (seven days) for the monitor and a production lookback window offset of `P0D` (zero days), the monitor uses data from January 24 at 3:15pm UTC up until January 31 at 3:15pm UTC (the time your monitor runs) in the data window.
+
+Furthermore, for the reference data, if you set the lookback window offset to `P7D` (seven days), the reference data window ends right before the production data window starts, so that there's no overlap. You can then set your reference data lookback window size to be as large as you like. For example, by setting the reference data lookback window size to `P24D` (24 days), the reference data window includes data from January 1 at 3:15pm UTC up until January 24 at 3:15pm UTC. The following figure illustrates this example.
+
+:::image type="content" source="media/how-to-monitor-models/monitoring-period.png" alt-text="A diagram showing the lookback window size and offset for reference and production data." lightbox="media/how-to-monitor-models/monitoring-period.png"::: 
+
+In some cases, you might find it useful to set the _lookback window offset_ for your production data to a number greater than zero days. For example, if your monitor is scheduled to run weekly on Mondays at 3:15pm UTC, but you don't want to use data from the weekend in your monitoring run, you can use a _lookback window size_ of `P5D` (five days) and a _lookback window offset_ of `P2D` (two days). Then, your data window starts on the prior Monday at 3:15pm UTC and ends on Friday at 3:15pm UTC.
+
+In practice, you should ensure that the reference data window and the production data window don't overlap. As shown in the following figure, you can ensure non-overlapping windows by making sure that the reference data lookback window offset (`P10D` or 10 days, in this example) is greater or equal to the sum of the production data's lookback window size and its lookback window offset (seven days).
+
+:::image type="content" source="media/how-to-monitor-models/lookback-overlap.png" alt-text="A diagram showing non-overlapping reference data and production data windows." lightbox="media/how-to-monitor-models/lookback-overlap.png":::
+
+With Azure Machine Learning model monitoring, you can use smart defaults for your lookback window size and lookback window offset, or you can customize them to meet your needs. Also, both rolling windows and fixed windows are supported.
 
 ### Customize lookback window size
 
@@ -96,7 +108,7 @@ Azure Machine Learning model monitoring supports the following list of monitorin
 | Prediction drift | Prediction drift tracks changes in the distribution of a model's predicted outputs, by comparing the distribution to validation data, labeled test data, or recent past production data. | Jensen-Shannon Distance, Population Stability Index, Normalized Wasserstein Distance, Chebyshev Distance, Two-Sample Kolmogorov-Smirnov Test, Pearson's Chi-Squared Test | Classification (tabular data), Regression (tabular data) | Production data - model outputs | Recent past production data or validation data |
 | Data quality | Data quality tracks the data integrity of a model's input by comparing it to the model's training data or recent, past production data. The data quality checks include checking for null values, type mismatch, or out-of-bounds values. | Null value rate, data type error rate, out-of-bounds rate | Classification (tabular data), Regression (tabular data) | production data - model inputs | Recent past production data or training data |
 | Feature attribution drift (preview) | Feature attribution drift is based on the contribution of features to predictions (also known as feature importance). Feature attribution drift tracks feature importance during production by comparing it with feature importance during training.| Normalized discounted cumulative gain | Classification (tabular data), Regression (tabular data) | Production data - model inputs & outputs | Training data (required) |
-| Model performance - Classification (preview) | Model performance tracks the objective performance of a model's output in production by comparing it to collected ground truth data. | Accuracy, Precision, Recall, F1 Score | Classification (tabular data) | Production data - model outputs | Ground truth data (required) |
+| Model performance - Classification (preview) | Model performance tracks the objective performance of a model's output in production by comparing it to collected ground truth data. | Accuracy, Precision, and Recall | Classification (tabular data) | Production data - model outputs | Ground truth data (required) |
 | Model performance - Regression (preview) | Model performance tracks the objective performance of a model's output in production by comparing it to collected ground truth data. | Mean Absolute Error (MAE), Mean Squared Error (MSE), Root Mean Squared Error (RMSE) | Regression (tabular data) | Production data - model outputs | Ground truth data (required) |
 |[Generative AI: Generation safety and quality](./prompt-flow/how-to-monitor-generative-ai-applications.md) (preview)|Evaluates generative AI applications for safety and quality, using GPT-assisted metrics.| Groundedness, relevance, fluency, similarity, coherence| Question & Answering | prompt, completion, context, and annotation template |N/A|
 
