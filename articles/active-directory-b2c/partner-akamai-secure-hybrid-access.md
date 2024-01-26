@@ -2,18 +2,16 @@
 title: Configure Azure Active Directory B2C with Akamai for secure hybrid access 
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Akamai for secure hybrid access 
-
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-
 ms.topic: how-to
-ms.date: 11/23/2022
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
-#Customer Intent: As a developer building a desktop app, I want to set up sign-in functionality using Azure Active Directory B2C, so that I can authenticate users with social and enterprise accounts and protect my application and customer data.
+#customer intent: I'm a developer building a desktop app, and I want to set up sign-in functionality using Azure Active Directory B2C, so I can authenticate users with social and enterprise accounts while protecting my application and customer data.
 
 ---
 
