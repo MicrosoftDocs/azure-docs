@@ -364,7 +364,7 @@ Here's how to update a scaling plan using the Az.DesktopVirtualization PowerShel
     Update-AzWvdScalingPlanPersonalSchedule @scalingPlanPersonalScheduleParams
     ```
 
-* Update a pooled scaling plan schedule using Update-AzWvdScalingPlanPooledSchedule. This example updates the peak hours start time.
+* Update a pooled scaling plan schedule using [Update-AzWvdScalingPlanPooledSchedule](/powershell/module/az.desktopvirtualization/update-azwvdscalingplanpooledschedule). This example updates the peak hours start time.
 
     ```azurepowershell
     $scalingPlanPooledScheduleParams = @{
