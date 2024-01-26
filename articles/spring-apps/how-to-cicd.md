@@ -189,7 +189,7 @@ The following steps show you how to enable a blue-green deployment from the **Re
 1. Add a new pipeline, and select **Empty job** to create a job.
 1. Under **Stages** select the line **1 job, 0 task**
 
-   :::image type="content" source="media/spring-cloud-how-to-cicd/create-new-job.jpg" alt-text="Screenshot of where to select to add a task to a job.":::
+   :::image type="content" source="media/spring-cloud-how-to-cicd/create-new-job.jpg" alt-text="Screenshot of where to select to add a task to a job." lightbox="media/spring-cloud-how-to-cicd/create-new-job.jpg":::
 
    1. Select the **+** to add a task to the job.
    1. Search for the **Azure Spring Apps** template, then select **Add** to add the task to the job.
@@ -205,11 +205,11 @@ The following steps show you how to enable a blue-green deployment from the **Re
 1. Navigate to the **Azure Spring Apps Deploy** task in **Stage 1**, then select the ellipsis next to **Package or folder**.
 1. Select *spring-boot-complete-0.0.1-SNAPSHOT.jar* in the dialog, then select **OK**.
 
-   :::image type="content" source="media/spring-cloud-how-to-cicd/change-artifact-path.jpg" alt-text="Screenshot of the 'Select a file or folder' dialog box.":::
+   :::image type="content" source="media/spring-cloud-how-to-cicd/change-artifact-path.jpg" alt-text="Screenshot of the 'Select a file or folder' dialog box." lightbox="media/spring-cloud-how-to-cicd/change-artifact-path.jpg":::
 
 1. Select the **+** to add another **Azure Spring Apps** task to the job.
-2. Change the action to **Set Production Deployment**.
-3. Select **Save**, then **Create release** to automatically start the deployment. 
+1. Change the action to **Set Production Deployment**.
+1. Select **Save**, then **Create release** to automatically start the deployment.
 
 To verify your app's current release status, select **View release**. After this task is finished, visit the Azure portal to verify your app status.
 

@@ -152,7 +152,7 @@ To use Application Insights to investigate the performance issues, use the follo
 > [Set up a staging environment](../spring-apps/how-to-staging-environment.md)
 
 > [!div class="nextstepaction"]
-> [Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md)
+> [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)
 
 > [!div class="nextstepaction"]
 > [Use TLS/SSL certificates](./how-to-use-tls-certificate.md)
