@@ -7,7 +7,10 @@ ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.custom: ignite-2023
 ms.topic: how-to
-ms.date: 12/18/2023
+ms.date: 01/26/2023
+
+#customer intent: As a developer, I want to be able to create an enviroment by using AZD so that I can create my coding environment.
+
 ---
 
 # Create an environment by using the Azure Developer CLI
