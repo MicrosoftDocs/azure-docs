@@ -1,16 +1,15 @@
 ---
 title: Azure Active Directory B2C global identity framework proof of concept for funnel-based configuration
 description: Learn how to create a proof of concept for funnel-based approach for Azure AD B2C to provide customer identity and access management for global customers.
-
 author: gargi-sinha
 manager: martinco
-
 ms.service: active-directory
-
 ms.topic: conceptual
-ms.date: 12/15/2022
+ms.date: 01/26/2025
 ms.author: gasinh
 ms.subservice: B2C
+
+#customer intent: I'm a developer implementing Azure Active Directory B2C, I want to create a proof-of-concept for funnel-based configuration. I need to configure federations, establish authentication, and manage user profiles across multiple tenants and regions.
 ---
 
 # Azure Active Directory B2C global identity framework proof of concept for funnel-based configuration
