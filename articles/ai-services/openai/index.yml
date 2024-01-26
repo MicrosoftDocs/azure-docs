@@ -39,7 +39,7 @@ landingContent:
            - text: Completions
              url: quickstart.md
            - text: Chat completions
-             url: chatgpt.md
+             url: chatgpt-quickstart.md
            - text: GPT-4 Turbo with Vision
              url: gpt-v-quickstart.md  
            - text: DALL-E (preview)
@@ -114,7 +114,7 @@ landingContent:
           url: /legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context
         - text: Customer Copyright Commitment
           url: /legal/cognitive-services/openai/customer-copyright-commitment?context=/azure/ai-services/openai/context/context
-      - linkListType: concepts
+      - linkListType: concept
         links:
           - text: Red teaming large language models (LLMs)
             url: ./concepts/red-teaming.md
@@ -147,7 +147,7 @@ landingContent:
       - linkListType: architecture
         links:
            - text: End-to-end chat reference architecture
-             url: architecture/ai-ml/architecture/baseline-openai-e2e-chat
+             url: /architecture/ai-ml/architecture/baseline-openai-e2e-chat
       - linkListType: learn
         links:
            - text: Azure OpenAI training
