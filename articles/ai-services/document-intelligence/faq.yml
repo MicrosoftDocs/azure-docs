@@ -423,9 +423,7 @@ sections:
       - question: |
           Why was I charged for Layout when running custom training?
         answer: |
-
-         Layout is required to generate lables for your dataset. If the data set you run custom training on does not have label files available, they will be auto-generated for you. 
-
+          Layout is required to generate lables for your dataset. If the data set you run custom training on does not have label files available, they will be auto-generated for you. 
 
   - name: Storage account
     questions:
