@@ -41,6 +41,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/ip-addresses.md",
+            "redirect_url": "/azure/azure-monitor/ip-addresses",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/source-map-support.md",
             "redirect_url": "/azure/azure-monitor/app/javascript-sdk-advanced",
             "redirect_document_id": false
