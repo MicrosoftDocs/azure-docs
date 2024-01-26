@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 # Tutorial: Configure Keyless with Azure Active Directory B2C
 
-Learn to configure Azure Active Directory B2C (Azure AD B2C) with the Sift Keyless passwordless solution. With Azure AD B2C as an identity provider (IdP), integrate Keyless with customer applications to provide passwordless authentication. The Keyless Zero-Knowledge Biometric (ZKB) is passwordless multi-factor authentication that helps eliminate fraud, phishing, and credential reuse, while enhancing the customer experience and protecting privacy.
+Learn to configure Azure Active Directory B2C (Azure AD B2C) with the Sift Keyless passwordless solution. With Azure AD B2C as an identity provider (IdP), integrate Keyless with customer applications to provide passwordless authentication. The Keyless Zero-Knowledge Biometric (ZKB) is passwordless multifactor authentication that helps eliminate fraud, phishing, and credential reuse, while enhancing the customer experience and protecting privacy.
 
 Go to keyless.io to learn about: 
 
