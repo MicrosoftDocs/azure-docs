@@ -41,7 +41,7 @@ You can also navigate to [Visual Studio Code extension market](https://marketpla
 
 To configure Azurite settings within Visual Studio Code, select the **Extensions** icon. Select the **Manage** gear button for the **Azurite** entry. Select **Extension Settings**.
 
-:::image type="content" source="./media/storage-use-azurite/azurite-configure-extension-settings.png" alt-text="A screenshot showing how modify the Azurite extension settings." lightbox="media/storage-use-azurite/azurite-configure-extension-settings.png":::
+:::image type="content" source="./media/storage-use-azurite/azurite-configure-extension-settings.png" alt-text="A screenshot showing how to modify the Azurite extension settings." lightbox="media/storage-use-azurite/azurite-configure-extension-settings.png":::
 
 The following settings are supported:
 
