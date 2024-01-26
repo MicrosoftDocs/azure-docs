@@ -370,7 +370,7 @@ To set up advanced monitoring:
 
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-configure-signals.png" alt-text="Screenshot showing how to configure selected monitoring signals." lightbox="media/how-to-monitor-models/model-monitoring-configure-signals.png":::
 
-1. Select **Save** to return to the **Select monitoring signals** section.
+1. Select **Save** to return to the **Select monitoring signals** page.
 1. Select **Add** to open the **Edit Signal** window.
 1. Select **Feature attribution drift (preview)** to configure the feature attribution drift signal as follows:
 
@@ -384,12 +384,12 @@ To set up advanced monitoring:
 
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-configure-feature-attribution-drift.png" alt-text="Screenshot showing how to configure feature attribution drift signal." lightbox="media/how-to-monitor-models/model-monitoring-configure-feature-attribution-drift.png":::
 
-1. Select **Save** to return to the **Select monitoring signals** section.
-1. When you're finished with your monitoring signals configuration, select **Next** to go to the **Notifications** section. 
+1. Select **Save** to return to the **Select monitoring signals** page.
+1. When you're finished with your monitoring signals configuration, select **Next** to go to the **Notifications** page. 
 
     :::image type="content" source="media/how-to-monitor-models/model-monitoring-configured-signals.png" alt-text="Screenshot showing the configured signals." lightbox="media/how-to-monitor-models/model-monitoring-configured-signals.png":::
 
-1. In the **Notifications** section, enable alert notifications for each signal and select **Next**.
+1. On the **Notifications** page, enable alert notifications for each signal and select **Next**.
 1. Review your settings on the **Review monitoring settings** page.
 
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-review.png" alt-text="Screenshot showing review page of the advanced configuration for model monitoring." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-review.png":::
@@ -400,15 +400,17 @@ To set up advanced monitoring:
 
 ## Set up model performance monitoring
 
-Azure Machine Learning model monitoring enables you to track the objective performance of your models in production by calculating model performance metrics, such as Accuracy for classification models and RMSE for regression models. To configure your model performance signal, you will need to first satisfy the following requirements: 
+Azure Machine Learning model monitoring enables you to track the objective performance of your models in production by calculating model performance metrics. These model performance metrics include accuracy (for classification models) and root mean squared error (RMSE) for (regression models).
 
-* Production model output data (your model's predictions) with unique id for each row
-* Ground truth data / actuals with unique id for each row to join with production data
-* (Optional) A prejoined dataset with model outputs and ground truth data
+Before you can configure your model performance signal, you need to satisfy the following requirements:
 
-The key requirement for enabling model performance is having collected ground truth data. Since ground truth data is encountered at the application-level, it is your responsibility to collect it as it made available and maintain a data asset in Azure Machine Learning with this ground truth data. 
+* Have production model output data (your model's predictions) with a unique ID for each row.
+* Have ground truth data (or actuals) with a unique ID for each row. This data will be joined with production data.
+* (Optional) Have a prejoined dataset with model outputs and ground truth data.
 
-For example, let's suppose you have a deployed model to predict if a credit card transaction is fraudulent (1) or not fraudulent (0). As this model is utilized in production, the model output data can be collected with the [Data collector](how-to-collect-production-data.md). Ground truth data will be made available when a credit card holder specifies whether or not the transaction was fraudulent or not. This `is_fraud` ground truth should be collected at the application-level and maintained within an Azure Machine Learning data asset to be used by the model performance monitoring signal. 
+The key requirement for enabling model performance monitoring is that you've collected ground truth data. Since ground truth data is encountered at the application level, it's your responsibility to collect it as it becomes available and to maintain a data asset in Azure Machine Learning with this ground truth data.
+
+To illustrate, suppose you have a deployed model to predict if a credit card transaction is fraudulent or not fraudulent. As you use this model in production, you can collect the model output data with the [model data collector](how-to-collect-production-data.md). Ground truth data will become available when a credit card holder specifies whether or not the transaction was fraudulent or not. This `is_fraud` ground truth should be collected at the application level and maintained within an Azure Machine Learning data asset that the model performance monitoring signal can use.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -609,28 +611,30 @@ created_monitor = poller.result()
 
 # [Studio](#tab/azure-studio)
 
-The studio currently doesn't support model performance monitoring. Support will be coming shortly. 
+The studio currently doesn't support model performance monitoring.
 
 ---
 
-## Set up model monitoring by bringing your own production data to Azure Machine Learning
+## Set up model monitoring by bringing your production data to Azure Machine Learning
 
-You can also set up model monitoring for models deployed to Azure Machine Learning batch endpoints or deployed outside of Azure Machine Learning. If you have production data but no deployment, you can use the data to perform continuous model monitoring. To monitor these models, you must meet the following requirements:
+You can also set up model monitoring for models deployed to Azure Machine Learning batch endpoints or deployed outside of Azure Machine Learning. If you don't have a deployment, but you have production data, you can use the data to perform continuous model monitoring. To monitor these models, you must be able to:
 
-* You have a way to collect production inference data from models deployed in production.
-* You can register the collected production inference data as an Azure Machine Learning data asset, and ensure continuous updates of the data.
-* You must provide a custom data preprocessing component and register it as an Azure Machine Learning component. This is a requirement because, if your data is not collected with the [Data collector](#how-to-collect-production-data.md), the Azure Machine Learning model monitoring system doesn't know how to process it into tabular data with support for time windowing.
+* Collect production inference data from models deployed in production.
+* Register the production inference data as an Azure Machine Learning data asset, and ensure continuous updates of the data.
+* Provide a custom data preprocessing component and register it as an Azure Machine Learning component. 
 
-Your Azure Machine Learning custom preprocessing component must have these input and output signatures:
+You're required to provide a custom data preprocessing component if your data is not collected with the [data collector](#how-to-collect-production-data.md) since the Azure Machine Learning model monitoring system doesn't know how to process your data into tabular form with support for time windowing.
 
-  | input/output | signature name | type | description | example value |
+Your custom preprocessing component must have these input and output signatures:
+
+  | Input/Output | Signature name | Type | Description | Example value |
   |---|---|---|---|---|
-  | input | data_window_start | literal, string | data window start-time in ISO8601 format. | 2023-05-01T04:31:57.012Z |
-  | input | data_window_end | literal, string | data window end-time in ISO8601 format. | 2023-05-01T04:31:57.012Z |
-  | input | input_data | uri_folder | The collected production inference data, which is registered as Azure Machine Learning data asset. | azureml:myproduction_inference_data:1 |
-  | output | preprocessed_data | mltable | A tabular dataset, which matches a subset of baseline data schema. | |
+  | input | `data_window_start` | literal, string | data window start-time in ISO8601 format. | 2023-05-01T04:31:57.012Z |
+  | input | `data_window_end` | literal, string | data window end-time in ISO8601 format. | 2023-05-01T04:31:57.012Z |
+  | input | `input_data` | uri_folder | The collected production inference data, which is registered as an Azure Machine Learning data asset. | azureml:myproduction_inference_data:1 |
+  | output | `preprocessed_data` | mltable | A tabular dataset, which matches a subset of the baseline data schema. | |
 
-For an example of a custom data preprocessing component, please see our GitHub repo: [https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_preprocessing](https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_preprocessing).
+For an example of a custom data preprocessing component, see [custom_preprocessing in the azuremml-examples GitHub repo](https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_preprocessing).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -646,7 +650,7 @@ The following YAML contains the definition for model monitoring with production 
 
 # [Python SDK](#tab/python)
 
-Once you've satisfied the previous requirements, you can set up model monitoring using the following Python code:
+Once you've satisfied the previous requirements, you can set up model monitoring with the following Python code:
 
 ```python
 from azure.identity import InteractiveBrowserCredential
@@ -786,46 +790,52 @@ created_monitor = poller.result()
 
 # [Studio](#tab/azure-studio)
 
-The studio currently doesn't support configuring monitoring for models that are deployed outside of Azure Machine Learning. See the Azure CLI or Python tabs instead. Once you have configured your monitor with the CLI or SDK, you can view the monitoring results in the studio. For more information on interpreting monitoring results, see [Interpreting monitoring results](how-to-monitor-model-performance.md#interpreting-monitoring-results).
+The studio currently doesn't support configuring monitoring for models that are deployed outside of Azure Machine Learning. See the Azure CLI or Python SDK tabs instead. 
+
+Once you've configured your monitor with the CLI or SDK, you can view the monitoring results in the studio. For more information on interpreting monitoring results, see [Interpreting monitoring results](how-to-monitor-model-performance.md#interpret-monitoring-results).
 
 ---
 
 ## Set up model monitoring with custom signals and metrics
 
-With Azure Machine Learning model monitoring, you have the option to define your own custom signal and implement any metric of your choice to monitor your model. You can register this signal as an Azure Machine Learning component. When your Azure Machine Learning model monitoring job runs on the specified schedule, it computes the metric(s) you have defined within your custom signal, just as it does for the prebuilt signals (data drift, prediction drift, data quality, & feature attribution drift). To get started with defining your own custom signal, you must meet the following requirement:
+With Azure Machine Learning model monitoring, you have the option to define your own custom signal and implement any metric of your choice to monitor your model. You can register this signal as an Azure Machine Learning component. When your Azure Machine Learning model monitoring job runs on the specified schedule, it computes the metric(s) you've defined within your custom signal, just as it does for the prebuilt signals (data drift, prediction drift, and data quality).
 
-* You must define your custom signal and register it as an Azure Machine Learning component. The Azure Machine Learning component must have these input and output signatures:
+To set up a custom signal to use for model monitoring, you must first define the custom signal and register it as an Azure Machine Learning component. The Azure Machine Learning component must have these input and output signatures:
 
 ### Component input signature
 
-The component input DataFrame should contain a `mltable` with the processed data from the preprocessing component and any number of literals, each representing an implemented metric as part of the custom signal component. For example, if you have implemented one metric, `std_deviation`, then you'll need an input for `std_deviation_threshold`. Generally, there should be one input per metric with the name {metric_name}_threshold.
+The component input DataFrame should contain the following items:
 
-  | signature name | type | description | example value |
-  |---|---|---|---|
-  | production_data | mltable | A tabular dataset, which matches a subset of baseline data schema. | |
-  | std_deviation_threshold | literal, string | Respective threshold for the implemented metric. | 2 |
+- An `mltable` with the processed data from the preprocessing component
+- Any number of literals, each representing an implemented metric as part of the custom signal component. For example, if you've implemented the metric, `std_deviation`, then you'll need an input for `std_deviation_threshold`. Generally, there should be one input per metric with the name `<metric_name>_threshold`.
+
+| Signature name | Type | Description | Example value |
+|---|---|---|---|
+| production_data | mltable | A tabular dataset that matches a subset of the baseline data schema. | |
+| std_deviation_threshold | literal, string | Respective threshold for the implemented metric. | 2 |
 
 ### Component output signature
 
 The component output port should have the following signature.
 
-  | signature name | type | description | 
+  | Signature name | Type | Description |
   |---|---|---|
-  | signal_metrics | mltable | The ml table that contains the computed metrics. The schema is defined in the signal_metrics schema section in the next section. |
+  | signal_metrics | mltable | The mltable that contains the computed metrics. The schema is defined in the next section [signal_metrics schema](#signal_metrics-schema). |
   
 #### signal_metrics schema
-The component output DataFrame should contain four columns: `group`, `metric_name`, `metric_value`, and `threshold_value`:
 
-  | signature name | type | description | example value |
+The component output DataFrame should contain four columns: `group`, `metric_name`, `metric_value`, and `threshold_value`.
+
+  | Signature name | Type | Description | Example value |
   |---|---|---|---|
-  | group | literal, string | Top level logical grouping to be applied to this custom metric. | TRANSACTIONAMOUNT |
+  | group | literal, string | Top-level logical grouping to be applied to this custom metric. | TRANSACTIONAMOUNT |
   | metric_name | literal, string | The name of the custom metric. | std_deviation |
   | metric_value | numerical | The value of the custom metric. | 44,896.082 |
   | threshold_value | numerical | The threshold for the custom metric. | 2 |
 
-Here's an example output from a custom signal component computing the metric, `std_deviation`:
+The following table shows an example output from a custom signal component that computes the `std_deviation` metric:
 
-  | group | metric_value | metric_name | threshold_value |
+  | Group | metric_value | metric_name | threshold_value |
   |---|---|---|---|
   | TRANSACTIONAMOUNT | 44,896.082 | std_deviation | 2 |
   | LOCALHOUR | 3.983 | std_deviation | 2 |
@@ -833,17 +843,21 @@ Here's an example output from a custom signal component computing the metric, `s
   | DIGITALITEMCOUNT | 7.238 | std_deviation | 2 |
   | PHYSICALITEMCOUNT | 5.509 | std_deviation | 2 |
 
-An example custom signal component definition and metric computation code can be found in our GitHub repo at [https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_signal](https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_signal).
+To see an example custom signal component definition and metric computation code, see [custom_signal in the azureml-examples repo](https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_signal).
 
 # [Azure CLI](#tab/azure-cli)
 
-Once you've satisfied the previous requirements, you can set up model monitoring with the following CLI command and YAML definition:
+Once you've satisfied the requirements for using custom signals and metrics, you can set up model monitoring with the following CLI command and YAML definition:
 
 ```azurecli
 az ml schedule create -f ./custom-monitoring.yaml
 ```
 
-The following YAML contains the definition for model monitoring with a custom signal. It's assumed that you have already created and registered your component with the custom signal definition to Azure Machine Learning. In this example, the `component_id` of the registered custom signal component is `azureml:my_custom_signal:1.0.0`. If you have collected your data with the [Data collector](how-to-collect-production-data.md), you can omit the `pre_processing_component` property. If you wish you use a preprocessing component to preprocess your production data not collected by MDC, you can specify it. 
+The following YAML contains the definition for model monitoring with a custom signal. Some things to notice about the code:
+
+- It assumes that you've already created and registered your component with the custom signal definition in Azure Machine Learning.
+- The `component_id` of the registered custom signal component is `azureml:my_custom_signal:1.0.0`.
+- If you've collected your data with the [data collector](how-to-collect-production-data.md), you can omit the `pre_processing_component` property. If you wish to use a preprocessing component to preprocess production data not collected by the data collector, you can specify it.
 
 ```yaml
 # custom-monitoring.yaml
@@ -889,9 +903,9 @@ The studio currently doesn't support monitoring for custom signals. See the Azur
 
 ---
 
-## Interpreting monitoring results
+## Interpret monitoring results
 
-After you have configured your model monitor and the first run has completed, you can navigate back to the **Monitoring** tab in your Azure Machine Learning studio to view the results. From the main **Monitoring** view, click on the name of your model monitor and you will see the Monitor overview page. In this view you can see the corresponding model, endpoint, and deployment, along with details regarding the signals you have configured:
+After you've configured your model monitor and the first run has completed, you can navigate back to the **Monitoring** tab in your Azure Machine Learning studio to view the results. From the main **Monitoring** view, click on the name of your model monitor and you will see the Monitor overview page. In this view you can see the corresponding model, endpoint, and deployment, along with details regarding the signals you have configured:
 
 > [!NOTE]
 >
