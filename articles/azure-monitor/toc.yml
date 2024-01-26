@@ -1483,7 +1483,7 @@ items:
 - name: Reference
   items:
   - name: IP addresses, ports, and firewall settings
-    href: app/ip-addresses.md
+    href: ip-addresses.md
     displayName: firewall, firewall exceptions, whitelist
   - name: Service limits
     href: service-limits.md

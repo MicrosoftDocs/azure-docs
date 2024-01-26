@@ -11,12 +11,12 @@ Author: AaronMaxwell
 
 # IP addresses used by Azure Monitor
 
-[Azure Monitor](../overview.md) uses several IP addresses. Azure Monitor is made up of core platform metrics and logs in addition to Log Analytics and Application Insights. You might need to know IP addresses if the app or infrastructure that you're monitoring is hosted behind a firewall.
+[Azure Monitor](.\overview.md) uses several IP addresses. Azure Monitor is made up of core platform metrics and logs in addition to Log Analytics and Application Insights. You might need to know IP addresses if the app or infrastructure that you're monitoring is hosted behind a firewall.
 
 > [!NOTE]
 > Although these addresses are static, it's possible that we'll need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhook action groups, which also require inbound firewall rules.
 
-You can use Azure [network service tags](../../virtual-network/service-tags-overview.md) to manage access if you're using Azure network security groups. If you're managing access for hybrid/on-premises resources, you can download the equivalent IP address lists as [JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files), which are updated each week. To cover all the exceptions in this article, use the service tags `ActionGroup`, `ApplicationInsightsAvailability`, and `AzureMonitor`.
+You can use Azure [network service tags](../virtual-network/service-tags-overview.md) to manage access if you're using Azure network security groups. If you're managing access for hybrid/on-premises resources, you can download the equivalent IP address lists as [JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files), which are updated each week. To cover all the exceptions in this article, use the service tags `ActionGroup`, `ApplicationInsightsAvailability`, and `AzureMonitor`.
 
 ## Outgoing ports
 
@@ -53,20 +53,20 @@ Application Insights Agent configuration is needed only when you're making chang
 
 ## Availability tests
 
-This is the list of addresses from which [availability web tests](./availability-overview.md) are run. If you want to run web tests on your app but your web server is restricted to serving specific clients, you'll have to permit incoming traffic from our availability test servers.
+This is the list of addresses from which [availability web tests](./app/availability-overview.md) are run. If you want to run web tests on your app but your web server is restricted to serving specific clients, you'll have to permit incoming traffic from our availability test servers.
 
 > [!NOTE]
-> For resources located inside private virtual networks that can't allow direct inbound communication with the availability test agents in public Azure, the only option is to [create and host your own custom availability tests](availability-azure-functions.md).
+> For resources located inside private virtual networks that can't allow direct inbound communication with the availability test agents in public Azure, the only option is to [create and host your own custom availability tests](./app/availavailability-azure-functions.md).
 
 ### Service tag
 
 If you're using Azure network security groups, add an *inbound port rule* to allow traffic from Application Insights availability tests. Select **Service Tag** as the **Source** and **ApplicationInsightsAvailability** as the **Source service tag**.
 
 >[!div class="mx-imgBorder"]
->:::image type="content" source="./media/ip-addresses/add-inbound-security-rule.png" lightbox="./media/ip-addresses/add-inbound-security-rule.png" alt-text="Screenshot that shows selecting Inbound security rules and then selecting Add.":::
+>:::image type="content" source="./app/media/ip-addresses/add-inbound-security-rule.png" lightbox="./app/media/ip-addresses/add-inbound-security-rule.png" alt-text="Screenshot that shows selecting Inbound security rules and then selecting Add.":::
 
 >[!div class="mx-imgBorder"]
->:::image type="content" source="./media/ip-addresses/add-inbound-security-rule2.png" lightbox="./media/ip-addresses/add-inbound-security-rule2.png" alt-text="Screenshot that shows the Add inbound security rule tab.":::
+>:::image type="content" source="./app/media/ip-addresses/add-inbound-security-rule2.png" lightbox="./app/media/ip-addresses/add-inbound-security-rule2.png" alt-text="Screenshot that shows the Add inbound security rule tab.":::
 
 Open port 80 (HTTP) and port 443 (HTTPS) for incoming traffic from these addresses. IP addresses are grouped by location.
 
@@ -160,7 +160,7 @@ Add the subdomain of the corresponding region to the Live Metrics URL from the [
 
 ### Discovery API
 
-You might also want to [programmatically retrieve](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) the current list of service tags together with IP address range details.
+You might also want to [programmatically retrieve](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) the current list of service tags together with IP address range details.
 
 ## Application Insights and Log Analytics APIs
 
