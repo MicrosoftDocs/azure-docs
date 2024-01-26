@@ -39,13 +39,13 @@ After adding an API from API Management, you can add metadata and documentation 
     > [!NOTE]
     > `az apic` commands require the `apic-extension` Azure CLI extension. If you haven't used `az apic` commands, the extension is installed dynamically when you run your first `az apic` command. Learn more about [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
 
-    > [!TIP]
-    > Azure CLI command examples in this article are formatted for the bash shell. If you're using PowerShell or another shell environment, you might need to adjust line breaks and variable names for your environment.
+    > [!NOTE]
+    > Azure CLI command examples in this article can run in PowerShell or a bash shell. Where needed because of different variable syntax, separate command examples are provided for the two shells.
 
 
 ## Add a managed identity in your API center
 
-For this scenario, your API center uses a [managed identity](/entra/identity/managed-identities-azure-resources/overview) to access APIs in your API Management instance. If you haven't added a system-assigned or user-assigned managed identity in your API center, you can add it in the Azure portal or by using the Azure CLI. 
+For this scenario, your API center uses a [managed identity](/entra/identity/managed-identities-azure-resources/overview) to access APIs in your API Management instance. You can use either a system-assigned or user-assigned managed identity. If you haven't added a managed identity in your API center, you can add it in the Azure portal or by using the Azure CLI. 
 
 ### Add a system-assigned identity
 
@@ -61,9 +61,7 @@ For this scenario, your API center uses a [managed identity](/entra/identity/man
 Set the system-assigned identity in your API center using the following [az apic service update](/cli/azure/apic/service#az-apic-service-update) command. Substitute the names of your API center and resource group:
 
 ```azurecli 
-az apic service update --name <api-center-name> \
-    --resource-group <resource-group-name> \
-    --identity '{"type": "SystemAssigned"}'
+az apic service update --name <api-center-name> --resource-group <resource-group-name> --identity '{"type": "SystemAssigned"}'
 ```
 ---
 
@@ -111,9 +109,7 @@ To add a user-assigned identity, you need to create a user-assigned identity res
 1. Add the user-assigned identity to your API center using the following [az apic service update](/cli/azure/apic/service#az-apic-service-update) command. Substitute the names of your API center and resource group, and pass the JSON file as the value of the `--identity` parameter. Here, the JSON file is named `identity.json`.
 
     ```azurecli 
-    az apic service update --name <api-center-name> \
-        --resource-group <resource-group-name> \
-        --identity @identity.json
+    az apic service update --name <api-center-name> --resource-group <resource-group-name> --identity "@identity.json"
     ```
 ---
 
@@ -138,35 +134,63 @@ To allow import of APIs, assign your API center's managed identity the **API Man
 
     **System-assigned identity**
     ```azurecli
-    # Get the principal ID of the system-assigned identity in your API center
+    #! /bin/bash
     apicObjID=$(az apic service show --name <api-center-name> \
         --resource-group <resource-group-name> \
-        --query identity.principalId --output tsv)
+        --query "identity.principalId" --output tsv)
+    ```
+
+    ```azurecli
+    # PowerShell syntax
+    $apicObjID=$(az apic service show --name <api-center-name> `
+        --resource-group <resource-group-name> `
+        --query "identity.principalId" --output tsv)
     ```
 
     **User-assigned identity**
     ```azurecli
-    # Get the principal ID of the managed identity (must be added in the API center)
-    apicObjID=$(az identity show --name <identity-name> \
-        --resource-group <resource-group-name> \
-        --query principalId --output tsv)
+    #! /bin/bash   
+    apicObjID=$(az identity show --name <identity-name> --resource-group <resource-group-name> --query "principalId" --output tsv)
     ```
     
-1. Get the resource ID of your API Management instance using the [az apim show](/cli/azure/apim#az-apim-show) command.
     ```azurecli
-    apimID=$(az apim show --name <apim-name> \
-        --resource-group <resource-group-name> \
-        --query id --output tsv)
+    # PowerShell syntax   
+    apicObjID=$(az identity show --name <identity-name> --resource-group <resource-group-name> --query "principalId" --output tsv)
+    ```
+1. Get the resource ID of your API Management instance using the [az apim show](/cli/azure/apim#az-apim-show) command.
+1. 
+    ```azurecli
+    #! /bin/bash
+    apimID=$(az apim show --name <apim-name> --resource-group <resource-group-name> --query "id" --output tsv)
+    ```
+
+    ```azurecli
+    # PowerShell syntax
+    $apimID=$(az apim show --name <apim-name> --resource-group <resource-group-name> --query "id" --output tsv)
     ```
 
 1. Assign the managed identity the **API Management Service Reader** role in your API Management instance using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
+
     ```azurecli
+    #! /bin/bash
+    scope="${apimID:1}"
+
     az role assignment create \
-        --role "API Management Service Reader Role"\
+        --role "API Management Service Reader Role" \
         --assignee-object-id $apicObjID \
         --assignee-principal-type ServicePrincipal \
-        --scope "${apimID:1}" 
+        --scope $scope 
     ```
+    
+    ```azurecli
+    #! PowerShell syntax
+    $scope=$apimID.substring(1)
+
+    az role assignment create `
+        --role "API Management Service Reader Role" `
+        --assignee-object-id $apicObjID `
+        --assignee-principal-type ServicePrincipal `
+        --scope $scope 
 ---
 
 ## Import APIs from your API Management instance
@@ -185,17 +209,30 @@ Use a wildcard (`*`) to specify all APIs from the API Management instance.
 1. Get the resource ID of your API Management instance using the [az apim show](/cli/azure/apim#az-apim-show) command.
 
     ```azurecli
-    apimID=$(az apim show --name <apim-name> \
-        --resource-group <resource-group-name> \
-        --query id --output tsv)
+    #! /bin/bash
+    apimID=$(az apim show --name <apim-name> --resource-group <resource-group-name> --query id --output tsv)
+    ```
+
+    ```azurecli
+    # PowerShell syntax
+    $apimID=$(az apim show --name <apim-name> --resource-group <resource-group-name> --query id --output tsv)
     ```
     
 1. Use the `az apic service import-from-apim` command to import the APIs. Substitute the names of your API center and resource group, and use `*` to specify all APIs from the API Management instance.
 
     ```azurecli
-    az apic service import-from-apim --service-name <api-center-name> \
-    --resource-group <resource-group-name> \
-    --source-resource-ids $apimID/apis/*    
+
+    #! /bin/bash
+    apiIDs="$apimID/apis/*"
+
+    az apic service import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> --source-resource-ids $apiIDs    
+    ```
+    
+    ```azurecli 
+    # PowerShell syntax
+    $apiIDs=$apimID + "/apis/*"
+
+    az apic service import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> --source-resource-ids $apiIDs    
     ```
 
     > [!NOTE]
@@ -208,17 +245,27 @@ Specify an API to import using its name from the API Management instance.
 1. Get the resource ID of your API Management instance using the [az apim show](/cli/azure/apim#az-apim-show) command.
 
     ```azurecli
-    apimID=$(az apim show --name <apim-name> \
-        --resource-group <resource-group-name> \
-        --query id --output tsv)
+    #! /bin/bash
+    apimID=$(az apim show --name <apim-name> --resource-group <resource-group-name> --query id --output tsv)
+    ```
+
+    ```azurecli
+    # PowerShell syntax
+    $apimID=$(az apim show --name <apim-name> --resource-group <resource-group-name> --query id --output tsv)
     ```
     
 1. Use the `az apic service import-from-apim` command to import the API. Substitute the names of your API center and resource group, and specify an API name from the API Management instance.
 
     ```azurecli
-    az apic service import-from-apim --service-name <api-center-name> \
-    --resource-group <resource-group-name> \
-    --source-resource-ids $apimID/apis/<api-name>    
+    #! /bin/bash
+    apiIDs="$apimID/apis/<api-name>"
+    az apic service import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> --source-resource-ids $apiIDs    
+    ```
+    
+    ```azurecli 
+    # PowerShell syntax
+    $apiIDs=$apimID + "/apis/<api-name>"
+    az apic service import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> --source-resource-ids $apiIDs    
     ```
 
     > [!NOTE]
