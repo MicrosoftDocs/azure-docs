@@ -39,20 +39,6 @@ To manually create a DCR, create a JSON file using the appropriate configuration
 
 Once you have the JSON file created, you can use any of the following methods to create the DCR:
 
-## [CLI](#tab/CLI)
-Use the [az monitor data-collection rule create](/cli/azure/monitor/data-collection/rule) command to create a DCR from your JSON file using the Azure CLI as shown in the following example.
-
-```azurecli
-az monitor data-collection rule create --location 'eastus' --resource-group 'my-resource-group' --name 'myDCRName' --rule-file 'C:\MyNewDCR.json' --description 'This is my new DCR'
-```
-
-## [PowerShell](#tab/powershell)
-Use the [New-AzDataCollectionRule](/powershell/module/az.monitor/new-azdatacollectionrule) cmdlet to create the DCR from your JSON file using PowerShell as shown in the following example.
-
-```powershell
-New-AzDataCollectionRule -Location 'east-us' -ResourceGroupName 'my-resource-group' -RuleName 'myDCRName' -RuleFile 'C:\MyNewDCR.json' -Description 'This is my new DCR'
-```
-
 ## [Portal](#tab/portal)
 
 1. On the **Monitor** menu, select **Data Collection Rules**.
@@ -99,6 +85,20 @@ New-AzDataCollectionRule -Location 'east-us' -ResourceGroupName 'my-resource-gro
 
 1. Select **Add data source** and then select **Review + create** to review the details of the data collection rule and association with the set of virtual machines.
 1. Select **Create** to create the data collection rule.
+
+## [CLI](#tab/CLI)
+Use the [az monitor data-collection rule create](/cli/azure/monitor/data-collection/rule) command to create a DCR from your JSON file using the Azure CLI as shown in the following example.
+
+```azurecli
+az monitor data-collection rule create --location 'eastus' --resource-group 'my-resource-group' --name 'myDCRName' --rule-file 'C:\MyNewDCR.json' --description 'This is my new DCR'
+```
+
+## [PowerShell](#tab/powershell)
+Use the [New-AzDataCollectionRule](/powershell/module/az.monitor/new-azdatacollectionrule) cmdlet to create the DCR from your JSON file using PowerShell as shown in the following example.
+
+```powershell
+New-AzDataCollectionRule -Location 'east-us' -ResourceGroupName 'my-resource-group' -RuleName 'myDCRName' -RuleFile 'C:\MyNewDCR.json' -Description 'This is my new DCR'
+```
 
 ## [API](#tab/api)
 Use the [DCR create API](/rest/api/monitor/data-collection-rules/create) to create the DCR from your JSON file. You can use any method to call a REST API as shown in the following examples.
