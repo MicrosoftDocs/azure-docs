@@ -55,19 +55,19 @@ You can manage access to Advisor personalized recommendations using subscription
 
 | **Name** | **Description** |
 |---|:---:|
-|Subscription Reader  Subscription Contributor  Subscription Owner|View recommendations.|
-|Subscription Owner  Subscription Contributor|Update recommendations’ status, perform dismiss and postpone operations.|
+|Subscription Reader|View reviews for a workload and recommendations linked to them.|
+|Subscription Owner  Subscription Contributor|View reviews for a workload and triage (accept or reject) recommendations linked to them, as well as managing the recommendation lifecycle for reviews (mark as completed, postponed or dismissed, in progress, or not started).|
 
 You can find detailed instructions on how to assign a role using the Azure portal - [Assign Azure roles using the Azure portal - Azure RBAC](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition). Additional information is available in [Steps to assign an Azure role - Azure RBAC](/azure/role-based-access-control/role-assignments-steps).
 
 ### Access reviews
 
-You can find resiliency reviews created by your account team under the **Manage** menu group in Azure Advisor.
+You can find resiliency reviews created by your account team under the **Manage** > **Reviews (Preview)** menu in Azure Advisor.
 
 If there's a new review available to you, you see a notification banner on top of the Advisor pages. A “new” review is one with all recommendations in the *Pending* state.
 
 1. Open the Azure portal and navigate to [Advisor](https://aka.ms/Advisor_Reviews). 
-Select **Manage** (->) Reviews in the left navigation pane. A list of reviews opens. At the top of the page, you see the number of **Total Reviews** and review **Recommendations**, and a graph of **Reviews by status**. 
+Select **Manage** > **Reviews (Preview)** in the left navigation pane. A list of reviews opens. At the top of the page, you see the number of **Total Reviews** and review **Recommendations**, and a graph of **Reviews by status**. 
 1. Use search, filters, and sorting to find the review you need. You can filter reviews by one of the **Status equals** states shown next, or choose *All* (the default) to see all reviews. If you don’t see a review for your subscription, make sure the review subscription is included in the global portal filter. You might need to update the filter to see the reviews for a subscription. 
 
 * *New*: No recommendations are triaged (accepted or rejected)
@@ -124,7 +124,7 @@ From a review recommendations details page:
 
 1. You can accept multiple recommendations at a time by selecting them using the checkbox control and clicking **Accept**.
 
-1. Accepted recommendations are moved to the **Accepted** tab and become visible to your engineering team under **Recommendations** (->) **Reliability**.
+1. Accepted recommendations are moved to the **Accepted** tab and become visible to your engineering team under **Recommendations** > **Reliability**.
 
 :::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendation list page of accepted recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png":::
 
@@ -144,7 +144,7 @@ If you reset a recommendation after your engineering started implementation, the
 [!NOTE]
 The reason for the rejection is visible to your account team. It helps them understand workload context and your business priorities better. Additionally, Microsoft uses this information to improve the quality of recommendations.
 
-3. The rejected recommendation is moved to the **Rejected** tab. It isn't visible for your engineering team under **Recommendations** (->) **Reliability**.
+3. The rejected recommendation is moved to the **Rejected** tab. Rejected recommendations aren't visible for your engineering team under **Recommendations** > **Reliability**.
 
 :::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations page of accepted recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-accepted-m.png":::
 
@@ -162,14 +162,14 @@ For details on permissions to act on recommendations, see [Permissions in Azure 
 
 ### Access accepted review recommendations
 
-To view *Accepted* review recommendations, go to **Recommendations** (->) **Reliability** in the left navigation. 
+To view *Accepted* review recommendations, go to **Recommendations** > **Reliability** in the left navigation. 
 The **Reliability** page opens in the **Reviews** tab.
 
 The recommendations are grouped by type:
 
-* **Reviews**: These recommendations are part of a review for a selected workload
+* **Automated**: These recommendations are the standard Advisor recommendations for the selected subscriptions.
 
-* **Automated**: These recommendations are the standard Advisor recommendations for the selected subscriptions
+* **Reviews**: These recommendations are part of a review for a selected workload.
 
 :::image type="content" source="./media/resiliency-reviews/resiliency-review-recommendation-list-rejected-m.png" alt-text="Screenshot of the Azure Advisor Resiliency Reviews recommendations page of rejected recommendations." lightbox="./media/resiliency-reviews/resiliency-review-recommendation-list-rejected-m.png":::
 
@@ -193,7 +193,7 @@ Recommendation status is a valuable indicator for determining what actions need 
 
 * Once you begin to act on a recommendation, mark it as *In progress*.
 
-* Update the status to *Completed* once the action has been taken. When all recommendations in a review are marked as *Completed*, the review is marked as *Completed* on the **Review** page. 
+* Update the status to *Completed* once the action is taken. When all recommendations in a review are marked as *Completed*, the review is marked as *Completed* on the **Review** page. 
 
 * You can also postpone the recommendation for action later.
 
