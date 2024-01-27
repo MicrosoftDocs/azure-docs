@@ -38,6 +38,8 @@ In this quickstart:
 
 + Contributor permissions in the Azure subscription for creating resources
 
+1. Download the sample famous-speeches-pdf PDFs in [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/famous-speeches-pdf)
+
 ## Set up model deployments
 
 1. Start [Azure OpenAI Studio](https://oai.azure.com/portal).
@@ -54,8 +56,6 @@ In this quickstart:
    If you create new deployments, the default configurations are suited for this tutorial. It's helpful to name each deployment after the model. For example, "text-embedding-ada-002" as the deployment name of the text-embedding-ada-002 model.
 
 ## Generate a vector store for the playground
-
-1. Download the sample famous-speeches-pdf PDFs in [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/famous-speeches-pdf).
 
 1. Sign in to the [Azure OpenAI Studio](https://oai.azure.com/portal).
 
@@ -105,17 +105,17 @@ In this quickstart:
 
 1. Start with these settings:
 
-   + Check the **Limit responses to your data content** option.
-   + Strictness set to 3.
+   + Verify the **Limit responses to your data content** option is selected.
+   + Strictness set to 3 or 4.
    + Retrieved documents set to 20.  Given chunk sizes of 1024 tokens, a setting of 20 gives you roughly 20,000 tokens to use for generating responses. The tradeoff is query latency, but you can experiment with chat replay to find the right balance.
 
 1. Send your first query. The chat models perform best in question and answer exercises. For example, "who gave the Gettysburg speech" or "when was the Gettysburg speech delivered".
 
    More complex queries, such as "why was Gettysburg important", perform better if the model has some latitude to answer (lower levels of strictness) or if semantic ranking is enabled.
 
-   Queries that require deeper analysis, such as "how many speeches are in the vector store", might fail to return a response. In RAG pattern chat scenarios, information retrieval is keyword and similarity search against the query string, where the search engine looks for chunks having exact or similar terms, phrases, or construction. The payload might have insufficient data for the model to work with.
+   Queries that require deeper analysis, such as "how many speeches are in the vector store", might fail to return a response. In RAG pattern chat scenarios, information retrieval is keyword and similarity search against the query string, where the search engine looks for chunks having exact or similar terms, phrases, or construction. The payload might have insufficient data for a chat model to work with. A davinci might produce a better answer but it's also more expensive and it's not supported in the **Add your data** workflow.
 
-   Finally, chats are constrained by the number of documents (chunks) returned in the response (limited to 3-20 in Azure OpenAI Studio playground). As you can imagine, posing a question about "all of the titles" requires a full scan of the entire vector store, which means a different approach, or modifying the generated code to allow for [exhaustive search](vector-search-how-to-create-index.md#add-a-vector-search-configuration) in the vector search configuration.
+   Finally, chats are constrained by the number of documents (chunks) returned in the response (limited to 3-20 in Azure OpenAI Studio playground). As you can imagine, posing a question about "all of the titles" requires a full scan of the entire vector store, which means a different approach that allows more than 20 chunks. You could modify the generated code (assuming you [deploy the solution](/azure/ai-services/openai/use-your-data-quickstart#deploy-your-model)) to allow for [exhaustive search](vector-search-how-to-create-index.md#add-a-vector-search-configuration) on your queries.
 
    :::image type="content" source="media/search-get-started-rag/chat-results.png" lightbox="media/search-get-started-rag/chat-results.png" alt-text="Screenshot of a chat session.":::
 
