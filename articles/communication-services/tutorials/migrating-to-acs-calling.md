@@ -38,19 +38,18 @@ If you're embarking on a new project from the ground up, see the [Quickstarts of
 1.  **Azure Account:** Confirm that you have an active subscription in your Azure account. New users can create a free Azure account [here](https://azure.microsoft.com/free/).
 2.  **Node.js 18:** Ensure Node.js 18 is installed on your system; download can be found right [here](https://nodejs.org/en).
 3.  **Communication Services Resource:** Set up a [Communication Services Resource](../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp) via your Azure portal and note down your connection string.
-4.  **Azure CLI:** You can get the Azure CLI installer from [here](https://learn.microsoft.com/cli/azure/install-azure-cli).
+4.  **Azure CLI:** You can get the Azure CLI installer from [here](/cli/azure/install-azure-cli-windows?tabs=azure-cli)..
 5.  **User Access Token:** Generate a user access token to instantiate the call client. You can create one using the Azure CLI as follows:
 ```console
 az communication identity token issue --scope voip --connection-string "yourConnectionString"
 ```
-
 
 For more information, see the guide on how to [Use Azure CLI to Create and Manage Access Tokens](../quickstarts/identity/access-tokens.md?pivots=platform-azcli).
 
 For Video Calling as a Teams user: ￼
 
 -   You also can use Teams identity. For instructions on how to generate an access token for a Teams User, [follow this guide](../quickstarts/manage-teams-identity.md?pivots=programming-language-javascript).
--   Obtain the Teams thread ID for call operations using the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Additional information on how to create a chat thread ID can be found [here](graph/api/chat-post?preserve-view=true&tabs=javascript&view=graph-rest-1.0#example-2-create-a-group-chat).
+-   Obtain the Teams thread ID for call operations using the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Additional information on how to create a chat thread ID can be found [here](/graph/api/chat-post?preserve-view=true&tabs=javascript&view=graph-rest-1.0#example-2-create-a-group-chat).
 
 ### UI Library
 
