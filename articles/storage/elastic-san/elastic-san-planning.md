@@ -60,6 +60,14 @@ Data in an Azure Elastic SAN is encrypted and decrypted transparently using 256-
 
 For more information about the cryptographic modules underlying SSE, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
 
+## Migration
+
+When you're looking to migrate an existing SAN or consolidate your workloads into an Elastic SAN for cost optimization, you should first
+There are currently two paths for migrating your data into Azure Elastic SAN:
+
+- [Cirruus Data](https://www.cirrusdata.com/) which allows you to migrate from external locations such as an on-premises SAN.
+- [Create a volume from a managed disk snapshot](elastic-san-snapshots.md#create-a-volume-from-a-managed-disk-snapshot)
+
 ## iSCSI support
 
 Elastic SAN supports the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol. The following iSCSI commands are currently supported:
