@@ -295,7 +295,7 @@ Here are the types of widget that you can create:
 
     [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
 
-* **Link**: For including externally-referenced content via a linked URL
+* **Link**: For including externally referenced content via a linked URL
 
     Enter a **Label** and destination **URL**.
 
