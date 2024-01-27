@@ -59,7 +59,7 @@ In your API center, configure the Microsoft Entra ID identity provider for the A
 1. In the left menu, under **API Center portal**, select **Portal settings**.
 1. Select **Identity provider** > **Start set up**.
 1. On the **Set up user sign-in with Microsoft Entra ID** page, in **Client ID**, enter the **Application (client) ID** of the app registration you created in the previous section.
-1. Select **Save + publish**.
+1. Select **Save + publish**. The Microsoft Entra ID provider is listed on the **Identity provider** page.
 
     :::image type="content" source="media/enable-api-center-portal/set-up-sign-in-portal.png" alt-text="Screenshot of the Microsoft Entra ID provider settings in the API Center portal." lightbox="media/enable-api-center-portal/set-up-sign-in-portal.png":::
 
@@ -100,6 +100,9 @@ For detailed prerequisites and steps to assign a role to users and groups, see [
 > To streamline access configuration for new users, we recommend that you assign the role to a Microsoft Entra group and configure a dynamic group membership rule. To learn more, see [Create or update a dynamic group in Microsoft Entra ID](/entra/identity/users/groups-create-rule).
 
 After you configure access to the portal, configured users can sign in to the portal and view the APIs in your API center.
+
+> [!NOTE]
+> The first user to sign in to the portal is prompted to consent to the permissions requested by the API Center portal app registration. Thereafter, other configured users aren't be prompted to consent.
 
 :::image type="content" source="media/enable-api-center-portal/api-center-portal-signed-in.png" alt-text="Screenshot of the API Center portal after user sign-in.":::
 
