@@ -49,7 +49,7 @@ You can manage access to Advisor reviews using built-in roles. The [permissions]
 | **Name** | **Description** |
 |---|:---:|
 |Advisor Reviews Reader|View reviews for a workload and recommendations linked to them.|
-|Advisor Reviews Contributor|View reviews for a workload and triage recommendations linked to them.|
+|Advisor Reviews Contributor|View reviews for a workload and triage (accept or reject) recommendations linked to them.|
 
 You can manage access to Advisor personalized recommendations using subscription roles. These roles need to be configured for the subscriptions included in the workload under review. 
 
