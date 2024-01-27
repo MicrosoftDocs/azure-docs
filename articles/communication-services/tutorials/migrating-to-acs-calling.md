@@ -15,7 +15,7 @@ ms.custom: template-how-to
 
 # Migration Guide from Twilio Video to Azure Communication Services
 
-This article provides guidance on how to migrate your existing Twilio Video implementation to the [Azure Communication Services' Calling SDK](../concepts/voice-video-calling/calling-sdk-features.md) for WebJS.
+This article provides guidance on how to migrate your existing Twilio Video implementation to the [Azure Communication Services' Calling SDK](../concepts/voice-video-calling/calling-sdk-features.md) for WebJS. Twilio Video and Azure Communication Services' calling SDK for WebJS are both cloud-based platforms that enable developers to add voice and video calling features to their web applications. However, there are some key differences between them that may affect your choice of platform or require some changes to your existing code if you decide to migrate. In this article, we will compare the main features and functionalities of both platforms and provide some guidance on how to migrate your existing Twilio Video implementation to Azure Communication Services' Calling SDK for WebJS.
 
 ## Key Features of the Azure Communication Services Calling SDK
 
@@ -26,7 +26,7 @@ This article provides guidance on how to migrate your existing Twilio Video impl
 -  Teams Meetings – Azure Communication Services is equipped to [join Teams meetings](../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with Teams voice and its video calls.
 -  Notifications - Azure Communication Services provides APIs for notifying clients of incoming calls, allowing your application to listen to events (for example, incoming calls) even when your application is not running in the foreground.
 -  User Facing Diagnostics (UFD) - Azure Communication Services utilizes [events](../concepts/voice-video-calling/user-facing-diagnostics.md) designed to provide insights into underlying issues that could affect call quality, allowing developers to subscribe to triggers such as weak network signals or muted microphones for proactive issue awareness.
--  Media Stats - It provides comprehensive insights into VoIP and video call [metrics](../concepts/voice-video-calling/media-quality-sdk.md), including call quality information, empowering developers to enhance communication experiences.
+-  Media Statics - Provides comprehensive insights into VoIP and video call [metrics](../concepts/voice-video-calling/media-quality-sdk.md), including call quality information, empowering developers to enhance communication experiences.
 -  Video Constraints - Azure Communication Services offers APIs that control [video quality among other parameters](../quickstarts/voice-video-calling/get-started-video-constraints.md) during video calls. By adjusting parameters like resolution and frame rate, the SDK supports different call situations for varied levels of video quality.
 
 **For a more detailed understanding of the capabilities of the Calling SDK for different platforms, consult** [**this document**](../concepts/voice-video-calling/calling-sdk-features.md#detailed-capabilities)**.**
@@ -115,9 +115,7 @@ When using in a Teams implementation there are a few differences:
 -   Instead of `CallAgent` - use `TeamsCallAgent` for starting and managing Teams calls.
 -   Instead of `Call` - use `TeamsCall` for representing a Teams Call.
 
-## Initialization
-
-### Initialize the Calling SDK (CallClient/CallAgent)
+## Initialize the Calling SDK (CallClient/CallAgent)
 
 Using the `CallClient`, initialize a `CallAgent` instance. The `createCallAgent` method uses CommunicationTokenCredential as an argument. It accepts a [user access token](../quickstarts/identity/access-tokens.md?tabs=windows&pivots=programming-language-javascript).
 
@@ -176,7 +174,7 @@ The output returns with an object that indicates whether audio and video permiss
 console.log(result.audio);  console.log(result.video);
 ```
 
-## Starting Call
+## Starting a Call
 
 ### Twilio
 
@@ -231,7 +229,7 @@ const userCallee = { microsoftTeamsUserId: '\<MICROSOFT_TEAMS_USER_ID\>' };
 const oneToOneCall = teamsCallAgent.startCall(userCallee);
 ```
 
-## Accepting/Joining Call
+## Accepting and Joining a Call
 
 ### Twilio
 
@@ -297,7 +295,7 @@ callAgent.on('callsUpdated', (event) => {
 
 For Azure Communication Services Teams implementation, check how to [Receive a Teams Incoming Call](../how-tos/cte-calling-sdk/manage-calls.md#receive-a-teams-incoming-call).
 
-## Adding Participant to Call
+## Adding Participants to Call
 
 ### Twilio
 
@@ -341,7 +339,6 @@ await call.removeParticipant(userIdentifier);
 
 ```
 
-
 Subscribe to the call's `remoteParticipantsUpdated` event to be notified when new participants are added to the call or removed from the call.
 
 ```javascript
@@ -366,7 +363,7 @@ remoteParticipant.on('stateChanged', () => {
 
 ## Video
 
-### Starting/Stopping video
+### Starting and stopping video
 
 #### Twilio
 
@@ -1062,7 +1059,7 @@ export declare type PreCallDiagnosticsResult  = {
 };
 ```
 
-You can learn more about ensuring precall readiness [here](..concepts/voice-video-calling/pre-call-diagnostics.md).
+You can learn more about ensuring precall readiness [here](../concepts/voice-video-calling/pre-call-diagnostics.md).
 
 
 ## Event Listeners
