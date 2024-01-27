@@ -34,7 +34,7 @@ In this quickstart:
 
 + [Azure Storage](/azure/storage/common/storage-account-create)
 
-+ [Azure AI Search](search-create-app-portal.md), in any region, on a billable tier (Basic and above), preferably with [semantic ranking enabled](semantic-how-to-enable-disable.md)
++ [Azure AI Search](search-create-app-portal.md), in any region, on a billable tier (Basic and higher), preferably with [semantic ranking enabled](semantic-how-to-enable-disable.md)
 
 + Contributor permissions in the Azure subscription for creating resources
 
@@ -113,7 +113,7 @@ In this quickstart:
 
    More complex queries, such as "why was Gettysburg important", perform better if the model has some latitude to answer (lower levels of strictness) or if semantic ranking is enabled.
 
-   Queries that require deeper analysis, such as "how many speeches are in the vector store", might fail to return a response. In RAG pattern chat scenarios, information retrieval is keyword and similarity search against the query string, where the search engine looks for chunks having exact or similar terms, phrases, or construction. The payload might have insufficient data for a chat model to work with. A davinci might produce a better answer but it's also more expensive and it's not supported in the **Add your data** workflow.
+   Queries that require deeper analysis, such as "how many speeches are in the vector store", might fail to return a response. In RAG pattern chat scenarios, information retrieval is keyword and similarity search against the query string, where the search engine looks for chunks having exact or similar terms, phrases, or construction. The payload might have insufficient data for a chat model to work with. A Text-Davinci-002 model might produce a better answer but it's also more expensive and not supported in the **Add your data** workflow.
 
    Finally, chats are constrained by the number of documents (chunks) returned in the response (limited to 3-20 in Azure OpenAI Studio playground). As you can imagine, posing a question about "all of the titles" requires a full scan of the entire vector store, which means a different approach that allows more than 20 chunks. You could modify the generated code (assuming you [deploy the solution](/azure/ai-services/openai/use-your-data-quickstart#deploy-your-model)) to allow for [exhaustive search](vector-search-how-to-create-index.md#add-a-vector-search-configuration) on your queries.
 
