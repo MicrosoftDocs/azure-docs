@@ -5,21 +5,21 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 08/30/2023
+ms.date: 01/26/2024
 ms.author: cshoe
 ---
 
 # Select the right code-to-cloud path for Azure Container Apps
 
-You have several options available as you develop and deploy your apps to Azure Container Apps. As you evaluate your goals and the needs of your team, consider the following.
+You have several options available as you develop and deploy your apps to Azure Container Apps. As you evaluate your goals and the needs of your team, consider the following questions.
 
-- Is your focus more on your application or your infrastructure or both?
-- Which stage are you in with your application, are you innovating rapidly or in a stable steady state?
 - Are you new to containers?
+- Is your focus more on your application or your infrastructure?
+- Are you innovating rapidly or in a stable steady state with your application?
 
 Your answers to these questions affect your preferred development and deployment strategies. This article helps you select the most appropriate option for how you develop and deploy your applications to Azure Container Apps.
 
-Depending on your situation, you may want to deploy from a [code editor](#code-editor), through the [Azure portal](#azure-portal), with a hosted [code repository](#code-repository), or via [infrastructure as code](#infrastructure-as-code). However, if you are new to containers, you can [learn more](#new-to-containers) about how containers can help your development process.
+Depending on your situation, you might want to deploy from a [code editor](#code-editor), through the [Azure portal](#azure-portal), with a hosted [code repository](#code-repository), or via [infrastructure as code](#infrastructure-as-code). However, if you're new to containers, you can [learn more](#new-to-containers) about how containers can help your development process.
 
 ## New to containers
 
@@ -39,7 +39,7 @@ If your application currently doesn't use a container, consider using the Contai
 
 ## Code editor
 
-If you spend most your time editing code and favor rapid iteration of your applications, then you may want to use [Visual Studio](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com/). These editors allow you to easily build Docker files a deploy your applications directly to Azure Container Apps.
+If you spend most your time editing code and favor rapid iteration of your applications, then you might want to use [Visual Studio](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com/). These editors allow you to easily build Docker files a deploy your applications directly to Azure Container Apps.
 
 This approach allows you to experiment with configuration options made in the early stages of an application's life.
 
@@ -89,7 +89,7 @@ In Azure Container Apps, you can use the [Azure CLI](/cli/azure/) or the [Azure 
 
 - **Azure CLI**
   - [Build and deploy your container app from a repository](quickstart-code-to-cloud.md)
-  - [Deploy your first container app with containerapp up](get-started.md)
+  - [Deploy your first container app using the command line](get-started.md)
   - [Set up GitHub Actions with Azure CLI](github-actions-cli.md)
   - [Build and deploy your container app from a repository](tutorial-deploy-first-app-cli.md)
 
