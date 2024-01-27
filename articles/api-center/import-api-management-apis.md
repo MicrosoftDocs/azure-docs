@@ -158,7 +158,7 @@ To allow import of APIs, assign your API center's managed identity the **API Man
     apicObjID=$(az identity show --name <identity-name> --resource-group <resource-group-name> --query "principalId" --output tsv)
     ```
 1. Get the resource ID of your API Management instance using the [az apim show](/cli/azure/apim#az-apim-show) command.
-1. 
+ 
     ```azurecli
     #! /bin/bash
     apimID=$(az apim show --name <apim-name> --resource-group <resource-group-name> --query "id" --output tsv)
@@ -259,12 +259,14 @@ Specify an API to import using its name from the API Management instance.
     ```azurecli
     #! /bin/bash
     apiIDs="$apimID/apis/<api-name>"
+
     az apic service import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> --source-resource-ids $apiIDs    
     ```
     
     ```azurecli 
     # PowerShell syntax
     $apiIDs=$apimID + "/apis/<api-name>"
+
     az apic service import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> --source-resource-ids $apiIDs    
     ```
 
