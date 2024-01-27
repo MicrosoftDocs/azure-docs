@@ -62,17 +62,17 @@ You need an active Azure subscription. If you don't have an Azure subscription, 
 
 To call the synchronous translation feature via the [REST API](../reference/synchronous-rest-api-guide.md), you need to include the following headers with each request. Don't worry, we include the headers for you in the sample code.
 
-|Query parameter  |Description  |
-|---------|---------|
-|`-X POST`| ***Required*** The -X flag specifies the request method to access the API.|
-|`{endpoint}`  |The URL for your Document Translation resource endpoint|&bullet; ***Required***|
-|***targetLanguage***|_Required parameter_.<br>Specifies the language of the output document. The target language must be one of the supported languages included in the translation scope.|
+|Query parameter&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|Description| Condition|
+|---------|---------|----|
+|`-X POST`|The -X flag specifies the request method to access the API.|&bullet; ***Required*** |
+|`{endpoint}`  |The URL for your Document Translation resource endpoint|&bullet; ***Required*** |
+|`targetLanguage`|Specifies the language of the output document. The target language must be one of the supported languages included in the translation scope.|&bullet; ***Required*** |
 |`--header "Ocp-Apim-Subscription-Key:{KEY}`    | Specifies the Document Translation resource key authorizing access to the API.|&bullet; ***Required***|
-|`--header "Ocp-Apim-Subscription-Region:{REGION}"`|The region where your resource was created. |&bullet; ***Required*** when using an Azure AI multi-service or regional (geographic) resource like **West US**.</br>&bullet; ***Optional*** when using a single-service global Translator Resource.|
-|&bull; ***document=***<br> &bull; ***type=***|_Required parameters_.<br>&bull; Path to the file location for your source document and file format type.</br> &bull; Ex: **"document=@C:\Test\Test-file.txt;type=text/html**|
-|`--form` | ***Required*** The filepath for the document that you want to pass with your request.|
-|`--form` |***Optional*** The filepath for an optional glossary to pass with your request. The glossary requires a separate `--form` flag.|
-|`--output`|***Required*** The filepath for the response results.|
+|`--header "Ocp-Apim-Subscription-Region:{REGION}"`|The region where your resource was created. |&bullet; ***Required*** when using an Azure AI multi-service or regional (geographic) resource like **West US**.</br></br>&bullet; ***Optional*** when using a single-service global Translator Resource.|
+|&bull; `document=`<br> &bull; `type=`|&bull; Path to the file location for your source document and file format type.</br> &bull; Ex: **"document=@C:\Test\Test-file.txt;type=text/html**|&bullet; ***Required***|
+|`--form` |The filepath to the document that you want to pass with your request.|&bullet; ***Required***|
+|`--form` |The filepath to an optional glossary to pass with your request. The glossary requires a separate `--form` flag.|&bullet; ***Optional***|
+|`--output`|The filepath to the response results.|&bullet; ***Required***|
 
 ## Build and run the POST request
 
