@@ -29,7 +29,7 @@ The following table defines the roles and the access they have within Advisor:
 | **Responsibility** | **Description** |
 |---|:---:|
 |Request a resiliency review|Customer via your Customer Success Account Manager or aligned Cloud Solution Architect.|
-|Analyze workload configuration, perform the review via the Well Architected Reliability Assessment and prepare recommendations|Microsoft account team. Team members include account managers, engineers, and cloud solution architects. |
+|Analyze workload configuration, perform the review via the Well Architected Reliability Assessment and prepare recommendations|Microsoft account team. Team members include Account Managers, Engineers, and Cloud Solution Architects. |
 |Triage recommendations to accept or reject them.|Customer. This is done by team members who have authority to make decisions about workload optimization priorities.|
 |Implement recommendations that were accepted|Customer. This is done by engineers who are responsible for managing resources and their configuration.|
 |Facilitate implementation|Microsoft account team via your support contract.|
