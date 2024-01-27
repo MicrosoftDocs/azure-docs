@@ -36,7 +36,7 @@ If an operating system isn't currently listed, you may still attempt to install,
 
 To request validation on more operating systems or versions, use the [Chaos Studio Feedback Community](https://aka.ms/ChaosStudioFeedback).
 
-## Chaos Mesh validation
+## Chaos Mesh compatibility
 
 Faults within Azure Kubernetes Service resources currently integrate with the open-source project [Chaos Mesh](https://chaos-mesh.org/), which is part of the [Cloud Native Computing Foundation](https://www.cncf.io/projects/chaosmesh/). Review [Create a chaos experiment that uses a Chaos Mesh fault to kill AKS pods with the Azure portal](chaos-studio-tutorial-aks-portal.md) for more details on using Azure Chaos Studio with Chaos Mesh.
 
@@ -44,6 +44,6 @@ Find Chaos Mesh's support policy and release dates here: [Supported Releases](ht
 
 Azure Chaos Studio currently tests with Azure Kubernetes Service version `1.25.11` and Chaos Mesh version `2.5.1`.
 
-## Browser support
+## Browser compatibility
 
-See the Azure portal documentation on [Supported devices](../azure-portal/azure-portal-supported-browsers-devices.md) for more information on browser support.
+Review the Azure portal documentation on [Supported devices](../azure-portal/azure-portal-supported-browsers-devices.md) for more information on browser support.
