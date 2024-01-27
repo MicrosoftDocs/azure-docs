@@ -28,7 +28,7 @@ The Document translation API now supports two translation operations:
 
 * [Asynchronous Batch](document-translation/overview.md#asynchronous-batch-translation) document translation supports asynchronous processing of multiple documents and files. The batch translation process requires an Azure Blob storage account with containers for your source and translated documents.
 
-* [Synchronous](document-translation/overview.md#synchronous-document-translation) document translation supports synchronous processing of single file translations. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.Document Trans
+* [Synchronous](document-translation/overview.md#synchronous-translation) document translation supports synchronous processing of single file translations. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.Document Trans
 
 ## September 2023
 
