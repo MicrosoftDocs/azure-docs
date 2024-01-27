@@ -44,20 +44,12 @@ az provider register --namespace 'Microsoft.NetworkCloud' --subscription <Subscr
 
    | Environment | App Name            | App ID                               |
    |:------------|:--------------------|:-------------------------------------|
-   | Dev         | AFOI-NC-RP-MSFT     | 3e5aaca6-6470-4be4-8a17-24ab9519414b |
-   | Sandbox     | AFOI-NC-RP-MSFT     | 3e5aaca6-6470-4be4-8a17-24ab9519414b |
-   | Test        | AFOI-NC-RP-MSFT     | 3e5aaca6-6470-4be4-8a17-24ab9519414b |
-   | Staging     | AFOI-NC-RP-PME-PROD | 05cf5e27-931d-47ad-826d-cb9028d8bd7a |
    | Production  | AFOI-NC-RP-PME-PROD | 05cf5e27-931d-47ad-826d-cb9028d8bd7a |
 
    **_Management Service_**
 
    | Environment | App Name              | App ID                               |
    |:------------|:----------------------|:-------------------------------------|
-   | Dev         | AFOI-NC-MGMT-MSFT     | 1ddb2cb5-46ca-453a-9ce4-f007e1a3edbb |
-   | Sandbox     | AFOI-NC-MGMT-MSFT     | 1ddb2cb5-46ca-453a-9ce4-f007e1a3edbb |
-   | Test        | AFOI-NC-MGMT-MSFT     | 1ddb2cb5-46ca-453a-9ce4-f007e1a3edbb |
-   | Staging     | AFOI-NC-MGMT-PME-PROD | 3365d4ea-bb16-4bc9-86dd-f2c8cf6f1f56 |
    | Production  | AFOI-NC-MGMT-PME-PROD | 3365d4ea-bb16-4bc9-86dd-f2c8cf6f1f56 |
 
    > [!NOTE]
