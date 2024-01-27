@@ -70,6 +70,14 @@ landingContent:
             url: how-to-configure-project-environment-types.md
 
   # Card
+  - title: Manage costs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Request a quota limit increase
+            url: how-to-request-quota-increase.md
+ 
+  # Card
   - title: Configure Deployment Environments from the CLI
     linkLists:
       - linkListType: how-to-guide
