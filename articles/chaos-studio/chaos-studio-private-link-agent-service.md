@@ -39,7 +39,7 @@ az feature register --namespace Microsoft.Resources --name "EUAPParticipation" -
 
 - The entire end-to-end for this flow requires some use of the CLI. The current end-to-end experience cannot be done from the Azure portal currently. 
 
-- The **Chaos Studio Private Accesses (CSPA)** resource type has a **strict 1:1 mapping of Chaos Target:Private Endpoint.** We only allow **5 CSPA resources to be created per Subscription** to maintain the expected experience for all of our customers.  
+- The **Chaos Studio Private Accesses (CSPA)** resource type has a **strict 1:1 mapping of Chaos Target:CSPA Resource (abstraction for private endpoint).**.** We only allow **5 CSPA resources to be created per Subscription** to maintain the expected experience for all of our customers.  
 
 ## Step 1: Make sure you allowlist Microsoft.Network/AllowPrivateEndpoints in your subscription
 
