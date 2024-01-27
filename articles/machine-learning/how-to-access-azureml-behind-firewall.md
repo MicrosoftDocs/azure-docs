@@ -471,7 +471,7 @@ If you haven't [secured Azure Monitor](./v1/how-to-secure-workspace-vnet.md#secu
 * `dc.services.visualstudio.com`
 * `*.in.applicationinsights.azure.com`
 
-For a list of IP addresses for these hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
+For a list of IP addresses for these hosts, see [IP addresses used by Azure Monitor](../azure-monitor/ip-addresses.md).
 
 ## Next steps
 

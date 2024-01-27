@@ -1,6 +1,6 @@
 ---
-title: "Migrate MySQL on-premises or Virtual Machine (VM) workload to Azure Database for MySQL - Flexible Server using Azure MySQL Import CLI"
-description: This tutorial describes how to use the Azure MySQL Import CLI to migrate MySQL on-premises or VM workload to Azure Database for MySQL - Flexible Server.
+title: "Migrate MySQL on-premises or Virtual Machine (VM) workload to Azure Database for MySQL - Flexible Server using Azure Database for MySQL Import CLI"
+description: This tutorial describes how to use the Azure Database for MySQL Import CLI to migrate MySQL on-premises or VM workload to Azure Database for MySQL - Flexible Server.
 author: adig
 ms.author: adig
 ms.reviewer: maghan
@@ -14,13 +14,13 @@ ms.custom:
   - mode-api
 ms.devlang: azurecli
 ---
-# Migrate MySQL on-premises or Virtual Machine (VM) workload to Azure Database for MySQL - Flexible Server using Azure MySQL Import CLI
+# Migrate MySQL on-premises or Virtual Machine (VM) workload to Azure Database for MySQL - Flexible Server using Azure Database for MySQL Import CLI
 
-Azure MySQL Import enables you to migrate your MySQL on-premises or Virtual Machine (VM) workload seamlessly to Azure Database for MySQL - Flexible Server. It uses a user-provided physical backup file and restores the source server's physical data files to the target server offering a simple and fast migration path. Post MySQL Import operation, you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows.
+Azure Database for MySQL Import enables you to migrate your MySQL on-premises or Virtual Machine (VM) workload seamlessly to Azure Database for MySQL - Flexible Server. It uses a user-provided physical backup file and restores the source server's physical data files to the target server offering a simple and fast migration path. Post Import operation, you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows.
 
 Based on user-inputs, it takes up the responsibility of provisioning your target Flexible Server and then restoring the user-provided physical backup of the source server stored in the Azure Blob storage account to the target Flexible Server instance.
 
-This tutorial shows how to use the Azure MySQL Import CLI command to migrate your Migrate MySQL on-premises or Virtual Machine (VM) workload to Azure Database for MySQL - Flexible Server.
+This tutorial shows how to use the Azure Database for MySQL Import CLI command to migrate your Migrate MySQL on-premises or Virtual Machine (VM) workload to Azure Database for MySQL - Flexible Server.
 
 ## Launch Azure Cloud Shell
 
@@ -64,18 +64,18 @@ The following are the steps for using Percona XtraBackup to take a full backup :
 ## Limitations
 
 * Source server configuration isn't migrated. You must configure the target Flexible server appropriately.
-* Users and privileges aren't migrated as part of MySQL Import. You must take a manual dump of users and privileges before initiating MySQL Import to migrate logins post import operation by restoring them on the target Flexible Server.
+* Users and privileges aren't migrated as part of Azure Database for MySQL Import. You must take a manual dump of users and privileges before initiating Azure Database for MySQL Import to migrate logins post import operation by restoring them on the target Flexible Server.
 * High Availability (HA) enabled Flexible Servers are returned as HA disabled servers to increase the speed of migration operation post the import migration. Enable HA for your target Flexible Server post migration.
 
 ## Recommendations for an optimal migration experience
 
 * Consider keeping the Azure Blob storage account and the target Flexible Server to be deployed in the same region for better import performance.
 * Recommended SKU configuration for target Azure Database for MySQL Flexible Server –
-  * Setting Burstable SKU for target isn't recommended in order to optimize migration time when running the MySQL Import operation. We recommend scaling to General Purpose/ Business Critical for the course of the import operation, post, which you can scale down to Burstable SKU.
+  * Setting Burstable SKU for target isn't recommended in order to optimize migration time when running the Azure Database for MySQL Import operation. We recommend scaling to General Purpose/ Business Critical for the course of the import operation, post, which you can scale down to Burstable SKU.
 
-## Trigger a MySQL Import operation to migrate from Azure Database for MySQL -Flexible Server
+## Trigger an Azure Database for MySQL Import operation to migrate from Azure Database for MySQL -Flexible Server
 
-Trigger a MySQL Import operation with the `az mysql flexible-server import create` command. The following command creates a target Flexible Server and performs instance-level import from backup file to target destination using your Azure CLI's local context:
+Trigger an Azure Database for MySQL Import operation with the `az mysql flexible-server import create` command. The following command creates a target Flexible Server and performs instance-level import from backup file to target destination using your Azure CLI's local context:
 
 ```azurecli
 az mysql flexible-server import create --data-source-type
@@ -124,12 +124,12 @@ Here are the details for the arguments above:
 
 **Setting** | **Sample value** | **Description**
 ---|---|---
-data-source-type | azure_blob | The type of data source that serves as the source destination for triggering MySQL Import. Accepted values: [azure_blob]. Description of accepted values- azure_blob: Azure Blob storage.
+data-source-type | azure_blob | The type of data source that serves as the source destination for triggering Azure Database for MySQL Import. Accepted values: [azure_blob]. Description of accepted values- azure_blob: Azure Blob storage.
 data-source | {resourceID} | The resource ID of the Azure Blob container.
 data-source-backup-dir | mysql_percona_backup | The directory of the Azure Blob storage container in which the backup file was uploaded. This value is required only when the backup file isn't stored in the root folder of Azure Blob container.
 data-source-sas-token | {sas-token} | The Shared Access Signature (SAS) token generated for granting access to import from the Azure Blob storage container.
 resource-group | test-rg | The name of the Azure resource group of the target Azure Database for MySQL Flexible Server.
-mode | Offline | The mode of MySQL import. Accepted values: [Offline]; Default value: Offline.
+mode | Offline | The mode of Azure Database for MySQL import. Accepted values: [Offline]; Default value: Offline.
 location | westus | The Azure location for the source Azure Database for MySQL Flexible Server.
 name | test-flexible-server | Enter a unique name for your target Azure Database for MySQL Flexible Server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters. Note: This server is deployed in the same subscription, resource group, and region as the source.
 admin-user | adminuser | The username for the administrator sign-in for your target Azure Database for MySQL Flexible Server. It can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
@@ -153,13 +153,13 @@ iops | 500 | Number of IOPS to be allocated for the target Azure Database for My
 
 ## Migrate to Flexible Server with minimal downtime
 
-In order to perform an online migration after completing the initial seeding from backup file using MySQL import, you can configure data-in replication between the source and target by following steps [here](../flexible-server/how-to-data-in-replication.md?tabs=bash%2Ccommand-line). You can use the bin-log position captured while taking the backup file using Percona XtraBackup to set up Bin-log position based replication.
+In order to perform an online migration after completing the initial seeding from backup file using Azure Database for MySQL import, you can configure data-in replication between the source and target by following steps [here](../flexible-server/how-to-data-in-replication.md?tabs=bash%2Ccommand-line). You can use the bin-log position captured while taking the backup file using Percona XtraBackup to set up Bin-log position based replication.
 
-## How long does MySQL Import take to migrate my MySQL instance?
+## How long does Azure Database for MySQL Import take to migrate my MySQL instance?
 
 Benchmarked performance based on storage size.
 
-  | Backup file Storage Size | MySQL Import time |
+  | Backup file Storage Size | Import time |
   | ------------- |:-------------:|
   | 1 GiB | 0 min 23 secs |
   | 10 GiB | 4 min 24 secs |
