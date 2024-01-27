@@ -28,10 +28,10 @@ Whether you're training a deep learning PyTorch model from the ground-up or you'
 
 - An Azure subscription. If you don't have one already, [create a free account](https://azure.microsoft.com/free/).
 - Run the code in this article using either an Azure Machine Learning compute instance or your own Jupyter notebook.
-    - Azure Machine Learning compute instance—no downloads or installation necessary
+    - Azure Machine Learning compute instance—no downloads or installation necessary:
         - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a dedicated notebook server preloaded with the SDK and the sample repository.
-        - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: *v2/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch*.
-    - Your Jupyter notebook server
+        - Under the **Samples** tab in the **Notebooks** section of your workspace, find a completed and expanded notebook by navigating to this directory: *v2/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch*
+    - Your Jupyter notebook server:
         - Install the [Azure Machine Learning SDK (v2)](https://aka.ms/sdk-v2-install).
         - Download the training script file [pytorch_train.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/src/pytorch_train.py).
 
@@ -81,7 +81,7 @@ The result of running this script is a workspace handle that you can use to mana
 
 Azure Machine Learning needs a compute resource to run a job. This resource can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
-In the following example script, we provision a Linux [`compute cluster`](./how-to-create-attach-compute-cluster.md?tabs=python). You can see the [`Azure Machine Learning pricing`](https://azure.microsoft.com/pricing/details/machine-learning/) page for the full list of VM sizes and prices. Since we need a GPU cluster for this example, let's pick a *STANDARD_NC6* model and create an Azure Machine Learning compute.
+In the following example script, we provision a Linux [compute cluster](./how-to-create-attach-compute-cluster.md?tabs=python). You can see the [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/) page for the full list of VM sizes and prices. Since we need a GPU cluster for this example, let's pick a `STANDARD_NC6` model and create an Azure Machine Learning compute.
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=gpu_compute_target)]
 
@@ -99,11 +99,11 @@ In this section, we begin by introducing the data for training. We then cover ho
 
 ### Obtain the training data
 
-You can use data that's stored on a public blob as a [zip file](https://azuremlexamples.blob.core.windows.net/datasets/fowl_data.zip). This dataset consists of about 120 training images each for two classes (turkeys and chickens), with 100 validation images for each class. The images are a subset of the [Open Images v5 Dataset](https://storage.googleapis.com/openimages/web/index.html). Download and extract the dataset as part of our training script *pytorch_train.py*.
+You can use the dataset in this [zipped file](https://azuremlexamples.blob.core.windows.net/datasets/fowl_data.zip). This dataset consists of about 120 training images each for two classes (turkeys and chickens), with 100 validation images for each class. The images are a subset of the [Open Images v5 Dataset](https://storage.googleapis.com/openimages/web/index.html). Download and extract the dataset as part of our training script *pytorch_train.py*.
 
 ### Prepare the training script
 
-In this article, we provided the training script *pytorch_train.py*. In practice, you should be able to take any custom training script as is and run it with Azure Machine Learning without having to modify your code.
+In the prerequisites section, we provided the training script *pytorch_train.py*. In practice, you should be able to take any custom training script *as is* and run it with Azure Machine Learning without having to modify your code.
 
 The provided training script downloads the data, trains a model, and registers the model.
 
@@ -204,7 +204,7 @@ After you create the endpoint, you can retrieve it as follows:
 
 You can now deploy the model with the entry script. An endpoint can have multiple deployments. Using rules, the endpoint can then direct traffic to these deployments.
 
-In the following code, you'll create a single deployment that handles 100% of the incoming traffic. We specified an arbitrary color name (*aci-blue*) for the deployment. You could also use any other name such as *aci-green* or *aci-red* for the deployment.
+In the following code, you'll create a single deployment that handles 100% of the incoming traffic. We specified an arbitrary color name *aci-blue* for the deployment. You could also use any other name such as *aci-green* or *aci-red* for the deployment.
 
 The code to deploy the model to the endpoint:
 
