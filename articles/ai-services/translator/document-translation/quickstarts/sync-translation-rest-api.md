@@ -1,5 +1,5 @@
 ---
-title: Get started with synchronous document translation
+title: Get started with synchronous translation
 description: "How to translate documents synchronously using the REST API"
 #services: cognitive-services
 author: laujan
@@ -17,11 +17,11 @@ recommendations: false
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD049 -->
 
-# Get started with synchronous document translation
+# Get started with synchronous translation
 
 Document Translation is a cloud-based machine translation feature of the [Azure AI Translator](../../translator-overview.md) service.  You can translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format.
 
-Synchronous document translation supports immediate-response processing of single-page files. The synchronous translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
+Synchronous translation supports immediate-response processing of single-page files. The synchronous translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
 
 ***Let's get started.***
 
@@ -33,7 +33,9 @@ You need an active Azure subscription. If you don't have an Azure subscription, 
 
 * After your resource deploys, select **Go to resource** and retrieve your key and endpoint.
 
-  * You need the key and endpoint from the resource to connect your application to the Translator service. You paste your key and endpoint into the code later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
+  * You need the key and endpoint from the resource to connect your application to the Translator service. You paste your key and endpoint into the code later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page.
+
+    :::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="{alt-text}":::
 
 * For this project, we use the cURL command line tool to make REST API calls.
 
@@ -56,37 +58,42 @@ You need an active Azure subscription. If you don't have an Azure subscription, 
     > * With a single-service global resource you'll include one authorization header (**Ocp-Apim-Subscription-key**) with the REST API request. The value for Ocp-Apim-Subscription-key is your Azure secret key for your Translator Text subscription.
     > * If you choose to use an Azure AI multi-service or regional Translator resource, two authentication headers will be required: (**Ocp-Api-Subscription-Key** and **Ocp-Apim-Subscription-Region**). The value for Ocp-Apim-Subscription-Region is the region associated with your subscription.
 
-## Headers
+## Headers and parameters
 
-To call the synchronous document translation feature via the [REST API](../reference/synchronous-rest-api-guide.md), you need to include the following headers with each request. Don't worry, we include the headers for you in the sample code.
+To call the synchronous translation feature via the [REST API](../reference/synchronous-rest-api-guide.md), you need to include the following headers with each request. Don't worry, we include the headers for you in the sample code.
 
-|parameter  |Description  | Condition|
-|---------|---------|-----|
-|`-X POST <endpoint>`     | Specifies your Language resource endpoint for accessing the API.|&bullet; ***Required***|
-|`--header "Ocp-Apim-Subscription-Key:{KEY}`    | Specifies the Language resource key for accessing the API.|&bullet; ***Required***|
+|Query parameter  |Description  |
+|---------|---------|
+|`-X POST`| ***Required*** The -X flag specifies the request method to access the API.|
+|`{endpoint}`  |The URL for your Document Translation resource endpoint|&bullet; ***Required***|
+|***targetLanguage***|_Required parameter_.<br>Specifies the language of the output document. The target language must be one of the supported languages included in the translation scope.|
+|`--header "Ocp-Apim-Subscription-Key:{KEY}`    | Specifies the Document Translation resource key authorizing access to the API.|&bullet; ***Required***|
 |`--header "Ocp-Apim-Subscription-Region:{REGION}"`|The region where your resource was created. |&bullet; ***Required*** when using an Azure AI multi-service or regional (geographic) resource like **West US**.</br>&bullet; ***Optional*** when using a single-service global Translator Resource.|
-|`--data`     | The JSON file containing the data you want to pass with your request including an **optional** glossary.|&bullet; ***Required***|
+|&bull; ***document=***<br> &bull; ***type=***|_Required parameters_.<br>&bull; Path to the file location for your source document and file format type.</br> &bull; Ex: **"document=@C:\Test\Test-file.txt;type=text/html**|
+|`--form` | ***Required*** The filepath for the document that you want to pass with your request.|
+|`--form` |***Optional*** The filepath for an optional glossary to pass with your request. The glossary requires a separate `--form` flag.|
+|`--output`|***Required*** The filepath for the response results.|
 
 ## Build and run the POST request
 
 1. For this project, you need a **sample document**. You can download our [Microsoft Word sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Language/native-document-summarization.docx) for this quickstart. The source language is English.
 
-1. Before you run the **POST** request, replace `{your-language-resource-endpoint}` and `{your-key}` with the values from your Azure portal Language service instance.
+1. Before you run the **POST** request, replace `{your-document-translation-endpoint}` and `{your-key}` with the values from your Azure portal Language service instance.
 
     > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information, *see* Azure AI services [security](/azure/ai-services/security-features).
 
-    ***PowerShell***
-
-    ```powershell
-    cmd /c curl "{your-language-resource-endpoint}/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -i -X POST  --header "Ocp-Apim-Subscription-Key: {your-key}" -H "Ocp-Apim-Subscription-Region: {your-region}" --data "{path-to-your-document-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}
-    ```
-
-    ***command prompt / terminal***
+   ***command prompt / terminal (regional endpoint)***
 
     ```bash
 
-    curl -i -X POST "{your-language-resource-endpoint}/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}" -H "Ocp-Apim-Subscription-Region: {your-region}" --data "{path-to-your-document-with-file-extension};type=text/{file-extension}" -data "glossary={path-to-your-glossary-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}"
+    curl -i -X POST "{your-document-translation-endpoint}/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}" -H "Ocp-Apim-Subscription-Region: {your-region}" --form "document={path-to-your-document-with-file-extension};type=text/{file-extension}" -form "glossary={path-to-your-glossary-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}"
+    ```
+
+    ***PowerShell (global endpoint)***
+
+    ```powershell
+    cmd /c curl "{your-document-translation-endpoint}/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -i -X POST  --header "Ocp-Apim-Subscription-Key: {your-key}" -H "Ocp-Apim-Subscription-Region: {your-region}" --form "{path-to-your-document-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}
     ```
 
 ***Upon successful completion***:

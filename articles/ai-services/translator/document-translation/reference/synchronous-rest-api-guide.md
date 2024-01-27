@@ -1,5 +1,5 @@
 ---
-title: Synchronous document translation REST API guide
+title: Synchronous translation REST API guide
 description: "Synchronous translation HTTP REST API guide"
 #services: cognitive-services
 author: laujan
@@ -17,7 +17,7 @@ recommendations: false
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD049 -->
 
-# Synchronous document translation REST API guide
+# Synchronous translation REST API guide
 
 Reference</br>
 Service: **Azure AI Document Translation**</br>
@@ -27,21 +27,21 @@ Synchronously translate a single document.
 
 ## Request URL
 
-Send a `POST` request to"
+`POST`:
 
-```http
-https://api.cognitive.microsofttranslator.com/translator/document:translate?api-version=2023-11-01-preview
+```bash
+{your-document-translation-endpoint}/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview
 
 ```
 
 ## Request headers
 
-To call the synchronous document translation feature via the REST API, you need to include the following headers with each request. 
+To call the synchronous translation feature via the REST API, you need to include the following headers with each request. 
 
 Header|Value| Condition  |
 |--- |:--- |:---|
 |**Ocp-Apim-Subscription-Key** |Your Translator service key from the Azure portal.|&bullet; ***Required***|
-|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |&bullet; ***Required*** when using an Azure AI multi-service or regional (geographic) resource like **West US**.</br>&bullet; ***Optional*** when using a single-service global Translator Resource.
+|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |&bullet; ***Required*** when using an Azure AI multi-service or regional (geographic) resource like **West US**.</br>&bullet; ***Optional*** when using a single-service global Translator Resource.|
 
 ## Request parameters
 

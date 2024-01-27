@@ -94,7 +94,7 @@ Document Translation supports the following glossary file types:
 |Localization Interchange File Format| `xlf` , `xliff`| A parallel document format, export of Translation Memory systems The languages used are defined inside the file.|
 |Tab-Separated Values/TAB|`tsv`, `tab`| A tab-delimited raw-data file used by spreadsheet programs.|
 
-## Synchronous document translation
+## Synchronous translation
 
  Use synchronous translation processing to send a document as part of the HTTP request body and receive the translated document in the HTTP response.
 
@@ -164,4 +164,4 @@ Document Translation data residency depends on the Azure region where your Trans
 In our quickstart, you learn how to rapidly get started using Document Translation. To begin, you need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
 
 > [!div class="nextstepaction"]
-> [Get Started with Batch document translation](./quickstarts/async-translation-rest-api.md) [Get started with sync document translation](quickstarts/sync-translation-rest-api.md)
+> [Get Started with Batch document translation](./quickstarts/async-translation-rest-api.md) [Get started with synchronous translation](quickstarts/sync-translation-rest-api.md)
