@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Cache for Redis
+title: Monitor Azure Cache for Redis new
 description: Start here to learn how to monitor Azure Cache for Redis.
 ms.date: 01/26/2024
 ms.custom: horz-monitor
@@ -32,20 +32,20 @@ At a minimum your service should have the following two articles:
    - Filename: "monitor-cache-reference.md".
 -->
 
-# Monitor Azure Cache for Redis
+# Monitor Azure Cache for Redis new
 
 <!-- Intro -->
-[!INCLUDE [horz-monitor-intro](/azure/azure-monitor/includes/horizontals/horz-monitor-intro)]
+[!INCLUDE [horz-monitor-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-intro.md)]
 
 <!-- ## Insights. If your service doesn't have insights, remove the following include and comments . If your service has insights, add more information about the insights after the #include. -->
-[!INCLUDE [horz-monitor-azmon-insights](/azure/azure-monitor/includes/horizontals/horz-monitor-insights)]
+[!INCLUDE [horz-monitor-azmon-insights](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-insights.md)]
 <!-- Insights service-specific information. Add brief information about what your Azure Monitor insights provide here. You can refer to another article that gives details or add a screenshot. -->
 
 <!-- ## Resource types -->
-[!INCLUDE [horz-monitor-resource-types](/azure/azure-monitor/includes/horizontals/horz-monitor-resource-types)]
+[!INCLUDE [horz-monitor-resource-types](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 
 <!-- ## Storage. Optionally, add service-specific information about storing your monitoring data after the include. -->
-[!INCLUDE [horz-monitor-storage](/azure/azure-monitor/includes/horizontals/horz-monitor-storage)]
+[!INCLUDE [horz-monitor-storage](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-storage.md)]
 <!-- Add service-specific information about storing monitoring data here. For example, SQL Server stores other monitoring data in its own databases. If your service doesn't have non-Azure Monitor methods of storing monitoring data, just remove this comment. -->
 
 <!-- METRICS SECTION START ------------------------------------->
@@ -53,29 +53,29 @@ At a minimum your service should have the following two articles:
 <!-- Use one of the following two includes, depending on whether or not your service gathers platform metrics: -->
 
 <!-- ## NO PLATFORM METRICS. If your service doesn't gather platform metrics, use the following include and remove the rest of the information in the Platform metrics section: -->
-[!INCLUDE [horz-monitor-no-platform-metrics](/azure/azure-monitor/includes/horizontals/horz-monitor-no-platform-metrics)]
+[!INCLUDE [horz-monitor-no-platform-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-no-platform-metrics.md)]
 
 <!-- ## Platform metrics. If your service has platform metrics, add the following include, statement, and service-specific information as appropriate. -->
-[!INCLUDE [horz-monitor-platform-metrics](/azure/azure-monitor/includes/horizontals/horz-monitor-platform-metrics)]
+[!INCLUDE [horz-monitor-platform-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
 For a list of available metrics for Azure Cache for Redis, see [Azure Cache for Redis monitoring data reference](monitor-service-reference.md#metrics).
 
 <!-- Platform metrics service-specific information. Add service-specific information about your platform metrics here.-->
 
 <!-- ## Prometheus/container metrics. If your service doesn't use containers/Prometheus metrics, remove the following include and comments. -->
-[!INCLUDE [horz-monitor-container-metrics](/azure/azure-monitor/includes/horizontals/horz-monitor-container-metrics)]
+[!INCLUDE [horz-monitor-container-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-container-metrics.md)]
 <!-- Prometheus/containers service-specific information. Add service-specific information about your container/Prometheus metrics here.-->
 
 <!-- ## System-imported metrics. If your service doesn't use system-imported metrics, remove the following include and comments. -->
-[!INCLUDE [horz-monitor-system-metrics](/azure/azure-monitor/includes/horizontals/horz-monitor-system-metrics)]
+[!INCLUDE [horz-monitor-system-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-system-metrics.md)]
 <!-- System-imported metrics service-specific information. Add service-specific information about your system-imported metrics here.-->
 
 <!-- ## Customer-imported metrics. If your service doesn't use custom imported metrics, remove the following include and comments. -->
-[!INCLUDE [horz-monitor-custom-metrics](/azure/azure-monitor/includes/horizontals/horz-monitor-custom-metrics)]
+[!INCLUDE [horz-monitor-custom-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-custom-metrics.md)]
 <!-- Customer-imported service-specific information. Add service-specific information about your custom imported metrics here.-->
 
 <!-- ## Non-Azure Monitor metrics. If your service doesn't use any non-Azure Monitor based metrics, remove the following include and comments. -->
-[!INCLUDE [horz-monitor-custom-metrics](/azure/azure-monitor/includes/horizontals/horz-monitor-non-monitor-metrics)]
+[!INCLUDE [horz-monitor-custom-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)]
 <!-- Non-Monitor metrics service-specific information. Add service-specific information about your non-Azure Monitor metrics here.-->
 
 <!-- METRICS SECTION END ------------------------------------->
@@ -85,10 +85,10 @@ For a list of available metrics for Azure Cache for Redis, see [Azure Cache for 
 <!-- Use one of the following two includes, depending on whether or not your service collects resource logs: -->
 
 <!-- ## NO RESOURCE LOGS. If your service doesn't collect resource logs, use the following include and remove the rest of the information in the Resource logs section:-->
-[!INCLUDE [horz-monitor-no-resource-logs](/azure/azure-monitor/includes/horizontals/horz-monitor-no-resource-logs)]
+[!INCLUDE [horz-monitor-no-resource-logs](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-no-resource-logs.md)]
 
 <!-- ## Resource logs. If your service collects resource logs, add the following includes, statement, and service-specific information as appropriate. -->
-[!INCLUDE [horz-monitor-resource-logs](/azure/azure-monitor/includes/horizontals/horz-monitor-resource-logs)]
+[!INCLUDE [horz-monitor-resource-logs](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Cache for Redis, see [Azure Cache for Redis monitoring data reference](monitor-service-reference.md#resource-logs).
 
@@ -96,11 +96,11 @@ For the available resource log categories, their associated Log Analytics tables
 NOTE: Azure Monitor already has general information on how to configure and route resource logs. See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings). Ideally, don't repeat that information here. You can provide a single screenshot of the diagnostic settings portal experience if you want. -->
 
 <!-- ## Activity log. Optionally, add service-specific information about your activity log after the include. -->
-[!INCLUDE [horz-monitor-activity-log](/azure/azure-monitor/includes/horizontals/horz-monitor-activity-log)]
+[!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 <!-- Activity log service-specific information. Add service-specific information about your activity log here. -->
 
 <!-- ## Imported logs. If your service doesn't use imported logs, remove the following include and comments. -->
-[!INCLUDE [horz-monitor-imported-logs](/azure/azure-monitor/includes/horizontals/horz-monitor-imported-logs)]
+[!INCLUDE [horz-monitor-imported-logs](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-imported-logs.md)]
 <!-- Imported log service-specific information. Add service-specific information about your imported logs here. -->
 
 <!-- ## Other logs. If your service doesn't produce any other types of non-Azure Monitor logs, remove this comment.
@@ -111,13 +111,13 @@ If your service has other logs that aren't resource logs or in the activity log,
 <!-- ANALYSIS SECTION START -------------------------------------->
 
 <!-- ## Analyze data -->
-[!INCLUDE [horz-monitor-analyze-data](/azure/azure-monitor/includes/horizontals/horz-monitor-analyze-data)]
+[!INCLUDE [horz-monitor-analyze-data](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
 <!-- ### External tools -->
-[!INCLUDE [horz-monitor-external-tools](/azure/azure-monitor/includes/horizontals/horz-monitor-external-tools)]
+[!INCLUDE [horz-monitor-external-tools](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
 <!-- ### Sample Kusto queries. If you have sample Kusto queries for your service, add them after the include. -->
-[!INCLUDE [horz-monitor-kusto-queries](/azure/azure-monitor/includes/horizontals/horz-monitor-kusto-queries)]
+[!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 <!-- Add sample Kusto queries for your service here. -->
 
 <!-- ## Azure Cache for Redis service-specific analytics
@@ -128,10 +128,10 @@ Add short information or links to specific articles that outline how to analyze 
 <!-- ALERTS SECTION START -------------------------------------->
 
 <!-- ## Alerts -->
-[!INCLUDE [horz-monitor-alerts](/azure/azure-monitor/includes/horizontals/horz-monitor-alerts)]
+[!INCLUDE [horz-monitor-alerts](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
 <!-- ONLY if applications run on your service that work with application insights, add the following include. -->
-[!INCLUDE [horz-monitor-insights-alerts](/azure/azure-monitor/includes/horizontals/horz-monitor-insights-alerts)]
+[!INCLUDE [horz-monitor-insights-alerts](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
 
 <!-- **MUST HAVE** service-specific alert rules. Include useful alerts on metrics, logs, log conditions, or activity log.
 Fill in the following table with metric and log alerts that would be valuable for your service. Change the format as necessary for readability. You can instead link to an article that discusses your common alerts in detail.
