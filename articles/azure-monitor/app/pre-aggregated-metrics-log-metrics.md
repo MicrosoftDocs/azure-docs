@@ -2,7 +2,7 @@
 title: Log-based and pre-aggregated metrics in Application Insights | Microsoft Docs
 description: This article explains when to use log-based versus pre-aggregated metrics in Application Insights.
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 01/31/2024
 ms.reviewer: vitalyg
 ---
 
