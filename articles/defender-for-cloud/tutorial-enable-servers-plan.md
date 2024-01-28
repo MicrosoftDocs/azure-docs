@@ -2,7 +2,7 @@
 title: Deploy Defender for Servers
 description: Learn how to enable the Defender for Servers on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 01/23/2024
+ms.date: 01/28/2024
 ---
 
 # Deploy Defender for Servers
@@ -75,6 +75,28 @@ When you enable the Defender for Servers plan, you're then given the option to s
 
 Once the plan has been enabled, you have the ability to [configure the monitoring settings](configure-servers-coverage.md) to suit your needs.
 
+## Enable the plan ate the workspace level
+
+When you enable Defender for Servers on your subscription, the coverage provided by Defender for Servers is not automatically extended to your workspaces. You need to enable Defender for Servers on each workspace. Defender for Servers Plan 2
+
+**To enable Defender for Servers on your subscription**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Search for and select **Microsoft Defender for Cloud**.
+
+1. In the Defender for Cloud menu, select **Environment settings**.
+
+1. Select the relevant workspace.
+
+1. Toggle the servers plan to **On**.
+
+     :::image type="content" source="media/tutorial-enable-servers-plan/enable-workspace-servers.png" alt-text="Screenshot that shows the plan enablement page at the workspace level.":::
+
+1. Select **Save**.
+
+
+
 ## Enable the plan at the resource level
 
 While our recommendation is to enable Defender for Servers on the entire Azure subscription, to protect all existing and future resources in it, there are some cases where more flexibility is required to exclude specific resources or to manage security configurations at a lower hierarchy level than subscription. Resource level enablement is available for **Azure machines** and on-premises with **Azure Arc** as part of Defender for Servers plans:
@@ -82,15 +104,11 @@ While our recommendation is to enable Defender for Servers on the entire Azure s
 - **Defender for Servers Plan 1**: you can enable / disable the plan at the resource level.
 - **Defender for Servers Plan 2**: you can only disable the plan at the resource level. For example, it’s possible to enable the plan at the subscription level and disable specific resources, however it’s not possible to enable the plan only for specific resources.
 
-### Supported resource types
-
-Supported resource types include:
+The supported resource types include:
 
 - Azure VMs
 - On-premises with Azure Arc
 - Azure Virtual Machine Scale Sets Flex
-
-Once the plan has been enabled, you have the ability to [configure the monitoring settings](configure-servers-coverage.md) to suit your needs.
 
 ### Enablement via REST API
 
