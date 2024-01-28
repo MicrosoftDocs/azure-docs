@@ -11,8 +11,8 @@ ms.author: pgrandhi
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) 
-- An [Azure Communication Services resource](articles\communication-services\quickstarts\create-communication-resource.md)
-- Create a Webhook to receive events. [Webhook Event Delivery](articles/event-grid/webhook-event-delivery.md)
+- An [Azure Communication Services resource](../../create-communication-resource.md)
+- Create a Webhook to receive events. [Webhook Event Delivery](../../../../../articles/event-grid/webhook-event-delivery.md)
 
 
 [!INCLUDE [register-provider-cli.md](register-provider-cli.md)]
@@ -32,6 +32,8 @@ az eventgrid event-subscription create
     --endpoint https://azureeventgridviewer.azurewebsites.net/api/updates  
 ```
 
+For a list of Communication Services events, see [Communication Services Events](../../../../../articles/event-grid/event-schema-communication-services.md).
+
 ## List Event Subscriptions
 
 To list all the existing event subscriptions set up for an Azure Communication Services resource, by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription list`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-list) command. 
@@ -47,7 +49,7 @@ az eventgrid event-subscription update
 
 ## Update Event Subscription
 
-To update an existing event subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription update`](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) command. 
+To update an existing event subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription update`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update) command. 
 
 ```azurecli-interactive
 az eventgrid event-subscription list 
@@ -64,5 +66,5 @@ az eventgrid event-subscription delete
     --source-resource-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Communication/CommunicationServices/<acsResourceName>
 ```
 
-
-For information on other commands, see [Azure Event Grid CLI](/cli/azure/eventgrid/event-subscription).
+## Next steps
+* For information on other commands, see [Azure Event Grid CLI](/cli/azure/eventgrid/event-subscription).

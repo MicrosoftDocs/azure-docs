@@ -9,9 +9,9 @@ ms.author: pgrandhi
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- An [Azure Communication Services resource](articles\communication-services\quickstarts\create-communication-resource.md)
-- Register the [Event Grid Resource Provider](register-event-grid-resource-provider.md)
-- Create a Webhook to receive events. [Webhook Event Delivery](articles/event-grid/webhook-event-delivery.md)
+- An [Azure Communication Services resource](../../create-communication-resource.md).
+- Register the [Event Grid Resource Provider](register-event-grid-resource-provider.md).
+- Create a Webhook to receive events. [Webhook Event Delivery](../../../../../articles/event-grid/webhook-event-delivery.md).
 
 ## Create Event Subscriptions
 
@@ -28,6 +28,8 @@ Click on **+ Event Subscription**.
 1. Select the event types that you want to receive on the event subscription.
 
     :::image type="content" source="../media/subscribe-through-portal/select-event-types.png" alt-text="Screenshot that shows the selection of event types.":::
+
+For more information on Communication Services events, see [Communication Services Events](../../../../../articles/event-grid/event-schema-communication-services.md)
 
 1. Select the Endpoint Type as Web Hook.
      :::image type="content" source="../media/subscribe-through-portal/select-endpoint-type.png" alt-text="Screenshot that shows the selection of endpoint type.":::
@@ -46,6 +48,7 @@ Click on **+ Event Subscription**.
 
 
 ## Next steps
-* For a list of supported event handlers, see [Event handlers](articles\event-grid\includes\event-handlers.md).
-* For information about event delivery and retries, [Event Grid message delivery and retry]articles/event-grid/delivery-and-retry.md)
-* For an introduction to Event Grid, see [About Event Grid](articles/event-grid/overview.md).
+* For a list of Communication Services events, see [Communication Services Events](../../../../../articles/event-grid/event-schema-communication-services.md).
+* For a list of supported event handlers, see [Event handlers](../../../../../articles/event-grid/includes/event-handlers.md).
+* For information about event delivery and retries, [Event Grid message delivery and retry](../../../../../articles/event-grid/delivery-and-retry.md).
+* For an introduction to Event Grid, see [About Event Grid](../../../../../articles/event-grid/overview.md).

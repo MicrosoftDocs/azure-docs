@@ -11,8 +11,8 @@ ms.author: pgrandhi
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - Install the [Azure Az PowerShell Module](/powershell/azure/)
-- An [Azure Communication Services resource](articles\communication-services\quickstarts\create-communication-resource.md)
-- Create a Webhook to receive events. [Webhook Event Delivery](articles/event-grid/webhook-event-delivery.md)
+- An [Azure Communication Services resource](../../create-communication-resource.md)
+- Create a Webhook to receive events. [Webhook Event Delivery](../../../../../articles/event-grid/webhook-event-delivery.md)
 
 
 [!INCLUDE [register-provider-powershell.md](register-provider-powershell.md)]
@@ -37,7 +37,7 @@ PS C:\> Install-Module Az.EventGrid
    Set-AzContext $context
    ```
 
-To create an event subscription by using the [Azure Powershell](/powershell/azure/get-started-azureps), use the [`New-AzEventGridSubscription`](/powershell/module/az.eventgrid/new-azeventgridsubscription) command. 
+To create an event subscription by using the [Azure PowerShell](/powershell/azure/get-started-azureps), use the [`New-AzEventGridSubscription`](/powershell/module/az.eventgrid/new-azeventgridsubscription) command. 
 
 ```PowerShell
 $includedEventTypes = "Microsoft.Communication.SMSReceived", "Microsoft.Communication.SMSDeliveryReportReceived"
@@ -49,9 +49,11 @@ New-AzEventGridSubscription
     -ResourceId "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Communication/CommunicationServices/<acsResourceName>"
 ```
 
+For a list of Communication Services events, see [Communication Services Events](../../../../../articles/event-grid/event-schema-communication-services.md).
+
 ## List Event Subscriptions
 
-To list all the existing event subscriptions set up for an Azure Communication Services resource, by using the [Azure Powershell](/powershell/azure/get-started-azureps), use the [`Get-AzEventGridSubscription`](/powershell/module/az.eventgrid/get-azeventgridsubscription) command. 
+To list all the existing event subscriptions set up for an Azure Communication Services resource, by using the [Azure PowerShell](/powershell/azure/get-started-azureps), use the [`Get-AzEventGridSubscription`](/powershell/module/az.eventgrid/get-azeventgridsubscription) command. 
 
 ```PowerShell
 Get-AzEventGridSubscription 
@@ -60,7 +62,7 @@ Get-AzEventGridSubscription
 
 ## Update Event Subscription
 
-To update an existing event subscription by using the [Azure Powershell](/cli/azure/get-started-with-azure-cli), use the [`Update-AzEventGridSubscription `](/powershell/module/az.eventgrid/update-azeventgridsubscription) command. 
+To update an existing event subscription by using the [Azure PowerShell](/powershell/azure/get-started-azureps), use the [`Update-AzEventGridSubscription `](/powershell/module/az.eventgrid/update-azeventgridsubscription) command. 
 
 ```PowerShell
 $includedEventTypes = "Microsoft.Communication.SMSReceived", "Microsoft.Communication.SMSDeliveryReportReceived", "Microsoft.Communication.ChatMessageReceived"
@@ -75,12 +77,13 @@ Update-AzEventGridSubscription
 
 ## Delete Event Subscription
 
-To delete an existing event subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`Remove-AzEventGridSubscription`](/powershell/module/az.eventgrid/remove-azeventgridsubscription) command. 
+To delete an existing event subscription by using the [Azure PowerShell](/powershell/azure/get-started-azureps), use the [`Remove-AzEventGridSubscription`](/powershell/module/az.eventgrid/remove-azeventgridsubscription) command. 
 
 ```PowerShell
 Get-AzResource 
     -ResourceId "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Communication/CommunicationServices/<acsResourceName>" | Remove-AzEventGridSubscription -EventSubscriptionName ES2
 ```
 
+## Next steps
 
-For information on other commands, see [Az.EventGrid Powershell Module](/powershell/module/az.eventgrid/new-azeventgridsubscription).
+* For information on other commands, see [Az.EventGrid Powershell Module](/powershell/module/az.eventgrid/new-azeventgridsubscription).
