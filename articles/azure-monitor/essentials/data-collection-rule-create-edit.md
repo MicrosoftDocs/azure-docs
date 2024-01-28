@@ -46,25 +46,25 @@ Once you have the JSON file created, you can use any of the following methods to
    
     :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rules-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rules-updated.png" alt-text="Screenshot that shows the Create button on the Data Collection Rules screen." border="false":::
 
-1. On the **Basics** tab: 
+### Basics tab 
 
-    1. Enter a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, and **Platform Type**:
-    
-        - **Region** specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
-        - **Platform Type** specifies the type of resources this rule can apply to. The **Custom** option allows for both Windows and Linux types.
-    
-        :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-basics-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-basics-updated.png" alt-text="Screenshot that shows the Basics tab of the Data Collection Rule screen.":::
+:::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-basics-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-basics-updated.png" alt-text="Screenshot that shows the Basics tab of the Data Collection Rule screen.":::
 
-    1. To collect IIS logs and custom text or JSON logs, select an endpoint from the **Data collection endpoint** dropdown list. To collect data from other data sources, you don't need to select an endpoint.  
+| Field | Description |
+|:---|:---|
+| **Rule name** | Enter a name for the data collection rule. |
+| **Subscription** | Associate the data collection rule to a subscription. |
+| **Resource group** | Associate the data collection rule to a resource group. |
+| **Region** | Create your data collection rule in the same region as your destination Log Analytics workspace. Virtual machines and their associations can be in any subscription or resource group in the tenant. |
+| **Platform type** | Select **Windows** or **Linux**, or **All**, which allows for both Windows and Linux platforms. |
+| **Data Collection Endpoint** | Select an existing data collection endpoint or create a new endpoint to collect IIS logs and custom text or JSON logs. To collect data from other data sources, you don't need to select an endpoint.<br>You can only select a data collection endpoint in the same region as the data collection rule.|
 
-        If you don't have a data collection endpoint, select **Create new** to create an endpoint. For more information, see [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
-    
-        You can only select a data collection endpoint in the same region as the data collection rule.
-           
+### Resources tab
+
 
 1. On the **Resources** tab: 
  
-    1. Select **+ Add resources** and associate resources to the data collection rule. Resources can be virtual machines, Virtual Machine Scale Sets, and Azure Arc for servers. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. 
+    1. Select **+ Add resources** and associate virtual machines, Virtual Machine Scale Sets, and Azure Arc for servers to the data collection rule. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. 
 
         > [!IMPORTANT]
         > The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.
