@@ -61,10 +61,12 @@ Once you have the JSON file created, you can use any of the following methods to
 
 ### Resources tab
 
+:::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-virtual-machines-with-endpoint.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-virtual-machines-with-endpoint.png" alt-text="Screenshot that shows the Resources tab of the Data Collection Rule screen.":::
 
-1. On the **Resources** tab: 
- 
-    1. Select **+ Add resources** and associate virtual machines, Virtual Machine Scale Sets, and Azure Arc for servers to the data collection rule. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. 
+| Screen element | Description |
+|:---|:---|
+| **+ Add resources** | Associate virtual machines, Virtual Machine Scale Sets, and Azure Arc for servers to the data collection rule. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed.|
+|**Enable Data Collection Endpoints**| Select this checkbox if:<br>- You're collecting **Linux syslog data**, **IIS logs**, **custom text logs** or **custom JSON logs**<br>and<br>- The machine from which you're collecting data is not in the same region as your destination Log Analytics workspace.<br> If  |
 
         > [!IMPORTANT]
         > The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.
@@ -74,7 +76,7 @@ Once you have the JSON file created, you can use any of the following methods to
     1. Select **Enable Data Collection Endpoints**.
     1. Select a data collection endpoint for each of the resources associate to the data collection rule.
 
-    :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-virtual-machines-with-endpoint.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-virtual-machines-with-endpoint.png" alt-text="Screenshot that shows the Resources tab of the Data Collection Rule screen.":::
+
 
 1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
 1. Select a **Data source type**.
