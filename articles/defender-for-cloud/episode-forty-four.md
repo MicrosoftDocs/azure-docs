@@ -2,7 +2,7 @@
 title: Agentless malware detection | Defender for Cloud in the field
 description: Learn about agentless malware detection in Defender for Cloud
 ms.topic: reference
-ms.date: 01/24/2024
+ms.date: 01/28/2024
 ---
 
 # Agentless malware detection
@@ -11,11 +11,11 @@ ms.date: 01/24/2024
 
 > [!VIDEO https://aka.ms/docs/player?id=44105e9d-8165-44c9-9763-16c1bd0736d4]
 
-- [01:28](/shows/mdc-in-the-field/unified-insights#time=01m28s) - Understanding the value of agentless malware detection
-- [03:51](/shows/mdc-in-the-field/unified-insights#time=03m51s) - Which Microsoft Defender for Cloud plan enables this feature?
-- [04:38](/shows/mdc-in-the-field/unified-insights#time=04m38s) - How does agentless malware detection work?
-- [07:58](/shows/mdc-in-the-field/unified-insights#time=07m58s) - Scan frequency
-- [08:17](/shows/mdc-in-the-field/unified-insights#time=08m17s) - Demonstration
+- [01:28](/shows/mdc-in-the-field/agentless-malware#time=01m28s) - Understanding the value of agentless malware detection
+- [03:51](/shows/mdc-in-the-field/agentless-malware#time=03m51s) - Which Microsoft Defender for Cloud plan enables this feature?
+- [04:38](/shows/mdc-in-the-field/agentless-malware#time=04m38s) - How does agentless malware detection work?
+- [07:58](/shows/mdc-in-the-field/agentless-malware#time=07m58s) - Scan frequency
+- [08:17](/shows/mdc-in-the-field/agentless-malware#time=08m17s) - Demonstration
 
 ## Recommended resources
 
