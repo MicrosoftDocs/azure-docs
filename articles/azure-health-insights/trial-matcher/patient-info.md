@@ -29,6 +29,8 @@ The Trial Matcher performs a prior step of language understanding to analyze the
 When providing patient data in clinical notes, use ```note``` value for  ```Patient.PatientDocument.type```.
 Currently, Trial Matcher only supports one clinical note per patient.
 
+Note: the examples below are based on API version: 2023-03-01-preview. 
+
 The following example shows how to provide patient information as an unstructured clinical note:
 
 ```json
