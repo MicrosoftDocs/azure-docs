@@ -1,5 +1,5 @@
 ---
-title: Authorization actions and attributes (preview)
+title: Authorization actions and attributes
 description: Supported actions and attributes for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC) in authorization
 services: active-directory
 author: rolyon
@@ -8,17 +8,13 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/29/2023
+ms.date: 01/30/2024
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to 
 ---
 
-# Authorization actions and attributes (preview)
-
-> [!IMPORTANT]
-> Delegating Azure role assignment management with conditions is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Authorization actions and attributes
 
 ## Authorization actions
 
@@ -94,5 +90,5 @@ This section lists the authorization attributes you can use in your condition ex
 
 ## Next steps
 
-- [Examples to delegate Azure role assignment management with conditions (preview)](delegate-role-assignments-examples.md)
-- [Delegate Azure role assignment management to others with conditions (preview)](delegate-role-assignments-portal.md)
+- [Examples to delegate Azure role assignment management with conditions](delegate-role-assignments-examples.md)
+- [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.md)

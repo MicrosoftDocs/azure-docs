@@ -1,5 +1,5 @@
 ---
-title: Delegate Azure role assignment management to others with conditions (preview) - Azure ABAC
+title: Delegate Azure role assignment management to others with conditions - Azure ABAC
 description: How to delegate Azure role assignment management to other users by using Azure attribute-based access control (Azure ABAC).
 services: active-directory
 author: rolyon
@@ -8,17 +8,13 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/01/2023
+ms.date: 01/30/2024
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to delegate Azure role assignment management to other users who are closer to the decision, but want to limit the scope of the role assignments.
 ---
 
-# Delegate Azure role assignment management to others with conditions (preview)
-
-> [!IMPORTANT]
-> Delegating Azure role assignment management with conditions is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Delegate Azure role assignment management to others with conditions
 
 As an administrator, you might get several requests to grant access to Azure resources that you want to delegate to someone else. You could assign a user the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles, but these are highly privileged roles. This article describes a more secure way to [delegate role assignment management](delegate-role-assignments-overview.md) to other users in your organization, but add restrictions for those role assignments. For example, you can constrain the roles that can be assigned or constrain the principals the roles can be assigned to.
 
@@ -39,7 +35,7 @@ To help determine the permissions the delegate needs, answer the following quest
 - Which principals can the delegate assign roles to?
 - Can delegate remove any role assignments?
 
-Once you know the permissions that delegate needs, you use the following steps to add a condition to the delegate's role assignment. For example conditions, see [Examples to delegate Azure role assignment management with conditions (preview)](delegate-role-assignments-examples.md).
+Once you know the permissions that delegate needs, you use the following steps to add a condition to the delegate's role assignment. For example conditions, see [Examples to delegate Azure role assignment management with conditions](delegate-role-assignments-examples.md).
 
 ## Step 2: Start a new role assignment
 

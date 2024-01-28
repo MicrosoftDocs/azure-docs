@@ -1,5 +1,5 @@
 ---
-title: Examples to delegate Azure role assignment management with conditions (preview) - Azure ABAC
+title: Examples to delegate Azure role assignment management with conditions - Azure ABAC
 description: Examples to delegate Azure role assignment management to other users by using Azure attribute-based access control (Azure ABAC).
 services: active-directory
 author: rolyon
@@ -9,16 +9,12 @@ ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
 ms.custom: devx-track-azurepowershell
-ms.date: 12/01/2023
+ms.date: 01/30/2024
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
-# Examples to delegate Azure role assignment management with conditions (preview)
-
-> [!IMPORTANT]
-> Delegating Azure role assignment management with conditions is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Examples to delegate Azure role assignment management with conditions
 
 This article lists examples of how to delegate Azure role assignment management to other users with conditions.
 
@@ -767,6 +763,6 @@ New-AzRoleAssignment -ObjectId $principalId -Scope $scope -RoleDefinitionId $rol
 
 ## Next steps
 
-- [Authorization actions and attributes (preview)](conditions-authorization-actions-attributes.md)
-- [Azure role assignment condition format and syntax (preview)](conditions-format.md)
-- [Troubleshoot Azure role assignment conditions (preview)](conditions-troubleshoot.md)
+- [Authorization actions and attributes](conditions-authorization-actions-attributes.md)
+- [Azure role assignment condition format and syntax](conditions-format.md)
+- [Troubleshoot Azure role assignment conditions](conditions-troubleshoot.md)
