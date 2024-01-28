@@ -50,7 +50,7 @@ Once you have the JSON file created, you can use any of the following methods to
 
 :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-basics-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-basics-updated.png" alt-text="Screenshot that shows the Basics tab of the Data Collection Rule screen.":::
 
-| Field | Description |
+| Screen element | Description |
 |:---|:---|
 | **Rule name** | Enter a name for the data collection rule. |
 | **Subscription** | Associate the data collection rule to a subscription. |
