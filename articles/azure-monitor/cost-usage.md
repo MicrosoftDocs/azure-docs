@@ -86,6 +86,9 @@ For example, usage from Log Analytics can be found by first filtering on the **M
 
 Add a filter on the **Instance ID** column for **contains workspace** or **contains cluster**. The usage is shown in the **Consumed Quantity** column. The unit for each entry is shown in the **Unit of Measure** column.
 
+> [!NOTE]
+> See [Azure Monitor billing meter names](cost-meters.md) for a reference of the billing meter names used by Azure Monitor in Azure Cost Management + Billing. 
+
 ## View data allocation benefits
 
 There are several approaches to view the benefits a workspace receives from various offers such as the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/).
@@ -97,16 +100,13 @@ Since a usage export has both the number of units of usage and their cost, you c
 - **Standard Data Included per Node**: this meter is under the service "Insight and Analytics" and tracks the benefits received when a workspace in either in Log Analytics [Per Node tier](logs/cost-logs.md#per-node-pricing-tier) data allowance and/or has [Defender for Servers](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) enabled. Each of these provide a 500 MB/server/day data allowance.
 - **Free Benefit - M365 Defender Data Ingestion**: this  meter, under the service "Azure Monitor", tracks the benefit from the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/).
 
-> [!NOTE]
-> See [Azure Monitor billing meter names](cost-meters.md) for a reference of the billing meter names used by Azure Monitor in Azure Cost Management + Billing. 
-
 ### View benefits in Usage and estimated costs
 
 You can also see these data benefits in the Log Analytics Usage and estimated costs page. If the workspace is receiving these benefits, there will be a sentence below the cost estimate table that gives the data volume of the benefits used over the last 31 days. 
 
 ### Query benefits from the Operation table
 
-The [Operation](reference/tables/operation.md) table contains daily events which given the amount of benefit used from the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). The `Detail` column for these events are all of the format `Benefit amount used 1.234 GB` used, and the type of benefit is in the `OperationKey` column.
+The [Operation](reference/tables/operation.md) table contains daily events which given the amount of benefit used from the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). The `Detail` column for these events are all of the format `Benefit amount used 1.234 GB`, and the type of benefit is in the `OperationKey` column. Here is a query that charts the benefits used in the last 31-days:
 
 ```kusto
 Operation
@@ -120,7 +120,7 @@ Operation
 | render columnchart 
 ```
 
-(This functionality of reporting the benefits in the `Operation` table came online in January 2024.) 
+(This functionality of reporting the benefits used in the `Operation` table came online in January 2024.) 
 
 ## Usage and estimated costs
 You can get additional usage details about Log Analytics workspaces and Application Insights resources from the **Usage and Estimated Costs** option for each.
