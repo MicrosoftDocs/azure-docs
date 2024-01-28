@@ -49,7 +49,9 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 **Estimated date of change: February 2024**
 
-As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) is [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269), functionality is replaced by the [Microsoft Defender for Endpoint unified agent](onboard-machines-with-defender-for-endpoint.md), and [agentless machine scanning](concept-agentless-data-collection.md).  As part of the move, we’re deprecating existing recommendations, and will replace them with new recommendations based on Microsoft Defender for Endpoint/third-party Endpoint Detection and Response (EDR) solutions. The following recommendations will be deprecated. 
+As use of the Azure Monitor Agent (AMA) and the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)) is [phased out in Defender for Servers](https://techcommunity.microsoft.com/t5/user/ssoregistrationpage?dest_url=https:%2F%2Ftechcommunity.microsoft.com%2Ft5%2Fblogs%2Fblogworkflowpage%2Fblog-id%2FMicrosoftDefenderCloudBlog%2Farticle-id%2F1269), functionality is replaced by the [Microsoft Defender for Endpoint unified agent](onboard-machines-with-defender-for-endpoint.md), and [agentless machine scanning](concept-agentless-data-collection.md).  As part of the move, we’re deprecating existing recommendations, and will replace them with new recommendations that will utilize agentless scanning for machines to identify the presence of Endpoint Detection and Response (EDR) solutions or misconfigurations of Defender for Endpoint on your machines. 
+
+The following recommendations will be deprecated:
 
 | Recommendation | Agent | Deprecation date |
 |--|--|--|
