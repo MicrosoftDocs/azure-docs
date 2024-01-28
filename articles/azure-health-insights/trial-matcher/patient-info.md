@@ -320,6 +320,8 @@ Entity type concepts are concepts that are grouped by common entity types, such 
 
 When entity type concepts are sent by customers to the Trial Matcher as part of the patient’s clinical info, customers are expected to concatenate the entity type string to the value, separated with a semicolon. 
 
+Note: the examples below are based on API version: 2023-03-01-preview.
+
 Example concept from neededClinicalInfo API response:
 ```json
 {
