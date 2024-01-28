@@ -19,7 +19,7 @@ ms.custom: devx-track-java, devx-track-extended-java, mode-other, event-tier1-bu
 
 **This article applies to:** ✔️ Standard consumption and dedicated (Preview) 
 
-This quickstart shows you how to secure communication between a client application and a microservice application that is hosted on Azure Spring Apps and shielded with a Spring Cloud Gateway app. The client application is verified as a security principal to initiate contact with the microservice deployed on Azure Spring Apps, using the app built with [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/). This method employs Spring Cloud Gateway's Token Relay and Spring Security's Resource Server features for the processes of authentication and authorization, realized through the execution of the [OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
+This quickstart shows you how to secure communication between a client application and a microservice application that is hosted on Azure Spring Apps and shielded with a Spring Cloud Gateway app. The client application is verified as a security principal to initiate contact with the microservice deployed on Azure Spring Apps, using the app built with [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/). This method employs Spring Cloud Gateway's Token Relay and Spring Security's Resource Server features for the processes of authentication and authorization, realized through the execution of the [OAuth 2.0 client credentials flow](/entra/identity-platform/v2-oauth2-client-creds-grant-flow).
 
 The following list shows the composition of the sample project:
 
@@ -33,7 +33,7 @@ The following list shows the composition of the sample project:
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- A Microsoft Entra tenant. For more information on how to create a Microsoft Entra tenant, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
+- A Microsoft Entra tenant. For more information on how to create a Microsoft Entra tenant, see [Quickstart: Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 - Install [Node.js](https://nodejs.org).
 

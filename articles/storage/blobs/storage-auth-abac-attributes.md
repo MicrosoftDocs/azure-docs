@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 01/26/2024
 ms.reviewer: nachakra
 ---
 
@@ -337,11 +337,11 @@ The following table summarizes the available attributes by source:
 | | [Subnet](#subnet)                         | The subnet over which an object is accessed                        |
 | | [UTC now](#utc-now)                       | The current date and time in Coordinated Universal Time            |
 | **Request**       | | |
-| | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys)                         |
-| | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key) |
+| | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys); available only for storage accounts where hierarchical namespace is not enabled        |
+| | [Blob index tags [Values in key]](#blob-index-tags-values-in-key) | Index tags on a blob resource (values in key); available only for storage accounts where hierarchical namespace is not enabled |
 | | [Blob prefix](#blob-prefix)               | Allowed prefix of blobs to be listed                               |
-| | [Snapshot](#snapshot)                     | The Snapshot identifier for the Blob snapshot                      |
-| | [Version ID](#version-id)                 | The version ID of the versioned Blob                               |
+| | [Snapshot](#snapshot)                     | The Snapshot identifier for the Blob snapshot       |
+| | [Version ID](#version-id)                 | The version ID of the versioned blob; available only for storage accounts where hierarchical namespace is not enabled                               |
 | **Resource**      | | |
 | | [Account name](#account-name)             | The storage account name                                           |
 | | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys)                         |
@@ -370,7 +370,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Blob index tags [Keys] |
-> | **Description** | Index tags on a blob resource.<br/>Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check the key in blob index tags. |
+> | **Description** | Index tags on a blob resource.<br/>Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check the key in blob index tags.<br/>*Available only for storage accounts where hierarchical namespace is not enabled.* |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&` |
 > | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes)<br/>[Request](../../role-based-access-control/conditions-format.md#request-attributes) |
 > | **Attribute type** | [StringList](../../role-based-access-control/conditions-format.md#cross-product-comparison-operators) |
@@ -385,7 +385,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Blob index tags [Values in key] |
-> | **Description** | Index tags on a blob resource.<br/>Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check both the key (case-sensitive) and value in blob index tags. |
+> | **Description** | Index tags on a blob resource.<br/>Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check both the key (case-sensitive) and value in blob index tags.<br/>*Available only for storage accounts where hierarchical namespace is not enabled.* |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags` |
 > | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes)<br/>[Request](../../role-based-access-control/conditions-format.md#request-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
@@ -442,7 +442,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Encryption scope name |
-> | **Description** | Name of the encryption scope used to encrypt data.<br/>*Available only for storage accounts where hierarchical namespace is not enabled.* |
+> | **Description** | Name of the encryption scope used to encrypt data. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/encryptionScopes:name` |
 > | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |

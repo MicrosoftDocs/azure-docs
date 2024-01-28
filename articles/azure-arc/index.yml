@@ -162,8 +162,8 @@ additionalContent:
           summary: Run App Service, Functions, and Logic Apps on Azure Arc-enabled Kubernetes clusters.
           url: /azure/app-service/overview-arc-integration
         # Card
-        - title: AKS hybrid deployment options
-          summary: AKS hybrid simplifies on-premises Kubernetes clusters, natively connecting to Azure Arc.
+        - title: Azure Kubernetes Service (AKS) enabled by Azure Arc 
+          summary: Extend AKS to your on-premises environment.
           url: https://learn.microsoft.com/en-us/azure/aks/hybrid/aks-hybrid-options-overview
         # Card
         - title: Azure IoT Operations Preview – enabled by Azure Arc
