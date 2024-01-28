@@ -38,7 +38,9 @@ In this quickstart:
 
 + Contributor permissions in the Azure subscription for creating resources
 
-1. Download the sample famous-speeches-pdf PDFs in [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/famous-speeches-pdf). We recommend starting with smaller files to stay under [vector storage limits](vector-search-index-size.md) and [Azure OpenAI quota limits](/azure/ai-services/openai/quotas-limits). 
++ Download the sample famous-speeches-pdf PDFs in [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/famous-speeches-pdf).
+
+  For this quickstart, we recommend starting with smaller files so that you can preserve [vector storage](vector-search-index-size.md) and [Azure OpenAI quota](/azure/ai-services/openai/quotas-limits) for other work.
 
 ## Set up model deployments
 
