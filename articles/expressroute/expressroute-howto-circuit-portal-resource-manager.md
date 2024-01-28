@@ -1,16 +1,17 @@
 ---
-title: 'Quickstart: Create and modify a circuit with ExpressRoute - Azure portal'
-description: In this quickstart, you learn how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit by using the Azure portal.
+title: 'Quickstart: Create and modify ExpressRoute circuits - Azure portal'
+description: In this quickstart, you learn how to create, provision, verify, update, delete, and deprovision ExpressRoute circuits by using the Azure portal.
 services: expressroute
 author: duongau
 ms.author: duau
-ms.date: 08/31/2023
+ms.date: 01/24/2024
 ms.topic: quickstart
 ms.service: expressroute
 ms.custom: mode-ui
+zone_pivot_groups: expressroute-experience
 ---
 
-# Quickstart: Create and modify an ExpressRoute circuit
+# Quickstart: Create and modify ExpressRoute circuits
 
 This quickstart shows you how to create an ExpressRoute circuit using the Azure portal and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
 
@@ -22,6 +23,69 @@ This quickstart shows you how to create an ExpressRoute circuit using the Azure 
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
+
+::: zone pivot="expressroute-preview"
+
+### Sign in to the Azure portal
+
+Sign in to the Azure portal with this [Preview link](https://aka.ms/expressrouteguidedportal). This link is required to access the new preview create experience for an ExpressRoute circuit.
+
+### Create a new ExpressRoute circuit (Preview)
+
+> [!IMPORTANT]
+> Your ExpressRoute circuit is billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
+
+1. On the Azure portal menu, select **+ Create a resource**. Search for **ExpressRoute (preview)** and then select **Create**.
+
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/create-expressroute-circuit-new.png" alt-text="Screenshot of preview create experience of ExpressRoute circuit resource.":::
+
+1. Select the **Subscription** and **Resource Group** for the circuit. Then select the type of **Resiliency** for your setup.
+
+    **Maximum Resiliency** - This option provides the highest level of resiliency for your ExpressRoute circuit. It provides two ExpressRoute circuits with local redundancy in two different ExpressRoute locations.
+
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/maximum-resiliency.png" alt-text="Diagram of maximum resiliency for an ExpressRoute connection.":::
+
+    **Standard Resiliency** - This option provides a single ExpressRoute circuit with local redundancy at a single ExpressRoute location.
+    
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/standard-resiliency.png" alt-text="Diagram of standard resiliency for an ExpressRoute connection.":::
+
+1. Enter or select the following information for the respective resiliency type.
+
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/new-configuration.png" alt-text="Screenshot of the new ExpressRoute circuit configuration page.":::
+
+    **Maximum Resiliency**
+
+    | Setting | Value |
+    | ---     | ---   |
+    | Use existing circuit or create new | You can augment resiliency of an existing standard circuit by selecting **Use existing circuit** and selecting an existing circuit for the first location. If you select **Use existing circuit**, you only need to configure the second circuit. If you select **Create new**, enter following information for both the new ExpressRoute circuit. |
+    | Region   | Select the region closest to the peering location of the circuit. |
+    | Name   | Enter a name for the ExpressRoute circuit. |
+    | Port type | Select if you're connecting to a service provider or directly into Microsoft's global network at a peering location. |
+    | Peering Location (Provider port type)  | Select the physical location where you're peering with Microsoft. |
+    | Provider (Provider port type)| Select the internet service provider who you are requesting your service from. |
+    | ExpressRoute Direct resource (Direct port type) | Select the ExpressRoute Direct resource that you want to use. |
+    | Bandwidth | Select the bandwidth for the ExpressRoute circuit. |
+    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard and Premium. |
+    | Billing model | Select the billing type for egress data charge. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. You can change the billing type from **Metered** to **Unlimited**. |
+
+    > [!IMPORTANT]
+    > * The Peering Location indicates the [physical location](expressroute-locations.md) where you are peering with Microsoft. This is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they're not related, it is a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit.
+    > * You can't change the SKU from **Standard/Premium** to **Local** in Azure portal. To downgrade the SKU to **Local**, you can use [Azure PowerShell](expressroute-howto-circuit-arm.md) or [Azure CLI](howto-circuit-cli.md).
+    > * You can't change the type from **Unlimited** to **Metered**.
+
+    Complete the same information for the second ExpressRoute circuit. When selecting an ExpressRoute location for the second circuit, you are provided with distances information from the first ExpressRoute location. This information can help you select the second ExpressRoute location.
+
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/peering-location-distance.png" alt-text="Screenshot of distance information from first ExpressRoute circuit.":::
+
+    **Standard Resiliency**
+
+    For standard resiliency, you only need to enter information for one ExpressRoute circuit.
+
+1. Select **Review + create** and then select **Create** to deploy the ExpressRoute circuit.
+
+::: zone-end
+
+::: zone pivot="expressroute-current"
 
 ### Sign in to the Azure portal
 
@@ -44,9 +108,9 @@ From a browser, sign in to the [Azure portal](https://portal.azure.com) and sign
     | Region   |  West US 2 |
     | Name   |  TestERCircuit |
 
-    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text=" Screenshot of how to configure the resource group and region.":::
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text="Screenshot of how to configure the resource group and region.":::
 
-1. When you're filling in the values on this page, make sure that you specify the correct SKU tier (Local, Standard, or Premium) and data metering billing model (Unlimited or Metered).
+1. When you enter in the values on this page, make sure that you specify the correct SKU tier (Local, Standard, or Premium) and data metering billing model (Unlimited or Metered).
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Screenshot of how to configure the circuit.":::
     
@@ -66,6 +130,8 @@ From a browser, sign in to the [Azure portal](https://portal.azure.com) and sign
     > * You can't change the type from **Unlimited** to **Metered**.
 
 1. Select **Review + create** and then select **Create** to deploy the ExpressRoute circuit.
+
+::: zone-end
 
 ### View the circuits and properties
 

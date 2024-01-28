@@ -4,7 +4,7 @@ description: Learn how to set up Microsoft Entra ID for authentication with Azur
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 01/18/2023
+ms.date: 01/16/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -206,7 +206,7 @@ select * from  pgaadauth_create_principal('Prod DB Readonly', false, false).
 When group members sign in, they use their access tokens but specify the group name as the username.
 
 > [!NOTE]  
-> Azure Database for PostgreSQL flexible server supports managed identities as group members.
+> Azure Database for PostgreSQL flexible server supports managed identities and service principals as group members.
 
 ### Sign in to the user's Azure subscription
 

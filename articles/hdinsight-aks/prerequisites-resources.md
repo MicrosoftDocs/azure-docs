@@ -32,6 +32,7 @@ The following table depicts the necessary resources that are required for cluste
 
 > [!NOTE] 
 >
+> * VNet requires subnet without any existing route table associated with it.
 > * HDInsight on AKS allows you to bring your own VNet and Subnet, enabling you to customize your [network requirements](./secure-traffic-by-firewall.md) to suit the needs of your enterprise.  
 > * Log Analytics workspace is optional and needs to be created ahead in case you would like to use Azure Monitor capabilities like [Azure Log Analytics](./how-to-azure-monitor-integration.md). 
 

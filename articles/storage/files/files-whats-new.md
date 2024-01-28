@@ -4,22 +4,25 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/23/2023
+ms.date: 01/26/2024
 ms.author: kendownie
 ---
 
 # What's new in Azure Files
+
 Azure Files is updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
+
+## What's new in 2024
+
+### 2024 quarter 1 (January, February, March)
+
+#### Snapshot support for NFS Azure premium file shares is generally available
+
+Customers using NFS Azure file shares can now take point-in-time snapshots of file shares. This enables users to roll back their entire filesystem to a previous point in time, or restore specific files that were accidentally deleted or corrupted. Customers using this feature can perform share-level Snapshot management operations via REST API, PowerShell, and Azure CLI. This feature is now available in all Azure public cloud regions. [Learn more](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots).
 
 ## What's new in 2023
 
 ### 2023 quarter 4 (October, November, December)
-
-#### Snapshot support for NFS Azure premium file shares is in public preview
-
-Customers using NFS Azure file shares can now take point-in-time snapshots of file shares. This enables users to roll back their entire filesystem to a previous point in time, or restore specific files that were accidentally deleted or corrupted. Customers using this preview feature can perform share-level Snapshot management operations via REST API, PowerShell, and Azure CLI. 
-
-This preview feature is now available in all Azure public cloud regions. [Learn more](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots-preview).
 
 #### Azure Files now supports all valid Unicode characters
 
@@ -49,7 +52,7 @@ Azure Files geo-redundancy for large file shares preview significantly improves 
 
 Azure Files now offers a 99.99 percent SLA per file share for all Azure Files Premium shares, regardless of protocol (SMB, NFS, and REST) or redundancy type. This means that you can benefit from this SLA immediately, without any configuration changes or extra costs. If the availability drops below the guaranteed 99.99 percent uptime, you’re eligible for service credits.
 
-#### Azure Active Directory support for Azure Files REST API with OAuth authentication is in public preview
+#### Support for Azure Files REST API with OAuth authentication is in public preview
 
 This preview enables share-level read and write access to SMB Azure file shares for users, groups, and managed identities when accessing file share data through the REST API. Cloud native and modern applications that use REST APIs can utilize identity-based authentication and authorization to access file shares. For more information, [read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-introducing-azure-ad-support-for-azure-files-smb/ba-p/3826733).
 
