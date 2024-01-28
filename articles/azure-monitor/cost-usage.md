@@ -4,7 +4,7 @@ description: Overview of how Azure Monitor is billed and how to analyze billable
 services: azure-monitor
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 11/13/2023
+ms.date: 01/24/2024
 ---
 
 # Azure Monitor cost and usage
@@ -69,16 +69,14 @@ Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also 
 ### Automated mails and alerts
 Rather than manually analyzing your costs in the Azure portal, you can automate delivery of information using the following methods.
 
-  - **Daily cost analysis emails.** Once you've configured your Cost Analysis view, you should click **Subscribe** at the top of the screen to receive regular email updates from Cost Analysis.
+- **Daily cost analysis emails.** Once you've configured your Cost Analysis view, you should click **Subscribe** at the top of the screen to receive regular email updates from Cost Analysis.
   - **Budget alerts.** To be notified if there are significant increases in your spending, create a [budget alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) for a single workspace or group of workspaces. 
 
 ### Export usage details
 
 To gain deeper understanding of your usage and costs, create exports using **Cost Analysis**. See [Tutorial: Create and manage exported data](../cost-management-billing/costs/tutorial-export-acm-data.md) to learn how to automatically create a daily export you can use for regular analysis.
 
-These exports are in CSV format and will contain a list of daily usage (billed quantity and cost) by resource, billing meter, and several other fields such as [AdditionalInfo](../cost-management-billing/automate/understand-usage-details-fields.md#list-of-fields-and-descriptions). You can use Microsoft Excel to do rich analyses of your usage not possible in the **Cost Analytics** experiences in the portal.
-
-The usage export has both the number of units of usage and their cost. Consequently, you can use this export to see the amount of benefits you are receiving from various offers such as the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). 
+These exports are in CSV format and will contain a list of daily usage (billed quantity and cost) by resource, [billing meter](cost-meters.md), and several other fields such as [AdditionalInfo](../cost-management-billing/automate/understand-usage-details-fields.md#list-of-fields-and-descriptions). You can use Microsoft Excel to do rich analyses of your usage not possible in the **Cost Analytics** experiences in the portal.
 
 For example, usage from Log Analytics can be found by first filtering on the **Meter Category** column to show 
 
@@ -88,9 +86,17 @@ For example, usage from Log Analytics can be found by first filtering on the **M
 
 Add a filter on the **Instance ID** column for **contains workspace** or **contains cluster**. The usage is shown in the **Consumed Quantity** column. The unit for each entry is shown in the **Unit of Measure** column.
 
+## View data allocation benefits
+
+Since the usage export has both the number of units of usage and their cost, you can use this export to see the amount of benefits you are receiving from various offers such as the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). In the usage export, to see the benefits, filter the *Instance ID* column to your workspace. (To select all of your workspaces in the spreadsheet, filter the *Instance ID* column to "contains /workspaces/".) Then filter on the Meter to either of the following two meters:
+
+- **Standard Data Included per Node**: this meter is under the service "Insight and Analytics" and tracks the benefits received when a workspace in either in Log Analytics [Per Node tier](logs/cost-logs.md#per-node-pricing-tier) data allowance and/or has [Defender for Servers](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) enabled. Each of these provide a 500 MB/server/day data allowance.
+- **Free Benefit - M365 Defender Data Ingestion**: this  meter, under the service "Azure Monitor", tracks the benefit from the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/).
+
 > [!NOTE]
 > See [Azure Monitor billing meter names](cost-meters.md) for a reference of the billing meter names used by Azure Monitor in Azure Cost Management + Billing. 
 
+You can also see these data benefits in the Log Analytics Usage and estimated costs page. If the workspace is receiving these benefits, there will be a sentence below the cost estimate table that gives the data volume of the benefits used over the last 31 days. 
 
 ## Usage and estimated costs
 You can get additional usage details about Log Analytics workspaces and Application Insights resources from the **Usage and Estimated Costs** option for each.
@@ -121,18 +127,6 @@ A. Estimated monthly charges based on usage from the past month.<br>
 B. Billable data ingestion by table from the past month.
 
 To investigate your Application Insights usage more deeply, open the **Metrics** page, add the metric named *Data point volume*, and then select the *Apply splitting* option to split the data by "Telemetry item type".
-
-
-## View data allocation benefits
-
-To view data allocation benefits from sources such as [Microsoft Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/), [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5 and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/), or the [Sentinel Free Trial](https://azure.microsoft.com/pricing/details/microsoft-sentinel/), you need to [export your usage details](#export-usage-details). 
-
-1. Open the exported usage spreadsheet and filter the *Instance ID* column to your workspace. To select all of your workspaces in the spreadsheet, filter the *Instance ID* column to "contains /workspaces/". 
-2. Filter the *ResourceRate* column to show only rows where this is equal to zero. Now you will see the data allocations from these various sources. 
-
-> [!NOTE]
-> Data allocations from Defender for Servers 500 MB/server/day will appear in rows with the meter name "Data Included per Node" and the meter category to "Insight and Analytics" (the name of a legacy offer still used with this meter.)  If the workspace is in the legacy Per Node Log Analytics pricing tier, this meter will also include the data allocations from this Log Analytics pricing tier.
-
 
 ## Operations Management Suite subscription entitlements
 

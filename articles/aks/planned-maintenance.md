@@ -5,7 +5,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to use Planned Maintenance to schedule and control cluster and node image upgrades in Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/17/2023
+ms.date: 01/26/2024
 ms.author: nickoman
 author: nickomang
 ---
@@ -186,7 +186,7 @@ Create a `default.json` file with the following contents:
 }
 ```
 
-The above JSON file specifies maintenance windows every Tuesday at 1:00am - 3:00am and every Wednesday at 1:00am - 2:00am and at 6:00am - 7:00am in the `UTC` timezone. There's also an exception from *2021-05-26T03:00:00Z* to *2021-05-30T12:00:00Z* where maintenance isn't allowed even if it overlaps with a maintenance window.
+The above JSON file specifies maintenance windows every Tuesday at 1:00am - 3:00am and every Wednesday at 1:00am - 2:00am and at 6:00am - 7:00am in the `UTC` timezone. There's also an exception from `2021-05-26T03:00:00Z` to `2021-05-30T12:00:00Z` where maintenance isn't allowed even if it overlaps with a maintenance window.
 
 Create an `autoUpgradeWindow.json` file with the following contents:
 
@@ -214,7 +214,7 @@ Create an `autoUpgradeWindow.json` file with the following contents:
 }
 ```
 
-The above JSON file specifies maintenance windows every three months on the first of the month between 9:00 AM - 1:00 PM in the `UTC-08` timezone. There's also an exception from *2023-12-23* to *2024-01-05* where maintenance isn't allowed even if it overlaps with a maintenance window.
+The above JSON file specifies maintenance windows every three months on the first of the month between 9:00 AM - 1:00 PM in the `UTC-08` timezone. There's also an exception from `2023-12-23` to `2024-01-05` where maintenance isn't allowed even if it overlaps with a maintenance window.
 
 The following command adds the maintenance windows from `default.json` and `autoUpgradeWindow.json`:
 
@@ -290,39 +290,38 @@ To delete a certain maintenance configuration window in your AKS Cluster, use th
 ```azurecli-interactive
 az aks maintenanceconfiguration delete -g myResourceGroup --cluster-name myAKSCluster --name autoUpgradeSchedule
 ```
+
 ## Frequently Asked Questions
 
-* How can I check the existing maintenance configurations in my cluster?
+- How can I check the existing maintenance configurations in my cluster?
 
   Use the `az aks maintenanceconfiguration show` command.
   
-* Can reactive, unplanned maintenance happen during the `notAllowedTime` or `notAllowedDates` periods too?
+- Can reactive, unplanned maintenance happen during the `notAllowedTime` or `notAllowedDates` periods too?
 
   Yes, AKS reserves the right to break these windows for unplanned, reactive maintenance operations that are urgent or critical.
 
-* How can you tell if a maintenance event occurred?
+- How can you tell if a maintenance event occurred?
 
   For releases, check your cluster's region and look up release information in [weekly releases][release-tracker] and validate if it matches your maintenance schedule or not. To view the status of your auto upgrades, look up [activity logs][monitor-aks] on your cluster. You may also look up specific upgrade related events as mentioned in [Upgrade an AKS cluster][aks-upgrade]. AKS also emits upgrade related Event Grid events. To learn more, see [AKS as an Event Grid source][aks-eventgrid].
 
-* Can you use more than one maintenance configuration at the same time?
-   
+- Can you use more than one maintenance configuration at the same time?
+
   Yes, you can run all three configurations i.e `default`, `aksManagedAutoUpgradeSchedule`, `aksManagedNodeOSUpgradeSchedule`simultaneously.  In case the windows overlap AKS decides the running order. 
 
-* I configured a maintenance window, but upgrade didn't happen - why?
+- I configured a maintenance window, but upgrade didn't happen - why?
 
-  AKS auto-upgrade needs a certain amount of time to take the maintenance window into consideration. We recommend at least 24 hours between the creation/update of the maintenance configuration, and when it's scheduled to start.
+  AKS auto-upgrade needs a certain amount of time to take the maintenance window into consideration. We recommend at least 24 hours between the creation or update of a maintenance configuration the scheduled start time.
 
-  Also, please ensure your cluster is started when the planned maintenance window is starting. If the cluster is stopped, then its control plane is deallocated and no operations can be performed.
+  Also, ensure your cluster is started when the planned maintenance window is starting. If the cluster is stopped, then its control plane is deallocated and no operations can be performed.
 
-* AKS auto-upgrade didn't upgrade all my agent pools - or one of the pools was upgraded outside of the maintenance window?
+- AKS auto-upgrade didn't upgrade all my agent pools - or one of the pools was upgraded outside of the maintenance window?
 
-  If an agent pool fails to upgrade (eg. because of Pod Disruption Budgets preventing it to upgrade) or is in a Failed state, then it might be upgraded later outside of the maintenance window. This scenario is called "catch-up upgrade" and avoids letting Agent pools with a different version than the AKS control plane.
+  If an agent pool fails to upgrade (for example, because of Pod Disruption Budgets preventing it to upgrade) or is in a Failed state, then it might be upgraded later outside of the maintenance window. This scenario is called "catch-up upgrade" and avoids letting Agent pools with a different version than the AKS control plane.
 
-*  Are there any best practices for the maintenance configurations?
-   
-  We recommend setting the [Node OS security updates][node-image-auto-upgrade] schedule to a weekly cadence if you're using `NodeImage` channel since a new node image gets shipped every week and daily if you opt in for `SecurityPatch` channel to receive daily security updates. Set the [auto-upgrade][auto-upgrade] schedule to a monthly cadence to stay on top of the kubernetes N-2 [support policy][aks-support-policy]. 
+- Are there any best practices for the maintenance configurations?
 
- 
+  We recommend setting the [Node OS security updates][node-image-auto-upgrade] schedule to a weekly cadence if you're using `NodeImage` channel since a new node image gets shipped every week and daily if you opt in for `SecurityPatch` channel to receive daily security updates. Set the [auto-upgrade][auto-upgrade] schedule to a monthly cadence to stay on top of the kubernetes N-2 [support policy][aks-support-policy]. For a detailed discussion of  upgrade best practices and other considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
 
 ## Next steps
 
@@ -348,3 +347,4 @@ az aks maintenanceconfiguration delete -g myResourceGroup --cluster-name myAKSCl
 [monitor-aks]: monitor-aks-reference.md
 [aks-eventgrid]:quickstart-event-grid.md
 [aks-support-policy]:support-policies.md
+[upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices

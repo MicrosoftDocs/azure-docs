@@ -51,5 +51,5 @@ az spring show --resource-group <group_name> --name <service_name> --query prope
 
 ## Next steps
 
-* [Learn more about managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+* [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 * [Learn more about key vault in Azure Spring Apps](./tutorial-managed-identities-key-vault.md)
