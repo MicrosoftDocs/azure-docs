@@ -428,10 +428,6 @@
         - name: Automate responses to alerts
           displayName: workflow
           href: workflow-automation.md
-    - name: Manage the classic connectors
-      displayName: classic, connector, AWS, GCP
-      href: how-to-use-the-classic-connector.md
-
 
 - name: Protect your workloads
   items:
