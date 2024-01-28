@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/24/2024
+ms.date: 01/28/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -47,12 +47,20 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 As part of the [upcoming Azure Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) deprecation](https://techcommunity.microsoft.com/t5/blogs/blogworkflowpage/blog-id/MicrosoftDefenderCloudBlog/article-id/1269), Defender for Servers's security features will only utilize the Microsoft Defender for Endpoint agent, complemented by the agentless scanning capabilities of Defender for Servers and not have any dependency on either the Log Analytics Agent (MMA) or the Azure Monitoring Agent (AMA).
 
-As part of this plan, we'll be releasing a new experience for endpoint protection recommendations for public preview. The new recommendations will both discover and identify potential configuration issues that might exist in your current endpoint protection solutions for both Microsoft and non-Microsoft based Endpoint Detection and Response (EDR) solutions on your multicloud servers. These new recommendations will only be available through Defender for Servers plan 2 and Defender CSPM. 
+As part of this plan, we'll be releasing a new experience for endpoint protection recommendations for public preview. The new recommendations will discover and identify potential configuration issues in your current endpoint protection solutions. These recommendations apply to both Microsoft and non-Microsoft based Endpoint Detection and Response (EDR) solutions on your multicloud servers. These new recommendations will only be available through Defender for Servers plan 2 and Defender CSPM but will not cover on-premises servers. 
 
 The following AMA recommendations will be deprecated in favor of the creation of the new recommendations:
 
 - [Endpoint protection should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439)
 - [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000)
+
+The following MMA-based recommendations will remain available until August 2024:
+
+- `Endpoint protection health failures should be remediated on virtual machine scale sets`
+- `Endpoint protection solution should be installed on virtual machine scale sets`
+- `Endpoint protection health issues should be resolved on your machines`
+- `Install endpoint protection solution on your machines`
+- `Install endpoint protection solution on virtual machines`
 
 ## Update to agentless VM scanning built-in Azure role
 
