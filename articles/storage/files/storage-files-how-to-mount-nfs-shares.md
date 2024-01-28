@@ -125,7 +125,7 @@ To create a snapshot of an existing file share, sign in to the Azure portal and 
 
 1. Select **+ Add snapshot**. Add an optional comment, and select **OK**.
 
-  :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/add-file-share-snapshot.png" alt-text="Screenshot of adding a file share snapshot.":::
+  :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/add-file-share-snapshot.png" alt-text="Screenshot of adding a file share snapshot.":::
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -195,7 +195,7 @@ To delete a snapshot of an existing file share, sign in to the Azure portal and 
 
 1. Select the snapshot(s) that you want to delete, and then select **Delete**.
 
-  :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/delete-file-share-snapshot.png" alt-text="Screenshot of deleting file share snapshots.":::
+  :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/delete-file-share-snapshot.png" alt-text="Screenshot of deleting file share snapshots.":::
 
 # [Azure PowerShell](#tab/powershell)
 
