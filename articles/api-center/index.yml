@@ -45,6 +45,8 @@ landingContent:
         links:
           - text: Manage inventory - Azure CLI
             url: manage-apis-azure-cli.md
+          - text: Import APIs from API Management
+            url: import-api-management-apis.md
 # Card
   - title: Discover APIs
     linkLists:

@@ -28,6 +28,8 @@
   items:
       - name: Manage inventory - Azure CLI
         href: manage-apis-azure-cli.md
+      - name: Import APIs from API Management
+        href: import-api-management-apis.md
 #- name: API governance
 - name: API discovery and consumption
   items:
