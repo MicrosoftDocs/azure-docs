@@ -36,7 +36,7 @@ Environment variables are commonly used in Linux to centralize configuration dat
 export RESOURCE_GROUP_NAME=myResourceGroup
 export LOCATION=eastus
 export VM_NAME=myVM
-export VM_IMAGE=debian
+export VM_IMAGE=Debian11
 export ADMIN_USERNAME=azureuser
 ```
 
