@@ -4,9 +4,8 @@ description: Learn how to mount a Network File System (NFS) Azure file share on 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/04/2023
+ms.date: 01/26/2024
 ms.author: kendownie
-ms.custom: references_regions
 ---
 
 # Mount NFS Azure file share on Linux
@@ -14,6 +13,7 @@ ms.custom: references_regions
 Azure file shares can be mounted in Linux distributions using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This article is focused on mounting with NFS. For details on mounting SMB Azure file shares, see [Use Azure Files with Linux](storage-how-to-use-files-linux.md). For details on each of the available protocols, see [Azure file share protocols](storage-files-planning.md#available-protocols).
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -92,24 +92,20 @@ For more information, enter the command `man fstab` from the Linux command line.
 
 If your mount failed, it's possible that your private endpoint wasn't set up correctly or isn't accessible. For details on confirming connectivity, see [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity).
 
-## NFS file share snapshots (preview)
+## NFS file share snapshots
 
-Customers using NFS Azure file shares can now create, list, and delete NFS Azure file share snapshots. This capability allows users to roll back entire file systems or recover files that were accidentally deleted or corrupted.
+Customers using NFS Azure file shares can create, list, and delete NFS Azure file share snapshots. This capability allows users to roll back entire file systems or recover files that were accidentally deleted or corrupted. This feature is now available in all Azure public cloud regions.
 
 > [!IMPORTANT]
 > You should mount your file share before creating snapshots. If you create a new NFS file share and take snapshots before mounting the share, attempting to list the snapshots for the share will return an empty list. We recommend deleting any snapshots taken before the first mount and re-creating them after you've mounted the share.
 
 ### Limitations
 
-Only file management APIs (`AzRmStorageShare`) are supported for NFS Azure file shares. File data plane APIs (`AzStorageShare`) aren't supported. 
+Only file management APIs (`AzRmStorageShare`) are supported for NFS Azure file share snapshots. File data plane APIs (`AzStorageShare`) aren't supported.
 
 Azure Backup isn't currently supported for NFS file shares.
 
 AzCopy isn't currently supported for NFS file shares. To copy data from an NFS Azure file share or share snapshot, use file system copy tools such as rsync or fpsync.
-
-### Regional availability
-
-NFS Azure file share snapshots preview is now available in all Azure public cloud regions.
 
 ### Create a snapshot
 

@@ -12,6 +12,9 @@ ms.reviewer: abinetabate
 
 Monitoring of your Java web applications running on [Azure App Services](../../app-service/index.yml) doesn't require any modifications to the code. This article walks you through enabling Azure Monitor Application Insights monitoring and provides preliminary guidance for automating the process for large-scale deployments.
 
+> [!NOTE]
+> With Spring Boot Native Image applications, use the [Azure Monitor OpenTelemetry Distro / Application Insights in Spring Boot native image Java application](https://aka.ms/AzMonSpringNative) project instead of the Application Insights Java agent solution described below.
+
 ## Enable Application Insights
 
 The recommended way to enable application monitoring for Java applications running on Azure App Services is through Azure portal.
