@@ -4,7 +4,7 @@ description: Learn how to mount a Network File System (NFS) Azure file share on 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 01/28/2024
 ms.author: kendownie
 ---
 
@@ -109,7 +109,23 @@ AzCopy isn't currently supported for NFS file shares. To copy data from an NFS A
 
 ### Create a snapshot
 
-You can create a snapshot of an NFS Azure file share using Azure PowerShell or Azure CLI. A share can support the creation of up to 200 share snapshots.
+You can create a snapshot of an NFS Azure file share using the Azure portal, Azure PowerShell, or Azure CLI. A share can support the creation of up to 200 share snapshots.
+
+# [Azure portal](#tab/portal)
+
+To create a snapshot of an existing file share, sign in to the Azure portal and follow these steps.
+
+1. In the search box at the top of the Azure portal, type and select *storage accounts*.
+
+1. Select the FileStorage storage account that contains the NFS Azure file share that you want to take a snapshot of.
+
+1. Select **Data storage** > **File shares**.
+
+1. Select the file share that you want to snapshot, then select **Operations** > **Snapshots**.
+
+1. Select **+ Add snapshot**. Add an optional comment, and select **OK**.
+
+  :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/add-file-share-snapshot.png" alt-text="Screenshot of adding a file share snapshot.":::
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -127,9 +143,23 @@ az storage share snapshot --name <file-share-name> --account-name <storage-accou
 ```
 ---
 
-### List file shares and snapshots
+### List file share snapshots
 
-You can list all file shares in a storage account, including the share snapshots, using Azure PowerShell or Azure CLI.
+You can list all the snapshots for a file share using the Azure portal, Azure PowerShell, or Azure CLI.
+
+# [Azure portal](#tab/portal)
+
+To list all the snapshots for an existing file share, sign in to the Azure portal and follow these steps.
+
+1. In the search box at the top of the Azure portal, type and select *storage accounts*.
+
+1. Select the FileStorage storage account that contains the NFS Azure file share that you want to list the snapshots of.
+
+1. Select **Data storage** > **File shares**.
+
+1. Select the file share for which you want to list the snapshots.
+
+1. Select **Operations** > **Snapshots**, and any existing snapshots for the file share will be listed.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -149,7 +179,23 @@ az storage share list --account-name <storage-account-name> --include-snapshots
 
 ### Delete snapshots
 
-Existing share snapshots are never overwritten. They must be deleted explicitly. You can delete share snapshots using Azure PowerShell or Azure CLI.
+Existing share snapshots are never overwritten. They must be deleted explicitly. You can delete share snapshots using the Azure portal, Azure PowerShell, or Azure CLI.
+
+# [Azure portal](#tab/portal)
+
+To delete a snapshot of an existing file share, sign in to the Azure portal and follow these steps.
+
+1. In the search box at the top of the Azure portal, type and select *storage accounts*.
+
+1. Select the FileStorage storage account that contains the NFS Azure file share for which you want to delete snapshots.
+
+1. Select **Data storage** > **File shares**.
+
+1. Select the file share for which you want to delete one or more snapshots, then select **Operations** > **Snapshots**. Any existing snapshots for the file share will be listed.
+
+1. Select the snapshot(s) that you want to delete, and then select **Delete**.
+
+  :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/delete-file-share-snapshot.png" alt-text="Screenshot of deleting file share snapshots.":::
 
 # [Azure PowerShell](#tab/powershell)
 
