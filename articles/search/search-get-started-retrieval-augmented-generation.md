@@ -38,7 +38,7 @@ In this quickstart:
 
 + Contributor permissions in the Azure subscription for creating resources
 
-1. Download the sample famous-speeches-pdf PDFs in [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/famous-speeches-pdf)
+1. Download the sample famous-speeches-pdf PDFs in [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/famous-speeches-pdf). We recommend starting with smaller files to stay under [vector storage limits](vector-search-index-size.md) and [Azure OpenAI quota limits](/azure/ai-services/openai/quotas-limits). 
 
 ## Set up model deployments
 
@@ -51,7 +51,7 @@ In this quickstart:
    + [text-embedding-ada-002](/azure/ai-services/openai/concepts/models#embeddings)
    + [gpt-35-turbo](/azure/ai-services/openai/concepts/models#gpt-35)
 
-   Deploy more chat models if you want to test them with your data. Note that Text-Davinci-002 isn't supported. 
+   Deploy more *chat* models if you want to compare them using your data. *Fine-tuning* models like Text-Davinci-002 aren't supported for this scenario. 
 
    If you create new deployments, the default configurations are suited for this tutorial. It's helpful to name each deployment after the model. For example, "text-embedding-ada-002" as the deployment name of the text-embedding-ada-002 model.
 
