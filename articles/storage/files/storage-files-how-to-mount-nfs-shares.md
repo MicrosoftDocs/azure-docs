@@ -187,7 +187,7 @@ To delete a snapshot of an existing file share, sign in to the Azure portal and 
 
 1. In the search box at the top of the Azure portal, type and select *storage accounts*.
 
-1. Select the FileStorage storage account that contains the NFS Azure file share that you want to delete.
+1. Select the FileStorage storage account that contains the NFS Azure file share for which you want to delete snapshots.
 
 1. Select **Data storage** > **File shares**.
 
