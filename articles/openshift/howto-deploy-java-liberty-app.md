@@ -4,7 +4,7 @@ description: Shows you how to quickly stand up IBM WebSphere Liberty and Open Li
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 01/26/2024
 ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java
 ---
 
