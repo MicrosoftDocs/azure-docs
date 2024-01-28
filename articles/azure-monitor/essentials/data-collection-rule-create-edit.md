@@ -57,7 +57,7 @@ Once you have the JSON file created, you can use any of the following methods to
 | **Resource group** | Associate the data collection rule to a resource group. |
 | **Region** | Create your data collection rule in the same region as your destination Log Analytics workspace. You can associate the data collection rule to machines from any subscription or resource group in the tenant. |
 | **Platform type** | Select **Windows** or **Linux**, or **All**, which allows for both Windows and Linux platforms. |
-| **Data Collection Endpoint** | To collect **Linux syslog data**, **IIS logs**, **custom text logs** or **custom JSON logs**, select an existing data collection endpoint or create a new endpoint.<br>You don't need an endpoint to collect performance counters and Windows event logs.<br>On this tab, you can only select a data collection endpoint in the same region as the data collection rule. The agent sends collected data to this data collection endpoint. For more information, see [Components of a data collection endpoint](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).|
+| **Data Collection Endpoint** | To collect **Linux syslog data**, **IIS logs**, **custom text logs** or **custom JSON logs**, select an existing data collection endpoint or create a new endpoint.<br>You don't need an endpoint to collect performance counters and Windows event logs.<br>On this tab, you can only select a data collection endpoint in the same region as the data collection rule. The agent sends collected data to this data collection endpoint. For more information, see [Components of a data collection endpoint](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint). |
 
 ### Resources tab
 
@@ -66,33 +66,28 @@ Once you have the JSON file created, you can use any of the following methods to
 | Screen element | Description |
 |:---|:---|
 | **+ Add resources** | Associate virtual machines, Virtual Machine Scale Sets, and Azure Arc for servers to the data collection rule. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed.|
-|**Enable Data Collection Endpoints**| Select this checkbox if:<br>- You're collecting **Linux syslog data**, **IIS logs**, **custom text logs** or **custom JSON logs**<br>and<br>- The machine from which you're collecting data is not in the same region as your destination Log Analytics workspace.<br> If  |
+|**Enable Data Collection Endpoints**| If the machine you're monitoring is not in the same region as your destination Log Analytics workspace you need to select a data collection endpoint in the same region as the monitored machine on the **Resource** tab to collect **Linux syslog data**, **IIS logs**, **custom text logs** or **custom JSON logs**<br>If the monitored machine is in the same region as your destination Log Analytics workspace, or if you're collecting performance counters and Windows event logs from a Windows machine, don't select a data collection endpoint on the **Resources** tab.<br>The data collection endpoint on the **Resources** tab is the configuration access endpoint, as described in [Components of a data collection endpoint](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).|
+|**Agent extension identity**|The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.|
 
-        > [!IMPORTANT]
-        > The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.
-    
-        If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).
+### Collect and deliver tab
 
-    1. Select **Enable Data Collection Endpoints**.
-    1. Select a data collection endpoint for each of the resources associate to the data collection rule.
-
-
+:::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-data-source-basic-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-data-source-basic-updated.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule." border="false":::
 
 1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
 1. Select a **Data source type**.
-1. Select which data you want to collect. For performance counters, you can select from a predefined set of objects and their sampling rate. For events, you can select from a set of logs and severity levels.
-     
-    :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-data-source-basic-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-data-source-basic-updated.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule." border="false":::
-
+1. Select which data you want to collect. For performance counters, you can select from a predefined set of objects and their sampling rate. For events, you can select from a set of logs and severity levels. 
 1. Select **Custom** to collect logs and performance counters that aren't [currently supported data sources](azure-monitor-agent-overview.md#data-sources-and-destinations) or to [filter events by using XPath queries](#filter-events-using-xpath-queries). You can then specify an [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) to collect any specific values. For an example, see [Sample DCR](data-collection-rule-sample-agent.md).
      
     :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-data-source-custom-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-data-source-custom-updated.png" alt-text="Screenshot that shows the Azure portal form to select custom performance counters in a data collection rule." border="false":::
 
+### Destination tab
+
+:::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-destination.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-destination.png" alt-text="Screenshot that shows the Azure portal form to add a data source in a data collection rule." border="false":::
+
 1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
 
-    You can send Windows event and Syslog data sources to Azure Monitor Logs only. You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs. At this time, hybrid compute (Arc for Server) resources **do not** support the Azure Monitor Metrics (Preview) destination.
-     
-    :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-destination.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-destination.png" alt-text="Screenshot that shows the Azure portal form to add a data source in a data collection rule." border="false":::
+    You can send Windows event and Syslog data sources to Azure Monitor Logs only. You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs. At this time, hybrid compute (Arc for Server) resources **do not** support the Azure Monitor Metrics (Preview) destination.   
+
 
 1. Select **Add data source** and then select **Review + create** to review the details of the data collection rule and association with the set of virtual machines.
 1. Select **Create** to create the data collection rule.
