@@ -49,7 +49,7 @@ The following diagram shows the architecture of the system:
   - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
 
   For more information, see [Grant tenant-wide admin consent to an application](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal).
-- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
@@ -63,7 +63,7 @@ The following diagram shows the architecture of the system:
   - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
 
   For more information, see [Grant tenant-wide admin consent to an application](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal).
-- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
@@ -240,22 +240,22 @@ Use the following steps to access the RESTful APIs of the `ToDo` app in the Swag
 ## 7. Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy an event-driven application to Azure Spring Apps](./quickstart-deploy-event-driven-app.md)
+> [Quickstart: Deploy an event-driven application to Azure Spring Apps](quickstart-deploy-event-driven-app.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy microservice applications to Azure Spring Apps](./quickstart-deploy-microservice-apps.md)
+> [Quickstart: Deploy microservice applications to Azure Spring Apps](quickstart-deploy-microservice-apps.md)
 
 > [!div class="nextstepaction"]
-> [Structured application log for Azure Spring Apps](./structured-app-log.md)
+> [Structured application log for Azure Spring Apps](structured-app-log.md)
 
 > [!div class="nextstepaction"]
-> [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)
+> [Map an existing custom domain to Azure Spring Apps](how-to-custom-domain.md)
 
 > [!div class="nextstepaction"]
-> [Use Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
+> [Use Azure Spring Apps CI/CD with GitHub Actions](how-to-github-actions.md)
 
 > [!div class="nextstepaction"]
-> [Automate application deployments to Azure Spring Apps](./how-to-cicd.md)
+> [Automate application deployments to Azure Spring Apps](how-to-cicd.md)
 
 For more information, see the following articles:
 
