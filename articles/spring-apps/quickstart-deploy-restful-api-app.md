@@ -240,7 +240,7 @@ Use the following steps to access the RESTful APIs of the `ToDo` app in the Swag
 ## 7. Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy an event-driven application to Azure Spring Apps](./quickstart-deploy-event-driven-app-standard-consumption.md)
+> [Quickstart: Deploy an event-driven application to Azure Spring Apps](./quickstart-deploy-event-driven-app.md)
 
 > [!div class="nextstepaction"]
 > [Quickstart: Deploy microservice applications to Azure Spring Apps](./quickstart-deploy-microservice-apps.md)

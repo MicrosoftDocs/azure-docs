@@ -84,7 +84,7 @@ To integrate with Azure Spring Apps service, complete the following configuratio
 1. **Override with new host name:** select **No**.
 1. **Use custom probe**: select **Yes** and pick the custom probe created above.
 
-    :::image type="content" source="media/how-to-integrate-azure-load-balancers/app-gateway-3.png" alt-text="Screenshot of the Azure portal that shows the Add Backend setting page." lightbox="media/how-to-integrate-azure-load-balancers/app-gateway-3.png":::
+   :::image type="content" source="media/how-to-integrate-azure-load-balancers/app-gateway-3.png" alt-text="Screenshot of the Azure portal that shows the Add Backend setting page." lightbox="media/how-to-integrate-azure-load-balancers/app-gateway-3.png":::
 
 ## Integrate Azure Spring Apps with Azure Front Door
 
@@ -93,13 +93,13 @@ To integrate with Azure Spring Apps service and configure an origin group, use t
 1. **Add origin group**.
 1. Specify the backend endpoints by adding origins for the different Azure Spring Apps instances.
 
-    :::image type="content" source="media/how-to-integrate-azure-load-balancers/front-door-1.png" alt-text="Screenshot of the Azure portal that shows the Add an origin group page with the Add an origin button highlighted." lightbox="media/how-to-integrate-azure-load-balancers/front-door-1.png":::
+   :::image type="content" source="media/how-to-integrate-azure-load-balancers/front-door-1.png" alt-text="Screenshot of the Azure portal that shows the Add an origin group page with the Add an origin button highlighted." lightbox="media/how-to-integrate-azure-load-balancers/front-door-1.png":::
 
 1. Specify **origin type** as *Azure Spring Apps*.
 1. Select your Azure Spring Apps instance for the **host name**.
 1. Keep the **origin host header** empty, so that the incoming host header will be used towards the backend. For more information, see [Azure Front Door configuration for host name preservation](/azure/architecture/best-practices/host-name-preservation#azure-front-door).
 
-    :::image type="content" source="media/how-to-integrate-azure-load-balancers/front-door-2.png" alt-text="Screenshot of the Azure portal that shows the Add an origin page." lightbox="media/how-to-integrate-azure-load-balancers/front-door-2.png":::
+   :::image type="content" source="media/how-to-integrate-azure-load-balancers/front-door-2.png" alt-text="Screenshot of the Azure portal that shows the Add an origin page." lightbox="media/how-to-integrate-azure-load-balancers/front-door-2.png":::
 
 ## Next steps
 

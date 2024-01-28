@@ -47,7 +47,7 @@ There are two options for Autoscale demand management:
 
 In the Azure portal, choose how you want to scale. The following figure shows the **Custom autoscale** option and mode settings.
 
-:::image type="content" source="media/how-to-setup-autoscale/custom-autoscale.png" alt-text="Screenshot of Azure portal showing the Autoscale setting page with the Custom autoscale option highlighted." lightbox="media/how-to-setup-autoscale/custom-autoscale.png":::
+:::image type="content" source="media/how-to-setup-autoscale/custom-autoscale.png" alt-text="Screenshot of the Azure portal that shows the Autoscale setting page with the Custom autoscale option highlighted." lightbox="media/how-to-setup-autoscale/custom-autoscale.png":::
 
 ## Set up Autoscale settings for your application in Azure CLI
 

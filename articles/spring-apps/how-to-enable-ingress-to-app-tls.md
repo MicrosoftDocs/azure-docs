@@ -23,7 +23,7 @@ This article describes secure communications in Azure Spring Apps. The article a
 
 The following picture shows the overall secure communication support in Azure Spring Apps.
 
-:::image type="content" source="media/how-to-enable-ingress-to-app-tls/secured-tls.png" alt-text="Screenshot of secured TLS flow in Azure Spring Apps." border="false" lightbox="media/how-to-enable-ingress-to-app-tls/secured-tls.png":::
+:::image type="content" source="media/how-to-enable-ingress-to-app-tls/secured-tls.png" alt-text="Diagram that shows the secured TLS flow in Azure Spring Apps." border="false" lightbox="media/how-to-enable-ingress-to-app-tls/secured-tls.png":::
 
 ## Secure communication model within Azure Spring Apps
 
@@ -78,7 +78,7 @@ To enable ingress-to-app TLS in the [Azure portal](https://portal.azure.com/), f
 3. Select **Ingress-to-app TLS**.
 4. Switch **Ingress-to-app TLS** to *Yes*.
 
-:::image type="content" source="media/how-to-enable-ingress-to-app-tls/enable-i2a-tls.png" alt-text="Screenshot of the Azure portal that shows the Ingress-to-app TLS page and control." lightbox="media/how-to-enable-ingress-to-app-tls/enable-i2a-tls.png":::
+:::image type="content" source="media/how-to-enable-ingress-to-app-tls/enable-i2a-tls.png" alt-text="Screenshot of the Azure portal that shows the Ingress-to-app TLS page." lightbox="media/how-to-enable-ingress-to-app-tls/enable-i2a-tls.png":::
 
 ### Verify ingress-to-app TLS status
 
