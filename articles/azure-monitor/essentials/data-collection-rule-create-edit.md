@@ -55,9 +55,9 @@ Once you have the JSON file created, you can use any of the following methods to
 | **Rule name** | Enter a name for the data collection rule. |
 | **Subscription** | Associate the data collection rule to a subscription. |
 | **Resource group** | Associate the data collection rule to a resource group. |
-| **Region** | Create your data collection rule in the same region as your destination Log Analytics workspace. Virtual machines and their associations can be in any subscription or resource group in the tenant. |
+| **Region** | Create your data collection rule in the same region as your destination Log Analytics workspace. You can associate the data collection rule to machines from any subscription or resource group in the tenant. |
 | **Platform type** | Select **Windows** or **Linux**, or **All**, which allows for both Windows and Linux platforms. |
-| **Data Collection Endpoint** | Select an existing data collection endpoint or create a new endpoint to collect IIS logs and custom text or JSON logs. To collect data from other data sources, you don't need to select an endpoint.<br>You can only select a data collection endpoint in the same region as the data collection rule.|
+| **Data Collection Endpoint** | To collect **IIS logs**, **custom text logs** or **custom JSON logs**, select an existing data collection endpoint or create a new endpoint.<br>You don't need an endpoint to collect performance counters and Windows event logs.<br>On this tab, you can only select a data collection endpoint in the same region as the data collection rule. The agent sends collected data to this data collection endpoint. For more information, see [Components of a data collection endpoint](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).|
 
 ### Resources tab
 
