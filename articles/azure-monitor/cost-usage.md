@@ -106,7 +106,7 @@ You can also see these data benefits in the Log Analytics Usage and estimated co
 
 ### Query benefits from the Operation table
 
-The [Operation](reference/tables/operation.md) table contains daily events which given the amount of benefit used from the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). The `Detail` column for these events are all of the format `Benefit amount used 1.234 GB`, and the type of benefit is in the `OperationKey` column. Here is a query that charts the benefits used in the last 31-days:
+The [Operation](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/operation) table contains daily events which given the amount of benefit used from the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). The `Detail` column for these events are all of the format `Benefit amount used 1.234 GB`, and the type of benefit is in the `OperationKey` column. Here is a query that charts the benefits used in the last 31-days:
 
 ```kusto
 Operation
