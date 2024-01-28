@@ -11,8 +11,8 @@ ms.author: pgrandhi
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - Install the [Azure Az PowerShell Module](/powershell/azure/)
-- An [Azure Communication Services resource](../../../create-communication-resource.md)
-- Create a Webhook to receive events. [Webhook Event Delivery](../../../../../articles/event-grid/webhook-event-delivery.md)
+- An [Azure Communication Services resource](articles\communication-services\quickstarts\create-communication-resource.md)
+- Create a Webhook to receive events. [Webhook Event Delivery](articles/event-grid/webhook-event-delivery.md)
 
 
 [!INCLUDE [register-provider-powershell.md](register-provider-powershell.md)]
@@ -24,8 +24,18 @@ First, make sure to install the Azure Communication Services module ```Az.EventG
 ```PowerShell
 PS C:\> Install-Module Az.EventGrid
 ```
+1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions:
 
-To create event subscriptions for Azure Communication Services resource, [sign in to Azure Powershell](powershell/module/az.accounts/connect-azaccount). You can sign in running the ``` Connect AzAccount``` command from the terminal and providing your credentials. Run the following command to create the event subscription for the resource:
+   ```PowerShell
+   Connect-AzAccount
+   ```
+
+2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the Web PubSub resource that you want to move.
+
+   ```PowerShell
+   $context = Get-AzSubscription -SubscriptionId <subscription-id>
+   Set-AzContext $context
+   ```
 
 To create an event subscription by using the [Azure Powershell](/powershell/azure/get-started-azureps), use the [`New-AzEventGridSubscription`](/powershell/module/az.eventgrid/new-azeventgridsubscription) command. 
 

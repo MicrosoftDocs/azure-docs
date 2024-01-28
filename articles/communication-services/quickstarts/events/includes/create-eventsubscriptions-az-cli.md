@@ -11,8 +11,8 @@ ms.author: pgrandhi
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) 
-- An [Azure Communication Services resource](../../../create-communication-resource.md)
-- Create a Webhook to receive events. [Webhook Event Delivery](../../../../../articles/event-grid/webhook-event-delivery.md)
+- An [Azure Communication Services resource](articles\communication-services\quickstarts\create-communication-resource.md)
+- Create a Webhook to receive events. [Webhook Event Delivery](articles/event-grid/webhook-event-delivery.md)
 
 
 [!INCLUDE [register-provider-cli.md](register-provider-cli.md)]
@@ -21,7 +21,7 @@ ms.author: pgrandhi
 
 To create event subscriptions for Azure Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials. Run the following command to create the event subscription for the resource:
 
-To create an event subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) command. 
+To create an event subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) command. 
 
 ```azurecli-interactive
 az eventgrid event-subscription create 
@@ -34,7 +34,7 @@ az eventgrid event-subscription create
 
 ## List Event Subscriptions
 
-To list all the existing event subscriptions set up for an Azure Communication Services resource, by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription list`](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-list) command. 
+To list all the existing event subscriptions set up for an Azure Communication Services resource, by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription list`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-list) command. 
 
 ```azurecli-interactive
 az eventgrid event-subscription update 
@@ -56,7 +56,7 @@ az eventgrid event-subscription list
 
 ## Delete Event Subscription
 
-To delete an existing event subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription delete`](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-delete) command. 
+To delete an existing event subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription delete`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-delete) command. 
 
 ```azurecli-interactive
 az eventgrid event-subscription delete 
@@ -65,4 +65,4 @@ az eventgrid event-subscription delete
 ```
 
 
-For information on other commands, see [Azure Event Grid CLI](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest).
+For information on other commands, see [Azure Event Grid CLI](/cli/azure/eventgrid/event-subscription).
