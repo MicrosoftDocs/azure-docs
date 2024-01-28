@@ -155,7 +155,7 @@ To allow import of APIs, assign your API center's managed identity the **API Man
     
     ```azurecli
     # PowerShell syntax   
-    apicObjID=$(az identity show --name <identity-name> --resource-group <resource-group-name> --query "principalId" --output tsv)
+    $apicObjID=$(az identity show --name <identity-name> --resource-group <resource-group-name> --query "principalId" --output tsv)
     ```
 1. Get the resource ID of your API Management instance using the [az apim show](/cli/azure/apim#az-apim-show) command.
  
@@ -278,5 +278,6 @@ After importing APIs from API Management, you can view and manage the imported A
 ## Related content
 
 * [Azure CLI reference for API Center](/cli/azure/apic) 
+* [Manage API inventory with Azure CLI commands](manage-apis-azure-cli.md)
 * [Assign Azure roles to a managed identity](../role-based-access-control/role-assignments-portal-managed-identity.md)
 * [Azure API Management documentation](../api-management/index.yml)
