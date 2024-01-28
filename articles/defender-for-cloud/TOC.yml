@@ -477,7 +477,7 @@
       - name: Deploy Defender for Servers
         href: tutorial-enable-servers-plan.md
       - name: Configure monitoring coverage
-        displayName: Defender for Servers, monitoring coverage, Log analytics, agentless scanning, Vulnerability assessment, Endpoint protection
+        displayName: Defender for Servers, monitoring coverage, Log analytics, agentless scanning, Vulnerability assessment, Endpoint protection, disable, servers, workspace
         href: configure-servers-coverage.md
       - name: Plan Defender for Servers deployment
         items:

@@ -81,4 +81,12 @@ Defender for Cloud has the ability to scan your Azure machines for installed sof
 
 1. Select **Continue**.
 
+## Disable Defender for Servers plan or features
+
+To disable The Defender for Servers plan or any of the features of the plan, toggle the switches to **Off**. 
+
+> [!NOTE]
+> When you disable the Defender for Servers plan on a subscription, it doesn't disable it on a workspace. To disable the plan on a workspace, you must navigate to the plans page for the workspace and toggle the switch to **Off**.
+
+
 Learn more about agentless scanning and how to [enable agentless scanning](enable-agentless-scanning-vms.md) on other cloud environments.

@@ -43,7 +43,7 @@ You can enable the Defender for Servers plan from the Environment settings page 
 
     :::image type="content" source="media/tutorial-enable-servers-plan/enable-servers-plan.png" alt-text="Screenshot that shows you how to toggle the Defender for Servers plan to on." lightbox="media/tutorial-enable-servers-plan/enable-servers-plan.png":::
 
-Once the plan has been enabled, you have the ability to [configure the monitoring settings](configure-servers-coverage.md) to suit your needs.
+Once the plan has been enabled, you have the ability to [configure the monitoring settings](configure-servers-coverage.md) to suit your needs. When you enable Defender for Servers on a subscription, it doesn't extend that coverage to an attached workspace. You need to [enable Defender for Servers on the workspace level](#enable-the-plan-ate-the-workspace-level).
 
 ### Select a Defender for Servers plan
 
@@ -77,9 +77,9 @@ Once the plan has been enabled, you have the ability to [configure the monitorin
 
 ## Enable the plan ate the workspace level
 
-When you enable Defender for Servers on your subscription, the coverage provided by Defender for Servers is not automatically extended to your workspaces. You need to enable Defender for Servers on each workspace. Defender for Servers Plan 2
+When you enable Defender for Servers on your subscription, the coverage provided by Defender for Servers is not automatically extended to your workspaces. You need to enable Defender for Servers on each workspace. Defender for Servers on workspaces only supports Plan 2.
 
-**To enable Defender for Servers on your subscription**:
+**To enable Defender for Servers on your workspace**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -95,7 +95,10 @@ When you enable Defender for Servers on your subscription, the coverage provided
 
 1. Select **Save**.
 
+By enabling Defender for Servers on a workspace you are not enabling all of the security protections available. Workspaces can also be protected by [Foundational CSPM](tutorial-enable-cspm-plan.md) and [SQL servers on machines](defender-for-sql-usage.md).
 
+> [!IMPORTANT]
+> When you enable Defender for Servers on a workspace, all connected machines will automatically have Plan 2 enabled regardless of their connected subscription's settings.
 
 ## Enable the plan at the resource level
 
