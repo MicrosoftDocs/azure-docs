@@ -18,7 +18,7 @@ An isolation domain offers:
 
 -   API driven unified layer 2 and layer 3 configuration for North-South and East-West traffic.
 
-- Full isolation between isolation domains - packets from one domain will not be sent to workloads in another isolation domain on the same Nexus Network Fabric. Services in one domain are invisible to those in another.
+- Full isolation between isolation domains - packets from one domain aren't sent to workloads in another isolation domain on the same Nexus Network Fabric. Services in one domain are invisible to services in another.
 
 - The ability to create flexible network topologies by adding or removing workloads to an isolation domain as needed.
 
@@ -26,9 +26,9 @@ An isolation domain offers:
 
 ### Layer 2 Isolation Domains
 
-A layer 2 isolation domain provides L2 networking capabilities between workloads within across racks. Workloads can leverage the isolated layer-2 network to establish direct connectivity among themselves.
+A layer 2 isolation domain provides L2 networking capabilities between workloads within across racks. Workloads can use the isolated layer-2 network to establish direct connectivity among themselves.
 
-The NFA  enables operators to provision and manage layer 2 isolation domains at below resource level. Each layer-2 isolation domain has an associated VLAN ID. If a workload needs connectivity to multiple VLANs, multiple layer-2 isolation domains must be created. A separate NIC resource is required for each layer-2 domain that the workload connects to.
+The NFA  enables operators to provision and manage layer 2 isolation domains below resource level. Each layer-2 isolation domain has an associated VLAN ID. If a workload needs connectivity to multiple VLANs, multiple layer-2 isolation domains must be created. A separate NIC resource is required for each layer-2 domain that the workload connects to.
 
 ### Layer 3 Isolation Domains
 
