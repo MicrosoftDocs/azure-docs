@@ -2,7 +2,7 @@
 title: Unified insights from Microsoft Entra permissions management | Defender for Cloud in the field
 description: Learn about unified insights from Microsoft Entra permissions management
 ms.topic: reference
-ms.date: 01/18/2024
+ms.date: 01/24/2024
 ---
 
 # Unified insights from Microsoft Entra permissions management
@@ -31,4 +31,4 @@ ms.date: 01/18/2024
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Agentless malware detection](episode-forty-four.md)

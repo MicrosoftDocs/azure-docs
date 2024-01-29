@@ -36,7 +36,7 @@ If you're uploading new numbers for an enterprise customer:
 
 |Information for each number |Notes  |
 |---------|---------|
-|Calling profile |One of the Calling Profiles created by Microsoft for you.|
+|Calling profile |One of the `CommsGw` Calling Profiles we created for you.|
 |Intended usage | Individuals (calling users), applications or conference calls.|
 |Capabilities     |Which types of call to allow (for example, inbound calls or outbound calls).|
 |Civic address | A physical location for emergency calls. The enterprise must have configured this address in the Teams Admin Center. Only required for individuals (calling users) and only if you don't allow the enterprise to update the address.|
@@ -56,6 +56,7 @@ Numbers
 +441632960004
 ```
 
+[!INCLUDE [communications-gateway-oc-configuration-ownership](includes/communications-gateway-oc-configuration-ownership.md)]
 
 ## Go to your Communications Gateway resource
 
