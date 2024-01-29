@@ -1,0 +1,41 @@
+# Isolation Domain Overview
+
+An Isolation Domain resource enables the creation of layer-2 and layer-3 networks that your network functions can connect to. This enables inter-rack and intra-rack communication between the network functions. The Nexus Network Fabric Automation Service (NFA) enables three types of isolation domain:
+
+-   **Layer-2 isolation domain** - provides layer-2 networking capabilities within and across the racks for workloads running on servers. Workloads can take advantage of the isolated layer-2 network to establish direct connectivity among themselves at layer 2 and above.
+
+-   **Layer-3 isolation domain with Internal Networks** - provides workloads the ability to connect across a layer 3 (IP) network.
+
+-   **Layer-3 isolation domain with External Network** - provides workloads the ability to connect across a layer 3 network, and provides connectivity to the operator's network outside of the Nexus network fabric.
+
+An isolation domain offers:
+
+-   Unified network capabilities with full integration with your compute resources, enabling connectivity between your Nexus platform workloads.
+
+-   Northbound connectivity with customer routers using BGP peering sessions between the Nexus network fabric and the operator's external network.
+
+-   Southbound connectivity with telco workloads using internal networks.
+
+-   API driven unified layer 2 and layer 3 configuration for North-South and East-West traffic.
+
+- Full isolation between isolation domains - packets from one domain will not be sent to workloads in another isolation domain on the same Nexus Network Fabric. Services in one domain are invisible to those in another.
+
+- The ability to create flexible network topologies by adding or removing workloads to an isolation domain as needed.
+
+## Key capabilities of an Isolation Domain
+
+### Layer 2 Isolation Domains
+
+A layer 2 isolation domain provides L2 networking capabilities between workloads within across racks. Workloads can leverage the isolated layer-2 network to establish direct connectivity among themselves.
+
+The NFA  enables operators to provision and manage layer 2 isolation domains at below resource level. Each layer-2 isolation domain has an associated VLAN ID. If a workload needs connectivity to multiple VLANs, multiple layer-2 isolation domains must be created. A separate NIC resource is required for each layer-2 domain that the workload connects to.
+
+### Layer 3 Isolation Domains
+
+A layer 3 isolation domain provides workloads with the ability to exchange layer-3 routing information through the Nexus network fabric and with external networks.
+
+Layer-3 isolation domains can provide two types of network:
+
+-   **Internal Network** - a Layer 3 Isolation Domain Internal Network enables east-west layer 3 communication between workloads on the AON Network fabric. An internal network is a complete solution for layer-3 inter- and intra-rack communication for compute workloads. Each workload can connect to multiple internal networks.
+
+-   **External Network** - a Layer 3 Isolation Domain External Network enables workloads to communicate with external services via the operator network. An external network creates a communication channel between Nexus workloads and services hosted outside of the Nexus network fabric. Each Layer 3 isolation domain supports one external network.

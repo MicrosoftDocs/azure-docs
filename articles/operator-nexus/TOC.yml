@@ -22,10 +22,16 @@
           href: concepts-network-fabric-controller.md
         - name: Network Fabric Services
           href: concepts-network-fabric-services.md
+    - name: Isolation Domains
+      expanded: false
+      items:
+        - name: Isolation Domains overview
+          href: concepts-isolation-domain.md
+
     - name: Nexus Kubernetes
       href: concepts-nexus-kubernetes-cluster.md
     - name: Observability
-      href: concepts-observability.md 
+      href: concepts-observability.md
     - name: Security
       href: concepts-security.md
     - name: Control Plane Resiliency
@@ -55,7 +61,7 @@
         - name: Use Bicep file
           href: quickstarts-virtual-machine-deployment-bicep.md
         - name: Use Azure PowerShell
-          href: quickstarts-virtual-machine-deployment-ps.md 
+          href: quickstarts-virtual-machine-deployment-ps.md
 - name: How-To Guides
   items:
     - name: Operator Nexus Instance Deployment and Upgrade
@@ -89,12 +95,12 @@
         - name: Network Fabric
           expanded: false
           items:
-          - name: Isolation Domain
-            href: howto-configure-isolation-domain.md
-          - name: Network Fabric Route Policy
-            href: how-to-route-policy.md  
-          - name: Network Packet Broker
-            href: howto-configure-network-packet-broker.md
+            - name: Isolation Domain
+              href: howto-configure-isolation-domain.md
+            - name: Network Fabric Route Policy
+              href: how-to-route-policy.md
+            - name: Network Packet Broker
+              href: howto-configure-network-packet-broker.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
