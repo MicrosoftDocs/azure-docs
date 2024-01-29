@@ -9,23 +9,23 @@ author: sbatchu0108
 ms.author: sbatchu
 ---
 
-# Credential Rotation Lifecycle Management for Operator Nexus Instance
+# Credential rotation management for on-premises devices
 
 This document provides an overview of the credential rotation support request that needs to be raised for requesting credential rotation on the nexus instance.
 
 ## Prerequisites
 
-1. Target cluster must be in running and healthy state.
+1. Target cluster and fabric must be in running and healthy state.
 
-### Create Support Request
+### Create support request
 
-Raise credential rotation request by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Below details are required in order to perform the credential rotation on the required target cluster:
-  1. Type of credential that needs to be rotated. Specify if the request is for BMC or Storage or Console User or for all three types.
+Raise credential rotation request by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Below details are required in order to perform the credential rotation on the required target instance:
+  1. Type of credential that needs to be rotated. Specify if the request is for fabric device or BMC or Storage or Console User or for all four types.
   1. Provide Tenant ID.
   1. Provide Subscription ID.
-  1. Provide Resource Group Name in which the target cluster resides.
-  1. Provide Target Cluster Name.
-  1. Provide Target Cluster ARM ID
-  1. Provide Customer Key Vault ID to which rotated credentials needs to be updated. 
+  1. Provide Resource Group Name in which the target cluster or fabric resides based on type of credential that needs to be rotated.
+  1. Provide Target Cluster or Fabric Name based on type of credential that needs to be rotated.
+  1. Provide Target Cluster or Fabric ARM ID based on type of credential that needs to be rotated.
+  1. Provide Customer Key Vault ID to which rotated credentials of target cluster instance needs to be updated.
 
 For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).

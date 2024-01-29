@@ -86,7 +86,7 @@
                   href: howto-run-instance-readiness-testing.md
                 - name: Cluster Upgrades
                   href: howto-cluster-runtime-upgrade.md
-                - name: Credential Rotation for Operator Nexus Instance
+                - name: Credential Rotation
                   href: howto-credential-rotation.md
         - name: Network Fabric
           expanded: false
