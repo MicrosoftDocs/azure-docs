@@ -23,13 +23,13 @@ After successful installation, your custom "tool" can show up in the tool list:
 
 ## Create your own tool package
 
-Your tool package should be a python package. To develop your custom tool, follow the steps **Create your own tool package** and **build and share the tool package** in [Create and Use Tool Package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html). You can find more advanced development guidances in [How to develop a tool](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/index.html).
+Your tool package should be a python package. To develop your custom tool, follow the steps **Create your own tool package** and **build and share the tool package** in [Create and Use Tool Package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html). You can find more advanced development guidance in [How to develop a tool](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/index.html).
 
 ## Prepare runtime
 
 In order to add the custom tool to your tool list for use, it's necessary to prepare the runtime. Here we use [my-tools-package](https://pypi.org/project/my-tools-package/) as an example.
 
-**If you use the automatic runtime**, you can readily install the package by adding the custom tool package name into the `requirements.txt` file in the flow folder. Then click `Save and install` button to start installation. After completion, you can see the custom tools displayed in the tool list. See more in [How to create and manage runtime](./how-to-create-manage-runtime.md).
+**If you use the automatic runtime**, you can readily install the package by adding the custom tool package name into the `requirements.txt` file in the flow folder. Then select the 'Save and install' button to start installation. After completion, you can see the custom tools displayed in the tool list. To learn more, see [How to create and manage runtime](./how-to-create-manage-runtime.md).
 :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/install-package-on-automatic-runtime.png" alt-text="Screenshot of how to install packages on automatic runtime."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/install-package-on-automatic-runtime.png":::
 
 **If you use the compute instance runtime**, which should be based on a customized environment where your custom tool is preinstalled, please take the following steps:
