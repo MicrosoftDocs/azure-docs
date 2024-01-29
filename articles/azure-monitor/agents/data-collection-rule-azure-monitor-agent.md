@@ -9,7 +9,7 @@ ms.reviewer: jeffwo
 
 ---
 
-# Configure data collection rules to collect data from virtual machines with Azure Monitor Agent
+# Collect data from virtual machines with Azure Monitor Agent
 
 This article describes how to collect events and performance counters from virtual machines by using [Azure Monitor Agent](azure-monitor-agent-overview.md).
 
