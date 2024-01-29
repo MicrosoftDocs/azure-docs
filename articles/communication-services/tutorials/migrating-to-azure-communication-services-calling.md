@@ -592,9 +592,10 @@ const blurProcessor = new GaussianBlurBackgroundProcessor({ assetsPath: virtualB
 await blurProcessor.loadModel();
 ```
 As soon as the model is loaded the background can be added to the video track via addProcessor method:
+```javascript
+videoTrack.addProcessor(processor, {  inputFrameBufferType: 'video',  outputFrameBufferContextType: 'webgl2' });
+```
 
-| videoTrack.addProcessor(processor, {  inputFrameBufferType: 'video',  outputFrameBufferContextType: 'webgl2' }); |
-|------------------------------------------------------------------------------------------------------------------|
 
 #### Azure Communication Services
 
@@ -603,16 +604,15 @@ Use the npm install command to install the Azure Communication Services Effects 
 npm install @azure/communication-calling-effects --save
 ```
 
-Note:
-
-To use video effects with the Azure Communication Calling SDK, once you've created a LocalVideoStream, you need to get the VideoEffects feature API of the LocalVideoStream to start/stop video effects:
+> [!NOTE]
+> To use video effects with the Azure Communication Calling SDK, once you've created a LocalVideoStream, you need to get the VideoEffects feature API of the LocalVideoStream to start/stop video effects:
 
 ```javascript
 import * as AzureCommunicationCallingSDK from '@azure/communication-calling'; 
 
 import { BackgroundBlurEffect, BackgroundReplacementEffect } from '@azure/communication-calling-effects'; 
 
-// Get the video effects feature api on the LocalVideoStream 
+// Get the video effects feature API on the LocalVideoStream 
 // (here, localVideoStream is the LocalVideoStream object you created while setting up video calling)
 const videoEffectsFeatureApi = localVideoStream.feature(AzureCommunicationCallingSDK.Features.VideoEffects); 
 
@@ -640,7 +640,7 @@ const backgroundBlurEffect = new BackgroundBlurEffect();
 const backgroundBlurSupported = await backgroundBlurEffect.isSupported(); 
 
 if (backgroundBlurSupported) { 
-    // Use the video effects feature api we created to start effects
+    // Use the video effects feature API we created to start effects
     await videoEffectsFeatureApi.startEffects(backgroundBlurEffect); 
 }
 ```
@@ -659,7 +659,7 @@ const backgroundReplacementEffect = new BackgroundReplacementEffect({
 const backgroundReplacementSupported = await backgroundReplacementEffect.isSupported(); 
 
 if (backgroundReplacementSupported) { 
-    // Use the video effects feature api as before to start/stop effects 
+    // Use the video effects feature API as before to start/stop effects 
     await videoEffectsFeatureApi.startEffects(backgroundReplacementEffect); 
 }
 ```
@@ -673,7 +673,7 @@ await backgroundReplacementEffect.configure({
 });
 ```
 
-Switching effects can be done using the same method on the video effects feature api:
+Switching effects can be done using the same method on the video effects feature API:
 
 ```javascript
 // Switch to background blur 
@@ -685,7 +685,7 @@ await videoEffectsFeatureApi.startEffects(backgroundReplacementEffect);
 
 At any time if you want to check what effects are active, you can use the `activeEffects` property. The `activeEffects` property returns an array with the names of the currently active effects and returns an empty array if there are no affects active.
 ```javascript
-// Using the video effects feature api
+// Using the video effects feature API
 const currentActiveEffects = videoEffectsFeatureApi.activeEffects;
 ```
 
@@ -818,7 +818,6 @@ let dominantSpeakers: DominantSpeakersInfo = callDominantSpeakersApi.dominantSpe
 
 Also, you can subscribe to the `dominantSpeakersChanged` event to know when the dominant speakers list has changed.
 
-| const dominantSpeakersChangedHandler = () =\> {  // Get the most up-to-date list of dominant speakers  let dominantSpeakers = callDominantSpeakersApi.dominantSpeakers; }; callDominantSpeakersApi.on('dominantSpeakersChanged', dominantSpeakersChangedHandler); |
 ```javascript
 const dominantSpeakersChangedHandler = () => {
     // Get the most up-to-date list of dominant speakers
@@ -935,7 +934,7 @@ mediaStatsCollector.dispose();
 ```
 
 
-It's not necessary to call dispose method of `mediaStatsCollector` every time the call ends, as the collectors are reclaimed internally when the call ends.
+It's not necessary to call the dispose method of `mediaStatsCollector` every time the call ends, as the collectors are reclaimed internally when the call ends.
 
 You can learn more about media quality statistics [here](../concepts/voice-video-calling/media-quality-sdk.md?pivots=platform-web).
 
