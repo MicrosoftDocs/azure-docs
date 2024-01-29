@@ -28,8 +28,17 @@
   items:
       - name: Manage inventory - Azure CLI
         href: manage-apis-azure-cli.md
+      - name: Import APIs from API Management
+        href: import-api-management-apis.md
 #- name: API governance
-#- name: API discovery and consumption
+- name: API discovery and consumption
+  items:
+      - name: Enable API Center portal
+        href: enable-api-center-portal.md
+      - name: Use VS Code extension
+        href: use-vscode-extension.md
+      - name: Discover APIs with GitHub Copilot Chat
+        href: use-vscode-extension-copilot.md
 - name: Reference
   items:
       - name: Azure CLI

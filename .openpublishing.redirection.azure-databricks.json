@@ -99,6 +99,11 @@
             "source_path_from_root": "/articles/azure-databricks/what-is-azure-databricks.md",
             "redirect_url": "/azure/databricks/scenarios/what-is-azure-databricks",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/pytorch-enterprise/index.yml",
+            "redirect_url": "/azure/databricks/machine-learning/train-model/pytorch",
+            "redirect_document_id": false
         }
     ]
 }

@@ -5,7 +5,7 @@ services: application-insights
 documentationcenter: .net
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/25/2023
+ms.date: 01/31/2024
 ms.reviewer: mmcc
 ---
 # Application Insights telemetry data model
