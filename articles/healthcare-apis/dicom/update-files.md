@@ -158,11 +158,10 @@ The [change feed](change-feed-overview.md) records update actions in the same ma
 ## Supported DICOM modules
 Any attributes in the [Patient Identification Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-2) and [Patient Demographic Module](https://dicom.nema.org/dicom/2013/output/chtml/part03/sect_C.2.html#table_C.2-3) that aren't sequences can be updated using the bulk update operation. Supported attributes are called out in the tables.
 
-### What changed in DICOM file
+### Attributes automatically changed in bulk updates
 
-As part of bulk update, only DICOM metadata is updated. The pixel data is not updated. Pixel data will be same as the original version.
 
-Other than updating the metadata, the file meta information of the DICOM file is updated with the below information.
+When you perform a bulk update, the DICOM service updates the requested attributes and also two additional metadata fields. Here is the information that is updated automatically:  
 
 | Tag           | Attribute name        | Description           | Value
 | --------------| --------------------- | --------------------- | --------------|
