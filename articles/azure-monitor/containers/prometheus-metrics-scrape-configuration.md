@@ -342,4 +342,6 @@ See the [Apply config file](prometheus-metrics-scrape-validate.md#deploy-config-
 
 ## Next steps
 
+[Setup Alerts on Prometheus metrics](./container-insights-metric-alerts.md)<br>
+[Query Prometheus metrics](../essentials/prometheus-grafana.md)<br>
 [Learn more about collecting Prometheus metrics](../essentials/prometheus-metrics-overview.md)

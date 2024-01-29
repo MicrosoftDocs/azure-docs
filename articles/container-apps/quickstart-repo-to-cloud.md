@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: quickstart
-ms.date: 01/16/2024
+ms.date: 01/26/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-code-to-cloud-segmemts
 ---
@@ -18,7 +18,7 @@ zone_pivot_groups: container-apps-code-to-cloud-segmemts
 
 This article demonstrates how to build and deploy a microservice to Azure Container Apps from a GitHub repository using the programming language of your choice. In this quickstart, you create a sample microservice, which represents a backend web API service that returns a static collection of music albums.
 
-This sample application is available in two versions. One version includes a container, where the source contains a Dockerfile. The other version has no Dockerfile. Select the version that best reflects your source code. If you are new to containers, select the **No  Dockerfile** option at the top.
+This sample application is available in two versions. One version includes a container, where the source contains a Dockerfile. The other version has no Dockerfile. Select the version that best reflects your source code. If you're new to containers, select the **No  Dockerfile** option at the top.
 
 > [!NOTE]
 > You can also build and deploy this sample application from your local filesystem. For more information, see [Build from local source code and deploy your application in Azure Container Apps](quickstart-code-to-cloud.md).
@@ -266,7 +266,7 @@ When you push new code to the repository, the GitHub Action will:
 - Build the container image and push it to the Azure Container Registry
 - Deploy the container image to the created container app
 
-The `up` command uses the Dockerfile in the root of the repository to build the container image. The target port is defined by the EXPOSE instruction in the Dockerfile.  A Docker file isn't required to build a container app. 
+The `up` command uses the Dockerfile in the root of the repository to build the container image. The `EXPOSE` instruction in the Dockerfile defines the target port.  A Docker file isn't required to build a container app.
 ::: zone-end
 
 ::: zone pivot="without-dockerfile"
@@ -278,11 +278,11 @@ The container app needs to be accessible to ingress traffic. Ensure to expose po
 ::: zone-end
 
 ::: zone pivot="with-dockerfile"
-In the command below, replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name in the form of `https://github.com/<OWNER>/<REPOSITORY-NAME>` or `<OWNER>/<REPOSITORY-NAME>`.
+In the following command, replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name in the form of `https://github.com/<OWNER>/<REPOSITORY-NAME>` or `<OWNER>/<REPOSITORY-NAME>`.
 ::: zone-end
 
 ::: zone pivot="without-dockerfile"
-In the command below, replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name in the form of `https://github.com/<OWNER>/<REPOSITORY-NAME>` or `<OWNER>/<REPOSITORY-NAME>`. Use the `--branch buildpack` option to point to the sample source without a Dockerfile.
+In the following command, replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name in the form of `https://github.com/<OWNER>/<REPOSITORY-NAME>` or `<OWNER>/<REPOSITORY-NAME>`. Use the `--branch buildpack` option to point to the sample source without a Dockerfile.
 ::: zone-end
 
 # [Bash](#tab/bash)

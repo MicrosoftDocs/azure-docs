@@ -5,7 +5,7 @@ description: Learn how to deploy a Premium tier Azure API Management instance to
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 01/26/2024
 ms.author: danlep
 ---
 
@@ -125,12 +125,15 @@ Under some conditions, you might need to temporarily disable routing to one of t
 * To redirect traffic to other regions during a planned disaster recovery drill that simulates an unavailable region, or during a regional failure 
 
 To disable routing to a regional gateway in your API Management instance, update the gateway's `disableGateway` property value to `true`. You can set the value using the [Create or update service](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) REST API, the [az apim update](/cli/azure/apim#az-apim-update) command in the Azure CLI, the [set-azapimanagement](/powershell/module/az.apimanagement/set-azapimanagement) Azure PowerShell cmdlet, or other Azure tools.
+
+>[!NOTE]
+> You can only disable routing to a regional gateway when you are using API Management's default routing, not a custom routing solution. 
     
 To disable a regional gateway using the Azure CLI:
 
 1. Use the [az apim show](/cli/azure/apim#az-apim-show) command to show the locations, gateway status, and regional URLs configured for the API Management instance. 
     ```azurecli
-    az apim show --name contoso --resource-group myResourceGroup \
+    az apim show --name contoso --resource-group apim-hello-world-resource \
         --query "additionalLocations[].{Location:location,Disabled:disableGateway,Url:gatewayRegionalUrl}" \
         --output table
     ```
@@ -144,7 +147,7 @@ To disable a regional gateway using the Azure CLI:
     ```
 1. Use the [az apim update](/cli/azure/apim#az-apim-update) command to disable the gateway in an available location, such as West US 2.
     ```azurecli
-    az apim update --name contoso --resource-group myResourceGroup \
+    az apim update --name contoso --resource-group apim-hello-world-resource \
     --set additionalLocations[location="West US 2"].disableGateway=true
     ```
 

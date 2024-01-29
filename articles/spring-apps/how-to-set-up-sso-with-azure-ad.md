@@ -65,7 +65,7 @@ You can also add redirect URIs after app registration by following these steps:
 1. Select **Web**, then select **Add URI** under *Redirect URIs*.
 1. Add a new redirect URI, then select **Save**.
 
-:::image type="content" source="media/how-to-set-up-sso-with-azure-ad/sso-redirect-uri.png" alt-text="Screenshot of adding a redirect U R I to the authentication screen." lightbox="media/how-to-set-up-sso-with-azure-ad/sso-redirect-uri.png":::
+:::image type="content" source="media/how-to-set-up-sso-with-azure-ad/sso-redirect-uri.png" alt-text="Screenshot of adding a redirect URI to the authentication screen." lightbox="media/how-to-set-up-sso-with-azure-ad/sso-redirect-uri.png":::
 
 For more information on Application Registration, see [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
 
@@ -83,7 +83,7 @@ The application uses a client secret to authenticate itself in SSO workflow. You
 
 ## Configure scope
 
-The `scope` property of SSO is a list of scopes to be included in JWT identity tokens. They're often referred to permissions. Identity platform supports several OpenID Connect scopes, such as `openid`, `email` and `profile`. For more information, see the [OpenID Connect scopes](/entra/identity-platform/scopes-oidc#openid-connect-scopes) section of [Scopes and permissions in the Microsoft identity platform](/entra/identity-platform/scopes-oidc).
+The `scope` property of SSO is a list of scopes to be included in JWT identity tokens. They're often referred to as permissions. Identity platform supports several OpenID Connect scopes, such as `openid`, `email`, and `profile`. For more information, see the [OpenID Connect scopes](/entra/identity-platform/scopes-oidc#openid-connect-scopes) section of [Scopes and permissions in the Microsoft identity platform](/entra/identity-platform/scopes-oidc).
 
 ## Configure issuer URI
 
