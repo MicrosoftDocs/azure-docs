@@ -2,7 +2,7 @@
 title: FAQ for Trusted Launch
 description: Get answers to the most frequently asked questions about Azure Trusted Launch virtual machines and virtual machine scale sets.
 author: AjKundnani
-ms.author: ajkundna
+ms.author: howie425
 ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: trusted-launch
