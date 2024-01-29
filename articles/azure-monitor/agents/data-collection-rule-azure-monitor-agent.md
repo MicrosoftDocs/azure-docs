@@ -83,6 +83,110 @@ Examples of using a custom XPath to filter events:
 > For a list of limitations in the XPath supported by Windows event log, see [XPath 1.0 limitations](/windows/win32/wes/consuming-events#xpath-10-limitations).  
 > For instance, you can use the "position", "Band", and "timediff" functions within the query but other functions like "starts-with" and "contains" are not currently supported.
 
+## Collect IIS logs
+
+1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
+1. Select **IIS Logs**.
+
+    :::image type="content" source="media/data-collection-iis/iis-data-collection-rule.png" lightbox="media/data-collection-iis/iis-data-collection-rule.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule.":::
+
+1. Specify a file pattern to identify the directory where the log files are located. 
+1. On the **Destination** tab, add a destination for the data source.
+    <!-- convertborder later -->
+    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" alt-text="Screenshot that shows the Azure portal form to add a data source in a data collection rule." border="false":::
+
+### Sample IIS log queries
+
+- **Count the IIS log entries by URL for the host www.contoso.com.**
+    
+    ```kusto
+    W3CIISLog 
+    | where csHost=="www.contoso.com" 
+    | summarize count() by csUriStem
+    ```
+
+- **Review the total bytes received by each IIS machine.**
+
+    ```kusto
+    W3CIISLog 
+    | summarize sum(csBytes) by Computer
+    ```
+
+
+### Sample IIS alert rule
+
+- **Create an alert rule on any record with a return status of 500.**
+    
+    ```kusto
+    W3CIISLog 
+    | where scStatus==500
+    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
+    ```
+
+
+### Troubleshoot IIS log collection
+
+Use the following steps to troubleshoot collection of IIS logs. 
+
+#### Check if any IIS logs have been received
+Start by checking if any records have been collected for your IIS logs by running the following query in Log Analytics. If the query doesn't return records, check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range.
+
+``` kusto
+W3CIISLog
+| where TimeGenerated > ago(48h)
+| order by TimeGenerated desc
+```
+
+#### Verify that the agent is sending heartbeats successfully
+Verify that Azure Monitor agent is communicating properly by running the following query in Log Analytics to check if there are any records in the Heartbeat table.
+
+``` kusto
+Heartbeat
+| where TimeGenerated > ago(24h)
+| where Computer has "<computer name>"
+| project TimeGenerated, Category, Version
+| order by TimeGenerated desc
+```
+
+#### Verify that IIS logs are being created
+Look at the timestamps of the log files and open the latest to see that latest timestamps are present in the log files. The default location for IIS log files is C:\\inetpub\\logs\\LogFiles\\W3SVC1.
+<!-- convertborder later -->
+:::image type="content" source="media/data-collection-text-log/iis-log-timestamp.png" lightbox="media/data-collection-text-log/iis-log-timestamp.png" alt-text="Screenshot of an IIS log, showing the timestamp." border="false":::
+
+#### Verify that you specified the correct log location in the data collection rule
+The data collection rule will have a section similar to the following. The `logDirectories` element specifies the path to the log file to collect from the agent computer. Check the agent computer to verify that this is correct.
+
+``` json
+    "dataSources": [
+    {
+            "configuration": {
+                "logDirectories": ["C:\\scratch\\demo\\W3SVC1"]
+            },
+            "id": "myIisLogsDataSource",
+            "kind": "iisLog",
+            "streams": [{
+                    "stream": "ONPREM_IIS_BLOB_V2"
+                }
+            ],
+            "sendToChannels": ["gigl-dce-6a8e34db54bb4b6db22d99d86314eaee"]
+        }
+    ]
+```
+
+This directory should correspond to the location of the IIS logs on the agent machine.
+<!-- convertborder later -->
+:::image type="content" source="media/data-collection-text-log/iis-log-files.png" lightbox="media/data-collection-text-log/iis-log-files.png" alt-text="Screenshot of IIS log files on agent machine." border="false":::
+
+#### Verify that the IIS logs are W3C formatted
+Open IIS Manager and verify that the logs are being written in W3C format.
+
+:::image type="content" source="media/data-collection-text-log/iis-log-format-setting.png" lightbox="media/data-collection-text-log/iis-log-format-setting.png" alt-text="Screenshot of IIS logging configuration dialog box on agent machine.":::
+
+Open the IIS log file on the agent machine to verify that logs are in W3C format.
+<!-- convertborder later -->
+:::image type="content" source="media/data-collection-text-log/iis-log-format.png" lightbox="media/data-collection-text-log/iis-log-format.png" alt-text="Screenshot of an IIS log, showing the header, which specifies that the file is in W3C format." border="false":::
+
+
 ## Frequently asked questions
 
 This section provides answers to common questions.
