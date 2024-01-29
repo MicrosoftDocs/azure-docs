@@ -19,3 +19,11 @@ landingContent:
       links:
         - text: What is the Azure Certified Device program?
           url: ./overview.md
+  - title: Edge Secured-core
+    linkLists:
+    - linkListType: overview
+      links:
+      - text: Program requirements
+        url: ./program-requirements-edge-secured-core.md
+      - text: Device list
+        url: ./edge-secured-core-devices.md
