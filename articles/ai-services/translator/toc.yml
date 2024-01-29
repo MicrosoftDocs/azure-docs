@@ -121,8 +121,6 @@ items:
     items:
     - name: Quickstarts
       items:
-      - name: Batch translation
-        items:
         - name: Batch Translation SDKs
           displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
           href: document-translation/quickstarts/asynchronous-sdk.md
