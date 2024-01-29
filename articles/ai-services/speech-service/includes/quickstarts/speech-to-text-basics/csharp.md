@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/24/2023
+ms.date: 01/30/2024
 ms.author: eur
 ---
 
@@ -26,11 +26,13 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 Follow these steps to create a console application and install the Speech SDK.
 
-1. Open a command prompt where you want the new project. Create a console application with the .NET CLI, which creates the *Program.cs* file in the project directory.
+1. Command Prompt window in the folder where you want the new project. Run this comment to create a console application with the .NET CLI.
 
    ```dotnetcli
    dotnet new console
    ```
+
+   This command creates the *Program.cs* file in your project directory.
 
 1. Install the Speech SDK in your new project with the .NET CLI.
 

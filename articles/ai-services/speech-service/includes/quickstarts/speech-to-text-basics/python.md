@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/24/2023
+ms.date: 01/30/2024
 ms.author: eur
 ---
 
@@ -31,7 +31,8 @@ Install a version of [Python from 3.7 or later](https://www.python.org/downloads
 
 Follow these steps to create a console application.
 
-1. Open a command prompt where you want the new project, and create a new file named *speech_recognition.py*.
+1. Command Prompt window in the folder where you want the new project. Create a new file named *speech_recognition.py*.
+
 1. Run this command to install the Speech SDK:  
 
    ```console

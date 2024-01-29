@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/24/2023
+ms.date: 01/30/2024
 ms.author: eur
 ---
 
@@ -27,11 +27,12 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 Follow these steps to create a console application and install the Speech SDK.
 
 1. Create a new C++ console project in [Visual Studio Community](https://visualstudio.microsoft.com/downloads/) named `SpeechRecognition`.
-1. Install the Speech SDK in your new project with the NuGet package manager.
 
-   ```powershell
-   Install-Package Microsoft.CognitiveServices.Speech
-   ```
+1. Select **Tools** > **Nuget Package Manager** > **Packet Manager Console**. In the **Packet Manager Console**, run this command:
+
+    ```console
+    Install-Package Microsoft.CognitiveServices.Speech
+    ```
 
 1. Replace the contents of `SpeechRecognition.cpp` with the following code:
 
@@ -129,7 +130,7 @@ Here are some other considerations:
 - To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
 
   ```cpp
-  auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
+  auto audioConfig = AudioConfig::FromWavFileInput("YourAudioFile.wav");
   ```
 
 - For compressed audio files such as MP4, install GStreamer and use `PullAudioInputStream` or `PushAudioInputStream`. For more information, see [How to use compressed input audio](~/articles/ai-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
