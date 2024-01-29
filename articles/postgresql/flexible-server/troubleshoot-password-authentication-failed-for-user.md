@@ -14,7 +14,7 @@ This article helps you solve a problem that might occur when connecting to Azure
 
 
 ## Symptoms
-When attempting to connect to Azure Database for PostgreSQL - Flexible Server, you may encounter the following error messages:
+When attempting to connect to Azure Database for PostgreSQL - Flexible Server, you may encounter the following error message:
 
 ```bash
 psql: error: connection to server at "<server-name>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  password authentication failed for user "<user-name>"
@@ -50,10 +50,30 @@ The error encountered when connecting to Azure Database for PostgreSQL - Flexibl
 The password authentication failed for user `<user-name>` error occurs when the password for the user is incorrect. This could happen due to a mistyped password, a recent password change that hasn't been updated in the connection settings, or other similar issues.
 
 2. **User or role created without a password**
-Another possible cause of this error is creating a user or role in PostgreSQL without specifying a password. Executing commands like `CREATE USER <user-name>>;` or `CREATE ROLE <role-name>;` without an accompanying password statement results in a user or role with no password set. Attempting to connect with such a user or role without setting a password will lead to authentication failure.
+Another possible cause of this error is creating a user or role in PostgreSQL without specifying a password. Executing commands like `CREATE USER <user-name>;` or `CREATE ROLE <role-name>;` without an accompanying password statement results in a user or role with no password set. Attempting to connect with such a user or role without setting a password will lead to authentication failure.
 
 ## Resolution
+If you're encountering the "password authentication failed for user `<user-name>`" error, follow these steps to resolve the issue.
 
+* **Try connecting with a different tool**
+If the error comes from an application, attempt to connect to the database using a different tool, such as `psql` or pgAdmin, with the same username and password. This step helps determine if the issue is specific to the client or a broader authentication problem. Keep in mind any relevant firewall rules that might affect connectivity. For instructions on connecting using different tools, refer to the "Connect" blade in the Azure portal.
+
+* **Change the password**
+If you still encounter password authentication issues after trying a different tool, consider changing the password for the user. For the administrator user, you can change the password directly in the Azure portal as described in this link. For other users, or the administrator user under certain conditions, you can change the password from the command line. Ensure that you are logged in to the database as a user with the `CREATEROLE` attribute and the `ADMIN` option on their role. The command to change the password is:
+
+```sql
+ALTER USER <user-name> WITH PASSWORD '<new-password>';
+```
+
+**Set password for user or role created without one**
+If the cause of the error is the creation of a user or role without a password, log in to your PostgreSQL instance and set the password for the role. For roles created without the `LOGIN` privilege, make sure to grant this privilege along with setting the password:
+
+```sql
+ALTER ROLE <role-name> WITH LOGIN;
+ALTER ROLE <role-name> WITH PASSWORD 'new_password';
+```
+
+By following these steps, you should be able to resolve the authentication issues and successfully connect to your Azure Database for PostgreSQL - Flexible Server.
 
 
 
