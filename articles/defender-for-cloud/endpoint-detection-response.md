@@ -1,6 +1,6 @@
 ---
 title: Manage Endpoint Detection and Response solution 
-description: Learn how to identify if an Endpoint Detection and Response solution is installed on your virtual machine. You can also identify if there are any gaps in your security configuration and how to remediate the findings.
+description: Learn how to identify if an Endpoint Detection and Response solution are installed on your virtual machine. You can also identify if there are any gaps in your security configuration and how to remediate the findings.
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
@@ -15,13 +15,11 @@ ms.date: 01/29/2024
 > [!IMPORTANT]
 > Defender for Cloud recommends using the process described on this page to review Endpoint Detection and Response solution installation status and configuration issues within your EDR solution.
 
-Defender for Cloud  recommendations that . 
-
 Microsoft Defender for Cloud provides security recommendations are used to harden and remediate threats to your environments. Remediating these recommendations reduces a machine's [attack surface](concept-attack-path.md) and allows the machine to avoid known risks. 
 
 Defender for Cloud has recommendations that: 
 
-Defender for Cloud's recommendations allow you to: 
+Defenders for Cloud's recommendations allow you to: 
 
 - Identify if an Endpoint Detection and Response (EDR) solution is installed on your machines.  
 
@@ -29,7 +27,7 @@ Defender for Cloud's recommendations allow you to:
 
 - Remediate detected gaps in your security configurations.
 
-By remediating the recommendations that appear in Defender for Cloud, you can ensure that the installed EDR solution is installed and configured securely and according to compliance standards across all of your environments. 
+Defender for Cloud provides recommendations to secure and configure the EDR solution. By following these recommendations, you can ensure that the EDR solution is compliant and secure across all environments.
 
 The following EDR solutions are supported and can be enabled through Defender for Cloud
 
@@ -39,7 +37,7 @@ The following EDR solutions are supported and can be enabled through Defender fo
 | Microsoft Defender for Endpoint for Linux <sup>[1](#footnote1)</sup> | Linux | 
 | Microsoft Defender for Endpoint Unified Solution <sup>[2](#footnote2)</sup>| Windows Server 2012 R2 <br> Windows 2016 |
 
-<sup><a name="footnote1"></a>1</sup>: A Linux machine that has Microsoft Defender for Endpoint enabled, will only appear as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is disabled to avoid clashes with other anti-virus software.
+<sup><a name="footnote1"></a>1</sup>: A Linux machine that has Microsoft Defender for Endpoint enabled, appears as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is disabled to avoid clashes with other anti-virus software.
 
 <sup><a name="footnote2"></a>2</sup>: The Defender for Endpoint unified solution on Server 2012 R2 automatically installs Microsoft Defender Antivirus in `Active mode`. For Windows Server 2016, Microsoft Defender Antivirus is built into the operating system.
 
@@ -55,7 +53,7 @@ The following EDR solutions are supported and can be enabled through Defender fo
 
 ## Detect an Endpoint Detection and Response solution
 
-The following recommendations appear in Defender for Cloud when an Endpoint Detection and Response solution is not detected on your Azure virtual machines (VM), AWS EC2 instances or GCP VM instances.
+The following recommendations appear in Defender for Cloud when an Endpoint Detection and Response solution aren't detected on your Azure virtual machines (VM), AWS EC2 instances or GCP VM instances.
 
 - Azure VM - `Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines`
 - AWS EC2 instances - `Endpoint Detection and Response (EDR) solution should be installed on EC2s`
@@ -67,17 +65,17 @@ The following recommendations appear in Defender for Cloud when an Endpoint Dete
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
-1. In the search field enter the appropriate recommendation.
+1. In the search field, enter the appropriate recommendation.
 
 1. Select the recommendation.
 
 1. [Remediate the recommendation](implement-security-recommendations.md).
 
-After the process is completed, it may take up to 24 hours until your resources move to the ‘healthy resources’ tab 
+After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab 
 
 ## Configure an Endpoint Detection and Response solution
 
-The following recommendations appear in Defender for Cloud when an Endpoint Detection and Response solution has misconfigurations on your Azure VM, AWS EC2 instances or GCP VM instances.
+The following recommendations appear in Defender for Cloud when an Endpoint Detection and Response solution have misconfigurations on your Azure VM, AWS EC2 instances or GCP VM instances.
 
 - Azure VM - `Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines`
 - AWS EC2 instances - `Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s`
@@ -89,26 +87,30 @@ The following recommendations appear in Defender for Cloud when an Endpoint Dete
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
-1. In the search field enter the appropriate recommendation.
+1. In the search field, enter the appropriate recommendation.
 
 1. Select the recommendation.
 
 1. [Remediate the recommendation](implement-security-recommendations.md).
 
-After the process is completed, it may take up to 24 hours until your resources move to the ‘healthy resources’ tab 
+After the process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab 
 
 ## Using the fix option
 
 Defender for Cloud includes an option that allows you to `Fix` machines that don't have an EDR installed on them using the fix option. The fix option enables Microsoft Defender for Endpoint on your machines in your subscription. The Defender for Endpoint integration is included with both Defender for Servers Plan 1 and Plan 2.
 
-If your resource is not covered by either of the Defender for Servers plans, the fix will ask you to enable one of the Defender for Servers plans. You can learn about the cost for each plan on the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).
+If your machine isn't covered by either of the Defender for Servers plans, the fix asks you to enable Defender for Servers and select a plan. You can learn about the cost for each plan on the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).
 
-If the Defender for Endpoint integrations is configured correctly on your subscription, but the Defender for Endpoint extension is not found on the resource, a manual troubleshooting reference will appear as the fix option.
+If the Defender for Endpoint integrations is configured correctly on your subscription, but the Defender for Endpoint extension isn't found on the machine, a manual troubleshooting reference appears as the fix option.
 
-Defender for Servers Plan 1 includes the Defender for Endpoint agent provisioning feature. However, the discovery assessment isonly availble as part of the [agentless scanning](concept-agentless-data-collection.md) feature which is included in Plan 2. If you only have Plan 1 enabled, your resource will appear as `Not Applicable` after you have provisioned it.
+Defender for Servers Plan 1 includes the Defender for Endpoint agent provisioning feature. However, the discovery assessment is only available as part of the [agentless scanning](concept-agentless-data-collection.md) feature, which is included in Plan 2. Once you install the Defender for Endpoint agent on your machine, and only enable Plan 1, on the next scan it appears as `Not Applicable`.
 
-After the fix process is completed, it can take up to 24 hours until your resources move to the `Healthy resources` tab.
+After the fix process is completed, it can take up to 24 hours until your machine appears in the Healthy resources tab.
 
 Learn how to [use the fix option](implement-security-recommendations.md#use-the-fix-option).
+
+**Sample scenario 1**: If the Defender for Endpoint integration is configured correctly on your subscription but can't be found on your machine, the fix option presents a reference to manual troubleshooting.
+
+**Sample scenario 2**: If you enable Defender for Servers Plan 1 on your machine, Defender for Endpoint's agent provisioning is included with Plan 1. In the next scan results, that machine is classified as `Not Applicable`.
 
 ## Next steps
