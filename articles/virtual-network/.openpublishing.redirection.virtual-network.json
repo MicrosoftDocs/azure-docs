@@ -421,29 +421,29 @@
             "redirect_document_id": false
         },
         {
-            "redirect_document_id": false,
-            "source_path": "articles/virtual-network/quickstart-create-nat-gateway-portal.md",
-            "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-portal"
+            "source_path_from_root": "articles/virtual-network/quickstart-create-nat-gateway-portal.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-portal",
+            "redirect_document_id": false
         },
         {
-            "redirect_document_id": false,
-            "source_path": "articles/virtual-network/quickstart-create-nat-gateway-powershell.md",
-            "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-powershell"
+            "source_path_from_root": "articles/virtual-network/quickstart-create-nat-gateway-powershell.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-powershell",
+            "redirect_document_id": false
         },
         {
-            "redirect_document_id": false,
-            "source_path": "articles/virtual-network/tutorial-create-validate-nat-gateway-powershell.md",
-            "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-powershell"
+            "source_path_from_root": "articles/virtual-network/tutorial-create-validate-nat-gateway-powershell.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-powershell",
+            "redirect_document_id": false
         },
         {
-            "redirect_document_id": false,
-            "source_path": "articles/virtual-network/quickstart-create-nat-gateway-cli.md",
-            "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-cli"
+            "source_path_from_root": "articles/virtual-network/quickstart-create-nat-gateway-cli.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-cli",
+            "redirect_document_id": false
         },
         {
-            "redirect_document_id": false,
-            "source_path": "articles/virtual-network/tutorial-create-validate-nat-gateway-cli.md",
-            "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-cli"
+            "source_path_from_root": "articles/virtual-network/tutorial-create-validate-nat-gateway-cli.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-cli",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/nat-gateway-resource.md",
@@ -807,7 +807,7 @@
         },
         {
             "redirect_document_id": false,
-            "source_path": "articles/virtual-network/nat-gateway/tutorial-protect-nat-gateway.md",
+            "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-protect-nat-gateway.md",
             "redirect_URL": "/azure/virtual-network/nat-gateway/tutorial-protect-nat-gateway-ddos"
         },
         {
