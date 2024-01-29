@@ -18,6 +18,7 @@ This article describes how to troubleshoot a failed server hardware validation. 
 - Gather the following information:
   - Subscription ID
   - Cluster name and resource group
+  - Access to the Cluster's Log Analytics Workspace (LAW)
 
 ## Locating hardware validation results
 
@@ -45,7 +46,7 @@ Expanding `result_detail` for a given category shows detailed results.
 ### System Info Category
 
 * Memory/RAM Related Failure (memory_capacity_GB)
-    * Memory specs are defined in the [nc-versions repo SKUs]
+    * Memory specs are defined in the SKU
     * Memory below threshold value indicates missing or failed DIMM(s). Failed DIMM(s) would also be reflected in the `health_info` category.
 
     ```json
@@ -58,7 +59,7 @@ Expanding `result_detail` for a given category shows detailed results.
     ```
 
 * CPU Related Failure (cpu_sockets)
-    * CPU specs are defined in the [nc-versions repo SKUs]
+    * CPU specs are defined in the SKU
     * Failed `cpu_sockets` check indicates a failed CPU or CPU count mismatch.
 
     ```json
@@ -85,7 +86,7 @@ Expanding `result_detail` for a given category shows detailed results.
 ### Drive Info Category
 
 * Disk Check Failure
-    * Drive specs are defined in the [nc-versions repo SKUs]
+    * Drive specs are defined in the SKU
     * Mismatched capacity values indicate incorrect drives or drives inserted in to incorrect slots.
     * Missing capacity and type fetched values indicate drives that are failed, missing or inserted in to incorrect slots.
 
@@ -119,7 +120,7 @@ Expanding `result_detail` for a given category shows detailed results.
 ### Network Info Category
 
 * NIC Check Failure
-    * Dell server NIC specs are defined in the [nc-versions repo SKUs]
+    * Dell server NIC specs are defined in the SKU
     * Mismatched link status indicates loose or faulty cabling or crossed cables.
     * Mismatched model indicates incorrect NIC card is inserted in to slot.
     * Missing link/model fetched values indicate NICs that are failed, missing or inserted in to incorrect slots.
