@@ -75,23 +75,20 @@ Configure the settings on each of the tabs in the wizard, as detailed below.
 
 ### Collect and deliver tab
 
-1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
-1. On the **Add data source** screen, select a **Data source type** and then select **Next**.
+On the **Collect and deliver** tab, select **Add data source** and configure the settings on the **Source** and **Destination** tabs, as detailed below.
 
-    For detailed information about the various data sources you can collect, see [Data sources and destinations](../agents/azure-monitor-agent-overview.md#data-sources-and-destinations).
+For detailed information about the various data sources you can collect, see [Data sources and destinations](../agents/azure-monitor-agent-overview.md#data-sources-and-destinations).
 
-    :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-data-source-basic-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-data-source-basic-updated.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule." border="false":::
+:::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-data-source-basic-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-data-source-basic-updated.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule." border="false":::
 
+| Screen element | Description |
+|:---|:---|
+| **Data source type** | |
+| **Destination** | Add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.<br>You can send Windows event and Syslog data sources to Azure Monitor Logs only. You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs. At this time, hybrid compute (Arc for Server) resources **do not** support the Azure Monitor Metrics (Preview) destination. |
 
-    :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-data-source-custom-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-data-source-custom-updated.png" alt-text="Screenshot that shows the Azure portal form to select custom performance counters in a data collection rule." border="false":::
+### Review + create
 
-1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
-
-    You can send Windows event and Syslog data sources to Azure Monitor Logs only. You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs. At this time, hybrid compute (Arc for Server) resources **do not** support the Azure Monitor Metrics (Preview) destination.   
-
-
-1. Select **Add data source** and then select **Review + create** to review the details of the data collection rule and association with the set of virtual machines.
-1. Select **Create** to create the data collection rule.
+Review the data collection rule details and select **Create** to create the data collection rule.
 
 ## [CLI](#tab/CLI)
 Use the [az monitor data-collection rule create](/cli/azure/monitor/data-collection/rule) command to create a DCR from your JSON file using the Azure CLI as shown in the following example.
