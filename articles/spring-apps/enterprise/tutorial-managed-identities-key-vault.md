@@ -58,7 +58,7 @@ export APP=springapp
 export KEY_VAULT=<your-keyvault-name>
 ```
 
-### [System-assigned managed identity](#tab/system-assigned-managed-identity)
+### [User-assigned managed identity](#tab/user-assigned-managed-identity)
 
 ```azurecli
 export LOCATION=<location>
