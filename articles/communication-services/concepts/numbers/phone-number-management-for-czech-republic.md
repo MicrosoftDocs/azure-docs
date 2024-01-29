@@ -14,7 +14,7 @@ ms.custom: references_regions
 ---
 
 # Phone number management for Czech Republic
-Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numbers in Slovakia.
+Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numbers in Czech Republic.
 
 ## Number types and capabilities availability
 
