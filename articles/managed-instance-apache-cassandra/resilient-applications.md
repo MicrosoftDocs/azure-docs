@@ -19,7 +19,7 @@ Apache Cassandra is a great choice for building highly resilient applications du
 
 ## RPO and RTO
 
-RPO (recovery point objective) and RTO (recovery time objective), will both typically be very low (close to zero) for Apache Cassandra as long as you have:
+RPO (recovery point objective) and RTO (recovery time objective), will both typically be low (close to zero) for Apache Cassandra as long as you have:
 
 - A [multi-region deployment](create-multi-region-cluster.md) with cross region replication, and a [replication factor](https://cassandra.apache.org/doc/latest/cassandra/architecture/dynamo.html#replication-strategy) of 3.
 - Enabled availability zones (select option when creating a cluster in the [portal](create-cluster-portal.md) or via [Azure CLI](create-cluster-cli.md)).
