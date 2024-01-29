@@ -24,7 +24,12 @@ This article outlines the Azure Payment HSM prerequisites, support channels, and
 Microsoft will work with Thales to ensure that customers meet the prerequisites before starting the onboarding process.
 
 - Customers must have access to the [Thales CPL Customer Support Portal](https://supportportal.thalesgroup.com/csm) (Customer ID).
-- Customers must have Thales smart cards and card readers for payShield Manager. If a customer need to purchase smart cards or card readers they should contact their Thales representatives, or find their contacts through the [Thales contact page](https://cpl.thalesgroup.com/contact-us).
+- Customers must have Thales smart cards and card readers for payShield Manager. If a customer need to purchase smart cards or card readers they should contact their Thales representatives, or find their contacts through the [Thales contact page](https://cpl.thalesgroup.com/contact-us):
+    - **Item**:  971-000135-001-000 
+    - **Description**: PS10-RMGT-KIT2 - payShield Manager Starter Kit - for software V1.4A (1.8.3) and above    
+    - **Items Included**: 2 Thales Card Readers, 30 PayShield Manager Smartcards
+    
+    Compatible smart cards have a blue band and are labeled "payShield Manager Card". These are the only smart cards compatible with the ciphers used to enable over-network use.
 - If a customer need to purchase a payShield Trusted Management Device (TMD), they should contact their Thales representatives or find their contacts through the [Thales contact page](https://cpl.thalesgroup.com/contact-us).
 - Customers must download and review the "Hosted HSM End User Guide", which is available through the Thales CPL Customer Support Portal. The Hosted HSM End User Guide will provide more details on the changes to payShield to this service.
 - Customers must review the "Azure Payment HSM - Get Ready for payShield 10K" guide that they received from Microsoft. (Customers who do not have the guide may request it from [Microsoft Support](#microsoft-support).)
