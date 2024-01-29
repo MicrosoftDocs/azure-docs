@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: whats-new
-ms.date: 01/22/2024
+ms.date: 01/31/2024
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
