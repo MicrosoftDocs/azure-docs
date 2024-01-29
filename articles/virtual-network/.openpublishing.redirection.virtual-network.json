@@ -712,17 +712,17 @@
         },
         {
             "source_path_from_root": "/articles/virtual-network/virtual-network-ipv4-ipv6-dual-stack-powershell.md",
-            "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-powershell",
+            "redirect_url": "/azure/load-balancer/gateway-deploy-dual-stack-load-balancer",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/virtual-network-ipv4-ipv6-dual-stack-cli.md",
-            "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-cli",
+            "redirect_url": "/azure/load-balancer/gateway-deploy-dual-stack-load-balancer",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/ipv6-configure-template-json.md",
-            "redirect_url": "/azure/load-balancer/ipv6-configure-template-json",
+            "redirect_url": "/azure/load-balancer/gateway-deploy-dual-stack-load-balancer",
             "redirect_document_id": false
         },
         {
@@ -782,12 +782,12 @@
         },
         {
             "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-classic-pportal.md",
-            "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip-classic-pportal",
+            "redirect_url": "https://azure.microsoft.com/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-classic-ps.md",
-            "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip-classic-ps",
+            "redirect_url": "https://azure.microsoft.com/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024",
             "redirect_document_id": false
         },
         {
@@ -1057,12 +1057,12 @@
         },
         {
             "source_path_from_root": "/articles/virtual-network/ip-services/virtual-networks-static-private-ip-classic-pportal.md",
-            "redirect_url": "/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024/",
+            "redirect_url": "https://azure.microsoft.com/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/ip-services/virtual-networks-static-private-ip-classic-ps.md",
-            "redirect_url": "/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024/",
+            "redirect_url": "https://azure.microsoft.com/updates/azure-classic-resource-providers-will-be-retired-on-31-august-2024",
             "redirect_document_id": false
         },
         {
