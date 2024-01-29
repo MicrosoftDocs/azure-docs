@@ -1918,6 +1918,8 @@
     href: monitor-vm.md?toc=/azure/virtual-machines/toc.json
   - name: Monitor virtual machine reference
     href: monitor-vm-reference.md?toc=/azure/virtual-machines/toc.json
+  - name: What is Project Flash?
+    href: flash.md
   - name: Availability with Resource Graph
     href: resource-graph-availability.md
   - name: Tutorials
