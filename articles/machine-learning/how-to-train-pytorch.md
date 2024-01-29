@@ -30,7 +30,7 @@ Whether you're training a deep learning PyTorch model from the ground-up or you'
 - Run the code in this article using either an Azure Machine Learning compute instance or your own Jupyter notebook.
     - Azure Machine Learning compute instance—no downloads or installation necessary:
         - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a dedicated notebook server preloaded with the SDK and the sample repository.
-        - Under the **Samples** tab in the **Notebooks** section of your workspace, find a completed and expanded notebook by navigating to this directory: *v2/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch*
+        - Under the **Samples** tab in the **Notebooks** section of your workspace, find a completed and expanded notebook by navigating to this directory: *SDK v2/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch*
     - Your Jupyter notebook server:
         - Install the [Azure Machine Learning SDK (v2)](https://aka.ms/sdk-v2-install).
         - Download the training script file [pytorch_train.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/src/pytorch_train.py).
