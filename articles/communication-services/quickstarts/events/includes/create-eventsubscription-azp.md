@@ -63,23 +63,23 @@ To update an Event subscription for Azure Communication Services resource, first
 1. Click on the Events tab on the left menu.
 1. Click on **Event Subscriptions** and click on the Event subscription you want to update. 
 
-    :::image type="content" source="../media/subscribe-through-portal/update-subscription.png" alt-text="Screenshot highlighting the event subscription button in the Azure portal.":::
+    :::image type="content" source="../media/subscribe-through-portal/event-subscriptions.png" alt-text="Screenshot highlighting the event subscription button in the Azure portal.":::
 
 1. On the **Event Subscription** page, click on **Filters** tab. Select the event types that you want to receive on the event subscription.
 
-    :::image type="content" source="../media/subscribe-through-portal/update-event-types.png" alt-text="Screenshot that shows the selection of event types.":::
+    :::image type="content" source="../media/subscribe-through-portal/update-event-types.png" alt-text="Screenshot that shows the selection of event types to update.":::
 
 For more information on Communication Services events, see [Communication Services Events](../../../../../articles/event-grid/event-schema-communication-services.md)
 
 1. To enable dead lettering and customize retry policies, select **Additional Features**.
 
-    :::image type="content" source="../media/subscribe-through-portal/select-additional-features.png" alt-text="Screenshot that shows the Additional features tab of the Create Event Subscription page.":::
+    :::image type="content" source="../media/subscribe-through-portal/select-additional-features.png" alt-text="Screenshot that shows the Additional features tab of the Update Event Subscription page.":::
 
 1. To update the webhook to receive events, click on **Change** next to the webhook link and enter the new webhook endpoint. 
-     :::image type="content" source="../media/subscribe-through-portal/update-webhook-endpoint.png" alt-text="Screenshot that shows the Additional features tab of the Create Event Subscription page.":::
+     :::image type="content" source="../media/subscribe-through-portal/update-webhook-endpoint.png" alt-text="Screenshot that shows the Change the webhook endpoint link in the Event Subscription page.":::
 
 1. When done, click **Save**,
-     :::image type="content" source="../media/subscribe-through-portal/save-update.png" alt-text="Screenshot that shows the selection of endpoint type.":::
+     :::image type="content" source="../media/subscribe-through-portal/save-update.png" alt-text="Screenshot that shows the save button in the Azure portal.":::
 
 ## Delete Event Subscription
 
@@ -90,7 +90,7 @@ To delete an Event subscription for Azure Communication Services resource, first
 1. Click on the Events tab on the left menu.
 1. Click on **Event Subscriptions** and click on the Event subscription you want to delete. 
 
-    :::image type="content" source="../media/subscribe-through-portal/update-subscription.png" alt-text="Screenshot highlighting the create event subscription button in the Azure portal.":::
+    :::image type="content" source="../media/subscribe-through-portal/event-subscriptions.png" alt-text="Screenshot highlighting the event subscriptions button to access event subscription to be deleted in the Azure portal.":::
 
 1. On the Event Subscription page, click on **Delete** button at the top. 
 
