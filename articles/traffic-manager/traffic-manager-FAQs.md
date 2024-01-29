@@ -126,7 +126,7 @@ No, the location of the endpoint imposes no restrictions on which regions can be
 
 ### Can I assign geographic regions to endpoints in a profile that isn't configured to do geographic routing?
 
-Yes, if the routing method of a profile isn't geographic, you can use the [Azure Traffic Manager REST API](/rest/api/trafficmanager/) to assign geographic regions to endpoints in that profile. In the case of non-geographic routing type profiles, this configuration is ignored. If you change such a profile to geographic routing type at a later time, Traffic Manager can use those mappings.
+Yes, if the routing method of a profile isn't geographic, you can use the [Azure Traffic Manager REST API](/rest/api/trafficmanager/) to assign geographic regions to endpoints in that profile. For non-geographic routing type profiles, this configuration is ignored. If you change such a profile to geographic routing type at a later time, Traffic Manager can use those mappings.
 
 ### Why am I getting an error when I try to change the routing method of an existing profile to Geographic?
 
@@ -157,7 +157,7 @@ The IP addresses to associate with an endpoint can be specified in two ways. Fir
 
 -    You can't overlap address ranges since each IP address needs to be mapped to only a single endpoint
 -    The start address can't be more than the end address
--    In the case of the CIDR notation, the IP address before the '/' should be the start address of that range (for example, 1.2.3.0/24 is valid but 1.2.3.4.4/24 is NOT valid)
+-    For the CIDR notation, the IP address before the '/' should be the network address of that range (for example, 1.2.3.0/24 is valid but 1.2.3.4.4/24 is NOT valid)
 
 ### How can I specify a fallback endpoint when using Subnet routing?
 
