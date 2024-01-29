@@ -30,6 +30,8 @@
     href: program-requirements-edge-managed.md
   - name: Edge Secured-core
     href: program-requirements-edge-secured-core.md
+  - name: Edge Secured-core devices
+    href: edge-secured-core-devices.md
 
 - name: Concepts
   items:
