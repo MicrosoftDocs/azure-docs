@@ -29,10 +29,10 @@ Your tool package should be a python package. To develop your custom tool, follo
 
 In order to add the custom tool to your tool list for use, it's necessary to prepare the runtime. Here we use [my-tools-package](https://pypi.org/project/my-tools-package/) as an example.
 
-**If you use automatic runtime**, you can readily install the package by adding the custom tool package name into the `requirements.txt` file in the flow folder. Then click `Save and install` button to start installation. After completion, you can see the custom tools displayed in the tool list. See more in [How to update a runtime](./how-to-create-manage-runtime.md##Update a runtime on the UI).
+**If you use the automatic runtime**, you can readily install the package by adding the custom tool package name into the `requirements.txt` file in the flow folder. Then click `Save and install` button to start installation. After completion, you can see the custom tools displayed in the tool list. See more in [How to update a runtime](./how-to-create-manage-runtime.md##Update a runtime on the UI).
 :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/install-package-on-automatic-runtime.png" alt-text="Screenshot of how to install packages on automatic runtime."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/install-package-on-automatic-runtime.png":::
 
-**If you use compute instance runtime**, which should be based on a customized environment where your custom tool is preinstalled, please take the following steps:
+**If you use the compute instance runtime**, which should be based on a customized environment where your custom tool is preinstalled, please take the following steps:
 
 ### Create customized environment
 
