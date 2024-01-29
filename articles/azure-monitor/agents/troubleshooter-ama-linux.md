@@ -77,7 +77,7 @@ Check for the existence of the AMA Agent Troubleshooter directory on the machine
 
 ***/var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-{version}***
 
-To verify the Azure Monitor Agent Troubleshooter is presence, copy the following command and run in Bash as root:
+To verify the Azure Monitor Agent Troubleshooter is present, copy the following command and run in Bash as root:
 
 ```Bash
 ls -ltr /var/lib/waagent | grep "Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-*"
