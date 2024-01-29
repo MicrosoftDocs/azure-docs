@@ -8,7 +8,6 @@ items:
     href: overview-product.md
   - name: Azure Operator 5G Core architecture
     href: overview-architecture.md
-  - name: Azure Operator 5G Core architecture
 - name: Quickstarts
   expanded: false
   items:
