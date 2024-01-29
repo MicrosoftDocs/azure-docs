@@ -12,4 +12,78 @@ ms.service:  # Add the ms.service or ms.prod value
 ms.topic:    # Add the ms.topic value
 ms.date:     01/29/2024---
 
-Dalsv6 and Daldsv6-series
+# Dalsv6 and Daldsv6-series
+
+**In this article** 
+[Dalsv6-series](/azure/virtual-machines/dasv5-dadsv5-series%22%20/l%20%22dasv5-series) 
+
+[Daldsv6-series](/azure/virtual-machines/dasv5-dadsv5-series) 
+
+[Size table definitions](/azure/virtual-machines/dasv5-dadsv5-series) 
+
+[Other sizes and information](/azure/virtual-machines/dasv5-dadsv5-series) 
+
+[Next steps](/azure/virtual-machines/dasv5-dadsv5-series) 
+
+**Applies to:** ✔️ Linux VMs ✔️ Windows VMs ✔️ Flexible scale sets ✔️ Uniform scale sets 
+Important 
+Azure Virtual Machine Series Dalsv6 and Daldsv6 are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
+The Dalsv6-series and Daldsv6-series utilize AMD's 4th Generation EPYCTM 9004 processor in a multi-threaded configuration with up to 320 MB L3 cache. The Dalsv6 and Daldsv6 VM series provides 2GiBs of RAM per vCPU and are optimized for workloads that require less RAM per vCPU than standard VM sizes. The Dalsv6-series can reduce costs when running non-memory intensive applications, including web servers, gaming, video encoding, AI/ML, and batch processing. 
+## Dalsv6-series
+
+Dalsv6-series VMs utilize AMD's 4th Generation EPYCTM 9004 processors that can achieve a boosted maximum frequency of 3.7GHz. These virtual machines offer up to 96 vCPU and 192 GiB of RAM. These VM sizes can reduce cost when running non-memory intensive applications. The new VMs with no local disk provide a better value proposition for workloads that do not require local temporary storage. 
+> [!NOTE]
+> For frequently asked questions, see **[Azure VM sizes with no local temp disk](/azure/virtual-machines/azure-vms-no-temp-disk)**. 
+Dalsv6-series virtual machines do not have any temporary storage thus lowering the price of entry. You can attach Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
+
+[Premium Storage](/azure/virtual-machines/premium-storage-performance): Supported   
+[Premium Storage caching](/azure/virtual-machines/premium-storage-performance): Supported   
+[Live Migration](/azure/virtual-machines/maintenance-and-updates): Not Supported for Preview   
+[Memory Preserving Updates](/azure/virtual-machines/maintenance-and-updates): Supported   
+[VM Generation Support](/azure/virtual-machines/generation-2): Generation 2   
+[Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli): Supported   
+[Ephemeral OS Disks](/azure/virtual-machines/ephemeral-os-disks): Not Supported   
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported 
+
+| Size               | vCPU | Memory: GiB | Local NVMe Temporary storage (SSD) GiB   | Max data disks | Max uncached Premium SSD disk throughput: IOPS/MBps | Max burst uncached Premium SSD disk throughput: IOPS/MBps1 | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps1 | Max NICs | Max network bandwidth (Mbps) |
+|--------------------|------|-------------|------------------------------------------|----------------|-----------------------------------------------------|------------------------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------|----------|------------------------------|
+| Standard_D2als_v6  | 2    | 4           | Remote Storage Only                      | 4              | 4000/90                                             | 20000/1250                                                 | 4000/90                                                               | 20000/1250                                                                   | 2        | 12500                        |
+| Standard_D4als_v6  | 4    | 8           | Remote Storage Only                      | 8              | 7600/180                                            | 20000/1250                                                 | 7600/180                                                              | 20000/1250                                                                   | 2        | 12500                        |
+| Standard_D8als_v6  | 8    | 16          | Remote Storage Only                      | 16             | 15200/360                                           | 20000/1250                                                 | 15200/360                                                             | 20000/1250                                                                   | 4        | 12500                        |
+| Standard_D16als_v6 | 16   | 32          | Remote Storage Only                      | 32             | 30400/720                                           | 40000/1250                                                 | 30400/720                                                             | 40000/1250                                                                   | 8        | 16000                        |
+| Standard_D32als_v6 | 32   | 64          | Remote Storage Only                      | 32             | 57600/1440                                          | 80000/1700                                                 | 57600/1440                                                            | 80000/1700                                                                   | 8        | 20000                        |
+| Standard_D48als_v6 | 48   | 96          | Remote Storage Only                      | 32             | 86400/2160                                          | 90000/2550                                                 | 86400/2160                                                            | 90000/2550                                                                   | 8        | 28000                        |
+| Standard_D64als_v6 | 64   | 128         | Remote Storage Only                      | 32             | 115200/2880                                         | 120000/3400                                                | 115200/2880                                                           | 120000/3400                                                                  | 8        | 36000                        |
+| Standard_D96als_v6 | 96   | 192         | Remote Storage Only                      | 32             | 175000/4320                                         | 175000/5090                                                | 175000/4320                                                           | 175000/5090                                                                  | 8        | 40000                        |1 Dalsv6-series VMs can [burst](/azure/virtual-machines/disk-bursting) their disk performance and get up to their bursting max for up to 30 minutes at a time. 
+
+## Daldsv6-series
+Daldsv6-series VMs utilize AMD's 4th Generation EPYCTM 9004 processors that can achieve a boosted maximum frequency of 3.7GHz. These virtual machines offer up to 96 vCPUs, 192 GiB of RAM, and up to 5,280 GiB of fast local NVMe temporary storage . These VM sizes can reduce cost when running non-memory intensive applications. 
+Daldsv6-series virtual machines support Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
+[Premium Storage](/azure/virtual-machines/premium-storage-performance): Supported   
+[Premium Storage caching](/azure/virtual-machines/premium-storage-performance): Supported   
+[Live Migration](/azure/virtual-machines/maintenance-and-updates): Not Supported for Preview   
+[Memory Preserving Updates](/azure/virtual-machines/maintenance-and-updates): Supported   
+[VM Generation Support](/azure/virtual-machines/generation-2): Generation 2   
+[Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli): Supported   
+[Ephemeral OS Disks](/azure/virtual-machines/ephemeral-os-disks): Not Supported for Preview   
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported 
+  
+ 
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## Other sizes and information
+
+- [General purpose](sizes-general.md)
+- [Memory optimized](sizes-memory.md)
+- [Storage optimized](sizes-storage.md)
+- [GPU optimized](sizes-gpu.md)
+- [High performance compute](sizes-hpc.md)
+- [Previous generations](sizes-previous-gen.md)
+
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
+
+## Next steps
+
+Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
