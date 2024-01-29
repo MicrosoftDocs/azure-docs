@@ -284,7 +284,7 @@ az identity show --resource-group ${RESOURCE_GROUP} \
 ```properties
 spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=<your-keyvault-url>
 spring.cloud.azure.keyvault.secret.property-sources[0].credential.managed-identity-enabled=true
-spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id=<Client-ID-of-user-assigned-managed-identity>
+spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id=<client-ID-of-user-assigned-managed-identity>
 ```
 
 ---
@@ -371,6 +371,14 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id=<Cli
    ```
 
    You're shown the message `jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;`.
+
+## Clean up resources
+
+Use the following command to delete the entire resource group, including the newly created service:
+
+```azurecli
+az group delete --name ${RESOURCE_GROUP} --yes
+```
 
 ## Next steps
 
