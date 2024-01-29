@@ -28,7 +28,7 @@ pip install azure-ai-translation-document==1.0.0
 
 1. For this project, you need a **source document** uploaded to your **source container**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.pdf) for this quickstart. The source language is English.
 
-1. In your Python application file, create variables for your resource key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/async-translation-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
+1. In your Python application file, create variables for your resource key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/asynchronous-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
 
   ```python
   key = "<your-key>"
@@ -123,7 +123,7 @@ for document in result:
 Once you add the code sample to your application type the following command in your terminal:
 
   ```python
-  python async-translation-sdk.py
+  python asynchronous-sdk.py
   ```
 
 Here's a snippet of the expected output:

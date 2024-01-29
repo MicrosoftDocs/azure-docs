@@ -81,7 +81,7 @@ Go to the [Azure portal](https://portal.azure.com/#home) and navigate to your co
     * When you create a shared access signature (SAS), the default duration is 48 hours. After 48 hours, you'll need to create a new token.
     * Consider setting a longer duration period for the time you're using your storage account for Translator Service operations.
     * The value of the expiry time is determined by whether you're using an **Account key** or **User delegation key** **Signing method**:
-       * **Account key**: Wile a maximum time limit isn't imposed, best practice recommends that you configure an expiration policy to limit the interval and minimize compromise. [Configure an expiration policy for shared access signatures](/azure/storage/common/sas-expiration-policy).
+       * **Account key**: While a maximum time limit isn't imposed, best practice recommends that you configure an expiration policy to limit the interval and minimize compromise. [Configure an expiration policy for shared access signatures](/azure/storage/common/sas-expiration-policy).
        * **User delegation key**: The value for the expiry time is a maximum of seven days from the creation of the SAS token. The SAS is invalid after the user delegation key expires, so a SAS with an expiry time of greater than seven days will still only be valid for seven days. For more information,*see* [Use Microsoft Entra credentials to secure a SAS](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas).
 
 1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, authorization fails. The IP address or a range of IP addresses must be public IPs, not private. For more information,*see*, [**Specify an IP address or IP range**](/rest/api/storageservices/create-account-sas#specify-an-ip-address-or-ip-range).
@@ -184,5 +184,5 @@ That's it! You just learned how to create SAS tokens to authorize how clients ac
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get Started with Document Translation](../quickstarts/async-translation-rest-api.md)
+> [Get Started with Document Translation](../quickstarts/asynchronous-rest-api.md)
 >

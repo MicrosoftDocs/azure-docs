@@ -251,7 +251,7 @@ Great! You just learned how to enable and use a system-assigned managed identity
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Get started with Document Translation](../quickstarts/async-translation-rest-api.md)
+> [Quickstart: Get started with Document Translation](../quickstarts/asynchronous-rest-api.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Access Azure Storage from a web app using managed identities](../../../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fcognitive-services%2ftranslator%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcognitive-services%2ftranslator%2ftoc.json)

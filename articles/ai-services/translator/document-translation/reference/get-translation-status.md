@@ -27,7 +27,7 @@ Send a `GET` request to:
 GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches/{id}
 ```
 
-Learn how to find your [custom domain name](../quickstarts/async-translation-rest-api.md).
+Learn how to find your [custom domain name](../quickstarts/asynchronous-rest-api.md).
 
 > [!IMPORTANT]
 >
@@ -72,7 +72,7 @@ The following information is returned in a successful response.
 |--- |--- |--- |
 |`id`|string|ID of the operation.|
 |createdDateTimeUtc|string|Operation created date time.|
-|lastActionDateTimeUtc|string|Date time in which the operation's status has been updated.|
+|lastActionDateTimeUtc|string|Date time in which the operation's status was updated.|
 |status|String|List of possible statuses for job or document: <ul><li>Canceled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
 |summary|StatusSummary|Summary containing the listed details.|
 |summary.total|integer|Total count.|
@@ -144,4 +144,4 @@ Status code: 401
 Follow our quickstart to learn more about using Document Translation and the client library.
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](../quickstarts/async-translation-rest-api.md)
+> [Get started with Document Translation](../quickstarts/asynchronous-rest-api.md)

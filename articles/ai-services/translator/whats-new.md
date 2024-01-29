@@ -66,7 +66,7 @@ The Document translation API now supports two translation operations:
 **Documentation updates**
 
 * The [Document Translation SDK overview](document-translation/document-sdk-overview.md) is now available to provide guidance and resources for the .NET/C# and Python SDKs.
-* The [Document Translation SDK quickstart](document-translation/quickstarts/async-translation-sdk.md) is now available for the C# and Python programming languages.
+* The [Document Translation SDK quickstart](document-translation/quickstarts/asynchronous-sdk.md) is now available for the C# and Python programming languages.
 
 ## May 2023
 

@@ -35,7 +35,7 @@ You need an active Azure subscription. If you don't have an Azure subscription, 
 
   * You need the key and endpoint from the resource to connect your application to the Translator service. You paste your key and endpoint into the code later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page.
 
-    :::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="{alt-text}":::
+    :::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="Screenshot to document translation key and endpoint location in the Azure portal.":::
 
 * For this project, we use the cURL command line tool to make REST API calls.
 
@@ -106,4 +106,4 @@ That's it, congratulations! You just learned to synchronously translate a docume
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Asynchronous batch translation](async-translation-rest-api.md "Learn more about batch translation for multiple files.")
+> [Asynchronous batch translation](asynchronous-rest-api.md "Learn more about batch translation for multiple files.")

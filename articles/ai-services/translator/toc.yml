@@ -125,10 +125,10 @@ items:
         items:
         - name: Batch Translation SDKs
           displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
-          href: document-translation/quickstarts/async-translation-sdk.md
+          href: document-translation/quickstarts/asynchronous-sdk.md
         - name:  Batch Translation REST APIs
           displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,setup
-          href: document-translation/quickstarts/async-translation-rest-api.md
+          href: document-translation/quickstarts/asynchronous-rest-api.md
     - name: Use Batch Translation REST APIs with coding languages
       displayName: get started,batch,sdk,c#,.net,dotnet,python,javascript,java,go,source,target,blob,set up,storage
       href: document-translation/how-to-guides/use-rest-api-programmatically.md
@@ -172,7 +172,7 @@ items:
     items:
     - name: "Quickstart: synchronous translation"
       displayName: get started,keys,endpoint,headers,setup
-      href: document-translation/quickstarts/sync-translation-rest-api.md
+      href: document-translation/quickstarts/synchronous-rest-api.md
     - name: "Reference: synchronous translation REST API guide"
       displayName: get,post,cancel,delete
       href: document-translation/reference/synchronous-rest-api-guide.md

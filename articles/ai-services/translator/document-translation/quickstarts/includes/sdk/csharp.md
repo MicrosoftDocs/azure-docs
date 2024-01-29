@@ -56,7 +56,7 @@ dotnet add package Azure.AI.Translation.Document --version 1.0.0
 
 1. From the project directory, open the **Program.cs** file in your preferred editor or IDE. Delete the pre-existing code, including the line `Console.WriteLine("Hello World!")`.
 
-1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/async-translation-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
+1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/asynchronous-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
 
     ```csharp
     private static readonly string endpoint = "<your-document-translation-endpoint>";
@@ -182,7 +182,7 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
      :::image type="content" source="../../../../media/quickstarts/create-project.png" alt-text="Screenshot of Visual Studio 2022 create new project page.":::
 
-1. In the **Configure your new project** dialog window, enter `async-translation-sdk` in the Project name box. Then choose **Next**.
+1. In the **Configure your new project** dialog window, enter `asynchronous-sdk` in the Project name box. Then choose **Next**.
 
     :::image type="content" source="../../../../media/quickstarts/configure-new-project-document.png" alt-text="Screenshot of Visual Studio 2022 configure new project configuration window.":::
 
@@ -216,7 +216,7 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
 1. Delete the pre-existing code, including the line `Console.WriteLine("Hello World!")`.
 
-1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/async-translation-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
+1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/asynchronous-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
 
   ```csharp
   private static readonly string endpoint = "<your-document-translation-endpoint>";

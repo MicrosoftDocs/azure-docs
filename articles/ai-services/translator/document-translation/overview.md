@@ -49,7 +49,7 @@ You can add Document Translation to your applications using the REST API or a cl
 
 * The [**REST API**](reference/rest-api-guide.md). is a language agnostic interface that enables you to create HTTP requests and authorization headers to translate documents.
 
-* The [**client-library SDKs**](./quickstarts/async-translation-sdk.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](https://pypi.org/project/azure-ai-translation-document/).
+* The [**client-library SDKs**](./quickstarts/asynchronous-sdk.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](https://pypi.org/project/azure-ai-translation-document/).
 
 ### Batch supported document formats
 
@@ -164,4 +164,4 @@ Document Translation data residency depends on the Azure region where your Trans
 In our quickstart, you learn how to rapidly get started using Document Translation. To begin, you need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
 
 > [!div class="nextstepaction"]
-> [Get Started with Batch document translation](./quickstarts/async-translation-rest-api.md) [Get started with synchronous translation](quickstarts/sync-translation-rest-api.md)
+> [Get Started with Batch document translation](./quickstarts/asynchronous-rest-api.md) [Get started with synchronous translation](quickstarts/synchronous-rest-api.md)

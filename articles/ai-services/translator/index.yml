@@ -52,7 +52,7 @@ landingContent:
           - text: Text Translation quickstart
             url: quickstart-text-rest-api.md
           - text: Document Translation quickstart
-            url: document-translation/quickstarts/async-translation-rest-api.md
+            url: document-translation/quickstarts/asynchronous-rest-api.md
           - text: Custom Translator quickstart
             url: custom-translator/quickstart.md
             
@@ -109,7 +109,7 @@ landingContent:
         links:
           - text: Custom Translation for beginners
             url: custom-translator/beginners-guide.md
-          - text: Create a managed a workspace
+          - text: Create and manage a workspace
             url: custom-translator/how-to/create-manage-workspace.md
           - text: Create and manage a project
             url: custom-translator/how-to/create-manage-project.md

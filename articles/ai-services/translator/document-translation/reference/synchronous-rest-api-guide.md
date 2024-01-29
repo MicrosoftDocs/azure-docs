@@ -66,4 +66,4 @@ Query string parameters:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Try the synchronous batch translation quickstart](../quickstarts/sync-translation-rest-api.md "Learn more about batch translation for multiple files.")
+> [Try the synchronous batch translation quickstart](../quickstarts/synchronous-rest-api.md "Learn more about batch translation for multiple files.")
