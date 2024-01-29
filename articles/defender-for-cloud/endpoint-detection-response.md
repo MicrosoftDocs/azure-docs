@@ -12,8 +12,8 @@ ms.date: 01/29/2024
 > [!NOTE]
 > The Log Analytics agent (also known as MMA) is set to retire in [August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). All Defender for Servers features that depend on the AMA, including those described on the [Enable Defender for Endpoint (Log Analytics)](endpoint-protection-recommendations-technical.md) page, will be available through either [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), before the retirement date. For more information about the roadmap for each of the features that are currently rely on Log Analytics Agent, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
 
->[!IMPORTANT]
-> Defender for Cloud recommends using the process described on this page to review Endpoint Detection and Response (EDR) solution installation status and configuration issues within your EDR solution.
+> [!IMPORTANT]
+> Defender for Cloud recommends using the process described on this page to review Endpoint Detection and Response solution installation status and configuration issues within your EDR solution.
 
 Microsoft Defender for Cloud offers security recommendations that assist you in the process of reducing a machine's [attack surface](concept-attack-path.md) allowing the machine to avoid known risks. Defender for Cloud has several recommendations that ensure an Endpoint Detection and Response (EDR) solution is installed and configured securely and according to compliance standards across all of your environments. 
 
@@ -24,24 +24,6 @@ Defender for Cloud's recommendations allow you to:
 - Identify gaps in your security configurations on any of the discovered EDRs.
 
 - Shows you how to remediate gaps in your security configurations.
-
-## Prerequisites
-
-- [Defender for Cloud](connect-azure-subscription.md) enabled on your Azure account.
-
-- Enable either of the following plans enabled on Defender for Cloud:
-    - [Defender for Servers Plan 2](tutorial-enable-servers-plan.md)
-    - [Defender CSPM](tutorial-enable-cspm-plan.md)
-
-- Enable [agentless scanning for your machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines).
-
-## Detect an Endpoint Detection and Response solution
-
-Defender for Cloud offers various recommendation that harden and remediate threats to your environments. The following three recommendations will detect if an Endpoint Detection and Response solution exists on your Azure virtual machines (VM), AWS EC2 instances and GCP VM instances.
-
-- [Azure VM](#detect-endpoint-detection-and-response-solution-on-azure-vm) -`Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines`
-- [AWS  EC2 instances](#detect-endpoint-detection-and-response-solution-on-aws-ec2-instances) -`Endpoint Detection and Response (EDR) solution should be installed on EC2s`
-- [GCP VM instances](#detect-endpoint-detection-and-response-solution-on-gcp-vm-instances) -`Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP)`
 
 The following EDR solutions are supported and can be enabled through Defender for Cloud
 
@@ -55,41 +37,35 @@ The following EDR solutions are supported and can be enabled through Defender fo
 
 <sup><a name="footnote2"></a>2</sup>: The Defender for Endpoint unified solution on Server 2012 R2 automatically installs Microsoft Defender Antivirus in `Active mode`. For Windows Server 2016, Microsoft Defender Antivirus is built into the operating system.
 
-### Detect Endpoint Detection and Response solution on Azure VM
+## Prerequisites
+
+- [Defender for Cloud](connect-azure-subscription.md) enabled on your Azure account.
+
+- Enable either of the following plans enabled on Defender for Cloud:
+    - [Defender for Servers Plan 2](tutorial-enable-servers-plan.md)
+    - [Defender CSPM](tutorial-enable-cspm-plan.md)
+
+- Enable [agentless scanning for your machines](enable-agentless-scanning-vms.md#enabling-agentless-scanning-for-machines).
+
+## Detect an Endpoint Detection and Response solution
+
+Defender for Cloud provides recommendations that are used to harden and remediate threats to your environments. The following three recommendations appear in Defender for Cloud when an Endpoint Detection and Response solution is not detected on your Azure virtual machines (VM), AWS EC2 instances and GCP VM instances.
+
+- Azure VM - `Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines`
+- AWS EC2 instances - `Endpoint Detection and Response (EDR) solution should be installed on EC2s`
+- GCP VM instances - `Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP)`
+
+### Detect an EDR solution on your machine
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
-1. In the search field enter `Endpoint Detection and Response (EDR) solution should be installed on virtual machines`.
+1. In the search field enter the appropriate recommendation.
 
-1. Select the recommendation `Endpoint Detection and Response (EDR) solution should be installed on virtual machines`.
+1. Select the recommendation.
 
-1. 
-
-### Detect Endpoint Detection and Response solution on AWS EC2 instances
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
-
-1. In the search field enter `Endpoint Detection and Response (EDR) solution should be installed on EC2s`.
-
-1. Select the recommendation `Endpoint Detection and Response (EDR) solution should be installed on EC2s`.
-
-1. 
-
-### Detect Endpoint Detection and Response solution on GCP VM instances
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
-
-1. In the search field enter `Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP)`.
-
-1. Select the recommendation `Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP)`.
-
-1. 
+1. Follow the steps listed in the recommendation to remediate it.
 
 ## Configure an Endpoint Detection and Response solution
 
