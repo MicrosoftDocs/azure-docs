@@ -22,10 +22,10 @@ The Cross Region Restore option allows you to restore data in a secondary [Azu
 Before you begin, see the following information:  
 
 - Cross Region Restore is supported only for a Backup vault that uses Storage Redundancy = Geo-redundant.
-- PostGresSQL databases hosted on Azure VMs are supported. You can restore databases or their files. 
+- PostgreSQL databases hosted on Azure VMs are supported. You can restore databases or their files. 
 - Review the [support matrix](./backup-support-matrix.md) for a list of supported managed types and regions.
 - Cross Region Restore option incurs additional charges. [Learn more about pricing](https://azure.microsoft.com/pricing/details/backup/).
-- Once you enable Cross Region restore, it might take up to 48 hours for the backup items to be available in secondary regions.
+- Once you enable Cross Region Restore, it might take up to 48 hours for the backup items to be available in secondary regions.
 - Review the [permissions required to use Cross Region Restore](backup-rbac-rs-vault.md#minimum-role-requirements-for-azure-vm-backup).  
 
 A vault created with GRS redundancy includes the option to configure the Cross Region Restore feature. Every GRS vault has a banner that links to the documentation.  
@@ -53,7 +53,7 @@ Follow these steps:
 
 1. From the [Azure portal](https://portal.azure.com/), go to your Backup vault.
 1. Select **Backup instances** under **Manage**. 
-1. Select **Instance Region** = *Secondary Region* on the filters. 
+1. Select **Instance Region** == *Secondary Region* on the filters. 
 
      :::image type="content" source="./media/tutorial-cross-region-restore/backup-instances-secondary-region.png" alt-text="Screenshot showing the secondary region filter." lightbox="./media/tutorial-cross-region-restore/backup-instances-secondary-region.png":::
 
