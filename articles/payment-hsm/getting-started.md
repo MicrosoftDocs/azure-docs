@@ -39,7 +39,7 @@ Azure Payment HSM customers must have:
 
 ## Cost
 
-The HSM devices will be charged based on the [Azure Payment HSM pricing page](https://azure.microsoft.com/pricing/details/payment-hsm/). All other Azure resources for networking and virtual machines will incur regular Azure costs too.
+The HSM devices will be charged based on the [Azure Payment HSM pricing page](https://azure.microsoft.com/en-us/pricing/details/payment-hsm/#pricing). All other Azure resources for networking and virtual machines will incur regular Azure costs too.
 
 ## payShield customization considerations
 

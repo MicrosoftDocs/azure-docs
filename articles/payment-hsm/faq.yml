@@ -53,7 +53,7 @@ sections:
       - question: |
           What default license comes with Azure Payment HSM?
         answer: |
-          The service comes with Thales payShield 10K Premium Package license with 1 or 2 LMK at 60CPS, 250CPS or 2500CPS. For pricing, please see [Azure Payment HSM pricing details](https://azure.microsoft.com/pricing/details/payment-hsm); for firmware information, see [Azure Payment HSM service support guide: Firmware and license support](support-guide.md#firmware-and-license-support).
+          The service comes with Thales payShield 10K Premium Package license with 1 or 2 LMK at 60CPS, 250CPS or 2500CPS. For pricing, please see [Azure Payment HSM pricing details](https://azure.microsoft.com/en-us/pricing/details/payment-hsm/#pricing); for firmware information, see [Azure Payment HSM service support guide: Firmware and license support](support-guide.md#firmware-and-license-support).
           
       - question: |
           In what scenarios you need to contact Thales for licenses?

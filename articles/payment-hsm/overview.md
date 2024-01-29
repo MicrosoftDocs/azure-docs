@@ -22,7 +22,7 @@ Payment HSMs are provisioned and connected directly to users' virtual network, a
 The Azure Payment HSM solution uses hardware from [Thales](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k) as a vendor. Customers have [full control and exclusive access](overview.md#customer-managed-hsm-in-azure) to the Payment HSM.
 
 > [!IMPORTANT]
-> Azure Payment HSM a highly specialized service. We highly recommend that you review the [Azure Payment HSM pricing page](https://azure.microsoft.com/services/payment-hsm/) and [Getting started with Azure Payment HSM](getting-started.md#support).
+> Azure Payment HSM a highly specialized service. We highly recommend that you review the [Azure Payment HSM pricing page](https://azure.microsoft.com/en-us/pricing/details/payment-hsm/#pricing) and [Getting started with Azure Payment HSM](getting-started.md#support).
 
 ## Azure payment HSM high-level architecture 
 
