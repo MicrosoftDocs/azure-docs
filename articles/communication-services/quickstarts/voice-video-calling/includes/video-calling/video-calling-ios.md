@@ -303,7 +303,7 @@ AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
 
 ### Configure audio session
 
-You use an AVAudioSession object to configure your app’s audio session. Here is an example of enabling bluetooth audio device for your app:
+You use an `AVAudioSession` object to configure your app’s audio session. Here is an example of enabling bluetooth audio device for your app:
 
 ```Swift
 func configureAudioSession() -> Error? {
