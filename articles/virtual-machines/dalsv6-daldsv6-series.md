@@ -2,7 +2,7 @@
 title:       # Dalsv6 and Daldsv6-series
 description: # Specifications for Dalsv6 and Daldsv6-series VMS
 author:      iamwilliew 
-ms.author:   iamwilliew 
+ms.author:   wwilliams
 ms.service:  virtual-machines
 ms.subservice: sizes
 ms.topic:    conceptual
@@ -12,9 +12,9 @@ ms.date:     01/29/2024
 # Dalsv6 and Daldsv6-series
 
 **In this article** 
-[Dalsv6-series](/azure/virtual-machines/dasv5-dadsv5-series%22%20/l%20%22dasv5-series) 
+[Dalsv6-series](/azure/virtual-machines/dasv6-dadsv6-series%22%20/l%20%22dasv6-series) 
 
-[Daldsv6-series](/azure/virtual-machines/dasv5-dadsv5-series) 
+[Daldsv6-series](/azure/virtual-machines/dasv6-dadsv6-series) 
 
 [Size table definitions](/azure/virtual-machines/dasv5-dadsv5-series) 
 
@@ -42,6 +42,7 @@ Dalsv6-series virtual machines do not have any temporary storage thus lowering t
 [Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli): Supported   
 [Ephemeral OS Disks](/azure/virtual-machines/ephemeral-os-disks): Not Supported   
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported 
+
 
 | Size               | vCPU | Memory: GiB | Local NVMe Temporary storage (SSD) GiB   | Max data disks | Max uncached Premium SSD disk throughput: IOPS/MBps | Max burst uncached Premium SSD disk throughput: IOPS/MBps1 | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps1 | Max NICs | Max network bandwidth (Mbps) |
 |--------------------|------|-------------|------------------------------------------|----------------|-----------------------------------------------------|------------------------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------|----------|------------------------------|
