@@ -19,6 +19,8 @@
     href: search-get-started-text.md
   - name: Semantic ranking
     href: search-get-started-semantic.md
+  - name: Retrieval Augmented Generation (RAG)
+    href: search-get-started-retrieval-augmented-generation.md
   - name: Portal
     items:
     - name: Create an index
@@ -151,8 +153,6 @@
     items:
     - name: Search indexes
       href: search-what-is-an-index.md
-    - name: Vector index size limit
-      href: vector-search-index-size.md
     - name: Import
       href: search-what-is-data-import.md
     - name: Import Data wizard
@@ -200,6 +200,8 @@
       href: search-sku-tier.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
+    - name: Vector storage limits
+      href: vector-search-index-size.md
     - name: Plan capacity
       href: search-capacity-planning.md
     - name: Plan and manage costs

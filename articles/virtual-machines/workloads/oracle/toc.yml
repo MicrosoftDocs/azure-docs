@@ -13,6 +13,8 @@ items:
         href: weblogic-server-azure-virtual-machine.md
       - name: WebLogic Server on Azure Kubernetes Service
         href: weblogic-aks.md
+      - name: Quickstart for WebLogic Server on Azure Kubernetes Service
+        href: /azure/aks/howto-deploy-java-wls-app?toc=/azure/virtual-machines/workloads/oracle/toc.json&bc=/azure/virtual-machines/workloads/oracle/breadcrumb/toc.json
   - name: Configuration
     items:
       - name: Set up Oracle ASM on an Azure Linux VM
