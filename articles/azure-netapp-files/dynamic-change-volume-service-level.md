@@ -2,15 +2,9 @@
 title: Dynamically change the service level of a volume for Azure NetApp Files  | Microsoft Docs
 description: Describes how to dynamically change the service level of a volume.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 05/11/2023
 ms.author: anfdocs

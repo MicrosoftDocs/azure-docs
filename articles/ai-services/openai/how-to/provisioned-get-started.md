@@ -46,7 +46,7 @@ After you purchase a commitment on your quota, you can create a deployment. To c
 | Select a model|	Choose the specific model you wish to deploy.	| GPT-4 |
 | Model version |	Choose the version of the model to deploy.	 | 0613 |
 | Deployment Name	 | The deployment name is used in your code to call the model by using the client libraries and the REST APIs.	| gpt-4|
-| Content filter	| Specify the filtering policy to apply to the deployment. Learn more on our [Content Filtering](../concepts/content-filter.md) how-tow | 	Default |
+| Content filter	| Specify the filtering policy to apply to the deployment. Learn more on our [Content Filtering](../concepts/content-filter.md) how-to. | 	Default |
 | Deployment Type	|This impacts the throughput and performance. Choose Provisioned-Managed for your provisioned deployment 	| Provisioned-Managed |
 | Provisioned Throughput Units |	Choose the amount of throughput you wish to include in the deployment. |	100 |
 
@@ -62,13 +62,13 @@ az cognitiveservices account deployment create \
 --model-version 0613  \
 --model-format OpenAI \
 --sku-capacity 100 \
---sku-name Provisioned-Managed
+--sku-name ProvisionedManaged
 ```
 
-REST, ARM template, Bicep and Terraform can also be used to create deployments. See the section on automating deployments in the [Managing Quota](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest#automate-deployment) how-to guide and replace the `sku.name` with "Provisioned-Managed" rather than "Standard." 
+REST, ARM template, Bicep and Terraform can also be used to create deployments. See the section on automating deployments in the [Managing Quota](quota.md?tabs=rest#automate-deployment) how-to guide and replace the `sku.name` with "ProvisionedManaged" rather than "Standard."
 
 ## Make your first calls
-The inferencing code for provisioned deployments is the same a standard deployment type. The following code snippet shows a chat completions call to a GPT-4 model.  For your first time using these models programmatically, we recommend starting with our [quickstart start guide](../quickstart.md). Our recommendation is to use the OpenAI library with version 1.0 or greater since this includes retry logic within the library.
+The inferencing code for provisioned deployments is the same a standard deployment type. The following code snippet shows a chat completions call to a GPT-4 model.  For your first time using these models programmatically, we recommend starting with our [quickstart guide](../quickstart.md). Our recommendation is to use the OpenAI library with version 1.0 or greater since this includes retry logic within the library.
 
 
 ```python
@@ -127,7 +127,7 @@ A 429 response indicates that the allocated PTUs are fully consumed at the time 
 The 429 signal isn't an unexpected error response when pushing to high utilization but instead part of the design for managing queuing and high load for provisioned deployments. 
 
 ### Modifying retry logic within the client libraries
-The Azure OpenAI SDKs retry 429 responses by default and behind the scenes in the client (up to the maximum retries). The libraries respect the `retry-after` time. You can also modify the retry behavior to better suite your experience. Here's an example with the python library. 
+The Azure OpenAI SDKs retry 429 responses by default and behind the scenes in the client (up to the maximum retries). The libraries respect the `retry-after` time. You can also modify the retry behavior to better suit your experience. Here's an example with the python library. 
 
 
 You can use the `max_retries` option to configure or disable retry settings:
@@ -171,11 +171,11 @@ We recommend the following workflow:
 
 ## Next Steps
 
-* For more information on cloud application best practices, check out [Best practices in cloud applications](https://learn.microsoft.com/azure/architecture/best-practices/index-best-practices)
+* For more information on cloud application best practices, check out [Best practices in cloud applications](/azure/architecture/best-practices/index-best-practices)
 * For more information on provisioned deployments, check out [What is provisioned throughput?](../concepts/provisioned-throughput.md)
 * For more information on retry logic within each SDK, check out:
     * [Python reference documentation](https://github.com/openai/openai-python?tab=readme-ov-file#retries)
-    * [.NET reference documentation](https://learn.microsoft.com/dotnet/api/azure.ai.openai.openaiclientoptions?view=azure-dotnet-preview)
-    * [Java reference documentation](https://learn.microsoft.com/java/api/com.azure.ai.openai.openaiclientbuilder?view=azure-java-preview#com-azure-ai-openai-openaiclientbuilder-retryoptions(com-azure-core-http-policy-retryoptions))
-    * [JavaScript reference documentation](https://learn.microsoft.com/javascript/api/@azure/openai/openaiclientoptions?view=azure-node-preview#@azure-openai-openaiclientoptions-retryoptions)
+    * [.NET reference documentation](/dotnet/api/azure.ai.openai.openaiclientoptions?view=azure-dotnet-preview&preserve-view=true)
+    * [Java reference documentation](/java/api/com.azure.ai.openai.openaiclientbuilder?view=azure-java-preview&preserve-view=true#com-azure-ai-openai-openaiclientbuilder-retryoptions(com-azure-core-http-policy-retryoptions))
+    * [JavaScript reference documentation](/javascript/api/@azure/openai/openaiclientoptions?view=azure-node-preview&preserve-view=true#@azure-openai-openaiclientoptions-retryoptions)
     * [GO reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#ChatCompletionsOptions)

@@ -7,10 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer building a React single-page application, I want to configure authentication using Azure Active Directory B2C, so that I can securely sign in users to my application and call a protected web API.
+
 ---
 
 # Configure authentication in a sample React single-page application by using Azure Active Directory B2C

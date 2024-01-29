@@ -91,7 +91,7 @@ You can install the Azure AI CLI locally as described previously, or run it usin
 
 ### Option 1: Using VS Code (web) in Azure AI Studio
 
-VS Code (web) in Azure AI Studio creates and runs the development container on a compute instance. To get started with this approach, follow the instructions in [How to work with Azure AI Studio projects in VS Code (Web)](vscode-web.md).
+VS Code (web) in Azure AI Studio creates and runs the development container on a compute instance. To get started with this approach, follow the instructions in [Work with Azure AI projects in VS Code](develop-in-vscode.md).
 
 Our prebuilt development environments are based on a docker container that has the Azure AI SDK generative packages, the Azure AI CLI, the Prompt flow SDK, and other tools. It's configured to run VS Code remotely inside of the container. The docker container is similar to [this Dockerfile](https://github.com/Azure/aistudio-copilot-sample/blob/main/.devcontainer/Dockerfile), and is based on [Microsoft's Python 3.10 Development Container Image](https://mcr.microsoft.com/en-us/product/devcontainers/python/about). 
 
@@ -221,7 +221,7 @@ As mentioned in step 2 above, your flow.dag.yaml should reference connection and
 
 If you're working in your own development environment (including Codespaces), you might need to manually update these fields so that your flow runs connected to Azure resources.
 
-If you launched VS Code from the AI Studio, you are in an Azure-connected custom container experience, and you can work directly with flows stored in the `shared` folder. These flow files are the same underlying files prompt flow references in the Studio, so they should already be configured with your project connections and deployments. To learn more about the folder structure in the VS Code container experience, see [Get started with Azure AI projects in VS Code (Web)](vscode-web.md)
+If you launched VS Code from the AI Studio, you are in an Azure-connected custom container experience, and you can work directly with flows stored in the `shared` folder. These flow files are the same underlying files prompt flow references in the Studio, so they should already be configured with your project connections and deployments. To learn more about the folder structure in the VS Code container experience, see [Work with Azure AI projects in VS Code](develop-in-vscode.md)
 
 ## ai chat
 
@@ -295,7 +295,7 @@ ai help
 
 ## Next steps
 
-- [Try the Azure AI CLI from Azure AI Studio in a browser](vscode-web.md)
+- [Try the Azure AI CLI from Azure AI Studio in a browser](develop-in-vscode.md)
 
 
 
