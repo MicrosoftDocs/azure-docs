@@ -58,7 +58,7 @@ Azure Speech services are not supported.
 [!INCLUDE [CLI include](includes/quickstarts/speech-to-text-basics/cli.md)]
 ::: zone-end
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Learn more about speech recognition](how-to-recognize-speech.md)
