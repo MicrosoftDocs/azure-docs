@@ -98,10 +98,10 @@ As you work with the node resource group, keep in mind that you can't:
 
 You might get unexpected scaling and upgrading errors if you modify or delete Azure-created tags and other resource properties in the node resource group. AKS allows you to create and modify custom tags created by end users, and you can add those tags when [creating a node pool](manage-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). You might want to create or modify custom tags, for example, to assign a business unit or cost center. Another option is to create Azure Policies with a scope on the managed resource group.
 
-However, modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action, which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](#does-aks-offer-a-service-level-agreement)
+Azure-created tags are created for their respective Azure Services and should always be allowed. For AKS, there are the `aks-managed` and `k8s-azure` tags. Modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action, which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](#does-aks-offer-a-service-level-agreement)
 
 > [!NOTE]
-> The tag name "Owner" is reserved for AKS to manage the public IP that is assigned on front end IP of the loadbalancer. Don't use Azure policies to apply the "Owner" tag name. Otherwise, all resources on your AKS cluster deployment and update operations will break.
+> In the past, the tag name "Owner" was reserved for AKS to manage the public IP that is assigned on front end IP of the loadbalancer. Now, services follow use the `aks-managed` prefix. For legacy resources, don't use Azure policies to apply the "Owner" tag name. Otherwise, all resources on your AKS cluster deployment and update operations will break. This does not apply to newly created resources.
 
 ## What Kubernetes admission controllers does AKS support? Can admission controllers be added or removed?
 
