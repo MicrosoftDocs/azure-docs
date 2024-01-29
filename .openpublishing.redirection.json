@@ -13620,31 +13620,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/aks/open-service-mesh-customize-add-on-experience.md",
-            "redirect_url": "/azure/aks/open-service-mesh-binary",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/open-service-mesh-disable-add-on.md",
-            "redirect_url": "/azure/aks/oopen-service-mesh-uninstall-add-on",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/open-service-mesh-open-source-observability.md",
-            "redirect_url": "/azure/aks/open-service-mesh-integrations",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/open-service-mesh-azure-monitor.md",
-            "redirect_url": "/azure/aks/open-service-mesh-integrations",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/spark-job.md",
-            "redirect_url": "/azure/aks/integrations#open-source-and-third-party-integrations",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-desktop/diagnostics-role-service.md",
             "redirect_url": "/azure/virtual-desktop/troubleshoot-set-up-overview",
             "redirect_document_id": false
