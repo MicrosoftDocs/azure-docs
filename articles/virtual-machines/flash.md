@@ -20,25 +20,25 @@ Flash, as the project is internally known, derives its name from our steadfast c
 
 ## Flash Solutions
 
-The Flash initiative has been dedicated to developing solutions over the years that cater to the diverse monitoring needs of our customers. To help you determine the most suitable Flash monitoring solution(s) for your specific requirements, refer below:
+The Flash initiative is dedicated to developing solutions over the years that cater to the diverse monitoring needs of our customers. To help you determine the most suitable Flash monitoring solution(s) for your specific requirements, refer to the following table:
 
 | **Solution** | **Description** |
 | --- | --- |
 | Azure Resource Graph(General Availability) | For investigations at scale, centralized resource repository and history lookup, large customers want to periodically consume resource availability telemetry across all their workloads, at once, using Azure Resource Graph (ARG). |
-| Event Grid System Topic (Public Preview) | To trigger time-sensitive and critical mitigations (redeploy, restart VM actions) for prevention of end-user impact, customers (e.g., Pearl Abyss, Krafton) want to receive alerts within seconds of critical changes in resource availability via Event Handlers in Event Grid. |
+| Event Grid System Topic (Public Preview) | To trigger time-sensitive and critical mitigations (redeploy, restart VM actions) for prevention of end-user impact, customers (for example, Pearl Abyss, Krafton) want to receive alerts within seconds of critical changes in resource availability via Event Handlers in Event Grid. |
 | Azure Monitor (Public Preview) | To track trends, aggregate platform metrics (CPU, disk etc.), and set up precise threshold-based alerts, customers want to consume an out-of-box VM Availability metric via Azure Monitor. |
 | Resource Health (General Availability) | To perform instantaneous and convenient Portal UI health checks per-resource customers can quickly view the RHC blade on the portal. They can also access a 30-day historical view of health checks for that resource for quick and easy troubleshooting. |
 
 ### Azure resource graph—HealthResources
 
-Currently generally available. It is particularly useful for conducting large-scale investigations. It offers a highly user-friendly experience for [information retrieval](../governance/resource-graph/samples/samples-by-table.md) with its use of [kusto query language](../resource-graph/overview.md#the-query-language) (KQL). It can also serve as a central hub for resource information and allows easy retrieval of historical data.
+Currently generally available. It's useful for conducting large-scale investigations. It offers a highly user-friendly experience for [information retrieval](../governance/resource-graph/samples/samples-by-table.md) with its use of [kusto query language](../resource-graph/overview.md#the-query-language) (KQL). It can also serve as a central hub for resource information and allows easy retrieval of historical data.
 
 In addition to already flowing [VM availability states](../service-health/resource-health-overview.md#health-status), we have published [VM availability annotations](..
-/service-health/resource-health-vm-annotation.md) to [Azure Resource Graph](../governance/resource-graph/overview.md) (ARG) for detailed failure attribution and downtime analysis, along with enabling a 14-day [change tracking](../governance/resource-graph/how-to/get-resource-changes.md?tabs=azure-cli) mechanism to trace historical changes in VM availability for quick debugging. With these new additions, we're excited to announce the general availability of VM availability information in the HealthResources dataset in ARG! With this offering users can:
+/service-health/resource-health-vm-annotation.md) to [Azure Resource Graph](/azure/governance/resource-graph/overview) (ARG) for detailed failure attribution and downtime analysis, along with enabling a 14-day [change tracking](../governance/resource-graph/how-to/get-resource-changes.md?tabs=azure-cli) mechanism to trace historical changes in VM availability for quick debugging. With these new additions, we're excited to announce the general availability of VM availability information in the HealthResources dataset in ARG! With this offering users can:
 
 - Efficiently query the latest snapshot of VM availability across all Azure subscriptions at once and at low latencies for periodic and fleetwide monitoring.
 - Accurately assess the impact to fleetwide business SLAs and quickly trigger decisive mitigation actions, in response to disruptions and type of failure signature.
-- Set up custom dashboards to supervise the comprehensive health of applications by [joining VM availability information](../governance/resource-graph/concepts/work-with-data.md) with additional [resource metadata present in ARG](../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli).
+- Set up custom dashboards to supervise the comprehensive health of applications by [joining VM availability information](../governance/resource-graph/concepts/work-with-data.md) with [resource metadata present in ARG](../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli).
 - Track relevant changes in VM availability across a rolling 14-day window, by using the [change-tracking mechanism](../governance/resource-graph/how-to/get-resource-changes.md?tabs=azure-cli) for conducting detailed investigations.
 
 #### Sample Queries
@@ -51,30 +51,24 @@ In addition to already flowing [VM availability states](../service-health/resour
 
 Users can query ARG via [PowerShell](../governance/resource-graph/first-query-powershell.md), [REST API](../governance/resource-graph/first-query-rest-api.md), [Azure CLI](../governance/resource-graph/first-query-azurecli.md), or even the [Azure portal](https://portal.azure.com/). The following steps detail how data can be accessed from Azure portal.
 
-1. Once on the Azure portal, navigate to Resource Graph Explorer which will look like the below image:
+1. Once on the Azure portal, navigate to Resource Graph Explorer.
 
-![](./media/flash_media/Picture1.png)
-
-_Figure 1: Azure Resource Graph Explorer landing page on Azure portal._
+![Screenshot of the Azure Resource Graph Explorer landing page on the Azure portal.](./media/flash/resource-graph-explorer-landing-page.png)
 
 2. Select the Table tab and (single) click on the HealthResources table to retrieve the latest snapshot of VM availability information (availability state and health annotations).
 
-![](./media/flash_media/Picture2.png)
+![Screenshot of an Azure Resource Graph Explorer Window depicting the latest VM availability states and VM availability annotations in the Health Resources table.](./media/flash/health-resources-table.png)
 
-_Figure 2: Azure Resource Graph Explorer Window depicting the latest VM availability states and VM availability annotations in the HealthResources table._
+There are two types of events populated in the HealthResources table:
 
-There will be two types of events populated in the HealthResources table:
-
-![](./media/flash_media/Picture3.png)
-
-_Figure 3: Snapshot of the type of events in the HealthResources table, as shown in Resource Graph Explorer on the Azure portal._
+![Snapshot of the type of events in the Health Resources table, as shown in Resource Graph Explorer on the Azure portal.](./media/flash/health-resources-table-events.png)
 
 - resourcehealth/availabilitystatuses
 
-This event denotes the latest availability status of a VM, based on the health checks performed by the underlying Azure platform. Below are the availability states we currently emit for VMs:
+This event denotes the latest availability status of a VM, based on the health checks performed by the underlying Azure platform. The availability states we currently emit for VMs are:
 
 - Available: The VM is up and running as expected.
-- Unavailable: We've detected disruptions to the normal functioning of the VM and therefore applications will not run as expected.
+- Unavailable: We detected disruptions to the normal functioning of the VM, and therefore, applications will not run as expected.
 - Unknown: The platform is unable to accurately detect the health of the VM. Users can usually check back in a few minutes for an updated state.
 
 To poll the latest VM availability state, refer to the properties field which contains the below details:
@@ -92,7 +86,7 @@ To poll the latest VM availability state, refer to the properties field which co
 
 #### Property description
 
-| **Field** | **Description** | [**Corresponding RHC**](../azure-monitor/essentials/activity-log-schema#resource-health-category.md) **field** |
+| **Field** | **Description** | **[Corresponding RHC](../azure-monitor/essentials/activity-log-schema.md#resource-health-category)** |
 | --- | --- | --- |
 | targetResourceType | Type of resource for which health data is flowing | resourceType |
 | targetResourceId | Resource ID | resourceId |
@@ -108,13 +102,13 @@ This event contextualizes any changes to VM availability, by detailing necessary
  These annotations can be broadly classified into three buckets:
 
 - Downtime Annotations: These annotations are emitted when the platform detects VM availability transitioning to Unavailable. (For example, during unexpected host crashes, rebootful repair operations).
-- Informational Annotations: These annotations are emitted during control plane activities with no impact to VM availability. (Such as VM allocation/Stop/Delete/Start). Usually, no additional customer action is required in response.
+- Informational Annotations: These annotations are emitted during control plane activities with no impact to VM availability. (Such as VM allocation/Stop/Delete/Start). Usually, no further customer action is required in response.
 - Degraded Annotations: These annotations are emitted when VM availability is detected to be at risk. (For example, when [failure prediction models](https://azure.microsoft.com/blog/advancing-failure-prediction-and-mitigation-introducing-narya) predict a degraded hardware component that can cause the VM to reboot at any given time). We strongly urge users to redeploy by the deadline specified in the annotation message, to avoid any unanticipated loss of data or downtime. You may receive an alert in Azure virtual machine scale sets Resource Health or Activity log in one of the following scenarios:
    - VMs in the Azure virtual machine scale sets are in the process of being stopped, deallocated, deleted, or started.
-   - You have performed scaling in or out operations on the virtual machine scale sets.
+   - You performed scaling in or out operations on the virtual machine scale sets.
    - The alert indicates that the aggregated platform health of [the virtual machine scale sets is in a transient state of "Degraded."](/troubleshoot/azure/virtual-machine-scale-sets/resource-health-degraded-state)
 
-To poll the associated VM availability annotations for a resource, if any, refer to the properties field which contains the following details:
+To poll the associated VM availability annotations for a resource, if any, refer to the properties field, which contains the following details:
 
 #### Sample
 ```
@@ -144,18 +138,18 @@ To poll the associated VM availability annotations for a resource, if any, refer
 
 _Refer to_ [_this doc_](../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli#healthresources) _for a list of starter queries to further explore this data._
 
-Looking ahead to 2024, we have multiple enhancements planned for the annotation metadata that is surfaced in the HealthResources dataset. These enrichments will give users access to richer failure attributes to decisively prepare a response to a disruption. In parallel, we aim to extend the duration of historical lookback to a minimum of 30 days so users can comprehensively track past changes in VM availability.
+Looking ahead to 2024, we have multiple enhancements planned for the annotation metadata that is surfaced in the HealthResources dataset. These enrichments give users access to richer failure attributes to decisively prepare a response to a disruption. In parallel, we aim to extend the duration of historical lookback to a minimum of 30 days so users can comprehensively track past changes in VM availability.
 
 ### Azure Event Grid system topic—HealthResources
 
 To ensure seamless operation of business-critical applications, it's crucial to have real time awareness of any event that might adversely impact VM availability. This awareness enables you to swiftly take remedial actions to shield end-users from any disruption. To support you in your daily operations, we're delighted to announce the public preview of the [HealthResources Event Grid system topic](../event-grid/event-schema-health-resources.md?tabs=event-grid-event-schema) with newly added [VM availability annotations](../service-health/resource-health-vm-annotation.md)!
 
-This system topic provides in-depth VM [health data](../event-grid/event-schema-health-resources.md?tabs=event-grid-event-schema#event-types), giving you immediate insights into changes in VM availability states along with the necessary context. You can receive events on single-instance VMs and [Virtual Machine Scale Set](../virtual-machine-scale-sets/overview.md) VMs for the Azure subscription on which this topic has been created. Data is published to this topic by [Azure Resource Notifications](../event-grid/event-schema-resource-notifications.md) (ARN), our state-of-the-art publisher-subscriber service, equipped with robust Role-Based Access Control (RBAC) and advanced filtering capabilities. This empowers you to effortlessly subscribe to an Event Grid system topic and seamlessly direct relevant events utilizing the [advanced filtering](../event-grid/event-filtering.md) capabilities provided by Event Grid, to downstream tools in real-time. This enables you to respond and mitigate issues instantly.
+This system topic provides in-depth VM [health data](../event-grid/event-schema-health-resources.md?tabs=event-grid-event-schema#event-types), giving you immediate insights into changes in VM availability states along with the necessary context. You can receive events on single-instance VMs and [Virtual Machine Scale Set](../virtual-machine-scale-sets/overview.md) VMs for the Azure subscription for which this topic was created. Data is published to this topic by [Azure Resource Notifications](../event-grid/event-schema-resource-notifications.md) (ARN), our state-of-the-art publisher-subscriber service, equipped with robust Role-Based Access Control (RBAC) and advanced filtering capabilities. This empowers you to effortlessly subscribe to an Event Grid system topic and seamlessly direct relevant events utilizing the [advanced filtering](../event-grid/event-filtering.md) capabilities provided by Event Grid, to downstream tools in real-time. This enables you to respond and mitigate issues instantly.
 
 #### Getting started
 
-- Step 1: Users start by [creating a system](../event-grid/create-view-manage-system-topics#create-a-system-topic.md)topic within the Azure subscription for which they want to receive notifications.
-- Step 2: Users then proceed to [create an event subscription](../event-grid/subscribe-through-portal.md#create-event-subscriptions) within the system topic in Step 1. During this step, they'll specify the [endpoint](../event-grid/event-handlers.md) (such as, Event Hubs) to which the events will be routed. Users also have the option to configure event filters to narrow down the scope of delivered events.
+- Step 1: Users start by [creating a system](../event-grid/create-view-manage-system-topics.md#create-a-system-topic)topic within the Azure subscription for which they want to receive notifications.
+- Step 2: Users then proceed to [create an event subscription](../event-grid/subscribe-through-portal.md#create-event-subscriptions) within the system topic in Step 1. During this step, they specify the [endpoint](../event-grid/event-handlers.md) (such as, Event Hubs) to which the events are routed. Users also have the option to configure event filters to narrow down the scope of delivered events.
 
 As you start subscribing to events from the HealthResources system topic, consider the following best practices:
 
@@ -215,17 +209,13 @@ Currently in public preview. It's well-suited for tracking trends, aggregating p
 
 Users can either consume the metric programmatically via the [Azure Monitor REST API](/rest/api/monitor/metrics) or directly from the [Azure portal](https://portal.azure.com/). The following steps highlight metric consumption from the Azure portal.
 
-Once on the Azure portal, navigate to the VM overview blade. The new metric will be displayed as VM Availability (Preview), along with other platform metrics under the Monitoring tab.
+Once on the Azure portal, navigate to the VM overview blade. The new metric is displayed as VM Availability (Preview), along with other platform metrics under the Monitoring tab.
 
-![Screenshot of virtual machine availability metric on a virtual machine's overview page on the Azure portal.](./media/flash_media/Picture4.png)
-
-_Figure 4: View the newly added VM Availability Metric on the VM overview page on Azure portal._
+![Screenshot of virtual machine availability metric on a virtual machine's overview page on the Azure portal.](./media/flash/virtual-machine-availability-metric.png)
 
 Select (single click) the VM availability metric chart on the overview page, to navigate to [Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for further analysis.
 
-![](./media/flash_media/Picture5.png)
-
-_Figure 5: View the newly added VM availability Metric on Metrics Explorer on Azure portal._
+![View the newly added VM availability Metric on Metrics Explorer on Azure portal.](./media/flash/metrics-explorer-virtual-machine-availability.png)
 
 #### Metric description
 
@@ -233,7 +223,7 @@ _Figure 5: View the newly added VM availability Metric on Metrics Explorer on Az
 | --- | --- |
 | Metric Values | 1 during expected behavior; corresponds to VM in Available state. 0 when VM is impacted by rebootful disruptions; corresponds to VM in Unavailable state. NULL (shows a dotted or dashed line on charts) when the Azure service that is emitting the metric is down or is unaware of the exact status of the VM; corresponds to VM in Unknown state. |
 | Aggregation | The default aggregation of the metric is Average, for prioritized investigations based on extent of downtime incurred. The other aggregations available are: Min, to immediately pinpoint to all the times where VM was unavailable. Max, to immediately pinpoint to all the instances where VM was Available. For more information on chart range, granularity, and data aggregation, see [Azure Monitor Metrics aggregation and display explained](../azure-monitor/essentials/metrics-aggregation-explained.md). |
-| Data Retention | Data for the VM availability metric will be [stored for 93 days](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics) to assist in trend analysis and historical lookback. |
+| Data Retention | Data for the VM availability metric is [stored for 93 days](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics) to assist in trend analysis and historical lookback. |
 | Pricing | Please refer to the [Pricing breakdown](https://azure.microsoft.com/pricing/details/monitor/#pricing), specifically in the "Metrics" and "Alert Rules" sections. |
 
 Looking ahead to 2024, we plan to include impact details (user vs platform initiated, planned vs unplanned) as dimensions to the metric, so users are well equipped to interpret dips, and set up much more targeted metric alerts. With the emission of dimensions in 202, we also anticipate transitioning the offering to a general availability status.
@@ -247,25 +237,21 @@ Looking ahead to 2024, we plan to include impact details (user vs platform initi
 
 It offers immediate and user-friendly health checks for individual resources through the portal. Customers can quickly access the [resource health](../service-health/resource-health-overview.md) blade on the portal and also review a 30-day historical record of health checks, making it an excellent tool for fast and straightforward troubleshooting. The existing Azure resource health feature helps you to diagnose and get support for service problems that affect your Azure resources. It reports on the current and past health of your resources, showing any time ranges that each of your resources have been unavailable.
 
-But we know that our customers and partners are particularly interested in understanding what causes underlying technical issues, and in improving how they can receive communications about any issues—to feed into monitoring processes, to explain hiccups to other stakeholders, and ultimately to inform business decisions.
+But we know that our customers and partners are interested in understanding what causes underlying technical issues, and in improving how they can receive communications about any issues—to feed into monitoring processes, to explain hiccups to other stakeholders, and ultimately to inform business decisions.
 
 #### Introducing root causes for VM issues—in Azure resource health
 
-We recently shipped an improvement to the resource health experience that will enhance the information we share with customers about VM failures, with additional context on the root cause that led to the issue. Now, in addition to getting a fast notification when a VM's availability is impacted, customers can expect a root cause to be added at a later point once our automated Root Cause Analysis (RCA) system identifies the failing Azure platform component that led to the VM failure. Let's walk through an example to see how this works in practice:
+We recently shipped an improvement to the resource health experience that will enhance the information we share with customers about VM failures and provide further context on the root cause that led to the issue. Now, in addition to getting a fast notification when a VM's availability is impacted, customers can expect a root cause to be added at a later point once our automated Root Cause Analysis (RCA) system identifies the failing Azure platform component that led to the VM failure. Let's walk through an example to see how this works in practice:
 
-At time T1, a server rack goes offline due to a networking issue, causing VMs on the rack to lose connectivity. (Recent reliability improvements related to network architecture will be shared in a future [Advancing Reliability](https://www.aka.ms/AdvancingReliability) blog post—watch this space!)
+At time T1, a server rack goes offline due to a networking issue, causing VMs on the rack to lose connectivity. Recent reliability improvements related to network architecture will be shared in a future [Advancing Reliability](https://www.aka.ms/AdvancingReliability) blog post—watch this space!
 
 At time T2, Azure's internal monitoring recognizes that it is unable to reach VMs on the rack and begins to mitigate by redeploying the impacted VMs to a new rack. During this time, an annotation is sent to resource health notifying customers that their VM is currently impacted and unavailable.
 
-![](./media/flash_media/Picture6.png)
-
-_Figure 6: A screenshot of the Azure portal "resource health" blade showing the health history of a resource._
+![Screenshot of the Azure portal resource health blade showing the health history of a resource.](./media/flash/azure-portal-resource-health-history.png)
 
 At time T3, platform telemetry from the top of rack switch, the host machine, and internal monitoring systems, are all correlated together in our RCA engine to derive the root cause of the failure. Once computed, the RCA is then published back into resource health along with relevant architectural resiliency recommendations that customers can implement to minimize the probability of impact in the future.
 
-![](./media/flash_media/Picture7.png)
-
-_Figure 7: A screenshot of the Azure portal "health history" blade showing root cause details for an example of a VM issue._
+![Screenshot of the Azure portal health history blade showing root cause details for an example of a VM issue.](./media/flash/azure-portal-resource-health-history-root-cause.png)
 
 While the initial downtime notification functionality has existed for several years, the publishing of a root cause statement is a new addition. Now, let's dive into the details of how we derive these root causes.
 
