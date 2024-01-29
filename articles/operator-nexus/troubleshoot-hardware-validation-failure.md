@@ -216,7 +216,7 @@ Expanding `result_detail` for a given category shows detailed results.
       }
   ```
 
-### Health Info Category
+### Health info category
 
 * Health Check Sensor Failure
     * Server health checks cover various hardware component sensors.
