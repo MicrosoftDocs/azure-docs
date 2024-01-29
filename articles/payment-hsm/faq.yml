@@ -69,12 +69,7 @@ sections:
           Can I still use a console to manage HSM?
         answer: |
           HSMs are managed remotely with payShield Manager. This access does provide a virtual console which can be used for configuration. No access to Local Console is available and availability of local console cannot be controlled.
-          
-      - question: |
-          How do I monitor payShield 10K?
-        answer: |
-          Payshield 10k can be monitored using standard SNMP V3 tools. payShield Monitor is an additional product available to provide continuous monitoring of HSMs. Contact Thales Sales rep for licensing information.
-          
+                    
       - question: |
           How do I set up payShield monitor with Azure Payment HSM?
         answer: |
