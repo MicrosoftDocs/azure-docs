@@ -1,6 +1,6 @@
 ---
-title: 'Link a virtual network to an ExpressRoute circuit - Azure portal'
-description: This article shows you how to create a connection to link a virtual network to an Azure ExpressRoute circuit using the Azure portal. 
+title: 'Link a virtual network to ExpressRoute circuits - Azure portal'
+description: This article shows you how to create a connection to link a virtual network to Azure ExpressRoute circuits using the Azure portal. 
 services: expressroute
 author: duongau
 ms.service: expressroute
@@ -11,7 +11,7 @@ ms.custom: seodec18, template-tutorial
 zone_pivot_groups: expressroute-experience
 ---
 
-# Connect a virtual network to an ExpressRoute circuit using the Azure portal
+# Connect a virtual network to ExpressRoute circuits using the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
@@ -20,7 +20,7 @@ zone_pivot_groups: expressroute-experience
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
 
-This article helps you create a connection to link a virtual network (virtual network) to an Azure ExpressRoute circuit using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription or part of another subscription.
+This article helps you create a connection to link a virtual network (virtual network) to Azure ExpressRoute circuits using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription or part of another subscription.
 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit.":::
 
@@ -99,6 +99,11 @@ This article helps you create a connection to link a virtual network (virtual ne
 
     Complete the same information for the second ExpressRoute connection. When selecting an ExpressRoute circuit for the second connection, you are provided with the distance from the first ExpressRoute circuit. This information appears in the diagram and can help you select the second ExpressRoute location.
 
+    > [!NOTE]
+    > To have maximum resiliency, you should select two circuits in different peering location. You'll be given the following warning if you select two circuits in the same peering location.
+    >
+    > :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/same-location-warning.png" alt-text="Connection object screenshot":::
+
     **Standard resiliency**
 
     For standard resiliency, you only need to enter information for one connection.
@@ -122,8 +127,6 @@ This article helps you create a connection to link a virtual network (virtual ne
 6. After your connection has been successfully configured, your connection object will show the information for the connection.
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-object.png" alt-text="Connection object screenshot":::
-
-::: zone-end
 
 ## Connect a virtual network to a circuit - different subscription
 
@@ -217,6 +220,8 @@ The circuit user needs the resource ID and an authorization key from the circuit
 ## Configure ExpressRoute FastPath
 
 You can enable [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) if your virtual network gateway is Ultra Performance or ErGw3AZ. FastPath improves data path performance such as packets per second and connections per second between your on-premises network and your virtual network.
+
+::: zone-end
 
 **Configure FastPath on a new connection**
 
