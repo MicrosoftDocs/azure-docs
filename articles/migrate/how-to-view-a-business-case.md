@@ -33,7 +33,8 @@ There are four major reports that you need to review:
     - Support status of the operating system and database licenses.
 - **On-premises vs Azure**: This report covers the breakdown of the total cost of ownership by cost categories and insights on savings.
 - **Azure IaaS**: This report covers the Azure and on-premises footprint of the servers and workloads recommended for migrating to Azure IaaS.
-- **Azure PaaS**: This report covers the Azure and on-premises footprint of the workloads recommended for migrating to Azure PaaS.
+- **On-premises vs AVS (Azure VMware Solution)**: In case you build a business case to “Migrate to AVS”, you’ll see this report which covers the AVS and on-premises footprint of the workloads for migrating to AVS.**Azure PaaS**: This report covers the Azure and on-premises footprint of the workloads recommended for migrating to Azure PaaS.
+- **AVS Report**: 
 
 ## View a business case
 
@@ -62,7 +63,7 @@ As you plan to migrate to Azure in phases, this line chart shows your cashflow p
 This card shows a static percentage of maximum savings you could get with Azure hybrid Benefits. 
 
 ### Savings with Extended security updates
-It shows the potential savings with respect to extended security update license. It is the cost of extended security update license required to run Windows Server and SQL Server securely after the end of support of its licenses on-premises. Extended security updates are offered at no additional cost on Azure.
+It shows the potential savings with respect to extended security update license. It's the cost of extended security update license required to run Windows Server and SQL Server securely after the end of support of its licenses on-premises. Extended security updates are offered at no additional cost on Azure.
 
 ### Savings with security and management
 
@@ -96,7 +97,7 @@ This section contains the cost estimate by recommended target (Annual cost and a
     - **Compute and license cost**: This card shows the comparison of compute and license cost when using Azure hybrid benefit and without Azure hybrid benefit.
     - **Savings** - This card displays the estimated maximum savings when using Azure hybrid benefit and with extended security updates over a period of one year.
 - Azure VM:
-    - **Estimated cost by savings options**: This card includes compute cost for Azure VMs. It is recommended that all idle servers are migrated via Pay as you go Dev/Test and others (Active and unknown) are migrated using 3 year Reserved Instance or 3 year Azure Savings Plan to maximize savings.
+    - **Estimated cost by savings options**: This card includes compute cost for Azure VMs. It's recommended that all idle servers are migrated via Pay as you go Dev/Test and others (Active and unknown) are migrated using 3 year Reserved Instance or 3 year Azure Savings Plan to maximize savings.
     - **Recommended VM family**: This card covers the VM sizes recommended. The ones marked Unknown are the VMs that have some readiness issues and no SKUs could be found for them.
     - **Recommended storage type**: This card covers the storage cost distribution across different recommended storage types.
 - SQL Server on Azure VM:
@@ -151,7 +152,7 @@ It covers cost components for on-premises and AVS, savings, and insights to unde
 
 This section contains the cost estimate by recommended target (Annual cost includes Compute, Storage, Network, labor components) and savings from Hybrid benefits.
 - AVS cost estimate:
-    - **Estimated AVS cost**: This card includes the total cost of ownership for hosting all workloads on AVS including the AVS nodes cost (which includes storage cost), networking and labor cost. The node cost is computed by taking the most cost optimum AVS node SKU A default CPU over-subscription of 4:1, 100% memory overcommit and compression and deduplication factor of 1.5 is assumed to get the compute cost of AVS. You can learn more about this [here](concepts-azure-vmware-solution-assessment-calculation.md#whats-in-an-azure-vmware-solution-assessment). External storage options like ANF aren’t a part of the business case yet. 
+    - **Estimated AVS cost**: This card includes the total cost of ownership for hosting all workloads on AVS including the AVS nodes cost (which includes storage cost), networking and labor cost. The node cost is computed by taking the most cost optimum AVS node SKU. A default CPU over-subscription of 4:1, 100% memory overcommit and compression and deduplication factor of 1.5 is assumed to get the compute cost of AVS. You can learn more about this [here](concepts-azure-vmware-solution-assessment-calculation.md#whats-in-an-azure-vmware-solution-assessment). External storage options like ANF aren’t a part of the business case yet. 
     - **Compute and license cost**: This card shows the comparison of compute and license cost when using Azure hybrid benefit and without Azure hybrid benefit. 
 - Savings and optimization:
     - **Savings with 3-year RI**: This card shows the node cost with 3-year RI.
