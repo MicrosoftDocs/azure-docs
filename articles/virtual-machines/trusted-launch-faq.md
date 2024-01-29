@@ -1,8 +1,8 @@
 ---
 title: FAQ for Trusted Launch
 description: Get answers to the most frequently asked questions about Azure Trusted Launch virtual machines and virtual machine scale sets.
-author: AjKundnani
-ms.author: howie425
+author: howie425
+ms.author: howieasmerom
 ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: trusted-launch
@@ -28,7 +28,7 @@ Trusted launch guards against boot kits, rootkits, and kernel-level malware. The
 
 ### How does trusted launch compare to Hyper-V Shielded VM?
 
-Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are used in fabrics where the data and state of the virtual machine must be protected from a variety of actors. These actors are both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or Virtual Machine Scale Sets on Azure without other deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.
+Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are used in fabrics where the data and state of the virtual machine must be protected from various actors. These actors are both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or Virtual Machine Scale Sets on Azure without other deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.
 
 ### Can I disable Trusted Launch for new VM deployment?
 
@@ -213,7 +213,7 @@ The response is similar to the following form. **hyperVGeneration** `v2` and **S
 Get-AzVMImage -Skus 22_04-lts-gen2 -PublisherName Canonical -Offer 0001-com-ubuntu-server-jammy -Location westus3 -Version latest
 ```
 
-The output of this command can be used with [Virtual Machines - Get API](/rest/api/compute/virtual-machine-images/get). The response is similar to the following form. **hyperVGeneration** `v2` and **SecurityType** contains `TrustedLaunch` in the output indicates that the Generation 2 OS Image supports Trusted Launch.
+The output of the command can be used with [Virtual Machines - Get API](/rest/api/compute/virtual-machine-images/get). The response is similar to the following form. **hyperVGeneration** `v2` and **SecurityType** contains `TrustedLaunch` in the output indicates that the Generation 2 OS Image supports Trusted Launch.
 
 ```json
 {
@@ -369,7 +369,7 @@ In secure boot chain, each step in the boot process checks a cryptographic signa
 
 ### Why is Trusted Launch Virtual Machine not booting correctly? 
 
-If unsigned components are detected from the UEFI (guest firmware), bootloader, operating system, or boot drivers, a Trusted Launch Virtual Machine will not boot. This is considered a secure boot failure. The [secure boot](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#secure-boot-setting-in-hyper-v-manager) setting in the Trusted Launch virtual machine will fail to boot if unsigned or untrusted boot components are encountered during the boot process.
+If unsigned components are detected from the UEFI (guest firmware), bootloader, operating system, or boot drivers, a Trusted Launch Virtual Machine won't boot. This is considered a secure boot failure. The [secure boot](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#secure-boot-setting-in-hyper-v-manager) setting in the Trusted Launch virtual machine will fail to boot if unsigned or untrusted boot components are encountered during the boot process.
 
 ![The trusted launch pipeline from secure boot to third party drivers](./media/trusted-launch/trusted-launch-pipeline.png)
 
@@ -377,18 +377,18 @@ If unsigned components are detected from the UEFI (guest firmware), bootloader, 
 > Trusted Launch Virtual machines that are created directly from an Azure Marketplace image should not encounter Secure Boot failures. Azure Compute Gallery images, Managed Disks, an original image source from Marketplace, and snapshots created from Trusted Launch VMs should also not encounter these errors. 
 
 ### How would I verify a no-boot scenario in the Azure portal? 
-When a virtual machine becomes unavailable from a Secure Boot failure, 'no-boot' means that virtual machine has an operating system component that is signed by a trusted authority which blocks booting a Trusted Launch VM. On VM deployment, customers may see information from resource health within the Azure portal stating that there's a validation error in secure boot.
+When a virtual machine becomes unavailable from a Secure Boot failure, 'no-boot' means that virtual machine has an operating system component that is signed by a trusted authority, which blocks booting a Trusted Launch VM. On VM deployment, customers may see information from resource health within the Azure portal stating that there's a validation error in secure boot.
 
 To access resource health from the virtual machine configuration page, navigate to Resource Health under the 'Help' panel.
 
 :::image type="content" source="./media/trusted-launch/resource-health-error.png" lightbox="./media/trusted-launch/resource-health-error.png" alt-text="A resource health error message alerting a failed secure boot.":::
 
-Follow the 'Recommended Steps' outlined in the resource health screen. This will include a screenshot and downloadable serial log from the boot diagnostics of the virtual machine.
+Follow the 'Recommended Steps' outlined in the resource health screen. Instructions include a screenshot and downloadable serial log from the boot diagnostics of the virtual machine.
 
-If you verified the no-boot was caused due to secure boot failure, it is due to one of the following:
-1. The image you are using is an older version that may have one or more untrusted boot components and is on a deprecation path. To remedy this, you must use a supported newer image version.
-1. The image you are using may have been built from a non-marketplace source or the boot components have been modified and contain unsigned or untrusted boot components. To verify if your image has unsigned or untrusted boot components, refer to 'Verifying secure boot failures'.
-1. If the above two scenarios do not apply, there is potential of bootkits/rootkit malware within the virtual machine. Please consider deleting the virtual machine and re-creating a new VM from the same source image.
+If you verified the no-boot was caused due to secure boot failure, it's due to one of the following:
+1. The image you're using is an older version that may have one or more untrusted boot components and is on a deprecation path. To remedy an outdated image, update to a supported newer image version.
+1. The image you're using may have been built outside of a marketplace source or the boot components have been modified and contain unsigned or untrusted boot components. To verify if your image has unsigned or untrusted boot components, refer to 'Verifying secure boot failures'.
+1. If the above two scenarios don't apply, the virtual machine is potentially infected with malware (bootkit/rootkit). Consider deleting the virtual machine and re-creating a new VM from the same source image while evaluating all software being installed.
 
 ## Verifying secure boot failures
 
@@ -464,9 +464,9 @@ Trusted launch for Azure virtual machines is monitored for advanced threats. If 
 
 Microsoft Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert is triggered. Trusted launch attestation can fail for the following reasons:
 
-- The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). This deviation indicates an untrusted module(s) were loaded and the OS may be compromised.
-- The attestation quote could not be verified to originate from the vTPM of the attested VM. This verification failure indicates a malware is present and may be intercepting traffic to the TPM.
-- The attestation extension on the VM isn't responding. This unresponsive extension indicates a denial-of-service attack by malware or an OS admin.
+- The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). Any deviation indicates an untrusted module(s) were loaded and the OS may be compromised.
+- The attestation quote couldn't be verified to originate from the vTPM of the attested VM. The verification failure indicates a malware is present and may be intercepting traffic to the TPM.
+- The attestation extension on the VM isn't responding. An unresponsive extension indicates a denial-of-service attack by malware or an OS admin.
 
 ## Certificates
 
@@ -476,7 +476,7 @@ The virtual TPM AK public certificate provides users with visibility for informa
 
 #### Download instructions
 
-Below is the package certificate, compromised of. p7b (Full Certificate Authority) and .cer (Intermediate CA), revealing the signing and certificate authority. Copy the relevant content below and use certificate tooling to inspect and assess details of certificates.  
+Package certificates, compromised of. p7b (Full Certificate Authority) and .cer (Intermediate CA), reveal the signing and certificate authority. Copy the relevant content and use certificate tooling to inspect and assess details of certificates.  
 
 [!INCLUDE [json](../virtual-machines/includes/trusted-launch-tpm-certs/tpm-root-certificate-authority.md)]
 
