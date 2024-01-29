@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse, ignite-2022
 ms.topic: conceptual
-ms.date: 12/13/2023
+ms.date: 01/29/2024
 author: chez-charlie
 ms.author: chez
 ---
@@ -65,6 +65,7 @@ All the linked service types are supported for parameterization.
 - Generic REST
 - Google AdWords
 - Informix
+- MariaDB
 - Microsoft Access
 - MySQL
 - OData 
