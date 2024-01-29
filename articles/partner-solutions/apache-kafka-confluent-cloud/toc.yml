@@ -1,5 +1,5 @@
 items:
-- name: Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service Documentation
+- name: Apache Kafka & Apache Flink on Confluent Cloud
   href: index.yml
 - name: Overview
   items:

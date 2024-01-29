@@ -10,7 +10,7 @@ ms.date: 11/20/2023
 
 # QuickStart: Get started with Apache Kafka & Apache Flink on Confluent Cloud - Azure CLI
 
-In this quickstart, you'll use the Azure Marketplace and Azure CLI to create an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™.
+In this quickstart, you'll use the Azure Marketplace and Azure CLI to create an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service.
 
 ## Prerequisites
 

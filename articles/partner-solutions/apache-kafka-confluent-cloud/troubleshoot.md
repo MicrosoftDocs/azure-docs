@@ -8,7 +8,7 @@ ms.date: 11/20/2023
 
 # Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions
 
-This document contains information about troubleshooting your solutions that use Apache Kafka® & Apache Flink® on Confluent Cloud™.
+This document contains information about troubleshooting your solutions that use Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service.
 
 If you don't find an answer or can't resolve a problem, [create a request through the Azure portal](get-support.md) or contact [Confluent support](https://support.confluent.io).
 

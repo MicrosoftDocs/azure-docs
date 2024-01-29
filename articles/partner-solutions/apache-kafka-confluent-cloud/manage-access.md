@@ -13,7 +13,7 @@ ms.date: 11/29/2023
 
 User access management is a feature that enables the organization admin to add, view and remove users and roles inside a Confluent organization. By managing user permissions, you can ensure that only authorized users can access and perform actions on your Confluent Cloud resources.
 
-This guide presents step by step instructions to manage users and roles in Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service, via Azure portal.
+This guide presents step by step instructions to manage users and roles in Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service, via Azure portal.
 
 The following actions are supported:
 

@@ -9,7 +9,7 @@ ms.date: 11/20/2023
 
 # Azure services and Confluent Cloud integrations
 
-This article describes how to use Azure services like Azure Functions, and how to install connectors to Azure resources for Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service.
+This article describes how to use Azure services like Azure Functions, and how to install connectors to Azure resources for Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service.
 
 ## Azure Cosmos DB connector
 
