@@ -70,9 +70,9 @@ The following table lists the various sources supported by the migration service
 | PostgreSQL Source Type | Offline Migration | Online Migration |
 |------------------------|-------------------|------------------| 
 | [Azure Database for PostgreSQL – Single server](../how-to-migrate-single-to-flexible-portal.md) | Supported | Supported |
-| [AWS RDS for PostgreSQL](tutorial-migration-service-offline-aws.md) | Supported | Coming Soon |
-| [On-premises](tutorial-migration-service-offline-iaas.md) | Supported | Coming Soon |
-| [Azure VM](tutorial-migration-service-offline-iaas.md) | Supported | Coming Soon |
+| [AWS RDS for PostgreSQL](tutorial-migration-service-offline-aws.md) | Supported | Planned for future release |
+| [On-premises](tutorial-migration-service-offline-iaas.md) | Supported | Planned for future release |
+| [Azure VM](tutorial-migration-service-offline-iaas.md) | Supported | Planned for future release |
 
 
 :::image type="content" source="media/concepts-migration-service-postgresql/migrate-different-sources-option.png" alt-text="Screenshot of the migration setup showing different sources." lightbox="media/concepts-migration-service-postgresql/migrate-different-sources-option.png":::
