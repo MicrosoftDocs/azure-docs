@@ -9,8 +9,6 @@ ms.date: 01/16/2024
 
 Workloads commonly span multiple cloud platforms. Cloud security services must do the same. Microsoft Defender for Cloud helps protect workloads in Google Cloud Platform (GCP), but you need to set up the connection between them and Defender for Cloud.
 
-If you're connecting a GCP project that you previously connected by using the classic connector, you must [remove it](how-to-use-the-classic-connector.md#remove-classic-gcp-connectors) first. Using a GCP project connected by both the classic and native connectors can produce duplicate recommendations.
-
 This screenshot shows GCP accounts displayed in the Defender for Cloud [overview dashboard](overview-page.md).
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Screenshot that shows GCP projects listed on the overview dashboard in Defender for Cloud." lightbox="media/quickstart-onboard-gcp/gcp-account-in-overview.png":::

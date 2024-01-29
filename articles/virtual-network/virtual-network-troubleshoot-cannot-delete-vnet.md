@@ -103,7 +103,7 @@ Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
 
 ### Check whether the virtual network was used by a web app for VNet integration
 
-If the virtual network was integrated with a web app in the past, then the web app was deleted without disconnecting the VNet integration, see [Deleting the App Service plan or web app before disconnecting the VNet integration](https://github.com/MicrosoftDocs/azure-docs/blob/046310ca15df6c82612b11971b9481b98125dd64/includes/app-service-web-vnet-troubleshooting.md).
+If the virtual network was integrated with a web app in the past, then the web app was deleted without disconnecting the VNet integration, see [Deleting the App Service plan or web app before disconnecting the VNet integration](../azure-functions/functions-networking-options.md#troubleshooting).
 
 ## Next steps
 
