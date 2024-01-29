@@ -3,7 +3,7 @@ title: Configure personal desktop assignment in Azure Virtual Desktop  - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 01/26/2024
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 ---
@@ -26,18 +26,6 @@ If you're using either the Azure portal or PowerShell method, you'll need the fo
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 If you're assigning desktops with PowerShell, you'll need to [download and install the Azure Virtual Desktop PowerShell module](powershell-module.md) if you haven't already.
-
-### Define variables
-
-The PowerShell commands listed in this article require defining the following variables with the placeholder values replaced with the values relevant to your account and deployment:
-
-```powershell
-#Define variables
-$subscriptionId = <00000000-0000-0000-0000-000000000000>
-$resourceGroupName = <MyResourceGroupName>
-$hostPoolName = <MyHostPoolName>
-$sessionHostName = <SessionHostName>
-```
 
 ## Personal host pools overview
 
