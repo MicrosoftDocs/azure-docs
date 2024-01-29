@@ -9,7 +9,6 @@ ms.date: 01/29/2024
 
 ---
 
-
 # What is Azure Operator 5G Core? 
 
 Azure Operator 5G Core (AO5GC) is a carrier-grade, Any-G, hybrid mobile packet core with fully integrated network functions that run both on-premises and in-cloud. Service providers can deploy resilient networks with high performance and at high capacity while maintaining low latency. The AO5GC is ideal for Tier 1 consumer networks, mobile network operators (MNO), virtual network operators (MVNOs), enterprises, IoT, fixed wireless access (FWA), and satellite network operators (SNOs). 
