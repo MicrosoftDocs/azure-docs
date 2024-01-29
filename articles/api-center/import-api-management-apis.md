@@ -225,14 +225,14 @@ Use a wildcard (`*`) to specify all APIs from the API Management instance.
     #! /bin/bash
     apiIDs="$apimID/apis/*"
 
-    az apic service import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> --source-resource-ids $apiIDs    
+    az apic service import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> --source-resource-ids $apimID    
     ```
     
     ```azurecli 
     # PowerShell syntax
     $apiIDs=$apimID + "/apis/*"
 
-    az apic service import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> --source-resource-ids $apiIDs    
+    az apic service import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> --source-resource-ids $apimID    
     ```
 
     > [!NOTE]
