@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Add AR filter to your app
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you learn how to add AR filter to your app using Azure Communication Services and DeepAR.
+description: In this quickstart, you learn how to add AR filter to your app using Azure Communication Services and video AR SDKs.
 author: sloanster
 services: azure-communication-services
 
@@ -13,12 +13,14 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-# QuickStart: Add DeepAR filters to your video calls
+# QuickStart: Add AR filters to your video calls
 
 In some usage scenarios, you may want to apply some video processing to the original camera video, such as background blur or background replacement.
 This can provide a better user experience.
 The Azure Communication Calling video effects package provides several video processing functions. However, this is not the only choice.
 You can also integrate other video effects library with ACS raw media access API.
+
+We'll use DeepAR SDK(https://www.deepar.ai/) as an example to show how to integrate other effects libraries with ACS Calling SDK. 
 Let's try DeepAR to enrich your video with Augmented Reality!
 
 ## Prerequisites
