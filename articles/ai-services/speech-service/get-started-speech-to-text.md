@@ -39,11 +39,11 @@ keywords: speech to text, speech to text software
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-Azure Speech services are not supported.
+Azure Speech services aren't supported.
 ::: zone-end
 
 ::: zone pivot="programming-language-swift"
-Azure Speech services are not supported.
+Azure Speech services aren't supported.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

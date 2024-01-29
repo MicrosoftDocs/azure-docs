@@ -53,7 +53,7 @@ Here are some other considerations:
 
     ***
 
-- To improve recognition accuracy of specific words or utterances, use a [phrase list](~/articles/ai-services/speech-service/improve-accuracy-phrase-list.md). You include a phrase list in-line or with a text file along with the recognize command:
+- To improve recognition accuracy of specific words or utterances, use a [phrase list](~/articles/ai-services/speech-service/improve-accuracy-phrase-list.md). You include a phrase list in-line or with a text file along with the `recognize` command:
 
     # [Terminal](#tab/terminal)
 
