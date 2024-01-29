@@ -1,12 +1,12 @@
 ---
 title: "Azure Operator Nexus: Credential Rotation"
-description: Learn to execute a cluster runtime upgrade for Operator Nexus
-author: Sandeep Batchu
-ms.author: sbatchu
+description: Instructions on Credential Rotation Lifecycle Management requests.
 ms.service: azure-operator-nexus
 ms.custom: template-how-to
 ms.topic: how-to
 ms.date: 01/29/2024
+author: sbatchu0108
+ms.author: sbatchu
 ---
 
 # Credential Rotation Lifecycle Management for Operator Nexus Instance
