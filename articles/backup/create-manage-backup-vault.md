@@ -258,9 +258,9 @@ The Cross Region Restore option allows you to restore data in a secondary Azur
 
    :::image type="content" source="./media/backup-vault-overview/check-availability-of-recovery-point-in-secondary-region.png" alt-text="Screenshot shows how to check availability for the recovery points in the secondary region." lightbox="./media/backup-vault-overview/check-availability-of-recovery-point-in-secondary-region.png":::
 
-1. The recovery points available in the secondary region are now listed.
+   The recovery points available in the secondary region are now listed.
 
-   Choose **Restore to secondary region**.
+1. Select **Restore to secondary region**.
 
    :::image type="content" source="./media/backup-vault-overview/initiate-restore-to-secondary-region.png" alt-text="Screenshot shows how to initiate restores to the secondary region." lightbox="./media/backup-vault-overview/initiate-restore-to-secondary-region.png":::
 

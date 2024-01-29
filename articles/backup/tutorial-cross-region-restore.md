@@ -7,7 +7,7 @@ ms.service: backup
 ms.author: v-abhmallick
 ---
 
-# Tutorial: Configure and run Cross Region Restore for Azure database for PostgreSQL
+# Tutorial: Configure and run Cross Region Restore for Azure database for PostgreSQL by using Azure Backup
 
 This tutorial describes how you can enable and run Cross Region Restore to restore SQL databases hosted on Azure VMs in a secondary region.
 
@@ -19,7 +19,7 @@ The Cross Region Restore option allows you to restore data in a secondary [Azu
 
 ## Considerations
 
-Before you begin, see the following information:  
+Before you begin Cross Region Restore for PostgreSQL server, see the following information:  
 
 - Cross Region Restore is supported only for a Backup vault that uses Storage Redundancy = Geo-redundant.
 - PostgreSQL databases hosted on Azure VMs are supported. You can restore databases or their files. 
@@ -32,7 +32,9 @@ A vault created with GRS redundancy includes the option to configure the Cross R
 
 ## Enable Cross Region Restore on a Backup vault 
 
-The Cross Region Restore option allows you to restore data in a secondary Azure paired region. To configure Cross Region Restore for the backup vault:  
+The Cross Region Restore option allows you to restore data in a secondary Azure paired region. 
+
+To configure Cross Region Restore for the backup vault, follow these steps:  
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 1. [Create a new Backup vault](create-manage-backup-vault.md#create-backup-vault) or choose an existing Backup vault.
@@ -68,7 +70,11 @@ To restore the database to the secondary region, follow these steps:
 1. To check the availability of recovery point in the secondary region, go to the **Backup center** > **Backup Instances**.
 1. Filter to **Azure Database for PostgreSQL servers**, then filter Instance region as **Secondary Region**, and then select the required Backup Instance. 
      :::image type="content" source="./media/create-manage-backup-vault/view-jobs-in-secondary-region.png" alt-text="Screenshot showing how to view jobs in secondary region." lightbox="./media/create-manage-backup-vault/view-jobs-in-secondary-region.png":::
-1. The recovery points available in the secondary region are now listed. Choose Restore to secondary region. 
+
+   The recovery points available in the secondary region are now listed. 
+
+1. Select **Restore to secondary region**. 
+
     You can also trigger restores from the respective backup instance. 
 1. Select Restore to secondary region to review the target region selected, and then select the appropriate recovery point and restore parameters. 
 1. Once the restore starts, you can monitor the completion of the restore operation under Backup Jobs of the Backup vault by filtering Jobs workload type to Azure Database for PostgreSQL servers and Instance Region to Secondary Region. 
@@ -78,5 +84,5 @@ To restore the database to the secondary region, follow these steps:
 
 For more information about backup and restore with Cross Region Restore, see:
 
-- Cross Region Restore for [PostGreSQL Servers](create-manage-backup-vault.md#perform-cross-region-restore-using-azure-portal).
-- Continue to the how-to article for [Restore Azure Database for PostgreSQL backups](./restore-azure-database-postgresql.md).
+- [Cross Region Restore for PostGreSQL Servers](create-manage-backup-vault.md#perform-cross-region-restore-using-azure-portal).
+- [Restore Azure Database for PostgreSQL backups](./restore-azure-database-postgresql.md).

@@ -91,7 +91,7 @@ As one of the restore options, Cross Region Restore (CRR) allows you to restore 
 ### Considerations
 
 - To begin using the feature, read the [Before you start](create-manage-backup-vault.md#before-you-start) section.
-- To check if Cross Region Restore is enabled, see the [Configure Cross Region Restore](create-manage-backup-vault.md#cross-subscription-restore-using-azure-portal) section.
+- To check if Cross Region Restore is enabled, see the [Configure Cross Region Restore](create-manage-backup-vault.md#perform-cross-region-restore-using-azure-portal) section.
 
 
 ### View backup instances in secondary region
@@ -105,14 +105,16 @@ If CRR is enabled, you can view the backup instances in the secondary region.
     :::image type="content" source="./media/create-manage-backup-vault/select-secondary-region-as-instance-region.png" alt-text="Screenshot showing the selection of the secondary region as the instance region." lightbox="./media/create-manage-backup-vault/select-secondary-region-as-instance-region.png":::
 
     >[!Note]
-    > Only Backup Management Types supporting the CRR feature are listed. Currently, the restore of primary region data to a secondary region for PostgreSQL servers is only supported.
+    > Only Backup Management Types supporting the CRR feature are listed. Currently, the restoration of primary region data to a secondary region for PostgreSQL servers is only supported.
 
 
 ### Restore in secondary region
 
-The user experience for secondary region restore is similar to the primary region restore user experience.  
+The secondary region restore experience is similar to the primary region restore.  
 
-When configuring details in the **Restore Configuration** pane to configure your restore, you’re prompted to provide only secondary region parameters. So, a vault should already exist in the secondary region and the PostgreSQL server should be registered to the vault in the secondary region.  
+When configuring details in the **Restore Configuration** pane to configure your restore, you’re prompted to provide only secondary region parameters. So, a vault should already exist in the secondary region and the PostgreSQL server should be registered to the vault in the secondary region. 
+
+Follow these steps: 
 
 
 1.	Select **Backup Instance name** to view details.
@@ -121,7 +123,7 @@ When configuring details in the **Restore Configuration** pane to configure your
     :::image type="content" source="./media/create-manage-backup-vault/restore-to-secondary-region.png" alt-text="Screenshot showing how to restore to secondary region." lightbox="./media/create-manage-backup-vault/restore-to-secondary-region.png":::
 
 1. Select the restore point, the region, and the resource group. 
-1. Select Restore. 
+1. Select **Restore**. 
     >[!Note]
     > - After the restore is triggered in the data transfer phase, the restore job can't be canceled.
     > - The role/access level required to perform restore operation in cross-regions are *Backup Operator* role in the subscription and *Contributor (write)* access on the source and target virtual machines. To view backup jobs, *Backup reader* is the minimum permission required in the subscription.

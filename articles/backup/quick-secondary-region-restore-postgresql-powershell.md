@@ -102,13 +102,13 @@ $restoreJob = Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $i
 
 To monitor the restore job progress, choose one of the methods:
 
-- **Get the list of Cross Region Restore jobs from the secondary region**.
+- To get the complete list of Cross Region Restore jobs from the secondary region, run the following cmdlet:
 
   ```azurepowershell
   $job = Get-AzDataProtectionJob -ResourceGroupName $resourceGroupName -SubscriptionId $subscriptionId -VaultName $vaultName -UseSecondaryRegion
   ```
 
-- **Get a single job details**.
+- To get a single job detail, run the following cmdlet:
 
   ```azurepowershell
   $restoreJob = Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $instance.Name -ResourceGroupName $ResourceGroupName -VaultName $vaultName -SubscriptionId $SubscriptionId -Parameter $OssRestoreReq -RestoreToSecondaryRegion  # -Debug
