@@ -5,6 +5,8 @@
   items:
   - name: Payment HSM overview
     href: overview.md
+  - name: Payment HSM onboarding
+    href: onboarding.md
   - name: What's new
     href: whats-new.md
 
