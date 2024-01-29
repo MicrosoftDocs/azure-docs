@@ -86,12 +86,12 @@ Replace the assignee parameter with the _Application ID_ of the vault's MSI and 
  
 ## Restore databases across regions
 
-As one of the restore options, Cross Region Restore (CRR) allows you to restore Azure PostGres SQLs servers in a secondary region, which is an Azure paired region.
+As one of the restore options, Cross Region Restore (CRR) allows you to restore Azure Database for PostgreSQL servers in a secondary region, which is an Azure-paired region.
 
 ### Considerations
 
 - To begin using the feature, read the [Before you start](create-manage-backup-vault.md#before-you-start) section.
-- To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](create-manage-backup-vault.md#perform-cross-region-restore-using-azure-portal-preview\\).
+- To check if Cross Region Restore is enabled, see the [Configure Cross Region Restore](create-manage-backup-vault.md#cross-subscription-restore-using-azure-portal) section.
 
 
 ### View backup instances in secondary region
@@ -106,7 +106,7 @@ If CRR is enabled, you can view the backup instances in the secondary region.
     :::image type="content" source="./media/create-manage-backup-vault/select-secondary-region-as-instance-region.png" alt-text="Screenshot showing the selection of the secondary region as the instance region." lightbox="./media/create-manage-backup-vault/select-secondary-region-as-instance-region.png":::
 
     >[!Note]
-    > Only Backup Management Types supporting the CRR feature will be shown in the list. Currently, only support for restoring primary region data to a secondary region is allowed.
+    > Only Backup Management Types supporting the CRR feature are listed. Currently, the restore of primary region data to a secondary region for PostgreSQL servers is only supported.
 
 
 ### Restore in secondary region
