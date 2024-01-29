@@ -55,7 +55,7 @@ This process allows for seamless updates while minimizing downtime and ensuring 
 
 ### Precise downtime expectations
 
-* **Downtime curation**: In most cases, the downtime ranges from 10 to 30 seconds.
+* **Downtime duration**: In most cases, the downtime ranges from 10 to 30 seconds.
 * **Other considerations**: After a scaling event, there's an inherent DNS `Time-To-Live` (TTL) period of approximately 30 seconds. This period isn't directly controlled by the scaling process. It's a standard part of DNS behavior. From an application perspective, the total downtime experienced during scaling could be in the range of 40 to 60 seconds.
 
 #### Considerations and limitations
