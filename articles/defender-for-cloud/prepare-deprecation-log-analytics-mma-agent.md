@@ -35,7 +35,7 @@ Dates are summarized in the following table.
 | --- | --- | --- |
 | Log Analytics agent | Defender for Servers, Defender for SQL on Machines | The Log Analytics agent is supported in GA until August 2024.|
 | AMA | Defender for SQL on Machines | The AMA is available with a new autoprovisioning process. |
-| AMA | Defender for Servers | The AMA is available in public preview until August 2023. |
+| AMA | Defender for Servers | The AMA is available in public preview until August 2024. |
 
 ## Scheduling migration
 
