@@ -204,33 +204,37 @@ Terminal Server has been deployed and configured as follows:
 
 4. Verify settings:
 
-```bash
- ping $PE1_IP -c 3  # ping test to PE1
- ping $PE2_IP -c 3 # ping test to PE2
- ogcli get conns # verify NET1, NET2
- ogcli get users # verify support admin user
- ogcli get static_routes # there should be no static routes
- ip r # verify only interface routes
- ip a # verify loopback, NET1, NET2
-```
+   ```bash
+   ping $PE1_IP -c 3  # ping test to PE1
+   ping $PE2_IP -c 3 # ping test to PE2
+   ogcli get conns # verify NET1, NET2
+   ogcli get users # verify support admin user
+   ogcli get static_routes # there should be no static routes
+   ip r # verify only interface routes
+   ip a # verify loopback, NET1, NET2
+   ```
 5. Start the LLDP service if it is not running by default:
    
-Check if LLDP service is running on TS:
+   Check if LLDP service is running on TS:
+   ```bash
+   sudo systemctl status lldpd
+   ```
 
-```bash
-sudo systemctl status lldpd
-```
+   If the service is not running/inactive, start the service:
+   ```bash
+   sudo systemctl start lldpd
+   ```
 
-If the service is not running/inactive, start the service:
-```bash
-sudo systemctl start lldpd
-```
+   Enable the service on reboot:
+   ```bash
+   sudo systemctl enable lldpd
+   ```
 
-Execute the following to verify:
-```bash
-sudo lldpctl
-sudo lldpcli show neighbors # to check the LLDP neighbors.
-```
+   Execute the following to verify:
+   ```bash
+   sudo lldpctl
+   sudo lldpcli show neighbors # to check the LLDP neighbors.
+   ```
 
 ## Set up storage array
 
