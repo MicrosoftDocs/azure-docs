@@ -71,7 +71,7 @@ In order to add the custom tool to your tool list for use, it's necessary to pre
     :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-2.png" alt-text="Screenshot of flow in Azure Machine Learning studio showing adding a tool."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-2.png":::
 
 ## FAQ
-### How to install the custom tool package in local via VS Code extension?
+### How to install the custom tool package in the VS Code extension?
 1. Install prompt flow for VS Code extension
     :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/prompt-flow-vs-code-extension.png" alt-text="Screenshot of prompt flow VS Code extension."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/prompt-flow-vs-code-extension.png":::
 2. Go to terminal and install the tool package in conda environment of the extension. Assume your conda env name is `prompt-flow`.
