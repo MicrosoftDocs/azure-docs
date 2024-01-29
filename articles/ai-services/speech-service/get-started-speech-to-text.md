@@ -1,7 +1,7 @@
 ---
 title: "Speech to text quickstart - Speech service"
 titleSuffix: Azure AI services
-description: In this quickstart, learn how to convert speech to text with recognition from a microphone or .wav file.
+description: In this quickstart, learn how to use the Speech service to convert speech to text with recognition from a microphone or .wav file.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
