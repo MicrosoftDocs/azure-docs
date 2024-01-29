@@ -34,8 +34,12 @@ The following table lists methods to create data collection scenarios using the 
 | Workspace transformation | [Add a transformation in a workspace data collection rule using the Azure portal](../logs/tutorial-workspace-transformations-portal.md) | Create a transformation for any supported table in a Log Analytics workspace. The transformation is defined in a DCR that's then associated with the workspace. It's applied to any data sent to that table from a legacy workload that doesn't use a DCR. |
 
 
-## Manually create a DCR
-To manually create a DCR, create a JSON file using the appropriate configuration for the data collection that you're configuring. Start with one of the [sample DCRs](./data-collection-rule-samples.md) and use information in [Structure of a data collection rule in Azure Monitor](./data-collection-rule-structure.md) to modify the JSON file for your particular environment and requirements.
+## Create a DCR
+
+The Azure portal provides a data collection rule wizard for collection data from virtual machines. You can also use the Azure CLI, PowerShell, API, or ARM templates to create a DCR. To create a DCR, create a JSON file, starting with one of the [sample DCRs](./data-collection-rule-samples.md) and use information in [Structure of a data collection rule in Azure Monitor](./data-collection-rule-structure.md) to modify the JSON file for your particular environment and requirements.
+
+> [!NOTE]
+> It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
 
 Once you have the JSON file created, you can use any of the following methods to create the DCR:
 
@@ -102,6 +106,24 @@ Use the [New-AzDataCollectionRule](/powershell/module/az.monitor/new-azdatacolle
 ```powershell
 New-AzDataCollectionRule -Location 'east-us' -ResourceGroupName 'my-resource-group' -RuleName 'myDCRName' -RuleFile 'C:\MyNewDCR.json' -Description 'This is my new DCR'
 ```
+
+**Data collection rules**
+
+| Action | Command |
+|:---|:---|
+| Get rules | [Get-AzDataCollectionRule](/powershell/module/az.monitor/get-azdatacollectionrule) |
+| Create a rule | [New-AzDataCollectionRule](/powershell/module/az.monitor/new-azdatacollectionrule) |
+| Update a rule | [Set-AzDataCollectionRule](/powershell/module/az.monitor/set-azdatacollectionrule) |
+| Delete a rule | [Remove-AzDataCollectionRule](/powershell/module/az.monitor/remove-azdatacollectionrule) |
+| Update "Tags" for a rule | [Update-AzDataCollectionRule](/powershell/module/az.monitor/update-azdatacollectionrule) |
+
+**Data collection rule associations**
+
+| Action | Command |
+|:---|:---|
+| Get associations | [Get-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/get-azdatacollectionruleassociation) |
+| Create an association | [New-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/new-azdatacollectionruleassociation) |
+| Delete an association | [Remove-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/remove-azdatacollectionruleassociation) |
 
 ## [API](#tab/api)
 Use the [DCR create API](/rest/api/monitor/data-collection-rules/create) to create the DCR from your JSON file. You can use any method to call a REST API as shown in the following examples.
