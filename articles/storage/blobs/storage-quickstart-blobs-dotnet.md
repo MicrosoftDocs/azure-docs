@@ -28,6 +28,57 @@ The steps in the video are also described in the following sections.
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 - Current [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
 
+## Skip to the end
+
+With [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed, you can create a storage account and run the sample code with just a few commands. You can run the project in your local development environment, or in a [DevContainer](https://code.visualstudio.com/docs/devcontainers/containers).
+
+### Deploy resources and run the code
+
+From an empty directory, follow these steps to initialize the project, provision Azure resources, and get started with the code:
+
+- Download the quickstart repository assets from GitHub and initialize Azure Developer CLI locally:
+
+    ```console
+    azd init --template blob-storage-quickstart-dotnet
+    ```
+
+    You'll be prompted for the following information:
+
+    - **Enviroment name**: This value is used as a prefix for all Azure resources created by Azure Developer CLI. The name must be unique across all Azure subscriptions, and must be between 3 and 24 characters long. The name can contain numbers and lowercase letters only.
+
+- Log in to Azure:
+
+    ```console
+    azd auth login
+    ```
+- Provision and deploy the resources to Azure:
+
+    ```console
+    azd up
+    ```console
+
+    You'll be prompted for the following information:
+
+    - **Subscription**: The Azure subscription that your resources are deployed to.
+    - **Location**: The Azure region where your resources are deployed.
+    
+    The deployment might take a few minutes to complete. The output from the `azd up` command includes the name of the newly created storage account, which you'll need later to run the code.
+
+At this point, the resources are deployed to Azure and the project is almost ready to run. To run the project in your local development environment, follow these steps:
+
+- Navigate to the `src` directory and open `Program.cs`. Find the `<storage-account-name>` placeholder and replace it with the actual name of the storage account created by the `azd up` command. Save the changes.
+- Run the project and observe the output as the console app performs basic operations, such as uploading, downloading, and listing blobs.
+
+### Clean up resources
+
+When you're done with the quickstart, you can clean up the resources you created by running the following command:
+
+```console
+azd down
+```
+
+You'll be prompted to confirm the deletion of the resources. Enter `y` to confirm.
+
 ## Setting up
 
 This section walks you through preparing a project to work with the Azure Blob Storage client library for .NET.
