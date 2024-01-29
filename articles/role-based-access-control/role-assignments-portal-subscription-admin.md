@@ -14,7 +14,7 @@ ms.custom: subject-rbac-steps
 
 # Assign a user as an administrator of an Azure subscription with conditions
 
-To make a user an administrator of an Azure subscription, you assign them the [Owner](built-in-roles.md#owner) role at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the permission to grant access to others. Since the Owner role is a highly privileged role, Microsoft recommends you add a condition to constrain the role assignment. For example, you can allow Alice to only assign the Virtual Machine Contributor role to service principals.
+To make a user an administrator of an Azure subscription, you assign them the [Owner](built-in-roles.md#owner) role at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the permission to grant access to others. Since the Owner role is a highly privileged role, Microsoft recommends you add a condition to constrain the role assignment. For example, you can allow a user to only assign the Virtual Machine Contributor role to service principals.
 
 This article describes how to assign a user as an administrator of an Azure subscription with conditions. These steps are the same as any other role assignment.
 
@@ -110,6 +110,9 @@ Since the Owner role is a highly privileged role, Microsoft recommends you add a
     | Constrain roles and principal types | Allow user to only assign roles you select<br/>Allow user to only assign these roles to principal types you select (users, groups, or service principals) |
     | Constrain roles and principals | Allow user to only assign roles you select<br/>Allow user to only assign these roles to principals you select |
 
+    > [!TIP]
+    > If you want to allow most role assignments, but don't allow specific role assignments, you can use the advanced condition editor and manually add a condition. For an example, see [Example: Allow most roles, but don't allow others to assign roles](delegate-role-assignments-examples.md#example-allow-most-roles-but-dont-allow-others-to-assign-roles).
+    
 1. In the configure pane, add the required configurations.
 
     :::image type="content" source="./media/shared/condition-template-configure-pane.png" alt-text="Screenshot of configure pane for a condition with selection added." lightbox="./media/shared/condition-template-configure-pane.png":::
