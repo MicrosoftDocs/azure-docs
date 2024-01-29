@@ -4,10 +4,9 @@ description: Understand planning for an Azure Elastic SAN deployment. Learn abou
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 01/29/2024
 ms.author: rogarana
 ms.custom:
-  - ignite-2022
   - ignite-2023-elastic-SAN
 ---
 
@@ -62,11 +61,10 @@ For more information about the cryptographic modules underlying SSE, see [Crypto
 
 ## Migration
 
-When you're looking to migrate an existing SAN or consolidate your workloads into an Elastic SAN for cost optimization, you should first
-There are currently two paths for migrating your data into Azure Elastic SAN:
+There are currently two options for migrating your data into Azure Elastic SAN. Both paths require deploying and configuring an elastic SAN first, and then creating volumes through the migration process.
 
-- [Cirruus Data](https://www.cirrusdata.com/) which allows you to migrate from external locations such as an on-premises SAN.
-- [Create a volume from a managed disk snapshot](elastic-san-snapshots.md#create-a-volume-from-a-managed-disk-snapshot)
+- [Cirrus Data](https://www.cirrusdata.com/) which allows you to migrate from external locations such as an on-premises SAN.
+- [Managed disk snapshots](elastic-san-snapshots.md#create-a-volume-from-a-managed-disk-snapshot), which allows you to migrate from managed disks to elastic SAN volumes.
 
 ## iSCSI support
 
