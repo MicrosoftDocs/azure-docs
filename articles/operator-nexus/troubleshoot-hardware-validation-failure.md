@@ -30,7 +30,7 @@ This article describes how to troubleshoot a failed server hardware validation. 
 
 ## Examining Hardware Validation Results
 
-The Hardware Validation result for a given Dell server includes the following categories.
+The Hardware Validation result for a given server includes the following categories.
 
 - system_info
 - drive_info
