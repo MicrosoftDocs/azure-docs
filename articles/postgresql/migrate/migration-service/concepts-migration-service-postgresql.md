@@ -60,19 +60,33 @@ The options you can consider migrating from the source PostgreSQL instance to th
 
 The following table gives an overview of offline and online options.
 
-| Option | PROs | CONs |
-|------|------|------|
-| Offline | - Simple, easy, and less complex to execute.- Very fewer chances of failure.<br />- No restrictions regarding database objects it can handle | Downtime to applications. |
-| Online | - Very minimal downtime to application. <br /> - Ideal for large databases and customers having limited downtime requirements. | - Replication used in online migration has multiple [restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html) (for example, Primary Keys needed in all tables). <br /> - Tough and more complex to execute than offline migration. <br /> - Greater chances of failure due to the complexity of migration. <br /> - There's an impact on the source instance's storage and computing if the migration runs for a long time. The impact needs to be monitored closely during migration. |
+| Option | PROs | CONs | Recommended For
+|------|------|------|------|
+| Offline | - Simple, easy, and less complex to execute.<br />- Very fewer chances of failure.<br />- No restrictions regarding database objects it can handle | Downtime to applications. | - Best for scenarios where simplicity and a high success rate are essential.<br>- Ideal for scenarios where the database can be taken offline without significant impact on business operations.<br>- Suitable for  databases when the migration process can be completed within a planned maintenance window. |
+| Online | - Very minimal downtime to application. <br /> - Ideal for large databases and customers having limited downtime requirements. | - Replication used in online migration has multiple [restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html) (for example, Primary Keys needed in all tables). <br /> - Tough and more complex to execute than offline migration. <br /> - Greater chances of failure due to the complexity of migration. <br /> - There's an impact on the source instance's storage and computing if the migration runs for a long time. The impact needs to be monitored closely during migration. | - Best suited for businesses where continuity is critical and downtime must be kept to an absolute minimum.<br>- Recommended for databases when the migration process needs to occur without interrupting ongoing operations. |
 
 The following table lists the various sources supported by the migration service.
 
 | PostgreSQL Source Type | Offline Migration | Online Migration |
 |------------------------|-------------------|------------------| 
 | [Azure Database for PostgreSQL – Single server](../how-to-migrate-single-to-flexible-portal.md) | Supported | Supported |
-| [AWS RDS for PostgreSQL](tutorial-migration-service-offline-aws.md) | Supported | Not supported |
-| [On-premises](tutorial-migration-service-offline-iaas.md) | Supported | Not supported |
-| [Azure VM](tutorial-migration-service-offline-iaas.md) | Supported | Not supported |
+| [AWS RDS for PostgreSQL](tutorial-migration-service-offline-aws.md) | Supported | Planned for future release |
+| [On-premises](tutorial-migration-service-offline-iaas.md) | Supported | Planned for future release |
+| [Azure VM](tutorial-migration-service-offline-iaas.md) | Supported | Planned for future release |
+
+
+:::image type="content" source="media/concepts-migration-service-postgresql/migrate-different-sources-option.png" alt-text="Screenshot of the migration setup showing different sources." lightbox="media/concepts-migration-service-postgresql/migrate-different-sources-option.png":::
+
+## Advantages of the migration service in Azure Database for PostgreSQL Over Azure DMS (Classic)
+
+Below are the key benefits of using this service for your PostgreSQL migrations:
+- **Fully Managed Service**: The migration Service in Azure Database for PostgreSQL is a fully managed service, meaning that we handle the complexities of the migration process.
+- **Comprehensive Migration**: Supports both schema and data migrations, ensuring a complete and accurate transfer of your entire database environment to Azure
+- **Ease of Setup**: Designed to be user-friendly, eliminating complex setup procedures that can often be a barrier to starting a migration project.
+- **No Data Size Constraints**: With the ability to handle databases of any size, the service surpasses the 1TB data migration limit of Azure DMS(Classic), making it suitable for all types of database migrations.
+- **Addressing DMS(Classic) Limitations**: The migration service resolves many of the issues and limitations encountered with Azure DMS (Classic), leading to a more reliable migration process.
+- **Interface Options**: Users can choose between a portal-based interface for an intuitive experience or a command-line interface (CLI) for automation and scripting, accommodating various user preferences.
+
 
 ## Get started
 
@@ -92,4 +106,3 @@ The migration service is a hosted solution where we use binary called [pgcopydb]
 - [Migrate from AWS RDS for PostgreSQL](tutorial-migration-service-offline-aws.md)
 - [Network setup](how-to-network-setup-migration-service.md)
 - [Known issues and limitations](concepts-known-issues-migration-service.md)
-
