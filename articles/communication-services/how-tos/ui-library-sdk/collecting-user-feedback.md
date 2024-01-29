@@ -178,14 +178,56 @@ callComposite?.addUserReportedIssueEventHandler(userReportedIssueEventHandler);
 callComposite?.removeUserReportedIssueEventHandler(userReportedIssueEventHandler);
 
 
+```
+
 
 #### iOS Code Sample
 ```swift
-// Swift example for iOS
-yourCallingInstance.onUserReportedIssueEvent = { event in
-    let serializedEvent = serializeEvent(event)
-    sendEventToServer(serializedEvent)
+let SERVER_URL = "https://yourwebservice"
+
+func onUserReportedIssueHandler(userIssue: CallCompositeUserReportedIssue) {
+    guard let screenshotURL = userIssue.screenshot else { return }
+    var request = URLRequest(url: URL(string: SERVER_URL)!)
+    request.httpMethod = "POST"
+
+    let boundary = "Boundary-\(UUID().uuidString)"
+    request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+
+    var data = Data()
+    
+    // User Message
+    if let userMessageData = "--\(boundary)\r\nContent-Disposition: form-data; name=\"user_message\"\r\n\r\n\(userIssue.userMessage)\r\n".data(using: .utf8) {
+        data.append(userMessageData)
+    }
+
+    // Screenshot
+    do {
+        let screenshotData = try Data(contentsOf: screenshotURL)
+        data.append("--\(boundary)\r\nContent-Disposition: form-data; name=\"screenshot\"; filename=\"screenshot.png\"\r\nContent-Type: image/png\r\n\r\n".data(using: .utf8)!)
+        data.append(screenshotData)
+        data.append("\r\n".data(using: .utf8)!)
+    } catch {
+        print("Error: Could not load screenshot data")
+        return
+    }
+
+    // Call History Records and Log Files (you will need to implement the logic to append these based on your app's needs)
+
+    data.append("--\(boundary)--\r\n".data(using: .utf8)!)
+
+    let task = URLSession.shared.uploadTask(with: request, from: data) { data, response, error in
+        guard let data = data, error == nil else {
+            print("Error: \(error?.localizedDescription ?? "Unknown error")")
+            return
+        }
+        if let responseString = String(data: data, encoding: .utf8) {
+            // Handle the response here
+            print("Response: \(responseString)")
+        }
+    }
+    task.resume()
 }
+
 ```
 
 ## Server-Side Steps
@@ -193,13 +235,88 @@ yourCallingInstance.onUserReportedIssueEvent = { event in
 ### Step 1: Setting Up Azure Cloud Functions
 Develop a function to receive and process the event data sent from the client application.
 
-#### Azure Function Pseudocode
-```pseudocode
-function processSupportEvent(request):
-    eventData = deserializeRequest(request)
-    attachmentUrls = storeAttachmentsInAzureStorage(eventData.attachments)
-    ticketId = createTicketInAzureDevOps(eventData, attachmentUrls)
-    return { success: true, ticketId: ticketId }
+#### Azure Function
+```javascript
+const { BlobServiceClient } = require('@azure/storage-blob');
+const busboy = require('busboy');
+const fetch = require('node-fetch');
+
+const AZURE_STORAGE_CONNECTION_STRING = process.env["AZURE_STORAGE_CONNECTION_STRING"];
+const AZURE_DEVOPS_PAT = process.env["AZURE_DEVOPS_PAT"];
+const AZURE_DEVOPS_ORGANIZATION = process.env["AZURE_DEVOPS_ORGANIZATION"];
+const AZURE_DEVOPS_PROJECT = process.env["AZURE_DEVOPS_PROJECT"];
+const AZURE_DEVOPS_WORKITEM_TYPE = "Task"; // or any other type
+
+module.exports = async function (context, req) {
+    try {
+        const parsedData = await parseMultipartFormData(req);
+        const blobServiceClient = BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING);
+        const containerClient = blobServiceClient.getContainerClient('user-reports');
+        await containerClient.createIfNotExists();
+
+        let blobNames = [];
+
+        for (const file of parsedData.files) {
+            const blockBlobClient = containerClient.getBlockBlobClient(file.filename);
+            await blockBlobClient.uploadData(file.data);
+            blobNames.push(blockBlobClient.url);
+        }
+
+        // Create a summary text file
+        const summaryText = `User Message: ${parsedData.fields.userMessage}\nFile URLs: ${blobNames.join('\n')}`;
+        const summaryBlobClient = containerClient.getBlockBlobClient('summary.txt');
+        await summaryBlobClient.uploadData(summaryText);
+
+        // Create ADO Work Item
+        await createWorkItem(parsedData.fields.userMessage, blobNames);
+
+        context.res = { body: "Report processed successfully." };
+    } catch (error) {
+        context.log.error(error);
+        context.res = { status: 500, body: "An error occurred processing the report." };
+    }
+};
+
+async function parseMultipartFormData(req) {
+    return new Promise((resolve, reject) => {
+        const bb = busboy({ headers: req.headers });
+        const fields = {};
+        const files = [];
+
+        bb.on('file', (name, file, info) => {
+            const { filename, mimeType } = info;
+            const chunks = [];
+            file.on('data', chunk => chunks.push(chunk));
+            file.on('end', () => files.push({ filename, data: Buffer.concat(chunks) }));
+        });
+
+        bb.on('field', (name, val) => fields[name] = val);
+
+        bb.on('close', () => resolve({ fields, files }));
+
+        req.pipe(bb);
+    });
+}
+
+async function createWorkItem(userMessage, blobUrls) {
+    const workItemData = {
+        op: "add",
+        path: "/fields/System.Title",
+        value: "User Reported Issue"
+    };
+
+    const response = await fetch(`https://dev.azure.com/${AZURE_DEVOPS_ORGANIZATION}/${AZURE_DEVOPS_PROJECT}/_apis/wit/workitems/$${AZURE_DEVOPS_WORKITEM_TYPE}?api-version=6.0`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json-patch+json',
+            'Authorization': `Basic ${Buffer.from(':' + AZURE_DEVOPS_PAT).toString('base64')}`
+        },
+        body: JSON.stringify([workItemData])
+    });
+
+    const responseData = await response.json();
+    // Handle response, link blob URLs, etc.
+
 ```
 
 ### Step 2: Storing Attachments in Azure Storage
