@@ -1,5 +1,13 @@
-- name: Azure Certified Device documentation
+- name: Edge Secured-core documentation
   href: index.yml
+- name: What is Edge Secured-core?
+  href: overview.md
+- name: Program requirements
+  href: program-requirements-edge-secured-core.md
+- name: Getting your device certified
+  href: edge-secured-core-get-certified.md
+- name: List of certified devices
+  href: edge-secured-core-devices.md
 
 - name: Overview
   items:
