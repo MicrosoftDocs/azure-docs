@@ -19,6 +19,12 @@ ms.subservice: calling
 
 This comprehensive guide is designed to assist developers in integrating enhanced support into the ACS UI Library, leveraging Azure services for backend processing. The guide is divided into client-side and server-side steps for clarity and ease of implementation.
 
+## Prerequisites
+- Call Composite Integration
+- **Android**
+  - OkHTTP for Http Requests
+- **iOS**
+
 ## What You'll Learn
 - **Client-Side:**
   - Enabling the UI Library Support Form
@@ -30,8 +36,8 @@ This comprehensive guide is designed to assist developers in integrating enhance
   - Using Azure Storage for secure data management.
   - Integrating Azure DevOps for ticket creation and tracking.
   - Ensuring secure and efficient communication between the server and the client.
-
----
+    
+  ---
 
 ## Client-Side Steps
 
