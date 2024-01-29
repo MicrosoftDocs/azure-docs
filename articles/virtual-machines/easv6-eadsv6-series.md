@@ -1,16 +1,13 @@
 ---
-# Required metadata
-# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
-# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
-
-title:       # Add a title for the browser tab
-description: # Add a meaningful description for search results
-author:      iamwilliew # GitHub alias
-ms.author:   iamwilliew # Microsoft alias
-ms.service:  # Add the ms.service or ms.prod value
-# ms.prod:   # To use ms.prod, uncomment it and delete ms.service
-ms.topic:    # Add the ms.topic value
-ms.date:     01/29/2024---
+title:       'Easv6 and Eadsv6-series - Azure Virtual Machines'
+description: Specifications for the Easv6 and Eadsv6-series VMs.
+author:      iamwilliew 
+ms.author:   wwilliams
+ms.service:  virtual-machines
+ms.subservice: sizes
+ms.topic:    conceptual
+ms.date:     01/29/2024
+---
 
 # Easv6 and Eadsv6-series
 
@@ -45,6 +42,20 @@ Easv6-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 [Ephemeral OS Disks](/azure/virtual-machines/ephemeral-os-disks): Not Supported   
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported
 
+| Size              | vCPU | Memory: GiB | Local NVMe Temporary storage (SSD) GiB    | Max data disks | Max uncached Premium SSD disk throughput: IOPS/MBps | Max burst uncached Premium SSD disk throughput: IOPS/MBps1 | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps1 | Max NICs | Max network bandwidth (Mbps) |
+|-------------------|------|-------------|-------------------------------------------|----------------|-----------------------------------------------------|------------------------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------|----------|------------------------------|
+| Standard_E2as_v6  | 2    | 16          | Remote Storage Only                       | 4              | 4000/90                                             | 20000/1250                                                 | 4000/90                                                               | 20000/1250                                                                   | 2        | 12500                        |
+| Standard_E4as_v6  | 4    | 32          | Remote Storage Only                       | 8              | 7600/180                                            | 20000/1250                                                 | 7600/180                                                              | 20000/1250                                                                   | 2        | 12500                        |
+| Standard_E8as_v6  | 8    | 64          | Remote Storage Only                       | 16             | 15200/360                                           | 20000/1250                                                 | 15200/360                                                             | 20000/1250                                                                   | 4        | 12500                        |
+| Standard_E16as_v6 | 16   | 128         | Remote Storage Only                       | 32             | 30400/720                                           | 40000/1250                                                 | 30400/720                                                             | 40000/1250                                                                   | 8        | 16000                        |
+| Standard_E20as_v6 | 20   | 160         | Remote Storage Only                       | 32             | 38000/900                                           | 64000/1600                                                 | 38000/900                                                             | 64000/1600                                                                   | 8        | 16000                        |
+| Standard_E32as_v6 | 32   | 256         | Remote Storage Only                       | 32             | 57600/1440                                          | 80000/1700                                                 | 57600/1440                                                            | 80000/1700                                                                   | 8        | 20000                        |
+| Standard_E48as_v6 | 48   | 384         | Remote Storage Only                       | 32             | 86400/2160                                          | 90000/2550                                                 | 86400/2160                                                            | 90000/2550                                                                   | 8        | 28000                        |
+| Standard_E64as_v6 | 64   | 512         | Remote Storage Only                       | 32             | 115200/2880                                         | 120000/3400                                                | 115200/2880                                                           | 120000/3400                                                                  | 8        | 36000                        |
+| Standard_E96as_v6 | 96   | 672         | Remote Storage Only                       | 32             | 175000/4320                                         | 175000/5090                                                | 175000/4320                                                           | 175000/5090                                                                  | 8        | 40000                        |
+
+<sup>1</sup> Easv6-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+
 ## Eadsv6-series 
 Eadsv6-series VMs utilize AMD's 4th Generation EPYCTM 9004 processors that can achieve a boosted maximum frequency of 3.7GHz. These virtual machines offer up to 96 vCPU and 672 GiB of RAM. The Eadsv6-series sizes offer a combination of vCPU, memory and fast local NVMe temporary storage that is ideal for memory-intensive enterprise applications. 
 Eadsv6-series virtual machines support Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
@@ -57,3 +68,36 @@ Eadsv6-series virtual machines support Standard SSD, Standard HDD, and Premium S
 [Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli): Supported   
 [Ephemeral OS Disks](/azure/virtual-machines/ephemeral-os-disks): Not Supported for Preview   
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported 
+
+| Size               | vCPU | Memory: GiB | Local NVMe Temporary storage (SSD) | Max data disks | Max uncached Premium SSD disk throughput: IOPS/MBps | Max burst uncached Premium SSD disk throughput: IOPS/MBps1 | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps1 | Max NICs | Max network bandwidth (Mbps) | Max temp storage read throughput: IOPS / MBps |
+|--------------------|------|-------------|------------------------------------|----------------|-----------------------------------------------------|------------------------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------|----------|------------------------------|-----------------------------------------------|
+| Standard_E2ads_v6  | 2    | 16          | 1x110 GiB                          | 4              | 4000/90                                             | 20000/1250                                                 | 4000/90                                                               | 20000/1250                                                                   | 2        | 12500                        | 37500/180                                     |
+| Standard_E4ads_v6  | 4    | 32          | 1x220 GiB                          | 8              | 7600/180                                            | 20000/1250                                                 | 7600/180                                                              | 20000/1250                                                                   | 2        | 12500                        | 75000/360                                     |
+| Standard_E8ads_v6  | 8    | 64          | 1x440 GiB                          | 16             | 15200/360                                           | 20000/1250                                                 | 15200/360                                                             | 20000/1250                                                                   | 4        | 12500                        | 150000/720                                    |
+| Standard_E16ads_v6 | 16   | 128         | 2x440 GiB                          | 32             | 30400/720                                           | 40000/1250                                                 | 30400/720                                                             | 40000/1250                                                                   | 8        | 16000                        | 300000/1440                                   |
+| Standard_E20ads_v6 | 20   | 160         | 2x550 GiB                          | 32             | 38000/900                                           | 64000/1600                                                 | 38000/900                                                             | 64000/1600                                                                   | 8        | 16000                        | 375000/1800                                   |
+| Standard_E32ads_v6 | 32   | 256         | 4x440 GiB                          | 32             | 57600/1440                                          | 80000/1700                                                 | 57600/1440                                                            | 80000/1700                                                                   | 8        | 20000                        | 600000/2880                                   |
+| Standard_E48ads_v6 | 48   | 384         | 6x440 GiB                          | 32             | 86400/2160                                          | 90000/2550                                                 | 86400/2160                                                            | 90000/2550                                                                   | 8        | 28000                        | 900000/4320                                   |
+| Standard_E64ads_v6 | 64   | 512         | 4x880 GiB                          | 32             | 115200/2880                                         | 120000/3400                                                | 115200/2880                                                           | 120000/3400                                                                  | 8        | 36000                        | 1200000/5760                                  |
+| Standard_E96ads_v6 | 96   | 672         | 6x880 GiB                          | 32             | 175000/4320                                         | 175000/5090                                                | 175000/4320                                                           | 175000/5090                                                                  | 8        | 40000                        | 1800000/8640                                  |
+
+<sup>1</sup> Eadsv6-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## Other sizes and information
+
+- [General purpose](sizes-general.md)
+- [Memory optimized](sizes-memory.md)
+- [Storage optimized](sizes-storage.md)
+- [GPU optimized](sizes-gpu.md)
+- [High performance compute](sizes-hpc.md)
+- [Previous generations](sizes-previous-gen.md)
+
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
+
+## Next steps
+
+Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
