@@ -1290,6 +1290,7 @@
   "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
   "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
   "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
+  "articles/virtual-network/.openpublishing.redirection.virtual-network.json",
   "articles/operator-nexus/.openpublishing.redirection.operator-nexus.json"
 ]
 }
