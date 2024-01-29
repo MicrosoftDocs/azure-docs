@@ -37,13 +37,14 @@ Azure Monitor currently supports data resilience for availability-zone-enabled d
   |---|---|---|---|---|
   | Brazil South | France Central | Qatar Central | South Africa North | Australia East |
   | Canada Central | Germany West Central | UAE North | | Central India | 
-  | Central US | North Europe | | | Japan East |
+  | Central US | North Europe | Israel Central | | Japan East |
   | East US | Norway East | | | Korea Central |
   | East US 2 | UK South | | | Southeast Asia |
   | South Central US | West Europe | | | East Asia |
   | West US 2 | Sweden Central | | |  |
   | West US 3 | Switzerland North | | |  |
-  |  | Poland Central | | | |
+  | | Poland Central | | | |
+  | | Italy North | | | |
 
 > [!NOTE]
 > Moving to a dedicated cluster in a region that supports availablility zones protects data ingested after the move, not historical data.

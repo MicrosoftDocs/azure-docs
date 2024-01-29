@@ -5,7 +5,7 @@ author: liudan66
 ms.service: synapse-analytics
 ms.subservice: cicd
 ms.topic: conceptual
-ms.date: 10/08/2021
+ms.date: 01/25/2024
 ms.author: liud 
 ms.reviewer: pimorano
 
@@ -56,14 +56,13 @@ To automate the deployment of an Azure Synapse workspace to multiple environment
 - Set up a blank workspace to deploy to:
 
   1. Create a new Azure Synapse workspace.
-  1. Grant the VM agent and the service principal Contributor permission to the resource group in which the new workspace is hosted.
-  1. In the workspace, don't configure the Git repository connection.
-  1. In the Azure portal, find the new Azure Synapse workspace, and then grant Owner permission to yourself and to the user that will run the Azure DevOps pipeline Azure Synapse workspace. 
-  1. Add the Azure DevOps VM agent and the service principal to the Contributor role for the workspace. (The role should have been inherited, but verify that it is.)
-  1. In the Azure Synapse workspace, go to **Studio** > **Manage** > **Access Control**. Add the Azure DevOps VM agent and the service principal to the workspace admin group.
-  1. Open the storage account that's used for the workspace. On the **Identity and access management** pane, add the VM agent and the service principal to the Storage Blob Data Contributor role.
-  1. Create a key vault in the support subscription, and ensure that both the existing workspace and the new workspace have at least GET and LIST permissions to the vault.
-  1. For the automated deployment to work, ensure that any connection strings that are specified in your linked services are in the key vault.
+  2. Grant the service principal the following permissions to the new Synapse workspace:
+     - Microsoft.Synapse/workspaces/integrationruntimes/write
+     - Microsoft.Synapse/workspaces/operationResults/read
+     - Microsoft.Synapse/workspaces/read
+  3. In the workspace, don't configure the Git repository connection.
+  4. In the Azure Synapse workspace, go to **Studio** > **Manage** > **Access Control**. 4.	In the Azure Synapse workspace, go to Studio > Manage > Access Control. Assign the “Synapse Artifact Publisher” to the service principal. If the deployment pipeline will need to deploy managed private endpoints, then assign the “Synapse Administrator” instead.
+  5. When you use linked services whose connection information is stored in Azure Key Vault, it is recommended to keep separate key vaults for different environments. You can also configure separate permission levels for each key vault. For example, you might not want your team members to have permissions to production secrets. If you follow this approach, we recommend that you to keep the same secret names across all stages. If you keep the same secret names, you don't need to parameterize each connection string across CI/CD environments because the only thing that changes is the key vault name, which is a separate parameter.
 
 ### Other prerequisites
  

@@ -197,7 +197,7 @@ The following steps show how to create a self-signed certificate for testing pur
     In this tutorial, if the image has already been built and is stored in the registry, the tag serves as an identifier for that image for convenience.
 
     ```bash
-    IMAGE=$REGISTRY/${REPO}@$TAG
+    IMAGE=$REGISTRY/${REPO}:$TAG
     ```
 
 3. Get the Key ID of the signing key. A certificate in AKV can have multiple versions, the following command gets the Key ID of the latest version.

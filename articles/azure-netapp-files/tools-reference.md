@@ -2,15 +2,9 @@
 title: Azure NetApp Files tools 
 description: Learn about the tools available to you to maximize your experience and savings with Azure NetApp Files. 
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/12/2023
 ms.author: anfdocs
@@ -18,7 +12,7 @@ ms.author: anfdocs
 
 # Azure NetApp Files tools 
 
-Azure NetApp Files offers [multiple tools](https://azure.github.io/azure-netapp-files/) to estimate costs, understand features and availability, and monitor your Azure NetApp Files deployment.
+Azure NetApp Files offers [multiple tools](https://aka.ms/anftools) to estimate costs, understand features and availability, and monitor your Azure NetApp Files deployment.
 
 * [**Azure NetApp Files Performance Calculator**](https://aka.ms/anfcalc)
 

@@ -2,10 +2,8 @@
 title: Operating system backup and restore of SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn how to do operating system backup and restore for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
-documentationcenter:
 author: ju-shim
 manager: juergent
-editor:
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article

@@ -2,16 +2,14 @@
 title: "Azure roles, Microsoft Entra roles, and classic subscription administrator roles"
 description: Describes the different roles in Azure - Azure roles, and Microsoft Entra roles, and classic subscription administrator roles
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: amycolannino
 
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: role-based-access-control
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 12/01/2023
+ms.date: 01/26/2024
 ms.author: rolyon
 ms.custom: it-pro;
 ---
@@ -99,7 +97,7 @@ Several Microsoft Entra roles span Microsoft Entra ID and Microsoft 365, such as
 ## Classic subscription administrator roles
 
 > [!IMPORTANT]
-> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
+> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting February 26, 2024, you won't be able to add new Co-Administrators. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
 
 Account Administrator, Service Administrator, and Co-Administrator are the three classic subscription administrator roles in Azure. Classic subscription administrators have full access to the Azure subscription. They can manage resources using the Azure portal, Azure Resource Manager APIs, and the classic deployment model APIs. The account that is used to sign up for Azure is automatically set as both the Account Administrator and Service Administrator. Then, additional Co-Administrators can be added. The Service Administrator and the Co-Administrators have the equivalent access of users who have been assigned the Owner role (an Azure role) at the subscription scope. The following table describes the differences between these three classic subscription administrative roles.
 
