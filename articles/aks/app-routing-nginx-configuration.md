@@ -31,7 +31,7 @@ az aks get-credentials -g <ResourceGroupName> -n <ClusterName>
 
 The application routing add-on uses a Kubernetes [custom resource definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called [`NginxIngressController`](https://github.com/Azure/aks-app-routing-operator/blob/main/config/crd/bases/approuting.kubernetes.azure.com_nginxingresscontrollers.yaml) to configure NGINX ingress controllers. You can create more ingress controllers or modify existing configuration.
 
-`NginxIngressController` CRD has a `loadBalancerAnnotations` field to control the behavior of the NGINX ingress controller's service by setting [load balancer annotations][load-balancer-standard]. 
+`NginxIngressController` CRD has a `loadBalancerAnnotations` field to control the behavior of the NGINX ingress controller's service by setting [load balancer annotations][load-balancer-standard-annotations]. 
 
 
 ### The default NGINX ingress controller
@@ -533,7 +533,7 @@ Learn about monitoring the ingress-nginx controller metrics included with the ap
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 
 <!-- LINKS - internal -->
-[load-balancer-standard]: load-balancer-standard
+[load-balancer-standard-annotations]: load-balancer-standard
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
 [az-group-create]: /cli/azure/group#az-group-create
