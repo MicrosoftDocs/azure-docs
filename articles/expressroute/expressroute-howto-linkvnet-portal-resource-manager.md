@@ -102,7 +102,7 @@ This article helps you create a connection to link a virtual network (virtual ne
     > [!NOTE]
     > To have maximum resiliency, you should select two circuits in different peering location. You'll be given the following warning if you select two circuits in the same peering location.
     >
-    > :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/same-location-warning.png" alt-text="Connection object screenshot":::
+    > :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/same-location-warning.png" alt-text="Screenshot of warning in the Azure portal when selecting two ExpressRoute circuits in the same peering location.":::
 
     **Standard resiliency**
 
