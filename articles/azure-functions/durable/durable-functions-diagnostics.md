@@ -565,7 +565,7 @@ If the Function app is not configured with an Application Insights resource, the
 ### Inspecting the traces
 In the Application Insights resource, navigate to **Transaction Search**. In the results, check for `Request` and `Dependency` events that start with Durable Functions specific prefixes (e.g. `orchestration:`, `activity:`, etc.). Selecting one of these events will open up a Gantt chart that will show the end to end distributed trace.
 
-![Gantt Chart showing Application Insights Distributed Trace.](./media/durable-functions-diagnostics/app-insights-distributed-trace-gantt-chart.png)](./media/durable-functions-diagnostics/app-insights-distributed-trace-gantt-chart.png#lightbox)
+[![Gantt Chart showing Application Insights Distributed Trace.](./media/durable-functions-diagnostics/app-insights-distributed-trace-gantt-chart.png)](./media/durable-functions-diagnostics/app-insights-distributed-trace-gantt-chart.png#lightbox)
 
 ### Troubleshooting
 If you don't see the traces in Application Insights, please make sure to wait about five minutes after running the application to ensure that all of the data is propagated to the Application Insights resource.
