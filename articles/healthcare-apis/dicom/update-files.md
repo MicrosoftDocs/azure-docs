@@ -160,7 +160,6 @@ Any attributes in the [Patient Identification Module](https://dicom.nema.org/dic
 
 ### Attributes automatically changed in bulk updates
 
-
 When you perform a bulk update, the DICOM service updates the requested attributes and also two additional metadata fields. Here is the information that is updated automatically:  
 
 | Tag           | Attribute name        | Description           | Value
