@@ -213,6 +213,35 @@ Terminal Server has been deployed and configured as follows:
  ip r # verify only interface routes
  ip a # verify loopback, NET1, NET2
 ```
+5. Start the LLDP service if it is not running by default:
+Execute “systemctl status lldpd” to check if LLDP service is running on TS:
+
+```bash
+sudo systemctl status lldpd
+lldpd.service - LLDP daemon
+     Loaded: loaded (/lib/systemd/system/lldpd.service; enabled; vendor preset: disabled)
+     Active: active (running) since Thu 2023-09-14 19:10:40 UTC; 3 months 25 days ago
+       Docs: man:lldpd(8)
+   Main PID: 926 (lldpd)
+      Tasks: 2 (limit: 9495)
+     Memory: 1.2M
+     CGroup: /system.slice/lldpd.service
+             ├─926 lldpd: monitor.
+             └─992 lldpd: 3 neighbors.
+
+Notice: journal has been rotated since unit was started, output may be incomplete.
+```
+
+If the service is not running, start the service:
+```bash
+sudo systemctl start lldpd
+```
+
+Execute the following to verify:
+```bash
+sudo lldpctl
+sudo lldpcli show neighbors # to check the LLDP neighbors.
+```
 
 ## Set up storage array
 
