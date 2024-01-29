@@ -180,7 +180,7 @@ The following sections present information on the alert rules provided by Contai
 
 ### Community alert rules
 
-These handpicked alerts come from the Prometheus community. Source code for these mixin alerts can be found in [GitHub](https://aka.ms/azureprometheus-communityalerts):
+These handpicked alerts come from the Prometheus community. Source code for these mixin alerts can be found in [GitHub](https://aka.ms/azureprometheus-recommendedmetricalerts):
 
 | Alert name | Description | Default threshold |
 |:---|:---|:---|
@@ -206,7 +206,7 @@ These handpicked alerts come from the Prometheus community. Source code for thes
 ### Recommended alert rules
 
 The following table lists the recommended alert rules that you can enable for either Prometheus metrics or custom metrics.
-Source code for the recommended alerts can be found in [GitHub](https://github.com/Azure/prometheus-collector/blob/68ab5b195a77d72b0b8e36e5565b645c3d1e2d5d/mixins/kubernetes/rules/recording_and_alerting_rules/templates/ci_recommended_alerts.json):
+Source code for the recommended alerts can be found in [GitHub](https://aka.ms/azureprometheus-recommendedmetricalerts):
 
 | Prometheus alert name | Custom metric alert name | Description | Default threshold |
 |:---|:---|:---|:---|
