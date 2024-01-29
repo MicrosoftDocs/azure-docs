@@ -30,7 +30,7 @@ This article explains how to manage access (authorization) to Azure Machine Lear
 
 ## Default roles
 
-Azure Machine Learning workspaces have five built-in roles that are available by default. When adding users to a workspace, they can be assigned one of the following roles.
+Azure Machine Learning workspaces have built-in roles that are available by default. When adding users to a workspace, they can be assigned one of the following roles.
 
 | Role | Access level |
 | --- | --- |
@@ -195,12 +195,16 @@ The following table is a summary of Azure Machine Learning activities and the pe
 | Scoring against a deployed AKS endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/services/aks/score/action`, `/workspaces/services/aks/listkeys/action` (when you don't use Microsoft Entra auth) OR `/workspaces/read` (when you use token auth) |
 | Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/read`, `/workspaces/notebooks/samples/read`, `/workspaces/notebooks/storage/*`, `/workspaces/listStorageAccountKeys/action`, `/workspaces/listNotebookAccessToken/read`|
 | Create new custom role | Owner, contributor, or custom role allowing `Microsoft.Authorization/roleDefinitions/write` | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
-| Create/manage online endpoints and deployments | Not required | Not required | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. If you use studio to create/manage online endpoints/deployments, you need an additional permission `Microsoft.Resources/deployments/write` from the resource group owner. |
+| Create/manage online endpoints and deployments | Not required | To deploy on studio,  `Microsoft.Resources/deployments/write` | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`.  |
 | Retrieve authentication credentials for online endpoints | Not required | Not required | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` and `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listkeys/action` |
 
 1. If you receive a failure when trying to create a workspace for the first time, make sure that your role allows `Microsoft.MachineLearningServices/register/action`. This action allows you to register the Azure Machine Learning resource provider with your Azure subscription.
 
 2. When attaching an AKS cluster, you also need to have the [Azure Kubernetes Service Cluster Admin Role](/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-admin-role) on the cluster.
+
+###  Deploy into a virtual network or subnet
+
+[!INCLUDE [network-rbac](includes/network-rbac.md)]
 
 ### Differences between actions for V1 and V2 APIs
 
@@ -618,8 +622,6 @@ Here are a few things to be aware of while you use Azure RBAC:
 - In order to deploy on studio, you need `Microsoft.Resources/deployments/write` AND `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments/write`. For SDK/CLI deployments, you need `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments/write`. Contact your workspace/resource group owner for the additional permissions.
 
 - When there are two role assignments to the same Microsoft Entra user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they're also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
-
-[!INCLUDE [network-rbac](includes/network-rbac.md)]
 
 - It can sometimes take up to one hour for your new role assignments to take effect over cached permissions across the stack.
 
