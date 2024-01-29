@@ -102,7 +102,7 @@ Errors can occur when the container image being referenced is unavailable or fai
 
 You need to correct any errors that prevent the container from starting for the function app run correctly.
 
-When the container image can't be found, you'll see a `manifest unknown` error in the Docker logs. In this case, you can use the Azure CLI commands documented at [How to target Azure Functions runtime versions](set-runtime-version.md?tabs=azurecli#manual-version-updates-on-linux) to change the container image being referenced. If you've deployed a [custom container image](./functions-how-to-custom-container.md), you need to fix the image and redeploy the updated version to the referenced registry.
+When the container image can't be found, you see a `manifest unknown` error in the Docker logs. In this case, you can use the Azure CLI commands documented at [How to target Azure Functions runtime versions](set-runtime-version.md?tabs=azurecli#manual-version-updates-on-linux) to change the container image being referenced. If you've deployed a [custom container image](./functions-how-to-custom-container.md), you need to fix the image and redeploy the updated version to the referenced registry.
 
 ## App container has conflicting ports
 
@@ -124,7 +124,7 @@ Changing any _read-only_ [App Service application settings](../app-service/refer
 ## ASP.NET authentication overrides
 _Applies only to C# apps running [in-process with the Functions host](./functions-dotnet-class-library.md)._
 
-Configuring ASP.NET authentication in a Functions startup class can override services that are required for the Azure portal to communicate with the host. This includes, but is not limited to, any calls to `AddAuthentication()`. If the host's authentication services are overridden and the portal cannot communicate with the host, it will consider the app unreachable. This may result in errors such as `No authentication handler is registered for the scheme 'ArmToken'.`.
+Configuring ASP.NET authentication in a Functions startup class can override services that are required for the Azure portal to communicate with the host. This includes, but isn't limited to, any calls to `AddAuthentication()`. If the host's authentication services are overridden and the portal can't communicate with the host, it considers the app unreachable. This issue may result in errors such as: `No authentication handler is registered for the scheme 'ArmToken'.`.
 
 ## Next steps
 
