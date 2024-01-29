@@ -62,11 +62,11 @@ The command should output a JSON object:
 
 This example uses the [steeltoe sample on GitHub](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/steeltoe-sample).  Fork the repository, open the GitHub repository page for the fork, and select the **Settings** tab. Open the **Secrets** menu, and select **New secret**:
 
-:::image type="content" source="./media/github-actions/actions1.png" alt-text="Screenshot of the GitHub Actions secrets and variables page with the New repository secret button highlighted." lightbox="./media/github-actions/actions1.png":::
+:::image type="content" source="media/how-to-github-actions/actions1.png" alt-text="Screenshot of the GitHub Actions secrets and variables page with the New repository secret button highlighted." lightbox="media/how-to-github-actions/actions1.png":::
 
 Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that you found under the heading *Set up your GitHub repository and authenticate*.
 
-:::image type="content" source="./media/github-actions/actions2.png" alt-text="Screenshot of the GitHub Actions secrets / New secret page." lightbox="./media/github-actions/actions2.png":::
+:::image type="content" source="media/how-to-github-actions/actions2.png" alt-text="Screenshot of the GitHub Actions secrets / New secret page." lightbox="media/how-to-github-actions/actions2.png":::
 
 You can also get the Azure login credential from Key Vault in GitHub Actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./github-actions-key-vault.md).
 
@@ -205,11 +205,11 @@ The command should output a JSON object:
 
 This example uses the [PiggyMetrics](https://github.com/Azure-Samples/piggymetrics) sample on GitHub. Fork the sample, uncheck **Copy the Azure branch only**, open the GitHub repository page, and select the **Settings** tab. Open **Secrets** menu, and select **Add a new secret**:
 
-:::image type="content" source="./media/github-actions/actions1.png" alt-text="Screenshot of the GitHub Actions secrets and variables page with the New repository secret button highlighted." lightbox="./media/github-actions/actions1.png":::
+:::image type="content" source="media/how-to-github-actions/actions1.png" alt-text="Screenshot of the GitHub Actions secrets and variables page with the New repository secret button highlighted." lightbox="media/how-to-github-actions/actions1.png":::
 
 Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that you found under the heading *Set up your GitHub repository and authenticate*.
 
-:::image type="content" source="./media/github-actions/actions2.png" alt-text="Screenshot of the GitHub Actions secrets / New secret page." lightbox="./media/github-actions/actions2.png":::
+:::image type="content" source="media/how-to-github-actions/actions2.png" alt-text="Screenshot of the GitHub Actions secrets / New secret page." lightbox="media/how-to-github-actions/actions2.png":::
 
 You can also get the Azure login credential from Key Vault in GitHub Actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./github-actions-key-vault.md).
 
@@ -533,11 +533,11 @@ GitHub **Actions** should be enabled automatically after you push *.github/workf
 
 To verify that the action has been enabled, select the **Actions** tab on the GitHub repository page:
 
-:::image type="content" source="./media/github-actions/actions3.png" alt-text="Screenshot of the GitHub Actions tab showing the All workflows section." lightbox="./media/github-actions/actions3.png":::
+:::image type="content" source="media/how-to-github-actions/actions3.png" alt-text="Screenshot of the GitHub Actions tab showing the All workflows section." lightbox="media/how-to-github-actions/actions3.png":::
 
 If your action runs in error, for example, if you haven't set the Azure credential, you can rerun checks after fixing the error. On the GitHub repository page, select **Actions**, select the specific workflow task, and then select the **Rerun checks** button to rerun checks:
 
-:::image type="content" source="./media/github-actions/actions4.png" alt-text="Screenshot of the GitHub Actions tab with the Re-run checks button highlighted." lightbox="./media/github-actions/actions4.png":::
+:::image type="content" source="media/how-to-github-actions/actions4.png" alt-text="Screenshot of the GitHub Actions tab with the Re-run checks button highlighted." lightbox="media/how-to-github-actions/actions4.png":::
 
 ## Next steps
 

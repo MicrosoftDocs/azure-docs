@@ -115,7 +115,7 @@ For the `-c backup` command, AzAcSnap writes to a *\*.result* file.  The purpose
       Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
       ```
 
-1. Example output where a failure has occured and AzAcSnap captured the failure:
+1. Example output where a failure has occurred and AzAcSnap captured the failure:
 
    1. Output to *\*.result* file:
    
