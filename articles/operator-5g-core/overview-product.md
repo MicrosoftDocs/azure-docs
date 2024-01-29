@@ -58,7 +58,7 @@ AO5GC offers the following network functions: 
 - Gateway GPRS Support Node (GGSN)  
 - Serving GPRS Support Node (SGSN)   
  
- :::image type="content" source="media/overview-product/all-g-network.png" alt-text="Text boxes showing the network functions supported by the all-g network offering of Azure Operator 5G Core":::
+ :::image type="content" source="media/overview-product/all-g-network.png" alt-text="Diagram of text boxes showing the network functions supported by the all-g network offering of Azure Operator 5G Core.":::
 
 Any-G is built on top of Azure Operator Nexus and Azure – with flexible Network Function (NF) placement based on the operator use case. Different use cases drive different NF deployment topologies. NF resources can be placed closer to the User Equipment (UE) point of attachment – eMBB, URLLC, MEC (on-premises) – or centralized IOT/Enterprise (cloud). A consistent operator interface from the NFV-I to the application is provided regardless of the placement of the NFs, allowing the operator to focus on their wireless business instead of the network.  
   
@@ -71,7 +71,7 @@ AO5GC supports recovery mechanisms for failure scenarios such as single pod, mul
 
 AO5GC enables provisioning, configuration, management, and automation of complex services that span multiple NFs and analytics services in hybrid (on-premises and in-cloud) environments. This ensures consistent and efficient deployment. It supports ISSU and rollback to different versions while maintaining the baseline configuration across versions and without affecting the operations of the existing workloads.  
 
-:::image type="content" source="media/overview-product/services-and-network-functions.png" alt-text="Text boxes showing the services available in Azure and the network functions that run on Nexus and Azure":::
+:::image type="content" source="media/overview-product/services-and-network-functions.png" alt-text="Diagram of text boxes showing the services available in Azure and the network functions that run on Nexus and Azure.":::
 
 AO5GC’s Resource Provider (RP) provides an inventory of the deployed resources and supports monitoring and health status of current and ongoing deployments.  
 
@@ -85,7 +85,8 @@ AO5GC supports local observability with a small footprint per cluster for both p
 - Alerta  
 - Jaeger  
 - Kafka   
-    
+
+
 Once deployed, AO5GC provides an inventory view of clusters and first-party network functions along with deployment and operational health status. AO5GC provides a rich set of out-of-the-box dashboards as well.  
   
 Disconnected "break-glass" mode maintains data when connectivity between the Azure public cloud regions and local on-premises platforms is lost. AO5GC also allows operators to ingest the telemetry data into their chosen analytics solution for further analysis.  
