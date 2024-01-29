@@ -6588,6 +6588,16 @@
             "source_path_from_root": "/articles/azure-monitor/containers/resource-manager-container-insights.md",
             "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=arm#enable-container-insights",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/azure-functions-supported-features.md",
+            "redirect_url": "/azure/azure-functions/functions-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-standalone-arguments.md",
+            "redirect_url": "/azure/azure-monitor/app/java-get-started-supplemental",
+            "redirect_document_id": true
         }
     ]
 }

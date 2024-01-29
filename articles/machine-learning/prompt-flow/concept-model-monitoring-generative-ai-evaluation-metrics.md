@@ -3,8 +3,8 @@ title: Monitoring evaluation metrics descriptions and use cases (preview)
 titleSuffix: Azure Machine Learning
 description: Understand the metrics used when monitoring the performance of generative AI models deployed to production on Azure Machine Learning.
 services: machine-learning
-author: buchananwp
-ms.author: wibuchan
+author: ZikeiWong
+ms.author: ziqiwang
 ms.service: machine-learning
 ms.subservice: mlops
 ms.reviewer: scottpolly

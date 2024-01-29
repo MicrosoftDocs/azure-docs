@@ -7,18 +7,30 @@ ms.topic: how-to
 
 # Upgrade Arc resource bridge
 
-This article describes how Arc resource bridge is upgraded, and the two ways upgrade can be performed: cloud-managed upgrade or manual upgrade. Currently, some private cloud providers differ in how they handle Arc resource bridge upgrades. For more information, see the [Private cloud providers](#private-cloud-providers) section.
+This article describes how Arc resource bridge is upgraded, and the two ways upgrade can be performed: cloud-managed upgrade or manual upgrade. Currently, some private cloud providers differ in how they handle Arc resource bridge upgrades. 
+
+## Private cloud providers
+Currently, private cloud providers differ in how they perform Arc resource bridge upgrades. Review the following information to see how to upgrade your Arc resource bridge for a specific provider.
+
+For **Arc-enabled VMware vSphere**, manual upgrade is available, but appliances on version 1.0.15 and higher automatically receive cloud-managed upgrade as the default experience. Appliances that are earlier than version 1.0.15 must be manually upgraded. A manual upgrade only upgrades the appliance to the next version, not the latest version. If you have multiple versions to upgrade, another option is to review the steps for [performing a recovery](/azure/azure-arc/vmware-vsphere/recover-from-resource-bridge-deletion), then delete the appliance VM and perform the recovery steps. This deploys a new Arc resource bridge using the latest version and reconnects pre-existing Azure resources.
+
+For **Azure Arc VM management (preview) on Azure Stack HCI**, to use appliance version 1.0.15 or higher, you must be on Azure Stack HCI, version 23H2 (preview). In version 23H2 (preview), the LCM tool manages upgrades across all HCI, Arc resource bridge, and extension components as a "validated recipe" package. Attempting to upgrade Arc resource bridge independent of other HCI environment components by using the `az arcappliance upgrade` command may cause problems in your environment that could result in a disaster recovery scenario. For more information, visit the [Arc VM management FAQ page](/azure-stack/hci/manage/azure-arc-vms-faq). Customers on Azure Stack HCI, version 22H2 will receive limited support.
+
+For **Arc-enabled System Center Virtual Machine Manager (SCVMM)**, the manual upgrade feature is available for appliance version 1.0.14 and higher. Appliances below version 1.0.14 need to perform the recovery option to get to version 1.0.15 or higher. Review the steps for [performing the recovery operation](/azure/azure-arc/system-center-virtual-machine-manager/disaster-recovery), then delete the appliance VM from SCVMM and perform the recovery steps. This deploys a new resource bridge and reconnects pre-existing Azure resources.
 
 ## Prerequisites
 
-In order to upgrade Arc resource bridge, the appliance VM must be online, its status is "Running" and the [credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm) must be valid.
+Before upgrading an Arc resource bridge, the following prerequisites must be met: 
 
-There must be sufficient space on the management machine (~3.5 GB) and appliance VM (35 GB) to download required images. For VMware, a new template is created.
+- The appliance VM must be online, its status is "Running" and the [credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm) must be valid.
 
-The outbound connection from the Appliance VM IPs (`k8snodeippoolstart/end`, VM IP 1/2) to `msk8s.sb.tlu.dl.delivery.mp.microsoft.com`, port 443 must be enabled. Be sure the full list of [required endpoints for Arc resource bridge](network-requirements.md) are also enabled.
+- There must be sufficient space on the management machine (~3.5 GB) and appliance VM (35 GB) to download required images. For VMware, a new template is created.
 
-If you are performing a manual upgrade, the upgrade command should be run from the management machine used to initially deploy the Arc resource bridge and still contains the [appliance configuration files](system-requirements.md#configuration-files) or one that meets the [management machine requirements](system-requirements.md#management-machine-requirements) and also contains the appliance configuration files.
-Arc resource bridges configured with DHCP can't be upgraded and aren't supported in a production environment. Instead, a new Arc resource bridge should be deployed using [static IP configuration](system-requirements.md#static-ip-configuration).  
+- The outbound connection from the Appliance VM IPs (`k8snodeippoolstart/end`, VM IP 1/2) to `msk8s.sb.tlu.dl.delivery.mp.microsoft.com`, port 443 must be enabled. Be sure the full list of [required endpoints for Arc resource bridge](network-requirements.md) are also enabled.
+
+- If you are performing a manual upgrade, the upgrade command should be run from the management machine used to initially deploy the Arc resource bridge and still contains the [appliance configuration files](system-requirements.md#configuration-files) or one that meets the [management machine requirements](system-requirements.md#management-machine-requirements) and also contains the appliance configuration files.
+
+- Arc resource bridge configured with DHCP can't be upgraded and aren't supported in a production environment. Instead, a new Arc resource bridge should be deployed using [static IP configuration](system-requirements.md#static-ip-configuration).  
 
 ## Overview
 
@@ -67,16 +79,6 @@ For example, to upgrade a resource bridge on VMware, run: `az arcappliance upgra
 To upgrade a resource bridge on System Center Virtual Machine Manager (SCVMM), run: `az arcappliance upgrade scvmm --config-file c:\contosoARB01-appliance.yaml`
 
 To upgrade a resource bridge on Azure Stack HCI, please transition to 23H2 and use the built-in upgrade management tool. More info available [here](/azure-stack/hci/update/whats-the-lifecycle-manager-23h2).
-
-## Private cloud providers
-
-Currently, private cloud providers differ in how they perform Arc resource bridge upgrades. Review the following information to see how to upgrade your Arc resource bridge for a specific provider.
-
-For Arc-enabled VMware vSphere, manual upgrade is available, but appliances on version 1.0.15 and higher automatically receive cloud-managed upgrade as the default experience. Appliances that are earlier than version 1.0.15 must be manually upgraded. A manual upgrade only upgrades the appliance to the next version, not the latest version. If you have multiple versions to upgrade, another option is to review the steps for [performing a recovery](/azure/azure-arc/vmware-vsphere/recover-from-resource-bridge-deletion), then delete the appliance VM and perform the recovery steps. This deploys a new Arc resource bridge using the latest version and reconnects pre-existing Azure resources.
-
-For Azure Arc VM management (preview) on Azure Stack HCI, to use appliance version 1.0.15 or higher, you must be on Azure Stack HCI, version 23H2 (preview). In version 23H2 (preview), the LCM tool manages upgrades across all HCI, Arc resource bridge, and extension components as a "validated recipe" package. Attempting to upgrade Arc resource bridge independent of other HCI environment components by using the `az arcappliance upgrade` command may cause problems in your environment that could result in a disaster recovery scenario. For more information, visit the [Arc VM management FAQ page](/azure-stack/hci/manage/azure-arc-vms-faq). Customers on Azure Stack HCI, version 22H2 will receive limited support.
-
-For Arc-enabled System Center Virtual Machine Manager (SCVMM), the manual upgrade feature is available for appliance version 1.0.14 and higher. Appliances below version 1.0.14 need to perform the recovery option to get to version 1.0.15 or higher. Review the steps for [performing the recovery operation](/azure/azure-arc/system-center-virtual-machine-manager/disaster-recovery), then delete the appliance VM from SCVMM and perform the recovery steps. This deploys a new resource bridge and reconnects pre-existing Azure resources.
 
 ## Version releases
 
