@@ -67,9 +67,9 @@ Suppose you deploy your model to production in an Azure Machine Learning online 
 You can use the Azure CLI, the Python SDK, or the studio for an out-of-box setup of model monitoring. The out-of-box model monitoring configuration provides the following monitoring capabilities:
 
 * Azure Machine Learning automatically detects the production inference dataset associated with an Azure Machine Learning online deployment and uses the dataset for model monitoring.
-* The comparison baseline dataset is set as the recent, past production inference dataset.
+* The comparison reference dataset is set as the recent, past production inference dataset.
 * Monitoring setup automatically includes and tracks the built-in monitoring signals: **data drift**, **prediction drift**, and **data quality**. For each monitoring signal, Azure Machine Learning uses:
-  * the recent, past production inference dataset as the comparison baseline dataset.
+  * the recent, past production inference dataset as the comparison reference dataset.
   * smart defaults for metrics and thresholds.
 * A monitoring job is scheduled to run daily at 3:15am (for this example) to acquire monitoring signals and evaluate each metric result against its corresponding threshold. By default, when any threshold is exceeded, Azure Machine Learning sends an alert email to the user that set up the monitor.
 
@@ -139,7 +139,7 @@ created_monitor = poller.result()
 
 1. On the **Basic settings** page, use **(Optional) Select model** to choose the model to monitor.
 1. The **(Optional) Select deployment with data collection enabled** dropdown list should be automatically populated if the model is deployed to an Azure Machine Learning online endpoint. Select the deployment from the dropdown list.
-1. Select the training data to use as the comparison baseline in the **(Optional) Select training data** box.
+1. Select the training data to use as the comparison reference in the **(Optional) Select training data** box.
 1. Enter a name for the monitoring in **Monitor name** or keep the default name.
 1. Notice that the virtual machine size is already selected for you.
 1. Select your **Time zone**. 
@@ -161,7 +161,7 @@ created_monitor = poller.result()
 Azure Machine Learning provides many capabilities for continuous model monitoring. See [Capabilities of model monitoring](concept-model-monitoring.md#capabilities-of-model-monitoring) for a comprehensive list of these capabilities. In many cases, you need to set up model monitoring with advanced monitoring capabilities. In the following sections, you set up model monitoring with these capabilities:
 
 * Use of multiple monitoring signals for a broad view.
-* Use of historical model training data or validation data as the comparison baseline dataset.
+* Use of historical model training data or validation data as the comparison reference dataset.
 * Monitoring of top N most important features and individual features.
 
 ### Configure feature importance
@@ -171,7 +171,7 @@ Feature importance represents the relative importance of each input feature to a
 To enable feature importance with any of your signals (such as data drift or data quality), you need to provide:
 
 - Your training dataset as the `reference_data` dataset.
-- The `reference_data.target_column_name` property, which is the name of your model's output/prediction column. 
+- The `reference_data.data_column_names.target_column` property, which is the name of your model's output/prediction column. 
  
 After enabling feature importance, you'll see a feature importance for each feature you're monitoring in the Azure Machine Learning model monitoring studio UI.
 
@@ -237,7 +237,7 @@ monitoring_target = MonitoringTarget(
     endpoint_deployment_id="azureml:fraud_detection_endpoint:fraund_detection_deployment"
 )
 
-# training data to be used as baseline dataset
+# training data to be used as reference dataset
 reference_data_training = ReferenceData(
     input_data=Input(
         type="mltable",
@@ -400,7 +400,7 @@ Your custom preprocessing component must have these input and output signatures:
   | input | `data_window_start` | literal, string | data window start-time in ISO8601 format. | 2023-05-01T04:31:57.012Z |
   | input | `data_window_end` | literal, string | data window end-time in ISO8601 format. | 2023-05-01T04:31:57.012Z |
   | input | `input_data` | uri_folder | The collected production inference data, which is registered as an Azure Machine Learning data asset. | azureml:myproduction_inference_data:1 |
-  | output | `preprocessed_data` | mltable | A tabular dataset, which matches a subset of the baseline data schema. | |
+  | output | `preprocessed_data` | mltable | A tabular dataset, which matches a subset of the reference data schema. | |
 
 For an example of a custom data preprocessing component, see [custom_preprocessing in the azuremml-examples GitHub repo](https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_preprocessing).
 
@@ -474,7 +474,7 @@ production_data = ProductionData(
 )
 
 
-# training data to be used as baseline dataset
+# training data to be used as reference dataset
 reference_data_training = ReferenceData(
     input_data=Input(
         type="mltable",
@@ -579,7 +579,7 @@ The component input DataFrame should contain the following items:
 
 | Signature name | Type | Description | Example value |
 |---|---|---|---|
-| production_data | mltable | A tabular dataset that matches a subset of the baseline data schema. | |
+| production_data | mltable | A tabular dataset that matches a subset of the reference data schema. | |
 | std_deviation_threshold | literal, string | Respective threshold for the implemented metric. | 2 |
 
 ### Component output signature
@@ -603,7 +603,7 @@ The component output DataFrame should contain four columns: `group`, `metric_nam
 
 The following table shows an example output from a custom signal component that computes the `std_deviation` metric:
 
-  | Group | metric_value | metric_name | threshold_value |
+  | group | metric_value | metric_name | threshold_value |
   |---|---|---|---|
   | TRANSACTIONAMOUNT | 44,896.082 | std_deviation | 2 |
   | LOCALHOUR | 3.983 | std_deviation | 2 |

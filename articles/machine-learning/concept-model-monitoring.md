@@ -71,7 +71,7 @@ Furthermore, for the reference data, if you set the lookback window offset to `P
 
 In some cases, you might find it useful to set the _lookback window offset_ for your production data to a number greater than zero days. For example, if your monitor is scheduled to run weekly on Mondays at 3:15pm UTC, but you don't want to use data from the weekend in your monitoring run, you can use a _lookback window size_ of `P5D` (five days) and a _lookback window offset_ of `P2D` (two days). Then, your data window starts on the prior Monday at 3:15pm UTC and ends on Friday at 3:15pm UTC.
 
-In practice, you should ensure that the reference data window and the production data window don't overlap. As shown in the following figure, you can ensure non-overlapping windows by making sure that the reference data lookback window offset (`P10D` or 10 days, in this example) is greater or equal to the sum of the production data's lookback window size and its lookback window offset (7 days total).
+In practice, you should ensure that the reference data window and the production data window don't overlap. As shown in the following figure, you can ensure non-overlapping windows by making sure that the reference data lookback window offset (`P10D` or 10 days, in this example) is greater or equal to the sum of the production data's lookback window size and its lookback window offset (seven days total).
 
 :::image type="content" source="media/how-to-monitor-models/lookback-overlap.png" alt-text="A diagram showing non-overlapping reference data and production data windows." lightbox="media/how-to-monitor-models/lookback-overlap.png":::
 
@@ -151,12 +151,13 @@ Azure Machine Learning model monitoring supports up to 0.00001 precision for cal
 ## Recommended best practices for model monitoring
 
 Each machine learning model and its use cases are unique. Therefore, model monitoring is unique for each situation. The following is a list of recommended best practices for model monitoring:
-* **Start model monitoring immediately you deploy a model to production.** 
+* **Start model monitoring immediately after you deploy a model to production.** 
 * **Work with data scientists that are familiar with the model to set up model monitoring.** Data scientists who have insight into the model and its use cases are in the best position to recommend monitoring signals and metrics and set the right alert thresholds for each metric (to avoid alert fatigue).
 * **Include multiple monitoring signals in your monitoring setup.** With multiple monitoring signals, you get both a broad view and granular view of monitoring. For example, you can combine data drift and feature attribution drift signals to get an early warning about your model performance issues.
 * **Use model training data as the reference data.** For reference data used as the comparison baseline, Azure Machine Learning allows you to use the recent past production data or historical data (such as training data or validation data). For a meaningful comparison, we recommend that you use the training data as the comparison baseline for data drift and data quality. For prediction drift, use the validation data as the comparison baseline.
 * **Specify the monitoring frequency, based on how your production data will grow over time**. For example, if your production model has much traffic daily, and the daily data accumulation is sufficient for you to monitor, then you can set the monitoring frequency to daily. Otherwise, you can consider a weekly or monthly monitoring frequency, based on the growth of your production data over time.
 * **Monitor the top N important features or a subset of features.** If you use training data as the comparison baseline, you can easily configure data drift monitoring or data quality monitoring for the top N features. For models that have a large number of features, consider monitoring a subset of those features to reduce computation cost and monitoring noise.
+* **Use the model performance signal when you have access to ground truth data.** If you have access to ground truth data (also known as actuals) based on the particulars of your machine learning application, we recommended that you use the model performance signal to compare the ground truth data to your model's output. This comparison provides an objective view into the performance of your model in production.
 
 ## Model monitoring integration with Azure Event Grid
 
