@@ -19,7 +19,7 @@ This article describes how to troubleshoot a failed server hardware validation. 
   - Subscription ID
   - Cluster name and resource group
 
-## Locating Hardware Validation Results
+## Locating hardware validation results
 
 1. Navigate to cluster resource group in the subscription
 2. Expand the cluster Log Analytics Workspace (LAW) resource for the cluster
