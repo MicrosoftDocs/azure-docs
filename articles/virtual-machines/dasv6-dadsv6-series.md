@@ -1,15 +1,13 @@
 ---
-# Required metadata
-# For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
-# For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
-
-title:       # Add a title for the browser tab
+title:       # Specifications for Dasv6 and Dadsv6
 description: # Add a meaningful description for search results
-author:      iamwilliew # GitHub alias
-ms.author:   iamwilliew # Microsoft alias
-ms.service:  # Add the ms.service or ms.prod value
-# ms.prod:   # To use ms.prod, uncomment it and delete ms.service
-ms.topic:    # Add the ms.topic value
-ms.date:     01/25/2024---
+author:      iamwilliew 
+ms.author:   wwilliams
+ms.service:  virtual-machines
+ms.subservice: sizes
+ms.topic:    conceptual
+ms.date:     01/25/2024
+---
 
-Dasv6 and Dadsv6-series
+# Dasv6 and Dadsv6-series
+
