@@ -4,16 +4,16 @@ description: A share snapshot is a read-only version of an Azure file share that
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/16/2023
+ms.date: 01/26/2024
 ms.author: kendownie
 ---
 
 # Overview of share snapshots for Azure Files
-Azure Files provides the capability to take snapshots of SMB file shares. Share snapshots capture the share state at that point in time. This article describes the capabilities that file share snapshots provide and how you can take advantage of them in your use case.
 
-Snapshots for NFS file shares are currently in [public preview](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots-preview) with limited regional availability.
+Azure Files provides the capability to take snapshots of file shares. Share snapshots capture the share state at that point in time. This article describes the capabilities that file share snapshots provide and how you can take advantage of them in your use case.
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -24,7 +24,7 @@ Snapshots for NFS file shares are currently in [public preview](storage-files-ho
 
 ### Protection against application error and data corruption
 
-Applications that use file shares perform operations such as writing, reading, storage, transmission, and processing. If an application is misconfigured or an unintentional bug is introduced, accidental overwrite or damage can happen to a few blocks. To help protect against these scenarios, you can take a share snapshot before you deploy new application code. If a bug or application error is introduced with the new deployment, you can go back to a previous version of your data on that file share. 
+Applications that use file shares perform operations such as writing, reading, storage, transmission, and processing. If an application is misconfigured or an unintentional bug is introduced, accidental overwrite or damage can happen to a few blocks. To help protect against these scenarios, you can take a share snapshot before you deploy new application code. If a bug or application error is introduced with the new deployment, you can go back to a previous version of your data on that file share.
 
 ### Protection against accidental deletions or unintended changes
 
@@ -36,9 +36,9 @@ After you create a file share, you can periodically create a share snapshot of t
 
 ## Capabilities
 
-A share snapshot is a point-in-time, read-only copy of your data. Share snapshot capability is provided at the file share level. Retrieval is provided at the individual file level, to allow for restoring individual files. You can restore a complete file share by using SMB, NFS (preview), REST API, the Azure portal, the client library, or PowerShell/CLI.
+A share snapshot is a point-in-time, read-only copy of your data. Share snapshot capability is provided at the file share level. Retrieval is provided at the individual file level, to allow for restoring individual files. You can restore a complete file share by using SMB, NFS, REST API, the Azure portal, the client library, or PowerShell/CLI.
 
-You can view snapshots of a share by using the REST API, SMB, or NFS (preview). You can retrieve the list of versions of the directory or file, and you can mount a specific version directly as a drive (only available on Windows - see [Limits](#limits)). 
+You can view snapshots of a share by using the REST API, SMB, or NFS. You can retrieve the list of versions of the directory or file, and you can mount a specific version directly as a drive (only available on Windows - see [Limits](#limits)).
 
 After a share snapshot is created, it can be read, copied, or deleted, but not modified. You can't copy a whole share snapshot to another storage account. You have to do that file by file, by using AzCopy or other copying mechanisms.
 
@@ -66,17 +66,17 @@ Snapshots don't count towards the maximum share size limit, which is 100 TiB for
 
 ## Limits
 
-The maximum number of share snapshots that Azure Files allows today is 200 per share. After 200 share snapshots, you must delete older share snapshots in order to create new ones. You can retain snapshots for up to 10 years.
+The maximum number of share snapshots that Azure Files allows is 200 per share. After 200 share snapshots, you must delete older share snapshots in order to create new ones. You can retain snapshots for up to 10 years.
 
 There's no limit to the simultaneous calls for creating share snapshots. There's no limit to the amount of space that share snapshots of a particular file share can consume.
 
-Taking snapshots of NFS Azure file shares is currently in [public preview](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots-preview) with limited regional availability. The preview only supports management APIs (`AzRmStorageShare`), not data plane APIs (`AzStorageShare`), allowing users to create, list, and delete snapshots of NFS Azure file shares.
+Only file management APIs (`AzRmStorageShare`) are supported for NFS Azure file share snapshots. File data plane APIs (`AzStorageShare`) aren't supported.
 
 ## Copying data back to a share from share snapshot
 
 Copy operations that involve files and share snapshots follow these rules:
 
-You can copy individual files in a file share snapshot over to its base share or any other location. You can restore an earlier version of a file or restore the complete file share by copying file by file from the share snapshot. The share snapshot is not promoted to base share. 
+You can copy individual files in a file share snapshot over to its base share or any other location. You can restore an earlier version of a file or restore the complete file share by copying file by file from the share snapshot. The share snapshot isn't promoted to base share.
 
 The share snapshot remains intact after copying, but the base file share is overwritten with a copy of the data that was available in the share snapshot. All the restored files count toward "changed content."
 
@@ -93,6 +93,7 @@ Before you deploy the share snapshot scheduler, carefully consider your share sn
 Share snapshots provide only file-level protection. Share snapshots don't prevent fat-finger deletions on a file share or storage account. To help protect a storage account from accidental deletions, you can either [enable soft delete](storage-files-prevent-file-share-deletion.md), or lock the storage account and/or the resource group.
 
 ## See also
+
 - Working with share snapshots in:
     - [Azure file share backup](../../backup/azure-file-share-backup-overview.md)
     - [Azure PowerShell](/powershell/module/az.storage/new-azrmstorageshare)
