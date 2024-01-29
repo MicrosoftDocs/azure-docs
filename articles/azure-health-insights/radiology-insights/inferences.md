@@ -69,6 +69,7 @@ An age mismatch occurs when the document gives a certain age for the patient, wh
 </details>
 
 
+
 **Laterality Discrepancy**
 
 A laterality mismatch is mostly flagged when the orderedProcedure is for a body part with a laterality and the text refers to the opposite laterality.
