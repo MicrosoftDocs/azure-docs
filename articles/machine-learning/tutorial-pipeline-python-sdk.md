@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: msdpalam
-ms.author: meeral
+author: likebupt
+ms.author: keli19
 ms.reviewer: lagayhar
 ms.date: 10/20/2023
 ms.custom:
