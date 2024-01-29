@@ -124,7 +124,6 @@ jobs:
   pool:
     vmImage: ubuntu-latest
   steps:
-  - checkout: none
   - task: UsePythonVersion@0
     displayName: Use Python >=3.8
     inputs:
@@ -174,7 +173,6 @@ jobs:
   pool:
     vmImage: ubuntu-latest
   steps:
-  - checkout: none
   - task: UsePythonVersion@0
     displayName: Use Python >=3.8
     inputs:
