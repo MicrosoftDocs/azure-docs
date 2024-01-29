@@ -106,7 +106,7 @@ Follow these steps to create a console application and install the Speech SDK.
     }  
     ```
 
-1. Select **Tools** > **Nuget Package Manager** > **Packet Manager Console**. In the **Packet Manager Console**, run this command:
+1. Select **Tools** > **Nuget Package Manager** > **Package Manager Console**. In the **Package Manager Console**, run this command:
 
     ```console
     Install-Package Microsoft.CognitiveServices.Speech
