@@ -52,7 +52,7 @@ Use the following steps to flush the DNS settings for an existing Azure Spring A
 
 1. Select **Flush DNS settings (preview)**.
 
-:::image type="content" source="./media/how-to-flush-dns-settings/flush-dns-settings.png" alt-text="Screenshot of the Azure portal that shows the Overview page with the Flush DNS settings (preview) option highlighted." lightbox="./media/how-to-flush-dns-settings/flush-dns-settings.png":::
+:::image type="content" source="./media/how-to-use-flush-dns-settings/flush-dns-settings.png" alt-text="Screenshot of the Azure portal that shows the Overview page with the Flush DNS settings (preview) option highlighted." lightbox="./media/how-to-use-flush-dns-settings/flush-dns-settings.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 

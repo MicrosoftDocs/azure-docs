@@ -19,7 +19,7 @@ The following are known limitations in Chaos Studio.
 - **Resource Move not supported** - Azure Chaos Studio tracked resources (for example, Experiments) currently do NOT support Resource Move. Experiments can be easily copied (by copying Experiment JSON) for use in other subscriptions, resource groups, or regions. Experiments can also already target resources across regions. Extension resources (Targets and Capabilities) do support Resource Move. 
 - **VMs require network access to Chaos studio** - For agent-based faults, the virtual machine must have outbound network access to the Chaos Studio agent service:
     - Regional endpoints to allowlist are listed in [Permissions and security in Azure Chaos Studio](chaos-studio-permissions-security.md#network-security).
-    - If you're sending telemetry data to Application Insights, the IPs in [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md) are also required.
+    - If you're sending telemetry data to Application Insights, the IPs in [IP addresses used by Azure Monitor](../azure-monitor/ip-addresses.md) are also required.
 
 - **Supported VM operating systems** - If you run an experiment that makes use of the Chaos Studio agent, the virtual machine must run one of the following operating systems:
 
@@ -38,7 +38,8 @@ The following are known limitations in Chaos Studio.
 - **Lockbox** At present, we don't have integration with Customer Lockbox.
 - **Java SDK** At present, we don't have a dedicated Java SDK. If this is something you would use, reach out to us with your feature request. 
 - **Built-in roles** - Chaos Studio doesn't currently have its own built-in roles. Permissions can be attained to run a chaos experiment by either assigning an [Azure built-in role](chaos-studio-fault-providers.md) or a created custom role to the experiment's identity.
-- **Agent Service Tags** Currently we don't have service tags available for our Agent-based faults. 
+- **Agent Service Tags** Currently we don't have service tags available for our Agent-based faults.
+- **Chaos Studio Private Accesses (CSPA)** - For the CSPA resource type, there is a **strict 1:1 mapping of Chaos Target:CSPA Resource (abstraction for private endpoint).** We only allow **5 CSPA resources to be created per Subscription** to maintain the expected experience for all of our customers.  
 
 ## Known issues
 - When selecting target resources for an agent-based fault in the experiment designer, it's possible to select virtual machines or virtual machine scale sets with an operating system not supported by the fault selected.
