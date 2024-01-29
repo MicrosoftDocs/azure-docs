@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022, references_regions
 ms.topic: how-to
-ms.date: 01/21/2024
+ms.date: 01/28/2024
 ---
 
 # Backup and point-in-time restore of a cluster in Azure Cosmos DB for PostgreSQL
@@ -29,8 +29,8 @@ a custom restore point within your retention period.
 Enabling geo-redundant backup is possible during cluster creation on the **Scale** screen that can be accessed on the **Basics** tab. Click the **Save** button to apply your selection. 
 
 > [!NOTE]
-> Geo-redundant backup can be enabled only during cluster creation. 
-> You can't disable geo-redundant backup once cluster is created.
+> Geo-redundant backup can be enabled only during cluster creation or cluster restore. 
+> You can't disable geo-redundant backup once cluster is created. 
 
 ## Confirm type of backup
 To check what type of backup is enabled on a cluster, follow these steps:
@@ -53,6 +53,8 @@ earliest existing backup.
 
 1. If cluster has geo-redundant backup enabled, select remote or same region for restore in the **Location** field. On clusters with zone-redundant and locally redundant backup, location field isn't editable.
 
+1. Set **Geo-redundant backup** checkbox for geo-redundant backup *for the restored cluster* to be stored [in another Azure region](./resources-regions.md). 
+
 1. Select **Next**. 
 
 1. (optional) Make data encryption selection for restored cluster on the **Encryption** tab.
@@ -73,6 +75,8 @@ and time of your choosing.
 1. Select a date and provide a time in the date and time fields, and enter a cluster name in the **Restore to new cluster** field. The subscription and resource group fields aren't editable.
 
 1. If cluster has geo-redundant backup enabled, select remote or same region for restore in the **Location** field. On clusters with zone-redundant and locally redundant backup, location field isn't editable.
+
+1. Set **Geo-redundant backup** checkbox for geo-redundant backup *for the restored cluster* to be stored [in another Azure region](./resources-regions.md). 
 
 1. Select **Next**. 
 
