@@ -3,7 +3,7 @@ title: Azure Update Manager FAQ
 description: This article gives answers to frequently asked questions about Azure Update Manager
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 12/21/2023
+ms.date: 01/23/2024
 author: snehasudhirG
 ms.author: sudhirsneha
 #Customer intent: As an implementer, I want answers to various questions.
@@ -113,10 +113,10 @@ For Arc-enabled servers, Azure Update Manager is charged $5/server/month (assumi
 
 ### When is an Arc-enabled server considered managed by Azure Update Manager?
 
-An Arc-enabled server is considered managed by Azure Update Manager for days on which the machine fulfills the following conditions: 
- - *Connected* status for Arc at any time during the day. 
- - An update operation (patched on demand or through a scheduled job, assessed on demand or through periodic assessment) is triggered on it, or it's associated with a schedule.
- 
+An Arc-enabled server is considered managed by Azure Update Manager for days on which the machine fulfills **both** the following conditions:
+- *Connected* status for Arc at any time during the day.
+- An update operation (patched on demand or through a scheduled job, assessed on demand or through periodic assessment) is triggered on it, or it's associated with a schedule.
+
 ### Are there scenarios in which Arc-enabled Server isn't charged for Azure Update Manager? 
 
 An Arc-enabled server managed with Azure Update Manager is not charged in following scenarios:
@@ -125,7 +125,7 @@ An Arc-enabled server managed with Azure Update Manager is not charged in follow
 
 ### Will I be charged if I move from Automation Update Management to Update Manager? 
 
-Customers using Automation Update Management moving to Azure Update Manager in the same subscription won't be charged till retirement of LA agent.
+Customers will not be charged if they onboard their Arc enabled servers to the same subscription that contains their Automation accounts until the LA agent is retired.
 
 ### I'm a Defender for Server customer and use update recommendations powered by Azure Update Manager namely "periodic assessment should be enabled on your machines" and "system updates should be installed on your machines". Would I be charged for Azure Update Manager? 
 

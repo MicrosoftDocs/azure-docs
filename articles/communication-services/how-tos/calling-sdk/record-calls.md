@@ -44,6 +44,29 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 [!INCLUDE [Record Calls Client-side Windows](./includes/record-calls/record-calls-windows.md)]
 ::: zone-end
 
+### Compliance Recording
+Compliance recording is Teams policy based recording that could be enabled using this tutorial: [Introduction to Teams policy-based recording for callings](/microsoftteams/teams-recording-policy).<br>
+Policy based recording will be started automatically when user with this policy will join a call. To get notification from Azure Communication Service about recording - we can use Cloud Recording section from this article.
+
+```js
+const callRecordingApi = call.feature(Features.Recording);
+
+const isComplianceRecordingActive = callRecordingApi.isRecordingActive;
+
+const isComplianceRecordingActiveChangedHandler = () => {
+    console.log(callRecordingApi.isRecordingActive);
+};
+
+callRecordingApi.on('isRecordingActiveChanged', isComplianceRecordingActiveChangedHandler);
+```
+
+Compliance recording could be implemented by using custom recording bot [GitHub Example](https://github.com/microsoftgraph/microsoft-graph-comms-samples/tree/a3943bafd73ce0df780c0e1ac3428e3de13a101f/Samples/BetaSamples/LocalMediaSamples/ComplianceRecordingBot).<br>
+To hide this bot from participant roster we need to add specific metadata information, it will be used by Azure Communication SDK and Teams client:
+```json
+    "metadata": {"__platform":{"ui":{"hidden":true}
+```
+
+
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
 - [Learn how to manage video](./manage-video.md)

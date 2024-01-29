@@ -84,7 +84,7 @@ GPT-4 version 0314 is the first version of the model released.  Version 0613 is 
 See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-4 deployments.
 
 > [!NOTE]
-> Version `0314` of `gpt-4` and `gpt-4-32k` will be retired no earlier than July 5, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
+> Version `0613` of `gpt-4` and `gpt-4-32k` will be retired on June 13, 2024.  Version `0314` of `gpt-4` and `gpt-4-32k` will be retired on July 5, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
 |  Model ID  | Max Request (tokens) | Training Data (up to)  |
 |  --- |  :--- | :---: |
@@ -107,10 +107,16 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 ### GPT-4 and GPT-4 Turbo Preview model availability
 
-| Model Availability | gpt-4 (0314) | gpt-4 (0613) | gpt-4 (1106-preview) | gpt-4 (vision-preview) | 
-|---|:---|:---|:---|:---|
-| Available to all subscriptions with Azure OpenAI access | | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | Sweden Central <br> Switzerland North <br> West US | 
-| Available to subscriptions with current access to the model version in the region | East US <br> France Central <br> South Central US <br> UK South | East US <br> East US 2 <br> Japan East <br> UK South | | Australia East |
+   
+| Model | Regions where model is available to all subscriptions with Azure OpenAI access | Regions where model is available only to subscriptions with previous access to that model/region |  
+|---|:---|:---|  
+| gpt-4 (0314) | | East US <br> France Central <br> South Central US <br> UK South |  
+| gpt-4 (0613) | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | East US <br> East US 2 <br> Japan East <br> UK South |  
+| gpt-4 (1106-preview) | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | |  
+| gpt-4 (vision-preview) |   | Sweden Central <br> Switzerland North<br>Australia East <br> West US |  
+
+> [!NOTE]
+> As a temporary measure, GPT-4 Turbo with Vision is currently unavailable to new customers.
 
 ### GPT-3.5 models
 
@@ -121,7 +127,7 @@ GPT-3.5 Turbo version 0301 is the first version of the model released.  Version 
 See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-3.5 Turbo deployments.
 
 > [!NOTE]
-> Version `0301` of `gpt-35-turbo` will be retired no earlier than July 5, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
+> Version `0613` of `gpt-35-turbo` and `gpt-35-turbo-16k` will be retired on June 13, 2024. Version `0301` of `gpt-35-turbo` will be retired on July 5, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
 ### GPT-3.5-Turbo model availability
 

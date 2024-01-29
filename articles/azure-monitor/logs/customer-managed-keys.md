@@ -24,7 +24,7 @@ Customer-managed key is delivered on [dedicated clusters](./logs-dedicated-clust
 
 Data ingested in the last 14 days or recently used in queries is kept in hot-cache (SSD-backed) for query efficiency. SSD data is encrypted with Microsoft keys regardless customer-managed key configuration, but your control over SSD access adheres to [key revocation](#key-revocation)
 
-Log Analytics Dedicated Clusters [pricing model](./logs-dedicated-clusters.md#cluster-pricing-model) requires commitment Tier starting at 500 GB per day, and can have values of 500, 1000, 2000 or 5000 GB per day.
+Log Analytics Dedicated Clusters [pricing model](./logs-dedicated-clusters.md#cluster-pricing-model) requires commitment Tier starting at 100 GB per day.
 
 ## How Customer-managed key works in Azure Monitor
 

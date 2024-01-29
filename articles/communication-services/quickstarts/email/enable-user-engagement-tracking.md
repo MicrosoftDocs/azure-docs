@@ -30,11 +30,9 @@ In this quick start, you'll learn about how to enable user engagement tracking f
 
 :::image type="content" source="./media/email-domains-custom-overview.png" alt-text="Screenshot that shows the overview page of the domain." lightbox="media/email-domains-custom-overview-expanded.png":::
 
-5.	The navigation lands in Domain Overview page where you'll able to see User interaction tracking Off by default.
+5.	Click turn on to enable engagement tracking.
 
 :::image type="content" source="./media/email-domains-user-engagement.png" alt-text="Screenshot that shows the user engagement turn-on page of the domain." lightbox="media/email-domains-user-engagement-expanded.png":::
-
-6.	Click turn on to enable engagement tracking.
 
 **Your email domain is now ready to send emails with user engagement tracking. Please be aware that user engagement tracking is applicable to HTML content and will not function if you submit the payload in plaintext.**
 
