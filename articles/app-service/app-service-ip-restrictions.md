@@ -6,7 +6,7 @@ author: madsd
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.topic: article
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 01/25/2024
+ms.date: 01/29/2024
 ms.author: madsd
 ---
 # Set up Azure App Service access restrictions
@@ -35,17 +35,17 @@ To add an access restriction rule to your app, do the following steps:
 
 1. Select the app that you want to add access restrictions to.
 
-1. On the left pane, select **Networking**.
+1. On the left menu, select **Networking**.
 
-1. On the **Networking** pane, under **Access Restrictions**, select **Configure Access Restrictions**.
+1. On the **Networking** page, under **Inbound traffic configuration**, select the **Public network access** setting.
 
-    :::image type="content" source="media/app-service-ip-restrictions/access-restrictions.png" alt-text="Screenshot of the App Service networking options pane in the Azure portal.":::
+    :::image type="content" source="media/app-service-ip-restrictions/access-restrictions.png" alt-text="Screenshot of the App Service networking options page in the Azure portal.":::
 
 1. On the **Access Restrictions** page, review the list of access restriction rules that are defined for your app.
 
    :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-browse.png" alt-text="Screenshot of the Access Restrictions page in the Azure portal, showing the list of access restriction rules defined for the selected app.":::
 
-   The list displays all the current restrictions that are applied to the app. If you have a virtual network restriction on your app, the table shows whether the service endpoints are enabled for Microsoft.Web. If no restrictions are defined on your app, the app is accessible from anywhere.
+   The list displays all the current restrictions that are applied to the app. If you have a virtual network restriction on your app, the table shows whether the service endpoints are enabled for Microsoft.Web. If no restrictions are defined on your app and your unmatched rule isn't set to Deny, the app is accessible from anywhere.
 
 ### Permissions
 
@@ -66,9 +66,9 @@ If you're adding a service endpoint-based rule and the virtual network is in a d
 
 ### Add an access restriction rule
 
-To add an access restriction rule to your app, on the **Access Restrictions** pane, select **Add rule**. After you add a rule, it becomes effective immediately. 
+To add an access restriction rule to your app, on the **Access Restrictions** page, select **Add**. The rule is only effective after saving. 
 
-Rules are enforced in priority order, starting from the lowest number in the **Priority** column. An implicit *deny all* is in effect after you add even a single rule.
+Rules are enforced in priority order, starting from the lowest number in the **Priority** column. If you don't configure unmatched rule, an implicit *deny all* is in effect after you add even a single rule.
 
 On the **Add Access Restriction** pane, when you create a rule, do the following:
 
@@ -79,7 +79,9 @@ On the **Add Access Restriction** pane, when you create a rule, do the following
 1. Optionally, enter a name and description of the rule.
 1. In the **Priority** box, enter a priority value.
 1. In the **Type** drop-down list, select the type of rule. The different types of rules are described in the following sections.
-1. Select **Save** after typing in the rule specific input to save the changes.
+1. Select **Add rule** after typing in the rule specific input to add the rule to the list.
+
+Finally select **Save** back in the **Access Restrictions** page.
 
 > [!NOTE]
 > - There is a limit of 512 access restriction rules. If you require more than 512 access restriction rules, we suggest that you consider installing a standalone security product, such as Azure Front Door, Azure App Gateway, or an alternative WAF.
@@ -111,7 +113,7 @@ You can't use service endpoints to restrict access to apps that run in an App Se
 With service endpoints, you can configure your app with application gateways or other web application firewall (WAF) devices. You can also configure multi-tier applications with secure back ends. For more information, see [Networking features and App Service](networking-features.md) and [Application Gateway integration with service endpoints](networking/app-gateway-with-service-endpoints.md).
 
 > [!NOTE]
-> - Service endpoints aren't currently supported for web apps that use IP-based TLS/SSL bindings with a virtual IP (VIP).
+> - Service endpoints aren't supported for web apps that use IP-based TLS/SSL bindings with a virtual IP (VIP).
 >
 #### Set a service tag-based rule
 
@@ -132,7 +134,7 @@ All available service tags are supported in access restriction rules. Each servi
    :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-ip-edit.png?v2" alt-text="Screenshot of the 'Edit Access Restriction' pane in the Azure portal, showing the fields for an existing access restriction rule.":::
 
    > [!NOTE]
-   > When you edit a rule, you can't switch between rule types. 
+   > When you edit a rule, you can't switch between rule types.
 
 ### Delete a rule
 
