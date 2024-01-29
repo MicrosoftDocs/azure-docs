@@ -20,7 +20,8 @@ The Trial Matcher includes a built-in Knowledge graph, which uses trials taken f
 When you're matching patients to trials, you can define a list of filters to query a subset of clinical trials. Each filter can be defined based on ```trial conditions```, ```types```, ```recruitment statuses```, ```sponsors```, ```phases```, ```purposes```, ```facility names```, ```locations```, or ```trial IDs```.
 - Specifying multiple values for the same filter category results in a trial set that is a union of the two sets.
 
-Note: the examples below are based on API version: 2023-03-01-preview. 
+[!NOTE]
+The examples below are based on API version: 2023-03-01-preview. 
 
 In the following configuration, the model queries trials that are in recruitment status ```recruiting``` or ```not yet recruiting```.
 
