@@ -12,7 +12,7 @@ ms.date: 01/29/2024
 
 # What is Azure Operator 5G Core? 
 
-Azure Operator 5G Core (AO5GC) is a carrier-grade, Any-G, hybrid mobile packet core with fully integrated network functions that run both on-premises and in-cloud. Service providers can deploy resilient networks with high performance and at high capacity, while maintaining low latency. The AO5GC is ideal for Tier 1 consumer networks, mobile network operators (MNO), virtual network operators (MVNOs), enterprises, IoT, fixed wireless access (FWA), and satellite network operators (SNOs). 
+Azure Operator 5G Core (AO5GC) is a carrier-grade, Any-G, hybrid mobile packet core with fully integrated network functions that run both on-premises and in-cloud. Service providers can deploy resilient networks with high performance and at high capacity while maintaining low latency. The AO5GC is ideal for Tier 1 consumer networks, mobile network operators (MNO), virtual network operators (MVNOs), enterprises, IoT, fixed wireless access (FWA), and satellite network operators (SNOs). 
  
 The power of Azure's global footprint ensures global coverage and operating infrastructure at scale, coupled with Microsoft’s Zero Trust security framework to provide secure and reliable connectivity to cloud applications.  
   
@@ -87,14 +87,11 @@ AO5GC supports local observability with a small footprint per cluster for both p
 - Jaeger  
 - Kafka   
     
-
 Once deployed, AO5GC provides an inventory view of clusters and first-party network functions along with deployment and operational health status. AO5GC provides a rich set of out-of-the-box dashboards as well.  
   
 Disconnected "break-glass" mode maintains data when connectivity between the Azure public cloud regions and local on-premises platforms is lost. AO5GC also allows operators to ingest the telemetry data into their chosen analytics solution for further analysis.  
-
 
 ## Related content
 
 - [Azure Operator 5G Core architecture](overview-architecture.md)
 - [Centralized Lifecycle Management in Azure Operator 5G Core](concept-centralized-lifecycle-management.md)
-
