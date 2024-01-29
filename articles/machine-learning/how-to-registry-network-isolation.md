@@ -44,7 +44,8 @@ If you don't have a secure workspace configuration, you can create it using the 
 
 :::image type="content" source="./media/how-to-registry-network-isolation/basic-network-isolation-registry.png" alt-text="Diagram of registry connected to Virtual network containing workspace and associated resources using private endpoint.":::
 
-
+## Limitations
+If you are using a Azure Machine Leanring registry with network isolation, you won't be able to see the assets using UI or perform any opearation on Azure mahcine leanring registry and assets under it. Please use Azure Machine Leanring CLI/SDK instead.
 ## Scenario: workspace configuration is secure and Azure Machine Learning registry is public
 
 This section describes the scenarios and required network configuration if you have a secure workspace configuration but using a public registry. 
