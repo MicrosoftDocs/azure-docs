@@ -132,7 +132,10 @@ Literal inputs are only supported in pipeline component deployments. See [Create
 
 ### Data outputs
 
-Data outputs refer to the location where the results of a batch job should be placed. Outputs are identified by name, and Azure Machine Learning automatically assigns a unique path to each named output. However, you can specify another path if required. Batch endpoints only support writing outputs in blob Azure Machine Learning data stores. 
+Data outputs refer to the location where the results of a batch job should be placed. Outputs are identified by name, and Azure Machine Learning automatically assigns a unique path to each named output. However, you can specify another path if required. 
+
+> [!IMPORTANT]
+> Batch endpoints only support writing outputs in Azure Blob Storage datastores. 
 
 
 ## Create jobs with data inputs

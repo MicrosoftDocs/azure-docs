@@ -139,21 +139,11 @@ items:
               href: app/worker-service.md
             - name: Advanced ASP.NET SDK topics
               items:
-              - name: Metrics
-                items:
-                - name: GetMetric
-                  displayName: get metric, custom metrics, metrics, TrackMetric
-                  href: app/get-metric.md
-                - name: Log-based & pre-aggregated metrics
-                  href: app/pre-aggregated-metrics-log-metrics.md
-                - name: Log-based metrics definitions
-                  href: essentials/app-insights-metrics.md
-                - name: Standard metrics
-                  href: app/standard-metrics.md
+              - name: GetMetric
+                displayName: get metric, custom metrics, metrics, TrackMetric
+                href: app/get-metric.md
               - name: EventCounters
                 href: app/eventcounters.md
-              - name: Dependencies
-                href: app/asp-net-dependencies.md
               - name: ApplicationInsights.config
                 href: app/configuration-with-applicationinsights-config.md
               - name: TelemetryChannels
@@ -173,8 +163,6 @@ items:
           - name: Application Insights API summary
             displayName: SDK, API, custom events, custom metrics, trackevent, trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
             href: app/api-custom-events-metrics.md
-          - name: Application Insights data model
-            href: app/data-model-complete.md
           - name: Connection strings
             href: app/sdk-connection-string.md
             displayName: connection string, instrumentation key
@@ -353,9 +341,6 @@ items:
         href: app/powershell.md
       - name: Access control
         href: app/resources-roles-access-control.md
-      - name: IP addresses, ports, and firewall settings
-        href: app/ip-addresses.md
-        displayName: firewall, firewall exceptions, whitelist
     - name: Help and support
       items:
       - name: Create an Azure support ticket
@@ -496,24 +481,24 @@ items:
       - name: KEDA integration
         displayName: Prometheus
         href: containers/integrate-keda.md
-      - name: Entra authorization proxy
+      - name: Microsoft Entra authorization proxy
         displayName: Prometheus
         href: containers/prometheus-authorization-proxy.md
-      - name: Remote Write
+      - name: Remote write
         items:
         - name: Overview
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write.md
-        - name: Managed identity
+        - name: Managed identity authentication
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-managed-identity.md
-        - name: Microsoft Entra ID
+        - name: Microsoft Entra authentication
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-active-directory.md
-        - name: Microsoft Entra pod identity
+        - name: Microsoft Entra pod-managed identity authentication
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-azure-ad-pod-identity.md
-        - name: Microsoft Entra Workload ID (preview)
+        - name: Microsoft Entra Workload ID (preview) authentication
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-azure-workload-identity.md
       - name: Send to multiple metric workspaces
@@ -1485,6 +1470,9 @@ items:
     href: alerts/azure-cli-metrics-alert-sample.md
 - name: Reference
   items:
+  - name: IP addresses, ports, and firewall settings
+    href: ip-addresses.md
+    displayName: firewall, firewall exceptions, whitelist
   - name: Service limits
     href: service-limits.md
   - name: Security
@@ -1524,6 +1512,18 @@ items:
     href: agents/azure-monitor-agent-extension-versions.md
   - name: Application Insights
     items:
+    - name: Application Insights data model
+      href: app/data-model-complete.md
+    - name: Metrics
+      items:
+      - name: Log-based & pre-aggregated metrics
+        href: app/pre-aggregated-metrics-log-metrics.md
+      - name: Log-based metrics definitions
+        href: essentials/app-insights-metrics.md
+      - name: Standard metrics
+        href: app/standard-metrics.md
+    - name: ASP.NET Dependencies
+      href: app/asp-net-dependencies.md
     - name: Azure Functions
       href: ../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json
   - name: Azure PowerShell

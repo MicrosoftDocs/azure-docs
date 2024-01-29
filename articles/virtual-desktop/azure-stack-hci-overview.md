@@ -73,21 +73,17 @@ There are different classifications of data for Azure Virtual Desktop, such as c
 
 Azure Virtual Desktop for Azure Stack HCI has the following limitations:
 
-- Session hosts running on Azure Stack HCI don't support some Azure Virtual Desktop features, such as:
+- You can't use some Azure Virtual Desktop features when session hosts running on Azure Stack HCI, such as:
     
     - [Azure Virtual Desktop Insights](insights.md)
     - [Autoscale](autoscale-scaling-plan.md)
     - [Session host scaling with Azure Automation](set-up-scaling-script.md)
     - [Start VM On Connect](start-virtual-machine-connect.md)
-    - [Per-user access pricing](./remote-app-streaming/licensing.md)
+    - [Per-user access pricing](licensing.md)
 
 - Each host pool must only contain session hosts on Azure or on Azure Stack HCI. You can't mix session hosts on Azure and on Azure Stack HCI in the same host pool.
 
-- Session hosts on Azure Stack HCI don't support certain cloud-only Azure services.
-
 - Azure Stack HCI supports many types of hardware and on-premises networking capabilities, so performance and user density might vary compared to session hosts running on Azure. Azure Virtual Desktop's [virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs) are broad, so you should use them for initial performance estimates and monitor after deployment.
-
-- Templates may show failures in certain cases at the domain-joining step. To proceed, you can manually join the session hosts to the domain. For more information, see [VM provisioning through Azure portal on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
 
 ## Next steps
 
