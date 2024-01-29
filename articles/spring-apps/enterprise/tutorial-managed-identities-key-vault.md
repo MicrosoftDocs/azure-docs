@@ -17,7 +17,7 @@ zone_pivot_groups: spring-apps-tier-selection
 
 **This article applies to:** ✔️ Java ❌ C#
 
-This article shows you how to create a managed identity for an app deployed to Azure Spring Apps and use it to access Azure Key Vault.
+This article shows you how to create a system-assigned or user-assigned managed identity for an app deployed to Azure Spring Apps and use it to access Azure Key Vault.
 
 Azure Key Vault can be used to securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets for your app. You can create a managed identity in Microsoft Entra ID, and authenticate to any service that supports Microsoft Entra authentication, including Key Vault, without having to display credentials in your code.
 
@@ -54,7 +54,7 @@ Create variables to hold the resource names by using the following commands. Be 
 export LOCATION=<location>
 export RESOURCE_GROUP=myresourcegroup
 export SPRING_APPS=myasa
-export APP=springapp
+export APP=springapp-system
 export KEY_VAULT=<your-keyvault-name>
 ```
 
@@ -64,7 +64,7 @@ export KEY_VAULT=<your-keyvault-name>
 export LOCATION=<location>
 export RESOURCE_GROUP=myresourcegroup
 export SPRING_APPS=myasa
-export APP=springapp
+export APP=springapp-user
 export KEY_VAULT=<your-keyvault-name>
 export USER_ASSIGNED_IDENTITY=<user-assigned-identity-name>
 ```
@@ -267,7 +267,7 @@ This app has access to get secrets from Azure Key Vault. Use the Azure Key Vault
 ### [System-assigned managed identity](#tab/system-assigned-managed-identity)
 
 ```properties
-spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=https://<your-keyvault-url>
+spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=<your-keyvault-url>
 spring.cloud.azure.keyvault.secret.property-sources[0].credential.managed-identity-enabled=true
 ```
 
@@ -282,9 +282,9 @@ az identity show --resource-group ${RESOURCE_GROUP} \
 ```
 
 ```properties
-spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=https://<your-keyvault-url>
+spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=<your-keyvault-url>
 spring.cloud.azure.keyvault.secret.property-sources[0].credential.managed-identity-enabled=true
-spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id={Client ID of user-assigned managed identity}
+spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id=<Client-ID-of-user-assigned-managed-identity>
 ```
 
 ---
@@ -335,9 +335,9 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id={Cli
    </dependency>
    ```
 
-1. Now you can deploy your app to Azure with the following command:
-
 ::: zone pivot="sc-standard"
+
+1. Now you can deploy your app to Azure Spring Apps with the following command:
 
    ```azurecli
    az spring app deploy \
@@ -350,6 +350,8 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id={Cli
 ::: zone-end
 
 ::: zone pivot="sc-enterprise"
+
+1. Now you can deploy your app to Azure Spring Apps with the following command:
 
    ```azurecli
    az spring app deploy \
