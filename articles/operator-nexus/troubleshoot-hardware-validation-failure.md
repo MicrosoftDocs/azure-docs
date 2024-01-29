@@ -28,7 +28,7 @@ This article describes how to troubleshoot a failed server hardware validation. 
 
 :::image type="content" source="media\hardware-validation-cluster-law.png" alt-text="Cluster LAW Custom table query." lightbox="media\hardware-validation-cluster-law.png":::
 
-## Examining Hardware Validation Results
+## Examining hardware validation results
 
 The Hardware Validation result for a given server includes the following categories.
 
