@@ -158,7 +158,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
             - The delay between 4th and 5th attempt is 40 seconds
             - The delay between 5th and 6th attempt is 5 seconds
         - After retries attempted to call the webhook fail, no action group calls the endpoint for 15 minutes.
-        - The retry logic assumes that the call can be retried. The status codes: 408, 429, 503, 504, or HttpRequestException, WebException, `TaskCancellationException` allow for the call to be retried”.
+        - The retry logic assumes that the call can be retried. The status codes: 408, 429, 503, 504, or `HttpRequestException`, `WebException`, or `TaskCancellationException` allow for the call to be retried”.
 
 ## Action or notification happened more than once 
 
