@@ -34,9 +34,9 @@ First configure an app registration in your Microsoft Entra ID tenant. The app r
     * Under **Supported account types**, select **Accounts in this organizational directory (Single tenant)**. 
     * In **Redirect URI**, select **Single-page application (SPA)** and enter the following URI, substituting your API center name and region where indicated:
 
-        `https://<apiCenterName>.portal.<region>.azure-apicenter.ms`
+        `https://<api-center-name>.portal.<region>.azure-apicenter.ms`
 
-        Example: `https://contoso-apic.portal.westeurope.azure-apicenter.ms`
+        Example: `https://contoso.portal.westeurope.azure-apicenter.ms`
 
     * Select **Register**.
 1. On the **Overview** page, copy the **Application (client) ID**. You use this value when you configure the identity provider for the portal in your API center.
@@ -58,26 +58,29 @@ In your API center, configure the Microsoft Entra ID identity provider for the A
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
 1. In the left menu, under **API Center portal**, select **Portal settings**.
 1. Select **Identity provider** > **Start set up**.
-1. On the **Set up user sign-in with Microsoft Entra ID** page, in **Client ID**, enter the **Application (client) ID** of the app registration you created in the previous section.
-1. Select **Save + publish**. The Microsoft Entra ID provider is listed on the **Identity provider** page.
+1. On the **Set up user sign-in with Microsoft Entra ID** page, in **Client ID**, enter the **Application (client) ID** of the app registration that you created in the previous section.
 
     :::image type="content" source="media/enable-api-center-portal/set-up-sign-in-portal.png" alt-text="Screenshot of the Microsoft Entra ID provider settings in the API Center portal." lightbox="media/enable-api-center-portal/set-up-sign-in-portal.png":::
 
+1. Select **Save + publish**. The Microsoft Entra ID provider appears on the **Identity provider** page.
+
 1. To view the API Center portal, on the **Portal settings** page, select **View API Center portal**.
 
-The portal is published at the following URL that you can share with developers in your organization: `https://<apiCenterName>.<region>.azure-apicenter.ms`.
+The portal is published at the following URL that you can share with developers in your organization: `https://<api-center-name>.<region>.azure-apicenter.ms`.
 
 :::image type="content" source="media/enable-api-center-portal/api-center-portal-home.png" alt-text="Screenshot of the API Center portal home page.":::
 
 ## Customize portal name
 
-By default, the name that appears on the upper left of the APIC Center portal is the name of your API center. You can customize this name.
+By default, the name that appears on the upper left of the API Center portal is the name of your API center. You can customize this name.
 
 1. In the Azure portal, go to the **Portal settings** > **Site profile** page.
 1. Enter a new name in **Add a website name**.
 1. Select **Save + publish**.
 
-:::image type="content" source="media/enable-api-center-portal/add-website-name.png" alt-text="Screenshot of adding a custom website name in the Azure portal.":::
+    :::image type="content" source="media/enable-api-center-portal/add-website-name.png" alt-text="Screenshot of adding a custom website name in the Azure portal.":::
+
+    The new name appears after you refresh the API Center portal.
 
 ## Enable sign-in to portal by Microsoft Entra users and groups 
 
@@ -88,7 +91,7 @@ While the portal URL is publicly accessible, users must sign in to see the APIs 
 
 For detailed prerequisites and steps to assign a role to users and groups, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). Brief steps follow:
 
-1. In the [portal](https://portal.azure.com), navigate to your API center.
+1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
 1. In the left menu, select **Access control (IAM)** > **+ Add role assignment**.
 1. In the **Add role assignment** pane, set the values as follows:
     * On the **Role** page, search for and select **Azure API Center Data Reader**. Select **Next**.
@@ -102,7 +105,7 @@ For detailed prerequisites and steps to assign a role to users and groups, see [
 After you configure access to the portal, configured users can sign in to the portal and view the APIs in your API center.
 
 > [!NOTE]
-> The first user to sign in to the portal is prompted to consent to the permissions requested by the API Center portal app registration. Thereafter, other configured users aren't be prompted to consent.
+> The first user to sign in to the portal is prompted to consent to the permissions requested by the API Center portal app registration. Thereafter, other configured users aren't prompted to consent.
 
 :::image type="content" source="media/enable-api-center-portal/api-center-portal-signed-in.png" alt-text="Screenshot of the API Center portal after user sign-in.":::
 

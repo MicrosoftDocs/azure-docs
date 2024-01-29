@@ -77,7 +77,7 @@ The following table lists the included features in MABS V4:
 
 ## What's new in MABS V3 UR2 Hotfix?
 
-This update contains the following enhancement to improve the backup time. For more information on the enhancements and the installation, see the [KB article](https://help.microsoft.com/support/5031799).
+This update contains the following enhancement to improve the backup time. For more information on the enhancements and the installation, see the [KB article](https://support.microsoft.com/topic/hotfix-for-update-rollup-2-for-microsoft-azure-backup-server-v3-3ef522f7-c307-47e2-827d-8e14f1e84017).
 
 **Removed File Catalog dependency for online backup of file/folder workloads**: This update removes the dependency of MABS V3 on File Catalog (list of files in a recovery point maintained in the cloud) which was needed to restore individual files and folders from the online recovery points. This Hotfix allows MABS V3 UR2 to use a modern *iSCSI mount* method to provide individual file restoration.
 
