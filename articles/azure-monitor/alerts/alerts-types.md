@@ -4,7 +4,7 @@ description: This article explains the different types of Azure Monitor alerts a
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 01/22/2024
 ms.custom: template-concept, ignite-2022
 ms.reviewer: harelbr
 ---
