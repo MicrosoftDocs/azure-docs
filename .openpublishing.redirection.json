@@ -846,28 +846,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/iot-solution.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/iot-solution",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/iot-advanced-threat-monitoring.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/iot-advanced-threat-monitoring",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/backup/backup-center-community.md",
             "redirect_url": "/azure/backup/backup-center-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/sentinel/whats-new-archive.md",
-            "redirect_url": "/azure/sentinel/whats-new",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/sentinel/sap/configure-transport.md",
-            "redirect_url": "/azure/sentinel/sap/sap-deploy-troubleshoot",
             "redirect_document_id": false
         },
         {
@@ -895,37 +875,6 @@
             "redirect_url": "https://aka.ms/PTELandingPage",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/container-registry/container-registry-customer-managed-keys.md",
-            "redirect_url": "/azure/container-registry/tutorial-customer-managed-keys",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/container-registry/container-registry-enable-conditional-access-policy.md",
-            "redirect_url": "/azure/container-registry/container-registry-configure-conditional-access.md",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/container-registry/tutorial-artifact-streaming.md",
-            "redirect_url": "/azure/container-registry/container-registry-artifact-streaming",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/container-registry/tutorial-artifact-streaming-cli.md",
-            "redirect_url": "/azure/container-registry/container-registry-artifact-streaming",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/container-registry/tutorial-artifact-streaming-portal.md",
-            "redirect_url": "/azure/container-registry/container-registry-artifact-streaming",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/container-registry/tutorial-artifact-streaming-troubleshoot.md",
-            "redirect_url": "/azure/container-registry/troubleshoot-artifact-streaming",
-            "redirect_document_id": false
-        },
-
         {
             "source_path": "articles/iot-hub/iot-hub-rm-template.md",
             "redirect_url": "/azure/iot-hub/iot-hub-rm-template-powershell",
@@ -964,56 +913,6 @@
         {
             "source_path": "articles/automanage/automanage-windows-server-services-overview.md",
             "redirect_URL": "/windows-server/get-started/azure-edition",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/view-metrics.md",
-            "redirect_url": "/azure/aks/monitor-aks",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/azure-csi-blob-storage-dynamic.md",
-            "redirect_url": "/azure/aks/azure-csi-blob-storage-provision",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/azure-csi-blob-storage-static.md",
-            "redirect_url": "/azure/aks/azure-csi-blob-storage-provision",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/azure-disks-dynamic-pv.md",
-            "redirect_url": "/azure/aks/azure-csi-disk-storage-provision",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/azure-disk-volume.md",
-            "redirect_url": "/azure/aks/azure-csi-disk-storage-provision",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/azure-files-dynamic-pv.md",
-            "redirect_url": "/azure/aks/azure-csi-files-storage-provision",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/azure-files-volume.md",
-            "redirect_url": "/azure/aks/azure-csi-files-storage-provision",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/workload-identity-migration-sidecar.md",
-            "redirect_url": "/azure/aks/workload-identity-migrate-from-pod-identity",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/managed-aad.md",
-            "redirect_url": "/azure/aks/managed-azure-ad",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/monitor-apiserver.md",
-            "redirect_url": "/azure/aks/monitor-aks#resource-logs",
             "redirect_document_id": false
         },
         {
@@ -1377,22 +1276,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-registry/container-registry-diagnostics-audit-logs.md",
-            "redirect_url": "/azure/container-registry/monitor-service"
-        },
-        {
             "source_path": "articles/confidential-computing/how-to-fortanix-enclave-manager.md",
             "redirect_url": "/azure/confidential-computing/how-to-fortanix-confidential-computing-manager-node-agent"
-        },
-        {
-            "source_path": "articles/azure-percept/advanced-development-cloud.md",
-            "redirect_url": "/azure/azure-percept/overview-advanced-code",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/azure-percept/advanced-development-local.md",
-            "redirect_url": "/azure/azure-percept/overview-advanced-code",
-            "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-arc/kubernetes/use-gitops-connected-cluster.md",
@@ -1652,36 +1537,6 @@
         {
             "source_path_from_root": "/articles/frontdoor/standard-premium/tier-comparison.md",
             "redirect_url": "/azure/frontdoor/front-door-cdn-comparison",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/aks-resource-health.md",
-            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/concepts-diagnostics.md",
-            "redirect_url": "/azure/aks/aks-diagnostics",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/troubleshooting.md",
-            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/troubleshoot-linux.md",
-            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/dapr-troubleshooting.md",
-            "redirect_url": "/troubleshoot/azure/azure-kubernetes/troubleshoot-dapr-extension-installation-errors",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/csi-secrets-store-troubleshooting.md",
-            "redirect_url": "/troubleshoot/azure/azure-kubernetes/troubleshoot-key-vault-csi-secrets-store-csi-driver",
             "redirect_document_id": false
         },
         {
@@ -3240,121 +3095,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/aks/kubernetes-walkthrough-portal.md",
-            "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-portal",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/kubernetes-walkthrough.md",
-            "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-cli",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/kubernetes-walkthrough-powershell.md",
-            "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-powershell",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/kubernetes-walkthrough-rm-template.md",
-            "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-rm-template",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/windows-container-cli.md",
-            "redirect_url": "/azure/aks/learn/quick-windows-container-deploy-cli",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/windows-container-powershell.md",
-            "redirect_url": "/azure/aks/learn/quick-windows-container-deploy-powershell",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/integrate-azure.md",
-            "redirect_url": "/azure/aks/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/use-cosmosdb-osba-mongo-app.md",
-            "redirect_url": "/azure/aks/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/acs-aks-migration.md",
-            "redirect_url": "/azure/aks/aks-migration",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/aad-integration.md",
-            "redirect_url": "/azure/aks/azure-ad-integration",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/aks/azure-ad-integration.md",
-            "redirect_url": "/azure/aks/azure-ad-integration-cli",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/azure-files.md",
-            "redirect_url": "/azure/aks/azure-files-dynamic-pv",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/autoscaler.md",
-            "redirect_url": "/azure/aks/cluster-autoscaler",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/container-registry/container-registry-auth-aks.md",
-            "redirect_url": "/azure/aks/cluster-container-registry-integration",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/aks/virtual-kubelet.md",
-            "redirect_url": "/azure/aks/concepts-scale#burst-to-azure-container-instances",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/configure-advanced-networking.md",
-            "redirect_url": "/azure/aks/configure-azure-cni",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/aks/networking-overview.md",
-            "redirect_url": "/azure/aks/configure-azure-cni",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/ingress.md",
-            "redirect_url": "/azure/aks/ingress-tls",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/aks/ingress-internal-ip.md",
-            "redirect_url": "/azure/aks/ingress-basic",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/ingress-own-tls.md",
-            "redirect_url": "/azure/aks/ingress-tls",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/ingress-static-ip.md",
-            "redirect_url": "/azure/aks/ingress-tls",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/container-service/kubernetes/container-service-kubernetes-jenkins.md",
-            "redirect_url": "/azure/aks/jenkins-continuous-deployment",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/azure-ad-v2.md",
-            "redirect_url": "/azure/aks/managed-aad",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/network-functions-manager/index.yml",
             "redirect_url": "/azure/network-function-manager",
             "redirect_document_id": false
@@ -3362,101 +3102,6 @@
         {
             "source_path_from_root": "/articles/virtual-network/container-networking.md",
             "redirect_url": "/azure/aks/networking-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/policy-samples.md",
-            "redirect_url": "/azure/aks/policy-reference",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/kubernetes-draft.md",
-            "redirect_url": "/azure/aks/quickstart-helm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/container-service-quotas.md",
-            "redirect_url": "/azure/aks/quotas-skus-regions",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/aks/istio-install.md",
-            "redirect_url": "/azure/aks/servicemesh-about",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/servicemesh-istio-about.md",
-            "redirect_url": "/azure/aks/servicemesh-about",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/servicemesh-istio-install.md",
-            "redirect_url": "/azure/aks/servicemesh-about",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/servicemesh-istio-scenario-routing.md",
-            "redirect_url": "/azure/aks/servicemesh-about",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/istio-scenario-routing.md",
-            "redirect_url": "/azure/aks/servicemesh-about",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/servicemesh-linkerd-about.md",
-            "redirect_url": "/azure/aks/servicemesh-about",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/servicemesh-linkerd-install.md",
-            "redirect_url": "/azure/aks/servicemesh-about",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/consul-install.md",
-            "redirect_url": "/azure/aks/servicemesh-about",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/servicemesh-consul-about.md",
-            "redirect_url": "/azure/aks/servicemesh-about",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/servicemesh-consul-install.md",
-            "redirect_url": "/azure/aks/servicemesh-about",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/aks-ssh.md",
-            "redirect_url": "/azure/aks/node-access",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/aks/ssh.md",
-            "redirect_url": "/azure/aks/node-access",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/windows-node-limitations.md",
-            "redirect_url": "/azure/aks/windows-faq",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/kubernetes-dashboard.md",
-            "redirect_url": "/azure/aks/kubernetes-portal",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/egress.md",
-            "redirect_url": "/azure/aks/load-balancer-standard",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/keda.md",
-            "redirect_url": "/azure/aks/keda-about",
             "redirect_document_id": false
         },
         {
@@ -4790,28 +4435,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-app-configuration/integrate-azure-managed-service-identity.md",
-            "redirect_url": "/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-app-configuration/howto-integrate-ci-cd-pipeline.md",
-            "redirect_url": "/azure/azure-app-configuration/integrate-ci-cd-pipeline",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-app-configuration/policy-samples.md",
-            "redirect_url": "/azure/azure-app-configuration/policy-reference",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/azure-functions/functions-test-a-function.md",
             "redirect_url": "/azure/azure-functions/supported-languages",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-app-configuration/quickstart-azure-function-csharp.md",
-            "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
             "redirect_document_id": false
         },
         {
@@ -5660,11 +5285,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/app/azure-functions-supported-features.md",
-            "redirect_url": "/azure/azure-functions/functions-monitoring",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/azure-functions/azure-functions-az-redundancy.md",
             "redirect_url": "/azure/reliability/reliability-functions",
             "redirect_document_id": false
@@ -6245,56 +5865,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/azure-vmware/enable-public-internet-access.md",
-            "redirect_url": "/azure/azure-vmware/enable-public-ip-nsx-edge",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
-            "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/tutorial-deploy-vmware-hcx.md",
-            "redirect_url": "/azure/azure-vmware/configure-vmware-hcx",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/production-ready-deployment-steps.md",
-            "redirect_url": "/azure/azure-vmware/plan-private-cloud-deployment",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/reset-vsphere-credentials.md",
-            "redirect_url": "/azure/azure-vmware/rotate-cloudadmin-credentials",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/disaster-recovery-for-virtual-machines.md",
-            "redirect_url": "/azure/azure-vmware/deploy-disaster-recovery-using-vmware-hcx",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/lifecycle-management-of-azure-vmware-solution-vms.md",
-            "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/fix-deployment-provisioning-failures.md",
-            "redirect_url": "/azure/azure-vmware/fix-deployment-failures",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/windows-server-failover-cluster.md",
-            "redirect_url": "/azure/azure-vmware/configure-windows-server-failover-cluster",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/create-ipsec-tunnel.md",
-            "redirect_url": "/azure/azure-vmware/configure-site-to-site-vpn-gateway",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md",
             "redirect_url": "/azure/vpn-gateway/add-remove-site-to-site-connections",
             "redirect_document_id": false
@@ -6317,126 +5887,6 @@
         {
             "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-forced-tunneling-rm.md",
             "redirect_url": "/azure/vpn-gateway/about-site-to-site-tunneling",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/public-ip-usage.md",
-            "redirect_url": "/azure/azure-vmware/enable-public-ip-nsx-edge",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/github-enterprise-server.md",
-            "redirect_url": "/azure/azure-vmware/configure-github-enterprise-server",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/concepts-monitor-repair-private-cloud.md",
-            "redirect_url": "/azure/azure-vmware/concepts-private-clouds-clusters",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/concepts-upgrades.md",
-            "redirect_url": "/azure/azure-vmware/concepts-private-clouds-clusters",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/azure-vmware-solution-on-premises.md",
-            "redirect_url": "/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/net-app-files-with-azure-vmware-solution.md",
-            "redirect_url": "/azure/azure-vmware/netapp-files-with-azure-vmware-solution",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/backup-avs-vms-with-mabs.md",
-            "redirect_url": "/azure/azure-vmware/backup-azure-vmware-solution-virtual-machines",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/concepts-avs-hub-and-spoke-integration.md",
-            "redirect_url": "/azure/azure-vmware/concepts-hub-and-spoke",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/concepts-rbac.md",
-            "redirect_url": "/azure/azure-vmware/concepts-role-based-access-control",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/concepts-role-based-access-control.md",
-            "redirect_url": "/azure/azure-vmware/concepts-identity",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/deploy-traffic-manager-to-balance-avs-workloads.md",
-            "redirect_url": "/azure/azure-vmware/deploy-traffic-manager-balance-workloads",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/tutorial-deploy-vm-content-library.md",
-            "redirect_url": "/azure/azure-vmware/deploy-vm-content-library",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/disaster-recovery.md",
-            "redirect_url": "/azure/azure-vmware/disaster-recovery-for-virtual-machines",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/ecosystem-backup-vms.md",
-            "redirect_url": "/azure/azure-vmware/ecosystem-back-up-vms",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/net-app-files.md",
-            "redirect_url": "/azure/azure-vmware/introduction",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/pre-deployment-checklist.md",
-            "redirect_url": "/azure/azure-vmware/production-ready-deployment-steps",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/protect-avs-web-apps-with-app-gateway.md",
-            "redirect_url": "/azure/azure-vmware/protect-azure-vmware-solution-with-application-gateway",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/set-up-mabs-for-avs.md",
-            "redirect_url": "/azure/azure-vmware/set-up-backup-server-for-azure-vmware-solution",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/enable-azure-vmware-solution.md",
-            "redirect_url": "/azure/azure-vmware/request-host-quota-azure-vmware-solution",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/manage-dhcp.md",
-            "redirect_url": "/azure/azure-vmware/configure-dhcp-l2-stretched-vmware-hcx-networks",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/configure-dhcp-l2-stretched-vmware-hcx-networks.md",
-            "redirect_url": "/azure/azure-vmware/configure-dhcp-azure-vmware-solution",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/hybrid-cloud-extension-installation.md",
-            "redirect_url": "/azure/azure-vmware/tutorial-deploy-vmware-hcx",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-vmware/vrealize-operations-for-avs.md",
-            "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/baremetal-infrastructure/workloads/sap/baremetal-overview-architecture.md",
-            "redirect_url": "/azure/baremetal-infrastructure/concepts-baremetal-infrastructure-overview",
             "redirect_document_id": false
         },
         {
@@ -7132,41 +6582,6 @@
         {
             "source_path_from_root": "/articles/container-instances/container-instances-quotas.md",
             "redirect_url": "/azure/container-instances/container-instances-resource-and-quota-limits",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/container-registry/container-registry-managed-get-started-azure-cli.md",
-            "redirect_url": "/azure/container-registry/container-registry-get-started-azure-cli",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/container-registry/container-registry-managed-get-started-portal.md",
-            "redirect_url": "/azure/container-registry/container-registry-get-started-portal",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/container-registry/container-registry-upgrade.md",
-            "redirect_url": "/azure/container-registry/container-registry-skus",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/container-registry/container-registry-build-overview.md",
-            "redirect_url": "/azure/container-registry/container-registry-tasks-overview",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/container-registry/container-registry-tasks-agent-pools.md",
-            "redirect_url": "/azure/container-registry/container-registry-tasks-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/container-registry/container-registry-tutorial-quick-build.md",
-            "redirect_url": "/azure/container-registry/container-registry-tutorial-quick-task",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/container-registry/policy-samples.md",
-            "redirect_url": "/azure/container-registry/policy-reference",
             "redirect_document_id": false
         },
         {
@@ -9335,11 +8750,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/resource-manager-policy.md",
-            "redirect_url": "/azure/governance/policy/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/guides/developer/index.md",
             "redirect_url": "/azure/guides/developer/azure-developer-guide",
             "redirect_document_id": false
@@ -9488,11 +8898,6 @@
             "source_path_from_root": "/articles/jenkins/install-jenkins-solution-template.md",
             "redirect_url": "/azure/jenkins/install-solution-template-tutorial",
             "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/aks/jenkins-continuous-deployment.md",
-            "redirect_url": "/azure/jenkins/jenkins-continuous-deployment",
-            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins.md",
@@ -9880,11 +9285,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/aks/tutorial-kubernetes-monitor.md",
-            "redirect_url": "/azure/monitoring/monitoring-container-health",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/monitoring/monitoring-container-health.md",
             "redirect_url": "/azure/monitoring/monitoring-container-insights-overview",
             "redirect_document_id": false
@@ -10137,26 +9537,6 @@
         {
             "source_path_from_root": "/articles/open-datasets/service/how-to-create-dataset-from-open-dataset.md",
             "redirect_url": "/azure/open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/openshift/howto-create-private-cluster.md",
-            "redirect_url": "/azure/openshift/howto-create-private-cluster-3x",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/openshift/create-private-cluster.md",
-            "redirect_url": "/azure/openshift/howto-create-private-cluster-4x",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/openshift/tutorial-scale-cluster.md",
-            "redirect_url": "/azure/openshift/tutorial-connect-cluster",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/openshift/howto-using-azure-redhat-openshift.md",
-            "redirect_url": "/azure/openshift/tutorial-create-cluster",
             "redirect_document_id": false
         },
         {
@@ -11025,556 +10405,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/automate-playbook-watchlist.md",
-            "redirect_url": "https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/playbooks-amp-watchlists-part-1-inform-the-subscription-owner/ba-p/1768917",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-microsoft-waf.md",
-            "redirect_url": "/azure/sentinel/connect-azure-waf",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-cef-verify.md",
-            "redirect_url": "/azure/sentinel/troubleshooting-cef-syslog",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-fusion.md",
-            "redirect_url": "/azure/sentinel/fusion",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/partner-data-connectors.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/user-analytics.md",
-            "redirect_url": "/azure/sentinel/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/tutorial-detect-threats.md",
-            "redirect_url": "/azure/sentinel/tutorial-detect-threats-built-in",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md",
-            "redirect_url": "/azure/sentinel/microsoft-365-defender-sentinel-integration#microsoft-365-defender-incidents-and-microsoft-incident-creation-rules",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/ueba-enrichments.md",
-            "redirect_url": "/azure/sentinel/ueba-reference",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/import-threat-intelligence.md",
-            "redirect_url": "/azure/sentinel/understand-threat-intelligence",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-threat-intelligence.md",
-            "redirect_url": "/azure/sentinel/connect-threat-intelligence-tip",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-cef-agent.md",
-            "redirect_url": "/azure/sentinel/connect-log-forwarder",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-cef-solution-config.md",
-            "redirect_url": "/azure/sentinel/connect-common-event-format",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-agari-phishing-defense.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#agari-phishing-defense-and-brand-protection-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-ai-vectra-detect.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#ai-vectra-detect-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-akamai-security-events.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#akamai-security-events-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-alcide-kaudit.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#alcide-kaudit",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-alsid-active-directory.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#alsid-for-active-directory",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-apache-http-server.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#apache-http-server",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-aruba-clearpass.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#aruba-clearpass-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-asc-iot.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#azure-defender-for-iot",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-azure-activity.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#azure-activity",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-azure-ad-identity-protection.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#azure-active-directory-identity-protection",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-azure-atp.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#microsoft-defender-for-identity",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-azure-ddos-protection.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#azure-ddos-protection",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-azure-firewall.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#azure-firewall",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-azure-information-protection.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#azure-information-protection",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-azure-key-vault.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#azure-key-vault",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-azure-kubernetes-service.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#azure-kubernetes-service-aks",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-azure-sql-logs.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#azure-sql-databases",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-azure-storage-account.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#azure-storage-account",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-azure-waf.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#azure-web-application-firewall-waf",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-barracuda-cloudgen-firewall.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#barracuda-cloudgen-firewall",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-barracuda.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#barracuda-waf",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-besecure.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#beyond-security-besecure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-better-mtd.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#better-mobile-threat-defense-mtd-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-broadcom-symantec-dlp.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#broadcom-symantec-data-loss-prevention-dlp-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-checkpoint.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#check-point",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-cisco-meraki.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#cisco-meraki-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-cisco-ucs.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#cisco-unified-computing-system-ucs-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-cisco-umbrella.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#cisco-umbrella-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-cisco.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#cisco-asa",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-citrix-analytics.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#citrix-analytics-security",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-citrix-waf.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#citrix-web-app-firewall-waf-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-cloud-app-security.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#microsoft-cloud-app-security-mcas",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-cyberark.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#cyberark-enterprise-password-vault-epv-events-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-dns.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#windows-dns-server-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-dynamics-365.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#dynamics-365",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-extrahop.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#extrahop-revealx",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-f5-big-ip.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#f5-big-ip",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-f5.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#f5-networks-asm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-forcepoint-casb-ngfw.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#forcepoint-cloud-access-security-broker-casb-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-forcepoint-dlp.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#forcepoint-data-loss-prevention-dlp-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-fortinet.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#fortinet",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-google-workspace.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#google-workspace-g-suite-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-illusive-attack-management-system.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#illusive-attack-management-system-ams-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-imperva-waf-gateway.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#imperva-waf-gateway-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-infoblox.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#infoblox-network-identity-operating-system-nios-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-juniper-srx.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#juniper-srx-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-microsoft-defender-advanced-threat-protection.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#microsoft-defender-for-endpoint",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-nxlog-dns.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#nxlog-dns-logs-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-nxlog-linuxaudit.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#nxlog-linuxaudit-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-office-365-advanced-threat-protection.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#microsoft-defender-for-office-365",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-office-365.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#microsoft-office-365",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-okta-single-sign-on.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#okta-single-sign-on-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-one-identity.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#one-identity-safeguard-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-orca-security-alerts.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#orca-security-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-paloalto.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#palo-alto-networks",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-perimeter-81-logs.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#perimeter-81-activity-logs-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-proofpoint-pod.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#proofpoint-on-demand-pod-email-security-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-proofpoint-tap.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#proofpoint-targeted-attack-protection-tap-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-pulse-connect-secure.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#pulse-connect-secure-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-qualys-vm.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#qualys-vulnerability-management-vm-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-salesforce-service-cloud.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#salesforce-service-cloud-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-security-events.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#security-events-windows",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-sophos-cloud-optix.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#sophos-cloud-optix-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-sophos-xg-firewall.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#sophos-xg-firewall-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-squadra-secrmm.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#squadra-technologies-secrmm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-squid-proxy.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#squid-proxy-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-symantec-proxy-sg.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#symantec-proxysg-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-symantec-vip.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#symantec-vip-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-symantec.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#symantec-integrated-cyber-defense-exchange-icdx",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-thycotic-secret-server.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#thycotic-secret-server-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-trend-micro-tippingpoint.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#trend-micro-tippingpoint-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-trend-micro.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#trend-micro-deep-security",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-vmware-carbon-black.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#vmware-carbon-black-endpoint-standard-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-vmware-esxi.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#vmware-esxi-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-windows-firewall.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#windows-firewall",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-windows-security-events.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#windows-security-events-via-ama",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/data-connectors-reference.md#windows-security-events-preview",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#windows-security-events-via-ama",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-wirex-systems.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#wirex-network-forensics-platform-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-zimperium-mtd.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#zimperium-mobile-thread-defense-preview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/connect-zscaler.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference#zscaler",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/watchlist-with-rest-api.md",
-            "redirect_url": "/rest/api/securityinsights/watchlists",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/sap-deploy-solution.md",
-            "redirect_url": "/azure/sentinel/sap/deployment-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/sap-solution-detailed-requirements.md",
-            "redirect_url": "/azure/sentinel/sap/prerequisites-for-deploying-sap-continuous-threat-monitoring",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/sap-solution-security-content.md",
-            "redirect_url": "/azure/sentinel/sap/sap-solution-security-content",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/sap-solution-deploy-alternate.md",
-            "redirect_url": "/azure/sentinel/sap/sap-solution-deploy-alternate",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/sap-solution-deploy-snc.md",
-            "redirect_url": "/azure/sentinel/sap/configure-snc",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/sap-solution-log-reference.md",
-            "redirect_url": "/azure/sentinel/sap/sap-solution-log-reference",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/monitor-sentinel-health.md",
-            "redirect_url": "/azure/sentinel/enable-monitoring",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/web-normalization-schema.md",
-            "redirect_url": "/azure/sentinel/normalization-schema-web",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/network-normalization-schema.md",
-            "redirect_url": "/azure/sentinel/normalization-schema-network",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/dns-normalization-schema.md",
-            "redirect_url": "/azure/sentinel/normalization-schema-dns",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/authentication-normalization-schema.md",
-            "redirect_url": "/azure/sentinel/normalization-schema-authentication",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/dhcp-normalization-schema.md",
-            "redirect_url": "/azure/sentinel/normalization-schema-dhcp",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/user-management-normalization-schema.md",
-            "redirect_url": "/azure/sentinel/normalization-schema-user-management",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/file-event-normalization-schema.md",
-            "redirect_url": "/azure/sentinel/normalization-schema-file-event",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/registry-event-normalization-schema.md",
-            "redirect_url": "/azure/sentinel/normalization-schema-registry-event",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/process-events-normalization-schema.md",
-            "redirect_url": "/azure/sentinel/normalization-schema-process-event",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/service-bus/index.md",
             "redirect_url": "/azure/service-bus-messaging/index",
             "redirect_document_id": false
@@ -11842,21 +10672,6 @@
         {
             "source_path_from_root": "/articles/spatial-anchors/concepts/create-locate-anchors-unity.md",
             "redirect_url": "/azure/spatial-anchors/how-tos/create-locate-anchors-unity",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md",
-            "redirect_url": "/azure/sql-database/scripts/sql-database-add-single-db-to-failover-group-powershell",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sql-data-warehouse/sql-data-warehouse-auditing-overview.md",
-            "redirect_url": "/azure/sql-database/sql-database-auditing",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sql-data-warehouse/sql-data-warehouse-security-threat-detection.md",
-            "redirect_url": "/azure/sql-database/sql-database-threat-detection-overview",
             "redirect_document_id": false
         },
         {
@@ -12957,16 +11772,6 @@
         {
             "source_path_from_root": "/articles/cli/index.yml",
             "redirect_url": "/cli/azure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/create-cluster.md",
-            "redirect_url": "/cli/azure/aks#az_aks_create",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/delete-cluster.md",
-            "redirect_url": "/cli/azure/aks#az_aks_delete",
             "redirect_document_id": false
         },
         {
@@ -14485,66 +13290,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-csp-incentive.md",
-            "redirect_url": "https://cloudpartner.azure.com",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-data-service-creation.md",
-            "redirect_url": "https://cloudpartner.azure.com",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-data-service-creation-odata-mapping.md",
-            "redirect_url": "https://cloudpartner.azure.com",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-data-service-creation-odata-mapping-examples.md",
-            "redirect_url": "https://cloudpartner.azure.com",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-data-service-creation-odata-mapping-nodes.md",
-            "redirect_url": "https://cloudpartner.azure.com",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-data-service-creation-prerequisites.md",
-            "redirect_url": "https://cloudpartner.azure.com",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-data-service-test-in-staging.md",
-            "redirect_url": "https://cloudpartner.azure.com",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-get-publisher-support.md",
-            "redirect_url": "https://cloudpartner.azure.com",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-report-payout.md",
-            "redirect_url": "https://cloudpartner.azure.com",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-report-seller-insights.md",
-            "redirect_url": "https://cloudpartner.azure.com",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-report-seller-insights-user-guide.md",
-            "redirect_url": "https://cloudpartner.azure.com",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-support-common-issues.md",
-            "redirect_url": "https://cloudpartner.azure.com",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/dev-spaces/how-to/local-process-kubernetes-vs-code.md",
             "redirect_url": "https://code.visualstudio.com/docs/containers/local-process-kubernetes",
             "redirect_document_id": false
@@ -14557,11 +13302,6 @@
         {
             "source_path_from_root": "/articles/active-directory-domain-services/contact-us.md",
             "redirect_url": "/azure/active-directory/fundamentals/support-help-options",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/container-registry/container-registry-headers.md",
-            "redirect_url": "https://github.com/Azure/acr/blob/master/docs/http-headers.md",
             "redirect_document_id": false
         },
         {
@@ -14852,51 +13592,6 @@
         {
             "source_path": "articles/batch/batch-low-pri-vms.md",
             "redirect_url": "/azure/batch/batch-spot-vms",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/aks/view-master-logs.md",
-            "redirect_url": "/azure/aks/view-control-plane-logs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/aks/use-pod-security-on-azure-policy.md",
-            "redirect_url": "/azure/aks/use-azure-policy",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/aks/kube-advisor-tool.md",
-            "redirect_url": "/azure/aks/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/aks/open-service-mesh-azure-application-gateway-ingress.md",
-            "redirect_url": "/azure/aks/open-service-mesh-about",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/aks/open-service-mesh-ip-port-exclusion.md",
-            "redirect_url": "/azure/aks/open-service-mesh-about",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/aks/open-service-mesh-deploy-new-application.md",
-            "redirect_url": "/azure/aks/open-service-mesh-about",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/aks/open-service-mesh-nginx-ingress.md",
-            "redirect_url": "/azure/aks/open-service-mesh-about",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/aks/open-service-mesh-deploy-existing-application.md",
-            "redirect_url": "/azure/aks/open-service-mesh-about",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/aks/security-hardened-vm-host-image.md",
-            "redirect_url": "/azure/aks/cis-ubuntu",
             "redirect_document_id": false
         },
         {
@@ -15750,31 +14445,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/aks/open-service-mesh-customize-add-on-experience.md",
-            "redirect_url": "/azure/aks/open-service-mesh-binary",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/open-service-mesh-disable-add-on.md",
-            "redirect_url": "/azure/aks/oopen-service-mesh-uninstall-add-on",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/open-service-mesh-open-source-observability.md",
-            "redirect_url": "/azure/aks/open-service-mesh-integrations",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/open-service-mesh-azure-monitor.md",
-            "redirect_url": "/azure/aks/open-service-mesh-integrations",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/spark-job.md",
-            "redirect_url": "/azure/aks/integrations#open-source-and-third-party-integrations",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-desktop/diagnostics-role-service.md",
             "redirect_url": "/azure/virtual-desktop/troubleshoot-set-up-overview",
             "redirect_document_id": false
@@ -15925,11 +14595,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/openshift/howto-secure-openshift-with-front-door-feb-22.md",
-            "redirect_url": "/azure/openshift/howto-secure-openshift-with-front-door",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md",
             "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-portal",
             "redirect_document_id": true
@@ -15952,11 +14617,6 @@
         {
             "source_path_from_root": "/articles/azure-arc/servers/data-residency.md",
             "redirect_url": "/azure/azure-arc/servers/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/aks/howto-deploy-java-liberty-app-with-postgresql.md",
-            "redirect_url": "/azure/developer/java/ee/howto-deploy-java-liberty-app-manual",
             "redirect_document_id": false
         },
         {
@@ -16075,16 +14735,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/pytorch-enterprise/index.yml",
-            "redirect_url": "/azure/databricks/machine-learning/train-model/pytorch",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/aks/keda-troubleshoot.md",
-            "redirect_url": "/troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/application-gateway/configuration-front-end-ip.md",
             "redirect_url": "/azure/application-gateway/configuration-frontend-ip",
             "redirect_document_id": false
@@ -16092,11 +14742,6 @@
         {
             "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6.md",
             "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-powershell",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/managed-cluster-snapshot.md",
-            "redirect_url": "/azure/aks/intro-kubernetes",
             "redirect_document_id": false
         },
         {
@@ -16122,11 +14767,6 @@
         {
             "source_path": "articles/azure-cache-for-redis/redis-cache-insights-overview.md",
             "redirect_url": "/azure/azure-cache-for-redis/cache-insights-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/uptime-sla.md",
-            "redirect_url": "/azure/aks/free-standard-pricing-tiers",
             "redirect_document_id": false
         },
         {
@@ -16250,19 +14890,9 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/openshift/howto-configure-ovn-kubernetes.md",
-            "redirect_url": "/azure/openshift/concepts-ovn-kubernetes",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/principles-for-ai-generated-content.md",
             "redirect_url": "https://aka.ms/ai-content-principles",
             "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-monitor/app/java-standalone-arguments.md",
-            "redirect_url": "/azure/azure-monitor/app/java-get-started-supplemental",
-            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/virtual-network/nat-gateway/faq.yml",
@@ -16397,11 +15027,6 @@
         {
             "source_path_from_root": "/articles/synapse-analytics/synapse-link/troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md",
             "redirect_url": "/azure/synapse-analytics/synapse-link/synapse-link-for-sql-known-issues",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/use-mariner.md",
-            "redirect_url": "/azure/aks/use-azure-linux",
             "redirect_document_id": false
         },
         {
@@ -16575,36 +15200,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/operator-nexus/howto-hybrid-aks.md",
-            "redirect_url": "/azure/operator-nexus/howto-kubernetes-cluster-agent-pools",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/operator-nexus/template-virtualized-network-function-deployment.md",
-            "redirect_url": "/azure/operator-nexus/quickstarts-virtual-machine-deployment-cli",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/operator-nexus/quickstarts-tenant-workload-deployment.md",
-            "redirect_url": "/azure/operator-nexus/quickstarts-virtual-machine-deployment-cli",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/operator-nexus/quickstarts-tenant-workload-deployment-ps.md",
-            "redirect_url": "/azure/operator-nexus/quickstarts-virtual-machine-deployment-ps",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/operator-nexus/template-cloud-native-network-function-deployment.md",
-            "redirect_url": "/azure/operator-nexus/quickstarts-kubernetes-cluster-deployment-cli",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/container-registry/github-action-scan.md",
-            "redirect_url": "/azure/developer/github/",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-machines/virtual-machines-reliability.md",
             "redirect_url": "/azure/reliability/reliability-virtual-machines",
             "redirect_document_id": false
@@ -16617,21 +15212,6 @@
         {
             "source_path_from_root": "/articles/private-link/tutorial-private-endpoint-webapp-portal.md",
             "redirect_url": "/azure/private-link/create-private-endpoint-portal",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/use-multiple-node-pools.md",
-            "redirect_url": "/azure/aks/create-node-pools",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/reliability/migrate-app-service.md",
-            "redirect_url": "/azure/reliability/reliability-app-service",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/reliability/migrate-app-service-environment.md",
-            "redirect_url": "/azure/reliability/reliability-app-service",
             "redirect_document_id": false
         },
         {
@@ -16678,11 +15258,6 @@
             "source_path_from_root": "/articles/dms/tutorial-sql-server-azure-sql-database-offline-ads.md",
             "redirect_url": "/azure/dms/tutorial-sql-server-azure-sql-database-offline",
             "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/aks/command-invoke.md",
-            "redirect_url": "/azure/aks/access-private-cluster",
-            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/orbital/space-partner-program-overview.md",
@@ -16904,11 +15479,6 @@
         {
             "source_path_from_root": "/articles/orbital/partner-network-integration.md",
             "redirect_url": "/azure/orbital/about-ground-stations#partner-ground-stations",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/ai-toolchain-operator.md",
-            "redirect_url": "https://azure.microsoft.com/updates/preview-ai-toolchain-operator-addon-for-aks/",
             "redirect_document_id": false
         },
         {
