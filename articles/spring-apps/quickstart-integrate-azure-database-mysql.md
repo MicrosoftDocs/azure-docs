@@ -91,7 +91,7 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
 1. Under **Settings**, select **Apps**, and then select the `customers-service` application from the list.
 1. Select **Service Connector** from the left table of contents and select **Create**.
 
-   :::image type="content" source="./media/quickstart-integrate-azure-database-mysql/create-service-connection.png" alt-text="Screenshot of the Azure portal, in the Azure Spring Apps instance, create a connection with Service Connector.":::
+   :::image type="content" source="media/quickstart-integrate-azure-database-mysql/create-service-connection.png" alt-text="Screenshot of the Azure portal, in the Azure Spring Apps instance, create a connection with Service Connector.":::
 
 1. Select or enter the following settings in the table.
 
@@ -104,7 +104,7 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
    | **MySQL database**        | *petclinic*                    | Select the database you created earlier.                                                                                                                                         |
    | **Client type**           | *SpringBoot*                   | Select the application stack that works with the target service you selected.                                                                                                    |
 
-   :::image type="content" source="./media/quickstart-integrate-azure-database-mysql/basics-tab.png" alt-text="Screenshot of the Azure portal, filling out the basics tab in Service Connector.":::
+   :::image type="content" source="media/quickstart-integrate-azure-database-mysql/basics-tab.png" alt-text="Screenshot of the Azure portal, filling out the basics tab in Service Connector.":::
 
 1. Select **Next: Authentication** to select the authentication type. Then select **Connection string > Database credentials** and enter your database username and password.
 
@@ -148,7 +148,7 @@ Username and password validated.      success
 
 Azure Spring Apps connections are displayed under **Settings > Service Connector**. Select **Validate** to check your connection status, and select **Learn more** to review the connection validation details.
 
-:::image type="content" source="./media/quickstart-integrate-azure-database-mysql/check-connection.png" alt-text="Screenshot of the Azure portal, in the Azure Spring Apps instance, check connection to MySQL database.":::
+:::image type="content" source="media/quickstart-integrate-azure-database-mysql/check-connection.png" alt-text="Screenshot of the Azure portal, in the Azure Spring Apps instance, check connection to MySQL database.":::
 
 ---
 
