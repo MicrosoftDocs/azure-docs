@@ -3,7 +3,7 @@ title: Quickstart - Cross region restore for PostgreSQL database with PowerShell
 description: In this Quickstart, learn how to restore PostgreSQL database across region with the Azure PowerShell module.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 02/01/2024
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -11,7 +11,7 @@ ms.author: v-abhmallick
 
 # Quickstart: Restore Azure Database for PostgreSQL server across regions with PowerShell by using Azure Backup
 
-This quickstart describes how to configure and perform cross-region restore for Azure Database for PostgreSQL server with PowerShell.
+This quickstart describes how to configure and perform cross-region restore for Azure Database for PostgreSQL server with Azure PowerShell.
 
 [Azure Backup](backup-overview.md) allows you to back up and restore the Azure Database for PostgreSQL server. The [Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) module allows you to create and manage Azure resources from the command line or in scripts. If you want to restore the PostgreSQL database across regions by using the Azure portal, see [this Quickstart](quick-cross-region-restore.md).
 
@@ -20,7 +20,7 @@ This quickstart describes how to configure and perform cross-region restore for 
 To enable the Cross Region Restore feature on the Backup vault that has Geo-redundant Storage enabled, run the following cmdlet:
 
 ```azurepowershell
-Update-AzDataProtectionBackupVault -SubscriptionId <String> -ResourceGroupName $resourceGroupName -ResourceGroupName $resourceGroupName -CrossRegionRestoreState $CrossRegionRestoreState 
+Update-AzDataProtectionBackupVault -SubscriptionId $subscriptionId -ResourceGroupName $resourceGroupName -CrossRegionRestoreState $CrossRegionRestoreState
 ```
 
 >[!Note]
@@ -68,7 +68,7 @@ To restore the database to a secondary region after enabling Cross Region Restor
 
    Follow these steps:
 
-   1. Fetch the *Uniform Resource Identifier (URI)* of the container, in the storage account [to which permissions are assigned](/azure/backup/restore-postgresql-database-ps#set-up-permissions).
+   1. Fetch the *Uniform Resource Identifier (URI)* of the container, in the [storage account to which permissions are assigned](/azure/backup/restore-postgresql-database-ps#set-up-permissions).
    
       For example, a container named `testcontainerrestore` under a storage account `testossstorageaccount` with a different subscription.
 
@@ -102,13 +102,13 @@ $restoreJob = Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $i
 
 To monitor the restore job progress, choose one of the methods:
 
-- **Get the list of Cross Region Restore jobs from the secondary region**.
+- To get the complete list of Cross Region Restore jobs from the secondary region, run the following cmdlet:
 
   ```azurepowershell
   $job = Get-AzDataProtectionJob -ResourceGroupName $resourceGroupName -SubscriptionId $subscriptionId -VaultName $vaultName -UseSecondaryRegion
   ```
 
-- **Get a single job details**.
+- To get a single job detail, run the following cmdlet:
 
   ```azurepowershell
   $restoreJob = Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $instance.Name -ResourceGroupName $ResourceGroupName -VaultName $vaultName -SubscriptionId $SubscriptionId -Parameter $OssRestoreReq -RestoreToSecondaryRegion  # -Debug
