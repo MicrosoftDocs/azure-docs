@@ -205,6 +205,7 @@ To copy data from Salesforce Service Cloud, set the source type in the copy acti
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **SalesforceServiceCloudV2Source**. | Yes |
 | SOQLQuery | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query is not specified, all the data of the Salesforce object specified in "ObjectApiName/reportId" in dataset will be retrieved. | No (if "ObjectApiName/reportId" in the dataset is specified) |
+| includeDeletedObjects | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is false. <br>Allowed values: **false** (default), **true**. | No |
 
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
@@ -233,7 +234,8 @@ To copy data from Salesforce Service Cloud, set the source type in the copy acti
         "typeProperties": {
             "source": {
                 "type": "SalesforceServiceCloudV2Source",
-                "SOQLQuery": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c"
+                "SOQLQuery": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c",
+                "includeDeletedObjects": false
             },
             "sink": {
                 "type": "<sink type>"
@@ -333,6 +335,8 @@ Migrating your Salesforce Service Cloud linked service is highly recommended if 
 1. Create a new Salesforce Service Cloud linked service and configure it by referring to [Linked service properties](connector-salesforce-service-cloud.md#linked-service-properties).  
 
 1. If you use SQL query in the copy activity source or the lookup activity that refers to the legacy linked service, you need to convert them to the SOQL query. Learn more about SOQL query from [Salesforce Service Cloud as a source type](connector-salesforce-service-cloud.md#salesforce-service-cloud-as-a-source-type) and [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm).
+
+1. readBehavior is replaced with includeDeletedObjects in the copy activity source or the lookup activity. For the detailed configuration, see [Salesforce as a source type](connector-salesforce.md#salesforce-as-a-source-type).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
