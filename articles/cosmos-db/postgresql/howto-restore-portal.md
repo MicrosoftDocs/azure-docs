@@ -29,8 +29,7 @@ a custom restore point within your retention period.
 Enabling geo-redundant backup is possible during cluster creation on the **Scale** screen that can be accessed on the **Basics** tab. Click the **Save** button to apply your selection. 
 
 > [!NOTE]
-> Geo-redundant backup can be enabled only during cluster creation. 
-> Geo-redundant backup can also be enabled or disabled during a cluster restore operation.
+> Geo-redundant backup can be enabled only during cluster creation or cluster restore. 
 > You can't disable geo-redundant backup once cluster is created. 
 
 ## Confirm type of backup
