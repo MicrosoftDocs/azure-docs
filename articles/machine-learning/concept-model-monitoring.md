@@ -71,7 +71,7 @@ Furthermore, for the reference data, if you set the lookback window offset to `P
 
 In some cases, you might find it useful to set the _lookback window offset_ for your production data to a number greater than zero days. For example, if your monitor is scheduled to run weekly on Mondays at 3:15pm UTC, but you don't want to use data from the weekend in your monitoring run, you can use a _lookback window size_ of `P5D` (five days) and a _lookback window offset_ of `P2D` (two days). Then, your data window starts on the prior Monday at 3:15pm UTC and ends on Friday at 3:15pm UTC.
 
-In practice, you should ensure that the reference data window and the production data window don't overlap. As shown in the following figure, you can ensure non-overlapping windows by making sure that the reference data lookback window offset (`P10D` or 10 days, in this example) is greater or equal to the sum of the production data's lookback window size and its lookback window offset (seven days).
+In practice, you should ensure that the reference data window and the production data window don't overlap. As shown in the following figure, you can ensure non-overlapping windows by making sure that the reference data lookback window offset (`P10D` or 10 days, in this example) is greater or equal to the sum of the production data's lookback window size and its lookback window offset (7 days total).
 
 :::image type="content" source="media/how-to-monitor-models/lookback-overlap.png" alt-text="A diagram showing non-overlapping reference data and production data windows." lightbox="media/how-to-monitor-models/lookback-overlap.png":::
 
