@@ -1,12 +1,12 @@
 ---
-title: Troubleshooting Apache Kafka® & Apache Flink® on Confluent Cloud™
+title: Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud
 description: This article provides information about troubleshooting and frequently asked questions (FAQ) for Confluent Cloud on Azure.
 ms.topic: conceptual
 
 ms.date: 11/20/2023
 ---
 
-# Troubleshooting Apache Kafka® & Apache Flink® on Confluent Cloud™ solutions
+# Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions
 
 This document contains information about troubleshooting your solutions that use Apache Kafka® & Apache Flink® on Confluent Cloud™.
 
@@ -17,7 +17,7 @@ If you don't find an answer or can't resolve a problem, [create a request throug
 To find the offer in the Azure Marketplace, use the following steps:
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
-1. Search for _Apache Kafka on Confluent Cloud_.
+1. Search for _Apache Kafka & Apache Flink on Confluent Cloud_.
 1. Select the application tile.
 
 If the offer isn't displayed, contact [Confluent support](https://support.confluent.io). Your Microsoft Entra tenant ID must be on the list of allowed tenants. To learn how to find your tenant ID, see [How to find your Microsoft Entra tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name).
@@ -66,8 +66,8 @@ If the problem persists, contact [Confluent support](https://support.confluent.i
 
 ## Next steps
 
-- Learn about [managing your instance](manage.md) of Apache Kafka® & Apache Flink® on Confluent Cloud™.
-- Get started with Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service on
+- Learn about [managing your instance](manage.md) of Apache Kafka & Apache Flink on Confluent Cloud.
+- Get started with Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service on
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)

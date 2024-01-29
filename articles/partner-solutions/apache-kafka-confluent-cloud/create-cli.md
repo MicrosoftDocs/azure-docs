@@ -1,6 +1,6 @@
 ---
-title: Create Apache Kafka® & Apache Flink® on Confluent Cloud™ through Azure CLI
-description: This article describes how to use the Azure CLI to create an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™.
+title: Create Apache Kafka & Apache Flink on Confluent Cloud through Azure CLI
+description: This article describes how to use the Azure CLI to create an instance of Apache Kafka & Apache Flink on Confluent Cloud.
 
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
@@ -8,7 +8,7 @@ ms.date: 11/20/2023
 
 ---
 
-# QuickStart: Get started with Apache Kafka® & Apache Flink® on Confluent Cloud™ - Azure CLI
+# QuickStart: Get started with Apache Kafka & Apache Flink on Confluent Cloud - Azure CLI
 
 In this quickstart, you'll use the Azure Marketplace and Azure CLI to create an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™.
 
@@ -19,7 +19,7 @@ In this quickstart, you'll use the Azure Marketplace and Azure CLI to create an 
 
 ## Find offer
 
-Use the Azure portal to find the Apache Kafka® & Apache Flink® on Confluent Cloud™ application.
+Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud application.
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
 
@@ -29,7 +29,7 @@ Use the Azure portal to find the Apache Kafka® & Apache Flink® on Confluent Cl
 
 1. From the **Marketplace** page, you have two options based on the type of plan you want. You can sign up for a pay-as-you-go plan or commitment plan. Pay-as-you-go is publicly available. The commitment plan is available to customers who have been approved for a private offer.
 
-   - For **pay-as-you-go** customers, search for _Apache Kafka® & Apache Flink® on Confluent Cloud™_. Select the offer for Apache Kafka® & Apache Flink® on Confluent Cloud™.
+   - For **pay-as-you-go** customers, search for _AApache Kafka & Apache Flink on Confluent Cloud_. Select the offer for Apache Kafka & Apache Flink on Confluent Cloud.
 
      :::image type="content" source="media/search-pay-as-you-go.png" alt-text="search Azure Marketplace offer.":::
 
@@ -37,13 +37,13 @@ Use the Azure portal to find the Apache Kafka® & Apache Flink® on Confluent Cl
 
      :::image type="content" source="media/view-private-offers.png" alt-text="view private offers.":::
 
-     Look for _Apache Kafka® & Apache Flink® on Confluent Cloud™_.
+     Look for _Apache Kafka & Apache Flink on Confluent Cloud_.
 
      :::image type="content" source="media/select-from-private-offers.png" alt-text="select private offer.":::
 
 ## Create resource
 
-After you've selected the offer for Apache Kafka® & Apache Flink® on Confluent Cloud™, you're ready to set up the application.
+After you've selected the offer for Apache Kafka & Apache Flink on Confluent Cloud, you're ready to set up the application.
 
 Start by preparing your environment for the Azure CLI:
 
@@ -61,7 +61,7 @@ az confluent organization create --name "myOrganization" --resource-group "myRes
 
 > [!NOTE]
 > If you want the command to return before the create operation completes, add the optional parameter `--no-wait`. The operation continues to run until the Confluent organization is created.
- 
+
 To pause CLI execution until an organization's specific event or condition occurs, use the [az confluent organization wait](/cli/azure/confluent/organization#az-confluent-organization-wait) command. For example, to wait until an organization is created:
 
 ```azurecli
@@ -96,7 +96,7 @@ Or, view the organization by resource ID:
 az confluent organization show --ids "/subscriptions/{SubID}/resourceGroups/{myResourceGroup}/providers/Microsoft.Confluent/organizations/{myOrganization}"
 ```
 
-If you get an error, see [Troubleshooting Apache Kafka® & Apache Flink® on Confluent Cloud™ solutions](troubleshoot.md).
+If you get an error, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
 
 ## Next steps
 

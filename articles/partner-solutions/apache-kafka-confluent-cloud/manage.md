@@ -81,6 +81,6 @@ You're billed for prorated usage up to the time of cluster deletion. After your 
 
 ## Next steps
 
-* For help with troubleshooting, see [Troubleshooting Apache Kafka® & Apache Flink® on Confluent Cloud™ solutions](troubleshoot.md).
+* For help with troubleshooting, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
 * If you need to contact support, see [Get support for Confluent Cloud resource](get-support.md).
 * To learn about managing user permissions, go to [How to manage user permissions in a Confluent organization](manage.md).

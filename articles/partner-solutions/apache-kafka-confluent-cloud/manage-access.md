@@ -6,14 +6,14 @@ ms.service: partner-services
 subservice: confluent
 ms.topic: how-to
 ms.date: 11/29/2023
-# CustomerIntent: As an organization admin, I want to manage user permissions in Apache Kafka® & Apache Flink® on Confluent Cloud™ so that I can add, delete and manage users.
+# CustomerIntent: As an organization admin, I want to manage user permissions in Apache Kafka & Apache Flink on Confluent Cloud so that I can add, delete and manage users.
 ---
 
 # How to manage user permissions in a Confluent organization
 
 User access management is a feature that enables the organization admin to add, view and remove users and roles inside a Confluent organization. By managing user permissions, you can ensure that only authorized users can access and perform actions on your Confluent Cloud resources.
 
-This guide presents step by step instructions to manage users and roles in Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service, via Azure portal.
+This guide presents step by step instructions to manage users and roles in Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service, via Azure portal.
 
 The following actions are supported:
 
@@ -89,6 +89,6 @@ Remove a permission assigned to a user in the Confluent organization.
 
 ## Related content
 
-* For help with troubleshooting, see [Troubleshooting Apache Kafka® & Apache Flink® on Confluent Cloud™ solutions](troubleshoot.md).
+* For help with troubleshooting, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
 * If you need to contact support, see [Get support for Confluent Cloud resource](get-support.md).
 * To learn more about managing Confluent Cloud, go to [Manage the Confluent Cloud resource](manage.md).
