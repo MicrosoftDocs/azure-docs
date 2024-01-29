@@ -44,7 +44,7 @@ Here are the steps for on-boarding to Azure Payment HSM:
 5. Contact Microsoft support to get your subscription approved and receive feature registeration, to access the Azure payment HSM service. See [Register the Azure Payment HSM resource providers](register-payment-hsm-resource-providers.md?tabs=azure-cli). You will not be charged at this step.
 6. Follow the [Tutorials](create-payment-hsm.md) and [How-To Guides](register-payment-hsm-resource-providers.md) to create payment HSMs. Customer billing will start when the HSM resource is created.
 7. Upgrade the payShield 10K firmware to their desired version.
-8. Review the support process and scope here for Microsoft support and Thales’s support: [Azure Payment HSM Service support guide ](support.md).
+8. Review the support process and scope here for Microsoft support and Thales’s support: [Azure Payment HSM Service support guide ](support-guide.md).
 9. Monitor your payShield 10K using standard SNMP V3 tools. payShield Monitor is an additional product available to provide continuous monitoring of HSMs. Contact Thales Sales rep for licensing information.
 
 ## Next steps
