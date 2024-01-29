@@ -34,9 +34,13 @@ In this quickstart:
 
 + [Azure Storage](/azure/storage/common/storage-account-create)
 
-+ [Azure AI Search](search-create-app-portal.md), in any region, on a billable tier (Basic and above), preferably with [semantic ranking enabled](semantic-how-to-enable-disable.md)
++ [Azure AI Search](search-create-app-portal.md), in any region, on a billable tier (Basic and higher), preferably with [semantic ranking enabled](semantic-how-to-enable-disable.md)
 
 + Contributor permissions in the Azure subscription for creating resources
+
++ Download the sample famous-speeches-pdf PDFs in [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/famous-speeches-pdf).
+
+  For this quickstart, we recommend starting with smaller files so that you can conserve [vector storage](vector-search-index-size.md) and [Azure OpenAI quota](/azure/ai-services/openai/quotas-limits) for other work.
 
 ## Set up model deployments
 
@@ -49,13 +53,11 @@ In this quickstart:
    + [text-embedding-ada-002](/azure/ai-services/openai/concepts/models#embeddings)
    + [gpt-35-turbo](/azure/ai-services/openai/concepts/models#gpt-35)
 
-   Deploy more chat models if you want to test them with your data. Note that Text-Davinci-002 isn't supported. 
+   Deploy more *chat* models if you want to compare them using your data. *Fine-tuning* models like Text-Davinci-002 aren't supported for this scenario. 
 
    If you create new deployments, the default configurations are suited for this tutorial. It's helpful to name each deployment after the model. For example, "text-embedding-ada-002" as the deployment name of the text-embedding-ada-002 model.
 
 ## Generate a vector store for the playground
-
-1. Download the sample famous-speeches-pdf PDFs in [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/famous-speeches-pdf).
 
 1. Sign in to the [Azure OpenAI Studio](https://oai.azure.com/portal).
 
@@ -85,7 +87,7 @@ In this quickstart:
 
 1. Select **Next**.
 
-1. In Data Management, choose **Hybrid + semantic** if [semantic ranking is enabled](semantic-how-to-enable-disable.md) on your search service. If semantic ranking is disabled, choose **Hybrid (vector + keyword)**. Hybrid is a better choice because vector (similarity) search and keyword search execute the same query input in parallel, which can produce a more relevant response.
+1. In Data Management, choose **Hybrid + semantic** if [semantic ranking is enabled](semantic-how-to-enable-disable.md) on your search service. If semantic ranking is disabled, choose **Hybrid (vector + keyword)**. [Hybrid](hybrid-search-overview.md) is a better choice because vector (similarity) search and keyword search execute the same query input in parallel, which can produce a more relevant response.
 
    :::image type="content" source="media/search-get-started-rag/azure-openai-data-manage.png" lightbox="media/search-get-started-rag/azure-openai-data-manage.png" alt-text="Screenshot of the data management options.":::
 
@@ -95,9 +97,9 @@ In this quickstart:
 
 ## Chat with your data
 
-1. Review advanced settings that determine how much flexibility the chat model has in supplementing the grounding data, and how many chunks are returned from the query to the vector store.
+1. Review advanced settings that determine how much flexibility the chat model has in supplementing the grounding data, and how many chunks are provided to the model to generate its response.
 
-   Strictness determines whether the model supplements the query with its own information. A level of 5 is no supplementation. Only your grounding data is used, which means the search engine plays a large role in the quality of the response. Semantic ranking can be helpful in this scenario because the ranking models do a better job of interpreting the intent of the query.
+   Strictness determines whether the model supplements the query with its own information. Level of 5 is no supplementation. Only your grounding data is used, which means the search engine plays a large role in the quality of the response. Semantic ranking can be helpful in this scenario because the ranking models do a better job of inferring the intent of the query.
 
    Lower levels of strictness produce more verbose answers, but might also include information that isn't in your index. 
 
@@ -105,23 +107,25 @@ In this quickstart:
 
 1. Start with these settings:
 
-   + Check the **Limit responses to your data content** option.
-   + Strictness set to 3.
+   + Verify the **Limit responses to your data content** option is selected.
+   + Strictness set to 3 or 4.
    + Retrieved documents set to 20.  Given chunk sizes of 1024 tokens, a setting of 20 gives you roughly 20,000 tokens to use for generating responses. The tradeoff is query latency, but you can experiment with chat replay to find the right balance.
 
 1. Send your first query. The chat models perform best in question and answer exercises. For example, "who gave the Gettysburg speech" or "when was the Gettysburg speech delivered".
 
    More complex queries, such as "why was Gettysburg important", perform better if the model has some latitude to answer (lower levels of strictness) or if semantic ranking is enabled.
 
-   Queries that require deeper analysis, such as "how many speeches are in the vector store", might fail to return a response. In RAG pattern chat scenarios, information retrieval is keyword and similarity search against the query string, where the search engine looks for chunks having exact or similar terms, phrases, or construction. The payload might have insufficient data for the model to work with.
+   Queries that require deeper analysis or language understanding, such as "how many speeches are in the vector store" or "what's in this vector store", will probably fail to return a response. In RAG pattern chat scenarios, information retrieval is keyword and similarity search against the query string, where the search engine looks for chunks having exact or similar terms, phrases, or construction. The return payload might be insufficient for handling an open-ended question.
 
-   Finally, chats are constrained by the number of documents (chunks) returned in the response (limited to 3-20 in Azure OpenAI Studio playground). As you can imagine, posing a question about "all of the titles" requires a full scan of the entire vector store, which means a different approach, or modifying the generated code to allow for [exhaustive search](vector-search-how-to-create-index.md#add-a-vector-search-configuration) in the vector search configuration.
+   Finally, chats are constrained by the number of documents (chunks) returned in the response (limited to 3-20 in Azure OpenAI Studio playground). As you can imagine, posing a question about "all of the titles" requires a full scan of the entire vector store, which means adopting an approach that allows more than 20 chunks. You could modify the generated code (assuming you [deploy the solution](/azure/ai-services/openai/use-your-data-quickstart#deploy-your-model)) to allow for [exhaustive search](vector-search-how-to-create-index.md#add-a-vector-search-configuration) on your queries.
 
    :::image type="content" source="media/search-get-started-rag/chat-results.png" lightbox="media/search-get-started-rag/chat-results.png" alt-text="Screenshot of a chat session.":::
 
 ## Next steps
 
-Now that you're familiar with the benefits of Azure OpenAI Studio for scenario testing, review code samples that demonstrate the full range of APIs for RAG applications. Samples are available in [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet), and [JavaScript](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript).
+In the playground, it's easy to start over with different data and configurations and compare the results. If you didn't try **Hybrid + semantic** the first time, perhaps try again with [semantic ranking enabled](semantic-how-to-enable-disable.md).
+
+We also provide code samples that demonstrate the full range of APIs for RAG applications. Samples are available in [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet), and [JavaScript](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript).
 
 ## Clean up
 

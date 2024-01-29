@@ -78,7 +78,7 @@ To enable ingress-to-app TLS in the [Azure portal](https://portal.azure.com/), f
 3. Select **Ingress-to-app TLS**.
 4. Switch **Ingress-to-app TLS** to *Yes*.
 
-:::image type="content" source="media/how-to-enable-ingress-to-app-tls/enable-i2a-tls.png" alt-text="Screenshot of the Azure portal that shows the Ingress-to-app TLS page." lightbox="media/how-to-enable-ingress-to-app-tls/enable-i2a-tls.png":::
+:::image type="content" source="media/how-to-enable-ingress-to-app-tls/enable-i2a-tls.png" alt-text="Screenshot of the Azure portal that shows the app Ingress-to-app TLS page." lightbox="media/how-to-enable-ingress-to-app-tls/enable-i2a-tls.png":::
 
 ### Verify ingress-to-app TLS status
 
