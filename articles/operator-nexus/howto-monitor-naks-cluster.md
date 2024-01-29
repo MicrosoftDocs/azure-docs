@@ -276,7 +276,7 @@ Validate the successful deployment of monitoring agents’ enablement on Nexus K
 az k8s-extension show --name azuremonitor-containers \
   --cluster-name "<Nexus Kubernetes cluster Name>" \
   --resource-group "<Nexus Kubernetes cluster Resource Group>" \
-  --cluster-type conectedClusters
+  --cluster-type connectedClusters
 ```
 
 Look for a Provisioning State of "Succeeded" for the extension. The "k8s-extension create" command may have also returned the status.
