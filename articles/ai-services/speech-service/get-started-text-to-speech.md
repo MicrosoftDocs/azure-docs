@@ -62,7 +62,7 @@ Azure Speech services are not supported.
 [!INCLUDE [CLI include](includes/quickstarts/text-to-speech-basics/cli.md)]
 ::: zone-end
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Learn more about speech synthesis](how-to-speech-synthesis.md)
