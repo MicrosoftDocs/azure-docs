@@ -99,7 +99,7 @@ As one of the restore options, Cross Region Restore (CRR) allows you to restore 
 If CRR is enabled, you can view the backup instances in the secondary region.
 
 1. From the [Azure portal](https://portal.azure.com/), go to **Backup Vault** > **Backup Instances**.
-1. Select **Instance Region = Secondary Region** on the filters at the top of the screen.
+1. Select the filter as **Instance Region = Secondary Region**.
 
     :::image type="content" source="./media/create-manage-backup-vault/select-backup-instances.png" alt-text="Screenshot shows how to go to the backup instances." lightbox="./media/create-manage-backup-vault/select-backup-instances.png":::
 
