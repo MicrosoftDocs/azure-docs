@@ -308,7 +308,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-### Boot Info Category
+### Boot info category
 
 * Boot Device Check Considerations
     * The `boot_device_name` check is currently informational.
