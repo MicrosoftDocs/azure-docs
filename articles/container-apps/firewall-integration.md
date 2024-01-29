@@ -68,7 +68,7 @@ The following tables describe how to configure a collection of NSG allow rules. 
 # [Consumption only environment](#tab/consumption-only)
 
 >[!Note]
-> When using Consumption only environments, all [outbound ports required by Azure Kubernetes Service](..//aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters) are also required for your Container Apps.
+> When using Consumption only environments, all [outbound ports required by Azure Kubernetes Service](../aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters) are also required for your Container Apps.
 
 | Protocol | Source | Source ports | Destination | Destination ports | Description |
 |--|--|--|--|--|--|
