@@ -211,4 +211,4 @@ For information about limitations when deploying Dynatrace OneAgent in applicati
 
 ## Next steps
 
-* [Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md)
+[Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md)
