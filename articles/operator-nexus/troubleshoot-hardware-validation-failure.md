@@ -219,7 +219,7 @@ Expanding `result_detail` for a given category shows detailed results.
 ### Health Info Category
 
 * Health Check Sensor Failure
-    * Dell server health checks cover various hardware component sensors.
+    * Server health checks cover various hardware component sensors.
     * A failed health sensor indicates a problem with the corresponding hardware component.
     * The following examples indicate fan, drive and CPU failures respectively.
 
