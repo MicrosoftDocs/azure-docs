@@ -287,13 +287,13 @@ The column names used here are for example only. The column names for your log w
     ```
 
 
-## Troubleshoot
+### Troubleshoot
 Use the following steps to troubleshoot collection of logs from text and JSON files. 
 
-## Use the Azure Monitor Agent Troubleshooter
+### Use the Azure Monitor Agent Troubleshooter
 Use the [Azure Monitor Agent Troubleshooter](use-azure-monitor-agent-troubleshooter.md) to look for common issues and share results with Microsoft.
 
-### Check if you've ingested data to your custom table
+#### Check if you've ingested data to your custom table
 Start by checking if any records have been ingested into your custom log table by running the following query in Log Analytics: 
 
 ``` kusto
@@ -304,10 +304,10 @@ Start by checking if any records have been ingested into your custom log table b
 If records aren't returned, check the other sections for possible causes. This query looks for entries in the last two days, but you can modify for another time range. It can take 5-7 minutes for new data to appear in your table. The Azure Monitor Agent only collects data written to the text or JSON file after you associate the data collection rule with the virtual machine. 
 
 
-### Verify that you created a custom table
+#### Verify that you created a custom table
 You must [create a custom log table](../logs/create-custom-table.md#create-a-custom-table) in your Log Analytics workspace before you can send data to it.
 
-### Verify that the agent is sending heartbeats successfully
+#### Verify that the agent is sending heartbeats successfully
 Verify that Azure Monitor agent is communicating properly by running the following query in Log Analytics to check if there are any records in the Heartbeat table.
 
 ``` kusto
@@ -318,7 +318,7 @@ Heartbeat
 | order by TimeGenerated desc
 ```
 
-### Verify that you specified the correct log location in the data collection rule
+#### Verify that you specified the correct log location in the data collection rule
 The data collection rule will have a section similar to the following. The `filePatterns` element specifies the path to the log file to collect from the agent computer. Check the agent computer to verify that this is correct.
 
 
@@ -350,7 +350,7 @@ This file pattern should correspond to the logs on the agent machine.
 :::image type="content" source="media/data-collection-text-log/text-log-files.png" lightbox="media/data-collection-text-log/text-log-files.png" alt-text="Screenshot of text log files on agent machine." border="false":::
 
 
-### Verify that logs are being populated
+#### Verify that logs are being populated
 The agent will only collect new content written to the log file being collected. If you're experimenting with the collection logs from a text or JSON file, you can use the following script to generate sample logs.
 
 ```powershell
@@ -385,7 +385,6 @@ do
 while ($true)
 
 ```
-
 
 
 ## Frequently asked questions
