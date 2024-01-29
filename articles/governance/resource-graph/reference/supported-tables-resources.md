@@ -864,7 +864,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.sqlvirtualmachine/sqlvirtualmachinegroups
 - microsoft.SqlVirtualMachine/SqlVirtualMachines (SQL virtual machines)
 - microsoft.sqlvm/dwvm
-- microsoft.storage/datamovers
 - microsoft.Storage/StorageAccounts (Storage accounts)
   - Sample query: [Find storage accounts with a specific case-insensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - Sample query: [Find storage accounts with a specific case-sensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
