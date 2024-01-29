@@ -23,7 +23,6 @@ The following steps walk you through the process of creating [standard tests](av
 > 
 > - Refer to **[Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing)** before starting this process.
 > 
-
 ### Prerequisites
 
 - Any [URL ping test](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) within Application Insights
@@ -43,10 +42,9 @@ The following steps walk you through the process of creating [standard tests](av
 
 3.	Find the URL Ping Test you want to migrate and record its resource group and name.
 
-1. The following commands create a standard test with the same logic as the URL ping test:
+4.	The following commands create a standard test with the same logic as the URL ping test:
 
-    
-```azurepowershell
+    ```azurepowershell
     $resourceGroup = "pingTestResourceGroup";
     $appInsightsComponent = "componentName";
     $pingTestName = "pingTestName";
@@ -75,7 +73,6 @@ The following steps walk you through the process of creating [standard tests](av
     -RequestUrl $pingTestRequest.Url -RequestHttpVerb "GET" -GeoLocation $pingTest.PropertiesLocations -Frequency $pingTest.Frequency `
     -Timeout $pingTest.Timeout -RetryEnabled:$pingTest.RetryEnabled -Enabled:$pingTest.Enabled `
     -RequestParseDependent:($pingTestRequest.ParseDependentRequests -eq [bool]::TrueString);
-    
     ```
 
 5. The new standard test doesn't have alert rules by default, so it doesn't create noisy alerts. No changes are made to your URL ping test so you can continue to rely on it for alerts.
@@ -103,4 +100,3 @@ Yes, these commands work for both HTTP and HTTPS endpoints, which are used in yo
 * [Troubleshooting](troubleshoot-availability.md)
 * [Web tests Azure Resource Manager template](/azure/templates/microsoft.insights/webtests?tabs=json)
 * [Web test REST API](/rest/api/application-insights/web-tests)
-
