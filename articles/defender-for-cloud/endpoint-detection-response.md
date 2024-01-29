@@ -4,15 +4,16 @@ description: Learn how to identify if an Endpoint Detection and Response solutio
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 12/31/2023
+ms.date: 01/29/2024
 ---
 
 # Manage Endpoint Detection and Response solution 
 
 > [!NOTE]
-> As the Log Analytics agent (also known as MMA) is set to retire in [August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/), all Defender for Servers features that currently depend on it, including those described on the [Endpoint protection assessment and recommendations in Microsoft Defender for Cloud](endpoint-protection-recommendations-technical.md) page, will be available through either [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), before the retirement date. For more information about the roadmap for each of the features that are currently rely on Log Analytics Agent, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
->
-> The process on this page is the current configuration process and should be used to .
+> The Log Analytics agent (also known as MMA) is set to retire in [August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). All Defender for Servers features that depend on the AMA, including those described on the [Enable Defender for Endpoint (Log Analytics)](endpoint-protection-recommendations-technical.md) page, will be available through either [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), before the retirement date. For more information about the roadmap for each of the features that are currently rely on Log Analytics Agent, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
+
+>[!IMPORTANT]
+> Defender for Cloud recommends using the process described on this page to review Endpoint Detection and Response (EDR) solution installation status and configuration issues within your EDR solution.
 
 Microsoft Defender for Cloud offers security recommendations that assist you in the process of reducing a machine's [attack surface](concept-attack-path.md) allowing the machine to avoid known risks. Defender for Cloud has several recommendations that ensure an Endpoint Detection and Response (EDR) solution is installed and configured securely and according to compliance standards across all of your environments. 
 

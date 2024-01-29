@@ -1,12 +1,12 @@
 ---
-title: Endpoint protection recommendations
+title: Enable Defender for Endpoint (Log Analytics)
 description: How the endpoint protection solutions are discovered and identified as healthy.
 ms.topic: conceptual
 ms.author: dacurwin
 author: dcurwin
 ms.date: 06/15/2023
 ---
-# Endpoint protection assessment and recommendations in Microsoft Defender for Cloud
+# Enable Defender for Endpoint (Log Analytics)
 
 > [!NOTE]
 > As the Log Analytics agent (also known as MMA) is set to retire in [August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/), all Defender for Servers features that currently depend on it, including those described on this page, will be available through either [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), before the retirement date. For more information about the roadmap for each of the features that are currently rely on Log Analytics Agent, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
