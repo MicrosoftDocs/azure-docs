@@ -67,8 +67,8 @@ Daldsv6-series virtual machines support Standard SSD, Standard HDD, and Premium 
 [Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli): Supported   
 [Ephemeral OS Disks](/azure/virtual-machines/ephemeral-os-disks): Not Supported for Preview   
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported 
-  
- 
+
+
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## Other sizes and information
