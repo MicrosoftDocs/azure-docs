@@ -46,8 +46,6 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-* For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
-
 * Read the [Network security overview](how-to-network-security-overview.md) to understand common virtual network scenarios and architecture.
 
 * A pre-existing virtual network and subnet to use.
@@ -63,6 +61,8 @@ In this article, you learn how to:
 * An existing [Azure storage account added your virtual network](v1/how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
 :::moniker-end
 
+* For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
+
 ## Limitations
 
 ### Azure Storage Account
@@ -74,7 +74,7 @@ In this article, you learn how to:
 
 ### Designer sample pipeline
 
-There's a known issue where users can't run a sample pipeline in the Designer homepage. This problem occurs because the sample dataset used in the sample pipeline is an Azure Global dataset. It can't be accessed from a virtual network environment.
+There's a known issue where users can't run a sample pipeline in the designer homepage. This problem occurs because the sample dataset used in the sample pipeline is an Azure Global dataset. It can't be accessed from a virtual network environment.
 
 To resolve this issue, use a public workspace to run the sample pipeline. Or replace the sample dataset with your own dataset in the workspace within a virtual network.
 
@@ -116,7 +116,7 @@ Use the following steps to enable access to data stored in Azure Blob and File s
 
     1. To create a new datastore, select **+ Create**.
 
-    1. In the datastore settings, select **Yes** for **Use workspace managed identity for data preview and profiling in Azure Machine Learning studio**.
+    1. In the datastore settings, turn on the switch for **Use workspace managed identity for data preview and profiling in Azure Machine Learning studio**.
 
         :::image type="content" source="media/how-to-enable-studio-virtual-network/enable-managed-identity.png" alt-text="Screenshot showing how to enable managed workspace identity." lightbox="media/how-to-enable-studio-virtual-network/enable-managed-identity.png":::
 
