@@ -36,20 +36,21 @@ The following table lists methods to create data collection scenarios using the 
 
 ## Create a DCR
 
-The Azure portal provides a data collection rule wizard for collection data from virtual machines. You can also use the Azure CLI, PowerShell, API, or ARM templates to create a DCR. To create a DCR, create a JSON file, starting with one of the [sample DCRs](./data-collection-rule-samples.md) and use information in [Structure of a data collection rule in Azure Monitor](./data-collection-rule-structure.md) to modify the JSON file for your particular environment and requirements.
+The Azure portal provides a data collection rule wizard for collection data from virtual machines. To create a DCR using the Azure CLI, PowerShell, API, or ARM templates, create a JSON file, starting with one of the [sample DCRs](./data-collection-rule-samples.md). Use information in [Structure of a data collection rule in Azure Monitor](./data-collection-rule-structure.md) to modify the JSON file for your particular environment and requirements.
 
 > [!NOTE]
-> It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
+> It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule wizard.
 
 Once you have the JSON file created, you can use any of the following methods to create the DCR:
 
 ## [Portal](#tab/portal)
 
-1. On the **Monitor** menu, select **Data Collection Rules**.
-1. Select **Create** to create a new data collection rule and associations.
+On the **Monitor** menu, select **Data Collection Rules** > **Create** to open the create a new data collection rule management wizard.
    
-    :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rules-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rules-updated.png" alt-text="Screenshot that shows the Create button on the Data Collection Rules screen." border="false":::
+:::image type="content" source="media/data-collection-rule-create-edit/data-collection-rules-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rules-updated.png" alt-text="Screenshot that shows the Create button on the Data Collection Rules screen." border="false":::
 
+Configure the settings on each of the tabs in the wizard, as detailed below.
+ 
 ### Basics tab 
 
 :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-basics-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-basics-updated.png" alt-text="Screenshot that shows the Basics tab of the Data Collection Rule screen.":::
