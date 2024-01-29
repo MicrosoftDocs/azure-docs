@@ -1,3 +1,14 @@
+---
+title: Azure Operator Nexus Isolation Domains
+description: Overview of Isolation Domains for Azure Operator Nexus.
+author: joemarshallmsft
+ms.author: joemarshall
+ms.reviewer: jdasari
+ms.date: 01/29/2024
+ms.service: azure-operator-nexus
+ms.topic: conceptual
+---
+
 # Isolation Domain Overview
 
 An Isolation Domain resource enables the creation of layer-2 and layer-3 networks that your network functions can connect to. This enables inter-rack and intra-rack communication between the network functions. The Nexus Network Fabric Automation Service (NFA) enables three types of isolation domain:
