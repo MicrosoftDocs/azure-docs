@@ -93,7 +93,7 @@ API Management uses a public IP address for a connection outside the VNet or a p
 
 * When a request is sent from API Management to a public (internet-facing) backend, a public IP address will always be visible as the origin of the request.
 
-## IP address of API Management service running on shared infrastructure: Consumption, Basic v2, and Standard v2 tier
+## IP addresses of Consumption, Basic v2, and Standard v2 tier API Management service
 
 If your API Management instance is created in a service tier that runs on a shared infrastructure, it doesn't have a dedicated IP address. Currently, instances in the following service tiers run on a shared infrastructure and without a deterministic IP address: Consumption, Basic v2 (preview), Standard v2 (preview).
 
