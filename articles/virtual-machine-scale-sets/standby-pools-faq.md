@@ -35,8 +35,7 @@ your applications are latency sensitive or have long initialization steps, Stand
 that time as well as managing the steps to make your VMs ready on your behalf. 
 
 ### Can I use Standby Pools for Virtual Machine Scale Sets if I'm already using Azure Autoscale? 
-Yes. However, autoscale will use the metrics of VMs in your scale set and the VMs in your pool into 
-account when determine when to scale. This can result in unexpected scale out events. 
+Yes. However it is not suggested. Autoscale will consume the metrics of VMs in your scale set and the VMs in your pool to determine when to scale. This can result in unexpected scale out events. 
 
 ### How many VMs can my Standby Pool for Virtual Machine Scale Sets have? 
 The maximum number of VMs between a scale set and a Standby Pool is 1,000. 
@@ -74,6 +73,9 @@ incorrect subscription or there was an error in your input, the response might s
 Ensure you have enough quota to complete the Standby Pool creation. Insufficient quota usually results 
 in the platform attempting to create the VMs in the Standby Pool but unable to successfully complete 
 the create operation. Check for multiple types of quotas such as Cores, NICs, IP Addresses, etc.
+
+### Will my scale set pull VMs from my Standby Pool if they are in a failed state? 
+No. Virtual Machine Scale Sets will only pull instances from your Standby Pool that match the desired power state of your pool. For example, if your desired power state is set as Stopped (deallocated), the scale set will only pull VMs in that current power state. If VMs are in a creating, failed or any other state than the expected state, the scale set will default to new VM creation instead. 
 
 
 ## Next steps

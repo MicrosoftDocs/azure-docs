@@ -31,9 +31,9 @@ The number of VMs in a Standby Pool is determined by the number of VMs in your s
 
 When your scale set requires more instances, rather than creating new instances and placing them directly into the scale set, the scale set can instead pull VMs from the Standby Pool. This significantly reduces the time it takes to scale-out and have the instances ready to take traffic. 
 
-When your scale set scales back down, the instances are deleted from your scale set and your Standby Pool will refill to meet the `MaxReadyCapacity` set.  
+When your scale set scales back down, the instances are deleted from your scale set based on the [scale-in policy](virtual-machine-scale-sets-scale-in-policy.md) you have configured and your Standby Pool will refill to meet the `MaxReadyCapacity`.  
 
-If at any point in time your scale set needs to scale beyond the number of instances you have in your Standby Pool, the scale set defaults to standard scale-out methods and create new instances that are added directly into the Scale Set
+If at any point in time your scale set needs to scale beyond the number of instances you have in your Standby Pool, the scale set defaults to standard scale-out methods and creates new instances directly in the Scale Set
 
 ## Virtual Machine States
 
@@ -66,9 +66,8 @@ There's no direct cost associated with using Standby Pools. Users are charged ba
 ## Considerations
 - The total capacity of the Standby Pool and the Virtual Machine Scale Set together can't exceed 1000 instances. 
 - Standby Pools don't currently support Spot Virtual Machines or Spot Priority Mix.
-- If the instances in your Standby Pool are exhausted, the scale set defaults to standard scale-out methods and create new VMs directly in your scale set to meet the new desired instance count.  
 - Creation of pooled resources is subject to the resource availability in each region.
-- If using autoscale to trigger scaling, autoscale takes into account the metrics associated with your VMs in your scale set and the VMs in the pool. This could result in unexpected scale-out events.
+- Using Azure autoscale and Standby Pools together can result in unexpected scale-in or scale-out events. The autoscaler consumes the metrics associated with your VMs in your scale set and the VMs in the pool. This can skew the scaling metrics and result in less accurate scale triggers. It is not currently suggested to use Azure autoscale and Standby Pools together. 
 
 ## Next steps
 
