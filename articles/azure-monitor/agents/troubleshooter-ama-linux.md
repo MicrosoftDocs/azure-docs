@@ -11,7 +11,7 @@ ms.reviewer: jeffwo
 # customer-intent: When AMA is experiencing issues, I want to investigate the issues and determine if I can resolve the issue on my own.
 ---
 
-# How to use the Linux Operating System (OS) Azure Monitor Agent Troubleshooter
+# How to use the Linux operating system (OS) Azure Monitor Agent Troubleshooter
 The Azure Monitor Agent Troubleshooter (AMA) is designed to help identify issues with the agent and perform general health assessments. It can perform various checks to ensure that the agent is properly installed and connected, and can also gather AMA-related logs from the machine being diagnosed.
 
 > [!Note]
@@ -20,7 +20,7 @@ The Azure Monitor Agent Troubleshooter (AMA) is designed to help identify issues
 ## Prerequisites
 
 ### Python requirement
-The linux Troubleshooter requires **Python 2.6+** or any **Python 3** version installed on the machine.
+The Linux AMA Troubleshooter requires **Python 2.6+** or any **Python 3** version installed on the machine.
 
 To check if python is installed on your machine, copy the following command and run in Bash as root:
 ```Bash
@@ -28,7 +28,7 @@ sudo python -V
 sudo python3 -V
 ```
 
-:::image type="content" source="media/agent-linux/python-version-check.png" alt-text="commands to check python version in linux" lightbox="media/agent-linux/python-version-check.png":::
+:::image type="content" source="media/agent-linux/python-version-check.png" alt-text="Screenshot of commands to check python version in linux" lightbox="media/agent-linux/python-version-check.png":::
 
 Multiple versions of Python can be installed and aliased – if multiple versions are installed, use:
 
@@ -36,7 +36,7 @@ Multiple versions of Python can be installed and aliased – if multiple version
 ls -ls /usr/bing/python*
 ```
 
-:::image type="content" source="media/agent-linux/python-multiple-version-check.png" alt-text="command to check multiple versions of python for linux" lightbox="media/agent-linux/python-version-check.png":::
+:::image type="content" source="media/agent-linux/python-multiple-version-check.png" alt-text="Screenshot of command to check multiple versions of python for linux" lightbox="media/agent-linux/python-multiple-version-check.png":::
 
 If your virtual machine is using a distro that doesn't include Python 3 by default, then you must install it. The following sample commands install Python 3 on different distros:
 
