@@ -447,20 +447,20 @@ zypper install azure-security
 
 ---
 
-After installing the Linux Security Package for your distro, run the following command to verify which boot components are responsible for Secure Boot failures:
+After installing the Linux Security Package for your distro, run the following command to verify which boot components are responsible for Secure Boot failures.
 
 ```bash
 sudo sbinfo -u -m -k -b 
 ```
 
-To learn more about the SBInfo diagnostic tool, you can run 'sudo sbinfo -help'
+To learn more about the SBInfo diagnostic tool, you can run '*sudo sbinfo -help*'.
 
 
 ### Windows Virtual Machines
 
-'Signtool.exe' is a PowerShell tool used for verifying if a driver is signed or not on Windows. It shows signature status, timestamp, and certificate chain.
+'Signtool.exe' is a .Net Framework tool used for verifying if a driver is signed or not on Windows. It shows signature status, timestamp, and certificate chain.
 
-[Learn more about the PowerShell utility SignTool](/windows/win32/seccrypto/signtool)
+[Learn more about the SignTool utility](/windows/win32/seccrypto/signtool)
 
 > [!NOTE]
 > Using a Marketplace TrustedLaunch tagged image which has been updated to the latest version available version shouldn't cause an error state.
@@ -471,6 +471,8 @@ To learn more about the SBInfo diagnostic tool, you can run 'sudo sbinfo -help'
 
 > [!IMPORTANT]
 > You can't sign drivers using this tool. This approach is primarily for understand which drivers are unsigned. 
+>
+>If you're looking to sign your own drivers, self-signed components are *not supported* by Trusted Launch.
 
 ### Why am I getting a boot integrity monitoring fault?
 
