@@ -379,7 +379,7 @@ tlsConfig:
 ```
 > [!NOTE]
 > Please make sure that the certificate file name and key name inside the mtls app should be of the following format in case of a CRD based scraping.
-    For example: secret_kube-system_ama-metrics-mtls-secret_<cert-name>.pem and secret_kube-system_ama-metrics-mtls-secret_<key-name>.pem.
+    For example: secret_kube-system_ama-metrics-mtls-secret_cert-name.pem and secret_kube-system_ama-metrics-mtls-secret_key-name.pem.
 > The CRD needs to be be created in kube-system namespace.
 > The secret name should exactly be ama-metrics-mtls-secret in kube-system namespace. An example command for creating secret: kubectl create secret generic ama-metrics-mtls-secret --from-file=secret_kube-system_ama-metrics-mtls-secret_client-cert.pem=secret_kube-system_ama-metrics-mtls-secret_client-cert.pem --from-file=secret_kube-system_ama-metrics-mtls-secret_client-key.pem=secret_kube-system_ama-metrics-mtls-secret_client-key.pem -n kube-system
 
