@@ -28,7 +28,7 @@ sudo python -V
 sudo python3 -V
 ```
 
-:::image type="content" source="media/agent-linux/python-version-check.png" alt-text="Screenshot of commands to check python version in linux" lightbox="media/agent-linux/python-version-check.png":::
+:::image type="content" source="media/agent-linux/python-version-check.png" alt-text="Screenshot of commands to check Python version in Linux." lightbox="media/agent-linux/python-version-check.png":::
 
 Multiple versions of Python can be installed and aliased – if multiple versions are installed, use:
 
@@ -36,7 +36,7 @@ Multiple versions of Python can be installed and aliased – if multiple version
 ls -ls /usr/bing/python*
 ```
 
-:::image type="content" source="media/agent-linux/python-multiple-version-check.png" alt-text="Screenshot of command to check multiple versions of python for linux" lightbox="media/agent-linux/python-multiple-version-check.png":::
+:::image type="content" source="media/agent-linux/python-multiple-version-check.png" alt-text="Screenshot of command to check multiple versions of Python for Linux." lightbox="media/agent-linux/python-multiple-version-check.png":::
 
 If your virtual machine is using a distro that doesn't include Python 3 by default, then you must install it. The following sample commands install Python 3 on different distros:
 
@@ -72,7 +72,7 @@ In addition, the following Python packages are required to run (all should be pr
 |url lib|yes|no|
 |xml.dom.minidom|yes|yes|
 
-### Troubleshooter Existence Check
+### Troubleshooter existence check
 Check for the existence of the AMA Agent Troubleshooter directory on the machine to be diagnosed to confirm the installation of the agent troubleshooter:
 
 ***/var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-{version}***
