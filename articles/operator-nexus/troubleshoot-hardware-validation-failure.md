@@ -9,7 +9,7 @@ author: vnikolin
 ms.author: vanjanikolin
 ---
 
-# Troubleshoot Hardware Validation Failure
+# Troubleshoot hardware validation failure in Nexus Cluster
 
 This article describes how to troubleshoot a failed server hardware validation. Hardware validation is run as part of cluster deploy action.
 
