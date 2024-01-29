@@ -46,7 +46,7 @@ In CAP theorem terms, Cassandra is by default an AP (Available Partition-toleran
 
 - In active-passive for writes there's a trade-off between reliability and performance: for reliability we recommend QUORUM_EACH but for most users LOCAL_QUORUM or QUORUM is a good compromise. Note however that in the case of a regional outage, some writes might be lost in LOCAL_QUORUM. 
 - In the case of an application being run in parallel QUORUM_EACH writes are preferred for most cases to ensure consistency between the two data centers.
-- If your goal is to favor consistency (lower RPO) rather than latency or availability (lower RTO), this should be reflected in your consistency settings and replication factor. As a rule of thumb, the number of quorum nodes required for a read plus the number of quorum nodes required for a write should be greater than the replication factor. For example, if you have a replication factor of 3, and quorum_one on reads (1 node), you should do quorum_all on writes (3 nodes), so that the total of 4 is greater than the replication factor of 3.
+- If your goal is to favor consistency (lower RPO) rather than latency or availability (lower RTO), this should be reflected in your consistency settings and replication factor. As a rule of thumb, the number of quorum nodes required for a read plus the number of quorum nodes required for a write should be greater than the replication factor. For example, if you have a replication factor of 3, and quorum_one on reads (one node), you should do quorum_all on writes (three nodes), so that the total of 4 is greater than the replication factor of 3.
 
 
 ## Replication
