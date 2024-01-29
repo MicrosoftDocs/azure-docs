@@ -33,7 +33,7 @@ You can select an image by providing a publicly accessible image URL, or by pass
 
 ### Image URL
 
-Create a [Uri](https://learn.microsoft.com/en-us/dotnet/api/system.uri) object for the image you want to analyze.
+Create a [Uri](https://learn.microsoft.com/dotnet/api/system.uri) object for the image you want to analyze.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-how-to/Program.cs?name=snippet_url)]
 
