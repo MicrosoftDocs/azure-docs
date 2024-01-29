@@ -45,4 +45,4 @@ az spring eureka-server disable
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Discover and register your Spring Boot applications in Azure Spring Apps](how-to-service-registration.md)
+> [Discover and register your Spring Boot applications in Azure Spring Apps](../basic-standard/how-to-service-registration.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json)

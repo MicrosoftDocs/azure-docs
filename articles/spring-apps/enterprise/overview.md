@@ -69,9 +69,9 @@ The following articles help you migrate existing Spring Boot apps to Azure Sprin
 
 The following quickstarts apply to the Basic/Standard plan only. For Enterprise quickstarts, see the [Get started with the Enterprise plan](#get-started-with-the-enterprise-plan) section.
 
-* [Provision an Azure Spring Apps service instance](quickstart-provision-service-instance.md)
-* [Set up Spring Cloud Config Server for Azure Spring Apps](quickstart-setup-config-server.md)
-* [Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md)
+* [Provision an Azure Spring Apps service instance](../basic-standard/quickstart-provision-service-instance.md)
+* [Set up Spring Cloud Config Server for Azure Spring Apps](../basic-standard/quickstart-setup-config-server.md)
+* [Build and deploy apps to Azure Spring Apps](../basic-standard/quickstart-deploy-apps.md)
 
 ## Enterprise plan
 
@@ -178,7 +178,7 @@ The Standard consumption and dedicated plan provides a hybrid pricing solution t
 
 When you create a Standard consumption and dedicated plan, a consumption workload profile is always created by default. You can additionally add dedicated workload profiles to the same plan to fit the requirements of your workload.
 
-Workload profiles determine the amount of compute and memory resources available to Spring apps deployed in the Standard consumption and dedicated plan. There are different machine sizes and characteristics with different workload profiles. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../container-apps/workload-profiles-overview.md).
+Workload profiles determine the amount of compute and memory resources available to Spring apps deployed in the Standard consumption and dedicated plan. There are different machine sizes and characteristics with different workload profiles. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../../container-apps/workload-profiles-overview.md).
 
 You can run your apps in any combination of consumption or dedicated workload profiles. Consider using the consumption workload profile when your applications need to start from and scale to zero. Use the dedicated workload profile when you need dedicated hardware for single tenancy, and for customizable compute as with a memory optimized machine. You can also use the dedicated workload profile to optimize for cost savings when resources are running at scale.
 
@@ -192,15 +192,15 @@ The following diagram shows the architecture of a virtual network in Azure Sprin
 
 The following articles help you get started using the Standard consumption and dedicated plan:
 
-* [Provision an Azure Spring Standard consumption and dedicated plan service instance](quickstart-provision-standard-consumption-service-instance.md)
-* [Create an Azure Spring Apps Standard consumption and dedicated plan instance in an Azure Container Apps environment with a virtual network](quickstart-provision-standard-consumption-app-environment-with-virtual-network.md)
-* [Access applications using Azure Spring Apps Standard consumption and dedicated plan in a virtual network](quickstart-access-standard-consumption-within-virtual-network.md)
+* [Provision an Azure Spring Standard consumption and dedicated plan service instance](../consumption-dedicated/quickstart-provision-standard-consumption-service-instance.md)
+* [Create an Azure Spring Apps Standard consumption and dedicated plan instance in an Azure Container Apps environment with a virtual network](../consumption-dedicated/quickstart-provision-standard-consumption-app-environment-with-virtual-network.md)
+* [Access applications using Azure Spring Apps Standard consumption and dedicated plan in a virtual network](../consumption-dedicated/quickstart-access-standard-consumption-within-virtual-network.md)
 * [Deploy an event-driven application to Azure Spring Apps](quickstart-deploy-event-driven-app.md)
-* [Set up autoscale for applications in Azure Spring Apps Standard consumption and dedicated plan](quickstart-apps-autoscale-standard-consumption.md)
-* [Map a custom domain to Azure Spring Apps with the Standard consumption and dedicated plan](quickstart-standard-consumption-custom-domain.md)
-* [Analyze logs and metrics in the Azure Spring Apps Standard consumption and dedicated plan](quickstart-analyze-logs-and-metrics-standard-consumption.md)
-* [Enable your own persistent storage in Azure Spring Apps with the Standard consumption and dedicated plan](how-to-custom-persistent-storage-with-standard-consumption.md)
-* [Customer responsibilities for Azure Spring Apps Standard consumption and dedicated plan in a virtual network](standard-consumption-customer-responsibilities.md)
+* [Set up autoscale for applications in Azure Spring Apps Standard consumption and dedicated plan](../consumption-dedicated/quickstart-apps-autoscale-standard-consumption.md)
+* [Map a custom domain to Azure Spring Apps with the Standard consumption and dedicated plan](../consumption-dedicated/quickstart-standard-consumption-custom-domain.md)
+* [Analyze logs and metrics in the Azure Spring Apps Standard consumption and dedicated plan](../consumption-dedicated/quickstart-analyze-logs-and-metrics-standard-consumption.md)
+* [Enable your own persistent storage in Azure Spring Apps with the Standard consumption and dedicated plan](../consumption-dedicated/how-to-custom-persistent-storage-with-standard-consumption.md)
+* [Customer responsibilities for Azure Spring Apps Standard consumption and dedicated plan in a virtual network](../consumption-dedicated/standard-consumption-customer-responsibilities.md)
 
 ## Next steps
 

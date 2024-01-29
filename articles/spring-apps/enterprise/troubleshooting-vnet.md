@@ -31,13 +31,13 @@ To set up the Azure Spring Apps service instance by using the [Azure CLI](/cli/a
 - The resource group for the instance is already created.
 - The resource name conforms to the naming rule. It must contain only lowercase letters, numbers, and hyphens. The first character must be a letter. The last character must be a letter or number. The value must contain from 2 to 32 characters.
 
-To set up the Azure Spring Apps service instance by using the Resource Manager template, refer to [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
+To set up the Azure Spring Apps service instance by using the Resource Manager template, refer to [Understand the structure and syntax of Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 
 ### Common creation issues
 
 | Error message                                                       | How to fix                                                                                                                                                                                                                                                                 |
 |---------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Resources created by Azure Spring Apps were disallowed by policy.` | Network resources are created when deploying Azure Spring Apps in your own virtual network. Be sure to check whether you have [Azure Policy](../governance/policy/overview.md) defined to block that creation. The error message lists the resources that weren't created. |
+| `Resources created by Azure Spring Apps were disallowed by policy.` | Network resources are created when deploying Azure Spring Apps in your own virtual network. Be sure to check whether you have [Azure Policy](../../governance/policy/overview.md) defined to block that creation. The error message lists the resources that weren't created. |
 | `Required traffic is not allowlisted.`                              | Be sure to check [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md) to ensure that the required traffic is allowlisted.                                                                                   |
 
 ## My application can't be registered or it can't get settings from the config server

@@ -21,7 +21,7 @@ This article describes how to set up autoscale rules for your applications in Az
 - Manages automatic horizontal scaling through a set of declarative scaling rules.
 - Supports all the scaling rules that Azure Container Apps supports.
 
-For more information, see [Azure Container Apps documentation](../container-apps/index.yml).
+For more information, see [Azure Container Apps documentation](../../container-apps/index.yml).
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ Scaling is defined by the combination of limits and rules.
 
   By default, the minimum instance count of your Spring application is set to 1 to ensure that your deployment is always running. If you want to scale in to zero, you can set the minimum instance count to zero.
 
-- Rules are the criteria that the autoscaling abides by to add or remove instances. The scale rules include HTTP, TCP, and Custom rules as described in the [Scale rules](../container-apps/scale-app.md#scale-rules) section of [Set scaling rules in Azure Container Apps](../container-apps/scale-app.md).
+- Rules are the criteria that the autoscaling abides by to add or remove instances. The scale rules include HTTP, TCP, and Custom rules as described in the [Scale rules](../../container-apps/scale-app.md#scale-rules) section of [Set scaling rules in Azure Container Apps](../../container-apps/scale-app.md).
 
   If you define more than one scale rule, the autoscaling begins when the first condition of any rule is met.
 

@@ -23,12 +23,12 @@ This article shows you how to configure a managed Spring Cloud Config Server in 
 Spring Cloud Config Server provides server and client-side support for an externalized configuration in a distributed system. The Config Server instance provides a central place to manage external properties for applications across all environments. For more information, see the [Spring Cloud Config documentation](https://spring.io/projects/spring-cloud-config).
 
 > [!NOTE]
-> To use config server in the Standard consumption and dedicated plan, you must enable it first. For more information, see [Enable and disable Spring Cloud Config Server in Azure Spring Apps](quickstart-standard-consumption-config-server.md).
+> To use config server in the Standard consumption and dedicated plan, you must enable it first. For more information, see [Enable and disable Spring Cloud Config Server in Azure Spring Apps](../consumption-dedicated/quickstart-standard-consumption-config-server.md).
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- An already provisioned and running Azure Spring Apps service instance using the Basic or Standard plan. To set up and launch an Azure Spring Apps service, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md). Spring Cloud Config Server isn't applicable to the Enterprise plan.
+- An already provisioned and running Azure Spring Apps service instance using the Basic or Standard plan. To set up and launch an Azure Spring Apps service, see [Quickstart: Deploy your first application to Azure Spring Apps](../enterprise/quickstart.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json). Spring Cloud Config Server isn't applicable to the Enterprise plan.
 - [Git](https://git-scm.com/downloads).
 
 ## Restriction
@@ -331,4 +331,4 @@ For more information, see the [config-client-polling](https://github.com/Azure-S
 
 ## Next steps
 
-In this article, you learned how to enable and configure your Spring Cloud Config Server instance. To learn more about managing your application, see [Scale an application in Azure Spring Apps](./how-to-scale-manual.md).
+In this article, you learned how to enable and configure your Spring Cloud Config Server instance. To learn more about managing your application, see [Scale an application in Azure Spring Apps](../enterprise/how-to-scale-manual.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).

@@ -37,7 +37,7 @@ The following video describes how to secure Spring Boot applications using manag
 
 ## Prerequisites
 
-Register the Azure Spring Apps resource provider `Microsoft.AppPlatform` and `Microsoft.ContainerService` according to the instructions in [Register resource provider on Azure portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) or by running the following Azure CLI command:
+Register the Azure Spring Apps resource provider `Microsoft.AppPlatform` and `Microsoft.ContainerService` according to the instructions in [Register resource provider on Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) or by running the following Azure CLI command:
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
@@ -142,10 +142,10 @@ If you already have a virtual network to host an Azure Spring Apps instance, ski
 
 ## Grant service permission to the virtual network
 
-This section shows you to grant Azure Spring Apps the [Owner](../role-based-access-control/built-in-roles.md#owner) permission on your virtual network. This permission enables you to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance.
+This section shows you to grant Azure Spring Apps the [Owner](../../role-based-access-control/built-in-roles.md#owner) permission on your virtual network. This permission enables you to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance.
 
 > [!NOTE]
-> The minimal required permissions are [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor). You can grant role assignments to both of them if you can't grant `Owner` permission.
+> The minimal required permissions are [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) and [Network Contributor](../../role-based-access-control/built-in-roles.md#network-contributor). You can grant role assignments to both of them if you can't grant `Owner` permission.
 >
 > If you're using your own route table or a user defined route feature, you also need to grant Azure Spring Apps the same role assignments to your route tables. For more information, see the [Bring your own route table](#bring-your-own-route-table) section and [Control egress traffic for an Azure Spring Apps instance](how-to-create-user-defined-route-instance.md).
 
@@ -159,7 +159,7 @@ Use the following steps to grant permission:
 
    :::image type="content" source="media/how-to-deploy-in-azure-virtual-network/access-control.png" alt-text="Screenshot of the Azure portal Access Control (IAM) page showing the Check access tab with the Add role assignment button highlighted." lightbox="media/how-to-deploy-in-azure-virtual-network/access-control.png":::
 
-1. Assign the `Owner` role to the Azure Spring Apps Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the `Owner` role to the Azure Spring Apps Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
    > [!NOTE]
    > If you don't find Azure Spring Apps Resource Provider, search for *Azure Spring Cloud Resource Provider*.

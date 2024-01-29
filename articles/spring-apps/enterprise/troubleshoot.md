@@ -74,7 +74,7 @@ When you're debugging application crashes, start by checking the running status 
 
    > "required memory 2728741K is greater than 2000M available for allocation"
 
-To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
+To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 ### My application experiences high CPU usage or high memory usage
 
@@ -97,7 +97,7 @@ For more information, see [Metrics for Azure Spring Apps](./concept-metrics.md).
 
 If all instances are up and running, go to Azure Log Analytics to query your application logs and review your code logic. This review helps you see whether any of them might affect scale partitioning. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 
-To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md). Query the logs by using the [Kusto query language](/azure/kusto/query/).
+To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-tutorial.md). Query the logs by using the [Kusto query language](/azure/kusto/query/).
 
 ### Checklist for deploying your Spring application to Azure Spring Apps
 
@@ -105,7 +105,7 @@ Before you onboard your application, ensure that it meets the following criteria
 
 * The application can run locally with the specified Java runtime version.
 * The environment config (CPU/RAM/Instances) meets the minimum requirement set by the application provider.
-* The configuration items have their expected values. For more information, see [Set up a Spring Cloud Config Server instance for your service](./how-to-config-server.md). For the Enterprise plan, see [Use Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
+* The configuration items have their expected values. For more information, see [Set up a Spring Cloud Config Server instance for your service](../basic-standard/how-to-config-server.md). For the Enterprise plan, see [Use Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
 * The environment variables have their expected values.
 * The JVM parameters have their expected values.
 * We recommended that you disable or remove the embedded *Config Server* and *Spring Service Registry* services from the application package.
@@ -117,14 +117,14 @@ Before you onboard your application, ensure that it meets the following criteria
 
 When you set up an Azure Spring Apps service instance by using the Azure portal, Azure Spring Apps performs the validation for you.
 
-But if you try to set up the Azure Spring Apps service instance by using the [Azure CLI](/cli/azure/get-started-with-azure-cli) or the [Azure Resource Manager template](../azure-resource-manager/index.yml), verify that you meet the following conditions:
+But if you try to set up the Azure Spring Apps service instance by using the [Azure CLI](/cli/azure/get-started-with-azure-cli) or the [Azure Resource Manager template](../../azure-resource-manager/index.yml), verify that you meet the following conditions:
 
 * The subscription is active.
 * Azure Spring Apps is available in the region you're using. For more information, see the [Azure Spring Apps FAQ](./faq.md).
 * The resource group for the instance is already created.
 * The resource name conforms to the naming rule. The name must contain only lowercase letters, numbers, and hyphens. The first character must be a letter. The last character must be a letter or number. The value must contain from 2 to 32 characters.
 
-If you want to set up the Azure Spring Apps service instance by using the Resource Manager template, first refer to [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
+If you want to set up the Azure Spring Apps service instance by using the Resource Manager template, first refer to [Understand the structure and syntax of Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 
 The name of the Azure Spring Apps service instance is used for requesting a subdomain name under `azuremicroservices.io`, so the setup fails if the name conflicts with an existing one. You might find more details in the activity logs.
 
@@ -174,7 +174,7 @@ If you're migrating an existing Spring Cloud-based solution to Azure, be sure to
 
 You can also check the *Service Registry* client logs in Azure Log Analytics. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md)
 
-To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md). Query the logs by using the [Kusto query language](/azure/kusto/query/).
+To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-tutorial.md). Query the logs by using the [Kusto query language](/azure/kusto/query/).
 
 ### I want to inspect my application's environment variables
 
@@ -234,7 +234,7 @@ Check to see whether the `spring-boot-actuator` dependency is enabled in your ap
 </dependency>
 ```
 
-If your application logs can be archived to a storage account but not sent to Azure Log Analytics, check to see whether you set up your workspace correctly. For more information, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md). Also, be aware that the Basic plan doesn't provide a service-level agreement (SLA). For more information, see [Service Level Agreements (SLA) for Online Services](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+If your application logs can be archived to a storage account but not sent to Azure Log Analytics, check to see whether you set up your workspace correctly. For more information, see [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md). Also, be aware that the Basic plan doesn't provide a service-level agreement (SLA). For more information, see [Service Level Agreements (SLA) for Online Services](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
 
 ## Enterprise plan
 
@@ -244,7 +244,7 @@ Creating an Azure Spring Apps Enterprise plan instance fails with error code "11
 
 * **"Failed to purchase on Azure Marketplace because the Microsoft.SaaS RP is not registered on the Azure subscription."**: Azure Spring Apps Enterprise plan purchase a SaaS offer from VMware.
 
-  You must register the `Microsoft.SaaS` resource provider before creating Azure Spring Apps Enterprise instance. See how to [register a resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+  You must register the `Microsoft.SaaS` resource provider before creating Azure Spring Apps Enterprise instance. See how to [register a resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 * **"Failed to load catalog product vmware-inc.azure-spring-cloud-vmware-tanzu-2 in the Azure subscription market."**: Your Azure subscription's billing account address isn't in the supported location.
 
@@ -276,9 +276,9 @@ When you visit the SaaS offer [Azure Spring Apps Enterprise](https://aka.ms/ascm
 
 The Azure Spring Apps Enterprise plan needs customers to pay for a license to Tanzu components through an Azure Marketplace offer. To purchase in the Azure Marketplace, the billing account's country or region for your Azure subscription should be in the SaaS offer's supported geographic locations.
 
-[Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) now supports all geographic locations that Azure Marketplace supports. See [Marketplace supported geographic location](../marketplace/marketplace-geo-availability-currencies.md#supported-geographic-locations).
+[Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) now supports all geographic locations that Azure Marketplace supports. See [Marketplace supported geographic location](../../marketplace/marketplace-geo-availability-currencies.md#supported-geographic-locations).
 
-You can view the billing account for your subscription if you have admin access. See [view billing accounts](../cost-management-billing/manage/view-all-accounts.md#check-the-type-of-your-account).
+You can view the billing account for your subscription if you have admin access. See [view billing accounts](../../cost-management-billing/manage/view-all-accounts.md#check-the-type-of-your-account).
 
 ### I need VMware Spring Runtime Support (Enterprise plan only)
 

@@ -34,9 +34,9 @@ We recommend that the domain name, as seen by the browser, is the same as the ho
 
 * A custom domain to be used to access the application: [Tutorial: Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)
 * Azure Spring Apps: [How to create an Azure Spring Apps service](./quickstart.md)
-* Azure Traffic Manager: [How to create a traffic manager](../traffic-manager/quickstart-create-traffic-manager-profile.md)
-* Azure App Gateway: [How to create an application gateway](../application-gateway/quick-create-portal.md)
-* Azure Front Door: [How to create a front door](../frontdoor/quickstart-create-front-door.md)
+* Azure Traffic Manager: [How to create a traffic manager](../../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* Azure App Gateway: [How to create an application gateway](../../application-gateway/quick-create-portal.md)
+* Azure Front Door: [How to create a front door](../../frontdoor/quickstart-create-front-door.md)
 
 ## Integrate Azure Spring Apps with Azure Traffic Manager
 
@@ -103,6 +103,6 @@ To integrate with Azure Spring Apps service and configure an origin group, use t
 
 ## Next steps
 
-* [How to create a traffic manager](../traffic-manager/quickstart-create-traffic-manager-profile.md)
-* [How to create an application gateway](../application-gateway/quick-create-portal.md)
-* [How to create a front door](../frontdoor/quickstart-create-front-door.md)
+* [How to create a traffic manager](../../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* [How to create an application gateway](../../application-gateway/quick-create-portal.md)
+* [How to create a front door](../../frontdoor/quickstart-create-front-door.md)

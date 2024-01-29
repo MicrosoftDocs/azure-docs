@@ -84,7 +84,7 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 
@@ -201,7 +201,7 @@ Use the following steps to delete the entire resource group, including the newly
 ## 7. Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Integrate Azure Spring Apps with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md)
+> [Quickstart: Integrate Azure Spring Apps with Azure Database for MySQL](../basic-standard/quickstart-integrate-azure-database-mysql.md)
 
 > [!div class="nextstepaction"]
 > [Use Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
@@ -216,10 +216,10 @@ Use the following steps to delete the entire resource group, including the newly
 > [Use managed identities for applications in Azure Spring Apps](./how-to-use-managed-identities.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Set up a Log Analytics workspace](./quickstart-setup-log-analytics.md)
+> [Quickstart: Set up a Log Analytics workspace](../basic-standard/quickstart-setup-log-analytics.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
+> [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](../basic-standard/quickstart-logs-metrics-tracing.md)
 
 > [!div class="nextstepaction"]
 > [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)

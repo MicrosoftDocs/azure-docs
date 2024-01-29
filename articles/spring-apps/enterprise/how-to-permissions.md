@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, de
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
-This article shows you how to create custom roles that delegate permissions to Azure Spring Apps resources. Custom roles extend [Azure built-in roles](../role-based-access-control/built-in-roles.md) with various stock permissions.
+This article shows you how to create custom roles that delegate permissions to Azure Spring Apps resources. Custom roles extend [Azure built-in roles](../../role-based-access-control/built-in-roles.md) with various stock permissions.
 
 We'll implement the following custom roles.
 
@@ -862,10 +862,10 @@ This role can create and configure everything in Azure Spring Apps and apps with
 
 ## Next steps
 
-* [Create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md)
+* [Create or update Azure custom roles using the Azure portal](../../role-based-access-control/custom-roles-portal.md)
 
 For more information about three methods that define custom permissions, see:
 
-* [Clone a role](../role-based-access-control/custom-roles-portal.md#clone-a-role)
-* [Start from scratch](../role-based-access-control/custom-roles-portal.md#start-from-scratch)
-* [Start from JSON](../role-based-access-control/custom-roles-portal.md#start-from-json)
+* [Clone a role](../../role-based-access-control/custom-roles-portal.md#clone-a-role)
+* [Start from scratch](../../role-based-access-control/custom-roles-portal.md#start-from-scratch)
+* [Start from JSON](../../role-based-access-control/custom-roles-portal.md#start-from-json)

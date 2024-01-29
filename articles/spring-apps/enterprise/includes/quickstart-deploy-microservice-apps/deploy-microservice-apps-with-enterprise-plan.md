@@ -76,7 +76,7 @@ The main resource you need to run this sample is an Azure Spring Apps instance. 
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-This section uses a **Deploy to Azure** button to launch a deployment experience in the Azure portal. This experience uses an [ARM template](../../../azure-resource-manager/templates/overview.md) to create Azure resources.
+This section uses a **Deploy to Azure** button to launch a deployment experience in the Azure portal. This experience uses an [ARM template](../../../../azure-resource-manager/templates/overview.md) to create Azure resources.
 
 ### 3.1. Sign in to the Azure portal
 
@@ -88,7 +88,7 @@ Use the following steps to create all the Azure resources that the app depends o
 
 1. Select the following **Deploy to Azure** button to launch the deployment experience in the Azure portal:
 
-   :::image type="content" source="../../../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fspring-petclinic-microservices%2Fazure%2Finfra%2Fazuredeploy.json":::
+   :::image type="content" source="../../../../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fspring-petclinic-microservices%2Fazure%2Finfra%2Fazuredeploy.json":::
 
 1. Fill out the form on the **Basics** tab. Use the following table as a guide for completing the form:
 

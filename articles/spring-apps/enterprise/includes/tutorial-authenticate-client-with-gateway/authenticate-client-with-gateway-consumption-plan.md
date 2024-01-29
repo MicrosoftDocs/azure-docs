@@ -78,7 +78,7 @@ Use the following steps to create a service instance:
    :::image type="content" source="../../media/tutorial-authenticate-client-with-gateway/create-apps-container-environment-basics.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Container Apps page." lightbox="../../media/tutorial-authenticate-client-with-gateway/create-apps-container-environment-basics.png":::
 
    > [!IMPORTANT]
-   > The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../../../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
+   > The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../../../../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 

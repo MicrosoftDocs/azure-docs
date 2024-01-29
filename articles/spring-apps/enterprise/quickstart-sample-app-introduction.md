@@ -73,6 +73,6 @@ For full implementation details, see our fork of [PetClinic](https://github.com/
 ### [Basic/Standard plan](#tab/basic-standard-plan)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Provision an Azure Spring Apps service instance](./quickstart-provision-service-instance.md)
+> [Quickstart: Provision an Azure Spring Apps service instance](../basic-standard/quickstart-provision-service-instance.md)
 
 ---

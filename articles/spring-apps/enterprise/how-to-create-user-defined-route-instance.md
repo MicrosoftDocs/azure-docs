@@ -111,7 +111,7 @@ az network vnet subnet create \
 Use the following command to create and set up an Azure Firewall instance with a user-defined route, and to configure Azure Firewall outbound rules. The firewall lets you configure granular egress traffic rules from Azure Spring Apps.
 
 > [!IMPORTANT]
-> If your cluster or application creates a large number of outbound connections directed to the same destination or to a small subset of destinations, you might require more firewall front-end IP addresses to avoid reaching the maximum ports per front-end IP address. For more information on how to create an Azure Firewall instance with multiple IP addresses, see [Quickstart: Create an Azure Firewall instance with multiple public IP addresses - ARM template](../firewall/quick-create-multiple-ip-template.md). Create a Standard SKU public IP resource for use as the Azure Firewall front-end address.
+> If your cluster or application creates a large number of outbound connections directed to the same destination or to a small subset of destinations, you might require more firewall front-end IP addresses to avoid reaching the maximum ports per front-end IP address. For more information on how to create an Azure Firewall instance with multiple IP addresses, see [Quickstart: Create an Azure Firewall instance with multiple public IP addresses - ARM template](../../firewall/quick-create-multiple-ip-template.md). Create a Standard SKU public IP resource for use as the Azure Firewall front-end address.
 
 ```azurecli
 az network public-ip create \

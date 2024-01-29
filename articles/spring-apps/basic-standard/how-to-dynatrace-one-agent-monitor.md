@@ -203,7 +203,7 @@ The Dynatrace OneAgent auto-upgrade is disabled and is upgraded quarterly with t
 
 ## Virtual network injection instance outbound traffic configuration
 
-For a virtual network injection instance of Azure Spring Apps, you need to make sure the outbound traffic for Dynatrace communication endpoints is configured correctly for Dynatrace OneAgent. For information about how to get `communicationEndpoints`, see [Deployment API - GET connectivity information for OneAgent](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/). For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
+For a virtual network injection instance of Azure Spring Apps, you need to make sure the outbound traffic for Dynatrace communication endpoints is configured correctly for Dynatrace OneAgent. For information about how to get `communicationEndpoints`, see [Deployment API - GET connectivity information for OneAgent](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/). For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](../enterprise/vnet-customer-responsibilities.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
 
 ## Dynatrace support model
 
@@ -211,4 +211,4 @@ For information about limitations when deploying Dynatrace OneAgent in applicati
 
 ## Next steps
 
-[Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md)
+[Use Application Insights Java In-Process Agent in Azure Spring Apps](../enterprise/how-to-application-insights.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)

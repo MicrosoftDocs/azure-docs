@@ -26,7 +26,7 @@ Both Azure Functions and App Services have built in support for Microsoft Entra 
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 - [Git](https://git-scm.com/downloads).
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or higher.
-- [Install the Azure Functions Core Tools](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools) version 4.x.
+- [Install the Azure Functions Core Tools](../../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools) version 4.x.
 
 ## Create a resource group
 
@@ -125,7 +125,7 @@ By default, functions use key-based authentication to secure HTTP endpoints. To 
 }
 ```
 
-For more information, see the [Secure an HTTP endpoint in production](../azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production) section of [Azure Functions HTTP trigger](../azure-functions/functions-bindings-http-webhook-trigger.md).
+For more information, see the [Secure an HTTP endpoint in production](../../azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production) section of [Azure Functions HTTP trigger](../../azure-functions/functions-bindings-http-webhook-trigger.md).
 
 Use the following command to publish the app to the instance created in the previous step:
 
@@ -223,4 +223,4 @@ This sample invokes the HTTP triggered function by first requesting an access to
 
 - [How to enable system-assigned managed identity for applications in Azure Spring Apps](./how-to-enable-system-assigned-managed-identity.md)
 - [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
-- [Configure client apps to access your App Service](../app-service/configure-authentication-provider-aad.md#configure-client-apps-to-access-your-app-service)
+- [Configure client apps to access your App Service](../../app-service/configure-authentication-provider-aad.md#configure-client-apps-to-access-your-app-service)

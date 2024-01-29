@@ -108,7 +108,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
 
 The following instructions describe how to provision an Azure Cache for Redis and an Azure Database for PostgreSQL Flexible Server by using an Azure Resource Manager template (ARM template).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 You can find the template used in this quickstart in the [fitness store sample GitHub repository](https://github.com/Azure-Samples/acme-fitness-store/blob/HEAD/azure-spring-apps-enterprise/resources/json/deploy/azuredeploy.json).
 
@@ -116,7 +116,7 @@ To deploy this template, follow these steps:
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Cache for Redis and an Azure Database for PostgreSQL Flexible Server.
 
-   :::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Facme-fitness-store%2FAzure%2Fazure-spring-apps-enterprise%2Fresources%2Fjson%2Fdeploy%2Fazuredeploy.json":::
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Facme-fitness-store%2FAzure%2Fazure-spring-apps-enterprise%2Fresources%2Fjson%2Fdeploy%2Fazuredeploy.json":::
 
 1. Enter values for the following fields:
 

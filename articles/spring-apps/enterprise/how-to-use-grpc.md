@@ -34,8 +34,8 @@ For a demonstration of this process, see the following video:
 - [Git](https://git-scm.com/downloads).
 - [Microsoft Build of OpenJDK](/java/openjdk/download#openjdk-17) Version 17.
 - [Maven](https://maven.apache.org/download.cgi).
-- An Azure Spring Apps instance. For more information, see [Quickstart: Provision an Azure Spring Apps service instance](quickstart-provision-service-instance.md).
-- A built and deployed Pet Clinic sample application. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md).
+- An Azure Spring Apps instance. For more information, see [Quickstart: Provision an Azure Spring Apps service instance](../basic-standard/quickstart-provision-service-instance.md).
+- A built and deployed Pet Clinic sample application. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps](../basic-standard/quickstart-deploy-apps.md).
 
 ## Assign a public endpoint
 

@@ -18,7 +18,7 @@ ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, en
 
 This article shows you how to move your Azure Spring Apps service instance to another region. Moving your instance is useful, for example, as part of a disaster recovery plan or to create a duplicate testing environment.
 
-You can't move an Azure Spring Apps instance from one region to another directly, but you can use an Azure Resource Manager template (ARM template) to deploy your instance to a new region. For more information about using Azure Resource Manager and templates, see [Quickstart: Create and deploy ARM templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+You can't move an Azure Spring Apps instance from one region to another directly, but you can use an Azure Resource Manager template (ARM template) to deploy your instance to a new region. For more information about using Azure Resource Manager and templates, see [Quickstart: Create and deploy ARM templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 Before you move your service instance, consider the following limitations:
 
@@ -208,8 +208,8 @@ Wait until the template has deployed successfully. If the deployment fails, view
 
 Some features aren't exported to the template, or can't be imported with a template. You must manually set up some Azure Spring Apps items on the new instance after the template deployment completes successfully. The following guidelines describe these requirements:
 
-- The JAR files for the previous service aren't deployed directly to the new service instance. To deploy all apps, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md). If there's no active deployment configured automatically, you must configure a production deployment. For more information, see [Set up a staging environment in Azure Spring Apps](how-to-staging-environment.md).
-- Config Server won't be imported automatically. To set up Config Server on your new instance, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](how-to-config-server.md).
+- The JAR files for the previous service aren't deployed directly to the new service instance. To deploy all apps, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Apps](../basic-standard/quickstart-deploy-apps.md). If there's no active deployment configured automatically, you must configure a production deployment. For more information, see [Set up a staging environment in Azure Spring Apps](how-to-staging-environment.md).
+- Config Server won't be imported automatically. To set up Config Server on your new instance, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](../basic-standard/how-to-config-server.md).
 - Managed identity is created automatically for the new service instance, but the object ID will be different from the previous instance. For managed identity to work in the new service instance, follow the instructions in [Enable system-assigned managed identity for an application in Azure Spring Apps](how-to-enable-system-assigned-managed-identity.md).
 - For Monitoring -> Metrics, see [Metrics for Azure Spring Apps](concept-metrics.md). To avoid mixing the data, create a new Log Analytics instance to collect the new data. You should also create a new instance for other monitoring configurations.
 - For Monitoring -> Diagnostic settings and logs, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
@@ -217,6 +217,6 @@ Some features aren't exported to the template, or can't be imported with a templ
 
 ## Next steps
 
-- [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md)
-- [Quickstart: Set up Azure Spring Apps Config Server](quickstart-setup-config-server.md)
-- [Quickstart: Set up a Log Analytics workspace](quickstart-setup-log-analytics.md)
+- [Quickstart: Build and deploy apps to Azure Spring Apps](../basic-standard/quickstart-deploy-apps.md)
+- [Quickstart: Set up Azure Spring Apps Config Server](../basic-standard/quickstart-setup-config-server.md)
+- [Quickstart: Set up a Log Analytics workspace](../basic-standard/quickstart-setup-log-analytics.md)

@@ -36,7 +36,7 @@ The ability to stop and start your Azure Spring Apps service instance has the fo
 
 ## Prerequisites
 
-- An existing service instance in Azure Spring Apps. To create a new service instance, see [Quickstart: Provision an Azure Spring Apps service instance](./quickstart-provision-service-instance.md).
+- An existing service instance in Azure Spring Apps. To create a new service instance, see [Quickstart: Provision an Azure Spring Apps service instance](../basic-standard/quickstart-provision-service-instance.md).
 - (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or later.
 
 ## [Portal](#tab/azure-portal)
@@ -113,4 +113,4 @@ The following list describes some common actions you can take to recover from th
 ## Next steps
 
 - [Monitor app lifecycle events using Azure Activity log and Azure Service Health](./monitor-app-lifecycle-events.md)
-- [Azure Monitor cost and usage](../azure-monitor/cost-usage.md)
+- [Azure Monitor cost and usage](../../azure-monitor/cost-usage.md)

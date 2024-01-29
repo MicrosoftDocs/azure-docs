@@ -109,4 +109,4 @@ Load certificate from specific path. alias = <certificate alias>, thumbprint = <
 ## Next steps
 
 - [Enable ingress-to-app Transport Layer Security](./how-to-enable-ingress-to-app-tls.md)
-- [Access Config Server and Service Registry](./how-to-access-data-plane-azure-ad-rbac.md)
+- [Access Config Server and Service Registry](../basic-standard/how-to-access-data-plane-azure-ad-rbac.md)

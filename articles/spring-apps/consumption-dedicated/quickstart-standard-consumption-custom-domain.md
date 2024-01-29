@@ -24,7 +24,7 @@ The mapping secures the custom domain with a certificate and enforces Transport 
 - An Azure Spring Apps Standard consumption and dedicated plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](quickstart-provision-standard-consumption-service-instance.md).
 - A Spring app deployed to Azure Spring Apps.
 - A domain name registered in the DNS registry as provided by a web hosting or domain provider.
-- A certificate resource created under an Azure Container Apps environment. For more information, see [Add certificate in Container App](../container-apps/custom-domains-certificates.md).
+- A certificate resource created under an Azure Container Apps environment. For more information, see [Add certificate in Container App](../../container-apps/custom-domains-certificates.md).
 
 ## Map a custom domain
 

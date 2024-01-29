@@ -36,10 +36,10 @@ The following tables describe how to configure a collection of NSG allow rules.
 | UDP      | `1194`       | `AzureCloud.<region>`       | Required for internal Azure Kubernetes Service (AKS) secure connection between underlying nodes and the control plane. Replace `<region>` with the region where your container app is deployed. |
 | TCP      | `9000`       | `AzureCloud.<region>`       | Required for internal AKS secure connection between underlying nodes and the control plane. Replace `<region>` with the region where your container app is deployed.                            |
 | TCP      | `443`        | `AzureMonitor`              | Allows outbound calls to Azure Monitor.                                                                                                                                                         |
-| TCP      | `443`        | `Azure Container Registry`  | Enables the Azure Container Registry as described in [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).                                     |
+| TCP      | `443`        | `Azure Container Registry`  | Enables the Azure Container Registry as described in [Virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).                                     |
 | TCP      | `443`        | `MicrosoftContainerRegistry`| The service tag for container registry for Microsoft containers.                                                                                                                                |
 | TCP      | `443`        | `AzureFrontDoor.FirstParty` | A dependency of the `MicrosoftContainerRegistry` service tag.                                                                                                                                   |
-| TCP      | `443`, `445` | `Azure Files`               | Enables Azure Storage as described in [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).                                                    |
+| TCP      | `443`, `445` | `Azure Files`               | Enables Azure Storage as described in [Virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).                                                    |
 
 ### Outbound with wild card IP rules
 

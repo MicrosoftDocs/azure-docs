@@ -48,7 +48,7 @@ You can enable logs in Azure Spring Apps in the following ways:
 - When you select **Log Analytics** as the logging option.
 - When you select **Azure Monitor** as the logging option, with the **Spring App console logs** category selected in the **Diagnostic** setting.
 
-For more information, see [Log storage and monitoring options in Azure Container Apps](../container-apps/log-options.md).
+For more information, see [Log storage and monitoring options in Azure Container Apps](../../container-apps/log-options.md).
 
 ### Query logs by using Log Analytics
 
@@ -123,7 +123,7 @@ Azure Spring Apps provides the metrics described in the following table:
 
 The Azure Monitor metrics explorer enables you to create charts from metric data to help you analyze your Azure Spring Apps resource and network usage over time. You can pin charts to a dashboard or in a shared workbook.
 
-1. Open the metrics explorer in the Azure portal by selecting **Metrics** in the navigation pane on the overview page of your Azure Spring Apps instance. To learn more about metrics explorer, see [Getting started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md).
+1. Open the metrics explorer in the Azure portal by selecting **Metrics** in the navigation pane on the overview page of your Azure Spring Apps instance. To learn more about metrics explorer, see [Getting started with metrics explorer](../../azure-monitor/essentials/metrics-getting-started.md).
 
 1. Create a chart by selecting a metric in the **Metric** dropdown menu. You can modify the chart by changing the aggregation, adding more metrics, changing time ranges and intervals, adding filters, and applying splitting.
 

@@ -44,7 +44,7 @@ az mysql flexible-server create \
 
 ## Connect your application to the MySQL database
 
-Use [Service Connector](../service-connector/overview.md) to connect the app hosted in Azure Spring Apps to your MySQL database.
+Use [Service Connector](../../service-connector/overview.md) to connect the app hosted in Azure Spring Apps to your MySQL database.
 
 > [!NOTE]
 > The service binding feature in Azure Spring Apps is being deprecated in favor of Service Connector.
@@ -200,5 +200,5 @@ az group delete --name <resource-group>
 
 ## Next steps
 
-* [Bind an Azure Database for MySQL instance to your application in Azure Spring Apps](./how-to-bind-mysql.md)
-* [Use a managed identity to connect Azure SQL Database to an app in Azure Spring Apps](./connect-managed-identity-to-azure-sql.md)
+* [Bind an Azure Database for MySQL instance to your application in Azure Spring Apps](../enterprise/how-to-bind-mysql.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+* [Use a managed identity to connect Azure SQL Database to an app in Azure Spring Apps](../enterprise/connect-managed-identity-to-azure-sql.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)

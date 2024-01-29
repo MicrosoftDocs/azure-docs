@@ -25,7 +25,7 @@ The requirements for completing the steps in this article depend on your Azure s
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](../../../includes/azure-powershell-requirements-no-header.md)]
 
    > [!IMPORTANT]
    > While the **Az.SpringCloud** PowerShell module is in preview, you must install it by using
@@ -45,7 +45,7 @@ The requirements for completing the steps in this article depend on your Azure s
 ## Create a resource group
 
 A resource group is a logical container in which Azure resources are deployed and managed as
-a group. Create an [Azure resource group](../azure-resource-manager/management/overview.md)
+a group. Create an [Azure resource group](../../azure-resource-manager/management/overview.md)
 by using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)
 cmdlet. The following example creates a resource group with a specified name and location.
 

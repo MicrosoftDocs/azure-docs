@@ -180,7 +180,7 @@ After you enable the log stream public endpoint, you can access the app log from
 
 Log streaming uses the same key as the test endpoint described in [Set up a staging environment in Azure Spring Apps](./how-to-staging-environment.md) to authenticate the connections to your deployments. As a result, only users who have read access to the test keys can access log streaming.
 
-To ensure the security of your applications when you expose a public endpoint for them, secure the endpoint by filtering network traffic to your service with a network security group. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
+To ensure the security of your applications when you expose a public endpoint for them, secure the endpoint by filtering network traffic to your service with a network security group. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../../virtual-network/tutorial-filter-network-traffic.md). A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 
 > [!NOTE]
 > If you can't access app logs in the virtual network injection instance from the internet after you enable a log stream public endpoint, check your network security group to see whether you allowed such inbound traffic.
@@ -194,6 +194,6 @@ The following table shows an example of a basic rule that we recommend. You can 
 
 ## Next steps
 
-- [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
+- [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](../basic-standard/quickstart-logs-metrics-tracing.md)
 - [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
 - [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md)

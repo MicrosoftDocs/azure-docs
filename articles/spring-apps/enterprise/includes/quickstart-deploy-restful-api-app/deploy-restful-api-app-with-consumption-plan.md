@@ -114,7 +114,7 @@ Use the following steps to create a service instance:
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/notifications.png" alt-text="Screenshot of the Azure portal that shows the Overview page with the Notifications page open." lightbox="../../media/quickstart-deploy-restful-api-app/notifications.png":::
 
 > [!IMPORTANT]
-> The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Azure Container Apps](../../../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
+> The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Azure Container Apps](../../../../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
 ### 3.3. Prepare the PostgreSQL instance
 

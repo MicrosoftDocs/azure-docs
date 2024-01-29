@@ -40,7 +40,7 @@ You can manually scale computing capacities to accommodate a changing environmen
 
 Autoscale reduces operating costs by terminating redundant resources when they're no longer needed. For more information, see [Set up autoscale for applications](how-to-setup-autoscale.md).
 
-You can also set up autoscale rules for your applications in the Azure Spring Apps Standard consumption and dedicated plan. For more information, see [Quickstart: Set up autoscale for applications in the Azure Spring Apps Standard consumption and dedicated plan](quickstart-apps-autoscale-standard-consumption.md).
+You can also set up autoscale rules for your applications in the Azure Spring Apps Standard consumption and dedicated plan. For more information, see [Quickstart: Set up autoscale for applications in the Azure Spring Apps Standard consumption and dedicated plan](../consumption-dedicated/quickstart-apps-autoscale-standard-consumption.md).
 
 ## Stop maintaining unused environments
 
@@ -68,4 +68,4 @@ If you forget to switch off debug mode for apps, a large amount of data is colle
 
 ## Next steps
 
-[Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](quickstart-provision-standard-consumption-service-instance.md)
+[Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](../consumption-dedicated/quickstart-provision-standard-consumption-service-instance.md)

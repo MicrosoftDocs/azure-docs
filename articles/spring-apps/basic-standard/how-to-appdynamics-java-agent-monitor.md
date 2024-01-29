@@ -237,7 +237,7 @@ The AppDynamics Agent will be upgraded regularly with JDK (quarterly). Agent upg
 
 ## Configure virtual network injection instance outbound traffic
 
-For virtual network injection instances of Azure Spring Apps, make sure the outbound traffic is configured correctly for AppDynamics Agent. For details, see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges) and [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
+For virtual network injection instances of Azure Spring Apps, make sure the outbound traffic is configured correctly for AppDynamics Agent. For details, see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges) and [Customer responsibilities for running Azure Spring Apps in a virtual network](../enterprise/vnet-customer-responsibilities.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
 
 ## Understand the limitations
 
@@ -245,4 +245,4 @@ To understand the limitations of the AppDynamics Agent, see [Monitor Azure Sprin
 
 ## Next steps
 
-[Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md)
+[Use Application Insights Java In-Process Agent in Azure Spring Apps](../enterprise/how-to-application-insights.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)

@@ -90,4 +90,4 @@ az spring app show -n app_name -s service_name -g resource_group_name
 
 ## Next steps
 
-[Access Config Server and Service Registry](how-to-access-data-plane-azure-ad-rbac.md)
+[Access Config Server and Service Registry](../basic-standard/how-to-access-data-plane-azure-ad-rbac.md)

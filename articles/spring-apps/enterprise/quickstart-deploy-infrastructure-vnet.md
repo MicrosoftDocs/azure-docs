@@ -31,7 +31,7 @@ The Enterprise deployment plan includes the following Tanzu components:
 * Application Accelerator
 * Application Live View
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ The Enterprise deployment plan includes the following Tanzu components:
 * If you're using Azure Firewall or a Network Virtual Appliance (NVA), you also need to satisfy the following prerequisites:
 
   * Network and fully qualified domain name (FQDN) rules. For more information, see [Virtual network requirements](how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements).
-  * A unique User Defined Route (UDR) applied to each of the service runtime and Spring application subnets. For more information about UDRs, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md). The UDR should be configured with a route for *0.0.0.0/0* with a destination of your NVA before deploying the Azure Spring Apps cluster. For more information, see the [Bring your own route table](how-to-deploy-in-azure-virtual-network.md#bring-your-own-route-table) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
+  * A unique User Defined Route (UDR) applied to each of the service runtime and Spring application subnets. For more information about UDRs, see [Virtual network traffic routing](../../virtual-network/virtual-networks-udr-overview.md). The UDR should be configured with a route for *0.0.0.0/0* with a destination of your NVA before deploying the Azure Spring Apps cluster. For more information, see the [Bring your own route table](how-to-deploy-in-azure-virtual-network.md#bring-your-own-route-table) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ## Review the template
@@ -73,11 +73,11 @@ First, select the following image to sign in to Azure and open a template. The t
 
 ### [Enterprise plan](#tab/azure-spring-apps-enterprise)
 
-:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-apps-landing-zone-accelerator%2Freference-architecture%2FARM%2Fbrownfield-deployment%2fazuredeploySpringEnterprise.json":::
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-apps-landing-zone-accelerator%2Freference-architecture%2FARM%2Fbrownfield-deployment%2fazuredeploySpringEnterprise.json":::
 
 ### [Standard plan](#tab/azure-spring-apps-standard)
 
-:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-apps-landing-zone-accelerator%2Freference-architecture%2FARM%2Fbrownfield-deployment%2fazuredeploySpringStandard.json":::
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-apps-landing-zone-accelerator%2Freference-architecture%2FARM%2Fbrownfield-deployment%2fazuredeploySpringStandard.json":::
 
 ---
 
@@ -131,4 +131,4 @@ In this quickstart, you deployed an Azure Spring Apps instance into an existing 
 * Use [custom domains](how-to-custom-domain.md) with Azure Spring Apps.
 * Expose applications in Azure Spring Apps to the internet using Azure Application Gateway. For more information, see [Expose applications with end-to-end TLS in a virtual network](expose-apps-gateway-end-to-end-tls.md).
 * View the secure end-to-end [Azure Spring Apps reference architecture](/previous-versions/azure/spring-apps/reference-architecture), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
-* Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md).
+* Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md).

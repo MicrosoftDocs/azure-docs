@@ -28,7 +28,7 @@ This article explains how to set up a staging deployment by using the blue-green
 This article uses an application built from Spring Initializr. If you want to use a different application for this example, make a change in a public-facing portion of the application to differentiate your staging deployment from the production deployment.
 
 > [!TIP]
-> [Azure Cloud Shell](https://shell.azure.com) is a free interactive shell that you can use to run the instructions in this article.  It has common, preinstalled Azure tools, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you're signed in to your Azure subscription, start your Cloud Shell instance. To learn more, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md).
+> [Azure Cloud Shell](https://shell.azure.com) is a free interactive shell that you can use to run the instructions in this article.  It has common, preinstalled Azure tools, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you're signed in to your Azure subscription, start your Cloud Shell instance. To learn more, see [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
 
 To set up blue-green deployment in Azure Spring Apps, follow the instructions in the next sections.
 

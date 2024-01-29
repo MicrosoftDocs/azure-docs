@@ -31,17 +31,17 @@ To find out if your applications meet expectations and to discover and predict i
 
 This article uses the well-known [PetClinic](https://github.com/azure-samples/spring-petclinic-microservices) sample app as the production application. For more information on how to deploy PetClinic to Azure Spring Apps and use MySQL as the persistent store, see the following articles:
 
-- [Deploy microservice applications to Azure Spring Apps](./quickstart-deploy-microservice-apps.md)
-- [Integrate Azure Spring Apps with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md)
+- [Deploy microservice applications to Azure Spring Apps](../enterprise/quickstart-deploy-microservice-apps.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+- [Integrate Azure Spring Apps with Azure Database for MySQL](quickstart-integrate-azure-database-mysql.md)
 
 Log Analytics and Application Insights are deeply integrated with Azure Spring Apps. You can use Log Analytics to diagnose your application with various log queries and use Application Insights to investigate production issues. For more information, see the following articles:
 
-- [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md)
-- [Azure Monitor Insights overview](../azure-monitor/insights/insights-overview.md)
+- [Overview of Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-overview.md)
+- [Azure Monitor Insights overview](../../azure-monitor/insights/insights-overview.md)
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [application-observability-with-basic-standard-plan](includes/application-observability/application-observability-with-basic-standard-plan.md)]
 
@@ -51,8 +51,8 @@ If you encounter production issues, you need to do a root cause analysis. Findin
 
 This section explains how to use Log Analytics to query the application logs and use Application Insights to investigate request failures. For more information, see the following articles:
 
-- [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md)
-- [Application Map: Triage distributed applications](../azure-monitor/app/app-map.md)
+- [Log Analytics tutorial](../../azure-monitor/logs/log-analytics-tutorial.md)
+- [Application Map: Triage distributed applications](../../azure-monitor/app/app-map.md)
 
 ### Log queries
 
@@ -149,10 +149,10 @@ To use Application Insights to investigate the performance issues, use the follo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up a staging environment](../spring-apps/how-to-staging-environment.md)
+> [Set up a staging environment](../enterprise/how-to-staging-environment.md)
 
 > [!div class="nextstepaction"]
-> [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)
+> [Map an existing custom domain to Azure Spring Apps](../enterprise/how-to-custom-domain.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Use TLS/SSL certificates](./how-to-use-tls-certificate.md)
+> [Use TLS/SSL certificates](../enterprise/how-to-use-tls-certificate.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)

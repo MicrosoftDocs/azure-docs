@@ -21,7 +21,7 @@ This article explains how to deploy Spring Boot applications in Azure Spring App
 ## Prerequisites
 
 * A container image containing the application.
-* The image is pushed to an image registry. For more information, see [Azure Container Registry](../container-instances/container-instances-tutorial-prepare-acr.md).
+* The image is pushed to an image registry. For more information, see [Azure Container Registry](../../container-instances/container-instances-tutorial-prepare-acr.md).
 
 > [!NOTE]
 > The web application must listen on port `1025` for the Standard plan and on port `8080` for the Enterprise plan. The way to change the port depends on the framework of the application. For example, specify `SERVER_PORT=1025` for Spring Boot applications or `ASPNETCORE_URLS=http://+:1025/` for ASP.NET Core applications. You can disable the probe for applications that don't listen on any port. For more information, see [How to configure health probes and graceful termination periods for apps hosted in Azure Spring Apps](how-to-configure-health-probes-graceful-termination.md).
@@ -246,7 +246,7 @@ AppPlatformContainerEventLogs
 
 ### Scan your image for vulnerabilities
 
-We recommend that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks)
+We recommend that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks)
 
 ### Switch between JAR deployment and container deployment
 

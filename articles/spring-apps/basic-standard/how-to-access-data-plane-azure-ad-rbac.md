@@ -35,7 +35,7 @@ Assign the role to the [user | group | service-principal | managed-identity] at 
 | Azure Spring Apps Service Registry Reader      | Allow read access to Azure Spring Apps Service Registry.                    |
 | Azure Spring Apps Service Registry Contributor | Allow read, write, and delete access to Azure Spring Apps Service Registry. |
 
-For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Access Config Server and Service Registry Endpoints
 
@@ -142,4 +142,4 @@ eureka.instance.prefer-ip-address=true
 
 * [Authenticate Azure CLI](/cli/azure/authenticate-azure-cli)
 * [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints)
-* [Create roles and permissions](how-to-permissions.md)
+* [Create roles and permissions](../enterprise/how-to-permissions.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)

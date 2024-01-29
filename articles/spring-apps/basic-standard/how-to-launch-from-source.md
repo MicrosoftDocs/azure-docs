@@ -33,7 +33,7 @@ Before you begin, ensure that your Azure subscription has the required dependenc
 5. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 
 > [!TIP]
-> The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
+> The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../../cloud-shell/overview.md)
 
 ## Install the Azure CLI extension
 
@@ -53,7 +53,7 @@ az account list -o table
 az account set --subscription <subscription-id>
 ```
 
-Create a resource group to contain your service in Azure Spring Apps. You can learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
+Create a resource group to contain your service in Azure Spring Apps. You can learn more about [Azure Resource Groups](../../azure-resource-manager/management/overview.md).
 
 ```azurecli
 az group create --location eastus --name <resource-group-name>

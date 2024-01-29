@@ -31,7 +31,7 @@ This article shows you how to create a managed identity for an app deployed to A
 
 ## Connect to Azure SQL Database with a managed identity
 
-You can connect your application to an Azure SQL Database with a managed identity by following manual steps or using [Service Connector](../service-connector/overview.md).
+You can connect your application to an Azure SQL Database with a managed identity by following manual steps or using [Service Connector](../../service-connector/overview.md).
 
 ### [Manual configuration](#tab/manual)
 
