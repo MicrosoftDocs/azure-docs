@@ -327,35 +327,35 @@ spec:
 
                   # Get connected machine properties
                   cm_provisioning_state, cm_status = telemetry_common.get_cm_properties(
-                      logger, ama_config
+                    logger, ama_config
                   )
 
                   if (
-                      cm_provisioning_state == telemetry_common.AgentryResult.SUCCEEDED
-                      and cm_status == telemetry_common.AgentryResult.CONNECTED
+                    cm_provisioning_state == telemetry_common.AgentryResult.SUCCEEDED
+                    and cm_status == telemetry_common.AgentryResult.CONNECTED
                   ):
-                      # Get AzureMonitorLinuxAgent extension status
-                      ext_provisioning_state = telemetry_common.get_cm_extension_state(
-                          logger, ama_config, "AzureMonitorLinuxAgent"
-                      )
-
-                      if ext_provisioning_state == telemetry_common.AgentryResult.SUCCEEDED:
-                          logger.info(telemetry_common.OnboardingMessage.COMPLETED)
-                          return True
-                      elif ext_provisioning_state == telemetry_common.AgentryResult.FAILED:
-                          run_uninstall(logger, ama_config)
-                          logger.warning(telemetry_common.OnboardingMessage.STILL_TRYING)
-                          return False
-                      elif ext_provisioning_state == telemetry_common.AgentryResult.CREATING:
-                          logger.warning(telemetry_common.OnboardingMessage.STILL_CREATING)
-                          return False
-                      else:
-                          run_install(logger, ama_config)
-                          logger.warning(telemetry_common.OnboardingMessage.STILL_TRYING)
-                          return False
-                  else:
-                      logger.error("Server not arc enrolled, enroll the server and retry")
+                    # Get AzureMonitorLinuxAgent extension status
+                    ext_provisioning_state = telemetry_common.get_cm_extension_state(
+                      logger, ama_config, "AzureMonitorLinuxAgent"
+                    )
+  
+                    if ext_provisioning_state == telemetry_common.AgentryResult.SUCCEEDED:
+                      logger.info(telemetry_common.OnboardingMessage.COMPLETED)
+                      return True
+                    elif ext_provisioning_state == telemetry_common.AgentryResult.FAILED:
+                      run_uninstall(logger, ama_config)
+                      logger.warning(telemetry_common.OnboardingMessage.STILL_TRYING)
                       return False
+                    elif ext_provisioning_state == telemetry_common.AgentryResult.CREATING:
+                      logger.warning(telemetry_common.OnboardingMessage.STILL_CREATING)
+                      return False
+                    else:
+                      run_install(logger, ama_config)
+                      logger.warning(telemetry_common.OnboardingMessage.STILL_TRYING)
+                      return False
+                  else:
+                    logger.error("Server not arc enrolled, enroll the server and retry")
+                    return False
 
 
               def main():
