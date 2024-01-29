@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/02/2023
+ms.date: 01/29/2024
 ms.author: greglin 
 ---
 
@@ -526,6 +526,9 @@ The following table describes the behavior of Traffic Manager health checks for 
 | Online. At least one child profile endpoint is an Online state. No endpoint is in the Degraded state. |See above. | |
 | CheckingEndpoints. At least one child profile endpoint is 'CheckingEndpoint'. No endpoints are 'Online' or 'Degraded' |Same as above. | |
 | Inactive. All child profile endpoints are either Disabled or Stopped, or this profile has no endpoints. |Stopped | |
+
+> [!NOTE]
+> When managing child profiles under a parent profile in Azure Traffic Manager, an issue can occur if you disable and then enable two child profiles simultaneously. If there is a brief period when both endpoints are disabled, this can result in the parent profile entering a compromised state. To avoid this problem, use caution when making simultaneous changes to child profiles. Consider staggering the changes slightly to prevent unintended disruptions to your traffic management configuration.
 
 ## Next steps:
 
