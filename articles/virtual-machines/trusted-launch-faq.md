@@ -13,7 +13,7 @@ ms.custom: template-faq, devx-track-azurecli, devx-track-azurepowershell
 
 # Trusted Launch FAQ
 
-Frequently asked questions about trusted launch. This includes the feature's use cases, support for other Azure features, and fixes for common errors.
+Frequently asked questions about trusted launch. Feature use cases, support for other Azure features, and fixes for common errors.
 
 ## Use cases
 
@@ -369,7 +369,7 @@ In secure boot chain, each step in the boot process checks a cryptographic signa
 
 ### Why is Trusted Launch Virtual Machine not booting correctly? 
 
-If unsigned components are detected from the UEFI (guest firmware), bootloader, operating system, or boot drivers, a Trusted Launch Virtual Machine won't boot. This is considered a secure boot failure. The [secure boot](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#secure-boot-setting-in-hyper-v-manager) setting in the Trusted Launch virtual machine will fail to boot if unsigned or untrusted boot components are encountered during the boot process.
+If unsigned components are detected from the UEFI (guest firmware), bootloader, operating system, or boot drivers, a Trusted Launch Virtual Machine won't boot. The [secure boot](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#secure-boot-setting-in-hyper-v-manager) setting in the Trusted Launch virtual machine fails to boot if unsigned or untrusted boot components are encountered during the boot process and will report as a secure boot failure.
 
 ![The trusted launch pipeline from secure boot to third party drivers](./media/trusted-launch/trusted-launch-pipeline.png)
 
@@ -385,7 +385,7 @@ To access resource health from the virtual machine configuration page, navigate 
 
 Follow the 'Recommended Steps' outlined in the resource health screen. Instructions include a screenshot and downloadable serial log from the boot diagnostics of the virtual machine.
 
-If you verified the no-boot was caused due to secure boot failure, it's due to one of the following:
+If you verified the no-boot was caused by a secure boot failure:
 1. The image you're using is an older version that may have one or more untrusted boot components and is on a deprecation path. To remedy an outdated image, update to a supported newer image version.
 1. The image you're using may have been built outside of a marketplace source or the boot components have been modified and contain unsigned or untrusted boot components. To verify if your image has unsigned or untrusted boot components, refer to 'Verifying secure boot failures'.
 1. If the above two scenarios don't apply, the virtual machine is potentially infected with malware (bootkit/rootkit). Consider deleting the virtual machine and re-creating a new VM from the same source image while evaluating all software being installed.
