@@ -99,7 +99,7 @@ In this section, we begin by introducing the data for training. We then cover ho
 
 ### Obtain the training data
 
-You can use the dataset in this [zipped file](https://azuremlexamples.blob.core.windows.net/datasets/fowl_data.zip). This dataset consists of about 120 training images each for two classes (turkeys and chickens), with 100 validation images for each class. The images are a subset of the [Open Images v5 Dataset](https://storage.googleapis.com/openimages/web/index.html). Download and extract the dataset as part of our training script *pytorch_train.py*.
+You can use the dataset in this [zipped file](https://azuremlexamples.blob.core.windows.net/datasets/fowl_data.zip). This dataset consists of about 120 training images each for two classes (turkeys and chickens), with 100 validation images for each class. The images are a subset of the [Open Images v5 Dataset](https://storage.googleapis.com/openimages/web/index.html). The training script *pytorch_train.py* downloads and extracts the dataset.
 
 ### Prepare the training script
 
@@ -123,6 +123,7 @@ You'll use the general purpose `command` to run the training script and perform 
 - For the parameter values:
     1. Provide the compute cluster `gpu_compute_target = "gpu-cluster"` that you created for running this command.
     1. Provide the curated environment `AzureML-pytorch-1.9-ubuntu18.04-py37-cuda11-gpu` that you initialized earlier.
+    1. If you're not using the completed notebook in the Samples folder, specify the location of the *pytorch_train.py* file.
     1. Configure the command line action itself—in this case, the command is `python pytorch_train.py`. You can access the inputs and outputs in the command via the `${{ ... }}` notation.
     1. Configure metadata such as the display name and experiment name, where an experiment is a container for all the iterations one does on a certain project. All the jobs submitted under the same experiment name would be listed next to each other in Azure Machine Learning studio.
 
