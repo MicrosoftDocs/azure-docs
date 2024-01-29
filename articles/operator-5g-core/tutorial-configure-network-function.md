@@ -16,7 +16,7 @@ This article describes how to configure a network function following deployment.
 
 ## Configure a Session Management Function (SMF)
 
-[SMF Configuration](https://manuals.snsmetaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/NetworkFunctions/SMF/SMF_configuration.htm)
+[SMF Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/NetworkFunctions/SMF/SMF_configuration.htm)
 [Interface Manager Configuration](https://manuals.metaswitch.com/UC/4.3.0/UnityCloud_Overview/Content/Microservices/SMF_Specific/Config/interface_mgr-cna-interface-mgr_config.html)
 
 ## Configure a User Plane Function (UPF)
