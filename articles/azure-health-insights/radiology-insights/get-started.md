@@ -95,25 +95,24 @@ Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
       "type" : "note",
       "clinicalType" : "radiologyReport",
       "id" : "docid1",
-      "language" : "en-US",
+      "language" : "en",
       "authors" : [ {
         "id" : "authorid1",
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
-      "createdDateTime" : "2021-8-28T00:00:00",
+	  "createdDateTime" : "2021-8-28T00:00:00",
       "administrativeMetadata" : {
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
               "system" : "Https://loinc.org",
-              "code" : "41806-1",
-              "display" : "CT ABDOMEN"
+              "code" : "26688-1",
+              "display" : "US BREAST - LEFT LIMITED"
             } ]
           },
-          "description" : "CT ABDOMEN"
+          "description" : "US BREAST - LEFT LIMITED"
         } ],
-
         "encounterId" : "encounterid1"
       },
       "content" : {
