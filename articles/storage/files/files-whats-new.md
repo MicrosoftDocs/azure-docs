@@ -4,13 +4,13 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 01/26/2024
+ms.date: 01/28/2024
 ms.author: kendownie
 ---
 
-# What's new in Azure Files
+# What's new in Azure Files and Azure File Sync
 
-Azure Files is updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
+Azure Files and Azure File Sync are updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
 
 ## What's new in 2024
 
@@ -19,6 +19,18 @@ Azure Files is updated regularly to offer new features and enhancements. This ar
 #### Snapshot support for NFS Azure premium file shares is generally available
 
 Customers using NFS Azure file shares can now take point-in-time snapshots of file shares. This enables users to roll back their entire filesystem to a previous point in time, or restore specific files that were accidentally deleted or corrupted. Customers using this feature can perform share-level Snapshot management operations via REST API, PowerShell, and Azure CLI. This feature is now available in all Azure public cloud regions. [Learn more](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots).
+
+#### Sync upload performance improvements for Azure File Sync
+
+Sync upload performance has improved, and performance numbers will be posted when they are available. This improvement will mainly benefit file share migrations (initial upload) and high churn events on the server in which a large number of files need to be uploaded.
+
+#### Expanded character support for Azure File Sync
+
+Azure File Sync now supports an expanded list of characters. This expansion allows users to create and sync SMB file shares with file and directory names on par with NTFS file system, for valid Unicode characters. For more information on unsupported characters, refer to the documentation [here](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=%2Fazure%2Fstorage%2Ffile-sync%2Ftoc.json&tabs=portal1%2Cazure-portal#handling-unsupported-characters).
+
+#### New cloud tiering low disk space mode metric for Azure File Sync
+
+You can now configure an alert to let you know if a server is in low disk space mode. To learn more, see [Monitor Azure File Sync](../file-sync/file-sync-monitoring.md).
 
 ## What's new in 2023
 
