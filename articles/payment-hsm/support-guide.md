@@ -10,7 +10,7 @@ ms.workload: security
 ms.topic: article
 ms.date: 07/28/2022
 ms.author: mbaldwin
-ms.custom: references_regions metadata.
+ms.custom: references_regions metadata
 
 ---
 
