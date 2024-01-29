@@ -1,1 +1,19 @@
+---
+title: Edge Secured-core certified devices
+description: List of devices that have passed the Edge Secured-core certifications
+author: dtokar
+ms.author: dtokar
+ms.topic: conceptual 
+ms.date: 01/26/2024
+ms.custom: Edge Secured-core certified devices
+ms.service: certification
+---
 
+# Edge Secured-core certified devices
+This page contains a list of devices that have successfully passed the Edge Secured-core certifications and adhere to the Microsoft recommended security baselines.
+
+    |Manufacturer|Device Name|OS|
+    ---|---|---
+    [Lenovo|ThinkEdge SE30|Windows IoT Enterprise|
+    [Asus|PE200U|Windows IoT Enterprise|
+    [AAEON|SRG-TG01|Windows IoT Enterprise|
