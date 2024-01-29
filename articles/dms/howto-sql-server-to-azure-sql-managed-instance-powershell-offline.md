@@ -41,7 +41,7 @@ To complete these steps, you need:
 * To enable the TCP/IP protocol, which is disabled by default with SQL Server Express installation. Enable the TCP/IP protocol by following the article [Enable or Disable a Server Network Protocol](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * To configure your [Windows Firewall for database engine access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-* A SQL Managed Instance. You can create a SQL Managed Instance by following the detail in the article [Create a ASQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
+* A SQL Managed Instance. You can create a SQL Managed Instance by following the detail in the article [Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
 * To download and install [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 * A Microsoft Azure Virtual Network created using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * A completed assessment of your on-premises database and schema migration using Data Migration Assistant, as described in the article [Performing a SQL Server migration assessment](/sql/dma/dma-assesssqlonprem).
@@ -113,7 +113,7 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-The next example shows creation of Connection Info for a Azure SQL Managed Instance named ‘targetmanagedinstance’:
+The next example shows creation of Connection Info for an Azure SQL Managed Instance named ‘targetmanagedinstance’:
 
 ```powershell
 $targetResourceId = (Get-AzSqlInstance -Name "targetmanagedinstance").Id
@@ -180,7 +180,7 @@ $backupFileShare = New-AzDmsFileShare -Path $backupFileSharePath -Credential $ba
 
 The next step is to select the source and target databases by using the `New-AzDmsSelectedDB` cmdlet.
 
-The following example is for migrating a single database from SQL Server to a Azure SQL Managed Instance:
+The following example is for migrating a single database from SQL Server to an Azure SQL Managed Instance:
 
 ```powershell
 $selectedDbs = @()
@@ -190,7 +190,7 @@ $selectedDbs += New-AzDmsSelectedDB -MigrateSqlServerSqlDbMi `
   -BackupFileShare $backupFileShare `
 ```
 
-If an entire SQL Server instance needs a lift-and-shift into a Azure SQL Managed Instance, then a loop to take all databases from the source is provided below. In the following example, for $Server, $SourceUserName, and $SourcePassword, provide your source SQL Server details.
+If an entire SQL Server instance needs a lift-and-shift into an Azure SQL Managed Instance, then a loop to take all databases from the source is provided below. In the following example, for $Server, $SourceUserName, and $SourcePassword, provide your source SQL Server details.
 
 ```powershell
 $Query = "(select name as Database_Name from master.sys.databases where Database_id>4)";
