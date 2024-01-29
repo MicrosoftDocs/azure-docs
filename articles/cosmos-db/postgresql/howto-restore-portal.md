@@ -76,6 +76,8 @@ and time of your choosing.
 
 1. If cluster has geo-redundant backup enabled, select remote or same region for restore in the **Location** field. On clusters with zone-redundant and locally redundant backup, location field isn't editable.
 
+1. Set **Geo-redundant backup** checkbox for geo-redundant backup *for the restored cluster* to be stored [in another Azure region](./resources-regions.md). 
+
 1. Select **Next**. 
 
 1. (optional) Make data encryption selection for restored cluster on the **Encryption** tab.
