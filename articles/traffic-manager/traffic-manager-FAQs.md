@@ -414,7 +414,7 @@ For profiles with routing method set to MultiValue:
 
 ### Can I use a profile with IPv4 / IPv6 addressed endpoints in a nested profile?
 
-Yes, you can with the exception that a profile of type MultiValue can't be a parent profile in a nested profile set.
+Yes you can, with the exception that a profile of type *MultiValue* can't be a parent profile in a nested profile set.
 
 ### I stopped a web application endpoint in my Traffic Manager profile but I'm not receiving any traffic even after I restarted it. How can I fix this?
 
