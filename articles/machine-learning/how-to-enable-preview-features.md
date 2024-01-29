@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: ankmak
 author: Ankur-Makwana
-ms.date: 07/25/2022
+ms.date: 01/29/2024
 
 ---
 
@@ -40,7 +40,7 @@ You can enable or disable preview features anytime in [Azure Machine Learning st
 
     :::image type="content" source="./media/how-to-enable-preview-features/megaphone-icon.png" alt-text="Screenshot of the megaphone icon in Azure Machine Learning studio.":::
 
-1. Find the feature you would like to try out and select the toggle next to it to enable or disable the feature.
+1. Find the feature you would like to try out and select the toggle next to it to enable or disable the feature. If you know the feature's name, use the search field.
 
     > [!TIP]
     > When you disable a feature, a text box will appear that can be used to provide feedback on the feature. To learn how to provide feedback without disabling a feature, see [How do I provide feedback?](#how-do-i-provide-feedback).
