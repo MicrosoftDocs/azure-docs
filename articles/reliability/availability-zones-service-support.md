@@ -38,7 +38,7 @@ The following regions currently support availability zones:
 | West US 2 | Sweden Central | | | |
 | West US 3 | Switzerland North | | | |
 ||Poland Central ||||
-||Spain Central* ||||
+
 
 \* To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support availability zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
