@@ -7,7 +7,7 @@ ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: faq
-ms.date: 01/25/2024
+ms.date: 01/29/2024
 ms.custom: template-faq, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -369,20 +369,12 @@ In secure boot chain, each step in the boot process checks a cryptographic signa
 
 ### Why is Trusted Launch Virtual Machine not booting correctly? 
 
-If unsigned components are detected from the UEFI (firmware), bootloader, operating system, or boot drivers, the Trusted Launch Virtual Machine will not boot. The Secure Boot dependency in the virtual machine blocks all unsigned components and untrusted driver signatures. Only trusted bootloaders can be loaded by the UEFI firmware to ensure the bootloader's digital signature hasn't been modified. Please ensure the image OS 
-bootloader is signed with one of the two provided certificates to securely boot the Trusted Launch VM.
-
-- Windows cert: [Microsoft Windows Production PCA 2011](https://go.microsoft.com/fwlink/p/?linkid=321192)
-
-- Linux cert: [Microsoft Corporation UEFI CA 2011](https://go.microsoft.com/fwlink/p/?linkid=321194)
+If unsigned components are detected from the UEFI (guest firmware), bootloader, operating system, or boot drivers, a Trusted Launch Virtual Machine will not boot. This is considered a secure boot failure. The [secure boot](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#secure-boot-setting-in-hyper-v-manager) setting in the Trusted Launch virtual machine will fail to boot if unsigned or untrusted boot components are encountered during the boot process.
 
 ![The trusted launch pipeline from secure boot to third party drivers](./media/trusted-launch/trusted-launch-pipeline.png)
 
-> [!TIP]
-> Turning off Secure Boot within the configuration can temporarily mitigate boot issues and help you check which component is improperly signed. Make sure to re-enable Secure Boot after resolving the issue. [Learn more about updating Trusted Launch configurations](/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal3%2Cportal2). 
-
 > [!NOTE]
-> Trusted Launch Virtual machines that are created directly from Azure Marketplace images or Azure Compute Gallery image, Managed Disks, with an original image source from Marketplace, and snapshots created from Trusted Launch VM should not encounter Secure Boot failures. If a no-boot issue occurs from one of these avenues, there is potential of bootkits/rootkits, malware within the virtual machine. Please consider deleting the virtual machine and re-create a new VM from the same source image.
+> Trusted Launch Virtual machines that are created directly from an Azure Marketplace image should not encounter Secure Boot failures. Azure Compute Gallery images, Managed Disks, an original image source from Marketplace, and snapshots created from Trusted Launch VMs should also not encounter these errors. 
 
 ### How would I verify a no-boot scenario in the Azure portal? 
 When a virtual machine becomes unavailable from a Secure Boot failure, 'no-boot' means that virtual machine has an operating system component that is signed by a trusted authority which blocks booting a Trusted Launch VM. On VM deployment, customers may see information from resource health within the Azure portal stating that there's a validation error in secure boot.
@@ -392,6 +384,11 @@ To access resource health from the virtual machine configuration page, navigate 
 :::image type="content" source="./media/trusted-launch/resource-health-error.png" lightbox="./media/trusted-launch/resource-health-error.png" alt-text="A resource health error message alerting a failed secure boot.":::
 
 Follow the 'Recommended Steps' outlined in the resource health screen. This will include a screenshot and downloadable serial log from the boot diagnostics of the virtual machine.
+
+If you verified the no-boot was caused due to secure boot failure, it is due to one of the following:
+1. The image you are using is an older version that may have one or more untrusted boot components and is on a deprecation path. To remedy this, you must use a supported newer image version.
+1. The image you are using may have been built from a non-marketplace source or the boot components have been modified and contain unsigned or untrusted boot components. To verify if your image has unsigned or untrusted boot components, refer to 'Verifying secure boot failures'.
+1. If the above two scenarios do not apply, there is potential of bootkits/rootkit malware within the virtual machine. Please consider deleting the virtual machine and re-creating a new VM from the same source image.
 
 ## Verifying secure boot failures
 
@@ -408,8 +405,10 @@ These commands apply to Ubuntu, Debian, and other debian-based distros.
 
 ```bash
 echo "deb [arch=amd64] http://packages.microsoft.com/repos/azurecore/ trusty main" | sudo tee -a /etc/apt/sources.list.d/azure.list
-        echo "deb [arch=amd64] http://packages.microsoft.com/repos/azurecore/ xenial main" | sudo tee -a /etc/apt/sources.list.d/azure.list
-        echo "deb [arch=amd64] http://packages.microsoft.com/repos/azurecore/ bionic main" | sudo tee -a /etc/apt/sources.list.d/azure.list
+
+echo "deb [arch=amd64] http://packages.microsoft.com/repos/azurecore/ xenial main" | sudo tee -a /etc/apt/sources.list.d/azure.list
+
+echo "deb [arch=amd64] http://packages.microsoft.com/repos/azurecore/ bionic main" | sudo tee -a /etc/apt/sources.list.d/azure.list
 
 wget https://packages.microsoft.com/keys/microsoft.asc
 
@@ -426,13 +425,17 @@ sudo apt update && sudo apt install azure-security
 These commands apply to RHEL, CentOS, and other Red Hat-based distros.
 
 ```bash
-echo "[packages-microsoft-com-azurecore]" | tee -a /etc/yum.repos.d/azurecore.repo
-        echo "name=packages-microsoft-com-azurecore" | tee -a /etc/yum.repos.d/azurecore.repo
-        echo "baseurl=https://packages.microsoft.com/yumrepos/azurecore/" | tee -a /etc/yum.repos.d/azurecore.repo
-        echo "enabled=1" | tee -a /etc/yum.repos.d/azurecore.repo
-        echo "gpgcheck=0" | tee -a /etc/yum.repos.d/azurecore.repo
+echo "[packages-microsoft-com-azurecore]" | sudo tee -a /etc/yum.repos.d/azurecore.repo
 
-yum install azure-security
+echo "name=packages-microsoft-com-azurecore" | sudo tee -a /etc/yum.repos.d/azurecore.repo
+
+echo "baseurl=https://packages.microsoft.com/yumrepos/azurecore/" | sudo tee -a /etc/yum.repos.d/azurecore.repo
+
+echo "enabled=1" | sudo tee -a /etc/yum.repos.d/azurecore.repo
+
+echo "gpgcheck=0" | sudo tee -a /etc/yum.repos.d/azurecore.repo
+
+sudo yum install azure-security
 ```
 
 #### [SUSE-based distros](#tab/susebased)
@@ -440,39 +443,20 @@ yum install azure-security
 These commands apply to SLES, openSUSE, and other SUSE-based distros.
 
 ```bash
- zypper ar -t rpm-md -n "packages-microsoft-com-azurecore" --no-gpgcheck https://packages.microsoft.com/yumrepos/azurecore/ azurecore
+sudo zypper ar -t rpm-md -n "packages-microsoft-com-azurecore" --no-gpgcheck https://packages.microsoft.com/yumrepos/azurecore/ azurecore
 
-zypper install azure-security
+sudo zypper install azure-security
 ```
 
 ---
 
-After installing the Linux Security Package for your distro, run the following command to verify which boot components are responsible for Secure Boot failures.
+After installing the Linux Security Package for your distro, run the 'sbinfo' command to verify which boot components are responsible for Secure Boot failures by displaying all unsigned modules, kernels, and bootloaders. 
 
 ```bash
 sudo sbinfo -u -m -k -b 
 ```
 
-To learn more about the SBInfo diagnostic tool, you can run '*sudo sbinfo -help*'.
-
-
-### Windows Virtual Machines
-
-'Signtool.exe' is a .Net Framework tool used for verifying if a driver is signed or not on Windows. It shows signature status, timestamp, and certificate chain.
-
-[Learn more about the SignTool utility](/windows/win32/seccrypto/signtool)
-
-> [!NOTE]
-> Using a Marketplace TrustedLaunch tagged image which has been updated to the latest version available version shouldn't cause an error state.
->
-> For Azure Compute Gallery images, ensure it is either based on TLTagged Image or boot components from a trusted signer.
-
-![Signtool.exe verification results page.](./media/trusted-launch/signtool-verification-results.png)
-
-> [!IMPORTANT]
-> You can't sign drivers using this tool. This approach is primarily for understand which drivers are unsigned. 
->
->If you're looking to sign your own drivers, self-signed components are *not supported* by Trusted Launch.
+To learn more about the SBInfo diagnostic tool, you can run 'sudo sbinfo -help'.
 
 ### Why am I getting a boot integrity monitoring fault?
 
