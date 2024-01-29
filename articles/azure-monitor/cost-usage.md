@@ -122,6 +122,10 @@ Operation
 
 (This functionality of reporting the benefits used in the `Operation` table came online in January 2024.) 
 
+> [!TIP]
+> If you [increase the data retention](logs/data-retention-archive.md) of the [Operation](/azure/azure-monitor/reference/tables/operation) table, you will be able to view these benefit trends over longer periods.  
+>
+
 ## Usage and estimated costs
 You can get additional usage details about Log Analytics workspaces and Application Insights resources from the **Usage and Estimated Costs** option for each.
 
