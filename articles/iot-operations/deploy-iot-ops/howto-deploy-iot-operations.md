@@ -71,9 +71,14 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
    | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
    | **Azure Key vault** | Choose an existing key vault from the drop-down list or create a new one by selecting **Create new**. |
 
-1. On the **Automation** tab, the automation commands are populated based on your chosen cluster and key vault. Copy either the **Required** or **Optional** CLI command.
+1. On the **Automation** tab, the automation commands are populated based on your chosen cluster and key vault. Select an automation option:
 
-   :::image type="content" source="../get-started/media/quickstart-deploy/install-extension-automation.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
+   * **Azure CLI enablement + UI deployment -- Visually guided configuration**: Generates an Azure CLI command that configures your cluster. If you choose this option, you'll return to the Azure portal to complete the Azure IoT Operations deployment.
+   * **Azure CLI deployment -- Efficiency unleashed**: Generates an Azure CLI command that configures your cluster and also deploys Azure IoT Operations.
+
+1. After choosing your automation option, copy the generated CLI command.
+
+   <!-- :::image type="content" source="../get-started/media/quickstart-deploy/install-extension-automation.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal."::: -->
 
 1. Sign in to Azure CLI on your development machine. To prevent potential permission issues later, sign in interactively with a browser here even if you've already logged in before.
 
@@ -91,9 +96,9 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
 
    Wait for the command to complete.
 
-   If you copied the **Optional** CLI command, then you're done with the cluster configuration and deployment.
+   If you copied the **Azure CLI deployment** CLI command, then you're done with the cluster configuration and deployment.
 
-1. If you copied the **Required** CLI command, return to the Azure portal and select **Review + Create**.
+1. If you copied the **Azure CLI enablement + UI deployment** CLI command, return to the Azure portal and select **Review + Create**.
 
 1. Wait for the validation to pass and then select **Create**.
 
