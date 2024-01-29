@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/29/2023
+ms.date: 01/24/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -45,7 +45,7 @@ For Azure Storage accounts:
   - Owner role on the storage account.  
   Or
   - Any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.  
-  Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall.
+  Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall. If you want to use the [Exports REST API](/rest/api/cost-management/exports) to generate exports to a storage account located behind a firewall, use the API version 2023-08-01 or later version. All newer API versions continue to support exports behind the firewall.
 - The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.  
     :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
 
@@ -58,17 +58,16 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ### [Portal](#tab/azure-portal)
 
-To create or view a data export or to schedule an export, choose a scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. At the top of the Cost analysis page, select **Settings**, then **Exports**.
+To create or view a data export or to schedule an export, choose a scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. At the top of the Cost analysis page, select **Configure subscription**, then **Exports**.
 
 > [!NOTE]
 > - Besides subscriptions, you can create exports on resource groups, management groups, departments, and enrollments. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 > - When you're signed in as a partner at the billing account scope or on a customer's tenant, you can export data to an Azure Storage account that's linked to your partner storage account. However, you must have an active subscription in your CSP tenant.
 
-1. Select **Add** and type a name for the export.
-1. For the **Metric**, make a selection:
-    - **Actual cost (Usage and Purchases)** - Select to export standard usage and purchases
-    - **Amortized cost (Usage and Purchases)** - Select to export amortized costs for purchases like Azure reservations and Azure savings plan for compute.
-1. For **Export type**, make a selection:
+
+1. Select **Create**
+1. For **Export details**, make a selection:
+    - Type a name for export
     - **Daily export of month-to-date costs** - Provides a new export file daily for your month-to-date costs. The latest data is aggregated from previous daily exports.
     - **Weekly export of cost for the last seven days** - Creates a weekly export of your costs for the past seven days from the selected start date of your export.
     - **Monthly export of last month's costs** - Provides you with an export of your last month's costs compared to the current month that you create the export. Afterward, the schedule runs an export on the fifth day of every new month with your previous months costs.

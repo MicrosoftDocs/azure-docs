@@ -17,7 +17,7 @@ sections:
       - question: |
           Can I enable Defender for Servers on a subset of machines in a subscription?
         answer: |
-          No. When you enable Microsoft Defender for Servers on an Azure subscription or on a connected AWS account or GCP project, all connected machines are protected by Defender for Servers. Servers that don't have the Log Analytics agent or Azure Monitor agent installed are also protected.
+          Yes. It's now possible to manage Defender for Servers on specific resources within your subscription, giving you full control over your protection strategy. With this capability, you can configure specific resources with custom configurations that differ from the settings configured at the subscription level. Learn more about [enabling Defender for Servers at the resource level](/azure/defender-for-cloud/tutorial-enable-servers-plan#enable-the-plan-at-the-resource-level). However, when you enable Microsoft Defender for Servers on a connected AWS account or GCP project, all connected machines are protected by Defender for Servers.
 
       - question: |
           Can I get a discount if I already have a Microsoft Defender for Endpoint license?
@@ -131,7 +131,7 @@ sections:
           Defender for Cloud automatically deploys the extension to machines running:
 
           - Windows Server 2019 and Windows Server 2022
-          - Windows Server 2012 R2 and 2016 if [MDE Unified Solution integration](integration-defender-for-endpoint.md#enable-the-integration) is enabled
+          - Windows Server 2012 R2 and 2016 if [MDE Unified Solution integration](enable-defender-for-endpoint.md) is enabled
           - Windows 10 on Azure Virtual Desktop.
           - Other versions of Windows Server if Defender for Cloud doesn't recognize the OS version (for example, when a custom VM image is used). In this case, Microsoft Defender for Endpoint is still provisioned by the Log Analytics agent.
           - Linux.
@@ -145,7 +145,7 @@ sections:
           If you enabled the integration, but still don't see the extension running on your machines:
 
           1. You need to wait at least 12 hours to be sure there's an issue to investigate.
-          1. If after 12 hours you still don't see the extension running on your machines, check that you've met [Prerequisites](integration-defender-for-endpoint.md#prerequisites) for the integration.
+          1. If after 12 hours you still don't see the extension running on your machines, check that you've met [Prerequisites](enable-defender-for-endpoint.md#prerequisites) for the integration.
           1. Ensure you've enabled the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for the subscriptions related to the machines you're investigating.
           1. If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Defender for Cloud deploys Defender for Endpoint. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
           

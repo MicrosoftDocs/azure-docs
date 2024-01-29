@@ -22,7 +22,7 @@ This article shows you how to deploy your static files to an Azure Spring Apps E
 ## Prerequisites
 
 - An already provisioned Azure Spring Apps Enterprise plan instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
-- One or more applications running in Azure Spring Apps. For more information on creating apps, see [How to Deploy Spring Boot applications from Azure CLI](./how-to-launch-from-source.md).
+- One or more applications running in Azure Spring Apps.
 - [Azure CLI](/cli/azure/install-azure-cli), version 2.45.0 or higher.
 - Your static files or dynamic front-end application - for example, a React app.
 

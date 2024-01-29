@@ -299,6 +299,81 @@
             "source_path_from_root": "/articles/virtual-desktop/sandbox.md",
             "redirect_url": "/azure/virtual-desktop/publish-applications",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-client-web.md",
+            "redirect_url": "/azure/virtual-desktop/users/remote-desktop-clients-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/index.yml",
+            "redirect_url": "/azure/virtual-desktop/index",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/overview.md",
+            "redirect_url": "/azure/virtual-desktop/overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/architecture-recs.md",
+            "redirect_url": "/azure/virtual-desktop/organization-internal-external-commercial-purposes-recommendations",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/custom-apps.md",
+            "redirect_url": "/azure/virtual-desktop/publish-applications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/identities.md",
+            "redirect_url": "/azure/virtual-desktop/authentication",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/licensing.md",
+            "redirect_url": "/azure/virtual-desktop/licensing",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/msix-app-attach.md",
+            "redirect_url": "/azure/virtual-desktop/app-attach-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/per-user-access-pricing.md",
+            "redirect_url": "/azure/virtual-desktop/enroll-per-user-access-pricing",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/security-guide.md",
+            "redirect_url": "/azure/virtual-desktop/security-recommendations",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/security.md",
+            "redirect_url": "/azure/virtual-desktop/security-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/total-costs.md",
+            "redirect_url": "/azure/virtual-desktop/understand-estimate-costs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/remote-app-streaming/streaming-costs.md",
+            "redirect_url": "/azure/virtual-desktop/understand-estimate-costs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/publish-applications.md",
+            "redirect_url": "/azure/virtual-desktop/publish-applications-stream-remoteapp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/autoscale-new-existing-host-pool.md",
+            "redirect_url": "/azure/virtual-desktop/autoscale-scaling-plan",
+            "redirect_document_id": true
         }
     ]
 }

@@ -4,12 +4,22 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 11/15/2023
+ms.date: 12/04/2023
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article we highlight articles for new features and where there have been important updates to existing articles.
+
+## December 2023
+
+In December 2023, we published the following changes:
+
+- Published new content for the preview of *app attach*, which is now available alongside MSIX app attach. App attach brings many benefits over MSIX app attach, including assigning applications per user, using the same application package across multiple host pools, upgrading applications, and being able to run two versions of the same application concurrently on the same session host. For more information, see [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+
+- Updated the article [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) to include support for [new Teams desktop client](/microsoftteams/new-teams-desktop-admin) on your session hosts.
+
+- Updated the article [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID authentication](configure-single-sign-on.md) to include example PowerShell commands to help configure single sign-on using Microsoft Entra ID authentication.
 
 ## November 2023
 

@@ -10,7 +10,6 @@ ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.author: pafarley
-ms.custom: 
 ---
 
 
@@ -334,6 +333,7 @@ Represents the create ingestion request model for the JSON document.
 | moderation | boolean | Gets or sets the moderation flag, indicating if the content should be moderated. | No |
 | generateInsightIntervals | boolean | Gets or sets the interval generation flag, indicating if insight intervals should be generated. | No |
 | filterDefectedFrames | boolean | Frame filter flag indicating frames will be evaluated and all defected (e.g. blurry, lowlight, overexposure) frames will be filtered out. | No |
+| includeSpeechTranscript | boolean | Gets or sets the transcript generation flag, indicating if transcript should be generated. | No |
 
 ### DatetimeFilterModel
 

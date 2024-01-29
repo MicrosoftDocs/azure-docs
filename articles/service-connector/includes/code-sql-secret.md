@@ -59,7 +59,7 @@ ms.author: wchi
     }
     ```
 
-### [SpringBoot](#tab/sql-secret-spring)
+### [SpringBoot](#tab/sql-secret-springBoot)
 1. Add dependency in your 'pom.xml' file:
     ```xml
     <dependencyManagement>

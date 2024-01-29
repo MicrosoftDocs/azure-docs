@@ -4,7 +4,7 @@ description: This article explains the different types of Azure Monitor alerts a
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 01/22/2024
 ms.custom: template-concept, ignite-2022
 ms.reviewer: harelbr
 ---
@@ -84,6 +84,11 @@ The platform metrics for these services in the following Azure clouds are suppor
 | Azure Stack Edge devices     | Yes      | Yes    | Yes |
 | Recovery Services vaults     | Yes      | No     | No  |
 | Azure Database for PostgreSQL - Flexible Server     | Yes      | Yes    | Yes |
+| Bare Metal Machines (Operator Nexus)    | Yes      | Yes    | Yes |
+| Storage Appliances (Operator Nexus)    | Yes      | Yes    | Yes |
+| Clusters (Operator Nexus)    | Yes      | Yes    | Yes |
+| Network Devices (Operator Nexus)    | Yes      | Yes    | Yes |
+| Data collection rules    | Yes      | Yes    | Yes |
 
   > [!NOTE]
   > Multi-resource metric alerts aren't supported for:

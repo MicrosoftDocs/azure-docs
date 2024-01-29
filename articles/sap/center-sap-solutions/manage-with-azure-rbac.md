@@ -200,7 +200,6 @@ To register an existing SAP system and manage that system with Azure Center for 
 | Minimum permissions for *user-assigned managed identities* |
 | ---------------------------------------------------------- |
 | `Microsoft.Compute/virtualMachines/read` |
-| `Microsoft.Compute/disks/read` |
 | `Microsoft.Compute/virtualMachines/extensions/read` |
 | `Microsoft.Compute/virtualMachines/extensions/write` |
 | `Microsoft.Compute/virtualMachines/extensions/delete` |

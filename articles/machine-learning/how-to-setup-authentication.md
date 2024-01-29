@@ -3,12 +3,12 @@ title: Set up authentication
 titleSuffix: Azure Machine Learning
 description: Learn how to set up and configure authentication for various resources and workflows in Azure Machine Learning.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: meyetman
+ms.author: meyetman 
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 09/23/2022
+ms.date: 01/05/2024
 ms.topic: how-to
 ms.custom: has-adal-ref, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 ---
@@ -75,6 +75,7 @@ except Exception as ex:
 After the credential object has been created, the [MLClient](/python/api/azure-ai-ml/azure.ai.ml.mlclient) class is used to connect to the workspace. For example, the following code uses the `from_config()` method to load connection information:
 
 ```python
+from azure.ai.ml import MLClient
 try:
     ml_client = MLClient.from_config(credential=credential)
 except Exception as ex:

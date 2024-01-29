@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/10/2023
+ms.date: 01/29/2024
 ms.custom: fasttrack-edit
 ---
 
@@ -21,11 +21,18 @@ Your logic app also has *host settings*, which specify the runtime configuration
 
 ## App settings, parameters, and deployment
 
-In *multi-tenant* Azure Logic Apps, deployment depends on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both logic apps and infrastructure. This design poses a challenge when you have to maintain environment variables for logic apps across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
+In *multitenant* Azure Logic Apps, deployment depends on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both logic apps and infrastructure. This design poses a challenge when you have to maintain environment variables for logic apps across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
 
 In *single-tenant* Azure Logic Apps, deployment becomes easier because you can separate resource provisioning between apps and infrastructure. You can use *parameters* to abstract values that might change between environments. By defining parameters to use in your workflows, you can first focus on designing your workflows, and then insert your environment-specific variables later. You can call and reference your environment variables at runtime by using app settings and parameters. That way, you don't have to redeploy as often.
 
 App settings integrate with Azure Key Vault. You can [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection strings and keys. Similar to Azure Resource Manager templates (ARM templates), where you can define environment variables at deployment time, you can define app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. However, app settings have size limitations and can't be referenced from certain areas in Azure Logic Apps.
+
+> [!NOTE]
+>
+> If you use Key Vault, make sure that you store only secrets, such as passwords, credentials, and certificates. 
+> In a logic app workflow, don't use Key Vault to store non-secret values, such as URL paths, that the workflow designer needs to make calls. 
+> The designer can't deference an app setting that references a Key Vault resource type, which results in an 
+> error and a failed call. For non-secret values, store them directly in app settings.
 
 For more information about setting up your logic apps for deployment, see the following documentation:
 
@@ -51,10 +58,11 @@ App settings in Azure Logic Apps work similarly to app settings in Azure Functio
 | `FUNCTIONS_WORKER_RUNTIME` | `node` | Sets the language worker runtime to use with your logic app resource and workflows. However, this setting is no longer necessary due to automatically enabled multi-language support. <br><br>For more information, see [FUNCTIONS_WORKER_RUNTIME](../azure-functions/functions-app-settings.md#functions_worker_runtime). |
 | `ServiceProviders.Sftp.FileUploadBufferTimeForTrigger` | `00:00:20` <br>(20 seconds) | Sets the buffer time to ignore files that have a last modified timestamp that's greater than the current time. This setting is useful when large file writes take a long time and avoids fetching data for a partially written file. |
 | `ServiceProviders.Sftp.OperationTimeout` | `00:02:00` <br>(2 min) | Sets the time to wait before timing out on any operation. |
-| `ServiceProviders.Sftp.ServerAliveInterval` | `00:30:00` <br>(30 min) | Send a "keep alive" message to keep the SSH connection active if no data exchange with the server happens during the specified period. For more information, see the [ServerAliveInterval setting](https://man.openbsd.org/ssh_config.5#ServerAliveInterval). |
+| `ServiceProviders.Sftp.ServerAliveInterval` | `00:30:00` <br>(30 min) | Sends a "keep alive" message to keep the SSH connection active if no data exchange with the server happens during the specified period. |
 | `ServiceProviders.Sftp.SftpConnectionPoolSize` | `2` connections | Sets the number of connections that each processor can cache. The total number of connections that you can cache is *ProcessorCount* multiplied by the setting value. |
 | `ServiceProviders.MaximumAllowedTriggerStateSizeInKB` | `10` KB, which is ~1,000 files | Sets the trigger state entity size in kilobytes, which is proportional to the number of files in the monitored folder and is used to detect files. If the number of files exceeds 1,000, increase this value. |
 | `ServiceProviders.Sql.QueryTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
+| `TARGET_BASED_SCALING_ENABLED` | `1` | Sets Azure Logic Apps to use target-based scaling (`1`) or incremental scaling (`0`). By default, target-based scaling is automatically enabled. For more information see [Target-based scaling](#scaling). |
 | `WEBSITE_LOAD_ROOT_CERTIFICATES` | None | Sets the thumbprints for the root certificates to be trusted. |
 | `Workflows.Connection.AuthenticationAudience` | None | Sets the audience for authenticating a managed (Azure-hosted) connection. |
 | `Workflows.CustomHostName` | None | Sets the host name to use for workflow and input-output URLs, for example, "logic.contoso.com". For information to configure a custom DNS name, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md) and [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md). |
@@ -135,7 +143,6 @@ To add or update an app setting using the Azure CLI, run the command `az logicap
 ```azurecli
 az logicapp config appsettings set --name MyLogicApp --resource-group MyResourceGroup --settings CUSTOM_LOGIC_APP_SETTING=12345 
 ```
-
 ---
 
 <a name="reference-host-json"></a>
@@ -156,6 +163,116 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Jobs.BackgroundJobs.NumPartitionsInJobDefinitionsTable` | `4` job partitions | Sets the number of job partitions in the job definition table. This value controls how much execution throughput is affected by partition storage limits. |
 | `Jobs.BackgroundJobs.NumPartitionsInJobTriggersQueue` | `1` job queue | Sets the number of job queues monitored by job dispatchers for jobs to process. This value also affects the number of storage partitions where job queues exist. |
 | `Jobs.BackgroundJobs.NumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core. This value affects the number of workflow runs per core. |
+| `Jobs.BackgroundJobs.StatelessNumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core, per stateless run. This value affects the number of concurrent workflow actions that are processed per run. |
+
+Both of the following settings are used to manually stop and immediately delete the specified workflows in Standard logic app.
+
+> [!NOTE]
+>
+> Use these settings with caution and only in non-production environments, such as load 
+> or performance test environments, as you can't undo or recover from these operations.
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `Jobs.CleanupJobPartitionPrefixes` | None | Immediately deletes all the run jobs for the specified workflows. |
+| `Jobs.SuspendedJobPartitionPartitionPrefixes` | None | Stops the run jobs for the specified workflows. |
+
+The following example shows the syntax for these settings where each workflow ID is followed by a colon (**:**) and separated by a semicolon (**;**):
+
+```json
+"Jobs.CleanupJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2:",
+"Jobs.SuspendedJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2>:"
+```
+
+<a name="scaling"></a>
+
+### Target-based scaling
+
+Single-tenant Azure Logic Apps gives you the option to select your preferred compute resources and set up your logic app resources to dynamically scale based on varying workload demands. The target-based scaling model used by Azure Logic Apps includes settings that you can use to fine-tune the model's underlying dynamic scaling mechanism, which can result in faster scale-out and scale-in times. For more information about the target-based scaling model, see the following articles:
+
+- [Target-based scaling support in single-tenant Azure Logic Apps](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/announcement-target-based-scaling-support-in-azure-logic-apps/ba-p/3998712)
+- [Single-tenant Azure Logic Apps target-based scaling performance benchmark - Burst workloads](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/logic-apps-standard-target-based-scaling-performance-benchmark/ba-p/3998807)
+
+#### Considerations
+
+- Target-based scaling isn't available or supported for Standard workflows running on an App Service Environment or Consumption plan.
+
+- If you have scale-in requests without any scale-out requests, Azure Logic Apps uses the maximum scale-in value. Target-based scaling can scale down unused worker instances faster, resulting in more efficient resource usage.
+
+#### Requirements
+
+- Your logic apps must use [Azure Functions runtime version 4.3.0 or later](../azure-functions/set-runtime-version.md).
+
+- Your logic app workflows must use single-tenant Azure Logic Apps runtime version 1.55.1 or later.
+
+#### Target-based scaling settings in host.json
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `Runtime.TargetScaler.TargetConcurrency` | `null` | The number of target executions per worker instance. By default, the value is `null`. If you leave this value unchanged, your logic app defaults to using dynamic concurrency. You can set a targeted maximum value for concurrent job polling by using this setting. For an example, see the section following this table. |
+| `Runtime.TargetScaler.TargetScalingCPU` | `70` | The maximum percentage of CPU usage that you expect at target concurrency. You can change this default percentage for each logic app by using this setting. For an example, see the section following this table. |
+| `Runtime.TargetScaler.TargetScalingFactor` | `0.3` | A numerical value from `0.05` to `1.0` that determines the degree of scaling intensity. A higher target scaling factor results in more aggressive scaling. A lower target scaling factor results in more conservative scaling. You can fine-tune the target scaling factor for each logic app by using this setting. For an example, see the section following this table. |
+
+##### TargetConcurrency example
+
+```json
+{
+   "version": "2.0",
+   "extensionBundle": {
+      "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+      "version": "[1.*, 2.0.0)"
+   },
+   "extensions": {
+      "workflow": {
+         "Settings": {
+            "Runtime.TargetScaler.TargetConcurrency": "280"
+         }
+      }
+   }
+}
+```
+
+#### TargetScalingCPU example
+
+```json
+{
+   "version": "2.0",
+   "extensionBundle": {
+      "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+      "version": "[1.*, 2.0.0)"
+   },
+   "extensions": {
+      "workflow": {
+         "Settings": {
+            "Runtime.TargetScaler.TargetScalingCPU": "76"
+         }
+      }
+   }
+}
+```
+
+##### TargetScalingFactor example
+
+```json
+{
+   "version": "2.0",
+   "extensionBundle": {
+      "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+      "version": "[1.*, 2.0.0)"
+   },
+   "extensions": {
+      "workflow": {
+         "Settings": {
+            "Runtime.TargetScaler.TargetScalingFactor": "0.62"
+         }
+      }
+   }
+}
+```
+
+#### Disable target-based scaling
+
+By default, target-based scaling is automatically enabled. To opt out from using target-based scaling and revert back to incremental scaling, add the app setting named **TARGET_BASED_SCALING_ENABLED** and set the value set to **0** in your Standard logic app resource using the Azure portal or in your logic app project's **local.settings.json file** using Visual Studio Code. For more information, see [Manage app settings - local.settings.json](#manage-app-settings).
 
 <a name="recurrence-triggers"></a>
 
@@ -174,7 +291,7 @@ The following settings work only for workflows that start with a recurrence-base
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Trigger.MaximumRunConcurrency` | `100` runs | Sets the maximum number of concurrent runs that a trigger can start. This value appears in the trigger's concurrency definition. |
-| `Runtime.Trigger.MaximumWaitingRuns` | `200` runs | Sets the maximum number of runs that can wait after concurrent runs meet the maximum. This value appears in the trigger's concurrency definition. |
+| `Runtime.Trigger.MaximumWaitingRuns` | `200` runs | Sets the maximum number of runs that can wait after concurrent runs meet the maximum. This value appears in the trigger's concurrency definition. For more information, see [Change waiting runs limit](logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 
 <a name="run-duration-history"></a>
 
@@ -273,7 +390,7 @@ The following settings work only for workflows that start with a recurrence-base
 | `Runtime.Backend.HttpOperation.DefaultRetryInterval` | `00:00:07` <br>(7 sec) | Sets the default retry interval for HTTP triggers and actions. |
 | `Runtime.Backend.HttpOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 hour) | Sets the maximum retry interval for HTTP triggers and actions. |
 | `Runtime.Backend.HttpOperation.DefaultRetryMinimumInterval` | `00:00:05` <br>(5 sec) | Sets the minimum retry interval for HTTP triggers and actions. |
-| `Runtime.Backend.HttpOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for HTTP triggers and actions. |
+| `Runtime.Backend.HttpOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for HTTP actions only, not triggers. For more information, see [Limitations](#limitations). |
 | `Runtime.Backend.HttpOperation.RequestTimeout` | `00:03:45` <br>(3 min and 45 sec) | Sets the request timeout value for HTTP triggers and actions. |
 
 <a name="http-webhook"></a>
@@ -287,7 +404,7 @@ The following settings work only for workflows that start with a recurrence-base
 | `Runtime.Backend.HttpWebhookOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 hour) | Sets the maximum retry interval for HTTP webhook triggers and actions. |
 | `Runtime.Backend.HttpWebhookOperation.DefaultRetryMinimumInterval` | `00:00:05` <br>(5 sec) | Sets the minimum retry interval for HTTP webhook triggers and actions. |
 | `Runtime.Backend.HttpWebhookOperation.DefaultWakeUpInterval` | `01:00:00` <br>(1 hour) | Sets the default wake-up interval for HTTP webhook trigger and action jobs. |
-| `Runtime.Backend.HttpWebhookOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for HTTP webhook triggers and actions. |
+| `Runtime.Backend.HttpWebhookOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for HTTP webhook actions only, not triggers. For more information, see [Limitations](#limitations). |
 | `Runtime.Backend.HttpWebhookOperation.RequestTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for HTTP webhook triggers and actions. |
 
 <a name="built-in-storage"></a>
@@ -332,7 +449,7 @@ The following settings work only for workflows that start with a recurrence-base
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Backend.FunctionOperation.RequestTimeout` | `00:03:45` <br>(3 min and 45 sec) | Sets the request timeout value for Azure Functions actions. |
-| `Runtime.Backend.FunctionOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for Azure Functions actions. |
+| `Runtime.Backend.FunctionOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for Azure Functions actions. For more information, see [Limitations](#limitations). |
 | `Runtime.Backend.FunctionOperation.DefaultRetryCount` | `4` retries | Sets the default retry count for Azure Functions actions. |
 | `Runtime.Backend.FunctionOperation.DefaultRetryInterval` | `00:00:07` <br>(7 sec) | Sets the default retry interval for Azure Functions actions. |
 | `Runtime.Backend.FunctionOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 hour) | Sets the maximum retry interval for Azure Functions actions. |
@@ -363,7 +480,7 @@ The following settings work only for workflows that start with a recurrence-base
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Backend.ApiConnectionOperation.RequestTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for managed API connector triggers and actions. |
-| `Runtime.Backend.ApiConnectionOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for managed API connector triggers and actions. |
+| `Runtime.Backend.ApiConnectionOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for managed API connector triggers and actions. For more information, see [Limitations](#limitations). |
 | `Runtime.Backend.ApiConnectionOperation.DefaultRetryCount` | `4` retries | Sets the default retry count for managed API connector triggers and actions. |
 | `Runtime.Backend.ApiConnectionOperation.DefaultRetryInterval` | `00:00:07` <br>(7 sec) | Sets the default retry interval for managed API connector triggers and actions. |
 | `Runtime.Backend.ApiWebhookOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 day) | Sets the maximum retry interval for managed API connector webhook triggers and actions. |
@@ -380,6 +497,12 @@ The following settings work only for workflows that start with a recurrence-base
 | `Runtime.Backend.Operation.MaximumRetryCount` | `90` retries | Sets the maximum number of retries in the retry policy definition for a workflow operation. |
 | `Runtime.Backend.Operation.MaximumRetryInterval` | `01:00:00:01` <br>(1 day and 1 sec) | Sets the maximum interval in the retry policy definition for a workflow operation. |
 | `Runtime.Backend.Operation.MinimumRetryInterval` | `00:00:05` <br>(5 sec) | Sets the minimum interval in the retry policy definition for a workflow operation. |
+
+### Limitations
+
+- Maximum content size
+
+  By default, built-in triggers, such as HTTP or Request, are limited to the message size described in [Limits and configuration reference - Messages](logic-apps-limits-and-config.md#messages). To handle files larger than the limit, try uploading your content as a blob to [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), and then get your content using the [Azure Blob connector](../connectors/connectors-create-api-azureblobstorage.md).
 
 <a name="manage-host-settings"></a>
 

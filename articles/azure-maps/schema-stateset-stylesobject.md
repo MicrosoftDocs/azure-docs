@@ -250,7 +250,7 @@ Learn more about Creator for indoor maps by reading:
 [`StringTypeStyleRule`]: #stringtypestylerule
 [`StyleObject`]: #styleobject
 [Creator for indoor maps]: creator-indoor-maps.md
-[Feature State service]: /rest/api/maps/v2/feature-state
+[Feature State service]: /rest/api/maps-creator/feature-state
 [Implement dynamic styling for Creator  indoor maps]: indoor-map-dynamic-styling.md
 [RangeObject]: #rangeobject
 [What is Azure Maps Creator?]: about-creator.md

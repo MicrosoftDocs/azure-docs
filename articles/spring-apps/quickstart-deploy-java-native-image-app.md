@@ -133,7 +133,7 @@ az group delete --name ${RESOURCE_GROUP}
 > [Structured application log for Azure Spring Apps](./structured-app-log.md)
 
 > [!div class="nextstepaction"]
-> [Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md)
+> [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)
 
 > [!div class="nextstepaction"]
 > [Set up Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
@@ -150,8 +150,11 @@ az group delete --name ${RESOURCE_GROUP}
 > [!div class="nextstepaction"]
 > [Run the polyglot ACME fitness store apps on Azure Spring Apps](./quickstart-sample-app-acme-fitness-store-introduction.md)
 
+> [!div class="nextstepaction"]
+> [Monitor your Spring Boot Native Image application](https://aka.ms/AzMonSpringNative)
+
 For more information, see the following articles:
 
-- [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+- [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples).
 - [Spring on Azure](/azure/developer/java/spring/)
 - [Spring Cloud Azure](/azure/developer/java/spring-framework/)

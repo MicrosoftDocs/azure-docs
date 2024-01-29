@@ -6,11 +6,9 @@ services: ai-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
-ms.custom: 
 ms.topic: quickstart
 ms.date: 10/30/2023
 ms.author: pafarley
-keywords: 
 ---
 
 # Quickstart: Detect protected material (preview)
@@ -34,7 +32,7 @@ The following section walks through a sample request with cURL. Paste the comman
     > [!TIP]
     > Text size and granularity
     >
-    > The default maximum length for text submissions is **1K** characters. The minimum length is **110** characters. Protected material detection is meant to be run on LLM completions, not user prompts.
+    > The default maximum length for text submissions is **1K** characters. The minimum length is **111** characters. Protected material detection is meant to be run on LLM completions, not user prompts.
 
 ```shell
 curl --location --request POST '<endpoint>/contentsafety/text:detectProtectedMaterial?api-version=2023-10-15-preview' \

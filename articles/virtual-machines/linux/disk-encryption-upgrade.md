@@ -7,7 +7,7 @@ ms.subservice: disks
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 05/27/2021
-ms.custom: seodec18, devx-track-linux
+ms.custom: seodec18, linux-related-content
 ---
 
 # Upgrading the Azure Disk Encryption version
@@ -27,7 +27,7 @@ You can determine the version of ADE with which a VM was encrypted via Azure CLI
 To determine the ADE version, run the Azure CLI [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view) command.
 
 ```azurecli-interactive
-az vm get-instance-view --resource-group  <ResourceGroupName> --name <VMName> 
+az vm get-instance-view --resource-group  <ResourceGroupName> --name <VMName>
 ```
 
 Locate the AzureDiskEncryption extension in the output and identify the version number from the "TypeHandlerVersion" field in the output.

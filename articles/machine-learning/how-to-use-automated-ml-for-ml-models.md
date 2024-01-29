@@ -123,15 +123,26 @@ Otherwise, you see a list of your recent automated  ML experiments, including th
     Additional configurations|Description
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#primary-metric).
-   Debug model via the Responsible AI dashboard | Generate a Responsible AI dashboard to do a holistic assessment and debugging of the recommended best model. This includes insights such as model explanations, fairness and performance explorer, data explorer, model error analysis. [Learn more about how you can generate a Responsible AI dashboard.](./how-to-responsible-ai-insights-ui.md). RAI Dashboard can only be run if 'Serverless' compute (preview) is specified in the experiment set-up step.
+    Enable ensemble stacking | Ensemble learning improves machine learning results and predictive performance by combining multiple models as opposed to using single models. [Learn more about ensemble models](concept-automated-ml.md#ensemble).
     Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-algorithms). <br> See the [supported algorithms for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
-    Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you don't spend more time on the training job than necessary.
-    Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job won't run more than the specified number of iterations. Learn more about how automated ML performs [multiple child jobs on clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
+    Explain best model| Automatically shows explainability on the best model created by Automated ML.
+ 
 
 1. (Optional) View featurization settings: if you choose to enable **Automatic featurization** in the **Additional configuration settings** form, default featurization techniques are applied. In the **View featurization settings**, you can change these defaults and customize accordingly. Learn how to [customize featurizations](#customize-featurization). 
 
     ![Screenshot shows the Select task type dialog box with View featurization settings called out.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
+1. The **[Optional] Limits** form allows you to do the following.
+
+   | Option | Description |
+   |---|-----|
+   |**Max trials**| Maximum number of trials, each with different combination of algorithm and hyperparameters to try during the AutoML job. Must be an integer between 1 and 1000.
+   |**Max concurrent trials**| Maximum number of trial jobs that can be executed in parallel. Must be an integer between 1 and 1000.
+   |**Max nodes**| Maximum number of nodes this job can use from selected compute target.
+   |**Metric score threshold**| When this threshold value will be reached for an iteration metric the training job will terminate. Keep in mind that meaningful models have correlation > 0, otherwise they are as good as guessing the average Metric threshold should be between bounds [0, 10].
+   |**Experiment timeout (minutes)**| Maximum time in minutes the entire experiment is allowed to run. Once this limit is reached the system will cancel the AutoML job, including all its trials (children jobs).
+   |**Iteration timeout (minutes)**| Maximum time in minutes each trial job is allowed to run. Once this limit is reached the system will cancel the trial.
+   |**Enable early termination**| Select to end the job if the score is not improving in the short term.
 
 1. The **[Optional] Validate and test** form allows you to do the following. 
 

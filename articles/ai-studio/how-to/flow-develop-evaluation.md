@@ -2,14 +2,15 @@
 title: Develop an evaluation flow
 titleSuffix: Azure AI Studio
 description: Learn how to customize or create your own evaluation flow tailored to your tasks and objectives, and then use in a batch run as an evaluation method in prompt flow with Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Develop an evaluation flow in Azure AI Studio

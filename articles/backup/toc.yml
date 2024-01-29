@@ -57,7 +57,9 @@
   - name: Back up PostgreSQL databases
     href: tutorial-postgresql-backup.md
   - name: Configure item level backup of an AKS cluster
-    href: tutorial-configure-backup-aks.md  
+    href: tutorial-configure-backup-aks.md
+  - name: Restore vaulted backups for AKS clusters in a secondary region
+    href: tutorial-restore-aks-backups-across-regions.md 
   - name: Back up Windows Server
     href: tutorial-backup-windows-server-to-azure.md
   - name: Restore files to Windows Server
@@ -144,6 +146,8 @@
       href: backup-azure-monitor-alert-faq.yml
     - name: FAQ-Protection against Ransomware
       href: protect-backups-from-ransomware-faq.yml
+    - name: FAQ-Soft Delete
+      href: soft-delete-azure-backup-faq.yml 
   - name: Vaults
     items:
     - name: Recovery Services vault
@@ -760,7 +764,9 @@
     - name: Archive tier
       href: troubleshoot-archive-tier.md
     - name: Azure Kubernetes Service
-      href: azure-kubernetes-service-backup-troubleshoot.md  
+      href: azure-kubernetes-service-backup-troubleshoot.md
+    - name: Data recovery from Microsoft Azure Backup Server 
+      href: backup-azure-alternate-dpm-server-troubleshoot.md    
 - name: Reference
   items:
   - name: Archived release notes

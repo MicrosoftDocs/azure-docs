@@ -102,11 +102,11 @@ You need only include `--secret-permissions`, `--key-permissions`, and `--certif
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-For more information on creating groups in Microsoft Entra ID using Azure PowerShell, see [New-AzureADGroup](/powershell/module/azuread/new-azureadgroup) and [Add-AzADGroupMember](/powershell/module/az.resources/add-azadgroupmember).
+For more information on creating groups in Microsoft Entra ID using Azure PowerShell, see [New-AzADGroup](/powershell/module/az.resources/new-azadgroup) and [Add-AzADGroupMember](/powershell/module/az.resources/add-azadgroupmember).
 
 ## Configure PowerShell and sign-in
 
-1. To run commands locally, install [Azure PowerShell](/powershell/azure/) if you haven't already.
+1. To run commands locally, install [Azure PowerShell](/powershell/azure/install-azure-powershell) if you haven't already.
 
     To run commands directly in the cloud, use the [Azure Cloud Shell](../../cloud-shell/overview.md).
 

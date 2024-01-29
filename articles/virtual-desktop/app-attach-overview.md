@@ -5,18 +5,19 @@ ms.topic: conceptual
 zone_pivot_groups: azure-virtual-desktop-app-attach
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 08/18/2023
+ms.date: 12/08/2023
 ---
 
 # MSIX app attach and app attach in Azure Virtual Desktop
 
-::: zone pivot="app-attach"
 > [!IMPORTANT]
 > App attach is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-::: zone-end
 
-There are two features in Azure Virtual Desktop that enable you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop - *MSIX app attach* and *app attach (preview)*. *MSIX app attach* is generally available, but *app attach* is now available in preview, which improves the administrative experience and user experience. With both *MSIX app attach* and *app attach*, applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Applications run within containers, which separate user data, the operating system, and other applications, increasing security and making them easier to troubleshoot. Delivering applications with app attach also 
+> [!NOTE]
+> App attach (preview) is gradually rolling out and you might not have access to it yet. If you don't have access, check back later. MSIX app attach is generally available.
+
+There are two features in Azure Virtual Desktop that enable you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop - *MSIX app attach* and *app attach (preview)*. *MSIX app attach* is generally available, but *app attach* is now available in preview, which improves the administrative experience and user experience. With both *MSIX app attach* and *app attach*, applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Applications run within containers, which separate user data, the operating system, and other applications, increasing security and making them easier to troubleshoot. 
 
 The following table compares MSIX app attach with app attach:
 
@@ -41,7 +42,7 @@ MSIX and Appx are Windows application package formats that provide a modern pack
 > [!TIP]
 > Select a button at the top of this article to choose between *MSIX app attach* (current) and *app attach* (preview) to see the relevant documentation.
 
-You can get MSIX packages from software vendors, or you can [create an MSIX package from an existing installer](/windows/msix/packaging-tool/create-an-msix-overview). To learn more about MSIX, see [What is MSIX?](/windows/msix/overview).
+You can get MSIX packages from software vendors, or you can [create an MSIX package from an existing installer](/windows/msix/packaging-tool/create-an-msix-overview). To learn more about MSIX, see [What is MSIX?](/windows/msix/overview)
 
 ::: zone pivot="app-attach"
 ## How a user gets an application 
@@ -196,7 +197,7 @@ The following sections provide some guidance on the permissions, performance, an
 
 Each session host mounts application images from the file share. You need to configure NTFS and share permissions to allow each session host computer object read access to the files and file share. How you configure the correct permission depends on which storage provider and identity provider you're using for your file share and session hosts.
 
-- To use Azure Files when your session hosts joined to Microsoft Entra ID, you need to assign the [Reader and Data Access](../role-based-access-control/built-in-roles.md#reader-and-data-access) Azure role-based access control (RBAC) role to the **Azure Virtual Desktop ARM Provider** service principal. This RBAC role assignment allows your session hosts to access the storage account using [access keys](../storage/common/storage-account-keys-manage.md). The storage account must be in the same Azure subscription as your session hosts. To learn how to assign an Azure RBAC role to the Azure Virtual Desktop service principals, see [Assign RBAC roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
+- To use Azure Files when your session hosts joined to Microsoft Entra ID, you need to assign the [Reader and Data Access](../role-based-access-control/built-in-roles.md#reader-and-data-access) Azure role-based access control (RBAC) role to the **Azure Virtual Desktop** and **Azure Virtual Desktop ARM Provider** service principals. This RBAC role assignment allows your session hosts to access the storage account using [access keys](../storage/common/storage-account-keys-manage.md). The storage account must be in the same Azure subscription as your session hosts. To learn how to assign an Azure RBAC role to the Azure Virtual Desktop service principals, see [Assign RBAC roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
 
    For more information about using Azure Files with session hosts that are joined to Microsoft Entra ID, Active Directory Domain Services, or Microsoft Entra Domain Services, see [Overview of Azure Files identity-based authentication options for SMB access](../storage/files/storage-files-active-directory-overview.md).
 
@@ -235,7 +236,7 @@ Any disaster recovery plans for Azure Virtual Desktop must include replicating t
 
 ### Azure Files 
 
-Azure Files has limits on the number of open handles per root directory, directory, and file. When using MSIX app attach or app attach, VHDX or CimFS disk images are mounted using the computer account of the session host, meaning one handle is opened per session host per disk image, rather than per user. For more information on the limits, see [Azure Files scalability and performance targets](../storage/files/storage-files-scale-targets.md#file-scale-targets).
+Azure Files has limits on the number of open handles per root directory, directory, and file. When using MSIX app attach or app attach, VHDX or CimFS disk images are mounted using the computer account of the session host, meaning one handle is opened per session host per disk image, rather than per user. For more information on the limits and sizing guidance, see [Azure Files scalability and performance targets](../storage/files/storage-files-scale-targets.md#file-scale-targets) and [Azure Files sizing guidance for Azure Virtual Desktop](../storage/files/storage-files-scale-targets.md#azure-files-sizing-guidance-for-azure-virtual-desktop).
 
 ## Next steps
 

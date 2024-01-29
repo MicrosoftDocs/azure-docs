@@ -2,12 +2,13 @@
 title: Build and deploy a question and answer copilot with prompt flow in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Use this article to build and deploy a question and answer copilot with prompt flow in Azure AI Studio
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: tutorial
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Tutorial: Build and deploy a question and answer copilot with prompt flow in Azure AI Studio
@@ -38,7 +39,7 @@ The steps in this tutorial are:
     - If your role is **Contributor** or **Owner**, you can [create an Azure AI resource in this tutorial](#create-an-azure-ai-project-in-azure-ai-studio). 
     - If your role is **Azure AI Developer**, the Azure AI resource must already be created. 
 
-- Your subscription needs to be below your [quota limit](../how-to/quota.md) to [deploy a new model in this tutorial](#deploy-a-chat-model). Otherwise you already need to have a [deployed chat model](../how-to/deploy-models.md). 
+- Your subscription needs to be below your [quota limit](../how-to/quota.md) to [deploy a new model in this tutorial](#deploy-a-chat-model). Otherwise you already need to have a [deployed chat model](../how-to/deploy-models-openai.md).
 
 - You need a local copy of product and customer data. The [Azure/aistudio-copilot-sample repository on GitHub](https://github.com/Azure/aistudio-copilot-sample/tree/main/data) contains sample retail customer and product information that's relevant for this tutorial scenario. Clone the repository or copy the files from [1-customer-info](https://github.com/Azure/aistudio-copilot-sample/tree/main/data/1-customer-info) and [3-product-info](https://github.com/Azure/aistudio-copilot-sample/tree/main/data/3-product-info). 
 
@@ -96,7 +97,7 @@ Follow these steps to deploy an Azure OpenAI chat model for your copilot.
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/deploy-gpt-35-turbo-16k-details.png" alt-text="Screenshot of the GPT chat deployment details." lightbox="../media/tutorials/copilot-deploy-flow/deploy-gpt-35-turbo-16k-details.png":::
 
-For more information about deploying models, see [how to deploy models](../how-to/deploy-models.md).
+For more information about deploying models, see [how to deploy models](../how-to/deploy-models-openai.md).
 
 ## Chat in the playground without your data
 
@@ -406,18 +407,18 @@ In this section, you use the built-in evaluation to evaluate your flow with a qu
 You need a question and answer evaluation dataset that contains questions and answers that are relevant to your scenario. Create a new file locally named **qa-evaluation.jsonl**. Copy and paste the following questions and answers (`"truth"`) into the file.
 
 ```json
-{"question": "What color is the CozyNights Sleeping Bag?", "truth": "Red"}
-{"question": "When did Daniel Wilson order the BaseCamp Folding Table?", "truth": "May 7th, 2023"}
-{"question": "How much do TrailWalker Hiking Shoes cost? ", "truth": "$110"}
-{"question": "What kind of tent did Sarah Lee buy?", "truth": "SkyView 2 person tent"}
-{"question": "What is Melissa Davis's phone number?", "truth": "555-333-4444"}
-{"question": "What is the proper care for trailwalker hiking shoes?", "truth": "After each use, remove any dirt or debris by brushing or wiping the shoes with a damp cloth."}
-{"question": "Does TrailMaster Tent come with a warranty?", "truth": "2 years"}
-{"question": "How much did David Kim spend on the TrailLite Daypack?", "truth": "$240"}
-{"question": "What items did Amanda Perez purchase?", "truth": "TrailMaster X4 Tent, TrekReady Hiking Boots (quantity 3), CozyNights Sleeping Bag, TrailBlaze Hiking Pants, RainGuard Hiking Jacket, and CompactCook Camping Stove"}
-{"question": "What is the Brand for TrekReady Hiking Boots", "truth": "TrekReady"}
-{"question": "How many items did Karen Williams buy?", "truth": "three items of the Summit Breeze Jacket"}
-{"question": "France is in Europe", "truth": "Sorry, I can only truth questions related to outdoor/camping gear and equipment"}
+{"question": "What color is the CozyNights Sleeping Bag?", "truth": "Red", "chat_history": [], }
+{"question": "When did Daniel Wilson order the BaseCamp Folding Table?", "truth": "May 7th, 2023", "chat_history": [] }
+{"question": "How much does TrailWalker Hiking Shoes cost? ", "truth": "$110", "chat_history": [] }
+{"question": "What kind of tent did Sarah Lee buy?", "truth": "SkyView 2 person tent", "chat_history": [] }
+{"question": "What is Melissa Davis's phone number?", "truth": "555-333-4444", "chat_history": [] }
+{"question": "What is the proper care for trailwalker hiking shoes?", "truth": "After each use, remove any dirt or debris by brushing or wiping the shoes with a damp cloth.", "chat_history": [] }
+{"question": "Does TrailMaster Tent come with a warranty?", "truth": "2 years", "chat_history": [] }
+{"question": "How much did David Kim spend on the TrailLite Daypack?", "truth": "$240", "chat_history": [] }
+{"question": "What items did Amanda Perez purchase?", "truth": "TrailMaster X4 Tent, TrekReady Hiking Boots (quantity 3), CozyNights Sleeping Bag, TrailBlaze Hiking Pants, RainGuard Hiking Jacket, and CompactCook Camping Stove", "chat_history": [] }
+{"question": "What is the Brand for TrekReady Hiking Boots", "truth": "TrekReady", "chat_history": [] }
+{"question": "How many items did Karen Williams buy?", "truth": "three items of the Summit Breeze Jacket", "chat_history": [] }
+{"question": "France is in Europe", "truth": "Sorry, I can only truth questions related to outdoor/camping gear and equipment", "chat_history": [] }
 ```
 
 Now that you have your evaluation dataset, you can evaluate your flow by following these steps:

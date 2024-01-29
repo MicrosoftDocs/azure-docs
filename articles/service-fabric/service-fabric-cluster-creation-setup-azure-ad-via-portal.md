@@ -93,7 +93,7 @@ Enter the following information for an admin user, and then select **Apply**:
 Enter the following information for a read-only user, and then select **Apply**:
 - **Display name**: Enter **ReadOnly**.
 - **Allowed member types**: Select **Users/Groups**.
-- **Value**: Enter **ReadOnly**.
+- **Value**: Enter **User**.
 - **Description**: Enter **ReadOnly roles have limited query access**.
 
 ![Screenshot of selections for creating a read-only user role in the portal.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-cluster-roles-readonly.png)
@@ -350,7 +350,6 @@ After you set up Microsoft Entra applications and set roles for users, [configur
 [active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
 [service-fabric-manage-application-in-visual-studio]: service-fabric-manage-application-in-visual-studio.md
-[sf-azure-ad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
 
 <!-- Images -->

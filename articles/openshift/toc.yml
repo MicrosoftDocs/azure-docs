@@ -97,10 +97,14 @@
       items:
         - name: Azure Monitor for containers
           items:
+            - name: Configure Resource Health alerts
+              href : howto-monitor-alerts.md
             - name: Configure Azure Monitor container insights for Azure Red Hat OpenShift 4
               href : ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
             - name: Disable Azure Monitor container insights in Azure Red Hat OpenShift 4 
               href: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md#delete-extension-instance
+            - name: Configure Azure Monitor managed service for Prometheus remote write   
+              href: howto-remotewrite-prometheus.md
     - name: Develop and run applications
       items:
         - name: Deploy an application from source code

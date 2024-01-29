@@ -18,7 +18,7 @@ zone_pivot_groups: spring-apps-enterprise-or-consumption-plan-selection
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-This article describes how to deploy a RESTful API application protected by [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) to Azure Spring Apps. The sample project is a simplified version based on the [Simple Todo](https://github.com/Azure-Samples/ASA-Samples-Web-Application) web application, which only provides the backend service and uses Microsoft Entra ID to protect the RESTful APIs.
+This article describes how to deploy a RESTful API application protected by [Microsoft Entra ID](/entra/fundamentals/whatis) to Azure Spring Apps. The sample project is a simplified version based on the [Simple Todo](https://github.com/Azure-Samples/ASA-Samples-Web-Application) web application, which only provides the backend service and uses Microsoft Entra ID to protect the RESTful APIs.
 
 These RESTful APIs are protected by applying role-based access control (RBAC). Anonymous users can't access any data and aren't allowed to control access for different users. Anonymous users only have the following three permissions:
 
@@ -40,10 +40,36 @@ The following diagram shows the architecture of the system:
 
 ::: zone pivot="sc-enterprise"
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+- An Azure subscription. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/) before you begin.
+- One of the following roles:
+  - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
+  - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, except Microsoft Graph app roles (application permissions).
+  - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
+
+  For more information, see [Grant tenant-wide admin consent to an application](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal).
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
+- A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
+
+### [Azure CLI](#tab/Azure-CLI)
+
+- An Azure subscription, If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/) before you begin.
+- One of the following roles:
+  - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
+  - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, except Microsoft Graph app roles (application permissions).
+  - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
+
+  For more information, see [Grant tenant-wide admin consent to an application](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal).
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
+- [Git](https://git-scm.com/downloads).
+- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+- A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.53.1 or higher.
+
+---
 
 ::: zone-end
 
@@ -51,17 +77,29 @@ The following diagram shows the architecture of the system:
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription, If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/) before you begin.
+- One of the following roles:
+  - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
+  - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, except Microsoft Graph app roles (application permissions).
+  - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
+
+  For more information, see [Grant tenant-wide admin consent to an application](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal).
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
+- A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription, If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/) before you begin.
+- One of the following roles:
+  - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
+  - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, except Microsoft Graph app roles (application permissions).
+  - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
+
+  For more information, see [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#prerequisites).
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](../active-directory/fundamentals/create-new-tenant.md).
+- A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
 - [Azure Developer CLI (AZD)](https://aka.ms/azd-install), version 1.0.2 or higher.
 
 ---
@@ -78,78 +116,15 @@ The following diagram shows the architecture of the system:
 
 [!INCLUDE [deploy-restful-api-app-with-consumption-plan](includes/quickstart-deploy-restful-api-app/deploy-restful-api-app-with-consumption-plan.md)]
 
-::: zone-end
-
 ## 5. Validate the app
 
-You can now access the RESTful API to see if it works.
+[!INCLUDE [validate-the-app-portal](includes/quickstart-deploy-restful-api-app/validate-the-app-portal.md)]
 
-### 5.1. Request an access token
-
-The RESTful APIs act as a resource server, which is protected by Microsoft Entra ID. Before acquiring an access token, you're required to register another application in Microsoft Entra ID and grant permissions to the client application, which is named `ToDoWeb`.
-
-#### Register the client application
-
-Use the following steps to register an application in Microsoft Entra ID, which is used to add the permissions for the `ToDo` app:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. If you have access to multiple tenants, use the **Directory + subscription** filter (:::image type="icon" source="media/quickstart-deploy-restful-api-app/portal-directory-subscription-filter.png" border="false":::) to select the tenant in which you want to register an application.
-
-1. Search for and select **Microsoft Entra ID**.
-
-1. Under **Manage**, select **App registrations** > **New registration**.
-
-1. Enter a name for your application in the **Name** field - for example, *ToDoWeb*. Users of your app might see this name, and you can change it later.
-
-1. For **Supported account types**, use the default value **Accounts in this organizational directory only**.
-
-1. Select **Register** to create the application.
-
-1. On the app **Overview** page, look for the **Application (client) ID** value, and then record it for later use. You need it to acquire an access token.
-
-1. Select **API permissions** > **Add a permission** > **My APIs**. Select the `ToDo` application that you registered earlier, and then select the **ToDo.Read**, **ToDo.Write**, and **ToDo.Delete** permissions. Select **Add permissions**.
-
-1. Select **Grant admin consent for \<your-tenant-name>** to grant admin consent for the permissions you added.
-
-   :::image type="content" source="media/quickstart-deploy-restful-api-app/api-permissions.png" alt-text="Screenshot of the Azure portal that shows the API permissions of a web application." lightbox="media/quickstart-deploy-restful-api-app/api-permissions.png":::
-
-#### Add user to access the RESTful APIs
-
-Use the following steps to create a member user in your Microsoft Entra tenant. Then, the user can manage the data of the `ToDo` application through RESTful APIs.
-
-1. Under **Manage**, select **Users** > **New user** > **Create new user**.
-
-1. On the **Create new user** page, enter the following information:
-
-   - **User principal name**: Enter a name for the user.
-   - **Display name**: Enter a display name for the user.
-   - **Password**: Copy the autogenerated password provided in the **Password** box.
-
-   > [!NOTE]
-   > New users must complete the first sign-in authentication and update their passwords, otherwise, you receive an `AADSTS50055: The password is expired` error when you get the access token.
-   >
-   > When a new user logs in, they receive an **Action Required** prompt. They can choose **Ask later** to skip the validation.
-
-1. Select **Review + create** to review your selections. Select **Create** to create the user.
-
-#### Update the OAuth2 configuration for Swagger UI authorization
-
-Use the following steps to update the OAuth2 configuration for Swagger UI authorization. Then, you can authorize users to acquire access tokens through the `ToDoWeb` app.
-
-1. Open the Azure Spring Apps instance in the Azure portal.
-
-1. Open your **Microsoft Entra ID** tenant in the Azure portal, and go to the registered `ToDoWeb` app.
-
-1. Under **Manage**, select **Authentication**, select **Add a platform**, and then select **Single-page application**.
-
-1. Use the format `<your-app-exposed-application-url-or-endpoint>/swagger-ui/oauth2-redirect.html` as the OAuth2 redirect URL in the **Redirect URIs** field, and then select **Configure**.
-
-   :::image type="content" source="media/quickstart-deploy-restful-api-app/single-page-app-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication page for Microsoft Entra ID." lightbox="media/quickstart-deploy-restful-api-app/single-page-app-authentication.png":::
+::: zone-end
 
 #### Obtain the access token
 
-Use the following steps to use [OAuth 2.0 authorization code flow](../active-directory/develop/v2-oauth2-auth-code-flow.md) method to obtain an access token with Microsoft Entra ID, then access the RESTful APIs of the `ToDo` app:
+Use the following steps to use [OAuth 2.0 authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow) method to obtain an access token with Microsoft Entra ID, then access the RESTful APIs of the `ToDo` app:
 
 1. Open the URL exposed by the app, then select **Authorize** to prepare the OAuth2 authentication.
 
@@ -265,25 +240,25 @@ Use the following steps to access the RESTful APIs of the `ToDo` app in the Swag
 ## 7. Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy an event-driven application to Azure Spring Apps](./quickstart-deploy-event-driven-app-standard-consumption.md)
+> [Quickstart: Deploy an event-driven application to Azure Spring Apps](quickstart-deploy-event-driven-app.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy microservice applications to Azure Spring Apps](./quickstart-deploy-microservice-apps.md)
+> [Quickstart: Deploy microservice applications to Azure Spring Apps](quickstart-deploy-microservice-apps.md)
 
 > [!div class="nextstepaction"]
-> [Structured application log for Azure Spring Apps](./structured-app-log.md)
+> [Structured application log for Azure Spring Apps](structured-app-log.md)
 
 > [!div class="nextstepaction"]
-> [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)
+> [Map an existing custom domain to Azure Spring Apps](how-to-custom-domain.md)
 
 > [!div class="nextstepaction"]
-> [Use Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
+> [Use Azure Spring Apps CI/CD with GitHub Actions](how-to-github-actions.md)
 
 > [!div class="nextstepaction"]
-> [Automate application deployments to Azure Spring Apps](./how-to-cicd.md)
+> [Automate application deployments to Azure Spring Apps](how-to-cicd.md)
 
 For more information, see the following articles:
 
-- [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+- [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples).
 - [Spring on Azure](/azure/developer/java/spring/)
 - [Spring Cloud Azure](/azure/developer/java/spring-framework/)

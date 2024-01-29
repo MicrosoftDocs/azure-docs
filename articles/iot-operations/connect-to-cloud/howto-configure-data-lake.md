@@ -270,7 +270,7 @@ The specification field of a DataLakeConnectorTopicMap resource contains the fol
     - `mqttSourceTopic`: The name of the MQTT topic(s) to subscribe to. Supports [MQTT topic wildcard notation](https://chat.openai.com/share/c6f86407-af73-4c18-88e5-f6053b03bc02).
     - `qos`: The quality of service level for subscribing to the MQTT topic. It can be one of 0 or 1.
     - `table`: The table field specifies the configuration and properties of the Delta table in the Data Lake Storage account. It has the following subfields:
-        - `tableName`: The name of the Delta table to create or append to in the Data Lake Storage account. This field is also known as the container name when used with Azure Data Lake Storage Gen2. It can contain any English letter, upper or lower case, and underbar `_`, with length up to 256 characters. No dashes `-` or space characters are allowed.
+        - `tableName`: The name of the Delta table to create or append to in the Data Lake Storage account. This field is also known as the container name when used with Azure Data Lake Storage Gen2. It can contain any **lower case** English letter, and underbar `_`, with length up to 256 characters. No dashes `-` or space characters are allowed.
         - `schema`: The schema of the Delta table, which should match the format and fields of the message payload. It's an array of objects, each with the following subfields:
             - `name`: The name of the column in the Delta table.
             - `format`: The data type of the column in the Delta table. It can be one of `boolean`, `int8`, `int16`, `int32`, `int64`, `uInt8`, `uInt16`, `uInt32`, `uInt64`, `float16`, `float32`, `float64`, `date32`, `timestamp`, `binary`, or `utf8`. Unsigned types, like `uInt8`, aren't fully supported, and are treated as signed types if specified here.
@@ -295,7 +295,7 @@ spec:
     mqttSourceTopic: "orders"
     qos: 1
     table:
-      tableName: "ordersTable"
+      tableName: "orders"
       schema:
       - name: "orderId"
         format: int32

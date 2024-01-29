@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 04/14/2022
+ms.date: 12/06/2023
 ms.topic: conceptual
 ms.custom: references_regions, event-tier1-build-2022
 #Customer intent: As a data professional, I want to validate upcoming releases.
