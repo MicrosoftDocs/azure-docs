@@ -87,8 +87,8 @@ To poll the latest VM availability state, refer to the properties field, which c
 
 #### Property description
 
-| **Property** | **Description** | **[Corresponding RHC](../azure-monitor/essentials/activity-log-schema.md#resource-health-category)** |
-| --- | --- | --- |
+| **Property** | **Description** | **[Corresponding resource health category (RHC)](../azure-monitor/essentials/activity-log-schema.md#resource-health-category)** |
+| - | - | - |
 | targetResourceType | Type of resource for which health data is flowing | resourceType |
 | targetResourceId | Resource ID | resourceId |
 | occurredTime | Timestamp when the platform emits the latest availability state | eventTimestamp |
@@ -133,8 +133,8 @@ To poll the associated VM availability annotations for a resource, if any, refer
 | occurredTime | Timestamp when the latest availability state is emitted by the platform | eventTimestamp |
 | annotationName | Name of the Annotation emitted | eventName |
 | reason | Brief overview of the availability impact observed by the customer | title |
-| category | Denotes whether the platform activity that triggered the annotation was either planned maintenance or unplanned repair. This field isn't applicable to customer/VM-initiated events. Possible values: Planned | Unplanned | Not Applicable | Null | category |
-| context | Denotes whether the activity that triggered the annotation was due to an authorized user or process (customer-initiated), the Azure platform (platform-initiated), or activity in the guest OS that resulted in availability impact (VM initiated). Possible values: Platform-initiated | User-initiated | VM-initiated | Not Applicable | Null | context |
+| category | Denotes whether the platform activity that triggered the annotation was either planned maintenance or unplanned repair. This field isn't applicable to customer/VM-initiated events. Possible values: Planned, Unplanned, Not Applicable, Null | category |
+| context | Denotes whether the activity that triggered the annotation was due to an authorized user or process (customer-initiated), the Azure platform (platform-initiated), or activity in the guest OS that resulted in availability impact (VM initiated). Possible values: Platform-initiated, User-initiated, VM-initiated, Not Applicable, Null | context |
 | summary | Statement detailing the cause for annotation emission, along with remediation steps that users can take | summary |
 
 See the [HealthResources section of the samples queries documentation](../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli#healthresources) for a list of starter queries to further explore this data.
