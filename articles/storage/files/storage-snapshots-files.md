@@ -99,4 +99,5 @@ Share snapshots provide only file-level protection. Share snapshots don't preven
     - [Azure PowerShell](/powershell/module/az.storage/new-azrmstorageshare)
     - [Azure CLI](/cli/azure/storage/share#az-storage-share-snapshot)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
+    - [NFS file share snapshots](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots)
     - [Share snapshot FAQ](storage-files-faq.md#share-snapshots)
