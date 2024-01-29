@@ -49,6 +49,8 @@ Here are common limitations that apply to migration scenarios:
 
 - The migration service is unable to perform migration when the source database is Azure Database for PostgreSQL single server with no public access or is an on-premises/AWS using a private IP, and the target Azure Database for PostgreSQL Flexible Server is accessible only through a private endpoint.
 
+- Migration to burstable SKUs is not supported; databases must first be migrated to a non-burstable SKU and then scaled down if needed.
+
 ## Related content
 
 - [Migration service](concepts-migration-service-postgresql.md)
