@@ -141,5 +141,5 @@ Azure Payment HSM supports the following SKUs:
 - Learn more about [Azure Payment HSM](overview.md)
 - Find out how to [get started with Azure Payment HSM](getting-started.md)
 - See some common [deployment scenarios](deployment-scenarios.md)
-- Learn about [Certification and compliance](certification-compliance.md)payShield Trusted Management Device
+- Learn about [Certification and compliance](certification-compliance.md)
 - Read the [frequently asked questions](faq.yml)
