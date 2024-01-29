@@ -14,8 +14,8 @@ This quickstart describes how to enable Cross Region Restore on your Backup vaul
 The Cross Region Restore option allows you to restore data in a secondary [Azure paired region](/azure/availability-zones/cross-region-replication-azure) even when no outage occurs in the primary region; thus, enabling you to perform drills drills when there's an audit or compliance requirement.
 
 > [!NOTE]
->- Currently, Geo-redundant Storage (GRS) vaults with Cross Region Restore enabled can't be reverted to ZRS or LRS after the protection starts for the first time.
->- Cross Regional Restore (CRR) with CSR is currently not supported. 
+>- Currently, Geo-redundant Storage (GRS) vaults with Cross Region Restore enabled can't be changed to Zone-redundant Storage (ZRS) or Locally redundant Storage (LRS) after the protection starts for the first time.
+>- Cross Regional Restore (CRR) with Cross Subscription Restore (CSR) is currently not supported. 
 
 ## Prerequisites
 
@@ -32,10 +32,15 @@ To restore the database to the secondary region using the Azure portal, follow t
 1. To check the available recovery point in the secondary region, go to the **Backup center** > **Backup Instances**.
 1. Filter to **Azure Database for PostgreSQL servers**, then filter **Instance Region** as *Secondary Region*
 1. Select the required Backup instance. 
-1. The recovery points available in the secondary region are now listed.  Choose **Restore to secondary region**. 
+1. The recovery points available in the secondary region are now listed.  
+
+   Choose **Restore to secondary region**. 
  You can also trigger restores from the respective backup instance. 
+
+   :::image type="content" source="./media/create-manage-backup-vault/restore-to-secondary-region.png" alt-text="Screenshot showing how to restore to secondary region." lightbox="./media/create-manage-backup-vault/restore-to-secondary-region.png":::
+
 1. Select **Restore to secondary region** to review the target region selected, and then select the appropriate recovery point and restore parameters. 
-    :::image type="content" source="./media/create-manage-backup-vault/restore-to-secondary-region.png" alt-text="Screenshot showing how to restore to secondary region." lightbox="./media/create-manage-backup-vault/restore-to-secondary-region.png":::
+    
 1. Once the restore starts, you can monitor the completion of the restore operation under **Backup Jobs** of the Backup vault by filtering **Datasource type** to *Azure Database for PostgreSQL servers*  and **Instance Region** to *Secondary Region*. 
  
 ## Next steps

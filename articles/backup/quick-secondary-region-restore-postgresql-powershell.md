@@ -20,7 +20,7 @@ This quickstart describes how to configure and perform cross-region restore for 
 To enable the Cross Region Restore feature on the Backup vault that has Geo-redundant Storage enabled, run the following cmdlet:
 
 ```azurepowershell
-Update-AzDataProtectionBackupVault -SubscriptionId <String> -ResourceGroupName $resourceGroupName -ResourceGroupName $resourceGroupName -CrossRegionRestoreState $CrossRegionRestoreState 
+Update-AzDataProtectionBackupVault -SubscriptionId $subscriptionId -ResourceGroupName $resourceGroupName -CrossRegionRestoreState $CrossRegionRestoreState
 ```
 
 >[!Note]
