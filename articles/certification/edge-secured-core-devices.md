@@ -12,8 +12,8 @@ ms.service: certification
 # Edge Secured-core certified devices
 This page contains a list of devices that have successfully passed the Edge Secured-core certifications and adhere to the Microsoft recommended security baselines.
 
-    |Manufacturer|Device Name|OS|
-    ---|---|---
-    [Lenovo|ThinkEdge SE30|Windows IoT Enterprise|
-    [Asus|PE200U|Windows IoT Enterprise|
-    [AAEON|SRG-TG01|Windows IoT Enterprise|
+|Manufacturer|Device Name|OS|
+---|---|---
+|Lenovo|ThinkEdge SE30|Windows IoT Enterprise|
+|Asus|PE200U|Windows IoT Enterprise|
+|AAEON|SRG-TG01|Windows IoT Enterprise|
