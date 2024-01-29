@@ -118,7 +118,7 @@ The appliance VM hosts a management Kubernetes cluster with a control plane that
 
 Control plane IP requirements:
 
-   - Open communication with the management machine.
+- Open communication with the management machine.
    - Static IP address assigned; the IP address should be outside the DHCP range but still available on the network segment. This IP address can't be assigned to any other machine on the network. 
    - If using DHCP, the control plane IP should be a single reserved IP that is outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP. DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
    - If using Azure Kubernetes Service on Azure Stack HCI (AKS hybrid) and installing Arc resource bridge, then the control plane IP for the resource bridge can't be used by the AKS hybrid cluster. For specific instructions on deploying Arc resource bridge with AKS on Azure Stack HCI, see [AKS on HCI (AKS hybrid) - Arc resource bridge deployment](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server).
@@ -170,8 +170,6 @@ There are several different types of configuration files, based on the on-premis
 ### Appliance configuration files
 
 Three configuration files are created when the `createconfig` command completes (or the equivalent commands used by Azure Stack HCI and AKS hybrid): `<appliance-name>-resource.yaml`, `<appliance-name>-appliance.yaml` and `<appliance-name>-infra.yaml`.
-
-By default, these files are generated in the current CLI directory when `createconfig` completes. These files should be saved in a secure location on the management machine, because they're required for maintaining the appliance VM. Because the configuration files reference each other, all three files must be stored in the same location. If the files are moved from their original location at deployment, open the files to check that the reference paths to the configuration files are accurate.
 
 By default, these files are generated in the current CLI directory when `createconfig` completes. These files should be saved in a secure location on the management machine, because they're required for maintaining the appliance VM. Because the configuration files reference each other, all three files must be stored in the same location. If the files are moved from their original location at deployment, open the files to check that the reference paths to the configuration files are accurate.
 

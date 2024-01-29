@@ -27,7 +27,7 @@ Azure Spring Apps offers default health probe rules for every application. This 
 
 - *Liveness probes* determine when to restart an application. For example, liveness probes can identify a deadlock, such as when an application is running but unable to make progress. Restarting the application in a deadlock state can make the application available despite errors.
 
-- *Readiness probes* determine when an app instance is ready to start accepting traffic. For example, readiness probes can control which app instances are used as backends for the application. When an app instance isn't ready, it's removed from Kubernetes service discovery. For more information, see [Discover and register your Spring Boot applications](how-to-service-registration.md).
+- *Readiness probes* determine when an app instance is ready to start accepting traffic. For example, readiness probes can control which app instances are used as backends for the application. When an app instance isn't ready, it's removed from Kubernetes service discovery. For more information, see [Discover and register your Spring Boot applications](how-to-service-registration.md). For more information about service discovery with the Enterprise plan, see [Use Tanzu Service Registry](how-to-enterprise-service-registry.md).
 
 - *Startup probes* determine when an application has started. A startup probe disables liveness and readiness checks until startup succeeds, ensuring that liveness and readiness probes don't interfere with application startup. You can use startup probes to perform liveness checks on slow starting applications, preventing the app from terminating before it's up and running.
 
@@ -200,7 +200,7 @@ Use the following steps to customize your application using Azure CLI.
 
 Use the following best practices when adding health probes to Azure Spring Apps:
 
-- Use liveness and readiness probes together. Azure Spring Apps provides two approaches for service discovery at the same time. When the readiness probe fails, the app instance is removed only from Kubernetes service discovery. A properly configured liveness probe can remove the issued app instance from Eureka service discovery to avoid unexpected cases. For more information about service discovery, see [Discover and register your Spring Boot applications](how-to-service-registration.md).
+- Use liveness and readiness probes together. Azure Spring Apps provides two approaches for service discovery at the same time. When the readiness probe fails, the app instance is removed only from Kubernetes service discovery. A properly configured liveness probe can remove the issued app instance from Eureka service discovery to avoid unexpected cases. For more information about service discovery, see [Discover and register your Spring Boot applications](how-to-service-registration.md). For more information about service discovery with the Enterprise plan, see [Use Tanzu Service Registry](how-to-enterprise-service-registry.md).
 
 - When an app instance starts, the first check occurs after the delay specified by `initialDelaySeconds`. Subsequent checks occur periodically, according to the period length specified by `periodSeconds`. If the app fails to respond to the requests for several times as specified by `failureThreshold`, the app instance is restarted. Make sure your application can start fast enough, or update these parameters, so that the total timeout `initialDelaySeconds + periodSeconds * failureThreshold` is longer than the start time of your application.
 

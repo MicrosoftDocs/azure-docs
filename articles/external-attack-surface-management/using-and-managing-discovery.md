@@ -60,7 +60,7 @@ Custom discoveries are organized into discovery groups. They're independent seed
     ![Screenshot that shows the first page of the discovery group setup.](media/Discovery_4.png)
 
 
-5. Select the seeds that you want to use for this discovery group. Seeds are known assets that belong to your organization. The Defender EASM platform scans these entities and maps their connections to other online infrastructure to create your attack surface.
+5. Select the seeds that you want to use for this discovery group. Seeds are known assets that belong to your organization. The Defender EASM platform scans these entities and maps their connections to other online infrastructure to create your attack surface. Since Defender EASM is intended to monitor your attack surface from an external perspective, private IP addresses cannot be included as discovery seeds. 
 
     ![Screenshot that shows the seed selection page of the discovery group setup.](media/Discovery_5.png)
 
