@@ -127,6 +127,28 @@
     href: samples-rest.md
 - name: Concepts
   items:
+  - name: Storage and indexing
+    items:
+    - name: Vector store
+      href: vector-store-database.md
+    - name: Search index
+      href: search-what-is-an-index.md
+    - name: Knowledge store 
+      href: knowledge-store-concept-intro.md
+    - name: Data import strategies
+      href: search-what-is-data-import.md
+  - name: Enrichment (skills)
+    items:
+    - name: Enrichment overview
+      href: cognitive-search-concept-intro.md
+    - name: Enrichment cache
+      href: cognitive-search-incremental-indexing-conceptual.md
+    - name: Skillsets
+      href: cognitive-search-working-with-skillsets.md
+    - name: Integrated vectorization (preview)
+      href: vector-search-integrated-vectorization.md
+    - name: Debug sessions
+      href: cognitive-search-debug-session.md
   - name: Retrieval (Search)
     items:
     - name: Full-text search
@@ -141,44 +163,14 @@
       href: search-query-overview.md
   - name: Relevance
     items:
+    - name: Semantic ranking
+      href: semantic-search-overview.md
     - name: Scoring in keyword queries (BM25)
       href: index-similarity-and-scoring.md
     - name: Scoring in vector queries
       href: vector-search-ranking.md
     - name: Scoring in hybrid queries (RRF)
       href: hybrid-search-ranking.md
-    - name: Semantic ranking
-      href: semantic-search-overview.md
-  - name: Indexing
-    items:
-    - name: Search indexes
-      href: search-what-is-an-index.md
-    - name: Import
-      href: search-what-is-data-import.md
-    - name: Import Data wizard
-      href: search-import-data-portal.md
-    - name: Analyzers
-      href: search-analyzers.md
-    - name: Indexers
-      href: search-indexer-overview.md
-  - name: Enrichment
-    items:
-    - name: Enrichment overview
-      href: cognitive-search-concept-intro.md
-    - name: Enrichment cache
-      href: cognitive-search-incremental-indexing-conceptual.md
-    - name: Skillsets
-      href: cognitive-search-working-with-skillsets.md
-    - name: Integrated vectorization (preview)
-      href: vector-search-integrated-vectorization.md
-    - name: Debug sessions
-      href: cognitive-search-debug-session.md
-    - name: Knowledge store 
-      href: knowledge-store-concept-intro.md
-    - name: Knowledge store projections
-      href: knowledge-store-projection-overview.md
-    - name: Index projections
-      href: index-projections-concept-intro.md
   - name: Security
     items:
     - name: Security overview
