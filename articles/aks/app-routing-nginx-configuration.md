@@ -44,7 +44,7 @@ You can modify the configuration of the default ingress controller by editing it
 kubectl edit nginxingresscontroller default -n app-routing-system
 ```
 
-### Create an another public facing NGINX ingress controller
+### Create another public facing NGINX ingress controller
 
 To create another NGINX ingress controller with a public facing Azure Load Balancer:
 
