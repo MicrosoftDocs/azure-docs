@@ -240,6 +240,8 @@
         href: sizes-compute.md
       - name: Fsv2-series
         href: fsv2-series.md
+      - name: Fasv6 and Falsv6-series
+        href: ../../../../iamwilliew/azure-docs-pr/articles/virtual-machines/fasv6-falsv6-series.md
       - name: FX-series
         href: fx-series.md
     - name: Memory optimized
