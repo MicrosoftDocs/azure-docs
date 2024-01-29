@@ -59,16 +59,11 @@ There are two ways that you can add a condition. You can use a condition templat
 
 # [Template](#tab/template)
 
-1. On the **Conditions** tab under **Delegation type**, select the **Constrained (recommended)** option.
+1. On the **Conditions** tab under **What user can do**, select the **Allow user to only assign selected roles to selected principals (fewer privileges)** option.
 
-    | Option | Select this option to |
-    | --- | --- |
-    | **Constrained (recommended)** | Pick the roles or principals the user can use in role assignments |
-    | **Not constrained** | Allow the user to assign any role to any principal |
+    :::image type="content" source="./media/shared/condition-constrained.png" alt-text="Screenshot of Add role assignment with the constrained option selected." lightbox="./media/shared/condition-constrained.png":::
 
-    :::image type="content" source="./media/shared/condition-constrained.png" alt-text="Screenshot of Add role assignment with the Constrained option selected." lightbox="./media/shared/condition-constrained.png":::
-
-1. Select **Add condition**.
+1. Select **Select roles and principals**.
 
     The Add role assignment condition page appears with a list of condition templates.
 
@@ -78,13 +73,13 @@ There are two ways that you can add a condition. You can use a condition templat
 
     | Condition template | Select this template to |
     | --- | --- |
-    | Constrain roles | Constrain the roles a user can assign |
-    | Constrain roles and principal types | Constrain the roles a user can assign and the types of principals the user can assign roles to |
-    | Constrain roles and principals | Constrain the roles a user can assign and the principals the user can assign roles to |
+    | Constrain roles | Allow user to only assign roles you select |
+    | Constrain roles and principal types | Allow user to only assign roles you select<br/>Allow user to only assign these roles to principal types you select (users, groups, or service principals) |
+    | Constrain roles and principals | Allow user to only assign roles you select<br/>Allow user to only assign these roles to principals you select |
 
 1. In the configure pane, add the required configurations.
 
-    :::image type="content" source="./media/delegate-role-assignments-portal/condition-template-configure-pane.png" alt-text="Screenshot of configure pane for a condition with selection added." lightbox="./media/delegate-role-assignments-portal/condition-template-configure-pane.png":::
+    :::image type="content" source="./media/shared/condition-template-configure-pane.png" alt-text="Screenshot of configure pane for a condition with selection added." lightbox="./media/shared/condition-template-configure-pane.png":::
 
 1. Select **Save** to add the condition to the role assignment.
 
@@ -94,16 +89,11 @@ If the condition templates don't work for your scenario or if you want more cont
 
 ### Open condition editor
 
-1. On the **Conditions** tab under **Delegation type**, select the **Constrained (recommended)** option.
-
-    | Option | Select this option to |
-    | --- | --- |
-    | **Constrained (recommended)** | Pick the roles or principals the user can use in role assignments |
-    | **Not constrained** | Allow the user to assign any role to any principal |
+1. On the **Conditions** tab under **What user can do**, select the **Allow user to only assign selected roles to selected principals (fewer privileges)** option.
 
     :::image type="content" source="./media/shared/condition-constrained.png" alt-text="Screenshot of Add role assignment with the Constrained option selected." lightbox="./media/shared/condition-constrained.png":::
 
-1. Select **Add condition**.
+1. Select **Select roles and principals**.
 
     The Add role assignment condition page appears with a list of condition templates.
 
