@@ -127,10 +127,10 @@
     href: samples-rest.md
 - name: Concepts
   items:
-  - name: Storage and indexing
+  - name: Storage (indexes)
     items:
     - name: Vector store
-      href: vector-store-database.md
+      href: vector-search-overview.md
     - name: Search index
       href: search-what-is-an-index.md
     - name: Knowledge store 
@@ -149,7 +149,7 @@
       href: vector-search-integrated-vectorization.md
     - name: Debug sessions
       href: cognitive-search-debug-session.md
-  - name: Retrieval (Search)
+  - name: Retrieval (queries)
     items:
     - name: Full-text search
       href: search-lucene-query-architecture.md
@@ -253,6 +253,8 @@
 
   - name: Analyzers
     items:
+    - name: Analyzers overview
+      href: search-analyzers.md
     - name: Add a language analyzer
       href: index-add-language-analyzers.md
     - name: Add a custom analyzer
@@ -265,6 +267,8 @@
       href: search-synonyms-tutorial-sdk.md
   - name: Indexers
     items:
+    - name: Indexer overview
+      href: search-indexer-overview.md
     - name: Create an indexer
       href: search-howto-create-indexers.md
     - name: Run or reset indexers
@@ -273,6 +277,10 @@
       href: search-howto-schedule-indexers.md
     - name: Define field mappings
       href: search-indexer-field-mappings.md
+    - name: Portal indexing
+      items:
+      - name: Import data wizard
+        href: search-import-data-portal.md
     - name: Indexing whole files
       items:
       - name: Content metadata properties
@@ -343,6 +351,8 @@
       href: cognitive-search-attach-cognitive-services.md
     - name: Create a skillset
       href: cognitive-search-defining-skillset.md
+    - name: Create an index projection for a secondary index
+      href: index-projections-concept-intro.md
     - name: Debug a skillset
       href: cognitive-search-how-to-debug-skillset.md
     - name: Reference an annotation    
@@ -365,9 +375,13 @@
         href: cognitive-search-create-custom-skill-example.md
   - name: Knowledge stores
     items:
+    - name: Knowledge store overview
+      href: knowledge-store-concept-intro.md
+    - name: Knowledge store projections overview
+      href: knowledge-store-projection-overview.md
     - name: Create using REST
       href: knowledge-store-create-rest.md
-    - name: Shaping data
+    - name: Shape data
       href: knowledge-store-projection-shape.md
     - name: Define projections
       href: knowledge-store-projections-examples.md 
