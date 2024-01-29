@@ -56,7 +56,9 @@ An example of using Shared Access Signatures in asset conversion is shown in Con
 
 > [!IMPORTANT]
 > When configuring the storage account, do **not** specify an allowed IP address range, even when it allow-lists all IP addresses:
+>
 > ![Screenshot of blob storage settings in Azure portal that show how to configure an allowed IP address range.](./media/blob-storage-ip-allowlist.png)
+>
 > With any IP range being specified, the SAS token may not work with ARR and model loading might fail.
 
 ## Upload an input model
