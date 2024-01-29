@@ -17,6 +17,11 @@ Get started with the Azure Blob Storage client library for .NET. Azure Blob Stor
 
 [API reference documentation](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json#blob-samples)
 
+You can choose how you'd like interact with this quickstart:
+
+- [Follow step by step instructions](#setting-up) to set up your local development environment and copy and paste code snippets into a new project.
+- [Explore the completed code sample](#skip-to-the-end) by using Azure Developer CLI (azd) to deploy resources to Azure and create a project in your local development environment.
+
 This video shows you how to start using the Azure Blob Storage client library for .NET.
 > [!VIDEO cdae65e7-1892-48fe-934a-70edfbe147be]
 
