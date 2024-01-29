@@ -24,8 +24,13 @@ Workspace-based resources:
 
 > [!IMPORTANT]
 > * On February 29, 2024, continuous export will be deprecated as part of the classic Application Insights deprecation.
-> * When you [migrate to a workspace-based Application Insights resource](convert-classic-resource.md), you must use [diagnostic settings](export-telemetry.md#diagnostic-settings-based-export) for exporting telemetry. All [workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
+> 
+
+> 
+>    * You can enable [diagnostic settings on classic Application Insights]() before you [migrate to a workspace-based Application Insights resource](convert-classic-resource.md).All [workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
+>    
 > * Diagnostic settings export might increase costs. For more information, see [Diagnostic settings-based export](export-telemetry.md#diagnostic-settings-based-export).
+> 
 
 ## New capabilities
 
@@ -55,6 +60,7 @@ If you don't need to migrate an existing resource, and instead want to create a 
 
 > [!NOTE]
 > The migration process shouldn't introduce any application downtime or restarts nor change your existing instrumentation key or connection string.
+
 ## Prerequisites
 
 - A Log Analytics workspace with the access control mode set to the **Use resource or workspace permissions** setting:
@@ -321,9 +327,7 @@ No. There's no impact to [Live Metrics](live-stream.md#live-metrics-monitor-and-
 
 ### What happens with continuous export after migration?
 
-Continuous export doesn't support workspace-based resources.
-
-Switch to [diagnostic settings](../essentials/diagnostic-settings.md#diagnostic-settings-in-azure-monitor).
+To continue with automated exports, you will need to migrate to [diagnostic settings](/previous-versions/azure/azure-monitor/app/continuous-export-diagnostic-setting) before migrating to workspace-based resource.  The diagnostic setting will carry over in the migration to workspace-based Application Insights.
 
 ## Troubleshooting
 
@@ -341,8 +345,9 @@ If you can't change the access control mode for security reasons for your curren
 
 **Error message:** "Continuous Export needs to be disabled before continuing. After migration, use Diagnostic Settings for export."
 
-The legacy **Continuous export** functionality isn't supported for workspace-based resources. Prior to migrating, you need to disable continuous export.
+The legacy **Continuous export** functionality isn't supported for workspace-based resources. Prior to migrating, you need to enable diagnostic settings and disable continuous export.
 
+1. [Enable Diagnostic Settings](/previous-versions/azure/azure-monitor/app/continuous-export-diagnostic-setting) on you classic Application Insights resource.
 1. From your Application Insights resource view, under the **Configure** heading, select **Continuous export**.
 
     :::image type="content" source="./media/convert-classic-resource/continuous-export.png" lightbox="./media/convert-classic-resource/continuous-export.png" alt-text="Screenshot that shows the Continuous export menu item.":::
