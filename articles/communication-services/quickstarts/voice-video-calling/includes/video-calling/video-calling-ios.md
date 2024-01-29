@@ -315,7 +315,7 @@ func configureAudioSession() -> Error? {
     do {
         // Set the audio session category.
         try audioSession.setCategory(.playAndRecord, options: options)
-        os_log("==> configureAudioSession done", log:self.log)
+        print("configureAudioSession successfully")
     } catch {
         os_log("==> configureAudioSession failed", log:self.log)
         configError = error
