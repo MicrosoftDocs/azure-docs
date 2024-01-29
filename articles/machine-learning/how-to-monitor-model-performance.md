@@ -90,42 +90,67 @@ The following YAML contains the definition for the out-of-box model monitoring.
 You can use the following code to set up the out-of-box model monitoring:
 
 ```python
-from azure.identity import InteractiveBrowserCredential
+from azure.identity import DefaultAzureCredential
 from azure.ai.ml import MLClient
 from azure.ai.ml.entities import (
+    AlertNotification,
     MonitoringTarget,
     MonitorDefinition,
     MonitorSchedule,
     RecurrencePattern,
     RecurrenceTrigger,
-    SparkResourceConfiguration,
+    ServerlessSparkCompute
 )
 
 # get a handle to the workspace
-ml_client = MLClient(InteractiveBrowserCredential(), subscription_id, resource_group, workspace)
+ml_client = MLClient(
+    DefaultAzureCredential(),
+    subscription_id="subscription_id",
+    resource_group_name="resource_group_name",
+    workspace_name="workspace_name",
+)
 
+# create the compute
 spark_compute = ServerlessSparkCompute(
     instance_type="standard_e4s_v3",
     runtime_version="3.3"
 )
 
-monitoring_target = MonitoringTarget(endpoint_deployment_id="azureml:fraud_detection_endpoint:fraud_detection_deployment")
+# specify your online endpoint deployment
+monitoring_target = MonitoringTarget(
+    ml_task="classification",
+    endpoint_deployment_id="azureml:credit-default:main"
+)
 
-monitor_definition = MonitorDefinition(compute=spark_compute, monitoring_target=monitoring_target)
 
+# create alert notification object
+alert_notification = AlertNotification(
+    emails=['abc@example.com', 'def@example.com']
+)
+
+# create the monitor definition
+monitor_definition = MonitorDefinition(
+    compute=spark_compute,
+    monitoring_target=monitoring_target,
+    alert_notification=alert_notification
+)
+
+# specify the schedule frequency
 recurrence_trigger = RecurrenceTrigger(
     frequency="day",
     interval=1,
     schedule=RecurrencePattern(hours=3, minutes=15)
 )
 
-model_monitor = MonitorSchedule(name="fraud_detection_model_monitoring", 
-                                trigger=recurrence_trigger, 
-                                create_monitor=monitor_definition)
+# create the monitor
+model_monitor = MonitorSchedule(
+    name="credit_default_monitor_basic",
+    trigger=recurrence_trigger,
+    create_monitor=monitor_definition
+)
 
 poller = ml_client.schedules.begin_create_or_update(model_monitor)
 created_monitor = poller.result()
-
 ```
 
 # [Studio](#tab/azure-studio)
@@ -194,27 +219,24 @@ The following YAML contains the definition for advanced model monitoring.
 Use the following code for advanced model monitoring setup:
 
 ```python
-from azure.identity import InteractiveBrowserCredential
+from azure.identity import DefaultAzureCredential
 from azure.ai.ml import Input, MLClient
 from azure.ai.ml.constants import (
-    MonitorFeatureType,
-    MonitorMetricName,
     MonitorDatasetContext,
 )
 from azure.ai.ml.entities import (
     AlertNotification,
-    FeatureAttributionDriftSignal,
-    FeatureAttributionDriftMetricThreshold,
     DataDriftSignal,
     DataQualitySignal,
+    PredictionDriftSignal,
     DataDriftMetricThreshold,
     DataQualityMetricThreshold,
+    PredictionDriftMetricThreshold,
     NumericalDriftMetrics,
     CategoricalDriftMetrics,
     DataQualityMetricsNumerical,
     DataQualityMetricsCategorical,
     MonitorFeatureFilter,
-    MonitorInputData,
     MonitoringTarget,
     MonitorDefinition,
     MonitorSchedule,
@@ -225,30 +247,38 @@ from azure.ai.ml.entities import (
 )
 
 # get a handle to the workspace
-ml_client = MLClient(InteractiveBrowserCredential(), subscription_id, resource_group, workspace)
+ml_client = MLClient(
+    DefaultAzureCredential(),
+    subscription_id="subscription_id",
+    resource_group_name="resource_group_name",
+    workspace_name="workspace_name",
+)
 
+# create your compute
 spark_compute = ServerlessSparkCompute(
     instance_type="standard_e4s_v3",
     runtime_version="3.3"
 )
 
+# specify the online deployment (if you have one)
 monitoring_target = MonitoringTarget(
     ml_task="classification",
-    endpoint_deployment_id="azureml:fraud_detection_endpoint:fraund_detection_deployment"
+    endpoint_deployment_id="azureml:credit-default:main"
 )
 
 # training data to be used as baseline dataset
 reference_data_training = ReferenceData(
     input_data=Input(
         type="mltable",
-        path="azureml:my_model_training_data:1"
+        path="azureml:credit-default-reference:1"
     ),
-    target_column_name="fraud_detected",
+    target_column_name="DEFAULT_NEXT_MONTH",
     data_context=MonitorDatasetContext.TRAINING,
 )
 
 # create an advanced data drift signal
-features = MonitorFeatureFilter(top_n_feature_importance=20)
+features = MonitorFeatureFilter(top_n_feature_importance=10)
+
 metric_thresholds = DataDriftMetricThreshold(
     numerical=NumericalDriftMetrics(
         jensen_shannon_distance=0.01
@@ -264,9 +294,20 @@ advanced_data_drift = DataDriftSignal(
     metric_thresholds=metric_thresholds
 )
 
+# create an advanced prediction drift signal
+metric_thresholds = PredictionDriftMetricThreshold(
+    categorical=CategoricalDriftMetrics(
+        jensen_shannon_distance=0.01
+    )
+)
+
+advanced_prediction_drift = PredictionDriftSignal(
+    reference_data=reference_data_training,
+    metric_thresholds=metric_thresholds
+)
 
 # create an advanced data quality signal
-features = ['feature_A', 'feature_B', 'feature_C']
+features = ['SEX', 'EDUCATION', 'AGE']
 
 metric_thresholds = DataQualityMetricThreshold(
     numerical=DataQualityMetricsNumerical(
@@ -284,20 +325,10 @@ advanced_data_quality = DataQualitySignal(
     alert_enabled=False
 )
 
-# create feature attribution drift signal
-metric_thresholds = FeatureAttributionDriftMetricThreshold(normalized_discounted_cumulative_gain=0.9)
-
-feature_attribution_drift = FeatureAttributionDriftSignal(
-    reference_data=reference_data_training,
-    metric_thresholds=metric_thresholds,
-    alert_enabled=False
-)
-
 # put all monitoring signals in a dictionary
 monitoring_signals = {
     'data_drift_advanced':advanced_data_drift,
-    'data_quality_advanced':advanced_data_quality,
-    'feature_attribution_drift':feature_attribution_drift
+    'data_quality_advanced':advanced_data_quality
 }
 
 # create alert notification object
@@ -305,7 +336,7 @@ alert_notification = AlertNotification(
     emails=['abc@example.com', 'def@example.com']
 )
 
-# Finally monitor definition
+# create the monitor definition
 monitor_definition = MonitorDefinition(
     compute=spark_compute,
     monitoring_target=monitoring_target,
@@ -313,21 +344,22 @@ monitor_definition = MonitorDefinition(
     alert_notification=alert_notification
 )
 
+# specify the frequency on which to run your monitor
 recurrence_trigger = RecurrenceTrigger(
     frequency="day",
     interval=1,
     schedule=RecurrencePattern(hours=3, minutes=15)
 )
 
+# create your monitor
 model_monitor = MonitorSchedule(
-    name="fraud_detection_model_monitoring_complex",
+    name="credit_default_monitor_advanced",
     trigger=recurrence_trigger,
     create_monitor=monitor_definition
 )
 
 poller = ml_client.schedules.begin_create_or_update(model_monitor)
 created_monitor = poller.result()
-
 ```
 
 # [Studio](#tab/azure-studio)
