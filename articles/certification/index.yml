@@ -21,7 +21,7 @@ landingContent:
         url: overview.md
       - text: Program requirements
         url: ./program-requirements-edge-secured-core.md
-      - text: Getting your device certified
+      - text: Get your device certified
         url: ./edge-secured-core-get-certified.md       
       - text: List of certified devices
         url: ./edge-secured-core-devices.md
