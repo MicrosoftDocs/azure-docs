@@ -15,7 +15,7 @@ author: lgayhardt
 
 [!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
 
-The following table provides an index of tools in prompt flow. If existing tools don't meet your requirements, you can [develop your own custom tool and make a tool package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html).
+The following table provides an index of tools in prompt flow. 
 
 | Tool name | Description | Environment | Package name |
 |------|-----------|-------------|--------------|
@@ -30,7 +30,12 @@ The following table provides an index of tools in prompt flow. If existing tools
 | [Embedding](./embedding-tool.md) | Use Azure Open AI embedding models to create an embedding vector that represents the input text. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Serp API](./serp-api-tool.md) | Use Serp API to obtain search results from a specific search engine. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 
-To discover more custom tools developed by the open-source community, see [More custom tools](https://microsoft.github.io/promptflow/integrations/tools/index.html).
+**Tips**
+
+- If existing tools don't meet your requirements, you can [develop your own custom tool and make a tool package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html).
+- To discover more custom tools developed by the open-source community, see [More custom tools](https://microsoft.github.io/promptflow/integrations/tools/index.html).
+- To install the custom tools, if you are using automatic runtime, you can readily install the package by adding the custom tool package name into the `requirements.txt` file in the flow folder. Then click `Save and install` button to start installation. After completion, you can see the custom tools displayed in the tool list. See more in [How to update a runtime](../create-manage-runtime.md##Update a runtime on the UI).
+:::image type="content" source="./media/prompt-flow-tools-overview/install-package-on-automatic-runtime.png" alt-text="Screenshot of how to install packages on automatic runtime."lightbox = "./media/prompt-flow-tools-overview/install-package-on-automatic-runtime.png":::
 
 ## Next steps
 
