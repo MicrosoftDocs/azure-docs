@@ -45,6 +45,8 @@ A native document refers to the file format used to create the original document
 |Adobe PDF| `.pdf`       |A portable document file formatted document.|
 |Microsoft Word|`.docx`|A Microsoft Word document file.|
 
+For more information, *see* [**Use native documents for language processing**](../native-document-support/use-native-documents.md)
+
 ## Key features
 
 There are two types of document summarization this API provides:

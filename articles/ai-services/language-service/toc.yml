@@ -820,7 +820,7 @@ items:
   - name: 🆕 Native document support
     items:
     - name: 🆕 Use native documents for language processing
-      href: native-document-support/native-document-support.md
+      href: native-document-support/use-native-documents.md
     - name: 🆕 Create SAS tokens for storage containers
       href: native-document-support/shared-access-signatures.md
     - name: 🆕 Create a managed identity for storage containers

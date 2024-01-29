@@ -18,7 +18,7 @@ Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent
 
 ## January 2024
 
-* [Native document support](native-document-support/native-document-support.md) is now available in `2023-11-15-preview` public preview.
+* [Native document support](native-document-support/use-native-documents.md) is now available in `2023-11-15-preview` public preview.
 
 ## November 2023
 
