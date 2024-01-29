@@ -139,21 +139,11 @@ items:
               href: app/worker-service.md
             - name: Advanced ASP.NET SDK topics
               items:
-              - name: Metrics
-                items:
-                - name: GetMetric
-                  displayName: get metric, custom metrics, metrics, TrackMetric
-                  href: app/get-metric.md
-                - name: Log-based & pre-aggregated metrics
-                  href: app/pre-aggregated-metrics-log-metrics.md
-                - name: Log-based metrics definitions
-                  href: essentials/app-insights-metrics.md
-                - name: Standard metrics
-                  href: app/standard-metrics.md
+              - name: GetMetric
+                displayName: get metric, custom metrics, metrics, TrackMetric
+                href: app/get-metric.md
               - name: EventCounters
                 href: app/eventcounters.md
-              - name: Dependencies
-                href: app/asp-net-dependencies.md
               - name: ApplicationInsights.config
                 href: app/configuration-with-applicationinsights-config.md
               - name: TelemetryChannels
@@ -173,8 +163,6 @@ items:
           - name: Application Insights API summary
             displayName: SDK, API, custom events, custom metrics, trackevent, trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
             href: app/api-custom-events-metrics.md
-          - name: Application Insights data model
-            href: app/data-model-complete.md
           - name: Connection strings
             href: app/sdk-connection-string.md
             displayName: connection string, instrumentation key
@@ -1524,6 +1512,18 @@ items:
     href: agents/azure-monitor-agent-extension-versions.md
   - name: Application Insights
     items:
+    - name: Application Insights data model
+      href: app/data-model-complete.md
+    - name: Metrics
+      items:
+      - name: Log-based & pre-aggregated metrics
+        href: app/pre-aggregated-metrics-log-metrics.md
+      - name: Log-based metrics definitions
+        href: essentials/app-insights-metrics.md
+      - name: Standard metrics
+        href: app/standard-metrics.md
+    - name: ASP.NET Dependencies
+      href: app/asp-net-dependencies.md
     - name: Azure Functions
       href: ../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json
   - name: Azure PowerShell
