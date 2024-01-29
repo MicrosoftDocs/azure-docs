@@ -7,7 +7,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/05/2023
+ms.date: 01/29/2024
 ms.custom: devx-track-python, devx-track-extended-python
 ms.author: mametcal
 #Customer intent: As a Python developer, I want to dynamically update my app to use the latest configuration data in Azure App Configuration.
