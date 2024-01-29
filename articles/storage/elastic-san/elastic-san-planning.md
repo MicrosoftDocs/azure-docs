@@ -64,7 +64,7 @@ For more information about the cryptographic modules underlying SSE, see [Crypto
 There are currently two options for migrating your data into Azure Elastic SAN. Both paths require deploying and configuring an elastic SAN first, and then creating volumes through the migration process.
 
 - [Cirrus Data](https://www.cirrusdata.com/) which allows you to migrate from external locations such as an on-premises SAN.
-- [Managed disk snapshots](elastic-san-snapshots.md#create-a-volume-from-a-managed-disk-snapshot), which allows you to migrate from managed disks to elastic SAN volumes.
+- [Managed disk snapshots (preview)](elastic-san-snapshots.md#create-a-volume-from-a-managed-disk-snapshot), which allows you to migrate from managed disks to elastic SAN volumes.
 
 ## iSCSI support
 
