@@ -177,7 +177,7 @@ Column| Customization
 Feature type| Change the value type for the selected column.
 Impute with| Select what value to impute missing values with in your data.
 
-![Azure Machine Learning studio custom featurization](media/how-to-use-automated-ml-for-ml-models/updated-featurization.png)
+![Screenshot showing Azure Machine Learning studio custom featurization.](media/how-to-use-automated-ml-for-ml-models/updated-featurization.png)
 
 ## Run experiment and view results
 
@@ -269,7 +269,7 @@ To generate a Responsible AI dashboard for a particular model,
 
 
 
-    ![Select Explain best model from the Automated ML job configuration page](media/how-to-use-automated-ml-for-ml-models/best-model-selection-updated.png)
+    ![Screenshot showing the Automated ML job configuration page with Explain best model selected.](media/how-to-use-automated-ml-for-ml-models/best-model-selection-updated.png)
 
 3. Proceed to the **Compute** page of the setup form and choose the **Serverless** option for your compute.
 
