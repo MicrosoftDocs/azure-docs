@@ -31,7 +31,7 @@ Install a version of [Python from 3.7 or later](https://www.python.org/downloads
 
 Follow these steps to create a console application.
 
-1. Command Prompt window in the folder where you want the new project. Create a new file named *speech_recognition.py*.
+1. Open a Command Prompt window in the folder where you want the new project. Create a new file named *speech_recognition.py*.
 
 1. Run this command to install the Speech SDK:  
 
