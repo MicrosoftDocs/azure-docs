@@ -51,7 +51,7 @@ This section shows how to configure the event subscription by using a Microsoft 
 
     ```Shell
     PS /home/user>$webhookAadTenantId = "[REPLACE_WITH_YOUR_TENANT_ID]"
-    PS /home/user>Connect-AzureAD -TenantId $webhookAadTenantId
+    PS /home/user>Connect-MgGraph -TenantId $webhookAadTenantId
     ```
 
 4. Open the [following script](scripts/powershell-webhook-secure-delivery-microsoft-entra-user.md) and update the values of **$webhookAppObjectId** and **$eventSubscriptionWriterUserPrincipalName** with your identifiers, then continue to run the script.
@@ -66,7 +66,7 @@ This section shows how to configure the event subscription by using a Microsoft 
     If you see the following error message, you need to elevate to the service principal. An extra access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. 
     
     ```
-    New-AzureADServiceAppRoleAssignment: Error occurred while executing NewServicePrincipalAppRoleAssignment
+    New-MgServicePrincipalAppRoleAssignment: Error occurred while executing NewServicePrincipalAppRoleAssignment
     Code: Authorization_RequestDenied
     Message: Insufficient privileges to complete the operation.
     ```    
@@ -107,7 +107,7 @@ This section shows how to configure the event subscription by using a Microsoft 
 
     ```Shell
     PS /home/user>$webhookAadTenantId = "[REPLACE_WITH_YOUR_TENANT_ID]"
-    PS /home/user>Connect-AzureAD -TenantId $webhookAadTenantId
+    PS /home/user>Connect-MgGraph -TenantId $webhookAadTenantId
     ```
 
 7. Open the [following script](scripts/powershell-webhook-secure-delivery-microsoft-entra-app.md) and update the values of **$webhookAppObjectId** and **$eventSubscriptionWriterAppId** with your identifiers, then continue to run the script.
@@ -171,7 +171,7 @@ Do the following steps in **Tenant B**:
 
         ```Shell
         PS /home/user>$webhookAadTenantId = "[REPLACE_WITH_YOUR_TENANT_ID]"
-        PS /home/user>Connect-AzureAD -TenantId $webhookAadTenantId
+        PS /home/user>Connect-MgGraph -TenantId $webhookAadTenantId
         ```
 7. Open the [following script](scripts/powershell-webhook-secure-delivery-microsoft-entra-app.md), and update values of **$webhookAppObjectId** and **$eventSubscriptionWriterAppId** with your identifiers, then continue to run the script.
 
@@ -185,7 +185,7 @@ Do the following steps in **Tenant B**:
     If you see the following error message, you need to elevate to the service principal. An extra access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. 
     
     ```
-    New-AzureADServiceAppRoleAssignment: Error occurred while executing NewServicePrincipalAppRoleAssignment
+    New-MgServicePrincipalAppRoleAssignment: Error occurred while executing NewServicePrincipalAppRoleAssignment
     Code: Authorization_RequestDenied
     Message: Insufficient privileges to complete the operation.
     ```
