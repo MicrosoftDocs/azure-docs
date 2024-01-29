@@ -411,30 +411,9 @@ spec:
 
 ### Feature Flags
 
-Use `featureFlag.selectors` property to filter the feature flags to be downloaded from Azure App Configuration.
+Use `featureFlag.selectors` property to filter the feature flags to be downloaded from Azure App Configuration. When you update feature flag values, you might want those changes to be refreshed automatically in your Kubernetes cluster. With `spec.featureFlag.refresh` property, the Kubernetes provider will periodically poll latest feature flag values and update the ConfigMap accordingly.
 
-The following sample downloads feature flags that start with `app1` in their key name and have the label `common`.
-
-``` yaml
-apiVersion: azconfig.io/v1
-kind: AzureAppConfigurationProvider
-metadata:
-  name: appconfigurationprovider-sample
-spec:
-  endpoint: <your-app-configuration-store-endpoint>
-  target:
-    configMapName: configmap-created-by-appconfig-provider
-  featureFlag:
-    selectors:
-      - keyFilter: app1*
-        labelFilter: common
-```
-
-### Refresh of feature flags
-
-When you update feature flag values in Azure App Configuration, you might want those changes to be refreshed automatically in your Kubernetes cluster. With `spec.featureFlag.refresh` property, the Kubernetes provider will periodically poll latest feature flag values and update the ConfigMap accordingly.
-
-The following sample refreshes selected feature flags from Azure App Configuration every 10 minutes.
+The following sample polls selected feature flags from Azure App Configuration every 10 minutes.
 
 ``` yaml
 apiVersion: azconfig.io/v1
