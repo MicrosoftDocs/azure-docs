@@ -71,18 +71,15 @@ Once you have the JSON file created, you can use any of the following methods to
 
 ### Collect and deliver tab
 
-:::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-data-source-basic-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-data-source-basic-updated.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule." border="false":::
-
 1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
-1. Select a **Data source type**.
-1. Select which data you want to collect. For performance counters, you can select from a predefined set of objects and their sampling rate. For events, you can select from a set of logs and severity levels. 
-1. Select **Custom** to collect logs and performance counters that aren't [currently supported data sources](azure-monitor-agent-overview.md#data-sources-and-destinations) or to [filter events by using XPath queries](#filter-events-using-xpath-queries). You can then specify an [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) to collect any specific values. For an example, see [Sample DCR](data-collection-rule-sample-agent.md).
-     
+1. On the **Add data source** screen, select a **Data source type** and then select **Next**.
+
+    For detailed information about the various data sources you can collect, see [Data sources and destinations](../agents/azure-monitor-agent-overview.md#data-sources-and-destinations).
+
+    :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-data-source-basic-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-data-source-basic-updated.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule." border="false":::
+
+
     :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-data-source-custom-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-data-source-custom-updated.png" alt-text="Screenshot that shows the Azure portal form to select custom performance counters in a data collection rule." border="false":::
-
-### Destination tab
-
-:::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-destination.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-destination.png" alt-text="Screenshot that shows the Azure portal form to add a data source in a data collection rule." border="false":::
 
 1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
 
