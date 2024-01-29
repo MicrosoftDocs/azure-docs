@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Overview
   items:
-  - name: What is Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service?
+  - name: What is Apache Kafka & Apache Flink on Confluent Cloud?
     href: overview.md
 - name: Quickstarts
   expanded: true
