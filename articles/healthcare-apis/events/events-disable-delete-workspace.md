@@ -46,11 +46,6 @@ To avoid errors and successfully delete events enabled workspaces, follow these 
 
 ## Next steps
 
-In this article, you learned how to disable events and delete events enabled workspaces.
-
-To learn about how to troubleshoot events, see
-
-> [!div class="nextstepaction"]
-> [Troubleshoot events](events-troubleshooting-guide.md)
+[Troubleshoot events](events-troubleshooting-guide.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
