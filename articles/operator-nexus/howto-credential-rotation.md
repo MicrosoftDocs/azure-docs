@@ -19,13 +19,13 @@ This document provides an overview of the credential rotation support request th
 
 ### Create Support Request
 
-Please raise credential rotation request by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Below details are required in order to perform the credential rotation on the required target cluster:
-  1. Type of credential that needs to be rotated. Please specify if the request is for BMC or Storage or Console User or for all 3 types.
-  1. Please provide Tenant ID.
-  1. Please provide Subscription ID.
-  1. Please provide Resource Group Name in which the target cluster resides.
-  1. Please provide Target Cluster Name.
-  1. Please provide Target Cluster ARM ID
-  1. Please provide Customer Key Vault ID to which rotated credentials needs to be updated. 
+Raise credential rotation request by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Below details are required in order to perform the credential rotation on the required target cluster:
+  1. Type of credential that needs to be rotated. Specify if the request is for BMC or Storage or Console User or for all three types.
+  1. Provide Tenant ID.
+  1. Provide Subscription ID.
+  1. Provide Resource Group Name in which the target cluster resides.
+  1. Provide Target Cluster Name.
+  1. Provide Target Cluster ARM ID
+  1. Provide Customer Key Vault ID to which rotated credentials needs to be updated. 
 
 For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
