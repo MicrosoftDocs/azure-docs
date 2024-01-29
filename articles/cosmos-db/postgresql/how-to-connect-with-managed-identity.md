@@ -32,9 +32,12 @@ You learn how to:
 
 - If you're not familiar with the managed identities for Azure resources feature, see this [overview](/entra/identity/managed-identities-azure-resources/overview). If you don't have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 - To do the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your Azure subscription or resource group). If you need assistance with a role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
-- You need an Azure VM (for example, running Ubuntu Linux) that you'd like to use to access your database using managed identity.
-- You need an Azure Cosmos DB for PostgreSQL cluster that has [Microsoft Entra ID authentication method](./how-to-configure-authentication.md#choose-authentication-method) configured.
+- An Azure VM (for example, running Ubuntu Linux) that you'd like to use to access your database using managed identity.
+- An Azure Cosmos DB for PostgreSQL cluster that has [Microsoft Entra ID authentication method](./how-to-configure-authentication.md#choose-authentication-method) enabled.
 - To follow the C# example, first, complete the guide on how to [connect with C#](./quickstart-app-stacks-csharp.md)
+- [psql](https://www.postgresql.org/download/) installed.
+- [curl](https://curl.se/download.html) installed.
+- [jq](https://jqlang.github.io/jq/download/) installed.
 
 ## Create a system-assigned managed identity for your VM
 
@@ -44,7 +47,7 @@ Use [az vm identity assign](/cli/azure/vm/identity/) with the `identity assign` 
 az vm identity assign -g myResourceGroup -n myVm
 ```
 
-Retrieve the application ID for the system-assigned managed identity, which you'll need in the next few steps:
+Retrieve the application ID for the system-assigned managed identity, which you need in the next few steps:
 
 ```azurecli
 # Get the client ID (application ID) of the system-assigned managed identity
@@ -84,7 +87,7 @@ You get back a JSON result containing an `access_token` field - this long text v
 For testing purposes, you can run the following commands in your shell.
 
 > [!NOTE]
-> Note you need `curl`, `jq`, and the `psql` client installed.
+> You need `curl`, `jq`, and the `psql` client installed. See [prerequisites](#prerequisites) for download links.
 
 ```bash
 # Retrieve the access token
