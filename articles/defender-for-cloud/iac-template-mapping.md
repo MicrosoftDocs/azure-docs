@@ -24,8 +24,8 @@ To allow Microsoft Defender for Cloud to map IaC template to cloud resources, yo
   - Supported template languages: Azure Resource Manager, Bicep, CloudFormation, Terraform.
   
 > [!NOTE]
-> Microsoft Defender for Cloud will only use the following tags from IaC templates for mapping:
-
+> Microsoft Defender for Cloud uses only the following tags from IaC templates for mapping:
+>
 > - `yor_trace`
 > - `mapping_tag`
 
