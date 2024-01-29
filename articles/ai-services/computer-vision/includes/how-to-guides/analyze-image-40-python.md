@@ -25,7 +25,7 @@ To authenticate against the Image Analysis service, you need a Computer Vision k
 
 
 
-Start by creating an [ImageAnalysisClient](https://learn.microsoft.com/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.imageanalysisclient) object using one of the constructors. For example:
+Start by creating an [ImageAnalysisClient](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.imageanalysisclient) object using one of the constructors. For example:
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_client)]
 
@@ -65,18 +65,18 @@ To use a custom model, create the [ImageAnalysisOptions](/python/api/azure-ai-vi
 
 ## Call the Analyze API with options
 
-The following code calls the [Analyze API](https://learn.microsoft.com/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.imageanalysisclient#azure-ai-vision-imageanalysis-imageanalysisclient-analyze) with the features you selected above and additional options, defined below. To analyze from an image buffer instead of URL, replace `image_url=image_url` in the method call with `image_data=image_data`.
+The following code calls the [Analyze API](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.imageanalysisclient#azure-ai-vision-imageanalysis-imageanalysisclient-analyze) with the features you selected above and additional options, defined below. To analyze from an image buffer instead of URL, replace `image_url=image_url` in the method call with `image_data=image_data`.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_call)]
 
 ### Select smart cropping aspect ratios
 
-An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when [VisualFeatures.SMART_CROPS](https://learn.microsoft.com/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.models.visualfeatures) was selected as part the visual feature list. If you select [VisualFeatures.SMART_CROPS](https://learn.microsoft.com/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.models.visualfeatures) but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
+An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when [VisualFeatures.SMART_CROPS](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.models.visualfeatures) was selected as part the visual feature list. If you select [VisualFeatures.SMART_CROPS](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.models.visualfeatures) but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
 
 
 ### Select gender neutral captions
 
-If you're extracting captions or dense captions (using [VisualFeatures.CAPTION](https://learn.microsoft.com/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.models.visualfeatures) or [VisualFeatures.DENSE_CAPTIONS](https://learn.microsoft.com/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.models.visualfeatures)), you can ask for gender neutral captions. Gender neutral captions are optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**.
+If you're extracting captions or dense captions (using [VisualFeatures.CAPTION](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.models.visualfeatures) or [VisualFeatures.DENSE_CAPTIONS](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.models.visualfeatures)), you can ask for gender neutral captions. Gender neutral captions are optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**.
 
 ### Specify languages
 
