@@ -2,7 +2,7 @@
 title: Create and manage Backup vaults
 description: Learn how to create and manage the Backup vaults.
 ms.topic: how-to
-ms.date: 12/18/2023
+ms.date: 02/01/2024
 ms.custom: references_regions
 ms.service: backup
 author: AbhishekMallick-MS

@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
-ms.date: 12/25/2023
+ms.date: 02/01/2024
 ms.service: backup
 ms.custom:
   - ignite-2023
