@@ -38,6 +38,7 @@ The following regions currently support availability zones:
 | West US 2 | Sweden Central | | | |
 | West US 3 | Switzerland North | | | |
 ||Poland Central ||||
+||Spain Central* ||||
 
 \* To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support availability zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
@@ -75,7 +76,7 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 >[!IMPORTANT]
 >Some services, although they are zone-redundant, may have limited support for availability zones. For example, some may only support availability zones for certain tiers, regions, or SKUs. To get more information on service limitations for availability zone support, select that service in the table below.
 
-### ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services 
+### ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services
 
 | **Products**   | **Resiliency**   |
 | --- | --- |
@@ -150,7 +151,7 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 | [Azure Monitor](../azure-monitor/logs/availability-zones.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Monitor: Application Insights](../azure-monitor/logs/availability-zones.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Monitor: Log Analytics](../azure-monitor/logs/availability-zones.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
-| [Azure NAT Gateway](../nat-gateway/nat-availability-zones.md) | ![An icon that signifies this service is zonal](media/icon-zonal.svg) | 
+| [Azure NAT Gateway](../nat-gateway/nat-availability-zones.md) | ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Network Watcher](../network-watcher/frequently-asked-questions.yml) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Network Watcher: Traffic Analytics](../network-watcher/frequently-asked-questions.yml) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Notification Hubs](../notification-hubs/availability-zones.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
