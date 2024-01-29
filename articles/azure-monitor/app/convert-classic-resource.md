@@ -329,6 +329,12 @@ No. There's no impact to [Live Metrics](live-stream.md#live-metrics-monitor-and-
 
 To continue with automated exports, you will need to migrate to [diagnostic settings](/previous-versions/azure/azure-monitor/app/continuous-export-diagnostic-setting) before migrating to workspace-based resource.  The diagnostic setting will carry over in the migration to workspace-based Application Insights.
 
+### How do I ensure a successful migration of my App Insights resource using Terraform?
+
+If you are using Terraform to manage your Azure resources, it is important to use the latest version of the Terraform azurerm provider before attempting to upgrade your App Insights resource. Using an older version of the provider, such as version 3.12, may result in the deletion of the classic component before creating the replacement workspace-based Application Insights resource. This can cause the loss of previous data and require updating the configurations in your monitored apps with new connection string and instrumentation key values.
+
+To avoid this issue, make sure to use the latest version of the Terraform [azurerm provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest), version 3.89 or higher, which performs the proper migration steps by issuing the appropriate ARM call to upgrade the App Insights classic resource to a workspace-based resource while preserving all the old data and connection string/instrumentation key values.
+
 ## Troubleshooting
 
 This section offers troubleshooting tips for common issues.
