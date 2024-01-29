@@ -2,7 +2,7 @@
 title: Connect with redirection - Azure Database for MariaDB
 description: This article describes how you can configure your application to connect to Azure Database for MariaDB with redirection.
 ms.service: mariadb
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 author: SudheeshGH
 ms.author: sunaray
 ms.topic: how-to
@@ -59,7 +59,7 @@ The subsequent sections of the document outline how to install the `mysqlnd_azur
 **Prerequisites**
 
 - PHP versions 7.2.15+ and 7.3.2+
-- PHP PEAR 
+- PHP PEAR
 - php-mysql
 - Azure Database for MariaDB server
 

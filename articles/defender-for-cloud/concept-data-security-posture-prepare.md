@@ -91,8 +91,9 @@ To protect AWS resources in Defender for Cloud, set up an AWS connector using a 
   - Delete/update DB/cluster snapshot with prefix *defenderfordatabases*
   - List all KMS keys
   - Use all KMS keys only for RDS on source account
-  - Full control on all KMS keys with tag prefix *DefenderForDatabases*
+  - Create & full control on all KMS keys with tag prefix *DefenderForDatabases*
   - Create alias for KMS keys
+- KMS keys are created once for each region that contains RDS instances. The creation of a KMS key may incur a minimal additional cost, according to AWS KMS pricing.
 
 ### Discovering GCP storage buckets
 

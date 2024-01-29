@@ -39,7 +39,7 @@ Use the following steps to find the IP address for your application.
 
 1. In the **General info** section, find **Endpoint** and copy the **IP Address** value. The example in the following screenshot uses the IP address `10.0.1.6`:
 
-   :::image type="content" source="media/spring-cloud-access-app-vnet/find-ip-address.png" alt-text="Screenshot of the Azure portal that shows the Vnet injection Endpoint information." lightbox="media/spring-cloud-access-app-vnet/find-ip-address.png":::
+   :::image type="content" source="media/access-app-virtual-network/find-ip-address.png" alt-text="Screenshot of the Azure portal that shows the Vnet injection Endpoint information." lightbox="media/access-app-virtual-network/find-ip-address.png":::
 
 ### [Azure CLI](#tab/azure-CLI)
 
@@ -133,7 +133,7 @@ Use the following steps to link the private DNS zone you created to the virtual 
 
 1. For **Virtual network**, select the virtual network you created previously.
 
-   :::image type="content" source="media/spring-cloud-access-app-vnet/add-virtual-network-link.png" alt-text="Screenshot of the Azure portal that shows the Add virtual network link page." lightbox="media/spring-cloud-access-app-vnet/add-virtual-network-link.png":::
+   :::image type="content" source="media/access-app-virtual-network/add-virtual-network-link.png" alt-text="Screenshot of the Azure portal that shows the Add virtual network link page." lightbox="media/access-app-virtual-network/add-virtual-network-link.png":::
 
 1. Select **OK**.
 
@@ -174,7 +174,7 @@ Use the following steps to use the private DNS zone to translate/resolve DNS.
    | TTL unit   | Select **Hours**.                                                                                                   |
    | IP address | Enter the [IP address](#find-the-ip-for-your-application). The following screenshot uses the IP address *10.1.0.7*. |
 
-   :::image type="content" source="media/spring-cloud-access-app-vnet/private-dns-zone-add-record.png" alt-text="Screenshot of the Azure portal that shows the Add record set page." lightbox="media/spring-cloud-access-app-vnet/private-dns-zone-add-record.png":::
+   :::image type="content" source="media/access-app-virtual-network/private-dns-zone-add-record.png" alt-text="Screenshot of the Azure portal that shows the Add record set page." lightbox="media/access-app-virtual-network/private-dns-zone-add-record.png":::
 
 1. Select **OK**.
 
@@ -206,7 +206,7 @@ Use the following steps to assign a private FQDN:
 
 1. Select **Assign Endpoint** to assign a private FQDN to your application. Assigning an FQDN can take a few minutes.
 
-   :::image type="content" source="media/spring-cloud-access-app-vnet/assign-private-endpoint.png" alt-text="Screenshot of the Azure portal that shows the Overview page with Assign endpoint highlighted." lightbox="media/spring-cloud-access-app-vnet/assign-private-endpoint.png":::
+   :::image type="content" source="media/access-app-virtual-network/assign-private-endpoint.png" alt-text="Screenshot of the Azure portal that shows the Overview page with Assign endpoint highlighted." lightbox="media/access-app-virtual-network/assign-private-endpoint.png":::
 
 1. The assigned private FQDN (labeled **URL**) is now available. You can only access the URL within the private network, but not on the internet.
 
@@ -228,7 +228,7 @@ az spring app update \
 
 After the assignment, you can access the application's private FQDN in the private network. For example, you can create a jumpbox machine in the same virtual network or in a peered virtual network. Then, on that jumpbox or virtual machine, you can access the private FQDN.
 
-:::image type="content" source="media/spring-cloud-access-app-vnet/access-private-endpoint.png" alt-text="Screenshot of the sample application in a browser window with the private FQDN highlighted in the URL." lightbox="media/spring-cloud-access-app-vnet/access-private-endpoint.png":::
+:::image type="content" source="media/access-app-virtual-network/access-private-endpoint.png" alt-text="Screenshot of the sample application in a browser window with the private FQDN highlighted in the URL." lightbox="media/access-app-virtual-network/access-private-endpoint.png":::
 
 ## Clean up resources
 

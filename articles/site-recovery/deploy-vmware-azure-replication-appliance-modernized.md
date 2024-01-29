@@ -114,7 +114,7 @@ If there are any organizational restrictions, you can manually set up the Site R
   - CheckCommandPromptPolicy - Prevents access to the command prompt.
 
       - Key: HKLM\SOFTWARE\Policies\Microsoft\Windows\System
-      - DisableCMD value shouldn't be equal 0.
+      - DisableCMD value should be equal 0.
 
   - CheckTrustLogicAttachmentsPolicy - Trust logic for file attachments.
 

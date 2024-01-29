@@ -3,7 +3,8 @@ title: Authenticate access to Azure Event Hubs with shared access signatures
 description: This article shows you how to authenticate access to Event Hubs resources using shared access signatures.
 ms.topic: conceptual
 ms.date: 03/13/2023
-ms.devlang: csharp, java, javascript, php
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, php
 ms.custom: devx-track-csharp
 ---
 
