@@ -52,7 +52,18 @@ The Premium Package license included in Azure payment HSM features:
 
 Customers are responsible for applying payShield security patches and upgrading payShield firmware for their provisioned HSMs, as needed. If customers have questions or require assistance, they should work with Thales support.
 
-Microsoft is responsible for applying payShield security patches to unallocated HSMs.  
+Microsoft is responsible for applying payShield security patches to unallocated HSMs.
+
+## Availability
+
+Azure Payment HSM is currently available in the following regions:
+
+- East US
+- West US
+- South Central US
+- Central US
+- North Europe
+- West Europe
 
 ## Microsoft support
 
