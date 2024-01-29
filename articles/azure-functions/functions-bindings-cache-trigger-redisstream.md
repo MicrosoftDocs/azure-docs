@@ -1,5 +1,5 @@
 ---
-title: Using RedisStreamTrigger Azure Function (preview)
+title: RedisStreamTrigger for Azure Functions (preview)
 description: Learn how to use RedisStreamTrigger Azure Function
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 01/22/2024
 ---
 
-# RedisStreamTrigger Azure Function (preview)
+# RedisStreamTrigger for Azure Functions (preview)
 
 The `RedisStreamTrigger` reads new entries from a stream and surfaces those elements to the function.
 
@@ -24,6 +24,19 @@ For more information, see [RedisStreamTrigger](https://github.com/Azure/azure-fu
 > [!IMPORTANT]
 > Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md).
 >
+
+::: zone pivot="programming-language-javascript"  
+<!--- Replace with the following when Node.js v4 is supported:
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+-->
+[!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
+::: zone-end  
+::: zone pivot="programming-language-python"   
+<!--- Replace with the following when Node.js v4 is supported:
+[!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
+-->
+[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)] 
+::: zone-end 
 
 ## Example
 

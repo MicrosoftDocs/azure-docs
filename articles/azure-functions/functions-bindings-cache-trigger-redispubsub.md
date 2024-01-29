@@ -1,5 +1,5 @@
 ---
-title: Using RedisPubSubTrigger Azure Function (preview)
+title: RedisPubSubTrigger for Azure Functions (preview)
 description: Learn how to use RedisPubSubTrigger Azure Function
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 01/22/2024
 ---
 
-# RedisPubSubTrigger Azure Function (preview)
+# RedisPubSubTrigger for Azure Functions (preview)
 
 Redis features [publish/subscribe functionality](https://redis.io/docs/interact/pubsub/) that enables messages to be sent to Redis and broadcast to subscribers.
 
@@ -26,6 +26,19 @@ For more information this Azure Cache for Redis triggers and bindings, [Redis Ex
 > [!WARNING]
 > This trigger isn't supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
 >
+
+::: zone pivot="programming-language-javascript"  
+<!--- Replace with the following when Node.js v4 is supported:
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+-->
+[!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
+::: zone-end  
+::: zone pivot="programming-language-python"   
+<!--- Replace with the following when Node.js v4 is supported:
+[!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
+-->
+[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)] 
+::: zone-end 
 
 ## Examples
 
