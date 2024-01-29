@@ -1,53 +1,40 @@
 ---
-title: Using input binding with Azure Cache for Redis (preview)
-description: Learn how to use input bindings for Azure Functions with Azure Cache for Redis.
+title: Azure Cache for Redis input binding for Azure Functions (preview)
+description: Learn how to use input bindings to connect to Azure Cache for Redis from Azure Functions.
 author: flang-msft
-zone_pivot_groups: programming-languages-set-functions-lang-workers
-
 ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 12/19/2023
+ms.date: 01/26/2024
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Cache for Redis input binding for Azure Functions
 
-When a function runs, the Azure Azure Cache for Redis input binding retrieves data from a cache and passes it to the input parameter of the function.
+When a function runs, the Azure Cache for Redis input binding retrieves data from a cache and passes it to your function as an input parameter.
 
 For information on setup and configuration details, see the [overview](functions-bindings-cache.md).
+
+::: zone pivot="programming-language-javascript"  
+<!--- Replace with the following when Node.js v4 is supported:
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+-->
+[!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
+::: zone-end  
+::: zone pivot="programming-language-python"   
+<!--- Replace with the following when Node.js v4 is supported:
+[!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
+-->
+[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)] 
+::: zone-end  
 
 ## Example
 
 ::: zone pivot="programming-language-csharp"
-
-The following code gets any key that was recently set using the pub/sub trigger and an input binding on the `GET` command.
-
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-More samples for the Azure Cache for Redis input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-redis-extension).
-<!-- link to redis samples -->
-
-### [In-process](#tab/in-process)
-
-```csharp
-using Microsoft.Extensions.Logging;
-
-namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisPubSubTrigger
-{
-    internal class SetGetter
-    {
-        [FunctionName(nameof(SetGetter))]
-        public static void Run(
-            [RedisPubSubTrigger(Common.connectionStringSetting, "__keyevent@0__:set")] string key,
-            [Redis(Common.connectionStringSetting, "GET {Message}")] string value,
-            ILogger logger)
-        {
-            logger.LogInformation($"Key '{key}' was set to value '{value}'");
-        }
-    }
-}
-```
+The following code uses the key from the pub/sub trigger to obtain and log the value from an input binding using a `GET` command:
 
 ### [Isolated process](#tab/isolated-process)
 
@@ -77,10 +64,34 @@ namespace Microsoft.Azure.Functions.Worker.Extensions.Redis.Samples.RedisInputBi
 
 ```
 
+### [In-process](#tab/in-process)
+
+```csharp
+using Microsoft.Extensions.Logging;
+
+namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisPubSubTrigger
+{
+    internal class SetGetter
+    {
+        [FunctionName(nameof(SetGetter))]
+        public static void Run(
+            [RedisPubSubTrigger(Common.connectionStringSetting, "__keyevent@0__:set")] string key,
+            [Redis(Common.connectionStringSetting, "GET {Message}")] string value,
+            ILogger logger)
+        {
+            logger.LogInformation($"Key '{key}' was set to value '{value}'");
+        }
+    }
+}
+```
+
 ---
 
+More samples for the Azure Cache for Redis input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-redis-extension).
+<!-- link to redis samples -->
 ::: zone-end
 ::: zone pivot="programming-language-java"
+The following code uses the key from the pub/sub trigger to obtain and log the value from an input binding using a `GET` command:
 
 ```java
 package com.function.RedisInputBinding;
@@ -110,8 +121,11 @@ public class SetGetter {
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
+### [Model v3](#tab/nodejs-v3)
 
-```node.js
+This function.json defines both a pub/sub trigger and an input binding to the GET message on an Azure Cache for Redis instance:
+
+```json
 {
     "bindings": [
         {
@@ -133,7 +147,7 @@ public class SetGetter {
 }
 ```
 
-index.js
+This JavaScript code (from index.js) retrives and logs the cached value related to the key provided by the pub/sub trigger. 
 
 ```nodejs
 
@@ -143,12 +157,18 @@ module.exports = async function (context, key, value) {
 
 ```
 
+### [Model v4](#tab/nodejs-v4)
+
+Node.js v4 isn't yet supported by the Azure Cache for Redis extension.
+
+---
+
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 
-function.js
-
-```powershell
+This function.json defines both a pub/sub trigger and an input binding to the GET message on an Azure Cache for Redis instance:
+<!---Note: it might be confusing that the binding `name` and the parameter name are the same in these examples. --->
+```json
 {
     "bindings": [
         {
@@ -170,7 +190,7 @@ function.js
 }
 ```
 
-run.ps1
+This PowerShell code (from run.ps1) retrives and logs the cached value related to the key provided by the pub/sub trigger. 
 
 ```powershell
 param($key, $value, $TriggerMetadata)
@@ -180,12 +200,15 @@ Write-Host "Key '$key' was set to value '$value'"
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example uses a pub/sub trigger with an input binding to the GET message on an Azure Cache for Redis instance. The trigger and binding are configured in the _function.json_ file associated with the Python function.
+The following example uses a pub/sub trigger with an input binding to the GET message on an Azure Cache for Redis instance. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
-<!-- The following code sample gets any key that was recently set using the pub/sub trigger and an input binding on the GET command. -->
-function.json
+### [v1](#tab/python-v1)
 
-```python
+This function.json defines both a pub/sub trigger and an input binding to the GET message on an Azure Cache for Redis instance:
+
+```json
+{
+    "bindings": [
         {
             "type": "redisPubSubTrigger",
             "connectionStringSetting": "redisConnectionString",
@@ -200,9 +223,11 @@ function.json
             "name": "value",
             "direction": "in"
         }
+    ]
+}
 ```
 
-The `__init__.py` file:
+This Python code (from \_\_init\_\_.py) retrives and logs the cached value related to the key provided by the pub/sub trigger:
 
 ```python
 
@@ -215,63 +240,49 @@ def main(key: str, value: str):
 
 The [configuration](#configuration) section explains these properties.
 
+### [v2](#tab/python-v2)
+
+Python v2 isn't yet supported by the Azure Cache for Redis extension.
+
+---
+
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
-
+    
 > [!NOTE]
 > Not all commands are supported for this binding. At the moment, only read commands that return a single output are supported. The full list can be found [here](https://github.com/Azure/azure-functions-redis-extension/blob/main/src/Microsoft.Azure.WebJobs.Extensions.Redis/Bindings/RedisConverter.cs#L61)
 
-### [In-process](#tab/in-process)
-
-|Attribute property | Description                                                                                                                                                 |
-|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ConnectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` |
-| `Command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces. For example:  `GET key`, `HGET key field`. |
-
-### [Isolated process](#tab/isolated-process)
-
-<!-- 
-C# attribute information for the trigger goes here with an intro sentence. Use a code link like the following to show the method definition: 
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="13-16":::
--->
-
----
+|Attribute property | Description                   |
+|-------------------|-----------------------------------|
+| `ConnectionStringSetting ` | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
+| `Command` | The redis-cli command to be executed on the cache with all arguments separated by spaces, such as:  `GET key`, `HGET key field`. |
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-
 ## Annotations
 
-| Attribute property | Description                                                                                                                                                 |
-|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `connectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` |
-| `command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces. For example:  `GET key`, `HGET key field`. |
+The `RedisInput` annotation supports these properties: 
 
-<!-- Equivalent values for the annotation parameters in Java.-->
+| Property | Description                            |
+|----------|---------------------------------------------------|
+| `name` | The name of the specific input binding. |
+| `connectionStringSetting`   | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
+| `command` | The redis-cli command to be executed on the cache with all arguments separated by spaces, such as:  `GET key` or `HGET key field`. |
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
-
 ## Configuration
-
-### [v1](#tab/python-v1)
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-| function.json Property | Description                                                                                                                                                 |
-|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `connectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` |
-| `command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces. For example:  `GET key`, `HGET key field`. |
+| function.json property |                         |
+|------------------------|-------------------------|
+| `connectionStringSetting` | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
+| `command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces, such as:  `GET key`, `HGET key field`. |
 
-### [v2](#tab/python-v2)
-
-<!-- this get more complex when you support the Python v2 model. -->
-
-The Python v2 programming model example isn't available in preview.
-
----
+> [!NOTE] 
+> Python v2 and Node.js v4 for Functions don't use function.json to define the function. Both of these new language versions aren't currently supported by Azure Redis Cache bindings. 
 
 ::: zone-end  
 
@@ -279,41 +290,10 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 
+The input binding expects to receive a string from the cache.
 ::: zone pivot="programming-language-csharp"  
-The parameter type supported by the XXX trigger depends on the Functions runtime version and the C# modality used.
-
-# [In-process](#tab/in-process)
-
-<!--Any usage information specific to in-process, including types. -->
-
-# [Isolated process](#tab/isolated-process)
-
-<!--Any usage information specific to isolated worker process, including types. -->
-
----
-
+When you use a custom type as the binding parameter, the extension tries to deserialize a JSON-formatted string into the custom type of this parameter.   
 ::: zone-end  
-<!--Any of the below pivots can be combined if the usage info is identical.-->
-::: zone pivot="programming-language-java"
-<!--Any usage information from the Java tab in ## Usage. -->
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell"  
-<!--Any usage information from the JavaScript tab in ## Usage. -->
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
-<!--Any usage information from the PowerShell tab in ## Usage. -->
-::: zone-end
-::: zone pivot="programming-language-python"  
-<!--Any usage information from the Python tab in ## Usage. -->
-::: zone-end  
-
-## Available Parameter Types
-
-- `StackExchange.Redis.RedisValue, string, byte[], ReadOnlyMemory<byte>`:
-  - The value returned by the command.
-- `Custom`:
-  - The trigger uses Json.NET serialization to map the value returned by the command from a string into a custom type.
 
 ## Next steps
 
-<!--At least one next step link.-->

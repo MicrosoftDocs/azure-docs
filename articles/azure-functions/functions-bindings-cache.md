@@ -21,11 +21,13 @@ Azure Cache for Redis can be used as a trigger for Azure Functions, allowing you
 
 You can integrate Azure Cache for Redis and Azure Functions to build functions that react to events from Azure Cache for Redis or external systems.
 
-| Action  | Direction | Type | Preview |
-|---------|-----------|------|------|
-| Triggers on Redis pub sub messages   | N/A | [RedisPubSubTrigger](functions-bindings-cache-trigger-redispubsub.md) | Yes|
-| Triggers on Redis lists | N/A | [RedisListsTrigger](functions-bindings-cache-trigger-redislist.md)  | Yes |
-| Triggers on Redis streams | N/A | [RedisStreamsTrigger](functions-bindings-cache-trigger-redisstream.md) | Yes |
+| Action  | Direction |  Support level |
+|---------|-----------|-----|
+| [Trigger on Redis pub sub messages](functions-bindings-cache-trigger-redispubsub.md)   | Trigger | Preview |
+| [Trigger on Redis lists](functions-bindings-cache-trigger-redislist.md)  | Trigger | Preview |
+| [Trigger on Redis streams](functions-bindings-cache-trigger-redisstream.md) | Trigger | Preview |
+| [Read a cached value](functions-bindings-cache-input.md) | Input | Preview |
+| [Write a values to cache](functions-bindings-cache-output.md) | Output | Preview |  
 
 ## Scope of availability for functions triggers
 
@@ -36,8 +38,7 @@ You can integrate Azure Cache for Redis and Azure Functions to build functions t
 |Streams | Yes  | Yes  |  Yes  |
 
 > [!IMPORTANT]
-> Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md).
->
+> Redis triggers are currently only supported for functions running in either a [Elastic Premium plan](functions-premium-plan.md) or a dedicated [App Service plan](./dedicated-plan.md).
 
 ::: zone pivot="programming-language-csharp"
 
