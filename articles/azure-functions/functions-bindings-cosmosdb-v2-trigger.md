@@ -406,7 +406,7 @@ Use the `@CosmosDBTrigger` annotation on parameters that read data from Azure Co
 |Attribute property | Description|
 |---------|----------------------|
 |**connection** | The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account being monitored. For more information, see [Connections](#connections).|
-|**name** | The name of the variable used in function.json. |
+|**name** | The name of the function. |
 |**databaseName**  | The name of the Azure Cosmos DB database with the container being monitored. |
 |**containerName** | The name of the container being monitored. |
 |**leaseConnectionStringSetting** | (Optional) The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account that holds the lease container. <br><br> When not set, the `Connection` value is used. This parameter is automatically set when the binding is created in the portal. The connection string for the leases container must have write permissions.|
