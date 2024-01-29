@@ -32,7 +32,7 @@ The Easv6-series and Eadsv6-series utilize AMD's 4th Generation EPYCTM 9004 pr
 
 ## Easv6-series 
 Easv6-series VMs utilize AMD's 4th Generation EPYCTM 9004 processors that can achieve a boosted maximum frequency of 3.7GHz. These virtual machines offer up to 96 vCPU and 672 GiB of RAM. The Easv6-series sizes offer a combination of vCPU and memory that is ideal for memory-intensive enterprise applications. The new VMs with no local disk provide a better value proposition for workloads that do not require local temporary storage. 
- **Note** 
+**Note** 
 For frequently asked questions, see **[Azure VM sizes with no local temp disk](/azure/virtual-machines/azure-vms-no-temp-disk)**. 
 Easv6-series virtual machines support Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
