@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: event-tier1-build-2022, build-2023
 ms.topic: overview
-ms.date: 01/24/2024
+ms.date: 01/31/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->

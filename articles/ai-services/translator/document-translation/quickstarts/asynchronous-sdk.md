@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: devx-track-dotnet, devx-track-python
 ms.topic: quickstart
-ms.date: 01/24/2024
+ms.date: 01/31/2024
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-document-sdk
 ---

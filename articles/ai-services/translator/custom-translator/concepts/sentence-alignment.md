@@ -5,7 +5,7 @@ description: During the training execution, sentences present in parallel docume
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
-ms.date: 01/24/2024
+ms.date: 01/31/2024
 ms.author: lajanuar
 ms.topic: conceptual
 ms.custom: cogserv-non-critical-translator
