@@ -2,8 +2,8 @@
 
 title: Create Azure Arc data controller | Direct connect mode
 description: Explains how to create the data controller in direct connect mode. 
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc

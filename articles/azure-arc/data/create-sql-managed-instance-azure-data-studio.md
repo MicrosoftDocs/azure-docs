@@ -4,8 +4,8 @@ description: Create SQL Managed Instance enabled by Azure Arc using Azure Data S
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 06/16/2021
 ms.topic: how-to
