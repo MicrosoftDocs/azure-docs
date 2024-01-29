@@ -94,61 +94,67 @@ When the output from the script is displayed, save the resources parameters for 
 
 # [Manual setup](#tab/manual)
 
-#### Create the role 
+Create and configure the following items in the GCP **Identity and Access Management (IAM)** service.
 
-1. In the GCP console, navigate to **IAM & Admin**.
+#### Create a custom role
 
-1. Select **Roles** and select **Create role**. 
+1. Follow the instructions in the Google Cloud documentation to [**create a role**](https://cloud.google.com/iam/docs/creating-custom-roles#creating). Per those instructions, create a custom role from scratch.
 
-1. Fill in the relevant details and add permissions as needed.
+1. Name the role so it's recognizable as a Sentinel custom role.
 
-1. Filter the permissions by the **Pub/Sub Subscriber** and **Pub/Sub Viewer** roles, and select **pubsub.subscriptions.consume** and **pubsub.subscriptions.get** permissions. 
+1. Fill in the relevant details and add permissions as needed:
+   - **pubsub.subscriptions.consume**
+   - **pubsub.subscriptions.get**
 
-1. To confirm, select **ADD**. 
+    You can filter the list of available permissions by roles. Select the **Pub/Sub Subscriber** and **Pub/Sub Viewer** roles to filter the list.
 
-1. To create the role, select **Create**. 
+For more information about creating roles in Google Cloud Platform, see [Create and manage custom roles](https://cloud.google.com/iam/docs/creating-custom-roles) in the Google Cloud documentation.
 
-#### Create the service account 
+#### Create a service account 
 
-1. In the GCP Console, navigate to **Service Accounts**, and select **Create Service Account**. 
+1. Follow the instructions in the Google Cloud documentation to [**create a service account**](https://cloud.google.com/iam/docs/service-accounts-create#creating).
 
-1. Fill in the relevant details and select **Create and continue**.
+1. Name the service account so it's recognizable as a Sentinel service account.
 
-1. Select [the role you created previously](#create-the-role), and select **Done** to create the service account.  
+1. Assign [the role you created in the previous section](#create-a-custom-role) to the service account.  
 
-#### Create the workload identity federation 
+For more information about service accounts in Google Cloud Platform, see [Service accounts overview](https://cloud.google.com/iam/docs/service-account-overview) in the Google Cloud documentation.
 
-1. In the GCP Console, navigate to **Workload Identity Federation**.
+#### Create the workload identity pool and provider 
 
-1. If it's your first time using this feature, select **Get started**. Otherwise, select **Create pool**. 
+1. Follow the instructions in the Google Cloud documentation to [**create the workload identity pool and provider**](https://cloud.google.com/iam/docs/workload-identity-federation-with-other-clouds#create_the_workload_identity_pool_and_provider).
 
-1. Fill in the required details, and make sure that the **Tenant ID** and **Tenant name** is the TenantID **without dashes**. 
+1. For the **Name** and **Pool ID**, enter your Azure **Tenant ID**, with the dashes removed.
 
-    > [!NOTE]
-    > To find the tenant ID, in the Azure portal, navigate to **All Services Microsoft Entra ID Overview** and copy the **TenantID**. 
+   > [!NOTE]
+   > To find the tenant ID, in the Azure portal, navigate to **All Services Microsoft Entra ID Overview** and copy the **TenantID**. 
 
-1. Make sure that **Enable pool** is selected. 
+1. Add an identity provider to the pool. Choose **Open ID Connect (OIDC)** as the provider type.
 
-1. To add a provider to the pool:
-   - Select **OIDC** 
-   - Type the **Issuer (URL)**: `https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d`    
-   - Next to **Audiences**, select **Allowed audiences**, and next to **Audience 1**, type: *api://2041288c-b303-4ca0-9076-9612db3beeb2*.
+1. Name the identity provider so it's recognizable for its purpose.
 
-#### Configure the provider attributes 
-    
-1. Under **OIDC 1**, select **assertion.sub** with the supported key **google.subject**    
-1. Select **Continue** and **Save**.
-1. Navigate to the **IAM & Admin** section.
-    - Visit the **Service Account** page.
-    - Locate the relevant service account and access the permissions tab.
-    - Select **'GRANT ACCESS'** to add a new principal.
-    - For the principal name, use the following format: 
-      
-      ```
-      `principal://iam.googleapis.com/projects/${Project number}/locations/global/workloadIdentityPools/${Workload Identity Pool ID}/subject/${Workload Identity Provider ID}`.
-      ```
+1. Enter the following values in the provider settings:
+   - **Issuer (URL)**: `https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d`    
+   - **Allowed audiences**: the application ID URI: `api://2041288c-b303-4ca0-9076-9612db3beeb2`.
+   - **Attribute mapping**: `google.subject=assertion.sub`
 
-    - Under **"Assign roles"** choose **'Workload Identity User'** and **save**.
+For more information about workload identity federation in Google Cloud Platform, see [Workload identity federation](https://cloud.google.com/iam/docs/workload-identity-federation) in the Google Cloud documentation.
+
+#### Grant the identity pool access to the service account
+
+1. Locate and select the service account you created earlier.
+
+1. Locate the **permissions** configuration of the service account.
+
+1. **Grant access** to add a new principal.
+   - Use the following format for the principal name:
+     ```rest
+     principal://iam.googleapis.com/projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{WORKLOAD_IDENTITY_POOL_ID}/subject/{WORKLOAD_IDENTITY_PROVIDER_ID}
+     ```
+
+   - Assign the **Workload Identity User** role and save the configuration.
+
+For more information about granting access in Google Cloud Platform, see [Manage access to projects, folders, and organizations](https://cloud.google.com/iam/docs/granting-changing-revoking-access) in the Google Cloud documentation.
 
 ---
 
