@@ -346,7 +346,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-## Adding Node(s) Back in to the Cluster After Repair
+## Adding servers back into the Cluster after a repair
 
 After Hardware is fixed, run BMM Replace following instructions from the following page [BMM actions](howto-baremetal-functions.md)
 
