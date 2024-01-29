@@ -13,7 +13,7 @@ ms.author: v-abhmallick
 
 This quickstart describes how to configure and perform cross-region restore for Azure Database for PostgreSQL server with PowerShell.
 
-[Azure Backup](backup-overview.md) allows you to back up and restore the Azure Database for PostgreSQL server. The [Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) module is used to create and manage Azure resources from the command line or in scripts. 
+[Azure Backup](backup-overview.md) allows you to back up and restore the Azure Database for PostgreSQL server. The [Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) module allows you to create and manage Azure resources from the command line or in scripts. If you want to restore the PostgreSQL database across regions by using the Azure portal, see [this Quickstart](quick-cross-region-restore.md).
 
 ## Enable Cross Region Restore for Backup vault
 

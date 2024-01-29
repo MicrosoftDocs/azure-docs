@@ -41,7 +41,7 @@ Learn [how to perform Cross Region Restore](create-manage-backup-vault.md#perfor
 
 >[!Note]
 >- Cross Region Restore is now available for PostgreSQL backups protected in Backup vaults. 
->- Backup vaults enabled with Cross Region Restore will be automatically charged at [RA-GRS rates](https://azure.microsoft.com/pricing/details/backup/) for the PostgreSQL backups stored in the vault once the feature is generally available.
+>- Backup vaults enabled with Cross Region Restore are automatically charged at [RA-GRS rates](https://azure.microsoft.com/pricing/details/backup/) for the PostgreSQL backups stored in the vault.
 
 ## Next steps
 
