@@ -9,7 +9,7 @@ ms.date: 11/17/2022
 The following resources are also available:
 
 - [Java SDK reference documentation](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice)
-- [Digital Twins samples](https://github.com/MicrosoftDocs/samples/blob/live/Azure-Samples/digital-twins-samples/digital-twins-samples/index.yml)
+- [Digital Twins samples](https://github.com/Azure/azure-iot-service-sdk-java/blob/main/service/iot-service-samples/readme.md#build-and-run-the-digitaltwinplug-and-play-service-sample-application-for-a-device-with-no-components)
 
 ## IoT Hub service client examples
 

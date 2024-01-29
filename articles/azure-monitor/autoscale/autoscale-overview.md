@@ -34,7 +34,7 @@ When the conditions in the rules are met, one or more autoscale actions are trig
 
 Autoscale scales in and out, or horizontally. Scaling horizontally is an increase or decrease of the number of resource instances. For example, for a virtual machine scale set, scaling out means adding more virtual machines. Scaling in means removing virtual machines. Horizontal scaling is flexible in a cloud situation because you can use it to run a large number of VMs to handle load.
 
-In contrast, scaling up and down, or vertical scaling, keeps the same number of resource instances constant but gives them more capacity in terms of memory, CPU speed, disk space, and network. Vertical scaling is limited by the availability of larger hardware, which eventually reaches an upper limit. Hardware size availability varies in Azure by region. Vertical scaling might also require a restart of the VM during the scaling process. Autoscale does not support vertical scaling.
+Autoscale does not support vertical scaling. In contrast, scaling up and down, or vertical scaling, keeps the same number of resource instances constant but gives them more capacity in terms of memory, CPU speed, disk space, and network. Vertical scaling is limited by the availability of larger hardware, which eventually reaches an upper limit. Hardware size availability varies in Azure by region. Vertical scaling might also require a restart of the VM during the scaling process.
 
 :::image type="content" source="./media/autoscale-overview/vertical-scaling.png" lightbox="./media/autoscale-overview/vertical-scaling.png" alt-text="A diagram that shows scaling up by adding CPU and memory to a virtual machine.":::
 

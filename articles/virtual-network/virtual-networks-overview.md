@@ -7,6 +7,7 @@ ms.service: virtual-network
 ms.topic: overview
 ms.date: 05/08/2023
 ms.author: allensu
+ms.custom: ai-video-concept
 ---
 
 # What is Azure Virtual Network?
