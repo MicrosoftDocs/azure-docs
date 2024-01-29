@@ -68,28 +68,6 @@ landingContent:
             url: azure-portal-dashboard-share-access.md
            
   # Card
-  - title: Reference
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Azure CLI
-            url: /cli/azure/portal
-          - text: Azure PowerShell
-            url: /powershell/module/az.portal
-
-
-  # Card
-  - title: Create and manage support requests
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Create an Azure support request
-            url: supportability/how-to-create-azure-support-request.md
-          - text: Manage an Azure support request
-            url: supportability/how-to-manage-azure-support-request.md
-
-
-  # Card
   - title: Azure mobile app
     linkLists:
       - linkListType: get-started
@@ -102,3 +80,23 @@ landingContent:
             url: mobile-app/alerts-notifications.md
           - text: Use Microsoft Entra ID
             url: mobile-app/microsoft-entra-id.md
+
+  # Card
+  - title: Create and manage support requests
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Azure support request
+            url: supportability/how-to-create-azure-support-request.md
+          - text: Manage an Azure support request
+            url: supportability/how-to-manage-azure-support-request.md
+
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/portal
+          - text: Azure PowerShell
+            url: /powershell/module/az.portal
