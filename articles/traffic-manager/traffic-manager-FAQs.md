@@ -67,8 +67,7 @@ Yes. To learn how to create an alias record for your domain name apex to referen
 
 ### Does Traffic Manager consider the client subnet address when handling DNS queries? 
 
-Yes, in addition to the source IP address of the DNS query it receives (which usually is the IP address of the DNS resolver), when performing lookups for Geographic, Performance, and Subnet routing methods, traffic manager also considers the client subnet address if it's included in the query by the resolver making the request on behalf of the end user.  
-Specifically, [RFC 7871 – Client Subnet in DNS Queries](https://tools.ietf.org/html/rfc7871) that provides an [Extension Mechanism for DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) which can pass on the client subnet address from resolvers that support it.
+Yes. In addition to the source IP address of the DNS query (usually the DNS resolver's IP address), Traffic Manager also considers the client subnet address if it's included in the DNS query that is sent by the DNS resolver making the request on behalf of the end user. These IP addresses are used to optimize geographic, performance, and subnet routing methods. Specifically, [RFC 7871 – Client Subnet in DNS Queries](https://tools.ietf.org/html/rfc7871) provides an [Extension Mechanism for DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) can pass on the client subnet address from resolvers that support it.
 
 ### What is DNS TTL and how does it impact my users?
 
