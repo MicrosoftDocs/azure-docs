@@ -109,10 +109,10 @@ This event contextualizes any changes to VM availability, by detailing necessary
 
 - Downtime Annotations: These annotations are emitted when the platform detects VM availability transitioning to Unavailable. (For example, during unexpected host crashes, rebootful repair operations).
 - Informational Annotations: These annotations are emitted during control plane activities with no impact to VM availability. (Such as VM allocation/Stop/Delete/Start). Usually, no additional customer action is required in response.
-- Degraded Annotations: These annotations are emitted when VM availability is detected to be at risk. (For example, when [failure prediction models](https://azure.microsoft.com/blog/advancing-failure-prediction-and-mitigation-introducing-narya) predict a degraded hardware component that can cause the VM to reboot at any given time). We strongly urge users to redeploy by the deadline specified in the annotation message, to avoid any unanticipated loss of data or downtime. You may receive an alert in Azure VMSS Resource Health or Activity log in one of the following scenarios:
-   - VMs in the Azure VMSS are in the process of being stopped, deallocated, deleted, or started.
-   - You have performed scaling in or out operations on the VMSS.
-   - The alert indicates that the aggregated platform health of [the VMSS is in a transient state of "Degraded."](https://learn.microsoft.com/troubleshoot/azure/virtual-machine-scale-sets/resource-health-degraded-state)
+- Degraded Annotations: These annotations are emitted when VM availability is detected to be at risk. (For example, when [failure prediction models](https://azure.microsoft.com/blog/advancing-failure-prediction-and-mitigation-introducing-narya) predict a degraded hardware component that can cause the VM to reboot at any given time). We strongly urge users to redeploy by the deadline specified in the annotation message, to avoid any unanticipated loss of data or downtime. You may receive an alert in Azure virtual machine scale sets Resource Health or Activity log in one of the following scenarios:
+   - VMs in the Azure virtual machine scale sets are in the process of being stopped, deallocated, deleted, or started.
+   - You have performed scaling in or out operations on the virtual machine scale sets.
+   - The alert indicates that the aggregated platform health of [the virtual machine scale sets is in a transient state of "Degraded."](/troubleshoot/azure/virtual-machine-scale-sets/resource-health-degraded-state)
 
 To poll the associated VM availability annotations for a resource, if any, refer to the properties field which contains the following details:
 
@@ -123,7 +123,7 @@ To poll the associated VM availability annotations for a resource, if any, refer
  "annotationName": "VirtualMachineHostRebootedForRepair",
  "occurredTime": "2022-09-25T20:21:37.5280000Z",
  "category": "Unplanned",
- "summary": "We're sorry, your virtual machine isn't available because an unexpected failure on the host server. Azure has begun the auto-recovery process and is currently rebooting the host server. No additional action is required from you at this time. The virtual machine will be back online after the reboot completes.",
+ "summary": "We're sorry, your virtual machine isn't available because an unexpected failure on the host server. Azure has begun the auto-recovery process and is currently rebooting the host server. No further action is required from you at this time. The virtual machine will be back online after the reboot completes.",
  "context": "Platform Initiated",
  "reason": "Unexpected host failure"
  }
@@ -131,7 +131,7 @@ To poll the associated VM availability annotations for a resource, if any, refer
 
 #### Property description
 
-| **Field** | **Description** | [**Corresponding RHC**](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log-schema#resource-health-category) **field** |
+| **Field** | **Description** | [**Corresponding RHC**](../azure-monitor/essentials/activity-log-schema.md#resource-health-category) |
 | --- | --- | --- |
 | targetResourceType | Type of resource for which health data is flowing | resourceType |
 | targetResourceId | Resource ID | resourceId |
@@ -213,7 +213,7 @@ Currently in public preview. It's well-suited for tracking trends, aggregating p
 
 #### Getting started
 
-Users can either consume the metric programmatically via the [Azure Monitor REST API](/rest/api/monitor/metrics.md) or directly from the [Azure portal](https://portal.azure.com/). The following steps highlight metric consumption from the Azure portal.
+Users can either consume the metric programmatically via the [Azure Monitor REST API](/rest/api/monitor/metrics) or directly from the [Azure portal](https://portal.azure.com/). The following steps highlight metric consumption from the Azure portal.
 
 Once on the Azure portal, navigate to the VM overview blade. The new metric will be displayed as VM Availability (Preview), along with other platform metrics under the Monitoring tab.
 
@@ -232,7 +232,7 @@ _Figure 5: View the newly added VM availability Metric on Metrics Explorer on Az
 | **Display Name** | **VM Availability (preview)** |
 | --- | --- |
 | Metric Values | 1 during expected behavior; corresponds to VM in Available state. 0 when VM is impacted by rebootful disruptions; corresponds to VM in Unavailable state. NULL (shows a dotted or dashed line on charts) when the Azure service that is emitting the metric is down or is unaware of the exact status of the VM; corresponds to VM in Unknown state. |
-| Aggregation | The default aggregation of the metric is Average, for prioritized investigations based on extent of downtime incurred. The other aggregations available are: Min, to immediately pinpoint to all the times where VM was unavailable. Max, to immediately pinpoint to all the instances where VM was Available. Refer [here](../azure-monitor/essentials/metrics-aggregation-explained.md) for more details on chart range, granularity, and data aggregation. |
+| Aggregation | The default aggregation of the metric is Average, for prioritized investigations based on extent of downtime incurred. The other aggregations available are: Min, to immediately pinpoint to all the times where VM was unavailable. Max, to immediately pinpoint to all the instances where VM was Available. For more information on chart range, granularity, and data aggregation, see [Azure Monitor Metrics aggregation and display explained](../azure-monitor/essentials/metrics-aggregation-explained.md). |
 | Data Retention | Data for the VM availability metric will be [stored for 93 days](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics) to assist in trend analysis and historical lookback. |
 | Pricing | Please refer to the [Pricing breakdown](https://azure.microsoft.com/pricing/details/monitor/#pricing), specifically in the "Metrics" and "Alert Rules" sections. |
 
@@ -271,7 +271,7 @@ While the initial downtime notification functionality has existed for several ye
 
 #### Root Cause Analysis engine
 
-Let's take a closer look at the prior example and walk through the details of how the RCA engine works and the technology behind it. At the core of our RCA engine for VMs is [Azure Data Explorer](../data-explorer/data-explorer-overview.md) (ADX), a big data service optimized for high volume log telemetry analytics. Azure Data Explorer enables the ability to easily parse through terabytes of log telemetry from devices and services that comprise the Azure platform, join them together, and interpret the correlated information streams to derive a root cause for different failure scenarios. This ends up being a multistep data engineering process:
+Let's take a closer look at the prior example and walk through the details of how the RCA engine works and the technology behind it. At the core of our RCA engine for VMs is [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) (ADX), a big data service optimized for high volume log telemetry analytics. Azure Data Explorer enables the ability to easily parse through terabytes of log telemetry from devices and services that comprise the Azure platform, join them together, and interpret the correlated information streams to derive a root cause for different failure scenarios. This ends up being a multistep data engineering process:
 
 Phase 1: Detecting downtime
 
@@ -285,19 +285,19 @@ Once a trigger event is defined (in this case, a VM transitioning to an unhealth
 - TOR: the top of rack network switch.
 - Azure Storage: the service which hosts Virtual Disks for Azure Virtual Machines.
 
-Each of these systems has their own telemetry feeds that need to get parsed and correlated with the VM downtime trigger event. This is done through understanding the dependency graph for a VM and the underlying systems that can cause a VM to fail, and then joining all these dependent systems' health telemetry together, filtered on events that are relatively close to the VM transition in time. Azure Data Explorer's intuitive and powerful query language helps with this, with documented patterns like [time window join](../data-explorer/kusto/query/join-timewindow.md) for correlating temporal telemetry streams together. At the end of this correlation process, we have a dataset that represents VM downtime transitions with correlated platform telemetry from all the dependent systems that could cause or could have information useful in determining what led to the VM failure.
+Each of these systems has their own telemetry feeds that need to get parsed and correlated with the VM downtime trigger event. This is done through understanding the dependency graph for a VM and the underlying systems that can cause a VM to fail, and then joining all these dependent systems' health telemetry together, filtered on events that occurred close to the time of the VM transition. Azure Data Explorer's intuitive and powerful query language helps with this, with documented patterns like [time window join](/azure/data-explorer/kusto/query/join-timewindow) for correlating temporal telemetry streams together. At the end of this correlation process, we have a dataset that represents VM downtime transitions with correlated platform telemetry from all the dependent systems that could cause or could have information useful in determining what led to the VM failure.
 
 Phase 3: Root cause attribution
 
-The next step in the process is attribution. Now that we've collected all the relevant data together in a single dataset, attribution rules get applied to interpret the information and translate it into a customer-facing root cause statement. Going back to our original example of a TOR failure, after our correlation analysis we might have many interesting pieces of information to interpret. For example, systems monitoring the Azure hosts might have logs indicating they lost connectivity to the hosts during this time. We might also have signals related to virtual disk connectivity problems, and explicit signals from the TOR device about the failure. All these pieces of information are now scanned over, and the explicit TOR failure signal is prioritized over the other signals as the root cause. This prioritization process, and the rules behind it, are constructed with domain experts and modified as the Azure platform evolves. Machine learning and anomaly detection mechanisms sit on top of these attributed root causes, to help identify opportunities to improve these classification rules as well as to detect pattern changes in the rate of these failures to feed back into [safe deployment pipelines](https://azure.microsoft.com/blog/advancing-safe-deployment-with-aiops-introducing-gandalf/).
+The next step in the process is attribution. Now that we've collected all the relevant data together in a single dataset, attribution rules get applied to interpret the information and translate it into a customer-facing root cause statement. If you go back to our original example of a TOR failure, after our correlation analysis we might have many interesting pieces of information to interpret. For example, systems monitoring the Azure hosts might have logs indicating they lost connectivity to the hosts during this time. We might also have signals related to virtual disk connectivity problems, and explicit signals from the TOR device about the failure. All these pieces of information are now scanned over, and the explicit TOR failure signal is prioritized over the other signals as the root cause. This prioritization process, and the rules behind it, are constructed with domain experts and modified as the Azure platform evolves. Machine learning and anomaly detection mechanisms sit on top of these attributed root causes, to help identify opportunities to improve these classification rules as well as to detect pattern changes in the rate of these failures to feed back into [safe deployment pipelines](https://azure.microsoft.com/blog/advancing-safe-deployment-with-aiops-introducing-gandalf/).
 
 Phase 4: RCA publishing
 
-The last step is publishing root causes to Azure resource health, where they become visible to customers. This is done in a very simple [Azure Functions](https://azure.microsoft.com/services/functions/) application, which periodically queries the processed root cause data in Azure Data Explorer, and emits the results to the resource health backend. Because information streams can come in with various data delays, RCAs can occasionally be updated in this process to reflect better sources of information having arrived leading to a more specific root cause that what was originally published.
+The last step is publishing root causes to Azure resource health, where they become visible to customers. This is done in a simple [Azure Functions](https://azure.microsoft.com/services/functions/) application, which periodically queries the processed root cause data in Azure Data Explorer, and emits the results to the resource health backend. Because information streams can come in with various data delays, RCAs can occasionally be updated in this process to reflect better sources of information having arrived leading to a more specific root cause that what was originally published.
 
 #### Going forward
 
-Identifying and communicating the root cause of any issues to our customers and partners is just the beginning. Our customers may need to take these RCAs and share them with their customers and coworkers. We want to build on the work here to make it easier to identify and track resource RCAs, as well as easily share them out. In order to accomplish that, we are working on backend changes to generate unique per-resource and per-downtime tracking IDs that we can expose to you, so that you can easily match downtimes to their RCAs. We are also working on new features to make it easier to email RCAs out, and eventually subscribe to RCAs for your VMs. This will make it possible to sign up for RCAs directly in your inbox after an unavailability event with no additional action needed on your part.
+Identifying and communicating the root cause of any issues to our customers and partners is just the beginning. Our customers may need to take these RCAs and share them with their customers and coworkers. We want to build on the work here to make it easier to identify and track resource RCAs, as well as easily share them out. To accomplish that, we are working on backend changes to generate unique per-resource and per-downtime tracking IDs that we can expose to you, so that you can easily match downtimes to their RCAs. We are also working on new features to make it easier to email RCAs out, and eventually subscribe to RCAs for your VMs. This feature will make it possible to sign up for RCAs directly in your inbox after an unavailability event with no further action needed on your part.
 
 ### Facilitating holistic VM availability monitoring
 
@@ -307,4 +307,4 @@ Scheduled events are designed to offer an early warning, giving up to 15-minute 
 
 On the other hand, Flash Health events are focused on real-time tracking of ongoing and completed availability disruptions, including VM degradation. This feature empowers you to effectively monitor and manage downtime, supporting automated mitigation, investigations, and post-mortem analysis.
 
-To get started on your observability journey, you can explore the suite of Azure products to which we emit high-quality VM availability data to. These products include [resource health](../service-health/resource-health-overview.md), [activity logs](../azure-monitor/essentials/activity-log.md?tabs=powershell), [Azure resource graph](../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli#healthresources), [Azure monitor metrics](../virtual-machines/monitor-vm-reference.md) and [Azure Event Grid system topic](../event-grid/event-schema-health-resources.md?tabs=event-grid-event-schema).
+To get started on your observability journey, you can explore the suite of Azure products to which we emit high-quality VM availability data. These products include [resource health](../service-health/resource-health-overview.md), [activity logs](../azure-monitor/essentials/activity-log.md?tabs=powershell), [Azure resource graph](../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli#healthresources), [Azure monitor metrics](../virtual-machines/monitor-vm-reference.md) and [Azure Event Grid system topic](../event-grid/event-schema-health-resources.md?tabs=event-grid-event-schema).
