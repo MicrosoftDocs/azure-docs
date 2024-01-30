@@ -71,7 +71,7 @@ The `spec.configuration` has the following child properties.
 |---|---|---|---|
 |selectors|The list of selectors for key-value filtering.|false|object array|
 |trimKeyPrefixes|The list of key prefixes to be trimmed.|false|string array|
-|refresh|The settings for refreshing data from Azure App Configuration. If the property is absent, data from Azure App Configuration will not be refreshed.|false|object|
+|refresh|The settings for refreshing key-values from Azure App Configuration. If the property is absent, key-values from Azure App Configuration will not be refreshed.|false|object|
 
 If the `spec.configuration.selectors` property isn't set, all key-values with no label will be downloaded. It contains an array of *selector* objects, which have the following child properties.
 
@@ -84,9 +84,9 @@ The `spec.configuration.refresh` property has the following child properties.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|enabled|The setting that determines whether data from Azure App Configuration is automatically refreshed. If the property is absent, a default value of `false` will be used.|false|bool|
-|monitoring|The key-values monitored for change detection, aka sentinel keys. The data from Azure App Configuration will be refreshed only if at least one of the monitored key-values is changed.|true|object|
-|interval|The interval at which the data will be refreshed from Azure App Configuration. It must be greater than or equal to 1 second. If the property is absent, a default value of 30 seconds will be used.|false|duration string|
+|enabled|The setting that determines whether key-values from Azure App Configuration is automatically refreshed. If the property is absent, a default value of `false` will be used.|false|bool|
+|monitoring|The key-values monitored for change detection, aka sentinel keys. The key-values from Azure App Configuration will be refreshed only if at least one of the monitored key-values is changed.|true|object|
+|interval|The interval at which the key-values will be refreshed from Azure App Configuration. It must be greater than or equal to 1 second. If the property is absent, a default value of 30 seconds will be used.|false|duration string|
 
 The `spec.configuration.refresh.monitoring.keyValues` is an array of objects, which have the following child properties.
 
@@ -141,19 +141,19 @@ The `spec.featureFlag` property has the following child properties. It is requir
 |selectors|The list of selectors for feature flag filtering.|false|object array|
 |refresh|The settings for refreshing feature flags from Azure App Configuration. If the property is absent, feature flags from Azure App Configuration will not be refreshed.|false|object|
 
-If the `spec.featureFlag.selectors` property isn't set, feature flag settings will NOT be downloaded. It contains an array of *selector* objects, which have the following child properties.
+If the `spec.featureFlag.selectors` property isn't set, feature flags will not be downloaded. It contains an array of *selector* objects, which have the following child properties.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
 |keyFilter|The key filter for querying feature flags.|true|string|
 |labelFilter|The label filter for querying feature flags.|false|string|
 
-The `spec.featureFlag.refresh` property has the following child properties. It's independent of the App Configuration refresh configured via `spec.configuration.refresh`.
+The `spec.featureFlag.refresh` property has the following child properties.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
 |enabled|The setting that determines whether feature flags from Azure App Configuration are automatically refreshed. If the property is absent, a default value of `false` will be used.|false|bool|
-|interval|The interval at which the feature flags will be refreshed from Azure App Configuration. It must be greater than or equal to 1 minute.|true|duration string|
+|interval|The interval at which the feature flags will be refreshed from Azure App Configuration. It must be greater than or equal to 1 second. If the property is absent, a default value of 30 seconds will be used.|false|duration string|
 
 ## Examples
 
@@ -411,9 +411,7 @@ spec:
 
 ### Feature Flags
 
-Use `featureFlag.selectors` property to filter the feature flags to be downloaded from Azure App Configuration. When you update feature flag values, you might want those changes to be refreshed automatically in your Kubernetes cluster. With `spec.featureFlag.refresh` property, the Kubernetes provider will periodically poll latest feature flag values and update the ConfigMap accordingly.
-
-The following sample polls selected feature flags from Azure App Configuration every 10 minutes.
+In the following sample, feature flags with keys starting with `app1` and labels equivalent to `common` will be downloaded and refreshed every 10 minutes.
 
 ``` yaml
 apiVersion: azconfig.io/v1
@@ -552,3 +550,7 @@ data:
     key2=value2
     key3=value3
 ```
+
+## Supported helm chart values
+
+You can use helm to [install Azure App Configuration Kubernetes Provider](https://mcr.microsoft.com/product/azure-app-configuration/kubernetes-provider/about#usage), see [helm-values](https://github.com/Azure/AppConfiguration-KubernetesProvider/blob/main/deploy/parameter/helm-values.yaml) for all supported values.
