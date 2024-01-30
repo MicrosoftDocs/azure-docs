@@ -41,7 +41,6 @@ To call the synchronous translation feature via the REST API, you need to includ
 |Header|Value| Condition  |
 |---|:--- |:---|
 |**Ocp-Apim-Subscription-Key** |Your Translator service key from the Azure portal.|&bullet; ***Required***|
-|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |&bullet; ***Required*** when using an Azure AI multi-service or regional (geographic) resource like **West US**.</br>&bullet; ***Optional*** when using a single-service global Translator Resource.|
 
 ## Request parameters
 
