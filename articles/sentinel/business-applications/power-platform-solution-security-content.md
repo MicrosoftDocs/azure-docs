@@ -18,7 +18,7 @@ This article details the security content available for the Microsoft Sentinel s
 
 ## Built-in analytics rules
 
-The following analytic rules are included when you install the solution for Power Platform. The data sources listed include the data connector name and table in Log Analytics. To avoid missing data in the inventory sources, we recommend that you don't change the default lookback of 14 days in the analytic rule templates.
+The following analytic rules are included when you install the solution for Power Platform. The data sources listed include the data connector name and table in Log Analytics. To avoid missing data in the inventory sources, we recommend that you don't change the default lookback period defined in the analytic rule templates.
 
 | Rule name | Description | Source action | Tactics |
 | --------- | --------- | --------- | --------- |
@@ -39,7 +39,7 @@ The following analytic rules are included when you install the solution for Powe
 
 ## Built-in parsers
 
-The solution includes parsers that are used to access data from the raw data tables. Parsers ensure that the correct data is returned with a consistent schema. We recommend that you use the parsers instead of directly querying the inventory tables and watchlists. The Power Platform inventory related parsers return data from the last 14 days.
+The solution includes parsers that are used to access data from the raw data tables. Parsers ensure that the correct data is returned with a consistent schema. We recommend that you use the parsers instead of directly querying the inventory tables and watchlists. The Power Platform inventory related parsers return data from the last 7 days.
 
 |Parser  |Data returned  |Table queried |
 |---------|---------|---------|
