@@ -22,7 +22,7 @@ To use the Radiology Insights (Preview) model, you must have an Azure AI service
 If you have no Azure AI services account, see [Deploy Azure AI Health Insights using the Azure portal.](../deploy-portal.md)
 
 Once deployment is complete, you use the Azure portal to navigate to the newly created Azure AI services account to see the details, including your Service URL. 
-The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com/ . 
+The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com. 
 
 ## Example request and results
 
