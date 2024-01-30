@@ -40,7 +40,7 @@ To add a dataset to the data store, you have two options:
 | Keys | See keys configuration in the following table. |  |  |
 
 Timestamps referenced should be in RFC3339, ISO 8601, or Unix timestamp format.
-By default, the Expiration time for a dataset is set to `12h`. This default ensures that no stale data is enriched beyond 12 hours (if the data is not updated) or grow unbounded which can fill up the disk. 
+By default, the expiration time for a dataset is set to `24h`. This default ensures that no stale data is enriched beyond 24 hours (if the data is not updated) or grow unbounded which can fill up the disk.
 
 Each key includes:
 
@@ -126,7 +126,7 @@ The two keys:
 
 | Field | Example |
 |---|---|
-| Property name | `asset` |
+| Property name | `equipment name` |
 | Property path | `.equipment` |
 | Primary key | Yes |
 
