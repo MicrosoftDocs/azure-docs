@@ -35,18 +35,18 @@ Giving the model a specific task to follow is one way of sharpening the response
 
 |Basic prompt|Model output|
 |--------|-----------|
-| What is in this image? | The image shows a silver sedan that has been in an accident. The front end of the car is damaged, with the hood crumpled, and the bumper partially detached. The car is resting against a utility pole on the sidewalk, and there is visible smoke coming from the engine area, indicating a recent crash. The setting appears to be a residential street, as indicated by the presence of houses in the background, a neatly trimmed hedge, and a sidewalk. |
+| :::image type="content" source="../media/concepts/car-crash.jpg" lightbox="../media/concepts/car-crash.jpg" alt-text="Image of a car crashed into a pole."::: What is in this image? | The image shows a silver sedan that has been in an accident. The front end of the car is damaged, with the hood crumpled, and the bumper partially detached. The car is resting against a utility pole on the sidewalk, and there is visible smoke coming from the engine area, indicating a recent crash. The setting appears to be a residential street, as indicated by the presence of houses in the background, a neatly trimmed hedge, and a sidewalk. |
 
 |Updated prompt|Model output|
 |--------|-----------|
-| Analyze this car damage video for an auto insurance report, focusing on identifying and detailing damage | In the image provided, we observe a silver sedan that has sustained significant front-end damage. The vehicle's hood is notably crumpled, and the front bumper has suffered substantial deformation, partially detaching from the chassis. The right headlamp assembly appears to be damaged or dislodged. There is also visible damage to the front grille area. The car is in contact with a utility pole, suggesting a frontal collision with the pole at a relatively low or moderate speed. Smoke is emanating from the engine compartment, suggesting potential mechanical or electrical damage that may need further inspection for a comprehensive assessment. The airbags do not appear to be deployed in this image. The vehicle will require a detailed inspection to evaluate the full extent of structural and mechanical damage for a complete insurance report. |
+| :::image type="content" source="../media/concepts/car-crash.jpg" lightbox="../media/concepts/car-crash.jpg" alt-text="Image of a car crashed into a pole."::: Analyze this car damage video for an auto insurance report, focusing on identifying and detailing damage | In the image provided, we observe a silver sedan that has sustained significant front-end damage. The vehicle's hood is notably crumpled, and the front bumper has suffered substantial deformation, partially detaching from the chassis. The right headlamp assembly appears to be damaged or dislodged. There is also visible damage to the front grille area. The car is in contact with a utility pole, suggesting a frontal collision with the pole at a relatively low or moderate speed. Smoke is emanating from the engine compartment, suggesting potential mechanical or electrical damage that may need further inspection for a comprehensive assessment. The airbags do not appear to be deployed in this image. The vehicle will require a detailed inspection to evaluate the full extent of structural and mechanical damage for a complete insurance report. |
 
 ### Handling refusals
 When you receive a refusal output from a model, there are several ways you can tweak input to generate a more appropriate response. Below is one example of how to handle a refusal and progress. 
 
 |Basic prompt|Model output|
 |--------|-----------|
-| Plan this meal | Sorry, I can't provide that information. |
+| :::image type="content" source="../media/concepts/dinner-spread.jpg" lightbox="../media/concepts/dinner-spread.jpg" alt-text="Image of a dinner table with several plates of food."::: Plan this meal | Sorry, I can't provide that information. |
 
 |Follow up prompt|Model output|
 |--------|-----------|
@@ -56,11 +56,11 @@ When you receive a refusal output from a model, there are several ways you can t
 
 |Basic prompt|Model output|
 |--------|-----------|
-| What is this dog breed and what is its average weight and height? | The dog in the image appears to be a Border Collie. Border Collies are known for their intelligence, agility, and herding abilities.The average weight for a Border Collie is typically around 30-45 pounds (14-20 kilograms). As for height, Border Collies generally stand about 18-22 inches (46-56 centimeters) tall at the shoulder. These figures can vary based on the individual dog's genetics, diet, and level of activity. Border Collies are medium-sized dogs with a well-proportioned body and a high level of energy. |
+| :::image type="content" source="../media/concepts/border-collie.jpg" lightbox="../media/concepts/border-collie.jpg" alt-text="Image of a border collie dog laying in a grass field."::: What is this dog breed and what is its average weight and height? | The dog in the image appears to be a Border Collie. Border Collies are known for their intelligence, agility, and herding abilities.The average weight for a Border Collie is typically around 30-45 pounds (14-20 kilograms). As for height, Border Collies generally stand about 18-22 inches (46-56 centimeters) tall at the shoulder. These figures can vary based on the individual dog's genetics, diet, and level of activity. Border Collies are medium-sized dogs with a well-proportioned body and a high level of energy. |
 
 |Updated prompt|Model output|
 |--------|-----------|
-| Q: What is this dog breed and what is its average weight & height? <br> A: Breed: pomeranian; average weight: 3-7 lbs; average height: 8-14 inches <br> A: Breed: English bulldog; average weight: 50-55 lbs; average height: 14-16 inches | A: Breed: Border Collie; average weight: 30-45 lbs; average height: 18-22 inches |
+| Q: What is this dog breed and what is its average weight & height? :::image type="content" source="../media/concepts/pomeranian.jpg" lightbox="../media/concepts/pomeranian.jpg" alt-text="Image of a pomeranian dog sitting on a pool diving board above the water."::: <br> A: Breed: pomeranian; average weight: 3-7 lbs; average height: 8-14 inches <br> :::image type="content" source="../media/concepts/bulldog.jpg" lightbox="../media/concepts/bulldog.jpg" alt-text="Image of a bulldog laying in a grass field."::: A: Breed: English bulldog; average weight: 50-55 lbs; average height: 14-16 inches :::image type="content" source="../media/concepts/border-collie.jpg" lightbox="../media/concepts/border-collie.jpg" alt-text="Image of a border collie dog laying in a grass field."::: | A: Breed: Border Collie; average weight: 30-45 lbs; average height: 18-22 inches |
 
 ### Try prompt tuning
 Using the chain of thought prompt technique below, you can guide the model to follow a thought process to achieve the correct answer.
