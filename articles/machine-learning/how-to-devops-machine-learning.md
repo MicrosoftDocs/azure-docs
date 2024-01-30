@@ -124,7 +124,6 @@ jobs:
   pool:
     vmImage: ubuntu-latest
   steps:
-  - checkout: none
   - task: UsePythonVersion@0
     displayName: Use Python >=3.8
     inputs:
@@ -174,7 +173,6 @@ jobs:
   pool:
     vmImage: ubuntu-latest
   steps:
-  - checkout: none
   - task: UsePythonVersion@0
     displayName: Use Python >=3.8
     inputs:
@@ -243,7 +241,7 @@ The task has four inputs: `Service Connection`, `Azure Resource Group Name`, `Az
   dependsOn: SubmitAzureMLJob
   variables: 
     # We are saving the name of azureMl job submitted in previous step to a variable and it will be used as an inut to the AzureML Job Wait task
-    azureml_job_name_from_submit_job: $[ dependencies.SubmitAzureMLJob.outputs['submit_azureml_job_task.AZUREML_JOB_NAME'] ] 
+    azureml_job_name_from_submit_job: $[ dependencies.SubmitAzureMLJob.outputs['submit_azureml_job_task.JOB_NAME'] ] 
   steps:
   - task: AzureMLJobWaitTask@1
     inputs:
