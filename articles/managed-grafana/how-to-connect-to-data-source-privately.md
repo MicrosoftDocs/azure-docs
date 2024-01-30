@@ -78,7 +78,7 @@ Once you've set up the private link service, you can create a managed private en
 1. After the connection request is approved, select **Refresh** to ensure the connection status is **Approved** and private IP address is shown.
 
 > [!NOTE]
-> The **Refresh** step cannot be skipped, since AMG will do a network sync operation. Only After the new managed private endpoint connection is shown approved, all network traffic between your Azure Managed Grafana workspace and the selected data source will flow only through the Azure backbone network.
+> The **Refresh** step cannot be skipped, since refreshing triggers a network sync operation by Azure Managed Grafana. Once the new managed private endpoint connection is shown approved, all network traffic between your Azure Managed Grafana workspace and the selected data source will only flow through the Azure backbone network.
 
 ## Next steps
 
