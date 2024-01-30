@@ -49,7 +49,7 @@ Azure Backup delivers these key benefits:
   - [Geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) is the default and recommended replication option. GRS replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but GRS provides a higher level of durability for your data, even if there's a regional outage.
   - [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data in [availability zones](../availability-zones/az-overview.md#availability-zones), guaranteeing data residency and resiliency in the same region. ZRS has no downtime. So your critical workloads that require [data residency](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), and must have no downtime, can be backed up in ZRS.
 
-  **Zone-redundancy** for Recovery Services vault and Backup vault, as well as optional zone-redundancy for backup data. Learn about [Reliability for Azure Backup](../reliability/reliability-backup.md).
+    **Zone-redundancy** for Recovery Services vault and Backup vault, as well as optional zone-redundancy for backup data. Learn about [Reliability for Azure Backup](../reliability/reliability-backup.md).
 
 ## How Azure Backup protects from ransomware?
 
