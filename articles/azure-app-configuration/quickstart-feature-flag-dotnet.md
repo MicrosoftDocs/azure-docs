@@ -63,7 +63,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     ```csharp
         public static async Task Main(string[] args)
         {         
-            IConfigurationRoot configuration = new ConfigurationBuilder()
+            IConfiguration configuration = new ConfigurationBuilder()
                 .AddAzureAppConfiguration(options =>
                 {
                     options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
