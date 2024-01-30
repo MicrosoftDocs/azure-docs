@@ -17,10 +17,7 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 ## Requirements and considerations 
 
 >[!IMPORTANT]
->If you are using custom roles with role-based access control (RBAC), you need to ensure the appropriate permissions are set for the custom role. For configuration details, see [Configure custom RBAC roles](#configure-custom-rbac-roles).
-“Issue was that region info call was not reaching RP due to a RBAC permission error which was not being caught by portal. Customers with custom roles would not have read permission for region info and Portal would not notify customers that they lack this permission.
-To fix this, we improved the error handling for region info in the Portal so that we display an appropriate error to users when customers hit a permission error with the region info call.”
-
+>If you're using custom roles with role-based access control (RBAC), you need to ensure the appropriate permissions are set for the custom role. For configuration details, see [Configure custom RBAC roles](#configure-custom-rbac-roles).
 
 * This feature doesn't guarantee free capacity in the availability zone. For example, even if you can deploy a VM in availability zone 3 of the East US region, it doesn’t guarantee free Azure NetApp Files capacity in that zone. If no sufficient capacity is available, volume creation will fail.
 
@@ -121,7 +118,7 @@ If you need to delete and recreate the volume in a different availability zone, 
 
 ## Configure custom RBAC roles
 
-If you are using a custom RBAC role and managing availability zones _in the Azure portal_, you may not be able to access network features and Availability Zone options in the Azure portal. To ensure you have the appropriate access, add the `Microsoft.NetApp/locations/*` permission to custom RBAC roles. This encompasses the following permissions: 
+If you are using a custom RBAC role and managing availability zones _in the Azure portal_, you may not be able to access network features and Availability Zone options in the Azure portal. To ensure you have the appropriate access, add the `Microsoft.NetApp/locations/*` permission to custom RBAC roles. The wildcard encompasses the following permissions: 
 
 * `Microsoft.NetApp/locations/{location}/checkNameAvailability`
 * `Microsoft.NetApp/locations/{location}/checkFilePathAvailability`
@@ -131,6 +128,8 @@ If you are using a custom RBAC role and managing availability zones _in the Azur
 * `Microsoft.NetApp/locations/{location}/regionInfo`
 * `Microsoft.NetApp/locations/{location}/queryNetworkSiblingSet`
 * `Microsoft.NetApp/locations/{location}/updateNetworkSiblingSet`
+
+### Steps
 
 1. In your Azure NetApp Files subscription, select **Access control (IAM)**.
 1. Select **Roles** then choose the custom role you want to modify. Select the three dots (`...`) then **Edit**. 
@@ -157,7 +156,7 @@ If you are using a custom RBAC role and managing availability zones _in the Azur
     ```
 
 1. Select **Review + update**.
-1. Log out of your Azure account and the log back in to confirm permissions effect has taken hold and the options are visible. 
+1. Sign out of your Azure account, then sign back in to confirm permissions effect has taken hold and the options are visible. 
 
 ## Next steps  
 
