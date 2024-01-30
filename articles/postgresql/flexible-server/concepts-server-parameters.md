@@ -18,7 +18,7 @@ Postgres parameters, see the [PostgreSQL documentation](https://www.postgresql.o
 
 ## An overview of PostgreSQL parameters
 
-Azure Database for PostgreSQL - Flexible Server comes pre-configured with optimal default settings for each parameter. Parameters are categorized into one of the following types:
+Azure Database for PostgreSQL - Flexible Server comes preconfigured with optimal default settings for each parameter. Parameters are categorized into one of the following types:
 
 * **Static Parameters**: Parameters of this type require a server restart to implement any changes.
 * **Dynamic Parameters**: Parameters in this category can be altered without needing to restart the server instance;
@@ -26,8 +26,7 @@ Azure Database for PostgreSQL - Flexible Server comes pre-configured with optima
 * **Read-Only Parameters**: Parameters within this grouping aren't user-configurable due to their critical role in
   maintaining the reliability, security, or other operational aspects of the service.
 
-To determine the category to which a parameter belongs, you can check the Azure portal under the **Server parameters**
-blade, where they're grouped into respective tabs for easy identification.
+To determine the category to which a parameter belongs, you can check the Azure portal under the **Server parameters** blade, where they're grouped into respective tabs for easy identification.
 
 ### Modification of server parameters
 
@@ -35,8 +34,7 @@ Various methods and levels are available to customize your parameters according 
 
 #### Global - server level
 
-For altering settings globally at the instance or server level, navigate to the **Server parameters** blade in the Azure
-Portal, or use other available tools such as Azure CLI, REST API, ARM Templates, and third-party tools.
+For altering settings globally at the instance or server level, navigate to the **Server parameters** blade in the Azure portal, or use other available tools such as Azure CLI, REST API, ARM templates, and third-party tools.
 
 > [!NOTE]
 > Since Azure Database for PostgreSQL is a managed database service, users are not provided host or OS access to view or
@@ -93,7 +91,7 @@ disk, `shared_buffers` effectively reduces the number of required I/O operations
 
 #### Description
 
-Huge pages are a feature that allow for memory to be managed in larger blocks - typically 2MB, as opposed to the "classic" 4KB pages. Utilizing huge pages can offer performance advantages in several ways: they reduce the overhead associated with memory management tasks like fewer Translation Lookaside Buffer (TLB) misses and shorten the time needed for memory management, effectively offloading the CPU. Specifically, in PostgreSQL, huge pages can only be utilized for the shared memory area, a significant part of which is allocated for shared buffers. Another advantage is that when the shared memory area is backed by huge pages, it cannot be swapped out to disk, further stabilizing performance.
+Huge pages are a feature that allows for memory to be managed in larger blocks - typically 2 MB, as opposed to the "classic" 4 KB pages. Utilizing huge pages can offer performance advantages in several ways: they reduce the overhead associated with memory management tasks like fewer Translation Lookaside Buffer (TLB) misses and shorten the time needed for memory management, effectively offloading the CPU. Specifically, in PostgreSQL, huge pages can only be utilized for the shared memory area, a significant part of which is allocated for shared buffers. Another advantage is that when the shared memory area is backed by huge pages, it can't be swapped out to disk, further stabilizing performance.
 
 #### Recommendations
 
@@ -111,7 +109,7 @@ Huge pages are a feature that allow for memory to be managed in larger blocks - 
 
 #### Description
 
-The `work_mem` parameter in PostgreSQL controls the amount of memory allocated for certain internal operations, such as sorting and hashing, within each database session's private memory area. Unlike shared buffers, which is in the shared memory area, `work_mem` is allocated in a per-session or per-query private memory space. By setting an adequate `work_mem` size, you can significantly improve the efficiency of these operations, reducing the need to write temporary data to disk.
+The `work_mem` parameter in PostgreSQL controls the amount of memory allocated for certain internal operations, such as sorting and hashing, within each database session's private memory area. Unlike shared buffers, which are in the shared memory area, `work_mem` is allocated in a per-session or per-query private memory space. By setting an adequate `work_mem` size, you can significantly improve the efficiency of these operations, reducing the need to write temporary data to disk.
 
 #### Key points
 
@@ -121,13 +119,13 @@ The `work_mem` parameter in PostgreSQL controls the amount of memory allocated f
 
 #### Monitoring and adjusting `work_mem`
 
-It is essential to continuously monitor your system's performance and adjust `work_mem` as necessary, primarily if slow query execution times related to sorting or hashing operations occur. Here are ways you can monitor it using tools available in the Azure portal:
+It's essential to continuously monitor your system's performance and adjust `work_mem` as necessary, primarily if slow query execution times related to sorting or hashing operations occur. Here are ways you can monitor it using tools available in the Azure portal:
 
 * **[Query Performance Insight](concepts-query-performance-insight.md)**: Check the **Top Queries by Temporary Files** tab to identify queries that are generating temporary files, suggesting a potential need to increase the `work_mem`.
 * **[Troubleshooting Guides](concepts-troubleshooting-guides.md)**: Utilize the **High Temporary Files** tab in the troubleshooting guides to identify problematic queries.
 
 ##### Granular adjustment
-While managing the `work_mem` parameter, it is often more efficient to adopt a granular adjustment approach rather than setting a global value.  This not only ensures that you allocate memory judiciously based on the specific needs of different processes and users but also minimizes the risk of encountering out-of-memory issues. Here’s how you can go about it:
+While managing the `work_mem` parameter, it's often more efficient to adopt a granular adjustment approach rather than setting a global value.  This not only ensures that you allocate memory judiciously based on the specific needs of different processes and users but also minimizes the risk of encountering out-of-memory issues. Here’s how you can go about it:
 
 * **User-Level**: If a specific user is primarily involved in aggregation or reporting tasks, which are memory-intensive, consider customizing the `work_mem` value for that user using the `ALTER ROLE` command to enhance the performance of their operations.
 
@@ -159,7 +157,7 @@ To find the minimum `work_mem` value for a specific query, especially one genera
 | Azure-Specific Notes |                     |
 
 #### Description
-`maintenance_work_mem` is a configuration parameter in PostgreSQL that governs the amount of memory allocated for maintenance operations, such as `VACUUM`, `CREATE INDEX`, and `ALTER TABLE`. Unlike `work_mem` which affects memory allocation for query operations, `maintenance_work_mem` is reserved for tasks that maintain and optimize the database structure. Adjusting this parameter appropriately can help enhance the efficiency and speed of database maintenance operations.
+`maintenance_work_mem` is a configuration parameter in PostgreSQL that governs the amount of memory allocated for maintenance operations, such as `VACUUM`, `CREATE INDEX`, and `ALTER TABLE`. Unlike `work_mem`, which affects memory allocation for query operations, `maintenance_work_mem` is reserved for tasks that maintain and optimize the database structure. Adjusting this parameter appropriately can help enhance the efficiency and speed of database maintenance operations.
 
 
 ## Next steps
