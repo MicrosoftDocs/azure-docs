@@ -1,3 +1,14 @@
+---
+title: Introduction to prompt engineering with GPT-4 Turbo with Vision
+titleSuffix: Azure OpenAI
+description: Learn how to better engineer prompts for GPT-4 Turbo with Vision.
+author: PatrickFarley
+ms.author: pafarley
+ms.service: azure-ai-openai
+ms.topic: conceptual 
+ms.date: 01/30/2024
+manager: nitinme
+---
 
 # Introduction to prompt engineering with GPT-4 Turbo with Vision
 
