@@ -1246,6 +1246,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/app-service/quickstart-golang.md",
+            "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/app-service/app-service-web-get-started-dotnet.md",
             "redirect_url": "/azure/app-service/quickstart-dotnetcore",
             "redirect_document_id": false
