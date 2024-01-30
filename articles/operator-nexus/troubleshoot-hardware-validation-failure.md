@@ -117,7 +117,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-### Network Info Category
+### Network info category
 
 * NIC Check Failure
     * Dell server NIC specs are defined in the SKU
