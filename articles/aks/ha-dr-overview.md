@@ -37,9 +37,9 @@ For more information on cluster and workload components in AKS, see [Kubernetes 
 
 ### Regional and global resources
 
-**Regional resources** are provisioned as part of a *deployment stamp* to a single Azure region. These resources share nothing with resources in other regions, and they can be independently removed or replicated to other regions. For more information, see [Regional resources](/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#regional-resources).
+**Regional resources** are provisioned as part of a *deployment stamp* to a single Azure region. These resources share nothing with resources in other regions, and they can be independently removed or replicated to other regions. For more information, see [Regional resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#regional-resources).
 
-**Global resources** share the lifetime of the system, and they can be globally available within the context of a multi-region deployment. For more information, see [Global resources](/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#global-resources).
+**Global resources** share the lifetime of the system, and they can be globally available within the context of a multi-region deployment. For more information, see [Global resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#global-resources).
 
 ### Recovery objectives
 
@@ -50,11 +50,11 @@ A complete disaster recovery plan must specify business requirements for each pr
 
 ### Availability zones
 
-You can use availability zones to spread your data across multiple zones in the same region. Within a region, availability zones are close enough to have low-latency connections to other availability zones, but they're far enough apart to reduce the likelihood that more than one will be affected by local outages or weather. For more information, see [Recommendations for using availability zones and regions](/well-architected/reliability/regions-availability-zones).
+You can use availability zones to spread your data across multiple zones in the same region. Within a region, availability zones are close enough to have low-latency connections to other availability zones, but they're far enough apart to reduce the likelihood that more than one will be affected by local outages or weather. For more information, see [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
 
 ### Zonal resilience
 
-AKS clusters are resilient to zonal failures. If a zone fails, the cluster continues to run in the remaining zones. The cluster's control plane and nodes are spread across the zones, and the Azure platform automatically handles the distribution of the nodes. For more information, see [AKS zonal resilience](./zonal-resilience.md).
+AKS clusters are resilient to zonal failures. If a zone fails, the cluster continues to run in the remaining zones. The cluster's control plane and nodes are spread across the zones, and the Azure platform automatically handles the distribution of the nodes. For more information, see [AKS zonal resilience](./availability-zones.md).
 
 ### Load balancing
 
@@ -77,7 +77,7 @@ Regional load balancing services distribute traffic within virtual networks acro
 
 ### Observability
 
-You need to collect data from applications and infrastructure to allow for effective operations and maximized reliability. Azure provides tools to help you monitor and manage your AKS workloads. For more information, see [Observability resources](/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#observability-resources).
+You need to collect data from applications and infrastructure to allow for effective operations and maximized reliability. Azure provides tools to help you monitor and manage your AKS workloads. For more information, see [Observability resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#observability-resources).
 
 ## Scope definition
 
