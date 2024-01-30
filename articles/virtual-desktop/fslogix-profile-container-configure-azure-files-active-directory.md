@@ -113,11 +113,8 @@ To use Active Directory accounts for the share permissions of your file share, y
    Join-AzStorageAccount `
        -ResourceGroupName $ResourceGroupName `
        -StorageAccountName $StorageAccountName `
-       -DomainAccountType "ComputerAccount" `
-       -EncryptionType "AES256"
+       -DomainAccountType "ComputerAccount"
    ```
-
-   You can also specify the encryption algorithm used for Kerberos authentication in the previous command to `RC4` if you need to. Using AES256 is recommended.
 
 1. To verify the storage account has joined your domain, run the commands below and review the output, replacing the values for `$resourceGroupName` and `$storageAccountName` with your values:
 
