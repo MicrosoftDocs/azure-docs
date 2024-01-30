@@ -232,7 +232,7 @@ We recommend the following actions to ensure your general security posture:
 
 - **Ensure that your organization has extended detection and response (XDR) and security information and event management (SIEM) solutions in place**, such as [Microsoft Defender XDR for Endpoint](/microsoft-365/security/defender/microsoft-365-defender), [Microsoft Sentinel](../../sentinel/overview.md), and [Microsoft Defender for IoT](../../defender-for-iot/organizations/index.yml).
 
-- **Review [Microsoft’s Enterprise access model](/security/privileged-access-workstations/privileged-access-access-model)**.
+- **Review Microsoft’s Enterprise access model**
 
 ### Improve identity security posture
 
@@ -269,7 +269,7 @@ This section provides possible methods and steps to consider when building your 
 > [!IMPORTANT]
 > The exact steps required in your organization will depend on what persistence you've discovered in your investigation, and how confident you are that your investigation was complete and has discovered all possible entry and persistence methods.
 >
-> Ensure that any actions taken are performed from a trusted device, built from a [clean source](/security/privileged-access-workstations/privileged-access-access-model). For example, use a fresh, [privileged access workstation](/security/privileged-access-workstations/privileged-access-deployment).
+> Ensure that any actions taken are performed from a trusted device, built from a clean source. For example, use a fresh, privileged access workstation.
 >
 
 The following sections include the following types of recommendations for remediating and retaining administrative control:
@@ -322,7 +322,7 @@ In addition to the recommendations listed earlier in this article, we also recom
 |Activity  |Description  |
 |---------|---------|
 |**Rebuild affected systems**     |   Rebuild systems that were identified as compromised by the attacker during your investigation.      |
-|**Remove unnecessary admin users**     |   Remove unnecessary members from Domain Admins, Backup Operators, and Enterprise Admin groups. For more information, see [Securing Privileged Access](/security/privileged-access-workstations/overview). |
+|**Remove unnecessary admin users**     |   Remove unnecessary members from Domain Admins, Backup Operators, and Enterprise Admin groups. For more information, see Securing Privileged Access. |
 |**Reset passwords to privileged accounts**     |  Reset passwords of all privileged accounts in the environment. <br><br>**Note**: Privileged accounts are not limited to built-in groups, but can also be groups that are delegated access to server administration, workstation administration, or other areas of your environment.      |
 |**Reset the krbtgt account**     | Reset the **krbtgt** account twice using the [New-KrbtgtKeys](https://github.com/microsoft/New-KrbtgtKeys.ps1/blob/master/New-KrbtgtKeys.ps1) script. <br><br>**Note**: If you are using Read-Only Domain Controllers, you will need to run the script separately for Read-Write Domain Controllers and for Read-Only Domain Controllers.        |
 |**Schedule a system restart**     |   After you validate that no persistence mechanisms created by the attacker exist or remain on your system, schedule a system restart to assist with removing memory-resident malware. |
