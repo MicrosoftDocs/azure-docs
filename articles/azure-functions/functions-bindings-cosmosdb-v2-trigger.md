@@ -186,21 +186,6 @@ This example requires the following `using` statements:
 
 This function is invoked when there are inserts or updates in the specified database and container.
 
-# [Functions 2.x+](#tab/functionsv2)
-
-```java
-    @FunctionName("cosmosDBMonitor")
-    public void cosmosDbProcessor(
-        @CosmosDBTrigger(name = "items",
-            databaseName = "ToDoList",
-            collectionName = "Items",
-            leaseCollectionName = "leases",
-            createLeaseCollectionIfNotExists = true,
-            connectionStringSetting = "AzureCosmosDBConnection") String[] items,
-            final ExecutionContext context ) {
-                context.getLogger().info(items.length + "item(s) is/are changed.");
-            }
-```
 # [Extension 4.x+](#tab/extensionv4)
 
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
@@ -221,6 +206,22 @@ This function is invoked when there are inserts or updates in the specified data
     ) {
         context.getLogger().info("Items modified: " + inputItems.size());
     }
+```
+
+# [Functions 2.x+](#tab/functionsv2)
+
+```java
+    @FunctionName("cosmosDBMonitor")
+    public void cosmosDbProcessor(
+        @CosmosDBTrigger(name = "items",
+            databaseName = "ToDoList",
+            collectionName = "Items",
+            leaseCollectionName = "leases",
+            createLeaseCollectionIfNotExists = true,
+            connectionStringSetting = "AzureCosmosDBConnection") String[] items,
+            final ExecutionContext context ) {
+                context.getLogger().info(items.length + "item(s) is/are changed.");
+            }
 ```
 
 ---
@@ -373,30 +374,6 @@ For Python functions defined by using *function.json*, see the [Configuration](#
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
-# [Functions 2.x+](#tab/functionsv2)
-
-From the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters that read data from Azure Cosmos DB. The annotation supports the following properties:
-
-+ [name](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.name)
-+ [connectionStringSetting](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.connectionstringsetting)
-+ [databaseName](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.databasename)
-+ [collectionName](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.collectionname)
-+ [leaseConnectionStringSetting](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.leaseconnectionstringsetting)
-+ [leaseDatabaseName](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.leasedatabasename)
-+ [leaseCollectionName](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.leasecollectionname)
-+ [createLeaseCollectionIfNotExists](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.createleasecollectionifnotexists)
-+ [leasesCollectionThroughput](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.leasescollectionthroughput)
-+ [leaseCollectionPrefix](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.leasecollectionprefix)
-+ [feedPollDelay](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.feedpolldelay)
-+ [leaseAcquireInterval](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.leaseacquireinterval)
-+ [leaseExpirationInterval](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.leaseexpirationinterval)
-+ [leaseRenewInterval](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.leaserenewinterval)
-+ [checkpointInterval](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.checkpointinterval)
-+ [checkpointDocumentCount](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.checkpointdocumentcount)
-+ [maxItemsPerInvocation](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.maxitemsperinvocation)
-+ [startFromBeginning](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.startfrombeginning)
-+ [preferredLocations](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.preferredlocations)
-
 # [Extension 4.x+](#tab/extensionv4)
 
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
@@ -422,6 +399,30 @@ Use the `@CosmosDBTrigger` annotation on parameters that read data from Azure Co
 |**maxItemsPerInvocation**| (Optional) When set, this property sets the maximum number of items received per Function call. If operations in the monitored container are performed through stored procedures, [transaction scope](../cosmos-db/nosql/stored-procedures-triggers-udfs.md#transactions) is preserved when reading items from the change feed. As a result, the number of items received could be higher than the specified value so that the items changed by the same transaction are returned as part of one atomic batch. |
 |**startFromBeginning**| (Optional) This option tells the Trigger to read changes from the beginning of the container's change history instead of starting at the current time. Reading from the beginning only works the first time the trigger starts, as in subsequent runs, the checkpoints are already stored. Setting this option to `true` when there are leases already created has no effect. |
 |**preferredLocations**| (Optional) Defines preferred locations (regions) for geo-replicated database accounts in the Azure Cosmos DB service. Values should be comma-separated. For example, "East US,South Central US,North Europe". |
+
+# [Functions 2.x+](#tab/functionsv2)
+
+From the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters that read data from Azure Cosmos DB. The annotation supports the following properties:
+
++ [name](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.name)
++ [connectionStringSetting](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.connectionstringsetting)
++ [databaseName](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.databasename)
++ [collectionName](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.collectionname)
++ [leaseConnectionStringSetting](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.leaseconnectionstringsetting)
++ [leaseDatabaseName](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.leasedatabasename)
++ [leaseCollectionName](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.leasecollectionname)
++ [createLeaseCollectionIfNotExists](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.createleasecollectionifnotexists)
++ [leasesCollectionThroughput](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.leasescollectionthroughput)
++ [leaseCollectionPrefix](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.leasecollectionprefix)
++ [feedPollDelay](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.feedpolldelay)
++ [leaseAcquireInterval](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.leaseacquireinterval)
++ [leaseExpirationInterval](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.leaseexpirationinterval)
++ [leaseRenewInterval](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.leaserenewinterval)
++ [checkpointInterval](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.checkpointinterval)
++ [checkpointDocumentCount](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.checkpointdocumentcount)
++ [maxItemsPerInvocation](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.maxitemsperinvocation)
++ [startFromBeginning](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.startfrombeginning)
++ [preferredLocations](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.preferredlocations)
 
 ---
 
@@ -454,13 +455,13 @@ The following table explains the binding configuration properties that you set i
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 
-# [Functions 2.x+](#tab/functionsv2)
-
-[!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-settings-v3.md)]
-
 # [Extension 4.x+](#tab/extensionv4)
 
 [!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-settings-v4.md)]
+
+# [Functions 2.x+](#tab/functionsv2)
+
+[!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-settings-v3.md)]
 
 ---
 
