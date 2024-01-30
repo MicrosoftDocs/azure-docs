@@ -3,7 +3,7 @@ title: Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchai
 description: Learn how to enable the AI toolchain operator add-on on Azure Kubernetes Service (AKS) to simplify OSS AI model management and deployment.
 ms.topic: article
 ms.custom: azure-kubernetes-service
-ms.date: 01/19/2024
+ms.date: 01/30/2024
 ---
 
 # Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator (preview)
@@ -17,7 +17,6 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 ## Before you begin
 
 * This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for AKS](./concepts-clusters-workloads.md).
-* If you aren't familiar with Microsoft Entra Workload Identity, see the [Workload Identity overview](../active-directory/workload-identities/workload-identities-overview.md).
 * For ***all hosted model inference files*** and recommended infrastructure setup, see the [KAITO GitHub repository](https://github.com/Azure/kaito).
 
 ## Prerequisites
@@ -87,26 +86,26 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 1. Create an Azure resource group using the [`az group create`][az-group-create] command.
 
     ```azurecli-interactive
-    az group create --name AZURE_RESOURCE_GROUP --location eastus
+    az group create --name $AZURE_RESOURCE_GROUP --location eastus
     ```
 
-2. Create an AKS cluster with the AI toolchain operator add-on enabled using the [`az aks create`][az-aks-create] command with the `--enable-ai-toolchain-operator`, `--enable-workload-identity`, and `--enable-oidc-issuer` flags.
+2. Create an AKS cluster with the AI toolchain operator add-on enabled using the [`az aks create`][az-aks-create] command with the `--enable-ai-toolchain-operator` and `--enable-oidc-issuer` flags.
 
     ```azurecli-interactive
-    az aks create --resource-group AZURE_RESOURCE_GROUP --name CLUSTER_NAME --generate-ssh-keys --enable-managed-identity --enable-workload-identity --enable-oidc-issuer --enable-ai-toolchain-operator 
+    az aks create --subscription $AZURE_SUBSCRIPTION_ID --location eastus --resource-group $AZURE_RESOURCE_GROUP --name $CLUSTER_NAME --enable-managed-identity --enable-oidc-issuer --enable-ai-toolchain-operator --aks-custom-headers AKSHTTPCustomFeatures=Microsoft.ContainerService/AIToolchainOperatorPreview
     ```
 
     > [!NOTE]
     > AKS creates a managed identity once you enable the AI toolchain operator add-on. The managed identity is used to access the AI toolchain operator workspace CRD. The AI toolchain operator workspace CRD is used to create and manage AI toolchain operator workspaces.
     >
-    > AI toolchain operator enablement requires the enablement of workload identity and OIDC issuer.
+    > AI toolchain operator enablement requires the enablement of OIDC issuer.
 
 ## Connect to your cluster
 
 1. Configure `kubectl` to connect to your cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
     ```azurecli-interactive
-    az aks get-credentials --resource-group AZURE_RESOURCE_GROUP --name CLUSTER_NAME
+    az aks get-credentials --resource-group $AZURE_RESOURCE_GROUP --name $CLUSTER_NAME
     ```
 
 2. Verify the connection to your cluster using the `kubectl get` command.
@@ -118,7 +117,7 @@ This article shows you how to enable the AI toolchain operator add-on and deploy
 3. Export environment variables for the principal ID identity and client ID identity using the following commands:
 
     ```azurecli-interactive
-    export MC_RESOURCE_GROUP=$(az aks show --resource-group AZURE_RESOURCE_GROUP --name CLUSTER_NAME --query nodeResourceGroup -o tsv)
+    export MC_RESOURCE_GROUP=$(az aks show --resource-group $AZURE_RESOURCE_GROUP --name $CLUSTER_NAME --query nodeResourceGroup -o tsv)
     export PRINCIPAL_ID=$(az identity show --name "ai-toolchain-operator-{CLUSTER_NAME}" --resource-group "{MC_RESOURCE_GROUP} --query 'principalId' -o tsv)
     export CLIENT_ID=$(az identity show --name gpuIdentity --resource-group "${AZURE_RESOURCE_GROUP}" --subscription "${AZURE_SUBSCRIPTION_ID}" --query 'clientId' -o tsv)
     ```
