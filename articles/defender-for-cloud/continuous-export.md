@@ -28,7 +28,7 @@ This article describes how to set up continuous export to a Log Analytics worksp
 |----|:----|
 |Release status:|General availability (GA)|
 |Pricing:|Free|
-|Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource.</li><li>If you're using the [Azure Policy `DeployIfNotExist` policies](#configure-continuous-export-at-scale-using-the-supplied-policies), you need the permissions that allow you to assign policies.</li><li>To export data to Event Hubs, you need Write permission on the Event Hubs Policy.</li><li>To export to a Log Analytics workspace:<ul><li>If it *has the SecurityCenterFree solution*, you need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`</li><li>If it *doesn't have the SecurityCenterFree solution*, you need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action`</li><li>Learn more about [Azure Monitor and Log Analytics workspace solutions](/previous-versions/azure/azure-monitor/insights/solutions)</li></ul></li></ul>|
+|Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource.</li><li>If you use the [Azure Policy DeployIfNotExist policies](#set-up-continuous-export-at-scale-by-using-provided-policies), you must have permissions that allow you to assign policies.</li><li>To export data to Event Hubs, you need Write permissions on the Event Hubs Policy.</li><li>To export to a Log Analytics workspace:<ul><li>If it *has the SecurityCenterFree solution*, you must have a minimum of Read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`.</li><li>If it *doesn't have the SecurityCenterFree solution*, you need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action`</li><li>Learn more about [Azure Monitor and Log Analytics workspace solutions](/previous-versions/azure/azure-monitor/insights/solutions)</li></ul></li></ul>|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)|
 
 ## What data types can be exported?
@@ -47,13 +47,17 @@ Continuous export can export the following data types whenever they change:
 - Secure score per subscription or per control.
 - Regulatory compliance data.
 
+<a name="set-up-a-continuous-export"></a>
+
 ## Set up continuous export
 
 You can set up continuous export on the Microsoft Defender for Cloud pages in the Azure portal, by using the REST API, or at scale by using provided Azure Policy templates.
 
 ### [Azure portal](#tab/azure-portal)
 
-### Configure continuous export on the Defender for Cloud pages in the Azure portal
+<a name="configure-continuous-export-from-the-defender-for-cloud-pages-in-azure-portal"></a>
+
+### Set up continuous export on the Defender for Cloud pages in the Azure portal
 
 To set up a continuous export to Log Analytics or Azure Event Hubs by using the Azure portal:
 
@@ -120,9 +124,11 @@ Here are some examples of options that you can use only in the API:
 
 ### [Azure Policy](#tab/azure-policy)
 
-### Configure continuous export at scale by using provided policies
+<a name="configure-continuous-export-at-scale-using-the-supplied-policies"></a>
 
-Automating your organization's monitoring and incident response processes can greatly improve the time it takes to investigate and mitigate security incidents.
+### Set up continuous export at scale by using provided policies
+
+Automating your organization's monitoring and incident response processes can help reduce the time it takes you to investigate and mitigate security incidents.
 
 To deploy your continuous export configurations across your organization, use the provided Azure Policy `DeployIfNotExist` policies to create and configure continuous export procedures.
 
@@ -262,9 +268,11 @@ To view alerts and recommendations from Defender for Cloud in Azure Monitor, con
 
 The Defender for Cloud alerts or recommendations appear (depending on your configured continuous export rules and the condition that you defined in your Azure Monitor alert rule) in Azure Monitor alerts, with automatic triggering of an action group (if provided).
 
+<a name="manual-one-time-export-of-alerts-and-recommendations"></a>
+
 ## Manually export alerts and recommendations
 
-To download a CSV report for alerts or recommendations, go to the **Security alerts** page or the **Recommendations** page, and then select the **Download CSV report** button.
+To download a CSV report of alerts or recommendations, go to the **Security alerts** page or the **Recommendations** page, and then select the **Download CSV report** button.
 
 > [!TIP]
 > Due to Azure Resource Graph limitations, the reports are limited to a file size of 13,000 rows. If you see errors related to too much data being exported, try limiting the output by selecting a smaller set of subscriptions to be exported.

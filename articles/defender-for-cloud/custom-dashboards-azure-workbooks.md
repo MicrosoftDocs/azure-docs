@@ -25,6 +25,8 @@ For pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/
 
 **Cloud availability**: :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds :::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)
 
+<a name="workbooks-gallery-in-microsoft-defender-for-cloud"></a>
+
 ## Use Defender for Cloud gallery workbooks
 
 With the integrated Azure Workbooks functionality, Defender for Cloud makes it straightforward to build your own custom, interactive workbooks. Defender for Cloud also includes a gallery that has the following workbooks ready for you to customize:
@@ -49,6 +51,8 @@ Along with built-in workbooks, you can find other useful workbooks in the **Comm
 > :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-supplied-workbooks.png" alt-text="Screenshot that shows how to edit a supplied workbook to customize it for your needs.":::
 >
 
+<a name="use-the-coverage-workbook"></a>
+
 ### Coverage workbook
 
 If you enable Defender for Cloud across multiple subscriptions and environments (Azure, Amazon Web Services, and Google Cloud Platform), you might find it challenging to keep track of which plans are active. It's especially true if you have multiple subscriptions and environments.
@@ -64,7 +68,9 @@ In this workbook, you can select a subscription (or all subscriptions), and then
 - **Absolute coverage**: Shows each plan's status per subscription.
 - **Detailed coverage**: Shows additional settings that can be enabled or must need to be enabled on relevant plans to get each plan's full value.
 
-You can also select the Azure, Amazon Web Services, or Google Cloud Platform environment in each or all subscriptions to see which plans and extensions are enabled for that environment.
+You also can select the Azure, Amazon Web Services, or Google Cloud Platform environment in each or all subscriptions to see which plans and extensions are enabled for that environment.
+
+<a name="use-the-secure-score-over-time-workbook"></a>
 
 ### Secure Score Over Time workbook
 
@@ -143,6 +149,8 @@ To view the resources that passed or failed each control, you can keep drilling 
 >
 > :::image type="content" source="media/custom-dashboards-azure-workbooks/export-workbook-data.png" alt-text="Screenshot that shows how to export a compliance workbook data to Excel.":::
 
+<a name="use-the-active-alerts-workbook"></a>
+
 ### Active Alerts workbook
 
 The Active Alerts workbook displays the active security alerts for your subscriptions on one dashboard. Security alerts are the notifications that Defender for Cloud generates when it detects threats on your resources. Defender for Cloud prioritizes and lists the alerts with the information you need to quickly investigate and remediate.
@@ -185,6 +193,8 @@ Select a location on the map to view all the alerts for that location.
 :::image type="content" source="media/custom-dashboards-azure-workbooks/map-alert-details.png" alt-text="Screenshot that shows the alerts in a specific location in Map View.":::
 
 To view the details for that alert, select the **Open Alert View** button.
+
+<a name="use-the-devops-security-workbook"></a>
 
 ### DevOps Security workbook
 

@@ -17,6 +17,8 @@ After you set up the Microsoft Security DevOps GitHub action or the Microsoft Se
   - If your repository is in Azure DevOps, set up the [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md)
 - Ensure that you have an IaC template in your repository.
 
+<a name="configure-iac-scanning-and-view-the-results-in-github"></a>
+
 ## Set up a GitHub action for IaC scanning
 
 To set up an action and view scan results in GitHub:
@@ -160,6 +162,8 @@ To set up an action and view scan results in GitHub:
 1. To view the results of the scan, go to **Security** > **Code scanning alerts**.
 
    You can filter by tool to see only the IaC findings.
+
+<a name="configure-iac-scanning-and-view-the-results-in-azure-devops"></a>
 
 ## Set up an Azure DevOps extension for IaC scanning
 
