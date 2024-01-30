@@ -21,6 +21,14 @@ This documentation contains the following types of articles:
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
 
+## Language detection feautres
+
+* Language detection: Returns one predominant language for each document you submit, along with it's ISO 639-1 name, a human-readable name, confidence score, script name and script code according to ISO 15924 standard.
+
+* Script detection: To distinguish between multiple scripts used to write certain languages, such as Kazakh, language detection returns a script name and script code according to the ISO 15924 standard.  
+
+* Ambiguous content handling: To help disambiguate language based on the input, you can specify an ISO 3166-1 alpha-2 country/region code. For example, the word "communication" is common to both English and French. Specifying the origin of the text as France can help the language detection model determine the correct language.
+
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
 
