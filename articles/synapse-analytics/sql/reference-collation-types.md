@@ -53,6 +53,16 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 
 When passed 'Collation' as the property parameter, the DatabasePropertyEx function returns the current collation for the database specified. For more information, see [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
+## Check supported collation
+To check the list of currently supported collations for dedicated SQL pool database
+```
+USE master
+GO
+SELECT * FROM sys.fn_helpcollations();
+```
+> [!NOTE]
+> You must run this from the master database
+
 ## Next steps
 
 Additional information on best practices for dedicated SQL pool and serverless SQL pool can be found in the following articles:
