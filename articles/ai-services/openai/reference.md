@@ -197,7 +197,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```deployment-id``` | string | Required | The name of your model deployment. You're required to first deploy a model before you can make calls. |
-| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format.  |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD or YYYY-MM-DD-preview format.  |
 
 **Supported versions**
 
@@ -251,19 +251,38 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
 #### Example response
 
 ```console
-{"id":"chatcmpl-6v7mkQj980V1yBec6ETrKPRqFjNw9",
-"object":"chat.completion","created":1679072642,
-"model":"gpt-35-turbo",
-"usage":{"prompt_tokens":58,
-"completion_tokens":68,
-"total_tokens":126},
-"choices":[{"message":{"role":"assistant",
-"content":"Yes, other Azure AI services also support customer managed keys. Azure AI services offer multiple options for customers to manage keys, such as using Azure Key Vault, customer-managed keys in Azure Key Vault or customer-managed keys through Azure Storage service. This helps customers ensure that their data is secure and access to their services is controlled."},"finish_reason":"stop","index":0}]}
+{
+    "id": "chatcmpl-6v7mkQj980V1yBec6ETrKPRqFjNw9",
+    "object": "chat.completion",
+    "created": 1679072642,
+    "model": "gpt-35-turbo",
+    "usage":
+    {
+        "prompt_tokens": 58,
+        "completion_tokens": 68,
+        "total_tokens": 126
+    },
+    "choices":
+    [
+        {
+            "message":
+            {
+                "role": "assistant",
+                "content": "Yes, other Azure AI services also support customer managed keys.
+                    Azure AI services offer multiple options for customers to manage keys, such as
+                    using Azure Key Vault, customer-managed keys in Azure Key Vault or
+                    customer-managed keys through Azure Storage service. This helps customers ensure
+                    that their data is secure and access to their services is controlled."
+            },
+            "finish_reason": "stop",
+            "index": 0
+        }
+    ]
+}
 ```
+Output formatting adjusted for ease of reading, actual output is a single block of text without line breaks.
 
 In the example response, `finish_reason` equals `stop`. If `finish_reason` equals `content_filter` consult our [content filtering guide](./concepts/content-filter.md) to understand why this is occurring.
-
-Output formatting adjusted for ease of reading, actual output is a single block of text without line breaks.
 
 > [!IMPORTANT]
 > The `functions` and `function_call` parameters have been deprecated with the release of the [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) version of the API. The replacement for `functions` is the `tools` parameter. The replacement for `function_call` is the `tool_choice` parameter. Parallel function calling which was introduced as part of the [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) is only supported with `gpt-35-turbo` (1106) and `gpt-4` (1106-preview) also known as GPT-4 Turbo Preview.  
@@ -271,7 +290,7 @@ Output formatting adjusted for ease of reading, actual output is a single block 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | ```messages``` | array | Required |  | The collection of context messages associated with this chat completions request. Typical usage begins with a [chat message](#chatmessage) for the System role that provides instructions for the behavior of the assistant, followed by alternating messages between the User and Assistant roles.|
-| ```temperature```| number | Optional | 1 | What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.\nWe generally recommend altering this or `top_p` but not both. |
+| ```temperature```| number | Optional | 1 | What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. We generally recommend altering this or `top_p` but not both. |
 | ```n``` | integer | Optional | 1 | How many chat completion choices to generate for each input message.  |
 | ```stream``` | boolean | Optional | false | If set, partial message deltas will be sent, like in ChatGPT. Tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a `data: [DONE]` message." |
 | ```stop``` | string or array | Optional | null | Up to 4 sequences where the API will stop generating further tokens.|
