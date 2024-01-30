@@ -54,9 +54,17 @@ For this quickstart, we recommend GitHub Codespaces as a quick way to get starte
 
 * The Azure IoT Operations extension for Azure CLI.
 
-  ```powershell
-  az extension add --name azure-iot-ops
-  ```
+  * If you haven't installed the extension before, use `az extension add`:
+
+    ```bash
+    az extension add --name azure-iot-ops
+    ```
+
+  * If you have installed the extension before, use `az extension update` to make sure that you have the latest version:
+
+    ```bash
+    az extension update --name azure-iot-ops 
+    ```
 
 # [Linux](#tab/linux)
 
@@ -68,9 +76,17 @@ For this quickstart, we recommend GitHub Codespaces as a quick way to get starte
 
 * The Azure IoT Operations extension for Azure CLI.
 
-  ```bash
-  az extension add --name azure-iot-ops
-  ```
+  * If you haven't installed the extension before, use `az extension add`:
+
+    ```bash
+    az extension add --name azure-iot-ops
+    ```
+
+  * If you have installed the extension before, use `az extension update` to make sure that you have the latest version:
+
+    ```bash
+    az extension update --name azure-iot-ops 
+    ```
 
 ---
   
@@ -230,13 +246,13 @@ az keyvault create --enable-rbac-authorization false --name "<your unique key va
 
 1. In the Azure portal search bar, search for and select **Azure Arc**.
 
-1. Select **Azure IoT Operations (preview)** from the **Application services** section of the Azure Arc menu.
+1. Select **Azure IoT Operations (preview)** from the **Application Services** section of the Azure Arc menu.
 
    :::image type="content" source="./media/quickstart-deploy/arc-iot-operations.png" alt-text="Screenshot of selecting Azure IoT Operations from Azure Arc.":::
 
 1. Select **Create**.
 
-1. On the **Basics** tab of the **Install Azure IoT Operations Arc Extension** page, provide the following information:
+1. On the **Basic** tab of the **Install Azure IoT Operations Arc Extension** page, provide the following information:
 
    | Field | Value |
    | ----- | ----- |
@@ -266,12 +282,9 @@ az keyvault create --enable-rbac-authorization false --name "<your unique key va
    | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
    | **Azure Key Vault** | Use the **Select a key vault** drop-down menu to choose the key vault that you set up in the previous section. |
 
-1. Once you select a key vault, the **Automation** tab populates an Azure CLI command that configures your cluster with your deployment information. Copy the CLI command.
+1. Once you select a key vault, the **Automation** tab uses all the information you've selected so far to populate an Azure CLI command that configures your cluster and deploys Azure IoT Operations. Copy the CLI command.
 
-   >[!TIP]
-   >Select the **Azure CLI deployment -- Efficiency unleashed** automation option to generate a CLI command that performs the configuration tasks on your cluster and then also deploys Azure IoT Operations.
-
-   <!-- :::image type="content" source="./media/quickstart-deploy/install-extension-automation.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal."::: -->
+   :::image type="content" source="./media/quickstart-deploy/install-extension-automation.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
 
 1. Sign in to Azure CLI on your development machine or in your codespace terminal. To prevent potential permission issues later, sign in interactively with a browser here even if you've already logged in before.
 
@@ -287,14 +300,8 @@ az keyvault create --enable-rbac-authorization false --name "<your unique key va
 
 1. Run the copied `az iot ops init` command on your development machine or in your codespace terminal.
 
-   Wait for the command to complete before continuing to the next step.
-
    >[!TIP]
    >If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
-
-1. Return to the Azure portal and select **Review + Create**.
-
-1. Wait for the validation to pass and then select **Create**.
 
 ## View resources in your cluster
 
