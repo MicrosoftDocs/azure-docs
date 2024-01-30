@@ -26,7 +26,6 @@ In Azure, connected mode and disconnected mode refer to the state of an ExpressR
 * An Azure Operator Nexus Kubernetes cluster deployed in a resource group in your Azure subscription.
 * SSH private key for the cluster nodes.
 * If you're connecting in disconnected mode, you must have a jumpbox VM deployed in the same virtual network as the cluster nodes.
-* Installation of the Azure Monitoring Agent by the `install.sh` script works if the Nexus Kubernetes Cluster uses the latest version bundle ([Supported Version Bundles](https://learn.microsoft.com/en-us/azure/operator-nexus/reference-nexus-kubernetes-cluster-supported-versions?tabs=azure-cli)) or if the node VMs are already arc-enrolled.
 
 ## Connected mode access
 
