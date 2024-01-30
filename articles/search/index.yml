@@ -64,7 +64,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create a vector index in AI Studio
+          - text: Create a vector store in AI Studio
             url: /azure/ai-studio/how-to/index-add
           - text: Build a question and answer copilot
             url: /azure/ai-studio/tutorials/deploy-copilot-ai-studio
