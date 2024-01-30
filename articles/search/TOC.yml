@@ -147,8 +147,6 @@
       href: cognitive-search-working-with-skillsets.md
     - name: Integrated vectorization (preview)
       href: vector-search-integrated-vectorization.md
-    - name: Debug sessions
-      href: cognitive-search-debug-session.md
   - name: Retrieval (queries)
     items:
     - name: Full-text search
@@ -368,6 +366,8 @@
         href: cognitive-search-defining-skillset.md
       - name: Create an index projection for a secondary index
         href: index-projections-concept-intro.md
+      - name: Debug sessions overview
+        href: cognitive-search-debug-session.md
       - name: Debug a skillset
         href: cognitive-search-how-to-debug-skillset.md
       - name: Reference an annotation    
