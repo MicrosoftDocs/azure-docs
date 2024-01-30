@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Hardware Validation Failure
+title: Azure Operator Nexus troubleshooting hardware validation failure
 description: Troubleshoot Hardware Validation Failure for Azure Operator Nexus.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
@@ -27,7 +27,7 @@ This article describes how to troubleshoot a failed server hardware validation. 
 3. Navigate to the Logs tab
 4. Hardware validation results can be fetched with a query against the HWVal_CL table as per the following example
 
-:::image type="content" source="media\hardware-validation-cluster-law.png" alt-text="Cluster LAW Custom table query." lightbox="media\hardware-validation-cluster-law.png":::
+:::image type="content" source="media\hardware-validation-cluster-law.png" alt-text="Screenshot of cluster LAW custom table query." lightbox="media\hardware-validation-cluster-law.png":::
 
 ## Examining hardware validation results
 
@@ -46,7 +46,7 @@ Expanding `result_detail` for a given category shows detailed results.
 ### System info category
 
 * Memory/RAM related failure (memory_capacity_GB)
-    * Memory specs are defined in the SKU
+    * Memory specs are defined in the SKU.
     * Memory below threshold value indicates missing or failed DIMM(s). Failed DIMM(s) would also be reflected in the `health_info` category.
 
     ```json
@@ -59,7 +59,7 @@ Expanding `result_detail` for a given category shows detailed results.
     ```
 
 * CPU Related Failure (cpu_sockets)
-    * CPU specs are defined in the SKU
+    * CPU specs are defined in the SKU.
     * Failed `cpu_sockets` check indicates a failed CPU or CPU count mismatch.
 
     ```json
@@ -120,7 +120,7 @@ Expanding `result_detail` for a given category shows detailed results.
 ### Network info category
 
 * NIC Check Failure
-    * Dell server NIC specs are defined in the SKU
+    * Dell server NIC specs are defined in the SKU.
     * Mismatched link status indicates loose or faulty cabling or crossed cables.
     * Mismatched model indicates incorrect NIC card is inserted in to slot.
     * Missing link/model fetched values indicate NICs that are failed, missing or inserted in to incorrect slots.
@@ -349,7 +349,7 @@ Expanding `result_detail` for a given category shows detailed results.
 
 ## Adding servers back into the Cluster after a repair
 
-After Hardware is fixed, run BMM Replace following instructions from the following page [BMM actions](howto-baremetal-functions.md)
+After Hardware is fixed, run BMM Replace following instructions from the following page [BMM actions](howto-baremetal-functions.md).
 
 
 
