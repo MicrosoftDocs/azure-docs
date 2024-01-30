@@ -83,7 +83,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-### Drive Info Category
+### Drive info category
 
 * Disk Check Failure
     * Drive specs are defined in the SKU
