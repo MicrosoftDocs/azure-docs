@@ -47,7 +47,7 @@ When it comes to chunking data, think about these factors:
 
 ### How chunking fits into the workflow
 
-If you have large documents, you must insert a chunking step into indexing and query workflows that breaks up large text. When using [integrated vectorization (preview)](./vector-search-integrated-vectorization.md), a default chunking strategy using the [text split skill](./cognitive-search-skill-textsplit.md) is applied. You can also apply a custom chunking strategy using a [custom skill](./cognitive-search-custom-skill-web-api.md). Some libraries that provide chunking include:
+If you have large documents, you must insert a chunking step into indexing and query workflows that breaks up large text. When using [integrated vectorization (preview)](vector-search-integrated-vectorization.md), a default chunking strategy using the [text split skill](./cognitive-search-skill-textsplit.md) is applied. You can also apply a custom chunking strategy using a [custom skill](cognitive-search-custom-skill-web-api.md). Some libraries that provide chunking include:
 
 + [LangChain](https://python.langchain.com/en/latest/index.html)
 + [Semantic Kernel](https://github.com/microsoft/semantic-kernel)
@@ -58,14 +58,14 @@ Most libraries provide common chunking techniques for fixed size, variable size,
 
 The following examples demonstrate how chunking strategies are  applied to [NASA's Earth at Night e-book](https://github.com/Azure-Samples/azure-search-sample-data/blob/main/nasa-e-book/earth_at_night_508.pdf):
 
-+ [Text Split skill (preview](./cognitive-search-skill-textsplit.md)
++ [Text Split skill (preview](cognitive-search-skill-textsplit.md)
 + [LangChain](https://python.langchain.com/en/latest/index.html)
 + [Semantic Kernel](https://github.com/microsoft/semantic-kernel)
-+ [custom skill](./cognitive-search-custom-skill-scale.md)
++ [custom skill](cognitive-search-custom-skill-scale.md)
 
 ### Text Split skill (preview)
 
-This section documents the built-in data chunking using a skills-driven approach and [Text Split skill parameters](/cognitive-search-skill-textsplit.md#skill-parameters). 
+This section documents the built-in data chunking using a skills-driven approach and [Text Split skill parameters](cognitive-search-skill-textsplit.md#skill-parameters). 
 
 Set `textSplitMode` to break up content into smaller chunks:
 
@@ -74,11 +74,11 @@ Set `textSplitMode` to break up content into smaller chunks:
 
 The `pages` parameter adds extra parameters:
 
-+ `maximumPageLength` defines the maximum amount of characters <sup>1</sup> are in each chunk. The text splitter avoids breaking up sentences, so the actual amount of characters depends on the content.
++ `maximumPageLength` defines the maximum number of characters <sup>1</sup> in each chunk. The text splitter avoids breaking up sentences, so the actual character count depends on the content.
 + `pageOverlapLength` defines how many characters from the end of the previous page are included at the start of the next page. If set, this must be less than half the maximum page length.
-+ `maximumPagesToTake` defines how many pages / chunks to take from a document. The default value is 0, which means take all pages or chunks from the document.
++ `maximumPagesToTake` defines how many pages / chunks to take from a document. The default value is 0, which means taking all pages or chunks from the document.
 
-<sup>1</sup> Characters do not align to the definition of a [token](https://learn.microsoft.com/azure/ai-services/openai/concepts/prompt-engineering#space-efficiency). The amount of tokens measured by the LLM might be different than the character size measured by the Text Split skill.
+<sup>1</sup> Characters don't align to the definition of a [token](/azure/ai-services/openai/concepts/prompt-engineering#space-efficiency). The number of tokens measured by the LLM might be different than the character size measured by the Text Split skill.
 
 The following table shows how the choice of parameters affects the total chunk count from the Earth at Night e-book:
 
@@ -94,7 +94,7 @@ The following table shows how the choice of parameters affects the total chunk c
 
 Using a `textSplitMode` of `pages` results in a majority of chunks having total character counts close to `maximumPageLength`. Chunk character count varies due to differences on where sentence boundaries fall inside the chunk. Chunk token length varies due to differences in the contents of the chunk.
 
-The following histograms show how the distribution of chunk character length compares to chunk token length for [gpt-35-turbo](https://learn.microsoft.com/azure/ai-services/openai/how-to/chatgpt) when using a `textSplitMode` of `pages`, a `maximumPageLength` of 2000, and a `pageOverlapLength` of 500 on the Earth at Night e-book:
+The following histograms show how the distribution of chunk character length compares to chunk token length for [gpt-35-turbo](/azure/ai-services/openai/how-to/chatgpt) when using a `textSplitMode` of `pages`, a `maximumPageLength` of 2000, and a `pageOverlapLength` of 500 on the Earth at Night e-book:
 
    :::image type="content" source="media/vector-search-how-to-chunk-documents/maximumpagelength-2000-pageoverlaplength-500-charaters.png" alt-text="Histogram of chunk character count for maximumPageLength 2000 and pageOverlapLength 500.":::
 
@@ -102,7 +102,7 @@ The following histograms show how the distribution of chunk character length com
 
 Using a `textSplitMode` of `sentences` results in a large number of chunks consisting of individual sentences. These chunks are significantly smaller than those produced by `pages`, and the token count of the chunks more closely matches the character counts.
 
-The following histograms show how the distribution of chunk character length compares to chunk token length for [gpt-35-turbo](https://learn.microsoft.com/azure/ai-services/openai/how-to/chatgpt) when using a `textSplitMode` of `sentences` on the Earth at Night e-book:
+The following histograms show how the distribution of chunk character length compares to chunk token length for [gpt-35-turbo](/azure/ai-services/openai/how-to/chatgpt) when using a `textSplitMode` of `sentences` on the Earth at Night e-book:
 
    :::image type="content" source="media/vector-search-how-to-chunk-documents/sentences-characters.png" alt-text="Histogram of chunk character count for sentences.":::
 
@@ -196,5 +196,5 @@ This sample is built on LangChain, Azure OpenAI, and Azure AI Search.
 ## See also
 
 + [Understanding embeddings in Azure OpenAI Service](/azure/ai-services/openai/concepts/understand-embeddings)
-+ [Learn how to generate embeddings](/azure/ai-services/openai/how-to/embeddings?tabs=console)
-+ [Tutorial: Explore Azure OpenAI Service embeddings and document search](/azure/ai-services/openai/tutorials/embeddings?tabs=command-line)
++ [Learn how to generate embeddings](/azure/ai-services/openai/how-to/embeddings)
++ [Tutorial: Explore Azure OpenAI Service embeddings and document search](/azure/ai-services/openai/tutorials/embeddings)
