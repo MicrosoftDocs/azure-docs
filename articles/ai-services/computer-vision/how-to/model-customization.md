@@ -9,7 +9,7 @@ ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 02/06/2023
 ms.author: pafarley
-ms.custom: devx-track-python
+ms.custom: 
 ---
 
 # Create a custom Image Analysis model (preview)
@@ -21,13 +21,14 @@ This guide shows you how to create and train a custom image classification model
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Vision resource"  target="_blank">create a Vision resource </a> in the Azure portal to get your key and endpoint. If you're following this guide using Vision Studio, you must create your resource in the East US region. If you're using the Python library, you can create it in the East US, West US 2, or West Europe region. After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Vision resource"  target="_blank">create a Vision resource </a> in the Azure portal to get your key and endpoint. If you're following this guide using Vision Studio, you must create your resource in the East US region. After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
 * An Azure Storage resource - [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 * A set of images with which to train your classification model. You can use the set of [sample images on GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images). Or, you can use your own images. You only need about 3-5 images per class.
 
 > [!NOTE]
 > We do not recommend you use custom models for business critical environments due to potential high latency. When customers train custom models in Vision Studio, those custom models belong to the Vision resource that they were trained under and the customer is able to make calls to those models using the **Analyze Image** API. When they make these calls, the custom model is loaded in memory and the prediction infrastructure is initialized. While this happens, customers might experience longer than expected latency to receive prediction results.
 
+<!-- 
 #### [Python](#tab/python)
 
 Train your own image classifier (IC) or object detector (OD) with your own data using Image Analysis model customization and Python.
@@ -235,7 +236,7 @@ logging.info(f'Prediction: {prediction}')
 ```
 
 <!-- nbend -->
-
+-->
 
 #### [Vision Studio](#tab/studio)
 

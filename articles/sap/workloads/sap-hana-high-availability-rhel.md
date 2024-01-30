@@ -9,7 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
 ms.custom: devx-track-python
-ms.date: 01/17/2024
+ms.date: 01/22/2024
 ms.author: radeltch
 ---
 # High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux
@@ -281,22 +281,9 @@ The steps in this section use the following prefixes:
    Create firewall rules to allow HANA System Replication and client traffic. The required ports are listed on [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports). The following commands are just an example to allow HANA 2.0 System Replication and client traffic to database SYSTEMDB, HN1, and NW1.
 
    ```bash
-   sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40302/tcp
-   sudo firewall-cmd --zone=public --add-port=40301/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40301/tcp
-   sudo firewall-cmd --zone=public --add-port=40307/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40307/tcp
-   sudo firewall-cmd --zone=public --add-port=40303/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40303/tcp
-   sudo firewall-cmd --zone=public --add-port=40340/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40340/tcp
-   sudo firewall-cmd --zone=public --add-port=30340/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=30340/tcp
-   sudo firewall-cmd --zone=public --add-port=30341/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=30341/tcp
-   sudo firewall-cmd --zone=public --add-port=30342/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=30342/tcp
+    sudo firewall-cmd --zone=public --add-port={40302,40301,40307,40303,40340,30340,30341,30342}/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port={40302,40301,40307,40303,40340,30340,30341,30342}/tcp
+
    ```
 
 1. **[1]** Create the tenant database.

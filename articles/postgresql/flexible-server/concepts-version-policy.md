@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ms.author: alkuchar
 author: AlicjaKucharczyk
-ms.date: 09/14/2022
+ms.date: 12/21/2023
 ms.custom: fasttrack-edit, ignite-2022
 ---
 
