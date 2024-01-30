@@ -1,7 +1,7 @@
 ---
 title: Distributed GPU training guide (SDK v2)
 titleSuffix: Azure Machine Learning
-description: Learn best practices for performing distributed training with Azure Machine Learning SDK (v2) supported frameworks, such as MPI, Horovod, DeepSpeed, PyTorch, TensorFlow, and InfiniBand.
+description: Learn best practices for distributed training with supported frameworks, such as MPI, Horovod, DeepSpeed, PyTorch, TensorFlow, and InfiniBand.
 author: rtanase
 ms.author: ratanase
 ms.reviewer: sgilley
@@ -27,7 +27,7 @@ Learn more about using distributed GPU training code in Azure Machine Learning. 
 
 ## Prerequisites
 
-Review the [basic concepts of distributed GPU training](concept-distributed-training.md) such as _data parallelism_, _distributed data parallelism_, and _model parallelism_.
+Review the basic concepts of [distributed GPU training](concept-distributed-training.md), such as *data parallelism*, *distributed data parallelism*, and *model parallelism*.
 
 > [!TIP]
 > If you don't know which type of parallelism to use, more than 90% of the time you should use **distributed data parallelism**.
@@ -63,16 +63,16 @@ Make sure your code follows these tips:
 
 ### Environment variables from Open MPI
 
-When running MPI jobs with Open MPI images, the following environment variables for each process launched:
+When running MPI jobs with Open MPI images, you can use the following environment variables for each process launched:
 
-1. `OMPI_COMM_WORLD_RANK`: the rank of the process
-2. `OMPI_COMM_WORLD_SIZE`: the world size
-3. `AZ_BATCH_MASTER_NODE`: the primary address with port, `MASTER_ADDR:MASTER_PORT`
-4. `OMPI_COMM_WORLD_LOCAL_RANK`: the local rank of the process on the node
-5. `OMPI_COMM_WORLD_LOCAL_SIZE`: the number of processes on the node
+1. `OMPI_COMM_WORLD_RANK`: The rank of the process
+2. `OMPI_COMM_WORLD_SIZE`: The world size
+3. `AZ_BATCH_MASTER_NODE`: The primary address with port, `MASTER_ADDR:MASTER_PORT`
+4. `OMPI_COMM_WORLD_LOCAL_RANK`: The local rank of the process on the node
+5. `OMPI_COMM_WORLD_LOCAL_SIZE`: The number of processes on the node
 
 > [!TIP]
-> Despite the name, environment variable `OMPI_COMM_WORLD_NODE_RANK` doesn't correspond to the `NODE_RANK`. To use per-node-launcher, set `process_count_per_node=1` and use `OMPI_COMM_WORLD_RANK` as the `NODE_RANK`.
+> Despite the name, the environment variable `OMPI_COMM_WORLD_NODE_RANK` doesn't correspond to the `NODE_RANK`. To use per-node-launcher, set `process_count_per_node=1` and use `OMPI_COMM_WORLD_RANK` as the `NODE_RANK`.
 
 ## PyTorch
 
@@ -93,10 +93,10 @@ The most common communication backends used are `mpi`, `nccl`, and `gloo`. For G
 
 `init_method` tells how each process can discover each other, how they initialize and verify the process group using the communication backend. By default, if `init_method` isn't specified, PyTorch uses the environment variable initialization method (`env://`). `init_method` is the recommended initialization method to use in your training code to run distributed PyTorch on Azure Machine Learning. PyTorch looks for the following environment variables for initialization:
 
-- **`MASTER_ADDR`**: IP address of the machine that hosts the process with rank 0.
-- **`MASTER_PORT`**: A free port on the machine that hosts the process with rank 0.
-- **`WORLD_SIZE`**: The total number of processes. Should be equal to the total number of devices (GPU) used for distributed training.
-- **`RANK`**: The (global) rank of the current process. The possible values are 0 to (world size - 1).
+- **`MASTER_ADDR`**: IP address of the machine that hosts the process with rank 0
+- **`MASTER_PORT`**: A free port on the machine that hosts the process with rank 0
+- **`WORLD_SIZE`**: The total number of processes. Should be equal to the total number of devices (GPU) used for distributed training
+- **`RANK`**: The (global) rank of the current process. The possible values are 0 to (world size - 1)
 
 For more information on process group initialization, see the [PyTorch documentation](https://pytorch.org/docs/stable/distributed.html#torch.distributed.init_process_group).
 
@@ -119,14 +119,14 @@ Azure Machine Learning sets the `MASTER_ADDR`, `MASTER_PORT`, `WORLD_SIZE`, and 
 
 ## DeepSpeed
 
-[DeepSpeed](https://www.deepspeed.ai/tutorials/azure/) is supported as a first-class citizen within Azure Machine Learning to run distributed jobs with near linear scalability in terms of:
+Azure Machine Learning supports [DeepSpeed](https://www.deepspeed.ai/tutorials/azure/) as a first-class citizen to run distributed jobs with near linear scalability in terms of:
 
 * Increase in model size
 * Increase in number of GPUs
 
-`DeepSpeed` can be enabled using either Pytorch distribution or MPI for running distributed training. Azure Machine Learning supports the `DeepSpeed` launcher to launch distributed training as well as autotuning to get optimal `ds` configuration.
+DeepSpeed can be enabled using either Pytorch distribution or MPI for running distributed training. Azure Machine Learning supports the DeepSpeed launcher to launch distributed training as well as autotuning to get optimal `ds` configuration.
 
-You can use a [curated environment](resource-curated-environments.md) for an out of the box environment with the latest state of art technologies including `DeepSpeed`, `ORT`, `MSSCCL`, and `Pytorch` for your DeepSpeed training jobs.
+You can use a [curated environment](resource-curated-environments.md) for an out of the box environment with the latest state of art technologies including DeepSpeed, ORT, MSSCCL, and Pytorch for your DeepSpeed training jobs.
 
 ### DeepSpeed example
 
@@ -134,7 +134,7 @@ You can use a [curated environment](resource-curated-environments.md) for an out
 
 ## TensorFlow
 
-If you're using [native distributed TensorFlow](https://www.tensorflow.org/guide/distributed_training) in your training code, such as TensorFlow 2.x's `tf.distribute.Strategy` API, you can launch the distributed job via Azure Machine Learning using `distribution` parameters or the `TensorFlowDistribution` object.
+If you use [native distributed TensorFlow](https://www.tensorflow.org/guide/distributed_training) in your training code, such as TensorFlow 2.x's `tf.distribute.Strategy` API, you can launch the distributed job via Azure Machine Learning using `distribution` parameters or the `TensorFlowDistribution` object.
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/mnist-distributed/tensorflow-mnist-distributed.ipynb?name=job)]
 
