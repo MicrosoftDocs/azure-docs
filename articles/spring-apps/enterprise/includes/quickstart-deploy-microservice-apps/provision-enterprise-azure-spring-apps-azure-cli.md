@@ -10,7 +10,7 @@ ms.date: 01/19/2023
 <!-- 
 To reuse the Spring Apps instance creation steps in other articles, a separate markdown file is used to describe how to provision enterprise Spring Apps instance with Azure CLI.
 
-[!INCLUDE [provision-enterprise-azure-spring-apps-az-cli](provision-enterprise-azure-spring-apps-az-cli.md)]
+[!INCLUDE [provision-enterprise-azure-spring-apps-azure-cli](provision-enterprise-azure-spring-apps-azure-cli.md)]
 
 -->
 

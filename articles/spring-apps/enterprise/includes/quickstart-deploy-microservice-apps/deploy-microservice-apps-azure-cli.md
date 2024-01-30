@@ -10,7 +10,7 @@ ms.date: 01/19/2023
 <!-- 
 To reuse the Spring Apps instance deployment steps in other articles, a separate markdown file is used to describe how to deploy app to Spring Apps instance with Azure CLI.
 
-[!INCLUDE [deploy-microservice-apps-az-cli](deploy-microservice-apps-az-cli.md)]
+[!INCLUDE [deploy-microservice-apps-azure-cli](deploy-microservice-apps-azure-cli.md)]
 
 -->
 

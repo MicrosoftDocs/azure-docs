@@ -71,7 +71,7 @@ Use the following steps to create all the Azure resources that the app depends o
 
 ### [Azure CLI](#tab/Azure-CLI-ent)
 
-[!INCLUDE [provision-enterprise-azure-spring-apps](provision-enterprise-azure-spring-apps-az-cli.md)]
+[!INCLUDE [provision-enterprise-azure-spring-apps-azure-cli](provision-enterprise-azure-spring-apps-azure-cli.md)]
 
 ---
 
@@ -136,6 +136,6 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
 
 ### [Azure CLI](#tab/Azure-CLI-ent)
     
-[!INCLUDE [deploy-microservice-apps-az-cli](deploy-microservice-apps-az-cli.md)]
+[!INCLUDE [deploy-microservice-apps-azure-cli](deploy-microservice-apps-azure-cli.md)]
 
 ---
