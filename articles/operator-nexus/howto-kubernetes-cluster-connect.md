@@ -26,6 +26,7 @@ In Azure, connected mode and disconnected mode refer to the state of an ExpressR
 * An Azure Operator Nexus Kubernetes cluster deployed in a resource group in your Azure subscription.
 * SSH private key for the cluster nodes.
 * If you're connecting in disconnected mode, you must have a jumpbox VM deployed in the same virtual network as the cluster nodes.
+* Installation of the Azure Monitoring Agent by the `install.sh` script works if the Nexus Kubernetes Cluster uses the latest version bundle ([Supported Version Bundles](https://learn.microsoft.com/en-us/azure/operator-nexus/reference-nexus-kubernetes-cluster-supported-versions?tabs=azure-cli)) or if the node VMs are already arc-enrolled.
 
 ## Connected mode access
 
@@ -69,8 +70,6 @@ Once you are connected to a cluster via Arc for Kuberentes, you can connect to i
 ### Azure Arc for servers
 
 The `az ssh arc` command allows users to remotely access a cluster VM that has been connected to Azure Arc. This method is a secure way to SSH into the cluster node directly from the command line, while in connected mode. Once the cluster VM has been registered with Azure Arc, the `az ssh arc` command can be used to manage the machine remotely, making it a quick and efficient method for remote management.
-
-By default, all cluster VMs are arc-enabled, and can be accessed via `az ssh arc`.
 
 1. Set the required variables.
 
