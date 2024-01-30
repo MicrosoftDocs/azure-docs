@@ -61,7 +61,7 @@ To deploy on the Azure Kubernetes service, you must have the following configura
     - Select **Instances**. The instances disappear as they're deleted.
     - Select **Add network interface**. A **Create Network Interface** tab appears. 
 2. On the **Create Network Interface** tab:
-    - Enter a **Name** for the network interface, mark the **NIC network security group as **None**. 
+    - Enter a **Name** for the network interface, mark the **NIC network security group** as **None**. 
     - Attach the network interface to your subnet based on your requirements, and select **Create**. Repeat this step for each data plane port required in the VMSS template.
 3. Open a separate window and navigate to the **Azure Resource Explorer**. On the left side of the screen, locate the **Subscription** for this cluster.
 1. In the Azure Resource Explorer, find the **Infrastructure Resource group** for the cluster. Select **providers** \> **Microsoft.Compute** \> **virtualMachineScaleSets** \> **\<your VMSS name\>**. 
