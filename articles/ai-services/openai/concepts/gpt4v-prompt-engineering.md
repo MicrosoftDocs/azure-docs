@@ -27,7 +27,7 @@ To unlock the full potential of GPT-4 Turbo with Vision, it's essential to tailo
 7.	**Define output format:** Clearly mention the desired format for the output, such as markdown, JSON, HTML, etc. You can also suggest a specific structure, length, or specific attributes about the response.
 
 ## Example prompt inputs & outputs
-There are many ways to craft system prompts to tailor the output specifically to your needs. The following sample inputs and outputs showcase how adjusting your prompts can give you different results. Try the model out for yourself using these images and adjusting the system prompt in the [Azure AI Studio playground](ai.azure.com).
+There are many ways to craft system prompts to tailor the output specifically to your needs. The following sample inputs and outputs showcase how adjusting your prompts can give you different results. Try the model out for yourself using these images and adjusting the system prompt in the [Azure AI Studio playground](https://ai.azure.com/).
 
 ### Contextual specificity  
 Context can help improve feedback from the model. For example, if you're working on image descriptions for a product catalog, ensure your prompt reflects this in a clear and concise way. A prompt like “Describe images for an outdoor hiking product catalog, focusing on enthusiasm and professionalism” guides the model to generate responses that are both accurate and contextually rich.
