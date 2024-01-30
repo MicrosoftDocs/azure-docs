@@ -24,8 +24,47 @@ The sequence of steps to complete this move are:
 * Review details and requirements about moving resources between different regions in [Move resources to a new resource group or subsription][move-resources-new-subscription-resource-group].
 * You have an AKS cluster in the target subscription and the source cluster has persistent volumes with Azure Disks attached.
 
-## 
+## Validate disk volume state
 
+Preserving data is important while working with persistent volumes to avoid risk of data corruption, inconsistencies, or data loss. To prevent loss during the migration or move process, you first verify the disk volume is unattached by performing the following steps.
+
+1. Identify the node resource group hosting the Azure managed disks using the [`az aks show`][az-aks-show] command and add the `--query nodeResourceGroup` parameter.
+
+    ```azurecli-interactive
+    az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+    ```
+
+   The output of the command resembles the following example:
+
+    ```output
+    MC_myResourceGroup_myAKSCluster_eastus
+    ```
+
+1. List the managed disks using the [`az disk list`][az-disk-list] command referencing the resource group returned in the previous step.
+
+    ```azurecli-interactive
+    az disk list --resource-group MC_myResourceGroup_myAKSCluster_eastus
+    ```
+
+    Review the list and note which disk volumes you plan to move to the other cluster. Also validate the disk state by looking for the `diskState` property. The output of the command is a condensed example.
+
+    ```output
+    {
+    "LastOwnershipUpdateTime": "2023-04-25T15:09:19.5439836+00:00",
+    "creationData": {
+      "createOption": "Empty",
+      "logicalSectorSize": 4096
+    },
+    "diskIOPSReadOnly": 3000,
+    "diskIOPSReadWrite": 4000,
+    "diskMBpsReadOnly": 125,
+    "diskMBpsReadWrite": 1000,
+    "diskSizeBytes": 1073741824000,
+    "diskSizeGB": 1000,
+    "diskState": "Unattached",
+    ```
+
+1. To validate the disk state, run the 
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
