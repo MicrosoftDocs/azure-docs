@@ -38,7 +38,7 @@ If you don't have cURL installed, here are links for your platform:
 
 1. Copy and paste the document translation **request sample** into your `document-translation.json` file. Replace **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance.
 
-    `**Request sample**`
+    ***Request sample***
 
     ```json
     {

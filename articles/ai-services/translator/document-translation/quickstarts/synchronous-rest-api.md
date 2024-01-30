@@ -33,9 +33,8 @@ You need an active Azure subscription. If you don't have an Azure subscription, 
 
     > [!NOTE]
     >
-    > * For this quickstart we recommend that you use a Translator text single-service global resource.
+    > * For this quickstart we recommend that you use a Translator text single-service global resource unless your business or application requires a specific region. If you're planning on using a [system-assigned managed identity](../how-to-guides/create-use-managed-identities.md) for authentication, choose a **geographic** region like **West US**.
     > * With a single-service global resource you'll include one authorization header (**Ocp-Apim-Subscription-key**) with the REST API request. The value for Ocp-Apim-Subscription-key is your Azure secret key for your Translator Text subscription.
-    > * If you choose to use an Azure AI multi-service or regional Translator resource, two authentication headers will be required: (**Ocp-Api-Subscription-Key** and **Ocp-Apim-Subscription-Region**). The value for Ocp-Apim-Subscription-Region is the region associated with your subscription.
 
 * After your resource deploys, select **Go to resource** and retrieve your key and endpoint.
 
@@ -62,15 +61,15 @@ To call the synchronous translation feature via the [REST API](../reference/sync
 
 |Query parameter&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|Description| Condition|
 |---------|---------|----|
-|`-X POST`|The -X flag specifies the request method to access the API.|&bullet; ***Required*** |
-|`{endpoint}`  |The URL for your Document Translation resource endpoint|&bullet; ***Required*** |
-|`targetLanguage`|Specifies the language of the output document. The target language must be one of the supported languages included in the translation scope.|&bullet; ***Required*** |
-|`--header "Ocp-Apim-Subscription-Key:{KEY}`    | Specifies the Document Translation resource key authorizing access to the API.|&bullet; ***Required***|
-|`--header "Ocp-Apim-Subscription-Region:{REGION}"`|The region where your resource was created. |&bullet; ***Required*** when using an Azure AI multi-service or regional (geographic) resource like **West US**.</br></br>&bullet; ***Optional*** when using a single-service global Translator Resource.|
-|&bull; `document=`<br> &bull; `type=`|&bull; Path to the file location for your source document and file format type.</br> &bull; Ex: **"document=@C:\Test\Test-file.txt;type=text/html**|&bullet; ***Required***|
-|`--form` |The filepath to the document that you want to pass with your request.|&bullet; ***Required***|
-|`--form` |The filepath to an optional glossary to pass with your request. The glossary requires a separate `--form` flag.|&bullet; ***Optional***|
-|`--output`|The filepath to the response results.|&bullet; ***Required***|
+|`-X POST`|The -X flag specifies the request method to access the API.|***Required*** |
+|`{endpoint}`  |The URL for your Document Translation resource endpoint|***Required*** |
+|`targetLanguage`|Specifies the language of the output document. The target language must be one of the supported languages included in the translation scope.|***Required*** |
+|`sourceLanguage`|Specifies the language of the input document. If the from parameter isn't specified, automatic language detection is applied to determine the source language. |***Optional***|
+|`--header "Ocp-Apim-Subscription-Key:{KEY}`    | Specifies the Document Translation resource key authorizing access to the API.|***Required***|
+|&bull; `document=`<br> &bull; `type=`|&bull; Path to the file location for your source document and file format type.</br> &bull; Ex: **"document=@C:\Test\Test-file.txt;type=text/html**|***Required***|
+|`--form` |The filepath to the document that you want to include with your request. Only one source document is allowed.|***Required***|
+|`--form` |The filepath to an optional glossary to include with your request. The glossary requires a separate `--form` flag.|***Optional***|
+|`--output`|The filepath to the response results.|***Required***|
 
 ## Build and run the POST request
 
@@ -81,17 +80,17 @@ To call the synchronous translation feature via the [REST API](../reference/sync
     > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information, *see* Azure AI services [security](/azure/ai-services/security-features).
 
-   ***command prompt / terminal (regional endpoint)***
+   ***command prompt / terminal***
 
     ```bash
 
-    curl -i -X POST "{your-document-translation-endpoint}/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}" -H "Ocp-Apim-Subscription-Region: {your-region}" --form "document={path-to-your-document-with-file-extension};type=text/{file-extension}" -form "glossary={path-to-your-glossary-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}"
+    curl -i -X POST "{your-document-translation-endpoint}/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}"  --form "document={path-to-your-document-with-file-extension};type=text/{file-extension}" -form "glossary={path-to-your-glossary-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}"
     ```
 
-    ***PowerShell (global endpoint)***
+    ***PowerShell***
 
     ```powershell
-    cmd /c curl "{your-document-translation-endpoint}/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -i -X POST  --header "Ocp-Apim-Subscription-Key: {your-key}" -H "Ocp-Apim-Subscription-Region: {your-region}" --form "{path-to-your-document-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}
+    cmd /c curl "{your-document-translation-endpoint}/document:translate?fromLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -i -X POST  --header "Ocp-Apim-Subscription-Key: {your-key}" --form "{path-to-your-document-with-file-extension};type=text/{file-extension}" --output "{path-to-output-file}
     ```
 
 ***Upon successful completion***:
