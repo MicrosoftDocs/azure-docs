@@ -1,7 +1,7 @@
 ---
 title: Get information about Azure Monitor logs using Microsoft Copilot for Azure (preview)
 description: Learn about scenarios where Microsoft Copilot for Azure (preview) can provide information about Azure Monitor metrics and logs.
-ms.date: 11/15/2023
+ms.date: 01/30/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
 ms.custom:
@@ -15,9 +15,9 @@ author: JnHs
 
 You can ask Microsoft Copilot for Azure (preview) questions about logs collected by [Azure Monitor](/azure/azure-monitor/).
 
-When asked about logs for a particular resource, Microsoft Copilot for Azure (preview) generates an example KQL expression and allows you to further explore the data in Azure Monitor logs. This capability is available for all customers using Log Analytics, and can be used in the context of a particular Azure Kubernetes Service cluster that is using Azure Monitor logs.
+When asked about logs for a particular resource, Microsoft Copilot for Azure (preview) generates an example KQL expression and allows you to further explore the data in Azure Monitor logs. This capability is available for all customers using Log Analytics, and can be used in the context of a particular Azure Kubernetes Service (AKS) cluster that uses Azure Monitor logs.
 
-When you ask Microsoft Copilot for Azure (preview) about logs, it automatically pulls context when possible, based on the current conversation or on the page you're viewing in the Azure portal. If the context isn't clear, you'll be prompted to specify the resource for which you want information.
+To get details about your container logs, start on the **Logs** page for your AKS cluster.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
