@@ -8,14 +8,13 @@ ms.subservice: events
 ms.topic: overview
 ms.date: 01/29/2024
 ms.author: jasteppe
-appliesto:
-- FHIR service
-- DICOM service
 ---
 
 # What are events?
 
-Events in Azure Health Data Services allow you to subscribe to and receive notifications of changes to health data in the FHIR&reg; service or the DICOM&reg; service. Events also enable you to trigger other actions or services based changes to health data, such as starting workflows, sending email or text messages, or triggering alerts. 
+**Applies to:** [!INCLUDE [Applies to](../includes/applies-to.md)][!INCLUDE [FHIR service](../includes/fhir-service.md)], [!INCLUDE [DICOM service](../includes/DICOM-service.md)]
+
+Events in Azure Health Data Services allow you to subscribe to and receive notifications of changes to health data in the FHIR&reg; service or the DICOM&reg; service. Events also enable you to trigger other actions or services based changes to health data, such as starting workflows, sending email, text messages, or alerts. 
 
 Events are:
 
@@ -23,7 +22,7 @@ Events are:
 
 - **Configurable**. Choose which FHIR and DICOM event types trigger event notifications. Use advanced features built into the Azure Event Grid service, such as filters, dead-lettering, and retry policies to tune message delivery options for events. 
 
-- **Extensible**. Use events to send FHIR resource and DICOM image change messages to [Azure Event Hubs](../../event-hubs/event-hubs-about.md) or [Azure Functions](../../azure-functions/functions-overview.md) to trigger downstream automated workflows that enhance operational data, data analysis, and visibility of the incoming data capturing in near real time.
+- **Extensible**. Use events to send FHIR resource and DICOM image change messages to [Azure Event Hubs](../../event-hubs/event-hubs-about.md) or [Azure Functions](../../azure-functions/functions-overview.md).  to trigger downstream automated workflows that enhance operational data, data analysis, and visibility of the incoming data capturing in near real time.
  
 - **Secure**. Events are built on a platform that supports protected health information (PHI) compliance with privacy, safety, and security standards. Use [Azure managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to provide secure access from the Event Grid system topic to the events message-receiving endpoints of your choice.
 
@@ -31,9 +30,9 @@ Events are:
 
 ## Supported operations
 
-Events supports these operations:
+Events support these operations:
 
-| Operation           | Trigger Condition                |
+| Operation           | Trigger condition                |
 |---------------------|----------------------------------|
 | FhirResourceCreated | A FHIR resource was created.      |
 | FhirResourceUpdated | A FHIR resource was updated.      |
