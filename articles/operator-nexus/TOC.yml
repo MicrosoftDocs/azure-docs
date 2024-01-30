@@ -27,7 +27,10 @@
       items:
         - name: Isolation Domains overview
           href: concepts-isolation-domain.md
-
+        - name: Isolation Domain configuration
+          href: reference-isolation-domain-configuration.md
+        - name: Technical requirements for Isolation Domains
+          href: reference-isolation-domain-technical-requirements.md
     - name: Nexus Kubernetes
       href: concepts-nexus-kubernetes-cluster.md
     - name: Observability
