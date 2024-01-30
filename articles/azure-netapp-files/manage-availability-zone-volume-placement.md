@@ -121,7 +121,7 @@ If you need to delete and recreate the volume in a different availability zone, 
 
 ## Configure custom RBAC roles
 
-If you are using a custom RBAC role, you may not be able to access network features and Availability Zone options in the Azure portal. To ensure you have the appropriate access, you should add the `Microsoft.NetApp/locations/*` permission, which adds the following permissions: 
+If you are using a custom RBAC role and managing availability zones _in the Azure portal_, you may not be able to access network features and Availability Zone options in the Azure portal. To ensure you have the appropriate access, add the `Microsoft.NetApp/locations/*` permission to custom RBAC roles. This encompasses the following permissions: 
 
 * `Microsoft.NetApp/locations/{location}/checkNameAvailability`
 * `Microsoft.NetApp/locations/{location}/checkFilePathAvailability`
