@@ -7,7 +7,7 @@ ms.date: 08/21/2023
 ms.author: anaharris
 ms.service: reliability
 ms.subservice: availability-zones
-ms.custom: subject-reliability
+ms.custom: subject-reliability, ai-video-concept
 ---
 
 # Azure reliability documentation
