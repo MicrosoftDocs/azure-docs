@@ -67,6 +67,7 @@ The following table shows the language versions supported for Java functions. Se
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| [Java 21](/java/openjdk/support#release-and-servicing-roadmap) (Linux) | Preview | September 2028 |
 | [Java 17](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
 | [Java 11](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
 | [Java 8](https://endoflife.date/eclipse-temurin) | GA | November 30, 2026 |
