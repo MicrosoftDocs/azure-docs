@@ -1,5 +1,5 @@
 ---
-title: "Azure Operator Nexus: Credential Rotation"
+title: Azure operator nexus credential rotation
 description: Instructions on Credential Rotation Lifecycle Management requests.
 ms.service: azure-operator-nexus
 ms.custom: template-how-to
@@ -15,17 +15,17 @@ This document provides an overview of the credential rotation support request th
 
 ## Prerequisites
 
-1. Target cluster and fabric must be in running and healthy state.
+- Target cluster and fabric must be in running and healthy state.
 
 ### Create support request
 
 Raise credential rotation request by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Below details are required in order to perform the credential rotation on the required target instance:
-  1. Type of credential that needs to be rotated. Specify if the request is for fabric device or BMC or Storage or Console User or for all four types.
-  1. Provide Tenant ID.
-  1. Provide Subscription ID.
-  1. Provide Resource Group Name in which the target cluster or fabric resides based on type of credential that needs to be rotated.
-  1. Provide Target Cluster or Fabric Name based on type of credential that needs to be rotated.
-  1. Provide Target Cluster or Fabric ARM ID based on type of credential that needs to be rotated.
-  1. Provide Customer Key Vault ID to which rotated credentials of target cluster instance needs to be updated.
+  - Type of credential that needs to be rotated. Specify if the request is for fabric device or BMC or Storage or Console User or for all four types.
+  - Provide Tenant ID.
+  - Provide Subscription ID.
+  - Provide Resource Group Name in which the target cluster or fabric resides based on type of credential that needs to be rotated.
+  - Provide Target Cluster or Fabric Name based on type of credential that needs to be rotated.
+  - Provide Target Cluster or Fabric ARM ID based on type of credential that needs to be rotated.
+  - Provide Customer Key Vault ID to which rotated credentials of target cluster instance needs to be updated.
 
 For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
