@@ -24,17 +24,12 @@ landingContent:
         links:
           - text: What is Microsoft Sentinel?
             url: overview.md
-          - text: Useful resources
-            url: resources.md
+          - text: Best practices
+            url: best-practices.md
       - linkListType: whats-new
         links:
           - text: What's new in Microsoft Sentinel?
             url: whats-new.md
-      - linkListType: concept
-        links:
-          - text: Best practices
-            url: best-practices.md
-
 
   # Card (optional)
   - title: Get started
@@ -43,28 +38,18 @@ landingContent:
         links:
           - text: Onboard Microsoft Sentinel
             url: quickstart-onboard.md
-      - linkListType: concept
+      - linkListType: deploy
         links:
+          - text: Deployment guide
+            url: deploy-overview.md
           - text: Prerequisites
             url: prerequisites.md
       - linkListType: how-to-guide
         links:
-          - text: Install Microsoft Sentinel solutions (Preview)
+          - text: Install solutions and content
             url: sentinel-solutions-deploy.md
-          - text: Visualize collected data
-            url: get-visibility.md
-          - text: Investigate incidents
-            url: investigate-cases.md
-          - text: Microsoft Defender XDR integration with Microsoft Sentinel
-            url: microsoft-365-defender-sentinel-integration.md
-      - linkListType: reference
-        links:
-          - text: Content hub catalog
+          - text: Find solutions
             url: sentinel-solutions-catalog.md
-      - linkListType: learn
-        links:
-          - text: Create KQL queries for Microsoft Sentinel
-            url: /training/paths/sc-200-utilize-kql-for-azure-sentinel/
 
   # Card
   - title: Collect data
@@ -79,102 +64,32 @@ landingContent:
         links:
           - text: Connect data to Microsoft Sentinel
             url: connect-data-sources.md
-          - text: Connect Microsoft Defender XDR
-            url: connect-microsoft-365-defender.md
+          - text: Find data connectors
+            url: data-connectors-reference.md
           - text: Create a custom connector
             url: create-custom-connector.md
           - text: Monitor connector health
             url: monitor-data-connector-health.md
-          - text: Integrate Azure Data Explorer
-            url: store-logs-in-azure-data-explorer.md
-      - linkListType: reference
-        links:
-          - text: Data connector reference
-            url: data-connectors-reference.md
-          - text: Data source schema reference
-            url: data-source-schema-reference.md
-          - text: CEF log field mapping
-            url: cef-name-mapping.md
-          - text: Network normalization schema
-            url: ./normalization-schema-network.md
 
  # Card (optional)
-  - title: Kusto Query Language in Microsoft Sentinel
+  - title: Detect threats
     linkLists:
       - linkListType: concept
         links:
-          - text: Kusto Query Language in Microsoft Sentinel
-            url: kusto-overview.md
-      - linkListType: tutorial
-        links:
-          - text: Kusto Query Language tutorial (Azure Monitor)
-            url: /azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor
-      - linkListType: learn
-        links:
-          - text: Write your first query with Kusto Query Language
-            url: /training/modules/write-first-query-kusto-query-language/
-          - text: More KQL learning and skilling resources
-            url: kusto-resources.md
-      - linkListType: reference
-        links:
-          - text: KQL quick reference guide
-            url: /azure/data-explorer/kql-quick-reference
-
- # Card (optional)
-  - title: Threat intelligence
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Understand threat intelligence in Microsoft Sentinel
+          - text: Threat intelligence integration
             url: understand-threat-intelligence.md
-          - text: Threat intelligence integrations
-            url: threat-intelligence-integration.md
-      - linkListType: how-to-guide
-        links:
-          - text: Connect threat intelligence platforms to Microsoft Sentinel
-            url: connect-threat-intelligence-tip.md
-          - text: Connect Microsoft Sentinel to STIX/TAXII feeds
-            url: connect-threat-intelligence-taxii.md
-          - text: Work with threat indicators
-            url: work-with-threat-indicators.md
-
- # Card (optional)
-  - title: Threat detection
-    linkLists:
-      - linkListType: concept
-        links:
+          - text: MITRE ATT&CK® framework
+            url: mitre-coverage.md
           - text: User and entity behavior analytics (UEBA)
             url: identify-threats-with-entity-behavior-analytics.md
           - text: Customizable anomalies
             url: soc-ml-anomalies.md
       - linkListType: how-to-guide
         links:
-          - text: Use built-in analytics to detect threats
+          - text: Detect threats by using built-in analytics
             url: detect-threats-built-in.md
           - text: Create custom detection rules
             url: detect-threats-custom.md
-      - linkListType: reference
-        links:
-          - text: Entities reference
-            url: entities-reference.md
-          - text: UEBA enrichments
-            url: ueba-reference.md
-
- # Card (optional)
-  - title: Threat hunting
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Hunt for threats
-            url: hunting.md
-      - linkListType: how-to-guide
-        links:
-          - text: Hunt with Jupyter notebooks
-            url: notebooks.md
-          - text: Hunt with bookmarks
-            url: bookmarks.md
-          - text: Hunt with livestream
-            url: livestream.md
 
  # Card (optional)
   - title: Investigate
@@ -186,14 +101,11 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Investigate incidents
-            url: investigate-cases.md
+            url: investigate-incidents.md
+          - text: Manage incident workflow with tasks
+            url: work-with-tasks.md
           - text: Monitor your data
             url: monitor-your-data.md
-      - linkListType: reference
-        links:
-        - text: Commonly used Microsoft Sentinel workbooks
-          url: top-workbooks.md
-
 
 # Card (optional)
   - title: Respond
@@ -202,36 +114,44 @@ landingContent:
         links:
         - text: Respond automatically to threats
           url: tutorial-respond-threats-playbook.md
-        - text: Use Jupyter Notebooks to hunt for security threats
-          url: notebooks.md
       - linkListType: concept
         links:
           - text: Automation rules
             url: automate-incident-handling-with-automation-rules.md
           - text: Playbooks
             url: automate-responses-with-playbooks.md
-      - linkListType: reference
-        links:
-          - text: SOAR content catalog
-            url: sentinel-soar-content.md
 
-
-
-
-  # Card
-  - title: Manage Microsoft Sentinel
+ # Card (optional)
+  - title: Research
     linkLists:
       - linkListType: concept
         links:
-          - text: Workspace architecture best practices
-            url: best-practices-workspace-architecture.md
+          - text: Threat hunting
+            url: hunting.md
       - linkListType: how-to-guide
         links:
-          - text: Design your workspace architecture
-            url: design-your-workspace-architecture.md
-          - text: Manage multiple tenants
-            url: multiple-tenants-service-providers.md
-          - text: Work with incidents in multiple workspaces
-            url: multiple-workspace-view.md
-          - text: Manage your intellectual property
-            url: mssp-protect-intellectual-property.md
+          - text: Conduct end-to-end threat hunting
+            url: hunts.md
+          - text: Hunt with Jupyter notebooks
+            url: notebooks.md
+
+ # Card (optional)
+  - title: Kusto Query Language in Microsoft Sentinel
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Kusto Query Language in Microsoft Sentinel
+            url: kusto-overview.md
+          - text: KQL quick reference guide
+            url: /azure/data-explorer/kql-quick-reference
+      - linkListType: tutorial
+        links:
+          - text: Kusto Query Language tutorial (Azure Monitor)
+            url: /azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor
+      - linkListType: learn
+        links:
+          - text: Write your first query with Kusto Query Language
+            url: /training/modules/write-first-query-kusto-query-language/
+          - text: More KQL learning and skilling resources
+            url: kusto-resources.md
+
