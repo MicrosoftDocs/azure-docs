@@ -244,9 +244,9 @@ items:
       - name: Stream managed component logs in real time
         href: how-to-managed-component-log-streaming.md
       - name: Application Insights using Java In-Process Agent
-        href: how-to-application-insights-enterprise.md
+        href: how-to-application-insights.md?pivots=sc-enterprise-tier
       - name: Resilience4J Circuit Breaker Metrics
-        href: how-to-circuit-breaker-metrics-enterprise.md
+        href: how-to-circuit-breaker-metrics.md?pivots=sc-enterprise-tier
       - name: Structured application log
         href: structured-app-log.md
       - name: Monitor app lifecycle events
