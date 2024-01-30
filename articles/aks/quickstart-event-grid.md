@@ -24,7 +24,7 @@ In this quickstart, you create an AKS cluster and subscribe to AKS events.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Create an AKS cluster using the [`az aks create`][az-aks-create] command. The following example creates a resource group *MyResourceGroup* and a cluster named *MyAKS* with one node in the *MyResourceGroup* resource group:
+Create an AKS cluster using the [az aks create][az-aks-create] command. The following example creates a resource group *MyResourceGroup* and a cluster named *MyAKS* with one node in the *MyResourceGroup* resource group:
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location eastus
@@ -33,7 +33,7 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus  --node-count 1 --ge
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Create an AKS cluster using the [`New-AzAksCluster`][new-azakscluster] command. The following example creates a resource group *MyResourceGroup* and a cluster named *MyAKS* with one node in the *MyResourceGroup* resource group:
+Create an AKS cluster using the [New-AzAksCluster][new-azakscluster] command. The following example creates a resource group *MyResourceGroup* and a cluster named *MyAKS* with one node in the *MyResourceGroup* resource group:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name MyResourceGroup -Location eastus
@@ -46,7 +46,7 @@ New-AzAksCluster -ResourceGroupName MyResourceGroup -Name MyAKS -Location eastus
 
 ### [Azure CLI](#tab/azure-cli)
 
-Create a namespace and event hub using [`az eventhubs namespace create`][az-eventhubs-namespace-create] and [`az eventhubs eventhub create`][az-eventhubs-eventhub-create]. The following example creates a namespace *MyNamespace* and an event hub *MyEventGridHub* in *MyNamespace*, both in the *MyResourceGroup* resource group.
+Create a namespace and event hub using [az eventhubs namespace create][az-eventhubs-namespace-create] and [az eventhubs eventhub create][az-eventhubs-eventhub-create]. The following example creates a namespace *MyNamespace* and an event hub *MyEventGridHub* in *MyNamespace*, both in the *MyResourceGroup* resource group.
 
 ```azurecli-interactive
 az eventhubs namespace create --location eastus --name MyNamespace -g MyResourceGroup
@@ -56,7 +56,7 @@ az eventhubs eventhub create --name MyEventGridHub --namespace-name MyNamespace 
 > [!NOTE]
 > The *name* of your namespace must be unique.
 
-Subscribe to the AKS events using [`az eventgrid event-subscription create`][az-eventgrid-event-subscription-create]:
+Subscribe to the AKS events using [az eventgrid event-subscription create][az-eventgrid-event-subscription-create]:
 
 ```azurecli-interactive
 SOURCE_RESOURCE_ID=$(az aks show -g MyResourceGroup -n MyAKS --query id --output tsv)
@@ -181,7 +181,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Use the [`Remove-AzResourceGroup`][remove-azresourcegroup] cmdlet to remove the resource group, the AKS cluster, namespace, and event hub, and all related resources.
+Use the [Remove-AzResourceGroup][remove-azresourcegroup] cmdlet to remove the resource group, the AKS cluster, namespace, and event hub, and all related resources.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup

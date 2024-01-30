@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 04/13/2020
+ms.date: 1/21/2024
 ms.author: eur
 ---
 
@@ -89,7 +89,7 @@ With every call to [`AddTargetLanguage`][addlang], a new target translation lang
 
 ## Initialize a translation recognizer
 
-After you've created a [`SpeechTranslationConfig`][speechtranslationconfig] instance, the next step is to initialize [`TranslationRecognizer`][translationrecognizer]. When you initialize `TranslationRecognizer`, you need to pass it your `translationConfig` instance. The configuration object provides the credentials that the Speech service requires to validate your request.
+After you created a [`SpeechTranslationConfig`][speechtranslationconfig] instance, the next step is to initialize [`TranslationRecognizer`][translationrecognizer]. When you initialize `TranslationRecognizer`, you need to pass it your `translationConfig` instance. The configuration object provides the credentials that the Speech service requires to validate your request.
 
 If you're recognizing speech by using your device's default microphone, here's what `TranslationRecognizer` should look like:
 
@@ -154,7 +154,7 @@ void translateSpeech() {
 
 ## Translate speech
 
-To translate speech, the Speech SDK relies on a microphone or an audio file input. Speech recognition occurs before speech translation. After all objects have been initialized, call the recognize-once function and get the result:
+To translate speech, the Speech SDK relies on a microphone or an audio file input. Speech recognition occurs before speech translation. After all objects are initialized, call the recognize-once function and get the result:
 
 ```cpp
 void translateSpeech() {

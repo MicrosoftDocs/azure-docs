@@ -39,6 +39,7 @@ For the latest information on Azure storage service limits and best practices fo
 
 ## Data copy and upload caveats
 
+- Importing data into NFS Azure file shares isn't supported by Azure Data Box. Copying data from Data Box into an existing NFS Azure file share with an identical name as your source folder creates a conflict. To resolve this conflict, Data Box renames the source share to `databox-<GUID>` and uploads it to the target storage account as an SMB Azure file share.
 - Don't copy data directly into the disks. Copy data to pre-created *BlockBlob*, *PageBlob*, and *AzureFile* folders.
 - A folder under the *BlockBlob* and *PageBlob* is a container. For instance, containers are created as *BlockBlob/container* and *PageBlob/container*.
 - If a folder has the same name as an existing container, the folder's contents are merged with the container's contents. Files or blobs that aren't already in the cloud are added to the container. If a file or blob has the same name as a file or blob that's already in the container, the existing file or blob is overwritten.

@@ -2,7 +2,7 @@
 title: Container workloads on Azure Batch
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 01/19/2024
 ms.devlang: csharp
 # ms.devlang: csharp, python
 ms.custom: seodec18, devx-track-csharp, linux-related-content
@@ -63,40 +63,37 @@ a `DockerCompatible` capability if the image supports Docker containers. Batch a
 support, images published by Mirantis with capability noted as `DockerCompatible`. These images may only be
 deployed under a User Subscription pool allocation mode Batch account.
 
-You can also create custom images from VMs running Docker on Windows.
+You can also create a [custom image](batch-sig-images.md) to enable container functionality on Windows.
 
 > [!NOTE]
 > The image SKUs `-with-containers` or `-with-containers-smalldisk` are retired. Please see the [announcement](https://techcommunity.microsoft.com/t5/containers/updates-to-the-windows-container-runtime-support/ba-p/2788799) for details and alternative container runtime options.
 
 ### Linux support
 
-For Linux container workloads, Batch currently supports the following Linux images published by Microsoft Azure Batch in the Azure Marketplace without the need for a custom image.
+For Linux container workloads, Batch currently supports the following Linux images published in the Azure Marketplace
+without the need for a custom image.
 
-#### VM sizes without RDMA
+- Publisher: `microsoft-dsvm`
+  - Offer: `ubuntu-hpc`
+
+#### Alternate image options
+
+Currently there are other images published by `microsoft-azure-batch` that support container workloads:
 
 - Publisher: `microsoft-azure-batch`
   - Offer: `centos-container`
+  - Offer: `centos-container-rdma` (For use exclusively on VM SKUs with Infiniband)
   - Offer: `ubuntu-server-container`
-
-- Publisher: `microsoft-dsvm`
-  - Offer: `ubuntu-hpc`
-
-#### VM sizes with RDMA
-
-- Publisher: `microsoft-azure-batch`
-  - Offer: `centos-container-rdma`
-  - Offer: `ubuntu-server-container-rdma`
-
-- Publisher: `microsoft-dsvm`
-  - Offer: `ubuntu-hpc`
+  - Offer: `ubuntu-server-container-rdma` (For use exclusively on VM SKUs with Infiniband)
 
 > [!IMPORTANT]
-> It is recommended to use the `microsoft-dsvm` `ubuntu-hpc` VM image if possible.
+> It is recommended to use the `microsoft-dsvm` `ubuntu-hpc` VM image instead of images published by
+> `microsoft-azure-batch`. This image may be used on any VM SKU.
 
 #### Notes
   The docker data root of the above images lies in different places:
   - For the Azure Batch published `microsoft-azure-batch` images (Offer: `centos-container-rdma`, etc.), the docker data root is mapped to _/mnt/batch/docker_, which is located on the temporary disk.
-  - For the HPC image, or `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc.), the docker data root is unchanged from the Docker default which is _/var/lib/docker_ on Linux and _C:\ProgramData\Docker_ on Windows. These folders are located on the OS disk.
+  - For the HPC image, or `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc.), the docker data root is unchanged from the Docker default, which is _/var/lib/docker_ on Linux and _C:\ProgramData\Docker_ on Windows. These folders are located on the OS disk.
 
   For non-Batch published images, the OS disk has the potential risk of being filled up quickly as container images are downloaded.
 
@@ -122,14 +119,21 @@ These images are only supported for use in Azure Batch pools and are geared for 
 - Pre-installed NVIDIA GPU drivers and NVIDIA container runtime, to streamline deployment on Azure N-series VMs.
 - VM images with the suffix of `-rdma` are pre-configured with support for InfiniBand RDMA VM sizes. These VM images shouldn't be used with VM sizes that don't have InfiniBand support.
 
-You can also create custom images from VMs running Docker on one of the Linux distributions that's compatible with Batch. If you choose to provide your own custom Linux image, see the instructions in [Use a managed image to create a custom image pool](batch-custom-images.md).
+You can also create [custom images](batch-sig-images.md) compatible for Batch containers on one of the Linux distributions
+that's compatible with Batch. For Docker support on a custom image, install a suitable Docker-compatible runtime, such as
+a version of [Docker](https://www.docker.com) or
+[Mirantis Container Runtime](https://www.mirantis.com/software/mirantis-container-runtime/). Installing just
+a Docker-CLI compatible tool is insufficient; a Docker Engine compatible runtime is required.
 
-For Docker support on a custom image, install [Docker Pro](https://www.docker.com/products/pro/) or the open-source [Docker Community Edition](https://www.docker.com/community).
+> [!IMPORTANT]
+> Neither Microsoft or Azure Batch will provide support for issues related to Docker (any version or edition),
+> Mirantis Container Runtime, or Moby runtimes. Customers electing to use these runtimes in their images should reach
+> out to the company or entity providing support for runtime issues.
 
-Additional considerations for using a custom Linux image:
+More considerations for using a custom Linux image:
 
 - To take advantage of the GPU performance of Azure N-series sizes when using a custom image, pre-install NVIDIA drivers. Also, you need to install the Docker Engine Utility for NVIDIA GPUs, [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker).
-- To access the Azure RDMA network, use an RDMA-capable VM size. Necessary RDMA drivers are installed in the CentOS HPC and Ubuntu images supported by Batch. Additional configuration may be needed to run MPI workloads. See [Use RDMA or GPU instances in Batch pool](batch-pool-compute-intensive-sizes.md).
+- To access the Azure RDMA network, use an RDMA-capable VM size. Necessary RDMA drivers are installed in the CentOS HPC and Ubuntu images supported by Batch. Extra configuration may be needed to run MPI workloads. See [Use RDMA or GPU instances in Batch pool](batch-pool-compute-intensive-sizes.md).
 
 ## Container configuration for Batch pool
 
@@ -363,7 +367,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 To run a container task on a container-enabled pool, specify container-specific settings. Settings include the image to use, registry, and container run options.
 
-- Use the `ContainerSettings` property of the task classes to configure container-specific settings. These settings are defined by the [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) class. The `--rm` container option doesn't require an additional `--runtime` option since it's taken care of by Batch.
+- Use the `ContainerSettings` property of the task classes to configure container-specific settings. These settings are defined by the [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) class. The `--rm` container option doesn't require another `--runtime` option since it's taken care of by Batch.
 
 - If you run tasks on container images, the [cloud task](/dotnet/api/microsoft.azure.batch.cloudtask) and [job manager task](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) require container settings. However, the [start task](/dotnet/api/microsoft.azure.batch.starttask), [job preparation task](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), and [job release task](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) don't require container settings (that is, they can run within a container context or directly on the node).
 
@@ -385,7 +389,7 @@ If the container image for a Batch task is configured with an [ENTRYPOINT](https
 
 - If the image doesn't have an ENTRYPOINT, set a command line appropriate for the container, for example, `/app/myapp` or `/bin/sh -c python myscript.py`
 
-Optional [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) are additional arguments you provide to the `docker create` command that Batch uses to create and run the container. For example, to set a working directory for the container, set the `--workdir <directory>` option. See the [docker create](https://docs.docker.com/engine/reference/commandline/create/) reference for additional options.
+Optional [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) are other arguments you provide to the `docker create` command that Batch uses to create and run the container. For example, to set a working directory for the container, set the `--workdir <directory>` option. See the [docker create](https://docs.docker.com/engine/reference/commandline/create/) reference for more options.
 
 ### Container task working directory
 

@@ -8,7 +8,7 @@ ms.author: roastala
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 09/16/2022
+ms.date: 01/19/2024
 ms.topic: how-to
 ms.custom: sdkv2, ignite-2022
 ---

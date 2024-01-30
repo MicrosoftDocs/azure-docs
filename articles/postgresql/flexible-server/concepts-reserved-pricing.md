@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
-ms.date: 12/12/2023
+ms.date: 01/16/2024
 ---
 
 # Prepay for Azure Database for PostgreSQL - Flexible Server compute resources with reserved capacity

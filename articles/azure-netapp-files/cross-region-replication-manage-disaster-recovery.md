@@ -2,15 +2,9 @@
 title: Manage disaster recovery using Azure NetApp Files cross-region replication | Microsoft Docs
 description: Describes how to manage disaster recovery by using Azure NetApp Files cross-region replication.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 11/09/2022
 ms.author: anfdocs

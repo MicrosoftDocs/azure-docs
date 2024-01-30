@@ -7,7 +7,7 @@ ms.author: kabharati
 author: kabharati
 ms.reviewer: maghan
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 01/02/2024
 ---
 
 # Request quota increases for Azure Database for PostgreSQL - Flexible Server

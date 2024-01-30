@@ -1,8 +1,8 @@
 ---
 title: Deploy Microsoft Sentinel solution for SAP® applications in Microsoft Sentinel
 description: This article introduces you to the process of deploying the Microsoft Sentinel solution for SAP® applications.
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: how-to
 ms.date: 06/19/2023
 ---
@@ -30,17 +30,17 @@ Microsoft Sentinel solution for SAP® applications is certified for SAP S/4HANA�
 - Playbooks for automating responses to threats.
 
 > [!NOTE]
-> The Microsoft Sentinel for SAP solution is free to install, but there will be an [additional hourly charge](https://azure.microsoft.com/pricing/offers/microsoft-sentinel-sap-promo/) for activating and using the solution on production systems starting May 2023. 
+> The Microsoft Sentinel for SAP solution is free to install, but there is an [additional hourly charge](https://azure.microsoft.com/pricing/offers/microsoft-sentinel-sap-promo/) for activating and using the solution on production systems.
 >
-> - The additional hourly charge applies to connected production systems only. 
-> - Microsoft Sentinel identifies a production system by looking at the configuration on the SAP system. To do this, Microsoft Sentinel searches for a production entry in the T000 table. 
-> - [View the roles of your connected production systems](../monitor-sap-system-health.md).
+> - The additional hourly charge applies to connected production systems only.
+> - Microsoft Sentinel identifies a production system by looking at the configuration on the SAP system. To do this, Microsoft Sentinel searches for a production entry in the T000 table.
+> 
+> For more information, see [View the roles of your connected production systems](../monitor-sap-system-health.md).
+The Microsoft Sentinel for SAP data connector is an agent that's installed on a VM, a physical server, or a Kubernetes cluster. The agent collects application logs from across the entire SAP system landscape, for all of your SAP SIDs, and  sends those logs to your Log Analytics workspace in Microsoft Sentinel. Use the other content in the [Threat Monitoring for SAP solution](sap-solution-security-content.md) – the analytics rules, workbooks, and watchlists – to gain insight into your organization's SAP environment and to detect and respond to security threats.
 
-The Microsoft Sentinel for SAP data connector is an agent, installed on a VM, a physical server, or a Kubernetes cluster that collects application logs from across the entire SAP system landscape for all of your SAP SIDs. It then sends those logs to your Log Analytics workspace in Microsoft Sentinel. You can then use the other content in the Threat Monitoring for SAP solution – the analytics rules, workbooks, and watchlists – to gain insight into your organization's SAP environment and to detect and respond to security threats.
+For example, the following image shows a multi-SID SAP landscape with a split between productive and non-productive systems, including the SAP Business Technology Platform. All of the systems in this image are onboarded to Microsoft Sentinel for the SAP solution.
 
-:::image type="complex" source="./media/deployment-overview/sap-sentinel-multi-sid-overview.png" alt-text="Architecture overview showcasing multi-SID protection from Sentinel for production and non-production systems. Additionally it shows the integration with SAP Business Technology Platform":::
-   This diagram shows a multi-SID SAP landscape with a split between productive and non-productive systems including the SAP Business Technology Platform. All of the systems and services are being onboarded to the Sentinel for SAP solution.
-:::image-end:::
+:::image type="content" source="media/deployment-overview/sap-sentinel-multi-sid-overview.png" alt-text="Diagram of a multi-SID SAP landscape with Microsoft Sentinel." lightbox="media/deployment-overview/sap-sentinel-multi-sid-overview.png" border="false":::
 
 ## Deployment milestones
 

@@ -1,7 +1,6 @@
 ---
 title: Data analysis and showback
 description: This article helps you understand the data analysis and showback capability within the FinOps Framework and how to implement that in the Microsoft Cloud.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 06/22/2023

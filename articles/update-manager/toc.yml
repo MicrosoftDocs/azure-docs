@@ -32,12 +32,8 @@
   items:
   - name: Update options and orchestration
     href: updates-maintenance-schedules.md
-  - name: Schedule patching configuration on Azure VMs for business continuity
-    href: prerequsite-for-schedule-patching.md
   - name: Assessment options
     href: assessment-options.md
-  - name: Dynamic scope
-    href: dynamic-scope-overview.md
   - name: Query resources with Azure Resource Graph
     href: query-logs.md 
   - name: Manage updates on multiple machines
@@ -74,14 +70,20 @@
         href: manage-pre-post-events.md  
       - name: FAQ
         href: pre-post-events-common-scenarios.md
+    - name: Dynamic scope
+      items:
+      - name: Overview
+        href: dynamic-scope-overview.md
+      - name: Manage dynamic scope
+        href: manage-dynamic-scoping.md
+      - name: Schedule patching configuration on Azure VMs for business continuity
+        href: prerequsite-for-schedule-patching.md
     - name: Check update compliance 
       href: view-updates.md
     - name: Deploy updates and track results
       href: deploy-updates.md
     - name: Schedule updates
       href: scheduled-patching.md
-    - name: Manage dynamic scope
-      href: manage-dynamic-scoping.md
     - name: Manage update settings
       href: manage-update-settings.md
     - name: Manage updates for Azure VMs using REST API

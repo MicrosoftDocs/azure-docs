@@ -2,15 +2,9 @@
 title: Cross-zone replication of Azure NetApp Files volumes | Microsoft Docs
 description: Describes what Azure NetApp Files cross-zone replication does.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/17/2023
 ms.author: anfdocs

@@ -48,6 +48,8 @@ Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a gen
 
    - At least one Windows OS image available on the cluster. For more information, see how to [create VM images using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
 
+   - If you create VMs on Azure Stack HCI outside of the Azure Virtual Desktop service, such as with an automated pipeline, then add them as session hosts to a host pool, you need to install the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) on the virtual machines so they can communicate with [Azure Instance Metadata Service](../virtual-machines/instance-metadata-service.md), which is a [required endpoint for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md).
+
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 > [!IMPORTANT]

@@ -4,7 +4,7 @@ description: 'Describes the use case of automotive messaging'
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 01/29/2024
 author: msmarioo
 ms.author: marioo
 ms.subservice: mqtt
@@ -286,7 +286,7 @@ Other contributors:
 * [Jeff Beman](https://www.linkedin.com/in/jeff-beman-4730726/) | Principal Program Manager, Mobility CVP
 * [Frederick Chong](https://www.linkedin.com/in/frederick-chong-5a00224) | Principal PM Manager, MCIGET SDV & Mobility
 * [Felipe Prezado](https://www.linkedin.com/in/filipe-prezado-9606bb14) | Principal Program Manager, MCIGET SDV & Mobility
-* [Ashita Rastogi](https://www.linkedin.com/in/ashitarastogi/) | Principal Program Manager, Azure Messaging
+* Ashita Rastogi | Lead Principal Program Manager, Azure Messaging
 * [Henning Rauch](https://www.linkedin.com/in/henning-rauch-adx) | Principal Program Manager, Azure Data Explorer (Kusto)
 * [Rajagopal Ravipati](https://www.linkedin.com/in/rajagopal-ravipati-79020a4/) | Partner Software Engineering Manager, Azure Messaging
 * [Larry Sullivan](https://www.linkedin.com/in/larry-sullivan-1972654/) | Partner Group Software Engineering Manager, Energy & CVP

@@ -128,13 +128,13 @@ Speech to text supports two new locales as shown in the following table. Refer t
   - **Python**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#L915).
   - **Swift**: See [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/speech-samples/speech-samples/ViewController.swift#L191).
 
-#### Custom Speech
+#### Custom speech
 
 Support for audio + human-labeled transcript is added for the `de-AT` locales.
 
 ### January 2023 release
 
-#### Custom Speech
+#### Custom speech
 
 Support for audio + human-labeled transcript is added for additional locales: `ar-BH`, `ar-DZ`, `ar-EG`, `ar-MA`, `ar-SA`, `ar-TN`, `ar-YE`, and `ja-JP`.
 

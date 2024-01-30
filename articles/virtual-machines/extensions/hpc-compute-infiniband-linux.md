@@ -2,9 +2,6 @@
 title: InfiniBand driver extension - Azure Linux VMs
 description: Microsoft Azure Extension for installing InfiniBand Drivers on HB- and N-series compute VMs running Linux.
 services: virtual-machines
-documentationcenter: ''
-editor: ''
-ms.assetid:
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.collection: linux
