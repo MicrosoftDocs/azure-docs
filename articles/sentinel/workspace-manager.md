@@ -122,11 +122,11 @@ Common reasons for failure include:
 - Currently, deleting content residing in member workspace(s) centrally via workspace manager isn't supported.
 
 ### API references
-- [Workspace Manager Assignment Jobs](/rest/api/securityinsights/preview/workspace-manager-assignment-jobs)
-- [Workspace Manager Assignments](/rest/api/securityinsights/preview/workspace-manager-assignments)
+- Workspace Manager Assignment Jobs
+- Workspace Manager Assignments
 - *Workspace Manager Configurations*
-- [Workspace Manager Groups](/rest/api/securityinsights/preview/workspace-manager-groups)
-- [Workspace Manager Members](/rest/api/securityinsights/preview/workspace-manager-members)
+- Workspace Manager Groups
+- Workspace Manager Members
 
 ## Next steps
 - [Manage multiple tenants in Microsoft Sentinel as an MSSP](multiple-tenants-service-providers.md)

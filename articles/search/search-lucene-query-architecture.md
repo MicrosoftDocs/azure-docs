@@ -303,7 +303,7 @@ For the **description** field, the index is as follows:
 
 **Matching query terms against indexed terms**
 
-Given the inverted indices above, let’s return to the sample query and see how matching documents are found for our example query. Recall that the final query tree looks like this: 
+Given the inverted indexes above, let’s return to the sample query and see how matching documents are found for our example query. Recall that the final query tree looks like this: 
 
  ![Conceptual diagram of a boolean query with analyzed terms.][4]
 
