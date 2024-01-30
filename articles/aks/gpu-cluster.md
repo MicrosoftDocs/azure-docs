@@ -25,11 +25,12 @@ To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-sku
 * If you're using an Azure Linux GPU-enabled node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [auto-upgrade](./auto-upgrade-node-image.md).
 * [NVadsA10](../virtual-machines/nva10v5-series.md) v5-series are *not* a recommended SKU for GPU VHD.
 * AKS doesn't support Windows GPU-enabled node pools.
+* Updating an existing node pool to add GPU isn't supported.
 
 ## Before you begin
 
 * This article assumes you have an existing AKS cluster. If you don't have a cluster, create one using the [Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or the [Azure portal][aks-quickstart-portal].
-* You need the Azure CLI version 1.0.0b2 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* You need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Get the credentials for your cluster
 
@@ -67,7 +68,7 @@ AKS has automatic GPU driver installation enabled by default. In some cases, suc
         --cluster-name myAKSCluster \
         --name gpunp \
         --node-count 1 \
-        --skip-gpu-install\
+        --skip-gpu-driver-install \
         --node-vm-size Standard_NC6s_v3 \
         --node-taints sku=gpu:NoSchedule \
         --enable-cluster-autoscaler \
@@ -113,7 +114,7 @@ To use the default OS SKU, you create the node pool without specifying an OS SKU
     * `--max-count`: Configures the cluster autoscaler to maintain a maximum of three nodes in the node pool.
 
     > [!NOTE]
-    > Taints and VM sizes can only be set for node pools during node pool creation, but you can update autoscaler settings at any time.
+    > Taints and VM sizes can only be set for node pools during node pool creation, but you can update autoscaler settings at any time. 
 
 ##### [Azure Linux node pool](#tab/add-azure-linux-gpu-node-pool)
 
@@ -144,17 +145,17 @@ To use Azure Linux, you specify the OS SKU by setting `os-sku` to `AzureLinux` d
     * `--max-count`: Configures the cluster autoscaler to maintain a maximum of three nodes in the node pool.
 
     > [!NOTE]
-    > Taints and VM sizes can only be set for node pools during node pool creation, but you can update autoscaler settings at any time.
+    > Taints and VM sizes can only be set for node pools during node pool creation, but you can update autoscaler settings at any time. Certain SKUs, including A100 and H100 VM SKUs, aren't available for Azure Linux. For more information, see [GPU-optimized VM sizes in Azure][gpu-skus].
 
 ---
 
-2. Create a namespace using the [`kubectl create namespace`][kubectl-create] command.
+1. Create a namespace using the [`kubectl create namespace`][kubectl-create] command.
 
     ```bash
     kubectl create namespace gpu-resources
     ```
 
-3. Create a file named *nvidia-device-plugin-ds.yaml* and paste the following YAML manifest provided as part of the [NVIDIA device plugin for Kubernetes project][nvidia-github]:
+2. Create a file named *nvidia-device-plugin-ds.yaml* and paste the following YAML manifest provided as part of the [NVIDIA device plugin for Kubernetes project][nvidia-github]:
 
     ```yaml
     apiVersion: apps/v1
@@ -206,13 +207,13 @@ To use Azure Linux, you specify the OS SKU by setting `os-sku` to `AzureLinux` d
                 path: /var/lib/kubelet/device-plugins
     ```
 
-4. Create the DaemonSet and confirm the NVIDIA device plugin is created successfully using the [`kubectl apply`][kubectl-apply] command.
+3. Create the DaemonSet and confirm the NVIDIA device plugin is created successfully using the [`kubectl apply`][kubectl-apply] command.
 
     ```bash
     kubectl apply -f nvidia-device-plugin-ds.yaml
     ```
 
-5. Now that you successfully installed the NVIDIA device plugin, you can check that your [GPUs are schedulable](#confirm-that-gpus-are-schedulable) and [run a GPU workload](#run-a-gpu-enabled-workload).
+4. Now that you successfully installed the NVIDIA device plugin, you can check that your [GPUs are schedulable](#confirm-that-gpus-are-schedulable) and [run a GPU workload](#run-a-gpu-enabled-workload).
 
 ### Use NVIDIA GPU Operator with AKS
 
