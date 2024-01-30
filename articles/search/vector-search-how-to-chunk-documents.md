@@ -9,21 +9,19 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 10/30/2023
+ms.date: 01/29/2024
 ---
 
 # Chunking large documents for vector search solutions in Azure AI Search
 
-This article describes several approaches for chunking large documents so that you can generate embeddings for vector search. Chunking is only required if source documents are too large for the maximum input size imposed by models.
+Partitioning large documents into smaller chunks is a common requirement due to maximum token input limits of embedding models. For example, the maximum length of input text for the [Azure OpenAI](/azure/ai-services/openai/how-to/embeddings) embedding models is 8,191 tokens. Given that each token is around 4 characters of text for common OpenAI models, this maximum limit is equivalent to around 6000 words of text. If you're using these models to generate embeddings, it's critical that the input text stays under the limit. Partitioning your content into chunks ensures that your data can be processed by the Large Language Models (LLM) used for indexing and queries. 
+
+This article describes several approaches for chunking large documents so that you can generate embeddings for a vector store. Chunking is only required if source documents are too large for the maximum input size imposed by models.
 
 > [!NOTE]
-> This article applies to the generally available version of [vector search](vector-search-overview.md), which assumes your application code calls an external library that performs data chunking. A new feature called [integrated vectorization](vector-search-integrated-vectorization.md), currently in preview, offers embedded data chunking. Integrated vectorization takes a dependency on indexers, skillsets, and the Text Split skill.
+> If you're using the generally available version of [vector search](vector-search-overview.md), data chunking and embedding requires external code, such as library or a custom skill. A new feature called [integrated vectorization](vector-search-integrated-vectorization.md), currently in preview, offers internal data chunking and embedding. Integrated vectorization takes a dependency on indexers, skillsets, the Text Split skill, and the AzureOpenAiEmbedding skill (or a custom skill).
 
-## Why is chunking important?
-
-The models used to generate embedding vectors have maximum limits on the text fragments provided as input. For example, the maximum length of input text for the [Azure OpenAI](/azure/ai-services/openai/how-to/embeddings) embedding models is 8,191 tokens. Given that each token is around 4 characters of text for common OpenAI models, this maximum limit is equivalent to around 6000 words of text. If you're using these models to generate embeddings, it's critical that the input text stays under the limit. Partitioning your content into chunks ensures that your data can be processed by the Large Language Models (LLM) used for indexing and queries. 
-
-### Common chunking techniques
+## Common chunking techniques
 
 Here are some common chunking techniques, starting with the most widely used method:
 
@@ -33,11 +31,11 @@ Here are some common chunking techniques, starting with the most widely used met
 
 + Customize or iterate over one of the above techniques. For example, when dealing with large documents, you might use variable-sized chunks, but also append the document title to chunks from the middle of the document to prevent context loss.
 
-#### Content overlap considerations
+### Content overlap considerations
 
 When you chunk data, overlapping a small amount of text between chunks can help preserve context. We recommend starting with an overlap of approximately 10%. For example, given a fixed chunk size of 256 tokens, you would begin testing with an overlap of 25 tokens. The actual amount of overlap varies depending on the type of data and the specific use case, but we have found that 10-15% works for many scenarios.
 
-#### Factors for chunking data
+### Factors for chunking data
 
 When it comes to chunking data, think about these factors:
 
@@ -47,34 +45,40 @@ When it comes to chunking data, think about these factors:
 
 + Large Language Models (LLM) have performance guidelines for chunk size. you need to set a chunk size that works best for all of the models you're using. For instance, if you use models for summarization and embeddings, choose an optimal chunk size that works for both.
 
-## How chunking fits into the workflow
+### How chunking fits into the workflow
 
-If you have large documents, you must insert a chunking step into indexing and query workflows that breaks up large text. When using [integrated vectorization](./vector-search-integrated-vectorization.md), a default chunking strategy using the [text split skill](./cognitive-search-skill-textsplit.md) is applied. You can also apply a custom chunking strategy using a [custom skill](./cognitive-search-custom-skill-web-api.md). Some libraries that provide chunking include:
+If you have large documents, you must insert a chunking step into indexing and query workflows that breaks up large text. When using [integrated vectorization (preview)](./vector-search-integrated-vectorization.md), a default chunking strategy using the [text split skill](./cognitive-search-skill-textsplit.md) is applied. You can also apply a custom chunking strategy using a [custom skill](./cognitive-search-custom-skill-web-api.md). Some libraries that provide chunking include:
 
 + [LangChain](https://python.langchain.com/en/latest/index.html)
 + [Semantic Kernel](https://github.com/microsoft/semantic-kernel)
 
-All these approaches support common chunking techniques for fixed size, variable size, or a combination. You can also specify an overlap that duplicates a small amount of content in each chunk for context preservation.
+Most libraries provide common chunking techniques for fixed size, variable size, or a combination. You can also specify an overlap that duplicates a small amount of content in each chunk for context preservation.
 
 ## Chunking examples
 
-The following examples demonstrate how chunking strategies from the [text split skill](./cognitive-search-skill-textsplit.md), [LangChain](https://python.langchain.com/en/latest/index.html), [Semantic Kernel](https://github.com/microsoft/semantic-kernel), and a [custom skill](./cognitive-search-custom-skill-scale.md) are applied to the [Earth at Night NASA e-book](https://github.com/Azure-Samples/azure-search-sample-data/blob/main/nasa-e-book/earth_at_night_508.pdf).
+The following examples demonstrate how chunking strategies are  applied to [NASA's Earth at Night e-book](https://github.com/Azure-Samples/azure-search-sample-data/blob/main/nasa-e-book/earth_at_night_508.pdf):
 
-### Text Split Skill
++ [Text Split skill (preview](./cognitive-search-skill-textsplit.md)
++ [LangChain](https://python.langchain.com/en/latest/index.html)
++ [Semantic Kernel](https://github.com/microsoft/semantic-kernel)
++ [custom skill](./cognitive-search-custom-skill-scale.md)
 
-There following [parameters](https://learn.microsoft.com/azure/search/cognitive-search-skill-textsplit#skill-parameters) are used to customize text split chunking:
+### Text Split skill (preview)
 
-1. `textSplitMode`. There are 2 ways to break up content into smaller chunks:
-  1. `pages`. Chunks are made up of multiple sentences.
-  1. `sentences`. Chunks are made up of sentences.
-  1. What constitutes a sentence is language dependent. For example, in English standard sentence ending punctuation such as `.` or `!` are used. The language the text splitter uses is controlled by the `defaultLanguageCode` parameter.
+This section documents the built-in data chunking using a skills-driven approach and [Text Split skill parameters](/cognitive-search-skill-textsplit.md#skill-parameters). 
 
-When `textSplitMode` is `pages`, the following additional parameters are available:
-1. `maximumPageLength`. This parameter defines the maximum amount of characters <sup>1</sup> are in each chunk. The text splitter avoids breaking up sentences, so the actual amount of characters depends on the content.
-1. `pageOverlapLength`. This parameter defines how many characters from the end of the previous page are included at the start of the next page. If set, this must be less than half the maximum page length.
-1. `maximumPagesToTake`. This parameter defines how many pages / chunks to take from a document. The default value is 0 which means take all pages / chunks from the document.
+Set `textSplitMode` to break up content into smaller chunks:
 
-<sup>1</sup> Characters do not align to the defintion of a [token](https://learn.microsoft.com/azure/ai-services/openai/concepts/prompt-engineering#space-efficiency). The amount of tokens measured by the LLM may be different than the character size measured by the text split skill.
+  + `pages` (default). Chunks are made up of multiple sentences.
+  + `sentences`. Chunks are made up of single sentences. What constitutes a "sentence" is language dependent. In English, standard sentence ending punctuation such as `.` or `!` is used. The language is controlled by the `defaultLanguageCode` parameter.
+
+The `pages` parameter adds extra parameters:
+
++ `maximumPageLength` defines the maximum amount of characters <sup>1</sup> are in each chunk. The text splitter avoids breaking up sentences, so the actual amount of characters depends on the content.
++ `pageOverlapLength` defines how many characters from the end of the previous page are included at the start of the next page. If set, this must be less than half the maximum page length.
++ `maximumPagesToTake` defines how many pages / chunks to take from a document. The default value is 0, which means take all pages or chunks from the document.
+
+<sup>1</sup> Characters do not align to the defintion of a [token](https://learn.microsoft.com/azure/ai-services/openai/concepts/prompt-engineering#space-efficiency). The amount of tokens measured by the LLM might be different than the character size measured by the Text Split skill.
 
 The following table shows how the choice of parameters affects the total chunk count from the Earth at Night e-book:
 
@@ -112,9 +116,80 @@ The optimal choice of parameters depends on how the chunks will be used. For mos
 
 ### LangChain
 
+LangChain provides document loaders and text splitters. This example shows you how to load a PDF, get token counts, and set up a text splitter. Getting token counts helps you make an informed decision on chunk sizing.
+
+```python
+from langchain_community.document_loaders import PyPDFLoader
+ 
+loader = PyPDFLoader("./data/earth_at_night_508.pdf")
+pages = loader.load()
+
+print(len(pages))
+```
+Output indicates 200 documents or pages in the PDF.
+
+To get an estimated token count for these pages, use TikToken.
+
+```python
+import tiktoken
+
+tokenizer = tiktoken.get_encoding('cl100k_base')
+def tiktoken_len(text):
+    tokens = tokenizer.encode(
+    text,
+    disallowed_special=()
+)
+    return len(tokens)
+tiktoken.encoding_for_model('gpt-3.5-turbo')
+
+# create the length function
+token_counts = []
+for page in pages:
+    token_counts.append(tiktoken_len(page.page_content))
+min_token_count = min(token_counts)
+avg_token_count = int(sum(token_counts) / len(token_counts))
+max_token_count = max(token_counts)
+
+# print token counts
+print(f"Min: {min_token_count}")
+print(f"Avg: {avg_token_count}")
+print(f"Max: {max_token_count}")
+```
+
+Output indicates that no pages have zero tokens, the average token length per page is 189 tokens, and the maximum token count of any page is 1583
+
+:::image type="content" source="media/vector-search-how-to-chunk-documents/langchain-example-tiktoken-histogram.png" alt-text="Histogram of tokens using tiktoken.":::
+
+Knowing the average and maximum token size gives you insight into setting chunk size. Although you could use the standard recommendation of 2000 characters with a 500 character overlap, in this case it makes sense to go lower based on the token counts of the sample document. 
+
+```python
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+# split documents into text and embeddings
+
+text_splitter = RecursiveCharacterTextSplitter(
+   chunk_size=1000, 
+   chunk_overlap=200,
+   length_function=len,
+   is_separator_regex=False
+)
+
+chunks = text_splitter.split_documents(pages)
+
+print(chunks[20])
+print(chunks[21])
+```
+
+Output for two consecutive chunks shows the text from the first chunk overlapping onto the second chunk. Output is lightly edited for clarity.
+
+```
+'x Earth at NightForeword\nNASA’s Earth at Night explores the brilliance of our planet when it is in darkness.  \n  It is a compilation of stories depicting the interactions between science and \nwonder, and I am pleased to share this visually stunning and captivating exploration of \nour home planet.\nFrom space, our Earth looks tranquil. The blue ethereal vastness of the oceans \nharmoniously shares the space with verdant green land—an undercurrent of gentle-ness and solitude. But spending time gazing at the images presented in this book, our home planet at night instantly reveals a different reality. Beautiful, filled with glow-ing communities, natural wonders, and striking illumination, our world is bustling with activity and life.**\nDarkness is not void of illumination. It is the contrast, the area between light and'** metadata={'source': './data/earth_at_night_508.pdf', 'page': 9}
+
+'**Darkness is not void of illumination. It is the contrast, the area between light and **\ndark, that is often the most illustrative. Darkness reminds me of where I came from and where I am now—from a small town in the mountains, to the unique vantage point of the Nation’s capital. Darkness is where dreamers and learners of all ages peer into the universe and think of questions about themselves and their space in the cosmos. Light is where they work, where they gather, and take time together.\nNASA’s spacefaring satellites have compiled an unprecedented record of our \nEarth, and its luminescence in darkness, to captivate and spark curiosity. These missions see the contrast between dark and light through the lenses of scientific instruments. Our home planet is full of complex and dynamic cycles and processes. These soaring observers show us new ways to discern the nuances of light created by natural and human-made sources, such as auroras, wildfires, cities, phytoplankton, and volcanoes.' metadata={'source': './data/earth_at_night_508.pdf', 'page': 9}
+```
+
 ### Semantic Kernel
 
-## Custom Skill
+### Custom skill
 
 A [fixed-sized chunking and embedding generation sample](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Vector/EmbeddingGenerator/README.md) demonstrates both chunking and vector embedding generation using [Azure OpenAI](/azure/ai-services/openai/) embedding models. This sample uses an [Azure AI Search custom skill](cognitive-search-custom-skill-web-api.md) in the [Power Skills repo](https://github.com/Azure-Samples/azure-search-power-skills/tree/main#readme) to wrap the chunking step.
 
