@@ -129,7 +129,7 @@ In the previous section, the article covered some embarrassingly parallel scenar
 
 If the input partition count doesn't match the output partition count, the topology isn't embarrassingly parallel irrespective of the query. However we can still get some level of parallelization.
 
-### Query using nonpartitioned output
+### Query using non-partitioned output
 * Input: An event hub with eight partitions
 * Output: Power BI
 
