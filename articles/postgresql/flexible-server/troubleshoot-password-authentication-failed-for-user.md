@@ -29,7 +29,7 @@ Following the initial password authentication error, you might see another error
 The combined error message you will receive in this scenario will look like this:
 
 
-> psql: error: connection to server at "\<server-name\>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  password authentication failed for user "<user-name>"
+> psql: error: connection to server at "\<server-name\>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  password authentication failed for user "\<user-name\>"
 connection to server at "\<server-name\>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  no pg_hba.conf entry for host "y.y.y.y", user "\<user-name\>", database "postgres", no encryption
 
 
@@ -63,7 +63,7 @@ If you're encountering the "password authentication failed for user `<user-name>
 
 * **Change the password**
 
-  If you still encounter password authentication issues after trying a different tool, consider changing the password for the user. For the administrator user, you can change the password directly in the Azure portal as described in this link. For other users, or the administrator user under certain conditions, you can change the password from the command line. Ensure that you are logged in to the database as a user with the `CREATEROLE` attribute and the `ADMIN` option on their role. The command to change the password is:
+  If you still encounter password authentication issues after trying a different tool, consider changing the password for the user. For the administrator user, you can change the password directly in the Azure portal as described in this [link](how-to-manage-server-portal.md#reset-admin-password). For other users, or the administrator user under certain conditions, you can change the password from the command line. Ensure that you are logged in to the database as a user with the `CREATEROLE` attribute and the `ADMIN` option on their role. The command to change the password is:
 
   ```sql
   ALTER USER <user-name> WITH PASSWORD '<new-password>';
@@ -89,7 +89,7 @@ If you're encountering the "password authentication failed for user `<user-name>
 
     2. **Identify the attacker's IP address**
        * Review the logs to find the IP address from which the unauthorized access attempts are being made. If the attacker is using a `libpq`-based tool, you will see the IP address in the log entry associated with the failed connection attempt:
-         > connection to server at ".postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL: no pg_hba.conf entry for host "y.y.y.y", user "", database "postgres", no encryption
+         > connection to server at "\<server-name\>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL: no pg_hba.conf entry for host "y.y.y.y", user "", database "postgres", no encryption
       
             In this example, `y.y.y.y` is the IP address from which the attacker is trying to connect.
 
@@ -114,10 +114,11 @@ If you're encountering the "password authentication failed for user `<user-name>
          
       
           By using this log line prefix, you will be able to track the time, process ID, user, application, and client IP address associated with each log entry, providing valuable context for each event in the server log.
-  
-  Implementing these changes will help you identify the source of the security threat and enhance your ability to troubleshoot and resolve issues efficiently.
 
     3. **Block the attacker's IP address**
+    Dig into the logs to spot any suspicious IP addresses that keep showing up in unauthorized access attempts. Once you find these IPs, immediately block them in your firewall settings. This will cut off their access and prevent any more unauthorized attempts.
+
+    Additionally, review your firewall rules to ensure they're not too permissive. Overly broad rules can expose your database to potential attacks. Limit access to only known and necessary IP ranges.
   
 
 
