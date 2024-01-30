@@ -38,11 +38,11 @@ What should I do if I have a strong dependency on Co-Administrators?
 
 ## Prepare for Co-Administrators retirement
 
-Use the following steps to remove Co-Administrators and help you prepare for their retirement.
+Use the following steps to help you prepare for the Co-Administrator role retirement.
 
 ### Step 1: Review your current Co-Administrators
 
-1. Use the Azure portal to [get a list of your Co-Administrators](#view-co-administrators).
+1. Use the Azure portal to [get a list of your Co-Administrators](#view-classic-administrators).
 
 1. Review the [sign-in logs](/entra/identity/monitoring-health/concept-sign-ins) for your Co-Administrators to assess whether they are active users.
 
@@ -74,13 +74,13 @@ Most users don't need the same permissions as a Co-Administrator. Consider a job
 
 Some users might need more access than what a job function role can provide. If you must assign the [Owner](built-in-roles.md#owner) role, consider adding a condition to constrain the role assignment.
 
-1. Assign the [Owner role at subscription scope with conditions](role-assignments-portal-subscription-admin.md).
+1. Assign the [Owner role at subscription scope with conditions](role-assignments-portal-subscription-admin.md) to the user.
 
 1. [Remove Co-Administrator](#remove-a-co-administrator).
 
-## View Co-Administrators
+## View classic administrators
 
-Follow these steps to view the Co-Administrators for a subscription using the Azure portal.
+Follow these steps to view the Service Administrator and Co-Administrators for a subscription using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
 
@@ -210,7 +210,7 @@ For more information about Microsoft accounts and Microsoft Entra accounts, see 
 
 ## Remove the Service Administrator
 
-You might want to remove the Service Administrator, for example, if they are no longer with the company. If you do remove the Service Administrator, you must have a user who is assigned the [Owner](built-in-roles.md#owner) role at subscription scope to avoid orphaning the subscription. A subscription Owner has the same access as the Service Administrator.
+To remove the Service Administrator, you must have a user who is assigned the [Owner](built-in-roles.md#owner) role at subscription scope without conditions to avoid orphaning the subscription. A subscription Owner has the same access as the Service Administrator.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
 
