@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 01/30/2024
+ms.date: 01/31/2024
 ms.custom: devx-track-azurepowershell
 #CustomerIntent: As an administrator, I want to capture IP packets to and from a virtual machine (VM) so I can review and analyze the data to help diagnose and solve network problems.
 ---
@@ -128,7 +128,7 @@ Get-AzNetworkWatcherPacketCapture -Location 'eastus' -PacketCaptureName 'myVM_1'
 The following output is an example of the output from the `Get-AzNetworkWatcherPacketCapture` cmdlet. The following example is after the capture is complete. The PacketCaptureStatus value is Stopped, with a StopReason of TimeExceeded. This value shows that the packet capture was successful and ran its time.
 
 ```output
-ProvisioningState Name   Target                                                                                                                         BytesToCapturePerPacket TotalBytesPerSession TimeLimitInSeconds
+ProvisioningState Name   Target                                                                                                                                BytesToCapturePerPacket TotalBytesPerSession TimeLimitInSeconds
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Succeeded         myVM_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM 0                       1073741824           18000
 ```
