@@ -32,6 +32,13 @@ In this article, you learn how to remotely configure, start, stop, download, and
     - to 169.254.169.254 over port 80
     - to 168.63.129.16 over port 8037
 
+> [!NOTE]
+> - Azure creates a Network Watcher instance in the the virtual machine's region if Network Watcher wasn't enabled for that region. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
+> - Network Watcher packet capture requires Network Watcher agent VM extension to be installed on the target virtual machine. For more information, see [Install Network Watcher agent](#install-network-watcher-agent).
+> - The last two IP addresses and ports listed in the **Prerequisites** are common across all Network Watcher tools that use the Network Watcher agent and might occasionally change.
+
+If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist to allow outbound connectivity over the previous ports. Similarly, ensure outbound connectivity over the previous ports when adding user-defined routes to your network.
+
 ## Install Network Watcher agent
 
 To use packet capture, the Network Watcher agent virtual machine extension must be installed on the virtual machine.
@@ -128,7 +135,7 @@ Get-AzNetworkWatcherPacketCapture -Location 'eastus' -PacketCaptureName 'myVM_1'
 The following output is an example of the output from the `Get-AzNetworkWatcherPacketCapture` cmdlet. The following example is after the capture is complete. The PacketCaptureStatus value is Stopped, with a StopReason of TimeExceeded. This value shows that the packet capture was successful and ran its time.
 
 ```output
-ProvisioningState Name   Target                                                                                                                                BytesToCapturePerPacket TotalBytesPerSession TimeLimitInSeconds
+ProvisioningState Name   Target                                                                                                                              BytesToCapturePerPacket TotalBytesPerSession TimeLimitInSeconds
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Succeeded         myVM_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM 0                       1073741824           18000
 ```
