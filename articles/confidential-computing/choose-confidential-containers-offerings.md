@@ -3,6 +3,10 @@ title: Choose container offerings for confidential computing
 description: How to choose the right confidential container offerings to meet your security, isolation and developer needs.
 author: angarg05
 ms.service: virtual-machines
+<<<<<<< HEAD
+=======
+ms.subservice: confidential-computing
+>>>>>>> 5fad6d9bbb2026b18f4fd603c985f9e41f7426f0
 ms.topic: conceptual
 ms.date: 11/01/2021
 ms.author: ananyagarg
