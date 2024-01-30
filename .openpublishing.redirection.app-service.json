@@ -686,13 +686,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/app-service/deploy-content-sync.md",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/app-service/app-service-deploy-content-sync.md",
-            "redirect_url": "/azure/app-service/deploy-content-sync",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-web/app-service-deploy-content-sync.md",
-            "redirect_url": "/azure/app-service/deploy-content-sync",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
