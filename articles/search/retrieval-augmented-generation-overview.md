@@ -25,7 +25,7 @@ The decision about which information retrieval system to use is critical because
 
 + Security, global reach, and reliability for both data and operations.
 
-+ Integration with LLMs.
++ Integration with embedding models for indexing, and chat models or languange understanding models for retrieval.
 
 Azure AI Search is a [proven solution for information retrieval](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces) in a RAG architecture. It provides indexing and query capabilities, with the infrastructure and security of the Azure cloud. Through code and other components, you can design a comprehensive RAG solution that includes all of the elements for generative AI over your proprietary content. 
 
