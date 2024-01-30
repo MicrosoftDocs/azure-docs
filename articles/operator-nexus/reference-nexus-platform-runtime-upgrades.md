@@ -1,5 +1,5 @@
 ---
-title: Operator Nexus Platform Cluster Runtime Upgrades
+title: Operator Nexus Platform Cluster runtime upgrades
 description: Detail the cadence and process Nexus uses to release new runtime versions to customers
 ms.topic: article
 ms.date: 12/29/2023
@@ -42,7 +42,7 @@ Platform Cluster patch releases will be scheduled monthly to provide customers w
 
 Operator Nexus will also release patch platform cluster runtime releases addressing critical functional or high severity security issues to the latest minor release. 
 
-## Platform Cluster Runtime releases out of support
+## Platform Cluster runtime releases out of support
 
 When a customer is on a release that has moved out of support, Microsoft will attempt to mitigate the customer tickets but it may not be possible to address. When a runtime minor release has dropped support, it will no longer be an option to deploy to a new instance.  
 
@@ -54,7 +54,7 @@ When an instance is running an n-3 version:
 - Support tickets raised will continue to get support, but the issues may not be able to be mitigated.  
 - The n-3 release will no longer be available to customers to deploy a new instance.  
 - There's no upgrade path supported (more details below), requiring customers to repave instances. 
-- Platform Cluster Runtime versions past support may continue to run but Microsoft doesn't guarantee all functionality to be compatible with the newest version of software in the Cluster Manager.  An upgrade path will be supported for customers on supported releases. Upgrading from an n-3 version or greater aren't supported and will require a repave of the site.  Customers need to execute a platform cluster runtime upgrade before a site gets to n-3, this is usually within four months of the EOS date.   
+- Platform Cluster runtime versions past support may continue to run but Microsoft doesn't guarantee all functionality to be compatible with the newest version of software in the Cluster Manager.  An upgrade path will be supported for customers on supported releases. Upgrading from an n-3 version or greater aren't supported and will require a repave of the site.  Customers need to execute a platform cluster runtime upgrade before a site gets to n-3, this is usually within four months of the EOS date.   
 - From a certificate perspective, there's currently a requirement for the customer to update their platform cluster runtime within a year of the most recent platform cluster runtime upgrade or first deployment to ensure certificates are kept valid and can connect to Azure. Instances with invalid certificates will require a new deployment.
 
 ## Skipping minor releases
@@ -63,4 +63,4 @@ Platform Cluster runtime minor releases can't be skipped due to the upgrade requ
 
 ## Related links
 
-[How to Perform a Platform Cluster Runtime Upgrade](./howto-cluster-runtime-upgrade.md)
+[How to perform a Platform Cluster runtime upgrade](./howto-cluster-runtime-upgrade.md)
