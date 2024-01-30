@@ -27,9 +27,10 @@ ms.date:     01/29/2024
 **Applies to:** ✔️ Linux VMs ✔️ Windows VMs ✔️ Flexible scale sets ✔️ Uniform scale sets 
 Important 
 Azure Virtual Machine Series Falsv6, Fasv6, and Famsv6 are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
+
 The Falsv6, Fasv6, and Famsv6-series utilize AMD's 4th Generation EPYCTM 9004 processor that can achieve a boosted maximum frequency of 3.7GHz with up to 320 MB L3 cache.  The Falsv6, Fasv6, and Famsv6 VM series come without Simultaneous Multithreading (SMT), meaning a vCPU is now mapped to a full physical core, allowing software processes to run on dedicated and uncontested resources. These new full core VMs will suit workloads demanding the highest CPU performance. Falsv6, Fasv6, and Famsv6-series offer up to 64 full core vCPUs and 512 GiB of RAM in three memory to core ratios, and are optimized for scientific simulations, financial and risk analysis, gaming, rendering and other workloads able to take advantage of the exceptional performance. Customers running software licensed on per-vCPU basis can leverage these VMs to optimize compute costs within their infrastructure. 
-**Note** 
-For frequently asked questions, see **[Azure VM sizes with no local temp disk](/azure/virtual-machines/azure-vms-no-temp-disk)**. 
+> [!NOTE] 
+> For frequently asked questions, see **[Azure VM sizes with no local temp disk](/azure/virtual-machines/azure-vms-no-temp-disk)**. 
 The Falsv6, Fasv6, and Famsv6-series virtual machines do not have any temporary storage. You can attach Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 Premium Storage: Supported   
@@ -76,3 +77,17 @@ Nested Virtualization: Supported 
 | Standard_F32ams_v6 | 32   | 256         | Remote Storage Only                      | 32             | 57600/1440                                          | 57600/1700                                                 | 115200/1440                                                           | 115200/1700                                                                  | 8        | 20000                        |
 | Standard_F48ams_v6 | 48   | 384         | Remote Storage Only                      | 32             | 86400/2160                                          | 86400/2550                                                 | 172800/2160                                                           | 172800/2550                                                                  | 8        | 28000                        |
 | Standard_F64ams_v6 | 64   | 512         | Remote Storage Only                      | 32             | 115200/2880                                         | 115200/3400                                                | 230400/2880                                                           | 230400/3400                                                                  | 8        | 36000                        |
+
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## Other sizes and information
+
+- [General purpose](sizes-general.md)
+- [Memory optimized](sizes-memory.md)
+- [Storage optimized](sizes-storage.md)
+- [GPU optimized](sizes-gpu.md)
+- [High performance compute](sizes-hpc.md)
+- [Previous generations](sizes-previous-gen.md)
+
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
