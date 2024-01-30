@@ -232,7 +232,7 @@ We recommend the following actions to ensure your general security posture:
 
 - **Ensure that your organization has extended detection and response (XDR) and security information and event management (SIEM) solutions in place**, such as [Microsoft Defender XDR for Endpoint](/microsoft-365/security/defender/microsoft-365-defender), [Microsoft Sentinel](../../sentinel/overview.md), and [Microsoft Defender for IoT](../../defender-for-iot/organizations/index.yml).
 
-- **Review Microsoft’s Enterprise access model**.
+- **Review Microsoft’s Enterprise access model**
 
 ### Improve identity security posture
 

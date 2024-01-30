@@ -456,6 +456,8 @@ Additional things to note:
 
 * If you change your spoke virtual network's subscription status from disabled to enabled and then upgrade the virtual hub, you'll need to update your virtual network connection after the virtual hub upgrade (Ex: you can configure the virtual network connection to propagate to a dummy label).
 
+* If your hub is connected to a large number of spoke virtual networks (60 or more), then you may notice that 1 or more spoke VNet peerings will enter a failed state after the upgrade. To restore these VNet peerings to a successful state after the upgrade, you can configure the virtual network connections to propagate to a dummy label, or you can delete and recreate these respective VNet connections. 
+
 ### Is there a route limit for OpenVPN clients connecting to an Azure P2S VPN gateway?
 
 The route limit for OpenVPN clients is 1000.
