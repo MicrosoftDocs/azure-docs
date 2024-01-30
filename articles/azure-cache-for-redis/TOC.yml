@@ -106,14 +106,16 @@
 
 - name: Logs and monitoring
   items:
-  - name: Monitor in Azure portal
-    href: cache-how-to-monitor.md
-  - name: Set alerts for exceptions
-    href: monitor-cache.md#alerts
-  - name: Monitor with diagnostic logs
-    href: cache-monitor-diagnostic-settings.md
-  - name: Use Insights to understand performance and utilization
+  - name: Monitor Azure Cache for Redis
+    href: monitor-cache.md
+  - name: Use insights to understand performance and utilization
     href: cache-insights-overview.md
+  - name: Monitor connection logs
+    href: cache-monitor-diagnostic-settings.md
+  - name: Monitoring data reference
+    href: monitor-cache-reference.md
+  - name: Supported metrics details
+    href: cache-how-to-monitor.md
 
 - name: Scaling and performance
   items:
