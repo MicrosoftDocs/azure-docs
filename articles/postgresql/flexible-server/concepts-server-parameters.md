@@ -20,10 +20,10 @@ Postgres parameters, see the [PostgreSQL documentation](https://www.postgresql.o
 
 Azure Database for PostgreSQL - Flexible Server comes preconfigured with optimal default settings for each parameter. Parameters are categorized into one of the following types:
 
-* **Static Parameters**: Parameters of this type require a server restart to implement any changes.
-* **Dynamic Parameters**: Parameters in this category can be altered without needing to restart the server instance;
+* **Static parameters**: Parameters of this type require a server restart to implement any changes.
+* **Dynamic parameters**: Parameters in this category can be altered without needing to restart the server instance;
   however, changes will only apply to new connections established after the modification.
-* **Read-Only Parameters**: Parameters within this grouping aren't user-configurable due to their critical role in
+* **Read-only parameters**: Parameters within this grouping aren't user-configurable due to their critical role in
   maintaining the reliability, security, or other operational aspects of the service.
 
 To determine the category to which a parameter belongs, you can check the Azure portal under the **Server parameters** blade, where they're grouped into respective tabs for easy identification.
@@ -46,13 +46,12 @@ For altering settings globally at the instance or server level, navigate to the 
 You can adjust parameters at more granular levels, thereby overriding globally set values. The scope and duration of
 these modifications depend on the level at which they're made:
 
-* **Database Level**: Utilize the `ALTER DATABASE` command for database-specific configurations.
-* **Role or User Level**: Use the `ALTER USER` command for user-centric settings.
-* **Function, Procedure Level**: When defining a function or procedure, you can specify or alter the configuration parameters that will be set when the function is called.
-* **Table Level**: As an example, you can modify parameters related to autovacuum at this level.
-* **Session Level**: For the duration of an individual database session, you can adjust specific parameters. PostgreSQL
-  facilitates this with the following SQL commands:
-    * The `SET` command lets you make session-specific adjustments. These changes serve as the default settings during the current session. Access to these changes may require specific SET privileges, and the limitations about modifiable and read-only parameters described above do apply. The corresponding SQL function is `set_config(setting_name, new_value, is_local)`.
+* **Database level**: Utilize the `ALTER DATABASE` command for database-specific configurations.
+* **Role or user level**: Use the `ALTER USER` command for user-centric settings.
+* **Function, procedure level**: When defining a function or procedure, you can specify or alter the configuration parameters that will be set when the function is called.
+* **Table level**: As an example, you can modify parameters related to autovacuum at this level.
+* **Session level**: For the duration of an individual database session, you can adjust specific parameters. PostgreSQL facilitates this with the following SQL commands:
+    * The `SET` command lets you make session-specific adjustments. These changes serve as the default settings during the current session. Access to these changes may require specific `SET` privileges, and the limitations about modifiable and read-only parameters described above do apply. The corresponding SQL function is `set_config(setting_name, new_value, is_local)`.
     * The `SHOW` command allows you to examine existing parameter settings. Its SQL function equivalent is `current_setting(setting_name text)`.
 
 Here's the list of some of the parameters.
@@ -71,11 +70,7 @@ Here's the list of some of the parameters.
 
 #### Description
 
-The `shared_buffers` configuration parameter determines the amount of system memory allocated to the PostgreSQL database
-for buffering data. It serves as a centralized memory pool that's accessible to all database processes. When data is
-needed, the database process first checks the shared buffer. If the required data is present, it's quickly retrieved,
-thereby bypassing a more time-consuming disk read. By serving as an intermediary between the database processes and the
-disk, `shared_buffers` effectively reduces the number of required I/O operations.
+The `shared_buffers` configuration parameter determines the amount of system memory allocated to the PostgreSQL database for buffering data. It serves as a centralized memory pool that's accessible to all database processes. When data is needed, the database process first checks the shared buffer. If the required data is present, it's quickly retrieved,  thereby bypassing a more time-consuming disk read. By serving as an intermediary between the database processes and the disk, `shared_buffers` effectively reduces the number of required I/O operations.
 
 ### huge_pages
 
@@ -111,16 +106,16 @@ The `work_mem` parameter in PostgreSQL controls the amount of memory allocated f
 
 #### Key points
 
-* **Private Connection Memory**: `work_mem` is part of the private memory used by each database session, distinct from the shared memory area used by `shared_buffers`.
-* **Query-Specific Usage**: Not all sessions or queries use `work_mem`. Simple queries like `SELECT 1` are unlikely to require any `work_mem`. However, more complex queries involving operations like sorting or hashing can consume one or multiple chunks of `work_mem`.
-* **Parallel Operations**: For queries that span multiple parallel backends, each backend could potentially utilize one or multiple chunks of `work_mem`.
+* **Private connection memory**: `work_mem` is part of the private memory used by each database session, distinct from the shared memory area used by `shared_buffers`.
+* **Query-specific usage**: Not all sessions or queries use `work_mem`. Simple queries like `SELECT 1` are unlikely to require any `work_mem`. However, more complex queries involving operations like sorting or hashing can consume one or multiple chunks of `work_mem`.
+* **Parallel operations**: For queries that span multiple parallel backends, each backend could potentially utilize one or multiple chunks of `work_mem`.
 
 #### Monitoring and adjusting `work_mem`
 
 It's essential to continuously monitor your system's performance and adjust `work_mem` as necessary, primarily if slow query execution times related to sorting or hashing operations occur. Here are ways you can monitor it using tools available in the Azure portal:
 
-* **[Query Performance Insight](concepts-query-performance-insight.md)**: Check the **Top Queries by Temporary Files** tab to identify queries that are generating temporary files, suggesting a potential need to increase the `work_mem`.
-* **[Troubleshooting Guides](concepts-troubleshooting-guides.md)**: Utilize the **High Temporary Files** tab in the troubleshooting guides to identify problematic queries.
+* **[Query performance insight](concepts-query-performance-insight.md)**: Check the **Top queries by temporary files** tab to identify queries that are generating temporary files, suggesting a potential need to increase the `work_mem`.
+* **[Troubleshooting guides](concepts-troubleshooting-guides.md)**: Utilize the **High temporary files** tab in the troubleshooting guides to identify problematic queries.
 
 ##### Granular adjustment
 While managing the `work_mem` parameter, it's often more efficient to adopt a granular adjustment approach rather than setting a global value. This approach not only ensures that you allocate memory judiciously based on the specific needs of different processes and users but also minimizes the risk of encountering out-of-memory issues. Here’s how you can go about it:
