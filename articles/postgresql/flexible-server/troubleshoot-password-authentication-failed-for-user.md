@@ -16,24 +16,26 @@ This article helps you solve a problem that might occur when connecting to Azure
 ## Symptoms
 When attempting to connect to Azure Database for PostgreSQL - Flexible Server, you may encounter the following error message:
 
-> psql: error: connection to server at "<server-name>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  password authentication failed for user "<user-name>"
+> psql: error: connection to server at "\<server-name\>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  password authentication failed for user "\<user-name\>"
 
 This error indicates that the password provided for the user `<user-name>` is incorrect.
 
 Following the initial password authentication error, you might see another error message indicating that the client is trying to reconnect to the server, this time without SSL encryption. The failure here is due to the server's `pg_hba.conf` configuration not permitting unencrypted connections.
 
 
-> connection to server at "<server-name>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  no pg_hba.conf entry for host "y.y.y.y", user "<user-name>", database "postgres", no encryption
+> connection to server at "\<server-name\>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  no pg_hba.conf entry for host "y.y.y.y", user "\<user-name\>", database "postgres", no encryption
 
 
 The combined error message you will receive in this scenario will look like this:
 
 
-> psql: error: connection to server at "<server-name>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  password authentication failed for user "<user-name>"
-connection to server at "<server-name>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  no pg_hba.conf entry for host "y.y.y.y", user "<user-name>", database "postgres", no encryption
+> psql: error: connection to server at "\<server-name\>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  password authentication failed for user "<user-name>"
+connection to server at "\<server-name\>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  no pg_hba.conf entry for host "y.y.y.y", user "\<user-name\>", database "postgres", no encryption
 
 
-When using a `libpq` client that supports SSL, such as tools like `psql`, `pg_dump`, or `pgbench`, it is standard behavior to try connecting once with SSL and once without. This approach is not as unreasonable as it might seem, as the server could have different `pg_hba` rules for SSL and non-SSL connections. To avoid this dual attempt and specify the desired SSL mode, you can use the `sslmode` connection option in your client configuration. For instance, if you are using `libpq` variables in the bash shell, you can set the SSL mode by using the following command:
+When using a `libpq` client that supports SSL, such as tools like `psql`, `pg_dump`, or `pgbench`, it is standard behavior to try connecting once with SSL and once without. The reason for this approach is that the server can have different `pg_hba` rules for SSL and non-SSL connections.
+
+To avoid this dual attempt and specify the desired SSL mode, you can use the `sslmode` connection option in your client configuration. For instance, if you are using `libpq` variables in the bash shell, you can set the SSL mode by using the following command:
 
 ```bash
 export PGSSLMODE=require
@@ -56,17 +58,20 @@ If the authentication failure is unexpected, especially if there are multiple fa
 If you're encountering the "password authentication failed for user `<user-name>`" error, follow these steps to resolve the issue.
 
 * **Try connecting with a different tool**
-If the error comes from an application, attempt to connect to the database using a different tool, such as `psql` or pgAdmin, with the same username and password. This step helps determine if the issue is specific to the client or a broader authentication problem. Keep in mind any relevant firewall rules that might affect connectivity. For instructions on connecting using different tools, refer to the "Connect" blade in the Azure portal.
+
+  If the error comes from an application, attempt to connect to the database using a different tool, such as `psql` or pgAdmin, with the same username and password. This step helps determine if the issue is specific to the client or a broader authentication problem. Keep in mind any relevant firewall rules that might affect connectivity. For instructions on connecting using different tools, refer to the "Connect" blade in the Azure portal.
 
 * **Change the password**
-If you still encounter password authentication issues after trying a different tool, consider changing the password for the user. For the administrator user, you can change the password directly in the Azure portal as described in this link. For other users, or the administrator user under certain conditions, you can change the password from the command line. Ensure that you are logged in to the database as a user with the `CREATEROLE` attribute and the `ADMIN` option on their role. The command to change the password is:
+
+  If you still encounter password authentication issues after trying a different tool, consider changing the password for the user. For the administrator user, you can change the password directly in the Azure portal as described in this link. For other users, or the administrator user under certain conditions, you can change the password from the command line. Ensure that you are logged in to the database as a user with the `CREATEROLE` attribute and the `ADMIN` option on their role. The command to change the password is:
 
   ```sql
   ALTER USER <user-name> WITH PASSWORD '<new-password>';
   ```
 
 * **Set password for user or role created without one**
-If the cause of the error is the creation of a user or role without a password, log into your PostgreSQL instance and set the password for the role. For roles created without the `LOGIN` privilege, make sure to grant this privilege along with setting the password:
+
+  If the cause of the error is the creation of a user or role without a password, log into your PostgreSQL instance and set the password for the role. For roles created without the `LOGIN` privilege, make sure to grant this privilege along with setting the password:
 
   ```sql
   ALTER ROLE <role-name> WITH LOGIN;
@@ -74,41 +79,45 @@ If the cause of the error is the creation of a user or role without a password, 
   ```
   
 * **Identify the Attacker's IP Address and Secure Your Database**
-If you suspect a potential security breach is causing unauthorized access to your Azure Database for PostgreSQL - Flexible Server, follow these steps to address the issue:
 
-1. **Enable log capturing**
-If log capturing isn't already on, get it set up now. It's key for keeping an eye on database activities and catching any odd access patterns. There are several ways to do this, including Azure Monitor Log Analytics and server logs, which help store and analyze database event logs.
-  * **Log Analytics**, Check out the setup instructions for Azure Monitor Log Analytics here: [Configure and access logs in Azure Database for PostgreSQL - Flexible Server](how-to-configure-and-access-logs.md).
-  * **Server logs**, For hands-on log management, head over to the Azure portal's server logs section here: [Enable, list and download server logs for Azure Database for PostgreSQL - Flexible Server](how-to-server-logs-portal.md).
+  If you suspect a potential security breach is causing unauthorized access to your Azure Database for PostgreSQL - Flexible Server, follow these steps to address the issue:
 
-2. **Identify the attacker's IP address**
-  * Review the logs to find the IP address from which the unauthorized access attempts are being made. If the attacker is using a `libpq`-based tool, you will see the IP address in the log entry associated with the failed connection attempt:
-      > connection to server at ".postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL: no pg_hba.conf entry for host "y.y.y.y", user "", database "postgres", no encryption
-  
-  In this example, `y.y.y.y` is the IP address from which the attacker is trying to connect.
+    1. **Enable log capturing**
+    If log capturing isn't already on, get it set up now. It's key for keeping an eye on database activities and catching any odd access patterns. There are several ways to do this, including Azure Monitor Log Analytics and server logs, which help store and analyze database event logs.
+       * **Log Analytics**, Check out the setup instructions for Azure Monitor Log Analytics here: [Configure and access logs in Azure Database for PostgreSQL - Flexible Server](how-to-configure-and-access-logs.md).
+       * **Server logs**, For hands-on log management, head over to the Azure portal's server logs section here: [Enable, list and download server logs for Azure Database for PostgreSQL - Flexible Server](how-to-server-logs-portal.md).
 
-  * **Modify the `log_line_prefix`**
-  To improve logging and make it easier to troubleshoot, you should modify the `log_line_prefix` parameter in your PostgreSQL configuration to include the remote host's IP address. To log the remote host name or IP address, add the `%h` escape code to your `log_line_prefix`.
-  
-  For instance, you can change your `log_line_prefix` to the following format for comprehensive logging:
-  
-  ```bash
-  log_line_prefix = '%t [%p]: [%l-1] db=%d,user=%u,app=%a,client=%h '
-  ```
+    2. **Identify the attacker's IP address**
+       * Review the logs to find the IP address from which the unauthorized access attempts are being made. If the attacker is using a `libpq`-based tool, you will see the IP address in the log entry associated with the failed connection attempt:
+         > connection to server at ".postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL: no pg_hba.conf entry for host "y.y.y.y", user "", database "postgres", no encryption
+      
+            In this example, `y.y.y.y` is the IP address from which the attacker is trying to connect.
 
-  This format includes:
+          * **Modify the `log_line_prefix`**
+          To improve logging and make it easier to troubleshoot, you should modify the `log_line_prefix` parameter in your PostgreSQL configuration to include the remote host's IP address. To log the remote host name or IP address, add the `%h` escape code to your `log_line_prefix`.
+            
+          For instance, you can change your `log_line_prefix` to the following format for comprehensive logging:
 
-  * `%t` for the timestamp of the event
-  * `%p` for the process ID
-  * `[%l-1]` for the session line number
-  * `%d` for the database name
-  * `%u` for the user name
-  * `%a` for the application name
-  * `%h` for the client IP address
-
-  By using this log line prefix, you will be able to track the time, process ID, user, application, and client IP address associated with each log entry, providing valuable context for each event in the server log.
+           ```bash
+           log_line_prefix = '%t [%p]: [%l-1] db=%d,user=%u,app=%a,client=%h '
+           ```
+      
+           This format includes:
+      
+           * `%t` for the timestamp of the event
+           * `%p` for the process ID
+           * `[%l-1]` for the session line number
+           * `%d` for the database name
+           * `%u` for the user name
+           * `%a` for the application name
+           * `%h` for the client IP address
+      
+           By using this log line prefix, you will be able to track the time, process ID, user, application, and client IP address associated with each log entry, providing valuable context for each event in the server log.
   
   Implementing these changes will help you identify the source of the security threat and enhance your ability to troubleshoot and resolve issues efficiently.
+
+    3. **Block the attacker's IP address**
+  
 
 
 By following these steps, you should be able to resolve the authentication issues and successfully connect to your Azure Database for PostgreSQL - Flexible Server.
