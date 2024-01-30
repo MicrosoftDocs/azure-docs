@@ -147,6 +147,17 @@ Go to the page for runtime details and select **Update**. On the **Edit compute 
 
 Every time you open the page for runtime details, AI Studio checks whether there are new versions of the runtime. If new versions are available, a notification appears at the top of the page. You can also manually check the latest version by selecting the **Check version** button.
 
+## Switch compute instance runtime to automatic runtime
+
+Automatic runtime has following advantages over compute instance runtime:
+- Automatic manage lifecycle of runtime and underlying compute. You don't need to manually create and managed them anymore.
+- Easily customize packages by adding packages in the `requirements.txt` file in the flow folder, instead of creating a custom environment.
+
+We would recommend you to switch to automatic runtime if you're using compute instance runtime. If you have a compute instance runtime, you can switch it to an automatic runtime (preview) by using the following steps:
+- Prepare your `requirements.txt` file in the flow folder. Make sure that you don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image. Packages specified in `requirements.txt` will be installed when the runtime is started. 
+- If you want to keep the automatic runtime (preview) as long running compute like compute instance, you can disable the idle shutdown toggle under automatic runtime (preview) `edit` option.
+
+
 ## Next steps
 
 - [Learn more about prompt flow](./prompt-flow.md)

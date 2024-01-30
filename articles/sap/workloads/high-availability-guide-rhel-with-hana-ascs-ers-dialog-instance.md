@@ -2,14 +2,12 @@
 title: Deploy SAP ASCS/SCS and SAP ERS with SAP HANA high availability VMs on RHEL | Microsoft Docs
 description: Configure SAP ASCS/SCS and SAP ERS with SAP HANA high availability VMs on RHEL.
 services: virtual-machines-linux,virtual-network,storage
-documentationcenter: saponazure
 author: apmsft
 manager: juergent
 tags: azure-resource-manager
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/16/2022
 ms.author: ampatel
@@ -86,50 +84,39 @@ The example shown in this article to describe deployment uses following system i
 
 ## Prerequisites
 
-The configuration described in this article is an addition to your already configured SAP HANA cluster setup. In this configuration, SAP ASCS/SCS and ERS will be installed on a virtual hostname and its instance directory is managed by the cluster.
+The configuration described in this article is an addition to your already configured SAP HANA cluster setup. In this configuration, SAP ASCS/SCS and ERS instance are installed on a virtual hostname and the instance directory is managed by the cluster.
 
 Install HANA database, set up HSR and Pacemaker cluster by following the documentation [High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux](sap-hana-high-availability-rhel.md) or [High availability of SAP HANA Scale-up with Azure NetApp Files on Red Hat Enterprise Linux](sap-hana-high-availability-netapp-files-red-hat.md) depending on what storage option you're using.
 
-Once you've Installed, configured and set-up the **HANA Cluster**, follow the steps below to install ASCS and ERS instances.
+Once you've installed, configured and set-up the **HANA Cluster**, follow the steps below to install ASCS and ERS instances.
 
 ## Configure Azure Load Balancer for ASCS and ERS
 
-1. Open the internal load balancer that you've created for SAP HANA cluster setup.
-2. Create the frontend IP address for ASCS and ERS instance
-   1. IP address for ASCS is **10.66.0.20**
-      1. In **Settings** > **Frontend IP configuration**, click on **Add**.
-      2. Enter the name of the new frontend IP (for example, **ascs-frontend**).
-      3. Select the **subnet**.
-      4. Set the **assignment** to **Static** and enter the IP address (for example, **10.66.0.20**).
-      5. Click Ok.
-   2. IP address for ERS is **10.66.0.30**
-      1. Repeat the steps under "2.a" to create a frontend IP address for ERS (for example **10.66.0.30** and **ers-frontend**)
-3. Backend Pool remains same, as we're deploying ASCS and ERS on the same backend pool (**hana-backend**).
-4. Create health probe for ASCS and ERS instance
-   1. Port for ASCS is **62000**
-      1. In **Settings** > **Health probes**, click on **Add**.
-      2. Enter the name of the health probe (for example, **ascs-hp**).
-      3. Select **TCP** as protocol, port **62000** and keep interval **5**.
-      4. Click Ok.
-   2. Port for ERS is **62101**
-      1. Repeat the steps above under "4.a" to create health probe for ERS (for example **62101** and **ers-hp**)
-5. Create load balancing rules for ASCS and ERS instance
-   1. Load balancing rule for ASCS
-      1. In **Settings** > **Load balancing rules**, click on **Add**.
-      2. Enter the name of load balancing rule (for example, **ascs-lb**).
-      3. Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **ascs-frontend**, **hana-backend**, and **ascs-hp**)
-      4. Select **HA ports**
-      5. Make sure to **enable Floating IP**
-      6. Leave the rest as default and Click OK
-   2. Load balancing rule for ERS
-      1. Repeat the steps under “5.1” to create load balancing rule for ERS (for example, **ers-lb**).
+This document assumes that you already configured the load balancer for HANA cluster setup as described in [configure Azure load balancer](./sap-hana-high-availability-rhel.md#configure-azure-load-balancer). In the same Azure load balancer, follow below steps to create additional frontend IPs and load balancing rules for ASCS and ERS.
+
+1. Open the internal load balancer that was created for SAP HANA cluster setup.
+2. Frontend IP Configuration: Create two frontend IP, one for ASCS and another for ERS (for example: 10.66.0.20 and 10.66.0.30).
+3. Backend Pool: Backend Pool remains same, as we're deploying ASCS and ERS on the same backend pool.
+4. Inbound rules: Create two load balancing rule, one for ASCS and another for ERS. Follow the same steps for both load balancing rules.
+5. Frontend IP address: Select frontend IP
+   1. Backend pool: Select backend pool
+   2. Check "High availability ports"
+   3. Protocol: TCP
+   4. Health Probe: Create health probe with below details (applies for both ASCS and ERS)
+      1. Protocol: TCP
+      2. Port: [for example: 620<Instance-no.> for ASCS, 621<Instance-no.> for ERS]
+      3. Interval: 5
+      4. Probe Threshold: 2
+   5. Idle timeout (minutes): 30
+   6. Check "Enable Floating IP"
+
+> [!NOTE]
+> Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. So to control the number of successful or failed consecutive probes, set the property "probeThreshold" to 2. It is currently not possible to set this property using Azure portal, so use either the [Azure CLI](/cli/azure/network/lb/probe) or [PowerShell](/powershell/module/az.network/new-azloadbalancerprobeconfig) command.
 
 > [!IMPORTANT]
->
 > Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.
 
 > [!NOTE]
->
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 > [!IMPORTANT]
@@ -146,5 +133,6 @@ Based on your storage, follow the steps described in below guides to configure `
 ## Test the cluster setup
 
 Thoroughly test your pacemaker cluster.
+
 * [Execute the typical Netweaver failover tests](high-availability-guide-rhel.md#test-the-cluster-setup).
 * [Execute the typical HANA DB failover tests](sap-hana-high-availability-rhel.md#test-the-cluster-setup).

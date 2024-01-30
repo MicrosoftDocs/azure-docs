@@ -6247,7 +6247,12 @@
     },
     {
       "source_path_from_root": "/articles/cosmos-db/nosql/quickstart-spark.md",
-      "redirect_url": "/azure/cosmos-db/nosql/quickstart-python",
+      "redirect_url": "/azure/cosmos-db/nosql/tutorial-spark-connector",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sdk-java-spark-v3.md",
+      "redirect_url": "/azure/cosmos-db/nosql/tutorial-spark-connector",
       "redirect_document_id": false
     },
     {

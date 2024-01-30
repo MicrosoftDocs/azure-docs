@@ -195,6 +195,20 @@ To get the best experience and performance, try to keep your runtime up to date.
 
 If you select **Use customized environment**, you first need to rebuild the environment by using the latest prompt flow image. Then update your runtime with the new custom environment.
 
+## Switch compute instance runtime to automatic runtime (preview)
+
+Automatic runtime (preview) has following advantages over compute instance runtime:
+- Automatic manage lifecycle of runtime and underlying compute. You don't need to manually create and managed them anymore.
+- Easily customize packages by adding packages in the `requirements.txt` file in the flow folder, instead of creating a custom environment.
+
+We would recommend you to switch to automatic runtime (preview) if you're using compute instance runtime. If you have a compute instance runtime, you can switch it to an automatic runtime (preview) by using the following steps:
+- Prepare your `requirements.txt` file in the flow folder. Make sure that you don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image. Automatic runtime (preview) will install the packages in `requirements.txt` file when it starts.
+- If you create custom environment to create compute instance runtime, you can also use get the image from environment detail page, and specify it in `flow.dag.yaml` file in the flow folder.  To learn more, see [Change the base image for automatic runtime (preview)](#change-the-base-image-for-automatic-runtime-preview). Make sure you have `acr pull` permission for the image.
+
+:::image type="content" source="./media/how-to-create-manage-runtime/image-path-environment-detail.png" alt-text="Screenshot of finding image in environment detail page." lightbox = "./media/how-to-create-manage-runtime/image-path-environment-detail.png":::
+
+- If you want to keep the automatic runtime (preview) as long running compute like compute instance, you can disable the idle shutdown toggle under automatic runtime (preview) edit option.
+
 ## Next steps
 
 - [Develop a standard flow](how-to-develop-a-standard-flow.md)

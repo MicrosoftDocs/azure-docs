@@ -15,6 +15,7 @@ ms.custom:
   - ignite-2022
   - build-2023
   - ignite-2023
+  - update-code
 ---
 
 # Train models with Azure Machine Learning CLI, SDK, and REST API

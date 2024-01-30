@@ -5,7 +5,7 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 05/31/2023
 ms.author: jushiman
@@ -174,9 +174,9 @@ Here's a sample template with added properties for an Azure Spot VM. Replace the
 
 ## Simulate an eviction
 
-You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot VM, to test your application response to a sudden eviction. 
+You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot VM, to test your application response to a sudden eviction.
 
-Replace the below parameters with your information: 
+Replace the below parameters with your information:
 
 - `subscriptionId`
 - `resourceGroupName`

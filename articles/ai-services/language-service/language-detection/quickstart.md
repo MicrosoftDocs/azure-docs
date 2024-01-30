@@ -9,7 +9,8 @@ ms.service: azure-ai-language
 ms.topic: quickstart
 ms.date: 12/19/2023
 ms.author: jboback
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-language-detection, ignite-fall-2021, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 keywords: text mining, language detection
 zone_pivot_groups: programming-languages-text-analytics

@@ -29,7 +29,7 @@ The following upgrade channels are available. You're allowed to choose one of th
 |Channel|Description|OS-specific behavior|
 |---|---|
 | `None`| Your nodes don't have security updates applied automatically. This means you're solely responsible for your security updates.|N/A|
-| `Unmanaged`|OS updates are applied automatically through the OS built-in patching infrastructure. Newly allocated machines are unpatched initially. The OS's infrastructure patches them at some point.|Ubuntu and Azure Linux (CPU node pools) apply security patches through unattended upgrade/dnf-automatic roughly once per day around 06:00 UTC. Windows doesn't automatically apply security patches, so this option behaves equivalently to `None`.|
+| `Unmanaged`|OS updates are applied automatically through the OS built-in patching infrastructure. Newly allocated machines are unpatched initially. The OS's infrastructure patches them at some point.|Ubuntu and Azure Linux (CPU node pools) apply security patches through unattended upgrade/dnf-automatic roughly once per day around 06:00 UTC. Windows doesn't automatically apply security patches, so this option behaves equivalently to `None`. You'll need to manage the reboot process by using a tool like [kured][kured].|
 | `SecurityPatch`|This channel is in preview and requires enabling the feature flag `NodeOsUpgradeChannelPreview`. Refer to the prerequisites section for details. AKS regularly updates the node's virtual hard disk (VHD) with patches from the image maintainer labeled "security only." There might be disruptions when the security patches are applied to the nodes. When the patches are applied, the VHD is updated and existing machines are upgraded to that VHD, honoring maintenance windows and surge settings. This option incurs the extra cost of hosting the VHDs in your node resource group. If you use this channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default.|Azure Linux doesn't support this channel on GPU-enabled VMs. `SecurityPatch` works on patch versions that are deprecated, so long as the minor Kubernetes version is still supported.|
 | `NodeImage`|AKS updates the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. The update to the new VHD is disruptive, following maintenance windows and surge settings. No extra VHD cost is incurred when choosing this option. If you use this channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default. Node image upgrades support patch versions that are deprecated, so long as the minor Kubernetes version is still supported.|
 
@@ -55,12 +55,15 @@ The default cadence means there's no planned maintenance window applied.
 | `SecurityPatch`|AKS-tested, fully managed, and applied with safe deployment practices. For more information, refer to [Increased security and resiliency of Canonical workloads on Azure][Blog].|Weekly.|
 | `NodeImage`|AKS|Weekly.|
 
+> [!NOTE]
+> While Windows security updates are released on a monthly basis, using the `Unmanaged` channel will not automatically apply these updates to Windows nodes. If you choose the `Unmanaged` channel, you need to manage the reboot process by using a tool like [kured][kured] in order to properly apply security patches.
+
 ## SecurityPatch channel requirements
 
 To use the `SecurityPatch` channel, your cluster must support these requirements.
 - Must be using API version `11-02-preview` or later
 
-- If using Azure CLI, the `aks-preview` CLI extension version `0.5.127` or later must be installed
+- If using Azure CLI, the `aks-preview` CLI extension version `0.5.166` or later must be installed
 
 - The `NodeOsUpgradeChannelPreview` feature flag must be enabled on your subscription
 
@@ -133,17 +136,21 @@ On the `Unmanaged` channel, AKS has no control over how and when the security up
 kubectl get nodes --show-labels
 ```
 
-Among the labels in the output, you'll see a line similar to the following:
+Among the returned labels, you should see a line similar to the following output:
 
 ```output
 kubernetes.azure.com/node-image-version=AKSUbuntu-2204gen2containerd-202311.07.0
 ```
 
-Here, the base node image version is `AKSUbuntu-2204gen2containerd`. If applicable, the security patch version typically follows. In the above example it is `202311.07.0`.  
+Here, the base node image version is `AKSUbuntu-2204gen2containerd`. If applicable, the security patch version typically follows. In the above example, it's `202311.07.0`.  
 
-The same details also be looked up in the Azure portal under the node label view as illustrated below. 
+The same details also be looked up in the Azure portal under the node label view:
 
-:::image type="content" source="./media/auto-upgrade-node-os-image/nodeimage-securitypatch-inline.png" alt-text="A screenshot of the nodes page for an AKS cluster in the Azure portal. The label for node image version clearly shows the base node image as well as the latest applied security patch date." lightbox="./media/auto-upgrade-node-os-image/nodeimage-securitypatch.png":::
+:::image type="content" source="./media/auto-upgrade-node-os-image/nodeimage-securitypatch-inline.png" alt-text="A screenshot of the nodes page for an AKS cluster in the Azure portal. The label for node image version clearly shows the base node image and the latest applied security patch date." lightbox="./media/auto-upgrade-node-os-image/nodeimage-securitypatch.png":::
+
+## Next steps
+
+For a detailed discussion of upgrade best practices and other considerations, see [AKS patch and upgrade guidance][upgrade-operators-guide].
 
 
 <!-- LINKS -->
@@ -160,6 +167,7 @@ The same details also be looked up in the Azure portal under the node label view
 [monitor-aks]: ./monitor-aks-reference.md
 [aks-eventgrid]: ./quickstart-event-grid.md
 [aks-upgrade]: ./upgrade-cluster.md
+[upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices
 
 <!-- LINKS - external -->
 [Blog]: https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/increased-security-and-resiliency-of-canonical-workloads-on/ba-p/3970623

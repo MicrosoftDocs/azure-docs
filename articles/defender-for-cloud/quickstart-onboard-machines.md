@@ -2,7 +2,7 @@
 title: Connect on-premises machines
 description: Learn how to connect your non-Azure machines to Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 11/23/2023
+ms.date: 01/03/2024
 ms.custom: mode-other
 ---
 
@@ -147,7 +147,7 @@ To verify that your machines are connected:
 
    ![Defender for Cloud icon for an Azure Arc-enabled server.](./media/quickstart-onboard-machines/arc-enabled-machine-icon.png) Azure Arc-enabled server
 
-## Integrate with Microsoft Defender XDR (Preview)
+## Integrate with Microsoft Defender XDR
 
 When you enable Defender for Cloud, Defender for Cloud's alerts are automatically integrated into the Microsoft Defender Portal. No further steps are needed.
 

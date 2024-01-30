@@ -6,14 +6,13 @@ summary: Azure Cosmos DB for PostgreSQL is a managed service for PostgreSQL exte
 metadata:
   title: Azure Cosmos DB for PostgreSQL documentation
   description: Azure Cosmos DB for PostgreSQL is a managed service for PostgreSQL extended with the Citus open source superpower of *distributed tables*.
-  services: cosmos-db
   author: jonels-msft
   ms.author: jonels
   ms.reviewer: garyhope
   ms.service: cosmos-db
   ms.subservice: postgresql
   ms.topic: landing-page
-  ms.collection: collection
+
   ms.date: 02/28/2023
   ms.custom: ignite-2022
 landingContent:

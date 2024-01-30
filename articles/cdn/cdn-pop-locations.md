@@ -7,7 +7,6 @@ manager: kumud
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: azure-cdn
 ms.workload: media
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/30/2023
 ms.author: duau

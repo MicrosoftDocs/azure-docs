@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: how-to
 author: SudheeshGH
 ms.author: sunaray
-ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-csharp, devx-track-azurecli, linux-related-content
 ms.date: 05/03/2023
 ---
 
@@ -16,7 +16,7 @@ ms.date: 05/03/2023
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-This article shows you how to use a user-assigned identity for an Azure Virtual Machine (VM) to access an Azure Database for MySQL server. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Microsoft Entra authentication, without needing to insert credentials into your code. 
+This article shows you how to use a user-assigned identity for an Azure Virtual Machine (VM) to access an Azure Database for MySQL server. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Microsoft Entra authentication, without needing to insert credentials into your code.
 
 You learn how to:
 
