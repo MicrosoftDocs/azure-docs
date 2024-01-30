@@ -30,8 +30,6 @@ By using customer-managed keys (CMK), you can protect and control access to your
 
    - To prevent losing the encryption key for the DICOM service, the key vault or managed HSM must have **soft delete** and **purge protection** enabled. These features allow you to recover deleted keys for a certain time (default 90 days) and block permanent deletion until that time is over.
 
-   - When using a managed HSM, if the vault has disabled public traffic and has a private endpoint, a user-assigned managed identity must be used with the DICOM service.
-
 ## Enable a managed identity for the DICOM service
 
  You can use either a system-assigned or user-assigned managed identity. To find out the differences between a system-assigned and user-assigned managed identity, see [Managed identity types](/entra/identity/managed-identities-azure-resources/overview). 
@@ -296,7 +294,7 @@ For the DICOM service to operate properly, it must always have access to the key
 
 In any scenario where the DICOM service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. The [Azure Resource health](../../service-health/overview.md) view for the DICOM service helps you diagnose key access issues.
 
-If key access is lost, ensure you have updated the key and required resources so they're accessible by the DICOM service. For more information, see [Create or update REST API for the DICOM service](/rest/api/healthcareapis/dicom-services/create-or-update). Make sure to match all the properties and identities with your current DICOM service.
+If key access is lost for more than 30 minutes, make sure you update the DICOM service to refresh the key access. For more information, see [Update the DICOM service with the encryption key](#update-the-dicom-service-with-the-encryption-key). If you don't also update the DICOM service, it continues to be unavailable even when key access is restored.
 
 ## Update the DICOM service after changing a managed identity
 If you change the managed identity in any way, such as moving your DICOM service to a different tenant or subscription, the DICOM service isn't able to access your keys until you update the service manually with an ARM template deployment. For steps, see [Use an ARM template to update the encryption key](configure-customer-managed-keys.md#update-the-key-by-using-an-arm-template).

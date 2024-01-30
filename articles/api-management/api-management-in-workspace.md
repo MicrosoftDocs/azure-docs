@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.service: api-management
 ms.author: danlep
 ms.date: 03/10/2023
-ms.custom: 
 ---
 
 # Manage APIs and other resources in your API Management workspace

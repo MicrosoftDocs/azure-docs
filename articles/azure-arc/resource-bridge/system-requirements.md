@@ -118,7 +118,7 @@ The appliance VM hosts a management Kubernetes cluster with a control plane that
 
 Control plane IP requirements:
 
-   - Open communication with the management machine.
+- Open communication with the management machine.
    - Static IP address assigned; the IP address should be outside the DHCP range but still available on the network segment. This IP address can't be assigned to any other machine on the network. 
    - If using DHCP, the control plane IP should be a single reserved IP that is outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP. DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
    - If using Azure Kubernetes Service on Azure Stack HCI (AKS hybrid) and installing Arc resource bridge, then the control plane IP for the resource bridge can't be used by the AKS hybrid cluster. For specific instructions on deploying Arc resource bridge with AKS on Azure Stack HCI, see [AKS on HCI (AKS hybrid) - Arc resource bridge deployment](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server).
@@ -155,6 +155,8 @@ Notice that the IP addresses for the gateway, control plane, appliance VM and DN
 
 Arc resource bridge may require a separate user account with the necessary roles to view and manage resources in the on-premises infrastructure (such as Arc-enabled VMware vSphere). If so, during creation of the configuration files, the `username` and `password` parameters will be required. The account credentials are then stored in a configuration file locally within the appliance VM.  
 
+> [!WARNING]
+> Arc resource bridge can only use a user account that does not have multifactor authentication enabled. 
 If the user account is set to periodically change passwords, [the credentials must be immediately updated on the resource bridge](maintenance.md#update-credentials-in-the-appliance-vm). This user account may also be set with a lockout policy to protect the on-premises infrastructure, in case the credentials aren't updated and the resource bridge makes multiple attempts to use expired credentials to access the on-premises control center.
 
 For example, with Arc-enabled VMware, Arc resource bridge needs a separate user account for vCenter with the necessary roles. If the [credentials for the user account change](troubleshoot-resource-bridge.md#insufficient-permissions), then the credentials stored in Arc resource bridge must be immediately updated by running `az arcappliance update-infracredentials` from the [management machine](#management-machine-requirements). Otherwise, the appliance will make repeated attempts to use the expired credentials to access vCenter, which will result in a lockout of the account.
@@ -168,8 +170,6 @@ There are several different types of configuration files, based on the on-premis
 ### Appliance configuration files
 
 Three configuration files are created when the `createconfig` command completes (or the equivalent commands used by Azure Stack HCI and AKS hybrid): `<appliance-name>-resource.yaml`, `<appliance-name>-appliance.yaml` and `<appliance-name>-infra.yaml`.
-
-By default, these files are generated in the current CLI directory when `createconfig` completes. These files should be saved in a secure location on the management machine, because they're required for maintaining the appliance VM. Because the configuration files reference each other, all three files must be stored in the same location. If the files are moved from their original location at deployment, open the files to check that the reference paths to the configuration files are accurate.
 
 By default, these files are generated in the current CLI directory when `createconfig` completes. These files should be saved in a secure location on the management machine, because they're required for maintaining the appliance VM. Because the configuration files reference each other, all three files must be stored in the same location. If the files are moved from their original location at deployment, open the files to check that the reference paths to the configuration files are accurate.
 

@@ -38,7 +38,7 @@ If you're providing Zoom service, you'll need to raise a separate support reques
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 1. Select the question mark icon in the top menu bar.
 1. Select the **Help + support** button. 
-1. Select **Create a support request**.
+1. Select **Create a support request**. You might need to describe your issue first.
 
 ## Enter a description of the problem or the change
 

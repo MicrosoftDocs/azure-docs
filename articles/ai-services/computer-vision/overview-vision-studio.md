@@ -7,7 +7,7 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: overview
-ms.date: 12/27/2022
+ms.date: 01/19/2024
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 ---
@@ -16,7 +16,7 @@ ms.custom: cog-serv-seo-aug-2020
 
 [Vision Studio](https://portal.vision.cognitive.azure.com/) is a set of UI-based tools that lets you explore, build, and integrate features from Azure AI Vision.
 
-Vision Studio provides you with a platform to try several service features and sample their returned data in a quick, straightforward manner. Using Studio, you can start experimenting with the services and learning what they offer without needing to write any code. Then, use the available client libraries and REST APIs to get started embedding these services into your own applications.
+Vision Studio lets you try several service features and sample their returned data in a quick, straightforward manner. Using Vision Studio, you can start experimenting with the services and learning what they offer without needing to write any code. Then, use the available client libraries and REST APIs to get started embedding these services into your own applications.
 
 ## Get started using Vision Studio
 
@@ -24,7 +24,7 @@ To use Vision Studio, you'll need an Azure subscription and a resource for Azure
 
 1. Create an Azure Subscription if you don't have one already. You can [create one for free](https://azure.microsoft.com/free/ai/).
 
-1. Go to the [Vision Studio website](https://portal.vision.cognitive.azure.com/). If it's your first time logging in, you'll see a popup window that prompts you to sign in to Azure and then choose or create a Vision resource. You can skip this step and do it later.
+1. Go to the [Vision Studio website](https://portal.vision.cognitive.azure.com/). If it's your first time logging in, you'll see a popup window that prompts you to sign in to Azure and then choose or create a Computer Vision resource. You can skip this step and do it later.
 
     :::image type="content" source="./Images/vision-studio-wizard-1.png" alt-text="Screenshot of Vision Studio startup wizard.":::
 

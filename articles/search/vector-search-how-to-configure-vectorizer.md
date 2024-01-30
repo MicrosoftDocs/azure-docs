@@ -19,7 +19,7 @@ ms.date: 12/02/2023
 
 A *vectorizer* is a component of a [search index](search-what-is-an-index.md) that specifies a vectorization agent, such as a deployed embedding model on Azure OpenAI that converts text to vectors. You can define a vectorizer once, and then reference it in the vector profile assigned to a vector field.
 
-A vectorizer is used for queries queries. It allows the search service to vectorize a text query on your behalf.
+A vectorizer is used for queries. It allows the search service to vectorize a text query on your behalf.
 
 If you need to vectorize data as part of the indexing process refer to [Integrated Vectorization (Preview)](vector-search-integrated-vectorization.md).
 

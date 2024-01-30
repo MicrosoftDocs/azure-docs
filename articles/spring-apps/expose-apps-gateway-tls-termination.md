@@ -105,7 +105,7 @@ az network public-ip create \
 
 ### Create a managed identity for the application gateway
 
-Your application gateway will need to be able to access Key Vault to read the certificate. To do this, the application gateway will use a user-assigned managed identity. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md). Create the managed identity by using the following command, replacing the *\<...>* placeholder:
+Your application gateway will need to be able to access Key Vault to read the certificate. To do this, the application gateway will use a user-assigned managed identity. For more information, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview) Create the managed identity by using the following command, replacing the *\<...>* placeholder:
 
 ```azurecli
 export APPGW_IDENTITY_NAME='<name-for-appgw-managed-identity>'

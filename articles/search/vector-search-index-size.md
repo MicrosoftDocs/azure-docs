@@ -1,5 +1,5 @@
 ---
-title: Vector index size limit
+title: Vector storage limits
 titleSuffix: Azure AI Search
 description: Explanation of the factors affecting the size of a vector index.
 
@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 11/16/2023
 ---
 
-# Vector index size limit
+# Vector storage limit
 
-When you index documents with vector fields, Azure AI Search constructs internal vector indexes using the algorithm parameters that you specified for the field. Because Azure AI Search imposes limits on vector index size, it's important that you know how to retrieve metrics about the vector index size, and how to estimate the vector index size requirements for your use case.
+When you index documents with vector fields, Azure AI Search constructs internal vector indexes using the algorithm parameters that you specified for the field. Because Azure AI Search imposes limits on vector storage, it's important that you know how to retrieve metrics about the vector index size, and how to estimate the vector storage requirements for your use case.
 
 ## Key points about vector size limits
 
 The size of vector indexes is measured in bytes. The size constraints are based on memory reserved for vector search, but also have implications for storage at the service level. Size constraints vary by service tier (or SKU).
 
-The service enforces a vector index size quota **based on the number of partitions** in your search service, where the quota per partition varies by tier and also by service creation date (see [Vector index size limits](search-limits-quotas-capacity.md#vector-index-size-limits) in service limits). 
+The service enforces a vector storage quota **based on the number of partitions** in your search service, where the quota per partition varies by tier and also by service creation date (see [Vector storage](search-limits-quotas-capacity.md#vector-storage-limits) in service limits). 
 
-Each extra partition that you add to your service increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy. It also means that if vector size exceeds this limit, any further indexing requests result in failure. You can resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
+Each extra partition that you add to your service increases the available vector storage quota. This quota is a hard limit to ensure your service remains healthy. It also means that if vector size exceeds this limit, any further indexing requests result in failure. You can resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
 The following table shows vector quotas by partition, and by service if all partitions are in use. This table is for newer search services created *after July 1, 2023*. For more information, including limits for older search services and also limits on the approximate number of embeddings per partition, see [Search service limits](search-limits-quotas-capacity.md). 
 
@@ -114,7 +114,7 @@ The storage size of one vector is determined by its dimensionality. Multiply the
 
 For `Edm.Single`, the size of the data type is 4 bytes.
 
-### Memory Overhead from the Selected Algorithm  
+### Memory overhead from the selected algorithm  
   
 Every approximate nearest neighbor (ANN) algorithm generates extra data structures in memory to enable efficient searching. These structures consume extra space within memory.  
   
@@ -159,6 +159,6 @@ To obtain the **vector index size**, multiply this **raw_size** by the **algorit
 
 Disk storage overhead of vector data is roughly three times the size of vector index size.
 
-### Storage vs. vector index size quotas
+### Storage vs. vector storage quotas
 
-The storage and vector index size quotas aren't separate quotas. Vector indexes contribute to the [storage quota for the search service](search-limits-quotas-capacity.md#storage-limits) as a whole. For example, if your storage quota is exhausted but there's remaining vector quota, you can't index any more documents, regardless if they're vector documents, until you scale up in partitions to increase storage quota or delete documents (either text or vector) to reduce storage usage. Similarly, if vector quota is exhausted but there's remaining storage quota, further indexing attempts fail until vector quota is freed, either by deleting some vector documents or by scaling up in partitions.
+Service storage and vector storage quotas aren't separate quotas. Vector indexes contribute to the [storage quota for the search service](search-limits-quotas-capacity.md#service-limits) as a whole. For example, if your storage quota is exhausted but there's remaining vector quota, you can't index any more documents, regardless if they're vector documents, until you scale up in partitions to increase storage quota or delete documents (either text or vector) to reduce storage usage. Similarly, if vector quota is exhausted but there's remaining storage quota, further indexing attempts fail until vector quota is freed, either by deleting some vector documents or by scaling up in partitions.

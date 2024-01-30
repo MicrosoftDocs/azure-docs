@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/07/2022
+ms.date: 01/04/2024
 #Customer intent: As a logic apps developer, I want to send and receive RosettaNet messages using workflows in Azure Logic Apps so that I can use a standardized process to share business information with partners.
 ---
 

@@ -43,7 +43,7 @@ Azure Stream Analytics supports user-defined functions (UDF) or user-defined agg
 
 ### Your solution is in a multi-cloud or on-premises environment
 
-Azure Stream Analytics is Microsoft's proprietary technology and is only available on Azure. If you need your solution to be portable across Clouds or on-premises, consider open-source technologies such as Spark Structured Streaming or Storm.
+Azure Stream Analytics is Microsoft's proprietary technology and is only available on Azure. If you need your solution to be portable across Clouds or on-premises, consider open-source technologies such as Spark Structured Streaming or [Apache Flink](/azure/hdinsight-aks/flink/flink-overview).
 
 ## Next steps
 

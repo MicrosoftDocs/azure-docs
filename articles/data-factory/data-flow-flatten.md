@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/21/2023
+ms.date: 01/05/2024
 ---
 
 # Flatten transformation in mapping data flow

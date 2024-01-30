@@ -5,10 +5,10 @@ services: automation
 ms.service: virtual-machines
 ms.collection: linux
 author: nikhilpatel909
-ms.author: erd
+ms.author: jushiman
 ms.date: 06/01/2023
-ms.topic: how-to  
-ms.reviewer: erd
+ms.topic: how-to
+ms.reviewer: jushiman
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---

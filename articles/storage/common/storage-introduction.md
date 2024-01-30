@@ -24,7 +24,7 @@ Azure Storage services offer the following benefits for application developers a
 - **Secure.** All data written to an Azure storage account is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data.
 - **Scalable.** Azure Storage is designed to be massively scalable to meet the data storage and performance needs of today's applications.
 - **Managed.** Azure handles hardware maintenance, updates, and critical issues for you.
-- **Accessible.** Data in Azure Storage is accessible from anywhere in the world over HTTP or HTTPS. Microsoft provides client libraries for Azure Storage in a variety of languages, including .NET, Java, Node.js, Python, PHP, Ruby, Go, and others, as well as a mature REST API. Azure Storage supports scripting in Azure PowerShell or Azure CLI. And the Azure portal and Azure Storage Explorer offer easy visual solutions for working with your data.
+- **Accessible.** Data in Azure Storage is accessible from anywhere in the world over HTTP or HTTPS. Microsoft provides client libraries for Azure Storage in a variety of languages, including .NET, Java, Node.js, Python, Go, and others, as well as a mature REST API. Azure Storage supports scripting in Azure PowerShell or Azure CLI. And the Azure portal and Azure Storage Explorer offer easy visual solutions for working with your data.
 
 ## Azure Storage data services
 
@@ -77,7 +77,7 @@ Blob Storage is ideal for:
 - Storing data for backup and restore, disaster recovery, and archiving.
 - Storing data for analysis by an on-premises or Azure-hosted service.
 
-Objects in Blob Storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/azure.storage), [Azure CLI](/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](/dotnet/api/overview/azure/storage), [Java](/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](/python/api/overview/azure/storage), [PHP](https://azure.github.io/azure-storage-php/), and [Ruby](https://azure.github.io/azure-storage-ruby). 
+Objects in Blob Storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/azure.storage), [Azure CLI](/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](/dotnet/api/overview/azure/storage), [Java](/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), and [Python](/python/api/overview/azure/storage). 
 
 Clients can also securely connect to Blob Storage by using SSH File Transfer Protocol (SFTP) and mount Blob Storage containers by using the Network File System (NFS) 3.0 protocol. 
 
@@ -206,13 +206,12 @@ You can access resources in a storage account by any language that can make HTTP
 ### Azure Storage data API and library references
 
 - [Azure Storage REST API](/rest/api/storageservices/)
-- [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage)
-- [Azure Storage client library for Java/Android](/java/api/overview/azure/storage)
-- [Azure Storage client library for Node.js](../blobs/reference.md#javascript-client-libraries)
-- [Azure Storage client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob)
-- [Azure Storage client library for PHP](https://github.com/Azure/azure-storage-php)
-- [Azure Storage client library for Ruby](https://github.com/Azure/azure-storage-ruby)
-- [Azure Storage client library for C++](https://github.com/Azure/azure-storage-cpp)
+- [Azure Storage client libraries for .NET](/dotnet/api/overview/azure/storage)
+- [Azure Storage client libraries for Java](/java/api/overview/azure/storage)
+- [Azure Storage client libraries for JavaScript](/javascript/api/overview/azure/storage)
+- [Azure Storage client libraries for Python](/python/api/overview/azure/storage)
+- [Azure Storage client libraries for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/)
+- [Azure Storage client libraries for C++](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage)
 
 ### Azure Storage management API and library references
 
@@ -224,13 +223,13 @@ You can access resources in a storage account by any language that can make HTTP
 
 ### Azure Storage data movement API
 
-- [Storage Data Movement Client Library for .NET](/dotnet/api/microsoft.azure.storage.datamovement)
+- [Storage Data Movement Client Library for .NET](storage-use-data-movement-library.md)
 
 ### Tools and utilities
 
 - [Azure PowerShell Cmdlets for Storage](/powershell/module/az.storage)
 - [Azure CLI Cmdlets for Storage](/cli/azure/storage)
-- [AzCopy Command-Line Utility](https://aka.ms/downloadazcopy)
+- [AzCopy Command-Line Utility](storage-use-azcopy-v10.md)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 - [Azure Resource Manager templates for Azure Storage](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)
 

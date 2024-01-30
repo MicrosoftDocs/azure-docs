@@ -22,7 +22,7 @@ This article shows how to prepare an existing Steeltoe application for deploymen
 
 This article explains the dependencies, configuration, and code that are required to run a .NET Core Steeltoe app in Azure Spring Apps. For information about how to deploy an application to Azure Spring Apps, see [Deploy your first Spring Boot app in Azure Spring Apps](./quickstart.md).
 
->[!Note]
+> [!NOTE]
 > Steeltoe support for Azure Spring Apps is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release. Public preview features and services are not meant for production use. For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## Supported versions
@@ -296,5 +296,5 @@ Include the `spring-boot-starter-actuator` dependency in the dependencies sectio
 
 In this article, you learned how to configure your Java Spring application for deployment to Azure Spring Apps. To learn how to set up a Config Server instance, see [Set up a Config Server instance](./how-to-config-server.md).
 
-More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples).
 ::: zone-end

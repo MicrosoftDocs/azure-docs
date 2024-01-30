@@ -55,7 +55,7 @@ For information about using Web servers, see [Deploy web static files](how-to-en
 
 Tanzu Build Service is enabled by default in Azure Spring Apps Enterprise. If you choose to disable the build service, you can deploy applications but only by using a custom container image. This section provides guidance for both build service enabled and disabled scenarios.
 
-#### Supported APM types
+### Supported APM types
 
 This section lists the supported languages and required environment variables for the APMs that you can use for your integrations.
 
@@ -183,7 +183,7 @@ Use the following steps to show, add, edit, or delete an APM configuration:
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/add-apm.png" alt-text="Screenshot of the Azure portal showing the APM configuration page with the Add button highlighted." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/add-apm.png":::
 
-1. To view or edit an APM configuration, select the ellipsis (**...**) button for the configuration, then select **Edit APM**.  
+1. To view or edit an APM configuration, select the ellipsis (**...**) button for the configuration, then select **Edit APM**.
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/show-apm.png" alt-text="Screenshot of the Azure portal showing the APM configuration page with the Edit APM option selected." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/show-apm.png":::
 
@@ -196,9 +196,9 @@ Use the following steps to view the APM configurations bound to the build:
 1. Navigate to the **Build Service** page for your Azure Spring Apps instance.
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-service-build.png" alt-text="Screenshot of the Azure portal showing the build service page with the current build in the list." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-service-build.png":::
-   
+
 1. On the navigation pane, in the **Settings** section, select **APM bindings**.
-   
+
 1. On the **APM bindings** page, view the APM configurations bound to the build.
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-apm-bindings.png" alt-text="Screenshot of the APM bindings page showing the APM configurations bound to the build." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-apm-bindings.png":::
@@ -206,9 +206,9 @@ Use the following steps to view the APM configurations bound to the build:
 Use the following steps to view the APM configurations bound to the deployment:
 
 1. Navigate to your application page.
-   
+
 1. On the navigation pane, in the **Settings** section, select **APM bindings**.
-   
+
 1. On the **APM bindings** page, view the APM configurations bound to the deployment.
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/deployment-apm-bindings.png" alt-text="Screenshot of the APM bindings page showing the APM configurations bound to the deployment." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/deployment-apm-bindings.png":::
@@ -222,7 +222,7 @@ The following list shows you the Azure CLI commands you can use to manage APM co
   ```azurecli
   az spring apm list \
       --resource-group <resource-group-name> \
-      --service <Azure-Spring-Apps-instance-name> 
+      --service <Azure-Spring-Apps-instance-name>
   ```
 
 - Use the following command to list all the supported APM types:
@@ -289,7 +289,7 @@ The following list shows you the Azure CLI commands you can use to manage APM co
   ```azurecli
   az spring apm list-enabled-globally \
       --resource-group <resource-group-name> \
-      --service <Azure-Spring-Apps-instance-name> 
+      --service <Azure-Spring-Apps-instance-name>
   ```
 
 - Use the following command to delete an APM configuration.
@@ -300,7 +300,7 @@ The following list shows you the Azure CLI commands you can use to manage APM co
       --service <Azure-Spring-Apps-instance-name> \
       --name <your-APM-name> \
   ```
-  
+
 ---
 
 For more information on the `properties` and `secrets` parameters for your buildpack, see the [Supported Scenarios - APM and CA Certificates Integration](#supported-scenarios---apm-and-ca-certificates-integration) section.
@@ -331,7 +331,7 @@ Use the following command to build an image and configure APM:
 az spring build-service build <create|update> \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name> \
-    --name <app-name> \ 
+    --name <app-name> \
     --builder <builder-name> \
     --apms <APM-name> \
     --artifact-path <path-to-your-JAR-file>
@@ -439,7 +439,7 @@ When you use your own container registry for the build service or disable the bu
 az spring build-service build <create|update> \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name> \
-    --name <app-name> \ 
+    --name <app-name> \
     --builder <builder-name> \
     --certificates <CA certificate-name> \
     --artifact-path <path-to-your-JAR-file>
@@ -452,9 +452,9 @@ Use the following steps to view the CA certificates bound to the build:
 1. Navigate to your build page.
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-service-build.png" alt-text="Screenshot of the Azure portal showing the build service page with the current build in the list." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-service-build.png":::
-   
+
 1. On the navigation pane, in the **Settings** section, select **Certificate bindings**.
-   
+
 1. On the **Certificate bindings** page, view the CA certificates bound to the build.
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-certificate-bindings.png" alt-text="Screenshot of the certificate bindings page showing CA certificates bound to the build." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/build-certificate-bindings.png":::

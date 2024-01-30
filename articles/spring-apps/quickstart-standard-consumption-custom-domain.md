@@ -22,7 +22,7 @@ The mapping secures the custom domain with a certificate and enforces Transport 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli)
 - An Azure Spring Apps Standard consumption and dedicated plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](quickstart-provision-standard-consumption-service-instance.md).
-- A Spring app deployed to Azure Spring Apps. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md).
+- A Spring app deployed to Azure Spring Apps.
 - A domain name registered in the DNS registry as provided by a web hosting or domain provider.
 - A certificate resource created under an Azure Container Apps environment. For more information, see [Add certificate in Container App](../container-apps/custom-domains-certificates.md).
 

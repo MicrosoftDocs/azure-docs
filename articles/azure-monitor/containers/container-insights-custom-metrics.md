@@ -81,10 +81,7 @@ This process assigns the *Monitoring Metrics Publisher* role to the cluster's se
 
 ### Prerequisites
 
-Before you update your cluster:
-
-- See the supported regions for custom metrics at [Supported regions](../essentials/metrics-custom-overview.md#supported-regions).
-- Confirm that you're a member of the [Owner](../../role-based-access-control/built-in-roles.md#owner) role on the AKS cluster resource to enable collection of custom performance metrics for nodes and pods. This requirement doesn't apply to Azure Arc-enabled Kubernetes clusters.
+Before you update your cluster, confirm that you're a member of the [Owner](../../role-based-access-control/built-in-roles.md#owner) role on the AKS cluster resource to enable collection of custom performance metrics for nodes and pods. This requirement doesn't apply to Azure Arc-enabled Kubernetes clusters.
 
 ### Enablement options
 Use one of the following methods to enable custom metrics for either a single cluster or all clusters in your subscription.

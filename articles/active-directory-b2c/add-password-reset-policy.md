@@ -11,7 +11,7 @@ ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
-#Customer intent: As a developer, I want to enable my users to reset their passwords without the need for admin intervention, so that they can recover their accounts if they forget their passwords.
+#Customer Intent: As an Azure AD B2C administrator, I want to set up a password reset flow for local accounts, so that users can reset their passwords if they forget them.
 ---
 
 # Set up a password reset flow in Azure Active Directory B2C

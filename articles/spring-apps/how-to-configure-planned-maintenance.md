@@ -6,7 +6,6 @@ ms.author: haochuang
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/07/2023
-ms.custom: 
 ---
 
 # How to configure planned maintenance (preview)

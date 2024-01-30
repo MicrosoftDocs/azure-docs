@@ -75,6 +75,8 @@ Azure Communications Gateway includes a DNS server. You must use Azure Communica
     - Specify the DNS TXT values from [Start registering the subdomains in the customer tenant and get DNS TXT values](#start-registering-the-subdomains-in-the-customer-tenant-and-get-dns-txt-values). These values allow Azure Communications Gateway to generate DNS records for the subdomain.
 2. Use the Provisioning API to confirm that the DNS records have been generated, by checking the `direct_routing_provisioning_state` for the account.
 
+For example API requests, see [Create an account to represent a customer](/rest/api/voiceservices/#create-an-account-to-represent-a-customer) and [View the details of the account](/rest/api/voiceservices/#view-the-details-of-the-account) in the _API Reference_ for the Provisioning API.
+
 ## Finish verifying the domains in the customer tenant
 
 When you have used Azure Communications Gateway to generate the DNS records for the customer subdomains, verify the subdomains in the Microsoft 365 admin center for your customer tenant.

@@ -141,7 +141,7 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
 ```
 
 ## Azure Monitor agent - text logs
-The sample data collection rule below is used to collect [text logs using Azure Monitor agent](../agents/data-collection-text-log.md).
+The sample data collection rule below is used to collect [text logs using Azure Monitor agent](../agents/data-collection-text-log.md). Note that the names of streams for custom text logs should begin with the "Custom-" prefix.
 
 ```json
 {

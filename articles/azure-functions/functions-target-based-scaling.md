@@ -1,7 +1,7 @@
 ---
 title: Target-based scaling in Azure Functions
 description: Explains target-based scaling behaviors of Consumption plan and Premium plan function apps.
-ms.date: 06/16/2023
+ms.date: 01/16/2024
 ms.topic: conceptual
 ms.service: azure-functions
 ---
@@ -10,10 +10,11 @@ ms.service: azure-functions
 
 Target-based scaling provides a fast and intuitive scaling model for customers and is currently supported for the following extensions:
 
-- Service Bus queues and topics
-- Storage Queues
-- Event Hubs
-- Azure Cosmos DB
+- [Apache Kafka](#apache-kafka)
+- [Azure Cosmos DB](#azure-cosmos-db)
+- [Azure Event Hubs](#event-hubs)
+- [Azure Queue Storage](#storage-queues)
+- [Azure Service Bus (queue and topics)](#service-bus-queues-and-topics)
 
 Target-based scaling replaces the previous Azure Functions incremental scaling model as the default for these extension types. Incremental scaling added or removed a maximum of one worker at [each new instance rate](event-driven-scaling.md#understanding-scaling-behaviors), with complex decisions for when to scale. In contrast, target-based scaling allows scale up of four instances at a time, and the scaling decision is based on a simple target-based equation:
 
@@ -26,11 +27,10 @@ The default _target executions per instance_ values come from the SDKs used by t
 The following considerations apply when using target-based scaling:
 
 + Target-based scaling is enabled by default for function apps on the Consumption plan or for Premium plans, but you can [opt-out](#opting-out). Event-driven scaling isn't supported when running on Dedicated (App Service) plans. 
-+ Your [function app runtime version](set-runtime-version.md) must be 4.3.0 or a later version.
 + Target Based Scaling is enabled by default on function app runtime 4.19.0 or a later version.
 + When using target-based scaling, the `functionAppScaleLimit` site setting is still honored. For more information, see [Limit scale out](event-driven-scaling.md#limit-scale-out).
 + To achieve the most accurate scaling based on metrics, use only one target-based triggered function per function app.
-+ When multiple functions in the same function app are all requesting to scale out at the same time, a sum across those functions is used to determine the change in desired instances. Functions requesting to scale-out override functions requesting to scale-in.
++ When multiple functions in the same function app are all requesting to scale out at the same time, a sum across those functions is used to determine the change in desired instances. Functions requesting to scale out override functions requesting to scale in.
 + When there are scale-in requests without any scale-out requests, the max scale in value is used. 
 
 ## Opting out
@@ -49,24 +49,25 @@ This table summarizes the `host.json` values that are used for the _target execu
 
 | Extension                                                      | host.json values                                                  | Default Value |
 | -------------------------------------------------------------- | ----------------------------------------------------------------- | ------------- |
+| Event Hubs (Extension v5.x+)                                   | extensions.eventHubs.maxEventBatchSize                            |       100<sup>*</sup>      |
+| Event Hubs (Extension v3.x+)                                   | extensions.eventHubs.eventProcessorOptions.maxBatchSize           |       10      |
+| Event Hubs (if defined)                                        | extensions.eventHubs.targetUnprocessedEventThreshold              |       n/a     |
 | Service Bus (Extension v5.x+, Single Dispatch)                 | extensions.serviceBus.maxConcurrentCalls                          |       16      |
 | Service Bus (Extension v5.x+, Single Dispatch Sessions Based)  | extensions.serviceBus.maxConcurrentSessions                       |       8       |
 | Service Bus (Extension v5.x+, Batch Processing)                | extensions.serviceBus.maxMessageBatchSize                         |       1000    |
 | Service Bus (Functions v2.x+, Single Dispatch)                 | extensions.serviceBus.messageHandlerOptions.maxConcurrentCalls    |       16      |
 | Service Bus (Functions v2.x+, Single Dispatch Sessions Based)  | extensions.serviceBus.sessionHandlerOptions.maxConcurrentSessions |       2000    |
 | Service Bus (Functions v2.x+, Batch Processing)                | extensions.serviceBus.batchOptions.maxMessageCount                |       1000    |
-| Event Hubs (Extension v5.x+)                                   | extensions.eventHubs.maxEventBatchSize                            |       100<sup>1</sup>      |
-| Event Hubs (Extension v3.x+)                                   | extensions.eventHubs.eventProcessorOptions.maxBatchSize           |       10      |
-| Event Hubs (if defined)                                        | extensions.eventHubs.targetUnprocessedEventThreshold              |       n/a     |
 | Storage Queue                                                  | extensions.queues.batchSize                                       |       16      |
 
-<sup>1</sup> The default `maxEventBatchSize` changed in [v6.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/6.0.0) of the `Microsoft.Azure.WebJobs.Extensions.EventHubs` package. In earlier versions, this was 10.
+<sup>*</sup> The default `maxEventBatchSize` changed in [v6.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/6.0.0) of the `Microsoft.Azure.WebJobs.Extensions.EventHubs` package. In earlier versions, this value was 10.
 
-For Azure Cosmos DB _target executions per instance_ is set in the function attribute:
+For some binding extensions, _target executions per instance_ is set using a function attribute:
 
 | Extension         | Function trigger setting | Default Value | 
 | ----------------- | ------------------------ | ------------- |
-| Azure Cosmos DB   | maxItemsPerInvocation    |  100          |
+| Apache Kafka      | `lagThreshold`           |   1000        |
+| Azure Cosmos DB   | `maxItemsPerInvocation`  |    100        |
 
 To learn more, see the [example configurations for the supported extensions](#supported-extensions).
 
@@ -76,14 +77,15 @@ In [runtime scale monitoring](functions-networking-options.md?tabs=azure-cli#pre
 
 | Extension Name | Minimum Version Needed | 
 | -------------- | ---------------------- |
-| Storage Queue  |         5.1.0          |
+| Apache Kafka   |         3.9.0          | 
+| Azure Cosmos DB |         4.1.0         |
 | Event Hubs     |         5.2.0          |
 | Service Bus    |         5.9.0          |
-| Azure Cosmos DB      |         4.1.0          |
+| Storage Queue  |         5.1.0          |
 
 ## Dynamic concurrency support
 
-Target-based scaling introduces faster scaling, and uses defaults for _target executions per instance_. When using Service Bus or Storage queues, you can also enable [dynamic concurrency](functions-concurrency.md#dynamic-concurrency). In this configuration, the _target executions per instance_ value is determined automatically by the dynamic concurrency feature. It starts with limited concurrency and identifies the best setting over time.
+Target-based scaling introduces faster scaling, and uses defaults for _target executions per instance_. When using Service Bus, Storage queues, or Kafka, you can also enable [dynamic concurrency](functions-concurrency.md#dynamic-concurrency). In this configuration, the _target executions per instance_ value is determined automatically by the dynamic concurrency feature. It starts with limited concurrency and identifies the best setting over time.
 
 ## Supported extensions
 
@@ -297,12 +299,11 @@ For **v2.x+** of the Storage extension, modify the `host.json` setting `batchSiz
 > [!NOTE]
 > **Scale efficiency:** For the storage queue extension, messages with [visibilityTimeout](/rest/api/storageservices/put-message#uri-parameters) are still counted in _event source length_ by the Storage Queue APIs. This can cause overscaling of your function app. Consider using Service Bus queues que scheduled messages, [limiting scale out](event-driven-scaling.md#limit-scale-out), or not using visibilityTimeout for your solution.
 
-
 ### Azure Cosmos DB
 
 Azure Cosmos DB uses a function-level attribute, `MaxItemsPerInvocation`. The way you set this function-level attribute depends on your function language.
 
-# [C#](#tab/csharp)
+#### [C#](#tab/csharp)
 
 For a compiled C# function, set `MaxItemsPerInvocation` in your trigger definition, as shown in the following examples for an in-process C# function:
 
@@ -332,11 +333,37 @@ namespace CosmosDBSamplesV2
 
 ```
 
-# [Java](#tab/java) 
+#### [Java](#tab/java) 
 
 Java example pending.
 
-# [JavaScript/PowerShell/Python](#tab/node+powershell+python)
+#### [Python](#tab/python)
+
+For Functions languages that use `function.json`, the `MaxItemsPerInvocation` parameter is defined in the specific binding, as in this Azure Cosmos DB trigger example
+
+```json
+{
+    "scriptFile": "main.py",
+    "bindings": [
+        {
+          "type": "cosmosDBTrigger",
+          "maxItemsPerInvocation": 100,
+          "connection": "MyCosmosDb",
+          "leaseContainerName": "leases",
+          "containerName": "collectionName",
+          "databaseName": "databaseName",
+          "leaseDatabaseName": "databaseName",
+          "createLeaseContainerIfNotExists": false,
+          "startFromBeginning": false,
+          "name": "input"
+        }
+    ]
+}
+```
+
+Examples for the Python v2 programming model aren't yet available.
+
+#### [JavaScript/PowerShell/TypeScript](#tab/node+powershell)
 
 For Functions languages that use `function.json`, the `MaxItemsPerInvocation` parameter is defined in the specific binding, as in this Azure Cosmos DB trigger example:
 
@@ -359,12 +386,120 @@ For Functions languages that use `function.json`, the `MaxItemsPerInvocation` pa
 }
 ```
 
-Examples for the Python v2 programming model and the JavaScript v4 programming model aren't yet available.
+Examples for the Node.js v4 programming model aren't yet available.
 
 ---
 
 > [!NOTE]
 > Since Azure Cosmos DB is a partitioned workload, the target instance count for the database is capped by the number of physical partitions in your container. To learn more about Azure Cosmos DB scaling, see [physical partitions](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling) and [lease ownership](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling).
+
+### Apache Kafka
+
+The Apache Kafka extension uses a function-level attribute, `LagThreshold`. For Kafka, the number of _desired instances_ is calculated based on the total consumer lag divided by the `LagThreshold` setting. For a given lag, reducing the lag threshold increases the number of desired instances.  
+
+The way you set this function-level attribute depends on your function language. This example sets the threshold to `100`.
+
+#### [C#](#tab/csharp)
+
+For a compiled C# function, set `LagThreshold` in your trigger definition, as shown in the following examples for an in-process C# function for a Kafka Event Hubs trigger:
+
+```C#
+[FunctionName("KafkaTrigger")]
+public static void Run(
+    [KafkaTrigger("BrokerList",
+                  "topic",
+                  Username = "$ConnectionString",
+                  Password = "%EventHubConnectionString%",
+                  Protocol = BrokerProtocol.SaslSsl,
+                  AuthenticationMode = BrokerAuthenticationMode.Plain,
+                  ConsumerGroup = "$Default",
+                  LagThreshold = 100)] KafkaEventData<string> kevent, ILogger log)
+{            
+    log.LogInformation($"C# Kafka trigger function processed a message: {kevent.Value}");
+}
+```
+
+#### [Java](#tab/java) 
+
+```java
+public class KafkaTriggerMany {
+    @FunctionName("KafkaTriggerMany")
+    public void runMany(
+            @KafkaTrigger(
+                name = "kafkaTriggerMany",
+                topic = "topic",  
+                brokerList="%BrokerList%",
+                consumerGroup="$Default", 
+                username = "$ConnectionString", 
+                password = "EventHubConnectionString",
+                authenticationMode = BrokerAuthenticationMode.PLAIN,
+                protocol = BrokerProtocol.SASLSSL,
+                LagThreshold = 100,
+                // sslCaLocation = "confluent_cloud_cacert.pem", // Enable this line for windows.
+                cardinality = Cardinality.MANY,
+                dataType = "string"
+             ) String[] kafkaEvents,
+            final ExecutionContext context) {
+            for (String kevent: kafkaEvents) {
+                context.getLogger().info(kevent);
+            }
+```
+
+#### [Python](#tab/python)
+
+For Functions languages that use `function.json`, the `LagThreshold` parameter is defined in the specific binding, as in this Kafka Event Hubs trigger example:
+
+```json
+{
+      "scriptFile": "main.py",
+      "bindings": [
+        {
+          "type": "kafkaTrigger",
+          "name": "kevent",
+          "topic": "topic",
+          "brokerList": "%BrokerList%",
+          "username": "$ConnectionString",
+          "password": "EventHubConnectionString",
+          "consumerGroup" : "functions",
+          "protocol": "saslSsl",
+          "authenticationMode": "plain",
+          "lagThreshold": "100"
+        }
+    ]
+}
+```
+
+The Python v2 programming model isn't currently supported by the Kafka extension.
+
+#### [JavaScript/PowerShell/TypeScript](#tab/node+powershell)
+
+For Functions languages that use `function.json`, the `LagThreshold` parameter is defined in the specific binding, as in this Kafka Event Hubs trigger example:
+
+```json
+{
+    "bindings": [
+      {
+            "type": "kafkaTrigger",
+            "name": "kafkaEvent",
+            "direction": "in",
+            "protocol" : "SASLSSL",
+            "password" : "EventHubConnectionString",
+            "dataType" : "string",
+            "topic" : "topic",
+            "authenticationMode" : "PLAIN",
+            "consumerGroup" : "$Default",
+            "username" : "$ConnectionString",
+            "brokerList" : "%BrokerList%",
+            "sslCaLocation": "confluent_cloud_cacert.pem",
+            "lagThreshold": "100"
+        }
+    ]
+}
+```
+
+The Node.js v4 programming model isn't currently supported by the Kafka extension.
+
+---
 
 ## Next steps
 

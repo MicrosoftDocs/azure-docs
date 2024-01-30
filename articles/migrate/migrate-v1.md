@@ -1,8 +1,8 @@
 ---
 title: Work with the previous version of Azure Migrate 
 description: Describes how to work with the previous version of Azure Migrate.
-author: jyothisuri
-ms.author: jsuri
+author: MaryMichael-MS
+ms.author: v-michaelar
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/08/2023
@@ -259,7 +259,7 @@ For machines monitored by System Center Operations Manager 2012 R2 or later, the
     `sh InstallDependencyAgent-Linux64.bin`
 
     - Learn more about the [Dependency agent support](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) for the Windows and Linux operating systems.
-    - [Learn more](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent) about how you can use scripts to install the Dependency agent.
+    - [Learn more](../azure-monitor/vm/vminsights-dependency-agent-maintenance.md#install-or-upgrade-dependency-agent) about how you can use scripts to install the Dependency agent.
 
 >[!NOTE]
 > The Azure Monitor for VMs article referenced to provide an overview of the system prerequisites and methods to deploy the Dependency agent are also applicable to the Service Map solution.

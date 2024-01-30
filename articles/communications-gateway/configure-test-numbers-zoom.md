@@ -48,6 +48,8 @@ Use the Provisioning API for Azure Communications Gateway to:
 1. Provision an account to group the test numbers. Enable Zoom service for the account.
 1. Provision the details of the numbers you chose under the account. Enable each number for Zoom service.
 
+For example API requests, see [Create an account to represent a customer](/rest/api/voiceservices/#create-an-account-to-represent-a-customer) and [Add one number to the account](/rest/api/voiceservices/#add-one-number-to-the-account) or [Add or update multiple numbers at once](/rest/api/voiceservices/#add-or-update-multiple-numbers-at-once) in the _API Reference_ for the Provisioning API.
+
 ## Configure users in Zoom with the test numbers for integration testing
 
 Upload the numbers for integration testing to Zoom. When you upload numbers, you can optionally configure Zoom to add a header containing custom contents to SIP INVITEs. You can use this header to identify the Zoom account for the number or indicate that these numbers are test numbers. For more information on this header, see Zoom's _Zoom Phone Provider Exchange Solution Reference Guide_.

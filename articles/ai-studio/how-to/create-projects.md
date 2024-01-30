@@ -2,14 +2,15 @@
 title: Create an Azure AI project in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article describes how to create an Azure AI Studio project.
-author: eric-urban
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
-ms.author: eur
+ms.reviewer: deeikele
+ms.author: sgilley
+author: sdgilley
 ---
 
 # Create an Azure AI project in Azure AI Studio

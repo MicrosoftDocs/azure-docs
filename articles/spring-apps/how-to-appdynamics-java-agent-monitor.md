@@ -69,7 +69,7 @@ To activate an application through the Azure CLI, use the following steps.
         --resource-group "<your-resource-group-name>" \
         --service "<your-Azure-Spring-Apps-instance-name>" \
         --name "<your-app-name>" \
-        --jar-path app.jar \
+        --artifact-path app.jar \
         --jvm-options="-javaagent:/opt/agents/appdynamics/java/javaagent.jar" \
         --env APPDYNAMICS_AGENT_APPLICATION_NAME=<your-app-name> \
               APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY=<your-agent-access-key> \
@@ -245,4 +245,4 @@ To understand the limitations of the AppDynamics Agent, see [Monitor Azure Sprin
 
 ## Next steps
 
-* [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md)
+[Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md)

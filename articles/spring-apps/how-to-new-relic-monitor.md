@@ -60,7 +60,7 @@ Use the following procedure to access the agent:
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-instance-name> \
        --name <app-name> \
-       --jar-path app.jar \
+       --artifact-path app.jar \
        --jvm-options="-javaagent:/opt/agents/newrelic/java/newrelic-agent.jar" \
        --env NEW_RELIC_APP_NAME=appName \
              NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
@@ -195,4 +195,4 @@ For a vnet injection instance of Azure Spring Apps, you need to make sure the ou
 
 ## Next steps
 
-* [Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md)
+[Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md)

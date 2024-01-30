@@ -171,6 +171,8 @@
     items:
     - name: Group and allocate costs using tag inheritance
       href: enable-tag-inheritance.md
+    - name: Apply billing tags
+      href: billing-tags.md
     - name: Split shared costs
       href: allocate-costs.md
   - name: Reference

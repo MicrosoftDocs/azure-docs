@@ -80,6 +80,43 @@ The names of the virtual network and subnet are declared in the template paramet
 
 If any other application ports are needed, then you will need to adjust the Microsoft.Network/loadBalancers resource to allow the traffic in.
 
+### Service Fabric Extension
+
+In the **Microsoft.Compute/virtualMachineScaleSets** resource, the Service Fabric Linux extension is configured. This extension is used to bootstrap Service Fabric to Azure Virtual Machines and configure Node Security.
+
+The following is a template snippet for the Service Fabric Linux extension:
+
+```json
+"extensions": [
+  {
+    "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
+    "properties": {
+      "type": "ServiceFabricLinuxNode",
+      "autoUpgradeMinorVersion": true,
+      "enableAutomaticUpgrade": true,
+      "protectedSettings": {
+        "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+       },
+       "publisher": "Microsoft.Azure.ServiceFabric",
+       "settings": {
+         "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+         "nodeTypeRef": "[variables('vmNodeType0Name')]",
+         "durabilityLevel": "Silver",
+         "enableParallelJobs": true,
+         "nicPrefixOverride": "[variables('subnet0Prefix')]",
+         "dataPath": "D:\\\\SvcFab",
+         "certificate": {
+           "commonNames": [
+             "[parameters('certificateCommonName')]"
+           ],
+           "x509StoreName": "[parameters('certificateStoreValue')]"
+         }
+       },
+       "typeHandlerVersion": "2.0"
+     }
+   },
+```
+
 ## Set template parameters
 
 The **AzureDeploy.Parameters** file declares many values used to deploy the cluster and associated resources. Some of the parameters that you might need to modify for your deployment:

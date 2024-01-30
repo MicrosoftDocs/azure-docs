@@ -27,7 +27,7 @@ Key vault is a secure place to store keys. Enterprise users need to store creden
 To generate a key to access the key vault, execute command below on your local machine:
 
 ```azurecli
-az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT> --sdk-auth
+az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT> --json-auth
 ```
 
 The scope specified by the `--scopes` parameter limits the key access to the resource.  It can only access the strong box.
@@ -56,11 +56,11 @@ The credential you created above can get only general information about the Key 
 
 Go to the **Key Vault** dashboard in Azure portal, select the **Access control** menu, then open the **Role assignments** tab. Select **Apps** for **Type** and `This resource` for **scope**.  You should see the credential you created in previous step:
 
-![Set access policy](./media/github-actions/key-vault1.png)
+![Set access policy](media/github-actions-key-vault/key-vault1.png)
 
 Copy the credential name, for example, `azure-cli-2020-01-19-04-39-02`. Open the **Access policies** menu, then select the **Add Access Policy** link.  Select `Secret Management` for **Template**, then select **Principal**. Paste the credential name in **Principal**/**Select** input box:
 
-![Select](./media/github-actions/key-vault2.png)
+![Select](media/github-actions-key-vault/key-vault2.png)
 
 Select the **Add** button in the **Add access policy** dialog, then select **Save**.
 
@@ -69,7 +69,7 @@ Select the **Add** button in the **Add access policy** dialog, then select **Sav
 This is the master key to open all doors in the building. The procedure is similar to the previous step, but here we change the scope to generate the master key:
 
 ```azurecli
-az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
+az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --json-auth
 ```
 
 Again, results:
@@ -90,7 +90,7 @@ Again, results:
 
 Copy the entire JSON string.  Go back to **Key Vault** dashboard. Open the **Secrets** menu, then select the **Generate/Import** button. Input the secret name, such as `AZURE-CREDENTIALS-FOR-SPRING`. Paste the JSON credential string to the **Value** input box. You may notice the value input box is a one-line text field, rather than a multi-line text area.  You can paste the complete JSON string there.
 
-![Full scope credential](./media/github-actions/key-vault3.png)
+![Full scope credential](media/github-actions-key-vault/key-vault3.png)
 
 ## Combine credentials in GitHub Actions
 

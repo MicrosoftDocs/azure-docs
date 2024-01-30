@@ -2,18 +2,15 @@
 title: What is the Speech service?
 titleSuffix: Azure AI services
 description: The Speech service provides speech to text, text to speech, and speech translation capabilities with an Azure resource. Add speech to your applications, tools, and devices with the Speech SDK, Speech Studio, or REST APIs.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 09/16/2022
+ms.date: 1/21/2024
 ms.author: eur
 ---
 
 # What is the Speech service?
-
-[!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 
 The Speech service provides speech to text and text to speech capabilities with a [Speech resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal). You can transcribe speech to text with high accuracy, produce natural-sounding text to speech voices, translate spoken audio, and use speaker recognition during conversations. 
 
@@ -30,15 +27,15 @@ Common scenarios for speech include:
 - [Audio Content Creation](text-to-speech.md#more-about-neural-text-to-speech-features): You can use neural voices to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems.
 - [Call Center](call-center-overview.md): Transcribe calls in real-time or process a batch of calls, redact personally identifying information, and extract insights such as sentiment to help with your call center use case.
 - [Language learning](language-learning-overview.md): Provide pronunciation assessment feedback to language learners, support real-time transcription for remote learning conversations, and read aloud teaching materials with neural voices.
-- [Voice assistants](voice-assistants.md): Create natural, humanlike conversational interfaces for their applications and experiences. The voice assistant feature provides fast, reliable interaction between a device and an assistant implementation.
+- [Voice assistants](voice-assistants.md): Create natural, human like conversational interfaces for their applications and experiences. The voice assistant feature provides fast, reliable interaction between a device and an assistant implementation.
 
-Microsoft uses Speech for many scenarios, such as captioning in Teams, dictation in Office 365, and Read Aloud in the Edge browser. 
+Microsoft uses Speech for many scenarios, such as captioning in Teams, dictation in Office 365, and Read Aloud in the Microsoft Edge browser. 
 
 :::image type="content" border="false" source="media/overview/microsoft-uses-speech.png" alt-text="Image showing logos of Microsoft products where Speech service is used.":::
 
 ## Speech capabilities
 
-Speech feature summaries are provided below with links for more information.
+These sections summarize Speech features with links for more information.
 
 ### Speech to text
 
@@ -49,7 +46,7 @@ Use [speech to text](speech-to-text.md) to transcribe audio into text, either in
 
 Convert audio to text from a range of sources, including microphones, audio files, and blob storage. Use speaker diarization to determine who said what and when. Get readable transcripts with automatic formatting and punctuation. 
 
-The base model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, you can create and train [custom speech models](custom-speech-overview.md) with acoustic, language, and pronunciation data. Custom speech models are private and can offer a competitive advantage. 
+The base model might not be sufficient if the audio contains ambient noise or includes numerous industry and domain-specific jargon. In these cases, you can create and train [custom speech models](custom-speech-overview.md) with acoustic, language, and pronunciation data. Custom speech models are private and can offer a competitive advantage. 
 
 ### Real-time speech to text
 
@@ -57,27 +54,27 @@ With [real-time speech to text](get-started-speech-to-text.md), the audio is tra
 - Transcriptions, captions, or subtitles for live meetings
 - [Diarization](get-started-stt-diarization.md)
 - [Pronunciation assessment](how-to-pronunciation-assessment.md)
-- Contact center agent assist
+- Contact center agents assist
 - Dictation
 - Voice agents
 
 ### Batch transcription
 
 [Batch transcription](batch-transcription.md) is used to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. Use batch transcription for applications that need to transcribe audio in bulk such as:
-- Transcriptions, captions, or subtitles for pre-recorded audio
+- Transcriptions, captions, or subtitles for prerecorded audio
 - Contact center post-call analytics
 - Diarization
 
 ### Text to speech
 
-With [text to speech](text-to-speech.md), you can convert input text into humanlike synthesized speech. Use neural voices, which are humanlike voices powered by deep neural networks. Use the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) to fine-tune the pitch, pronunciation, speaking rate, volume, and more.
+With [text to speech](text-to-speech.md), you can convert input text into human like synthesized speech. Use neural voices, which are human like voices powered by deep neural networks. Use the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) to fine-tune the pitch, pronunciation, speaking rate, volume, and more.
 
 - Prebuilt neural voice: Highly natural out-of-the-box voices. Check the prebuilt neural voice samples the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery) and determine the right voice for your business needs.
-- Custom neural voice: Besides the pre-built neural voices that come out of the box, you can also create a [custom neural voice](custom-neural-voice.md) that is recognizable and unique to your brand or product. Custom neural voices are private and can offer a competitive advantage. Check the custom neural voice samples [here](https://aka.ms/customvoice).
+- Custom neural voice: Besides the prebuilt neural voices that come out of the box, you can also create a [custom neural voice](custom-neural-voice.md) that is recognizable and unique to your brand or product. Custom neural voices are private and can offer a competitive advantage. Check the custom neural voice samples [here](https://aka.ms/customvoice).
 
 ### Speech translation
 
-[Speech translation](speech-translation.md) enables real-time, multilingual translation of speech to your applications, tools, and devices. Use this feature for speech-to-speech and speech to text translation.
+[Speech translation](speech-translation.md) enables real-time, multilingual translation of speech to your applications, tools, and devices. Use this feature for speech to speech and speech to text translation.
 
 ### Language identification
 
@@ -133,7 +130,7 @@ Sample code for the Speech service is available on GitHub. These samples cover c
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the transparency notes to learn about responsible AI use and deployment in your systems. 
+An AI system includes not only the technology, but also the people who use it, the people who are affected by it, and the environment in which it's deployed. Read the transparency notes to learn about responsible AI use and deployment in your systems. 
 
 ### Speech to text
 

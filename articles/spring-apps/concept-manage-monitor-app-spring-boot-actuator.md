@@ -68,7 +68,7 @@ To observe the configuration and configurable environment, we need to enable `en
 
 You can now go back to the app overview pane and wait until the Provisioning Status changes to "Succeeded".  There will be more than one running instance.
 
-> [!Note]
+> [!NOTE]
 > Once you expose the app to public, these actuator endpoints are exposed to public as well. You can hide all endpoints by deleting the environment variables `management.endpoints.web.exposure.include`, and set `management.endpoints.web.exposure.exclude=*`
 
 ## View the actuator endpoint to view application information

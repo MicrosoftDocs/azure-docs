@@ -1,15 +1,14 @@
 ---
 title: Get facial position with viseme
 titleSuffix: Azure AI services
-description: Speech SDK supports viseme events during speech synthesis, which represent key poses in observed speech, such as the position of the lips, jaw, and tongue when producing a particular phoneme.
-#services: cognitive-services
-author: yulin-li
+description: Learn about visemes that represent key poses in observed speech, such as the position of the lips, jaw, and tongue when producing a particular phoneme.
+author: eric-urban
+ms.author: eur
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 10/23/2022
-ms.author: yulili
-ms.devlang: cpp, csharp, java, javascript, python
+ms.date: 1/21/2024
+ms.reviewer: yulili
 ms.custom: references_regions, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
@@ -17,7 +16,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 # Get facial position with viseme
 
 > [!NOTE]
-> To explore the locales supported for Viseme ID and blend shapes, refer to [the list of all supported locales](language-support.md?tabs=tts#viseme). Scalable Vector Graphics (SVG) is only supported for the `en-US` locale.
+> To explore the locales supported for viseme ID and blend shapes, refer to [the list of all supported locales](language-support.md?tabs=tts#viseme). Scalable Vector Graphics (SVG) is only supported for the `en-US` locale.
 
 A *viseme* is the visual description of a phoneme in spoken language. It defines the position of the face and mouth while a person is speaking. Each viseme depicts the key facial poses for a specific set of phonemes.
 
@@ -42,13 +41,13 @@ The overall workflow of viseme is depicted in the following flowchart:
 
 ## Viseme ID
 
-Viseme ID refers to an integer number that specifies a viseme. We offer 22 different visemes, each depicting the mouth position for a specific set of phonemes. There's no one-to-one correspondence between visemes and phonemes. Often, several phonemes correspond to a single viseme, because they look the same on the speaker's face when they're produced, such as `s` and `z`. For more specific information, see the table for [mapping phonemes to viseme IDs](#map-phonemes-to-visemes).
+Viseme ID refers to an integer number that specifies a viseme. We offer 22 different visemes, each depicting the mouth position for a specific set of phonemes. There's no one-to-one correspondence between visemes and phonemes. Often, several phonemes correspond to a single viseme, because they looked the same on the speaker's face when they're produced, such as `s` and `z`. For more specific information, see the table for [mapping phonemes to viseme IDs](#map-phonemes-to-visemes).
 
 Speech audio output can be accompanied by viseme IDs and `Audio offset`. The `Audio offset` indicates the offset timestamp that represents the start time of each viseme, in ticks (100 nanoseconds).
 
 ### Map phonemes to visemes
 
-Visemes vary by language and locale. Each locale has a set of visemes that correspond to its specific phonemes. The [SSML phonetic alphabets](speech-ssml-phonetic-sets.md) documentation maps viseme IDs to the corresponding International Phonetic Alphabet (IPA) phonemes. The table below shows a mapping relationship between viseme IDs and mouth positions, listing typical IPA phonemes for each viseme ID.
+Visemes vary by language and locale. Each locale has a set of visemes that correspond to its specific phonemes. The [SSML phonetic alphabets](speech-ssml-phonetic-sets.md) documentation maps viseme IDs to the corresponding International Phonetic Alphabet (IPA) phonemes. The table in this section shows a mapping relationship between viseme IDs and mouth positions, listing typical IPA phonemes for each viseme ID.
 
 | Viseme ID | IPA | Mouth position|
 |---------------|---------------|---------------|
@@ -79,7 +78,7 @@ Visemes vary by language and locale. Each locale has a set of visemes that corre
 
 For 2D characters, you can design a character that suits your scenario and use Scalable Vector Graphics (SVG) for each viseme ID to get a time-based face position.
 
-With temporal tags that are provided in a viseme event, these well-designed SVGs will be processed with smoothing modifications, and provide robust animation to the users. For example, the following illustration shows a red-lipped character that's designed for language learning.
+With temporal tags that are provided in a viseme event, these well-designed SVGs is processed with smoothing modifications, and provide robust animation to the users. For example, the following illustration shows a red-lipped character designed for language learning.
 
 ![Screenshot showing a 2D rendering example of four red-lipped mouths, each representing a different viseme ID that corresponds to a phoneme.](media/text-to-speech/viseme-demo-2D.png)
 
@@ -255,9 +254,9 @@ Render the SVG animation along with the synthesized speech to see the mouth move
 # [3D blend shapes](#tab/3dblendshapes)
 
 
-Each viseme event includes a series of frames in the `Animation` SDK property. These are grouped to best align the facial positions with the audio. Your 3D engine should render each group of `BlendShapes` frames immediately before the corresponding audio chunk. The `FrameIndex` value indicates how many frames preceded the current list of frames.
+Each viseme event includes a series of frames in the `Animation` SDK property. These frames are grouped to best align the facial positions with the audio. Your 3D engine should render each group of `BlendShapes` frames immediately before the corresponding audio chunk. The `FrameIndex` value indicates how many frames preceded the current list of frames.
 
-The output json looks like the following sample. Each frame within `BlendShapes` contains an array of 55 facial positions represented as decimal values between 0 to 1. The decimal values are in the same order as described in the facial positions table below.
+The output json looks like the following sample. Each frame within `BlendShapes` contains an array of 55 facial positions represented as decimal values between 0 to 1. 
 
 ```json
 {
@@ -270,7 +269,7 @@ The output json looks like the following sample. Each frame within `BlendShapes`
 }
 ```
 
-The order of `BlendShapes` is as follows.
+The decimal values in the json response are in the same order as described in the following facial positions table. The order of `BlendShapes` is as follows.
 
 | Order | Facial position in `BlendShapes`|
 | --------- | ----------- | 

@@ -4,7 +4,7 @@ description: Learn how to install Data Lake Tools for Visual Studio, and how to 
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 12/20/2023
 ---
 
 # Develop U-SQL scripts by using Data Lake Tools for Visual Studio

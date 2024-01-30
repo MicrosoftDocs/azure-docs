@@ -4,7 +4,7 @@ description: Monitoring .NET Core/.NET Framework non-HTTP apps with Azure Monito
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
-ms.date: 09/12/2023
+ms.date: 01/31/2024
 ms.reviewer: cithomas
 ---
 
@@ -33,7 +33,7 @@ You must have a valid Application Insights connection string. This string is req
     
     ```xml
         <ItemGroup>
-            <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.13.1" />
+            <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.22.0" />
         </ItemGroup>
     ```
 

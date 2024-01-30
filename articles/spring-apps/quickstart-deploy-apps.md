@@ -42,13 +42,13 @@ Use the following steps to download the sample app. If you've been using the Azu
    ```
 
    ```console
-   git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples
+   git clone https://github.com/Azure-Samples/azure-spring-apps-samples
    ```
 
 1. Navigate to the repository directory.
 
    ```console
-   cd Azure-Spring-Cloud-Samples
+   cd azure-spring-apps-samples
    ```
 
 ## Deploy PlanetWeatherProvider
@@ -424,10 +424,10 @@ To deploy to Azure, you must sign in with your Azure account with Azure Toolkit 
 1. In the **Name** field, append *:api-gateway* to the existing **Name**.
 1. In the **Artifact** textbox, select *spring-petclinic-api-gateway-3.0.1*.
 1. In the **Subscription** textbox, verify your subscription.
-1. In the **Spring Cloud** textbox, select the instance of Azure Spring Apps that you created in [Provision Azure Spring Apps instance](./quickstart-provision-service-instance.md).
-1. Set **Public Endpoint** to *Enable*.
+1. In the **Spring Apps** textbox, select the instance of Azure Spring Apps that you created in [Provision Azure Spring Apps instance](./quickstart-provision-service-instance.md).
 1. In the **App:** textbox, select **Create app...**.
 1. Enter *api-gateway*, then select **OK**.
+1. Set **Public Endpoint** to *Enable*.
 1. Specify the memory to 2 GB and JVM options: `-Xms2048m -Xmx2048m`.
 
    :::image type="content" source="media/quickstart-deploy-apps/memory-jvm-options.png" alt-text="Screenshot of memory and JVM options." lightbox="media/quickstart-deploy-apps/memory-jvm-options.png":::

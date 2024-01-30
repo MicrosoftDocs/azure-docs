@@ -271,6 +271,13 @@ To create the alert, use the following steps:
 >[!NOTE]
 >SNAT port exhaustion on your NAT gateway resource is uncommon. If you see SNAT port exhaustion, check if NAT gateway's idle timeout timer is set higher than the default amount of 4 minutes. A long idle timeout timer seeting can cause SNAT ports too be in hold down for longer, which results in exhausting SNAT port inventory sooner. You can also scale your NAT gateway with additional public IPs to increase NAT gateway's overall SNAT port inventory. To troubleshoot these kinds of issues, refer to the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity#snat-exhaustion-due-to-nat-gateway-configuration). 
 
+### Alerts for NAT gateway resource health
+
+[Azure Resource Health](/azure/service-health/overview) provides information on the health state of your NAT gateway resource. The resource health of your NAT gateway is evaluated by measuring the datapath availability of your NAT gateway endpoint. You can set up alerts to notify you when the health state of your NAT gateway resource changes. To learn more about NAT gateway resource health and setting up alerts, see: 
+* [Azure NAT Gateway Resource Health](/azure/nat-gateway/resource-health)
+* [NAT Gateway Resource Health Alerts](/azure/nat-gateway/resource-health#resource-health-alerts)
+* [How to create Resource Health Alerts in the Azure portal](/azure/service-health/resource-health-alert-monitor-guide)
+
 ## Network Insights
 
 [Azure Monitor Network Insights](../network-watcher/network-insights-overview.md) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a preconfigured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource. 
@@ -300,6 +307,27 @@ The metrics dashboard can be used to better understand the performance and healt
     :::image type="content" source="./media/nat-metrics/detailed-metrics.png" alt-text="Screenshot of the view detailed metrics."::: 
 
 For more information on what each metric is showing you and how to analyze these metrics, see [How to use NAT gateway metrics](#how-to-use-nat-gateway-metrics).
+
+## More NAT gateway metrics guidance 
+
+### What type of metrics are available for NAT gateway?
+
+NAT gateway has [multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics). Multi-dimensional metrics can be filtered by different dimensions in order to provide greater insight on the data provided. The [SNAT connection count](#snat-connection-count) metric can be filtered by Attempted and Failed connections in order to distinguish between the different types of connections being made by NAT gateway.  
+
+Refer to the dimensions column in the [metrics overview](#metrics-overview) table to see which dimensions are available for each NAT gateway metric. 
+
+### How to store NAT gateway metrics long-term
+
+All [platform metrics are stored](/azure/azure-monitor/essentials/data-platform-metrics#retention-of-metrics) for 93 days. If you require long term access to your NAT gateway metrics data, NAT gateway metrics can be retrieved by using the [metrics REST API](/rest/api/monitor/metrics/list). For more information on how to use the API, see the [Azure monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough).  
+
+>[!NOTE]
+>Diagnostic Settings [doesn’t support the export of multi-dimensional metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index#exporting-platform-metrics-to-other-locations) to another location, such as Azure Storage and Log Analytics.
+>
+>To retrieve NAT gateway metrics, use the metrics REST API.
+
+### How interpret metrics charts
+
+Refer to [troubleshooting metrics charts](/azure/azure-monitor/essentials/metrics-troubleshoot) if you run into issues with creating, customizing or interpreting charts in Azure metrics explorer. 
 
 ## Next steps
 

@@ -19,7 +19,7 @@ Use this article to get started using the Azure OpenAI REST APIs to deploy and u
 - <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
 - The following Python libraries: `requests`, `json`.
 - An Azure OpenAI Service resource with a GPT-4 Turbo with Vision model deployed. The resource must be in the `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see [the resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
-- For Vision enhancement (optional): An Azure Computer Vision resource in the same region as your Azure OpenAI resource.
+- For Vision enhancement (optional): An Azure Computer Vision resource in the same region as your Azure OpenAI resource, in the paid (S0) tier.
 
 ## Retrieve key and endpoint
 
@@ -61,26 +61,36 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     endpoint = f"{base_url}/chat/completions?api-version=2023-12-01-preview" 
     data = { 
         "messages": [ 
-            { "role": "system", "content": "You are a helpful assistant." }, # Content can be a string, OR 
-            { "role": "user", "content": [       # It can be an array containing strings and images. 
-                "Describe this picture:", 
-                { "image": "<base_64_encoded_image>" }      # Images are represented like this. 
+            { "role": "system", "content": "You are a helpful assistant." }, 
+            { "role": "user", "content": [  
+                { 
+                    "type": "text", 
+                    "text": "Describe this picture:" 
+                },
+                { 
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "<image URL>"
+                    }
+                }
             ] } 
         ], 
-        "max_tokens": 100 
+        "max_tokens": 2000 
     }   
     
     # Make the API call   
     response = requests.post(endpoint, headers=headers, data=json.dumps(data))   
     
     print(f"Status Code: {response.status_code}")   
-    print(response.text) 
+    print(response.text)
     ```
 
 1. Make the following changes:
     1. Enter your endpoint URL and key in the appropriate fields.
     1. Enter your GPT-4 Turbo with Vision deployment name in the appropriate field. 
-    1. Change the value of the `"image"` field to the base 64 byte data of your image.
+    1. Change the value of the `"image"` field to the URL of your image.
+        > [!TIP]
+        > You can also use a base 64 encoded image data instead of a URL. For more information, see the [GPT-4 Turbo with Vision how-to guide](../how-to/gpt-with-vision.md#use-a-local-image).
 1. Run the application with the `python` command:
 
     ```console
@@ -131,32 +141,42 @@ The **object grounding** integration brings a new layer to data analysis and use
         {
             "type": "AzureComputerVision",
             "parameters": {
-            "endpoint": " <your_computer_vision_endpoint> ",
-            "key": "<your_computer_vision_key>"
+                "endpoint": "<your_computer_vision_endpoint>",
+                "key": "<your_computer_vision_key>"
             }
         }],
         "messages": [ 
-            { "role": "system", "content": "You are a helpful assistant." }, # Content can be a string, OR 
-            { "role": "user", "content": [       # It can be an array containing strings and images. 
-                "Describe this picture:", 
-                { "image": "<base_64_encoded_image>" }      # Images are represented like this. 
+            { "role": "system", "content": "You are a helpful assistant." }, 
+            { "role": "user", 
+            "content": [  
+                { 
+                    "type": "text", 
+                    "text": "Describe this picture:" 
+                },
+                { 
+                    "type": "image_url", 
+                    "image_url": {
+                        "url" : "<image URL>"
+                    }
+                }
             ]} 
         ], 
-        "max_tokens": 100 
+        "max_tokens": 2000 
     }   
     
     # Make the API call   
     response = requests.post(endpoint, headers=headers, data=json.dumps(data))   
-    
+
     print(f"Status Code: {response.status_code}")   
-    print(response.text) 
+    print(response.text)
     ```
 
 1. Make the following changes:
-    1. Enter your Azure OpenAI endpoint URL and key in the appropriate fields.
     1. Enter your GPT-4 Turbo with Vision deployment name in the appropriate field. 
     1. Enter your Computer Vision endpoint URL and key in the appropriate fields.
-    1. Change the value of the `"image"` field to the base 64 byte data of your image.
+    1. Change the value of the `"image"` field to the URL of your image.
+        > [!TIP]
+        > You can also use a base 64 encoded image data instead of a URL. For more information, see the [GPT-4 Turbo with Vision how-to guide](../how-to/gpt-with-vision.md#use-a-local-image).
 1. Run the application with the `python` command:
 
     ```console
@@ -176,6 +196,4 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 - [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
-## Next steps
 
-* Learn more in the [Azure OpenAI overview](../overview.md).

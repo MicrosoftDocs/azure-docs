@@ -6,7 +6,7 @@ ms.date: 6/23/2020
 
 ---
 
-# Configure Resource Health alerts in the Azure portal
+# Create Resource Health alerts in the Azure portal
 
 This article shows you how to set up activity log alerts for resource health notifications in the Azure portal.
 
@@ -31,9 +31,8 @@ You also can configure who the alert should be sent to:
 To learn more about action groups, see [ and manage action groups](../azure-monitor/alerts/action-groups.md).
 
 For information on how to configure resource health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](./resource-health-alert-arm-template-guide.md).
-Resource Health Alert using Azure portal
 
-##  a Resource Health alert rule in the Azure portal
+## Create a Resource Health alert rule in the Azure portal
 
 1. In the Azure [portal](https://portal.azure.com/), select **Service Health**.
 

@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 01/19/2024
 ms.author: vikurpad
 ms.custom:
   - references_regions
@@ -94,6 +94,9 @@ Tabular fields (tables) are supported with custom neural models starting with AP
 Tabular fields support **cross page tables** by default. To label a table that spans multiple pages, label each row of the table across the different pages in the single table. As a best practice, ensure that your dataset contains a few samples of the expected variations. For example, include both samples where an entire table is on a single page and samples of a table spanning two or more pages.
 
 Tabular fields are also useful when extracting repeating information within a document that isn't recognized as a table. For example, a repeating section of work experiences in a resume can be labeled and extracted as a tabular field.
+
+> [!NOTE]
+> Table field when labeled are extracted as part of the `documents` section of the response. The response also contains a `tables` section which contains the tables extracted from the document by the layout model. If you have labeled a field as a table, look for the field in the documents section of the response.
 
 ## Labeling guidelines
 

@@ -1,7 +1,7 @@
 ---
 title: About Azure confidential VMs
 description: Learn about Azure confidential virtual machines. These series are for tenants with high security and confidentiality requirements.
-author: mamccrea
+author: ju-shim
 ms.author: mmcrey
 ms.service: virtual-machines
 ms.subservice: confidential-computing
@@ -96,8 +96,8 @@ Confidential VMs support the following OS options:
 | 22.04 <span class="pill purple">LTS</span>        | 22H2 Pro <span class="pill red">ZH-CN</span>     | 2019 Server Core              |
 |                                                   | 22H2 Pro N                                       |                               |
 | **RHEL**                                          | 22H2 Enterprise                                  | 2022                          |
-| 9.2 <span class="pill purple">TECH PREVIEW</span> | 22H2 Enterprise N                                | 2022 Server Core              |
-|                                                   | 22H2 Enterprise Multi-session                    | 2022 Azure Edition            |
+| 9.2 <span class="pill purple">Tech Preview (SEV-SNP Only)</span> | 22H2 Enterprise N                                | 2022 Server Core              |
+| 9.3 (SEV-SNP Only)                                | 22H2 Enterprise Multi-session                    | 2022 Azure Edition            |
 |                                                   |                                                  | 2022 Azure Edition Core       |
 
 ### Regions
@@ -129,3 +129,5 @@ Confidential VMs *don't support*:
 
 > [!div class="nextstepaction"]
 > [Deploy a confidential VM from the Azure portal](quick-create-confidential-vm-portal.md)
+
+For more information see our [Confidential VM FAQ](confidential-vm-faq.yml).

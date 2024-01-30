@@ -7,7 +7,8 @@ ms.topic: how-to
 ms.date: 09/29/2022
 ms.author: normesta
 ms.subservice: storage-common-concepts
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, ai-video-demo
+ai-usage: ai-assisted
 ---
 
 # Get started with AzCopy
@@ -20,6 +21,11 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 > If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
 <a id="download-and-install-azcopy"></a>
+
+This video shows you how to download and run the AzCopy utility.
+> [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
+
+The steps in the video are also described in the following sections.
 
 ## Download AzCopy
 
@@ -53,19 +59,11 @@ As an owner of your Azure Storage account, you aren't automatically assigned per
 
 You can provide authorization credentials by using Microsoft Entra ID, or by using a Shared Access Signature (SAS) token.
 
-Use this table as a guide:
-
-| Storage type | Currently supported method of authorization |
-|--|--|
-|**Blob storage** | Microsoft Entra ID & SAS |
-|**Blob storage (hierarchical   namespace)** | Microsoft Entra ID & SAS |
-|**File storage** | SAS only |
-
 <a name='option-1-use-azure-active-directory'></a>
 
 #### Option 1: Use Microsoft Entra ID
 
-This option is available for blob Storage only. By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command.
+By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command.
 
 #### Option 2: Use a SAS token
 

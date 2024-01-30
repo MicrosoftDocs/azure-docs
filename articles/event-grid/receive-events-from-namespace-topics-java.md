@@ -195,6 +195,7 @@ Reject events that your consumer application can't process. Conditions for which
 
 ## Next steps
 
+* See [Java API reference](/java/api/overview/azure/messaging-eventgrid-readme?view=azure-java-preview&preserve-view=true).
 * To learn more about pull delivery model, see [Pull delivery overview](pull-delivery-overview.md).
 
  

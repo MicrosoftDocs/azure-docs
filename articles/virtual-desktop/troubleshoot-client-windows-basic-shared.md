@@ -68,7 +68,7 @@ There are a few basic troubleshooting steps you can try if you're having issues 
 
 1. Make sure you're connected to the internet.
 
-1. Make sure your dev box is running. For more information, see [Shutdown, restart or start a dev box](../dev-box/how-to-create-dev-boxes-developer-portal.md#shutdown-restart-or-start-a-dev-box).
+1. Make sure your dev box is running. For more information, see [Shutdown, restart or start a dev box](../dev-box/how-to-create-dev-boxes-developer-portal.md#shut-down-restart-or-start-a-dev-box).
 
 1. Try to connect to your dev box from the Dev Box developer portal. For more information, see [Connect to a dev box](../dev-box/quickstart-create-dev-box.md#connect-to-a-dev-box).
 

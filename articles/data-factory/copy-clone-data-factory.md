@@ -7,7 +7,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 02/08/2023
+ms.date: 01/05/2024
 ---
 
 # Copy or clone a data factory in Azure Data Factory

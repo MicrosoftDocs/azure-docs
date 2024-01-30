@@ -2,14 +2,15 @@
 title: Generate product name ideas in the Azure AI Studio playground
 titleSuffix: Azure OpenAI
 description: Use this article to generate product name ideas in the Azure AI Studio playground.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Quickstart: Generate product name ideas in the Azure AI Studio playground

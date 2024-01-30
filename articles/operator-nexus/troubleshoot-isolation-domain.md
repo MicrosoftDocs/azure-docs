@@ -70,3 +70,4 @@ Before you enable isolation, it's necessary to create one or more internal or ex
 To access further details in the logs, see [Log Analytics workspace](../../articles/operator-nexus/concepts-observability.md#log-analytic-workspace).
 
 If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).

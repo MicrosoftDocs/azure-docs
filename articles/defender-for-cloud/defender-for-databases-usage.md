@@ -43,7 +43,7 @@ When Microsoft Defender for Cloud is enabled on your database, it detects anomal
 > [!TIP]
 > A live tile on [Microsoft Defender for Cloud's overview dashboard](overview-page.md) tracks the status of active threats to all your resources including databases. Select the security alerts tile to go to the Defender for Cloud security alerts page and get an overview of active threats detected on your databases.
 >
-> For detailed steps and the recommended method to respond to security alerts, see [Respond to a security alert](tutorial-security-incident.md#respond-to-a-security-alert).
+> For detailed steps and the recommended method to respond to security alerts, see [Respond to a security alert](managing-and-responding-alerts.md#respond-to-a-security-alert).
 
 ### Respond to email notifications of security alerts
 
@@ -62,7 +62,7 @@ Defender for Cloud sends email notifications when it detects anomalous database 
     :::image type="content" source="media/defender-for-databases-usage/specific-alert-details.png" alt-text="Details of a specific alert." lightbox="media/defender-for-databases-usage/specific-alert-details.png":::
 
 > [!TIP]
-> For a detailed tutorial on how to handle your alerts, see [Tutorial: Triage, investigate, and respond to security alerts](tutorial-security-incident.md).
+> For a detailed tutorial on how to handle your alerts, see [Manage and respond to alerts](tutorial-security-incident.md).
 
 ## Next steps
 
