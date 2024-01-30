@@ -144,9 +144,9 @@ Check if this compute instance is assigned to you and you have access to the wor
 
 This error occurs because you're cloning a flow from others that's using a compute instance as the runtime. Because the compute instance runtime is user isolated, you need to create your own compute instance runtime or select a managed online deployment/endpoint runtime, which can be shared with others.
 
-### Find Python packages installed in runtime
+### Find Python packages installed in compute instance runtime
 
-Follow these steps to find Python packages installed in runtime:
+Follow these steps to find Python packages installed in compute instance runtime:
 
 - Add a Python node in your flow.
 - Put the following code in the code section:
