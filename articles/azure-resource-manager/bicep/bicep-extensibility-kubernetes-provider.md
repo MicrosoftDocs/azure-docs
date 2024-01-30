@@ -12,15 +12,18 @@ The Kubernetes provider allows you to create Kubernetes resources directly with 
 
 > [!NOTE]
 > Kubernetes provider is not currently supported for private clusters:
->  ```json
->  resource AKS 'Microsoft.ContainerService/managedClusters@2023-01-02-preview' = {
->   properties: {
->    "apiServerAccessProfile": {
->      "enablePrivateCluster": "true"
->      }
->    }
->}
+> 
+> ```json
+> resource AKS 'Microsoft.ContainerService/managedClusters@2023-01-02-preview' = {
+>  properties: {
+>   "apiServerAccessProfile": {
+>     "enablePrivateCluster": "true"
+>     }
+>   }
+> }
+> 
 > ```
+> 
 
 ## Enable the preview feature
 
