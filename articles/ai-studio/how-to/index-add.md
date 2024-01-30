@@ -119,12 +119,12 @@ If the Azure AI resource the project uses was created through Azure portal:
 1. In Flows, create a new Flow or open an existing flow 
 1. On the top menu of the flow designer, select **More tools**, and then select ***Index Lookup***
 
-    :::image type="content" source="../media/index-retrieve/vector-index-lookup.png" alt-text="Screenshot of Vector index Lookup from More Tools." lightbox="../media/index-retrieve/vector-index-lookup.png":::
+    :::image type="content" source="../media/index-retrieve/index-lookup-tool.png" alt-text="Screenshot of Vector index Lookup from More Tools." lightbox="../media/index-retrieve/index-lookup-tool.png":::
 
 1. Provide a name for your Index Lookup Tool and select **Add**.
 1. Select the **mlindex_content** value box, and select your index. After completing this step, enter the queries and **query_types** to be performed against the index.
 
-    :::image type="content" source="../media/index-retrieve/configure-index-lookup.png" alt-text="Screenshot of Configure Vector index Lookup." lightbox="../media/index-retrieve/configure-index-lookup.png":::
+    :::image type="content" source="../media/index-retrieve/configure-index-lookup-tool.png" alt-text="Screenshot of Configure Index Lookup." lightbox="../media/index-retrieve/configure-index-lookup-tool.png":::
 
 ## Next steps
 

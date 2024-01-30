@@ -7,7 +7,7 @@ ms.author: edburns
 ms.topic: how-to
 ms.date: 12/21/2022
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, build-2023, devx-track-extended-java, devx-track-azurecli, linux-related-content
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, build-2023, devx-track-extended-java, devx-track-azurecli, linux-related-content
 ---
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
@@ -88,13 +88,13 @@ If you navigated away from the **Deployment is in progress** page, the following
    * `cmdToConnectToCluster`
    * `appDeploymentTemplateYaml` if you select **No** to **Deploy an application?** when deploying the Marketplace offer; or `appDeploymentYaml` if you select **yes** to **Deploy an application?**.
 
-    # [Bash](#tab/in-bash)
+   ### [Bash](#tab/in-bash)
 
-    Paste the value of `appDeploymentTemplateYaml` or `appDeploymentYaml` into a Bash shell, append `| grep secretName`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
+   Paste the value of `appDeploymentTemplateYaml` or `appDeploymentYaml` into a Bash shell, append `| grep secretName`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
 
-    # [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/in-powershell)
 
-    Paste the quoted string in `appDeploymentTemplateYaml` or `appDeploymentYaml` into a PowerShell, append `| ForEach-Object { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) } | Select-String "secretName"`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
+   Paste the quoted string in `appDeploymentTemplateYaml` or `appDeploymentYaml` into a PowerShell, append `| ForEach-Object { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) } | Select-String "secretName"`, and execute. This command will output the Ingress TLS secret name, such as `- secretName: secret785e2c`. Save aside the value for `secretName` from the output.
 
     ---
 
@@ -130,11 +130,23 @@ Clone the sample code for this guide. The sample is on [GitHub](https://github.c
 
 There are a few samples in the repository. We'll use *java-app/*. Here's the file structure of the application.
 
+#### [Bash](#tab/in-bash)
+
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
 git checkout 20240109
 ```
+
+#### [PowerShell](#tab/in-powershell)
+
+```powershell
+git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
+cd open-liberty-on-aks
+git checkout 20240109
+```
+
+---
 
 If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
 
@@ -170,7 +182,7 @@ In directory *liberty/config*, the *server.xml* file is used to configure the DB
 
 Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many variables from the environment. As part of the Maven build, these variables are used to populate values in the YAML files located in *src/main/aks*. You can do something similar for your application outside Maven if you prefer.
 
-# [Bash](#tab/in-bash)
+#### [Bash](#tab/in-bash)
 
 ```bash
 cd <path-to-your-repo>/java-app
@@ -189,7 +201,7 @@ export INGRESS_TLS_SECRET=<ingress-TLS-secret-name>
 mvn clean install
 ```
 
-# [PowerShell](#tab/in-powershell)
+#### [PowerShell](#tab/in-powershell)
 
 ```powershell
 cd <path-to-your-repo>/java-app
@@ -216,10 +228,21 @@ You can now run and test the project locally before deploying to Azure. For conv
 
 1. Start the application using `liberty:run`. `liberty:run` will also use the environment variables defined in the previous step.
 
+   #### [Bash](#tab/in-bash)
+
    ```bash
    cd <path-to-your-repo>/java-app
    mvn liberty:run
    ```
+
+   #### [PowerShell](#tab/in-powershell)
+
+   ```powershell
+   cd <path-to-your-repo>/java-app
+   mvn liberty:run
+   ```
+
+    ---
 
 1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser and verify the application is accessible and all functions are working.
 
@@ -229,11 +252,23 @@ You can now run and test the project locally before deploying to Azure. For conv
 
 You can now run the `docker build` command to build the image.
 
+#### [Bash](#tab/in-bash)
+
 ```bash
 cd <path-to-your-repo>/java-app/target
 
 docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
 ```
+
+#### [PowerShell](#tab/in-powershell)
+
+```powershell
+cd <path-to-your-repo>/java-app/target
+
+docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
+```
+
+---
 
 ### (Optional) Test the Docker image locally
 
@@ -241,27 +276,27 @@ You can now use the following steps to test the Docker image locally before depl
 
 1. Run the image using the following command. Note we're using the environment variables defined previously.
 
-    # [Bash](#tab/in-bash)
+   #### [Bash](#tab/in-bash)
 
-    ```bash
-    docker run -it --rm -p 9080:9080 \
-       -e DB_SERVER_NAME=${DB_SERVER_NAME} \
-       -e DB_NAME=${DB_NAME} \
-       -e DB_USER=${DB_USER} \
-       -e DB_PASSWORD=${DB_PASSWORD} \
-       javaee-cafe:v1
-    ```
+   ```bash
+   docker run -it --rm -p 9080:9080 \
+      -e DB_SERVER_NAME=${DB_SERVER_NAME} \
+      -e DB_NAME=${DB_NAME} \
+      -e DB_USER=${DB_USER} \
+      -e DB_PASSWORD=${DB_PASSWORD} \
+      javaee-cafe:v1
+   ```
 
-    # [PowerShell](#tab/in-powershell)
+   #### [PowerShell](#tab/in-powershell)
 
-    ```powershell
-    docker run -it --rm -p 9080:9080 `
-       -e DB_SERVER_NAME=${Env:DB_SERVER_NAME} `
-       -e DB_NAME=${Env:DB_NAME} `
-       -e DB_USER=${Env:DB_USER} `
-       -e DB_PASSWORD=${Env:DB_PASSWORD} `
-       javaee-cafe:v1
-    ```
+   ```powershell
+   docker run -it --rm -p 9080:9080 `
+      -e DB_SERVER_NAME=${Env:DB_SERVER_NAME} `
+      -e DB_NAME=${Env:DB_NAME} `
+      -e DB_USER=${Env:DB_USER} `
+      -e DB_PASSWORD=${Env:DB_PASSWORD} `
+      javaee-cafe:v1
+   ```
 
     ---
 
@@ -273,7 +308,7 @@ You can now use the following steps to test the Docker image locally before depl
 
 Upload the built image to the ACR created in the offer.
 
-# [Bash](#tab/in-bash)
+#### [Bash](#tab/in-bash)
 
 ```bash
 docker tag javaee-cafe:v1 ${LOGIN_SERVER}/javaee-cafe:v1
@@ -281,7 +316,7 @@ docker login -u ${USER_NAME} -p ${PASSWORD} ${LOGIN_SERVER}
 docker push ${LOGIN_SERVER}/javaee-cafe:v1
 ```
 
-# [PowerShell](#tab/in-powershell)
+#### [PowerShell](#tab/in-powershell)
 
 ```powershell
 docker tag javaee-cafe:v1 ${Env:LOGIN_SERVER}/javaee-cafe:v1
@@ -301,24 +336,55 @@ Use the following steps to deploy and test the application:
 
 1. Apply the DB secret.
 
+   #### [Bash](#tab/in-bash)
+
    ```bash
    cd <path-to-your-repo>/java-app/target
    kubectl apply -f db-secret.yaml
    ```
 
+   #### [PowerShell](#tab/in-powershell)
+
+   ```powershell
+   cd <path-to-your-repo>/java-app/target
+   kubectl apply -f db-secret.yaml
+   ```
+
+    ---
+
    You'll see the output `secret/db-secret-sql created`.
 
 1. Apply the deployment file.
+
+   #### [Bash](#tab/in-bash)
 
    ```bash
    kubectl apply -f openlibertyapplication-agic.yaml
    ```
 
+   #### [PowerShell](#tab/in-powershell)
+
+   ```powershell
+   kubectl apply -f openlibertyapplication-agic.yaml
+   ```
+
+    ---
+
 1. Wait until all pods are restarted successfully by using the following command:
+
+   #### [Bash](#tab/in-bash)
 
    ```bash
    kubectl get pods --watch
    ```
+
+   #### [PowerShell](#tab/in-powershell)
+
+   ```powershell
+   kubectl get pods --watch
+   ```
+
+    ---   
 
    You should see output similar to the following example to indicate that all the pods are running:
 
@@ -333,27 +399,37 @@ Use the following steps to deploy and test the application:
 
    1. Get **ADDRESS** of the Ingress resource deployed with the application
 
+      #### [Bash](#tab/in-bash)
+
       ```bash
       kubectl get ingress
       ```
+
+      #### [PowerShell](#tab/in-powershell)
+
+      ```powershell
+      kubectl get ingress
+      ```
+
+       ---      
 
       Copy the value of **ADDRESS** from the output, this is the frontend public IP address of the deployed Azure Application Gateway.
 
    1. Go to `https://<ADDRESS>` to test the application. For your convenience, this shell command will create an environment variable whose value you can paste straight into the browser.
 
-       # [Bash](#tab/in-bash)
+      #### [Bash](#tab/in-bash)
 
-       ```bash
-       export APP_URL=https://$(kubectl get ingress | grep javaee-cafe-cluster-agic-ingress | cut -d " " -f14)/
-       echo $APP_URL
-       ```
+      ```bash
+      export APP_URL=https://$(kubectl get ingress | grep javaee-cafe-cluster-agic-ingress | cut -d " " -f14)/
+      echo $APP_URL
+      ```
 
-       # [PowerShell](#tab/in-powershell)
+      #### [PowerShell](#tab/in-powershell)
 
-       ```powershell
-       $APP_URL = "https://$(kubectl get ingress | Select-String 'javaee-cafe-cluster-agic-ingress' | ForEach-Object { $_.Line.Split(' ')[13] })/"
-       $APP_URL
-       ```
+      ```powershell
+      $APP_URL = "https://$(kubectl get ingress | Select-String 'javaee-cafe-cluster-agic-ingress' | ForEach-Object { $_.Line.Split(' ')[13] })/"
+      $APP_URL
+      ```
 
        ---
 
@@ -363,14 +439,14 @@ Use the following steps to deploy and test the application:
 
 To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
 
-# [Bash](#tab/in-bash)
+### [Bash](#tab/in-bash)
 
 ```bash
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 az group delete --name <db-resource-group> --yes --no-wait
 ```
 
-# [PowerShell](#tab/in-powershell)
+### [PowerShell](#tab/in-powershell)
 
 ```powershell
 az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait

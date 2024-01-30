@@ -2,9 +2,9 @@
 title: Troubleshoot the Azure Monitor agent on Windows virtual machines and scale sets
 description: Guidance for troubleshooting issues on Windows virtual machines, scale sets with Azure Monitor agent and Data Collection Rules.
 ms.topic: conceptual
-ms.date: 01/09/2024
+ms.date: 01/23/2024
 ms.custom: references_region
-ms.reviewer: shseth
+ms.reviewer: jeffwo
 ---
 
 # Troubleshooting guidance for the Azure Monitor agent on Windows virtual machines and scale sets

@@ -6,10 +6,13 @@ author: garrodonnell
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 01/24/2024
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As an Azure AD B2C administrator, I want to add AD FS as a SAML identity provider using custom policies, so that users can sign in with their AD FS accounts and access Azure AD B2C resources.
+
 ---
 
 # Add AD FS as a SAML identity provider using custom policies in Azure Active Directory B2C
