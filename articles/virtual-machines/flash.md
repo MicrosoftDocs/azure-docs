@@ -187,16 +187,6 @@ We have plans to transition the preview into a fully fledged general availabilit
 
 The properties field is fully consistent with the `microsoft.resourcehealth/availabilitystatuses` event in ARG. The Event Grid solution offers near-real-time alerting capabilities on the data present in ARG.
 
-#### Demo
-
-How to subscribe to events through Event Grid System Topics:
-
-[Flash System Topic Demo (Final).mp4](https://microsoft.sharepoint.com/:v:/t/VMAPMs/EeMF0XrOqrNIsj7KpPx2cgcB9DTo7Ky6wfUB3mQ3XFokZQ?e=Oz1MQu)
-
-Event Grid for degradation notifications:
-
-[Flash Degradation Demo (Final).mp4](https://microsoft.sharepoint.com/:v:/t/VMAPMs/ESOtL_vXix9Eov9C3C4-M88Bp74-GSd9ENHpYPCnOdRzHg?e=xe0ncy)
-
 ### Azure monitor—VM availability metric
 
 Currently in public preview. It's well-suited for tracking trends, aggregating platform metrics (such as CPU and disk usage) and configuring precise threshold-based alerts. Customers can utilize this out-of-the-box [VM availability metric](../azure-monitor/platform/alerts-overview.md) in [Azure Monitor](../azure-monitor/platform/alerts-overview.md). This metric displays the trend of VM availability over time, so users can:
