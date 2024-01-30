@@ -403,7 +403,7 @@ The vector query string is semantically similar to the search string, but has te
 
 ### Single vector search
 
-In this vector query, which is shortened for brevity, the `"value"` contains the vectorized text of the query input, `"fields"` determines which vector fields are searched, and `"k"` specifies the number of nearest neighbors to return.
+In this vector query, which is shortened for brevity, the `"vector"` contains the vectorized text of the query input, `"fields"` determines which vector fields are searched, and `"k"` specifies the number of nearest neighbors to return.
 
 The vector query string is *"classic lodging near running trails, eateries, retail"* - vectorized into 1536 embeddings for this query.
 
@@ -414,9 +414,9 @@ api-key: {{admin-api-key}}
 {
     "count": true,
     "select": "HotelId, HotelName, Description, Category",
-    "vectors": [
+    "vectorQueries": [
         {
-            "value": [0.01944167, 0.0040178085
+            "vector"": [0.01944167, 0.0040178085
                 . . . 
                 010858015, -0.017496133],
             "k": 7,

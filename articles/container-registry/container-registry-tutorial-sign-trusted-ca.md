@@ -1,5 +1,5 @@
 ---
-title: Sign container images with Notation and Azure Key vault using a CA-issued certificate (Preview)
+title: Sign container images with Notation and Azure Key vault using a CA-issued certificate
 description: In this tutorial learn to create a CA-issued certificate in Azure Key Vault, build and sign a container image stored in Azure Container Registry (ACR) with notation and AKV, and then verify the container image using notation.
 author: yizha1
 ms.author: yizha1
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 10/31/2023
 ---
 
-# Sign container images with Notation and Azure Key Vault using a CA-issued certificate (Preview)
+# Sign container images with Notation and Azure Key Vault using a CA-issued certificate
 
 Signing and verifying container images with a certificate issued by a trusted Certificate Authority (CA) is a valuable security practice. This security measure will help you to responsibly identify, authorize, and validate the identity of both the publisher of the container image and the container image itself. The Trusted Certificate Authorities (CAs) such as GlobalSign, DigiCert, and others play a crucial role in the validation of a user's or organization's identity, maintaining the security of digital certificates, and revoking the certificate immediately upon any risk or misuse.
 
@@ -21,9 +21,6 @@ Here are some essential components that help you to sign and verify container im
 * The Azure Container Registry (ACR) allows you to attach these signatures to the signed image and helps you to store and manage these container images.
 
 When you verify the image, the signature is used to validate the integrity of the image and the identity of the signer. This helps to ensure that the container images are not tampered with and are from a trusted source.
-
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 In this article:
 

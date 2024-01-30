@@ -3,7 +3,7 @@ title: Snapshot Azure Kubernetes Service (AKS) node pools
 description: Learn how to snapshot AKS cluster node pools and create clusters and node pools from a snapshot.
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 06/05/2023
+ms.date: 01/29/2024
 ms.author: allensu
 author: asudbring
 ---
@@ -18,7 +18,7 @@ The snapshot is an Azure resource that contains the configuration information fr
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you don't have an AKS cluster, for guidance on a designing an enterprise-scale implementation of AKS, see [Plan your AKS design][plan-aks-design].
 
 ### Limitations
 
@@ -103,9 +103,7 @@ az aks create --name myAKSCluster2 --resource-group myResourceGroup --snapshot-i
 - Learn more about multiple node pools with [Create multiple node pools][use-multiple-node-pools].
 
 <!-- LINKS - internal -->
-[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
-[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
-[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+[plan-aks-design]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [supported-versions]: supported-kubernetes-versions.md
 [upgrade-cluster]: upgrade-cluster.md
 [node-image-upgrade]: node-image-upgrade.md
