@@ -95,8 +95,11 @@ conceptualContent:
         # Card
         - title: Develop and deploy apps
           links:
-            - text: Use Application Configuration service
-              url: enterprise/how-to-enterprise-application-configuration-service.md
+            - text: Deploy apps using IntelliJ
+              url: how-to-intellij-deploy-apps.md
+              itemType: how-to-guide
+            - text: Deploy apps using VS Code
+              url: https://code.visualstudio.com/docs/java/java-spring-apps
               itemType: how-to-guide
             - text: CI/CD with Azure DevOps
               url: enterprise/how-to-cicd.md?pivots=programming-language-java
@@ -123,6 +126,9 @@ conceptualContent:
             - text: Start or stop a service
               url: enterprise/how-to-start-stop-service.md
               itemType: how-to-guide
+            - text: Start, stop, and delete an app
+              url: how-to-start-stop-delete.md
+              itemType: how-to-guide
             - text: Use custom DNS names
               url: enterprise/how-to-custom-domain.md
               itemType: how-to-guide
@@ -134,6 +140,9 @@ conceptualContent:
               itemType: how-to-guide
             - text: Analyze logs and metrics
               url: enterprise/diagnostic-services.md
+              itemType: how-to-guide
+            - text: Configure planned maintenance
+              url: how-to-configure-planned-maintenance.md
               itemType: how-to-guide
           # footerLink (Optional; Remove if not applicable.)
           footerLink:
