@@ -374,7 +374,7 @@ If unsigned components are detected from the UEFI (guest firmware), bootloader, 
 ![The trusted launch pipeline from secure boot to third party drivers](./media/trusted-launch/trusted-launch-pipeline.png)
 
 > [!NOTE]
-> Trusted Launch Virtual machines that are created directly from an Azure Marketplace image should not encounter Secure Boot failures. Azure Compute Gallery images, Managed Disks, an original image source from Marketplace, and snapshots created from Trusted Launch VMs should also not encounter these errors. 
+> Trusted Launch Virtual machines that are created directly from an Azure Marketplace image should not encounter Secure Boot failures. Azure Compute Gallery images with an original image source of Marketplace, and snapshots created from Trusted Launch VMs should also not encounter these errors. 
 
 ### How would I verify a no-boot scenario in the Azure portal? 
 When a virtual machine becomes unavailable from a Secure Boot failure, 'no-boot' means that virtual machine has an operating system component that is signed by a trusted authority, which blocks booting a Trusted Launch VM. On VM deployment, customers may see information from resource health within the Azure portal stating that there's a validation error in secure boot.
