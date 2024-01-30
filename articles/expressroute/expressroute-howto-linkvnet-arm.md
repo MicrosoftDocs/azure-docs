@@ -207,7 +207,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 With Virtual Network Peering and UDR support, FastPath will send traffic directly to VMs deployed in "spoke" Virtual Networks (connected via Virtual Network Peering) and honor any UDRs configured on the GatewaySubnet. With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypasses the ExpressRoute virtual network gateway in the data path. With both of these features enabled, FastPath will directly send traffic to a Private Endpoint deployed in a "spoke" Virtual Network.
 
 These scenarios are Generally Available for limited scenarios with connections associated to 100-Gb ExpressRoute Direct circuits. To enable, follow the below guidance:
-1. Complete this [Microsoft Form](aka.ms/FastPathLimitedGA) to request to enroll your subscription.
+1. Complete this [Microsoft Form](https://aka.ms/fastpathlimitedga) to request to enroll your subscription.
 2. Once you receive a confirmation from Step 1, run the following Azure PowerShell command in the target Azure subscription.
  ```azurepowershell-interactive
 $connection = Get-AzVirtualNetworkGatewayConnection -ResourceGroupName <resource-group> -ResourceName <connection-name>
