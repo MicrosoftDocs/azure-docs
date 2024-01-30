@@ -1,6 +1,6 @@
 ---
 title: Use gallery workbooks 
-description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data by using workbooks from the integrated Azure Monitor Workbooks gallery.
+description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data by using workbooks from the integrated Azure Monitor workbooks gallery.
 ms.topic: conceptual
 ms.author: dacurwin
 author: dcurwin
@@ -29,7 +29,7 @@ For pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/
 
 ## Use Defender for Cloud gallery workbooks
 
-With the integrated Azure Workbooks functionality, Defender for Cloud makes it straightforward to build your own custom, interactive workbooks. Defender for Cloud also includes a gallery that has the following workbooks ready for you to customize:
+With the integrated Azure workbooks functionality, Defender for Cloud makes it straightforward to build your own custom, interactive workbooks. Defender for Cloud also includes a gallery that has the following workbooks ready for you to customize:
 
 - [Coverage workbook](#coverage-workbook): Track the coverage of Defender for Cloud plans and extensions across your environments and subscriptions.
 - [Secure Score Over Time workbook](#secure-score-over-time-workbook): Track your subscription scores and changes to recommendations for your resources.
@@ -155,7 +155,7 @@ To view the resources that passed or failed each control, you can keep drilling 
 
 The Active Alerts workbook displays the active security alerts for your subscriptions on one dashboard. Security alerts are the notifications that Defender for Cloud generates when it detects threats on your resources. Defender for Cloud prioritizes and lists the alerts with the information you need to quickly investigate and remediate.
 
-This workbook benefits you by helping you see the active threats in your environment and prioritize them.
+This workbook benefits you by helping you be aware of and prioritize the active threats in your environment.
 
 > [!NOTE]
 > Most workbooks use Azure Resource Graph to query data. For example, to display Map View, a Log Analytics workspace is used to query the data. [Continuous export](continuous-export.md) should be enabled. Export the security alerts to the Log Analytics workspace.
@@ -192,13 +192,13 @@ Select a location on the map to view all the alerts for that location.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/map-alert-details.png" alt-text="Screenshot that shows the alerts in a specific location in Map View.":::
 
-To view the details for that alert, select the **Open Alert View** button.
+To view the details for an alert, select an alert, and then select the **Open Alert View** button.
 
 <a name="use-the-devops-security-workbook"></a>
 
 ### DevOps Security workbook
 
-The DevOps Security workbook provides a customizable visual report of your DevOps security posture. You can use this workbook to view insights into your repositories with the highest number of CVEs and weaknesses, active repositories that have Advanced Security disabled, security posture assessments of your DevOps environment configurations, and much more. Customize and add your own visual reports using the rich set of data in Azure Resource Graph to fit the business needs of your security team.
+The DevOps Security workbook provides a customizable visual report of your DevOps security posture. You can use this workbook to view insights about your repositories that have the highest number of common vulnerabilities and exposures (CVEs) and weaknesses, active repositories that have Advanced Security turned off, security posture assessments of your DevOps environment configurations, and much more. Customize and add your own visual reports by using the rich set of data in Azure Resource Graph to fit the business needs of your security team.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/devops-workbook.png" alt-text="Screenshot that shows a sample results page after you select the DevOps workbook." lightbox="media/custom-dashboards-azure-workbooks/devops-workbook.png":::
 
@@ -213,7 +213,7 @@ To deploy the workbook:
 
 1. Select the **DevOps Security (Preview)** workbook.
 
-The workbook loads and displays the **Overview** tab. On this tab, you can see the number of exposed secrets, the code security, and DevOps security. All of these findings are broken down by total for each repository and severity.
+The workbook loads and displays the **Overview** tab. On this tab, you can see the number of exposed secrets, the code security, and DevOps security. The findings are shown by total for each repository and by severity.
 
 To view the count by secret type, select the **Secrets** tab.
 
