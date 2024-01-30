@@ -17,7 +17,7 @@ ms.custom: template-how-to
 
 This article provides guidance on how to migrate your existing Twilio Video implementation to the [Azure Communication Services' Calling SDK](../concepts/voice-video-calling/calling-sdk-features.md) for WebJS. Twilio Video and Azure Communication Services' calling SDK for WebJS are both cloud-based platforms that enable developers to add voice and video calling features to their web applications. However, there are some key differences between them that may affect your choice of platform or require some changes to your existing code if you decide to migrate. In this article, we will compare the main features and functionalities of both platforms and provide some guidance on how to migrate your existing Twilio Video implementation to Azure Communication Services' Calling SDK for WebJS.
 
-## Key Features of the Azure Communication Services Calling SDK
+## Key features of the Azure Communication Services calling SDK
 
 -  Addressing - Azure Communication Services provides [identities](../concepts/identity-model.md) for authentication and addressing communication endpoints. These identities are used within Calling APIs, providing clients with a clear view of who is connected to a call (the roster).
 -  Encryption - The Calling SDK safeguards traffic by encrypting it and preventing tampering along the way.
@@ -46,18 +46,18 @@ az communication identity token issue --scope voip --connection-string "yourConn
 
 For more information, see the guide on how to [Use Azure CLI to Create and Manage Access Tokens](../quickstarts/identity/access-tokens.md?pivots=platform-azcli).
 
-For Video Calling as a Teams user: ￼
+For Video Calling as a Teams user:
 
 -   You also can use Teams identity. For instructions on how to generate an access token for a Teams User, [follow this guide](../quickstarts/manage-teams-identity.md?pivots=programming-language-javascript).
 -   Obtain the Teams thread ID for call operations using the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Additional information on how to create a chat thread ID can be found [here](/graph/api/chat-post?preserve-view=true&tabs=javascript&view=graph-rest-1.0#example-2-create-a-group-chat).
 
-### UI Library
+### UI library
 
 The UI Library simplifies the process of creating modern communication user interfaces using Azure Communication Services. It offers a collection of ready-to-use UI components that you can easily integrate into your application.
 
 This prebuilt set of controls facilitates the creation of aesthetically pleasing designs using [Fluent UI SDK](https://developer.microsoft.com/en-us/fluentui#/) components and the development of audio/video communication experiences. If you wish to explore more about the UI Library, check out the [overview page](../concepts/ui-library/ui-library-overview.md), where you find comprehensive information about both web and mobile platforms.
 
-### Calling Support
+### Calling support
 
 The Azure Communication Services Calling SDK supports the following streaming configurations:
 
@@ -78,7 +78,7 @@ Azure Communication Services offers various call types. The type of call you cho
 
 ## Installation
 
-### Install the Azure Communication Services Calling SDK
+### Install the Azure Communication Services calling SDK
 
 Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 ```console
@@ -92,7 +92,7 @@ You can remove the Twilio SDK from your project by uninstalling the package
 npm uninstall twilio-video
 ```
 
-## Object Model
+## Object model
 
 The following classes and interfaces handle some of the main features of the Azure Communication Services Calling SDK:
 
@@ -119,7 +119,7 @@ When using in a Teams implementation there are a few differences:
 
 Using the `CallClient`, initialize a `CallAgent` instance. The `createCallAgent` method uses CommunicationTokenCredential as an argument. It accepts a [user access token](../quickstarts/identity/access-tokens.md?tabs=windows&pivots=programming-language-javascript).
 
-### Device Manager
+### Device manager
 
 #### Twilio
 
@@ -144,8 +144,8 @@ const callAgent = await callClient.createCallAgent(tokenCredential, {displayName
 
 You can use the getDeviceManager method on the CallClient instance to access deviceManager.
 
-const deviceManager = await callClient.getDeviceManager(); 
 ```javascript
+const deviceManager = await callClient.getDeviceManager(); 
 // Get a list of available video devices for use.  
 const localCameras = await deviceManager.getCameras(); 
 
@@ -156,7 +156,7 @@ const localMicrophones = await deviceManager.getMicrophones();
 const localSpeakers = await deviceManager.getSpeakers();
 ```
 
-### Get Device Permissions
+### Get device permissions
 
 #### Twilio
 
@@ -174,7 +174,7 @@ The output returns with an object that indicates whether audio and video permiss
 console.log(result.audio);  console.log(result.video);
 ```
 
-## Starting a Call
+## Starting a call
 
 ### Twilio
 
@@ -213,7 +213,7 @@ const call = callAgent.join(context);
 ```
 A **room** offers application developers better control over who can join a call, when they meet and how they collaborate. To learn more about **rooms**, you can read the [conceptual documentation](../concepts/rooms/room-concept.md) or follow the [quick start guide](../quickstarts/rooms/join-rooms-call.md).
 
-### Azure Communication Services Group Call
+### Azure Communication Services group Call
 
 To start a new group call or join an ongoing group call, use the `join` method and pass an object with a groupId property. The `groupId` value has to be a GUID.
 ```javascript
@@ -221,7 +221,7 @@ const context = { groupId: '\<GUID\>'};
 const call = callAgent.join(context);
 ```
 
-### Azure Communication Services Teams Call
+### Azure Communication Services Teams call
 
 Start a synchronous one-to-one or group call with `startCall` API on `teamsCallAgent`. You can provide `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier` as a parameter to define the target of the call. The method returns the `TeamsCall` instance that allows you to subscribe to call events.
 ```javascript
@@ -229,7 +229,7 @@ const userCallee = { microsoftTeamsUserId: '\<MICROSOFT_TEAMS_USER_ID\>' };
 const oneToOneCall = teamsCallAgent.startCall(userCallee);
 ```
 
-## Accepting and Joining a Call
+## Accepting and joining a call
 
 ### Twilio
 
@@ -295,7 +295,7 @@ callAgent.on('callsUpdated', (event) => {
 
 For Azure Communication Services Teams implementation, check how to [Receive a Teams Incoming Call](../how-tos/cte-calling-sdk/manage-calls.md#receive-a-teams-incoming-call).
 
-## Adding Participants to Call
+## Adding participants to call
 
 ### Twilio
 
@@ -320,7 +320,7 @@ The `remoteParticipants` collection returns a list of remote participants in a c
 call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
 ```
 
-**Add Participant:**
+**Add participant:**
 
 To add a participant to a call, you can use `addParticipant`. Provide one of the Identifier types. It synchronously returns the remoteParticipant instance.
 
@@ -330,7 +330,7 @@ const userIdentifier = { communicationUserId: '<Azure_Communication_Services_USE
 const remoteParticipant = call.addParticipant(userIdentifier);
 ```
 
-**Remove Participant:**
+**Remove participant:**
 
 To remove a participant from a call, you can invoke `removeParticipant`. You have to pass one of the Identifier types. This method resolves asynchronously after the participant is removed from the call. The participant is also removed from the `remoteParticipants` collection.
 ```javascript
@@ -451,7 +451,7 @@ call.off('isLocalVideoStartedChanged', () => {
 
 ```
 
-### Rendering a Remote User Video
+### Rendering a remote user video
 
 #### Twilio
 
@@ -573,7 +573,7 @@ remoteParticipant.on('videoStreamsUpdated', e => {
 
 ```
 
-### Virtual Background
+### Virtual background
 
 #### Twilio
 
@@ -697,7 +697,7 @@ await videoEffectsFeatureApi.stopEffects();
 
 ## Audio
 
-### Starting/Stopping Audio
+### Starting and stopping audio
 
 #### Twilio
 
@@ -777,7 +777,7 @@ await call.unmuteIncomingAudio();
 
 ```
 
-### Dominant Speaker
+### Detecting Dominant speaker
 
 #### Twilio
 
@@ -827,7 +827,7 @@ callDominantSpeakersApi.on('dominantSpeakersChanged', dominantSpeakersChangedHan
 
 ```
 
-## Screen Sharing
+## Enabling screen sharing
 ### Twilio
 
 To share the screen in Twilio Video, source track should be obtained via navigator.mediaDevices
@@ -886,7 +886,7 @@ call.off('isScreenSharingOnChanged', () => {
 
 ```
 
-## Media Quality Statistics
+## Media quality statistics
 
 ### Twilio
 
@@ -904,12 +904,12 @@ const mediaStatsFeature = call.feature(Features.MediaStats);
 ```
 
 
-To receive the media statistics data, you can subscribe `sampleReported` event or `summamryReported` event:
+To receive the media statistics data, you can subscribe `sampleReported` event or `summmaryReported` event:
 
 - `sampleReported` event triggers every second. It's suitable as a data source for UI display or your own data pipeline.
-- `summamryReported` event contains the aggregated values of the data over intervals, which is useful when you just need a summary.
+- `summmaryReported` event contains the aggregated values of the data over intervals, which is useful when you just need a summary.
 
-If you want control over the interval of the summamryReported event, you need to define `mediaStatsCollectorOptions` of type `MediaStatsCollectorOptions`. Otherwise, the SDK uses default values.
+If you want control over the interval of the summmaryReported event, you need to define `mediaStatsCollectorOptions` of type `MediaStatsCollectorOptions`. Otherwise, the SDK uses default values.
 ```javascript
 const mediaStatsCollectorOptions: SDK.MediaStatsCollectorOptions = {
     aggregationInterval: 10,
@@ -1061,9 +1061,9 @@ export declare type PreCallDiagnosticsResult  = {
 You can learn more about ensuring precall readiness [here](../concepts/voice-video-calling/pre-call-diagnostics.md).
 
 
-## Event Listeners
+## Event listeners
 
-Twilio
+### Twilio
 
 ```javascript
 twilioRoom.on('participantConneted', (participant) => { 
@@ -1090,7 +1090,7 @@ Each object in the JavaScript Calling SDK has properties and collections. Their 
 -   The `'\<collection\>Updated'` event's payload, has an `added` array that contains values that were added to the collection.
 -   The `'\<collection\>Updated'` event's payload also has a removed array that contains values that were removed from the collection.
 
-## Leaving and Ending Sessions
+## Leaving and ending sessions
 
 ### Twilio
 ```javascript
