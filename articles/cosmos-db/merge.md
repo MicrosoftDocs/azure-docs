@@ -182,9 +182,21 @@ az cosmosdb sql database merge `
 ```
 
 
-```http-interactive
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/partitionMerge?api-version=2023-11-15-preview
-```
+```azurecli-interactive
+databaseId=$(az cosmosdb sql database show `
+    --resource-group "<resource-group-name>" `
+    --name "<database-name>" `
+    --account-name "<cosmos-db-account-name>" `
+    --query "id" `
+    --output "tsv"
+)
+
+endpoint="https://management.azure.com$databaseId/partitionMerge?api-version=2023-11-15-preview"
+
+az rest `
+    --method "POST" `
+    --url $endpoint `
+    --body "{}"
 
 #### [API for MongoDB](#tab/mongodb/azure-powershell)
 
