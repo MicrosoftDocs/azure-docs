@@ -44,7 +44,7 @@ In the scenario shown in the picture, the Operator deploys Worker 1 and Worker 2
 
 To ensure all traffic from the worker nodes 0/0 route is advertised in the green layer-2 isolation domain. The FW instances SNAT the traffic and inject the traffic into the orange L3 ID. One interface of the Firewall instances in the diagram is in the orange layer-3 isolation domain. Combination of green layer-2 isolation domain and orange layer-3 isolation domains enable connectivity within the fabric for various workloads with ability to route the traffic towards the PE.
 
-To advertise reachability of the workloads to external networks, north-bound peering is enabled in orange L3 isolation domain. The red line in the diagram represents peering via inter-AS Option A where BGP peering is enabled between the PE and CE explicitly in the L3 Isolation domain. The black line in the diagram represents peering via MPLS inter-AS Option B where MP-BGP peering is enabled between the PE and CE and route targets are used to segregate traffic across L3 isolation domains. Route policy options enable operators to manipulate routes exchanged in north-south directions.
+To advertise reachability of the workloads to external networks, north-bound peering is enabled in orange L3 isolation domain. The red line in the diagram represents peering via inter-AS Option A where BGP peering is enabled between the PE and CE explicitly in the L3 Isolation domain. The black line in the diagram represents peering via MPLS inter-AS Option B where MP-BGP peering is enabled between the PE and CE. you can use route targets to segregate traffic across L3 isolation domains. Route policy options enable operators to manipulate routes exchanged in north-south directions.
 
 The following table gives detailed information about isolation domain configuration options.
 
@@ -70,3 +70,15 @@ The above options also give the operator the ability to send a default route to 
 -   **Connected Subnet with Static Routes :** Create an internal network and define static routes for communication with a connected subnet. The operator can optionally configure an IPv4 or IPv6 route by defining an IP prefix and the next single or multi-hop ip address. IPv4 and IPv6 are both supported. There's also an option to enable Bidirectional Forwarding Detection (BFD).
 
 In all three cases, the internal network is associated with a Layer 3 isolation domain, allowing operators to apply route policy details, which can be referred to in a route policy guide.
+
+### Example scenarios and implementation- Isolation Domain with External Networks
+
+An external network enables a workload to communicate with external services via the provider network as described earlier. This section describes some scenarios where you might use an L3 isolation domain with an external network.
+
+-   **External Network with MPLS OptionA** creates an external network between the CE and PE using peering OptionA. It uses the primary and secondary IP address prefixes of the CE-PE interconnect links.
+
+-   **External Network with MPLS OptionB** creates an external network between the CE and PE using peering OptionB with multiple route targets.
+
+Both options support both IPv4 and IPv6 addresses. The operator can apply route policy details to the layer 3 network, which can be referred to in the route policy guide.
+
+For more information on configurable parameters, see the How to Guides or, or consult the help option in azcli.
