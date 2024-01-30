@@ -39,7 +39,7 @@ For altering settings globally at the instance or server level, navigate to the 
 > [!NOTE]
 > Since Azure Database for PostgreSQL is a managed database service, users are not provided host or operating system access to view or modify configuration files such as `postgresql.conf`. The content of the file is automatically updated based on parameter changes made using one of the methods described above.
 
-:::image type="content" source="./media/concepts-server-parameters/server-parameters-portal.png" alt-text="Screenshot of server parameters blade in the Azure portal":::
+:::image type="content" source="./media/concepts-server-parameters/server-parameters-portal.png" alt-text="Screenshot of server parameters blade in the Azure portal.":::
 
 #### Granular levels
 
