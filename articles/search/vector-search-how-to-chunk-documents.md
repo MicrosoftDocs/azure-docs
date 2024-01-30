@@ -160,7 +160,7 @@ Output indicates that no pages have zero tokens, the average token length per pa
 
 :::image type="content" source="media/vector-search-how-to-chunk-documents/langchain-example-tiktoken-histogram.png" alt-text="Histogram of tokens using tiktoken.":::
 
-Knowing the average and maximum token size gives you insight into setting chunk size. Although you could use the standard recommendation of 2000 characters with a 500 character overlap, in this case it makes sense to go lower based on the token counts of the sample document. 
+Knowing the average and maximum token size gives you insight into setting chunk size. Although you could use the standard recommendation of 2000 characters with a 500 character overlap, in this case it makes sense to go lower given the token counts of the sample document. In fact, setting an overlap value that's too large can result in no overlap appearing at all.
 
 ```python
 from langchain.text_splitter import RecursiveCharacterTextSplitter
