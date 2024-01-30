@@ -4,7 +4,7 @@ description: Learn how to develop and test Azure Functions by using Azure Functi
 ms.devlang: csharp
 ms.custom: devdivchpfy22
 ms.topic: conceptual
-ms.date: 09/08/2022
+ms.date: 01/30/2024
 ---
 
 # Develop Azure Functions using Visual Studio  
@@ -25,8 +25,7 @@ Unless otherwise noted, procedures and examples shown are for Visual Studio 2022
 
 ## Prerequisites
 
-- Azure Functions Tools. To add Azure Function Tools, include the **Azure development** workload in your Visual Studio installation. If you're using Visual Studio 2017, you may need to [follow some extra installation steps](#azure-functions-tools-with-visual-studio-2017).
-
+- Azure Functions Tools. To add Azure Function Tools, include the **Azure development** workload in your Visual Studio installation. 
 - Other resources that you need, such as an Azure Storage account, are created in your subscription during the publishing process.
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -70,41 +69,33 @@ To set the storage account connection string:
 
 In C# class library functions, the bindings used by the function are defined by applying attributes in the code. When you create your function triggers from the provided templates, the trigger attributes are applied for you. 
 
-1. In **Solution Explorer**, right-click your project node and select **Add** > **New Item**. 
+1. In **Solution Explorer**, right-click your project node and select **Add** > **New Azure Function**. 
 
-2. Select **Azure Function**, enter a **Name** for the class, and then select **Add**.
+2. Enter a **Name** for the class, and then select **Add**.
 
-3. Choose your trigger, set the binding properties, and then select **Add**. The following example shows the settings for creating a Queue storage trigger function. 
+3. Choose your trigger, set the required binding properties, and then select **Add**. The following example shows the settings for creating a Queue storage trigger function. 
 
     ![Create a Queue storage trigger function](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
-    You'll then be prompted to choose between the Azurite storage emulator or referencing a provisioned Azure storage account.
+    For an Azure Storage service trigger, check the **Configure connection** box and you're prompted to choose between using an Azurite storage emulator or referencing a provisioned Azure storage account. Select **Next** and if you choose a storage account, Visual Studio tries to connect to your Azure account and get the connection string. Choose **Save connection string value in Local user secrets file** and then **Finish** to create the trigger class.
 
-    This trigger example uses a connection string with a key named `QueueStorage`. This key, stored in the [local.settings.json file](functions-develop-local.md#local-settings-file), either references the Azurite emulator or an Azure storage account.
+    This trigger example uses an application setting for the storage connection with a key named `QueueStorage`. This key, stored in the [local.settings.json file](functions-develop-local.md#local-settings-file), either references the Azurite emulator or an Azure storage account. 
 
-4. Examine the newly added class. You see a static `Run()` method that's attributed with the `FunctionName` attribute. This attribute indicates that the method is the entry point for the function.
+4. Examine the newly added class. For example, the following C# class represents a basic Queue storage trigger function: 
 
-    For example, the following C# class represents a basic Queue storage trigger function:
+    ### [Isolated worker model](#tab/isolated-process)
 
-    ```csharp
-    using System;
-    using Microsoft.Azure.WebJobs;
-    using Microsoft.Azure.WebJobs.Host;
-    using Microsoft.Extensions.Logging;
+    You see a static `Run()` method that's attributed with `Function`. This attribute indicates that the method is the entry point for the function.
 
-    namespace FunctionApp1
-    {
-        public static class Function1
-        {
-            [FunctionName("QueueTriggerCSharp")]
-            public static void Run([QueueTrigger("myqueue-items", 
-                Connection = "QueueStorage")]string myQueueItem, ILogger log)
-            {
-                log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
-            }
-        }
-    }
-    ```
+    :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/QueueTrigger-CSharp-Isolated/QueueTriggerCSharp.cs" :::
+
+    ### [In-process model](#tab/in-process)
+
+    You see a static `Run()` method that's attributed with `FunctionName`. This attribute indicates that the method is the entry point for the function.
+
+    :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/QueueTrigger-CSharp-4.x/QueueTriggerCSharp.cs" :::
+    
+    ---
 
 A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a `QueueTrigger` attribute applied, indicating a Queue storage trigger function. The queue name and connection string setting name are passed as parameters to the `QueueTrigger` attribute. For more information, see [Azure Queue storage bindings for Azure Functions](functions-bindings-storage-queue-trigger.md).
 
@@ -120,13 +111,13 @@ As with triggers, input and output bindings are added to your function as bindin
 
 1. Use the following command in the Package Manager Console to install a specific package:
 
-    # [Isolated worker model](#tab/isolated-process)
+    ### [Isolated worker model](#tab/isolated-process)
 
     ```powershell
     Install-Package Microsoft.Azure.Functions.Worker.Extensions.<BINDING_TYPE> -Version <TARGET_VERSION>
     ```
     
-    # [In-process model](#tab/in-process)
+    ### [In-process model](#tab/in-process)
 
     ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE> -Version <TARGET_VERSION>
@@ -134,21 +125,46 @@ As with triggers, input and output bindings are added to your function as bindin
     
     ---
 
-    In this example, replace `<BINDING_TYPE>` with the name specific to the binding extension and `<TARGET_VERSION>` with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
+    In this example, replace `<BINDING_TYPE>` with the name specific to the binding extension and `<TARGET_VERSION>` with a specific version of the package, such as `3.0.0`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
 
 3. If there are app settings that the binding needs, add them to the `Values` collection in the [local setting file](functions-develop-local.md#local-settings-file). 
 
-   The function uses these values when it runs locally. When the function runs in the function app in Azure, it uses the [function app settings](#function-app-settings).
+   The function uses these values when it runs locally. When the function runs in the function app in Azure, it uses the [function app settings](#function-app-settings). Visual Studio makes it easy to [publish local settings to Azure](#function-app-settings).
 
 4. Add the appropriate binding attribute to the method signature. In the following example, a queue message triggers the function, and the output binding creates a new queue message with the same text in a different queue.
+
+    ### [Isolated worker model](#tab/isolated-process)
+    ```csharp
+     public class QueueTrigger
+    {
+        private readonly ILogger _logger;
+    
+        public QueueTrigger(ILoggerFactory loggerFactory)
+        {
+            _logger = loggerFactory.CreateLogger<QueueTrigger>();
+        }
+    
+        [Function("CopyQueueMessage")]
+        [QueueOutput("myqueue-items-destination", Connection = "QueueStorage")]
+        public string Run([QueueTrigger("myqueue-items-source", Connection = "QueueStorage")] string myQueueItem)
+        {
+            _logger.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
+            return myQueueItem;
+        }
+    }
+    ```
+
+    The `QueueOutput` attribute defines the binding on the method. For multiple output bindings, you would instead place this attribute on a string property of the returned object. For more information, see [Multiple output bindings](dotnet-isolated-process-guide.md#multiple-output-bindings). 
+
+    ### [In-process model](#tab/in-process)
 
     ```csharp
     public static class SimpleExampleWithOutput
     {
         [FunctionName("CopyQueueMessage")]
         public static void Run(
-            [QueueTrigger("myqueue-items-source", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-            [Queue("myqueue-items-destination", Connection = "AzureWebJobsStorage")] out string myQueueItemCopy,
+            [QueueTrigger("myqueue-items-source", Connection = "QueueStorage")] string myQueueItem, 
+            [Queue("myqueue-items-destination", Connection = "QueueStorage")] out string myQueueItemCopy,
             ILogger log)
         {
             log.LogInformation($"CopyQueueMessage function processed: {myQueueItem}");
@@ -157,7 +173,10 @@ As with triggers, input and output bindings are added to your function as bindin
     }
     ```
 
-   The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding. 
+    The `Queue` attribute on the `out` parameter defines the output binding.
+    ---
+
+   The connection to Queue storage is obtained from the `QueueStorage` setting. For more information, see the reference article for the specific binding. 
 
 For a full list of the bindings supported by Functions, see [Supported bindings](functions-triggers-bindings.md?tabs=csharp#supported-bindings).
 
@@ -177,10 +196,9 @@ For a more detailed testing scenario using Visual Studio, see [Testing functions
 
 ## Publish to Azure
 
-When you publish from Visual Studio, it uses one of the two deployment methods:
+When you publish your functions project to Azure, Visual Studio uses [zip deployment](functions-deployment-technologies.md#zip-deploy) to deploy the project files. When possible, you should also with select **Run-From-Package** so that the project runs in the deployment (.zip) package. For more information, see [Run your functions from a package file in Azure](run-functions-from-deployment-package.md).
 
-* [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy): Packages and deploys Windows apps to any IIS server.
-* [Zip Deploy with Run-From-Package enabled](functions-deployment-technologies.md#zip-deploy): Recommended for Azure Functions deployments.
+Don't deploy to Azure Functions using webdeploy. 
 
 Use the following steps to publish your project to a function app in Azure.
 
@@ -287,7 +305,9 @@ After the function app restarts, you can no longer remotely connect to your remo
 
 ## Monitoring functions
 
-The recommended way to monitor the execution of your functions is by integrating your function app with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app during Visual Studio publishing, the integration in your function app in Azure isn't done. To learn how to connect Application Insights to your function app, see [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration).
+The recommended way to monitor the execution of your functions is by integrating your function app with Azure Application Insights. You should enable this integration when create your function app during Visual Studio publishing. 
+
+If, for some reason, the integration in your function app in Azure wasn't done during publishing, you should still [enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration) for your app.
 
 To learn more about monitoring using Application Insights, see [Monitor Azure Functions](functions-monitoring.md).
 
@@ -527,34 +547,6 @@ To run the tests, navigate to the **Test Explorer** and select **Run All Tests i
 ### Debug tests
 
 To debug the tests, set a breakpoint on a test, navigate to the **Test Explorer** and select **Run > Debug Last Run**.
-
-## Azure Functions tools with Visual Studio 2017
-
-Azure Functions Tools is available in the Azure development workload starting with Visual Studio 2017. In Visual Studio 2017, the Azure development workload installs Azure Functions Tools as a separate extension. In Visual Studio 2019 and later, the Azure Functions tools extension is updated as part of Visual Studio. 
-
-When you update your Visual Studio 2017 installation, make sure that you're using the [most recent version](#check-your-tools-version) of the Azure Functions Tools. The following sections show you how to check and (if needed) update your Azure Functions Tools extension in Visual Studio 2017.
-
-### <a name="check-your-tools-version"></a>Check your tools version in Visual Studio 2017
-
-1. From the **Tools** menu, choose **Extensions and Updates**. Expand **Installed** > **Tools**, and then choose **Azure Functions and Web Jobs Tools**.
-
-    ![Verify the Functions tools version](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
-
-1. Note the installed **Version** and compare this version with the latest version listed in the [release notes](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
-
-1. If your version is older, update your tools in Visual Studio as shown in the following section.
-
-### Update your tools in Visual Studio
-
-1. In the **Extensions and Updates** dialog, expand **Updates** > **Visual Studio Marketplace**, choose **Azure Functions and Web Jobs Tools** and select **Update**.
-
-    ![Update the Functions tools version](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
-
-1. After the tools update is downloaded, select **Close**, and then close Visual Studio to trigger the tools update with VSIX Installer.
-
-1. In VSIX Installer, choose **Modify** to update the tools. 
-
-1. After the update is complete, choose **Close**, and then restart Visual Studio.
 
 ## Next steps
 
