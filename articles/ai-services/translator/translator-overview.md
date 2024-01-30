@@ -25,7 +25,7 @@ Translator service supports the following features. Use the links in this table 
 |[**Synchronous Document translation**](document-translation/reference/synchronous-rest-api-guide.md)| Translate a single document file alone or with a glossary file while preserving the structure and format of the original document. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.|[**REST API**](document-translation/quickstarts/synchronous-rest-api.md)|
 | [**Custom Translator**](custom-translator/overview.md) | Build customized models to translate domain- and industry-specific language, terminology, and style. [Create a dictionary (phrase or sentence)](custom-translator/concepts/dictionaries.md) for custom translations. | &bull; [**Custom Translator portal**](https://portal.customtranslator.azure.ai/)|
 
-For detailed information regarding Azure AI Translator Service request limits, *see* [**Text translation request limits**](service-limits.md#text-translation).
+For detailed information regarding Azure AI Translator Service request limits, *see* [**Service and request limits**](service-limits.md#text-translation).
 
 ## Try the Translator service for free
 
