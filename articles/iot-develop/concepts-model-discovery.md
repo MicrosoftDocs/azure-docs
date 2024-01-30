@@ -3,10 +3,9 @@ title: Use IoT Plug and Play models in a solution | Microsoft Docs
 description: As a solution builder, learn about how you can use IoT Plug and Play models in your IoT solution.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/17/2022
+ms.date: 1/23/2024
 ms.topic: conceptual
 ms.service: iot-develop
-services: iot-develop
 ---
 
 # Use IoT Plug and Play models in an IoT solution
@@ -140,4 +139,4 @@ Now that you've learned how to integrate IoT Plug and Play models in an IoT solu
 
 - [Interact with a device from your solution](tutorial-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
-- [Azure IoT explorer](../iot-fundamentals/howto-use-iot-explorer.md)
+- [Azure IoT explorer](../iot/howto-use-iot-explorer.md)

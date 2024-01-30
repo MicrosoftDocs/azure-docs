@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp, ignite-2022
 
 [!INCLUDE[Table](../includes/appliesto-table.md)]
 
-An Azure Cosmos DB for Table account contains all of your Azure Cosmos DB resources: tables and items. The account provides a unique endpoint for various tools and SDKs to connect to Azure Cosmos DB and perform everyday operations. For more information about the resources in Azure Cosmos DB, see [Azure Cosmos DB resource model](../account-databases-containers-items.md).
+An Azure Cosmos DB for Table account contains all of your Azure Cosmos DB resources: tables and items. The account provides a unique endpoint for various tools and SDKs to connect to Azure Cosmos DB and perform everyday operations. For more information about the resources in Azure Cosmos DB, see [Azure Cosmos DB resource model](../resource-model.md).
 
 ## Prerequisites
 

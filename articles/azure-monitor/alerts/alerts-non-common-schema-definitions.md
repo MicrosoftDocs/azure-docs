@@ -1,25 +1,29 @@
 ---
-title: Non-common alert schema definitions in Azure Monitor for Test Action Group
-description: Understanding the non-common alert schema definitions for Azure Monitor for Test Action group
+title: Noncommon alert schema definitions in Azure Monitor
+description: Understanding the noncommon alert schema definitions for Azure Monitor.
 author: issahn
 ms.topic: conceptual
-ms.date: 01/25/2022
-ms.reviewer: issahn
+ms.date: 06/19/2023
+ms.reviewer: nolavime
 ---
 
-# Non-common alert schema definitions for Test Action Group (Preview)
+# Noncommon alert schema definitions
+The noncommon alert schema were historically used to customize alert email templates and webhook schemas for metric, log, and activity log alert rules. We recommend using the [common schema](./alerts-common-schema.md) for all alert types and integrations.
 
-This article describes the non common alert schema definitions for Azure Monitor, including those for webhooks, Azure Logic Apps, Azure Functions, and Azure Automation runbooks. 
+This article describes the noncommon alert schema definitions for Azure Monitor, including definitions for:
+- Webhooks
+- Azure Logic Apps
+- Azure Functions
+- Azure Automation runbooks
 
-## What is the non-common alert schema?
+## Metric alerts
 
-The non-common alert schema lets you customize the consumption experience for alert notifications in Azure today. Historically, the three alert types in Azure today (metric, log, and activity log) have had their own email templates, webhook schemas, etc. 
+See sample values for metric alerts.
 
-## Alert context
-
-### Metric alerts - Static threshold
+### Metric alerts: Static threshold
 
 **Sample values**
+
 ```json
 {
   "schemaId": "AzureMonitorMetricAlert",
@@ -68,8 +72,10 @@ The non-common alert schema lets you customize the consumption experience for al
 }
 ```
 
-### Metric alerts - Dynamic threshold
+### Metric alerts: Dynamic threshold
+
 **Sample values**
+
 ```json
 {
 	"schemaId": "AzureMonitorMetricAlert",
@@ -118,10 +124,15 @@ The non-common alert schema lets you customize the consumption experience for al
 	}
 }
 ```
-### Log alerts
-#### `monitoringService` = `Log Alerts V1 – Metric`
+
+## Log alerts
+
+See sample values for log alerts.
+
+### monitoringService = Log Alerts V1 – Metric
 
 **Sample values**
+
 ```json
 {
   "SubscriptionId": "11111111-1111-1111-1111-111111111111",
@@ -182,9 +193,10 @@ The non-common alert schema lets you customize the consumption experience for al
 }
 ```
 
-#### `monitoringService` = `Log Alerts V1 - Numresults`
+### monitoringService = Log Alerts V1 - Numresults
 
 **Sample values**
+
 ```json
 {
 	"SubscriptionId": "11111111-1111-1111-1111-111111111111",
@@ -245,11 +257,14 @@ The non-common alert schema lets you customize the consumption experience for al
 }
 ```
 
-### Activity log alerts
+## Activity log alerts
 
-#### `monitoringService` = `Activity Log - Administrative`
+See sample values for four activity log alerts.
+
+### monitoringService = Activity Log - Administrative
 
 **Sample values**
+
 ```json
 {
 	"schemaId": "Microsoft.Insights/activityLogs",
@@ -296,9 +311,10 @@ The non-common alert schema lets you customize the consumption experience for al
 }
 ```
 
-#### `monitoringService` = `ServiceHealth`
+### monitoringService = Service Health
 
 **Sample values**
+
 ```json
 {
 	"schemaId": "Microsoft.Insights/activityLogs",
@@ -348,9 +364,10 @@ The non-common alert schema lets you customize the consumption experience for al
 }
 ```
 
-#### `monitoringService` = `Resource Health`
+### monitoringService = Resource Health
 
 **Sample values**
+
 ```json
 {
 	"schemaId": "Microsoft.Insights/activityLogs",
@@ -390,9 +407,11 @@ The non-common alert schema lets you customize the consumption experience for al
 	}
 }
 ```
-#### `monitoringService` = `Actual Cost Budget` or `Forecasted Budget`
+
+### monitoringService = Actual Cost Budget or Forecasted Budget
 
 **Sample values**
+
 ```json
 {
   "schemaId": "AIP Budget Notification",

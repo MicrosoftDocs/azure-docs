@@ -1,9 +1,9 @@
 ---
 title: Policy control
-titleSuffix: Azure Private 5G Core Preview
-description: Information on Azure Private 5G Core Preview's policy control configuration, which allows for flexible traffic handling in your private mobile network. 
-author: djrmetaswitch
-ms.author: drichards
+titleSuffix: Azure Private 5G Core
+description: Information on Azure Private 5G Core's policy control configuration, which allows for flexible traffic handling in your private mobile network. 
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual
 ms.date: 01/16/2022
@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Policy control
 
-Azure Private 5G Core Preview provides flexible traffic handling. You can customize how your packet core instance applies quality of service (QoS) characteristics to traffic. You can also block or limit certain flows.
+Azure Private 5G Core provides flexible traffic handling. You can customize how your packet core instance applies quality of service (QoS) characteristics to traffic. You can also block or limit certain flows.
 
 ## 5G quality of service (QoS) and QoS flows
 
@@ -25,6 +25,8 @@ To ensure the correct QoS characteristics are applied, each SDF is bound to a *Q
 A *QoS profile* has two main components.
 
 - A *5G QoS identifier (5QI)*. The 5QI value corresponds to a set of QoS characteristics that should be used for the QoS flow. These characteristics include guaranteed and maximum bitrates, priority levels, and limits on latency, jitter, and error rate. The 5QI is given as a scalar number.
+
+  To allow for packet prioritization on the underlying transport network, Azure Private 5G Core will attempt to configure differentiated services codepoint (DSCP) markings on outbound packets based on the configured 5QI value for standardized GBR and non-GBR values. For more information on the mapping of 5QI to DSCP values, see [5QI to DSCP mapping](differentiated-services-codepoint-5qi-mapping.md).
 
   You can find more information on 5QI values and each of the QoS characteristics in 3GPP TS 23.501. You can also find definitions for standardized (or non-dynamic) 5QI values. 
 
@@ -85,13 +87,23 @@ You can specify the following QoS settings on a service:
 
 Each SIM policy includes:
 
-- Top-level settings that are applied to every SIM using the SIM policy. These settings include the UE aggregated maximum bit rate (UE-AMBR) for downloads and uploads, and the RAT/Frequency Priority ID (RFSP ID).
+- Top-level settings that are applied to every SIM using the SIM policy. These settings include the default network slice, the UE aggregated maximum bit rate (UE-AMBR) for downloads and uploads, and the RAT/Frequency Priority ID (RFSP ID).
 - A *network scope*, which defines the network slice and data network that the SIM policy applies to. You can use the network scope to determine the following settings:
 
   - The services (as described in [Services](#services)) offered to SIMs on this data network.
   - A set of QoS characteristics that will be used to form the default QoS flow for PDU sessions (or EPS bearer for PDN connections in 4G networks).
 
 You can create multiple SIM policies to offer different QoS policy settings to separate groups of SIMs on the same data network. For example, you may want to create SIM policies with differing sets of services.
+
+A SIM policy takes effect on a UE when it attaches or re-attaches to the network. Therefore, changes to the policy are not dynamically implemented on existing UE sessions. However, if a SIM policy is removed from a UE's SIM, then Azure Private 5G Core will perform a network-initiated detach, disconnecting the UE from the network.
+
+## Network slicing
+
+Network slicing allows you to host multiple independent logical networks in the same Azure Private 5G Core deployment by segmenting a common shared physical network into multiple virtual *network slices*. Slices play an important role in Azure Private 5G Core's flexible traffic handling by letting you apply different policies, QoS characteristics, priorities, and/or network connections to your UEs.
+
+Network slices are assigned to SIM policies and static IP addresses, providing isolated end-to-end networks that can be customized with different bandwidth and latency requirements for supporting different use cases. You can create and configure separate slices to suit, for example, the handling of 5G enhanced mobile broadband, ultra-reliable low latency communications, and massive IoT applications.
+
+You may wish to provision separate slices for devices that are physically or administratively different. For example, you can grant higher priority for emergency calls, or lower latency for autonomous vehicles.
 
 ## Designing your policy control configuration
 

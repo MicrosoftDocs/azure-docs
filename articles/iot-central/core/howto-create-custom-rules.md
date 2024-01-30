@@ -1,28 +1,26 @@
 ---
-title: Extend Azure IoT Central with custom rules and notifications | Microsoft Docs
-description: As a solution developer, configure an IoT Central application to send email notifications when a device stops sending telemetry. This solution uses Azure Stream Analytics, Azure Functions, and SendGrid.
+title: Extend Azure IoT Central by using custom rules
+description: Configure an IoT Central application to send notifications when a device stops sending telemetry by using Azure Stream Analytics, Azure Functions, and SendGrid.
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 11/28/2022
+ms.date: 11/27/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: "mvc, devx-track-csharp"
-
-
+ms.custom: mvc, devx-track-csharp, devx-track-azurecli
 # Solution developer
 ---
 
 # Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid
 
-This how-to guide shows you how to extend your IoT Central application with custom rules and notifications. The example shows sending a notification to an operator when a device stops sending telemetry. The solution uses an [Azure Stream Analytics](../../stream-analytics/index.yml) query to detect when a device has stopped sending telemetry. The Stream Analytics job uses [Azure Functions](../../azure-functions/index.yml) to send notification emails using [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
+This how-to guide shows you how to extend your IoT Central application with custom rules and notifications. The example shows sending a notification to an operator when a device stops sending telemetry. The solution uses an [Azure Stream Analytics](../../stream-analytics/index.yml) query to detect when a device stops sending telemetry. The Stream Analytics job uses [Azure Functions](../../azure-functions/index.yml) to send notification emails using [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
 
 This how-to guide shows you how to extend IoT Central beyond what it can already do with the built-in rules and actions.
 
 In this how-to guide, you learn how to:
 
 * Stream telemetry from an IoT Central application using *continuous data export*.
-* Create a Stream Analytics query that detects when a device has stopped sending data.
+* Create a Stream Analytics query that detects when a device stops sending data.
 * Send an email notification using the Azure Functions and SendGrid services.
 
 ## Prerequisites
@@ -208,7 +206,7 @@ To send emails with SendGrid, you need to configure the bindings for your functi
 1. Select **+ Add output**.
 1. Select **SendGrid** as the binding type.
 1. For the **SendGrid API Key App Setting**, select **New**.
-1. Enter the *Name* and *Value* of your SendGrid API key. If you followed the instructions above, the name of your SendGrid API key is **AzureFunctionAccess**.
+1. Enter the *Name* and *Value* of your SendGrid API key. If you followed the previous instructions, the name of your SendGrid API key is **AzureFunctionAccess**.
 1. Add the following information:
 
     | Setting | Value |
@@ -319,7 +317,7 @@ This solution uses a Stream Analytics query to detect when a device stops sendin
 
 ## Configure export in IoT Central
 
-On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application the script created. The name of the app is **In-store analytics - Condition Monitoring (custom rules scenario)**.
+On the [Azure IoT Central My apps](https://apps.azureiotcentral.com/myapps) page, locate the IoT Central application the script created. The name of the app is **In-store analytics - Condition Monitoring (custom rules scenario)**.
 
 To enable the data export to Event Hubs, navigate to the **Data Export** page and enable the **All telemetry** export.
 Wait until the export status is **Running** before you continue.
@@ -348,7 +346,7 @@ To tidy up after this how-to and avoid unnecessary costs, delete the **DetectSto
 In this how-to guide, you learned how to:
 
 * Stream telemetry from an IoT Central application using the data export feature.
-* Create a Stream Analytics query that detects when a device has stopped sending data.
+* Create a Stream Analytics query that detects when a device stops sending data.
 * Send an email notification using the Azure Functions and SendGrid services.
 
 Now that you know how to create custom rules and notifications, the suggested next step is to learn how to [Extend Azure IoT Central with custom analytics](howto-create-custom-analytics.md).

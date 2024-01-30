@@ -8,20 +8,20 @@ ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-ignite-2022
 
-ms.author: shoja
-author: shouryaj
+ms.author: rasavage
+author: rsavage2
 ms.date: 10/11/2022
 ms.reviewer: ssalgado
 ---
 
 # CLI (v2) Automated ML image instance segmentation job YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net/preview/0.0.1/autoMLImageInstanceSegmentationJob.schema.json.
 
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 

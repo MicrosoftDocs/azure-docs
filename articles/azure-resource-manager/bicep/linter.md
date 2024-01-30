@@ -2,7 +2,8 @@
 title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: conceptual
-ms.date: 11/01/2022
+ms.custom: devx-track-bicep
+ms.date: 01/02/2024
 ---
 
 # Use Bicep linter
@@ -20,10 +21,15 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [adminusername-should-not-be-literal](./linter-rule-admin-username-should-not-be-literal.md)
 - [artifacts-parameters](./linter-rule-artifacts-parameters.md)
 - [decompiler-cleanup](./linter-rule-decompiler-cleanup.md)
+- [explicit-values-for-loc-params](./linter-rule-explicit-values-for-loc-params.md)
+- [max-asserts](./linter-rule-max-asserts.md)
 - [max-outputs](./linter-rule-max-outputs.md)
 - [max-params](./linter-rule-max-parameters.md)
 - [max-resources](./linter-rule-max-resources.md)
 - [max-variables](./linter-rule-max-variables.md)
+- [nested-deployment-template-scoping](./linter-rule-nested-deployment-template-scoping.md)
+- [no-conflicting-metadata](./linter-rule-no-conflicting-metadata.md)
+- [no-deployments-resources](./linter-rule-no-deployments-resources.md)
 - [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
 - [no-hardcoded-location](./linter-rule-no-hardcoded-location.md)
 - [no-loc-expr-outside-params](./linter-rule-no-loc-expr-outside-params.md)
@@ -34,14 +40,16 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [outputs-should-not-contain-secrets](./linter-rule-outputs-should-not-contain-secrets.md)
 - [prefer-interpolation](./linter-rule-prefer-interpolation.md)
 - [prefer-unquoted-property-names](./linter-rule-prefer-unquoted-property-names.md)
-- [protect-commandtoexecute-secrets](./linter-rule-protect-commandtoexecute-secrets.md)
 - [secure-parameter-default](./linter-rule-secure-parameter-default.md)
 - [secure-params-in-nested-deploy](./linter-rule-secure-params-in-nested-deploy.md)
 - [secure-secrets-in-params](./linter-rule-secure-secrets-in-parameters.md)
 - [simplify-interpolation](./linter-rule-simplify-interpolation.md)
+- [simplify-json-null](./linter-rule-simplify-json-null.md)
+- [use-parent-property](./linter-rule-use-parent-property.md)
 - [use-protectedsettings-for-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)
 - [use-recent-api-versions](./linter-rule-use-recent-api-versions.md)
 - [use-resource-id-functions](./linter-rule-use-resource-id-functions.md)
+- [use-resource-symbol-reference](./linter-rule-use-resource-symbol-reference.md)
 - [use-stable-resource-identifiers](./linter-rule-use-stable-resource-identifier.md)
 - [use-stable-vm-image](./linter-rule-use-stable-vm-image.md)
 
@@ -67,7 +75,7 @@ Select the solution to fix the issue automatically.
 
 ## Use in Bicep CLI
 
-The following screenshot shows the linter in the command line. The output from the build command shows any rule violations.
+The following screenshot shows the linter in the command line. The output from the [lint command](./bicep-cli.md#lint) and the [build command](./bicep-cli.md#build) shows any rule violations.
 
 :::image type="content" source="./media/linter/bicep-linter-command-line.png" alt-text="Bicep linter usage in command line.":::
 
@@ -75,7 +83,7 @@ You can integrate these checks as a part of your CI/CD pipelines. You can use a 
 
 ## Silencing false positives
 
-Sometimes a rule can have false positives. For example, you may need to include a link to a blob storage directly without using the [environment()](./bicep-functions-deployment.md#environment) function.
+Sometimes a rule can have false positives. For example, you might need to include a link to a blob storage directly without using the [environment()](./bicep-functions-deployment.md#environment) function.
 In this case you can disable the warning for one line only, not the entire document, by adding `#disable-next-line <rule name>` before the line with the warning.
 
 ```bicep
@@ -84,6 +92,22 @@ scriptDownloadUrl: 'https://mytools.blob.core.windows.net/...'
 ```
 
 It's good practice to add a comment explaining why the rule doesn't apply to this line.
+
+If you want to suppress a linter rule, you can change the level of the rule to `Off` in [bicepconfig.json](./bicep-config-linter.md). For example, in the following example, the `no-deployments-reesources` rule is suppressed:
+
+```json
+{
+  "analyzers": {
+    "core": {
+      "rules": {
+        "no-deployments-resources": {
+          "level": "off"
+        }
+      }
+    }
+  }
+}
+```
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Use the extended features in the Apache Spark History Server to deb
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 08/23/2022
+ms.date: 09/13/2023
 ---
 
 # Use the extended features of the Apache Spark History Server to debug and diagnose Spark applications

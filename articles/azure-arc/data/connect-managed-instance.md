@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure Arc-enabled SQL Managed Instance
-description: Connect to Azure Arc-enabled SQL Managed Instance
+title: Connect to SQL Managed Instance enabled by Azure Arc
+description: Connect to SQL Managed Instance enabled by Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
@@ -10,14 +10,14 @@ ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
 ---
-# Connect to Azure Arc-enabled SQL Managed Instance
+# Connect to SQL Managed Instance enabled by Azure Arc
 
-This article explains how you can connect to your Azure Arc-enabled SQL Managed Instance. 
+This article explains how you can connect to your SQL Managed Instance enabled by Azure Arc. 
 
 
-## View Azure Arc-enabled SQL Managed Instances
+## View SQL Managed Instance enabled by Azure Arc
 
-To view the Azure Arc-enabled SQL Managed Instance and the external endpoints use the following command:
+To view instance and the external endpoints, use the following command:
 
 ```azurecli
 az sql mi-arc list --k8s-namespace <namespace> --use-k8s -o table
@@ -86,7 +86,7 @@ Replace the value of the `--destination-port-ranges` parameter below with the po
 az network nsg rule create -n db_port --destination-port-ranges 30913 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 
-## Next steps
+## Related content
 
 - [View the SQL managed instance dashboards](azure-data-studio-dashboards.md#view-the-sql-managed-instance-dashboards)
 - [View SQL Managed Instance in the Azure portal](view-arc-data-services-inventory-in-azure-portal.md)

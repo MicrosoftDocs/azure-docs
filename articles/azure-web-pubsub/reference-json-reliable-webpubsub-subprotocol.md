@@ -10,12 +10,9 @@ ms.date: 01/09/2023
 
 # Azure Web PubSub Reliable JSON WebSocket subprotocol
 
-The JSON WebSocket subprotocol, `json.reliable.webpubsub.azure.v1`, enables the highly reliable exchange of publish/subscribe messages directly between clients even during network issues.
+The JSON WebSocket subprotocol, `json.reliable.webpubsub.azure.v1`, enables the highly reliable exchange of publish/subscribe messages directly between clients through the service without a round trip to the upstream server.
 
-This document describes the subprotocol json.reliable.webpubsub.azure.v1.
-
-> [!NOTE]
-> Reliable protocols are still in preview. Some changes are expected in the future.
+This document describes the subprotocol `json.reliable.webpubsub.azure.v1`.
 
 When WebSocket client connections drop due to intermittent network issues, messages can be lost. In a pub/sub system, publishers are decoupled from subscribers and may not detect a subscribers' dropped connection or message loss. 
 
@@ -23,9 +20,10 @@ To overcome intermittent network issues and maintain reliable message delivery, 
 
 A *Reliable PubSub WebSocket client* can:
 
-* reconnect a dropped connection.
+* recover a connection from intermittent network issues.
 * recover from message loss.
 * join a group using [join requests](#join-groups).
+* leave a group using [leave requests](#leave-groups).
 * publish messages directly to a group using [publish requests](#publish-messages).
 * route messages directly to upstream event handlers using [event requests](#send-custom-events).
 
@@ -186,7 +184,7 @@ The response to the client connect request:
 wss://<service-endpoint>/client/hubs/<hub>?awps_connection_id=<connectionId>&awps_reconnection_token=<reconnectionToken>
 ```
 
-Find more details in [Reconnection](./howto-develop-reliable-clients.md#reconnection)
+Find more details in [Connection Recovery](./howto-develop-reliable-clients.md#connection-recovery)
 
 #### Disconnected
 

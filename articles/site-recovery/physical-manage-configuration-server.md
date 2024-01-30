@@ -4,7 +4,7 @@ description: This article describes how to manage the Azure Site Recovery config
 services: site-recovery
 author: ankitaduttaMSFT
 ms.service: site-recovery
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/27/2022
 ms.author: ankitadutta
 ---
@@ -262,7 +262,7 @@ Upgrade the server as follows:
 
 ## Delete or unregister a configuration server (PowerShell)
 
-1. [Install](/powershell/azure/install-Az-ps) Azure PowerShell module
+1. [Install](/powershell/azure/install-azure-powershell) Azure PowerShell module
 2. Login into to your Azure account using the command
     
     `Connect-AzAccount –UseDeviceAuthentication`

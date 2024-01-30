@@ -5,12 +5,16 @@ ms.topic: conceptual
 ms.date: 06/30/2021
 ms.author: ankitadutta
 author: ankitaduttaMSFT
+ms.service: site-recovery
 ---
 # About on-premises disaster recovery failover/failback - Classic
 
-This article provides an overview of failover and failback during disaster recovery of on-premises machines to Azure with [Azure Site Recovery](site-recovery-overview.md) - Classic.
+[Azure Site Recovery](site-recovery-overview.md) contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs). Disaster recovery includes replication, failover, and recovery of various workloads.
 
-For information about failover and failback in Azure Site Recovery Modernized release, [see this article](failover-failback-overview-modernized.md).
+> [!IMPORTANT]
+> This article provides an overview of failover and failback during disaster recovery of on-premises machines to Azure with [Azure Site Recovery](site-recovery-overview.md) - Classic.
+><br>
+> For information about failover and failback in Azure Site Recovery Modernized release, [see this article](failover-failback-overview-modernized.md).
 
 ## Recovery stages
 

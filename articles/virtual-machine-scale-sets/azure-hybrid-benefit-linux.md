@@ -2,7 +2,6 @@
 title: Azure Hybrid Benefit for Linux Virtual Machine Scale Sets 
 description: Learn how Azure Hybrid Benefit can apply to Virtual Machine Scale Sets and save you money on Linux virtual machines in Azure.
 services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mathapli
 manager: rochakm
 ms.service: virtual-machine-scale-sets
@@ -12,7 +11,7 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/22/2022
 ms.author: mathapli
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, devx-track-azurecli
 ---
 
 # Explore Azure Hybrid Benefit for Linux Virtual Machine Scale Sets
@@ -103,7 +102,7 @@ az vmss update -g myResourceGroup -n myVmName --license-type None
 ```
 
 >[!NOTE]
-> Scale sets have an [upgrade policy](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) that determines how virtual machines are brought up to date with the latest scale set model. 
+> Scale sets have an [upgrade policy](./virtual-machine-scale-sets-upgrade-policy.md) that determines how virtual machines are brought up to date with the latest scale set model. 
 >
 > If your scale sets have an **Automatic** upgrade policy, Azure Hybrid Benefit will be applied automatically as virtual machines are updated. If your scale sets have a **Rolling** upgrade policy, based on the scheduled updates, Azure Hybrid Benefit will be applied. 
 >
@@ -115,6 +114,10 @@ az vmss update -g myResourceGroup -n myVmName --license-type None
 > ```
 
 ## Apply Azure Hybrid Benefit to Virtual Machine Scale Sets at creation time 
+
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 In addition to applying Azure Hybrid Benefit to existing pay-as-you-go Virtual Machine Scale Sets, you can invoke it when you create Virtual Machine Scale Sets. The benefits of doing so are threefold:
 
 - You can provision both pay-as-you-go and BYOS Virtual Machine Scale Sets by using the same image and process.
@@ -125,10 +128,10 @@ To apply Azure Hybrid Benefit to Virtual Machine Scale Sets at creation time by 
 
 ```azurecli
 # This will enable Azure Hybrid Benefit while creating a RHEL Virtual Machine Scale Set
-az vmss create --name myVmName --resource-group myResourceGroup --vnet-name myVnet --subnet mySubnet  --image myRedHatImageURN --admin-username myAdminUserName --admin-password myPassword --instance-count myInstanceCount --license-type RHEL_BYOS 
+az vmss create --name myVmName --resource-group myResourceGroup --orchestration-mode Uniform --vnet-name myVnet --subnet mySubnet  --image myRedHatImageURN --admin-username myAdminUserName --admin-password myPassword --instance-count myInstanceCount --license-type RHEL_BYOS 
 
 # This will enable Azure Hybrid Benefit while creating a SLES Virtual Machine Scale Set
-az vmss create --name myVmName --resource-group myResourceGroup --vnet-name myVnet --subnet mySubnet  --image myRedHatImageURN --admin-username myAdminUserName --admin-password myPassword --instance-count myInstanceCount --license-type SLES_BYOS
+az vmss create --name myVmName --resource-group myResourceGroup --orchestration-mode Uniform --vnet-name myVnet --subnet mySubnet  --image myRedHatImageURN --admin-username myAdminUserName --admin-password myPassword --instance-count myInstanceCount --license-type SLES_BYOS
 ```
 
 ## Next steps

@@ -2,7 +2,8 @@
 title: Module setting for Bicep config
 description: Describes how to customize configuration values for modules in Bicep deployments.
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.custom: devx-track-bicep
+ms.date: 01/17/2024
 ---
 
 # Add module settings in the Bicep config file
@@ -158,14 +159,14 @@ The available profiles are:
 
 You can customize these profiles, or add new profiles for your on-premises environments.
 
-The available credential types are:
+Bicep uses the [Azure.Identity SDK](/dotnet/api/azure.identity) to do authentication. The available credential types are:
 
-- AzureCLI
-- AzurePowerShell
-- Environment
-- ManagedIdentity
-- VisualStudio
-- VisualStudioCode
+- [AzureCLI](/dotnet/api/azure.identity.azureclicredential)
+- [AzurePowerShell](/dotnet/api/azure.identity.azurepowershellcredential)
+- [Environment](/dotnet/api/azure.identity.environmentcredential)
+- [ManagedIdentity](/dotnet/api/azure.identity.managedidentitycredential)
+- [VisualStudio](/dotnet/api/azure.identity.visualstudiocredential)
+- [VisualStudioCode](/dotnet/api/azure.identity.visualstudiocodecredential)
 
 [!INCLUDE [vscode authentication](../../../includes/resource-manager-vscode-authentication.md)]
 

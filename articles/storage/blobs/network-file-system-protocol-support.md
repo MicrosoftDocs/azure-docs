@@ -4,12 +4,11 @@ titleSuffix: Azure Storage
 description: Blob storage now supports the Network File System (NFS) 3.0 protocol. This support enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer that runs on-premises.
 author: normesta
 
-ms.subservice: blobs
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 08/18/2023
 ms.author: normesta
-ms.reviewer: yzheng
+
 ---
 
 # Network File System (NFS) 3.0 protocol support for Azure Blob Storage
@@ -55,7 +54,7 @@ For step-by-step guidance, see [Mount Blob storage by using the Network File Sys
 
 ## Network security
 
-Traffic must originate from a VNet. A VNet enables clients to securely connect to your storage account. The only way to secure the data in your account is by using a VNet and other network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them.
+Traffic must originate from a VNet. A VNet enables clients to securely connect to your storage account. The only way to secure the data in your account is by using a VNet and other network security settings. Any other tool used to secure data including account key authorization, Microsoft Entra security, and access control lists (ACLs) can't be used to authorize an NFS 3.0 request.
 
 To learn more, see [Network security recommendations for Blob storage](security-recommendations.md#networking).
 
@@ -80,7 +79,7 @@ A client can connect over a public or a [private endpoint](../common/storage-pri
   This can be done by using [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or an [ExpressRoute gateway](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) along with [Gateway transit](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit).
 
 > [!IMPORTANT]
-> If you're connecting from an on-premises network, make sure that your client allows outgoing communication through ports 111 and 2048. The NFS 3.0 protocol uses these ports.
+> The NFS 3.0 protocol uses ports 111 and 2048. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through those ports. If you have granted access to specific VNets, make sure that any network security groups associated with those VNets don't contain security rules that block incoming communication through those ports. 
 
 <a id="azure-storage-features-not-yet-supported"></a>
 

@@ -1,0 +1,67 @@
+---
+items:
+  - name: Azure Managed Confidential Consortium Framework
+    href: index.yml
+  - name: Overview
+    items:
+      - name: About Azure Managed Confidential Consortium Framework
+        href: overview.md
+      - name: About Confidential Consortium Framework
+        href: confidential-consortium-framework-overview.md
+      - name: Get started
+        href: get-started.md
+  - name: Quickstarts
+    expanded: true
+    items:
+      - name: Portal
+        href: quickstart-portal.md
+      - name: CLI
+        href: quickstart-cli.md
+      - name: Python
+        href: quickstart-python.md
+      - name: Java
+        href: quickstart-java.md
+      - name: .NET
+        href: quickstart-net.md
+      - name: Go
+        href: quickstart-go.md
+      - name: TypeScript
+        href: quickstart-typescript.md
+  - name: Concepts
+    expanded: true
+    items:
+      - name: Application scenarios
+        href: application-scenarios.md
+  - name: How to guides
+    expanded: true
+    items:
+      - name: FAQ
+        href: faq.yml
+      - name: Manage members
+        href: how-to-manage-members.md
+      - name: Set application runtime options
+        href: how-to-update-javascript-runtime-options.md
+      - name: Update an application
+        href: how-to-update-application.md
+      - name: Backup and restore a Managed CCF resource
+        href: how-to-backup-restore-resource.md
+      - name: View application logs in Azure Monitor
+        href: how-to-enable-azure-monitor.md
+      - name: View the members
+        href: how-to-view-members.md
+      - name: Azure Managed CCF REST API reference
+        href: /rest/api/confidentialledger/managed-ccf
+  - name: Resources
+    items:
+      - name: Build your skills with Microsoft Learn training
+        href: /training/browse/
+      - name: Pricing
+        href: https://azure.microsoft.com/pricing
+      - name: Region availability
+        href: https://azure.microsoft.com/global-infrastructure/services/
+      - name: Service Level Agreement (SLA)
+        href: https://azure.microsoft.com/support/legal/sla/
+      - name: Service status
+        href: https://azure.microsoft.com/status/
+      - name: Service updates
+        href: https://azure.microsoft.com/updates/

@@ -1,7 +1,7 @@
 ---
 title: Azure Functions Consumption plan hosting
 description: Learn about how Azure Functions Consumption plan hosting lets you run your code in an environment that scales dynamically, but you only pay for resources used during execution. 
-ms.date: 8/31/2020
+ms.date: 07/10/2023
 ms.topic: conceptual
 # Customer intent: As a developer, I want to understand the benefits of using the Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
@@ -25,6 +25,8 @@ To learn more about how to estimate costs when running in a Consumption plan, se
 ## Create a Consumption plan function app
 
 When you create a function app in the Azure portal, the Consumption plan is the default. When using APIs to create your function app, you don't have to first create an App Service plan as you do with Premium and Dedicated plans.
+
+In Consumption plan hosting, each function app typically runs in its own plan. In the Azure portal or in code, you may also see the Consumption plan referred to as `Dynamic` or `Y1`. 
 
 Use the following links to learn how to create a serverless function app in a Consumption plan, either programmatically or in the Azure portal:
 

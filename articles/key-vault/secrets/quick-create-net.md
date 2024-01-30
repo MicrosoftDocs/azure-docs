@@ -8,7 +8,7 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, passwordless-dotnet
+ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
 ---
 
 # Quickstart: Azure Key Vault secret client library for .NET
@@ -27,7 +27,7 @@ For more information about Key Vault and secrets, see:
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 * [.NET 6 SDK or later](https://dotnet.microsoft.com/download)
-* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
+* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 * A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
 
 This quickstart is using `dotnet` and Azure CLI or Azure PowerShell.

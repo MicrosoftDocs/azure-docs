@@ -15,6 +15,8 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to use the Azure CLI to create a VM in an Azure Virtual Network and an Azure Database for PostgreSQL Single server with an Azure private endpoint.
 
 > [!NOTE]
@@ -81,6 +83,8 @@ Create a Azure Database for PostgreSQL with the az postgres server create co
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 
 az postgres server create \
 --name mydemoserver \
@@ -128,6 +132,8 @@ az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json
 # Copy the content for privateIPAddress and FQDN matching the Azure database for PostgreSQL name
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 
 #Create DNS records 
@@ -184,7 +190,7 @@ Connect to the VM *myVm* from the internet as follows:
    Address:  10.1.3.4
    ```
 
-3. Test the private link connection for the PostgreSQL server using any available client. The following example uses [Azure Data studio](/sql/azure-data-studio/download) to do the operation.
+3. Test the private link connection for the PostgreSQL server using any available client. The following example uses [Azure Data studio](/azure-data-studio/download-azure-data-studio) to do the operation.
 
 4. In **New connection**, enter or select this information:
 

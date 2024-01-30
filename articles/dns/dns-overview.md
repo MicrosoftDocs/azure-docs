@@ -4,7 +4,7 @@ description: Overview of DNS hosting service on Microsoft Azure. Host your domai
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
 ---
@@ -13,7 +13,7 @@ ms.author: greglin
 
 Azure DNS is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services.
 
-You can't use Azure DNS to buy a domain name. For an annual fee, you can buy a domain name by using [App Service domains](../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain) or a third-party domain name registrar. Your domains then can be hosted in Azure DNS for record management. For more information, see [Delegate a domain to Azure DNS](dns-domain-delegation.md).
+You can't use Azure DNS to buy a domain name. For an annual fee, you can buy a domain name by using [App Service domains](../app-service/manage-custom-dns-buy-domain.md#buy-and-map-an-app-service-domain) or a third-party domain name registrar. Your domains then can be hosted in Azure DNS for record management. For more information, see [Delegate a domain to Azure DNS](dns-domain-delegation.md).
 
 The following features are included with Azure DNS.
 

@@ -2,19 +2,15 @@
 title: Troubleshoot virtual network peering issues
 description: Steps to help resolve most virtual network peering issues.
 services: virtual-network
-documentationcenter: na
 author: asudbring
 manager: dcscontentpm
-editor: ''
 tags: virtual-network
 ms.assetid: 1a3d1e84-f793-41b4-aa04-774a7e8f7719
 ms.service: virtual-network
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: allensu
-
 ---
 
 # Troubleshoot virtual network peering issues
@@ -45,7 +41,7 @@ To configure virtual network peering for the virtual networks that are in the sa
 > * SQL Server Always On (uses Basic ILB SKU)
 > * Azure App Service Environment for Power Apps (uses Basic ILB SKU)
 > * Azure API Management (uses Basic ILB SKU)
-> * Azure Active Directory Domain Services (Azure AD DS) (uses Basic ILB SKU)
+> * Microsoft Entra Domain Services (uses Basic ILB SKU)
 
 For more information, see the [requirements and constraints](./virtual-network-peering-overview.md#requirements-and-constraints) of global peering.
 
@@ -98,13 +94,13 @@ Transit over global virtual network peering is now supported. Connectivity does 
 * SQL Server Always On (uses Basic ILB SKU)
 * App Service Environment (uses Basic ILB SKU)
 * API Management (uses Basic ILB SKU)
-* Azure AD DS (uses Basic ILB SKU)
+* Microsoft Entra Domain Services (uses Basic ILB SKU)
 
 To learn more about global peering requirements and restraints, see [Virtual network peering](./virtual-network-peering-overview.md#requirements-and-constraints).
 
 ## Troubleshoot a connectivity issue between two peered virtual networks
 
-Sign in to the [Azure portal](https://portal.azure.com/) with an account that has the necessary [roles and permissions](virtual-network-manage-peering.md#permissions). Select the virtual network, select **Peering**, and then check the **Status** field. What is the status?
+Sign in to the [Azure portal](https://portal.azure.com) with an account that has the necessary [roles and permissions](virtual-network-manage-peering.md#permissions). Select the virtual network, select **Peering**, and then check the **Status** field. What is the status?
 
 ### The peering status is "Connected"
 
@@ -138,7 +134,7 @@ To troubleshoot this issue:
    > * SQL Server Always On (uses Basic ILB SKU)
    > * App Service Environment (uses Basic ILB SKU)
    > * API Management (uses Basic ILB SKU)
-   > * Azure AD DS (uses Basic ILB SKU)
+   > * Microsoft Entra Domain Services (uses Basic ILB SKU)
 
 For more information, see the [requirements and constraints](./virtual-network-peering-overview.md#requirements-and-constraints) of global peering.
 
@@ -199,7 +195,7 @@ Transit over global virtual network peering is now supported. Connectivity doesn
 * SQL Server Always On (uses Basic ILB SKU)
 * App Service Environment (uses Basic ILB SKU)
 * API Management (uses Basic ILB SKU)
-* Azure AD DS (uses Basic ILB SKU)
+* Microsoft Entra Domain Services (uses Basic ILB SKU)
 
 For more information, see the [requirements and constraints](./virtual-network-peering-overview.md#requirements-and-constraints) of global peering and [Different VPN Topologies](/archive/blogs/igorpag/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-v2).
 

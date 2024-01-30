@@ -3,17 +3,17 @@ title: Assign multiple IP addresses to VMs - Azure CLI
 titleSuffix: Azure Virtual Network
 description: Learn how to create a virtual machine with multiple IP addresses using the Azure CLI.
 services: virtual-network
-author: asudbring
+ms.date: 08/24/2023
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 12/13/2022
-ms.author: allensu
-ms.custom: template-how-to, engagement-fy23
+ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, linux-related-content
 ---
 # Assign multiple IP addresses to virtual machines using the Azure CLI
 
-An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached to it. Any NIC can have one or more static or dynamic public and private IP addresses assigned to it. 
+An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached to it. Any NIC can have one or more static or dynamic public and private IP addresses assigned to it.
 
 Assigning multiple IP addresses to a VM enables the following capabilities:
 
@@ -30,7 +30,7 @@ Every NIC attached to a VM has one or more IP configurations associated to it. E
 
 There's a limit to how many private IP addresses can be assigned to a NIC. There's also a limit to how many public IP addresses that can be used in an Azure subscription. See [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for details.
 
-This article explains how to add multiple IP addresses to a virtual machine using the Azure CLI. 
+This article explains how to add multiple IP addresses to a virtual machine using the Azure CLI.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 ## Create a virtual network
 
-In this section, you'll create a virtual network for the virtual machine.
+In this section, you create a virtual network for the virtual machine.
 
 Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create a virtual network.
 
@@ -98,7 +98,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public
 
 ## Create a network security group
 
-In this section, you'll create a network security group for the virtual machine and virtual network.
+In this section, you create a network security group for the virtual machine and virtual network.
 
 Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create the network security group.
 
@@ -110,7 +110,7 @@ Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to cre
 
 ### Create network security group rules
 
-You'll create a rule to allow connections to the virtual machine on port 22 for SSH.
+You create a rule to allow connections to the virtual machine on port 22 for SSH.
 
 Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to create the network security group rules.
 
@@ -131,7 +131,7 @@ Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule
 ```
 ## Create a network interface
 
-You'll use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create the network interface for the virtual machine. The public IP addresses and the NSG created previously are associated with the NIC. The network interface is attached to the virtual network you created previously.
+You use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create the network interface for the virtual machine. The public IP addresses and the NSG created previously are associated with the NIC. The network interface is attached to the virtual network you created previously.
 
 ```azurecli-interactive
   az network nic create \
@@ -187,7 +187,7 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create the virtual machine.
     --resource-group myResourceGroup \
     --name myVM \
     --nics myNIC1 \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --authentication-type ssh \
     --generate-ssh-keys

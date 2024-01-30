@@ -5,7 +5,7 @@ description: Learn how to create a self-signed root certificate, export a public
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/06/2022
+ms.date: 08/23/2023
 ms.author: cherylmc
 
 ---

@@ -4,7 +4,7 @@ description: Resolve common issues encountered when using an IoT Edge solution
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 11/17/2022
+ms.date: 1/31/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Solutions to common issues for Azure IoT Edge
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 Use this article to identify and resolve common issues when using IoT Edge solutions. If you need information on how to find logs and errors from your IoT Edge device, see [Troubleshoot your IoT Edge device](troubleshoot.md).
 
@@ -34,61 +34,6 @@ If an automatic deployment targets a device, it takes priority over manually set
 Only use one type of deployment mechanism per device, either an automatic deployment or individual device deployments. If you have multiple automatic deployments targeting a device, you can change priority or target descriptions to make sure the correct one applies to a given device. You can also update the device twin to no longer match the target description of the automatic deployment.
 
 For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
-
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-### Can't get the IoT Edge runtime logs on Windows
-
-#### Symptoms
-
-You get an EventLogException when using `Get-WinEvent` on Windows.
-
-#### Cause
-
-The `Get-WinEvent` PowerShell command relies on a registry entry to be present to find logs by a specific `ProviderName`.
-
-#### Solution
-
-Set a registry entry for the IoT Edge daemon. Create a **iotedge.reg** file with the following content, and import in to the Windows Registry by double-clicking it or using the `reg import iotedge.reg` command:
-
-```reg
-Windows Registry Editor Version 5.00
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
-"CustomSource"=dword:00000001
-"EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
-"TypesSupported"=dword:00000007
-```
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-### DPS client error
-
-#### Symptoms
-
-IoT Edge fails to start with error message `failed to provision with IoT Hub, and no valid device backup was found dps client error.`
-
-#### Cause
-
-A group enrollment is used to provision an IoT Edge device to an IoT Hub. The IoT Edge device is moved to a different hub. The registration is deleted in DPS. A new registration is created in DPS for the new hub. The device isn't reprovisioned.
-
-#### Solution
-
-1. Verify your DPS credentials are correct.
-1. Apply your configuration using `sudo iotedge apply config`.
-1. If the device isn't reprovisioned, restart the device using `sudo iotedge system restart`.
-1. If the device isn't reprovisioned, force reprovisioning using `sudo iotedge system reprovision`.
-
-To automatically reprovision, set `dynamic_reprovisioning: true` in the device configuration file. Setting this flag to true opts in to the dynamic reprovisioning feature. IoT Edge detects situations where the device appears to have been reprovisioned in the cloud by monitoring its own IoT Hub connection for certain errors. IoT Edge responds by shutting down all Edge modules and itself. The next time the daemon starts up, it will attempt to reprovision this device with Azure to receive the new IoT Hub provisioning information.
-
-When using external provisioning, the daemon will also notify the external provisioning endpoint about the reprovisioning event before shutting down. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
-
-:::moniker-end
-<!-- end 1.1 -->
 
 ## IoT Edge runtime
 
@@ -121,7 +66,9 @@ Ensure that there's a route to the internet for the IP addresses assigned to thi
 
 #### Symptoms
 
-The device has trouble starting modules defined in the deployment. Only the *edgeAgent* is running but continually reporting 'empty config file...'.
+* The device has trouble starting modules defined in the deployment. Only the *edgeAgent* is running but and reports *empty config file...*.
+
+* When you run `sudo iotedge check` on a device, it reports *Container engine is not configured with DNS server setting, which may impact connectivity to IoT Hub. Please see https://aka.ms/iotedge-prod-checklist-dns for best practices.*
 
 #### Cause
 
@@ -141,29 +88,6 @@ Specify the DNS server for your environment in the container engine settings, wh
 
 This DNS server is set to a publicly accessible DNS service. However some networks, such as corporate networks, have their own DNS servers installed and won't allow access to public DNS servers. Therefore, if your edge device can't access a public DNS server, replace it with an accessible DNS server address.
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-Place `daemon.json` in the right location for your platform:
-
-| Platform | Location |
-| --------- | -------- |
-| Linux | `/etc/docker` |
-| Windows host with Windows containers | `C:\ProgramData\iotedge-moby\config` |
-
-If the location already contains `daemon.json` file, add the **dns** key to it and save the file.
-
-Restart the container engine for the updates to take effect.
-
-| Platform | Command |
-| --------- | -------- |
-| Linux | `sudo systemctl restart docker` |
-| Windows (Admin PowerShell) | `Restart-Service iotedge-moby -Force` |
-
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 Place `daemon.json` in the `/etc/docker` directory on your device.
 
 If the location already contains a `daemon.json` file, add the **dns** key to it and save the file.
@@ -173,9 +97,6 @@ Restart the container engine for the updates to take effect.
 ```bash
 sudo systemctl restart docker
 ```
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
 
 **Option 2: Set DNS server in IoT Edge deployment per module**
 
@@ -195,6 +116,49 @@ You can set DNS server for each module's *createOptions* in the IoT Edge deploym
 > If you use this method and specify the wrong DNS address, *edgeAgent* loses connection with IoT Hub and can't receive new deployments to fix the issue. To resolve this issue, you can reinstall the IoT Edge runtime. Before you install a new instance of IoT Edge, be sure to remove any *edgeAgent* containers from the previous installation.
 
 Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
+
+### Edge Agent module with LTE connection reports 'empty edge agent config' and causes 'transient network error'
+
+#### Symptoms
+
+A device configured with LTE connection is having issues starting modules defined in the deployment. The *edgeAgent* isn't able to connect to the IoT Hub and reports *empty edge agent config* and *transient network error occurred.*
+
+#### Cause
+
+Some networks have packet overhead, which makes the default docker network MTU (1500) too high and causes packet fragmentation preventing access to external resources.
+
+#### Solution
+
+1. Check the MTU setting for your docker network. 
+    
+   `docker network inspect <network name>`
+
+1. Check the MTU setting for the physical network adaptor on your device.
+   
+    `ip addr show eth0`
+
+>[!NOTE]
+>The MTU for the docker network cannot be higher than the MTU for your device. Contact your ISP for more information.
+
+If you see a different MTU size for your docker network and the device, try the following workaround:
+
+1. Create a new network. For example,
+
+    `docker network create --opt com.docker.network.driver.mtu=1430 test-mtu`
+
+    In the example, the MTU setting for the device is 1430. Hence, the MTU for the Docker network is set to 1430.
+
+1. Stop and remove the Azure network.
+
+    `docker network rm azure-iot-edge`
+
+1. Recreate the Azure network.
+
+   `docker network create --opt com.docker.network.driver.mtu=1430 azure-iot-edge`
+
+1. Remove all containers and restart the *aziot-edged* service.
+
+   `sudo iotedge system stop && sudo docker rm -f $(docker ps -aq -f "label=net.azure-devices.edge.owner=Microsoft.Azure.Devices.Edge.Agent") && sudo iotedge config apply`
 
 ### IoT Edge agent can't access a module's image (403)
 
@@ -254,9 +218,9 @@ In the Azure portal:
 
 4. Select **Runtime Settings**.
 
-5. In the **Edge Hub** module settings, delete everything from the **Create Options** text box.
+5. In the **Edge Hub** module settings, delete everything from the **Container Create Options** text box.
 
-6. Save your changes and create the deployment.
+6. Select **Apply** to save your changes and create the deployment.
 
 In the deployment.json file:
 
@@ -265,31 +229,30 @@ In the deployment.json file:
 2. Find the `edgeHub` settings in the edgeAgent desired properties section:
 
    ```json
-   "edgeHub": {
-       "settings": {
-           "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
-           "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
-       },
-       "type": "docker",
-       "status": "running",
-       "restartPolicy": "always"
-   }
+     "edgeHub": {
+         "restartPolicy": "always",
+         "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
+         },
+         "status": "running",
+         "type": "docker"
+      }
    ```
 
 3. Remove the `createOptions` line, and the trailing comma at the end of the `image` line before it:
 
    ```json
-   "edgeHub": {
-       "settings": {
-           "image": "mcr.microsoft.com/azureiotedge-hub:1.1"
-       },
-       "type": "docker",
-       "status": "running",
-       "restartPolicy": "always"
+     "edgeHub": {
+         "restartPolicy": "always",
+         "settings": {
+         "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+         "status": "running",
+         "type": "docker"
    }
    ```
 
-4. Save the file and apply it to your IoT Edge device again.
+4. Select **Create** to apply it to your IoT Edge device again.
 
 ### IoT Edge module fails to send a message to edgeHub with 404 error
 
@@ -329,25 +292,33 @@ For the IoT Edge hub, set an environment variable **OptimizeForPerformance** to 
 
 In the Azure portal:
 
-In your IoT Hub, select your IoT Edge device and from the device details page and select **Set Modules** > **Runtime Settings**. Create an environment variable for the IoT Edge hub module called *OptimizeForPerformance* that is set to *false*.
+1. In your IoT Hub, select your IoT Edge device and from the device details page and select **Set Modules** > **Runtime Settings**. 
+1. Create an environment variable for the IoT Edge hub module called *OptimizeForPerformance* with type *True/False* that is set to *False*. 
 
-![OptimizeForPerformance set to false](./media/troubleshoot/optimizeforperformance-false.png)
+   :::image type="content" source="./media/troubleshoot/optimizeforperformance-false.png" alt-text="Screenshot that shows where to add the OptimizeForPerformance environment variable in the Azure portal.":::
 
-In the deployment manifest:
+1. Select **Apply** to save changes, then select **Review + create**. 
 
-```json
-"edgeHub": {
-  "type": "docker",
-  "settings": {
-    "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
-    "createOptions": <snipped>
-  },
-  "env": {
-    "OptimizeForPerformance": {
-      "value": "false"
-    }
-  },
-```
+   The environment variable is now in the `edgeHub` property of the deployment manifest:
+   
+   ```json
+      "edgeHub": {
+         "env": {
+               "OptimizeForPerformance": {
+                  "value": false
+               }
+         },
+         "restartPolicy": "always",
+         "settings": {
+               "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
+         },
+         "status": "running",
+         "type": "docker"
+      }
+    ```
+
+1. Select **Create** to save your changes and deploy the module.
 
 ### Security daemon couldn't start successfully
 
@@ -371,26 +342,6 @@ You don't need to disable socket activation on a distribution where socket activ
 1. Change the iotedge config to use `/var/lib/iotedge/*.sock` in both `connect` and `listen` sections
 1. If you already have modules, they have the old `/var/run/iotedge/*.sock` mounts, so `docker rm -f` them.
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-### Could not start module due to OS mismatch
-
-#### Symptom
-
-The edgeHub module fails to start in IoT Edge version 1.1.
-
-#### Cause
-
-Windows module uses a version of Windows that is incompatible with the version of Windows on the host. IoT Edge Windows version 1809 build 17763 is needed as the base layer for the module image, but a different version is in use.
-
-#### Solution
-
-Check the version of your various Windows operating systems in [Troubleshoot host and container image mismatches](/virtualization/windowscontainers/deploy-containers/update-containers#troubleshoot-host-and-container-image-mismatches). If the operating systems are different, update them to IoT Edge Windows version 1809 build 17763 and rebuild the Docker image used for that module.
-
-:::moniker-end
-<!-- end 1.1 -->
-
-
 ## Networking
 
 ### IoT Edge security daemon fails with an invalid hostname
@@ -411,45 +362,17 @@ The IoT Edge runtime can only support hostnames that are shorter than 64 charact
 
 When you see this error, you can resolve it by configuring the DNS name of your virtual machine, and then setting the DNS name as the hostname in the setup command.
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
-1. In the Azure portal, navigate to the overview page of your virtual machine.
-2. Select **configure** under DNS name. If your virtual machine already has a DNS name configured, you don't need to configure a new one.
-
-   ![Configure DNS name of virtual machine](./media/troubleshoot/configure-dns.png)
-
-3. Provide a value for **DNS name label** and select **Save**.
-4. Copy the new DNS name, which should be in the format **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
-5. Inside the virtual machine, use the following command to set up the IoT Edge runtime with your DNS name:
-
-   * On Linux:
-
-      ```bash
-      sudo nano /etc/iotedge/config.yaml
-      ```
-
-   * On Windows:
-
-      ```cmd
-      notepad C:\ProgramData\iotedge\config.yaml
-      ```
-
-:::moniker-end
-<!-- end 1.1 -->
-
-<!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
 
 1. In the Azure portal, navigate to the overview page of your virtual machine.
 
-2. Select **configure** under DNS name. If your virtual machine already has a DNS name configured, you don't need to configure a new one.
+2. Open the configuration panel by selecting **Not configured** (if your virtual machine is new) under DNS name, or select your existing DNS name. If your virtual machine already has a DNS name configured, you don't need to configure a new one.
 
-   ![Configure DNS name of virtual machine](./media/troubleshoot/configure-dns.png)
+   :::image type="content" source="./media/troubleshoot/configure-dns.png" alt-text="Screenshot of how to open the configuration panel of your DNS name.":::
 
-3. Provide a value for **DNS name label** and select **Save**.
+3. Provide a value for **DNS name label** if you don't have one already and select **Save**.
 
-4. Copy the new DNS name, which should be in the format **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
+4. Copy the new DNS name, which should be in the format: <br>
+   **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
 
 5. On the IoT Edge device, open the config file.
 
@@ -465,9 +388,6 @@ When you see this error, you can resolve it by configuring the DNS name of your 
    sudo iotedge config apply
    ```
 
-:::moniker-end
-<!-- end iotedge-2020-11 -->
-
 ### IoT Edge module reports connectivity errors
 
 #### Symptoms
@@ -481,37 +401,6 @@ Containers rely on IP packet forwarding in order to connect to the internet so t
 #### Solution
 
 Use the following steps to enable IP packet forwarding.
-
-<!--1.1-->
-:::moniker range="iotedge-2018-06"
-
-On Windows:
-
-1. Open the **Run** application.
-
-1. Enter `regedit` in the text box and select **Ok**.
-
-1. In the **Registry Editor** window, browse to **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters**.
-
-1. Look for the **IPEnableRouter** parameter.
-
-   1. If the parameter exists, set the value of the parameter to **1**.
-
-   1. If the parameter doesn't exist, add it as a new parameter with the following settings:
-
-      | Setting | Value |
-      | ------- | ----- |
-      | Name    | IPEnableRouter |
-      | Type    | REG_DWORD |
-      | Value   | 1 |
-
-1. Close the registry editor window.
-
-1. Restart your system to apply the changes.
-
-On Linux:
-:::moniker-end
-<!-- end -->
 
 1. Open the **sysctl.conf** file.
 
@@ -530,9 +419,6 @@ On Linux:
 1. Restart the network service and docker service to apply the changes.
 
 
-<!-- iotedge-2020-11 -->
-::: moniker range=">=iotedge-2020-11"
-
 ### IoT Edge behind a gateway can't perform HTTP requests and start edgeAgent module
 
 #### Symptoms
@@ -547,12 +433,6 @@ IoT Edge devices behind a gateway get their module images from the parent IoT Ed
 
 Make sure the parent IoT Edge device can receive incoming requests from the downstream IoT Edge device. Open network traffic on ports 443 and 6617 for requests coming from the downstream device.
 
-:::moniker-end
-<!-- end iotedge-2020-11 -->
-
-<!-- iotedge-2020-11 -->
-::: moniker range=">=iotedge-2020-11"
-
 ### IoT Edge behind a gateway can't perform HTTP requests and start edgeAgent module
 
 #### Symptoms
@@ -566,12 +446,6 @@ IoT Edge devices behind a gateway get their module images from the parent IoT Ed
 #### Solution
 
 Make sure the parent IoT Edge device can receive incoming requests from the downstream IoT Edge device. Open network traffic on ports 443 and 6617 for requests coming from the downstream device.
-
-:::moniker-end
-<!-- end iotedge-2020-11 -->
-
-<!-- iotedge-2020-11 -->
-::: moniker range=">=iotedge-2020-11"
 
 ### IoT Edge behind a gateway can't connect when migrating from one IoT hub to another
 
@@ -594,8 +468,28 @@ When migrating to the new IoT hub (assuming not using DPS), follow these steps i
 1. Restart the top-level parent Edge device first, make sure it's up and running
 1. Restart each device in hierarchy level by level from top to the bottom
 
-:::moniker-end
-<!-- end iotedge-2020-11 -->
+### IoT Edge has low message throughput when geographically distant from IoT Hub
+
+#### Symptoms
+
+Azure IoT Edge devices that are geographically distant from Azure IoT Hub have a lower than expected message throughput.
+
+#### Cause
+
+High latency between the device and IoT Hub can cause a lower than expected message throughput. IoT Edge uses a default message batch size of 10. This limits the number of messages that are sent in a single batch, which increases the number of round trips between the device and IoT Hub.
+
+#### Solution
+
+Try increasing the IoT Edge Hub **MaxUpstreamBatchSize** environment variable. This allows more messages to be sent in a single batch, which reduces the number of round trips between the device and IoT Hub.
+
+To set Azure Edge Hub environment variables in the Azure portal:
+
+1. Navigate to your IoT Hub and select **Devices** under the **Device management** menu.
+1. Select the IoT Edge device that you want to update.
+1. Select **Set Modules**.
+1. Select **Runtime Settings**.
+1. In the **Edge Hub** module settings tab, add the **MaxUpstreamBatchSize** environment variable as type **Number** with a value of **20**.
+1. Select **Apply**.
 
 ## Next steps
 

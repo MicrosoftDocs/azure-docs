@@ -4,6 +4,8 @@ description: In this article, learn how to manage restore operations of Azure Vi
 ms.topic: conceptual
 ms.date: 08/26/2021
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore Azure Virtual machines using REST API

@@ -3,9 +3,9 @@ title: Enable backup when you create an Azure VM
 description: Describes how to enable backup when you create an Azure VM with Azure Backup.
 ms.topic: conceptual
 ms.date: 07/19/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Enable backup when you create an Azure VM

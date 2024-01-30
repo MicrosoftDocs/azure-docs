@@ -1,5 +1,5 @@
 ---
-description: In this tutorial, you learn how to use the Calling composite on Android to customize the Participant Avatars and Display Names
+description: Learn how to use the Calling composite on Android to customize participant avatars and display names.
 author: garchiro7
 
 ms.author: jorgegarc
@@ -8,51 +8,56 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start)
+For more information, see the [open-source Android UI Library](https://github.com/Azure/communication-ui-library-android) and the [sample application code](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling).
 
-### Participant View Customization
+### Local participant view customization
 
-The UI Library gives developers the ability to provide a more customized experience regarding Participant information. At launch, developers can optionally inject local participant data. This local data isn't shared with the server and can be used to customize the display name and avatar of the local user.
+The UI Library gives developers the ability to provide a customized experience regarding participant information. At launch, you can optionally inject local participant data. This local data isn't shared with the server, and you can use it to customize the display name and avatar of the local user.
 
-#### Local Options
+#### Local options
 
-`CallCompositeLocalOptions` is the data model that can have `CallCompositeParticipantViewData` and `CallCompositeSetupScreenViewData`. It will represent the local participant.  By default, for remote participants, the UI library will display the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `CallCompositeParticipantViewData` is injected, the participant `displayName` and `avatar` will be displayed in all avatar components locally and only in user's side. 
+`CallCompositeLocalOptions` is the data model that can have `CallCompositeParticipantViewData` and `CallCompositeSetupScreenViewData`. It represents the local participant.
 
-Similarly, for `CallCompositeSetupScreenViewData`, the `title` and `subtitle` in `CallCompositeSetupScreenViewData` would overwrite the navigation bar's title and subtitle in pre-meeting screen respectively. By default, the UI library will display 'Setup' as the title and subtitle will be set to hidden.
+By default, for remote participants, the UI Library displays `displayName` information injected in `RemoteOptions`. This information is sent to the Azure Communication Services back-end server. If `CallCompositeParticipantViewData` is injected, the participant `displayName` and `avatar` information is displayed in all avatar components locally.
 
-#### Local Participant View Data
+Similarly, for `CallCompositeSetupScreenViewData`, `title` and `subtitle` in `CallCompositeSetupScreenViewData` overwrite the navigation bar's title and subtitle on the premeeting screen, respectively. By default, the UI Library displays **Setup** as the title and nothing as the subtitle.
 
-`CallCompositeParticipantViewData` is a class that set the `displayName`, `avatarBitmap` and `scaleType` for avatar control. This class is passed to the `CallCompositeLocalOptions` in order to customize the local participants view information.
+#### Local participant view data
 
-This class is held in the `CallCompositeLocalOptions` object that represents options used locally on the device making the call.
+`CallCompositeParticipantViewData` is a class that sets `displayName`, `avatarBitmap`, and `scaleType` for avatar control. This class is passed to `CallCompositeLocalOptions` in order to customize the local participants' view information. This class is held in the `CallCompositeLocalOptions` object that represents options used locally on the device that makes the call.
 
-`displayName` differs from the `displayName` passed in via the `CallCompositeRemoteOptions`. `CallCompositeParticipantViewData` `displayName` is only used locally as an override, where `CallCompositeRemoteOptions` `displayName` is passed to the server and shared with other participants. When `CallCompositeParticipantViewData` `displayName` isn't provided, `CallCompositeRemoteOptions` `displayName` is used.
+This instance of `displayName` differs from the `displayName` information passed in via `CallCompositeRemoteOptions`:
 
-#### Setup Screen View Data
+- The `CallCompositeParticipantViewData` instance of `displayName` is only used locally as an override.
+- The `CallCompositeRemoteOptions` instance of `displayName` is passed to the server and shared with other participants.
 
-`CallCompositeSetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on call setup screen. If `subtitle` is not defined, then subtitle would always be set to hidden. Here `title` is a required to set the `subtitle` but `subtitle` is optional when `title` is set. This class is locally stored and its information will not be sent up to the server.
+If you don't provide the `CallCompositeParticipantViewData` instance of `displayName`, the application uses the `CallCompositeRemoteOptions` instance of `displayName`.
+
+#### Setup screen view data
+
+`CallCompositeSetupScreenViewData` is an object that sets `title` and `subtitle` for the navigation bar on the call setup screen. If `subtitle` isn't defined, the subtitle is hidden. Here, `title` is required to set `subtitle`, but `subtitle` is optional when `title` is set. This class is locally stored, and its information isn't sent to the server.
 
 #### Usage
 
-To use the `CallCompositeLocalOptions`, pass the instance of `CallCompositeParticipantViewData` and/or `CallCompositeSetupScreenViewData` and inject `CallCompositeLocalOptions` to `callComposite.launch`.
+To use `CallCompositeLocalOptions`, pass the instance of `CallCompositeParticipantViewData` and/or `CallCompositeSetupScreenViewData`, and inject `CallCompositeLocalOptions` to `callComposite.launch`.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val CallCompositeParticipantViewData participantViewData = CallCompositeParticipantViewData()
+val participantViewData: CallCompositeParticipantViewData = CallCompositeParticipantViewData()
     .setAvatarBitmap((Bitmap) avatarBitmap)
     .setScaleType((ImageView.ScaleType) scaleType)
-    .setDisplayName((String) displayName);
+    .setDisplayName((String) displayName)
 
-val CallCompositeSetupScreenViewData setupScreenViewData = CallCompositeSetupScreenViewData()
+val setupScreenViewData: CallCompositeSetupScreenViewData = CallCompositeSetupScreenViewData()
     .setTitle((String) title)
-    .setSubtitle((String) subTitle);
+    .setSubtitle((String) subTitle)
 
-val CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions()
+val localOptions: CallCompositeLocalOptions = CallCompositeLocalOptions()
     .setParticipantViewData(participantViewData)
-    .setNavigationBarViewData(navigationBarViewData);
+    .setSetupScreenViewData(setupScreenViewData)
 
-callComposite.launch(callLauncherActivity, remoteOptions, localOptions);
+callComposite.launch(callLauncherActivity, remoteOptions, localOptions)
 ```
 
 #### [Java](#tab/java)
@@ -69,30 +74,31 @@ final CallCompositeSetupScreenViewData setupScreenViewData = new CallCompositeSe
 
 final CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions()
     .setParticipantViewData(participantViewData)
-    .setNavigationBarViewData(navigationBarViewData);
+    .setSetupScreenViewData(setupScreenViewData);
 
 callComposite.launch(callLauncherActivity, remoteOptions, localOptions);
 ```
+
 -----
 
-|Setup View| Calling Experience View|
+|Setup view| Calling experience view|
 | ---- | ---- |
-| :::image type="content" source="media/android-model-injection.png" alt-text="Screenshot of an Android data custom model injection."::: | :::image type="content" source="media/android-model-injection-name.png"  alt-text="Screenshot of an Android data custom model injection with name."::: |
+| :::image type="content" source="media/android-model-injection.png" alt-text="Screenshot of Android data custom model injection."::: | :::image type="content" source="media/android-model-injection-name.png"  alt-text="Screenshot of Android data custom model injection with name."::: |
 
-### Remote Participant View Customization
+### Remote participant view customization
 
-In some instances, you may wish to provide local overrides for remote participants to allow custom avatars and titles.
+In some instances, you might want to provide local overrides for remote participants to allow custom avatars and titles.
 
-The process is similar to the local participant process, however the data is set when participants join the call. As a developer you would need to add a listener to when remote participants join the call, and then call a method to set the `CallCompositeParticipantViewData` for that remote user.
+The process is similar to the local participant process, but the data is set when participants join the call. As a developer, you would need to add a listener when remote participants join the call, and then call a method to set `CallCompositeParticipantViewData` for those remote users.
 
 #### Usage
 
-To set the participant view data for remote participant, set `setOnRemoteParticipantJoinedHandler`. On remote participant join, use callComposite `setRemoteParticipantViewData` to inject view data for remote participant. The participant identifier [CommunicationIdentifier](https://azure.github.io/azure-sdk-for-android/azure-communication-common/index.html) is to uniquely identify a remote participant.
+To set the view data for remote participants, set `setOnRemoteParticipantJoinedHandler`. On remote participant join, use `setRemoteParticipantViewData` for `callComposite` to inject view data for remote participants. The participant identifier [CommunicationIdentifier](https://azure.github.io/azure-sdk-for-android/azure-communication-common/index.html) uniquely identifies a remote participant.
 
-Calls to `setRemoteParticipantViewData` return a result of `CallCompositeSetParticipantViewDataResult`, which has the following values.
+Calls to `setRemoteParticipantViewData` return a result of `CallCompositeSetParticipantViewDataResult`, which has the following values:
 
-- CallCompositeSetParticipantViewDataResult.SUCCESS
-- CallCompositeSetParticipantViewDataResult.PARTICIPANT_NOT_IN_CALL
+- `CallCompositeSetParticipantViewDataResult.SUCCESS`
+- `CallCompositeSetParticipantViewDataResult.PARTICIPANT_NOT_IN_CALL`
 
 #### [Kotlin](#tab/kotlin)
 
@@ -117,8 +123,9 @@ callComposite.addOnRemoteParticipantJoinedEventHandler { remoteParticipantJoined
                 }
             });
 ```
+
 -----
 
 |Participants list|
 | ---- |
-| :::image type="content" source="media/android-model-injection-remote.png" alt-text="Screenshot showing the Android data custom model remote injection."::: |
+| :::image type="content" source="media/android-model-injection-remote.png" alt-text="Screenshot of Android remote participant view data injection."::: |

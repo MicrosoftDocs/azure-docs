@@ -4,11 +4,12 @@ description: In this article, you'll learn how to create and manage backup polic
 ms.topic: how-to
 ms.date: 10/28/2022
 ms.assetid: 472d6a4f-7914-454b-b8e4-062e8b556de3
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
 ms.custom: engagement-fy23
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
+
 # Create Azure Data Protection backup policies for blobs using REST API
 
 Azure Backup policy typically governs the retention and schedule of your backups. As operational backup for blobs is continuous in nature, you don't need a schedule to perform backups. The policy is essentially needed to specify the retention period. You can reuse the backup policy to configure backup for multiple storage accounts to a vault.

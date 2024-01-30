@@ -5,8 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
-ms.date: 12/07/2022
+ms.topic: article
+ms.date: 01/02/2024
 ms.author: danlep
 ---
 
@@ -33,14 +33,20 @@ The `cache-store` policy caches responses according to the specified cache setti
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| duration         | Time-to-live of the cached entries, specified in seconds.     | Yes      | N/A               |
-| cache-response         | Set to `true` to cache the current HTTP response. If the attribute is omitted or set to `false`, only HTTP responses with the status code `200 OK` are cached.                           | No      | `false`               |
+| duration         | Time-to-live of the cached entries, specified in seconds. Policy expressions are allowed.    | Yes      | N/A               |
+| cache-response         | Set to `true` to cache the current HTTP response. If the attribute is omitted, only HTTP responses with the status code `200 OK` are cached. Policy expressions are allowed.                          | No      | `false`               |
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) outbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+
+### Usage notes
+
+- API Management only caches responses to HTTP GET requests.
+- This policy can only be used once in a policy section.
+
 
 ## Examples
 
@@ -69,10 +75,10 @@ This example shows how to configure API Management response caching duration tha
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->
 
 <!-- Copy this snippet into the inbound section -->
-<cache-store vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="public" must-revalidate="true" >
+<cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="public" must-revalidate="true" >
   <vary-by-header>Accept</vary-by-header>
   <vary-by-header>Accept-Charset</vary-by-header>
-</cache-store>
+</cache-lookup>
 
 <!-- Copy this snippet into the outbound section. Note that cache duration is set to the max-age value provided in the Cache-Control header received from the backend service or to the default value of 5 min if none is found  -->
 <cache-store duration="@{

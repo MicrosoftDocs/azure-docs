@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019, ignite-2022
-ms.date: 10/26/2022
+ms.date: 10/20/2023
 ---
 
 # Source transformation in mapping data flow
@@ -152,6 +152,6 @@ If you're reading from an Azure SQL Database source, custom **Source** partition
 
 For more information on optimization within mapping data flow, see the [Optimize tab](concepts-data-flow-overview.md#optimize).
 
-## Next steps
+## Related content
 
 Begin building your data flow with a [derived-column transformation](data-flow-derived-column.md) and a [select transformation](data-flow-select.md).

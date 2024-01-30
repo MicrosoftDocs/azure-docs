@@ -43,12 +43,12 @@ Additionally, you will need to:
 
 - Install the Azure CLI and the ml extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
-# [Python (Azure ML SDK)](#tab/sdk)
+# [Python (Azure Machine Learning SDK)](#tab/sdk)
 
 - Install the Azure Machine Learning SDK for Python
     
     ```bash
-    pip install azure-ai-ml
+    pip install azure-ai-ml azure-identity
     ```
     
 # [Python (MLflow SDK)](#tab/mlflow)
@@ -74,7 +74,7 @@ az account set --subscription <subscription>
 az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
 ```
 
-# [Python (Azure ML SDK)](#tab/sdk)
+# [Python (Azure Machine Learning SDK)](#tab/sdk)
 
 The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
 
@@ -128,7 +128,7 @@ MODEL_NAME='heart-classifier'
 az ml model create --name $MODEL_NAME --type "mlflow_model" --path "model"
 ```
 
-# [Python (Azure ML SDK)](#tab/sdk)
+# [Python (Azure Machine Learning SDK)](#tab/sdk)
 
 ```python
 model_name = 'heart-classifier'
@@ -168,7 +168,7 @@ We are going to exploit this functionality by deploying multiple versions of the
     ENDPOINT_NAME="heart-classifier-$ENDPOINT_SUFIX"
     ```
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     import random
@@ -208,7 +208,7 @@ We are going to exploit this functionality by deploying multiple versions of the
     auth_mode: key
     ```
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     endpoint = ManagedOnlineEndpoint(
@@ -247,7 +247,7 @@ We are going to exploit this functionality by deploying multiple versions of the
     az ml online-endpoint create -n $ENDPOINT_NAME -f endpoint.yml
     ```
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     ml_client.online_endpoints.begin_create_or_update(endpoint).result()
@@ -270,7 +270,7 @@ We are going to exploit this functionality by deploying multiple versions of the
     ENDPOINT_SECRET_KEY=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME | jq -r ".accessToken")
     ```
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     endpoint_secret_key = ml_client.online_endpoints.list_keys(
@@ -280,7 +280,7 @@ We are going to exploit this functionality by deploying multiple versions of the
     
     # [Python (MLflow SDK)](#tab/mlflow)
 
-    This functionality is not available in the MLflow SDK. Go to [Azure ML studio](https://ml.azure.com), navigate to the endpoint and retrieve the secret key from there.
+    This functionality is not available in the MLflow SDK. Go to [Azure Machine Learning studio](https://ml.azure.com), navigate to the endpoint and retrieve the secret key from there.
 
 ### Create a blue deployment
 
@@ -301,7 +301,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     instance_count: 1
     ```
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
 
     ```python
     blue_deployment_name = "default"
@@ -316,6 +316,19 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
         model=model,
         instance_type="Standard_DS2_v2",
         instance_count=1,
+    )
+    ```
+
+    If your endpoint doesn't have egress connectivity, use [model packaging (preview)](how-to-package-models.md) by including the argument `with_package=True`:
+
+    ```python
+    blue_deployment = ManagedOnlineDeployment(
+        name=blue_deployment_name,
+        endpoint_name=endpoint_name,
+        model=model,
+        instance_type="Standard_DS2_v2",
+        instance_count=1,
+        with_package=True,
     )
     ```
     
@@ -352,11 +365,17 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     ```azurecli
     az ml online-deployment create --endpoint-name $ENDPOINT_NAME -f blue-deployment.yml --all-traffic
     ```
+
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the flag `--with-package`:
+
+    ```azurecli
+    az ml online-deployment create --with-package --endpoint-name $ENDPOINT_NAME -f blue-deployment.yml --all-traffic
+    ```
     
     > [!TIP]
     > We set the flag `--all-traffic` in the create command, which will assign all the traffic to the new deployment.
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     ml_client.online_deployments.begin_create_or_update(blue_deployment).result()
@@ -381,7 +400,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     
     *This step in not required in the Azure CLI since we used the `--all-traffic` during creation.*
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     endpoint.traffic = { blue_deployment_name: 100 }
@@ -407,7 +426,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     
     *This step in not required in the Azure CLI since we used the `--all-traffic` during creation.*
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     ml_client.begin_create_or_update(endpoint).result()
@@ -453,7 +472,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     }
     ```
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     The following code samples 5 observations from the training dataset, removes the `target` column (as the model will predict it), and creates a request in the file `sample.json` that can be used with the model deployment.
 
@@ -494,7 +513,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     az ml online-endpoint invoke --name $ENDPOINT_NAME --request-file sample.json
     ```
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     ml_client.online_endpoints.invoke(
@@ -531,7 +550,7 @@ Let's imagine that there is a new version of the model created by the developmen
     VERSION=$(az ml model show -n heart-classifier --label latest | jq -r ".version")
     ```
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     model_name = 'heart-classifier'
@@ -576,7 +595,7 @@ Let's imagine that there is a new version of the model created by the developmen
     GREEN_DEPLOYMENT_NAME="xgboost-model-$VERSION"
     ```
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
 
     ```python
     green_deployment_name = f"xgboost-model-{version}"
@@ -591,6 +610,19 @@ Let's imagine that there is a new version of the model created by the developmen
         model=model,
         instance_type="Standard_DS2_v2",
         instance_count=1,
+    )
+    ```
+
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the argument `with_package=True`:
+
+    ```python
+    green_deployment = ManagedOnlineDeployment(
+        name=green_deployment_name,
+        endpoint_name=endpoint_name,
+        model=model,
+        instance_type="Standard_DS2_v2",
+        instance_count=1,
+        with_package=True,
     )
     ```
     
@@ -627,8 +659,14 @@ Let's imagine that there is a new version of the model created by the developmen
     ```azurecli
     az ml online-deployment create -n $GREEN_DEPLOYMENT_NAME --endpoint-name $ENDPOINT_NAME -f green-deployment.yml
     ```
+
+    If your endpoint doesn't have egress connectivity, use model packaging (preview) by including the flag `--with-package`:
+
+    ```azurecli
+    az ml online-deployment create --with-package -n $GREEN_DEPLOYMENT_NAME --endpoint-name $ENDPOINT_NAME -f green-deployment.yml
+    ```
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     ml_client.online_deployments.begin_create_or_update(green_deployment).result()
@@ -653,7 +691,7 @@ Let's imagine that there is a new version of the model created by the developmen
     az ml online-endpoint invoke --name $ENDPOINT_NAME --deployment-name $GREEN_DEPLOYMENT_NAME --request-file sample.json
     ```
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     ml_client.online_endpoints.invoke(
@@ -688,7 +726,7 @@ One we are confident with the new deployment, we can update the traffic to route
     
     *This step in not required in the Azure CLI*
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     endpoint.traffic = {blue_deployment_name: 90, green_deployment_name: 10}
@@ -716,7 +754,7 @@ One we are confident with the new deployment, we can update the traffic to route
     az ml online-endpoint update --name $ENDPOINT_NAME --traffic "default=90 $GREEN_DEPLOYMENT_NAME=10"
     ```
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     ml_client.begin_create_or_update(endpoint).result()
@@ -737,7 +775,7 @@ One we are confident with the new deployment, we can update the traffic to route
     
     *This step in not required in the Azure CLI*
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     endpoint.traffic = {blue_deployment_name: 0, green_deployment_name: 100}
@@ -765,7 +803,7 @@ One we are confident with the new deployment, we can update the traffic to route
     az ml online-endpoint update --name $ENDPOINT_NAME --traffic "default=0 $GREEN_DEPLOYMENT_NAME=100"
     ```
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     ml_client.begin_create_or_update(endpoint).result()
@@ -788,7 +826,7 @@ One we are confident with the new deployment, we can update the traffic to route
     az ml online-deployment delete --endpoint-name $ENDPOINT_NAME --name default
     ```
     
-    # [Python (Azure ML SDK)](#tab/sdk)
+    # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
     ml_client.online_deployments.begin_delete(
@@ -820,7 +858,7 @@ One we are confident with the new deployment, we can update the traffic to route
 az ml online-endpoint delete --name $ENDPOINT_NAME --yes
 ```
 
-# [Python (Azure ML SDK)](#tab/sdk)
+# [Python (Azure Machine Learning SDK)](#tab/sdk)
 
 ```python
 ml_client.online_endpoints.begin_delete(name=endpoint_name)

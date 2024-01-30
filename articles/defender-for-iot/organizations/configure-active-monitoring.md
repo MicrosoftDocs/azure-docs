@@ -43,12 +43,7 @@ For example, the following image highlights in grey the extra network access you
 
 ## Next steps
 
-Use one of the following procedures to configure active monitoring in your OT network:
+For more information, see:
 
 - [Configure Windows Endpoint monitoring](configure-windows-endpoint-monitoring.md)
 - [Configure DNS servers for reverse lookup resolution for OT monitoring](configure-reverse-dns-lookup.md)
-
-For more information, see:
-
-- [View your device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-- [View your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)

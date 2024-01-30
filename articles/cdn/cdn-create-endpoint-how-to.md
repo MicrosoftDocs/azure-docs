@@ -2,28 +2,27 @@
 title: Create an Azure CDN endpoint | Microsoft Docs
 description: This article shows how to create a new Azure Content Delivery Network (CDN) endpoint, including advanced settings.
 services: cdn
-documentationcenter: ''
 author: duongau
-manager: danielgi
-editor: ''
-
+manager: kumudd
 ms.service: azure-cdn
 ms.workload: media
-ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/09/2021
+ms.date: 02/27/2023
 ms.author: duau
 ms.custom: mvc
-
 ---
+
 # Create an Azure CDN endpoint
+
 This article describes all the settings for creating an [Azure Content Delivery Network (CDN)](cdn-overview.md) endpoint in an existing CDN profile. After you've created a profile and an endpoint, you can start delivering content to your customers. For a quickstart on creating a profile and endpoint, see [Quickstart: Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
 
 ## Prerequisites
+
 Before you can create a CDN endpoint, you must have created at least one CDN profile, which can contain one or more CDN endpoints. To organize your CDN endpoints by internet domain, web application, or some other criteria, you can use multiple profiles. Because CDN pricing is applied at the CDN profile level, you must create multiple CDN profiles if you want to use a mix of Azure CDN pricing tiers. To create a CDN profile, see [Create a new CDN profile](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
 
-## Log in to the Azure portal
-Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
+## Sign in to the Azure portal
+
+Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create a new CDN endpoint
 
@@ -61,10 +60,6 @@ Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
    
    > [!NOTE]
    > The **Origin port** value determines only the port the endpoint uses to retrieve information from the origin server. The endpoint itself is available only to end clients on the default HTTP and HTTPS ports (80 and 443), regardless of the **Origin port** value.  
-   > 
-   > Endpoints in **Azure CDN from Akamai** profiles do not allow the full TCP port range for origin ports. For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](/previous-versions/azure/mt757337(v=azure.100)).  
-   > 
-   > HTTPS support for Azure CDN custom domains is not supported on **Azure CDN from Akamai** products. For more information, see [Configure HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md).
     
 9. For **Optimized for**, select an optimization type that best matches the scenario and type of content that you want the endpoint to deliver. For more information, see [Optimize Azure CDN for the type of content delivery](cdn-optimization-overview.md).
 
@@ -72,15 +67,8 @@ Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
     - **Azure CDN Standard from Microsoft** profiles:
        - [**General web delivery**](cdn-optimization-overview.md#general-web-delivery)
 
-    - **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles:
+    - **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles:
        - [**General web delivery**](cdn-optimization-overview.md#general-web-delivery)
-       - [**Dynamic site acceleration**](cdn-optimization-overview.md#dynamic-site-acceleration)
-
-    - **Azure CDN Standard from Akamai** profiles:
-       - [**General web delivery**](cdn-optimization-overview.md#general-web-delivery)
-       - [**General media streaming**](cdn-optimization-overview.md#general-media-streaming)
-       - [**Video on demand media streaming**](cdn-optimization-overview.md#video-on-demand-media-streaming)
-       - [**Large file download**](cdn-optimization-overview.md#large-file-download)
        - [**Dynamic site acceleration**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
 10. Select **Add** to create the new endpoint.
@@ -91,21 +79,18 @@ Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
     
     Because it takes time for the registration to propagate, the endpoint isn't immediately available for use: 
     - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
-    - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
-    - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 30 minutes. 
+    - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes within 30 minutes. 
    
-    If you attempt to use the CDN domain name before the endpoint configuration has propagated to the point-of-presence (POP) servers, you might receive an HTTP 404 response status. If it's been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting Azure CDN endpoints that return a 404 status code](cdn-troubleshoot-endpoint.md).
+    If you attempt to use the CDN domain name before the endpoint configuration has propagated to the point-of-presence (POP) servers, you might receive an HTTP 404 response status. If it has been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting Azure CDN endpoints that return a 404 status code](cdn-troubleshoot-endpoint.md).
 
 > [!NOTE]
-> For *Verizon CDN endpoints*, when an endpoint is **disabled** or **stopped** for any reason, all resources configured through the Verizon supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. You will need to make those configuration changes again.
+> For *Edgio CDN endpoints*, when an endpoint is **disabled** or **stopped** for any reason, all resources configured through the Edgio supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. You will need to make those configuration changes again.
 
 ## Clean up resources
-To delete an endpoint when it is no longer needed, select it and then select **Delete**. 
+To delete an endpoint when it's no longer needed, select it and then select **Delete**. 
 
 ## Next steps
 To learn about custom domains, continue to the tutorial for adding a custom domain to your CDN endpoint.
 
 > [!div class="nextstepaction"]
 > [Add a custom domain](cdn-map-content-to-custom-domain.md)
-
-

@@ -20,9 +20,11 @@ For more information, see [Connect your external solution using Common Event For
 
 If you've deployed your connector using a method different than the documented procedure and are having issues, we recommend that you purge the deployment and install again as documented.
 
+This article shows you how to troubleshoot CEF or Syslog connectors with the Log Analytics agent. For troubleshooting information related to ingesting CEF logs via the Azure Monitor Agent (AMA), review the [Common Event Format (CEF) via AMA](connect-cef-ama.md) connector instructions.
+
 > [!IMPORTANT]
 >
-> On **February 28th 2023**, we will introduce [changes to the CommonSecurityLog table schema](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232). This means that custom queries will require being reviewed and updated. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) will be updated by Microsoft Sentinel.
+> On **February 28th 2023**, we introduced changes to the CommonSecurityLog table schema. Following this change, you might need to review and update custom queries. For more details, see the [recommended actions section](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232) in this blog post. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) has been updated by Microsoft Sentinel.
 
 ## How to use this article
 

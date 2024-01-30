@@ -4,7 +4,8 @@ description: Symptoms, causes, and resolution of common problems when accessing 
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
+ms.service: container-registry
 ---
 
 # Troubleshoot network issues with registry
@@ -64,7 +65,7 @@ Related links:
 
 * [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md)
 * [HTTP/HTTPS proxy configuration](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
-* [Geo-replicationin Azure Container Registry](container-registry-geo-replication.md)
+* [Geo-replication in Azure Container Registry](container-registry-geo-replication.md)
 * [Monitor Azure Container Registry](monitor-service.md)
 
 ### Configure public access to registry
@@ -103,7 +104,7 @@ Related links:
 * [Connect privately to an Azure container registry using Azure Private Link](container-registry-private-link.md)
 * [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md)
 * [Restrict access to a container registry using a service endpoint in an Azure virtual network](container-registry-vnet.md)
-* [Required outbound network rules and FQDNs for AKS clusters](../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
+* [Required outbound network rules and FQDNs for AKS clusters](../aks/outbound-rules-control-egress.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
 * [Kubernetes: Debugging DNS resolution](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
 * [Virtual network service tags](../virtual-network/service-tags-overview.md)
 

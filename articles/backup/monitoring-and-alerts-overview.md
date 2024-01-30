@@ -3,9 +3,9 @@ title: Monitoring and reporting solutions for Azure Backup
 description: Learn about different monitoring and reporting solutions provided by Azure Backup.
 ms.topic: conceptual
 ms.date: 10/21/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Monitoring and reporting solutions for Azure Backup

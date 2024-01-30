@@ -2,6 +2,7 @@
 title: Store secrets in a key vault
 description: Learn how to store secrets in an Azure Key Vault and use them while creating a VM, formula, or an environment. 
 ms.topic: how-to
+ms.custom: devx-track-arm-template, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020

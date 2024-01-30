@@ -1,24 +1,24 @@
 ---
-title: Microsoft Sentinel Solution for SAP deployment troubleshooting
-description: Learn how to troubleshoot specific issues that may occur in your Microsoft Sentinel Solution for SAP deployment.
-author: limwainstein
-ms.author: lwainstein
+title: Microsoft Sentinel solution for SAP® applications deployment troubleshooting
+description: Learn how to troubleshoot specific issues that may occur in your Microsoft Sentinel solution for SAP® applications deployment.
+author: batamig
+ms.author: bagol
 ms.topic: troubleshooting
 ms.date: 01/09/2023
 ---
 
-# Troubleshooting your Microsoft Sentinel Solution for SAP deployment
+# Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment
 
 ## Useful Docker commands
 
 When troubleshooting your Microsoft Sentinel for SAP data connector, you may find the following commands useful:
 
-|Function  |Command  |
-|---------|---------|
-|**Stop the Docker container**     |  `docker stop sapcon-[SID]`       |
-|**Start the Docker container**     |`docker start sapcon-[SID]`         |
-|**View Docker system logs**     |  `docker logs -f sapcon-[SID]`       |
-|**Enter the Docker container**     |   `docker exec -it sapcon-[SID] bash`      |
+| Function  | Command  |
+| --------- | -------- |
+| **Stop the Docker container**  | `docker stop sapcon-[SID]`          |
+| **Start the Docker container** | `docker start sapcon-[SID]`         |
+| **View Docker system logs**    | `docker logs -f sapcon-[SID]`       |
+| **Enter the Docker container** | `docker exec -it sapcon-[SID] bash` |
 
 
 For more information, see the [Docker CLI documentation](https://docs.docker.com/engine/reference/commandline/docker/).
@@ -71,13 +71,16 @@ The change takes effect two minutes after you save the file. You don't need to r
 
 ## View all container execution logs
 
-Connector execution logs for your Microsoft Sentinel Solution for SAP data connector deployment are stored on your VM in **/opt/sapcon/[SID]/log/**. Log filename is **OmniLog.log**. A history of logfiles is kept, suffixed with *.[number]* such as **OmniLog.log.1**, **OmniLog.log.2** etc
+Connector execution logs for your Microsoft Sentinel solution for SAP® applications data connector deployment are stored on your VM in **/opt/sapcon/[SID]/log/**. Log filename is **OmniLog.log**. A history of logfiles is kept, suffixed with *.[number]* such as **OmniLog.log.1**, **OmniLog.log.2** etc
 
 ## Review and update the Microsoft Sentinel for SAP data connector configuration
 
 If you want to check the Microsoft Sentinel for SAP data connector configuration file and make manual updates, perform the following steps:
 
-1. On your VM, open the **sapcon/[SID]/systemconfig.ini** file.
+1. On your VM, open the configuration file:
+
+    - **sapcon/[SID]/systemconfig.json** for agent versions released on or after June 22, 2023.
+    - **sapcon/[SID]/systemconfig.ini** for agent versions released before June 22, 2023.
 
 1. Update the configuration if needed, and save the file.
 
@@ -111,7 +114,17 @@ The following steps reset the connector and reingest SAP logs from the last 30 m
 
 Make sure to [Review system logs](#review-system-logs) when you're done.
 
+### Missing IP address or transaction code fields in the SAP audit log
 
+This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect additional fields in the `ABAPAuditLog_CL` and `SAPAuditLog` tables. 
+
+If you're using SAP BASIS versions higher than 7.5 SP12 and missing IP address or transaction code fields in the SAP audit log, verify that the SAP system from which you're extracting the data contains the relevant change requests (transports). To learn more, review the [Retrieve additional information from SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional) section in the prerequisites.
+
+### No data is showing in the SAP table data log
+
+This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect table data log changes in the `ABAPTableDataLog_CL` table. 
+
+If no data is showing in the `ABAPTableDataLog_CL` table, verify that the SAP system from which you're extracting the data contains the relevant change requests (transports). To learn more, review the [Retrieve additional information from SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional) section in the prerequisites.
 
 ## Common issues
 
@@ -199,16 +212,21 @@ If you get an error message similar to: **..Missing Backend RFC Authorization..*
 
 ### Missing data in your workbooks or alerts
 
-If you find that you're missing data in your Microsoft Sentinel workbooks or alerts, ensure that the **Auditlog** policy is properly enabled on the SAP side, with no errors in the log file. 
+If you find that you're missing data in your Microsoft Sentinel workbooks or alerts, ensure that the **Auditlog** policy is properly enabled on the SAP side, with no errors in the log file.
 
 Use the **RSAU_CONFIG_LOG** transaction for this step.
-
 
 ### Missing SAP change request
 
 If you see errors that you're missing a required SAP change request, make sure you've imported the correct SAP change request for your system.
 
 For more information, see [ValidateSAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps).
+
+### No records / late records
+
+The agent relies on time zone information to be correct. If you see that there are no records in the SAP audit and change logs, or if records are constantly a few hours behind, check if SAP report TZCUSTHELP presents any errors. Follow [SAP note 481835](<https://me.sap.com/notes/481835/E>) for more details.
+
+
 
 ### Network connectivity issues
 
@@ -303,27 +321,31 @@ To check for misconfigurations, run the **RSDBTIME** report in transaction **SE3
     docker start sapcon-[SID]
     ```
 
+### Missing IP address or transaction code fields in the SAP audit log
+
+This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect additional fields in the ABAPAuditLog_CL and SAPAuditLog tables. If you are using SAP BASIS versions higher than 7.5 SP12 and missing IP address or transaction code fields in the SAP audit log, verify that the SAP system from which you are extracting the data contains the relevant change requests (transports). See [Retrieve additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional) for more details.
+
+### No data is showing in the SAP table data log
+
+This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect table data log changes in the ABAPTableDataLog_CL table. If no data is showing in the ABAPTableDataLog_CL, verify that the SAP system from which you are extracting the data contains the relevant change requests (transports). See [Retrieve additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional) for more details.
+
 ## Next steps
 
-Learn more about the Microsoft Sentinel Solution for SAP:
+Learn more about the Microsoft Sentinel solution for SAP® applications:
 
-- [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Deploy SAP security content](deploy-sap-security-content.md)
 - [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
-Troubleshooting:
-
-- [Configure SAP Transport Management System](configure-transport.md)
-
 Reference files:
 
-- [Microsoft Sentinel Solution for SAP solution data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel Solution for SAP solution: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP® applications solution data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP® applications solution: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)

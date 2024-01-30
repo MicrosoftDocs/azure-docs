@@ -76,7 +76,7 @@ A response includes these additional read-only attributes:
 - `nbf`: `IntDate` contains the value of the "not before" date of the X.509 certificate.  
 
 > [!Note] 
-> If a Key Vault certificate expires, its addressable key and secret become inoperable.  
+> If a Key Vault certificate expires it can still be retrieved, but certificate may become inoperable in scenarios like TLS protection where expiration of certificate is validated.  
 
 ### Tags
 
@@ -102,7 +102,7 @@ At a high level, a certificate policy contains the following information:
 
   - Trigger: Specified as days before expiration or lifetime span percentage.  
   - Action: `emailContacts` or `autoRenew`.  
-
+- Certificates validation type: organization validated (OV-SSL) and extended validation (EV-SSL) for DigiCert and GlobalSign issuers.
 - Parameters about the certificate issuer to use for issuing X.509 certificates.  
 - Attributes associated with the policy. 
 
@@ -172,10 +172,6 @@ As an example, here are some use cases of using certificates to secure communica
 * **Intranet/internet websites**: Protect access to your intranet site and ensure encrypted data transfer over the internet through TLS certificates.
 * **IoT and networking devices**: Protect and secure your devices by using certificates for authentication and communication.
 * **Cloud/multicloud**: Secure cloud-based applications on-premises, cross-cloud, or in your cloud provider's tenant.
-
-### Code signing
-
-A certificate can help secure the code/script of software, to ensure that the author can share the software over the internet without interference by malicious entities. After the author signs the code by using a certificate and taking advantage of code-signing technology, the software is marked with a stamp of authentication that displays the author and their website. The certificate used in code signing helps validate the software's authenticity, promoting end-to-end security.
 
 ## Next steps
 - [Certificate creation methods](create-certificate.md)

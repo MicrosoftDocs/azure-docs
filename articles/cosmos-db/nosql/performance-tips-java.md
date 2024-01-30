@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Performance tips for Azure Cosmos DB Sync Java SDK v2
@@ -172,7 +172,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     response.getRequestCharge();
     ```             
 
-    The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](../request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
+    The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](../request-units.md) and the [request unit calculator](https://cosmos.azure.com/capacitycalculator).
    <a id="429"></a>
 1. **Handle rate limiting/request rate too large**
 

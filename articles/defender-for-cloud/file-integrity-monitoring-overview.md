@@ -1,8 +1,8 @@
 ---
 title: Track changes to system files and registry keys
 description: Learn about tracking changes to system files and registry keys with file integrity monitoring in Microsoft Defender for Cloud.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ms.date: 11/14/2022
 ---

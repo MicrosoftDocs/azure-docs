@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a vault
 
@@ -58,8 +58,8 @@ A certificate created in Key Vault can be:
 
 The following CAs are currently partnered providers with Key Vault:
 
-- DigiCert: Key Vault offers OV TLS/SSL certificates.
-- GlobalSign: Key Vault offers OV TLS/SSL certificates.
+- DigiCert: Key Vault offers OV or EV TLS/SSL certificates.
+- GlobalSign: Key Vault offers OV or EV TLS/SSL certificates.
 
 Key Vault auto-rotates certificates through established partnerships with CAs. Because Key Vault automatically requests and renews certificates through the partnership, auto-rotation capability isn't applicable for certificates created with CAs that aren't partnered with Key Vault.
 

@@ -1,10 +1,10 @@
 ---
-title: Add service principal to Azure Analysis Services admin role | Microsoft Docs
+title: Learn how to add a service principal to Azure Analysis Services admin role | Microsoft Docs
 description: Learn how to add an automation service principal to the Azure Analysis Services server admin role
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 05/14/2021
+ms.date: 01/24/2023
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
@@ -13,26 +13,26 @@ ms.custom: fasttrack-edit
 
 # Add a service principal to the server administrator role 
 
- To automate unattended PowerShell tasks, a service principal must have **server administrator** privileges on the Analysis Services server being managed. This article describes how to add a service principal to the server administrators role on an Azure AS server. You can do this using SQL Server Management Studio or a Resource Manager template. 
+ To automate unattended PowerShell tasks, a service principal must have **server administrator** privileges on the Analysis Services server being managed. This article describes how to add a service principal to the server administrators role on an Analysis Services server. You can do this using SQL Server Management Studio or a Resource Manager template. 
 
 > [!NOTE]
 > Service principals must be added directly to the server administrator role. Adding a service principal to a security group, and then adding that security group to the server administrator role is not supported. 
 
 ## Before you begin
-Before completing this task, you must have a service principal registered in Azure Active Directory.
+Before completing this task, you must have a service principal registered in Microsoft Entra ID.
 
 [Create service principal - Azure portal](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Create service principal - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## Using SQL Server Management Studio
 
-You can configure server administrators using SQL Server Management Studio (SSMS). To complete this task, you must have [server administrator](analysis-services-server-admins.md) permissions on the Azure AS server. 
+You can configure server administrators using SQL Server Management Studio (SSMS). To complete this task, you must have [server administrator](analysis-services-server-admins.md) permissions on the Analysis Services server. 
 
-1. In SSMS, connect to your Azure AS server.
+1. In SSMS, connect to your Analysis Services server.
 2. In **Server Properties** > **Security**, click **Add**.
 3. In **Select a User or Group**, search for your registered app by name, select, and then click **Add**.
 
-    ![Search for service principal account](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
+    ![Screenshot that shows Search for service principal account.](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
 4. Verify the service principal account ID, and then click **OK**.
     
@@ -95,21 +95,7 @@ The following Resource Manager template deploys an Analysis Services server with
 
 ## Using managed identities
 
-A managed identity can also be added to the Analysis Services Admins list. For example, you might have a [Logic App with a system-assigned managed identity](../logic-apps/create-managed-service-identity.md), and want to grant it the ability to administer your Analysis Services server.
-
-In most parts of the Azure portal and APIs, managed identities are identified using their service principal object ID. However, Analysis Services requires that they be identified using their client ID. To obtain the client ID for a service principal, you can use the Azure CLI:
-
-```azurecli
-az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
-```
-
-Alternatively you can use PowerShell:
-
-```powershell
-(Get-AzureADServicePrincipal -ObjectId <ManagedIdentityServicePrincipalObjectId>).AppId
-```
-
-You can then use this client ID in conjunction with the tenant ID to add the managed identity to the Analysis Services Admins list, as described above.
+Managed identies that are added to database or server roles will be unable to login to the service or do any operations. Managed identities for service principals are not supported in Azure Analysis Services.
 
 ## Related information
 

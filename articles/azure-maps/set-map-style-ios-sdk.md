@@ -1,9 +1,9 @@
 ---
 title: Set a map style in iOS maps | Microsoft Azure Maps
 description: Learn two ways of setting the style of a map. See how to use the Azure Maps iOS SDK in either the layout file or the activity class to adjust the style.
-author: stevemunk
-ms.author: v-munksteve
-ms.date: 10/22/2021
+author: sinnypan
+ms.author: sipa
+ms.date: 07/22/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -11,14 +11,12 @@ services: azure-maps
 
 # Set map style in the iOS SDK (Preview)
 
-This article shows you two ways to set map styles using the Azure Maps iOS SDK. Azure Maps has six different maps styles to choose from. For more information about supported map styles, see [supported map styles in Azure Maps](supported-map-styles.md).
+This article shows you two ways to set map styles using the Azure Maps iOS SDK. Azure Maps has six different maps styles to choose from. For more information about supported map styles, see [supported map styles in Azure Maps].
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an iOS app](quick-ios-app.md) document.
-
-> [!IMPORTANT]
-> The procedure in this section requires an Azure Maps account in Gen 1 or Gen 2 pricing tier. For more information on pricing tiers, see [Choose the right pricing tier in Azure Maps](choose-pricing-tier.md).
+- Complete the [Create an iOS app] quickstart.
+- An [Azure Maps account].
 
 ## Set map style in the map control init
 
@@ -74,7 +72,7 @@ map.setCameraOptions([
 ])
 ```
 
-Often it is desirable to focus the map over a set of data. A bounding box can be calculated from features using the `BoundingBox.fromData(_:)` method and can be passed into the `bounds` option of the map camera. When setting a map view based on a bounding box, it's often useful to specify a `padding` value to account for the point size of data points being rendered as bubbles or symbols. The following code shows how to set all optional camera options when using a bounding box to set the position of the camera.
+Often it's desirable to focus the map over a set of data. A bounding box can be calculated from features using the `BoundingBox.fromData(_:)` method and can be passed into the `bounds` option of the map camera. When setting a map view based on a bounding box, it's often useful to specify a `padding` value to account for the point size of data points being rendered as bubbles or symbols. The following code shows how to set all optional camera options when using a bounding box to set the position of the camera.
 
 ```swift
 //Set the camera of the map using a bounding box.
@@ -90,7 +88,7 @@ map.setCameraBoundsOptions([
 ])
 ```
 
-The aspect ratio of a bounding box may not be the same as the aspect ratio of the map, as such the map will often show the full bounding box area, but will often only be tight vertically or horizontally.
+The aspect ratio of a bounding box may not be the same as the aspect ratio of the map, as such the map often shows the full bounding box area, and are often only tight vertically or horizontally.
 
 ### Animate map view
 
@@ -98,8 +96,8 @@ When setting the camera options of the map, animation options can also be used t
 
 | Option | Description |
 |--------|-------------|
-| `animationDuration(_ duration: Double)` | Specifies how long the camera will animate between the views in milliseconds (ms). |
-| `animationType(_ animationType: AnimationType)` | Specifies the type of animation transition to perform.<br/><br/> - `.jump` - an immediate change.<br/> - `.ease` - gradual change of the camera's settings.<br/> - `.fly` - gradual change of the camera's settings following an arc resembling flight. |
+| `animationDuration(_ duration: Double)` | Specifies how long the camera animates between the views in milliseconds (ms). |
+| `animationType(_ animationType: AnimationType)` | Specifies the type of animation transition to perform.<br><br> - `.jump` - an immediate change.<br> - `.ease` - gradual change of the camera's settings.<br> - `.fly` - gradual change of the camera's settings following an arc resembling flight. |
 
 The following code shows how to animate the map view using a `.fly` animation over a duration of three seconds.
 
@@ -112,7 +110,7 @@ map.setCameraOptions([
 ])
 ```
 
-The following demonstrates the above code animating the map view from New York to Seattle.
+The following animation demonstrates the above code animating the map view from New York to Seattle.
 
 :::image type="content" source="./media/ios-sdk/set-map-style-ios/ios-animate-camera.gif" alt-text="Map animating the camera from New York to Seattle.":::
 
@@ -120,5 +118,11 @@ The following demonstrates the above code animating the map view from New York t
 
 See the following articles for more code samples to add to your maps:
 
-- [Add a symbol layer](add-symbol-layer-ios.md)
-- [Add a bubble layer](add-bubble-layer-map-ios.md)
+- [Add a symbol layer]
+- [Add a bubble layer]
+
+[Add a bubble layer]: add-bubble-layer-map-ios.md
+[Add a symbol layer]: add-symbol-layer-ios.md
+[Azure Maps account]: https://azure.microsoft.com/services/azure-maps
+[Create an iOS app]: quick-ios-app.md
+[supported map styles in Azure Maps]: supported-map-styles.md

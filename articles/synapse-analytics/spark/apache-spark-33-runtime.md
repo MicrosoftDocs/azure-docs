@@ -1,21 +1,17 @@
 ---
-title: Azure Synapse Runtime for Apache Spark 3.3
-description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 3.3.
-author: eskot
+title: Azure Synapse Runtime for Apache Spark 3.3 
+description: New runtime is GA and ready for production workloads. Spark 3.3.1, Python 3.10, Delta Lake 2.2.
+author: ekote
+ms.author: eskot 
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
 ms.date: 11/17/2022 
-ms.author: eskot
-ms.custom: has-adal-ref, ignite-2022
-ms.reviewer: eskot
+ms.custom: has-adal-ref, ignite-2022, devx-track-python
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.3 (Preview)
-Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.3.  
-
-> [!NOTE]
-> Azure Synapse Runtime for Apache Spark 3.3 is currently in Public Preview. Please expect some major components version changes as well. 
+# Azure Synapse Runtime for Apache Spark 3.3 (GA)
+Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.3. 
 
 ## Component versions
 
@@ -26,346 +22,556 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Java | 1.8.0_282    |
 | Scala | 2.12.15      |
 | Hadoop | 3.3.3        |
-| .NET Core | 3.1          |
-| .NET | 2.0.0        |
-| Delta Lake | 2.1.0        |
-| Python | 3.8          |
-| R (Preview) | 4.2.2        | 
+| Delta Lake | 2.2.0        |
+| Python | 3.10         |
+| R (Preview) | 4.2.2        |
+
+[Synapse-Python310-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python310-CPU.yml) contains the list of libraries shipped in the default Python 3.10 environment in Azure Synapse Spark.
+
+
+>[!IMPORTANT]
+> .NET for Apache Spark
+> * The [.NET for Apache Spark](https://github.com/dotnet/spark) is an open-source project under the .NET Foundation that currently requires the .NET 3.1 library, which has reached the out-of-support status. We would like to inform users of Azure Synapse Spark of the removal of the .NET for Apache Spark library in the Azure Synapse Runtime for Apache Spark version 3.3. Users may refer to the [.NET Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) for more details on this matter.
+>
+> * As a result, it will no longer be possible for users to utilize Apache Spark APIs via C# and F#, or execute C# code in notebooks within Synapse or through Apache Spark Job definitions in Synapse. It is important to note that this change affects only Azure Synapse Runtime for Apache Spark 3.3 and above. 
+> 
+> * We will continue to support .NET for Apache Spark in all previous versions of the Azure Synapse Runtime according to [their lifecycle stages](runtime-for-apache-spark-lifecycle-and-supportability.md). However, we do not have plans to support .NET for Apache Spark in Azure Synapse Runtime for Apache Spark 3.3 and future versions. We recommend that users with existing workloads written in C# or F# migrate to Python or Scala. Users are advised to take note of this information and plan accordingly.
 
 ## Libraries
 The following sections present the libraries included in Azure Synapse Runtime for Apache Spark 3.3.
 
-### Scala and Java libraries
-| **Library**                                 | **Version**                      | **Library**                         | **Version**                     | **Library**                                    | **Version**                     |
-|:-------------------------------------------:|:--------------------------------:|:-----------------------------------:|:-------------------------------:|:----------------------------------------------:|:-------------------------------:|
-| activation                                  | 1.1.1                         | httpclient5                         | 5.1.3                        | opentracing-api                                | 0.33.0                       |
-| adal4j                                      | 1.6.3                         | httpcore                            | 4.4.14                       | opentracing-noop                               | 0.33.0                       |
-| aircompressor                               | 0.21                          | httpmime                            | 4.5.13                       | opentracing-util                               | 0.33.0                       |
-| algebra                                     | 2.12-2.0.1                    | hyperspace-core-spark3.2_2.12       | 0.5.1-synapse                | orc-core                                       | 1.7.6                        |
-| aliyun-java-sdk-core                        | 4.5.10                        | impulse-core_spark3.2_2.12          | 1.0.4                        | orc-mapreduce                                  | 1.7.6                        |
-| aliyun-java-sdk-kms                         | 2.11.0                        | impulse-telemetry-mds_spark3.2_2.12 | 1.0.4                        | orc-shims                                      | 1.7.6                        |
-| aliyun-java-sdk-ram                         | 3.1.0                         | ini4j                               | 0.5.4                        | oro                                            | 2.0.8                        |
-| aliyun-sdk-oss                              | 3.13.0                        | isolation-forest_3.2.0_2.12         | 2.0.8                        | osgi-resource-locator                          | 1.0.3                        |
-| annotations                                 | 17.0.0                        | istack-commons-runtime              | 3.0.8                        | paranamer                                      | 2.8                          |
-| antlr-runtime                               | 3.5.2                         | ivy                                 | 2.5.1                        | parquet-column                                 | 1.12.3                       |
-| antlr4-runtime                              | 4.8                           | jackson-annotations                 | 2.13.4                       | parquet-common                                 | 1.12.3                       |
-| aopalliance-repackaged                      | 2.6.1                         | jackson-core                        | 2.13.4                       | parquet-encoding                               | 1.12.3                       |
-| arpack_combined_all                         | 0.1                           | jackson-core-asl                    | 1.9.13                       | parquet-format-structures                      | 1.12.3                       |
-| arpack                                      | 2.2.1                         | jackson-databind                    | 2.13.4.1                     | parquet-hadoop                                 | 1.12.3                       |
-| arrow-format                                | 7.0.0                         | jackson-dataformat-cbor             | 2.13.4                       | parquet-jackson                                | 1.12.3                       |
-| arrow-memory-core                           | 7.0.0                         | jackson-mapper-asl                  | 1.9.13                       | peregrine-spark                                | 0.10.2                       |
-| arrow-memory-netty                          | 7.0.0                         | jackson-module-scala_2.12           | 2.13.4                       | pickle                                         | 1.2                          |
-| arrow-vector                                | 7.0.0                         | jakarta.annotation-api              | 1.3.5                        | postgresql                                     | 42.2.9                       |
-| audience-annotations                        | 0.5.0                         | jakarta.inject                      | 2.6.1                        | protobuf-java                                  | 2.5.0                        |
-| avro                                        | 1.11.0                        | jakarta.servlet-api                 | 4.0.3                        | proton-j                                       | 0.33.8                       |
-| avro-ipc                                    | 1.11.0                        | jakarta.validation-api              | 2.0.2                        | py4j                                           | 0.10.9.5                     |
-| avro-mapred                                 | 1.11.0                        | jakarta.ws.rs-api                   | 2.1.6                        | qpid-proton-j-extensions                       | 1.2.4                        |
-| aws-java-sdk-bundle                         | 1.11.1026                     | jakarta.xml.bind-api                | 2.3.2                        | RoaringBitmap                                  | 0.9.25                       |
-| azure-data-lake-store-sdk                   | 2.3.9                         | janino                              | 3.0.16                       | rocksdbjni                                     | 6.20.3                       |
-| azure-eventhubs                             | 3.3.0                         | javassist                           | 3.25.0-GA                    | scala-collection-compat_2.12                   | 2.1.1                        |
-| azure-eventhubs-spark_2.12                  | 2.3.22                        | javatuples                          | 1.2                          | scala-compiler                                 | 2.12.15                      |
-| azure-keyvault-core                         | 1.0.0                         | javax.jdo                           | 3.2.0-m3                     | scala-java8                                    | compat_2.12-0.9.0            |
-| azure-storage                               | 7.0.1                         | javolution                          | 5.5.1                        | scala-library                                  | 2.12.15                      |
-| azure-synapse-ml-pandas                     | 2.12-0.1.1                    | jaxb-api                            | 2.2.11                       | scala-parser-combinators_2.12                  | 1.1.2                        |
-| azure-synapse-ml-predict                    | 2.12-1.0                      | jaxb-runtime                        | 2.3.2                        | scala-reflect                                  | 2.12.15                      |
-| blas                                        | 2.2.1                         | jcl-over-slf4j                      | 1.7.32                       | scala-xml_2.12                                 | 1.2.0                        |
-| bonecp                                      | 0.8.0.RELEASE                 | jdo-api                             | 3.0.1                        | scalactic_2.12                                 | 3.0.5                        |
-| breeze                                      | 2.12-1.2                      | jdom2                               | 2.0.6                        | shapeless_2.12                                 | 2.3.7                        |
-| breeze-macros                               | 2.12-1.2                      | jersey-client                       | 2.36                         | shims                                          | 0.9.25                       |
-| cats-kernel                                 | 2.12-2.1.1                    | jersey-common                       | 2.36                         | slf4j-api                                      | 1.7.32                       |
-| chill                                       | 2.12-0.10.0                   | jersey-container-servlet            | 2.36                         | snappy-java                                    | 1.1.8.4                      |
-| chill-java                                  | 0.10.0                        | jersey-container-servlet-core       | 2.36                         | spark_diagnostic_cli                           | 2.0.0_spark-3.3.0            |
-| client-jar-sdk                              | 1.14.0                        | jersey-hk2                          | 2.36                         | spark-3.3-advisor-core_2.12                    | 1.0.14                       |
-| cntk                                        | 2.4                           | jersey-server                       | 2.36                         | spark-3.3-rpc-history-server-app-listener_2.12 | 1.0.0                        |
-| commons-cli                                 | 1.5.0                         | jettison                            | 1.1                          | spark-3.3-rpc-history-server-core_2.12         | 1.0.0                        |
-| commons-codec                               | 1.15                          | jetty-util                          | 9.4.48.v20220622             | spark-avro_2.12                                | 3.3.1.5.2-76471634           |
-| commons-collections                         | 3.2.2                         | jetty-util-ajax                     | 9.4.48.v20220622             | spark-catalyst_2.12                            | 3.3.1.5.2-76471634           |
-| commons-collections4                        | 4.4                           | JLargeArrays                        | 1.5                          | spark-cdm-connector-assembly                   | 1.19.2                       |
-| commons-compiler                            | 3.0.16                        | jline                               | 2.14.6                       | spark-core_2.12                                | 3.3.1.5.2-76471634           |
-| commons-compress                            | 1.21                          | joda-time                           | 2.10.13                      | spark-enhancement_2.12                         | 3.3.1.5.2-76471634           |
-| commons-crypto                              | 1.1.0                         | jodd-core                           | 3.5.2                        | spark-enhancementui_2.12                       | 3.0.0                        |
-| commons-dbcp                                | 1.4                           | jpam                                | 1.1                          | spark-graphx_2.12                              | 3.3.1.5.2-76471634           |
-| commons-io                                  | 2.11.0                        | jsch                                | 0.1.54                       | spark-hadoop-cloud_2.12                        | 3.3.1.5.2-76471634           |
-| commons-lang                                | 2.6                           | json                                | 1.8                          | spark-hive_2.12                                | 3.3.1.5.2-76471634           |
-| commons-lang3                               | 3.12.0                        | json                                | 20090211                     | spark-hive-thriftserver_2.12                   | 3.3.1.5.2-76471634           |
-| commons-logging                             | 1.1.3                         | json-simple                         | 1.1                          | spark-kusto-synapse-connector_3.1_2.12         | 1.1.1                        |
-| commons-math3                               | 3.6.1                         | json4s-ast_2.12                     | 3.7.0-M11                    | spark-kvstore_2.12                             | 3.3.1.5.2-76471634           |
-| commons-pool                                | 1.5.4                         | json4s-core_2.12                    | 3.7.0-M11                    | spark-launcher_2.12                            | 3.3.1.5.2-76471634           |
-| commons-pool2                               | 2.11.1                        | json4s-jackson_2.12                 | 3.7.0-M11                    | spark-lighter-contract_2.12                    | 2.0.0_spark-3.3.0            |
-| commons-text                                | 1.10.0                        | json4s-scalap_2.12                  | 3.7.0-M11                    | spark-lighter-core_2.12                        | 2.0.0_spark-3.3.0            |
-| compress-lzf                                | 1.1                           | jsr305                              | 3.0.0                        | spark-microsoft-tools_2.12                     | 3.3.1.5.2-76471634           |
-| config                                      | 1.3.4                         | jta                                 | 1.1                          | spark-mllib_2.12                               | 3.3.1.5.2-76471634           |
-| core                                        | 1.1.2                         | JTransforms                         | 3.1                          | spark-mllib-local_2.12                         | 3.3.1.5.2-76471634           |
-| cos_api-bundle                              | 5.6.19                        | jul-to-slf4j                        | 1.7.32                       | spark-mssql-connector                          | 1.2.0                        |
-| cosmos-analytics-spark-3.2.1-connector      | 1.6.3                         | kafka-clients                       | 2.8.1                        | spark-network-common_2.12                      | 3.3.1.5.2-76471634           |
-| curator-client                              | 2.13.0                        | kryo-shaded                         | 4.0.2                        | spark-network-shuffle_2.12                     | 3.3.1.5.2-76471634           |
-| curator-framework                           | 2.13.0                        | kusto-data                          | 2.8.2                        | spark-repl_2.12                                | 3.3.1.5.2-76471634           |
-| curator-recipes                             | 2.13.0                        | kusto-ingest                        | 2.8.2                        | spark-sketch_2.12                              | 3.3.1.5.2-76471634           |
-| datanucleus-api-jdo                         | 4.2.4                         | kusto-spark_synapse_3.0_2.12        | 2.9.3                        | spark-sql_2.12                                 | 3.3.1.5.2-76471634           |
-| datanucleus-core                            | 4.1.17                        | lapack                              | 2.2.1                        | spark-sql-kafka-0-10_2.12                      | 3.3.1.5.2-76471634           |
-| datanucleus-rdbms                           | 4.1.19                        | leveldbjni-all                      | 1.8                          | spark-streaming_2.12                           | 3.3.1.5.2-76471634           |
-| delta-core_2.12                             | 2.1.0.2                       | libfb303                            | 0.9.3                        | spark-streaming-kafka-0-10_2.12                | 3.3.1.5.2-76471634           |
-| delta-storage                               | 2.1.0.2                       | libshufflejni.so                    |                                 | spark-streaming-kafka-0-10-assembly_2.12       | 3.3.1.5.2-76471634           |
-| derby                                       | 10.14.2.0                     | libthrift                           | 0.12.0                       | spark-tags_2.12                                | 3.3.1.5.2-76471634           |
-| dropwizard-metrics-hadoop-metrics2-reporter | 0.1.2                         | libvegasjni.so                      |                                 | spark-token-provider-kafka-0-10_2.12           | 3.3.1.5.2-76471634           |
-| flatbuffers-java                            | 1.12.0                        | lightgbmlib                         | 3.2.110                      | spark-unsafe_2.12                              | 3.3.1.5.2-76471634           |
-| fluent-logger-jar-with-dependencies         | jdk8                          | log4j-1.2-api                       | 2.17.2                       | spark-yarn_2.12                                | 3.3.1.5.2-76471634           |
-| genesis-client_2.12                         | 0.19.0-jar-with-dependencies  | log4j-api                           | 2.17.2                       | SparkCustomEvents                              | 3.2.0-1.0.5                  |
-| gson                                        | 2.8.6                         | log4j-core                          | 2.17.2                       | sparknativeparquetwriter_2.12                  | 0.6.0-spark-3.3              |
-| guava                                       | 14.0.1                        | log4j-slf4j-impl                    | 2.17.2                       | spire_2.12                                     | 0.17.0                       |
-| hadoop-aliyun                               | 3.3.3.5.2-76471634            | lz4-java                            | 1.8.0                        | spire-macros_2.12                              | 0.17.0                       |
-| hadoop-annotations                          | 3.3.3.5.2-76471634            | mdsdclientdynamic                   | 2.0                          | spire-platform_2.12                            | 0.17.0                       |
-| hadoop-aws                                  | 3.3.3.5.2-76471634            | metrics-core                        | 4.2.7                        | spire-util_2.12                                | 0.17.0                       |
-| hadoop-azure                                | 3.3.3.5.2-76471634            | metrics-graphite                    | 4.2.7                        | spray-json_2.12                                | 1.3.5                        |
-| hadoop-azure-datalake                       | 3.3.3.5.2-76471634            | metrics-jmx                         | 4.2.7                        | sqlanalyticsconnector                          | 3.3.0-2.0.8                  |
-| hadoop-client-api                           | 3.3.3.5.2-76471634            | metrics-json                        | 4.2.7                        | ST4                                            | 4.0.4                        |
-| hadoop-client-runtime                       | 3.3.3.5.2-76471634            | metrics-jvm                         | 4.2.7                        | stax-api                                       | 1.0.1                        |
-| hadoop-cloud-storage                        | 3.3.3.5.2-76471634            | microsoft-catalog-metastore-client  | 1.0.83                       | stream                                         | 2.9.6                        |
-| hadoop-cos                                  | 3.3.3.5.2-76471634            | microsoft-log4j-etwappender         | 1.0                          | structuredstreamforspark_2.12                  | 3.2.0-2.3.0                  |
-| hadoop-openstack                            | 3.3.3.5.2-76471634            | microsoft-spark                  |                                 | super-csv                                      | 2.2.0                        |
-| hadoop-shaded-guava                         | 1.1.1                         | minlog                              | 1.3.0                        | synapseml_2.12                                 | 0.10.1-22-95f451ab-SNAPSHOT  |
-| hadoop-yarn-server-web-proxy                | 3.3.3.5.2-76471634            | mssql-jdbc                          | 8.4.1.jre8                   | synapseml-cognitive_2.12                       | 0.10.1-22-95f451ab-SNAPSHOT  |
-| hdinsight-spark-metrics                     | 3.2.0-1.0.5                   | mysql-connector-java                | 8.0.18                       | synapseml-core_2.12                            | 0.10.1-22-95f451ab-SNAPSHOT  |
-| HikariCP                                    | 2.5.1                         | netty-all                           | 4.1.74.Final                 | synapseml-deep-learning_2.12                   | 0.10.1-22-95f451ab-SNAPSHOT  |
-| hive-beeline                                | 2.3.9                         | netty-buffer                        | 4.1.74.Final                 | synapseml-internal_2.12                        | 0.0.0-99-bda3814c-SNAPSHOT   |
-| hive-cli                                    | 2.3.9                         | netty-codec                         | 4.1.74.Final                 | synapseml-lightgbm_2.12                        | 0.10.1-22-95f451ab-SNAPSHOT  |
-| hive-common                                 | 2.3.9                         | netty-common                        | 4.1.74.Final                 | synapseml-opencv_2.12                          | 0.10.1-22-95f451ab-SNAPSHOT  |
-| hive-exec                                   | 2.3.9-core                    | netty-handler                       | 4.1.74.Final                 | synapseml-vw_2.12                              | 0.10.1-22-95f451ab-SNAPSHOT  |
-| hive-jdbc                                   | 2.3.9                         | netty-resolver                      | 4.1.74.Final                 | synfs                                          | 3.3.0-20221106.6             |
-| hive-llap-common                            | 2.3.9                         | netty-tcnative-classes              | 2.0.48.Final                 | threeten-extra                                 | 1.5.0                        |
-| hive-metastore                              | 2.3.9                         | netty-transport                     | 4.1.74.Final                 | tink                                           | 1.6.1                        |
-| hive-serde                                  | 2.3.9                         | netty-transport-classes-epoll       | 4.1.74.Final                 | TokenLibrary-assembly                          | 3.3.2                        |
-| hive-service-rpc                            | 3.1.2                         | netty-transport-classes-kqueue      | 4.1.74.Final                 | transaction-api                                | 1.1                          |
-| hive-shims-0.23                             | 2.3.9                         | netty-transport-native-epoll        | 4.1.74.Final-linux-aarch_64  | tridenttokenlibrary-assembly                   | 1.0.8                        |
-| hive-shims                                  | 2.3.9                         | netty-transport-native-epoll        | 4.1.74.Final-linux-x86_64    | univocity-parsers                              | 2.9.1                        |
-| hive-shims-common                           | 2.3.9                         | netty-transport-native-kqueue       | 4.1.74.Final-osx-aarch_64    | VegasConnector                                 | 1.2.02_2.12_3.2              |
-| hive-shims-scheduler                        | 2.3.9                         | netty-transport-native-kqueue       | 4.1.74.Final-osx-x86_64      | velocity                                       | 1.5                          |
-| hive-storage-api                            | 2.7.2                         | netty-transport-native-unix-common  | 4.1.74.Final                 | vw-jni                                         | 8.9.1                        |
-| hive-vector-code-gen                        | 2.3.9                         | notebook-utils                      | 3.3.0-20221106.6             | wildfly-openssl                                | 1.0.7.Final                  |
-| hk2-api                                     | 2.6.1                         | objenesis                           | 3.2                          | xbean-asm9-shaded                              | 4.20                         |
-| hk2-locator                                 | 2.6.1                         | onnxruntime_gpu                     | 1.8.1                        | xz                                             | 1.8                          |
-| hk2-utils                                   | 2.6.1                         | opencsv                             | 2.3                          | zookeeper                                      | 3.6.2.5.2-76471634           |
-| httpclient                                  | 4.5.13                        | opencv                              | 3.2.0-1                      | zookeeper-jute                                 | 3.6.2.5.2-76471634           |
-|                                             |                                  |                                     |                                 | zstd-jni                                       | 1.5.2-1                      |
+### Scala and Java default libraries
 
-
-
+| GroupID                                | ArtifactID                                  | Version                     |
+|----------------------------------------|---------------------------------------------|-----------------------------|
+| com.aliyun                             | aliyun-java-sdk-core                        | 4.5.10                      |
+| com.aliyun                             | aliyun-java-sdk-kms                         | 2.11.0                      |
+| com.aliyun                             | aliyun-java-sdk-ram                         | 3.1.0                       |
+| com.aliyun                             | aliyun-sdk-oss                              | 3.13.0                      |
+| com.amazonaws                          | aws-java-sdk-bundle                         | 1.12.1026                   |
+| com.chuusai                            | shapeless_2.12                              | 2.3.7                       |
+| com.clearspring.analytics              | stream                                      | 2.9.6                       |
+| com.esotericsoftware                   | kryo-shaded                                 | 4.0.2                       |
+| com.esotericsoftware                   | minlog                                      | 1.3.0                       |
+| com.fasterxml.jackson                  | jackson-annotations                         | 2.13.4                      |
+| com.fasterxml.jackson                  | jackson-core                                | 2.13.4                      |
+| com.fasterxml.jackson                  | jackson-core-asl                            | 1.9.13                      |
+| com.fasterxml.jackson                  | jackson-databind                            | 2.13.4.1                    |
+| com.fasterxml.jackson                  | jackson-dataformat-cbor                     | 2.13.4                      |
+| com.fasterxml.jackson                  | jackson-mapper-asl                          | 1.9.13                      |
+| com.fasterxml.jackson                  | jackson-module-scala_2.12                   | 2.13.4                      |
+| com.github.joshelser                   | dropwizard-metrics-hadoop-metrics2-reporter | 0.1.2                       |
+| com.github.luben                       | zstd-jni                                    | 1.5.2-1                     |
+| com.github.luben                       | zstd-jni                                    | 1.5.2-1                     |
+| com.github.vowpalwabbit                | vw-jni                                      | 9.3.0                       |
+| com.github.wendykierp                  | JTransforms                                 | 3.1                         |
+| com.google.code.findbugs               | jsr305                                      | 3.0.0                       |
+| com.google.code.gson                   | gson                                        | 2.8.6                       |
+| com.google.crypto.tink                 | tink                                        | 1.6.1                       |
+| com.google.flatbuffers                 | flatbuffers-java                            | 1.12.0                      |
+| com.google.guava                       | guava                                       | 14.0.1                      |
+| com.google.protobuf                    | protobuf-java                               | 2.5.0                       |
+| com.googlecode.json-simple             | json-simple                                 | 1.1.1                       |
+| com.jcraft                             | jsch                                        | 0.1.54                      |
+| com.jolbox                             | bonecp                                      | 0.8.0.RELEASE               |
+| com.linkedin.isolation-forest          | isolation-forest_3.2.0_2.12                 | 2.0.8                       |
+| com.microsoft.azure                    | azure-data-lake-store-sdk                   | 2.3.9                       |
+| com.microsoft.azure                    | azure-eventhubs                             | 3.3.0                       |
+| com.microsoft.azure                    | azure-eventhubs-spark_2.12                  | 2.3.22                      |
+| com.microsoft.azure                    | azure-keyvault-core                         | 1.0.0                       |
+| com.microsoft.azure                    | azure-storage                               | 7.0.1                       |
+| com.microsoft.azure                    | cosmos-analytics-spark-3.4.1-connector_2.12 | 1.8.10                      |
+| com.microsoft.azure                    | qpid-proton-j-extensions                    | 1.2.4                       |
+| com.microsoft.azure                    | synapseml_2.12                              | 0.11.3-spark3.3             |
+| com.microsoft.azure                    | synapseml-cognitive_2.12                    | 0.11.3-spark3.3             |
+| com.microsoft.azure                    | synapseml-core_2.12                         | 0.11.3-spark3.3             |
+| com.microsoft.azure                    | synapseml-deep-learning_2.12                | 0.11.3-spark3.3             |
+| com.microsoft.azure                    | synapseml-internal_2.12                     | 0.11.3-spark3.3             |
+| com.microsoft.azure                    | synapseml-lightgbm_2.12                     | 0.11.3-spark3.3             |
+| com.microsoft.azure                    | synapseml-opencv_2.12                       | 0.11.3-spark3.3             |
+| com.microsoft.azure                    | synapseml-vw_2.12                           | 0.11.3-spark3.3             |
+| com.microsoft.azure.kusto              | kusto-data                                  | 3.2.1                       |
+| com.microsoft.azure.kusto              | kusto-ingest                                | 3.2.1                       |
+| com.microsoft.azure.kusto              | kusto-spark_3.0_2.12                        | 3.1.16                      |
+| com.microsoft.azure.kusto              | spark-kusto-synapse-connector_3.1_2.12      | 1.3.3                       |
+| com.microsoft.cognitiveservices.speech | client-jar-sdk                              | 1.14.0                      |
+| com.microsoft.sqlserver                | msslq-jdbc                                  | 8.4.1.jre8                  |
+| com.ning                               | compress-lzf                                | 1.1                         |
+| com.sun.istack                         | istack-commons-runtime                      | 3.0.8                       |
+| com.tdunning                           | json                                        | 1.8                         |
+| com.thoughtworks.paranamer             | paranamer                                   | 2.8                         |
+| com.twitter                            | chill-java                                  | 0.10.0                      |
+| com.twitter                            | chill_2.12                                  | 0.10.0                      |
+| com.typesafe                           | config                                      | 1.3.4                       |
+| com.univocity                          | univocity-parsers                           | 2.9.1                       |
+| com.zaxxer                             | HikariCP                                    | 2.5.1                       |
+| commons-cli                            | commons-cli                                 | 1.5.0                       |
+| commons-codec                          | commons-codec                               | 1.15                        |
+| commons-collections                    | commons-collections                         | 3.2.2                       |
+| commons-dbcp                           | commons-dbcp                                | 1.4                         |
+| commons-io                             | commons-io                                  | 2.11.0                      |
+| commons-lang                           | commons-lang                                | 2.6                         |
+| commons-logging                        | commons-logging                             | 1.1.3                       |
+| commons-pool                           | commons-pool                                | 1.5.4                       |
+| dev.ludovic.netlib                     | arpack                                      | 2.2.1                       |
+| dev.ludovic.netlib                     | blas                                        | 2.2.1                       |
+| dev.ludovic.netlib                     | lapack                                      | 2.2.1                       |
+| io.airlift                             | aircompressor                               | 0.21                        |
+| io.delta                               | delta-core_2.12                             | 2.2.0.9                     |
+| io.delta                               | delta-storage                               | 2.2.0.9                     |
+| io.dropwizard.metrics                  | metrics-core                                | 4.2.7                       |
+| io.dropwizard.metrics                  | metrics-graphite                            | 4.2.7                       |
+| io.dropwizard.metrics                  | metrics-jmx                                 | 4.2.7                       |
+| io.dropwizard.metrics                  | metrics-json                                | 4.2.7                       |
+| io.dropwizard.metrics                  | metrics-jvm                                 | 4.2.7                       |
+| io.github.resilience4j                 | resilience4j-core                           | 1.7.1                       |
+| io.github.resilience4j                 | resilience4j-retry                          | 1.7.1                       |
+| io.netty                               | netty-all                                   | 4.1.74.Final                |
+| io.netty                               | netty-buffer                                | 4.1.74.Final                |
+| io.netty                               | netty-codec                                 | 4.1.74.Final                |
+| io.netty                               | netty-codec-http2                           | 4.1.74.Final                |
+| io.netty                               | netty-codec-http-4                          | 4.1.74.Final                |
+| io.netty                               | netty-codec-socks                           | 4.1.74.Final                |
+| io.netty                               | netty-common                                | 4.1.74.Final                |
+| io.netty                               | netty-handler                               | 4.1.74.Final                |
+| io.netty                               | netty-resolver                              | 4.1.74.Final                |
+| io.netty                               | netty-tcnative-classes                      | 2.0.48                      |
+| io.netty                               | netty-transport                             | 4.1.74.Final                |
+| io.netty                               | netty-transport-classes-epoll               | 4.1.87.Final                |
+| io.netty                               | netty-transport-classes-kqueue              | 4.1.87.Final                |
+| io.netty                               | netty-transport-native-epoll                | 4.1.87.Final-linux-aarch_64 |
+| io.netty                               | netty-transport-native-epoll                | 4.1.87.Final-linux-x86_64   |
+| io.netty                               | netty-transport-native-kqueue               | 4.1.87.Final-osx-aarch_64   |
+| io.netty                               | netty-transport-native-kqueue               | 4.1.87.Final-osx-x86_64     |
+| io.netty                               | netty-transport-native-unix-common          | 4.1.87.Final                |
+| io.opentracing                         | opentracing-api                             | 0.33.0                      |
+| io.opentracing                         | opentracing-noop                            | 0.33.0                      |
+| io.opentracing                         | opentracing-util                            | 0.33.0                      |
+| io.spray                               | spray-json_2.12                             | 1.3.5                       |
+| io.vavr                                | vavr                                        | 0.10.4                      |
+| io.vavr                                | vavr-match                                  | 0.10.4                      |
+| jakarta.annotation                     | jakarta.annotation-api                      | 1.3.5                       |
+| jakarta.inject                         | jakarta.inject                              | 2.6.1                       |
+| jakarta.servlet                        | jakarta.servlet-api                         | 4.0.3                       |
+| jakarta.validation-api                 |                                             | 2.0.2                       |
+| jakarta.ws.rs                          | jakarta.ws.rs-api                           | 2.1.6                       |
+| jakarta.xml.bind                       | jakarta.xml.bind-api                        | 2.3.2                       |
+| javax.activation                       | activation                                  | 1.1.1                       |
+| javax.jdo                              | jdo-api                                     | 3.0.1                       |
+| javax.transaction                      | jta                                         | 1.1                         |
+| javax.transaction                      | transaction-api                             | 1.1                         |
+| javax.xml.bind                         | jaxb-api                                    | 2.2.11                      |
+| javolution                             | javolution                                  | 5.5.1                       |
+| jline                                  | jline                                       | 2.14.6                      |
+| joda-time                              | joda-time                                   | 2.10.13                     |
+| mysql                                  | mysql-connector-java                        | 8.0.18                      |
+| net.razorvine                          | pickle                                      | 1.2                         |
+| net.sf.jpam                            | jpam                                        | 1.1                         |
+| net.sf.opencsv                         | opencsv                                     | 2.3                         |
+| net.sf.py4j                            | py4j                                        | 0.10.9.5                    |
+| net.sf.supercsv                        | super-csv                                   | 2.2.0                       |
+| net.sourceforge.f2j                    | arpack_combined_all                         | 0.1                         |
+| org.antlr                              | ST4                                         | 4.0.4                       |
+| org.antlr                              | antlr-runtime                               | 3.5.2                       |
+| org.antlr                              | antlr4-runtime                              | 4.8                         |
+| org.apache.arrow                       | arrow-format                                | 7.0.0                       |
+| org.apache.arrow                       | arrow-memory-core                           | 7.0.0                       |
+| org.apache.arrow                       | arrow-memory-netty                          | 7.0.0                       |
+| org.apache.arrow                       | arrow-vector                                | 7.0.0                       |
+| org.apache.avro                        | avro                                        | 1.11.0                      |
+| org.apache.avro                        | avro-ipc                                    | 1.11.0                      |
+| org.apache.avro                        | avro-mapred                                 | 1.11.0                      |
+| org.apache.commons                     | commons-collections4                        | 4.4                         |
+| org.apache.commons                     | commons-compress                            | 1.21                        |
+| org.apache.commons                     | commons-crypto                              | 1.1.0                       |
+| org.apache.commons                     | commons-lang3                               | 3.12.0                      |
+| org.apache.commons                     | commons-math3                               | 3.6.1                       |
+| org.apache.commons                     | commons-pool2                               | 2.11.1                      |
+| org.apache.commons                     | commons-text                                | 1.10.0                      |
+| org.apache.curator                     | curator-client                              | 2.13.0                      |
+| org.apache.curator                     | curator-framework                           | 2.13.0                      |
+| org.apache.curator                     | curator-recipes                             | 2.13.0                      |
+| org.apache.derby                       | derby                                       | 10.14.2.0                   |
+| org.apache.hadoop                      | hadoop-aliyun                               | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-annotations                          | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-aws                                  | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-azure                                | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-azure-datalake                       | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-client-api                           | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-client-runtime                       | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-cloud-storage                        | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-openstack                            | 3.3.3.5.2-106693326         |
+| org.apache.hadoop                      | hadoop-shaded-guava                         | 1.1.1                       |
+| org.apache.hadoop                      | hadoop-yarn-server-web-proxy                | 3.3.3.5.2-106693326         |
+| org.apache.hive                        | hive-beeline                                | 2.3.9                       |
+| org.apache.hive                        | hive-cli                                    | 2.3.9                       |
+| org.apache.hive                        | hive-common                                 | 2.3.9                       |
+| org.apache.hive                        | hive-exec                                   | 2.3.9                       |
+| org.apache.hive                        | hive-jdbc                                   | 2.3.9                       |
+| org.apache.hive                        | hive-llap-common                            | 2.3.9                       |
+| org.apache.hive                        | hive-metastore                              | 2.3.9                       |
+| org.apache.hive                        | hive-serde                                  | 2.3.9                       |
+| org.apache.hive                        | hive-service-rpc                            | 2.3.9                       |
+| org.apache.hive                        | hive-shims-0.23                             | 2.3.9                       |
+| org.apache.hive                        | hive-shims                                  | 2.3.9                       |
+| org.apache.hive                        | hive-shims-common                           | 2.3.9                       |
+| org.apache.hive                        | hive-shims-scheduler                        | 2.3.9                       |
+| org.apache.hive                        | hive-storage-api                            | 2.7.2                       |
+| org.apache.httpcomponents              | httpclient                                  | 4.5.13                      |
+| org.apache.httpcomponents              | httpcore                                    | 4.4.14                      |
+| org.apache.httpcomponents              | httpmime                                    | 4.5.13                      |
+| org.apache.httpcomponents.client5      | httpclient5                                 | 5.1.3                       |
+| org.apache.iceberg                     | delta-iceberg                               | 2.2.0.9                     |
+| org.apache.ivy                         | ivy                                         | 2.5.1                       |
+| org.apache.kafka                       | kafka-clients                               | 2.8.1                       |
+| org.apache.logging.log4j               | log4j-1.2-api                               | 2.17.2                      |
+| org.apache.logging.log4j               | log4j-api                                   | 2.17.2                      |
+| org.apache.logging.log4j               | log4j-core                                  | 2.17.2                      |
+| org.apache.logging.log4j               | log4j-slf4j-impl                            | 2.17.2                      |
+| org.apache.orc                         | orc-core                                    | 1.7.6                       |
+| org.apache.orc                         | orc-mapreduce                               | 1.7.6                       |
+| org.apache.orc                         | orc-shims                                   | 1.7.6                       |
+| org.apache.parquet                     | parquet-column                              | 1.12.3                      |
+| org.apache.parquet                     | parquet-common                              | 1.12.3                      |
+| org.apache.parquet                     | parquet-encoding                            | 1.12.3                      |
+| org.apache.parquet                     | parquet-format-structures                   | 1.12.3                      |
+| org.apache.parquet                     | parquet-hadoop                              | 1.12.3                      |
+| org.apache.parquet                     | parquet-jackson                             | 1.12.3                      |
+| org.apache.qpid                        | proton-j                                    | 0.33.8                      |
+| org.apache.spark                       | spark-avro_2.12                             | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-catalyst_2.12                         | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-core_2.12                             | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-graphx_2.12                           | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-hadoop-cloud_2.12                     | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-hive_2.12                             | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-kvstore_2.12                          | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-launcher_2.12                         | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-mllib_2.12                            | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-mllib-local_2.12                      | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-network-common_2.12                   | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-network-shuffle_2.12                  | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-repl_2.12                             | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-sketch_2.12                           | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-sql_2.12                              | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-sql-kafka-0-10_2.12                   | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-streaming_2.12                        | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-streaming-kafka-0-10-assembly_2.12    | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-tags_2.12                             | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-token-provider-kafka-0-10_2.12        | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-unsafe_2.12                           | 3.3.1.5.2-106693326         |
+| org.apache.spark                       | spark-yarn_2.12                             | 3.3.1.5.2-106693326         |
+| org.apache.thrift                      | libfb303                                    | 0.9.3                       |
+| org.apache.thrift                      | libthrift                                   | 0.12.0                      |
+| org.apache.velocity                    | velocity                                    | 1.5                         |
+| org.apache.xbean                       | xbean-asm9-shaded                           | 4.2                         |
+| org.apache.yetus                       | audience-annotations                        | 0.5.0                       |
+| org.apache.zookeeper                   | zookeeper                                   | 3.6.2.5.2-106693326         |
+| org.apache.zookeeper                   | zookeeper-jute                              | 3.6.2.5.2-106693326         |
+| org.apache.zookeeper                   | zookeeper                                   | 3.6.2.5.2-106693326         |
+| org.apache.zookeeper                   | zookeeper-jute                              | 3.6.2.5.2-106693326         |
+| org.apiguardian                        | apiguardian-api                             | 1.1.0                       |
+| org.codehaus.janino                    | commons-compiler                            | 3.0.16                      |
+| org.codehaus.janino                    | janino                                      | 3.0.16                      |
+| org.codehaus.jettison                  | jettison                                    | 1.1                         |
+| org.datanucleus                        | datanucleus-api-jdo                         | 4.2.4                       |
+| org.datanucleus                        | datanucleus-core                            | 4.1.17                      |
+| org.datanucleus                        | datanucleus-rdbms                           | 4.1.19                      |
+| org.datanucleusjavax.jdo               |                                             | 3.2.0-m3                    |
+| org.eclipse.jetty                      | jetty-util                                  | 9.4.48.v20220622            |
+| org.eclipse.jetty                      | jetty-util-ajax                             | 9.4.48.v20220622            |
+| org.fusesource.leveldbjni              | leveldbjni-all                              | 1.8                         |
+| org.glassfish.hk2                      | hk2-api                                     | 2.6.1                       |
+| org.glassfish.hk2                      | hk2-locator                                 | 2.6.1                       |
+| org.glassfish.hk2                      | hk2-utils                                   | 2.6.1                       |
+| org.glassfish.hk2                      | osgi-resource-locator                       | 1.0.3                       |
+| org.glassfish.hk2.external             | aopalliance-repackaged                      | 2.6.1                       |
+| org.glassfish.jaxb                     | jaxb-runtime                                | 2.3.2                       |
+| org.glassfish.jersey.containers        | jersey-container-servlet                    | 2.36                        |
+| org.glassfish.jersey.containers        | jersey-container-servlet-core               | 2.36                        |
+| org.glassfish.jersey.core              | jersey-client                               | 2.36                        |
+| org.glassfish.jersey.core              | jersey-common                               | 2.36                        |
+| org.glassfish.jersey.core              | jersey-server                               | 2.36                        |
+| org.glassfish.jersey.inject            | jersey-hk2                                  | 2.36                        |
+| org.ini4j                              | ini4j                                       | 0.5.4                       |
+| org.javassist                          | javassist                                   | 3.25.0-GA                   |
+| org.javatuples                         | javatuples                                  | 1.2                         |
+| org.jdom                               | jdom2                                       | 2.0.6                       |
+| org.jetbrains                          | annotations                                 | 17.0.0                      |
+| org.jodd                               | jodd-core                                   | 3.5.2                       |
+| org.json                               | json                                        | 20210307                    |
+| org.json4s                             | json4s-ast_2.12                             | 3.7.0-M11                   |
+| org.json4s                             | json4s-core_2.12                            | 3.7.0-M11                   |
+| org.json4s                             | json4s-jackson_2.12                         | 3.7.0-M11                   |
+| org.json4s                             | json4s-scalap_2.12                          | 3.7.0-M11                   |
+| org.junit.jupiter                      | junit-jupiter                               | 5.5.2                       |
+| org.junit.jupiter                      | junit-jupiter-api                           | 5.5.2                       |
+| org.junit.jupiter                      | junit-jupiter-engine                        | 5.5.2                       |
+| org.junit.jupiter                      | junit-jupiter-params                        | 5.5.2                       |
+| org.junit.platform                     | junit-platform-commons                      | 1.5.2                       |
+| org.junit.platform                     | junit-platform-engine                       | 1.5.2                       |
+| org.lz4                                | lz4-java                                    | 1.8.0                       |
+| org.mlflow                             | mlfow-spark                                 | 2.1.1                       |
+| org.objenesis                          | objenesis                                   | 3.2                         |
+| org.openpnp                            | opencv                                      | 3.2.0-1                     |
+| org.opentest4j                         | opentest4j                                  | 1.2.0                       |
+| org.postgresql                         | postgresql                                  | 42.2.9                      |
+| org.roaringbitmap                      | RoaringBitmap                               | 0.9.25                      |
+| org.roaringbitmap                      | shims                                       | 0.9.25                      |
+| org.rocksdb                            | rocksdbjni                                  | 6.20.3                      |
+| org.scalactic                          | scalactic_2.12                              | 3.2.14                      |
+| org.scala-lang                         | scala-compiler                              | 2.12.15                     |
+| org.scala-lang                         | scala-library                               | 2.12.15                     |
+| org.scala-lang                         | scala-reflect                               | 2.12.15                     |
+| org.scala-lang.modules                 | scala-collection-compat_2.12                | 2.1.1                       |
+| org.scala-lang.modules                 | scala-java8-compat_2.12                     | 0.9.0                       |
+| org.scala-lang.modules                 | scala-parser-combinators_2.12               | 1.1.2                       |
+| org.scala-lang.modules                 | scala-xml_2.12                              | 1.2.0                       |
+| org.scalanlp                           | breeze-macros_2.12                          | 1.2                         |
+| org.scalanlp                           | breeze_2.12                                 | 1.2                         |
+| org.slf4j                              | jcl-over-slf4j                              | 1.7.32                      |
+| org.slf4j                              | jul-to-slf4j                                | 1.7.32                      |
+| org.slf4j                              | slf4j-api                                   | 1.7.32                      |
+| org.threeten                           | threeten-extra                              | 1.5.0                       |
+| org.tukaani                            | xz                                          | 1.8                         |
+| org.typelevel                          | algebra_2.12                                | 2.0.1                       |
+| org.typelevel                          | cats-kernel_2.12                            | 2.1.1                       |
+| org.typelevel                          | spire_2.12                                  | 0.17.0                      |
+| org.typelevel                          | spire-macros_2.12                           | 0.17.0                      |
+| org.typelevel                          | spire-platform_2.12                         | 0.17.0                      |
+| org.typelevel                          | spire-util_2.12                             | 0.17.0                      |
+| org.wildfly.openssl                    | wildfly-openssl                             | 1.0.7.Final                 |
+| org.xerial.snappy                      | snappy-java                                 | 1.1.8.4                     |
+| oro                                    | oro                                         | 2.0.8                       |
+| pl.edu.icm                             | JLargeArrays                                | 1.5                         |
+| stax                                   | stax-api                                    | 1.0.1                       |
 
 ### Python libraries (Normal VMs)
-
-| **Library**                   | **Version**  | **Library**          | **Version**  | **Library**                  | **Version**   |
-|:-----------------------------:|:------------:|:--------------------:|:------------:|:----------------------------:|:-------------:|
-| _libgcc_mutex                 | 0.1          | keras-applications   | 1.0.8        | pyparsing                    | 2.4.7         |
-| _openmp_mutex                 | 4.5          | keras-preprocessing  | 1.1.2        | pyqt                         | 5.12.3        |
-| _py-xgboost-mutex             | 2.0          | keras2onnx           | 1.6.5        | pyqt-impl                    | 5.12.3        |
-| abseil-cpp                    | 20210324.0   | kiwisolver           | 1.3.1        | pyqt5-sip                    | 4.19.18       |
-| absl-py                       | 0.13.0       | koalas               | 1.8.0        | pyqtchart                    | 5.12          |
-| adal                          | 1.2.7        | krb5                 | 1.19.1       | pyqtwebengine                | 5.12.1        |
-| adlfs                         | 0.7.7        | lcms2                | 2.12         | pysocks                      | 1.7.1         |
-| aiohttp                       | 3.7.4.post0  | ld_impl_linux-64     | 2.36.1       | python                       | 3.8.10        |
-| alsa-lib                      | 1.2.3        | lerc                 | 2.2.1        | python-dateutil              | 2.8.1         |
-| appdirs                       | 1.4.4        | liac-arff            | 2.5.0        | python-flatbuffers           | 1.12          |
-| arrow-cpp                     | 3.0.0        | libaec               | 1.0.5        | python_abi                   | 3.8           |
-| astor                         | 0.8.1        | libblas              | 3.9.0        | pytorch                      | 1.8.1         |
-| astunparse                    | 1.6.3        | libbrotlicommon      | 1.0.9        | pytz                         | 2021.1        |
-| async-timeout                 | 3.0.1        | libbrotlidec         | 1.0.9        | pyu2f                        | 0.1.5         |
-| attrs                         | 21.2.0       | libbrotlienc         | 1.0.9        | pywavelets                   | 1.1.1         |
-| aws-c-cal                     | 0.5.11       | libcblas             | 3.9.0        | pyyaml                       | 5.4.1         |
-| aws-c-common                  | 0.6.2        | libclang             | 11.1.0       | pyzmq                        | 22.1.0        |
-| aws-c-event-stream            | 0.2.7        | libcurl              | 7.77.0       | qt                           | 5.12.9        |
-| aws-c-io                      | 0.10.5       | libdeflate           | 1.7          | re2                          | 2021.04.01    |
-| aws-checksums                 | 0.1.11       | libedit              | 3.1.20210216 | readline                     | 8.1           |
-| aws-sdk-cpp                   | 1.8.186      | libev                | 4.33         | regex                        | 2021.7.6      |
-| azure-datalake-store          | 0.0.51       | libevent             | 2.1.10       | requests                     | 2.25.1        |
-| azure-identity                | 2021.03.15b1 | libffi               | 3.3          | requests-oauthlib            | 1.3.0         |
-| azure-storage-blob            | 12.8.1       | libgcc-ng            | 9.3.0        | retrying                     | 1.3.3         |
-| backcall                      | 0.2.0        | libgfortran-ng       | 9.3.0        | rsa                          | 4.7.2         |
-| backports                     | 1.0          | libgfortran5         | 9.3.0        | ruamel_yaml                  | 0.15.100      |
-| backports.functools_lru_cache | 1.6.4        | libglib              | 2.68.3       | s2n                          | 1.0.10        |
-| beautifulsoup4                | 4.9.3        | libiconv             | 1.16         | salib                        | 1.3.11        |
-| blas                          | 2.109        | liblapack            | 3.9.0        | scikit-image                 | 0.18.1        |
-| blas-devel                    | 3.9.0        | liblapacke           | 3.9.0        | scikit-learn                 | 0.23.2        |
-| blinker                       | 1.4          | libllvm10            | 10.0.1       | scipy                        | 1.5.3         |
-| blosc                         | 1.21.0       | libllvm11            | 11.1.0       | seaborn                      | 0.11.1        |
-| bokeh                         | 2.3.2        | libnghttp2           | 1.43.0       | seaborn-base                 | 0.11.1        |
-| brotli                        | 1.0.9        | libogg               | 1.3.5        | setuptools                   | 49.6.0        |
-| brotli-bin                    | 1.0.9        | libopus              | 1.3.1        | shap                         | 0.39.0        |
-| brotli-python                 | 1.0.9        | libpng               | 1.6.37       | six                          | 1.16.0        |
-| brotlipy                      | 0.7.0        | libpq                | 13.3         | skl2onnx                     | 1.8.0.1       |
-| brunsli                       | 0.1          | libprotobuf          | 3.15.8       | sklearn-pandas               | 2.2.0         |
-| bzip2                         | 1.0.8        | libsodium            | 1.0.18       | slicer                       | 0.0.7         |
-| c-ares                        | 1.17.1       | libssh2              | 1.9.0        | smart_open                   | 5.1.0         |
-| ca-certificates               | 2021.7.5     | libstdcxx-ng         | 9.3.0        | smmap                        | 3.0.5         |
-| cachetools                    | 4.2.2        | libthrift            | 0.14.1       | snappy                       | 1.1.8         |
-| cairo                         | 1.16.0       | libtiff              | 4.2.0        | soupsieve                    | 2.2.1         |
-| certifi                       | 2021.5.30    | libutf8proc          | 2.6.1        | sqlite                       | 3.36.0        |
-| cffi                          | 1.14.5       | libuuid              | 2.32.1000    | statsmodels                  | 0.12.2        |
-| chardet                       | 4.0.0        | libuv                | 1.41.1       | tabulate                     | 0.8.9         |
-| charls                        | 2.2.0        | libvorbis            | 1.3.7        | tenacity                     | 7.0.0         |
-| click                         | 8.0.1        | libwebp-base         | 1.2.0        | tensorboard                  | 2.4.1         |
-| cloudpickle                   | 1.6.0        | libxcb               | 1.14         | tensorboard-plugin-wit       | 1.8.0         |
-| conda                         | 4.9.2        | libxgboost           | 1.4.0        | tensorflow                   | 2.4.1         |
-| conda-package-handling        | 1.7.3        | libxkbcommon         | 1.0.3        | tensorflow-base              | 2.4.1         |
-| configparser                  | 5.0.2        | libxml2              | 2.9.12       | tensorflow-estimator         | 2.4.0         |
-| cryptography                  | 3.4.7        | libzopfli            | 1.0.3        | termcolor                    | 1.1.0         |
-| cudatoolkit                   | 11.1.1       | lightgbm             | 3.2.1        | textblob                     | 0.15.3        |
-| cycler                        | 0.10.0       | lime                 | 0.2.0.1      | threadpoolctl                | 2.1.0         |
-| cython                        | 0.29.23      | llvm-openmp          | 11.1.0       | tifffile                     | 2021.4.8      |
-| cytoolz                       | 0.11.0       | llvmlite             | 0.36.0       | tk                           | 8.6.10        |
-| dash                          | 1.20.0       | locket               | 0.2.1        | toolz                        | 0.11.1        |
-| dash-core-components          | 1.16.0       | lz4-c                | 1.9.3        | tornado                      | 6.1           |
-| dash-html-components          | 1.1.3        | markdown             | 3.3.4        | tqdm                         | 4.61.2        |
-| dash-renderer                 | 1.9.1        | markupsafe           | 2.0.1        | traitlets                    | 5.0.5         |
-| dash-table                    | 4.11.3       | matplotlib           | 3.4.2        | typing-extensions            | 3.10.0.0      |
-| dash_cytoscape                | 0.2.0        | matplotlib-base      | 3.4.2        | typing_extensions            | 3.10.0.0      |
-| dask-core                     | 2021.6.2     | matplotlib-inline    | 0.1.2        | unixodbc                     | 2.3.9         |
-| databricks-cli                | 0.12.1       | mkl                  | 2021.2.0     | urllib3                      | 1.26.4        |
-| dataclasses                   | 0.8          | mkl-devel            | 2021.2.0     | wcwidth                      | 0.2.5         |
-| dbus                          | 1.13.18      | mkl-include          | 2021.2.0     | webencodings                 | 0.5.1         |
-| debugpy                       | 1.3.0        | mleap                | 0.17.0       | werkzeug                     | 2.0.1         |
-| decorator                     | 4.4.2        | mlflow-skinny        | 1.18.0       | wheel                        | 0.36.2        |
-| dill                          | 0.3.4        | msal                 | 2021.06.08   | wrapt                        | 1.12.1        |
-| entrypoints                   | 0.3          | msal-extensions      | 2021.06.08   | xgboost                      | 1.4.0         |
-| et_xmlfile                    | 1.1.0        | msrest               | 2021.06.01   | xorg-kbproto                 | 1.0.7002      |
-| expat                         | 2.4.1        | multidict            | 5.1.0        | xorg-libice                  | 1.0.10        |
-| fire                          | 0.4.0        | mysql-common         | 8.0.25       | xorg-libsm                   | 1.2.3         |
-| flask                         | 2.0.1        | mysql-libs           | 8.0.25       | xorg-libx11                  | 1.7.2         |
-| flask-compress                | 1.10.1       | ncurses              | 6.2          | xorg-libxext                 | 1.3.4         |
-| fontconfig                    | 2.13.1       | networkx             | 2.5.1        | xorg-libxrender              | 0.9.10003     |
-| freetype                      | 2.10.4       | ninja                | 1.10.2       | xorg-renderproto             | 0.11.1002     |
-| fsspec                        | 2021.6.1     | nltk                 | 3.6.2        | xorg-xextproto               | 7.3.0002      |
-| future                        | 0.18.2       | nspr                 | 4.30         | xorg-xproto                  | 7.0.31007     |
-| gast                          | 0.3.3        | nss                  | 3.67         | xz                           | 5.2.5         |
-| gensim                        | 3.8.3        | numba                | 0.53.1       | yaml                         | 0.2.5         |
-| geographiclib                 | 1.52         | numpy                | 1.19.4       | yarl                         | 1.6.3         |
-| geopy                         | 2.1.0        | oauthlib             | 3.1.1        | zeromq                       | 4.3.4         |
-| gettext                       | 0.21.0       | olefile              | 0.46         | zfp                          | 0.5.5         |
-| gevent                        | 21.1.2       | onnx                 | 1.9.0        | zipp                         | 3.5.0         |
-| gflags                        | 2.2.2        | onnxconverter-common | 1.7.0        | zlib                         | 1.2.11010     |
-| giflib                        | 5.2.1        | onnxmltools          | 1.7.0        | zope.event                   | 4.5.0         |
-| gitdb                         | 4.0.7        | onnxruntime          | 1.7.2        | zope.interface               | 5.4.0         |
-| gitpython                     | 3.1.18       | openjpeg             | 2.4.0        | zstd                         | 1.4.9         |
-| glib                          | 2.68.3       | openpyxl             | 3.0.7        | azure-common                 | 1.1.27        |
-| glib-tools                    | 2.68.3       | openssl              | 1.1.1k       | azure-core                   | 1.16.0        |
-| glog                          | 0.5.0        | opt_einsum           | 3.3.0        | azure-graphrbac              | 0.61.1        |
-| gobject-introspection         | 1.68.0       | orc                  | 1.6.7        | azure-mgmt-authorization     | 0.61.0        |
-| google-auth                   | 1.32.1       | packaging            | 21.0         | azure-mgmt-containerregistry | 8.0.0         |
-| google-auth-oauthlib          | 0.4.1        | pandas               | 1.2.3        | azure-mgmt-core              | 1.3.0         |
-| google-pasta                  | 0.2.0        | parquet-cpp          | 1.5.1        | azure-mgmt-keyvault          | 2.2.0         |
-| greenlet                      | 1.1.0        | parso                | 0.8.2        | azure-mgmt-resource          | 13.0.0        |
-| grpc-cpp                      | 1.37.1       | partd                | 1.2.0        | azure-mgmt-storage           | 11.2.0        |
-| grpcio                        | 1.37.1       | patsy                | 0.5.1        | azureml-core                 | 1.34.0        |
-| gst-plugins-base              | 1.18.4       | pcre                 | 8.45         | azureml-mlflow               | 1.34.0        |
-| gstreamer                     | 1.18.4       | pexpect              | 4.8.0        | azureml-opendatasets         | 1.34.0        |
-| h5py                          | 2.10.0       | pickleshare          | 0.7.5        | backports-tempfile           | 1.0           |
-| hdf5                          | 1.10.6       | pillow               | 8.2.0        | backports-weakref            | 1.0.post1     |
-| html5lib                      | 1.1          | pip                  | 21.1.1       | contextlib2                  | 0.6.0.post1   |
-| hummingbird-ml                | 0.4.0        | pixman               | 0.40.0       | docker                       | 4.4.4         |
-| icu                           | 68.1         | plotly               | 4.14.3       | ipywidgets                   | 7.6.3         |
-| idna                          | 2.10         | pmdarima             | 1.8.2        | jeepney                      | 0.6.0         |
-| imagecodecs                   | 2021.3.31    | pooch                | 1.4.0        | jmespath                     | 0.10.0        |
-| imageio                       | 2.9.0        | portalocker          | 1.7.1        | jsonpickle                   | 2.0.0         |
-| importlib-metadata            | 4.6.1        | prompt-toolkit       | 3.0.19       | kqlmagiccustom               | 0.1.114.post8 |
-| intel-openmp                  | 2021.2.0     | protobuf             | 3.15.8       | lxml                         | 4.6.5         |
-| interpret                     | 0.2.4        | psutil               | 5.8.0        | msrestazure                  | 0.6.4         |
-| interpret-core                | 0.2.4        | ptyprocess           | 0.7.0        | mypy                         | 0.780         |
-| ipykernel                     | 6.0.1        | py-xgboost           | 1.4.0        | mypy-extensions              | 0.4.3         |
-| ipython                       | 7.23.1       | py4j                 | 0.10.9       | ndg-httpsclient              | 0.5.1         |
-| ipython_genutils              | 0.2.0        | pyarrow              | 3.0.0        | pandasql                     | 0.7.3         |
-| isodate                       | 0.6.0        | pyasn1               | 0.4.8        | pathspec                     | 0.8.1         |
-| itsdangerous                  | 2.0.1        | pyasn1-modules       | 0.2.8        | prettytable                  | 2.4.0         |
-| jdcal                         | 1.4.1        | pycairo              | 1.20.1       | pyperclip                    | 1.8.2         |
-| jedi                          | 0.18.0       | pycosat              | 0.6.3        | ruamel-yaml                  | 0.17.4        |
-| jinja2                        | 3.0.1        | pycparser            | 2.20         | ruamel-yaml-clib             | 0.2.6         |
-| joblib                        | 1.0.1        | pygments             | 2.9.0        | secretstorage                | 3.3.1         |
-| jpeg                          | 9d           | pygobject            | 3.40.1       | sqlalchemy                   | 1.4.20        |
-| jupyter_client                | 6.1.12       | pyjwt                | 2.1.0        | typed-ast                    | 1.4.3         |
-| jupyter_core                  | 4.7.1        | pyodbc               | 4.0.30       | torchvision                  | 0.9.1         |
-| jxrlib                        | 1.1          | pyopenssl            | 20.0.1       | websocket-client             | 1.1.0         |
-
+| Library                            | Version                           |        Library            | Version                         |        Library                    | Version                         |
+|------------------------------------|-----------------------------------|---------------------------|---------------------------------|-----------------------------------|---------------------------------|
+| _libgcc_mutex                      |     0.1=conda_forge               | hdf5                      |     1.12.2=nompi_h2386368_100   | parquet-cpp                       |     g1.5.1=2                    |
+| _openmp_mutex                      |     4.5=2_kmp_llvm                | html5lib                  |     1.1=pyh9f0ad1d_0            | parso                             |     g0.8.3=pyhd8ed1ab_0         |
+| _py-xgboost-mutex                  |     2.0=cpu_0                     | humanfriendly             |     10.0=py310hff52083_4        | partd                             |     g1.3.0=pyhd8ed1ab_0         |
+| _tflow_select                      |     2.3.0=mkl                     | hummingbird-ml            |     0.4.0=pyhd8ed1ab_0          | pathos                            |     g0.3.0=pyhd8ed1ab_0         |
+| absl-py                            |     1.3.0=pyhd8ed1ab_0            | icu                       |     58.2=hf484d3e_1000          | pathspec                          |     0.10.1                      |
+| adal                               |     1.2.7=pyhd8ed1ab_0            | idna                      |     3.4=pyhd8ed1ab_0            | patsy                             |     g0.5.3=pyhd8ed1ab_0         |
+| adlfs                              |     0.7.7=pyhd8ed1ab_0            | imagecodecs               |     2022.9.26=py310h90cd304_3   | pcre2                             |     g10.40=hc3806b6_0           |
+| aiohttp                            |     3.8.3=py310h5764c6d_1         | imageio                   |     2.9.0=py_0                  | pexpect                           |     g4.8.0=pyh1a96a4e_2         |
+| aiosignal                          |     1.3.1=pyhd8ed1ab_0            | importlib-metadata        |     5.0.0=pyha770c72_1          | pickleshare                       |     g0.7.5=py_1003              |
+| anyio                              |     3.6.2                         | interpret                 |     0.2.4=py37_0                | pillow                            |     g9.2.0=py310h454ad03_3      |
+| aom                                |     3.5.0=h27087fc_0              | interpret-core            |     0.2.4=py37h21ff451_0        | pip                               |     g22.3.1=pyhd8ed1ab_0        |
+| applicationinsights                |     0.11.10                       | ipykernel                 |     6.17.0=pyh210e3f2_0         | pkginfo                           |     1.8.3                       |
+| argcomplete                        |     2.0.0                         | ipython                   |     8.6.0=pyh41d4057_1          | platformdirs                      |     2.5.3                       |
+| argon2-cffi                        |     21.3.0                        | ipython-genutils          |     0.2.0                       | plotly                            |     g4.14.3=pyh44b312d_0        |
+| argon2-cffi-bindings               |     21.2.0                        | ipywidgets                |     7.7.0                       | pmdarima                          |     g2.0.1=py310h5764c6d_0      |
+| arrow-cpp                          |     9.0.0=py310he7aa4d3_2_cpu     | isodate                   |     0.6.0=py_1                  | portalocker                       |     g2.6.0=py310hff52083_1      |
+| asttokens                          |     2.1.0=pyhd8ed1ab_0            | itsdangerous              |     2.1.2=pyhd8ed1ab_0          | pox                               |     g0.3.2=pyhd8ed1ab_0         |
+| astunparse                         |     1.6.3=pyhd8ed1ab_0            | jdcal                     |     1.4.1=py_0                  | ppft                              |     g1.7.6.6=pyhd8ed1ab_0       |
+| async-timeout                      |     4.0.2=pyhd8ed1ab_0            | jedi                      |     0.18.1=pyhd8ed1ab_2         | prettytable                       |     3.2.0                       |
+| attrs                              |     22.1.0=pyh71513ae_1           | jeepney                   |     0.8.0                       | prometheus-client                 |     0.15.0                      |
+| aws-c-cal                          |     0.5.11=h95a6274_0             | jinja2                    |     3.1.2=pyhd8ed1ab_1          | prompt-toolkit                    |     g3.0.32=pyha770c72_0        |
+| aws-c-common                       |     0.6.2=h7f98852_0              | jmespath                  |     1.0.1                       | protobuf                          |     g3.20.1=py310hd8f1fbe_0     |
+| aws-c-event-stream                 |     0.2.7=h3541f99_13             | joblib                    |     1.2.0=pyhd8ed1ab_0          | psutil                            |     g5.9.4=py310h5764c6d_0      |
+| aws-c-io                           |     0.10.5=hfb6a706_0             | jpeg                      |     9e=h166bdaf_2               | pthread-stubs                     |     g0.4=h36c2ea0_1001          |
+| aws-checksums                      |     0.1.11=ha31a3da_7             | jsonpickle                |     2.2.0                       | ptyprocess                        |     g0.7.0=pyhd3deb0d_0         |
+| aws-sdk-cpp                        |     1.8.186=hecaee15_4            | jsonschema                |     4.17.0                      | pure_eval                         |     g0.2.2=pyhd8ed1ab_0         |
+| azure-common                       |     1.1.28                        | jupyter_client            |     7.4.4=pyhd8ed1ab_0          | py-xgboost                        |     g1.7.1=cpu_py310hd1aba9c_0  |
+| azure-core                         |     1.26.1=pyhd8ed1ab_0           | jupyter_core              |     4.11.2=py310hff52083_0      | py4j                              |     g0.10.9.5=pyhd8ed1ab_0      |
+| azure-datalake-store               |     0.0.51=pyh9f0ad1d_0           | jupyter-server            |     1.23.0                      | pyarrow                           |     g9.0.0=py310h9be7b57_2_cpu  |
+| azure-graphrbac                    |     0.61.1                        | jupyterlab-pygments       |     0.2.2                       | pyasn1                            |     g0.4.8=py_0                 |
+| azure-identity                     |     1.7.0                         | jupyterlab-widgets        |     3.0.3                       | pyasn1-modules                    |     g0.2.7=py_0                 |
+| azure-mgmt-authorization           |     2.0.0                         | jxrlib                    |     1.1=h7f98852_2              | pycosat                           |     g0.6.4=py310h5764c6d_1      |
+| azure-mgmt-containerregistry       |     10.0.0                        | keras                     |     2.8.0                       | pycparser                         |     g2.21=pyhd8ed1ab_0          |
+| azure-mgmt-core                    |     1.3.2                         | keras-applications        |     1.0.8                       | pygments                          |     g2.13.0=pyhd8ed1ab_0        |
+| azure-mgmt-keyvault                |     10.1.0                        | keras-preprocessing       |     1.1.2                       | pyjwt                             |     g2.6.0=pyhd8ed1ab_0         |
+| azure-mgmt-resource                |     21.2.1                        | keras2onnx                |     1.6.5=pyhd8ed1ab_0          | pynacl                            |     1.5.0                       |
+| azure-mgmt-storage                 |     20.1.0                        | keyutils                  |     1.6.1=h166bdaf_0            | pyodbc                            |     g4.0.34=py310hd8f1fbe_1     |
+| azure-storage-blob                 |     12.13.0                       | kiwisolver                |     1.4.4=py310hbf28c38_1       | pyopenssl                         |     g22.1.0=pyhd8ed1ab_0        |
+| azureml-core                       |     1.47.0                        | knack                     |     0.10.0                      | pyparsing                         |     g3.0.9=pyhd8ed1ab_0         |
+| azureml-dataprep                   |     4.5.7                         | kqlmagiccustom            |     0.1.114.post16              | pyperclip                         |     1.8.2                       |
+| azureml-dataprep-native            |     38.0.0                        | krb5                      |     1.19.3=h3790be6_0           | pyqt                              |     g5.9.2=py310h295c915_6      |
+| azureml-dataprep-rslex             |     2.11.4                        | lcms2                     |     2.14=h6ed2654_0             | pyrsistent                        |     0.19.2                      |
+| azureml-dataset-runtime            |     1.47.0                        | ld_impl_linux-64          |     2.39=hc81fddc_0             | pysocks                           |     g1.7.1=pyha2e5f31_6         |
+| azureml-mlflow                     |     1.47.0                        | lerc                      |     4.0.0=h27087fc_0            | pyspark                           |     g3.3.1=pyhd8ed1ab_0         |
+| azureml-opendatasets               |     1.47.0                        | liac-arff                 |     2.5.0=pyhd8ed1ab_1          | python                            |     g3.10.6=h582c2e5_0_cpython  |
+| azureml-telemetry                  |     1.47.0                        | libabseil                 |     20220623.0=cxx17_h48a1fff_5 | python_abi                        |     g3.10=2_cp310               |
+| backcall                           |     0.2.0=pyh9f0ad1d_0            | libaec                    |     1.0.6=h9c3ff4c_0            | python-dateutil                   |     g2.8.2=pyhd8ed1ab_0         |
+| backports                          |     1.0=py_2                      | libavif                   |     0.11.1=h5cdd6b5_0           | python-flatbuffers                |     g2.0=pyhd8ed1ab_0           |
+| backports-tempfile                 |     1.0                           | libblas                   |     3.9.0=16_linux64_mkl        | pytorch                           |     g1.13.0=py3.10_cpu_0        |
+| backports-weakref                  |     1.0.post1                     | libbrotlicommon           |     1.0.9=h166bdaf_8            | pytorch-mutex                     |     g1.0=cpu                    |
+| backports.functools_lru_cache      |     1.6.4=pyhd8ed1ab_0            | libbrotlidec              |     1.0.9=h166bdaf_8            | pytz                              |     g2022.6=pyhd8ed1ab_0        |
+| bcrypt                             |     4.0.1                         | libbrotlienc              |     1.0.9=h166bdaf_8            | pyu2f                             |     g0.1.5=pyhd8ed1ab_0         |
+| beautifulsoup4                     |     4.9.3=pyhb0f4dca_0            | libcblas                  |     3.9.0=16_linux64_mkl        | pywavelets                        |     g1.3.0=py310hde88566_2      |
+| blas                               |     2.116=mkl                     | libclang                  |     14.0.6                      | pyyaml                            |     g6.0=py310h5764c6d_5        |
+| blas-devel                         |     3.9.0=16_linux64_mkl          | libcrc32c                 |     1.1.2=h9c3ff4c_0            | pyzmq                             |     g24.0.1=py310h330234f_1     |
+| bleach                             |     5.0.1                         | libcurl                   |     7.86.0=h7bff187_1           | qt                                |     g5.9.7=h5867ecd_1           |
+| blinker                            |     1.5=pyhd8ed1ab_0              | libdeflate                |     1.14=h166bdaf_0             | re2                               |     g2022.06.01=h27087fc_0      |
+| blosc                              |     1.21.1=h83bc5f7_3             | libedit                   |     3.1.20191231=he28a2e2_2     | readline                          |     g8.1.2=h0f457ee_0           |
+| bokeh                              |     3.0.1=pyhd8ed1ab_0            | libev                     |     4.33=h516909a_1             | regex                             |     g2022.10.31=py310h5764c6d_0 |
+| brotli                             |     1.0.9=h166bdaf_8              | libevent                  |     2.1.10=h9b69904_4           | requests                          |     g2.28.1=pyhd8ed1ab_1        |
+| brotli-bin                         |     1.0.9=h166bdaf_8              | libffi                    |     3.4.2=h7f98852_5            | requests-oauthlib                 |     g1.3.1=pyhd8ed1ab_0         |
+| brotli-python                      |     1.0.9=py310hd8f1fbe_8         | libgcc-ng                 |     12.2.0=h65d4601_19          | retrying                          |     g1.3.3=py_2                 |
+| brotlipy                           |     0.7.0=py310h5764c6d_1005      | libgfortran-ng            |     12.2.0=h69a702a_19          | rsa                               |     g4.9=pyhd8ed1ab_0           |
+| brunsli                            |     0.1=h9c3ff4c_0                | libgfortran5              |     12.2.0=h337968e_19          | ruamel_yaml                       |     g0.15.80=py310h5764c6d_1008 |
+| bzip2                              |     1.0.8=h7f98852_4              | libglib                   |     2.74.1=h606061b_1           | ruamel-yaml                       |     0.17.4                      |
+| c-ares                             |     1.18.1=h7f98852_0             | libgoogle-cloud           |     2.1.0=hf2e47f9_1            | ruamel-yaml-clib                  |     0.2.6                       |
+| c-blosc2                           |     2.4.3=h7a311fb_0              | libiconv                  |     1.17=h166bdaf_0             | s2n                               |     g1.0.10=h9b69904_0          |
+| ca-certificates                    |     2022.9.24=ha878542_0          | liblapack                 |     3.9.0=16_linux64_mkl        | salib                             |     g1.4.6.1=pyhd8ed1ab_0       |
+| cached_property                    |     1.5.2=pyha770c72_1            | liblapacke                |     3.9.0=16_linux64_mkl        | scikit-image                      |     g0.19.3=py310h769672d_2     |
+| cached-property                    |     1.5.2=hd8ed1ab_1              | libllvm11                 |     11.1.0=he0ac6c6_5           | scikit-learn                      |     g1.1.3=py310h0c3af53_1      |
+| cachetools                         |     5.2.0=pyhd8ed1ab_0            | libnghttp2                |     1.47.0=hdcd2b5c_1           | scipy                             |     g1.9.3=py310hdfbd76f_2      |
+| certifi                            |     2022.9.24=pyhd8ed1ab_0        | libnsl                    |     2.0.0=h7f98852_0            | seaborn                           |     g0.11.1=hd8ed1ab_1          |
+| cffi                               |     1.15.1=py310h255011f_2        | libpng                    |     1.6.38=h753d276_0           | seaborn-base                      |     g0.11.1=pyhd8ed1ab_1        |
+| cfitsio                            |     4.1.0=hd9d235c_0              | libprotobuf               |     3.20.1=h6239696_4           | secretstorage                     |     3.3.3                       |
+| charls                             |     2.3.4=h9c3ff4c_0              | libsodium                 |     1.0.18=h36c2ea0_1           | send2trash                        |     1.8.0                       |
+| charset-normalizer                 |     2.1.1=pyhd8ed1ab_0            | libsqlite                 |     3.39.4=h753d276_0           | setuptools                        |     g65.5.1=pyhd8ed1ab_0        |
+| click                              |     8.1.3=unix_pyhd8ed1ab_2       | libssh2                   |     1.10.0=haa6b8db_3           | shap                              |     g0.39.0=py310hb5077e9_1     |
+| cloudpickle                        |     2.2.0=pyhd8ed1ab_0            | libstdcxx-ng              |     12.2.0=h46fd767_19          | sip                               |     g4.19.13=py310h295c915_0    |
+| colorama                           |     0.4.6=pyhd8ed1ab_0            | libthrift                 |     0.16.0=h491838f_2           | six                               |     g1.16.0=pyh6c4a22f_0        |
+| coloredlogs                        |     15.0.1=pyhd8ed1ab_3           | libtiff                   |     4.4.0=h55922b4_4            | skl2onnx                          |     g1.8.0.1=pyhd8ed1ab_1       |
+| conda-package-handling             |     1.9.0=py310h5764c6d_1         | libutf8proc               |     2.8.0=h166bdaf_0            | sklearn-pandas                    |     g2.2.0=pyhd8ed1ab_0         |
+| configparser                       |     5.3.0=pyhd8ed1ab_0            | libuuid                   |     2.32.1=h7f98852_1000        | slicer                            |     g0.0.7=pyhd8ed1ab_0         |
+| contextlib2                        |     21.6.0                        | libuv                     |     1.44.2=h166bdaf_0           | smart_open                        |     g6.2.0=pyha770c72_0         |
+| contourpy                          |     1.0.6=py310hbf28c38_0         | libwebp-base              |     1.2.4=h166bdaf_0            | smmap                             |     g3.0.5=pyh44b312d_0         |
+| cryptography                       |     38.0.3=py310h597c629_0        | libxcb                    |     1.13=h7f98852_1004          | snappy                            |     g1.1.9=hbd366e4_2           |
+| cycler                             |     0.11.0=pyhd8ed1ab_0           | libxgboost                |     1.7.1=cpu_ha3b9936_0        | sniffio                           |     1.3.0                       |
+| cython                             |     0.29.32=py310hd8f1fbe_1       | libxml2                   |     2.9.9=h13577e0_2            | soupsieve                         |     g2.3.2.post1=pyhd8ed1ab_0   |
+| cytoolz                            |     0.12.0=py310h5764c6d_1        | libzlib                   |     1.2.13=h166bdaf_4           | sqlalchemy                        |     1.4.43                      |
+| dash                               |     1.21.0=pyhd8ed1ab_0           | libzopfli                 |     1.0.3=h9c3ff4c_0            | sqlite                            |     g3.39.4=h4ff8645_0          |
+| dash_cytoscape                     |     0.2.0=pyhd8ed1ab_1            | lightgbm                  |     3.2.1=py310h295c915_0       | sqlparse                          |     g0.4.3=pyhd8ed1ab_0         |
+| dash-core-components               |     1.17.1=pyhd8ed1ab_0           | lime                      |     0.2.0.1=pyhd8ed1ab_1        | stack_data                        |     g0.6.0=pyhd8ed1ab_0         |
+| dash-html-components               |     1.1.4=pyhd8ed1ab_0            | llvm-openmp               |     15.0.4=he0ac6c6_0           | statsmodels                       |     g0.13.5=py310hde88566_2     |
+| dash-renderer                      |     1.9.1=pyhd8ed1ab_0            | llvmlite                  |     0.39.1=py310h58363a5_1      | sympy                             |     g1.11.1=py310hff52083_2     |
+| dash-table                         |     4.12.0=pyhd8ed1ab_0           | locket                    |     1.0.0=pyhd8ed1ab_0          | tabulate                          |     g0.9.0=pyhd8ed1ab_1         |
+| dask-core                          |     2022.10.2=pyhd8ed1ab_0        | lxml                      |     4.8.0                       | tbb                               |     g2021.6.0=h924138e_1        |
+| databricks-cli                     |     0.17.3=pyhd8ed1ab_0           | lz4-c                     |     1.9.3=h9c3ff4c_1            | tensorboard                       |     2.8.0                       |
+| dav1d                              |     1.0.0=h166bdaf_1              | markdown                  |     3.3.4=gpyhd8ed1ab_0         | tensorboard-data-server           |     g0.6.0=py310h597c629_3      |
+| dbus                               |     1.13.6=h5008d03_3             | markupsafe                |     g2.1.1=py310h5764c6d_2      | tensorboard-plugin-wit            |     g1.8.1=pyhd8ed1ab_0         |
+| debugpy                            |     1.6.3=py310hd8f1fbe_1         | matplotlib                |     g3.6.2=py310hff52083_0      | tensorflow                        |     2.8.0                       |
+| decorator                          |     5.1.1=pyhd8ed1ab_0            | matplotlib-base           |     g3.6.2=py310h8d5ebf3_0      | tensorflow-base                   |     g2.10.0=mkl_py310hb9daa73_0 |
+| defusedxml                         |     0.7.1                         | matplotlib-inline         |     g0.1.6=pyhd8ed1ab_0         | tensorflow-estimator              |     2.8.0                       |
+| dill                               |     0.3.6=pyhd8ed1ab_1            | mistune                   |     2.0.4                       | tensorflow-io-gcs-filesystem      |     0.27.0                      |
+| distlib                            |     0.3.6                         | mkl                       |     g2022.1.0=h84fe81f_915      | termcolor                         |     g2.1.0=pyhd8ed1ab_0         |
+| distro                             |     1.8.0                         | mkl-devel                 |     g2022.1.0=ha770c72_916      | terminado                         |     0.17.0                      |
+| docker                             |     6.0.1                         | mkl-include               |     g2022.1.0=h84fe81f_915      | textblob                          |     g0.15.3=py_0                |
+| dotnetcore2                        |     3.1.23                        | mleap                     |     g0.17.0=pyhd8ed1ab_0        | tf-estimator-nightly              |     2.8.0.dev2021122109         |
+| entrypoints                        |     0.4=pyhd8ed1ab_0              | mlflow-skinny             |     g1.30.0=py310h1d0e22c_0     | threadpoolctl                     |     g3.1.0=pyh8a188c0_0         |
+| et_xmlfile                         |     1.0.1=py_1001                 | mpc                       |     g1.2.1=h9f54685_0           | tifffile                          |     g2022.10.10=pyhd8ed1ab_0    |
+| executing                          |     1.2.0=pyhd8ed1ab_0            | mpfr                      |     g4.1.0=h9202a9a_1           | tinycss2                          |     1.2.1                       |
+| expat                              |     2.5.0=h27087fc_0              | mpmath                    |     g1.2.1=pyhd8ed1ab_0         | tk                                |     g8.6.12=h27826a3_0          |
+| fastjsonschema                     |     2.16.2                        | msal                      |     g2022.09.01=py_0            | toolz                             |     g0.12.0=pyhd8ed1ab_0        |
+| filelock                           |     3.8.0                         | msal-extensions           |     0.3.1                       | torchvision                       |     0.14.0                      |
+| fire                               |     0.4.0=pyh44b312d_0            | msrest                    |     0.7.1                       | tornado                           |     g6.2=py310h5764c6d_1        |
+| flask                              |     2.2.2=pyhd8ed1ab_0            | msrestazure               |     0.6.4                       | tqdm                              |     g4.64.1=pyhd8ed1ab_0        |
+| flask-compress                     |     1.13=pyhd8ed1ab_0             | multidict                 |     g6.0.2=py310h5764c6d_2      | traitlets                         |     g5.5.0=pyhd8ed1ab_0         |
+| flatbuffers                        |     2.0.7=h27087fc_0              | multiprocess              |     g0.70.14=py310h5764c6d_3    | typed-ast                         |     1.4.3                       |
+| fontconfig                         |     2.14.1=hc2a2eb6_0             | munkres                   |     g1.1.4=pyh9f0ad1d_0         | typing_extensions                 |     g4.4.0=pyha770c72_0         |
+| fonttools                          |     4.38.0=py310h5764c6d_1        | mypy                      |     0.780                       | typing-extensions                 |     g4.4.0=hd8ed1ab_0           |
+| freetype                           |     2.12.1=hca18f0e_0             | mypy-extensions           |     0.4.3                       | tzdata                            |     g2022fgh191b570_0           |
+| frozenlist                         |     1.3.3=py310h5764c6d_0         | nbclassic                 |     0.4.8                       | unicodedata2                      |     g15.0.0gpy310h5764c6d_0     |
+| fsspec                             |     2022.10.0=pyhd8ed1ab_0        | nbclient                  |     0.7.0                       | unixodbc                          |     g2.3.10gh583eb01_0          |
+| fusepy                             |     3.0.1                         | nbconvert                 |     7.2.3                       | urllib3                           |     g1.26.4=pyhd8ed1ab_0        |
+| future                             |     0.18.2=pyhd8ed1ab_6           | nbformat                  |     5.7.0                       | virtualenv                        |     20.14.0                     |
+| gast                               |     0.4.0=pyh9f0ad1d_0            | ncurses                   |     g6.3=h27087fc_1             | wcwidth                           |     g0.2.5=pyh9f0ad1d_2         |
+| gensim                             |     4.2.0=py310h769672d_0         | ndg-httpsclient           |     0.5.1                       | webencodings                      |     g0.5.1=py_1                 |
+| geographiclib                      |     1.52=pyhd8ed1ab_0             | nest-asyncio              |     g1.5.6=pyhd8ed1ab_0         | websocket-client                  |     1.4.2                       |
+| geopy                              |     2.1.0=pyhd3deb0d_0            | networkx                  |     g2.8.8=pyhd8ed1ab_0         | werkzeug                          |     g2.2.2=pyhd8ed1ab_0         |
+| gettext                            |     0.21.1=h27087fc_0             | nltk                      |     g3.6.2=pyhd8ed1ab_0         | wheel                             |     g0.38.3=pyhd8ed1ab_0        |
+| gevent                             |     22.10.1=py310hab16fe0_1       | notebook                  |     6.5.2                       | widgetsnbextension                |     3.6.1                       |
+| gflags                             |     2.2.2=he1b5a44_1004           | notebook-shim             |     0.2.2                       | wrapt                             |     g1.14.1=py310h5764c6d_1     |
+| giflib                             |     5.2.1=h36c2ea0_2              | numba                     |     g0.56.3=py310ha5257ce_0     | xgboost                           |     g1.7.1=cpu_py310hd1aba9c_0  |
+| gitdb                              |     4.0.9=pyhd8ed1ab_0            | numpy                     |     g1.23.4=py310h53a5b5f_1     | xorg-libxau                       |     g1.0.9=h7f98852_0           |
+| gitpython                          |     3.1.29=pyhd8ed1ab_0           | oauthlib                  |     g3.2.2=pyhd8ed1ab_0         | xorg-libxdmcp                     |     g1.1.3=h7f98852_0           |
+| glib                               |     2.74.1=h6239696_1             | onnx                      |     g1.12.0=py310h3d64581_0     | xyzservices                       |     g2022.9.0=pyhd8ed1ab_0      |
+| glib-tools                         |     2.74.1=h6239696_1             | onnxconverter-common      |     g1.7.0=pyhd8ed1ab_0         | xz                                |     g5.2.6=h166bdaf_0           |
+| glog                               |     0.6.0=h6f12383_0              | onnxmltools               |     g1.7.0=pyhd8ed1ab_0         | yaml                              |     g0.2.5=h7f98852_2           |
+| gmp                                |     6.2.1=h58526e2_0              | onnxruntime               |     g1.13.1=py310h00a7d45_1     | yarl                              |     g1.8.1=py310h5764c6d_0      |
+| gmpy2                              |     2.1.2=py310h3ec546c_1         | openjpeg                  |     g2.5.0=h7d73246_1           | zeromq                            |     g4.3.4=h9c3ff4c_1           |
+| google-auth                        |     2.14.0=pyh1a96a4e_0           | openpyxl                  |     g3.0.7=pyhd8ed1ab_0         | zfp                               |     g1.0.0=h27087fc_3           |
+| google-auth-oauthlib               |     0.4.6=pyhd8ed1ab_0            | openssl                   |     g1.1.1s=h166bdaf_0          | zipp                              |     g3.10.0=pyhd8ed1ab_0        |
+| google-pasta                       |     0.2.0=pyh8c360ce_0            | opt_einsum                |     g3.3.0=pyhd8ed1ab_1         | zlib                              |     g1.2.13=h166bdaf_4          |
+| greenlet                           |     1.1.3.post0=py310hd8f1fbe_0   | orc                       |     g1.7.6=h6c59b99_0           | zlib-ng                           |     g2.0.6=h166bdaf_0           |
+| grpc-cpp                           |     1.46.4=hbad87ad_7             | packaging                 |     g21.3=pyhd8ed1ab_0          | zope.event                        |     g4.5.0gpyh9f0ad1d_0         |
+| grpcio                             |     1.46.4=py310h946def9_7        | pandas                    |     g1.5.1=py310h769672d_1      | zope.interface                    |     g5.5.1=py310h5764c6d_0      |
+| gst-plugins-base                   |     1.14.0=hbbd80ab_1             | pandasql                  |     0.7.3                       | zstd                              |     g1.5.2=h6239696_4           |
+| gstreamer                          |     1.14.0=h28cd5cc_2             | pandocfilters             |     1.5.0                       |                                   |                                 |
+| h5py                               |     3.7.0=nompi_py310h416281c_102 | paramiko                  |     2.12.0                      |                                   |                                 |
 
 ### R libraries (Preview)
 
-| **Library**    | **Version** | **Library**   | **Version**      | **Library**   | **Version** |
-|:--------------:|:-----------:|:-------------:|:----------------:|:-------------:|:-----------:|
-| abind          | 1.4-5       | gtools        | 3.8.2            | RColorBrewer  | 1.1-3       |
-| anomalize      | 0.2.2       | hardhat       | 0.2.0            | Rcpp          | 1.0.8.3     |
-| anytime        | 0.3.9       | haven         | 2.5.0            | RcppArmadillo | 0.11.0.0.0  |
-| arrow          | 7.0.0       | highr         | 0.9              | RcppEigen     | 0.3.3.9.2   |
-| askpass        | 1.1         | hms           | 1.1.1            | RcppParallel  | 5.1.5       |
-| assertthat     | 0.2.1       | htmltools     | 0.5.2            | RcppRoll      | 0.3.0       |
-| backports      | 1.4.1       | htmlwidgets   | 1.5.4            | readr         | 2.1.2       |
-| base64enc      | 0.1-3       | httr          | 1.4.3            | readxl        | 1.4.0       |
-| BH             | 1.78.0-0    | hwriter       | 1.3.2.1          | recipes       | 0.2.0       |
-| bit            | 4.0.4       | ids           | 1.0.1            | rematch       | 1.0.1       |
-| bit64          | 4.0.5       | ini           | 0.3.1            | rematch2      | 2.1.2       |
-| blob           | 1.2.3       | inline        | 0.3.19           | remotes       | 2.4.2       |
-| brew           | 1.0-7       | ipred         | 0.9-12           | reprex        | 2.0.1       |
-| brio           | 1.1.3       | isoband       | 0.2.5            | reshape2      | 1.4.3       |
-| broom          | 0.8.0       | iterators     | 1.0.14           | reticulate    | 1.18        |
-| bslib          | 0.3.1       | jquerylib     | 0.1.4            | rex           | 1.2.1       |
-| cachem         | 1.0.6       | jsonlite      | 1.7.2            | rlang         | 1.0.2       |
-| callr          | 3.7.0       | knitr         | 1.39             | rmarkdown     | 2.14        |
-| car            | 3.0-13      | labeling      | 0.4.2            | RODBC         | 1.3-19      |
-| carData        | 3.0-5       | lambda.r      | 1.2.4            | roxygen2      | 7.1.2       |
-| caret          | 6.0-86      | later         | 1.3.0            | rprojroot     | 2.0.3       |
-| cellranger     | 1.1.0       | lava          | 1.6.10           | rsample       | 0.1.1       |
-| checkmate      | 2.1.0       | lazyeval      | 0.2.2            | RSQLite       | 2.2.13      |
-| chron          | 2.3-56      | lifecycle     | 1.0.1            | rstan         | 2.21.5      |
-| cli            | 3.3.0       | listenv       | 0.8.0            | rstantools    | 2.2.0       |
-| clipr          | 0.8.0       | lme4          | 1.1-29           | rstatix       | 0.7.0       |
-| colorspace     | 2.0-3       | lmtest        | 0.9-40           | rstudioapi    | 0.13        |
-| commonmark     | 1.8.0       | loo           | 2.5.1            | rversions     | 2.1.1       |
-| config         | 0.3.1       | lubridate     | 1.8.0            | rvest         | 1.0.2       |
-| corrplot       | 0.92        | magrittr      | 2.0.3            | sass          | 0.4.1       |
-| covr           | 3.5.1       | maptools      | 1.1-4            | scales        | 1.2.0       |
-| cpp11          | 0.4.2       | markdown      | 1.1              | selectr       | 0.4-2       |
-| crayon         | 1.5.1       | MatrixModels  | 0.5-0            | sessioninfo   | 1.2.2       |
-| credentials    | 1.3.2       | matrixStats   | 0.62.0           | shape         | 1.4.6       |
-| crosstalk      | 1.2.0       | memoise       | 2.0.1            | slider        | 0.2.2       |
-| curl           | 4.3.2       | mime          | 0.12             | sourcetools   | 0.1.7       |
-| data.table     | 1.14.2      | minqa         | 1.2.4            | sp            | 1.4-7       |
-| DBI            | 1.1.2       | ModelMetrics  | 1.2.2.2          | sparklyr      | 1.5.2       |
-| dbplyr         | 2.1.1       | modelr        | 0.1.8            | SparseM       | 1.81        |
-| desc           | 1.4.1       | munsell       | 0.5.0            | sqldf         | 0.4-11      |
-| devtools       | 2.3.2       | nloptr        | 2.0.1            | SQUAREM       | 2021.1      |
-| diffobj        | 0.3.5       | notebookutils | 3.1.2-20220721.3 | StanHeaders   | 2.21.0-7    |
-| digest         | 0.6.29      | numDeriv      | 2016.8-1.1       | stringi       | 1.7.6       |
-| dplyr          | 1.0.9       | openssl       | 2.0.0            | stringr       | 1.4.0       |
-| DT             | 0.22        | padr          | 0.6.0            | sweep         | 0.2.3       |
-| dtplyr         | 1.2.1       | parallelly    | 1.31.1           | sys           | 3.4         |
-| dygraphs       | 1.1.1.6     | pbkrtest      | 0.5.1            | testthat      | 3.1.4       |
-| ellipsis       | 0.3.2       | pillar        | 1.7.0            | tibble        | 3.1.7       |
-| evaluate       | 0.15        | pkgbuild      | 1.3.1            | tibbletime    | 0.1.6       |
-| extraDistr     | 1.9.1       | pkgconfig     | 2.0.3            | tidyr         | 1.2.0       |
-| fansi          | 1.0.3       | pkgload       | 1.2.4            | tidyselect    | 1.1.2       |
-| farver         | 2.1.0       | plogr         | 0.2.0            | tidyverse     | 1.3.1       |
-| fastmap        | 1.1.0       | plotly        | 4.10.0           | timeDate      | 3043.102    |
-| forcats        | 0.5.1       | plotrix       | 3.8-1            | timetk        | 2.8.0       |
-| foreach        | 1.5.2       | plyr          | 1.8.7            | tinytex       | 0.38        |
-| forecast       | 8.13        | praise        | 1.0.0            | tseries       | 0.10-51     |
-| forge          | 0.2.0       | prettyunits   | 1.1.1            | tsfeatures    | 1.0.2       |
-| formatR        | 1.12        | pROC          | 1.18.0           | TTR           | 0.24.3      |
-| fracdiff       | 1.5-1       | processx      | 3.5.3            | tzdb          | 0.3.0       |
-| fs             | 1.5.2       | prodlim       | 2019.11.13       | urca          | 1.3-0       |
-| furrr          | 0.3.0       | progress      | 1.2.2            | usethis       | 2.1.5       |
-| futile.logger  | 1.4.3       | progressr     | 0.10.0           | utf8          | 1.2.2       |
-| futile.options | 1.0.1       | promises      | 1.2.0.1          | uuid          | 1.1-0       |
-| future         | 1.25.0      | prophet       | 0.6.1            | vctrs         | 0.4.1       |
-| future.apply   | 1.9.0       | proto         | 1.0.0            | viridisLite   | 0.4.0       |
-| gargle         | 1.2.0       | ps            | 1.7.0            | vroom         | 1.5.7       |
-| generics       | 0.1.2       | purrr         | 0.3.4            | waldo         | 0.4.0       |
-| gert           | 1.6.0       | quadprog      | 1.5-8            | warp          | 0.2.0       |
-| ggplot2        | 3.3.6       | quantmod      | 0.4.20           | whisker       | 0.4         |
-| gh             | 1.3.0       | quantreg      | 5.93             | withr         | 2.5.0       |
-| gitcreds       | 0.1.1       | R.methodsS3   | 1.8.1            | xfun          | 0.30        |
-| glmnet         | 4.1-4       | R.oo          | 1.24.0           | xml2          | 1.3.3       |
-| globals        | 0.14.0      | R.utils       | 2.12.0           | xopen         | 1.0.0       |
-| glue           | 1.6.2       | r2d3          | 0.2.6            | xtable        | 1.8-4       |
-| gower          | 1.0.0       | R6            | 2.5.1            | xts           | 0.12.1      |
-| gridExtra      | 2.3         | randomForest  | 4.7-1            | yaml          | 2.3.5       |
-| gsubfn         | 0.7         | rappdirs      | 0.3.3            | zip           | 2.2.0       |
-| gtable         | 0.3.0       | rcmdcheck     | 1.4.0            | zoo           | 1.8-10      |
+|  **Library**  | **Version** | **       Library** | **Version** | **       Library** | **Version** |
+|:-------------:|:-----------:|:------------------:|:-----------:|:------------------:|:-----------:|
+| askpass       | 1.1         | highcharter        | 0.9.4       | readr              | 2.1.3       |
+| assertthat    | 0.2.1       | highr              | 0.9         | readxl             | 1.4.1       |
+| backports     | 1.4.1       | hms                | 1.1.2       | recipes            | 1.0.3       |
+| base64enc     | 0.1-3       | htmltools          | 0.5.3       | rematch            | 1.0.1       |
+| bit           | 4.0.5       | htmlwidgets        | 1.5.4       | rematch2           | 2.1.2       |
+| bit64         | 4.0.5       | httpcode           | 0.3.0       | remotes            | 2.4.2       |
+| blob          | 1.2.3       | httpuv             | 1.6.6       | reprex             | 2.0.2       |
+| brew          | 1.0-8       | httr               | 1.4.4       | reshape2           | 1.4.4       |
+| brio          | 1.1.3       | ids                | 1.0.1       | rjson              | 0.2.21      |
+| broom         | 1.0.1       | igraph             | 1.3.5       | rlang              | 1.0.6       |
+| bslib         | 0.4.1       | infer              | 1.0.3       | rlist              | 0.4.6.2     |
+| cachem        | 1.0.6       | ini                | 0.3.1       | rmarkdown          | 2.18        |
+| callr         | 3.7.3       | ipred              | 0.9-13      | RODBC              | 1.3-19      |
+| caret         | 6.0-93      | isoband            | 0.2.6       | roxygen2           | 7.2.2       |
+| cellranger    | 1.1.0       | iterators          | 1.0.14      | rprojroot          | 2.0.3       |
+| cli           | 3.4.1       | jquerylib          | 0.1.4       | rsample            | 1.1.0       |
+| clipr         | 0.8.0       | jsonlite           | 1.8.3       | rstudioapi         | 0.14        |
+| clock         | 0.6.1       | knitr              | 1.41        | rversions          | 2.1.2       |
+| colorspace    | 2.0-3       | labeling           | 0.4.2       | rvest              | 1.0.3       |
+| commonmark    | 1.8.1       | later              | 1.3.0       | sass               | 0.4.4       |
+| config        | 0.3.1       | lava               | 1.7.0       | scales             | 1.2.1       |
+| conflicted    | 1.1.0       | lazyeval           | 0.2.2       | selectr            | 0.4-2       |
+| coro          | 1.0.3       | lhs                | 1.1.5       | sessioninfo        | 1.2.2       |
+| cpp11         | 0.4.3       | lifecycle          | 1.0.3       | shiny              | 1.7.3       |
+| crayon        | 1.5.2       | lightgbm           | 3.3.3       | slider             | 0.3.0       |
+| credentials   | 1.3.2       | listenv            | 0.8.0       | sourcetools        | 0.1.7       |
+| crosstalk     | 1.2.0       | lobstr             | 1.1.2       | sparklyr           | 1.7.8       |
+| crul          | 1.3         | lubridate          | 1.9.0       | SQUAREM            | 2021.1      |
+| curl          | 4.3.3       | magrittr           | 2.0.3       | stringi            | 1.7.8       |
+| data.table    | 1.14.6      | maps               | 3.4.1       | stringr            | 1.4.1       |
+| DBI           | 1.1.3       | memoise            | 2.0.1       | sys                | 3.4.1       |
+| dbplyr        | 2.2.1       | mime               | 0.12        | systemfonts        | 1.0.4       |
+| desc          | 1.4.2       | miniUI             | 0.1.1.1     | testthat           | 3.1.5       |
+| devtools      | 2.4.5       | modeldata          | 1.0.1       | textshaping        | 0.3.6       |
+| dials         | 1.1.0       | modelenv           | 0.1.0       | tibble             | 3.1.8       |
+| DiceDesign    | 1.9         | ModelMetrics       | 1.2.2.2     | tidymodels         | 1.0.0       |
+| diffobj       | 0.3.5       | modelr             | 0.1.10      | tidyr              | 1.2.1       |
+| digest        | 0.6.30      | munsell            | 0.5.0       | tidyselect         | 1.2.0       |
+| downlit       | 0.4.2       | numDeriv           | 2016.8-1.1  | tidyverse          | 1.3.2       |
+| dplyr         | 1.0.10      | openssl            | 2.0.4       | timechange         | 0.1.1       |
+| dtplyr        | 1.2.2       | parallelly         | 1.32.1      | timeDate           | 4021.106    |
+| e1071         | 1.7-12      | parsnip            | 1.0.3       | tinytex            | 0.42        |
+| ellipsis      | 0.3.2       | patchwork          | 1.1.2       | torch              | 0.9.0       |
+| evaluate      | 0.18        | pillar             | 1.8.1       | triebeard          | 0.3.0       |
+| fansi         | 1.0.3       | pkgbuild           | 1.4.0       | TTR                | 0.24.3      |
+| farver        | 2.1.1       | pkgconfig          | 2.0.3       | tune               | 1.0.1       |
+| fastmap       | 1.1.0       | pkgdown            | 2.0.6       | tzdb               | 0.3.0       |
+| fontawesome   | 0.4.0       | pkgload            | 1.3.2       | urlchecker         | 1.0.1       |
+| forcats       | 0.5.2       | plotly             | 4.10.1      | urltools           | 1.7.3       |
+| foreach       | 1.5.2       | plyr               | 1.8.8       | usethis            | 2.1.6       |
+| forge         | 0.2.0       | praise             | 1.0.0       | utf8               | 1.2.2       |
+| fs            | 1.5.2       | prettyunits        | 1.1.1       | uuid               | 1.1-0       |
+| furrr         | 0.3.1       | pROC               | 1.18.0      | vctrs              | 0.5.1       |
+| future        | 1.29.0      | processx           | 3.8.0       | viridisLite        | 0.4.1       |
+| future.apply  | 1.10.0      | prodlim            | 2019.11.13  | vroom              | 1.6.0       |
+| gargle        | 1.2.1       | profvis            | 0.3.7       | waldo              | 0.4.0       |
+| generics      | 0.1.3       | progress           | 1.2.2       | warp               | 0.2.0       |
+| gert          | 1.9.1       | progressr          | 0.11.0      | whisker            | 0.4         |
+| ggplot2       | 3.4.0       | promises           | 1.2.0.1     | withr              | 2.5.0       |
+| gh            | 1.3.1       | proxy              | 0.4-27      | workflows          | 1.1.2       |
+| gistr         | 0.9.0       | pryr               | 0.1.5       | workflowsets       | 1.0.0       |
+| gitcreds      | 0.1.2       | ps                 | 1.7.2       | xfun               | 0.35        |
+| globals       | 0.16.2      | purrr              | 0.3.5       | xgboost            | 1.6.0.1     |
+| glue          | 1.6.2       | quantmod           | 0.4.20      | XML                | 3.99-0.12   |
+| googledrive   | 2.0.0       | r2d3               | 0.2.6       | xml2               | 1.3.3       |
+| googlesheets4 | 1.0.1       | R6                 | 2.5.1       | xopen              | 1.0.0       |
+| gower         | 1.0.0       | ragg               | 1.2.4       | xtable             | 1.8-4       |
+| GPfit         | 1.0-8       | rappdirs           | 0.3.3       | xts                | 0.12.2      |
+| gtable        | 0.3.1       | rbokeh             | 0.5.2       | yaml               | 2.3.6       |
+| hardhat       | 1.2.0       | rcmdcheck          | 1.4.0       | yardstick          | 1.1.0       |
+| haven         | 2.5.1       | RColorBrewer       | 1.1-3       | zip                | 2.2.2       |
+| hexbin        | 1.28.2      | Rcpp               | 1.0.9       | zoo                | 1.8-11      |
 
 ## Next steps
 - [Manage libraries for Apache Spark pools in Azure Synapse Analytics](apache-spark-manage-pool-packages.md)
@@ -374,3 +580,8 @@ The following sections present the libraries included in Azure Synapse Runtime f
 - [Manage session-scoped packages](apache-spark-manage-session-packages.md)
 - [Apache Spark 3.3.1 Documentation](https://spark.apache.org/docs/3.3.1/)
 - [Apache Spark Concepts](apache-spark-concepts.md)
+
+## Migration between Apache Spark versions - support
+
+For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.3 or 3.4 please refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).
+

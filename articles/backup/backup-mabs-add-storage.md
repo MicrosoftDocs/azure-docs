@@ -2,7 +2,10 @@
 title: Use Modern Backup Storage with Azure Backup Server
 description: Learn about the new features in Azure Backup Server. This article describes how to upgrade your Backup Server installation.
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 03/01/2023
+ms.service: backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Add storage to Azure Backup Server
@@ -10,10 +13,10 @@ ms.date: 11/13/2018
 Azure Backup Server V2 and later supports Modern Backup Storage that offers storage savings of 50 percent, backups that are three times faster, and more efficient storage. It also offers workload-aware storage.
 
 > [!NOTE]
-> To use Modern Backup Storage, you must run Backup Server V2 or V3 on Windows Server 2016 or V3 on Windows Server 2019.
+> To use Modern Backup Storage, you must run Backup Server V2 or later on Windows Server 2016 or later.
 > If you run Backup Server V2 on an earlier version of Windows Server, Azure Backup Server can't take advantage of Modern Backup Storage. Instead, it protects workloads as it does with Backup Server V1. For more information, see the Backup Server version [protection matrix](backup-mabs-protection-matrix.md).
 >
-> To achieve enhanced backup performances we recommend to deploy MABS v3 with tiered storage on Windows Server 2019. Refer to the DPM article “[Set up MBS with Tiered Storage](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage)” for steps to configure tiered storage.
+> To achieve enhanced backup performance we recommend deploying MABS v4 with tiered storage on Windows Server 2022. To configure tiered storage, see [Set up MBS with Tiered Storage](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage).
 
 ## Volumes in Backup Server
 
@@ -29,7 +32,7 @@ Backup Server V2 or later accepts storage volumes. When you add a volume, Backup
 
 ## Create a volume for Modern Backup Storage
 
-Using Backup Server V2 or later with volumes as disk storage can help you maintain control over storage. A volume can be a single disk. However, if you want to extend storage in the future, create a volume out of a disk created by using storage spaces. This can help if you want to expand the volume for backup storage. This section offers best practices for creating a volume with this setup.
+Using Backup Server with volumes as disk storage can help you maintain control over storage. A volume can be a single disk. However, if you want to extend storage in the future, create a volume out of a disk created by using storage spaces. This can help if you want to expand the volume for backup storage. This section offers best practices for creating a volume with this setup.
 
 1. In Server Manager, select **File and Storage Services** > **Volumes** > **Storage Pools**. Under **PHYSICAL DISKS**, select **New Storage Pool**.
 
@@ -90,7 +93,7 @@ The changes you make by using PowerShell are reflected in the Backup Server Admi
 
 ![Disks and volumes in the Administrator Console](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
-## Migrate legacy storage to Modern Backup Storage
+## Migrate legacy storage to Modern Backup Storage for MABS v2
 
 After you upgrade to or install Backup Server V2 and upgrade the operating system to Windows Server 2016, update your protection groups to use Modern Backup Storage. By default, protection groups aren't changed. They continue to function as they were initially set up.
 
@@ -116,7 +119,7 @@ To add disk storage:
 
 1. In the Administrator Console, select **Management** > **Disk Storage** > **Add**.
 
-    ![Add Disk Storage dialog](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+    
 
 2. In the **Add Disk Storage** dialog, select **Add disks**.
 

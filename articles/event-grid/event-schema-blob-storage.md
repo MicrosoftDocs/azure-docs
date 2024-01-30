@@ -2,7 +2,7 @@
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 12/02/2022
+ms.date: 01/10/2024
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -642,7 +642,7 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
 
 * The `data.api` key is set to the string `SftpCreate` or `SftpCommit`.
 
-* The `clientRequestId` key is not included.
+* The `clientRequestId` key isn't included.
 
 * The `contentType` key is set to `application/octet-stream`.
 
@@ -689,7 +689,7 @@ If the blob storage account uses SFTP to delete a blob, then the data looks simi
 
 * The `data.api` key is set to the string `SftpRemove`.
 
-* The `clientRequestId` key is not included.
+* The `clientRequestId` key isn't included.
 
 * The `contentType` key is set to `application/octet-stream`.
 
@@ -726,7 +726,7 @@ If the blob storage account uses SFTP to rename a blob, then the data looks simi
 
 * The `data.api` key is set to the string `SftpRename`.
 
-* The `clientRequestId` key is not included.
+* The `clientRequestId` key isn't included.
 
 * The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
 
@@ -761,7 +761,7 @@ If the blob storage account uses SFTP to create a directory, then the data looks
 
 * The `data.api` key is set to the string `SftpMakeDir`.
 
-* The `clientRequestId` key is not included.
+* The `clientRequestId` key isn't included.
 
 * The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
 
@@ -794,7 +794,7 @@ If the blob storage account uses SFTP to rename a directory, then the data looks
 
 * The `data.api` key is set to the string `SftpRename`.
 
-* The `clientRequestId` key is not included.
+* The `clientRequestId` key isn't included.
 
 * The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
 
@@ -828,7 +828,7 @@ If the blob storage account uses SFTP to delete a directory, then the data looks
 
 * The `data.api` key is set to the string `SftpRemoveDir`.
 
-* The `clientRequestId` key is not included.
+* The `clientRequestId` key isn't included.
 
 * The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
 
@@ -866,7 +866,7 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
 
 * The `data.api` key is set to the string `SftpCreate` or `SftpCommit`.
 
-* The `clientRequestId` key is not included.
+* The `clientRequestId` key isn't included.
 
 * The `contentType` key is set to `application/octet-stream`.
 
@@ -912,7 +912,7 @@ If the blob storage account uses SFTP to delete a blob, then the data looks simi
 
 * The `data.api` key is set to the string `SftpRemove`.
 
-* The `clientRequestId` key is not included.
+* The `clientRequestId` key isn't included.
 
 * The `contentType` key is set to `application/octet-stream`.
 
@@ -948,7 +948,7 @@ If the blob storage account uses SFTP to rename a blob, then the data looks simi
 
 * The `data.api` key is set to the string `SftpRename`.
 
-* The `clientRequestId` key is not included.
+* The `clientRequestId` key isn't included.
 
 * The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
 
@@ -982,7 +982,7 @@ If the blob storage account uses SFTP to create a directory, then the data looks
 
 * The `data.api` key is set to the string `SftpMakeDir`.
 
-* The `clientRequestId` key is not included.
+* The `clientRequestId` key isn't included.
 
 * The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
 
@@ -1014,7 +1014,7 @@ If the blob storage account uses SFTP to rename a directory, then the data looks
 
 * The `data.api` key is set to the string `SftpRename`.
 
-* The `clientRequestId` key is not included.
+* The `clientRequestId` key isn't included.
 
 * The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
 
@@ -1047,7 +1047,7 @@ If the blob storage account uses SFTP to delete a directory, then the data looks
 
 * The `data.api` key is set to the string `SftpRemoveDir`.
 
-* The `clientRequestId` key is not included.
+* The `clientRequestId` key isn't included.
 
 * The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
 
@@ -1082,7 +1082,7 @@ These events are triggered when the actions defined by a policy are performed.
 
  |Event name |Description|
  |----------|-----------|
- | [Microsoft.Storage.BlobInventoryPolicyCompleted](#microsoftstorageblobinventorypolicycompleted-event) |Triggered when the inventory run completes for a rule that is defined an inventory policy. This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container is not present will trigger the event.   |
+ | [Microsoft.Storage.BlobInventoryPolicyCompleted](#microsoftstorageblobinventorypolicycompleted-event) |Triggered when the inventory run completes for a rule that is defined an inventory policy. This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container isn't present will trigger the event.   |
  | [Microsoft.Storage.LifecyclePolicyCompleted](#microsoftstoragelifecyclepolicycompleted-event) |Triggered when the actions defined by a lifecycle management policy are performed. |
 
 ### Example events
@@ -1262,8 +1262,8 @@ The data object has the following properties:
 | [Quickstart: route Blob storage events to a custom web endpoint with Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send blob storage events to a WebHook. |
 | [Quickstart: route Blob storage events to a custom web endpoint with PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure PowerShell to send blob storage events to a WebHook. |
 | [Quickstart: create and route Blob storage events with the Azure portal](blob-event-quickstart-portal.md) | Shows how to use the portal to send blob storage events to a WebHook. |
-| [Azure CLI: subscribe to events for a Blob storage account](./scripts/event-grid-cli-subscribe-custom-topic.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
-| [PowerShell: subscribe to events for a Blob storage account](./scripts/event-grid-powershell-blob.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
+| [Azure CLI: subscribe to events for a Blob storage account](./scripts/cli-subscribe-custom-topic.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
+| [PowerShell: subscribe to events for a Blob storage account](./scripts/powershell-blob.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
 | [Resource Manager template: Create Blob storage and subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-subscription-and-storage) | Deploys an Azure Blob storage account and subscribes to events for that storage account. It sends events to a WebHook. |
 | [Overview: reacting to Blob storage events](../storage/blobs/storage-blob-event-overview.md) | Overview of integrating Blob storage with Event Grid. |
 

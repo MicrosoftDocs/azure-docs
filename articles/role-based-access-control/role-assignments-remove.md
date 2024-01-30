@@ -7,21 +7,21 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/19/2022
+ms.date: 01/02/2024
 ms.author: rolyon 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
 # Remove Azure role assignments
 
-[Azure role-based access control (Azure RBAC)](../../articles/role-based-access-control/overview.md) is the authorization system you use to manage access to Azure resources. To remove access from an Azure resource, you remove a role assignment. This article describes how to remove roles assignments using the Azure portal, Azure PowerShell, Azure CLI, and REST API.
+[Azure role-based access control (Azure RBAC)](overview.md) is the authorization system you use to manage access to Azure resources. To remove access from an Azure resource, you remove a role assignment. This article describes how to remove roles assignments using the Azure portal, Azure PowerShell, Azure CLI, and REST API.
 
 ## Prerequisites
 
 To remove role assignments, you must have:
 
-- `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../articles/role-based-access-control/built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)
 
 For the REST API, you must use the following version:
 
@@ -96,7 +96,7 @@ Removes the [Reader](built-in-roles.md#reader) role from the *Ann Mack Team* gro
 ```azurecli
 az role assignment delete --assignee "22222222-2222-2222-2222-222222222222" \
 --role "Reader" \
---subscription "00000000-0000-0000-0000-000000000000"
+--scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 ```
 
 Removes the [Billing Reader](built-in-roles.md#billing-reader) role from the *alain\@example.com* user at the management group scope.

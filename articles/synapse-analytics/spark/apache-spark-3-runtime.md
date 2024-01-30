@@ -1,18 +1,26 @@
 ---
-title: Azure Synapse Runtime for Apache Spark 3.1  
+title: Azure Synapse Runtime for Apache Spark 3.1 (unsupported)
 description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 3.1.
-author: eskot
+author: ekote
+ms.author: eskot 
 ms.service: synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 11/28/2022
-ms.author: eskot
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.1
+# Azure Synapse Runtime for Apache Spark 3.1 (unsupported)
 
-Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.1.
+Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.1.
+
+> [!IMPORTANT]
+> * End of life announced (EOLA) for Azure Synapse Runtime for Apache Spark 3.1 has been announced January 26, 2023.
+> * Effective January 26, 2024, the Azure Synapse has stopped official support for Spark 3.1 Runtimes.
+> * Post January 26, 2024, we will not be addressing any support tickets related to Spark 3.1. There will be no release pipeline in place for bug or security fixes for Spark 3.1. Utilizing Spark 3.1 post the support cutoff date is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.
+> * Recognizing that certain customers may need additional time to transition to a higher runtime version, we are temporarily extending the usage option for Spark 3.1, but we will not provide any official support for it.
+> * We strongly advise to proactively upgrade their workloads to a more recent version of the runtime (e.g., [Azure Synapse Runtime for Apache Spark 3.3 (GA)](./apache-spark-33-runtime.md)).
+
 
 ## Component versions
 
@@ -727,7 +735,7 @@ abseil-cpp=20210324.0
 
 absl-py=0.13.0
 
-adal=1.2.7
+Microsoft Authentication Library=1.2.7
 
 adlfs=0.7.7
 
@@ -811,7 +819,7 @@ chardet=4.0.0
 
 charls=2.2.0
 
-click=8.0.1
+Select=8.0.1
 
 cloudpickle=1.6.0
 
@@ -1735,7 +1743,7 @@ httr 1.4.3
 
 hwriter 1.3.2.1
 
-ids 1.0.1
+IDs 1.0.1
 
 ini 0.3.1
 
@@ -2034,3 +2042,7 @@ zoo 1.8-10
 - [Azure Synapse Analytics](../overview-what-is.md)
 - [Apache Spark Documentation](https://spark.apache.org/docs/3.1.2/)
 - [Apache Spark Concepts](apache-spark-concepts.md)
+
+## Migration between Apache Spark versions - support
+
+For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.3 or 3.4, refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).

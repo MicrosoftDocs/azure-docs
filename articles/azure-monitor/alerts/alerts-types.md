@@ -4,14 +4,15 @@ description: This article explains the different types of Azure Monitor alerts a
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 01/22/2024
 ms.custom: template-concept, ignite-2022
 ms.reviewer: harelbr
 ---
 
-# Types of Azure Monitor alerts
+# Choosing the right type of alert rule
 
 This article describes the kinds of Azure Monitor alerts you can create. It helps you understand when to use each type of alert.
+For more information about pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 The types of alerts are:
 - [Metric alerts](#metric-alerts)
@@ -20,18 +21,16 @@ The types of alerts are:
     - [Service Health alerts](#service-health-alerts)
     - [Resource Health alerts](#resource-health-alerts)
 - [Smart detection alerts](#smart-detection-alerts)
-- [Prometheus alerts](#prometheus-alerts-preview) (preview)
+- [Prometheus alerts](#prometheus-alerts)
 
-## Choose the right alert type
-
-The information in this table can help you decide when to use each type of alert. For more information about pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+##  Types of Azure Monitor alerts
 
 |Alert type |When to use |Pricing information|
 |---------|---------|---------|
 |Metric alert|Metric data is stored in the system already pre-computed. Metric alerts are useful when you want to be alerted about data that requires little or no manipulation. Use metric alerts if the data you want to monitor is available in metric data.|Each metric alert rule is charged based on the number of time series that are monitored. |
-|Log alert|You can use log alerts to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of Kusto Query Language (KQL) for data manipulation by using log alerts.|Each log alert rule is billed based on the interval at which the log query is evaluated. More frequent query evaluation results in a higher cost. For log alerts configured for [at-scale monitoring](#splitting-by-dimensions-in-log-alert-rules), the cost also depends on the number of time series created by the dimensions resulting from your query. |
+|Log alert|You can use log alerts to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of Kusto Query Language (KQL) for data manipulation by using log alerts.|Each log alert rule is billed based on the interval at which the log query is evaluated. More frequent query evaluation results in a higher cost. For log alerts configured for at-scale monitoring using splitting by dimensions, the cost also depends on the number of time series created by the dimensions resulting from your query. |
 |Activity log alert|Activity logs provide auditing of all actions that occurred on resources. Use activity log alerts to be alerted when a specific event happens to a resource like a restart, a shutdown, or the creation or deletion of a resource. Service Health alerts and Resource Health alerts let you know when there's an issue with one of your services or resources.|For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).|
-|Prometheus alerts (preview)| Prometheus alerts are primarily used for alerting on performance and health of Kubernetes clusters, including Azure Kubernetes Service. The alert rules are based on PromQL, which is an open-source query language. | There's no charge for Prometheus alerts during the preview period. |
+|Prometheus alerts|Prometheus alerts are used for alerting on Prometheus metrics stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). The alert rules are based on the PromQL open-source query language. |Prometheus alert rules are only charged on the data queried by the rules.  For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/). |
 
 ## Metric alerts
 
@@ -45,35 +44,29 @@ You can create rules by using these metrics:
 
 Metric alert rules include these features:
 - You can use multiple conditions on an alert rule for a single resource.
-- You can add granularity by [monitoring multiple metric dimensions](#narrow-the-target-by-using-dimensions).
-- You can use [dynamic thresholds](#dynamic-thresholds) driven by machine learning.
+- You can add granularity by [monitoring multiple metric dimensions](#narrow-the-target-using-dimensions). 
+- You can use [dynamic thresholds](#apply-advanced-machine-learning-with-dynamic-thresholds), which are driven by machine learning. 
 - You can configure if metric alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). Metric alerts are stateful by default.
 
 The target of the metric alert rule can be:
 - A single resource, such as a virtual machine (VM). For supported resource types, see [Supported resources for metric alerts in Azure Monitor](alerts-metric-near-real-time.md).
-- [Multiple resources](#monitor-multiple-resources) of the same type in the same Azure region, such as a resource group.
+- [Multiple resources](#monitor-multiple-resources-with-one-alert-rule) of the same type in the same Azure region, such as a resource group.
 
-### Multiple conditions
+### Applying multiple conditions to a metric alert rule
 
-When you create an alert rule for a single resource, you can apply multiple conditions. For example, you could create an alert rule to monitor an Azure VM and alert when both "Percentage CPU is higher than 90%" and "Queue length is over 300 items." When an alert rule has multiple conditions, the alert fires when all the conditions in the alert rule are true. It's resolved when at least one of the conditions is no longer true for three consecutive checks.
+When you create an alert rule for a single resource, you can apply multiple conditions. For example, you could create an alert rule to monitor an Azure virtual machine and alert when both "Percentage CPU is higher than 90%" and "Queue length is over 300 items". When an alert rule has multiple conditions, the alert fires when all the conditions in the alert rule are true and is resolved when at least one of the conditions is no longer true for three consecutive checks.
 
-### Narrow the target by using dimensions
-
-Dimensions are name-value pairs that contain more data about the metric value. When you use dimensions, you can filter metrics and monitor specific time-series instead of monitoring the aggregate of all the dimensional values.
-
-For example, the Transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction like GetBlob, DeleteBlob, and PutPage. You can choose to have an alert fired when there's a high number of transactions in any API name, which is the aggregated data. Or you can use dimensions to further break it down to alert only when the number of transactions is high for specific API names.
-
-If you use more than one dimension, the metric alert rule can monitor multiple dimension values from different dimensions of a metric. The alert rule separately monitors all the dimensions value combinations.
+### Narrow the target using dimensions
 
 For instructions on using dimensions in metric alert rules, see [Monitor multiple time series in a single metric alert rule](alerts-metric-multiple-time-series-single-rule.md).
 
-### Create resource-centric alerts by using splitting by dimensions
+### Monitor the same condition on multiple resources using splitting by dimensions
 
 To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. When you use splitting by dimensions, you can create resource-centric alerts at scale for a subscription or resource group. Alerts are split into separate alerts by grouping combinations. Splitting on an Azure resource ID column makes the specified resource into the alert target.
 
 You might also decide not to split when you want a condition applied to multiple resources in the scope. For example, you might want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
 
-### Monitor multiple resources
+### Monitor multiple resources with one alert rule
 
 You can monitor at scale by applying the same metric alert rule to multiple resources of the same type for resources that exist in the same Azure region. Individual notifications are sent for each monitored resource.
 
@@ -91,6 +84,11 @@ The platform metrics for these services in the following Azure clouds are suppor
 | Azure Stack Edge devices     | Yes      | Yes    | Yes |
 | Recovery Services vaults     | Yes      | No     | No  |
 | Azure Database for PostgreSQL - Flexible Server     | Yes      | Yes    | Yes |
+| Bare Metal Machines (Operator Nexus)    | Yes      | Yes    | Yes |
+| Storage Appliances (Operator Nexus)    | Yes      | Yes    | Yes |
+| Clusters (Operator Nexus)    | Yes      | Yes    | Yes |
+| Network Devices (Operator Nexus)    | Yes      | Yes    | Yes |
+| Data collection rules    | Yes      | Yes    | Yes |
 
   > [!NOTE]
   > Multi-resource metric alerts aren't supported for:
@@ -103,7 +101,7 @@ You can specify the scope of monitoring with a single metric alert rule in one o
 - All VMs in one Azure region in one or more resource groups in a subscription.
 - All VMs in one Azure region in a subscription.
 
-### Dynamic thresholds
+### Apply advanced machine learning with dynamic thresholds
 
 Dynamic thresholds use advanced machine learning to:
 - Learn the historical behavior of metrics.
@@ -120,7 +118,7 @@ Dynamic thresholds help you:
 - Prevent noisy (low precision) or wide (low recall) thresholds that don’t have an expected pattern.
 - Handle noisy metrics (such as machine CPU or memory) and metrics with low dispersion (such as availability and error rate).
 
-For instructions on using dynamic thresholds in metric alert rules, see [Dynamic thresholds in metric alerts](alerts-dynamic-thresholds.md).
+See [dynamic thresholds](alerts-dynamic-thresholds.md) for detailed instructions on using dynamic thresholds in metric alert rules.
 
 ## Log alerts
 
@@ -135,29 +133,32 @@ Log alerts can measure two different things, which can be used for different mon
 - **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions.
 - **Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.
 
-You can configure if log alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). This feature is currently in preview.
+You can configure if log alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). This feature is currently in preview. 
+Note that stateful log alerts have these limitations:
+- they can trigger up to 300 alerts per evaluation.
+- you can have a maximum of 5000 alerts with the `fired` alert condition.
 
 > [!NOTE]
 > Log alerts work best when you're trying to detect specific data in the logs, as opposed to when you're trying to detect a lack of data in the logs. Because logs are semi-structured data, they're inherently more latent than metric data on information like a VM heartbeat. To avoid misfires when you're trying to detect a lack of data in the logs, consider using [metric alerts](#metric-alerts). You can send data to the metric store from logs by using [metric alerts for logs](alerts-metric-logs.md).
 
-### Dimensions in log alert rules
+### Monitor multiple instances of a resource using dimensions
 
 You can use dimensions when you create log alert rules to monitor the values of multiple instances of a resource with one rule. For example, you can monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually. Notifications are sent for each instance.
 
-### Splitting by dimensions in log alert rules
+### Monitor the same condition on multiple resources using splitting by dimensions
 
 To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. When you use splitting by dimensions, you can create resource-centric alerts at scale for a subscription or resource group. Alerts are split into separate alerts by grouping combinations by using numerical or string columns. Splitting on the Azure resource ID column makes the specified resource into the alert target.
 
 You might also decide not to split when you want a condition applied to multiple resources in the scope. For example, you might want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
 
-### Use the API
+### Use the API for log alert rules
 
 Manage new rules in your workspaces by using the [ScheduledQueryRules](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules) API.
 
 > [!NOTE]
 > Log alerts for Log Analytics used to be managed by using the legacy [Log Analytics Alert API](api-alerts.md). Learn more about [switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 
-## Log alerts on your Azure bill
+### Log alerts on your Azure bill
 
 Log alerts are listed under resource provider `microsoft.insights/scheduledqueryrules` with:
 - Log alerts on Application Insights shown with the exact resource name along with resource group and alert properties.
@@ -211,11 +212,15 @@ Although metric alerts tell you there might be a problem, smart detection starts
 
 Smart detection works for web apps hosted in the cloud or on your own servers that generate application requests or dependency data.
 
-## Prometheus alerts (preview)
+## Prometheus alerts
 
-Prometheus alerts are based on metric values stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). They fire when the result of a PromQL query resolves to true. Prometheus alerts are displayed and managed like other alert types when they fire, but they're configured with a Prometheus rule group. For more information, see [Rule groups in Azure Monitor managed service for Prometheus](../essentials/prometheus-rule-groups.md).
+Prometheus alerts are used to monitor metrics stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). Prometheus alert rules are configured as part of [Prometheus rule groups](/azure/azure-monitor/essentials/prometheus-rule-groups). They fire when the result of a PromQL expression resolves to true. Fired Prometheus alerts are displayed and managed like other alert types.
 
 ## Next steps
 - Get an [overview of alerts](alerts-overview.md).
 - [Create an alert rule](alerts-log.md).
 - Learn more about [smart detection](proactive-failure-diagnostics.md).
+
+
+
+

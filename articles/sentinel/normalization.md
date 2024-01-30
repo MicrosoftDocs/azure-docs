@@ -14,7 +14,7 @@ Microsoft Sentinel ingests data from many sources. Working with various data typ
 
 Sometimes, you'll need separate rules, workbooks, and queries, even when data types share common elements, such as firewall devices. Correlating between different types of data during an investigation and hunting can also be challenging.
 
-The Advanced Security Information Model (ASIM) is a layer that is located between these diverse sources and the user. ASIM follows the [robustness principle](https://en.wikipedia.org/wiki/Robustness_principle): **"Be strict in what you send, be flexible in what you accept"**. Using the robustness principle as design pattern, ASIM transforms Microsoft Sentinel's inconsistent and hard to use source telemetry to  user friendly data. 
+The Advanced Security Information Model (ASIM) is a layer that is located between these diverse sources and the user. ASIM follows the [robustness principle](https://en.wikipedia.org/wiki/Robustness_principle): **"Be strict in what you send, be flexible in what you accept"**. Using the robustness principle as design pattern, ASIM transforms the proprietary source telemetry collected by Microsoft Sentinel to user friendly data to facilitate exchange and integration. 
 
 This article provides an overview of the Advanced Security Information Model (ASIM), its use cases and major components. Refer to the [next steps](#next-steps) section for more details.
 
@@ -62,14 +62,14 @@ Normalized schemas cover standard sets of predictable event types that you can u
 ASIM currently defines the following schemas:
 
 - [Audit Event](normalization-schema-audit.md)
-- [Authentication Event](authentication-normalization-schema.md)
-- [DHCP Activity](dhcp-normalization-schema.md)
+- [Authentication Event](normalization-schema-authentication.md)
+- [DHCP Activity](normalization-schema-dhcp.md)
 - [DNS Activity](normalization-schema-dns.md)
 - [File Activity](normalization-schema-file-event.md)
-- [Network Session](network-normalization-schema.md)
-- [Process Event](process-events-normalization-schema.md)
-- [Registry Event](registry-event-normalization-schema.md)
-- [User Management](user-management-normalization-schema.md)
+- [Network Session](normalization-schema-network.md)
+- [Process Event](normalization-schema-process-event.md)
+- [Registry Event](normalization-schema-registry-event.md)
+- [User Management](normalization-schema-user-management.md)
 - [Web Session](normalization-schema-web.md)
 
 For more information, see [ASIM schemas](normalization-about-schemas.md).
@@ -89,9 +89,12 @@ Query time parsers have many advantages:
 
 On the other hand, while ASIM parsers are optimized, query time parsing can slow down queries, especially on large data sets. To resolve this, Microsoft Sentinel complements query time parsing with ingest time parsing. Using ingest transformation the events are normalized to normalized table, accelerating queries that use normalized data.
 
-Currently, ASIM supports the following normalized tables as a destination for ingest time normalization:
+Currently, ASIM supports the following native normalized tables as a destination for ingest time normalization:
+- [**ASimAuditEventLogs**](/azure/azure-monitor/reference/tables/asimauditeventlogs) for the [Audit Event](normalization-schema-audit.md) schema.
+- **ASimAuthenticationEventLogs** for the [Authentication](normalization-schema-authentication.md) schema.
 - [**ASimDnsActivityLogs**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs) for the [DNS](normalization-schema-dns.md) schema.
-- [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs) for the [Network Session](network-normalization-schema.md) schema 
+- [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs) for the [Network Session](normalization-schema-network.md) schema 
+- [**ASimWebSessionLogs**](/azure/azure-monitor/reference/tables/asimwebsessionlogs) for the [Web Session](normalization-schema-web.md) schema.
  
 For more information, see [Ingest Time Normalization](normalization-ingest-time.md).
 

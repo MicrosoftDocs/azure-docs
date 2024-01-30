@@ -1,9 +1,7 @@
 ---
 title: Write createOptions for modules  - Azure IoT Edge | Microsoft Docs 
 description: How to use createOptions in the deployment manifest to configure modules at runtime
-keywords: 
 author: PatAltimore
-
 ms.author: patricka
 ms.date: 04/01/2020
 ms.topic: conceptual
@@ -57,7 +55,7 @@ If you use the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemN
 
 One tip for writing create options is to use the `docker inspect` command. As part of your development process, run the module locally using `docker run <container name>`. Once you have the module working the way you want it, run `docker inspect <container name>`. This command outputs the module details in JSON format. Find the parameters that you configured, and copy the JSON. For example:
 
-[![Results of docker inspect edgeHub](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png)](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
+:::image type="content" source="./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png" alt-text="Screenshot of the results of the command docker inspect edgeHub." lightbox="./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png":::
 
 ## Common scenarios
 

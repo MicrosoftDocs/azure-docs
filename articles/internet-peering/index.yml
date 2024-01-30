@@ -7,7 +7,6 @@ metadata:
   title: Internet peering documentation
   titleSuffix: Azure
   description: Learn about peering with Microsoft.
-  services: internet-peering
   ms.service: internet-peering
   ms.topic: landing-page
   author: halkazwini
@@ -76,8 +75,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Peering Service FAQs
-            url: service-faqs.yml
+          - text: Peering Service FAQ
+            url: faqs.md#peering-service
       - linkListType: how-to-guide
         links:
           - text: Peering Service partner walkthrough

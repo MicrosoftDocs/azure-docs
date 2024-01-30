@@ -1,10 +1,10 @@
 ---
-title: Connecting to Azure Analysis Services servers| Microsoft Docs
+title: Learn about connecting to Azure Analysis Services servers| Microsoft Docs
 description: Learn how to connect to and get data from an Analysis Services server in Azure.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 01/24/2023
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions 
@@ -45,16 +45,20 @@ In **Azure portal** > server > **Overview** > **Server name**, copy the entire s
 
 When connecting to Azure Analysis Services using the Tabular Object Model, use the following connection string formats:
 
-###### Integrated Azure Active Directory authentication
+<a name='integrated-azure-active-directory-authentication'></a>
 
-Integrated authentication picks up the Azure Active Directory credential cache if available. If not, the Azure login window is shown.
+###### Integrated Microsoft Entra authentication
+
+Integrated authentication picks up the Microsoft Entra credential cache if available. If not, the Azure login window is shown.
 
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>;"
 ```
 
 
-###### Azure Active Directory authentication with username and password
+<a name='azure-active-directory-authentication-with-username-and-password'></a>
+
+###### Microsoft Entra authentication with username and password
 
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>;User ID=<user name>;Password=<password>;Persist Security Info=True; Impersonation Level=Impersonate;";

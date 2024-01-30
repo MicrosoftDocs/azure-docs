@@ -1,10 +1,10 @@
 ---
-title: Understand Device Update for IoT Hub importing | Microsoft Docs
+title: Understand Device Update for IoT Hub importing
 description: Key concepts for importing a new update into Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 06/27/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 

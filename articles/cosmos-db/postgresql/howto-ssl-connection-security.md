@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 06/05/2023
 ---
 # Configure TLS in Azure Cosmos DB for PostgreSQL
 
@@ -23,7 +23,7 @@ The TLS parameters `ssl` and `sslmode` vary based on the capabilities of the con
 Some application frameworks don't enable TLS by default for PostgreSQL connections. However, without a secure connection, an application can't connect to the coordinator node. Consult your application's documentation to learn how to enable TLS connections.
 
 ## Applications that require certificate verification for TLS connectivity
-In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file (.cer) to connect securely. The certificate to connect to an Azure Cosmos DB for PostgreSQL is located at https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem  Download the certificate file and save it to your preferred location.
+In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file (.cer) to connect securely. The certificate to connect to an Azure Cosmos DB for PostgreSQL is located at https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem. Download the certificate file and save it to your preferred location.
 
 > [!NOTE]
 >
@@ -42,7 +42,7 @@ The following example shows how to connect to your coordinator node using the ps
 
 Below is an example of the psql connection string:
 ```
-psql "sslmode=verify-full sslrootcert=DigiCertGlobalRootG2.crt.pem host=mydemoserver.postgres.database.azure.com dbname=citus user=citus password=your_pass"
+psql "sslmode=verify-full sslrootcert=DigiCertGlobalRootG2.crt.pem host=c-mydemocluster.12345678901234.postgres.cosmos.azure.com dbname=citus user=citus password=your_pass"
 ```
 > [!TIP]
 > Confirm that the value passed to `sslrootcert` matches the file path for the certificate you saved.

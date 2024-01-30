@@ -3,23 +3,13 @@ title: Service developer guide - IoT Plug and Play | Microsoft Docs
 description: Description of IoT Plug and Play for service developers
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/17/2022
+ms.date: 1/23/2024
 ms.topic: conceptual
 ms.service: iot-develop
-services: iot-develop
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-ten
 
 # - id: programming-languages-set-ten
-#   title: Programming languages
-#   prompt: Choose a programming language
-#   pivots:
-#   - id: programming-language-csharp
-#     title: C#
-#   - id: programming-language-java
-#     title: Java
-#   - id: programming-language-javascript
-#     title: JavaScript
-#   - id: programming-language-python
 #     title: Python
 ---
 
@@ -29,11 +19,13 @@ IoT Plug and Play lets you build IoT devices that advertise their capabilities t
 
 IoT Plug and Play lets you use devices that have announced their model ID with your IoT hub. For example, you can access the properties and commands of a device directly.
 
-To use an IoT Plug and Play device that's connected to your IoT hub, one of the Azure IoT service SDKs:
+If you're using IoT Central, you can use the IoT Central UI and REST API to interact with IoT Plug and Play devices connected to your application.
 
 ## Service SDKs
 
 Use the Azure IoT service SDKs in your solution to interact with devices and modules. For example, you can use the service SDKs to read and update twin properties and invoke commands. Supported languages include C#, Java, Node.js, and Python.
+
+[!INCLUDE [iot-hub-sdks-service](../../includes/iot-hub-sdks-service.md)]
 
 The service SDKs let you access device information from a solution component such as a desktop or web application. The service SDKs include two namespaces and object models that you can use to retrieve the model ID:
 
@@ -69,7 +61,7 @@ The service SDKs let you access device information from a solution component suc
 
 Now that you've learned about device modeling, here are some more resources:
 
-- [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)
+- [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md)
 - [C device SDK](https://github.com/Azure/azure-iot-sdk-c/)
 - [IoT REST API](/rest/api/iothub/device)
 - [IoT Plug and Play modeling guide](concepts-modeling-guide.md)

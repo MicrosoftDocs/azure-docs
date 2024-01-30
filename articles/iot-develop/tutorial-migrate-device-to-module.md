@@ -3,10 +3,9 @@ title: Tutorial - Connect a generic Azure IoT Plug and Play module | Microsoft D
 description: Tutorial - Use sample C# IoT Plug and Play device code in a generic module.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/17/2022
+ms.date: 1/23/2024
 ms.topic: tutorial
 ms.service: iot-develop
-services: iot-develop
 
 #Customer intent: As a device builder, I want to learn how to implement a module that works with IoT Plug and Play.
 ---
@@ -18,7 +17,7 @@ This tutorial shows you how to connect a generic IoT Plug and Play [module](../i
 A device is an IoT Plug and Play device if it:
 
 * Publishes its model ID when it connects to an IoT hub.
-* Implements the properties and methods described in the Digital Twins Definition Language (DTDL) V2 model identified by the model ID.
+* Implements the properties and methods described in the Digital Twins Definition Language (DTDL) model identified by the model ID.
 
 To learn more about how devices use a DTDL and model ID, see [IoT Plug and Play developer guide](./concepts-developer-guide-device.md). Modules use model IDs and DTDL models in the same way.
 

@@ -23,7 +23,7 @@ sections:
       - question: |
           Is the data behind the FHIR APIs stored in Azure?
         answer: |
-          Yes, the data is stored in managed databases in Azure. The Azure API for FHIR does not provide direct access to the underlying data store.
+          Yes, the data is stored in managed databases in Azure. The Azure API for FHIR doesn't provide direct access to the underlying data store.
 
       - question: |
           How can I get access to the underlying data?
@@ -33,7 +33,7 @@ sections:
       - question: |
           What identity provider do you support?
         answer: |
-          We support Microsoft Azure Active Directory as the identity provider.
+          We support Microsoft Entra ID as the identity provider.
 
       - question: |
           Can I use Azure AD B2C with the Azure API for FHIR?
@@ -76,7 +76,7 @@ sections:
         answer: |
           The [release notes](./release-notes.md) page provides an overview of everything that has shipped to the managed service in the previous month. 
           
-          For more information about what's releasing in Azure API for FHIR, see [releases](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. We have worked to tag items with Azure-API-for-FHIR if they will release to the managed service and are usually available two weeks after they are on the release page in open-source. We have also included instructions on [how to test the build](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you'd like to test in your own environment. 
+          For more information about what's releasing in Azure API for FHIR, see [releases](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. We have worked to tag items with Azure-API-for-FHIR if they'll release to the managed service and are usually available two weeks after they are on the release page in open-source. We have also included instructions on [how to test the build](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you'd like to test in your own environment. 
           
           To see what release package is currently in the managed service, you can view the capability statement for the Azure API for FHIR under the `software.version` property. You'll see which package is deployed. 
           
@@ -88,12 +88,12 @@ sections:
       - question: |
           Can I switch my Azure API for FHIR from STU3 to R4?
         answer: |
-          No. We do not have a way to change the version of an existing database. You'll need to create a new Azure API for FHIR and reload the data. You can leverage the [JSON to FHIR converter](https://github.com/microsoft/FHIR-Converter) as a place to start with converting STU3 data into R4.
+          No. We don't have a way to change the version of an existing database. You'll need to create a new Azure API for FHIR and reload the data. You can leverage the [JSON to FHIR converter](https://github.com/microsoft/FHIR-Converter) as a place to start with converting STU3 data into R4.
       
       - question: |
           Can I customize the URL for my Azure API for FHIR?
         answer: |
-          No. You cannot change the URL for the Azure API for FHIR.
+          No. You can't change the URL for the Azure API for FHIR.
 
   - name: FHIR Implementations and Specifications
     questions:
@@ -105,12 +105,11 @@ sections:
       - question: |
           Does Azure API for FHIR support SMART on FHIR?
         answer: |
-          We have a basic SMART on FHIR proxy as part of the managed service. If this doesn't meet your needs, you can use the open-source FHIR proxy for more advanced SMART scenarios.  
-
+          Yes, SMART on FHIR capability is supported using [AHDS samples](https://aka.ms/azure-health-data-services-smart-on-fhir-sample). This is referred to as SMART on FHIR(Enhanced). SMART on FHIR(Enhanced) can be considered to meet requirements with [SMART on FHIR Implementation Guide (v 1.0.0)](https://hl7.org/fhir/smart-app-launch/1.0.0/) and [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg). For more information, visit [SMART on FHIR(Enhanced) Documentation](smart-on-fhir.md).
       - question: |
           Can I create a custom FHIR resource?
         answer: |
-          We do not allow custom FHIR resources. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](https://www.hl7.org/fhir/basic.html) with extensions. 
+          We don't allow custom FHIR resources. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](https://www.hl7.org/fhir/basic.html) with extensions. 
           
       - question: |
           Are extensions supported on Azure API for FHIR?
@@ -180,7 +179,7 @@ sections:
       - question: |
           What are the differences between delete types in Azure API for FHIR?
         answer: |
-          There're two basic Delete types supported within Azure API for FHIR. These are [Delete and Conditional Delete](fhir-rest-api-capabilities.md#delete-and-conditional-delete).
+          There are two basic Delete types supported within Azure API for FHIR. These are [Delete and Conditional Delete](fhir-rest-api-capabilities.md#delete-and-conditional-delete).
           * With Delete, you can choose to do a soft delete (most common type) and still be able to recover historic versions of your record.
           * With Conditional Delete, you can pass a search criteria to delete a resource one item at a time or several at a time.
           * With either Delete or Conditional Delete, if you passed the `hardDelete` parameter, all the records and history are deleted and unrecoverable.
@@ -218,8 +217,8 @@ sections:
       - question: |
           Can I perform health checks on FHIR service?
         answer: |
-          To perform health check on FHIR service , enter `{{fhirurl}}/health/check` in the GET request. You should be able to see Status of FHIR service. HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is succesful.
-          In case of errors, you will recieve error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in response body in some scenarios.
+          To perform health check on FHIR service, enter `{{fhirurl}}/health/check` in the GET request. You should be able to see Status of FHIR service. HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is successful.
+          In case of errors, you will receive error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in response body in some scenarios.
     
       - question: |
           Is there a way to encrypt my data using my personal key and not a default key?

@@ -2,25 +2,32 @@
 title: Transfer data to or from Azure Files by using AzCopy v10
 description: Transfer data with AzCopy and file storage. AzCopy is a command-line tool for copying blobs or files to or from a storage account. Use AzCopy with Azure Files.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 10/02/2022
+ms.date: 12/15/2023
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Transfer data with AzCopy and file storage
 
 AzCopy is a command-line utility that you can use to copy files to or from a storage account. This article contains example commands that work with Azure Files.
 
-Before you begin, see the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and familiarize yourself with the tool.
+## Get started
 
-> [!TIP]
-> The examples in this article enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
+
+> [!NOTE]
+> The examples in this article show the use of a SAS token to authorize access. However, for commands that target files and directories, you can now provide authorization credentials by using Microsoft Entra ID and omit the SAS token from those commands. You'll still have to use a SAS token in any command that targets only the file share or the account (For example: `'azcopy make https://mystorageaccount.file.core.windows.net/myfileshare'` or `'azcopy copy 'https://mystorageaccount.file.core.windows.net'`. 
+> 
+> To learn more, see [Authorize AzCopy](storage-use-azcopy-authorize-azure-active-directory.md). 
 
 ## Create file shares
 
 You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a file share. The example in this section creates a file share named `myfileshare`.
+
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 **Syntax**
 
@@ -37,6 +44,9 @@ For detailed reference docs, see [azcopy make](storage-ref-azcopy-make.md).
 ## Upload files
 
 You can use the [azcopy copy](storage-ref-azcopy-copy.md) command to upload files and directories from your local computer.
+
+> [!TIP]
+> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 This section contains the following examples:
 
@@ -57,13 +67,13 @@ This section contains the following examples:
 > For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 > [!NOTE]
-> AzCopy doesn't automatically calculate and store the file's md5 hash code. If you want AzCopy to do that, then append the `--put-md5` flag to each copy command. That way, when the file is downloaded, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the file's `Content-md5` property matches the calculated hash.
+> AzCopy doesn't automatically calculate and store the file's md5 hash code for a file greater than 256 MB.If you want AzCopy to do that, then append the `--put-md5` flag to each copy command. That way, when the file is downloaded, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the file's `Content-md5` property matches the calculated hash.
 
 ### Upload a file
 
 **Syntax**
 
-`azcopy copy '<local-file-path>' 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-name><SAS-token>'`
+`azcopy copy '<local-file-path>' 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-name>'`
 
 **Example**
 
@@ -173,6 +183,9 @@ For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) refere
 ## Download files
 
 You can use the [azcopy copy](storage-ref-azcopy-copy.md) command to download files, directories, and file shares to your local computer.
+
+> [!TIP]
+> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 This section contains the following examples:
 
@@ -319,9 +332,12 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileSh
 
 You can use AzCopy to copy files to other storage accounts. The copy operation is synchronous so all files are copied when the command returns.
 
-AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [APIs](/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer. You can increase the throughput of these operations by setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable. To learn more, see [Increase Concurrency](storage-use-azcopy-optimize.md#increase-concurrency).
+AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [APIs](/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. You can increase the throughput of these operations by setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable. To learn more, see [Increase Concurrency](storage-use-azcopy-optimize.md#increase-concurrency).
 
 You can also copy specific versions of a file by referencing the **DateTime** value of a share snapshot. To learn more about share snapshots, see [Overview of share snapshots for Azure Files](../files/storage-snapshots-files.md).
+
+> [!TIP]
+> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 This section contains the following examples:
 
@@ -438,6 +454,8 @@ You can synchronize the contents of a local file system with a file share or syn
 > |Specify how detailed you want your sync-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
 >
 > For a complete list, see [options](storage-ref-azcopy-sync.md#options).
+
+The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 ### Update a file share with changes to a local file system
 

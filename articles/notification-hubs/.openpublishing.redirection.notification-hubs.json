@@ -1,0 +1,39 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/notification-hubs/notification-hubs-android-push-notification-google-gcm-get-started.md",
+            "redirect_url": "/azure/notification-hubs/android-sdk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notification-hubs/notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md",
+            "redirect_url": "/azure/notification-hubs/android-sdk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notification-hubs/notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md",
+            "redirect_url": "/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notification-hubs/notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md",
+            "redirect_url": "/azure/notification-hubs/push-notifications-android-specific-devices-firebase-cloud-messaging",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md",
+            "redirect_url": "/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notification-hubs/notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md",
+            "redirect_url": "/azure/notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notification-hubs/ios-sdk-legacy.md",
+            "redirect_url": "/azure/notification-hubs/ios-sdk-current",
+            "redirect_document_id": false
+        }
+    ]
+}

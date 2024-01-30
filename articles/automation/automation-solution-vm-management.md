@@ -3,15 +3,15 @@ title: Azure Automation Start/Stop VMs during off-hours overview
 description: This article describes the Start/Stop VMs during off-hours feature, which starts or stops VMs on a schedule and proactively monitor them from Azure Monitor Logs.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/04/2023
+ms.date: 03/16/2023
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell, engagement-fy23
+ms.custom: engagement-fy23
 ---
 
 # Start/Stop VMs during off-hours overview
 
 > [!NOTE]
-> Start/Stop VM during off-hours, version 1 is going to retire soon by CY23 and is unavailable in the marketplace now. We recommend that you start using [version 2](https://learn.microsoft.com/azure/azure-functions/start-stop-vms/overview), which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until retirement in CY23. The details on announcement will be shared soon.
+> Start/Stop VM during off-hours version 1 is unavailable in the marketplace now as it will retire by 30 September 2023. We recommend you start using [version 2](../azure-functions/start-stop-vms/overview.md) which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until 30 September 2023. The details of the announcement will be shared soon. 
 
 The Start/Stop VMs during off-hours feature start or stops enabled Azure VMs. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/alerts/action-groups.md). The feature can be enabled on both Azure Resource Manager and classic VMs for most scenarios.
 
@@ -35,7 +35,7 @@ The following are limitations with the current feature:
 
 You must have certain permissions to enable VMs for the Start/Stop VMs during off-hours feature. The permissions are different depending on whether the feature uses a pre-created Automation account and Log Analytics workspace or creates a new account and workspace.
 
-You don't need to configure permissions if you're a Contributor on the subscription and a Global Administrator in your Azure Active Directory (AD) tenant. If you don't have these rights or need to configure a custom role, make sure that you have the permissions described below.
+You don't need to configure permissions if you're a Contributor on the subscription and a Global Administrator in your Microsoft Entra tenant. If you don't have these rights or need to configure a custom role, make sure that you have the permissions described below.
 
 ### Permissions for pre-existing Automation account and Log Analytics workspace
 
@@ -111,7 +111,7 @@ Use one of the following mechanisms to access the enabled feature:
 
 * From your Automation account, select **Start/Stop VM** under **Related Resources**. On the Start/Stop VM page, select **Manage the solution** under **Manage Start/Stop VM Solutions**.
 
-* Navigate to the Log Analytics workspace linked to your Automation account. After after selecting the workspace, choose **Solutions** from the left pane. On the Solutions page, select **Start-Stop-VM[workspace]** from the list.  
+* Navigate to the Log Analytics workspace linked to your Automation account. After selecting the workspace, choose **Solutions** from the left pane. On the Solutions page, select **Start-Stop-VM[workspace]** from the list.  
 
 Selecting the feature displays the **Start-Stop-VM[workspace]** page. Here you can review important details, such as the information in the **StartStopVM** tile. As in your Log Analytics workspace, this tile displays a count and a graphical representation of the runbook jobs for the feature that have started and have finished successfully.
 

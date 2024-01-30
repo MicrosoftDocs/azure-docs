@@ -1,19 +1,21 @@
 ---
 title: How to upgrade your Data Science Virtual Machine to Ubuntu 20.04
-titleSuffix: Azure Data Science Virtual Machine 
+titleSuffix: Azure Data Science Virtual Machine
 description: Learn how to upgrade from CentOS and Ubuntu 18.04 to the latest Ubuntu 20.04 Data Science Virtual Machine.
 keywords: deep learning, AI, data science tools, data science virtual machine, team data science process
 services: machine-learning
 ms.service: data-science-vm
+ms.custom: linux-related-content
 author: jesscioffi
 ms.author: jcioffi
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.reviewer: mattmcinnes
+ms.date: 04/19/2023
 ---
 
 # Upgrade your Data Science Virtual Machine to Ubuntu 20.04
 
-If you have a Data Science Virtual Machine running an older release such as Ubuntu 18.04 or CentOS, you should migrate your DSVM to Ubuntu 20.04. Migrating will ensure that you get the latest operating system patches, drivers, preinstalled software, and library versions. This document tells you how to migrate from either older versions of Ubuntu or from CentOS. 
+If you have a Data Science Virtual Machine running an older release such as Ubuntu 18.04 or CentOS, you should migrate your DSVM to Ubuntu 20.04. Migrating will ensure that you get the latest operating system patches, drivers, preinstalled software, and library versions. This document tells you how to migrate from either older versions of Ubuntu or from CentOS.
 
 ## Prerequisites
 
@@ -28,7 +30,7 @@ There are two possible ways to migrate:
 
 ## Snapshot your VM in case you need to roll back
 
-In the Azure portal, use the search bar to find the **Snapshots** functionality. 
+In the Azure portal, use the search bar to find the **Snapshots** functionality.
 
 :::image type="content" source="media/ubuntu_upgrade/azure-portal-search-bar.png" alt-text="Screenshot showing Azure portal and search bar, with **Snapshots** highlighted":::
 
@@ -40,9 +42,9 @@ In the Azure portal, use the search bar to find the **Snapshots** functionality.
 
 ## In-place migration
 
-If you're migrating an older Ubuntu release, you may choose to do an in-place migration. This migration doesn't create a new virtual machine and has fewer steps than a side-by-side migration.  If you wish to do a side-by-side migration because you want more control or because you're migrating from a different distribution, such as CentOS, skip to the [Side-by-side migration](#side-by-side-migration) section. 
+If you're migrating an older Ubuntu release, you may choose to do an in-place migration. This migration doesn't create a new virtual machine and has fewer steps than a side-by-side migration.  If you wish to do a side-by-side migration because you want more control or because you're migrating from a different distribution, such as CentOS, skip to the [Side-by-side migration](#side-by-side-migration) section.
 
-1. From the Azure portal, start your DSVM and sign in using SSH. To do so, select **Connect** and **SSH** and follow the connection instructions. 
+1. From the Azure portal, start your DSVM and sign in using SSH. To do so, select **Connect** and **SSH** and follow the connection instructions.
 
 1. Once connected to a terminal session on your DSVM, run the following upgrade command:
 
@@ -54,7 +56,7 @@ The upgrade process will take a while to complete. When it's over, the program w
 
 ### If necessary, regenerate SSH keys
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > After upgrading and rebooting, you may need to regenerate your SSH keys.
 
 After your VM has upgraded and rebooted, attempt to access it again via SSH. The IP address may have changed during the reboot, so confirm it before attempting to connect.
@@ -75,7 +77,7 @@ You should now be able to connect with SSH. If you're still having trouble, in t
 
 If you're migrating from CentOS or want a clean OS install, you can do a side-by-side migration. This type of migration has more steps, but gives you control over exactly which files are carried over.
 
-Migrations from other systems based on the same set of upstream source packages should be relatively straightforward, for example [FAQ/CentOS3](https://wiki.centos.org/FAQ/CentOS3).
+Migrations from other systems based on the same set of upstream source packages should be relatively straightforward, for example [FAQ/CentOS3](https://wiki.centos.org/FAQ(2f)CentOS3.html).
 
 You may choose to upgrade the operating system parts of the filesystem and leave user directories, such as `/home` in place. If you do leave the old user home directories in place expect some problems with the GNOME/KDE menus and other desktop items. It may be easiest to create new user accounts and mount the old directories somewhere else in the filesystem for reference, copying, or linking users' material after the migration.
 
@@ -95,7 +97,7 @@ You may choose to upgrade the operating system parts of the filesystem and leave
 
 ### Create a disk from your VM snapshot
 
-If you  haven't already created a VM snapshot as described previously, do so. 
+If you  haven't already created a VM snapshot as described previously, do so.
 
 1. In the Azure portal, search for **Disks** and select **Add**, which will open the **Disk** page.
 
@@ -103,13 +105,13 @@ If you  haven't already created a VM snapshot as described previously, do so.
 
 2. Set the **Subscription**, **Resource group**, and **Region** to the values of your VM snapshot. Choose a **Name** for the disk to be created.
 
-3. Select **Source type** as **Snapshot** and select the VM snapshot as the **Source snapshot**. Review and create the disk. 
+3. Select **Source type** as **Snapshot** and select the VM snapshot as the **Source snapshot**. Review and create the disk.
 
 :::image type="content" source="media/ubuntu_upgrade/disk-create-options.png" alt-text="Screenshot of disk creation dialog showing options":::
 
 ### Create a new Ubuntu Data Science Virtual Machine
 
-Create a new Ubuntu Data Science Virtual Machine using the [Azure portal](https://portal.azure.com) or an [ARM template](./dsvm-tutorial-resource-manager.md). 
+Create a new Ubuntu Data Science Virtual Machine using the [Azure portal](https://portal.azure.com) or an [ARM template](./dsvm-tutorial-resource-manager.md).
 
 ### Recreate user account(s) on your new Data Science Virtual Machine
 
@@ -134,7 +136,7 @@ For more information, see [Quickstart: Set up the Data Science Virtual Machine f
 > [!Important]
 > Your VM should be running at the time you attach the data disk. If the VM isn't running, the disks may be added in an incorrect order, leading to a confusing and potentially non-bootable system. If you add the data disk with the VM off, choose the **X** beside the data disk, start the VM, and re-attach it.
 
-### Manually copy the wanted data 
+### Manually copy the wanted data
 
 1. Sign on to your running virtual machine using SSH.
 
@@ -143,24 +145,24 @@ For more information, see [Quickstart: Set up the Data Science Virtual Machine f
     ```bash
     lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i 'sd'
     ```
-    
+
     The results should look something like the following image. In the image, disk `sda1` is mounted at the root and `sdb2` is the `/mnt` scratch disk. The data disk created from the snapshot of your old VM is identified as `sdc1` but isn't yet available, as evidenced by the lack of a mount location. Your results might have different identifiers, but you should see a similar pattern.
-    
+
     :::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Screenshot of lsblk output, showing unmounted data drive":::
-    
+
 3. To access the data drive, create a location for it and mount it. Replace `/dev/sdc1` with the appropriate value returned by `lsblk`:
 
     ```bash
     sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
     ```
-    
+
 4. Now, `/datadrive` contains the directories and files of your old Data Science Virtual Machine. Move or copy the directories or files you want from the data drive to the new VM as you wish.
 
 For more information, see [Use the portal to attach a data disk to a Linux VM](../../virtual-machines/linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 ## Connect and confirm version upgrade
 
-Whether you did an in-place or side-by-side migration, confirm that you've successfully upgraded. From a terminal session, run: 
+Whether you did an in-place or side-by-side migration, confirm that you've successfully upgraded. From a terminal session, run:
 
 ```bash
 cat /etc/os-release

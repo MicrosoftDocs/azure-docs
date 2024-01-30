@@ -2,11 +2,10 @@
 title: Enable double encryption at rest - Azure CLI - managed disks
 description: Enable double encryption at rest for your managed disk data using the Azure CLI.
 author: roygara
-ms.date: 01/20/2023
+ms.date: 02/06/2023
 ms.topic: how-to
 ms.author: rogarana
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -15,6 +14,10 @@ ms.custom: references_regions, devx-track-azurecli
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 Azure Disk Storage supports double encryption at rest for managed disks. For conceptual information on double encryption at rest, and other managed disk encryption types, see the [Double encryption at rest](../disk-encryption.md#double-encryption-at-rest) section of our disk encryption article.
+
+## Restrictions
+
+Double encryption at rest isn't currently supported with either Ultra Disks or Premium SSD v2 disks.
 
 ## Prerequisites
 
@@ -58,7 +61,7 @@ Install the latest [Azure CLI](/cli/azure/install-az-cli2) and sign in to an Azu
 1.    Grant the DiskEncryptionSet resource access to the key vault. 
 
         > [!NOTE]
-        > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
+        > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Microsoft Entra ID. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
 
         ```azurecli
         desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)

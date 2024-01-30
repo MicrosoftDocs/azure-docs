@@ -4,7 +4,7 @@ description: Get started using MapReduce samples in jar files included in HDInsi
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 08/26/2022
+ms.date: 09/14/2023
 ---
 
 # Run the MapReduce examples included in HDInsight
@@ -29,7 +29,7 @@ The following samples are contained in this archive:
 |---|---|
 |aggregatewordcount|Counts the words in the input files.|
 |aggregatewordhist|Computes the histogram of the words in the input files.|
-|bbp|Uses Bailey-Borwein-Plouffe to compute exact digits of Pi.|
+|`bbp`|Uses Bailey-Borwein-Plouffe to compute exact digits of Pi.|
 |dbcount|Counts the pageview logs stored in a database.|
 |distbbp|Uses a BBP-type formula to compute exact bits of Pi.|
 |grep|Counts the matches of a regex in the input.|
@@ -38,16 +38,16 @@ The following samples are contained in this archive:
 |pentomino|Tile laying program to find solutions to pentomino problems.|
 |pi|Estimates Pi using a quasi-Monte Carlo method.|
 |randomtextwriter|Writes 10 GB of random textual data per node.|
-|randomwriter|Writes 10 GB of random data per node.|
-|secondarysort|Defines a secondary sort to the reduce phase.|
+|`randomwriter`|Writes 10 GB of random data per node.|
+|`secondarysort`|Defines a secondary sort to the reduce phase.|
 |sort|Sorts the data written by the random writer.|
 |sudoku|A sudoku solver.|
 |teragen|Generate data for the terasort.|
 |terasort|Run the terasort.|
 |teravalidate|Checking results of terasort.|
 |wordcount|Counts the words in the input files.|
-|wordmean|Counts the average length of the words in the input files.|
-|wordmedian|Counts the median length of the words in the input files.|
+|`wordmean`|Counts the average length of the words in the input files.|
+|`wordmedian`|Counts the median length of the words in the input files.|
 |wordstandarddeviation|Counts the standard deviation of the length of the words in the input files.|
 
 ## Run the wordcount example
@@ -116,7 +116,7 @@ The following samples are contained in this archive:
 * Each column can contain either a number or `?` (which indicates a blank cell)
 * Cells are separated by a space
 
-There is a certain way to construct Sudoku puzzles; you can't repeat a number in a column or row. There's an example on the HDInsight cluster that is properly constructed. It is located at `/usr/hdp/*/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta` and contains the following text:
+There is a certain way to construct Sudoku puzzles; you can't repeat a number in a column or row. There is an example of the HDInsight cluster that is properly constructed. It is located at `/usr/hdp/*/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta` and contains the following text:
 
 ```output
 8 5 ? 3 9 ? ? ? ?
@@ -152,7 +152,7 @@ The results appear similar to the following text:
 
 ## Pi (π) example
 
-The pi sample uses a statistical (quasi-Monte Carlo) method to estimate the value of pi. Points are placed at random in a unit square. The square also contains a circle. The probability that the points fall within the circle is equal to the area of the circle, pi/4. The value of pi can be estimated from the value of 4R. R is the ratio of the number of points that are inside the circle to the total number of points that are within the square. The larger the sample of points used, the better the estimate is.
+The pi sample uses a statistical (quasi-Monte Carlo) method to estimate the value of pi. Points are placed at random in a unit square. The square also contains a circle. The probability that the points fall within the circle is equal to the area of the circle, pi/4. The value of pi can be estimated from the value of `4R`. R is the ratio of the number of points that are inside the circle to the total number of points that are within the square. The larger the sample of points used, the better the estimate is.
 
 Use the following command to run this sample. This command uses 16 maps with 10,000,000 samples each to estimate the value of pi:
 
@@ -162,11 +162,11 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 The value returned by this command is similar to **3.14159155000000000000**. For references, the first 10 decimal places of pi are 3.1415926535.
 
-## 10 GB GraySort example
+## 10-GB GraySort example
 
 GraySort is a benchmark sort. The metric is the sort rate (TB/minute) that is achieved while sorting large amounts of data, usually a 100 TB minimum.
 
-This sample uses a modest 10 GB of data so that it can be run relatively quickly. It uses the MapReduce applications developed by Owen O'Malley and Arun Murthy. These applications won the annual general-purpose ("Daytona") terabyte sort benchmark in 2009, with a rate of 0.578 TB/min (100 TB in 173 minutes). For more information on this and other sorting benchmarks, see the [Sort Benchmark](https://sortbenchmark.org/) site.
+This sample uses a modest 10 GB of data so that it can be run relatively quickly. It uses the MapReduce applications developed by `Owen O'Malley` and `Arun Murthy`. These applications won the annual general-purpose ("Daytona") terabyte sort benchmark in 2009, with a rate of 0.578 TB/min (100 TB in 173 minutes). For more information on this and other sorting benchmarks, see the [Sort Benchmark](https://sortbenchmark.org/) site.
 
 This sample uses three sets of MapReduce programs:
 
@@ -174,7 +174,7 @@ This sample uses three sets of MapReduce programs:
 
 * **TeraSort**: Samples the input data and uses MapReduce to sort the data into a total order
 
-    TeraSort is a standard MapReduce sort, except for a custom partitioner. The partitioner uses a sorted list of N-1 sampled keys that define the key range for each reduce. In particular, all keys such that sample[i-1] <= key < sample[i] are sent to reduce i. This partitioner guarantees that the outputs of reduce i are all less than the output of reduce i+1.
+    TeraSort is a standard MapReduce sort, except for a custom partitioner. The partitioner uses a sorted list of N-1 sampled keys that define the key range for each reduce. In particular, all keys such that sample[i-1] <= key < sample[i] are sent to reduce i. This partitioner guarantees that the outputs of reduce `i` are all less than the output of reduce `i+1`.
 
 * **TeraValidate**: A MapReduce program that validates that the output is globally sorted
 

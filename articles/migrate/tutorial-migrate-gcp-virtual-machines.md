@@ -4,7 +4,8 @@ description: This article describes how to migrate GCP VMs to Azure with Azure M
 author: vijain
 ms.author: vijain
 ms.topic: tutorial
-ms.date: 12/12/2022
+ms.date: 01/23/2024
+ms.service: azure-migrate
 ms.custom: MVC, engagement-fy23
 ---
 
@@ -164,40 +165,13 @@ The first step of migration is to set up the replication appliance. To set up th
 
     ![Finalize registration](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-## Install the Mobility service
+## Install the Mobility service agent
 
-A Mobility service agent must be installed on the source GCP VMs to be migrated. The agent installers are available on the replication appliance. You find the right installer, and install the agent on each machine you want to migrate. Do as follows:
+A Mobility service agent must be pre-installed on the source GCP VMs to be migrated before you can initiate replication. The approach you choose to install the Mobility service agent may depend on your organization's preferences and existing tools, but be aware that the "push" installation method built into Azure Site Recovery is not currently supported. Approaches you may want to consider:
 
-1. Sign in to the replication appliance.
-2. Navigate to **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
-3. Find the installer for the source GCP VMs operating system and version. Review [supported operating systems](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines).
-4. Copy the installer file to the source GCP VM you want to migrate.
-5. Make sure that you have the saved passphrase text file that was created when you installed the replication appliance.
-    - If you forgot to save the passphrase, you can view the passphrase on the replication appliance with this step. From the command line, run **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** to view the current passphrase.
-    - Now, copy this passphrase to your clipboard and save it in a temporary text file on the source VMs.
-
-### Installation guide for Windows GCP VMs
-
-1. Extract the contents of installer file to a local folder (for example C:\Temp) on the GCP VM, as follows:
-
-    ```
-    ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
-    MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
-    cd C:\Temp\Extracted
-    ```  
-
-2. Run the Mobility Service Installer:
-    ```
-   UnifiedAgent.exe /Role "MS" /Silent
-    ```  
-
-3. Register the agent with the replication appliance:
-    ```
-    cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-    UnifiedAgentConfigurator.exe  /CSEndPoint <replication appliance IP address> /PassphraseFilePath <Passphrase File Path>
-    ```
-
-### Installation guide for Linux GCP VMs
+- [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
+- [Arc for Servers and Custom Script Extensions](../azure-arc/servers/overview.md)
+- [Manual installation](../site-recovery/vmware-physical-mobility-service-overview.md)
 
 1. Extract the contents of the installer tarball to a local folder (for example /tmp/MobSvcInstaller) on the GCP VM, as follows:
     ```
@@ -208,7 +182,7 @@ A Mobility service agent must be installed on the source GCP VMs to be migrated.
 
 2. Run the installer script:
     ```
-    sudo ./install -r MS -q
+    sudo ./install -r MS -v VmWare -q -c CSLegacy
     ```  
 
 3. Register the agent with the replication appliance:
@@ -364,6 +338,7 @@ After you've verified that the test migration works as expected, you can migrate
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../security-center/security-center-just-in-time.md).
+    - Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../update-manager/overview.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).

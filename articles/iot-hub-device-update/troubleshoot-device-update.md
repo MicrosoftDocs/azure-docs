@@ -149,7 +149,7 @@ You can use [getDevice](/dotnet/api/azure.iot.deviceupdate.devicemanagementclien
 
 In addition, the following information can be useful for narrowing down the root cause of your issue:
 
-- What type of device you are attempting to update (Azure Percept, IoT Edge Gateway, other)
+- What type of device you are attempting to update (IoT Edge Gateway, other)
 - What Device Update client type you are using (Image-based, Package-based, Simulator)
 - What OS your device is running
 - Details regarding your device's architecture

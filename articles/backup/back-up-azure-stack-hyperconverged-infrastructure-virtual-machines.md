@@ -2,10 +2,11 @@
 title: Back up Azure Stack HCI virtual machines with MABS
 description: This article contains the procedures to back up and recover virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
-ms.date: 02/15/2022
-author: v-amallick
+ms.date: 01/03/2024
 ms.service: backup
-ms.author: v-amallick
+ms.custom: engagement-fy24
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up Azure Stack HCI virtual machines with Azure Backup Server
@@ -26,6 +27,8 @@ MABS can back up Azure Stack HCI virtual machines in the following scenarios:
 
 - **VM Move to a different stretched/normal cluster**: VM Move to a different stretched/normal cluster is not supported.
 
+Learn more about the [supported scenarios for MABS V3 UR2 and later](backup-mabs-protection-matrix.md#vm-backup).
+
 ## Host versus guest backup
 
 MABS can do a host or guest-level backup of VMs on Azure Stack HCI. At the host level, the MABS protection agent is installed on the Azure Stack HCI host server or cluster and protects the entire VMs and data files running on that host.   At the guest level, the agent is installed on each virtual machine and protects the workload present on that machine.
@@ -43,8 +46,11 @@ These are the prerequisites for backing up virtual machines with MABS:
 | Prerequisite | Details |
 | ------------ | ------- |
 | MABS prerequisites | <ul> <li>If you want to perform item-level recovery for virtual machines (recover files, folders, volumes), then you'll need to install the  Hyper-V role on the MABS server. If you only want to recover the virtual machine and not item-level, then the role isn't required.</li> <li>You can protect up to 800 virtual machines of 100 GB each on one MABS server and allow multiple MABS servers that support larger clusters.</li> <li>MABS excludes the page file from incremental backups to improve virtual machine backup performance.</li> <li>MABS can back up a  server or cluster in the same domain as the MABS server, or in a child or trusted domain. If you want to back up VMs in a workgroup or an untrusted domain, you'll need to set up authentication. For a single  server, you can use NTLM or certificate authentication. For a cluster, you can use certificate authentication only.</li> <li>Using host-level backup to back up virtual machine data on passthrough disks isn't supported. In this scenario, we recommend you use host-level backup to back up VHD files and guest-level backup to back up the other data that isn't visible on the host.</li> <li>You can back up VMs stored on deduplicated volumes.</li> </ul> |
-| VM | <ul> <li> The version of Integration Components that's running on the virtual machine should be the same as the version of the Azure Stack HCI host. </li> <li> For each virtual machine backup you'll need free space on the volume hosting the virtual hard disk files to allow  enough room for differencing disks (AVHD's) during backup. The space must be at least equal to the calculation Initial disk size*Churn rate*Backup window time. If you're running multiple backups on a cluster, you'll need enough storage capacity to accommodate the AVHDs for each of the virtual machines using this calculation. </li> </ul> |
+| VM | <ul> <li> The version of Integration Components that's running on the virtual machine should be the same as the version of the Azure Stack HCI host. </li> <li> For each virtual machine backup you'll need free space on the volume hosting the virtual hard disk files to allow  enough room for differencing disks (AVHDs) during backup. The space must be at least equal to the calculation Initial disk size*Churn rate*Backup window time. If you're running multiple backups on a cluster, you'll need enough storage capacity to accommodate the AVHDs for each of the virtual machines using this calculation. </li> </ul> |
 | Linux prerequisites | <ul><li> You can back up Linux virtual machines using MABS. Only file-consistent snapshots are supported.</li></ul> |
+
+>[!NOTE]
+>MABS doesn't support the backup and restore of the Arc Resource Bridge and Arc VMs.
 
 ## Back up virtual machines
 

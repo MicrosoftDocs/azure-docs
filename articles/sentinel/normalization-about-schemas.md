@@ -18,15 +18,15 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 | Schema | Version | Status |
 | ------ | ------- | ------ |
 | [Audit Event](normalization-schema-audit.md) | 0.1 | Preview |
-| [Authentication Event](authentication-normalization-schema.md) | 0.1.2 | Preview |
-| [DNS Activity](normalization-schema-dns.md) | 0.1.6 | Preview |
-| [DHCP Activity](dhcp-normalization-schema.md) | 0.1 | Preview |
-| [File Activity](normalization-schema-file-event.md) | 0.2 | Preview |
-| [Network Session](normalization-schema.md) | 0.2.5 | Preview |
-| [Process Event](process-events-normalization-schema.md) | 0.1.4 | Preview |
-| [Registry Event](registry-event-normalization-schema.md) | 0.1.2 | Preview |
-| [User Management](user-management-normalization-schema.md) | 0.1 | Preview |
-| [Web Session](normalization-schema-web.md) | 0.2.5 | Preview |
+| [Authentication Event](normalization-schema-authentication.md) | 0.1.3 | Preview |
+| [DNS Activity](normalization-schema-dns.md) | 0.1.7 | Preview |
+| [DHCP Activity](normalization-schema-dhcp.md) | 0.1 | Preview |
+| [File Activity](normalization-schema-file-event.md) | 0.2.1 | Preview |
+| [Network Session](normalization-schema.md) | 0.2.6 | Preview |
+| [Process Event](normalization-schema-process-event.md) | 0.1.4 | Preview |
+| [Registry Event](normalization-schema-registry-event.md) | 0.1.2 | Preview |
+| [User Management](normalization-schema-user-management.md) | 0.1 | Preview |
+| [Web Session](normalization-schema-web.md) | 0.2.6 | Preview |
 
 
 > [!IMPORTANT]
@@ -41,10 +41,10 @@ The following concepts help to understand the schema reference documents and ext
 |---------|---------|
 |**Field names**     |   At the core of each schema are its field names. Field names belong to the following groups: <br><br>- Fields common to all schemas. <br>- Fields specific to a schema. <br>-	Fields that represent entities, such as users, which take part in the schema. Fields that represent entities [are similar across schemas](#entities). <br><br>When sources have fields that aren't presented in the documented schema, they're normalized to maintain consistency. If the extra fields represent an entity, they'll be normalized based on the entity field guidelines. Otherwise, the schemas strive to keep consistency across all schemas.<br><br> For example, while DNS server activity logs don't provide user information, DNS activity logs from an endpoint might include user information, which can be normalized according to the user entity guidelines.      |
 |[**Field types**](#logical-types)     |  Each schema field has a type. The Log Analytics workspace has a limited set of data types. For this reason, Microsoft Sentinel uses a logical type for many schema fields, which Log Analytics doesn't enforce but is required for schema compatibility. Logical field types ensure that both values and field names are consistent across sources.  <br><br>For more information, see [Logical types](#logical-types).     |
-|**Field class**     | Fields might have several classes, which define when the fields should be implemented by a parser: <br><br>-	**Mandatory** fields must appear in every parser. If your source doesn't provide information for this value, or the data can't be otherwise added, it won't support most content items that reference the normalized schema.<br>-	**Recommended** fields should be normalized if available. However, they might not be available in every source. Any content item that references that normalized schema should take availability into account. <br>-	**Optional** fields, if available, can be normalized or left in their original form. Typically, a minimal parser wouldn't normalize them for performance reasons.    |
+|**Field class**     | Fields might have several classes, which define when the fields should be implemented by a parser: <br><br> - **Mandatory** fields must appear in every parser. If your source doesn't provide information for this value, or the data can't be otherwise added, it won't support most content items that reference the normalized schema.<br> -	**Recommended** fields should be normalized if available. However, they might not be available in every source. Any content item that references that normalized schema should take availability into account.<br> - **Optional** fields, if available, can be normalized or left in their original form. Typically, a minimal parser wouldn't normalize them for performance reasons.<br> - **Conditional** fields are mandatory if the field they follow is populated. Conditional fields are typically used to describe the value in another field. For example, the common field [DvcIdType](normalization-common-fields.md#dvcidtype) describes the value int the common field [DvcId](normalization-common-fields.md#dvcid) and is therefore mandatory if the latter is populated.<br>- **Alias** is a special type of a conditional field, and is mandatory if the aliased field is populated.   |
 |[**Common fields**](normalization-common-fields.md) | Some fields are common to all ASIM schemas. Each schema might add guidelines for using some of the common fields in the context of the specific schema. For example, permitted values for the **EventType** field might vary per schema, as might the value of the **EventSchemaVersion** field. |
-|**Entities**     | Events evolve around entities, such as users, hosts, processes, or files. Each entity might require several fields to describe it. For example, a host might have a name and an IP address. <br><br>A single record might include multiple entities of the same type, such as both a source and destination host. <br><br>ASIM defines how to describe entities consistently, and entities allow for extending the schemas. <br><br>For example, while the Network Session schema doesn't include process information, some event sources do provide process information that can be added. For more information, see [Entities](#entities). |
-|**Aliases**     |  In some cases, different users expect a field to have different names. For example, in DNS terminology, you might expect a field named `query`, while more generally, it holds a domain name. Aliases solve this issue of ambiguity by allowing multiple names for a specified value. The alias class would be the same as the field that it aliases.<br><br>Log Analytics doesn't support aliasing. To implement aliases parsers, create a copy of the original value by using the `extend` operator.        |
+|**Entities**| Events evolve around entities, such as users, hosts, processes, or files. Each entity might require several fields to describe it. For example, a host might have a name and an IP address. <br><br>A single record might include multiple entities of the same type, such as both a source and destination host. <br><br>ASIM defines how to describe entities consistently, and entities allow for extending the schemas. <br><br>For example, while the Network Session schema doesn't include process information, some event sources do provide process information that can be added. For more information, see [Entities](#entities). |
+|**Aliases**| Aliases allow multiple names for a specified value. In some cases, different users expect a field to have different names. For example, in DNS terminology, you might expect a field named [DnsQuery](normalization-schema-dns.md#query), while more generally, it holds a domain name. The alias [Domain](normalization-schema-dns.md#domain) helps the user by allowing the use of both names. <br><br>In some cases, an alias can have the value of one of several fields, depending on which values are available in the event. For example, the [Dvc](normalization-common-fields.md#dvc) alias, aliases either the [DvcFQDN](normalization-common-fields.md#dvcfqdn), [DvcId](normalization-common-fields.md#dvcid), [DvcHostname](normalization-common-fields.md#dvchostname), or [DvcIpAddr](normalization-common-fields.md#dvcipaddr) , or [Event Product](normalization-common-fields.md#eventproduct) fields. When an alias can have several values, its type has to be a string to accommodate all possible aliased values. As a result, when assigning a value to such an alias, make sure to convert the type to string using the KQL function [tostring](/azure/data-explorer/kusto/query/tostringfunction).<br><br>[Native normalized tables](normalization-ingest-time.md#ingest-time-parsing) do not include aliases, as those would imply duplicate data storage. Instead the [stub parsers](normalization-ingest-time.md#combining-ingest-time-and-query-time-normalization) add the aliases. To implement aliases in parsers, create a copy of the original value by using the `extend` operator.        |
 
 
 ## Logical types
@@ -103,8 +103,8 @@ Users are central to activities reported by events. The fields listed in this se
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="userid"></a>**UserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the  user.  |
-| <a name="userscope"></a>**UserScope** | Optional | string | The scope in which [UserId](#userid) and [Username](#username) are defined. For example, an Azure AD tenant domain name. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
-| <a name="userscopeid"></a>**UserScopeId** | Optional | string | The ID of the scope in which [UserId](#userid) and [Username](#username) are defined. For example, an Azure AD tenant directory ID. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
+| <a name="userscope"></a>**UserScope** | Optional | string | The scope in which [UserId](#userid) and [Username](#username) are defined. For example, a Microsoft Entra tenant domain name. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
+| <a name="userscopeid"></a>**UserScopeId** | Optional | string | The ID of the scope in which [UserId](#userid) and [Username](#username) are defined. For example, a Microsoft Entra tenant directory ID. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
 | <a name="useridtype"></a>**UserIdType** | Optional | UserIdType | The type of the ID stored in the [UserId](#userid) field. |
 | **UserSid**, **UserUid**, **UserAadId**, **UserOktaId**, **UserAWSId**, **UserPuid** | Optional | String | Fields used to store specific user IDs. Select the ID most associated with the event as the primary ID stored in [UserId](#userid). Populate the relevant specific ID field, in addition to [UserId](#userid), even if the event has only one ID. |
 | **UserAADTenant**, **UserAWSAccount** | Optional | String | Fields used to store specific scopes. Use the [UserScope](#userscope) field for the scope associated with the ID stored in the [UserId](#userid) field.  Populate the relevant specific scope field, in addition to [UserScope](#userscope), even if the event has only one ID. | 
@@ -115,10 +115,11 @@ The allowed values for a user ID type are:
 | ---- | ------- | ------------- |
 | **SID** | A Windows user ID. | `S-1-5-21-1377283216-344919071-3415362939-500` |
 | **UID** | A Linux user ID. | `4578` |
-| **AADID**| An Azure Active Directory user ID.| `9267d02c-5f76-40a9-a9eb-b686f3ca47aa` |
+| **AADID**| A Microsoft Entra user ID.| `9267d02c-5f76-40a9-a9eb-b686f3ca47aa` |
 | **OktaId** | An Okta user ID. |  `00urjk4znu3BcncfY0h7` |
 | **AWSId** | An AWS user ID. | `72643944673` |
-| **PUID** | A Microsoft 365 User ID. | `10032001582F435C` |
+| **PUID** | A Microsoft 365 user ID. | `10032001582F435C` |
+| **SalesforceId** | A Salesforce user ID. | `00530000009M943` |
 
 #### The user name
 
@@ -143,7 +144,7 @@ The allowed values for a username type are:
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| <a name="usertype"></a>**UserType** | Optional | UserType | The type of source user. Supported values include: `Regular`, `Machine`, `Admin`, `System`, `Application`, `Service Principal`, and `Other`. The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [OriginalUserType](#originalusertype) field. |
+| <a name="usertype"></a>**UserType** | Optional | UserType | The type of source user. Supported values include:<br> - `Regular`<br> - `Machine`<br> - `Admin`<br> - `System`<br> - `Application`<br> - `Service Principal`<br> - `Service`<br> - `Anonymous`<br> - `Other`.<br><br> The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [OriginalUserType](#originalusertype) field. |
 | <a name="originalusertype"></a>**OriginalUserType** | Optional | String | The original destination user type, if provided by the reporting device. |
 
 

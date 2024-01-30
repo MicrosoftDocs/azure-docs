@@ -4,6 +4,7 @@ description: Describes Bicep logical operators that evaluate conditions.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 12/12/2022
 ---
 

@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.date: 11/22/2022
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli, vmss-flex
+ms.custom: mimckitt, devx-track-azurecli, vmss-flex, linux-related-content
 ---
 
 # Create virtual machines in a scale set using Azure CLI
 
-This article steps through using the Azure CLI to create a Virtual Machine Scale Set. 
+This article steps through using the Azure CLI to create a Virtual Machine Scale Set.
 
 Make sure that you've installed the latest [Azure CLI](/cli/azure/install-az-cli2) and are logged in to an Azure account with [az login](/cli/azure/reference-index).
 
 
 ## Launch Azure Cloud Shell
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/cli](https://shell.azure.com/cli). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
@@ -32,6 +32,11 @@ Create a resource group with [az group create](/cli/azure/group) as follows:
 az group create --name myResourceGroup --location eastus
 ```
 ## Create a Virtual Machine Scale Set
+
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
+https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 Now create a Virtual Machine Scale Set with [az vmss create](/cli/azure/vmss). The following example creates a scale set with an instance count of *2*, and generates SSH keys.
 
 ```azurecli-interactive
@@ -39,8 +44,7 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --orchestration-mode Flexible \
-  --image UbuntuLTS \
-  --upgrade-policy-mode automatic \
+  --image <SKU Linux Image> \
   --instance-count 2 \
   --admin-username azureuser \
   --generate-ssh-keys

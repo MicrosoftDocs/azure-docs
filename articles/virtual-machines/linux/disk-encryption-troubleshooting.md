@@ -9,7 +9,6 @@ ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
-
 ---
 # Azure Disk Encryption for Linux VMs troubleshooting guide
 

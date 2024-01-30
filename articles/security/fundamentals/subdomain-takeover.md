@@ -6,12 +6,9 @@ services: security
 author: terrylanfear
 manager: rkarlin
 
-ms.assetid: 
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/19/2023
 ms.author: terrylan
 
@@ -78,7 +75,7 @@ The tool supports the Azure resources listed in the following table. The tool ex
 | Service                   | Type                                        | FQDNproperty                               | Example                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Azure Front Door          | microsoft.network/frontdoors                | properties.cName                           | `abc.azurefd.net`               |
-| Azure Blob Storage        | microsoft.storage/storageaccounts           | properties.primaryEndpoints.blob           | `abc. blob.core.windows.net`    |
+| Azure Blob Storage        | microsoft.storage/storageaccounts           | properties.primaryEndpoints.blob           | `abc.blob.core.windows.net`    |
 | Azure CDN                 | microsoft.cdn/profiles/endpoints            | properties.hostName                        | `abc.azureedge.net`             |
 | Public IP addresses       | microsoft.network/publicipaddresses         | properties.dnsSettings.fqdn                | `abc.EastUs.cloudapp.azure.com` |
 | Azure Traffic Manager     | microsoft.network/trafficmanagerprofiles    | properties.dnsConfig.fqdn                  | `abc.trafficmanager.net`        |
@@ -188,7 +185,7 @@ It's often up to developers and operations teams to run cleanup processes to avo
  
 ### Clean up DNS pointers or Re-claim the DNS
 
-Upon deletion of the classic cloud service resource, the corresponding DNS is reserved for 7 days. During the reservation period, re-use of the DNS will be forbidden EXCEPT for subscriptions belonging to the Azure AD tenant of the subscription originally owning the DNS. After the reservation expires, the DNS is free to be claimed by any subscription. By taking DNS reservations, the customer is afforded some time to either 1) clean up any associations/pointers to said DNS or 2) re-claim the DNS in Azure. The DNS name being reserved can be derived by appending the cloud service name to the DNS zone for that cloud.
+Upon deletion of the classic cloud service resource, the corresponding DNS is reserved as per Azure DNS policies. During the reservation period, re-use of the DNS will be forbidden EXCEPT for subscriptions belonging to the Microsoft Entra tenant of the subscription originally owning the DNS. After the reservation expires, the DNS is free to be claimed by any subscription. By taking DNS reservations, the customer is afforded some time to either 1) clean up any associations/pointers to said DNS or 2) re-claim the DNS in Azure. The recommendation would be to delete unwanted DNS entries at the earliest. The DNS name being reserved can be derived by appending the cloud service name to the DNS zone for that cloud.
  
 - Public - cloudapp.net
 - Mooncake - chinacloudapp.cn
@@ -198,7 +195,7 @@ Upon deletion of the classic cloud service resource, the corresponding DNS is re
 For example, a hosted service in Public named "test" would have DNS "test.cloudapp.net"
 
 Example:
-Subscription 'A' and subscription 'B' are the only subscriptions belonging to Azure AD tenant 'AB'. Subscription 'A' contains a classic cloud service 'test' with DNS name 'test.cloudapp.net'. Upon deletion of the cloud service, a reservation is taken on DNS name 'test.cloudapp.net'. During the 7 day reservation period, only subscription 'A' or subscription 'B' will be able to claim the DNS name 'test.cloudapp.net' by creating a classic cloud service named 'test'. No other subscriptions will be allowed to claim it. After the 7 days are up, any subscription in Azure can now claim 'test.cloudapp.net'.
+Subscription 'A' and subscription 'B' are the only subscriptions belonging to Microsoft Entra tenant 'AB'. Subscription 'A' contains a classic cloud service 'test' with DNS name 'test.cloudapp.net'. Upon deletion of the cloud service, a reservation is taken on DNS name 'test.cloudapp.net'. During the reservation period, only subscription 'A' or subscription 'B' will be able to claim the DNS name 'test.cloudapp.net' by creating a classic cloud service named 'test'. No other subscriptions will be allowed to claim it. After the reservation period, any subscription in Azure can now claim 'test.cloudapp.net'.
 
 ## Next steps
 
@@ -208,6 +205,6 @@ To learn more about related services and Azure features you can use to defend ag
 
 - [Prevent dangling DNS records with Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 
-- [Use a domain verification ID when adding custom domains in Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#2-get-a-domain-verification-id)
+- [Use a domain verification ID when adding custom domains in Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#1-configure-a-custom-domain)
 
 - [Quickstart: Run your first Resource Graph query using Azure PowerShell](../../governance/resource-graph/first-query-powershell.md)

@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/15/2022
+ ms.date: 03/31/2023
  ms.author: rogarana
  ms.custom: include file, devx-track-azurecli
 ---
@@ -30,11 +30,13 @@ diskName=yourDiskName
 
 az account set --subscription $subscriptionId
 
+az group create --resource-group $rgName --location $location
+
 az keyvault create -n $keyVaultName \
 -g $rgName \
 -l $location \
 --enable-purge-protection true 
-                    
+
 az keyvault key create --vault-name $keyVaultName \
 -n $keyName \
 --protection software
@@ -45,7 +47,7 @@ az keyvault key create --vault-name $keyVaultName \
 ```azurecli
 keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
 
-az disk-encryption-set create -n $diskEncryptionSetName 
+az disk-encryption-set create -n $diskEncryptionSetName \
 -l $location \
 -g $rgName \
 --key-url $keyVaultKeyUrl \
@@ -55,7 +57,7 @@ az disk-encryption-set create -n $diskEncryptionSetName
 - Grant the DiskEncryptionSet resource access to the key vault. 
 
 > [!NOTE]
-> It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
+> It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Microsoft Entra ID. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
 
 ```azurecli
 desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
@@ -101,7 +103,7 @@ Then, create a DiskEncryptionSet.
 ```azurecli
 keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
     
-az disk-encryption-set create -n $diskEncryptionSetName 
+az disk-encryption-set create -n $diskEncryptionSetName \
 -l $location \
 -g $rgName \
 --key-url $keyVaultKeyUrl \

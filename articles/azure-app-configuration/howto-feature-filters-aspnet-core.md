@@ -1,15 +1,17 @@
 ---
 title: Use feature filters to enable conditional feature flags
 titleSuffix: Azure App Configuration
-description: Learn how to use feature filters to enable conditional feature flags
+description: Learn how to use feature filters in Azure App Configuration to enable conditional feature flags for your app.
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 author: maud-lv
 ms.author: malev
-ms.topic: conceptual
-ms.date: 3/9/2020
+ms.topic: how-to
+ms.date: 01/12/2024
+#Customerintent: As a developer, I want to create a feature filter to activate a feature flag depending on a specific scenario.
 ---
+
 # Use feature filters to enable conditional feature flags
 
 Feature flags allow you to activate or deactivate functionality in your application. A simple feature flag is either on or off. The application always behaves the same way. For example, you could roll out a new feature behind a feature flag. When the feature flag is enabled, all users see the new feature. Disabling the feature flag hides the new feature.
@@ -22,9 +24,13 @@ The `Microsoft.FeatureManagement` library includes three feature filters:
 - `TimeWindowFilter` enables the feature flag during a specified window of time.
 - `TargetingFilter` enables the feature flag for specified users and groups.
 
-You can also create your own feature filter that implements the [Microsoft.FeatureManagement.IFeatureFilter interface](/dotnet/api/microsoft.featuremanagement.ifeaturefilter).
+You can also create your own feature filter that implements the Microsoft.FeatureManagement.IFeatureFilter interface.
 
-## Registering a feature filter
+## Prerequisites
+
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+
+## Register a feature filter
 
 You register a feature filter by calling the `AddFeatureFilter` method, specifying the type name of the desired feature filter. For example, the following code registers `PercentageFilter`:
 
@@ -36,7 +42,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## Configuring a feature filter in Azure App Configuration
+## Configure a feature filter in Azure App Configuration
 
 Some feature filters have additional settings. For example, `PercentageFilter` activates a feature based on a percentage. It has a setting defining the percentage to use.
 
@@ -44,43 +50,36 @@ You can configure these settings for feature flags defined in Azure App Configur
 
 1. Follow the instructions in [Quickstart: Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) to create a web app with a feature flag.
 
-1. In the Azure portal, go to your configuration store and click **Feature manager**.
+1. In the Azure portal, go to your configuration store and select **Feature manager**.
 
-1. Click on the context menu for the *Beta* feature flag that you created in the quickstart. Click **Edit**.
+    :::image type="content" source="./media/feature-filters/edit-beta-feature-flag.png" alt-text="Screenshot of the Azure portal, selecting the Edit option for the Beta feature flag, under Feature manager.":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Edit Beta feature flag](./media/edit-beta-feature-flag.png)
+1. On the line with the Beta feature flag you created in the quickstart, select the context menu and then **Edit**.
 
-1. In the **Edit** screen, check the **Enable feature flag** checkbox if it isn't already enabled. Then check the **Use feature filter** checkbox and select **Custom**. 
+1. In the **Edit feature flag** pane that opens, check the **Enable feature flag** checkbox if it isn't already enabled. Then check the **Use feature filter** checkbox and select **Create**.
 
-1. In the **Name** field, select *Microsoft.Percentage*.
+    :::image type="content" source="./media/feature-filters/edit-a-feature-flag.png" alt-text="Screenshot of the Azure portal, filling out the form 'Edit feature flag'.":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Add feature filter](./media/feature-flag-add-filter.png)
+1. The pane **Create a new filter** opens. Under **Filter type**, select **Targeting filter** to enable a new filter for specific users or a group.
 
-1. Click the context menu next to the feature filter name. Click **Edit filter parameters**.
+    :::image type="content" source="./media/feature-filters/add-targeting-filter.png" alt-text="Screenshot of the Azure portal, creating a new targeting filter.":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Edit feature filter parameters](./media/feature-flags-edit-filter-parameters.png)
+1. Optionally expand the **Evaluation flow** menu to see a graph showing how the targeting filter is evaluated in the selected scenario. Leave the **Default Percentage** at 50. The options **Override by Groups** and **Override by Users** let you enable or disable the feature flag for select groups or users. These options are disabled by default.
+1. Select **Add** to save the new feature filter and return to the **Edit feature flag** screen.
 
-1. Enter a **Name** of *Value* and a **Value** of 50. The **Value** field indicates the percentage of requests for which to enable the feature filter.
+1. The feature filter you created is now listed in the feature flag details. Select **Apply** to save the new feature flag settings.
 
-    > [!div class="mx-imgBorder"]
-    > ![Set feature filter parameters](./media/feature-flag-set-filter-parameters.png)
+    :::image type="content" source="./media/feature-filters/feature-flag-edit-apply-filter.png" alt-text="Screenshot of the Azure portal, applying new targeting filter.":::
 
-1. Click **Apply** to return to the **Edit feature flag** screen. Then click **Apply** again to save the feature flag settings.
+1. On the **Feature manager** page, the feature flag now has a **Feature filter(s)** value of **1**.
 
-1. On the **Feature manager** page, the feature flag now has a **Feature filter** value of *Custom*. 
-
-    > [!div class="mx-imgBorder"]
-    > ![Feature flag listed with a Feature filter value of "Custom"](./media/feature-flag-filter-custom.png)
+    :::image type="content" source="./media/feature-filters/updated-feature-flag.png" alt-text="Screenshot of the Azure portal, displaying updated feature flag.":::
 
 ## Feature filters in action
 
 To see the effects of this feature flag, launch the application and hit the **Refresh** button in your browser multiple times. You'll see that the *Beta* item appears on the toolbar about 50% of the time. It's hidden the rest of the time, because the `PercentageFilter` deactivates the *Beta* feature for a subset of requests. The following video shows this behavior in action.
 
-> [!div class="mx-imgBorder"]
-> ![TargetingFilter in action](./media/feature-flags-percentagefilter.gif)
+:::image type="content" source="./media/feature-filters/feature-flags-percentagefilter.gif" alt-text="Screenshot of a web browser showing a targeting filter in action.":::
 
 ## Next steps
 

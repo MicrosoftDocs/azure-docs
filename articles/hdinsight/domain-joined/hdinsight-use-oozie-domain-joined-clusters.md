@@ -4,7 +4,7 @@ description: Secure Apache Oozie workflows using the Azure HDInsight Enterprise 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/08/2022
+ms.date: 05/11/2023
 ---
 
 # Run Apache Oozie in Azure HDInsight clusters with Enterprise Security Package

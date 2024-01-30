@@ -7,7 +7,7 @@ ms.author: malev
 ms.date: 05/06/2022
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create an Azure App Configuration store using Bicep

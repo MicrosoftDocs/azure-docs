@@ -3,26 +3,15 @@ title: Tutorial - Interact with an IoT Plug and Play device connected to your Az
 description: Tutorial - Use C#, JavaScript, Java, or Python to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/17/2022
+ms.date: 1/23/2024
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
-ms.custom: mvc
+ms.custom: mvc, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-ten
 
 # - id: programming-languages-set-ten
-#   title: Programming languages
-#   prompt: Choose a programming language
-#   pivots:
-#   - id: programming-language-csharp
-#     title: C#
-#   - id: programming-language-java
-#     title: Java
-#   - id: programming-language-javascript
-#     title: JavaScript
-#   - id: programming-language-python
 #     title: Python
-
 #Customer intent: As a solution builder, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
 ---
 

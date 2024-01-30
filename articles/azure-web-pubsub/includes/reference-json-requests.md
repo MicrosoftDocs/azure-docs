@@ -3,7 +3,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: include 
-ms.date: 08/06/2021
+ms.date: 01/24/2023
 ---
 
 ### Join groups

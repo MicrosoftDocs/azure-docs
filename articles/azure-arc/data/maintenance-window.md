@@ -4,6 +4,7 @@ description: Article describes how to set a maintenance window
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
+ms.custom: devx-track-azurecli
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -19,7 +20,7 @@ During setup, specify a duration, recurrence, and start date and time. After the
 
 ## Prerequisites
 
-An Azure Arc-enabled SQL Managed Instance with the [`desiredVersion` property set to `auto`](upgrade-sql-managed-instance-auto.md).
+a SQL Managed Instance enabled by Azure Arc with the [`desiredVersion` property set to `auto`](upgrade-sql-managed-instance-auto.md).
 
 ## Limitations
 
@@ -148,6 +149,6 @@ Example:
 az arcdata dc update --maintenance-start "2022-04-15T23:00" --k8s-namespace arc --use-k8s
 ```
 
-## Next steps
+## Related content
 
 [Enable automatic upgrades of a SQL Managed Instance](upgrade-sql-managed-instance-auto.md)

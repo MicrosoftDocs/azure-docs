@@ -1,76 +1,100 @@
 ---
-title: Support for Microsoft 365 Defender connector data types in Microsoft Sentinel for different clouds (GCC environments)
-description: This article describes support for different Microsoft 365 Defender connector data types in Microsoft Sentinel across different clouds, including Commercial, GCC, GCC-High, and DoD.
+title: Support for Microsoft Defender XDR connector data types in Microsoft Sentinel for different clouds (GCC environments)
+description: This article describes support for different Microsoft Defender XDR connector data types in Microsoft Sentinel across different clouds, including Commercial, GCC, GCC-High, and DoD.
 author: limwainstein
-ms.topic: reference
-ms.date: 11/14/2022
 ms.author: lwainstein
+ms.topic: reference
+ms.date: 02/01/2023
 ---
 
-# Support for Microsoft 365 Defender connector data types in different clouds
+# Support for Microsoft Defender XDR connector data types in different clouds
 
-The type of cloud your environment uses affects Microsoft Sentinel's ability to ingest and display data from these connectors, like logs, alerts, device events, and more. This article describes support for different Microsoft 365 Defender connector data types in Microsoft Sentinel across different clouds, including Commercial, GCC, GCC-High, and DoD.
+The type of cloud your environment uses affects Microsoft Sentinel's ability to ingest and display data from these connectors, like logs, alerts, device events, and more. This article describes support for different Microsoft Defender XDR connector data types in Microsoft Sentinel across different clouds, including Commercial, GCC, GCC-High, and DoD.
 
 Read more about [data type support for different clouds in Microsoft Sentinel](data-type-cloud-support.md).
 
-## Microsoft Defender for Endpoint
+## Connector data
 
-|Data type  |Commercial  |GCC  |GCC-High |DoD |
-|---------|---------|---------|---------|---------|
-|DeviceInfo     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
-|DeviceNetworkInfo     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
-|DeviceProcessEvents     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</ul></li>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
-|DeviceNetworkEvents     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li> |
-|DeviceFileEvents     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
-|DeviceRegistryEvents     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
-|DeviceLogonEvents     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
-|DeviceImageLoadEvents     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
-|DeviceEvents     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
-|DeviceFileCertificateInfo     |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li> |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul>         |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |
+### Incidents
 
-## Microsoft Defender for Identity
+| Data type | Commercial / GCC<br>(Azure Commercial) | GCC-High / DoD<br>(Azure Government) |
+| ----------------- | ------------------- | -------------- |
+| **Incidents** | Generally available | Generally available |
 
-|Data type  |Commercial  |GCC  |GCC-High |DoD |
-|---------|---------|---------|---------|---------|
-|IdentityDirectoryEvents |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |Unsupported |Unsupported |Unsupported |
-IdentityLogonEvents|<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |Unsupported |Unsupported |Unsupported |
-IdentityQueryEvents|<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li> |Unsupported |Unsupported |Unsupported |
+### Alerts
 
-## Microsoft Defender for Cloud Apps
+#### From Microsoft Defender XDR
 
-|Data type  |Commercial  |GCC  |GCC-High |DoD |
-|---------|---------|---------|---------|---------|
-|CloudAppEvents |<ul><li>Microsoft 365 Defender: GA</li><li>Microsoft Sentinel: Public Preview</li></ul> |Unsupported |Unsupported |Unsupported |
+| Data type | Commercial / GCC<br>(Azure Commercial) | GCC-High / DoD<br>(Azure Government) |
+| ----------------- | ------------------- | -------------- |
+| **Microsoft Defender XDR alerts: *SecurityAlert*** | Generally available | Public preview |
 
-## Microsoft 365 Defender incidents
+#### From standalone component connectors
 
-|Data type  |Commercial  |GCC  |GCC-High |DoD |
-|---------|---------|---------|---------|---------|
-|SecurityIncident |Microsoft Sentinel: Public Preview |Microsoft Sentinel: Public Preview |Microsoft Sentinel: Public Preview |Microsoft Sentinel: Public Preview |
+| Data type         | Commercial | GCC | GCC-High / DoD            |
+| ----------------- | ---------- | --- | ------------------------- |
+| **Microsoft Defender for Endpoint: *SecurityAlert (MDATP)*** | Generally available | Generally available | Generally available |
+| **Microsoft Defender for Office 365: *SecurityAlert (OATP)*** | Public preview | Public preview | Public preview |
+| **Microsoft Defender for Identity: *SecurityAlert (AATP)*** | Generally available | Unsupported | Unsupported |
+| **Microsoft Defender for Cloud Apps: *SecurityAlert (MCAS)*** | Generally available | Generally available | Unsupported |
+| **Microsoft Defender for Cloud Apps: *McasShadowItReporting*** | Generally available | Generally available | Unsupported |
 
-## Alerts
+## Raw event data
 
-|Connector/Data type  |Commercial  |GCC  |GCC-High |DoD |
-|---------|---------|---------|---------|---------|
-|Microsoft 365 Defender Alerts: SecurityAlert |Public Preview |Public Preview |Public Preview |Public Preview |
-|Microsoft Defender for Endpoint Alerts (standalone connector): SecurityAlert (MDATP) |Public Preview |Public Preview |Public Preview |Public Preview |
-| Microsoft Defender for Office 365 Alerts (standalone connector):	SecurityAlert (OATP) |Public Preview |Public Preview |Public Preview |Public Preview |
-Microsoft Defender for Identity Alerts (standalone connector):	SecurityAlert (AATP) |Public Preview |Unsupported |Unsupported |Unsupported |
-Microsoft Defender for Cloud Apps Alerts (standalone connector): 	SecurityAlert (MCAS), |Public Preview |Unsupported |Unsupported |Unsupported |
-|Microsoft Defender for Cloud Apps Alerts (standalone connector):	McasShadowItReporting |Public Preview |Unsupported |Unsupported |Unsupported |
+### Microsoft Defender for Endpoint
 
-## Azure Active Directory Identity Protection
+| Data type | Commercial / GCC<br>(Azure Commercial) | GCC-High / DoD<br>(Azure Government) |
+| --------- | ---------------- | -------------- |
+| **DeviceInfo** | Generally available | Microsoft Defender XDR: Generally available<br>Microsoft Sentinel: Public preview |
+| **DeviceNetworkInfo** | Generally available | Microsoft Defender XDR: Generally available<br>Microsoft Sentinel: Public preview |
+| **DeviceProcessEvents** | Generally available | Microsoft Defender XDR: Generally available<br>Microsoft Sentinel: Public preview |
+| **DeviceNetworkEvents** | Generally available | Microsoft Defender XDR: Generally available<br>Microsoft Sentinel: Public preview |
+| **DeviceFileEvents** | Generally available | Microsoft Defender XDR: Generally available<br>Microsoft Sentinel: Public preview |
+| **DeviceRegistryEvents** | Generally available | Microsoft Defender XDR: Generally available<br>Microsoft Sentinel: Public preview |
+| **DeviceLogonEvents** | Generally available | Microsoft Defender XDR: Generally available<br>Microsoft Sentinel: Public preview |
+| **DeviceImageLoadEvents** | Generally available | Microsoft Defender XDR: Generally available<br>Microsoft Sentinel: Public preview |
+| **DeviceEvents** | Generally available | Microsoft Defender XDR: Generally available<br>Microsoft Sentinel: Public preview |
+| **DeviceFileCertificateInfo** | Generally available | Microsoft Defender XDR: Generally available<br>Microsoft Sentinel: Public preview |
 
-|Data type  |Commercial  |GCC  |GCC-High |DoD |
-|---------|---------|---------|---------|---------|
-|SecurityAlert (IPC) |Public Preview/GA |Supported |Supported |Supported |
-|AlertEvidence |Public Preview |Unsupported |Unsupported |Unsupported |
+### Microsoft Defender for Identity
+
+| Data type | Commercial / GCC<br>(Azure Commercial) | GCC-High / DoD<br>(Azure Government) |
+| --------------------------- | ------------------- | ----------- |
+| **IdentityDirectoryEvents** | Generally available | Unsupported |
+| **IdentityLogonEvents**     | Generally available | Unsupported |
+| **IdentityQueryEvents**     | Generally available | Unsupported |
+
+### Microsoft Defender for Cloud Apps
+
+| Data type | Commercial / GCC<br>(Azure Commercial) | GCC-High / DoD<br>(Azure Government) |
+| ------------------ | ------------------- | ----------- |
+| **CloudAppEvents** | Generally available | Unsupported |
+
+### Microsoft Defender for Office 365
+
+| Data type | Commercial / GCC<br>(Azure Commercial) | GCC-High / DoD<br>(Azure Government) |
+| --------------------------- | ------------------- | -------------- |
+| **EmailEvents**             | Generally available | Public preview |
+| **EmailAttachmentInfo**     | Generally available | Public preview |
+| **EmailUrlInfo**            | Generally available | Public preview |
+| **EmailPostDeliveryEvents** | Generally available | Public preview |
+| **UrlClickEvents**          | Generally available | Public preview |
+
+### Alerts
+
+| Data type | Commercial / GCC<br>(Azure Commercial) | GCC-High / DoD<br>(Azure Government) |
+| ----------------- | ------------------- | -------------- |
+| **AlertInfo**     | Generally available | Public preview |
+| **AlertEvidence** | Generally available | Public preview |
+
+
 
 ## Next steps
 
-In this article, you learned which Microsoft 365 Defender connector data types are supported in Microsoft Sentinel for different cloud environments.
+In this article, you learned which Microsoft Defender XDR connector data types are supported in Microsoft Sentinel for different cloud environments.
 
 - Read more about [GCC environments in Microsoft Sentinel](data-type-cloud-support.md).
-- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Learn about [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md).
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.

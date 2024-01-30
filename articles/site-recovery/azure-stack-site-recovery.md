@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 10/02/2021
 ms.author: ankitadutta
 ms.custom: engagement-fy23
+ms.service: site-recovery
 ---
 # Replicate Azure Stack VMs to Azure
 

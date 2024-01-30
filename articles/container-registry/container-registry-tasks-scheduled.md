@@ -2,9 +2,11 @@
 title: Tutorial - Schedule an ACR task
 description: In this tutorial, learn how to run an Azure Container Registry Task on a defined schedule by setting one or more timer triggers
 ms.topic: article
+ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
+ms.service: container-registry
 ---
 # Tutorial: Run an ACR task on a defined schedule
 
@@ -40,7 +42,7 @@ Scheduling a task is useful for scenarios like the following:
 
 First, populate the following shell environment variable with a value appropriate for your environment. This step isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier. If you don't populate the environment variable, you must manually replace each value wherever it appears in the example commands.
 
-[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+[![Embed launch](./media/launch-cloud-shell/launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
 ```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -74,7 +76,7 @@ timertask linux       Enabled                           BASE_IMAGE, TIMER
 
 Also, a simple example, of the task running with source code context. The following task triggers running the `hello-world` image from Microsoft Container Registry every day at 21:00 UTC. 
 
-Follow the [Prerequisites](/azure/container-registry/container-registry-tutorial-quick-task#prerequisites) to build the source code context and then create a scheduled task with context.
+Follow the [Prerequisites](./container-registry-tutorial-quick-task.md#prerequisites) to build the source code context and then create a scheduled task with context.
  
 ```azurecli
 az acr task create \

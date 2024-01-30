@@ -15,7 +15,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Automated validation testing
 
-As part of each commit that builds up Arc-enabled data services, Microsoft runs automated CI/CD pipelines that perform end-to-end tests. These tests are orchestrated via two containers that are maintained alongside the core-product (Data Controller, Azure Arc-enabled SQL Managed Instance & PostgreSQL server). These containers are:
+As part of each commit that builds up Arc-enabled data services, Microsoft runs automated CI/CD pipelines that perform end-to-end tests. These tests are orchestrated via two containers that are maintained alongside the core-product (Data Controller, SQL Managed Instance enabled by Azure Arc & PostgreSQL server). These containers are:
 
 - `arc-ci-launcher`: Containing deployment dependencies (for example, CLI extensions), as well product deployment code (using Azure CLI) for both Direct and Indirect connectivity modes. Once Kubernetes is onboarded with the Data Controller, the container leverages [Sonobuoy](https://sonobuoy.io/) to trigger parallel integration tests.
 -  `arc-sb-plugin`: A [Sonobuoy plugin](https://sonobuoy.io/plugins/) containing [Pytest](https://docs.pytest.org/en/7.1.x/)-based end-to-end integration tests, ranging from simple smoke-tests (deployments, deletes), to complex high-availability scenarios, chaos-tests (resource deletions) etc.
@@ -105,7 +105,7 @@ There are two files that need to be generated to localize the launcher to run in
 * `patch.json`: fill out from `patch.json.tmpl`
 
 > [!TIP]
-> The `.test.env` is a single set of of environment variables that drives the launcher's behavior. Generating it with care for a given environment will ensure reproducibility of the launcher's behavior.
+> The `.test.env` is a single set of environment variables that drives the launcher's behavior. Generating it with care for a given environment will ensure reproducibility of the launcher's behavior.
 
 ### Config 1: `.test.env`
 
@@ -247,13 +247,15 @@ export ARC_DATASERVICES_WHL_OVERRIDE="https://azurearcdatacli.blob.core.windows.
 ```
 The CLI version to Blob URL mapping can be found [here](https://azcliextensionsync.blob.core.windows.net/index1/index.json).
 
-##### 3. `CUSTOM_LOCATION_OID` - Custom Locations Object ID from your specific Azure AD Tenant
+<a name='3-custom_location_oid---custom-locations-object-id-from-your-specific-azure-ad-tenant'></a>
+
+##### 3. `CUSTOM_LOCATION_OID` - Custom Locations Object ID from your specific Microsoft Entra tenant
 
 > Mandatory: this is required for Connected Cluster Custom Location creation.
 
-The following steps are sourced from [Enable custom locations on your cluster](../kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster) to retrieve the unique Custom Location Object ID for your Azure AD tenant.
+The following steps are sourced from [Enable custom locations on your cluster](../kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster) to retrieve the unique Custom Location Object ID for your Microsoft Entra tenant.
 
-There are two approaches to obtaining the `CUSTOM_LOCATION_OID` for your Azure AD tenant.
+There are two approaches to obtaining the `CUSTOM_LOCATION_OID` for your Microsoft Entra tenant.
 
 1. Via Azure CLI:
 
@@ -264,7 +266,7 @@ There are two approaches to obtaining the `CUSTOM_LOCATION_OID` for your Azure A
 
     ![A screenshot of a PowerShell terminal that shows `az ad sp show --id <>`.](media/automated-integration-testing/custom-location-oid-cli.png)
 
-2. Via Azure portal - navigate to your Azure Active Directory blade, and search for `Custom Locations RP`:
+2. Via Azure portal - navigate to your Microsoft Entra blade, and search for `Custom Locations RP`:
 
     ![A screenshot of the custom locations RP.](media/automated-integration-testing/custom-location-oid-portal.png)
 
@@ -413,7 +415,8 @@ At a high-level, the launcher performs the following sequence of steps:
 3. Perform CRD metadata scan to discover existing Arc and Arc Data Services Custom Resources
 4. Clean up any existing Custom Resources in Kubernetes, and subsequent resources in Azure. If any mismatch between the credentials in `.test.env` compared to resources existing in the cluster, quit.
 5. Generate a unique set of environment variables based on timestamp for Arc Cluster name, Data Controller and Custom Location/Namespace. Prints out the environment variables, obfuscating sensitive values (e.g. Service Principal Password etc.)
-6. a. For Direct Mode - Onboard the Cluster to Azure Arc, then deploys the Controller via the [unified experience](create-data-controller-direct-cli.md?tabs=linux#deploy---unified-experience)
+6. a. For Direct Mode - Onboard the Cluster to Azure Arc, then deploys the controller. 
+
    b. For Indirect Mode: deploy the Data Controller
 7. Once Data Controller is `Ready`, generate a set of Azure CLI ([`az arcdata dc debug`](/cli/azure/arcdata/dc/debug?view=azure-cli-latest&preserve-view=true)) logs and store locally, labeled as `setup-complete` - as a baseline.
 8. Use the `TESTS_DIRECT/INDIRECT` environment variable from `.test.env` to launch a set of parallelized Sonobuoy test runs based on a space-separated array (`TESTS_(IN)DIRECT`). These runs execute in a new `sonobuoy` namespace, using `arc-sb-plugin` pod that contains the Pytest validation tests.
@@ -422,6 +425,58 @@ At a high-level, the launcher performs the following sequence of steps:
 11. Perform a CRD metadata scan, similar to Step 3, to discover existing Arc and Arc Data Services Custom Resources. Then, proceed to destroy all Arc and Arc Data resources in reverse order from deployment, as well as CRDs, Role/ClusterRoles, PV/PVCs etc.
 12. Attempt to use the SAS token `LOGS_STORAGE_ACCOUNT_SAS` provided to create a new Storage Account container named based on `LOGS_STORAGE_CONTAINER`, in the **pre-existing** Storage Account `LOGS_STORAGE_ACCOUNT`. If Storage Account container already exists, use it. Upload all local test results and logs to this storage container as a tarball (see below).
 13. Exit.
+
+## Tests performed per test suite
+
+There are approximately **375** unique integration tests available, across **27** test suites - each testing a separate functionality.
+
+| Suite # | Test suite name                 | Description of test                                                                                                                                    |
+| ------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1       | `ad-connector`                   | Tests the deployment and update of an Active Directory Connector (AD Connector).                                                                       |
+| 2       | `billing`                        | Testing various Business Critical license types are reflected in resource table in controller, used for Billing upload.                                |
+| 3       | `ci-billing`                     | Similar as `billing`, but with more CPU/Memory permutations.                                                                                           |
+| 4       | `ci-sqlinstance`                 | Long running tests for multi-replica creation, updates, GP -> BC Update, Backup validation and SQL Server Agent.                                       |
+| 5       | `controldb`                      | Tests Control database - SA secret check, system login verification, audit creation, and sanity checks for SQL build version.                          |
+| 6       | `dc-export`                      | Indirect Mode billing and usage upload.                                                                                                                |
+| 7       | `direct-crud`                    | Creates a SQL instance using ARM calls, validates in both Kubernetes and ARM.                                                                          |
+| 8       | `direct-fog`                     | Creates multiple SQL instances and creates a Failover Group between them using ARM calls.                                                              |
+| 9       | `direct-hydration`               | Creates SQL Instance with Kubernetes API, validates presence in ARM.                                                                                   |
+| 10      | `direct-upload`                  | Validates billing upload in Direct Mode                                                                                                                |
+| 11      | `kube-rbac`                      | Ensures Kubernetes Service Account permissions for Arc Data Services matches least-privilege expectations.                                             |
+| 12      | `nonroot`                        | Ensures containers run as non-root user                                                                                                                |
+| 13      | `postgres`                       | Completes various Postgres creation, scaling, backup/restore tests.                                                                                              |
+| 14      | `release-sanitychecks`           | Sanity checks for month-to-month releases, such as SQL Server Build versions.                                                                          |
+| 15      | `sqlinstance`                    | Shorter version of `ci-sqlinstance`, for fast validations.                                                                                             |
+| 16      | `sqlinstance-ad`                 | Tests creation of SQL Instances with Active Directory Connector.                                                                                       |
+| 17      | `sqlinstance-credentialrotation` | Tests automated Credential Rotation for both General Purpose and Business Critical.                                                                    |
+| 18      | `sqlinstance-ha`                 | Various High Availability Stress tests, including pod reboots, forced failovers and suspensions.                                                       |
+| 19      | `sqlinstance-tde`                | Various Transparent Data Encryption tests.                                                                                                             |
+| 20      | `telemetry-elasticsearch`        | Validates Log ingestion into Elasticsearch.                                                                                                            |
+| 21      | `telemetry-grafana`              | Validates Grafana is reachable.                                                                                                                        |
+| 22      | `telemetry-influxdb`             | Validates Metric ingestion into InfluxDB.                                                                                                              |
+| 23      | `telemetry-kafka`                | Various tests for Kafka using SSL, single/multi-broker setup.                                                                                          |
+| 24      | `telemetry-monitorstack`         | Tests Monitoring components, such as `Fluentbit` and `Collectd` are functional.                                                                            |
+| 25      | `telemetry-telemetryrouter`      | Tests Open Telemetry.                                                                                                                                  |
+| 26      | `telemetry-webhook`              | Tests Data Services Webhooks with valid and invalid calls.                                                                                             |
+| 27      | `upgrade-arcdata`                | Upgrades a full suite of SQL Instances (GP, BC 2 replica, BC 3 replica, with Active Directory) and upgrades from last month's release to latest build. |
+
+As an example, for `sqlinstance-ha`, the following tests are performed:
+
+- `test_critical_configmaps_present`: Ensures the ConfigMaps and relevant fields are present for a SQL Instance.
+- `test_suspended_system_dbs_auto_heal_by_orchestrator`: Ensures if `master` and `msdb` are suspended by any means (in this case, user). Orchestrator maintenance reconcile auto-heals it.
+- `test_suspended_user_db_does_not_auto_heal_by_orchestrator`: Ensures if a User Database is deliberately suspended by user, Orchestrator maintenance reconcile does not auto-heal it.
+- `test_delete_active_orchestrator_twice_and_delete_primary_pod`: Deletes orchestrator pod multiple times, followed by the primary replica, and verifies all replicas are synchronized. Failover time expectations for 2 replica are relaxed.
+- `test_delete_primary_pod`: Deletes primary replica and verifies all replicas are synchronized. Failover time expectations for 2 replica are relaxed.
+- `test_delete_primary_and_orchestrator_pod`: Deletes primary replica and orchestrator pod and verifies all replicas are synchronized.
+- `test_delete_primary_and_controller`: Deletes primary replica and data controller pod and verifies primary endpoint is accessible and the new primary replica is synchronized. Failover time expectations for 2 replica are relaxed.
+- `test_delete_one_secondary_pod`: Deletes secondary replica and data controller pod and verifies all replicas are synchronized.
+- `test_delete_two_secondaries_pods`: Deletes secondary replicas and data controller pod and verifies all replicas are synchronized.
+- `test_delete_controller_orchestrator_secondary_replica_pods`:
+- `test_failaway`: Forces AG failover away from current primary, ensures the new primary is not the same as the old primary. Verifies all replicas are synchronized.
+- `test_update_while_rebooting_all_non_primary_replicas`: Tests Controller-driven updates are resilient with retries despite various turbulent circumstances.
+
+> [!NOTE]
+> Certain tests may require specific hardware, such as privileged Access to Domain Controllers for `ad` tests for Account and DNS entry creation - which may not be available in all environments looking to use the `arc-ci-launcher`.
 
 ## Examining Test Results
 
@@ -444,7 +499,7 @@ kubectl delete -k arc_data_services/test/launcher/overlays/aks
 
 This cleans up the resource manifests deployed as part of the launcher.
 
-## Next steps
+## Related content
 
 > [!div class="nextstepaction"]
 > [Pre-release testing](preview-testing.md)

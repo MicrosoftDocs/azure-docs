@@ -3,8 +3,7 @@ title: Use MSBuild to convert Bicep to JSON
 description: Use MSBuild to convert a Bicep file to Azure Resource Manager template (ARM template) JSON.
 ms.date: 09/26/2022
 ms.topic: quickstart
-author: davidsmatlak
-ms.author: davidsmatlak
+ms.custom: devx-track-bicep, devx-track-arm-template
 
 # Customer intent: As a developer I want to convert Bicep files to Azure Resource Manager template (ARM template) JSON in an MSBuild pipeline.
 ---
@@ -25,7 +24,7 @@ You'll need the latest versions of the following software:
 
 If your existing continuous integration (CI) pipeline relies on [MSBuild](/visualstudio/msbuild/msbuild), you can use MSBuild tasks and CLI packages to convert Bicep files into ARM template JSON.
 
-The functionality relies on the following NuGet packages. The latest NuGet package versions match the latest Bicep version.
+The functionality relies on the following NuGet packages. The latest NuGet package versions match the latest Bicep CLI version.
 
 | Package Name | Description |
 | ----  |---- |

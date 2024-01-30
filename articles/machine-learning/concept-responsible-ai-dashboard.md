@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use the comprehensive UI and SDK/YAML components in the Responsible AI dashboard to debug your machine learning models and make data-driven decisions.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: enterprise-readiness
+ms.subservice: rai
 ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
@@ -170,6 +170,7 @@ The following people can use the Responsible AI dashboard, and its corresponding
 - The dataset inputs to the Responsible AI dashboard must be pandas DataFrames in Parquet format. NumPy and SciPy sparse data is currently not supported. 
 - The Responsible AI dashboard currently supports numeric or categorical features. For categorical features, the user has to explicitly specify the feature names.  
 - The Responsible AI dashboard currently doesn't support datasets with more than 10K columns.
+- The Responsible AI dashboard currently doesn't support AutoML MLFlow model.
 
 
 ## Next steps

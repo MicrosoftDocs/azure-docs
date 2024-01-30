@@ -10,7 +10,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 12/16/2022
+ms.date: 05/17/2023
 ---
 
 # View and download your Azure usage and charges
@@ -23,7 +23,7 @@ Based on the type of subscription that you use, options to download your usage a
 
 If you want to get cost and usage data using the Azure CLI, see [Get usage data with the Azure CLI](../automate/get-usage-data-azure-cli.md).
 
-## Download usage from the Azure portal (.csv)
+## Download usage for MOSP billing accounts
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for *Cost Management + Billing*.  
@@ -62,32 +62,31 @@ To view and download usage data as a EA customer, you must be an Enterprise Admi
 
 To view and download usage data for a billing profile, you must be a billing profile Owner, Contributor, Reader, or Invoice manager.
 
-### Download usage for billed charges
+Use the following information to download usage for billed charges. The same steps are used to download open and pending charges, which is the month-to-date usage for the current billing period. Open and pending charges haven't been billed yet.
 
-1. Search for **Cost Management + Billing**.
-2. Select a billing profile.
-3. Select **Invoices**.
-4. In the invoice grid, find the row of the invoice corresponding to the usage you want to download.
-5. Select the ellipsis (`...`) at the end of the row.
-6. In the download context menu, select **Azure usage and charges**.
-
-### Download usage for open charges
-
-You can also download month-to-date usage for the current billing period, meaning the charges haven't been billed yet.
-
-1. Search for **Cost Management + Billing**.
-2. Select a billing profile.
-3. In the **Overview** area, select **Download Azure usage and charges**.
-
-### Download usage for pending charges
-
-If you have a Microsoft Customer Agreement, you can download month-to-date usage for the current billing period. These usage charges that haven't been billed yet.
+### Download usage file
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Search for *Cost Management + Billing*.
-3. Select a billing profile. Depending on your access, you might need to select a billing account first.
-4. In the **Overview** area, find the download links beneath the recent charges.
-5. Select **Download usage and prices**.
+1. Search for *Cost Management + Billing*.
+1. Select a billing profile. Depending on your access, you might need to select a billing account first.
+1. In the left menu, select **Invoices**.
+1. In the invoice grid, find the row of the invoice corresponding to the usage file that you want to download.
+1. Select the ellipsis symbol (`...`) at the end of the row.
+1. In the context menu, select **Prepare Azure usage file**. A notification message appears stating that the usage file is being prepared.
+1. When the file is ready to download, select **Download**. If you missed the notification, you can view it from **Notifications** area in top right of the Azure portal (the bell symbol).
+
+#### Calculate discount in the usage file
+
+The usage file shows the following per-consumption line items:
+
+- `costInBillingCurrency` (Column AU)
+- `paygCostInBillingCurrency` (Column AX).
+
+Use the information from the two columns to calculate your discount amount and discount percentage, as follows:
+
+Discount amount = (AX – AU)
+
+Discount percentage = (Discount amount / AX) * 100
 
 ## Get usage data with Azure CLI
 

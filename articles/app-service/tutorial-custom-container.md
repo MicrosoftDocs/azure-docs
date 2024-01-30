@@ -4,8 +4,9 @@ description: A step-by-step guide to build a custom Linux or Windows image, push
 ms.topic: tutorial
 ms.date: 11/29/2022
 ms.author: msangapu
+author: msangapu-msft
 keywords: azure app service, web app, linux, windows, docker, container
-ms.custom: "devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli, devdivchpfy22"
+ms.custom: devx-track-csharp, mvc, seodec18, devx-track-azurecli, devdivchpfy22
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 
@@ -1088,10 +1089,10 @@ What you learned:
 
 ::: zone-end
 
-In the next tutorial, you learn how to map a custom DNS name to your app.
+In the next tutorial, you learn how to secure your app with a custom domain and certificate.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 Or, check out other resources:
 

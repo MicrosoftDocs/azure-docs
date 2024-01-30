@@ -5,7 +5,7 @@ services: azure-resource-manager
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 02/04/2022
@@ -70,4 +70,3 @@ To learn more about Azure Synapse Analytics and Azure Resource Manager,
 - [Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 Next, you can [create SQL pools](quickstart-create-sql-pool-studio.md) or [create Apache Spark pools](quickstart-create-apache-spark-pool-studio.md) to start analyzing and exploring your data.
-

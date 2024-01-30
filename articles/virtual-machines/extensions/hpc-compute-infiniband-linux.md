@@ -1,27 +1,24 @@
 ---
-title: InfiniBand driver extension - Azure Linux VMs 
-description: Microsoft Azure Extension for installing InfiniBand Drivers on H- and N-series compute VMs running Linux.
+title: InfiniBand driver extension - Azure Linux VMs
+description: Microsoft Azure Extension for installing InfiniBand Drivers on HB- and N-series compute VMs running Linux.
 services: virtual-machines
-documentationcenter: ''
-editor: ''
-ms.assetid:
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 1/13/2022
-ms.custom: devx-track-azurepowershell
-ms.author: mamccrea
-author: mamccrea
+ms.date: 04/21/2023
+ms.custom: devx-track-azurepowershell, linux-related-content
+ms.author: jushiman
+author: ju-shim
 ---
 
 # InfiniBand Driver Extension for Linux
 
-This extension installs InfiniBand OFED drivers on InfiniBand and SR-IOV-enabled ('r' sizes) [H-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs running Linux. Depending on the VM family, the extension installs the appropriate drivers for the Connect-X NIC. It does not install the InfiniBand ND drivers on the non-SR-IOV enabled [H-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs.
+This extension installs InfiniBand OFED drivers on InfiniBand and SR-IOV-enabled ('r' sizes) [HB-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs running Linux. Depending on the VM family, the extension installs the appropriate drivers for the Connect-X NIC. It does not install the InfiniBand ND drivers on the non-SR-IOV enabled [HB-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs.
 
-Instructions on manual installation of the OFED drivers are available in [Enable InfiniBand on HPC VMs](../workloads/hpc/enable-infiniband.md#manual-installation).
+Instructions on manual installation of the OFED drivers are available in [Enable InfiniBand on HPC VMs](enable-infiniband.md#manual-installation).
 
 An extension is also available to install InfiniBand drivers for [Windows VMs](hpc-compute-infiniband-windows.md).
 
@@ -29,7 +26,7 @@ An extension is also available to install InfiniBand drivers for [Windows VMs](h
 
 ### Operating system
 
-This extension supports the following OS distros, depending on driver support for specific OS version.
+This extension supports the following OS distros, depending on driver support for specific OS version. For latest list of supported OS and driver versions, refer to [resources.json](https://github.com/Azure/azhpc-extensions/blob/master/InfiniBand/resources.json)
 
 | Distribution | Version | InfiniBand NIC drivers |
 |---|---|---|
@@ -37,7 +34,8 @@ This extension supports the following OS distros, depending on driver support fo
 | CentOS | 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8.1, 8,2 | CX3-Pro, CX5, CX6 |
 | Red Hat Enterprise Linux | 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8.1, 8,2 | CX3-Pro, CX5, CX6 |
 
-For latest list of supported OS and driver versions, refer to [resources.json](https://github.com/Azure/azhpc-extensions/blob/master/InfiniBand/resources.json)
+> [!IMPORTANT]
+> This document references a release version of Linux that is nearing or at, End of Life (EOL). Please consider updating to a more current version.
 
 ### Internet connectivity
 
@@ -81,11 +79,11 @@ The following JSON shows the schema for the extension.
 ## Deployment
 
 
-### Azure Resource Manager Template 
+### Azure Resource Manager Template
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration.
 
-The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md). 
+The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md).
 
 The following example assumes the extension is nested inside the virtual machine resource. When nesting the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
 
@@ -132,7 +130,7 @@ az vm extension set \
   --vm-name myVM \
   --name InfiniBandDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.2 
+  --version 1.2
 ```
 
 ### Add extension to a Virtual Machine Scale Set
@@ -187,7 +185,7 @@ The following table describes the meaning and recommended action based on the ex
 If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file a support incident through the [Azure support site](https://azure.microsoft.com/support/options/). For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
 
 ## Next steps
-For more information about InfiniBand-enabled ('r' sizes), see [H-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs.
+For more information about InfiniBand-enabled ('r' sizes), see [HB-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs.
 
 > [!div class="nextstepaction"]
 > [Learn more about Linux VMs extensions and features](features-linux.md)

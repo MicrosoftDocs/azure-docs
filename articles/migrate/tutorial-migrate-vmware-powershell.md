@@ -5,7 +5,8 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
-ms.date: 08/18/2022 
+ms.date: 01/24/2024
+ms.service: azure-migrate
 ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
@@ -34,7 +35,7 @@ Before you begin this tutorial, you should:
 
 1. Complete the [Tutorial: Discover VMware VMs with Server Assessment](tutorial-discover-vmware.md) to prepare Azure and VMware for migration.
 2. Complete the [Tutorial: Assess VMware VMs for migration to Azure VMs](./tutorial-assess-vmware-azure-vm.md) before migrating them to Azure.
-3. [Install the Az PowerShell module](/powershell/azure/install-az-ps)
+3. [Install the Az PowerShell module](/powershell/azure/install-azure-powershell)
 
 ## 2. Install Azure Migrate PowerShell module
 
@@ -513,6 +514,7 @@ Write-Output $MigrateJob.State
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../security-center/security-center-just-in-time.md).
+    - Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../update-manager/overview.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).

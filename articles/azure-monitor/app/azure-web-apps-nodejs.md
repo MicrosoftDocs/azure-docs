@@ -2,7 +2,7 @@
 title: Monitor Azure app services performance Node.js | Microsoft Docs
 description: Application performance monitoring for Azure app services using Node.js. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 12/15/2023
 ms.devlang: javascript
 ms.custom: "devx-track-js"
 ms.reviewer: abinetabate
@@ -10,19 +10,22 @@ ms.reviewer: abinetabate
 
 # Application Monitoring for Azure App Service and Node.js
 
-Monitoring of your Node.js web applications running on [Azure App Services](../../app-service/index.yml) does not require any modifications to the code. This article will walk you through enabling Azure Monitor Application Insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
+Monitoring of your Node.js web applications running on [Azure App Services](../../app-service/index.yml) doesn't require any modifications to the code. This article walks you through enabling Azure Monitor Application Insights monitoring and provides preliminary guidance for automating the process for large-scale deployments.
 
 ## Enable Application Insights
 
 The easiest way to enable application monitoring for Node.js applications running on Azure App Services is through Azure portal.
 Turning on application monitoring in Azure portal will automatically instrument your application with Application Insights, and doesn't require any code changes.
 
+>[!NOTE]
+> You can configure the automatically attached agent using the APPLICATIONINSIGHTS_CONFIGURATION_CONTENT environment variable in the App Service Environment variable blade. For details on the configuration options that can be passed via this environment variable, see [Node.js Configuration](https://github.com/microsoft/ApplicationInsights-node.js#Configuration).
+
 > [!NOTE]
-> If both auto-instrumentation monitoring and manual SDK-based instrumentation are detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) below.
+> If both automatic instrumentation and manual SDK-based instrumentation are detected, only the manual instrumentation settings are honored. This is to prevent duplicate data from being sent. For more information, see the [troubleshooting section](#troubleshooting) in this article.
 
-### Auto-instrumentation through Azure portal
+### Autoinstrumentation through Azure portal
 
-For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+For a complete list of supported autoinstrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
 You can turn on monitoring for your Node.js apps running in Azure App Service just with one click, no code change required.
 Application Insights for Node.js is integrated with Azure App Service on Linux - both code-based and custom containers, and with App Service on Windows for code-based apps.
@@ -39,10 +42,25 @@ The integration is in public preview. The integration adds Node.js SDK, which is
 
     :::image type="content"source="./media/azure-web-apps/change-resource.png" alt-text="Screenshot of Change your resource dropdown."::: 
 
-3. Once you have specified which resource to use, you are all set to go. 
+3. Once you've specified which resource to use, you're all set to go. 
 
     :::image type="content"source="./media/azure-web-apps-nodejs/app-service-node.png" alt-text="Screenshot of instrument your application."::: 
 
+## Configuration
+
+The Node.js agent can be configured using JSON. Set the `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT` environment variable to the JSON string or set the `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable to the file path containing the JSON.
+
+```json
+"samplingPercentage": 80,
+"enableAutoCollectExternalLoggers": true,
+"enableAutoCollectExceptions": true,
+"enableAutoCollectHeartbeat": true,
+"enableSendLiveMetrics": true,
+...
+    
+```
+
+The full [set of configurations](https://github.com/microsoft/ApplicationInsights-node.js#configuration) is available, you just need to use a valid json file.
 
 ## Enable client-side monitoring
 
@@ -79,7 +97,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
     - Confirm that the `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.x.xxxx, is running.` 
 
-         If it is not running, follow the [enable Application Insights monitoring instructions](#enable-application-insights).
+         If it isn't running, follow the [enable Application Insights monitoring instructions](#enable-application-insights).
 
     - Navigate to *D:\local\Temp\status.json* and open *status.json*.
 
@@ -105,7 +123,6 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     ```
 
     If `SDKPresent` is true this indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off.
-
 
 # [Linux](#tab/linux)
 
@@ -134,6 +151,8 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     ```
 
     If `SDKPresent` is true this indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off.
+
+
 ---
 
 [!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
@@ -151,4 +170,5 @@ For the latest updates and bug fixes, [consult the release notes](web-app-extens
 * [Monitor service health metrics](../data-platform.md) to make sure your service is available and responsive.
 * [Receive alert notifications](../alerts/alerts-overview.md) whenever operational events happen or metrics cross a threshold.
 * Use [Application Insights for JavaScript apps and web pages](javascript.md) to get client telemetry from the browsers that visit a web page.
-* [Set up Availability web tests](monitor-web-app-availability.md) to be alerted if your site is down.
+* [Availability overview](availability-overview.md)
+

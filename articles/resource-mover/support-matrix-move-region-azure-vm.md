@@ -2,11 +2,11 @@
 title: Support matrix for moving Azure VMs to another region with Azure Resource Mover
 description: Review support for moving Azure VMs between regions with Azure Resource Mover. 
 author: ankitaduttaMSFT
-manager: evansma
 ms.service: resource-mover
 ms.topic: how-to
-ms.date: 02/08/2021
+ms.date: 03/21/2023
 ms.author: ankitadutta
+ms.custom: engagement-fy23, UpdateFrequency.5
 
 ---
 
@@ -168,7 +168,7 @@ Azure VMs that you want to move need outbound access.
 **Name** | **Azure public cloud** | **Details** 
 --- | --- | --- 
 Storage | `*.blob.core.windows.net`  | Allows data to be written from the VM to the cache storage account in the source region. 
-Azure Active Directory | `login.microsoftonline.com`  | Provides authorization and authentication to Site Recovery service URLs. 
+Microsoft Entra ID | `login.microsoftonline.com`  | Provides authorization and authentication to Site Recovery service URLs. 
 Replication | `*.hypervrecoverymanager.windowsazure.com` | Allows the VM to communicate with the Site Recovery service. 
 Service Bus | `*.servicebus.windows.net` | Allows the VM to write Site Recovery monitoring and diagnostics data. 
 

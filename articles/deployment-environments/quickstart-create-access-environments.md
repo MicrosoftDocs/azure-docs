@@ -1,147 +1,68 @@
 ---
-title: Create and access an environment
+title: Create and access an environment in the developer portal
 titleSuffix: Azure Deployment Environments
-description: Learn how to create and access an environment in an Azure Deployment Environments Preview project.
+description: Learn how to create and access an environment in an Azure Deployment Environments project through the developer portal.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.topic: quickstart
-ms.date: 10/26/2022
+ms.date: 12/01/2023
 ---
 
-# Quickstart: Create and access an environment
+# Quickstart: Create and access an environment in Azure Deployment Environments
 
-This quickstart shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments Preview project.
-
-Only a user who has the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions can create an environment.
-
-In this quickstart, you learn how to:
-
-> [!div class="checklist"]
->
-> - Create an environment
-> - Access an environment
-
-> [!IMPORTANT]
-> Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This quickstart shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments project.
 
 ## Prerequisites
 
 - [Create and configure a dev center](quickstart-create-and-configure-devcenter.md).
 - [Create and configure a project](quickstart-create-and-configure-projects.md).
-- Install the Azure Deployment Environments Azure CLI extension:
-
-  1. [Download and install the Azure CLI](/cli/azure/install-azure-cli).
-  1. Install the Azure Deployment Environments AZ CLI extension:
-
-     **Automated installation**
-  
-     In PowerShell, run the https://aka.ms/DevCenter/Install-DevCenterCli.ps1 script:
-
-     ```powershell
-     iex "& { $(irm https://aka.ms/DevCenter/Install-DevCenterCli.ps1 ) }"
-     ```
-  
-     The script uninstalls any existing dev center extension and installs the latest version.
-
-     **Manual installation**
-  
-     Run the following command in the Azure CLI:
-
-     ```azurecli
-     az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-0.1.0-py3-none-any.whl
-     ```
 
 ## Create an environment
 
-Complete the following steps in the Azure CLI to create an environment and configure resources. You can view the outputs as defined in the specific Azure Resource Manager template (ARM template).
+An environment in Azure Deployment Environments is a collection of Azure resources on which your application is deployed. You can create an environment from the developer portal.
 
-1. Sign in to the Azure CLI:
+[!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
-    ```azurecli
-    az login
-    ```
+1. Sign in to the [developer portal](https://devportal.microsoft.com).
 
-1. List all the Azure Deployment Environments projects you have access to:
+1. From the **New** menu at the top left, select **New environment**.
+ 
+   :::image type="content" source="media/quickstart-create-access-environments/dev-new-environment.png" alt-text="Screenshot showing the new menu with new environment highlighted." lightbox="media/quickstart-create-access-environments/dev-new-environment-expanded.png":::
+ 
+1. In the **Add an environment** pane, select the following information:
 
-   ```azurecli
-   az graph query -q "Resources | where type =~ 'microsoft.devcenter/projects'" -o table
-   ```
+   |Field  |Value  |
+   |---------|---------|
+   |Name     | Enter a descriptive name for your environment. |
+   |Project  | Select the project you want to create the environment in. If you have access to more than one project, you see a list of available projects. |
+   |Type     | Select the environment type you want to create. If you have access to more than one environment type, you see a list of available types. |
+   |Environment definitions | Select the environment definition you want to use to create the environment. You see a list of the environment definitions available from the catalogs associated with your dev center. |
 
-1. Configure the default subscription as the subscription that contains the project:
+   :::image type="content" source="media/quickstart-create-access-environments/dev-add-environment.png" alt-text="Screenshot showing add environment pane." lightbox="media/quickstart-create-access-environments/dev-add-environment-expanded.png":::
 
-   ```azurecli
-   az account set --subscription <name>
-   ```
+   If your environment is configured to accept parameters, you can enter them on a separate pane. In this example, you don't need to specify any parameters.
 
-1. Configure the default resource group as the resource group that contains the project:
-
-   ```azurecli
-   az config set defaults.group=<name>
-   ```  
-
-1. List the type of environments you can create in a specific project:
-
-   ```azurecli
-   az devcenter dev environment-type list --dev-center <name> --project-name <name> -o table
-   ```
-
-1. List the [catalog items](concept-environments-key-concepts.md#catalog-items) that are available to a specific project:
-
-   ```azurecli
-   az devcenter dev catalog-item list --dev-center <name> --project-name <name> -o table
-   ```
-
-1. Create an environment by using a *catalog-item* (an infrastructure-as-code template defined in the [manifest.yaml](configure-catalog-item.md#add-a-new-catalog-item) file) from the list of available catalog items:
-
-   ```azurecli
-   az devcenter dev environment create --dev-center-name <devcenter-name> 
-       --project-name <project-name> --environment-type <environment-type-name> 
-       --catalog-item-name <catalog-item-name> --catalog-name <catalog-name> 
-   ```
-
-    If the specific *catalog-item* requires any parameters, use `--parameters` and provide the parameters as a JSON string or a JSON file. For example:
-
-   ```json
-   $params = "{ 'name': 'firstMsi', 'location': 'northeurope' }"
-   az devcenter dev environment create --dev-center-name <devcenter-name> 
-       --project-name <project-name> -n <name> --environment-type <environment-type-name> 
-       --catalog-item-name <catalog-item-name> --catalog-name <catalog-name> 
-       --parameters $params
-   ```
-
-> [!NOTE]
-> You can use `--help` to view more details about any command, accepted arguments and examples. For example, use `az devcenter dev environment create --help` to view more details about creating an environment.
-
-### Troubleshoot permission error
-
-You must have the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions can create an environment.
-
-If you don't have the correct permissions, creation of the environment will fail, and you may receive an error message like this:
-
-```
-(EnvironmentNotFound) The environment resource was not found.
-Code: EnvironmentNotFound
-Message: The environment resource was not found.
-```
-
-To resolve the issue, assign the correct permissions: [Give project access to the development team](quickstart-create-and-configure-projects.md#give-project-access-to-the-development-team).
+1. Select **Create**. You see your environment in the developer portal immediately, with an indicator that shows creation in progress.
 
 ## Access an environment
 
-To access an environment:
+You can access and manage your environments in the Azure Deployment Environments developer portal.
 
-1. List existing environments that are available in a specific project:
+1. Sign in to the [developer portal](https://devportal.microsoft.com).
 
-   ```azurecli
-    az devcenter dev environment list --dev-center <devcenter-name> --project-name <project-name>
-   ```  
+1. You can view all of your existing environments. To access the specific resources created as part of an environment, select the **Environment Resources** link.
 
-1. View the access endpoints to various resources as defined in the ARM template outputs.
-1. Access the specific resources by using the endpoints.
+   :::image type="content" source="media/quickstart-create-access-environments/dev-environment-resources.png" alt-text="Screenshot showing an environment card, with the environment resources link highlighted." lightbox="media/quickstart-create-access-environments/dev-environment-resources-expanded.png":::
+
+1. You can view the resources in your environment listed in the Azure portal.
+
+   :::image type="content" source="media/quickstart-create-access-environments/azure-portal-view-of-environment.png" alt-text="Screenshot showing Azure portal list of environment resources." lightbox="media/quickstart-create-access-environments/azure-portal-view-of-environment.png":::
+
+   Creating an environment automatically creates a resource group that stores the environment's resources. The resource group name follows the pattern `{projectName}-{environmentName}`. You can view the resource group in the Azure portal.
 
 ## Next steps
 
-- Learn how to [add and configure a catalog](how-to-configure-catalog.md).
-- Learn how to [add and configure a catalog item](configure-catalog-item.md).
+- [Add and configure a catalog](how-to-configure-catalog.md)
+- [Add and configure an environment definition](configure-environment-definition.md)

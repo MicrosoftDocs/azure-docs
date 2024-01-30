@@ -8,7 +8,7 @@ description: "Use custom locations to deploy Azure PaaS services on Azure Arc-en
 
 # Create and manage custom locations on Azure Arc-enabled Kubernetes
 
- The *custom locations* feature provides a way for tenant or cluster administrators to configure their Azure Arc-enabled Kubernetes clusters as target locations for deploying instances of Azure offerings. Examples of Azure offerings that can be deployed on top of custom locations include databases, such as Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL server, or application instances, such as App Services, Functions, Event Grid, Logic Apps, and API Management.
+ The *custom locations* feature provides a way for tenant or cluster administrators to configure their Azure Arc-enabled Kubernetes clusters as target locations for deploying instances of Azure offerings. Examples of Azure offerings that can be deployed on top of custom locations include databases, such as SQL Managed Instance enabled by Azure Arc and Azure Arc-enabled PostgreSQL server, or application instances, such as App Services, Functions, Event Grid, Logic Apps, and API Management.
 
 A custom location has a one-to-one mapping to a namespace within the Azure Arc-enabled Kubernetes cluster. The custom location Azure resource combined with Azure role-based access control (Azure RBAC) can be used to grant granular permissions to application developers or database admins, enabling them to deploy resources such as databases or application instances on top of Arc-enabled Kubernetes clusters in a multi-tenant manner.
 
@@ -62,7 +62,7 @@ In this article, you learn how to:
 
 ## Enable custom locations on your cluster
 
-If you are signed in to Azure CLI as an Azure Active Directory (Azure AD) user, to enable this feature on your cluster, execute the following command:
+If you are signed in to Azure CLI as a Microsoft Entra user, to enable this feature on your cluster, execute the following command:
 
 ```azurecli
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
@@ -76,7 +76,7 @@ Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the f
 
 This is because a service principal doesn't have permissions to get information about the application used by the Azure Arc service. To avoid this error, complete the following steps:
 
-1. Sign in to Azure CLI using your user account. Fetch the `objectId` or `id` of the Azure AD application used by Azure Arc service. The command you use depends on your version of Azure CLI.
+1. Sign in to Azure CLI using your user account. Fetch the `objectId` or `id` of the Microsoft Entra application used by Azure Arc service. The command you use depends on your version of Azure CLI.
 
    If you're using an Azure CLI version lower than 2.37.0, use the following command:
 
@@ -251,4 +251,4 @@ To resolve this issue, modify your network policy to allow pod-to-pod internal c
 - Securely connect to the cluster using [Cluster Connect](cluster-connect.md).
 - Continue with [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) for end-to-end instructions on installing extensions, creating custom locations, and creating the App Service Kubernetes environment.
 - Create an Event Grid topic and an event subscription for [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
-- Learn more about currently available [Azure Arc-enabled Kubernetes extensions](extensions.md#currently-available-extensions).
+- Learn more about currently available [Azure Arc-enabled Kubernetes extensions](extensions-release.md).

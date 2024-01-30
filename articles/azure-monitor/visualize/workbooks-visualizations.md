@@ -5,7 +5,7 @@ services: azure-monitor
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.date: 06/21/2023
 ms.reviewer: gardnerjr
 ---
 
@@ -70,4 +70,4 @@ Workbooks support these kinds of visual components:
 
 ## Next steps
 
-[Get started with Azure Workbooks](workbooks-getting-started.md)
+[Get started with Azure Workbooks](workbooks-overview.md)

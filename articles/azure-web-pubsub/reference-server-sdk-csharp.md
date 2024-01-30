@@ -4,7 +4,8 @@ description: This reference describes the .NET SDK for the Azure Web PubSub serv
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: conceptual 
+ms.custom: devx-track-dotnet
+ms.topic: conceptual
 ms.date: 11/11/2021
 ---
 
@@ -18,7 +19,7 @@ You can use this library in your app server side to manage the WebSocket client 
 
 Use this library to:
 
-- Send messages to hubs and groups. 
+- Send messages to hubs and groups.
 - Send messages to particular users and connections.
 - Organize users and connections into groups.
 - Close connections

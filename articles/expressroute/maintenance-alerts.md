@@ -2,11 +2,11 @@
 title: 'How to view and configure alerts for Azure ExpressRoute circuit maintenance'
 description: Learn how to configure custom alerts for ExpressRoute circuit maintenance using the Service Health page in the Azure portal.
 services: expressroute
-author: mialdrid
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 05/10/2021
-ms.author: mialdrid
+ms.date: 06/30/2023
+ms.author: duau
 ---
 
 # How to view and configure alerts for Azure ExpressRoute circuit maintenance
@@ -14,9 +14,9 @@ ms.author: mialdrid
 ExpressRoute uses Azure Service Health to notify you of planned and upcoming ExpressRoute circuit maintenance. With Service Health, you can view planned and past maintenance in the Azure portal along with configuring alerts and notifications that best suits your needs. To learn more about Azure Service Health refer to [What is Azure Service Health?](../service-health/overview.md)
 
 > [!NOTE]
-> * During a maintenance activity or in case of unplanned events impacting one of the connection, Microsoft will prefer to use AS path prepending to drain traffic over to the healthy connection. You will need to ensure the traffic is able to route over the healthy path when path prepend is configured from Microsoft and required route advertisements are configured appropriately to avoid any service disruption. 
+> * During a maintenance activity or in case of unplanned events impacting one of the connection, Microsoft will prefer to use AS path prepending to drain traffic over to the healthy connection. You will need to ensure the traffic is able to route over the healthy path when path prepend is configure from Microsoft and required route advertisements are configured appropriately to avoid any service disruption. 
 > * Terminating ExpressRoute BGP connections on stateful devices can cause issues with failover during planned or unplanned maintenances by Microsoft or your ExpressRoute Provider. You should test your set up to ensure your traffic will failover properly, and when possible, terminate BGP sessions on stateless devices.
-> * During maintenance between the Microsoft edge and core network, BGP availability will appear down even if the BGP session between the customer edge and Microsoft edge remains up. For information about maintenance between the Microsoft edge and core network, make sure to have your maintenance alerts turned on and configured correctly using the guidance below.
+> * During maintenance between the Microsoft edge and core network, BGP availability will appear down even if the BGP session between the customer edge and Microsoft edge remains up. For information about maintenance between the Microsoft edge and core network, make sure to have your maintenance alerts turned on and configured correctly using the guidance in this article.
 >
 
 ## View planned maintenance
@@ -47,7 +47,7 @@ ExpressRoute uses Azure Service Health to notify you of planned and upcoming Exp
 
 ## Create alerts and notifications for maintenance events
 
-1. Azure Service Health supports customized alerting for maintenance events. To configure an alert for ExpressRoute Circuit maintenance, navigate to **Health alerts** under the *Alerts* section on the left side of the page. Here you'll see a table of previously configured alerts.
+1. Azure Service Health supports customized alerting for maintenance events. To configure an alert for ExpressRoute Circuit maintenance, navigate to **Health alerts** under the *Alerts* section on the left side of the page. Here you see a table of previously configured alerts.
 
 1.  To create a new alert, select **Add service health alert** at the top of the page.
 

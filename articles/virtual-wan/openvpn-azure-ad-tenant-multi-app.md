@@ -1,23 +1,23 @@
 ---
-title: 'Virtual WAN: Azure AD tenant for different user groups: Azure AD authentication'
-description: Set up an Azure AD tenant for P2S OpenVPN authentication, and create and register multiple apps in Azure AD to allow different access for different users and groups.
+title: 'Virtual WAN: Microsoft Entra tenant for different user groups: Microsoft Entra authentication'
+description: Set up a Microsoft Entra tenant for P2S OpenVPN authentication, and create and register multiple apps in Microsoft Entra ID to allow different access for different users and groups.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.author: alzam 
+ms.date: 04/24/2023
+ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
 ---
-# Create an Azure Active Directory (AD) tenant for P2S OpenVPN protocol connections
+# Create a Microsoft Entra tenant for P2S OpenVPN protocol connections
 
-When connecting to your VNet, you can use certificate-based authentication or RADIUS authentication. However, when you use the Open VPN protocol, you can also use Azure Active Directory authentication. If you want different set of users to be able to connect to different gateways, you can register multiple apps in AD and link them to different gateways.
+When connecting to your VNet, you can use certificate-based authentication or RADIUS authentication. However, when you use the Open VPN protocol, you can also use Microsoft Entra authentication. If you want different set of users to be able to connect to different gateways, you can register multiple apps in AD and link them to different gateways.
 
-This article helps you set up an Azure AD tenant for P2S OpenVPN authentication, and create and register multiple apps in Azure AD to allow different access for different users and groups.
+This article helps you set up a Microsoft Entra tenant for P2S OpenVPN authentication, and create and register multiple apps in Microsoft Entra ID to allow different access for different users and groups.
 
 > [!NOTE]
-> Azure AD authentication is supported only for OpenVPN&reg; protocol connections.
+> Microsoft Entra authentication is supported only for OpenVPN&reg; protocol connections.
 >
 
 [!INCLUDE [create](../../includes/openvpn-azure-ad-tenant-multi-app.md)]
@@ -79,14 +79,14 @@ Use the VPN profile to configure your clients.
 
 6. Browse to the unzipped "AzureVPN" folder.
 
-7. Make a note of the location of the "azurevpnconfig.xml" file. The azurevpnconfig.xml contains the setting for the VPN connection and can be imported directly into the Azure VPN Client application. You can also distribute this file to all the users that need to connect via e-mail or other means. The user will need valid Azure AD credentials to connect successfully.
+7. Make a note of the location of the "azurevpnconfig.xml" file. The azurevpnconfig.xml contains the setting for the VPN connection and can be imported directly into the Azure VPN Client application. You can also distribute this file to all the users that need to connect via e-mail or other means. The user will need valid Microsoft Entra credentials to connect successfully.
 
 ## 9. Configure User VPN clients
 
 To connect, you need to download the Azure VPN Client and import the VPN client profile that was downloaded in the previous steps on every computer that wants to connect to the VNet.
 
 > [!NOTE]
-> Azure AD authentication is supported only for OpenVPN&reg; protocol connections.
+> Microsoft Entra authentication is supported only for OpenVPN&reg; protocol connections.
 >
 
 #### To download the Azure VPN client

@@ -24,6 +24,7 @@ The following steps help you install strongSwan.
 ## <a name="cli"></a>Linux CLI instructions (strongSwan)
 
 The following steps help you generate and export certificates using the Linux CLI (strongSwan).
+For more information, see [Additional instructions to install the Azure CLI](/cli/azure/install-azure-cli-apt). 
 
 [!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 

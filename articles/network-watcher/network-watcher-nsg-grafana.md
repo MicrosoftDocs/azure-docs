@@ -3,23 +3,20 @@ title: Manage NSG Flow Logs using Grafana
 titleSuffix: Azure Network Watcher
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Grafana.
 services: network-watcher
-documentationcenter: na
 author: halkazwini
 tags: azure-resource-manager
-ms.assetid: 
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2022
+ms.date: 05/03/2023
 ms.author: halkazwini
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, linux-related-content
 ---
-# Manage and analyze Network Security Group flow logs using Network Watcher and Grafana
+# Manage and analyze network security group flow logs using Network Watcher and Grafana
 
 [Network Security Group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) provide information that can be used to understand ingress and egress IP traffic on network interfaces. These flow logs show outbound and inbound flows on a per NSG rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
-You can have many NSGs in your network with flow logging enabled. This amount of logging data makes it cumbersome to parse and gain insights from your logs. This article provides a solution to centrally manage these NSG flow logs using Grafana, an open source graphing tool, ElasticSearch, a distributed search and analytics engine, and Logstash, which is an open source server-side data processing pipeline.  
+You can have many NSGs in your network with flow logging enabled. This amount of logging data makes it cumbersome to parse and gain insights from your logs. This article provides a solution to centrally manage these NSG flow logs using Grafana, an open source graphing tool, ElasticSearch, a distributed search and analytics engine, and Logstash, which is an open source server-side data processing pipeline.
 
 ## Scenario
 
@@ -35,11 +32,13 @@ For this scenario, you must have Network Security Group Flow Logging enabled on 
 
 ### Setup considerations
 
-In this example Grafana, ElasticSearch, and Logstash are configured on an Ubuntu 16.04 LTS Server deployed in Azure. This minimal setup is used for running all three components – they are all running on the same VM. This setup should only be used for testing and non-critical workloads. Logstash, Elasticsearch, and Grafana can all be architected to scale independently across many instances. For more information, see the documentation for each of these components.
+In this example Grafana, ElasticSearch, and Logstash are configured on an Ubuntu LTS Server deployed in Azure. This minimal setup is used for running all three components - they are all running on the same VM. This setup should only be used for testing and non-critical workloads. Logstash, Elasticsearch, and Grafana can all be architected to scale independently across many instances. For more information, see the documentation for each of these components.
 
 ### Install Logstash
 
 You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
+
+The following instructions are used to install Logstash in Ubuntu. For instructions about how to install this package in RHEL/CentOS, refer to the [Installing from Package Repositories - yum](https://www.elastic.co/guide/en/logstash/8.7/installing-logstash.html#_yum) article.
 
 1. To install Logstash, run the following commands:
 
@@ -83,7 +82,7 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
         split => { "[records][resourceId]" => "/"}
         add_field => { "Subscription" => "%{[records][resourceId][2]}"
           "ResourceGroup" => "%{[records][resourceId][4]}"
-          "NetworkSecurityGroup" => "%{[records][resourceId][8]}" 
+          "NetworkSecurityGroup" => "%{[records][resourceId][8]}"
         }
         convert => {"Subscription" => "string"}
         convert => {"ResourceGroup" => "string"}
@@ -117,9 +116,9 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
         convert => {"unixtimestamp" => "integer"}
         convert => {"srcPort" => "integer"}
         convert => {"destPort" => "integer"}
-        add_field => { "message" => "%{Message}" }        
+        add_field => { "message" => "%{Message}" }
       }
- 
+
       date {
         match => ["unixtimestamp" , "UNIX"]
       }
@@ -134,7 +133,7 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
    ```
 
 The Logstash config file provided is composed of three parts: the input, filter, and output.
-The input section designates the input source of the logs that Logstash will process – in this case we are going to use an “azureblob” input plugin (installed in the next steps) that will allow us to access the NSG flow log JSON files stored in blob storage. 
+The input section designates the input source of the logs that Logstash will process – in this case we are going to use an “azureblob” input plugin (installed in the next steps) that will allow us to access the NSG flow log JSON files stored in blob storage.
 
 The filter section then flattens each flow log file so that each individual flow tuple and its associated properties becomes a separate Logstash event.
 
@@ -145,8 +144,7 @@ Finally, the output section forwards each Logstash event to the ElasticSearch se
 This Logstash plugin enables you to directly access the flow logs from their designated blob storage account. To install this plug in, from the default Logstash installation directory (in this case /usr/share/logstash/bin) run the command:
 
 ```bash
-cd /usr/share/logstash/bin
-sudo ./logstash-plugin install logstash-input-azureblob
+sudo /usr/share/logstash/bin/logstash-plugin install logstash-input-azureblob
 ```
 
 For more information about this plug in, see [Logstash input plugin for Azure Storage Blobs](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
@@ -156,14 +154,14 @@ For more information about this plug in, see [Logstash input plugin for Azure St
 You can use the following script to install ElasticSearch. For information about installing ElasticSearch, see [Elastic Stack](https://www.elastic.co/guide/en/elastic-stack/current/index.html).
 
 ```bash
-apt-get install apt-transport-https openjdk-8-jre-headless uuid-runtime pwgen -y
-wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | apt-key add -
-echo "deb https://packages.elastic.co/elasticsearch/5.x/debian stable main" | tee -a /etc/apt/sources.list.d/elasticsearch-5.x.list
-apt-get update && apt-get install elasticsearch
-sed -i s/#cluster.name:.*/cluster.name:\ grafana/ /etc/elasticsearch/elasticsearch.yml
-systemctl daemon-reload
-systemctl enable elasticsearch.service
-systemctl start elasticsearch.service
+sudo apt-get install apt-transport-https openjdk-8-jre-headless uuid-runtime pwgen -y
+wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+echo "deb https://packages.elastic.co/elasticsearch/5.x/debian stable main" | sudo tee -a /etc/apt/sources.list.d/elasticsearch-5.x.list
+sudo apt-get update && apt-get install elasticsearch
+sudo sed -i s/#cluster.name:.*/cluster.name:\ grafana/ /etc/elasticsearch/elasticsearch.yml
+sudo systemctl daemon-reload
+sudo systemctl enable elasticsearch.service
+sudo systemctl start elasticsearch.service
 ```
 
 ### Install Grafana

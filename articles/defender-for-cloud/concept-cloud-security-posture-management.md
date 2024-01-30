@@ -1,81 +1,103 @@
 ---
-title: Overview of Cloud Security Posture Management (CSPM)
-description: Learn more about the new Defender CSPM plan and the other enhanced security features that can be enabled for your multicloud environment through the Defender Cloud Security Posture Management (CSPM) plan.
+title: Cloud Security Posture Management (CSPM)
+description: Learn more about CSPM in Microsoft Defender for Cloud.
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 01/24/2023
+ms.custom: ignite-2022, build-2023
+ms.date: 01/02/2024
 ---
 
-# Cloud Security Posture Management (CSPM)
+# Cloud security posture management (CSPM)
 
-One of Microsoft Defender for Cloud's main pillars for cloud security is Cloud Security Posture Management (CSPM). CSPM provides you with hardening guidance that helps you efficiently and effectively improve your security. CSPM also gives you visibility into your current security situation.
+One of Microsoft Defender for Cloud's main pillars is cloud security posture management (CSPM). CSPM provides detailed visibility into the security state of your assets and workloads, and provides hardening guidance to help you efficiently and effectively improve your security posture.
 
-Defender for Cloud continually assesses your resources, subscriptions and organization for security issues. Defender for Cloud shows your security posture in secure score. The secure score is an aggregated score of the security findings that tells you your current security situation. The higher the score, the lower the identified risk level.
+Defender for Cloud continually assesses your resources against security standards that are defined for your Azure subscriptions, AWS accounts, and GCP projects. Defender for Cloud issues security recommendations based on these assessments.
 
-## Availability
+By default, when you enable Defender for Cloud on an Azure subscription, the [Microsoft Cloud Security Benchmark (MCSB)](concept-regulatory-compliance.md) compliance standard is turned on. It provides recommendations. Defender for Cloud provides an aggregated [secure score](secure-score-security-controls.md) based on some of the MCSB recommendations. The higher the score, the lower the identified risk level.
 
-|Aspect|Details|
-|----|:----|
-|Release state:| Foundational CSPM capabilities: GA <br> Defender Cloud Security Posture Management (CSPM): Preview |
-| Prerequisites | - **Foundational CSPM capabilities** - None <br> <br> - **Defender Cloud Security Posture Management (CSPM)** - Agentless scanning requires the **Subscription Owner** to enable the plan. Anyone with a lower level of authorization can enable the Defender CSPM plan but the agentless scanner won't be enabled by default due to lack of permissions. Attack path analysis and security explorer won't be populated with vulnerabilities because the agentless scanner is disabled. |
-|Clouds:| 	**Foundational CSPM capabilities** <br> :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br> <br> For Connected AWS accounts and GCP projects availability, see the [feature availability](#defender-cspm-plan-options) table. <br> <br> **Defender Cloud Security Posture Management (CSPM)** <br> :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br> <br> For Connected AWS accounts and GCP projects availability, see the [feature availability](#defender-cspm-plan-options) table. |
+## CSPM features
 
-## Defender CSPM plan options
+Defender for Cloud provides the following CSPM offerings:
 
-The Defender CSPM plan comes with two options, foundational CSPM capabilities and Defender CSPM. When you deploy Defender for Cloud to your subscription and resources, you'll automatically gain the basic coverage offered by the CSPM plan. To gain access to the other capabilities provided by Defender CSPM, you'll need to [enable the Defender Cloud Security Posture Management (CSPM) plan](enable-enhanced-security.md) on your subscription and resources.
+- **Foundational CSPM** - Defender for Cloud offers foundational multicloud CSPM capabilities for free. These capabilities are automatically enabled by default for subscriptions and accounts that onboard to Defender for Cloud.
 
-The following table summarizes what's included in each plan and their cloud availability.
+- **Defender Cloud Security Posture Management (CSPM) plan** - The optional, paid Defender for Cloud Secure Posture Management plan provides more, advanced security posture features.
 
-| Feature | Foundational CSPM capabilities | Defender CSPM | Cloud availability |
+## Plan availability
+
+Learn more about [Defender CSPM pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+
+The following table summarizes each plan and their cloud availability.
+
+| Feature | Foundational CSPM | Defender CSPM | Cloud availability |
 |--|--|--|--|
-| Continuous assessment of the security configuration of your cloud resources | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
-| [Security recommendations to fix misconfigurations and weaknesses](review-security-recommendations.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png":::| Azure, AWS, GCP, on-premises |
-| [Secure score](secure-score-access-and-track.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
-| [Governance](#security-governance-and-regulatory-compliance) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
-| [Regulatory compliance](#security-governance-and-regulatory-compliance) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
-| [Cloud security explorer](#cloud-security-explorer) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
-| [Attack path analysis](#attack-path-analysis) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
-| [Agentless scanning for machines](#agentless-scanning-for-machines) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
+| [Security recommendations](review-security-recommendations.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png":::| Azure, AWS, GCP, on-premises |
+| [Asset inventory](asset-inventory.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
+| [Secure score](secure-score-security-controls.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
+| Data visualization and reporting with Azure Workbooks | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
+| [Data exporting](export-to-siem.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
+| [Workflow automation](workflow-automation.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
+| Tools for remediation | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
+| Microsoft Cloud Security Benchmark | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
+| [Security governance](governance-rules.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
+| [Regulatory compliance standards](concept-regulatory-compliance.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, on-premises |
+| [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
+| [Attack path analysis](how-to-manage-attack-path.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
+| [Agentless scanning for machines](concept-agentless-data-collection.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
+| [Agentless container security posture](concept-agentless-containers.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
+| [Container registries vulnerability assessment](concept-agentless-containers.md), including registry scanning | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
+| [Data aware security posture](concept-data-security-posture.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
+| EASM insights in network exposure | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
+| [Permissions management (Preview)](enable-permissions-management.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 
 
 > [!NOTE]
-> If you have enabled Defender for DevOps, you will only gain cloud security graph and attack path analysis to the artifacts that arrive through those connectors. 
->
-> To enable Governance for for DevOps related recommendations, the Defender CSPM plan needs to be enabled on the Azure subscription that hosts the DevOps connector.
+> Starting March 7, 2024, Defender CSPM must be enabled to have premium DevOps security capabilities that include code-to-cloud contextualization powering security explorer and attack paths and pull request annotations for Infrastructure-as-Code security findings. See DevOps security [support and prerequisites](devops-support.md) to learn more.
 
-## Security governance and regulatory compliance
 
-Security governance and regulatory compliance refer to the policies and processes which organizations have in place to ensure that they comply with laws, rules and regulations put in place by external bodies (government) which control activity in a given jurisdiction. Defender for Cloud allows you to view your regulatory compliance through the regulatory compliance dashboard.
+## Integrations (preview)
 
-Defender for Cloud continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards that you've applied to your subscriptions. The dashboard reflects the status of your compliance with these standards.
+Microsoft Defender for Cloud now has built-in integrations to help you use third-party systems to seamlessly manage and track tickets, events, and customer interactions. You can push recommendations to a third-party ticketing tool, and assign responsibility to a team for remediation.
 
-Learn more about [security and regulatory compliance in Defender for Cloud](concept-regulatory-compliance.md).
+Integration streamlines your incident response process, and improves your ability to manage security incidents. You can track, prioritize, and resolve security incidents more effectively.
 
-## Cloud security explorer
+You can choose which ticketing system to integrate. For preview, only ServiceNow integration is supported. For more information about how to configure ServiceNow integration, see [Integrate ServiceNow with Microsoft Defender for Cloud (preview)](integration-servicenow.md).
 
-The cloud security graph is a graph-based context engine that exists within Defender for Cloud. The cloud security graph collects data from your multicloud environment and other data sources. For example, the cloud assets inventory, connections and lateral movement possibilities between resources, exposure to internet, permissions, network connections, vulnerabilities and more. The data collected is then used to build a graph representing your multicloud environment.
+## Plan pricing
 
-Defender for Cloud then uses the generated graph to perform an attack path analysis and find the issues with the highest risk that exist within your environment. You can also query the graph using the cloud security explorer.
+- Review the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn about Defender CSPM pricing.
 
-Learn more about [cloud security explorer](concept-attack-path.md#what-is-cloud-security-explorer)
+- Defender CSPM for GCP is free until January 31, 2024.
 
-## Attack path analysis
+- From March 7, 2024, advanced DevOps security posture capabilities will only be available through the paid Defender CSPM plan. Free foundational security posture management in Defender for Cloud will continue providing a number of Azure DevOps recommendations. Learn more about [DevOps security features](devops-support.md#azure-devops).
 
-Attack path analysis is a graph-based algorithm that scans the cloud security graph. The scans:
+- For subscriptions that use both Defender CSPM and Defender for Containers plans, free vulnerability assessment is calculated based on free image scans provided via the Defender for Containers plan, as summarized [in the Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
-- expose exploitable paths that attackers may use to breach your environment and reach your high-impact assets
-- provide recommendations for ways to prevent successful breaches
+- Defender CSPM protects all multicloud workloads, but billing is applied only on specific resources. The following tables list the billable resources when Defender CSPM is enabled on Azure subscriptions, AWS accounts, or GCP projects.
 
-When you take your environment's contextual information into account, attack path analysis identifies issues that may lead to a breach on your environment, and helps you to remediate the highest risk ones first.  For example its exposure to the internet, permissions, lateral movement, and more.
+    | Azure Service | Resource types | Exclusions |
+    |---|---|---|
+    | Compute | Microsoft.Compute/virtualMachines<br/>Microsoft.Compute/virtualMachineScaleSets/virtualMachines<br/>Microsoft.ClassicCompute/virtualMachines | - Deallocated VMs<br/>- Databricks VMs |
+    | Storage | Microsoft.Storage/storageAccounts | Storage accounts without blob containers or file shares |
+    | DBs | Microsoft.Sql/servers<br/>Microsoft.DBforPostgreSQL/servers<br/>Microsoft.DBforMySQL/servers<br/>Microsoft.Sql/managedInstances<br/>Microsoft.DBforMariaDB/servers<br/>Microsoft.Synapse/workspaces | --- |
 
-Learn more about [attack path analysis](concept-attack-path.md#what-is-attack-path-analysis).
+    | AWS Service | Resource types | Exclusions |
+    |---|---|---|
+    | Compute | EC2 instances |  Deallocated VMs |
+    | Storage | S3 Buckets | --- |
+    | DBs | RDS instances | --- |
 
-## Agentless scanning for machines 
+    | GCP Service | Resource types | Exclusions |
+    |---|---|---|
+    | Compute |  1. Google Compute instances<br/> 2. Google Instance Group | Instances with non-running states |
+    | Storage | Storage buckets | - Buckets from classes: ‘nearline’, ‘coldline’, ‘archive’<br/>- Buckets from regions other than: europe-west1, us-east1, us-west1, us-central1, us-east4, asia-south1, northamerica-northeast1 |
+    | DBs | Cloud SQL Instances | --- |
 
-With agentless scanning for VMs, you can get visibility on actionable OS posture issues without installed agents, network connectivity, or machine performance.
+## Azure cloud support
 
-Learn more about [agentless scanning](concept-agentless-data-collection.md).
+For commercial and national cloud coverage, review the [features supported in Azure cloud environments](support-matrix-cloud-environment.md).
 
 ## Next steps
 
-Learn about [Microsoft Defender for Cloud's basic and enhanced security features](enhanced-security-features-overview.md)
+- Watch [Predict future security incidents! Cloud Security Posture Management with Microsoft Defender](https://www.youtube.com/watch?v=jF3NSR_OepI).
+- Learn about [security standards and recommendations](security-policy-concept.md).
+- Learn about [secure score](secure-score-security-controls.md).

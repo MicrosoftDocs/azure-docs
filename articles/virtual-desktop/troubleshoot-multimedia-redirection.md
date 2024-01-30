@@ -1,42 +1,32 @@
 ---
 title: Troubleshoot Multimedia redirection on Azure Virtual Desktop - Azure
-description: Known issues and troubleshooting instructions for multimedia redirection for Azure Virtual Desktop (preview).
+description: Known issues and troubleshooting instructions for multimedia redirection for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/27/2022
+ms.date: 07/18/2023
 ms.author: helohr
-manager: femila
 ---
 # Troubleshoot multimedia redirection for Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Multimedia redirection for Azure Virtual Desktop is currently in preview.
+> Call redirection is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
->[!NOTE]
->Azure Virtual Desktop doesn't currently support multimedia redirection on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
->
->Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. Multimedia redirection requires the [Windows Desktop client, version 1.2.3573 or later](users/connect-windows.md) with Insider features enabled.
-
-This article describes known issues and troubleshooting instructions for multimedia redirection (MMR) for Azure Virtual Desktop (preview).
+This article describes known issues and troubleshooting instructions for multimedia redirection for Azure Virtual Desktop.
 
 ## Known issues and limitations
 
 The following issues are ones we're already aware of, so you won't need to report them:
 
-- In the first browser tab a user opens, the extension pop-up might show a message that says, "The extension is not loaded", or a message that says video playback or calling redirection isn't supported while redirection is working correctly in the tab. You can resolve this issue by opening a second tab. 
+- In the first browser tab a user opens, the extension pop-up might show a message that says, "The extension is not loaded", or a message that says video playback or call redirection isn't supported while redirection is working correctly in the tab. You can resolve this issue by opening a second tab. 
 
-- Multimedia redirection only works on the [Windows Desktop client](users/connect-windows.md).
+- Multimedia redirection only works on the [Windows Desktop client](users/connect-windows.md). Any other clients, such as the macOS, iOS, Android or Web client, don't support multimedia redirection.
 
-- While in preview, you must configure the Windows Desktop client to use Insider releases. For more information, see [Enable Windows Insider releases](users/client-features-windows.md#enable-windows-insider-releases).
+- Multimedia redirection won't work as expected if the session hosts in your deployment are blocking cmd.exe.
 
-- Multimedia redirection doesn't currently support protected content, so videos from Netflix, for example, won't work.
+- If you aren't using the default Windows size settings for video players, such as not fitting the player to window, not maximizing the window, and so on), parts of video players may not appear correctly. If you encounter this issue, you should change the settings back to Default mode.
 
-- During public preview, multimedia redirection will be disabled on all sites except for the sites listed in [Websites that work with MMR](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection). However, you can enable multimedia redirection for all websites by following the steps in [Enable video playback for all sites](multimedia-redirection.md#enable-video-playback-for-all-sites). We added the extension so organizations can test the feature on their company websites.
-
-- When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
-
-- You might run into issue where you are stuck in the loading state on every video site. This is a known issue that we're currently investigating. To temporarily mitigate this issue, sign out of Azure Virtual Desktop and restart your session.
+- If your monitor or browser scale factor isn't set to 100%, you may see a gray pattern appear on the video screen.
 
 ### The MSI installer doesn't work
 
@@ -49,15 +39,29 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - Sometimes the host and client version number disappears from the extension status message, which prevents the extension from loading on websites that support it. If you've installed the extension correctly, this issue is because your host machine doesn't have the latest C++ Redistributable installed. To fix this issue, install the [latest supported Visual C++ Redistributable downloads](/cpp/windows/latest-supported-vc-redist).
 
-### Video playback redirection
+### Known issues for video playback redirection
 
-- Video playback redirection only works on the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop#install-the-client), not the web client or other platforms such as macOS, Linux, and so on.
-
-- Video playback redirection doesn't currently support protected content, so videos from Pluralsight and Netflix won't work.
-
-- During public preview, video playback redirection will be disabled on all sites except for the sites listed in [Websites that work with MMR](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection). However, if you have the extension, you can enable video playback redirection for all websites. We added the extension so organizations can test the feature on their company websites.
+- Video playback redirection doesn't currently support protected content, so videos that use protected content, such as from Pluralsight and Netflix, won't work.
 
 - When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
+
+- If you access a video site, sometimes the video will remain in a loading or buffering state but never actually start playing. We're aware of this issue and are currently investigating it. For now, you can make videos load again by signing out of Azure Virtual Desktop and restarting your session.
+
+### Known issues for call redirection
+
+- Call redirection only works for WebRTC-based audio calls on the sites listed in [Call redirection](multimedia-redirection-intro.md#call-redirection).
+
+- When disconnecting from a remote session, call redirection might stop working. You can make redirection start working again by refreshing the webpage.
+
+- If you enabled the **Enable video playback for all sites** setting in the multimedia redirection extension pop-up and see issues on a supported WebRTC audio calling site, disable the setting and try again.
+
+## Getting help for call redirection and video playback
+
+If you can start a call with multimedia redirection enabled and can see the green phone icon on the extension icon while calling, but the call quality is low, you should contact the app provider for help.
+
+If calls aren't going through, certain features don't work as expected while multimedia redirection is enabled, or multimedia redirection won't enable at all, you must submit a [Microsoft support ticket](../azure-portal/supportability/how-to-create-azure-support-request.md).
+
+If you encounter any video playback issues that this guide doesn't address or resolve, submit a [Microsoft support ticket](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## Log collection
 
@@ -71,12 +75,8 @@ To enable log collection:
 
 1. For **Collect logs**, select **Start**.
 
-## Support during public preview
-
-If you run into issues while using the public preview version of multimedia redirection that this article can't solve, we recommend contacting Microsoft Support.
-
 ## Next steps
 
-For more information about this feature and how it works, see [What is multimedia redirection for Azure Virtual Desktop? (preview)](multimedia-redirection-intro.md).
+For more information about this feature and how it works, see [What is multimedia redirection for Azure Virtual Desktop?](multimedia-redirection-intro.md).
 
-To learn how to use this feature, see [Multimedia redirection for Azure Virtual Desktop (preview)](multimedia-redirection.md).
+To learn how to use this feature, see [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md).

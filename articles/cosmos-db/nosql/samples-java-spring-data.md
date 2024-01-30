@@ -6,17 +6,17 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: sample
 ms.date: 08/26/2021
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ---
-# Azure Cosmos DB for NoSQL: Spring Datan Azure Cosmos DB v3 examples
+# Azure Cosmos DB for NoSQL: Spring Data Azure Cosmos DB v5 examples
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK Examples](samples-dotnet.md)
 > * [Java V4 SDK Examples](samples-java.md)
-> * [Spring Data V3 SDK Examples](samples-java-spring-data.md)
+> * [Spring Data V5 SDK Examples](samples-java-spring-data.md)
 > * [Node.js Examples](samples-nodejs.md)
 > * [Python Examples](samples-python.md)
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
@@ -24,9 +24,9 @@ ms.reviewer: mjbrown
 > 
 
 > [!IMPORTANT]  
-> These release notes are for version 3 of Spring Datan Azure Cosmos DB. You can find [release notes for version 2 here](sdk-java-spring-data-v2.md). 
+> These release notes are for version 5 of Spring Data Azure Cosmos DB. You can find release notes for [version 3 here](sdk-java-spring-data-v3.md), and [version 2 here](sdk-java-spring-data-v2.md). 
 >
-> Spring Datan Azure Cosmos DB supports only the API for NoSQL.
+> Spring Data Azure Cosmos DB supports only the API for NoSQL.
 >
 > See these articles for information about Spring Data on other Azure Cosmos DB APIs:
 > * [Spring Data for Apache Cassandra with Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
@@ -41,9 +41,9 @@ ms.reviewer: mjbrown
 >[!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
 >
 
-The latest sample applications that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-spring-data-cosmos-java-sql-api-samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples) GitHub repository. This article provides:
+The latest sample applications that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cosmos) GitHub repository. This article provides:
 
-* Links to the tasks in each of the example Spring Datan Azure Cosmos DB project files. 
+* Links to the tasks in each of the example Spring Data Azure Cosmos DB project files. 
 * Links to the related API reference content.
 
 **Prerequisites**
@@ -51,9 +51,9 @@ The latest sample applications that perform CRUD operations and other common ope
 You need the following to run this sample application:
 
 * Java Development Kit 8
-* Spring Datan Azure Cosmos DB v3
+* Spring Data Azure Cosmos DB v5
 
-You can optionally use Maven to get the latest Spring Datan Azure Cosmos DB v3 binaries for use in your project. Maven automatically adds any necessary dependencies. Otherwise, you can directly download the dependencies listed in the **pom.xml** file and add them to your build path.
+You can optionally use Maven to get the latest Spring Data Azure Cosmos DB v3 binaries for use in your project. Maven automatically adds any necessary dependencies. Otherwise, you can directly download the dependencies listed in the **pom.xml** file and add them to your build path.
 
 ```bash
 <dependency>
@@ -67,12 +67,12 @@ You can optionally use Maven to get the latest Spring Datan Azure Cosmos DB v3 b
 
 Clone the sample repo:
 ```bash
-$ git clone https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples
+$ git clone https://github.com/Azure-Samples/azure-spring-boot-samples
 
-$ cd azure-spring-data-cosmos-java-sql-api-samples
+$ cd cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples
 ```
 
-You can run the samples using either an IDE (Eclipse, IntelliJ, or VSCODE) or from the command line using Maven.
+You can run the samples using either an IDE (Eclipse, IntelliJ, or VS Code) or from the command line using Maven.
 
 In **application.properties** these environment variables must be set
 
@@ -95,36 +95,36 @@ mvn spring-boot:run
 ```
 
 ## Document CRUD examples
-The [samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) file shows how to perform the following tasks. To learn about Azure Cosmos DB documents before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
+The [samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) file shows how to perform the following tasks. To learn about Azure Cosmos DB documents before running the following samples, see [Working with databases, containers, and items](../resource-model.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
-| [Create a document](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java#L46-L47) | CosmosRepository.save |
-| [Read a document by ID](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java#L56-L58) | CosmosRepository.derivedQueryMethod |
-| [Delete all documents](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java#L39-L41) | CosmosRepository.deleteAll |
+| [Create a document](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/SampleApplication.java#L44-L47) | CosmosRepository.save |
+| [Read a document by ID](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/SampleApplication.java#L52-L56) | CosmosRepository.derivedQueryMethod |
+| [Delete all documents](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/SampleApplication.java#L39-L42) | CosmosRepository.deleteAll |
 
 ## Derived query method examples
-The [samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) file shows how to perform the following tasks. To learn about Azure Cosmos DB queries before running the following samples, you may find it helpful to read [Baeldung's Derived Query Methods in Spring](https://www.baeldung.com/spring-data-derived-queries) article.
+The [samples](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/SampleApplication.java) file shows how to perform the following tasks. To learn about Azure Cosmos DB queries before running the following samples, you may find it helpful to read [Baeldung's Derived Query Methods in Spring](https://www.baeldung.com/spring-data-derived-queries) article.
 
-| [Query for documents](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java#L73-L77) | CosmosRepository.derivedQueryMethod |
+| [Query for documents](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/SampleApplication.java#L65-L70) | CosmosRepository.derivedQueryMethod |
 
 ## Custom query examples
-The [samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) file shows how to do the following tasks using the SQL query grammar. To learn about the SQL query reference in Azure Cosmos DB before you run the following samples, see [SQL query examples for Azure Cosmos DB](query/getting-started.md). 
+The [samples](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/UserRepository.java) file shows how to do the following tasks using the SQL query grammar. To learn about the SQL query reference in Azure Cosmos DB before you run the following samples, see [SQL query examples for Azure Cosmos DB](query/getting-started.md). 
 
 
 | Task | API reference |
 | --- | --- |
-| [Query for all documents](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/UserRepository.java#L20-L22) | @Query annotation |
-| [Query for equality using ==](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/UserRepository.java#L24-L26) | @Query annotation |
-| [Query for inequality using != and NOT](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/UserRepository.java#L28-L38) | @Query annotation |
-| [Query using range operators like >, <, >=, <=](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/UserRepository.java#L40-L42) | @Query annotation |
-| [Query using range operators against strings](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/UserRepository.java#L44-L46) | @Query annotation |
-| [Query with ORDER BY](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/UserRepository.java#L48-L50) | @Query annotation |
-| [Query with DISTINCT](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/UserRepository.java#L52-L54) | @Query annotation |
-| [Query with aggregate functions](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/UserRepository.java#L56-L62) | @Query annotation |
-| [Work with subdocuments](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/UserRepository.java#L64-L66) | @Query annotation |
-| [Query with intra-document Joins](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/UserRepository.java#L68-L85) | @Query annotation |
-| [Query with string, math, and array operators](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/UserRepository.java#L87-L97) | @Query annotation |
+| [Query for all documents](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/UserRepository.java#L20-L22) | @Query annotation |
+| [Query for equality using ==](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/UserRepository.java#L24-L26) | @Query annotation |
+| [Query for inequality using != and NOT](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/UserRepository.java#L28-L38) | @Query annotation |
+| [Query using range operators like >, <, >=, <=](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/UserRepository.java#L40-L42) | @Query annotation |
+| [Query using range operators against strings](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/UserRepository.java#L44-L46) | @Query annotation |
+| [Query with ORDER BY](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/UserRepository.java#L48-L50) | @Query annotation |
+| [Query with DISTINCT](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/UserRepository.java#L52-L54) | @Query annotation |
+| [Query with aggregate functions](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/UserRepository.java#L56-L62) | @Query annotation |
+| [Work with subdocuments](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/UserRepository.java#L64-L66) | @Query annotation |
+| [Query with intra-document Joins](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/UserRepository.java#L68-L85) | @Query annotation |
+| [Query with string, math, and array operators](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples/src/main/java/com/azure/spring/data/cosmos/samples/quickstart/UserRepository.java#L87-L97) | @Query annotation |
 
 ## Next steps
 

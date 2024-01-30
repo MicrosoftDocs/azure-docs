@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/11/2022
+ms.date: 01/30/2023
 ---
 
-# Model real-time analytics apps
+# Model real-time analytics apps in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

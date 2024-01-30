@@ -4,8 +4,7 @@ description: View the Azure Monitor activity log and send it to Azure Monitor Lo
 author: guywi-ms
 services: azure-monitor
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 07/01/2022
+ms.date: 12/11/2023
 ms.author: guywild
 ms.reviewer: orens
 ---
@@ -16,7 +15,7 @@ The Azure Monitor activity log is a [platform log](./platform-logs-overview.md) 
 
 For more functionality, create a diagnostic setting to send the activity log to one or more of these locations for the following reasons:
 
-- Send to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and for longer retention, up to two years.
+- Send to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and for [longer retention of up to twelve years](../logs/data-retention-archive.md).
 - Send to Azure Event Hubs to forward outside of Azure.
 - Send to Azure Storage for cheaper, long-term archiving.
 
@@ -25,6 +24,7 @@ For details on how to create a diagnostic setting, see [Create diagnostic settin
 > [!NOTE]
 > * Entries in the Activity Log are system generated and can't be changed or deleted.
 > * Entries in the Activity Log are representing control plane changes like a virtual machine restart, any non related entries should be written into [Azure Resource Logs](resource-logs.md)
+> * Entries in the Activity Log are typically a result of changes (create, update or delete operations) or an action having been initiated.  Operations focused on reading details of a resource are not typically captured.
 
 ## Retention period
 
@@ -33,26 +33,26 @@ Activity log events are retained in Azure for *90 days* and then deleted. There'
 ## View the activity log
 
 You can access the activity log from most menus in the Azure portal. The menu that you open it from determines its initial filter. If you open it from the **Monitor** menu, the only filter is on the subscription. If you open it from a resource's menu, the filter is set to that resource. You can always change the filter to view all other entries. Select **Add Filter** to add more properties to the filter.
-
-![Screenshot that shows the activity log.](./media/activity-log/view-activity-log.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/activity-log/view-activity-log.png" lightbox="./media/activity-log/view-activity-log.png" alt-text="Screenshot that shows the activity log." border="false":::
 
 For a description of activity log categories, see [Azure activity log event schema](activity-log-schema.md#categories).
 
 ## Download the activity log
 
 Select **Download as CSV** to download the events in the current view.
-
-![Screenshot that shows downloading the activity log.](media/activity-log/download-activity-log.png)
+<!-- convertborder later -->
+:::image type="content" source="media/activity-log/download-activity-log.png" lightbox="media/activity-log/download-activity-log.png" alt-text="Screenshot that shows downloading the activity log." border="false":::
 
 ### View change history
 
-For some events, you can view the change history, which shows what changes happened during that event time. Select an event from the activity log you want to look at more deeply. Select the **Change history (Preview)** tab to view any associated changes with that event.
+For some events, you can view the change history, which shows what changes happened during that event time. Select an event from the activity log you want to look at more deeply. Select the **Change history** tab to view any changes on the resource up to 30 minutes before and after the time of the operation.
 
-![Screenshot that shows the Change history list for an event.](media/activity-log/change-history-event.png)
+:::image type="content" source="media/activity-log/change-history-event.png" lightbox="media/activity-log/change-history-event.png" alt-text="Screenshot that shows the Change history list for an event.":::
 
-If any changes are associated with the event, you'll see a list of changes that you can select. Selecting a change opens the **Change history (Preview)** page. This page displays the changes to the resource. In the following example, you can see that the VM changed sizes. The page displays the VM size before the change and after the change. To learn more about change history, see [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md).
+If any changes are associated with the event, you'll see a list of changes that you can select. Selecting a change opens the **Change history** page. This page displays the changes to the resource. In the following example, you can see that the VM changed sizes. The page displays the VM size before the change and after the change. To learn more about change history, see [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md).
 
-![Screenshot that shows the Change history page showing differences.](media/activity-log/change-history-event-details.png)
+:::image type="content" source="media/activity-log/change-history-event-details.png" lightbox="media/activity-log/change-history-event-details.png" alt-text="Screenshot that shows the Change history page showing differences.":::
 
 ### Other methods to retrieve activity log events
 
@@ -76,7 +76,7 @@ You can also access activity log events by using the following methods:
 
  Select **Export Activity Logs** to send the activity log to a Log Analytics workspace.
 
-   ![Screenshot that shows exporting activity logs.](media/activity-log/diagnostic-settings-export.png)
+   :::image type="content" source="media/activity-log/diagnostic-settings-export.png" lightbox="media/activity-log/diagnostic-settings-export.png" alt-text="Screenshot that shows exporting activity logs.":::
 
 You can send the activity log from any single subscription to up to five workspaces.
 
@@ -95,6 +95,9 @@ To retrieve all records in the administrative category, use the following query:
 AzureActivity
 | where CategoryValue == "Administrative"
 ```
+
+> [!Important]
+> In some scenarios, it's possible that values in fields of AzureActivity might have different casings from otherwise equivalent values. Take care when querying data in AzureActivity to use case-insensitive operators for string comparisons, or use a scalar function to force a field to a uniform casing before any comparisons. For example, use the [tolower()](/azure/kusto/query/tolowerfunction) function on a field to force it to always be lowercase or the [=~ operator](/azure/kusto/query/datatypes-string-operators) when performing a string comparison.
 
 ## Send to Azure Event Hubs
 
@@ -184,6 +187,9 @@ Each event is stored in the PT1H.json file with the following format. This forma
 
 ## Legacy collection methods
 
+> [!NOTE]
+> * Azure Activity logs solution was used to forward Activity Logs to Azure Log Analytics. This solution is being retired on the 15th of Sept 2026 and will be automatically converted to Diagnostic settings.
+
 If you're collecting activity logs using the legacy collection method, we recommend you [export activity logs to your Log Analytics workspace](#send-to-log-analytics-workspace) and disable the legacy collection using the [Data Sources - Delete API](/rest/api/loganalytics/data-sources/delete?tabs=HTTP) as follows:
 
 1. List all data sources connected to the workspace using the [Data Sources - List By Workspace API](/rest/api/loganalytics/data-sources/list-by-workspace?tabs=HTTP#code-try-0) and filter for activity logs by setting `kind eq 'AzureActivityLog'`.
@@ -271,6 +277,7 @@ If a log profile already exists, you first must remove the existing log profile,
     |enabled | Yes |True or False. Used to enable or disable the retention policy. If True, then the `days` parameter must be a value greater than zero.
     | categories |Yes |Space-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
 
+
 ---
 
 ### Data structure changes
@@ -303,3 +310,4 @@ Learn more about:
 * [Platform logs](./platform-logs-overview.md)
 * [Activity log event schema](activity-log-schema.md)
 * [Activity log insights](activity-log-insights.md)
+

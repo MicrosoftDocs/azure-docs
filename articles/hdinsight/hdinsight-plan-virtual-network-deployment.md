@@ -4,7 +4,7 @@ description: Learn how to plan an Azure Virtual Network deployment to connect HD
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 09/01/2022
+ms.date: 09/15/2023
 ---
 
 # Plan a virtual network for Azure HDInsight
@@ -18,9 +18,7 @@ Using an Azure Virtual Network enables the following scenarios:
 * Directly accessing Apache Hadoop services that aren't available publicly over the internet. For example, Apache Kafka APIs or the Apache HBase Java API.
 
 > [!IMPORTANT]
-> Creating an HDInsight cluster in a VNET will create several networking resources, such as NICs and load balancers. Do **not** delete these networking resources, as they are needed for your cluster to function correctly with the VNET.
->
-> After Feb 28, 2019, the networking resources (such as NICs, LBs, etc) for NEW HDInsight clusters created in a VNET will be provisioned in the same HDInsight cluster resource group. Previously, these resources were provisioned in the VNET resource group. There is no change to the current running clusters and those clusters created without a VNET.
+> Creating an HDInsight cluster in a VNET will create several networking resources, such as NICs and load balancers. Do **not** delete or modify these networking resources, as they are needed for your cluster to function correctly with the VNET.
 
 ## Planning
 
@@ -196,7 +194,9 @@ To connect to Apache Ambari and other web pages through the virtual network, use
 
 ## Load balancing
 
-When you create an HDInsight cluster, a load balancer is created as well. The type of this load balancer is at the [basic SKU level](../load-balancer/skus.md), which has certain constraints. One of these constraints is that if you have two virtual networks in different regions, you cannot connect to basic load balancers. See [virtual networks FAQ: constraints on global vnet peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), for more information.
+When you create an HDInsight cluster, a load balancer is created as well. The type of this load balancer is at the [basic SKU level](../load-balancer/skus.md), which has certain constraints. One of these constraints is that if you have two virtual networks in different regions, you cannot connect to basic load balancers. See [virtual networks FAQ: constraints on global vnet peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-virtual-network-peering-and-load-balancers), for more information.
+
+Another constraint is that the HDInsight load balancers should not be deleted or modified. **Any changes to the load balancer rules will get overwritten during certain maintenance events such as certificate renewals.** If the load balancers are modified and it affects the cluster functionality, you may need to recreate the cluster.
 
 ## Next steps
 

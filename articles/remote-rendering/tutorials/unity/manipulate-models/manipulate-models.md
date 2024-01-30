@@ -98,7 +98,7 @@ The bounds of a model are defined by the box that contains the entire model - ju
     > [!NOTE]
     > If you see an error in Visual Studio claiming *Feature 'X' is not available in C# 6. Please use language version 7.0 or greater*, these error can be safely ignored. This is related to Unity's Solution and Project generation.
 
-    This script should be added to the same GameObject as the script that implements  **BaseRemoteRenderedModel**. In this case, that means **RemoteRenderedModel**. Similar to previous scripts, this initial code will handle all the state changes, events, and data related to remote bounds.
+    This script should be added to the same GameObject as the script that implements  **BaseRemoteRenderedModel**. In this case, that means **RemoteRenderedModel**. Similar to previous scripts, this initial code handles all the state changes, events, and data related to remote bounds.
 
     There is only one method left to implement: **QueryBounds**. **QueryBounds** fetches the bounds asynchronously, takes the result of the query and applies it to the local **BoxCollider**.
 
@@ -129,9 +129,9 @@ The bounds of a model are defined by the box that contains the entire model - ju
     }
     ```
 
-    We'll check the query result to see if it was successful. If yes, convert and apply the returned bounds in a format that the **BoxCollider** can accept.
+    We check the query result to see if it was successful. If yes, convert and apply the returned bounds in a format that the **BoxCollider** can accept.
 
-Now, when the **RemoteBounds** script is added to the same game object as the **RemoteRenderedModel**, a **BoxCollider** will be added if needed and when the model reaches its `Loaded` state, the bounds will automatically be queried and applied to the **BoxCollider**.
+Now, when the **RemoteBounds** script is added to the same game object as the **RemoteRenderedModel**, a **BoxCollider** is added if needed and when the model reaches its `Loaded` state, the bounds will automatically be queried and applied to the **BoxCollider**.
 
 1. Using the **TestModel** GameObject created previously, add the **RemoteBounds** component.
 1. Confirm the script is added.
@@ -155,7 +155,7 @@ This tutorial is using MRTK for object interaction. Most of the MRTK specific im
 1. Press Unity's Play button to play the scene and open the **Model Tools** menu inside the **AppMenu**.
 ![View controller](./media/model-with-view-controller.png)
 
-The **AppMenu** has a sub menu **Model Tools** that implements a view controller for binding with the model. When the GameObject contains a **RemoteBounds** component, the view controller will add a [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html) component, which is an MRTK component that renders a bounding box around an object with a **BoxCollider**. A [**ObjectManipulator**](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/api/Microsoft.MixedReality.Toolkit.UI.ObjectManipulator.html), which is responsible for hand interactions. These scripts combined will allow us to move, rotate, and scale the remotely rendered model.
+The **AppMenu** has a sub menu **Model Tools** that implements a view controller for binding with the model. When the GameObject contains a **RemoteBounds** component, the view controller will add a [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html) component, which is an MRTK component that renders a bounding box around an object with a **BoxCollider**. A [**ObjectManipulator**](/windows/mixed-reality/mrtk-unity/mrtk2/features/ux-building-blocks/object-manipulator), which is responsible for hand interactions. These scripts combined will allow us to move, rotate, and scale the remotely rendered model.
 
 1. Move your mouse to the Game panel and click inside it to give it focus.
 1. Using [MRTK's hand simulation](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/InputSimulation/InputSimulationService.html#hand-simulation), press and hold the left Shift key.

@@ -13,9 +13,9 @@ ms.author: malev
 ms.custom: devx-track-azurecli
 ---
 
-# Delete an Azure App Configuration store
+# Delete an Azure App Configuration store with the Azure CLI
 
-This sample script deletes an instance of Azure App Configuration.
+This sample script deletes an instance of Azure App Configuration using the Azure CLI.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

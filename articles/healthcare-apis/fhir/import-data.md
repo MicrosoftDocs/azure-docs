@@ -1,39 +1,54 @@
 ---
 title: Executing the import by invoking $import operation on FHIR service in Azure Health Data Services
 description: This article describes how to import FHIR data using $import.
-author: RuiyiC
+author: expekesheth  
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 06/06/2022
-ms.author: ruiyichen
+ms.author: kesheth
 ---
 
-# Bulk-import FHIR data
 
-The bulk-import feature enables importing Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput using the $import operation. This feature is suitable for initial data load into the FHIR server.
+# Import Operation
+Import operation enables loading Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput. Import supports both initial and incremental data load into FHIR server. 
 
-> [!NOTE]
-> You must have the **FHIR Data Importer** role on the FHIR server to use $import.
 
-## Current limitations
+There are two modes of $import supported today- 
+* Initial mode
+1. Initial mode is intended to load FHIR resources into an empty FHIR server.
+1. Initial mode only supports CREATE operations and, when enabled, blocks API writes to the FHIR server.
+* Incremental mode
+1. Incremental mode is optimized to load data into FHIR server periodically and doesn't block writes via API.
+1. Incremental mode allows you to load lastUpdated and versionId from resource Meta (if present in resource JSON).
+   Incase
+   * Import files don't have `version` and `lastUpdated` field values specified, there's no guarantee of importing resources in FHIR service.
+   * Import files have resources with duplicate `version` and `lastUpdated` field values, then only one resource is ingested in the FHIR service.
+1. Incremental mode allows you to ingest soft deleted resources. This capability is beneficial in case you would like to migrate from Azure API for FHIR to Azure Health Data Services, FHIR service.
 
-* Conditional references in resources aren't supported.
-* If multiple resources share the same resource ID, then only one of those resources will be imported at random and an error will be logged corresponding to the remaining resources sharing the ID.
-* The data to be imported must be in the same Tenant as that of the FHIR service.
-* Maximum number of files to be imported per operation is 10,000.
+
+Note: 
+* Import operation does not support conditional references in resources. 
+* During import operation, If multiple resources share the same resource ID, then only one of those resources is imported at random. There is an error logged for the resources sharing the same resource ID.
+
 
 ## Using $import operation
 
-To use $import, you'll need to configure the FHIR server using the instructions in the [Configure bulk-import settings](configure-import-data.md) article and set the **initialImportMode** to *true*. Doing so also suspends write operations (POST and PUT) on the FHIR server. You should set the **initialImportMode** to *false* to reenable write operations after you have finished importing your data.
+> [!NOTE]
+> You must have the **FHIR Data Importer** role on the FHIR server to use $import. 
 
-The FHIR data to be imported must be stored in resource specific files in FHIR NDJSON format on the Azure blob store. All the resources in a file must be of the same type. You may have multiple files per resource type.
+To use $import, you need to configure the FHIR server using the instructions in the [Configure import settings](configure-import-data.md) article.
+The FHIR data to be imported must be stored in resource specific files in FHIR NDJSON format on the Azure blob store. 
+
+For import operation, ensure
+* All the resources in a file must be of the same type. You may have multiple files per resource type.
+* The data to be imported must be in the same Tenant as of the FHIR service.
+* Maximum number of files to be imported per operation is 10,000.
+
 
 ### Calling $import
 
-Make a ```POST``` call to ```<<FHIR service base URL>>/$import``` with the following required headers and body, which contains a FHIR [Parameters](http://hl7.org/fhir/parameters.html) resource.
-
-An empty response body with a **callback** link will be returned in the `Content-location` header of the response together with ```202-Accepted``` status code. You can use this callback link to check the import status.
+Make a ```POST``` call to ```<<FHIR service base URL>>/$import``` with the request header and body shown:
 
 #### Request Header
 
@@ -47,16 +62,16 @@ Content-Type:application/fhir+json
 | Parameter Name      | Description | Card. |  Accepted values |
 | ----------- | ----------- | ----------- | ----------- |
 | inputFormat      | String representing the name of the data source format. Currently only FHIR NDJSON files are supported. | 1..1 | ```application/fhir+ndjson``` |
-| mode      | Import mode. Currently only initial load mode is supported. | 1..1 | ```InitialLoad``` |
+| mode      | Import mode value | 1..1 | For initial mode import,  use ```InitialLoad``` mode value. For incremental mode import, use ```IncrementalLoad``` mode value. If no mode value is provided, IncrementalLoad mode value is considered by default. |
 | input   | Details of the input files. | 1..* | A JSON array with three parts described in the table below. |
 
 | Input part name   | Description | Card. |  Accepted values |
 | ----------- | ----------- | ----------- | ----------- |
-| type   |  Resource type of input file   | 1..1 |  A valid [FHIR resource type](https://www.hl7.org/fhir/resourcelist.html) that match the input file. |
+| type   |  Resource type of input file   | 1..1 |  A valid [FHIR resource type](https://www.hl7.org/fhir/resourcelist.html) that matches the input file. |
 |URL   |  Azure storage url of input file   | 1..1 | URL value of the input file that can't be modified. |
-| etag   |  Etag of the input file on Azure storage used to verify the file content hasn't changed. | 0..1 |  Etag value of the input file that can't be modified. |
+| etag   |  Etag of the input file on Azure storage; used to verify the file content has not changed after $import registration. | 0..1 |  Etag value of the input file. |
 
-**Sample body:**
+**Sample body for import:**
 
 ```json
 {
@@ -68,7 +83,7 @@ Content-Type:application/fhir+json
         },
         {
             "name": "mode",
-            "valueString": "InitialLoad"
+            "valueString": "<Use "InitialLoad" for initial mode import / Use "IncrementalLoad" for incremental mode import>",
         },
         {
             "name": "input",
@@ -106,7 +121,12 @@ Content-Type:application/fhir+json
 
 ### Checking import status
 
-Make the REST call with the ```GET``` method to the **callback** link returned in the previous step. You can interpret the response using the following table:
+Once $import is initiated, an empty response body with a **callback** link is returned in the `Content-location` header of the response together with ```202-Accepted``` status code. Store  this callback link to check the import status.
+
+$import operation registration is implemented as idempotent call (same registration payload yields same registration). This affects ability to re-process files with the same name. Refrain from updating files in-place, instead we suggest you use different file name for updated data, or, if update in-place with same file name is unavoidable, add e-tags in the registration payload.
+
+To check import status, make the REST call with the ```GET``` method to the **callback** link returned in the previous step.
+You can interpret the response using the following table:
 
 | Response code      | Response body |Description |
 | ----------- | -----------  |-----------  |
@@ -115,7 +135,7 @@ Make the REST call with the ```GET``` method to the **callback** link returned i
 | 200 OK |The response body contains some error.url entry|Error occurred while importing some of the resources. See the files located at error.url for the details. Rest of the resources were imported successfully.|
 | Other||A fatal error occurred and the operation has stopped. Successfully imported resources haven't been rolled back.|
 
-Below are some of the important fields in the response body:
+Table below provides some of the important fields in the response body:
 
 | Field | Description |
 | ----------- | ----------- |
@@ -152,13 +172,35 @@ Below are some of the important fields in the response body:
     ]
 }
 ```
+### Ingestion of soft deleted resources
+Incremental mode import supports ingestion of soft deleted resources. You need to use the extension to ingest soft deleted resources in FHIR service.
+
+**Sample import file with soft deleted resources:**
+Extension needs to be added to the resource to inform FHIR service, if it is soft deleted. Below is an example of the extension.
+
+```ndjson
+{"resourceType": "Patient", "id": "example10", "meta": { "lastUpdated": "2023-10-27T04:00:00.000Z", "versionId": 4, "extension": [ { "url": "http://azurehealthcareapis.com/data-extensions/deleted-state", "valueString": "soft-deleted" } ] } }
+```
+
+**Validate ingestion of soft deleted resources:**
+After import operation is successfully completed, to validate soft deleted resources in FHIR service, you need to perform history search on the resource. 
+If the ID of the resource that was deleted is known, use the following URL pattern:
+
+```json
+<FHIR_URL>/<resource-type>/<resource-id>/_history
+```
+
+Incase the ID of the resource isn't known, do a history search on the entire resource type:
+```json
+<FHIR_URL>/<resource-type>/_history
+```
+
 ## Troubleshooting
 
-Below are some error codes you may encounter and the solutions to help you resolve them.
-
+Lets walk-through solutions to some error codes you may encounter during the import operation.
 ### 200 OK, but there's an error with the URL in the response
 
-**Behavior:** Import operation succeeds and returns ```200 OK```. However, `error.url` are present in the response body. Files present at the `error.url` location contain JSON fragments like in the example below:
+**Behavior:** Import operation succeeds and returns ```200 OK```. However, `error.url` are present in the response body. Files present at the `error.url` location contain JSON fragments similar to below example:
 
 ```json
 {
@@ -167,9 +209,9 @@ Below are some error codes you may encounter and the solutions to help you resol
         {
             "severity": "error",
             "details": {
-                "text": "Given conditional reference '{0}' does not resolve to a resource."
+                "text": "Given conditional reference '{0}' does'nt resolve to a resource."
             },
-            "diagnostics": "Failed to process resource at line: {1}"
+            "diagnostics": "Failed to process resource at line: {0} with stream start offset: {1}"
         }
     ]
 }
@@ -243,17 +285,9 @@ Below are some error codes you may encounter and the solutions to help you resol
 
 **Solution:** Reduce the size of your data or consider Azure API for FHIR, which has a higher storage limit.
 
-## Bulk import - another option
-
-As illustrated in this article, $import is one way of doing bulk import. Another way is using an open-source solution, called [FHIR Bulk Loader](https://github.com/microsoft/fhir-loader). FHIR-Bulk Loader is an Azure Function App solution that provides the following capabilities for ingesting FHIR data:
-
-* Imports FHIR Bundles (compressed and non-compressed) and NDJSON files into a FHIR service
-* High Speed Parallel Event Grid that triggers from storage accounts or other Event Grid resources
-* Complete Auditing, Error logging and Retry for throttled transactions
-
 ## Next steps
 
-In this article, you've learned about how the Bulk import feature enables importing FHIR data to the FHIR server at high throughput using the $import operation. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
+In this article, you've learned about how the import operation enables importing FHIR data to the FHIR server at high throughput. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
 
 
 >[!div class="nextstepaction"]

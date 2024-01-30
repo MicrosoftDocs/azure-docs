@@ -4,8 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob Storage for
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 10/28/2022
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, passwordless-js
@@ -127,7 +126,9 @@ The order and locations in which `DefaultAzureCredential` looks for credentials 
 
 For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
 
-#### Assign roles to your Azure AD user account
+<a name='assign-roles-to-your-azure-ad-user-account'></a>
+
+#### Assign roles to your Microsoft Entra user account
 
 [!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
 
@@ -135,7 +136,7 @@ For example, your app can authenticate using your Azure CLI sign-in credentials 
 
 You can authorize access to data in your storage account using the following steps:
 
-1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your storage account. You can authenticate via the Azure CLI, Visual Studio Code, or Azure PowerShell.
+1. Make sure you're authenticated with the same Microsoft Entra account you assigned the role to on your storage account. You can authenticate via the Azure CLI, Visual Studio Code, or Azure PowerShell.
 
     #### [Azure CLI](#tab/sign-in-azure-cli)
 
@@ -234,7 +235,9 @@ Add this code inside the `try` block:
 
     :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_CreateContainer":::
 
-    The preceding code creates an instance of the [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) class by calling the [fromConnectionString](/javascript/api/@azure/storage-blob/blobserviceclient#fromconnectionstring-string--storagepipelineoptions-) method. Then, call the [getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) method to get a reference to a container. Finally, call [create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) to actually create the container in your storage account.
+    The preceding code takes a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object and calls the [getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) method to get a reference to a container. Finally, the code calls [create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) to actually create the container in your storage account.
+
+To learn more about creating a container, and to explore more code samples, see [Create a blob container with JavaScript](storage-blob-container-create-javascript.md).
 
 ## Upload blobs to a container
 
@@ -245,6 +248,8 @@ Copy the following code to the end of the `main` function to upload a text strin
 The preceding code gets a reference to a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object by calling the [getBlockBlobClient](/javascript/api/@azure/storage-blob/containerclient#getblockblobclient-string-) method on the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) from the [Create a container](#create-a-container) section.
 The code uploads the text string data to the blob by calling the [upload](/javascript/api/@azure/storage-blob/blockblobclient#upload-httprequestbody--number--blockblobuploadoptions-) method.
 
+To learn more about uploading blobs, and to explore more code samples, see [Upload a blob with JavaScript](storage-blob-upload-javascript.md).
+
 ## List the blobs in a container
 
 Add the following code to the end of the `main` function to list the blobs in the container. 
@@ -252,6 +257,8 @@ Add the following code to the end of the `main` function to list the blobs in th
 :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_ListBlobs":::
 
 The preceding code calls the [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
+
+To learn more about listing blobs, and to explore more code samples, see [List blobs with JavaScript](storage-blobs-list-javascript.md).
 
 ## Download blobs
 
@@ -265,6 +272,8 @@ The preceding code calls the [listBlobsFlat](/javascript/api/@azure/storage-blob
 
     :::code language="javascript" source="~/azure_storage-snippets/blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_ConvertStreamToText":::
 
+To learn more about downloading blobs, and to explore more code samples, see [Download a blob with JavaScript](storage-blob-download-javascript.md).
+
 ## Delete a container
 
 Add this code to the end of the `main` function to delete the container and all its blobs:
@@ -272,6 +281,8 @@ Add this code to the end of the `main` function to delete the container and all 
 :::code language="javascript" source="~/azure_storage-snippets//blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_DeleteContainer":::
 
 The preceding code cleans up the resources the app created by removing the entire container using the [​delete](/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) method. You can also delete the local files, if you like.
+
+To learn more about deleting a container, and to explore more code samples, see [Delete and restore a blob container with JavaScript](storage-blob-container-delete-javascript.md).
 
 ## Run the code
 

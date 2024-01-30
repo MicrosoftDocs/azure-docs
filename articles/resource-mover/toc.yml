@@ -8,6 +8,8 @@
     href: select-move-tool.md
   - name: Common questions
     href: common-questions.md
+  - name: What's new
+    href: whats-new.md
 - name: Tutorials
   items:
   - name: Move Azure VMs to another region

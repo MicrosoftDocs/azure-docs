@@ -1,81 +1,54 @@
 ---
-title: ARRAY_CONTAINS in Azure Cosmos DB query language
-description: Learn about how the Array Contains SQL system function in Azure Cosmos DB returns a Boolean indicating whether the array contains the specified value
-author: ginamr
+title: ARRAY_CONTAINS
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns a boolean indicating whether the array contains the specified value
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# ARRAY_CONTAINS (Azure Cosmos DB)
+
+# ARRAY_CONTAINS (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-Returns a Boolean indicating whether the array contains the specified value. You can check for a partial or full match of an object by using a boolean expression within the command. 
+Returns a boolean indicating whether the array contains the specified value. You can check for a partial or full match of an object by using a boolean expression within the function.
 
 ## Syntax
   
 ```sql
-ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
+ARRAY_CONTAINS(<array_expr>, <expr> [, <bool_expr>])  
 ```  
   
 ## Arguments
   
-*arr_expr*  
-   Is the array expression to be searched.  
-  
-*expr*  
-   Is the expression to be found.  
-
-*bool_expr*  
-   Is a boolean expression. If it evaluates to 'true' and if the specified search value is an object, the command checks for a partial match (the search object is a subset of one of the objects). If it evaluates to 'false', the command checks for a full match of all objects within the array. The default value if not specified is false. 
+| | Description |
+| --- | --- |
+| **`arr_expr`** | An array expression. |
+| **`expr`** | Expression to search for within the array. |
+| **`bool_expr`** | A boolean expression indicating whether the search should check for a partial match (`true`) or a full match (`false`). If not specified, the default value is `false`. |
   
 ## Return types
   
-  Returns a Boolean value.  
+Returns a boolean value.  
   
 ## Examples
   
-  The following example how to check for membership in an array using `ARRAY_CONTAINS`.  
-  
-```sql
-SELECT   
-           ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "apples") AS b1,  
-           ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "mangoes") AS b2  
-```  
-  
- Here is the result set.  
-  
-```json
-[{"b1": true, "b2": false}]  
-```  
+The following example illustrates how to check for specific values or objects in an array using this function.  
 
-The following example how to check for a partial match of a JSON in an array using ARRAY_CONTAINS.  
-  
-```sql
-SELECT  
-    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}, true) AS b1, 
-    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}) AS b2,
-    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "mangoes"}, true) AS b3 
-```  
-  
- Here is the result set.  
-  
-```json
-[{
-  "b1": true,
-  "b2": false,
-  "b3": false
-}]
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/array-contains/query.sql" highlight="2-7":::  
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/array-contains/result.json":::
 
 ## Remarks
 
-This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy).
+- This system function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
-## Next steps
+## Related content
 
-- [Array functions Azure Cosmos DB](array-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`ARRAY_CONCAT`](array-concat.md)

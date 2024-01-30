@@ -1,13 +1,13 @@
 ---
-title: Terminology used with Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: Describes common terminology used with the Device Provisioning Service (DPS) and IoT Hub
+title: Terminology and glossary for Azure DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: This article describes common terminology used with the Device Provisioning Service (DPS) and IoT Hub
 author: kgremban
+
 ms.author: kgremban
 ms.date: 09/18/2019
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-dps
-services: iot-dps
-manager: eliotga
 ---
 
 # IoT Hub Device Provisioning Service (DPS) terminology

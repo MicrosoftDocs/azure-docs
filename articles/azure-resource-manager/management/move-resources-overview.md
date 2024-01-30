@@ -2,7 +2,7 @@
 title: Move Azure resources across resource groups, subscriptions, or regions.
 description: Overview of Azure resource types that can be moved across resource groups, subscriptions, or regions.
 ms.topic: conceptual
-ms.date: 04/16/2021
+ms.date: 01/30/2023
 ---
 
 # Move Azure resources across resource groups, subscriptions, or regions
@@ -12,6 +12,11 @@ Azure resources can be moved to a new resource group or subscription, or across 
 ## Move resources across resource groups or subscriptions
 
 You can move Azure resources to either another Azure subscription or another resource group under the same subscription. You can use the Azure portal, Azure PowerShell, Azure CLI, or the REST API to move resources. To learn more, see [Move resources to a new resource group or subscription](move-resource-group-and-subscription.md).
+
+The move operation doesn't support moving resources to new [Microsoft Entra tenant](../../active-directory/develop/quickstart-create-new-tenant.md). If the tenant IDs for the source and destination subscriptions aren't the same, use the following methods to reconcile the tenant IDs:
+
+* [Transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md)
+* [How to associate or add an Azure subscription to Microsoft Entra ID](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 ### Upgrade a subscription
 
@@ -26,7 +31,7 @@ If you can't convert the subscription, [create an Azure support request](../../a
 
 Azure geographies, regions, and availability zones form the foundation of the Azure global infrastructure. Azure [geographies](https://azure.microsoft.com/global-infrastructure/geographies/) typically contain two or more [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/). A region is an area within a geography, containing Availability Zones, and multiple data centers.
 
-After deploying resources in specific Azure region, there are many reasons that you might want to move resources to a different region.
+After you deploy resources to a specific Azure region, there are many reasons that you might want to move resources to a different region.
 
 - **Align to a region launch**: Move your resources to a newly introduced Azure region that wasn't previously available.
 - **Align for services/features**: Move resources to take advantage of services or features that are available in a specific region.

@@ -2,15 +2,9 @@
 title: Create cross-zone replication relationships for Azure NetApp Files | Microsoft Docs
 description: This article shows you how to create and manage cross-zone replication relationships for Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 01/04/2023
 ms.author: anfdocs
@@ -19,6 +13,8 @@ ms.author: anfdocs
 
 [Cross-zone replication](cross-zone-replication-introduction.md) enables you to replicate volumes across availability zones within the same region. It enables you to fail over your critical application if a region-wide outage or disaster happens. 
 
+For information about availability zones, see [Use availability zones for high availability in Azure NetApp Files](use-availability-zones.md) and [Manage availability zone volume placement for Azure NetApp Files](manage-availability-zone-volume-placement.md). 
+
 ## Requirements
 
 Before you begin, you should review the [requirements and considerations for cross-zone replication](cross-zone-replication-requirements-considerations.md).
@@ -26,9 +22,6 @@ Before you begin, you should review the [requirements and considerations for cro
 [!INCLUDE [Azure NetApp Files cross-zone-replication supported regions](includes/cross-zone-regions.md)]
 
 ## Register the feature 
-
->[!IMPORTANT]
-> Cross-zone replication uses the [availability zone volume placement feature](use-availability-zones.md). The availability zone volume placement feature is currently in preview. You must [register the feature](manage-availability-zone-volume-placement.md#register-the-feature) before you can register the cross-zone replication feature.
 
 Cross-zone replication is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
@@ -41,7 +34,7 @@ Cross-zone replication is currently in preview. You need to register the feature
 2. Check the status of the feature registration: 
 
     > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCrossZoneReplication

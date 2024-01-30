@@ -3,10 +3,9 @@ title: Convert an existing device to use IoT Plug and Play | Microsoft Docs
 description: This article describes how to convert your existing device code to work with IoT Plug and Play by creating a device model and then sending the model ID when the device connects.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/17/2022
+ms.date: 1/23/2024
 ms.topic: how-to
 ms.service: iot-develop
-services: iot-develop
 ---
 
 # How to convert an existing device to be an IoT Plug and Play device
@@ -170,7 +169,7 @@ In summary, the sample implements the following capabilities:
 
 ## Design a model
 
-Every IoT Plug and Play device has a model that describes the features and capabilities of the device. The model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) to describe the device capabilities.
+Every IoT Plug and Play device has a model that describes the features and capabilities of the device. The model uses the [Digital Twin Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md) to describe the device capabilities.
 
 For a simple model that maps the existing capabilities of your device, use the *Telemetry*, *Property*, and *Command* DTDL elements.
 

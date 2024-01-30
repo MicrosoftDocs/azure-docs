@@ -2,18 +2,21 @@
 title: Set up a sign-in flow
 titleSuffix: Azure Active Directory B2C
 description: Learn how to set up a sign-in flow in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 08/24/2021
-ms.custom: project-no-code
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to set up a sign-in flow with a sign-in policy, so that users can sign in with a local or social account and reset their passwords.
+
 ---
 
 # Set up a sign-in flow in Azure Active Directory B2C
@@ -27,7 +30,7 @@ The sign-in policy lets users:
 * Sign in with an Azure AD B2C Local Account
 * Users can sign-in with a social account
 * Password reset
-* Users cannot sign up for an Azure AD B2C Local Account. To create an account, an administrator can use [Azure portal](manage-users-portal.md#create-a-consumer-user), or [MS Graph API](microsoft-graph-operations.md).
+* Users cannot sign up for an Azure AD B2C Local Account. To create an account, an administrator can use the [Azure portal](manage-users-portal.md#create-a-consumer-user), or [Microsoft Graph API](microsoft-graph-operations.md).
 
 ![Profile editing flow](./media/add-sign-in-policy/sign-in-user-flow.png)
 
@@ -43,8 +46,7 @@ The sign-in policy lets users:
 To add sign-in policy:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **User flows**, and then select **New user flow**.
 1. On the **Create a user flow** page, select the **Sign in** user flow.
@@ -114,8 +116,7 @@ The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asser
 ## Update and test your policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **Identity Experience Framework**.
 1. Select **Upload Custom Policy**, and then upload the policy file that you changed, *TrustFrameworkExtensions.xml*.

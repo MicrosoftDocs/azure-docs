@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Create a search index using REST APIs'
-titleSuffix: Azure Cognitive Search
-description: In this REST API quickstart, learn how to call the Azure Cognitive Search REST APIs using Postman.
+title: 'Quickstart: search index (REST)'
+titleSuffix: Azure AI Search
+description: In quickstart, use Postman to call the Azure AI Search REST APIs to create, load, and query a search index.
 zone_pivot_groups: URL-test-interface-rest-apis
 manager: nitinme
 author: HeidiSteen
@@ -9,82 +9,77 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 10/25/2022
-ms.custom: mode-api
+ms.date: 01/19/2024
+ms.custom:
+  - mode-api
+  - ignite-2023
 ---
 
-# Quickstart: Create an Azure Cognitive Search index using REST APIs
+# Quickstart: Create a search index in Azure AI Search using REST
 
-This article explains how to formulate REST API requests interactively using the [Azure Cognitive Search REST APIs](/rest/api/searchservice) and an API client for sending and receiving requests. 
+Learn how to use the [Search REST APIs](/rest/api/searchservice) to create, load, and query a search index in Azure AI Search. 
+
+The article uses the Postman app. [Download and import a Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart) or create requests manually using the instructions in this article.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-The article uses the Postman desktop application. You can [download and import a Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) if you prefer to use predefined requests.
-
 ## Prerequisites
 
-The following services and tools are required for this quickstart. 
++ [Postman app](https://www.postman.com/downloads/), used for sending REST requests to Azure AI Search.
 
-+ [Postman desktop app](https://www.getpostman.com/) is used for sending requests to Azure Cognitive Search.
-
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ [Create](search-create-service-portal.md) or [find an existing Azure AI Search resource](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ## Copy a key and URL
 
-REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
+REST calls require the service endpoint and an API key on every request. You can get these values from the Azure portal.
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+1. Sign in to the [Azure portal](https://portal.azure.com), navigate to the **Overview** page, and copy the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
-1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
+1. Under **Settings** > **Keys**, copy an admin key. Admin keys are used to add, modify, and delete objects. There are two interchangeable admin keys. Copy either one.
 
-   ![Get an HTTP endpoint and access key](media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Screenshot of the URL and API keys in the Azure portal.":::
 
-All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+A valid API key establishes trust, on a per request basis, between the application sending the request and the search service handling it.
 
-## Connect to Azure Cognitive Search
+## Set collection variables
 
-In this section, use your web tool of choice to set up connections to Azure Cognitive Search. Each tool persists request header information for the session, which means you only have to enter the api-key and Content-Type once.
+Postman provides collection variables, enclosed in brackets in a request, to reuse the same string on every request. We use collection variables for customer-specific values, such as `{{service-name}}` in the URI or an `{{admin-key}}` in the request header. 
 
-For either tool, you need to choose a command (GET, POST, PUT, and so forth), provide a URL endpoint, and for some tasks, provide JSON in the body of the request. Replace the search service name (YOUR-SEARCH-SERVICE-NAME)  with a valid value. Add `$select=name` to return just the name of each index. 
-
-> `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name`
-
-Notice the HTTPS prefix, the name of the service, the name of an object (in this case, the indexes collection), and the [api-version](search-api-versions.md). The api-version is a required, lowercase string specified as `?api-version=2020-06-30` for the current version. API versions are updated regularly. Including the api-version on each request gives you full control over which one is used.  
-
-Request header composition includes two elements: `Content-Type` and the `api-key` used to authenticate to Azure Cognitive Search. Replace the admin API key (YOUR-AZURE-SEARCH-ADMIN-API-KEY) with a valid value. 
+A URI with multiple variables looks like this:
 
 ```http
-api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
-Content-Type: application/json
+https://{{service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}
 ```
 
-In Postman, formulate a request that looks like the following screenshot. Choose **GET** as the command, provide the URL, and click **Send**. This command connects to Azure Cognitive Search, reads the indexes collection, and returns HTTP status code 200 on a successful connection. If your service has indexes already, the response will also include index definitions.
+A request header for Azure AI Search calls must have `Content-Type` set to `application/json`, and an `api-key` set to an API key of your search service. In this quickstart, the `api-key` in the request header is specified as variable.
 
-![Postman request URL and header](media/search-get-started-rest/postman-url.png "Postman request URL and header")
+1. Open the Postman app and import the [sample collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/Quickstart) or create a new one.
 
-## 1 - Create an index
+1. Select the collection's access menu, select **Edit**, and provide the search service name and an admin API key.
 
-In Azure Cognitive Search, you usually create the index before loading it with data. The [Create Index REST API](/rest/api/searchservice/create-index) is used for this task. 
+   :::image type="content" source="media/search-get-started-rest/postman-collection-variables.png" lightbox="media/search-get-started-rest/postman-collection-variables.png" alt-text="Screenshot of the Postman collection variable page." border="true":::
 
-The URL is extended to include the `hotels` index name.
+## Create an index
 
-To do this in Postman:
+Use the [Create Index (REST)](/rest/api/searchservice/create-index) to specify a schema. The endpoint includes the `/indexes` collection and `hotels-quickstart` for the index name.
 
-1. Change the command to **PUT**.
+1. Set the verb to **PUT**.
 
-2. Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2020-06-30`.
+1. Copy in this URL `https://{{service-name}}.search.windows.net/indexes/hotels-quickstart?api-version=2023-11-01`.
 
-3. Provide the index definition (copy-ready code is provided below) in the body of the request.
+1. Under **Headers**, set `Content-Type` to `application/json` and set `api-key` to `{{admin-key}}`.
 
-4. Click **Send**.
+1. Under **Body** paste in index definition (copyable JSON is provided in the next section). Make sure the request body selection is **raw** and the type is to **JSON**
 
-![Index JSON document in request body](media/search-get-started-rest/postman-request.png "Index JSON document in request body")
+1. Select **Send**.
+
+   :::image type="content" source="media/search-get-started-rest/postman-request.png" lightbox="media/search-get-started-rest/postman-request.png" alt-text="Screenshot of the PUT create index request.":::
 
 ### Index definition
 
-The fields collection defines document structure. Each document must have these fields, and each field must have a data type. String fields are used in full text search. If you need numeric data to be searchable, you will need to cast numeric data as strings.
+The fields collection defines document structure. Each document must have these fields, and each field must have an [EDM data type](/rest/api/searchservice/supported-data-types). String fields are used in full text search. If you want numeric data to be searchable, make sure the data type is `Edm.String`. Other data types such as `Edm.Int32` are filterable, sortable, facetable, and retrievable but not full-text searchable.
 
-Attributes on the field determine allowed action. The REST APIs allow many actions by default. For example, all strings are searchable, retrievable, filterable, and facetable by default. Often, you only have to set attributes when you need to turn off a behavior.
+Attributes on the field determine allowed actions. The REST APIs allow [many actions by default](/rest/api/searchservice/create-index#request-body). For example, all strings are searchable and retrievable by default. For REST APIs, you might only have to attributes if you need to turn off a behavior.
 
 ```json
 {
@@ -111,28 +106,28 @@ Attributes on the field determine allowed action. The REST APIs allow many actio
 }
 ```
 
-When you submit this request, you should get an HTTP 201 response, indicating the index was created successfully. You can verify this action in the portal, but note that the portal page has refresh intervals so it could take a minute or two to catch up.
+When you submit this request, you should get an HTTP 201 response, indicating the index was created successfully. You can verify the index exists in the portal.
 
 > [!TIP]
-> If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 400 or 404, check the request body to verify there were no copy-paste errors. An HTTP 403 typically indicates a problem with the api-key (either an invalid key or a syntax problem with how the api-key is specified).
+> If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 400 or 404, check the request body to verify there were no copy-paste errors. An HTTP 403 typically indicates a problem with the API key (either an invalid key or a syntax problem with how the API key is specified).
 
-## 2 - Load documents
+## Load documents
 
-Creating the index and populating the index are separate steps. In Azure Cognitive Search, the index contains all searchable data. In this scenario, the data is provided as JSON documents. The [Add, Update, or Delete Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) is used for this task. 
+Creating and loading the index are separate steps. In Azure AI Search, the index contains all searchable data and queries execute on the search service. For REST calls, the data is provided as JSON documents. Use [Documents- Index REST API](/rest/api/searchservice/addupdate-or-delete-documents) for this task. 
 
 The URL is extended to include the `docs` collections and `index` operation.
 
-To do this in Postman:
+1. Set the verb to **POST**.
 
-1. Change the command to **POST**.
+1. Copy in this URL `https://{{service-name}}.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2023-11-01`.
 
-2. Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2020-06-30`.
+1. Set up the request headers as you did in the previous step.
 
-3. Provide the JSON documents (copy-ready code is below) in the body of the request.
+1. Provide the JSON documents (copyable JSON is provided in the next section) in the body of the request.
 
-4. Click **Send**.
+1. Select **Send**.
 
-![JSON documents in request body](media/search-get-started-rest/postman-docs.png "JSON documents in request body")
+   :::image type="content" source="media/search-get-started-rest/postman-docs.png" lightbox="media/search-get-started-rest/postman-docs.png" alt-text="Screenshot of a POST load documents request.":::
 
 ### JSON documents to load into the index
 
@@ -225,61 +220,54 @@ In a few seconds, you should see an HTTP 201 response in the session list. This 
 
 If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request: verify you changed the endpoint to include `/docs/index`.
 
-> [!Tip]
-> For selected data sources, you can choose the alternative *indexer* approach which simplifies and reduces the amount of code required for indexing. For more information, see [Indexer operations](/rest/api/searchservice/indexer-operations).
-
-
-## 3 - Search an index
+## Search an index
 
 Now that an index and document set are loaded, you can issue queries against them using [Search Documents REST API](/rest/api/searchservice/search-documents).
 
-The URL is extended to include a query expression, specified using the search operator.
+Use GET or POST to query an index. On a GET call, specify query parameters on the URI. On POST, specify query parameters in JSON. POST is preferred for setting multiple query parameters.
 
-To do this in Postman:
+The URL is extended to include a query expression, specified using the `/docs/search` operator.
 
-1. Change the command to **GET**.
+1. Set the verb to **GET**.
 
-2. Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2020-06-30`.
+1. Copy in this URL `https://{{service-name}}.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2023-11-01`. There's no JSON body for this request. All parameters are on the URI. On a GET request, the API version is preceded by an `&` character.
 
-3. Click **Send**.
+1. Select **Send**.
 
-This query is an empty and returns a count of the documents in the search results. The request and response should look similar to the following screenshot for Postman after you click **Send**. The status code should be 200.
+   This query is an empty and returns a count of the documents in the search results. The request and response should look similar to the following screenshot for Postman after you select **Send**. The status code should be 200.
 
- ![GET with search string on the URL](media/search-get-started-rest/postman-query.png "GET with search string on the URL")
+   :::image type="content" source="media/search-get-started-rest/postman-query.png" lightbox="media/search-get-started-rest/postman-query.png" alt-text="Screenshot of a GET query request.":::
 
-Try a few other query examples to get a feel for the syntax. You can do a string search, verbatim $filter queries, limit the results set, scope the search to specific fields, and more.
+1. Set the verb to **POST**.
 
-Swap out the current URL with the ones below, clicking **Send** each time to view the results.
+1. Copy in this URL `https://{{service-name}}.search.windows.net/indexes/hotels-quickstart/docs/search?api-version=2023-11-01`. On a POST request, the API version is preceded by a `?` character.
 
-```
-# Query example 1 - Search on restaurant and wifi
-# Return only the HotelName, Description, and Tags fields
-https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=restaurant wifi&$count=true&$select=HotelName,Description,Tags&api-version=2020-06-30
+1. Copy in this JSON query and then select **Send**.
 
-# Query example 2 - Apply a filter to the index to find hotels rated 4 or highter
-# Returns the HotelName and Rating. Two documents match
-https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$filter=Rating gt 4&$select=HotelName,Rating&api-version=2020-06-30
+    ```json
+    {
+        "search": "lake view",
+        "select": "HotelId, HotelName, Tags, Description",
+        "searchFields": "Description, Tags",
+        "count": true
+    }
+    ```
 
-# Query example 3 - Take the top two results, and show only HotelName and Category in the results
-https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=boutique&$top=2&$select=HotelName,Category&api-version=2020-06-30
+   The request and response should look similar to the following screenshot. For more query examples, including filters and sorting, see [Query examples](search-query-simple-examples.md).
 
-# Query example 4 - Sort by a specific field (Address/City) in ascending order
-https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating&api-version=2020-06-30
-```
+   :::image type="content" source="media/search-get-started-rest/postman-query-post.png" lightbox="media/search-get-started-rest/postman-query-post.png" alt-text="Screenshot of a POST request and response in Postman.":::
 
 ## Get index properties
 
 You can also use [Get Statistics](/rest/api/searchservice/get-index-statistics) to query for document counts and index size: 
 
 ```http
-https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2020-06-30
+https://{{service-name}}.search.windows.net/indexes/hotels-quickstart/stats?api-version=2023-11-01
 ```
 
 Adding `/stats` to your URL returns index information. In Postman, your request should look similar to the following, and the response includes a document count and space used in bytes.
 
- ![Get index information](media/search-get-started-rest/postman-system-query.png "Get index information")
-
-Notice that the api-version syntax differs. For this request, use `?` to append the api-version. The `?` separates the URL path from the query string, while & separates each 'name=value' pair in the query string. For this query, api-version is the first and only item in the query string.
+:::image type="content" source="media/search-get-started-rest/postman-system-query.png" lightbox="media/search-get-started-rest/postman-system-query.png" alt-text="Screenshot of the Get Statistics request.":::
 
 ## Clean up resources
 
@@ -287,11 +275,11 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+On a free service, remember the limitation of three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
 
 ## Next steps
 
-Now that you know how to perform core tasks, you can move forward with additional REST API calls for more advanced features, such as indexers or [setting up an enrichment pipeline](cognitive-search-tutorial-blob.md) that adds content transformations to indexing. For your next step, we recommend the following link:
+Now that you know how to perform basic tasks, try advanced features, such as indexers or [enrichment pipelines](cognitive-search-tutorial-blob.md) that add content transformations to indexing. We recommend the following article:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Use REST and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob.md)

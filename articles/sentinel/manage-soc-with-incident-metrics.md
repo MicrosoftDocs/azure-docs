@@ -43,7 +43,7 @@ SecurityIncident
 | where Severity in ('High','Medium','Low', 'Informational')
 ```
 
-Mean time to closure:
+Closure time by percentile:
 ```Kusto
 SecurityIncident
 | summarize arg_max(TimeGenerated,*) by IncidentNumber 
@@ -52,7 +52,7 @@ SecurityIncident
   90th_Percentile=percentile(TimeToClosure, 90),99th_Percentile=percentile(TimeToClosure, 99)
 ```
 
-Mean time to triage:
+Triage time by percentile:
 ```Kusto
 SecurityIncident
 | summarize arg_max(TimeGenerated,*) by IncidentNumber 
@@ -63,7 +63,7 @@ SecurityIncident
 
 ## Security operations efficiency workbook
 
-To complement the **SecurityIncidents** table, we’ve provided you an out-of-the-box **security operations efficiency** workbook template that you can use to monitor your SOC operations. The workbook contains the following metrics: 
+To complement the **SecurityIncidents** table, we’ve provided you with an out-of-the-box **security operations efficiency** workbook template that you can use to monitor your SOC operations. The workbook contains the following metrics: 
 - Incident created over time 
 - Incidents created by closing classification, severity, owner, and status 
 - Mean time to triage 
@@ -85,7 +85,7 @@ You can use the template to create your own custom workbooks tailored to your sp
 
 ## SecurityIncidents schema
 
-[!INCLUDE [SecurityIncidents schema](../../includes/sentinel-schema-security-incident.md)]
+[!INCLUDE [SecurityIncidents schema](includes/sentinel-schema-security-incident.md)]
 
 ## Next steps
 

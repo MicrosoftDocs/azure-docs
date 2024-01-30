@@ -2,13 +2,13 @@
 title: Tutorial to order Azure Data Box Heavy | Microsoft Docs
 description: In this tutorial, learn about Azure Data Box Heavy, a hybrid solution that allows you to import on-premises data into Azure, and how to order Data Box Heavy.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 01/04/2022
-ms.author: alkohli
+ms.author: shaas
 ms.custom: contperf-fy22q1
 #Customer intent: As an IT admin, I need to be able to order Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
@@ -49,7 +49,7 @@ Before you begin, make sure that:
 - You should have a host computer connected to the datacenter network. Data Box Heavy will copy the data from this computer. Your host computer must run a supported operating system as described in [Azure Data Box Heavy system requirements](data-box-system-requirements.md).
 - You need to have a laptop with RJ-45 cable to connect to the local UI and configure the device. Use the laptop to configure each node of the device once.
 - Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection.
-- You need one 40-Gbps or 10-Gbps cable per device node. Choose cables that are compatible with the [Mellanox MCX314A-BCCT](https://qnapdirect.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card?variant=31431916585011) network interface:
+- You need one 40-Gbps or 10-Gbps cable per device node. Choose cables that are compatible with the Mellanox MCX314A-BCCT network interface:
 
     - For the 40-Gbps cable, device end of the cable needs to be QSFP+.
     - For the 10-Gbps cable, you need an SFP+ cable that plugs into a 10 G switch on one end, with a QSFP+ to SFP+ adapter (or the QSA adapter) for the end that plugs into the device.

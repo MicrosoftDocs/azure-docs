@@ -1,11 +1,10 @@
 ---
 title: Develop and run Azure Functions locally
 description: Learn how to code and test Azure Functions on your local computer before you run them on Azure Functions.
-
 ms.topic: conceptual
-ms.date: 09/22/2022
-
+ms.date: 11/29/2023
 ---
+
 # Code and test Azure Functions locally
 
 While you're able to develop and test Azure Functions in the [Azure portal], many developers prefer a local development experience. When you use Functions, using your favorite code editor and development tools to create and test functions on your local computer becomes easier. Your local functions can connect to live Azure services, and you can debug them on your local computer using the full Functions runtime.
@@ -27,7 +26,20 @@ The way in which you develop functions on your local computer depends on your [l
 
 Each of these local development environments lets you create function app projects and use predefined function templates to create new functions. Each uses the Core Tools so that you can test and debug your functions against the real Functions runtime on your own machine just as you would any other app. You can also publish your function app project from any of these environments to Azure.
 
-## Local settings file
+## Local project files
+
+A Functions project directory contains the following files in the project root folder, regardless of language: 
+
+| File name | Description |
+| --- | --- |
+| host.json | To learn more, see the [host.json reference](functions-host-json.md). |
+| local.settings.json | Settings used by Core Tools when running locally, including app settings. To learn more, see [local settings file](#local-settings-file). |
+| .gitignore | Prevents the local.settings.json file from being accidentally published to a Git repository. To learn more, see [local settings file](#local-settings-file).|
+| .vscode\extensions.json | Settings file used when opening the project folder in Visual Studio Code.  |
+
+Other files in the project depend on your language and specific functions. For more information, see the developer guide for your language.   
+
+### Local settings file
 
 The local.settings.json file stores app settings and settings used by local development tools. Settings in the local.settings.json file are used only when you're running your project locally. When you publish your project to Azure, be sure to also add any required settings to the app settings for the function app.
 
@@ -87,7 +99,13 @@ When you develop your functions locally, any local settings required by your app
 
 ## Triggers and bindings
 
-When you develop your functions locally, you need to take trigger and binding behaviors into consideration. The easiest way to test bindings during local development is to use connection strings that target live Azure services. You can target live services by adding the appropriate connection string settings in the `Values` array in the local.settings.json file. When you do this, local executions during testing impact live service data. Because of this, consider setting-up separate services to use during development and testing, and then switch to difference services during production. You can also use a local storage emulator.
+When you develop your functions locally, you need to take trigger and binding behaviors into consideration. For HTTP triggers, you can simply call the HTTP endpoint on the local computer, using `http://localhost/`. For non-HTTP triggered functions, there are several options to run locally:
+
++ The easiest way to test bindings during local development is to use connection strings that target live Azure services. You can target live services by adding the appropriate connection string settings in the `Values` array in the local.settings.json file. When you do this, local executions during testing impact live service data. Because of this, consider setting-up separate services to use during development and testing, and then switch to different services during production.
++ For storage-based triggers, you can use a [local storage emulator](#local-storage-emulator).
++ You can manually run non-HTTP trigger functions by using special administrator endpoints. For more information, see [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md). 
+
+During local testing, you must be running the host provided by Core Tools (func.exe) locally. For more information, see [Azure Functions Core Tools](functions-run-local.md).
 
 ## Local storage emulator
 

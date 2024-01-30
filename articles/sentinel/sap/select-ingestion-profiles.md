@@ -4,6 +4,7 @@ description: This article shows you how to select the profile for your Microsoft
 author: kobymon
 ms.author: kobymin
 ms.topic: how-to
+ms.custom: devx-track-extended-java
 ms.date: 01/03/2023
 ---
 
@@ -130,7 +131,7 @@ USRACL_FULL = False
 ```
 ## Minimal profile
 
-The SAP Security Audit Log is the most important source of data the Microsoft Sentinel Solution for SAP uses to analyze activities on the SAP landscape. Enabling this log is the minimal requirement to provide any security coverage.  
+The SAP Security Audit Log is the most important source of data the Microsoft Sentinel solution for SAP® applications uses to analyze activities on the SAP landscape. Enabling this log is the minimal requirement to provide any security coverage.  
 
 ### systemconfig.ini file
 
@@ -184,26 +185,26 @@ USRACL_FULL = False
 ```
 ## Next steps
 
-Learn more about the Microsoft Sentinel Solution for SAP:
+Learn more about the Microsoft Sentinel solution for SAP® applications:
 
-- [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Deploy SAP security content](deploy-sap-security-content.md)
 - [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel Solution for SAP solution deployment](sap-deploy-troubleshoot.md)
-- [Configure SAP Transport Management System](configure-transport.md)
+- [Troubleshoot your Microsoft Sentinel solution for SAP® applications solution deployment](sap-deploy-troubleshoot.md)
 
 Reference files:
 
-- [Microsoft Sentinel Solution for SAP data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel Solution for SAP: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)
 

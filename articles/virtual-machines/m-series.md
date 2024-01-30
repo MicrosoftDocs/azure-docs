@@ -1,11 +1,12 @@
 ---
 title: M-series - Azure Virtual Machines
 description: Specifications for the M-series VMs.
-author: lauradolan
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
+ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/12/2023
 ms.author: ayshak
 ---
 
@@ -20,7 +21,7 @@ M-series VM's feature Intel&reg; Hyper-Threading Technology.
 [ACU](acu.md): 160-180<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
-[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Restricted Support<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Write Accelerator](./how-to-enable-write-accelerator.md): Supported<br>
@@ -46,13 +47,13 @@ M-series VM's feature Intel&reg; Hyper-Threading Technology.
 | Standard_M128 <sup>1</sup>       | 128 | 2048   | 14336 | 64 | 250000/1600 (2456)  | 250000/4000 | 80000/2000 | 80000/4000 | 8 | 32000 |
 | Standard_M128m <sup>1</sup>      | 128 | 3892   | 14336 | 64 | 250000/1600 (2456)  | 250000/4000 | 80000/2000 | 80000/4000 | 8 | 32000 |
 
-<sup>1</sup> More than 64 vCPU's require one of these supported guest versions: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux, CentOS 7.3 or Oracle Linux 7.3 with LIS 4.2.1.
+<sup>1</sup> More than 64 vCPU's require one of these supported guest versions: Windows Server 2016, Ubuntu 18.04+ LTS, SLES 12 SP2+, Red Hat Enterprise Linux 7/8/9, CentOS 7.3+ or Oracle Linux 7.3+ with LIS 4.2.1 or higher.
 
 <sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
 
 <sup>3</sup> [Constrained core sizes available](./constrained-vcpu.md).
 
-<sup>4</sup> M-series VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time. 
+<sup>4</sup> M-series VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

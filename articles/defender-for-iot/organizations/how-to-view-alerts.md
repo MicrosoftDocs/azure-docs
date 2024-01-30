@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
-This article describes how to view Defender for IoT alerts directly on an OT network sensor. You can also view OT alerts on the [Azure portal](how-to-manage-cloud-alerts.md) or an [on-premises management console](how-to-work-with-alerts-on-premises-management-console.md).
+This article describes how to view Defender for IoT alerts directly on an OT network sensor. You can also view OT alerts on the [Azure portal](how-to-manage-cloud-alerts.md) or an [on-premises management console](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md).
 
 For more information, see [Microsoft Defender for IoT alerts](alerts.md).
 
@@ -107,8 +107,8 @@ For more information, see [Alert statuses and triaging options](alerts.md#alert-
 
     Sign into your OT sensor console and select the **Alerts** page on the left, and then do one of the following:
 
-    - Select one or more learnable alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
-    - On an alert details page, in the **Take Action** tab, select **Learn**.
+  - Select one or more learnable alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
+  - On an alert details page, in the **Take Action** tab, select **Learn**.
 
 - **To mute an alert**:
 
@@ -124,12 +124,11 @@ For more information, see [Alert statuses and triaging options](alerts.md#alert-
 
     After you unlearn or unmute an alert, alerts are re-triggered whenever the sensor senses the selected traffic combination.
 
-
 ## Access alert PCAP data
 
 You might want to access raw traffic files, also known as *packet capture files* or *PCAP* files as part of your investigation.
 
-To access raw traffic files for your alert, select **Download Filtered Pcap** from the top-left corner of your alert details page:
+To access raw traffic files for your alert, select **Download PCAP** from the top-left corner of your alert details page:
 
 For example:
 
@@ -137,7 +136,7 @@ For example:
 
 The PCAP file is downloaded and your browser prompts you to open or save it locally.
 
-### Export alerts to CSV or PDF
+## Export alerts to CSV or PDF
 
 You may want to export a selection of alerts to a CSV or PDF file for offline sharing and reporting.
 
@@ -179,23 +178,7 @@ If your admin has [created custom comments](how-to-accelerate-alert-incident-res
 
 For more information, see [Accelerating OT alert workflows](alerts.md#accelerating-ot-alert-workflows).
 
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
-
-> [!div class="nextstepaction"]
-> [View and manage alerts on the the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
-
-> [!div class="nextstepaction"]
-> [Accelerate alert workflows on an OT network sensor](how-to-accelerate-alert-incident-response.md)
-
-> [!div class="nextstepaction"]
-> [Forward alert information](how-to-forward-alert-information-to-partners.md)
-
-> [!div class="nextstepaction"]
-> [OT monitoring alert types and descriptions](alert-engine-messages.md)
-
-> [!div class="nextstepaction"]
-> [Microsoft Defender for IoT alerts](alerts.md)
+> [Data retention across Microsoft Defender for IoT](references-data-retention.md)

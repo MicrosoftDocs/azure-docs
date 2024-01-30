@@ -10,7 +10,7 @@ author: amibp
 ms.reviewer: sgilley
 ms.date: 06/24/2022
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022
+ms.custom: event-tier1-build-2022, build-2023
 ---
 
 # Monitor and analyze jobs in studio
@@ -139,16 +139,6 @@ To cancel a job in the studio, using the following steps:
     ![New alert rule](./media/how-to-track-monitor-analyze-runs/new-alert-rule.png)
 
 1. See [how to create and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md).
-
-## Monitor your job resources (preview)
-
-Navigate to your job in the studio and select the Monitoring tab. This view provides insights on your job's resources on a 30 day rolling basis. 
-
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/monitoring-tab.png" alt-text="Screenshot of Monitoring tab showing resources the selected job has used.":::
-
->[!NOTE] 
->This view supports only compute that is managed by AzureML.
->Jobs with a runtime of less than 5 minutes will not have enough data to populate this view.
 
 
 ## Next steps

@@ -12,7 +12,7 @@ services: iot-edge
 
 # Troubleshoot your IoT Edge for Linux on Windows networking
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 If you experience networking issues using Azure IoT Edge for Linux on Windows (EFLOW) in your environment, use this article as a guide for troubleshooting and diagnostics. Also, check [Troubleshoot your IoT Edge for Linux on Windows device](./troubleshoot-iot-edge-for-linux-on-windows.md) for more EFLOW virtual machine troubleshooting help.
 

@@ -1,7 +1,7 @@
 ---
 title: Configure monitoring for Azure Functions
 description: Learn how to connect your function app to Application Insights for monitoring and how to configure data collection.
-ms.date: 06/23/2022
+ms.date: 11/29/2023
 ms.topic: how-to
 ms.custom: contperf-fy21q2, devdivchpfy22
 # Customer intent: As a developer, I want to understand how to configure monitoring for my functions correctly, so I can collect the data that I need.
@@ -13,19 +13,44 @@ Azure Functions integrates with Application Insights to better enable you to mon
 
 You can use Application Insights without any custom configuration. The default configuration can result in high volumes of data. If you're using a Visual Studio Azure subscription, you might hit your data cap for Application Insights. For information about Application Insights costs, see [Application Insights billing](../azure-monitor/logs/cost-logs.md#application-insights-billing). For more information, see [Solutions with high-volume of telemetry](#solutions-with-high-volume-of-telemetry).
 
-Later in this article, you learn how to configure and customize the data that your functions send to Application Insights. For a function app, logging is configured in the *[host.json]* file.
+Later in this article, you learn how to configure and customize the data that your functions send to Application Insights. Common logging configuration can be set in the *[host.json]* file. By default, these settings also govern custom logs emitted by your code, though in some cases this behavior can be disabled in favor of options that give you more control over logging. See [Custom application logs](#custom-application-logs) for more information.
 
 > [!NOTE]
 > You can use specially configured application settings to represent specific settings in a *host.json* file for a specific environment. This lets you effectively change *host.json* settings without having to republish the *host.json* file in your project. For more information, see [Override host.json values](functions-host-json.md#override-hostjson-values).
 
+## Custom application logs
+
+By default, custom application logs you write are sent to the Functions host, which then sends them to Application Insights through the ["Worker" category](#configure-categories). Some language stacks allow you to instead send the logs directly to Application Insights, giving you full control over how logs you write are emitted. The logging pipeline changes from `worker -> Functions host -> Application Insights` to `worker -> Application Insights`.
+
+The following table summarizes the options available to each stack:
+
+| Language stack | Configuration of custom logs |
+|-|-|
+| .NET (in-process model) | `host.json` |
+| .NET (isolated model) | By default: `host.json`<br/>Option to send logs directly: [Configure Application Insights in the HostBuilder](./dotnet-isolated-process-guide.md#application-insights) |
+| Node.JS | `host.json` |
+| Python | `host.json` |
+| Java | By default: `host.json`<br/>Option to send logs directly: [Configure the Application Insights Java agent](../azure-monitor/app/monitor-functions.md#distributed-tracing-for-java-applications) |
+| PowerShell | `host.json` |
+
+When custom application logs are sent directly, the host no longer emits them, and `host.json` no longer controls their behavior. Similarly, the options exposed by each stack only apply to custom logs, and they do not change the behavior of the other runtime logs described in this article. To control the behavior of all logs, you may need to make changes for both configurations.
+
 ## Configure categories
 
-The Azure Functions logger includes a *category* for every log. The category indicates which part of the runtime code or your function code wrote the log. Categories differ between version 1.x and later versions. The following chart describes the main categories of logs that the runtime creates:
+The Azure Functions logger includes a *category* for every log. The category indicates which part of the runtime code or your function code wrote the log. Categories differ between version 1.x and later versions. 
+
+Category names are assigned differently in Functions compared to other .NET frameworks. For example, when you use `ILogger<T>` in ASP.NET, the category is the name of the generic type. C# functions also use `ILogger<T>`, but instead of setting the generic type name as a category, the runtime assigns categories based on the source. For example:
+ 
++ Entries related to running a function are assigned a category of `Function.<FUNCTION_NAME>`.
++ Entries created by user code inside the function, such as when calling `logger.LogInformation()`, are assigned a category of `Function.<FUNCTION_NAME>.User`.
+
+The following chart describes the main categories of logs that the runtime creates:
 
 # [v2.x+](#tab/v2)
 
 | Category | Table | Description |
 | ----- | ----- | ----- |
+| **`Function`** | **traces**| Includes function started and completed logs for all function runs. For successful runs, these logs are at the `Information` level. Exceptions are logged at the `Error` level. The runtime also creates `Warning` level logs, such as when queue messages are sent to the [poison queue](functions-bindings-storage-queue-trigger.md#poison-messages).|
 | **`Function.<YOUR_FUNCTION_NAME>`** | **dependencies**| Dependency data is automatically collected for some services. For successful runs, these logs are at the `Information` level. For more information, see [Dependencies](functions-monitoring.md#dependencies). Exceptions are logged at the `Error` level. The runtime also creates `Warning` level logs, such as when queue messages are sent to the [poison queue](functions-bindings-storage-queue-trigger.md#poison-messages). |
 | **`Function.<YOUR_FUNCTION_NAME>`** | **customMetrics**<br/>**customEvents** | C# and JavaScript SDKs lets you collect custom metrics and log custom events. For more information, see [Custom telemetry data](functions-monitoring.md#custom-telemetry-data).|
 | **`Function.<YOUR_FUNCTION_NAME>`** | **traces**| Includes function started and completed logs for specific function runs. For successful runs, these logs are at the `Information` level. Exceptions are logged at the `Error` level. The runtime also creates `Warning` level logs, such as when queue messages are sent to the [poison queue](functions-bindings-storage-queue-trigger.md#poison-messages). |
@@ -57,23 +82,23 @@ The **Table** column indicates to which table in Application Insights the log is
 
 For each category, you indicate the minimum log level to send. The *host.json* settings vary depending on the [Functions runtime version](functions-versions.md).
 
-The example below defines logging based on the following rules:
+The examples below define logging based on the following rules:
 
-+ For logs of `Host.Results` or `Function`, only log events at `Error` or a higher level.
-+ For logs of `Host.Aggregator`, log all generated metrics (`Trace`).
-+ For all other logs, including user logs, log only `Information` level and higher events.
++ The default logging level is set to `Warning` to prevent [excessive logging](#solutions-with-high-volume-of-telemetry) for unanticipated categories.
++ `Host.Aggregator` and `Host.Results` are set to lower levels. Setting these to too high a level (especially higher than `Information`) can result in loss of metrics and performance data.
++ Logging for function runs is set to `Information`. This can be [overridden](functions-host-json.md#override-hostjson-values) in local development to `Debug` or `Trace`, when needed.
 
 # [v2.x+](#tab/v2)
 
 ```json
 {
   "logging": {
-    "fileLoggingMode": "always",
+    "fileLoggingMode": "debugOnly",
     "logLevel": {
-      "default": "Information",
-      "Host.Results": "Error",
-      "Function": "Error",
-      "Host.Aggregator": "Trace"
+      "default": "Warning",
+      "Host.Aggregator": "Trace",
+      "Host.Results": "Information",
+      "Function": "Information"
     }
   }
 }
@@ -85,11 +110,11 @@ The example below defines logging based on the following rules:
 {
   "logger": {
     "categoryFilter": {
-      "defaultLevel": "Information",
+      "defaultLevel": "Warning",
       "categoryLevels": {
-        "Host.Results": "Error",
-        "Function": "Error",
-        "Host.Aggregator": "Trace"
+        "Host.Results": "Information",
+        "Host.Aggregator": "Trace",
+        "Function": "Information"
       }
     }
   }
@@ -105,7 +130,7 @@ If *[host.json]* includes multiple logs that start with the same string, the mor
 ```json
 {
   "logging": {
-    "fileLoggingMode": "always",
+    "fileLoggingMode": "debugOnly",
     "logLevel": {
       "default": "Information",
       "Host": "Error",
@@ -254,7 +279,12 @@ With scale controller logging enabled, you're now able to [query your scale cont
 
 ## Enable Application Insights integration
 
-For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key must be in an app setting named **APPINSIGHTS_INSTRUMENTATIONKEY**.
+For a function app to send data to Application Insights, it needs to connect to the Application Insights resource using **only one** of these application settings:
+
+| Setting name | Description | 
+| ---- | ---- |
+| **[APPLICATIONINSIGHTS_CONNECTION_STRING](functions-app-settings.md#applicationinsights_connection_string)** | This is the recommended setting, which is required when your Application Insights instance runs in a sovereign cloud. The connection string supports other [new capabilities](../azure-monitor/app/migrate-from-instrumentation-keys-to-connection-strings.md#new-capabilities).   |
+| **[APPINSIGHTS_INSTRUMENTATIONKEY](functions-app-settings.md#appinsights_instrumentationkey)** | Legacy setting, which is deprecated by Application Insights in favor of the connection string setting. |
 
 When you create your function app in the [Azure portal](./functions-get-started.md) from the command line by using [Azure Functions Core Tools](./create-first-function-cli-csharp.md) or [Visual Studio Code](./create-first-function-vs-code-csharp.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in the nearest region.
 
@@ -264,12 +294,12 @@ To review the Application Insights resource being created, select it to expand t
 
 :::image type="content" source="media/functions-monitoring/enable-ai-new-function-app.png" alt-text="Screenshot of enabling Application Insights while creating a function app.":::
 
-When you select **Create**, an Application Insights resource is created with your function app, which has the `APPINSIGHTS_INSTRUMENTATIONKEY` set in application settings. Everything is ready to go.
+When you select **Create**, an Application Insights resource is created with your function app, which has the `APPLICATIONINSIGHTS_CONNECTION_STRING` set in application settings. Everything is ready to go.
 
 <a id="manually-connect-an-app-insights-resource"></a>
 ### Add to an existing function app 
 
-If an Application Insights resource wasn't created with your function app, use the following steps to create the resource. You can then add the instrumentation key from that resource as an [application setting](functions-how-to-use-azure-function-app-settings.md#settings) in your function app.
+If an Application Insights resource wasn't created with your function app, use the following steps to create the resource. You can then add the connection string from that resource as an [application setting](functions-how-to-use-azure-function-app-settings.md#settings) in your function app.
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **function app**, and then select your function app.
 
@@ -290,14 +320,14 @@ If an Application Insights resource wasn't created with your function app, use t
 
    The Application Insights resource is created in the same resource group and subscription as your function app. After the resource is created, close the **Application Insights** window.
 
-1. In your function app, select **Configuration** under **Settings**, and then select **Application settings**. If you see a setting named `APPINSIGHTS_INSTRUMENTATIONKEY`, Application Insights integration is enabled for your function app running in Azure. If for some reason this setting doesn't exist, add it using your Application Insights instrumentation key as the value.
+1. In your function app, select **Configuration** under **Settings**, and then select **Application settings**. If you see a setting named `APPLICATIONINSIGHTS_CONNECTION_STRING`, Application Insights integration is enabled for your function app running in Azure. If for some reason this setting doesn't exist, add it using your Application Insights connection string as the value.
 
 > [!NOTE]
-> Early versions of Functions used built-in monitoring, which is no longer recommended. When you're enabling Application Insights integration for such a function app, you must also [disable built-in logging](#disable-built-in-logging).  
+> Older function apps might be using `APPINSIGHTS_INSTRUMENTATIONKEY` instead of `APPLICATIONINSIGHTS_CONNECTION_STRING`. When possible, you should update your app to use the connection string instead of the instrumentation key.   
 
 ## Disable built-in logging
 
-When you enable Application Insights, disable the built-in logging that uses Azure Storage. The built-in logging is useful for testing with light workloads, but isn't intended for high-load production use. For production monitoring, we recommend Application Insights. If built-in logging is used in production, the logging record might be incomplete because of throttling on Azure Storage.
+Early versions of Functions used built-in monitoring, which is no longer recommended. When you enable Application Insights, disable the built-in logging that uses Azure Storage. The built-in logging is useful for testing with light workloads, but isn't intended for high-load production use. For production monitoring, we recommend Application Insights. If built-in logging is used in production, the logging record might be incomplete because of throttling on Azure Storage.
 
 To disable built-in logging, delete the `AzureWebJobsDashboard` app setting. For more information about how to delete app settings in the Azure portal, see the **Application settings** section of [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings). Before you delete the app setting, ensure that no existing functions in the same function app use the setting for Azure Storage triggers or bindings.
 
@@ -307,7 +337,7 @@ Function apps are an essential part of solutions that can cause high volumes of 
 
 The generated telemetry can be consumed in real-time dashboards, alerting, detailed diagnostics, and so on. Depending on how the generated telemetry is going to be consumed, you'll need to define a strategy to reduce the volume of data generated. This strategy will allow you to properly monitor, operate, and diagnose your function apps in production. You can consider the following options:
 
-+ **Use sampling**: As mentioned [earlier](#configure-sampling), it will help to dramatically reduce the volume of telemetry events ingested while maintaining a statistically correct analysis. It could happen that even using sampling you still a get high volume of telemetry. Inspect the options that [adaptive sampling](../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-applications) provides to you. For example, set the `maxTelemetryItemsPerSecond` to a value that balances the volume generated with your monitoring needs. Keep in mind that the telemetry sampling is applied per host executing your function app.
++ **Use sampling**: As mentioned [earlier](#configure-sampling), it will help to dramatically reduce the volume of telemetry events ingested while maintaining a statistically correct analysis. It could happen that even using sampling you still get a high volume of telemetry. Inspect the options that [adaptive sampling](../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-applications) provides to you. For example, set the `maxTelemetryItemsPerSecond` to a value that balances the volume generated with your monitoring needs. Keep in mind that the telemetry sampling is applied per host executing your function app.
 
 + **Default log level**: Use `Warning` or `Error` as the default value for all telemetry categories. Now, you can decide which [categories](#configure-categories) you want to set at `Information` level so that you can monitor and diagnose your functions properly.
 
@@ -416,10 +446,10 @@ To configure these values at App settings level (and avoid redeployment on just 
 | Host.json path | App setting |
 |----------------|-------------|
 | logging.logLevel.default  | AzureFunctionsJobHost__logging__logLevel__default  |
-| logging.logLevel.Host.Aggregator | AzureFunctionsJobHost__logging__logLevel__Host.Aggregator |
+| logging.logLevel.Host.Aggregator | AzureFunctionsJobHost__logging__logLevel__Host__Aggregator |
 | logging.logLevel.Function | AzureFunctionsJobHost__logging__logLevel__Function |
-| logging.logLevel.Function.Function1 | AzureFunctionsJobHost__logging__logLevel__Function.Function1 |
-| logging.logLevel.Function.Function1.User | AzureFunctionsJobHost__logging__logLevel__Function.Function1.User |
+| logging.logLevel.Function.Function1 | AzureFunctionsJobHost__logging__logLevel__Function__Function1 |
+| logging.logLevel.Function.Function1.User | AzureFunctionsJobHost__logging__logLevel__Function__Function1__User |
 
 You can override the settings directly at the Azure portal Function App Configuration blade or by using an Azure CLI or PowerShell script.
 
@@ -435,6 +465,7 @@ Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupNa
 
 > [!NOTE]
 > Overriding the `host.json` through changing app settings will restart your function app.
+> App settings that contain a period aren't supported when running on Linux in an Elastic Premium plan or a Dedicated (App Service) plan. In these hosting environments, you should continue to use the *host.json* file.
 
 ## Monitor function apps using Health check
 

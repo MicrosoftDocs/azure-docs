@@ -1,17 +1,14 @@
 ---
 title: Deploy Azure dedicated hosts
 description: Deploy VMs and scale sets to dedicated hosts.
-author: vamckMS
-ms.author: vakavuru
+author: mattmcinnes
+ms.author: mattmcinnes
 ms.service: azure-dedicated-host
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 09/28/2021
-ms.reviewer: mattmcinnes
-
-
-
-#Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
+ms.date: 07/12/2023
+ms.reviewer: vamckMS
 ---
 
 # Deploy VMs and scale sets to dedicated hosts
@@ -24,12 +21,11 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 ## Limitations
 
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
-
 - Not all Azure VM SKUs, regions and availability zones support ultra disks, for more information about this topic, see [Azure ultra disks](disks-enable-ultra-ssd.md).
-
-- Currently dedicated hosts do not support 'ultra disks' on the following VM sizes: LSv2, M, Mv2, Msv2, Mdsv2, NVv3, NVv4 (ultra disks are supported on these sizes for multi tenant VMs).
-
+- Additional [limitations](./dedicated-hosts.md#ultra-disk-support-for-virtual-machines-on-dedicated-hosts) would apply when using ultra disks on the following VM sizes: LSv2, M, Mv2, Msv2, Mdsv2, NVv3, NVv4 on a dedicated host.
 - The fault domain count of the virtual machine scale set can't exceed the fault domain count of the host group.
+- Users can not select hardware capabilities like accelerated networking when creating a dedicated host.
+- Users would not be able to create VMs/VMSS with accelerated networking enabled on a dedicated host.
 
 ## Create a host group
 
@@ -73,6 +69,7 @@ Not all host SKUs are available in all regions, and availability zones. You can 
 ```azurecli-interactive
 az vm list-skus -l eastus2  -r hostGroups/hosts  -o table
 ```
+
 You can also verify if a VM series supports ultra disks.
 
 ```azurecli-interactive
@@ -98,7 +95,6 @@ az vm host group create \
 Add the `--automatic-placement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement](dedicated-hosts.md#manual-vs-automatic-placement).
 
 Add the `--ultra-ssd-enabled true` parameter to enable creation of VMs that can support ultra disks.
-
 
 **Other examples**
 
@@ -130,12 +126,12 @@ az vm host group create \
    -z 1 \
    --ultra-ssd-enabled true \
    --platform-fault-domain-count 2 \
-   --automatic-placement true 
+   --automatic-placement true
 ```
+
 ### [PowerShell](#tab/powershell)
 
 This example uses [New-AzHostGroup](/powershell/module/az.compute/new-azhostgroup) to create a host group in zone 1, with 2 fault domains.
-
 
 ```azurepowershell-interactive
 $rgName = "myDHResourceGroup"
@@ -154,12 +150,9 @@ $hostGroup = New-AzHostGroup `
 
 Add the `-SupportAutomaticPlacement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information about this topic, see [Manual vs. automatic placement ](dedicated-hosts.md#manual-vs-automatic-placement).
 
-
 Add the `-EnableUltraSSD` parameter to enable creation of VMs that can support ultra disks.
 
-
 ---
-
 
 ## Create a dedicated host
 
@@ -178,6 +171,7 @@ If you set a fault domain count for your host group, you'll need to specify the 
 1. Select *myDedicatedHostsRG* as the **Resource group**.
 1. In **Instance details**, type *myHost* for the **Name** and select *East US* for the location.
 1. In **Hardware profile**, select *Standard Es3 family - Type 1* for the **Size family**, select *myHostGroup* for the **Host group** and then select *1* for the **Fault domain**. Leave the defaults for the rest of the fields.
+1. Leave the **Automatically replace host on failure** setting *Enabled* to automatically service heal the host in case of any host level failure.
 1. When you're done, select **Review + create** and wait for validation.
 1. Once you see the **Validation passed** message, select **Create** to create the host.
 
@@ -191,6 +185,7 @@ az vm host create \
    --name myHost \
    --sku DSv3-Type1 \
    --platform-fault-domain 1 \
+   --auto-replace true \
    -g myDHResourceGroup
 ```
 
@@ -198,14 +193,13 @@ az vm host create \
 
 In this example, we use [New-AzHost](/powershell/module/az.compute/new-azhost) to create a host and set the fault domain to 1.
 
-
 ```azurepowershell-interactive
 $dHost = New-AzHost `
    -HostGroupName $hostGroup.Name `
    -Location $location -Name myHost `
    -ResourceGroupName $rgName `
    -Sku DSv3-Type1 `
-   -AutoReplaceOnFailure 1 `
+   -AutoReplaceOnFailure True `
    -PlatformFaultDomain 1
 ```
 
@@ -233,7 +227,6 @@ If you would like to create a VM with ultra disks support, make sure the host gr
 
 It will take a few minutes for your VM to be deployed.
 
-
 ### [CLI](#tab/cli)
 
 Create a virtual machine within a dedicated host using [az vm create](/cli/azure/vm#az-vm-create). If you specified an availability zone when creating your host group, you're required to use the same zone when creating the virtual machine. Replace the values like image and host name with your own. If you're creating a Windows VM, remove `--generate-ssh-keys` to be prompted for a password.
@@ -255,11 +248,9 @@ To place the VM on a specific host, use `--host` instead of specifying the host 
 > [!WARNING]
 > If you create a virtual machine on a host which does not have enough resources, the virtual machine will be created in a FAILED state.
 
-
 ### [PowerShell](#tab/powershell)
 
 Create a new VM on our host using [New-AzVM](/powershell/module/az.compute/new-azvm) For this example, because our host group is in zone 1, we need to create the VM in zone 1.
-
 
 ```azurepowershell-interactive
 New-AzVM `
@@ -282,6 +273,9 @@ New-AzVM `
 
 You can also create a scale set on your host.
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 ### [Portal](#tab/portal)
 
 When you deploy a scale set, you specify the host group.
@@ -292,16 +286,16 @@ When you deploy a scale set, you specify the host group.
 1. On the **Advanced** tab, for **Spreading algorithm** select **Max spreading**.
 1. In **Host group**, select the host group from the drop-down. If you recently created the group, it might take a minute to get added to the list.
 
-
 ### [CLI](#tab/cli)
 
-When you deploy a scale set using [az vmss create](/cli/azure/vmss#az-vmss-create), you specify the host group using `--host-group`. In this example, we're deploying the latest Ubuntu LTS image. To deploy a Windows image, replace the value of `--image` and remove `--generate-ssh-keys` to be prompted for a password.
+When you deploy a scale set using [az vmss create](/cli/azure/vmss#az-vmss-create), you specify the host group using `--host-group`. In this example, we're deploying a Linux image. To deploy a Windows image, replace the value of `--image` and remove `--generate-ssh-keys` to be prompted for a password.
 
 ```azurecli-interactive
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --image UbuntuLTS \
+  --image myImage \
+  --orchestration-mode uniform \
   --upgrade-policy-mode automatic \
   --admin-username azureuser \
   --host-group myHostGroup \
@@ -312,7 +306,6 @@ az vmss create \
 ```
 
 If you want to manually choose which host to deploy the scale set to, add `--host` and the name of the host.
-
 
 ### [PowerShell](#tab/powershell)
 
@@ -327,6 +320,7 @@ New-AzVmss `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
   -LoadBalancerName "myLoadBalancer" `
+  -OrchestrationMode 'Uniform' `
   -UpgradePolicyMode "Automatic"`
   -HostGroupId $hostGroup.Id
 ```
@@ -357,10 +351,9 @@ Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 1. After the VM has been added to the host, select **Overview** from the left menu.
 1. At the top of the page, select **Start** to restart the VM.
 
+### [CLI](#tab/cli)
 
-## [CLI](#tab/cli)
-
-Move the existing VM to a dedicated host using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to a dedicated host. 
+Move the existing VM to a dedicated host using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to a dedicated host.
 
 Replace the values with your own information.
 
@@ -417,8 +410,78 @@ Start-AzVM `
    -Name $vmName
 ```
 
+
 ---
 
+## Move a VM from dedicated host to multitenant infrastructure
+You can move a VM that is running on a dedicated host to multitenant infrastructure, but the VM must first be Stop\Deallocated.
+
+- Make sure that your subscription has sufficient vCPU quota for the VM in the region where
+- Your multitenant VM will be scheduled in the same region and zone as the dedicated host
+
+### [Portal](#tab/portal)
+
+Move a VM from dedicated host to multitenant infrastructure using the [portal](https://portal.azure.com).
+
+1. Open the page for the VM.
+1. Select **Stop** to stop\deallocate the VM.
+1. Select **Configuration** from the left menu.
+1. Select **None** under host group drop-down menu.
+1. When you're done, select **Save** at the top of the page.
+1. After the VM has been reconfigured as a multitenant VM, select **Overview** from the left menu.
+1. At the top of the page, select **Start** to restart the VM.
+
+### [CLI](#tab/cli)
+
+Move a VM from dedicated host to multitenant infrastructure using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to reconfigure it as a multitenant VM.
+
+Replace the values with your own information.
+
+```azurecli-interactive
+az vm deallocate -n myVM -g myResourceGroup
+az vm update -n myVM -g myResourceGroup --set host.id=None
+az vm start -n myVM -g myResourceGroup
+```
+
+
+### [PowerShell](#tab/powershell)
+
+Move a VM from dedicated host to multitenant infrastructure using the PowerShell.
+
+Replace the values of the variables with your own information.
+
+```azurepowershell-interactive
+$vmRGName = "moveoffhost"
+$vmName = "myDHVM"
+$dhRGName = "myDHResourceGroup"
+$dhGroupName = "myHostGroup"
+$dhName = "myHost"
+
+$myDH = Get-AzHost `
+   -HostGroupName $dhGroupName `
+   -ResourceGroupName $dhRGName `
+   -Name $dhName
+
+$myVM = Get-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName
+
+Stop-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName -Force
+
+Update-AzVM `
+   -ResourceGroupName $vmRGName `
+   -VM $myVM `
+   -HostId ''
+
+Start-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName
+```
+
+
+---
 
 ## Check the status of the host
 
@@ -614,16 +677,17 @@ Location               : eastus
 Tags                   : {}
 ```
 
+
 ---
 
 ## Restart a host
 
-You can restart the entire host, meaning that the host's not **completely** powered off. Because the host will be restarted, the underlying VMs will also be restarted. The host will remain on the same underlying physical hardware as it restarts and both the host ID and asset ID will remain the same after the restart. The host SKU will also remain the same after the restart.
-
+Restarting a host does not completely power off the host. When the host restarts, the underlying VMs will also restart. The host will remain on the same underlying physical hardware and both the host ID and asset ID will remain the same after the restart. The host SKU will also remain the same after the restart.
 
 ### [Portal](#tab/portal)
+
 1. Search for and select the host.
-1. In the top menu bar, select the **Restart** button. 
+1. In the top menu bar, select the **Restart** button.
 1. In the **Essentials** section of the Host Resource Pane, Host Status will switch to **Host undergoing restart** during the restart.
 1. Once the restart has completed, the Host Status will return to **Host available**.
 
@@ -632,7 +696,10 @@ You can restart the entire host, meaning that the host's not **completely** powe
 Restart the host using [az vm host restart](/cli/azure/vm#az-vm-host-restart).
 
 ```azurecli-interactive
-az vm host restart --resource-group myResourceGroup --host-group myHostGroup --name myDedicatedHost
+az vm host restart \
+ --resource-group myResourceGroup \
+ --host-group myHostGroup \
+ --name myDedicatedHost
 ```
 
 To view the status of the restart, you can use the [az vm host get-instance-view](/cli/azure/vm#az-vm-host-get-instance-view) command. The **displayStatus** will be set to **Host undergoing restart** during the restart. Once the restart has completed, the displayStatus will return to **Host available**.
@@ -651,16 +718,17 @@ Restart-AzHost -ResourceGroupName myResourceGroup -HostGroupName myHostGroup -Na
 
 To view the status of the restart, you can use the [Get-AzHost](/powershell/module/az.compute/get-azhost) commandlet using the **InstanceView** parameter. The **displayStatus** will be set to **Host undergoing restart** during the restart. Once the restart has completed, the displayStatus will return to **Host available**.
 
-
 ```azurepowershell-interactive
 $hostRestartStatus = Get-AzHost -ResourceGroupName myResourceGroup -HostGroupName myHostGroup -Name myDedicatedHost -InstanceView;
 $hostRestartStatus.InstanceView.Statuses[1].DisplayStatus;
 ```
 
 ---
+## Resize a host
+
+[!INCLUDE [dedicated-hosts-resize](includes/dedicated-hosts-resize.md)]
 
 ## Deleting a host
-
 
 You're being charged for your dedicated host even when no virtual machines are deployed on the host. You should delete any hosts you're currently not using to save costs.
 
@@ -734,4 +802,3 @@ Remove-AzResourceGroup -Name $rgName
 - For more information about this topic, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
 - There's sample template, available at [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), which uses both zones and fault domains for maximum resiliency in a region.
-

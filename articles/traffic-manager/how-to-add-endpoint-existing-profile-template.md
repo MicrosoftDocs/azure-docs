@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.author: greglin
 ms.service: traffic-manager
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 04/24/2023
 ms.custom: template-how-to
 ---
 

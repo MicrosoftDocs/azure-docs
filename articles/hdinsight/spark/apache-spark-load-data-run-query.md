@@ -4,7 +4,7 @@ description: Tutorial - Learn how to load data and run interactive queries on Sp
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, mvc, ignite-2022
-ms.date: 06/08/2022
+ms.date: 07/12/2023
 #Customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to load data into a Spark cluster, so I can run interactive SQL queries against the data.
 ---
 

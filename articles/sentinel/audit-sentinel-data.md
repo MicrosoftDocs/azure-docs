@@ -31,7 +31,7 @@ You can use the **AzureActivity** table when auditing activity in your SOC envir
 
 **To query the AzureActivity table**:
 
-1. Connect the [Azure Activity](./data-connectors-reference.md#azure-activity) data source to start streaming audit events into a new table in the **Logs** screen called AzureActivity.
+1. Connect the [Azure Activity](./data-connectors/azure-activity.md) data source to start streaming audit events into a new table in the **Logs** screen called AzureActivity.
 
 1. Then, query the data using KQL, like you would any other table.
 
@@ -57,7 +57,7 @@ For more information, see [Microsoft Sentinel data included in Azure Activity lo
 
 ### Find all actions taken by a specific user in the last 24 hours
 
-The following **AzureActivity** table query lists all actions taken by a specific Azure AD user in the last 24 hours.
+The following **AzureActivity** table query lists all actions taken by a specific Microsoft Entra user in the last 24 hours.
 
 ```kql
 AzureActivity

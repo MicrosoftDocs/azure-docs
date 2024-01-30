@@ -2,22 +2,25 @@
 title: Bicep config file
 description: Describes the configuration file for your Bicep deployments
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.custom: devx-track-bicep
+ms.date: 09/27/2023
 ---
 
 # Configure your Bicep environment
 
-Bicep supports a configuration file named `bicepconfig.json`. Within this file, you can add values that customize your Bicep development experience. If you don't add this file, Bicep uses default values.
+Bicep supports an optional configuration file named `bicepconfig.json`. Within this file, you can add values that customize your Bicep development experience.
 
-To customize values, create this file in the directory where you store Bicep files. You can add `bicepconfig.json` files in multiple directories. The configuration file closest to the Bicep file in the directory hierarchy is used.
+To customize configuration, create this file in the same directory, or a parent directory of your Bicep files. If multiple parent directories contain `bicepconfig.json` files, Bicep uses configuration from the nearest one. If a configuration file is not found, Bicep uses default values.
 
-## Create the config file in VSCode
+To configure Bicep extension settings, see [VS Code and Bicep extension](./install.md#visual-studio-code-and-bicep-extension).
+
+## Create the config file in Visual Studio Code
 
 You can use any text editor to create the config file.
 
-To create a `bicepconfig.json` file in Visual Studio Code, open the Command Palette (**[CTRL/CMD]**+**[SHIRT]**+**P**), and then select **Bicep: Create Bicep Configuration File**. For more information, see [Visual Studio Code](./visual-studio-code.md#create-bicep-configuration-file).
+To create a `bicepconfig.json` file in Visual Studio Code, open the Command Palette (**[CTRL/CMD]**+**[SHIFT]**+**P**), and then select **Bicep: Create Bicep Configuration File**. For more information, see [Create Bicep configuration file](./visual-studio-code.md#create-bicep-configuration-file).
 
-:::image type="content" source="./media/bicep-config/vscode-create-bicep-configuration-file.png" alt-text="Screenshot of how to create Bicep configuration file in VSCode.":::
+:::image type="content" source="./media/bicep-config/vscode-create-bicep-configuration-file.png" alt-text="Screenshot of how to create Bicep configuration file in VS Code.":::
 
 The Bicep extension for Visual Studio Code supports intellisense for your `bicepconfig.json` file. Use the intellisense to discover available properties and values.
 
@@ -33,16 +36,20 @@ The [Bicep linter](linter.md) checks Bicep files for syntax errors and best prac
 
 ## Enable experimental features
 
-The following sample enables the [user-defined types in Bicep](https://aka.ms/bicepCustomTypes).
+You can enable experimental features by adding the following section to your `bicepconfig.json` file.
+
+Here is an example of enabling features 'compileTimeImports' and 'userDefinedFunctions`. 
 
 ```json
 {
   "experimentalFeaturesEnabled": {
-    "imports": true,
-    "userDefineTypes": true
+    "compileTimeImports": true,
+    "userDefinedFunctions": true
   }
 }
 ```
+
+For information on the current set of experimental features, see [Experimental Features](https://aka.ms/bicep/experimental-features).
 
 ## Next steps
 

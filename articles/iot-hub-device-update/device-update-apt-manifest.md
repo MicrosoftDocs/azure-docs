@@ -1,10 +1,10 @@
 ---
-title: Understand Device Update for Azure IoT Hub apt manifest | Microsoft Docs
+title: Understand Device Update for Azure IoT Hub apt manifest
 description: Understand how Device Update for IoT Hub uses apt manifest for a package-based update.
 author: vimeht
 ms.author: vimeht
 ms.date: 2/17/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 

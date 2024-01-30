@@ -314,7 +314,7 @@ This issue occurs when a cluster egress is locked down.
 
 Ensure that the domains and ports mentioned in the following article are open:
 
-- [Required outbound network rules and fully qualified domain names (FQDNs) for AKS clusters](../../../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
+- [Required outbound network rules and fully qualified domain names (FQDNs) for AKS clusters](../../../aks/outbound-rules-control-egress.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
 
 ### Scenario: The add-on is unable to reach the Azure Policy service endpoint because of the aad-pod-identity configuration
 
@@ -328,7 +328,7 @@ errors:
 
 #### Cause
 
-This error occurs when _add-pod-identity_ is installed on the cluster and the _kube-system_ pods
+This error occurs when _aad-pod-identity_ is installed on the cluster and the _kube-system_ pods
 aren't excluded in _aad-pod-identity_.
 
 The _aad-pod-identity_ component Node Managed Identity (NMI) pods modify the nodes' iptables to

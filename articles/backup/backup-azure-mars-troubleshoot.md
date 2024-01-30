@@ -2,10 +2,11 @@
 title: Troubleshoot the Azure Backup agent
 description: In this article, learn how to troubleshoot the installation and registration of the Azure Backup agent.
 ms.topic: troubleshooting
-ms.date: 12/05/2022
-author: v-amallick
+ms.date: 05/31/2023
 ms.service: backup
-ms.author: v-amallick
+ms.custom: engagement-fy24
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot the Microsoft Azure Recovery Services (MARS) agent
@@ -247,6 +248,10 @@ Backup operations could fail if there isn't sufficient shadow copy storage space
 
 [!INCLUDE [antivirus-scan-exclusion-rules](../../includes/backup-azure-antivirus-scan-exclusion-rules.md)]
 
+### Backup or restore job is displayed as *in progress* in Azure for many days but is not visible in the console
+
+If a MARS Agent backup or restore job crashes during execution, it is marked as failed in the MARS console, but the status might not get propagated to Azure. Hence, the job might be displayed as "in progress" in the Azure Portal even when it is not running. This stale job entry will be removed from the Azure Portal automatically after 30 days.
+
 ## Common issues
 
 This section covers the common errors that you encounter while using MARS agent.
@@ -277,7 +282,7 @@ Unable to find changes in a file. This could be due to various reasons. Please r
 
 ## MARS offline seeding using customer-owned disks (Import/Export) is not working
 
-Azure Import/Export now uses Azure Data Box APIs for offline seeding on customer-owned disks. The Azure portal also list the Import/Export jobs created using the new API under [Azure Data Box jobs](../import-export/storage-import-export-view-drive-status.md?tabs=azure-portal-preview) with the Model column as Import/Export.
+Azure Import/Export now uses Azure Data Box APIs for offline seeding on customer-owned disks. The Azure portal also lists the Import/Export jobs created using the new API under [Azure Data Box jobs](../import-export/storage-import-export-view-drive-status.md?tabs=azure-portal-preview) with the Model column as Import/Export.
 
 MARS agent versions lower than *2.0.9250.0* used the [old Azure Import/Export APIs](/rest/api/storageimportexport/), which will be discontinued after February 28, 2023 and the old MARS agents (version lower than 2.0.9250.0) can't do offline seeding using your own disks. So, we recommend you to use MARS agent 2.0.9250 or higher that uses the new Azure Data Box APIs for offline seeding on your own disks.
 

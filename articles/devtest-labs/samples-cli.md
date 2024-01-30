@@ -1,15 +1,16 @@
 ---
 title: Azure CLI Samples
-description: Learn about Azure CLI scripts. With these samples, you can create a virtual machine and then start, stop, and delete it in Azure Lab Services.
+description: Learn about Azure CLI scripts. With these samples, you can create a virtual machine and then start, stop, and delete it in Azure DevTest Labs.
 ms.topic: sample
+ms.custom: devx-track-azurecli, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 02/02/2022
+ms.date: 09/30/2023
 ---
 
-# Azure CLI Samples for Azure Lab Services
+# Azure CLI Samples for Azure DevTest Labs
 
-This article includes sample bash scripts built for Azure CLI for Azure Lab Services.
+This article includes sample bash scripts built for Azure CLI for Azure DevTest Labs.
 
 | Script | Description |
 |---|---|
@@ -59,6 +60,9 @@ This script uses the following commands:
 
 This Azure CLI script stops and deletes a virtual machine in a lab.
 
+> [!CAUTION]
+> Deleting VMs and labs is permanent, and cannot be undone.
+
 :::code language="powershell" source="../../cli_scripts/devtest-lab/stop-delete-virtual-machine-in-lab/stop-delete-virtual-machine-in-lab.sh":::
 
 This script uses the following commands:
@@ -71,6 +75,9 @@ This script uses the following commands:
 ## Clean up deployment
 
 Run the following command to remove the resource group, VM, and all related resources.
+
+> [!CAUTION]
+> Deleting the resource group for the lab is permanent, and cannot be undone. This will remove ALL resources under the group and can not be restored.
 
 ```azurecli
 az group delete --name $resourceGroupName

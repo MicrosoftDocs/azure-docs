@@ -15,7 +15,7 @@ ms.subservice: teams-interop
 In this article, you will learn which capabilities are supported for Teams external users using Azure Communication Services SDKs in Teams meetings. You can find per platform availability in [voice and video calling capabilities](../../voice-video-calling/calling-sdk-features.md).
 
 
-| Group of features | Capability                                                                                                          | JavaScript |
+| Group of features | Capability                                                                                                          | Supported |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---------- | 
 | Core Capabilities | Join Teams meeting                                                                                                  | ✔️        |
 |                   | Leave meeting                                                                                                       | ✔️ |
@@ -25,20 +25,23 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Prevent joining locked meeting                                                                                      | ✔️        |
 |                   | Honor assigned Teams meeting role                                                                                   |   ✔️      |
 | Chat              | Send and receive chat messages                                                                                      | ✔️ |
+|                   | [Receive inline images](../../../tutorials/chat-interop/meeting-interop-features-inline-image.md)                                                                    | ✔️ |
+|                   | Send inline images                                                                                                        | ❌ |
+|                   | [Receive file attachments](../../../tutorials/chat-interop/meeting-interop-features-file-attachment.md)                                                                                                           | ✔️** |
+|                   | Send file attachments                                                                                                        | ❌ |
 |                   | Send and receive Giphy                                                                                              | ❌ |
 |                   | Send messages with high priority                                                                                    | ❌ |
 |                   | Receive messages with high priority                                                                                 | ✔️ |
 |                   | Send and receive Loop components                                                                                    | ❌ |
 |                   | Send and receive Emojis                                                                                             | ❌ |
 |                   | Send and receive Stickers                                                                                           | ❌ |
-|                   | Send and receive Stickers                                                                                           | ❌ |
 |                   | Send and receive Teams messaging extensions                                                                         | ❌ |
 |                   | Use typing indicators                                                                                               | ✔️ |
 |                   | Read receipt                                                                                                        | ❌ |
-|                   | File sharing                                                                                                        | ❌ |
 |                   | Reply to specific chat message                                                                                      | ❌ |
 |                   | React to chat message                                                                                               | ❌ |
-| | [Data Loss Prevention (DLP)](/microsoft-365/compliance/dlp-microsoft-teams)                         | ✔️* |
+|                   | [Data Loss Prevention (DLP)](/microsoft-365/compliance/dlp-microsoft-teams)                                         | ✔️*|
+|                   | [Customer Managed Keys (CMK)](/microsoft-365/compliance/customer-key-overview)                                      | ✔️ |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️        |
 |                   | Mute/Unmute mic                                                                                                     | ✔️        |
 |                   | Switch between cameras                                                                                              | ✔️        |
@@ -50,9 +53,11 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Indicator of call's state <br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️        |
 |                   | Indicate participants being muted                                                                                   | ✔️        |
 |                   | Indicate participants' reasons for terminating the call                                                             | ✔️        |
+|                   | Get associated toll and toll-free phone numbers with the meeting                                                    | ✔️        |
 | Screen sharing    | Share the entire screen from within the application                                                                 | ✔️        |
 |                   | Share a specific application (from the list of running applications)                                                | ✔️        |
 |                   | Share a web browser tab from the list of open tabs                                                                  | ✔️        |
+|                   | Receive your screen sharing stream                                                                                  | ❌        |
 |                   | Share content in "content-only" mode                                                                                | ✔️        |
 |                   | Receive video stream with content for "content-only" screen sharing experience                                      | ✔️        |
 |                   | Share content in "standout" mode                                                                                    | ❌        |
@@ -70,7 +75,7 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Remove a participant                                                                                                | ✔️        |
 |                   | Manage breakout rooms                                                                                               | ❌ |
 |                   | Participation in breakout rooms                                                                                     | ❌ |
-|                   | Admit participants in the lobby into the Teams meeting                                                               | ❌        |
+|                   | Admit participants in the lobby into the Teams meeting                                                               | ✔️        |
 |                   | Be admitted from the lobby into the Teams meeting                                                                   | ✔️        |
 |                   | Promote participant to a presenter or attendee                                                                        | ❌        |
 |                   | Be promoted to presenter or attendee                                                                                | ✔️        |
@@ -96,18 +101,20 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | See Large gallery view                                                                                              | ❌ |
 |                   | Receive video stream from Teams media bot                                                                           | ❌ |
 |                   | Receive adjusted stream for "content from Camera"                                                                   | ❌ |
-|                   | Add and remove video stream from spotlight                                                                          | ❌ |
-|                   | Allow video stream to be selected for spotlight                                                                     | ❌ |
+|                   | Add and remove video stream from spotlight                                                                          | ✔️ |
+|                   | Allow video stream to be selected for spotlight                                                                     | ✔️ |
 |                   | Apply Teams background effects                                                                                      | ❌ |
-| Recording & transcription | Manage Teams convenient recording                                                                           | ❌ |
-|                   | Receive information of call being recorded                                                                          |   ✔️      |
+| Recording & transcription | Manage Teams cloud recording                                                                                | ❌ |
+|                   | Receive information of call being cloud recorded                                                                    | ✔️ |
+|                   | Manage Teams local recording                                                                                        | ❌ |
+|                   | Receive information of call being locally recorded                                                                  | ✔️ |
 |                   | Manage Teams transcription                                                                                          | ❌ |
 |                   | Receive information of call being transcribed                                                                       |   ✔️      |
 |                   | Manage Teams closed captions                                                                                        | ❌ |
 |                   | Support for compliance recording                                                                                    |   ✔️      |
 |                   | [Azure Communication Services recording](../../voice-video-calling/call-recording.md)                               |   ❌      |
-| Engagement        | Raise and lower hand                                                                                                | ❌ |
-|                   | Indicate other participants' raised and lowered hands | ❌ |
+| Engagement        | Raise and lower hand                                                                                                | ✔️ |
+|                   | Indicate other participants' raised and lowered hands                                                               | ✔️ |
 |                   | Trigger reactions                                                                                                   | ❌ |
 |                   | Indicate other participants' reactions                                                                              | ❌ |
 | Integrations      | Control Teams third-party applications                                                                              | ❌ |
@@ -157,8 +164,8 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Honor setting "Teams Q&A"                                                                                           |   No API available |
 |                   | Honor setting "Meeting reactions"                                                                                   |   No API available |
 | DevOps            | [Azure Metrics](../../metrics.md)                                                                                   | ✔️ |
-|                   | [Azure Monitor](../../logging-and-diagnostics.md)                                                                   | ✔️ |
-|                   | [Azure Communication Services Insights](../../analytics/insights.md)                                                | ✔️ |
+|                   | [Azure Monitor](../../analytics/logs/voice-and-video-logs.md)                                                                   | ✔️ |
+|                   | [Azure Communication Services Insights](../../analytics/insights/voice-and-video-insights.md)                                                | ✔️ |
 |                   | [Azure Communication Services Voice and video calling events](../../../../event-grid/communication-services-voice-video-events.md) | ❌ |
 |                   | [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality)                        | ✔️ |
 |                   | [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality)           | ❌ |
@@ -167,16 +174,18 @@ When Teams external users leave the meeting, or the meeting ends, they can no lo
 
 *Azure Communication Services provides developers tools to integrate Microsoft Teams Data Loss Prevention that is compatible with Microsoft Teams. For more information, go to [how to implement Data Loss Prevention (DLP)](../../../how-tos/chat-sdk/data-loss-prevention.md)
 
+**File attachment support is currently in public preview and is available in the Chat SDK for JavaScript only. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+
 ## Server capabilities
 
 The following table shows supported server-side capabilities available in Azure Communication Services:
 
 |Capability | Supported |
 | --- | --- |
-| [Manage ACS call recording](../../voice-video-calling/call-recording.md)                                                        | ❌ |
+| [Manage Azure Communication Services call recording](../../voice-video-calling/call-recording.md)                                                        | ❌ |
 | [Azure Metrics](../../metrics.md)                                                                                               | ✔️ |
-| [Azure Monitor](../../logging-and-diagnostics.md)                                                                                  | ✔️ |
-| [Azure Communication Services Insights](../../analytics/insights.md)                                                            | ✔️ |
+| [Azure Monitor](../../analytics/logs/voice-and-video-logs.md)                                                                                  | ✔️ |
+| [Azure Communication Services Insights](../../analytics/insights/voice-and-video-insights.md)                                                            | ✔️ |
 | [Azure Communication Services Voice and video calling events](../../../../event-grid/communication-services-voice-video-events.md) | ❌ |
 
 
@@ -192,7 +201,7 @@ The following table shows supported Teams capabilities:
 
 ## Next steps
 
-- [Authenticate as Teams external user](../../../quickstarts/access-tokens.md)
+- [Authenticate as Teams external user](../../../quickstarts/identity/access-tokens.md)
 - [Join Teams meeting audio and video as Teams external user](../../../quickstarts/voice-video-calling/get-started-teams-interop.md)
 - [Join Teams meeting chat as Teams external user](../../../quickstarts/chat/meeting-interop.md)
 - [Join meeting options](../../../how-tos/calling-sdk/teams-interoperability.md)

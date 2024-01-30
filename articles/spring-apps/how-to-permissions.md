@@ -1,12 +1,12 @@
 ---
 title: "Use permissions in Azure Spring Apps"
 description: This article shows you how to create custom roles that delegate permissions to Azure Spring Apps resources.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 09/04/2020
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, devx-track-jenkins
 ---
 
 # How to use permissions in Azure Spring Apps
@@ -14,7 +14,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to create custom roles that delegate permissions to Azure Spring Apps resources. Custom roles extend [Azure built-in roles](../role-based-access-control/built-in-roles.md) with various stock permissions.
 
@@ -50,22 +50,26 @@ The Developer role includes permissions to restart apps and see their log stream
 ### [Portal](#tab/Azure-portal)
 
 1. In the Azure portal, open the subscription where you want to assign the custom role.
-2. Open **Access control (IAM)**.
-3. Select **Add**.
-4. Select **Add custom role**.
-5. Select **Next**:
 
-   ![Screenshot that shows the Basics tab of the Create a custom role window.](media/spring-cloud-permissions/create-custom-role.png)
+1. Open **Access control (IAM)**.
 
-6. Select **Add permissions**:
+1. Select **Add**.
 
-   ![Screenshot that shows the Add permissions button.](media/spring-cloud-permissions/add-permissions.png)
+1. Select **Add custom role**.
 
-7. In the search box, search for **Microsoft.app**. Select **Microsoft Azure Spring Apps**:
+1. Select **Next**:
 
-   ![Screenshot that shows the results of searching for Microsoft.app.](media/spring-cloud-permissions/spring-cloud-permissions.png)
+   :::image type="content" source="media/how-to-permissions/create-custom-role.png" alt-text="Screenshot that shows the Basics tab of the Create a custom role window." lightbox="media/how-to-permissions/create-custom-role.png":::
 
-8. Select the permissions for the Developer role.
+1. Select **Add permissions**:
+
+   :::image type="content" source="media/how-to-permissions/add-permissions.png" alt-text="Screenshot that shows the Add permissions button." lightbox="media/how-to-permissions/add-permissions.png":::
+
+1. In the search box, search for **Microsoft.app**. Select **Microsoft Azure Spring Apps**:
+
+   :::image type="content" source="media/how-to-permissions/permissions.png" alt-text="Screenshot that shows the results of searching for Microsoft.app." lightbox="media/how-to-permissions/permissions.png":::
+
+1. Select the permissions for the Developer role.
 
    Under **Microsoft.AppPlatform/Spring**, select:
 
@@ -73,38 +77,38 @@ The Developer role includes permissions to restart apps and see their log stream
    * **Read : Get Azure Spring Apps service instance**
    * **Other : List Azure Spring Apps service instance test keys**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Build Services**
    * **Other : Get an Upload URL in Azure Spring Apps**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builds**
    * **Write : Write Microsoft Azure Spring Apps Builds**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Build Results**
    * **Other : Get an Log File URL in Azure Spring Apps**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builders**
    * **Write : Write Microsoft Azure Spring Apps Builders**
    * **Delete : Delete Microsoft Azure Spring Apps Builders**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builder BuildpackBinding**
    * **Write : Write Microsoft Azure Spring Apps Builder BuildpackBinding**
    * **Delete : Delete Microsoft Azure Spring Apps Builder BuildpackBinding**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Supported Buildpacks**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Supported Stacks**
 
@@ -142,31 +146,35 @@ The Developer role includes permissions to restart apps and see their log stream
 
    * **Read : Read operation status**
 
-   [![Screenshot of Azure portal that shows the selections for Developer permissions.](media/spring-cloud-permissions/developer-permissions-box.png)](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
+   :::image type="content" source="media/how-to-permissions/developer-permissions-box.png" alt-text="Screenshot of Azure portal that shows the selections for Developer permissions." lightbox="media/how-to-permissions/developer-permissions-box.png":::
 
-9. Select **Add**.
+1. Select **Add**.
 
-10. Review the permissions.
+1. Review the permissions.
 
-11. Select **Review and create**.
+1. Select **Review and create**.
 
 ### [JSON](#tab/JSON)
 
 1. In the Azure portal, open the subscription where you want to assign the custom role.
-2. Open **Access control (IAM)**.
-3. Select **Add**.
-4. Select **Add custom role**.
-5. Select **Next**.
 
-6. Select the **JSON** tab.
+1. Open **Access control (IAM)**.
 
-7. Select **Edit**, and then delete the default text:
+1. Select **Add**.
 
-   ![Screenshot that shows the default JSON text.](media/spring-cloud-permissions/create-custom-role-edit-json.png)
+1. Select **Add custom role**.
 
-8. Paste in the following JSON to define the Developer role:
+1. Select **Next**.
 
-   * Basic/Standard tier
+1. Select the **JSON** tab.
+
+1. Select **Edit**, and then delete the default text:
+
+   :::image type="content" source="media/how-to-permissions/create-custom-role-edit-json.png" alt-text="Screenshot that shows the default JSON text." lightbox="media/how-to-permissions/create-custom-role-edit-json.png":::
+
+1. Paste in the following JSON to define the Developer role:
+
+   * Basic/Standard plan
 
       ```json
       {
@@ -205,7 +213,7 @@ The Developer role includes permissions to restart apps and see their log stream
       }
       ```
 
-   * Enterprise tier
+   * Enterprise plan
 
       ```json
       {
@@ -258,13 +266,13 @@ The Developer role includes permissions to restart apps and see their log stream
       }
       ```
 
-   ![Screenshot that shows the JSON for the Developer role.](media/spring-cloud-permissions/create-custom-role-json.png)
+   :::image type="content" source="media/how-to-permissions/create-custom-role-json.png" alt-text="Screenshot that shows the JSON for the Developer role." lightbox="media/how-to-permissions/create-custom-role-json.png":::
 
-9. Select **Save**.
+1. Select **Save**.
 
-10. Review the permissions.
+1. Review the permissions.
 
-11. Select **Review and create**.
+1. Select **Review and create**.
 
 ---
 
@@ -276,7 +284,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
 1. Repeat steps 1 through 4 in the procedure for adding the Developer role.
 
-2. Select the permissions for the DevOps Engineer role:
+1. Select the permissions for the DevOps Engineer role:
 
    Under **Microsoft.AppPlatform/Spring**, select:
 
@@ -288,43 +296,43 @@ This procedure defines a role that has permissions to deploy, test, and restart 
    * **Other : List Azure Spring Apps service instance test keys**
    * **Other : Regenerate Azure Spring Apps service instance test key**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Build Services**
    * **Other : Get an Upload URL in Azure Spring Apps**
   
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/agentPools**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/agentPools**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Agent Pools**
    * **Write : Write Microsoft Azure Spring Apps Agent Pools**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builds**
    * **Write : Write Microsoft Azure Spring Apps Builds**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Build Results**
    * **Other : Get an Log File URL in Azure Spring Apps**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builders**
    * **Write : Write Microsoft Azure Spring Apps Builders**
    * **Delete : Delete Microsoft Azure Spring Apps Builders**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builder BuildpackBinding**
    * **Write : Write Microsoft Azure Spring Apps Builder BuildpackBinding**
    * **Delete : Delete Microsoft Azure Spring Apps Builder BuildpackBinding**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Supported Buildpacks**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Supported Stacks**
 
@@ -372,28 +380,29 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
    * **Read : List available skus**
 
-   [![Screenshot of Azure portal that shows the selections for DevOps permissions.](media/spring-cloud-permissions/dev-ops-permissions.png)](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
+   :::image type="content" source="media/how-to-permissions/dev-ops-permissions.png" alt-text="Screenshot of Azure portal that shows the selections for DevOps permissions." lightbox="media/how-to-permissions/dev-ops-permissions.png":::
 
-3. Select **Add**.
+1. Select **Add**.
 
-4. Review the permissions.
+1. Review the permissions.
 
-5. Select **Review and create**.
+1. Select **Review and create**.
 
 ### [JSON](#tab/JSON)
 
 1. Repeat steps 1 through 4 from the procedure for adding the Developer role.
-2. Select **Next**.
 
-3. Select the **JSON** tab.
+1. Select **Next**.
 
-4. Select **Edit**, and then delete the default text:
+1. Select the **JSON** tab.
 
-   ![Screenshot that shows the default JSON text.](media/spring-cloud-permissions/create-custom-role-edit-json.png)
+1. Select **Edit**, and then delete the default text:
 
-5. Paste in the following JSON to define the DevOps Engineer role:
+   :::image type="content" source="media/how-to-permissions/create-custom-role-edit-json.png" alt-text="Screenshot that shows the default JSON text." lightbox="media/how-to-permissions/create-custom-role-edit-json.png":::
 
-   * Basic/Standard tier
+1. Paste in the following JSON to define the DevOps Engineer role:
+
+   * Basic/Standard plan
 
       ```json
       {
@@ -443,7 +452,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
       }
       ```
 
-   * Enterprise tier
+   * Enterprise plan
 
       ```json
       {
@@ -509,9 +518,9 @@ This procedure defines a role that has permissions to deploy, test, and restart 
       }
       ```
 
-6. Review the permissions.
+1. Review the permissions.
 
-7. Select **Review and create**.
+1. Select **Review and create**.
 
 ---
 
@@ -522,7 +531,8 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 ### [Portal](#tab/Azure-portal)
 
 1. Repeat steps 1 through 4 from the procedure for adding the Developer role.
-2. Select the permissions for the Ops - Site Reliability Engineering role:
+
+1. Select the permissions for the Ops - Site Reliability Engineering role:
 
    Under **Microsoft.AppPlatform/Spring**, select:
 
@@ -548,28 +558,29 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
    * **Read : Read operation status**
 
-   [![Screenshot of Azure portal that shows the selections for Ops - Site Reliability Engineering permissions.](media/spring-cloud-permissions/ops-sre-permissions.png)](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
+   :::image type="content" source="media/how-to-permissions/ops-sre-permissions.png" alt-text="Screenshot of Azure portal that shows the selections for Ops - Site Reliability Engineering permissions." lightbox="media/how-to-permissions/ops-sre-permissions.png":::
 
-3. Select **Add**.
+1. Select **Add**.
 
-4. Review the permissions.
+1. Review the permissions.
 
-5. Select **Review and create**.
+1. Select **Review and create**.
 
 ### [JSON](#tab/JSON)
 
 1. Repeat steps 1 through 4 from the procedure for adding the Developer role.
-2. Select **Next**.
 
-3. Select the **JSON** tab.
+1. Select **Next**.
 
-4. Select **Edit**, and then delete the default text:
+1. Select the **JSON** tab.
 
-   ![Screenshot that shows the default JSON text.](media/spring-cloud-permissions/create-custom-role-edit-json.png)
+1. Select **Edit**, and then delete the default text:
 
-5. Paste in the following JSON to define the Ops - Site Reliability Engineering role:
+   :::image type="content" source="media/how-to-permissions/create-custom-role-edit-json.png" alt-text="Screenshot that shows the default JSON text." lightbox="media/how-to-permissions/create-custom-role-edit-json.png":::
 
-   * Enterprise/Basic/Standard tier
+1. Paste in the following JSON to define the Ops - Site Reliability Engineering role:
+
+   * Enterprise/Basic/Standard plan
 
       ```json
       {
@@ -602,9 +613,9 @@ This procedure defines a role that has permissions to deploy, test, and restart 
       }
       ```
 
-6. Review the permissions.
+1. Review the permissions.
 
-7. Select **Review and create**.
+1. Select **Review and create**.
 
 ---
 
@@ -615,9 +626,10 @@ This role can create and configure everything in Azure Spring Apps and apps with
 ### [Portal](#tab/Azure-portal)
 
 1. Repeat steps 1 through 4 from the procedure for adding the Developer role.
-2. Open the **Permissions** options.
 
-3. Select the permissions for the Azure Pipelines / Jenkins / GitHub Actions role:
+1. Open the **Permissions** options.
+
+1. Select the permissions for the Azure Pipelines / Jenkins / GitHub Actions role:
 
    Under **Microsoft.AppPlatform/Spring**, select:
 
@@ -628,39 +640,39 @@ This role can create and configure everything in Azure Spring Apps and apps with
    * **Other : Disable Azure Spring Apps service instance test endpoint**
    * **Other : List Azure Spring Apps service instance test keys**
    * **Other : Regenerate Azure Spring Apps service instance test key**
-  
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
+
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Build Services**
    * **Other : Get an Upload URL in Azure Spring Apps**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builds**
    * **Write : Write Microsoft Azure Spring Apps Builds**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Build Results**
    * **Other : Get an Log File URL in Azure Spring Apps**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builders**
    * **Write : Write Microsoft Azure Spring Apps Builders**
    * **Delete : Delete Microsoft Azure Spring Apps Builders**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Builder BuildpackBinding**
    * **Write : Write Microsoft Azure Spring Apps Builder BuildpackBinding**
    * **Delete : Delete Microsoft Azure Spring Apps Builder BuildpackBinding**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Supported Buildpacks**
 
-   (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
+   (For Enterprise plan only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
 
    * **Read : Read Microsoft Azure Spring Apps Supported Stacks**
 
@@ -708,29 +720,29 @@ This role can create and configure everything in Azure Spring Apps and apps with
 
    * **Read : List available skus**
 
-   [![Screenshot of Azure portal that shows the selections for Azure Pipelines / Jenkins / GitHub Actions permissions.](media/spring-cloud-permissions/pipelines-permissions-box.png)](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)
+   :::image type="content" source="media/how-to-permissions/pipelines-permissions-box.png" alt-text="Screenshot of Azure portal that shows the selections for Azure Pipelines / Jenkins / GitHub Actions permissions." lightbox="media/how-to-permissions/pipelines-permissions-box.png":::
 
-4. Select **Add**.
+1. Select **Add**.
 
-5. Review the permissions.
+1. Review the permissions.
 
-6. Select **Review and create**.
+1. Select **Review and create**.
 
 ### [JSON](#tab/JSON)
 
 1. Repeat steps 1 through 4 from the procedure for adding the Developer role.
 
-2. Select **Next**.
+1. Select **Next**.
 
-3. Select the **JSON** tab.
+1. Select the **JSON** tab.
 
-4. Select **Edit**, and then delete the default text:
+1. Select **Edit**, and then delete the default text:
 
-   ![Screenshot that shows the default JSON text.](media/spring-cloud-permissions/create-custom-role-edit-json.png)
+   :::image type="content" source="media/how-to-permissions/create-custom-role-edit-json.png" alt-text="Screenshot that shows the default JSON text." lightbox="media/how-to-permissions/create-custom-role-edit-json.png":::
 
-5. Paste in the following JSON to define the Azure Pipelines / Jenkins / GitHub Actions role:
+1. Paste in the following JSON to define the Azure Pipelines / Jenkins / GitHub Actions role:
 
-   * Basic/Standard tier
+   * Basic/Standard plan
 
       ```json
       {
@@ -779,7 +791,7 @@ This role can create and configure everything in Azure Spring Apps and apps with
       }
       ```
 
-   * Enterprise tier
+   * Enterprise plan
 
       ```json
       {
@@ -842,9 +854,9 @@ This role can create and configure everything in Azure Spring Apps and apps with
       }
       ```
 
-6. Select **Add**.
+1. Select **Add**.
 
-7. Review the permissions.
+1. Review the permissions.
 
 ---
 

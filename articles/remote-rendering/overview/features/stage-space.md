@@ -16,16 +16,22 @@ To align local and remote content, it is assumed that the stage space and the wo
 
 Typical reasons for moving the stage space are [world locking tools](https://microsoft.github.io/MixedReality-WorldLockingTools-Unity/README.html) or other real world anchoring techniques as well as moving a virtual character in VR.
 
-## Stage space settings
-
 > [!CAUTION]
 > EXPERIMENTAL: This feature is experimental and will change over time. Thus updating to newer client SDK versions may require additional work to upgrade the code. The current implementation will break local/remote content alignment for a brief moment when changing the stage space origin.
-Thus, it is currently only intended to be used for world locking purposes like anchors that exhibit only very small changes over time.
 
-To inform the server that an additional transform is applied to the stage space, its origin defined by a position and a rotation in world space need to be sent over. This setting can be accessed via *stage space setting*.
+## Stage space best practices
+
+As the feature is still experimental, it has a few caveats that need to be considered. Every time the stage space transform is changed, local and remote content will not align anymore until the client receives a new video frame that has incorporated the new stage space transform. Thus, the following should be taken into account:
+
+1. Avoid continuous locomotion. As continuous locomotion changes the stage space transform every frame, local and remote content will be misaligned until locomotion stops.
+1. Prefer teleport for locomotion. To better hide the misalignment, consider using fade-to-black during the transition and teleport instantly instead of animating the transform.
 
 > [!IMPORTANT]
 > In the [desktop simulation](../../concepts/graphics-bindings.md) the world-space location of the camera is provided by the user application. In this case, setting the stage space origin must be skipped as it is already multiplied into the camera transform.
+
+## Stage space settings
+
+To inform the server that an additional transform is applied to the stage space, its origin defined by a position and a rotation in world space need to be sent over. This setting can be accessed via *stage space setting*.
 
 ```cs
 void ChangeStageSpace(RenderingSession session)

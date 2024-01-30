@@ -5,7 +5,7 @@ keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting sta
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive, hdiseo17may2017, mvc, seodec18, mode-ui
-ms.date: 10/20/2022
+ms.date: 11/29/2023
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Azure portal and run a Hive job
 ---
 
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 In this section, you create a Hadoop cluster in HDInsight using the Azure portal.
 
-1. Sign in to the [Azure  portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. From the top menu, select **+ Create a resource**.
 

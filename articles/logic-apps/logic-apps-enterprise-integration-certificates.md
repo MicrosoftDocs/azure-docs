@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 01/04/2024
 ---
 
 # Add certificates to integration accounts for securing messages in workflows with Azure Logic Apps
@@ -64,7 +64,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
 * At least two [trading partners](logic-apps-enterprise-integration-partners.md) and an [agreement between those partners](logic-apps-enterprise-integration-agreements.md) in your integration account. An agreement requires a host partner and a guest partner. Also, an agreement requires that both partners use the same or compatible *business identity* qualifier that's appropriate for an AS2, X12, EDIFACT, or RosettaNet agreement.
 
-* Optionally, the logic app resource and workflow where you want to use the certificate. The workflow requires any trigger that starts your logic app's workflow. If you haven't created a logic app workflow before, review [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md).
+* Optionally, the logic app resource and workflow where you want to use the certificate. The workflow requires any trigger that starts your logic app's workflow. If you haven't created a logic app workflow before, review [Quickstart: Create an example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md).
 
 <a name="add-public-certificate"></a>
 

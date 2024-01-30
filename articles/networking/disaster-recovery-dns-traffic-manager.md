@@ -2,18 +2,13 @@
 title: 'Disaster recovery using Azure DNS and Traffic Manager | Microsoft Docs'
 description: Overview of the disaster recovery solutions using Azure DNS and Traffic Manager.
 services: dns
-documentationcenter: na
 author: greg-lindsay
 manager: kumudD
-editor: 
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: dns
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/06/2021
+ms.date: 11/30/2023
 ms.author: greglin
 
 ---

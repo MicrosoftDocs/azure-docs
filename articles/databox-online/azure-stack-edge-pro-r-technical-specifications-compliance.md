@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 04/12/2023
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro R technical specifications
@@ -24,9 +24,9 @@ The Azure Stack Edge Pro R device has the following specifications for compute a
 | CPU type       | Dual Intel Xeon Silver 4114 CPU                   |
 | CPU: raw       | 20 total cores, 40 total vCPUs                    |
 | CPU: usable    | 32 vCPUs                                          |
-| Memory type    | Dell Compatible 16 GB RDIMM, 2666 MT/s, Dual rank |
-| Memory: raw    | 256 GB RAM (16 x 16 GB)                           |
-| Memory: usable | 217 GB RAM                                        |
+| Memory type    | Dell Compatible 16 GiB RDIMM, 2666 MT/s, Dual rank |
+| Memory: raw    | 256 GiB RAM (16 x 16 GiB)                           |
+| Memory: usable | 217 GiB RAM                                        |
 
 ## Compute acceleration specifications
 
@@ -47,6 +47,17 @@ The Azure Stack Edge Pro R device has two 100-240 V Power supply units (PSUs) wi
 | Frequency                  | 50/60 Hz                   |
 | Voltage range selection    | Auto ranging: 115-230 V AC |
 | Hot pluggable              | Yes                        |
+
+## Battery specifications for UPS
+
+The Azure Stack Edge Pro R device has the following specifications for UPS:
+
+| Specification  | Value                                             |
+|----------------|---------------------------------------------------|
+| Battery type       | Lithium iron phosphate (LFP) |
+| Battery voltage       | 48 Vdc |
+| Battery capacity | 5.0 Ah | 
+
 
 ## Network specifications
 
@@ -71,8 +82,6 @@ Your Azure Stack Edge Pro R device has the following network hardware:
 | Device Part Number (XR2) | MCX4421A-ACAN  |
 | PSID (R640)           | MT_2420110034                         |-->
 <!-- confirm w/ Ravi what is this-->
-
-For a full list of supported cables, switches, and transceivers for these network cards, go to [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
 
 ## Storage specifications
 

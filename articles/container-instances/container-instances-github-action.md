@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 12/09/2022
-ms.custom: github-actions-azure, devx-track-azurecli
+ms.custom: github-actions-azure, devx-track-azurecli, linux-related-content
 ---
 
 # Configure a GitHub Action to create a container instance
@@ -24,7 +24,7 @@ This article shows how to set up a workflow in a GitHub repo that performs the f
 
 This article shows two ways to set up the workflow:
 
-* [Configure GitHub workflow](#configure-github-workflow) - Create a workflow in a GitHub repo using the Deploy to Azure Container Instances action and other actions.  
+* [Configure GitHub workflow](#configure-github-workflow) - Create a workflow in a GitHub repo using the Deploy to Azure Container Instances action and other actions.
 * [Use CLI extension](#use-deploy-to-azure-extension) - Use the `az container app up` command in the [Deploy to Azure](https://github.com/Azure/deploy-to-azure-cli-extension) extension in the Azure CLI. This command streamlines creation of the GitHub workflow and deployment steps.
 
 > [!IMPORTANT]
@@ -56,7 +56,7 @@ In the GitHub workflow, you need to supply Azure credentials to authenticate to 
 
 First, get the resource ID of your resource group. Substitute the name of your group in the following [az group show][az-group-show] command:
 
-```azurecli
+```azurecli-interactive
 groupId=$(az group show \
   --name <resource-group-name> \
   --query id --output tsv)
@@ -64,11 +64,11 @@ groupId=$(az group show \
 
 Use [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] to create the service principal:
 
-```azurecli
+```azurecli-interactive
 az ad sp create-for-rbac \
   --scope $groupId \
   --role Contributor \
-  --sdk-auth
+  --json-auth
 ```
 
 Output is similar to:
@@ -92,29 +92,29 @@ Save the JSON output because it is used in a later step. Also, take note of the 
 
 # [OpenID Connect](#tab/openid)
 
-OpenID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security. 
+OpenID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security.
 
-1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
+1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application.
 
     ```azurecli-interactive
     az ad app create --display-name myApp
     ```
 
-    This command will output JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later. 
+    This command will output JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later.
 
     You'll use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
 
-1. Create a service principal. Replace the `$appID` with the appId from your JSON output. 
+1. Create a service principal. Replace the `$appID` with the appId from your JSON output.
 
-    This command generates JSON output with a different `objectId` and will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
-    
-    Copy the `appOwnerTenantId` to use as a GitHub secret for `AZURE_TENANT_ID` later. 
+    This command generates JSON output with a different `objectId` and will be used in the next step. The new  `objectId` is the `assignee-object-id`.
+
+    Copy the `appOwnerTenantId` to use as a GitHub secret for `AZURE_TENANT_ID` later.
 
     ```azurecli-interactive
      az ad sp create --id $appId
     ```
 
-1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli). 
+1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     ```azurecli-interactive
     az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/ --assignee-principal-type ServicePrincipal
@@ -128,8 +128,8 @@ OpenID Connect is an authentication method that uses short-lived tokens. Setting
       * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
       * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
       * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
-    
-    ```azurecli
+
+    ```azurecli-interactive
     az ad app federated-credential create --id <APPLICATION-OBJECT-ID> --parameters credential.json
     ("credential.json" contains the following content)
     {
@@ -140,9 +140,9 @@ OpenID Connect is an authentication method that uses short-lived tokens. Setting
         "audiences": [
             "api://AzureADTokenExchange"
         ]
-    }     
+    }
     ```
-    
+
 To learn how to create a Create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
 
 ---
@@ -151,12 +151,12 @@ To learn how to create a Create an active directory application, service princip
 
 # [Service principal](#tab/userlevel)
 
-Update the Azure service principal credentials to allow push and pull access to your container registry. This step enables the GitHub workflow to use the service principal to [authenticate with your container registry](../container-registry/container-registry-auth-service-principal.md) and to push and pull a Docker image. 
+Update the Azure service principal credentials to allow push and pull access to your container registry. This step enables the GitHub workflow to use the service principal to [authenticate with your container registry](../container-registry/container-registry-auth-service-principal.md) and to push and pull a Docker image.
 
 Get the resource ID of your container registry. Substitute the name of your registry in the following [az acr show][az-acr-show] command:
 
-```azurecli
-$registryId=$(az acr show \
+```azurecli-interactive
+registryId=$(az acr show \
   --name <registry-name> \
   --resource-group <resource-group-name> \
   --query id --output tsv)
@@ -164,7 +164,7 @@ $registryId=$(az acr show \
 
 Use [az role assignment create][az-role-assignment-create] to assign the AcrPush role, which gives push and pull access to the registry. Substitute the client ID of your service principal:
 
-```azurecli
+```azurecli-interactive
 az role assignment create \
   --assignee <ClientId> \
   --scope $registryId \
@@ -173,13 +173,13 @@ az role assignment create \
 
 # [OpenID Connect](#tab/openid)
 
-You need to give your application permission to access the Azure Container Registry and to create an Azure Container Instance. 
+You need to give your application permission to access the Azure Container Registry and to create an Azure Container Instance.
 
-1. In Azure portal, go to [App registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps). 
-1. Search for your OpenID Connect app registration and copy the **Application (client) ID**. 
-1. Grant permissions for your app to your resource group. You'll need to set permissions at the resource group level so that you can create Azure Container instances. 
+1. In Azure portal, go to [App registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps).
+1. Search for your OpenID Connect app registration and copy the **Application (client) ID**.
+1. Grant permissions for your app to your resource group. You'll need to set permissions at the resource group level so that you can create Azure Container instances.
 
-    ```azurecli
+    ```azurecli-interactive
     az role assignment create \
     --assignee <appID> \
     --role Contributor \
@@ -242,12 +242,12 @@ jobs:
         # checkout the repo
         - name: 'Checkout GitHub Action'
           uses: actions/checkout@main
-          
+
         - name: 'Login via Azure CLI'
           uses: azure/login@v1
           with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
-        
+
         - name: 'Build and push image'
           uses: azure/docker-login@v1
           with:
@@ -293,7 +293,7 @@ jobs:
         steps:
         - name: 'Checkout GitHub Action'
           uses: actions/checkout@main
-          
+
         - name: 'Login via Azure CLI'
           uses: azure/login@v1
           with:
@@ -323,15 +323,15 @@ jobs:
 
 ### Validate workflow
 
-After you commit the workflow file, the workflow is triggered. To review workflow progress, navigate to **Actions** > **Workflows**. 
+After you commit the workflow file, the workflow is triggered. To review workflow progress, navigate to **Actions** > **Workflows**.
 
 ![View workflow progress](./media/container-instances-github-action/github-action-progress.png)
 
 See [Viewing workflow run history](https://docs.github.com/en/actions/managing-workflow-runs/viewing-workflow-run-history) for information about viewing the status and results of each step in your workflow. If the workflow doesn't complete, see [Viewing logs to diagnose failures](https://docs.github.com/en/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
 
-When the workflow completes successfully, get information about the container instance named *aci-sampleapp* by running the [az container show][az-container-show] command. Substitute the name of your resource group: 
+When the workflow completes successfully, get information about the container instance named *aci-sampleapp* by running the [az container show][az-container-show] command. Substitute the name of your resource group:
 
-```azurecli
+```azurecli-interactive
 az container show \
   --resource-group <resource-group-name> \
   --name aci-sampleapp \
@@ -341,7 +341,7 @@ az container show \
 
 Output is similar to:
 
-```console
+```output
 FQDN                                   ProvisioningState
 ---------------------------------      -------------------
 aci-action01.westus.azurecontainer.io  Succeeded
@@ -353,7 +353,7 @@ After the instance is provisioned, navigate to the container's FQDN in your brow
 
 ## Use Deploy to Azure extension
 
-Alternatively, use the [Deploy to Azure extension](https://github.com/Azure/deploy-to-azure-cli-extension) in the Azure CLI to configure the workflow. The `az container app up` command in the extension takes input parameters from you to set up a workflow to deploy to Azure Container Instances. 
+Alternatively, use the [Deploy to Azure extension](https://github.com/Azure/deploy-to-azure-cli-extension) in the Azure CLI to configure the workflow. The `az container app up` command in the extension takes input parameters from you to set up a workflow to deploy to Azure Container Instances.
 
 The workflow created by the Azure CLI is similar to the workflow you can [create manually using GitHub](#configure-github-workflow).
 
@@ -363,7 +363,7 @@ In addition to the [prerequisites](#prerequisites) and [repo setup](#set-up-repo
 
 Run the [az extension add][az-extension-add] command to install the extension:
 
-```azurecli
+```azurecli-interactive
 az extension add \
   --name deploy-to-azure
 ```
@@ -379,7 +379,7 @@ To run the [az container app up][az-container-app-up] command, provide at minimu
 
 Sample command:
 
-```azurecli
+```azurecli-interactive
 az container app up \
   --acr myregistry \
   --repository https://github.com/myID/acr-build-helloworld-node
@@ -394,11 +394,11 @@ az container app up \
   * Service principal credentials for the Azure CLI
   * Credentials to access the Azure container registry
 
-* After the command commits the workflow file to your repo, the workflow is triggered. 
+* After the command commits the workflow file to your repo, the workflow is triggered.
 
 Output is similar to:
 
-```console
+```output
 [...]
 Checking in file github/workflows/main.yml in the GitHub repository myid/acr-build-helloworld-node
 Creating workflow...
@@ -412,9 +412,9 @@ To view the workflow status and results of each step in the GitHub UI, see [View
 
 ### Validate workflow
 
-The workflow deploys an Azure container instance with the base name of your GitHub repo, in this case, *acr-build-helloworld-node*. When the workflow completes successfully, get information about the container instance named *acr-build-helloworld-node* by running the [az container show][az-container-show] command. Substitute the name of your resource group: 
+The workflow deploys an Azure container instance with the base name of your GitHub repo, in this case, *acr-build-helloworld-node*. When the workflow completes successfully, get information about the container instance named *acr-build-helloworld-node* by running the [az container show][az-container-show] command. Substitute the name of your resource group:
 
-```azurecli
+```azurecli-interactive
 az container show \
   --resource-group <resource-group-name> \
   --name acr-build-helloworld-node \
@@ -424,7 +424,7 @@ az container show \
 
 Output is similar to:
 
-```console
+```output
 FQDN                                                   ProvisioningState
 ---------------------------------                      -------------------
 acr-build-helloworld-node.westus.azurecontainer.io     Succeeded
@@ -436,7 +436,7 @@ After the instance is provisioned, navigate to the container's FQDN in your brow
 
 Stop the container instance with the [az container delete][az-container-delete] command:
 
-```azurecli
+```azurecli-interactive
 az container delete \
   --name <instance-name>
   --resource-group <resource-group-name>
@@ -444,7 +444,7 @@ az container delete \
 
 To delete the resource group and all the resources in it, run the [az group delete][az-group-delete] command:
 
-```azurecli
+```azurecli-interactive
 az group delete \
   --name <resource-group-name>
 ```

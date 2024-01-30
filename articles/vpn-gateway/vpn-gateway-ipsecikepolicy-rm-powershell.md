@@ -2,12 +2,10 @@
 title: 'Configure custom IPsec/IKE connection policies for S2S VPN & VNet-to-VNet: PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure IPsec/IKE custom policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using PowerShell.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/12/2023
+ms.date: 01/30/2023
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
@@ -39,6 +37,11 @@ The following table lists the supported configurable cryptographic algorithms an
 [!INCLUDE [Algorithm and keys table](../../includes/vpn-gateway-ipsec-ike-algorithm-include.md)]
 
 [!INCLUDE [Important requirements table](../../includes/vpn-gateway-ipsec-ike-requirements-include.md)]
+
+> [!NOTE]
+> IKEv2 Integrity is used for both Integrity and PRF(pseudo-random function). 
+> If IKEv2 Encryption  algorithm specified is GCM*, the value passed in IKEv2 Integrity is used for PRF only and implicitly we set IKEv2 Integrity to GCM*. In all other cases, the value passed in IKEv2 Integrity is used for both IKEv2 Integrity and PRF.
+>
 
 #### Diffie-Hellman groups
 
@@ -179,7 +182,7 @@ The steps of creating a VNet-to-VNet connection with an IPsec/IKE policy are sim
 
 See [Create a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md) for more detailed steps for creating a VNet-to-VNet connection.
 
-### Step 1 - Create the second virtual network and VPN gateway
+### Step 1: Create the second virtual network and VPN gateway
 
 #### 1. Declare your variables
 
@@ -219,12 +222,12 @@ $vnet2      = Get-AzVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2
 $subnet2    = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet2
 $gw2ipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GW2IPconf1 -Subnet $subnet2 -PublicIpAddress $gw2pip1
 
-New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw2
+New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1 -GatewayType Vpn -VpnType RouteBased -VpnGatewayGeneration Generation2 -GatewaySku VpnGw2
 ```
 
 It can take about 45 minutes or more to create the VPN gateway.
 
-### Step 2 - Create a VNet-toVNet connection with the IPsec/IKE policy
+### Step 2: Create a VNet-toVNet connection with the IPsec/IKE policy
 
 Similar to the S2S VPN connection, create an IPsec/IKE policy, then apply the policy to the new connection. If you used Azure Cloud Shell, your connection may have timed out. If so, re-connect and state the necessary variables again.
 
@@ -332,7 +335,19 @@ To enable "UsePolicyBasedTrafficSelectors" when connecting to an on-premises pol
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6 -UsePolicyBasedTrafficSelectors $True
 ```
 
-To check the connection for the updated policy, run the following command.
+Similar to "UsePolicyBasedTrafficSelectors", configuring DPD timeout can be performed outside of the IPsec policy being applied:
+
+```azurepowershell-interactive
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6 -DpdTimeoutInSeconds 30
+```
+
+Either/both **Policy-based traffic selector** and **DPD timeout** options can be specified with **Default** policy, without a custom IPsec/IKE policy, if desired.
+
+```azurepowershell-interactive
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $True -DpdTimeoutInSeconds 30 
+```
+
+You can get the connection again to check if the policy is updated. To check the connection for the updated policy, run the following command.
 
 ```azurepowershell-interactive
 $connection6  = Get-AzVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
@@ -366,6 +381,12 @@ $connection6.IpsecPolicies.Remove($currentpolicy)
 
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6
 ```
+
+You can use the same script to check if the policy has been removed from the connection.
+
+## IPsec/IKE policy FAQ
+
+To view frequently asked questions, go to the IPsec/IKE policy section of the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#ipsecike).
 
 ## Next steps
 

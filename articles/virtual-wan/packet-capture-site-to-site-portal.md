@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 11/21/2023
 ms.author: cherylmc
 
 ---
@@ -25,7 +25,7 @@ Verify that you have the following configuration already set up in your environm
 
 * A Virtual WAN and a virtual hub.
 * A site-to-site VPN gateway deployed in the virtual hub.
-* You may also have connections connecting VPN sites to your site-to-site VPN gateway.
+* You can also have connections connecting VPN sites to your site-to-site VPN gateway.
 
 ## <a name="storage"></a> Create a storage account and container
 
@@ -62,7 +62,7 @@ In this section, you start the packet capture on the virtual hub.
 
 ## <a name="filters"></a> Optional: Specify filters
 
-To simplify your packet captures, you may specify filters on your packet capture to focus on specific behaviors.
+To simplify your packet captures, you can specify filters on your packet capture to focus on specific behaviors.
 
 | Parameter | Description | Default values | Available values |
 |---|---|---|---|
@@ -79,14 +79,14 @@ To simplify your packet captures, you may specify filters on your packet capture
 
 
 > [!NOTE]
-> For TracingFlags and TCPFlags, you may specify multiple protocols by adding up the numerical values for the protocols you want to capture (same as a logical OR). For example, if you want to capture only ESP and OPVN packets, specify a TracingFlag value of 8+1 = 9.
+> For TracingFlags and TCPFlags, you can specify multiple protocols by adding up the numerical values for the protocols you want to capture (same as a logical OR). For example, if you want to capture only ESP and OPVN packets, specify a TracingFlag value of 8+1 = 9.
 >
 
 ## Stop a packet capture
 
 This section helps you stop or abort a packet capture.
 
-1. On the virtual hub page, click the **Packet Capture** button to open the **Packet Capture** page, then click **Stop**. This opens the **Stop Packet Capture** page. At this point, the packet capture is not yet stopped.
+1. On the virtual hub page, click the **Packet Capture** button to open the **Packet Capture** page, then click **Stop**. This opens the **Stop Packet Capture** page. At this point, the packet capture isn't yet stopped.
    :::image type="content" source="./media/packet-capture-site-to-site-portal/packet-stop.png" alt-text="Graphic showing the Stop button." lightbox="./media/packet-capture-site-to-site-portal/packet-stop-expand.png":::
 
 1. On the **Stop Packet Capture** page, paste the *SaS URL* for the storage container that you created earlier into the **Output Sas Url** field. This is the location where the packet capture files will be stored.

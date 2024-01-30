@@ -74,7 +74,7 @@ This value is the state of the last operation performed on a container group. Ge
 > [!IMPORTANT]
 > Additionally, users should not create dependencies on non-terminal provisioning states. Dependencies on **Succeeded** and **Failed** states are acceptable.
 
-In addition to the JSON view, provisioning state can be also be found in the [response body of the HTTP call](/rest/api/container-instances/containergroups/createorupdate#response).
+In addition to the JSON view, provisioning state can be also be found in the [response body of the HTTP call](/rest/api/container-instances/2022-09-01/container-groups/create-or-update#response).
 
 ### Create, start, and restart operations
 

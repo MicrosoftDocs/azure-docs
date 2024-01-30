@@ -1,8 +1,8 @@
 ---
-title: Set data encryption for Azure Database for MySQL flexible server by using the Azure portal
-description: Learn how to set up and manage data encryption for your Azure Database for MySQL - Flexible Server using Azure portal.
-author: vivgk
-ms.author: vivgk
+title: Set up data encryption by using the Azure portal
+description: Learn how to set up and manage data encryption for Azure Database for MySQL - Flexible Server by using the Azure portal.
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 11/21/2022
 ms.service: mysql
@@ -14,7 +14,7 @@ ms.topic: how-to
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This tutorial shows you how to set up and manage data encryption for your Azure Database for MySQL flexible server.
+This tutorial shows you how to set up and manage data encryption for Azure Database for MySQL flexible server.
 
 In this tutorial, you learn how to:
 
@@ -22,13 +22,18 @@ In this tutorial, you learn how to:
 - Configure data encryption for restoration.
 - Configure data encryption for replica servers.
 
+  > [!NOTE]  
+> Azure key vault access configuration now supports two types of permission models - [Azure role-based access control](../../role-based-access-control/overview.md) and [Vault access policy](../../key-vault/general/assign-access-policy.md). The tutorial describes configuring data encryption for Azure Database for MySQL flexible server using Vault access policy. However, you can choose to use Azure RBAC as permission model to grant access to Azure Key Vault. To do so, you need any built-in or custom role that has below three permissions and assign it through "role assignments" using Access control (IAM) tab in the keyvault: a) KeyVault/vaults/keys/wrap/action b) KeyVault/vaults/keys/unwrap/action c) KeyVault/vaults/keys/read
+
+
+
 ## Prerequisites
 
 - An Azure account with an active subscription.
 - If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free) before you begin.
 
     > [!NOTE]  
-    > With an Azure free account, you can now try Azure Database for MySQL - Flexible Server for free for 12 months. For more information, see [Try Flexible Server for free](how-to-deploy-on-azure-free-account.md).
+    > With an Azure free account, you can now try Azure Database for MySQL flexible server for free for 12 months. For more information, see [Try Azure Database for MySQL flexible server for free](how-to-deploy-on-azure-free-account.md).
 
 ## Set the proper permissions for key operations
 
@@ -48,7 +53,7 @@ In this tutorial, you learn how to:
 
 To set up the customer managed key, perform the following steps.
 
-1. In the portal, navigate to your Azure Database for MySQL flexible server, and then, under **Security** , select **Data encryption**.
+1. In the portal, navigate to your Azure Database for MySQL flexible server instance, and then, under **Security** , select **Data encryption**.
 
     :::image type="content" source="media/how-to-data-encryption-portal/3-mysql-data-encryption.jpeg" alt-text="Screenshot of the data encryption page.":::
 
@@ -80,7 +85,7 @@ To use data encryption as part of a restore operation, perform the following ste
 
 ## Use Data encryption for replica servers
 
-After your Azure Database for MySQL flexible server is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted.
+After your Azure Database for MySQL flexible server instance is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted.
 
 1. To configuration replication, under **Settings** , select **Replication** , and then select **Add replica**.
 
@@ -95,5 +100,7 @@ After your Azure Database for MySQL flexible server is encrypted with a customer
 
 ## Next steps
 
-- [Customer managed keys data encryption (Preview)](concepts-customer-managed-key.md)
-- [Data encryption with Azure CLI (Preview)](how-to-data-encryption-cli.md)
+- [Customer managed keys data encryption](concepts-customer-managed-key.md)
+- [Data encryption with Azure CLI](how-to-data-encryption-cli.md)
+
+

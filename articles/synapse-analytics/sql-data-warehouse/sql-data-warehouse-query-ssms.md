@@ -7,7 +7,6 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 author: WilliamDAssafMSFT 
 ms.author: wiassaf
-ms.reviewer: wiassaf
 ms.custom: seo-lt-2019
 ---
 
@@ -72,4 +71,4 @@ Now that a connection has been established to your database, let's write a query
 
 ## Next steps
 
-Now that you can connect and query, try [visualizing the data with Power BI](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect). To configure your environment for Azure Active Directory authentication, see [Authenticate to dedicated SQL pool](sql-data-warehouse-authentication.md).
+Now that you can connect and query, try [visualizing the data with Power BI](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect). To configure your environment for Microsoft Entra authentication, see [Authenticate to dedicated SQL pool](sql-data-warehouse-authentication.md).

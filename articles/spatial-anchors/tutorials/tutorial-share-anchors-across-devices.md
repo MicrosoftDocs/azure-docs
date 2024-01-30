@@ -8,6 +8,7 @@ ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Tutorial: Share spatial anchors across sessions and devices

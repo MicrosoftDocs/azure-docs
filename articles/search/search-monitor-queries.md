@@ -1,19 +1,21 @@
 ---
 title: Monitor queries
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Monitor query metrics for performance and throughput. Collect and analyze query string inputs in resource logs.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 07/11/2022
+ms.date: 02/27/2023
 ---
 
-# Monitor query requests in Azure Cognitive Search
+# Monitor query requests in Azure AI Search
 
-This article explains how to measure query performance and volume using metrics and resource logging. It also explains how to get the query strings entered by application users.
+This article explains how to measure query performance and volume using built-in metrics and resource logging. It also explains how to get the query strings entered by application users.
 
 The Azure portal shows basic metrics about query latency, query load (QPS), and throttling. Historical data that feeds into these metrics can be accessed in the portal for 30 days. For longer retention, or to report on operational data and query strings, you must enable a [diagnostic setting](monitor-azure-cognitive-search.md) that specifies a storage option for persisting logged operations and metrics.
 
@@ -184,4 +186,4 @@ If you specified an email notification, you will receive an email from "Microsof
 If you haven't done so already, review the fundamentals of search service monitoring to learn about the full range of oversight capabilities.
 
 > [!div class="nextstepaction"]
-> [Monitor operations and activity in Azure Cognitive Search](monitor-azure-cognitive-search.md)
+> [Monitor operations and activity in Azure AI Search](monitor-azure-cognitive-search.md)

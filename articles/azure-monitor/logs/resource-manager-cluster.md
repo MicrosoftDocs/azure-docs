@@ -2,10 +2,9 @@
 title: Resource Manager template samples for Log Analytics clusters
 description: Sample Azure Resource Manager templates to deploy Log Analytics clusters.
 ms.topic: sample
-author: yossiy
-ms.author: yossiy
+ms.custom: devx-track-arm-template
+ms.reviewer: yossiy
 ms.date: 06/13/2022
-
 ---
 
 # Resource Manager template samples for Log Analytics clusters in Azure Monitor

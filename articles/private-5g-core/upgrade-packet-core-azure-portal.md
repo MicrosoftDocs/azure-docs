@@ -1,9 +1,9 @@
 ---
 title: Upgrade a packet core instance
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to upgrade a packet core instance using the Azure portal. 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 04/27/2022
@@ -12,14 +12,15 @@ ms.custom: template-how-to
 
 # Upgrade the packet core instance in a site - Azure portal
 
-Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). You'll need to periodically upgrade your packet core instances to get access to the latest Azure Private 5G Core features and maintain support for your private mobile network. In this how-to guide, you'll learn how to upgrade a packet core instance using the Azure portal.
+Each Azure Private 5G Core site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). You'll need to periodically upgrade your packet core instances to get access to the latest Azure Private 5G Core features and maintain support for your private mobile network. In this how-to guide, you'll learn how to upgrade a packet core instance using the Azure portal.
 
 If your deployment contains multiple sites, we recommend upgrading the packet core in a single site first and ensuring the upgrade is successful before upgrading the packet cores in the remaining sites.
 
 ## Prerequisites
 
-- You must have a running packet core. Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally.
+- You must have a running packet core. Use Azure monitor platform metrics or the packet core dashboards to confirm your packet core instance is operating normally.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
+- If you use Microsoft Entra ID to authenticate access to your local monitoring tools, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Core namespace access](set-up-kubectl-access.md#core-namespace-access).
 
 ## View the current packet core version
 
@@ -61,8 +62,10 @@ In addition, consider the following points for pre- and post-upgrade steps you m
 
 The following list contains the data that will be lost over a packet core upgrade. Back up any information you'd like to preserve; after the upgrade, you can use this information to reconfigure your packet core instance.
 
-1. If you want to keep using the same credentials when signing in to [distributed tracing](distributed-tracing.md), save a copy of the current password to a secure location.
-1. If you want to keep using the same credentials when signing in to the [packet core dashboards](packet-core-dashboards.md), save a copy of the current password to a secure location.
+1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
+    - If you use Microsoft Entra ID, save a copy of the Kubernetes Secret Object YAML file you created in [Create Kubernetes Secret Objects](enable-azure-active-directory.md#create-kubernetes-secret-objects).
+    - If you use local usernames and passwords and want to keep using the same credentials, save a copy of the current passwords to a secure location.
+1. All traces are deleted during upgrade and cannot be retrieved. If you want to retain any traces, [export and save](distributed-tracing-share-traces.md#export-trace-from-the-distributed-tracing-web-gui) them securely before continuing.
 1. Any customizations made to the packet core dashboards won't be carried over the upgrade. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed-up copy of your dashboards.
 1. Most UEs will automatically re-register and recreate any sessions after the upgrade completes. If you have any special devices that require manual operations to recover from a packet core outage, gather a list of these UEs and their recovery steps.
 
@@ -93,8 +96,11 @@ If you determined in [Plan for your upgrade](#plan-for-your-upgrade) that you ne
 
 Reconfigure your deployment using the information you gathered in [Back up deployment information](#back-up-deployment-information).
 
-1. Follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) to restore access to distributed tracing.
-1. Follow [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your packet core dashboards.
+1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
+
+    - If you use Microsoft Entra ID, check that you can access distributed tracing and packet core dashboards using Microsoft Entra ID. If you cannot access either of these, [reapply the Secret Object for distributed tracing and the packet core dashboards](enable-azure-active-directory.md#apply-kubernetes-secret-objects).
+    - If you use local usernames and passwords, follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your local monitoring tools.
+
 1. If you backed up any packet core dashboards, follow [Importing a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#importing-a-dashboard) in the Grafana documentation to restore them.
 1. If you have UEs that require manual operations to recover from a packet core outage, follow their recovery steps.
 
@@ -103,33 +109,28 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 Once the upgrade completes, check if your deployment is operating normally.
 
 1. Navigate to the **Packet Core Control Plane** resource as described in [View the current packet core version](#view-the-current-packet-core-version). Check the **Version** field under the **Configuration** heading to confirm that it displays the new software version.
-1. Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
+1. Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
 1. Execute the testing plan you prepared in [Plan for your upgrade](#plan-for-your-upgrade).
 
 ## Rollback
 
-If you encountered issues after the upgrade, you can roll back the packet core instance to a previous version.
+If you encountered issues after the upgrade, you can roll back the packet core instance to the version you were previously running.
 
-Note that any configuration you set while your packet core instance was running a newer version will be lost if you roll back to a version that doesn't support this configuration. Check the packet core release notes for information on when new features were introduced.
-
-> [!NOTE]
-> You can roll back your packet core instance to version [PMN-4-18-0](azure-private-5g-core-release-notes-2210.md) or later.
+If any of the configuration options you set while your packet core instance was running a newer version aren't supported in the version that you want to roll back to, you'll need to revert to the previous configuration before you're able to perform a rollback. Check the packet core release notes for information on when new features were introduced.
 
 1. Ensure you have a backup of your deployment information. If you need to back up again, follow [Back up deployment information](#back-up-deployment-information).
 1. Navigate to the **Packet Core Control Plane** resource that you want to roll back as described in [View the current packet core version](#view-the-current-packet-core-version).
-1. Select **Upgrade version**.
+1. Select **Rollback version**.
 
-    :::image type="content" source="media/upgrade-packet-core-azure-portal/upgrade-version.png" alt-text="Screenshot of the Azure portal showing the Upgrade version option.":::
+    :::image type="content" source="media/upgrade-packet-core-azure-portal/roll-back-packet-core.png" alt-text="Screenshot of the Azure portal showing the Rollback version option.":::
 
-1. From the **New version** list, select the packet core version you want to downgrade to.
+1. In the **Roll back packet core** screen on the right, in the **Confirm rollback** field, type **yes**.
 
-    :::image type="content" source="media/upgrade-packet-core-azure-portal/downgrade-packet-core-version.png" alt-text="Screenshot of the Azure portal showing the New version field on the Upgrade packet core version screen. A down-level version is selected.":::
+    :::image type="content" source="media/upgrade-packet-core-azure-portal/confirm-rollback.png" alt-text="Screenshot of the Azure portal showing the Confirm rollback field in the Rollback packet core screen.":::
 
-1. Select **Modify**.
-1. Azure will now redeploy the packet core instance at the new software version. The Azure portal will display the following confirmation screen when this deployment is complete.
-
-    :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a packet core instance.":::
-
+1. Select **Roll back packet core**.
+1. Azure will now redeploy the packet core instance at the previous software version. You can check the latest status of the rollback by looking at the **Packet core installation state** field. The **Packet Core Control Plane** resource's overview page will refresh every 20 seconds, and you can select **Refresh** to trigger a manual update. The **Packet core installation state** field will show as **RollingBack** during the rollback and update to **Installed** when the process completes.
+1. Follow the steps in [Restore backed up deployment information](#restore-backed-up-deployment-information) to reconfigure your deployment.
 1. Follow the steps in [Verify upgrade](#verify-upgrade) to check if the rollback was successful.
 
 ## Next steps
@@ -137,4 +138,4 @@ Note that any configuration you set while your packet core instance was running 
 You've finished upgrading your packet core instance.
 
 - If your deployment contains multiple sites, upgrade the packet core instance in another site.
-- Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to monitor your deployment.
+- Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to monitor your deployment.

@@ -1,9 +1,7 @@
 ---
 title: Deploy modules at scale using Visual Studio Code - Azure IoT Edge
 description: Use the IoT extension for Visual Studio Code to create automatic deployments for groups of IoT Edge devices.
-keywords: 
 author: PatAltimore
-
 ms.author: patricka
 ms.date: 1/8/2020
 ms.topic: conceptual
@@ -220,7 +218,7 @@ After you have configured the deployment manifest and configured tags in the dev
 
 1. Provide values as prompted, starting with the **deployment ID**.
 
-   ![Specify a deployment ID](./media/how-to-deploy-monitor-vscode/create-deployment-at-scale.png)
+   :::image type="content" source="./media/how-to-deploy-monitor-vscode/create-deployment-at-scale.png" alt-text="Screenshot showing how to specify a deployment ID.":::
 
    Specify values for these parameters:
 

@@ -5,7 +5,7 @@ description: Learn how to configure a Linux VPN client solution for VPN Gateway 
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 12/01/2022
+ms.date: 05/04/2023
 ms.author: cherylmc
 ---
 
@@ -113,7 +113,19 @@ This section walks you through the configuration using the strongSwan CLI.
 
 1. From the VPN client profile configuration files **Generic** folder, copy or move the **VpnServerRoot.cer** to **/etc/ipsec.d/cacerts**.
 
-1. Copy or move **cp client.p12** to **/etc/ipsec.d/private/**. This file is the client certificate for the VPN gateway.
+1. Copy or move the files you generated to **/etc/ipsec.d/certs** and **/etc/ipsec.d/private/** respectively. These files are the client certificate and the private key, they need to be located in their corresponding directories. Use the following commands:
+
+   ```cli
+   sudo cp ${USERNAME}Cert.pem /etc/ipsec.d/certs/
+   sudo cp ${USERNAME}Key.pem /etc/ipsec.d/private/
+   sudo chmod -R go-rwx /etc/ipsec.d/private /etc/ipsec.d/certs
+   ```
+
+1. Run the following command to take note of your hostname. You’ll use this value in the next step.
+
+   ```cli
+   hostnamectl --static
+   ```
 
 1. Open the **VpnSettings.xml** file and copy the `<VpnServer>` value. You’ll use this value in the next step.
 
@@ -125,26 +137,33 @@ This section walks you through the configuration using the strongSwan CLI.
          type=tunnel
          leftfirewall=yes
          left=%any
-         leftauth=eap-tls
-         leftid=%client # use the DNS alternative name prefixed with the %
-         right= Enter the VPN Server value here# Azure VPN gateway address
-         rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
+         # Replace ${USERNAME}Cert.pem with the key filename inside /etc/ipsec.d/certs  directory. 
+         leftcert=${USERNAME}Cert.pem
+         leftauth=pubkey
+         leftid=%client # use the hostname of your machine with % character prepended. Example: %client
+         right= #Azure VPN gateway address. Example: azuregateway-xxx-xxx.vpn.azure.com
+         rightid=% #Azure VPN gateway FQDN with % character prepended. Example: %azuregateway-xxx-xxx.vpn.azure.com
          rightsubnet=0.0.0.0/0
          leftsourceip=%config
          auto=add
+         esp=aes256gcm16
+   ```
+   
+   
+
+1. Add the secret values to **/etc/ipsec.secrets**.
+
+   The name of the PEM file must match what you have used earlier as your client key file.
+      
+   ```cli
+   : RSA ${USERNAME}Key.pem  # Replace ${USERNAME}Key.pem with the key filename inside /etc/ipsec.d/private directory. 
    ```
 
-1. Add the following values to **/etc/ipsec.secrets**.
+1. Finally run the following commands:
 
    ```cli
-   : P12 client.p12 'password' # key filename inside /etc/ipsec.d/private directory
-   ```
-
-1. Run the following commands:
-
-   ```cli
-   # ipsec restart
-   # ipsec up azure
+   sudo ipsec restart
+   sudo ipsec up azure
    ```
 
 ## <a name="openvpn"></a>OpenVPN steps

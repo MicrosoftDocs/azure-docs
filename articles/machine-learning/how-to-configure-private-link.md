@@ -10,16 +10,13 @@ ms.custom: devx-track-azurecli, sdkv2, event-tier1-build-2022, ignite-2022
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/29/2022
+ms.date: 01/02/2024
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace
 
-[!INCLUDE [CLI v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [CLI v2](includes/machine-learning-cli-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning version you are using:"]
-> * [CLI or SDK v1](v1/how-to-configure-private-link.md)
-> * [CLI v2 (current)](how-to-configure-private-link.md)
 
 In this document, you learn how to configure a private endpoint for your Azure Machine Learning workspace. For information on creating a virtual network for Azure Machine Learning, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 
@@ -41,8 +38,8 @@ Azure Private Link enables you to connect to your workspace using a private endp
 
 * You must have an existing virtual network to create the private endpoint in. 
 
-    > [!IMPORTANT]
-    > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
+    > [!WARNING]
+    > Do not use the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network, and will result in errors if used for your VNet. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
 * [Disable network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) before adding the private endpoint.
 
@@ -69,7 +66,7 @@ Use one of the following methods to create a workspace with a private endpoint. 
 > If you'd like to create a workspace, private endpoint, and virtual network at the same time, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md).
 
 # [Azure CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 When using the Azure CLI [extension 2.0 CLI for machine learning](how-to-configure-cli.md), a YAML document is used to configure the workspace. The following example demonstrates creating a new workspace using a YAML configuration:
 
@@ -152,10 +149,10 @@ Use one of the following methods to add a private endpoint to an existing worksp
 
 > [!WARNING]
 >
-> If you have any existing compute targets associated with this workspace, and they are not behind the same virtual network tha the private endpoint is created in, they will not work.
+> If you have any existing compute targets associated with this workspace, and they are not behind the same virtual network that the private endpoint is created in, they will not work.
 
 # [Azure CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 When using the Azure CLI [extension 2.0 CLI for machine learning](how-to-configure-cli.md), use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private link endpoint for the workspace.
 
@@ -233,7 +230,7 @@ You can remove one or all private endpoints for a workspace. Removing a private 
 To remove a private endpoint, use the following information:
 
 # [Azure CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 
 When using the Azure CLI [extension 2.0 CLI for machine learning](how-to-configure-cli.md), use the following command to remove the private endpoint:
@@ -263,7 +260,7 @@ In some situations, you may want to allow someone to connect to your secured wor
 
 > [!WARNING]
 > When connecting over the public endpoint while the workspace uses a private endpoint to communicate with other resources:
-> * __Some features of studio will fail to access your data__. This problem happens when the _data is stored on a service that is secured behind the VNet_. For example, an Azure Storage Account. 
+> * __Some features of studio will fail to access your data__. This problem happens when the _data is stored on a service that is secured behind the VNet_. For example, an Azure Storage Account. To resolve this problem, add your client device's IP address to the [Azure Storage Account's firewall](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range).
 > * Using Jupyter, JupyterLab, RStudio, or Posit Workbench (formerly RStudio Workbench) on a compute instance, including running notebooks, __is not supported__.
 
 To enable public access, use the following steps:
@@ -277,7 +274,7 @@ To enable public access, use the following steps:
 > Microsoft recommends using `public_network_access` to enable or disable public access to a workspace.
 
 # [Azure CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 
 When using the Azure CLI [extension 2.0 CLI for machine learning](how-to-configure-cli.md), use the `az ml update` command to enable `public_network_access` for the workspace:
@@ -295,15 +292,51 @@ You can also enable public network access by using a YAML file. For more informa
 
 1. From the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace.
 1. From the left side of the page, select __Networking__ and then select the __Public access__ tab.
-1. Select __All networks__, and then select __Save__.
+1. Select __Enabled from all networks__, and then select __Save__.
 
 :::image type="content" source="./media/how-to-configure-private-link/workspace-public-access.png" alt-text="Screenshot of the UI to enable public endpoint.":::
 
 ---
 
+## Enable Public Access only from internet IP ranges (preview)
+
+You can use IP network rules to allow access to your workspace and endpoint from specific public internet IP address ranges by creating IP network rules. Each Azure Machine Learning workspace supports up to 200 rules. These rules grant access to specific internet-based services and on-premises networks and block general internet traffic.
+
+> [!WARNING]
+> * Enable your endpoint's [public network access flag](concept-secure-online-endpoint.md#secure-inbound-scoring-requests) if you want to allow access to your endpoint from specific public internet IP address ranges.
+> * When you enable this feature, this has an impact to all existing public endpoints associated with your workspace. This may limit access to new or existing endpoints. If you access any endpoints from a non-allowed IP, you get a 403 error.
+
+# [Azure CLI](#tab/cli)
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
+Azure CLI does not support this.
+
+# [Portal](#tab/azure-portal)
+
+1. From the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace.
+1. From the left side of the page, select __Networking__ and then select the __Public access__ tab.
+1. Select __Enabled from selected IP addresses__, input address ranges and then select __Save__.
+
+:::image type="content" source="./media/how-to-configure-private-link/workspace-public-access-ip-ranges.png" alt-text="Screenshot of the UI to enable access from internet IP ranges.":::
+
+---
+
+### Restrictions for IP network rules
+
+The following restrictions apply to IP address ranges:
+
+- IP network rules are allowed only for *public internet* IP addresses.
+
+  [Reserved IP address ranges](https://en.wikipedia.org/wiki/Reserved_IP_addresses) aren't allowed in IP rules such as private addresses that start with 10, 172.16 to 172.31, and 192.168.
+
+- You must provide allowed internet address ranges by using [CIDR notation](https://tools.ietf.org/html/rfc4632) in the form 16.17.18.0/24 or as individual IP addresses like 16.17.18.19.
+
+- Only IPv4 addresses are supported for configuration of storage firewall rules.
+
+- When this feature is enabled, you can test public endpoints using any client tool such as Postman or others, but the Endpoint Test tool in the portal is not supported.
+
 ## Securely connect to your workspace
 
-[!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
+[!INCLUDE [machine-learning-connect-secure-workspace](includes/machine-learning-connect-secure-workspace.md)]
 
 ## Multiple private endpoints
 

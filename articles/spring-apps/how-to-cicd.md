@@ -1,12 +1,12 @@
 ---
 title: Automate application deployments to Azure Spring Apps
 description: Describes how to use the Azure Spring Apps task for Azure Pipelines.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 09/13/2021
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, devx-track-arm-template
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-spring-apps
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to use the [Azure Spring Apps task for Azure Pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud) to deploy applications.
 
@@ -119,7 +119,7 @@ To deploy using a pipeline, follow these steps:
   
    Your pipeline settings should match the following image.
 
-   :::image type="content" source="media/spring-cloud-how-to-cicd/pipeline-task-setting.jpg" alt-text="Screenshot of pipeline settings." lightbox="media/spring-cloud-how-to-cicd/pipeline-task-setting.jpg":::
+   :::image type="content" source="media/how-to-cicd/pipeline-task-setting.jpg" alt-text="Screenshot of pipeline settings." lightbox="media/how-to-cicd/pipeline-task-setting.jpg":::
 
    You can also build and deploy your projects using following pipeline template. This example first defines a Maven task to build the application, followed by a second task that deploys the JAR file using the Azure Spring Apps task for Azure Pipelines.
 
@@ -189,7 +189,7 @@ The following steps show you how to enable a blue-green deployment from the **Re
 1. Add a new pipeline, and select **Empty job** to create a job.
 1. Under **Stages** select the line **1 job, 0 task**
 
-   :::image type="content" source="media/spring-cloud-how-to-cicd/create-new-job.jpg" alt-text="Screenshot of where to select to add a task to a job.":::
+   :::image type="content" source="media/how-to-cicd/create-new-job.jpg" alt-text="Screenshot of where to select to add a task to a job." lightbox="media/how-to-cicd/create-new-job.jpg":::
 
    1. Select the **+** to add a task to the job.
    1. Search for the **Azure Spring Apps** template, then select **Add** to add the task to the job.
@@ -205,11 +205,11 @@ The following steps show you how to enable a blue-green deployment from the **Re
 1. Navigate to the **Azure Spring Apps Deploy** task in **Stage 1**, then select the ellipsis next to **Package or folder**.
 1. Select *spring-boot-complete-0.0.1-SNAPSHOT.jar* in the dialog, then select **OK**.
 
-   :::image type="content" source="media/spring-cloud-how-to-cicd/change-artifact-path.jpg" alt-text="Screenshot of the 'Select a file or folder' dialog box.":::
+   :::image type="content" source="media/how-to-cicd/change-artifact-path.jpg" alt-text="Screenshot of the 'Select a file or folder' dialog box." lightbox="media/how-to-cicd/change-artifact-path.jpg":::
 
 1. Select the **+** to add another **Azure Spring Apps** task to the job.
-2. Change the action to **Set Production Deployment**.
-3. Select **Save**, then **Create release** to automatically start the deployment. 
+1. Change the action to **Set Production Deployment**.
+1. Select **Save**, then **Create release** to automatically start the deployment.
 
 To verify your app's current release status, select **View release**. After this task is finished, visit the Azure portal to verify your app status.
 
@@ -248,6 +248,23 @@ To deploy directly from an existing container image, use the following pipeline 
     RegistryUsername: '$(username)'
     RegistryPassword: '$(password)'
     ContainerImage: '<your image tag>'
+```
+
+### Deploy and specify a builder (Enterprise plan only)
+
+If you're using the Azure Spring Apps Enterprise plan, you can also specify which builder to use for deploy actions using the `builder` option, as shown in the following example. For more information, see [Use Tanzu Build Service](how-to-enterprise-build-service.md).
+
+```yaml
+- task: AzureSpringCloud@0
+  inputs:
+    azureSubscription: '<your-service-connection-name>'
+    Action: 'Deploy'
+    AzureSpringCloud: '<your-Azure-Spring-Apps-service-instance-name>'
+    AppName: '<app-name>'
+    UseStagingDeployment: false
+    DeploymentName: 'default'
+    Package: './target/your-result-jar.jar'
+    Builder: '<your-Tanzu-Build-Service-Builder-resource>'
 ```
 
 ::: zone-end

@@ -30,7 +30,7 @@ If you have any questions, contact us at <a href="mailto:ask-grid-and-ms-sap@mic
 4. [Activate partner topic](#activate-a-partner-topic) so that your events start flowing to your partner topic.
 5. [Subscribe to events](#subscribe-to-events).
 
-[!INCLUDE [register-event-grid-provider](includes/register-event-grid-provider.md)]
+[!INCLUDE [register-provider](./includes/register-provider.md)]
 
 [!INCLUDE [authorize-verified-partner-to-create-topic](includes/authorize-verified-partner-to-create-topic.md)]
 

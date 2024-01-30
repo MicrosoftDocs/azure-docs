@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/26/2022
+ms.date: 08/10/2023
 ---
 
 # Incrementally copy new and changed files based on LastModifiedDate by using the Copy Data tool
@@ -162,7 +162,7 @@ Prepare your Blob storage for the tutorial by completing these steps:
 
     :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png" alt-text="Scan files by using Azure Storage Explorer":::
 
-## Next steps
+## Related content
 Go to the following tutorial to learn how to transform data by using an Apache Spark cluster on Azure:
 
 > [!div class="nextstepaction"]

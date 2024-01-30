@@ -1,16 +1,17 @@
 ---
-title: REST APIs for search management
-titleSuffix: Azure Cognitive Search
-description: Create and configure an Azure Cognitive Search service with the Management REST API. The Management REST API is comprehensive in scope, with access to generally available and preview features.
-
+title: Manage with REST
+titleSuffix: Azure AI Search
+description: Create and configure an Azure AI Search service with the Management REST API. The Management REST API is comprehensive in scope, with access to generally available and preview features.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 01/11/2023
+ms.date: 05/09/2023
 ---
 
-# Manage your Azure Cognitive Search service with REST APIs
+# Manage your Azure AI Search service with REST APIs
 
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
@@ -20,36 +21,36 @@ ms.date: 01/11/2023
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 
-In this article, learn how to create and configure an Azure Cognitive Search service using the [Management REST APIs](/rest/api/searchmanagement/). Only the Management REST APIs are guaranteed to provide early access to [preview features](/rest/api/searchmanagement/management-api-versions#2021-04-01-preview). 
+In this article, learn how to create and configure an Azure AI Search service using the [Management REST APIs](/rest/api/searchmanagement/). Only the Management REST APIs are guaranteed to provide early access to [preview features](/rest/api/searchmanagement/management-api-versions). 
 
-The Management RESt API is available in stable and preview versions. Be sure to set a preview API version if you're accessing preview features.
+The Management REST API is available in stable and preview versions. Be sure to set a preview API version if you're accessing preview features.
 
 > [!div class="checklist"]
 > * [List search services](#list-search-services)
 > * [Create or update a service](#create-or-update-a-service)
-> * [(preview) Enable Azure role-based access control for data plane](#enable-rbac)
+> * [Enable Azure role-based access control for data plane](#enable-rbac)
 > * [(preview) Enforce a customer-managed key policy](#enforce-cmk)
-> * [(preview) Disable semantic search](#disable-semantic-search)
+> * [(preview) Disable semantic ranking](#disable-semantic-search)
 > * [(preview) Disable workloads that push data to external resources](#disable-external-access)
 
 All of the Management REST APIs have examples. If a task isn't covered in this article, see the [API reference](/rest/api/searchmanagement/) instead.
 
 ## Prerequisites
 
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-search/)
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-search/).
 
-* [Postman](https://www.postman.com/downloads/) or another REST client that sends HTTP requests
+* [Postman](https://www.postman.com/downloads/) or another REST client that sends HTTP requests.
 
-* [Azure CLI](/cli/azure/install-azure-cli) used to set up a security principle for the client
+* [Azure CLI](/cli/azure/install-azure-cli) used to set up a security principle for the client. You must have owner or administrator permissions to create  a security principle.
 
 ## Create a security principal
 
-Management REST API calls are authenticated through Azure Active Directory (Azure AD). You'll need a security principal for your REST client, along with permissions to create and configure a resource. This section explains how to create a security principal and assign a role. 
+Management REST API calls are authenticated through Microsoft Entra ID. You'll need a security principal for your REST client, along with permissions to create and configure a resource. This section explains how to create a security principal and assign a role. 
 
 > [!NOTE]
 > The following steps are borrowed from the [Azure REST APIs with Postman](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/) blog post.
 
-1. Open a command shell for Azure CLI. If you don't have Azure CLI installed, you can open [Create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli#1-create-a-service-principal), select **Try It**. 
+1. Open a command shell for Azure CLI.
 
 1. Sign in to your Azure subscription.
 
@@ -89,7 +90,7 @@ The following steps are from [this blog post](https://blog.jongallant.com/2021/0
 
     | Variable | Description |
     |----------|-------------|
-    | clientId | Provide the previously generated "appID" that you created in Azure AD. |
+    | clientId | Provide the previously generated "appID" that you created in Microsoft Entra ID. |
     | clientSecret | Provide the "password" that was created for your client. |
     | tenantId | Provide the "tenant" that was returned in the previous step. |
     | subscriptionId | Provide the subscription ID for your subscription. |
@@ -147,7 +148,7 @@ Now that Postman is set up, you can send REST calls similar to the ones describe
 Returns all search services under the current subscription, including detailed service information:
 
 ```rest
-GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2020-08-01
+GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2023-11-01
 ```
 
 ## Create or update a service
@@ -155,7 +156,7 @@ GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Micr
 Creates or updates a search service under the current subscription. This example uses variables for the search service name and region, which haven't been defined yet. Either provide the names directly, or add new variables to the collection.
 
 ```rest
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2020-08-01
+PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
 {
   "location": "{{region}}",
   "sku": {
@@ -174,7 +175,7 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups
 To create an [S3HD](search-sku-tier.md#tier-descriptions) service, use a combination of `-Sku` and `-HostingMode` properties. Set "sku" to `Standard3` and "hostingMode" to `HighDensity`.
 
 ```rest
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2020-08-01
+PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
 {
   "location": "{{region}}",
   "sku": {
@@ -190,28 +191,25 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups
 
 <a name="enable-rbac"></a>
 
-## (preview) Enable Azure role-based authentication for data plane
+## Configure role-based access for data plane
 
-To use Azure role-based access control (Azure RBAC), set "authOptions" to "aadOrApiKey" and then send the request.
+**Applies to:** Search Index Data Contributor, Search Index Data Reader, Search Service Contributor
 
-If you want to use Azure RBAC exclusively, [turn off API key authentication](search-security-rbac.md#disable-api-key-authentication) by following up a second request, this time setting "disableLocalAuth" to "false".
+In this step, configure your search service to recognize an **authorization** header on data requests that provide an OAuth2 access token.
+
+To use Azure role-based access control (Azure RBAC) for data plane operations, set "authOptions" to "aadOrApiKey" and then send the request.
+
+If you want to use Azure RBAC exclusively, [turn off API key authentication](search-security-rbac.md#disable-api-key-authentication) by following up with a second request, this time setting "disableLocalAuth" to "true".
 
 ```rest
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
 {
-  "location": "{{region}}",
-  "tags": {
-    "app-name": "My e-commerce app"
-  },
-  "sku": {
-    "name": "standard"
-  },
   "properties": {
-    "replicaCount": 1,
-    "partitionCount": 1,
-    "hostingMode": "default",
     "disableLocalAuth": false,
-    "authOptions": "aadOrApiKey"
+    "authOptions": {
+      "aadOrApiKey": {
+        "aadAuthFailureMode": "http401WithBearerChallenge"
+      }
     }
   }
 }
@@ -219,23 +217,16 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups
 
 <a name="enforce-cmk"></a>
 
-## (preview) Enforce a customer-managed key policy
+## Enforce a customer-managed key policy
 
 If you're using [customer-managed encryption](search-security-manage-encryption-keys.md), you can enable "encryptionWithCMK" with "enforcement" set to "Enabled" if you want the search service to report its compliance status.
 
 When you enable this policy, any REST calls that create objects containing sensitive data, such as the connection string within a data source, will fail if an encryption key isn't provided: `"Error creating Data Source: "CannotCreateNonEncryptedResource: The creation of non-encrypted DataSources is not allowed when encryption policy is enforced."`
 
 ```rest
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
 {
-  "location": "westus",
-  "sku": {
-    "name": "standard"
-  },
   "properties": {
-    "replicaCount": 1,
-    "partitionCount": 1,
-    "hostingMode": "default",
     "encryptionWithCmk": {
       "enforcement": "Enabled",
       "encryptionComplianceStatus": "Compliant"
@@ -246,40 +237,29 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups
 
 <a name="disable-semantic-search"></a>
 
-## (preview) Disable semantic search
+## Disable semantic ranking
 
-Although [semantic search isn't enabled](semantic-search-overview.md#enable-semantic-search) by default, you could lock down the feature at the service level.
+Although [semantic ranking isn't enabled](semantic-how-to-enable-disable.md) by default, you could lock down the feature at the service level.
 
 ```rest
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
-    {
-      "location": "{{region}}",
-      "sku": {
-        "name": "standard"
-      },
-      "properties": {
-        "semanticSearch": "disabled"
-      }
-    }
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
+{
+  "properties": {
+    "semanticSearch": "disabled"
+  }
+}
 ```
 
 <a name="disable-external-access"></a>
 
 ## (preview) Disable workloads that push data to external resources
 
-Azure Cognitive Search [writes to external data sources](search-indexer-securing-resources.md) when updating a knowledge store, saving debug session state, or caching enrichments. The following example disables these workloads at the service level.
+Azure AI Search [writes to external data sources](search-indexer-securing-resources.md) when updating a knowledge store, saving debug session state, or caching enrichments. The following example disables these workloads at the service level.
 
 ```rest
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
 {
-  "location": "{{region}}",
-  "sku": {
-    "name": "standard"
-  },
   "properties": {
-    "replicaCount": 1,
-    "partitionCount": 1,
-    "hostingMode": "default",
     "disabledDataExfiltrationOptions": [
       "All"
     ]
@@ -291,7 +271,7 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups
 
 After a search service is configured, next steps include [create an index](search-how-to-create-search-index.md) or [query an index](search-query-overview.md) using the portal, REST APIs, or the .NET SDK.
 
-* [Create an Azure Cognitive Search index in the Azure portal](search-get-started-portal.md)
+* [Create an Azure AI Search index in the Azure portal](search-get-started-portal.md)
 * [Set up an indexer to load data from other services](search-indexer-overview.md)
-* [Query an Azure Cognitive Search index using Search explorer in the Azure portal](search-explorer.md)
-* [How to use Azure Cognitive Search in .NET](search-howto-dotnet-sdk.md)
+* [Query an Azure AI Search index using Search explorer in the Azure portal](search-explorer.md)
+* [How to use Azure AI Search in .NET](search-howto-dotnet-sdk.md)

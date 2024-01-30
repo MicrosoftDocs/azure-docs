@@ -38,7 +38,7 @@ sections:
 
           * Some of Azure Cosmos DB's internal formats for encoding information, such as binary fields, are currently not as efficient as one might like. Therefore this can cause unexpected limitations on data size. For example, currently one couldn't use the full one Meg of a table entity to store binary data because the encoding increases the data's size.
 
-          * Entity property name 'ID', 'etag' currently not supported.
+          * Entity property names `ID`, `id`, `rid`, `etag`, and `ResourceId` are reserved for use by Cosmos DB and are currently not supported.
 
           * TableQuery TakeCount isn't limited to 1000.
 
@@ -139,7 +139,7 @@ sections:
       - question: |
           How do I calculate the throughput I require?
         answer: |
-          You can use the capacity estimator to calculate the TableThroughput that's required for the operations. For more information, see [Estimate Request Units and Data Storage](https://www.documentdb.com/capacityplanner). In general, you can show your entity as JSON and provide the numbers for your operations.
+          You can use the capacity estimator to calculate the TableThroughput that's required for the operations. For more information, see [Estimate Request Units and Data Storage](https://cosmos.azure.com/capacitycalculator/). In general, you can show your entity as JSON and provide the numbers for your operations.
 
       - question: |
           Can I use the API for Table SDK locally with the emulator?

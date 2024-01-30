@@ -2,12 +2,14 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 05/18/2022
+ ms.date: 05/04/2023
  ms.author: cherylmc
  ms.custom: include file
 
 #Customer intent: This file is duplicated as vpn-gateway-config-openvpn-linux.md. If the steps and screenshots in this file are updated, they need to be also updated in the other file unless specific to Virtual WAN.
 ---
+
+[!INCLUDE [OpenVPN client version 2.6 not supported](vpn-gateway-vwan-open-vpn-client-version-unsupported.md)]
 
 1. Open a new Terminal session. You can open a new session by pressing 'Ctrl + Alt + t' at the same time.
 

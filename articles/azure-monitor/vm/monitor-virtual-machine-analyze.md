@@ -27,9 +27,9 @@ Access the single machine analysis experience from the **Monitoring** section of
 
 | Option | Description |
 |:---|:---|
-| Overview page | Select the **Monitoring** tab to display alerts, [platform metrics](../essentials/data-platform-metrics.md), and other monitoring information for the virtual machine host. You can see the number of active alerts on the tab. In the **Monitoring** tab, you get a quick view of:<br><br>**Alerts:** the alerts fired in the last 24 hours, with some important statistics about those alerts. If you do not have any alerts set up for this VM, there is a link to help you quickly create new alerts for your VM.<br><br>**Key metrics:** the trend over different time periods for important metrics, such as CPU, network, and disk. Because these are host metrics though, counters from the guest operating system such as memory aren't included. Select a graph to work with this data in [metrics explorer](../essentials/metrics-getting-started.md) where you can perform different aggregations, and add more counters for analysis. |
+| Overview page | Select the **Monitoring** tab to display alerts, [platform metrics](../essentials/data-platform-metrics.md), and other monitoring information for the virtual machine host. You can see the number of active alerts on the tab. In the **Monitoring** tab, you get a quick view of:<br><br>**Alerts:** the alerts fired in the last 24 hours, with some important statistics about those alerts. If you do not have any alerts set up for this VM, there is a link to help you quickly create new alerts for your VM.<br><br>**Key metrics:** the trend over different time periods for important metrics, such as CPU, network, and disk. Because these are host metrics though, counters from the guest operating system such as memory aren't included. Select a graph to work with this data in [metrics explorer](../essentials/analyze-metrics.md) where you can perform different aggregations, and add more counters for analysis. |
 | Activity log | See [activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for the current virtual machine. Use this log to view the recent activity of the machine, such as any configuration changes and when it was stopped and started. 
-| Insights | Displays VM insights views if If the VM is enabled for [VM insights](../vm/vminsights-overview.md).<br><br>Select the **Performance** tab to view trends of critical performance counters over different periods of time. When you open VM insights from the virtual machine menu, you also have a table with detailed metrics for each disk. For details on how to use the Map view for a single machine, see [Chart performance with VM insights](vminsights-performance.md#view-performance-directly-from-an-azure-vm).<br><br>If *processes and dependencies* is enabled for the VM, select the **Map** tab to view the running processes on the machine, dependencies on other machines, and external processes. For details on how to use the Map view for a single machine, see [Use the Map feature of VM insights to understand application components](vminsights-maps.md#view-a-map-from-a-vm).<br><br>If the VM is not enabled for VM insights, it offers the option to enable VM insights. |
+| Insights | Displays VM insights views if the VM is enabled for [VM insights](../vm/vminsights-overview.md).<br><br>Select the **Performance** tab to view trends of critical performance counters over different periods of time. When you open VM insights from the virtual machine menu, you also have a table with detailed metrics for each disk. For details on how to use the Map view for a single machine, see [Chart performance with VM insights](vminsights-performance.md#view-performance-directly-from-an-azure-vm).<br><br>If *processes and dependencies* is enabled for the VM, select the **Map** tab to view the running processes on the machine, dependencies on other machines, and external processes. For details on how to use the Map view for a single machine, see [Use the Map feature of VM insights to understand application components](vminsights-maps.md#view-a-map-from-a-vm).<br><br>If the VM is not enabled for VM insights, it offers the option to enable VM insights. |
 | Alerts | View [alerts](../alerts/alerts-overview.md) for the current virtual machine. These alerts only use the machine as the target resource, so there might be other alerts associated with it. You might need to use the **Alerts** option in the Azure Monitor menu to view alerts for all resources. For details, see [Monitor virtual machines with Azure Monitor - Alerts](monitor-virtual-machine-alerts.md). |
 | Metrics | Open metrics explorer with the scope set to the machine. This option is the same as selecting one of the performance charts from the **Overview** page except that the metric isn't already added. |
 | Diagnostic settings | Enable and configure the [diagnostics extension](../agents/diagnostics-extension-overview.md) for the current virtual machine. This option is different than the **Diagnostic settings** option for other Azure resources. This is a [legacy agent](monitor-virtual-machine-agent.md#legacy-agents) that has been replaced by the [Azure Monitor agent](monitor-virtual-machine-agent.md). |
@@ -47,7 +47,7 @@ Access the multiple machine analysis experience from the **Monitor** menu in the
 |:---|:---|
 | Activity log | See [activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for all resources. Create a filter for a **Resource Type** of virtual machines or Virtual Machine Scale Sets to view events for all your machines. |
 | Alerts | View [alerts](../alerts/alerts-overview.md) for all resources. This includes alerts related to all virtual machines in the workspace. Create a filter for a **Resource Type** of virtual machines or Virtual Machine Scale Sets to view alerts for all your machines. |
-| Metrics | Open [metrics explorer](../essentials/metrics-getting-started.md) with no scope selected. This feature is particularly useful when you want to compare trends across multiple machines. Select a subscription or a resource group to quickly add a group of machines to analyze together. |
+| Metrics | Open [metrics explorer](../essentials/analyze-metrics.md) with no scope selected. This feature is particularly useful when you want to compare trends across multiple machines. Select a subscription or a resource group to quickly add a group of machines to analyze together. |
 | Logs | Open [Log Analytics](../logs/log-analytics-overview.md) with the [scope](../logs/scope.md) set to the workspace. You can select from a variety of existing queries to drill into log and performance data for all machines. Or you can create a custom query to perform additional analysis. |
 | Workbooks | Open the workbook gallery with the VM insights workbooks for multiple machines. For a list of the VM insights workbooks designed for multiple machines, see [VM insights workbooks](vminsights-workbooks.md#vm-insights-workbooks). |
 
@@ -82,7 +82,7 @@ This level of detail can be confusing if you're new to Azure Monitor. The follow
 
 
 ## Analyze metric data with metrics explorer
-By using metrics explorer, you can plot charts, visually correlate trends, and investigate spikes and dips in metrics' values. For details on how to use this tool, see [Getting started with Azure Metrics Explorer](../essentials/metrics-getting-started.md). 
+By using metrics explorer, you can plot charts, visually correlate trends, and investigate spikes and dips in metrics' values. For details on how to use this tool, see [Analyze metrics with Azure Monitor metrics explorer](../essentials/analyze-metrics.md). 
 
 The following namespaces are used by virtual machines.
 
@@ -145,76 +145,6 @@ For instructions on how to create your own custom workbooks, see [Create interac
 
 :::image type="content" source="media/monitor-virtual-machines/workbook-example.png" alt-text="Screenshot that shows virtual machine workbooks." lightbox="media/monitor-virtual-machines/workbook-example.png":::
 
-
-## VM availability information in Azure Resource Graph
-[Azure Resource Graph](../../governance/resource-graph/overview.md) is an Azure service that allows you to use the same KQL query language used in log queries to query your Azure resources at scale with complex filtering, grouping, and sorting by resource properties. You can use [VM health annotations](../../service-health/resource-health-vm-annotation.md) to Azure Resource Graph (ARG) for detailed failure attribution and downtime analysis including the following:
-
-- Query the latest snapshot of VM availability together across all your Azure subscriptions. 
-- Assess the impact to business SLAs and trigger decisive mitigation actions, in response to disruptions and type of failure signature.
-- Set up custom dashboards to supervise the comprehensive health of applications by [joining](../../governance/resource-graph/concepts/work-with-data.md) VM availability information with additional [resource metadata](../../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli) in Resource Graph.
-- Track relevant changes in VM availability across a rolling 14 days window,  by using the [change tracking](../../governance/resource-graph/how-to/get-resource-changes.md) mechanism for conducting detailed investigations.
-
-To get started with Resource Graph, open **Resource Graph Explorer** in the Azure portal. Select the **Table** tab and have a look at the [microsoft.resourcehealth/availabilitystatuses](#microsoftresourcehealthavailabilitystatuses) and [microsoft.resourcehealth/resourceannotations](#microsoftresourcehealthresourceannotations) tables which are described below. Click on **healthresources** to create a simple query and then click **Run** to return the records.
-
-:::image type="content" source="media/monitor-virtual-machines/resource-graph-explorer-healthresources.png" alt-text="Screenshot of Azure Resource Graph with simple healthresources query." lightbox="media/monitor-virtual-machines/resource-graph-explorer-healthresources.png" :::
-
-To view the details for a record, scroll to the right and select **See details**.
-
-:::image type="content" source="media/monitor-virtual-machines/resource-graph-explorer-healthresources-detail.png" alt-text="Screenshot of Azure Resource Graph healthresources detailed record." lightbox="media/monitor-virtual-machines/resource-graph-explorer-healthresources-detail.png" :::
-
-There will be two  types of events populated in the HealthResources table:
-
-### microsoft.resourcehealth/availabilitystatuses
-This event denotes the latest availability status of a VM, based on the [health checks](../../service-health/resource-health-checks-resource-types.md#microsoftcomputevirtualmachines) performed by the underlying Azure platform. The [availability states](../../service-health/resource-health-overview.md#health-status) currently emitted for VMs are as follows:
-
-- **Available**: The VM is up and running as expected.
-- **Unavailable**: A disruption to the normal functioning of the VM has been detected.
-- **Unknown**: The platform is unable to accurately detect the health of the VM. Check back in a few minutes.
-
-The availability state is in the `properties` field of the record which includes the following properties:
-
-| Field | Description |
-|:---|:---|
-| targetResourceType | Type of resource for which health data is flowing |
-| targetResourceId | Resource ID |
-| occurredTime | Timestamp when the latest availability state is emitted by the platform |
-| previousAvailabilityState | Previous availability state of the VM |
-| availabilityState | Current availability state of the VM |
-
-A sample `properties` value looks similar to the following:
-
-```json
-{
-    "targetResourceType": "Microsoft.Compute/virtualMachines",
-    "previousAvailabilityState": "Available",
-"targetResourceId": "/subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/virtualMachines/<VMName>",
-    "occurredTime": "2022-10-11T11:13:59.9570000Z",
-    "availabilityState": "Unavailable"
-}
-
-```
-
-### microsoft.resourcehealth/resourceannotations
-This event contextualizes any changes to VM availability, by detailing necessary failure attributes to help you investigate and mitigate the disruption as needed. The full list of VM health annotations are listed at [Resource Health virtual machine Health Annotations] (../../service-health/resource-health-vm-annotation.md).
-
-These annotations can be broadly classified into the following:
-
-- **Downtime Annotations**: Emitted when the platform detects VM availability transitioning to Unavailable. Examples include host crashes or reboot operations.
-- **Informational Annotations**: Emitted during control plane activities with no impact to VM availability. Examples include VM allocation, stop, delete, start. Usually, no additional customer action is required in response.
-- **Degraded Annotations**: Emitted when VM availability is detected to be at risk. Examples include when failure prediction models predict a degraded hardware component that can cause the VM to reboot at any given time. You should redeploy by the deadline specified in the annotation message to avoid any unanticipated loss of data or downtime.
-
-| Field | Description |
-|:---|:---|
-| targetResourceType | Type of resource for which health data is flowing |
-| targetResourceId | Resource ID |
-| occurredTime | Timestamp when the latest availability state is emitted by the platform |
-| annotationName | Name of the Annotation emitted |
-| reason | Brief overview of the availability impact observed by the customer |
-| category | Denotes whether the platform activity triggering the annotation was either planned maintenance or unplanned repair. This field is not applicable to customer/VM-initiated events.<br><br>Possible values: Planned \| Unplanned \| Not Applicable \| Null |
-| context | Denotes whether the activity triggering the annotation was due to an authorized user or process (customer initiated), or due to the Azure platform (platform initiated) or even activity in the guest OS that has resulted in availability impact (VM initiated).<br><br>Possible values: Platform-Initiated \| User-initiated \|VM-initiated \| Not Applicable \| Null |
-| summary | Statement detailing the cause for annotation emission, along with remediation steps that can be taken by users |
-
-See [Azure Resource Graph sample queries by table](../../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli#healthresources) for sample queries using this data.
 
 ## Next steps
 

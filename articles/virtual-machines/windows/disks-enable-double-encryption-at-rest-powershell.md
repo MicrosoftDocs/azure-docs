@@ -3,12 +3,11 @@ title: Azure PowerShell - Enable double encryption at rest - managed disks
 description: Enable double encryption at rest for your managed disk data using Azure PowerShell.
 author: roygara
 
-ms.date: 01/20/2023
+ms.date: 02/06/2023
 ms.topic: how-to
 ms.author: rogarana
-ms.service: storage
-ms.subservice: disks
-ms.custom: references_regions
+ms.service: azure-disk-storage
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Use the Azure PowerShell module to enable double encryption at rest for managed disks
@@ -17,9 +16,13 @@ ms.custom: references_regions
 
 Azure Disk Storage supports double encryption at rest for managed disks. For conceptual information on double encryption at rest, and other managed disk encryption types, see the [Double encryption at rest](../disk-encryption.md#double-encryption-at-rest) section of our disk encryption article.
 
+## Restrictions
+
+Double encryption at rest isn't currently supported with either Ultra Disks or Premium SSD v2 disks.
+
 ## Prerequisites
 
-Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), and sign in to an Azure account using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
+Install the latest [Azure PowerShell version](/powershell/azure/install-azure-powershell), and sign in to an Azure account using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ## Getting started
 
@@ -63,7 +66,7 @@ Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), 
 1. Grant the DiskEncryptionSet resource access to the key vault.
 
     > [!NOTE]
-    > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
+    > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Microsoft Entra ID. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
 
     ```powershell  
     $des=Get-AzDiskEncryptionSet -name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName

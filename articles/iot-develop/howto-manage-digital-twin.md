@@ -3,19 +3,18 @@ title: How to manage IoT Plug and Play digital twins
 description: How to manage an IoT Plug and Play device by using the digital twin APIs
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/17/2022
+ms.date: 1/23/2024
 ms.topic: how-to
 ms.service: iot-develop
-services: iot-develop
 ---
 
 # Manage IoT Plug and Play digital twins
 
-IoT Plug and Play supports **Get digital twin** and **Update digital twin** operations to manage digital twins. You can use either the [REST APIs](/rest/api/iothub/service/digitaltwin) or one of the [service SDKs](libraries-sdks.md).
+IoT Plug and Play supports **Get digital twin** and **Update digital twin** operations to manage digital twins. You can use either the [REST APIs](/rest/api/iothub/service/digitaltwin) or one of the [service SDKs](concepts-developer-guide-service.md#service-sdks).
 
 ## Update a digital twin
 
-An IoT Plug and Play device implements a model described by [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl). Solution developers can use the **Update Digital Twin API** to update the state of component and the properties of the digital twin.
+An IoT Plug and Play device implements a model described by [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md). Solution developers can use the **Update Digital Twin API** to update the state of component and the properties of the digital twin.
 
 The IoT Plug and Play device used as an example in this article implements the [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) with [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) components.
 
@@ -150,7 +149,7 @@ The following JSON Patch sample shows how to add, replace, or remove a property 
 
 **Name**
 
-The name of a component or property must be valid DTDL V2 name.
+The name of a component or property must be valid DTDL name.
 
 Allowed characters are a-z, A-Z, 0-9 (not as the first character), and underscore (not as the first or last character).
 
@@ -158,17 +157,17 @@ A name can be 1-64 characters long.
 
 **Property value**
 
-The value must be a valid [DTDL V2 Property](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property).
+The value must be a valid [DTDL Property](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#property).
 
-All primitive types are supported. Within complex types, enums, maps, and objects are supported. To learn more, see [DTDL V2 Schemas](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#schemas).
+All primitive types are supported. Within complex types, enums, maps, and objects are supported. To learn more, see [DTDL Schemas](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#schema).
 
 Properties don't support array or any complex schema with an array.
 
 A maximum depth of a five levels is supported for a complex object.
 
-All field names within complex object should be valid DTDL V2 names.
+All field names within complex object should be valid DTDL names.
 
-All map keys should be valid DTDL V2 names.
+All map keys should be valid DTDL names.
 
 ## Troubleshoot update digital twin API errors
 
@@ -188,4 +187,4 @@ Now that you've learned about digital twins, here are some more resources:
 
 - [Interact with a device from your solution](tutorial-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
-- [Azure IoT explorer](../iot-fundamentals/howto-use-iot-explorer.md)
+- [Azure IoT explorer](../iot/howto-use-iot-explorer.md)

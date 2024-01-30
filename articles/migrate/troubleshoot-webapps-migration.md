@@ -4,7 +4,7 @@ description: Troubleshoot web apps migration issues
 author: vineetvikram
 ms.author: vivikram
 ms.service: azure-migrate
-ms.date: 12/01/2022
+ms.date: 02/28/2023
 ms.topic: troubleshooting
 ms.custom: engagement-fy23
 ---
@@ -47,7 +47,7 @@ UnableToConnectToServer | Connecting to the remote server failed. | Check error 
 
 ## Next steps
 
-- Continue to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-migrate-webapps.md).
+- Continue to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-modernize-asp-net-appservice-code.md).
 - Once you have successfully completed migration, you may explore the following steps based on web app specific requirement(s):
   - [Map existing custom DNS name](../app-service/app-service-web-tutorial-custom-domain.md).
   - [Secure a custom DNS with a TLS/SSL binding](../app-service/configure-ssl-bindings.md).
@@ -56,5 +56,5 @@ UnableToConnectToServer | Connecting to the remote server failed. | Check error 
   - [Security recommendations](../app-service/security-recommendations.md).
   - [Networking features](../app-service/networking-features.md).
   - [Monitor App Service with Azure Monitor](../app-service/monitor-app-service.md).
-  - [Configure Azure AD authentication](../app-service/configure-authentication-provider-aad.md).
+  - [Configure Microsoft Entra authentication](../app-service/configure-authentication-provider-aad.md).
 - [Review best practices](../app-service/deploy-best-practices.md) for deploying to Azure App service.

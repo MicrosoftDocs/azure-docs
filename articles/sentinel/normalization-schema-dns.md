@@ -154,12 +154,12 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| <a name="src"></a>**Src** | Recommended       | String     |    A unique identifier of the source device. <br><br>This field can alias the [SrcDvcId](#srcdvcid), [SrcHostname](#srchostname), or [SrcIpAddr](#srcipaddr) fields. <br><br>Example: `192.168.12.1`       |
+| <a name="src"></a>**Src** | Alias       | String     |    A unique identifier of the source device. <br><br>This field can alias the [SrcDvcId](#srcdvcid), [SrcHostname](#srchostname), or [SrcIpAddr](#srcipaddr) fields. <br><br>Example: `192.168.12.1`       |
 | <a name="srcipaddr"></a>**SrcIpAddr** | Recommended | IP Address | The IP address of the client that sent the DNS request. For a recursive DNS request, this value would typically be the reporting device, and in most cases set to `127.0.0.1`. <br><br>Example: `192.168.12.1` |
 | **SrcPortNumber** | Optional | Integer | Source port of the DNS query.<br><br>Example: `54312` |
 | <a name="ipaddr"></a>**IpAddr** | Alias | | Alias to [SrcIpAddr](#srcipaddr) |
 | **SrcGeoCountry** | Optional | Country | The country associated with the source IP address.<br><br>Example: `USA` |
-| **SrcGeoRegion** | Optional | Region | The region within a country associated with the source IP address.<br><br>Example: `Vermont` |
+| **SrcGeoRegion** | Optional | Region | The region associated with the source IP address.<br><br>Example: `Vermont` |
 | **SrcGeoCity** | Optional | City | The city associated with the source IP address.<br><br>Example: `Burlington` |
 | **SrcGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the source IP address.<br><br>Example: `44.475833` |
 | **SrcGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the source IP address.<br><br>Example: `73.211944` |
@@ -168,12 +168,12 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | <a name="srchostname"></a>**SrcHostname** | Recommended | String | The source device hostname, excluding domain information.<br><br>Example: `DESKTOP-1282V4D` |
 | **Hostname** | Alias | | Alias to [SrcHostname](#srchostname) |
 |<a name="srcdomain"></a> **SrcDomain** | Recommended | String | The domain of the source device.<br><br>Example: `Contoso` |
-| <a name="srcdomaintype"></a>**SrcDomainType** | Recommended | Enumerated | The type of  [SrcDomain](#srcdomain), if known. Possible values include:<br>- `Windows` (such as: `contoso`)<br>- `FQDN` (such as: `microsoft.com`)<br><br>Required if [SrcDomain](#srcdomain) is used. |
+| <a name="srcdomaintype"></a>**SrcDomainType** | Conditional | Enumerated | The type of  [SrcDomain](#srcdomain), if known. Possible values include:<br>- `Windows` (such as: `contoso`)<br>- `FQDN` (such as: `microsoft.com`)<br><br>Required if [SrcDomain](#srcdomain) is used. |
 | **SrcFQDN** | Optional | String | The source device hostname, including domain information when available. <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [SrcDomainType](#srcdomaintype) field reflects the format used. <br><br>Example: `Contoso\DESKTOP-1282V4D` |
 | <a name="srcdvcid"></a>**SrcDvcId** | Optional | String | The ID of the source device as reported in the record.<br><br>For example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | <a name="srcdvcscopeid"></a>**SrcDvcScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **SrcDvcScopeId** map to a subscription ID on Azure and to an account ID on AWS. | 
 | <a name="srcdvcscope"></a>**SrcDvcScope** | Optional | String | The cloud platform scope the device belongs to. **SrcDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
-| **SrcDvcIdType** | Optional | Enumerated | The type of [SrcDvcId](#srcdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the list, and store the others in the **SrcDvcAzureResourceId** and **SrcDvcMDEid**, respectively.<br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
+| **SrcDvcIdType** | Conditional | Enumerated | The type of [SrcDvcId](#srcdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the list, and store the others in the **SrcDvcAzureResourceId** and **SrcDvcMDEid**, respectively.<br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
 | **SrcDeviceType** | Optional | Enumerated | The type of the source device. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
 | <a name = "srcdescription"></a>**SrcDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
 
@@ -183,11 +183,11 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="srcuserid"></a>**SrcUserId**   | Optional  | String     |   A machine-readable, alphanumeric, unique representation of the source user. For more information, and for alternative fields for additional IDs, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
-| **SrcUserScope** | Optional | String | The scope, such as Azure AD tenant, in which [SrcUserId](#srcuserid) and [SrcUsername](#srcusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
-| **SrcUserScopeId** | Optional | String | The scope ID, such as Azure AD Directory ID, in which [SrcUserId](#srcuserid) and [SrcUsername](#srcusername) are defined. for more information and list of allowed values, see [UserScopeId](normalization-about-schemas.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
-| <a name="srcuseridtype"></a>**SrcUserIdType** | Optional  | UserIdType |  The type of the ID stored in the [SrcUserId](#srcuserid) field. For more information and list of allowed values, see [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md).|
+| **SrcUserScope** | Optional | String | The scope, such as Microsoft Entra tenant, in which [SrcUserId](#srcuserid) and [SrcUsername](#srcusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
+| **SrcUserScopeId** | Optional | String | The scope ID, such as Microsoft Entra Directory ID, in which [SrcUserId](#srcuserid) and [SrcUsername](#srcusername) are defined. for more information and list of allowed values, see [UserScopeId](normalization-about-schemas.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
+| <a name="srcuseridtype"></a>**SrcUserIdType** | Conditional  | UserIdType |  The type of the ID stored in the [SrcUserId](#srcuserid) field. For more information and list of allowed values, see [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md).|
 | <a name="srcusername"></a>**SrcUsername** | Optional    | Username     | The source username, including domain information when available. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE`     |
-| <a name="srcusernametype"></a>**SrcUsernameType**  | Optional    | UsernameType |   Specifies the type of the user name stored in the [SrcUsername](#srcusername) field. For more information, and list of allowed values, see [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Example: `Windows`       |
+| <a name="srcusernametype"></a>**SrcUsernameType**  | Conditional    | UsernameType |   Specifies the type of the user name stored in the [SrcUsername](#srcusername) field. For more information, and list of allowed values, see [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Example: `Windows`       |
 | <a name="user"></a>**User** | Alias | | Alias to [SrcUsername](#srcusername) |
 | **SrcUserType**  | Optional | UserType | The type of the source user. For more information, and  list of allowed values, see [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>For example: `Guest` |
 | **SrcUserSessionId** | Optional     | String     |   The unique ID of the sign-in session of the Actor.  <br><br>Example: `102pTUgC3p8RIqHvzxLCHnFlg`  |
@@ -207,10 +207,10 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| <a name="dst"></a>**Dst** | Recommended       | String     |    A unique identifier of the server that received the DNS request. <br><br>This field may alias the [DstDvcId](#dstdvcid), [DstHostname](#dsthostname), or [DstIpAddr](#dstipaddr) fields. <br><br>Example: `192.168.12.1`       |
+| <a name="dst"></a>**Dst** | Alias       | String     |    A unique identifier of the server that received the DNS request. <br><br>This field may alias the [DstDvcId](#dstdvcid), [DstHostname](#dsthostname), or [DstIpAddr](#dstipaddr) fields. <br><br>Example: `192.168.12.1`       |
 | <a name="dstipaddr"></a>**DstIpAddr** | Optional | IP Address | The IP address of the server that received the DNS request. For a regular DNS request, this value would typically be the reporting device, and in most cases set to `127.0.0.1`.<br><br>Example: `127.0.0.1` |
 | **DstGeoCountry** | Optional | Country | The country associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `USA` |
-| **DstGeoRegion** | Optional | Region | The region, or state, within a country associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Vermont` |
+| **DstGeoRegion** | Optional | Region | The region, or state, associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Vermont` |
 | **DstGeoCity** | Optional | City | The city associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Burlington` |
 | **DstGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `44.475833` |
 | **DstGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `73.211944` |
@@ -219,12 +219,12 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **DstPortNumber** | Optional | Integer  | Destination Port number.<br><br>Example: `53` |
 | <a name="dsthostname"></a>**DstHostname** | Optional | String | The destination device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D`<br><br>**Note**: This value is mandatory if [DstIpAddr](#dstipaddr) is specified. |
 | <a name="dstdomain"></a>**DstDomain** | Optional | String | The domain of the destination device.<br><br>Example: `Contoso` |
-| <a name="dstdomaintype"></a>**DstDomainType** | Optional | Enumerated | The type of [DstDomain](#dstdomain), if known. Possible values include:<br>- `Windows (contoso\mypc)`<br>- `FQDN (learn.microsoft.com)`<br><br>Required if [DstDomain](#dstdomain) is used. |
+| <a name="dstdomaintype"></a>**DstDomainType** | Conditional | Enumerated | The type of [DstDomain](#dstdomain), if known. Possible values include:<br>- `Windows (contoso\mypc)`<br>- `FQDN (learn.microsoft.com)`<br><br>Required if [DstDomain](#dstdomain) is used. |
 | **DstFQDN** | Optional | String | The destination device hostname, including domain information when available. <br><br>Example: `Contoso\DESKTOP-1282V4D` <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [DstDomainType](#dstdomaintype) reflects the format used.   |
 | <a name="dstdvcid"></a>**DstDvcId** | Optional | String | The ID of the destination device as reported in the record.<br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | <a name="dstdvcscopeid"></a>**DstDvcScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **DstDvcScopeId** map to a subscription ID on Azure and to an account ID on AWS. | 
 | <a name="dstdvcscope"></a>**DstDvcScope** | Optional | String | The cloud platform scope the device belongs to. **DstDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
-| **DstDvcIdType** | Optional | Enumerated | The type of [DstDvcId](#dstdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEidIf`<br><br>If multiple IDs are available, use the first one from the list above, and store the others in the  **DstDvcAzureResourceId** or **DstDvcMDEid** fields, respectively.<br><br>Required if **DstDeviceId** is used.|
+| **DstDvcIdType** | Conditional | Enumerated | The type of [DstDvcId](#dstdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEidIf`<br><br>If multiple IDs are available, use the first one from the list above, and store the others in the  **DstDvcAzureResourceId** or **DstDvcMDEid** fields, respectively.<br><br>Required if **DstDeviceId** is used.|
 | **DstDeviceType** | Optional | Enumerated | The type of the destination device. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
 | <a name = "dstdescription"></a>**DstDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
 
@@ -257,7 +257,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 |<a name="dnssessionid"></a>**DnsSessionId** | Optional | string | The DNS session identifier as reported by the reporting device. This value is different from [TransactionIdHex](#transactionidhex), the DNS query unique ID as assigned by the DNS client.<br><br>Example: `EB4BFA28-2EAD-4EF7-BC8A-51DF4FDF5B55` |
 | **SessionId** | Alias | | Alias to [DnsSessionId](#dnssessionid) |
 | **DnsResponseIpCountry** | Optional | Country | The country associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `USA` |
-| **DnsResponseIpRegion** | Optional | Region | The region, or state, within a country associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Vermont` |
+| **DnsResponseIpRegion** | Optional | Region | The region, or state, associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Vermont` |
 | **DnsResponseIpCity** | Optional | City | The city associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Burlington` |
 | **DnsResponseIpLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `44.475833` |
 | **DnsResponseIpLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `73.211944` |
@@ -272,17 +272,17 @@ The following fields are used to represent an inspection, which a DNS security d
 | **DomainCategory** | Alias | | Alias to [UrlCategory](#UrlCategory). |
 | <a name="networkrulename"></a>**NetworkRuleName** | Optional | String | The name or ID of the rule which identified the threat.<br><br> Example: `AnyAnyDrop` |
 | <a name="networkrulenumber"></a>**NetworkRuleNumber** | Optional | Integer | The number of the rule which identified the threat.<br><br>Example: `23` |
-| **Rule** | Mandatory | String | Either the value of [NetworkRuleName](#networkrulename) or the value of [NetworkRuleNumber](#networkrulenumber). If the value of [NetworkRuleNumber](#networkrulenumber) is used, the type should be converted to string. |
+| **Rule** | Alias | String | Either the value of [NetworkRuleName](#networkrulename) or the value of [NetworkRuleNumber](#networkrulenumber). If the value of [NetworkRuleNumber](#networkrulenumber) is used, the type should be converted to string. |
 | **ThreatId** | Optional | String | The ID of the threat or malware identified in the network session.<br><br>Example: `Tr.124` |
 | **ThreatCategory** | Optional | String | If a DNS event source also provides DNS security, it may also evaluate the DNS event. For example, it can search for the IP address or domain in a threat intelligence database, and assign the domain or IP address with a Threat Category. |
 | **ThreatIpAddr** | Optional | IP Address | An IP address for which a threat was identified. The field [ThreatField](#threatfield) contains the name of the field **ThreatIpAddr** represents. If a threat is identified in the [Domain](#domain) field, this field should be empty. |
-| <a name="threatfield"></a>**ThreatField** | Optional | Enumerated | The field for which a threat was identified. The value is either `SrcIpAddr`, `DstIpAddr`, `Domain`, or `DnsResponseName`. |
+| <a name="threatfield"></a>**ThreatField** | Conditional | Enumerated | The field for which a threat was identified. The value is either `SrcIpAddr`, `DstIpAddr`, `Domain`, or `DnsResponseName`. |
 | **ThreatName** | Optional | String | The name of the threat identified, as reported by the reporting device. | 
 | **ThreatConfidence** | Optional | Integer | The confidence level of the threat identified, normalized to a value between 0 and a 100.| 
 | **ThreatOriginalConfidence** | Optional | String |  The original confidence level of the threat identified, as reported by the reporting device.| 
 | **ThreatRiskLevel** | Optional | Integer | The risk level associated with the threat identified, normalized to a value between 0 and a 100. | 
 | **ThreatOriginalRiskLevel** | Optional | String | The original risk level associated with the threat identified, as reported by the reporting device. |  
-| **ThreatIsActive** | Optional | Boolean | True ID the threat identified is considered an active threat. | 
+| **ThreatIsActive** | Optional | Boolean | True if the threat identified is considered an active threat. | 
 | **ThreatFirstReportedTime** | Optional | datetime | The first time the IP address or domain were identified as a threat.  | 
 | **ThreatLastReportedTime** | Optional | datetime | The last time the IP address or domain were identified as a threat.| 
 

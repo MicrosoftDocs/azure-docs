@@ -4,9 +4,9 @@ description: This tutorial details backing up on-premises Windows Servers to a R
 ms.topic: tutorial
 ms.date: 12/15/2022
 ms.custom: mvc, engagement-fy23
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Back up Windows Server to Azure
 

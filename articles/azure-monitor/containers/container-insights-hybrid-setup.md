@@ -2,21 +2,20 @@
 title: Configure hybrid Kubernetes clusters with Container insights | Microsoft Docs
 description: This article describes how you can configure Container insights to monitor Kubernetes clusters hosted on Azure Stack or other environments.
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/21/2023
 ms.reviewer: aul
 ---
 
 # Configure hybrid Kubernetes clusters with Container insights
 
-Container insights provides a rich monitoring experience for the Azure Kubernetes Service (AKS) and [AKS Engine on Azure](https://github.com/Azure/aks-engine), which is a self-managed Kubernetes cluster hosted on Azure. This article describes how to enable monitoring of Kubernetes clusters hosted outside of Azure and achieve a similar monitoring experience.
+Container insights provides a rich monitoring experience for the Azure Kubernetes Service (AKS). This article describes how to enable monitoring of Kubernetes clusters hosted outside of Azure and achieve a similar monitoring experience.
 
 ## Supported configurations
 
-The following configurations are officially supported with Container insights. If you have a different version of Kubernetes and operating system versions, send an email to askcoin@microsoft.com.
+The following configurations are officially supported with Container insights. If you have a different version of Kubernetes and operating system versions, please open a support ticket..
 
 - Environments:
     - Kubernetes on-premises.
-    - AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4 and higher, on-premises or in other cloud environments.
 - Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
 - The following container runtimes are supported: Moby and CRI compatible runtimes such CRI-O and ContainerD.
@@ -58,7 +57,7 @@ To enable Container insights for the hybrid Kubernetes cluster:
 
 1. Enable the Container insights Helm chart with a Log Analytics workspace.
 
-For more information on monitoring solutions in Azure Monitor, see [Monitoring solutions in Azure Monitor](../../azure-monitor/insights/solutions.md).
+For more information on monitoring solutions in Azure Monitor, see [Monitoring solutions in Azure Monitor](/previous-versions/azure/azure-monitor/insights/solutions).
 
 ### Add the Azure Monitor Containers solution
 
@@ -306,7 +305,7 @@ Supported API definitions for the Azure Stack Hub cluster can be found in the ex
 
 ## Configure agent data collection
 
-Starting with chart version 1.0.0, the agent data collection settings are controlled from the ConfigMap. For more information on agent data collection settings, see [Configure agent data collection for Container insights](container-insights-agent-config.md).
+Starting with chart version 1.0.0, the agent data collection settings are controlled from the ConfigMap. For more information on agent data collection settings, see [Configure agent data collection for Container insights](container-insights-data-collection-configmap.md).
 
 After you've successfully deployed the chart, you can review the data for your hybrid Kubernetes cluster in Container insights from the Azure portal.
 
@@ -336,7 +335,7 @@ If you specify the protocol as **http**, the HTTP requests are created by using 
 
 ## Troubleshooting
 
-If you encounter an error while you attempt to enable monitoring for your hybrid Kubernetes cluster, copy the PowerShell script [TroubleshootError_nonAzureK8s.ps1](https://aka.ms/troubleshoot-non-azure-k8s) and save it to a folder on your computer. This script is provided to help you detect and fix the issues you encounter. It's designed to detect and attempt correction of the following issues:
+If you encounter an error while you attempt to enable monitoring for your hybrid Kubernetes cluster, use the PowerShell script [TroubleshootError_nonAzureK8s.ps1](https://aka.ms/troubleshoot-non-azure-k8s) to help you detect and fix the issues you encounter. It's designed to detect and attempt correction of the following issues:
 
 - The specified Log Analytics workspace is valid.
 - The Log Analytics workspace is configured with the Container insights solution. If not, configure the workspace.
@@ -345,7 +344,7 @@ If you encounter an error while you attempt to enable monitoring for your hybrid
 - The Azure Monitor Agent Health service is running.
 - The Log Analytics workspace ID and key configured on the containerized agent match with the workspace that the insight is configured with.
 - Validate that all the Linux worker nodes have the `kubernetes.io/role=agent` label to the schedulers pod. If it doesn't exist, add it.
-- Validate that `cAdvisor secure port:10250` or `unsecure port: 10255` is opened on all nodes in the cluster.
+- Identify conditions that may indicate `cAdvisor secure port:10250` or `unsecure port: 10255` is not opened on all nodes in the cluster.
 
 To execute with Azure PowerShell, use the following commands in the folder that contains the script:
 

@@ -1,33 +1,28 @@
 ---
 title: Supported resources for metric alerts in Azure Monitor
 description: Reference on support metrics and logs for metric alerts in Azure Monitor
-author: harelbr
-ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 9/14/2022
+ms.date: 11/22/2023
 ms.reviwer: harelbr
 ---
 
-# Supported resources for metric alerts in Azure Monitor
+# Supported resources for Azure Monitor metric alerts 
 
-Azure Monitor now supports a [new metric alert type](./alerts-overview.md), which has significant benefits over the older [classic metric alerts](./alerts-classic.overview.md). Metrics are available for a [large list of Azure services](../essentials/metrics-supported.md). The newer alerts support a growing subset of the resource types. This article lists that subset.
+This article lists the subset of [Azure Monitor metrics](../essentials/metrics-supported.md) that are supported by metric alerts.
 
-You can also use newer metric alerts on popular log data stored in a Log Analytics workspace extracted as metrics. For more information, see [Metric Alerts for Logs](./alerts-metric-logs.md).
+You can also use newer alerts on popular log data stored in a Log Analytics workspace extracted as metrics. For more information, see [Metric Alerts for Logs](./alerts-metric-logs.md).
 
-## Portal, PowerShell, CLI, and REST support
-
-Currently, you can create newer metric alerts only in the Azure portal, the [REST API](/rest/api/monitor/metricalerts/), or [Azure Resource Manager templates](./alerts-metric-create-templates.md). Support for configuring newer alerts by using PowerShell and the Azure CLI versions 2.0 and higher is coming soon.
+You can create metric alerts in the Azure portal, the [REST API](/rest/api/monitor/metricalerts/), or [Azure Resource Manager templates](./alerts-metric-create-templates.md). 
 
 ## Metrics and dimensions supported
 
-Newer metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the proper level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics explorer](../essentials/metrics-charts.md).
+Metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the proper level. All supported metrics along with applicable dimensions can be explored and visualized using the [Azure Monitor metrics explorer](../essentials/metrics-charts.md).
 
-Here's the full list of Azure Monitor metric sources supported by the newer alerts:
+Here's the full list of Azure Monitor metric sources supported by metric alerts:
 
 |Resource type  |Dimensions supported |Multi-resource alerts| Metrics available|
 |---------|---------|-----|----------|
-|Microsoft.Aadiam/azureADMetrics | Yes | No | Azure Active Directory (metrics in private preview) |
 |Microsoft.ApiManagement/service | Yes | No | [Azure API Management](../essentials/metrics-supported.md#microsoftapimanagementservice) |
 |Microsoft.App/containerApps | Yes | No | Azure Container Apps |
 |Microsoft.AppConfiguration/configurationStores |Yes | No | [Azure App Configuration](../essentials/metrics-supported.md#microsoftappconfigurationconfigurationstores) |
@@ -47,11 +42,14 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.ClassicStorage/storageAccounts/fileServices | Yes | No | [Azure Files storage accounts (classic)](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountsfileservices) |
 |Microsoft.ClassicStorage/storageAccounts/queueServices | Yes | No | [Azure Queue Storage accounts (classic)](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountsqueueservices) |
 |Microsoft.ClassicStorage/storageAccounts/tableServices | Yes | No | [Azure Table Storage accounts (classic)](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountstableservices) |
-|Microsoft.CognitiveServices/accounts | Yes | No | [Azure Cognitive Services](../essentials/metrics-supported.md#microsoftcognitiveservicesaccounts) |
+|Microsoft.CloudTest/hostedpools | Yes | No | [1ES Hosted Pools](../essentials/metrics-supported.md#microsoftcloudtesthostedpools) |
+|Microsoft.CloudTest/pools | Yes | No | [CloudTest Pools](../essentials/metrics-supported.md#microsoftcloudtestpools) |
+|Microsoft.CognitiveServices/accounts | Yes | No | [Azure AI services](../essentials/metrics-supported.md#microsoftcognitiveservicesaccounts) |
 |Microsoft.Compute/cloudServices | Yes | No |  [Azure Cloud Services](../essentials/metrics-supported.md#microsoftcomputecloudservices) |
 |Microsoft.Compute/cloudServices/roles | Yes | No |  [Azure Cloud Services roles](../essentials/metrics-supported.md#microsoftcomputecloudservicesroles) |
 |Microsoft.Compute/virtualMachines | Yes | Yes<sup>1</sup> | [Azure Virtual Machines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Yes | No |[Azure Virtual Machine Scale Sets](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
+|Microsoft.Communication/CommunicationServices | Yes | No |[Communication Services](../essentials/metrics-supported.md#microsoftcommunicationcommunicationservices) |
 |Microsoft.ConnectedVehicle/platformAccounts | Yes | No |[Connected Vehicle Platform Accounts](../essentials/metrics-supported.md) |
 |Microsoft.ContainerInstance/containerGroups | Yes| No | [Container groups](../essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft.ContainerRegistry/registries | No | No | [Azure Container Registry](../essentials/metrics-supported.md#microsoftcontainerregistryregistries) |
@@ -85,9 +83,12 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.MachineLearningServices/workspaces | Yes | No | [Azure Machine Learning](../essentials/metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
 |Microsoft.MachineLearningServices/workspaces/onlineEndpoints | Yes | No | Azure Machine Learning endpoints |
 |Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments | Yes | No | Azure Machine Learning endpoint deployments |
+|Microsoft.ManagedNetworkFabric/networkDevices | Yes | No |[Managed Network Fabric Devices](../essentials/metrics-supported.md#microsoftmanagednetworkfabricnetworkdevices) |
 |Microsoft.Maps/accounts | Yes | No | [Azure Maps accounts](../essentials/metrics-supported.md#microsoftmapsaccounts) |
 |Microsoft.Media/mediaservices | No | No | [Azure Media Services](../essentials/metrics-supported.md#microsoftmediamediaservices) |
+|Microsoft.Media/mediaservices/liveEvents | Yes | No | [Azure Media Services Live Events](../essentials/metrics-supported.md#microsoftmediamediaservicesliveevents) |
 |Microsoft.Media/mediaservices/streamingEndpoints | Yes | No | [Azure Media Services streaming endpoints](../essentials/metrics-supported.md#microsoftmediamediaservicesstreamingendpoints) |
+|Microsoft.Monitor/accounts | Yes | No | [Azure Monitor workspaces](../essentials/metrics-supported.md#microsoftmonitoraccounts) |
 |Microsoft.NetApp/netAppAccounts/capacityPools | Yes | Yes | [Azure NetApp Files capacity pools](../essentials/metrics-supported.md#microsoftnetappnetappaccountscapacitypools) |
 |Microsoft.NetApp/netAppAccounts/capacityPools/volumes | Yes | Yes | [Azure NetApp Files volumes](../essentials/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) |
 |Microsoft.Network/applicationGateways | Yes | No | [Azure Application Gateway](../essentials/metrics-supported.md#microsoftnetworkapplicationgateways) |
@@ -110,7 +111,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Purview/accounts | Yes | No | [Azure Purview accounts](../essentials/metrics-supported.md#microsoftpurviewaccounts) |
 |Microsoft.RecoveryServices/vaults | Yes | Yes | [Recovery Services vaults](../essentials/metrics-supported.md) |
 |Microsoft.Relay/namespaces | Yes | No | [Relays](../essentials/metrics-supported.md#microsoftrelaynamespaces) |
-|Microsoft.Search/searchServices | No | No | [Search services](../essentials/metrics-supported.md#microsoftsearchsearchservices) |
+|Microsoft.Search/searchServices | Yes | No | [Search services](../essentials/metrics-supported.md#microsoftsearchsearchservices) |
 |Microsoft.ServiceBus/namespaces | Yes | No | [Azure Service Bus](../essentials/metrics-supported.md#microsoftservicebusnamespaces) |
 |Microsoft.SignalRService/WebPubSub | Yes | No | [Azure Web PubSub service](../essentials/metrics-supported.md#microsoftsignalrservicewebpubsub) |
 |Microsoft.Sql/managedInstances | No | No | [Azure SQL Managed Instance](../essentials/metrics-supported.md#microsoftsqlmanagedinstances) |
@@ -139,64 +140,10 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 
 ## Payload schema
 
-> [!NOTE]
-> You can also use the [common alert schema](./alerts-common-schema.md), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations. [Learn about the common alert schema definitions](./alerts-common-schema-definitions.md).​
+Use the [common alert schema](./alerts-common-schema.md), which uses a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations.​
 
-The POST operation contains the following JSON payload and schema for all near newer metric alerts when an appropriately configured [action group](./action-groups.md) is used:
-
-```json
-{
-  "schemaId": "AzureMonitorMetricAlert",
-  "data": {
-    "version": "2.0",
-    "status": "Activated",
-    "context": {
-      "timestamp": "2018-02-28T10:44:10.1714014Z",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/microsoft.insights/metricAlerts/StorageCheck",
-      "name": "StorageCheck",
-      "description": "",
-      "conditionType": "SingleResourceMultipleMetricCriteria",
-      "severity":"3",
-      "condition": {
-        "windowSize": "PT5M",
-        "allOf": [
-          {
-            "metricName": "Transactions",
-            "metricNamespace":"microsoft.storage/storageAccounts",
-            "dimensions": [
-              {
-                "name": "AccountResourceId",
-                "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
-              },
-              {
-                "name": "GeoType",
-                "value": "Primary"
-              }
-            ],
-            "operator": "GreaterThan",
-            "threshold": "0",
-            "timeAggregation": "PT5M",
-            "metricValue": 1
-          }
-        ]
-      },
-      "subscriptionId": "00000000-0000-0000-0000-000000000000",
-      "resourceGroupName": "Contoso",
-      "resourceName": "diag500",
-      "resourceType": "Microsoft.Storage/storageAccounts",
-      "resourceId": "/subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500",
-      "portalLink": "https://portal.azure.com/#resource//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
-    },
-    "properties": {
-      "key1": "value1",
-      "key2": "value2"
-    }
-  }
-}
-```
 
 ## Next steps
 
-* Learn more about the new [alerts experience](./alerts-overview.md).
-* Learn about [log alerts in Azure](./alerts-unified-log.md).
-* Learn about [alerts in Azure](./alerts-overview.md).
+* Learn more about [Azure Monitor alerts](./alerts-overview.md).
+* See the [alerts payload](./alerts-common-schema.md). 

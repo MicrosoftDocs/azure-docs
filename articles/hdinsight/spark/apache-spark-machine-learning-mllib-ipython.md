@@ -4,7 +4,7 @@ description: Learn how to use Spark MLlib to create a machine learning app that 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
-ms.date: 05/19/2022
+ms.date: 06/23/2023
 ---
 
 # Use Apache Spark MLlib to build a machine learning application and analyze a dataset

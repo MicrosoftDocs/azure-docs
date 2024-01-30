@@ -1,10 +1,10 @@
 ---
-title: Azure Analysis Services database backup and restore | Microsoft Docs
+title: Learn about Azure Analysis Services database backup and restore | Microsoft Docs
 description: This article describes how to backup and restore model metadata and data from an Azure Analysis Services database.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 01/24/2023
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions 
@@ -33,27 +33,27 @@ Before backing up, you need to configure storage settings for your server.
 ### To configure storage settings
 1.  In Azure portal > **Settings**, click **Backup**.
 
-    ![Backups in Settings](./media/analysis-services-backup/aas-backup-backups.png)
+    ![Screenshot that shows Backups in Settings.](./media/analysis-services-backup/aas-backup-backups.png)
 
 2.  Click **Enabled**, then click **Storage Settings**.
 
-    ![Enable](./media/analysis-services-backup/aas-backup-enable.png)
+    ![Screenshot that shows Enabled button.](./media/analysis-services-backup/aas-backup-enable.png)
 
 3. Select your storage account or create a new one.
 
 4. Select a container or create a new one.
 
-    ![Select container](./media/analysis-services-backup/aas-backup-container.png)
+    ![Screenshot that shows selecting a container.](./media/analysis-services-backup/aas-backup-container.png)
 
 5. Save your backup settings.
 
-    ![Save backup settings](./media/analysis-services-backup/aas-backup-save.png)
+    ![Screenshot that shows Save backup settings.](./media/analysis-services-backup/aas-backup-save.png)
 
 ## Backup
 
-### To backup by using SSMS
+### To backup by using SQL Server Management Studio
 
-1. In SSMS, right-click a database > **Back Up**.
+1. In SQL Server Management Studio (SSMS), right-click a database > **Back Up**.
 
 2. In **Backup Database** > **Backup file**, click **Browse**.
 
@@ -79,7 +79,7 @@ When restoring, your backup file must be in the storage account you've configure
 
 
 > [!NOTE]
-> If you're restoring from an on-premises server, you must remove all the domain users from the model's roles and add them back to the roles as Azure Active Directory users.
+> If you're restoring from an on-premises server, you must remove all the domain users from the model's roles and add them back to the roles as Microsoft Entra users.
 > 
 > 
 

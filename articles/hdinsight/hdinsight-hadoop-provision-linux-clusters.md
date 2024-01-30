@@ -3,8 +3,8 @@ title: Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kaf
 description: Set up Hadoop, Kafka, Spark, or HBase clusters for HDInsight from a browser, the Azure classic CLI, Azure PowerShell, REST, or SDK.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017,seodec18, devx-track-azurecli
-ms.date: 08/17/2022
+ms.custom: hdinsightactive, hdiseo17may2017, seodec18, devx-track-azurepowershell
+ms.date: 03/16/2023
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
@@ -162,7 +162,7 @@ Ambari is used to monitor HDInsight clusters, make configuration changes, and st
 
 ### Enterprise security package
 
-For Hadoop, Spark, HBase, Kafka, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Directory. For more information, see [Overview of enterprise security in Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
+For Hadoop, Spark, HBase, Kafka, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Microsoft Entra ID. For more information, see [Overview of enterprise security in Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
 
 The Enterprise security package allows you to integrate HDInsight with Active Directory and Apache Ranger. Multiple users can be created using the Enterprise security package.
 
@@ -242,6 +242,10 @@ To find out what value you should use to specify a VM size while creating a clus
 For more information, see [Sizes for virtual machines](../virtual-machines/sizes.md). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).
 
 ### Disk attachment
+
+> [!NOTE]
+> The added disks are only configured for node manager local directories and **not for datanode directories**
+
 
 HDInsight cluster comes with pre-defined disk space based on SKU. Running some  large applications, can lead to insufficient disk space, (with disk full error -  ```LinkId=221672#ERROR_NOT_ENOUGH_DISK_SPACE```) and job failures. 
 

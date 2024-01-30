@@ -2,16 +2,17 @@
 title: Run U-SQL jobs in Python, R, and C# - Azure Data Lake Analytics
 description: Learn how to use code behind with Python, R and C# to submit job in Azure Data Lake.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 11/22/2017
+ms.date: 12/20/2023
 ms.custom: devx-track-python
 ---
+
 # Develop U-SQL with Python, R, and C# for Azure Data Lake Analytics in Visual Studio Code
 
-Learn how to use Visual Studio Code (VSCode) to write Python, R and C# code behind with U-SQL and submit jobs to Azure Data Lake service. For more information about Azure Data Lake Tools for VSCode, see [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
+Learn how to use Visual Studio Code (VS Code) to write Python, R and C# code behind with U-SQL and submit jobs to Azure Data Lake service. For more information about Azure Data Lake Tools for VS Code, see [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 
-Before writing code-behind custom code, you need to open a folder or a workspace in VSCode.
+Before writing code-behind custom code, you need to open a folder or a workspace in VS Code.
 
 ## Prerequisites for Python and R
 

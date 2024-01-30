@@ -4,10 +4,10 @@ description: This quickstart article describes how to create an Azure Traffic Ma
 services: traffic-manager
 author: greg-lindsay
 ms.author: greglin
-ms.date: 06/20/2022
+ms.date: 02/19/2023
 ms.topic: quickstart
 ms.service: traffic-manager
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create a Traffic Manager profile using Bicep

@@ -1,61 +1,52 @@
 ---
-title: IS_STRING in Azure Cosmos DB query language
-description: Learn about SQL system function IS_STRING in Azure Cosmos DB.
-author: ginamr
+title: IS_STRING
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns true if the type of the specified expression is a string.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# IS_STRING (Azure Cosmos DB)
+
+# IS_STRING (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns a Boolean value indicating if the type of the specified expression is a string.  
-  
+Returns a boolean value indicating if the type of the specified expression is a string.
+
 ## Syntax
-  
+
 ```sql
 IS_STRING(<expr>)  
 ```  
   
 ## Arguments
-  
-*expr*  
-   Is any expression.  
+
+| | Description |
+| --- | --- |
+| **`expr`** | Any expression. |
   
 ## Return types
   
-  Returns a Boolean expression.  
+Returns a boolean expression.  
   
 ## Examples
-  
-  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the `IS_STRING` function.  
-  
-```sql
-SELECT   
-       IS_STRING(true) AS isStr1,   
-       IS_STRING(1) AS isStr2,  
-       IS_STRING("value") AS isStr3,   
-       IS_STRING(null) AS isStr4,  
-       IS_STRING({prop: "value"}) AS isStr5,   
-       IS_STRING([1, 2, 3]) AS isStr6,  
-       IS_STRING({prop: "value"}.prop2) AS isStr7  
-```  
-  
- Here is the result set.  
-  
-```json
-[{"isStr1":false,"isStr2":false,"isStr3":true,"isStr4":false,"isStr5":false,"isStr6":false,"isStr7":false}] 
-```  
+
+The following example various values to see if they're a string.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/is-string/query.sql" highlight="2-10":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/is-string/result.json":::
 
 ## Remarks
 
-This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy).
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
-## Next steps
+## Related content
 
-- [Type checking functions Azure Cosmos DB](type-checking-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`IS_NUMBER`](is-number.md)

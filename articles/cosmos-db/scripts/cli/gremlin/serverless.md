@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: apache-gremlin
 ms.topic: sample
 ms.date: 05/02/2022
-ms.custom: kr2b-contr-experiment, ignite-2022
+ms.custom: kr2b-contr-experiment, ignite-2022, devx-track-azurecli
 ---
 
 # Use Azure CLI to create a Gremlin serverless account, database, and graph
@@ -23,7 +23,7 @@ The script in this article creates an Azure Cosmos DB for Gremlin serverless acc
 
 - This script requires Azure CLI version 2.30 or later.
 
-  - You can run the script in the Bash environment in [Azure Cloud Shell](../../../../cloud-shell/quickstart.md). When Cloud Shell opens, make sure to select **Bash** in the environment field at the upper left of the shell window. Cloud Shell has the latest version of Azure CLI.
+  - You can run the script in the Bash environment in [Azure Cloud Shell](../../../../cloud-shell/get-started.md). When Cloud Shell opens, make sure to select **Bash** in the environment field at the upper left of the shell window. Cloud Shell has the latest version of Azure CLI.
 
     [![Launch Cloud Shell in a new window](../../../../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 

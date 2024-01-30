@@ -2,12 +2,12 @@
 title: Understand Azure Reserved VM Instances discount
 description: Learn how Azure Reserved VM Instance discount is applied to running virtual machines.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 10/03/2022
+ms.date: 07/27/2023
 ms.author: banders
 ---
 
@@ -18,6 +18,9 @@ After you buy an Azure Reserved Virtual Machine Instance, the reservation discou
 A reservation discount applies to the base VMs that you purchase from the Azure Marketplace.
 
 For SQL Database reserved capacity, see [Understand Azure Reserved Instances discount](../reservations/understand-reservation-charges.md).
+
+>[!NOTE]
+> Azure doesn't offer reservations for Spot VMs.
 
 The following table illustrates the costs for your virtual machine after you purchase a Reserved VM Instance. In all cases, you're charged for storage and networking at the normal rates.
 

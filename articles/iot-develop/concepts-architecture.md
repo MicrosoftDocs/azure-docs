@@ -3,12 +3,10 @@ title: IoT Plug and Play architecture | Microsoft Docs
 description: Understand the key architectural elements of an IoT Plug and Play solution.
 author: ridomin
 ms.author: rmpablos
-ms.date: 11/17/2022
+ms.date: 1/23/2024
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-develop
-services: iot-develop
-
 ---
 
 # IoT Plug and Play architecture
@@ -27,7 +25,7 @@ The following diagram shows the key elements of an IoT Plug and Play solution:
 
 ## Model repository
 
-The [model repository](./concepts-model-repository.md) is a store for model and interface definitions. You define models and interfaces using the [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+The [model repository](./concepts-model-repository.md) is a store for model and interface definitions. You define models and interfaces using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md).
 
 The web UI lets you manage the models and interfaces.
 
@@ -35,7 +33,7 @@ The model repository has built-in role-based access controls that let you manage
 
 ## Devices
 
-A device builder implements the code to run on an IoT device using one of the [Azure IoT device SDKs](./libraries-sdks.md). The device SDKs help the device builder to:
+A device builder implements the code to run on an IoT device using one of the [Azure IoT device SDKs](./about-iot-sdks.md). The device SDKs help the device builder to:
 
 - Connect securely to an IoT hub.
 - Register the device with your IoT hub and announce the model ID that identifies the collection of DTDL interfaces the device implements.

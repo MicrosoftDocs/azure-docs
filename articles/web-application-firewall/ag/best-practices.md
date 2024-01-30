@@ -1,23 +1,23 @@
 ---
-title: Best practices for Web Application Firewall on Azure Application Gateway
-description: In this tutorial, you learn about the best practices for using the web application firewall with Application Gateway.
+title: Best practices for Azure Web Application Firewall (WAF) on Azure Application Gateway
+description: In this article, you learn about the best practices for using the Azure Web Application Firewall (WAF) on Azure Application Gateway.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.topic: tutorial
-ms.date: 09/06/2022
+ms.topic: concept-article
+ms.date: 08/28/2023
 ms.author: jodowns
 ---
 
-# Best practices for Web Application Firewall on Application Gateway
+# Best practices for Azure Web Application Firewall (WAF) on Azure Application Gateway
 
-This article summarizes best practices for using the web application firewall (WAF) on Azure Application Gateway.
+This article summarizes best practices for using Azure Web Application Firewall (WAF) on Azure Application Gateway.
 
 ## General best practices
 
 ### Enable the WAF
 
-For internet-facing applications, we recommend you enable a web application firewall (WAF) and configure it to use managed rules. When you use a WAF and Microsoft-managed rules, your application is protected from a range of attacks.
+For Internet-facing applications, we recommend you enable a web application firewall (WAF) and configure it to use managed rules. When you use a WAF and Microsoft-managed rules, your application is protected from a range of attacks.
 
 ### Use WAF policies
 
@@ -37,19 +37,19 @@ For more information, see [Troubleshoot Web Application Firewall (WAF) for Azure
 
 ### Use prevention mode
 
-After you've tuned your WAF, you should configure it to [run in prevention mode](create-waf-policy-ag.md#configure-waf-rules-optional). By running in prevention mode, you ensure the WAF actually blocks requests that it detects are malicious. Running in detection mode is useful while you tune and configure your WAF, but provides no protection.
+After you tune your WAF, you should configure it to [run in **prevention** mode](create-waf-policy-ag.md#configure-waf-rules-optional). By running in **prevention** mode, you ensure the WAF actually blocks requests that it detects as malicious. Running in **detection** mode is useful for testing purposes while you tune and configure your WAF but it provides no protection. It logs the traffic, but it doesn't take any actions such as *allow* or *deny*.
 
 ### Define your WAF configuration as code
 
 When you tune your WAF for your application workload, you typically create a set of rule exclusions to reduce false positive detections. If you manually configure these exclusions by using the Azure portal, then when you upgrade your WAF to use a newer ruleset version, you need to reconfigure the same exceptions against the new ruleset version. This process can be time-consuming and error-prone.
 
-Instead, consider defining your WAF rule exclusions and other configuration as code, such as by using the Azure CLI, Azure PowerShell, Bicep or Terraform. Then, when you need to update your WAF ruleset version, you can easily reuse the same exclusions.
+Instead, consider defining your WAF rule exclusions and other configurations as code, such as by using the Azure CLI, Azure PowerShell, Bicep or Terraform. Then, when you need to update your WAF ruleset version, you can easily reuse the same exclusions.
 
 ## Managed ruleset best practices
 
 ### Enable core rule sets
 
-Microsoft's core rule sets are designed to protect your application by detecting and blocking common attacks. The rules are based on a various sources including the OWASP top 10 attack types and information from Microsoft Threat Intelligence.
+Microsoft's core rule sets are designed to protect your application by detecting and blocking common attacks. The rules are based on various sources including the OWASP top 10 attack types and information from Microsoft Threat Intelligence.
 
 For more information, see [Web Application Firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
 
@@ -69,7 +69,7 @@ For more information, see [Web Application Firewall CRS rule groups and rules](a
 
 ### Geo-filter traffic
 
-Many web applications are designed for users within a specific geographic region. If this situation applies to your application, consider implementing geo-filtering to block requests that come from outside of the countries you expect to receive traffic from.
+Many web applications are designed for users within a specific geographic region. If this situation applies to your application, consider implementing geo-filtering to block requests that come from outside of the countries/regions you expect to receive traffic from.
 
 For more information, see [Geomatch custom rules](geomatch-custom-rules.md).
 
@@ -77,7 +77,7 @@ For more information, see [Geomatch custom rules](geomatch-custom-rules.md).
 
 ### Add diagnostic settings to save your WAF's logs
 
-Application Gateway's WAF integrates with Azure Monitor. It's important to save the WAF logs to a destination like Log Analytics. You should review the WAF logs regularly. Reviewing logs helps you to [tune your WAF policies to reduce false-positive detections](#tune-your-waf), and to understand whether your application has been the subject of attacks.
+Application Gateway's WAF integrates with Azure Monitor. It's important to enable the diagnostic settings and save the WAF logs to a destination like Log Analytics. You should review the WAF logs regularly. Reviewing logs helps you to [tune your WAF policies to reduce false-positive detections](#tune-your-waf), and to understand whether your application has been the subject of attacks.
 
 For more information, see [Azure Web Application Firewall Monitoring and Logging](application-gateway-waf-metrics.md).
 

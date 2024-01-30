@@ -1,9 +1,9 @@
 ---
 title: Distributed tracing
-titleSuffix: Azure Private 5G Core Preview 
+titleSuffix: Azure Private 5G Core 
 description: Information on the distributed tracing web GUI, which provides detailed traces for signaling flows involving packet core instances.
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual
 ms.date: 12/23/2021
@@ -12,18 +12,29 @@ ms.custom: template-concept
 
 # Distributed tracing
 
-Azure Private 5G Core Preview offers a *distributed tracing web GUI*, which you can use to collect detailed traces for signaling flows involving packet core instances. You can use *traces* to diagnose many common configuration, network, and interoperability problems affecting user service.
+Azure Private 5G Core offers a *distributed tracing web GUI*, which you can use to collect detailed traces for signaling flows involving packet core instances. You can use *traces* to diagnose many common configuration, network, and interoperability problems affecting user service.
 
 ## Access the distributed tracing web GUI
 
-To sign in to the distributed tracing web GUI:
+> [!TIP]
+> When signing in, if you see a warning in your browser that the connection isn't secure, you may be using a self-signed certificate to attest access to your local monitoring tools. We recommend following [Modify the local access configuration in a site](modify-local-access-configuration.md) to configure a custom HTTPS certificate signed by a globally known and trusted certificate authority.
 
-1. In your browser, enter https://*\<LocalMonitoringIP\>*/sas, where *\<LocalMonitoringIP\>* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
+<a name='azure-active-directory'></a>
+
+### Microsoft Entra ID
+
+To sign in to the distributed tracing web GUI if you enabled Microsoft Entra authentication:
+
+1. In your browser, enter https://*\<local monitoring domain\>*/sas, where *\<local monitoring domain\>* is the domain name for your local monitoring tools that you set up in [Configure domain system name (DNS) for local monitoring IP](enable-azure-active-directory.md#configure-domain-system-name-dns-for-local-monitoring-ip).
+1. Follow the prompts to sign in with your account credentials.
+
+### Local username and password
+
+To sign in to the distributed tracing web GUI if you enabled local username and password authentication:
+
+1. In your browser, enter https://*\<local monitoring IP\>*/sas, where *\<local monitoring IP\>* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
 
     :::image type="content" source="media\distributed-tracing\distributed-tracing-sign-in.png" alt-text="Screenshot of the distributed tracing web G U I sign in page, with fields for the username and password.":::
-
-    > [!TIP]
-    > If you see a warning in your browser that the connection isn't secure, you may be using a self-signed certificate to attest access to your local monitoring tools. We recommend following [Modify the local access configuration in a site](modify-local-access-configuration.md) to configure a custom HTTPS certificate signed by a globally known and trusted certificate authority.
 
 1. Sign in using your credentials. 
 

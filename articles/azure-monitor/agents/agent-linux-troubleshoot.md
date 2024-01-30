@@ -2,11 +2,11 @@
 title: Troubleshoot Azure Log Analytics Linux Agent | Microsoft Docs
 description: Describe the symptoms, causes, and resolution for the most common issues with the Log Analytics agent for Linux in Azure Monitor.
 ms.topic: conceptual
+ms.custom: linux-related-content
 author: guywi-ms
 ms.author: guywild
-ms.date: 10/21/2021
-ms.reviewer: luki
-
+ms.date: 04/25/2023
+ms.reviewer: luki, mattmcinnes
 ---
 
 # Troubleshoot issues with the Log Analytics agent for Linux
@@ -54,10 +54,10 @@ For more information, see the [Troubleshooting Tool documentation on GitHub](htt
 A clean reinstall of the agent fixes most issues. This task might be the first suggestion from our support team to get the agent into an uncorrupted state. Running the Troubleshooting Tool and Log Collector tool and attempting a clean reinstall helps to solve issues more quickly.
 
 1. Download the purge script:
-   
+
    `$ wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/purge_omsagent.sh`
 1. Run the purge script (with sudo permissions):
-   
+
    `$ sudo sh purge_omsagent.sh`
 
 ## Important log locations and the Log Collector tool
@@ -78,7 +78,7 @@ A clean reinstall of the agent fixes most issues. This task might be the first s
  Extra configurations | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
  > [!NOTE]
- > Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [agent's configuration](../agents/agent-data-sources.md#configure-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from **Agents configuration**. For a single agent, run the following script:
+ > Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [agent's configuration](../agents/agent-data-sources.md#configure-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from **Legacy agents management**. For a single agent, run the following script:
 >
 > `sudo /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable && sudo rm /etc/opt/omi/conf/omsconfig/configuration/Current.mof* /etc/opt/omi/conf/omsconfig/configuration/Pending.mof*`
 
@@ -343,7 +343,7 @@ This error indicates that the Linux diagnostic extension (LAD) is installed side
 1. If you're using a proxy, check the preceding proxy troubleshooting steps.
 1. In some Azure distribution systems, the omid OMI server daemon doesn't start after the virtual machine is rebooted. If this is the case, you won't see Audit, ChangeTracking, or UpdateManagement solution-related data. The workaround is to manually start the OMI server by running `sudo /opt/omi/bin/service_control restart`.
 1. After the OMI package is manually upgraded to a newer version, it must be manually restarted for the Log Analytics agent to continue functioning. This step is required for some distros where the OMI server doesn't automatically start after it's upgraded. Run `sudo /opt/omi/bin/service_control restart` to restart the OMI.
-   
+
    In some situations, the OMI can become frozen. The OMS agent might enter a blocked state waiting for the OMI, which blocks all data collection. The OMS agent process will be running but there will be no activity, which is evidenced by no new log lines (such as sent heartbeats) present in `omsagent.log`. Restart the OMI with `sudo /opt/omi/bin/service_control restart` to recover the agent.
 1. If you see a DSC resource *class not found* error in omsconfig.log, run `sudo /opt/omi/bin/service_control restart`.
 1. In some cases, when the Log Analytics agent for Linux can't talk to Azure Monitor, data on the agent is backed up to the full buffer size of 50 MB. The agent should be restarted by running the following command: `/opt/microsoft/omsagent/bin/service_control restart`.
@@ -358,20 +358,20 @@ This error indicates that the Linux diagnostic extension (LAD) is installed side
         mkdir -p /etc/cron.d/
         echo "*/15 * * * * omsagent /opt/omi/bin/OMSConsistencyInvoker >/dev/null 2>&1" | sudo tee /etc/cron.d/OMSConsistencyInvoker
         ```
-    
+
     * Also, make sure the cron service is running. You can use `service cron status` with Debian, Ubuntu, and SUSE or `service crond status` with RHEL, CentOS, and Oracle Linux to check the status of this service. If the service doesn't exist, you can install the binaries and start the service by using the following instructions:
 
         **Ubuntu/Debian**
-    
+
         ```
         # To Install the service binaries
         sudo apt-get install -y cron
         # To start the service
         sudo service cron start
         ```
-    
+
         **SUSE**
-    
+
         ```
         # To Install the service binaries
         sudo zypper in cron -y
@@ -379,18 +379,18 @@ This error indicates that the Linux diagnostic extension (LAD) is installed side
         sudo systemctl enable cron
         sudo systemctl start cron
         ```
-    
+
         **RHEL/CentOS**
-    
+
         ```
         # To Install the service binaries
         sudo yum install -y crond
         # To start the service
         sudo service crond start
         ```
-    
+
         **Oracle Linux**
-    
+
         ```
         # To Install the service binaries
         sudo yum install -y cronie

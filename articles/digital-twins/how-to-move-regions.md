@@ -102,9 +102,8 @@ These views confirm that your models, twins, and graph were reuploaded to the ne
 
 If you have endpoints or routes in your original instance, you'll need to recreate them in your new instance. Otherwise, if you don't have any endpoints or routes in your original instance or you don't want to move them to the new instance, you can skip to the [next section](#relink-connected-resources).
 
-Otherwise, follow the steps in [Manage endpoints and routes](how-to-manage-routes.md) using the new instance. Keep these pointers in mind:
-
-* You don't need to recreate the Event Grid, Event Hubs, or Service Bus resource that you're using for the endpoint. For more information, see the [Prerequisites section](how-to-manage-routes.md#prerequisite-create-endpoint-resources) in the endpoint instructions. You just need to recreate the endpoint on the Azure Digital Twins instance.
+Otherwise, follow the steps in [Create endpoints](how-to-create-endpoints.md) and then [Create routes and filters](how-to-create-routes.md). Keep these pointers in mind:
+* You don't need to recreate the Event Grid, Event Hubs, or Service Bus resource that you're using for the endpoint. You just need to recreate the endpoint on the Azure Digital Twins instance.
 * You can reuse endpoint and route names because they're scoped to a different instance.
 * Remember to add any required filters to the routes you create.
 
@@ -126,7 +125,7 @@ The exact resources you need to edit depends on your scenario, but here are some
 * Azure Maps.
 * IoT Hub Device Provisioning Service.
 * Personal or company apps outside of Azure, such as the client app created in [Code a client app](tutorial-code.md), that connect to the instance and call Azure Digital Twins APIs.
-* Azure AD app registrations don't need to be recreated. If you're using an [app registration](./how-to-create-app-registration.md) to connect to the Azure Digital Twins APIs, you can reuse the same app registration with your new instance.
+* Microsoft Entra app registrations don't need to be recreated. If you're using an [app registration](./how-to-create-app-registration.md) to connect to the Azure Digital Twins APIs, you can reuse the same app registration with your new instance.
 
 After you finish this step, your new instance in the target region should be a copy of the original instance.
 

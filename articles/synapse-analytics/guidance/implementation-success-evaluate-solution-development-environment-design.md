@@ -1,8 +1,8 @@
 ---
 title: "Synapse implementation success methodology: Evaluate solution development environment design"
 description: "Learn how to set up multiple environments for your modern data warehouse project to support development, testing, and production."
-author: peter-myers
-ms.author: v-petermyers
+author: SnehaGunda
+ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual

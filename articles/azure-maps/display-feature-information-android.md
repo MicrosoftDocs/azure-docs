@@ -1,11 +1,12 @@
 ---
 title: Display feature information in Android maps | Microsoft Azure Maps
 description: Learn how to display information when users interact with map features. Use the Azure Maps Android SDK to display toast messages and other types of messages.
-author: stevemunk
-ms.author: v-munksteve
+author: sinnypan
+ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
+ms.custom: devx-track-extended-java
 services: azure-maps
 zone_pivot_groups: azure-maps-android
 ---
@@ -52,9 +53,9 @@ source.add(feature)
 
 ::: zone-end
 
-See the [Create a data source](create-data-source-android-sdk.md) documentation for ways to create and add data to the map.
+For more information on how to create and add data to the map, see [Create a data source].
 
-When a user interacts with a feature on the map, events can be used to react to those actions. A common scenario is to display a message made of the metadata properties of a feature the user interacted with. The `OnFeatureClick` event is the main event used to detect when the user tapped a feature on the map. There's also an `OnLongFeatureClick` event. When adding the `OnFeatureClick` event to the map, it can be limited to a single layer by passing in the ID of a layer to limit it to. If no layer ID is passed in, tapping any feature on the map, regardless of which layer it is in, would fire this event. The following code creates a symbol layer to render point data on the map, then adds an `OnFeatureClick` event and limits it to this symbol layer.
+When a user interacts with a feature on the map, events can be used to react to those actions. A common scenario is to display a message made of the metadata properties of a feature the user interacted with. The `OnFeatureClick` event is the main event used to detect when the user tapped a feature on the map. There's also an `OnLongFeatureClick` event. When the `OnFeatureClick` event is added to the map, it can be limited to a single layer by passing in the ID of a layer to limit it to. If no layer ID is passed in, tapping any feature on the map, regardless of which layer it is in, would fire this event. The following code creates a symbol layer to render point data on the map, then adds an `OnFeatureClick` event and limits it to this symbol layer.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -142,14 +143,14 @@ map.events.add(OnFeatureClick { features: List<Feature> ->
 
 In addition to toast messages, There are many other ways to present the metadata properties of a feature, such as:
 
-- [Snackbar widget](https://developer.android.com/training/snackbar/showing.html) - `Snackbars` provide lightweight feedback about an operation. They show a brief message at the bottom of the screen on mobile and lower left on larger devices. `Snackbars` appear above all other elements on screen and only one can be displayed at a time.
-- [Dialogs](https://developer.android.com/guide/topics/ui/dialogs) -  A dialog is a small window that prompts the user to make a decision or enter additional information. A dialog doesn't fill the screen and is normally used for modal events that require users to take an action before they can continue.
-- Add a [Fragment](https://developer.android.com/guide/components/fragments) to the current activity.
+- [Snackbar widget] - `Snackbars` provide lightweight feedback about an operation. They show a brief message at the bottom of the screen on mobile and lower left on larger devices. `Snackbars` appear above all other elements on screen and only one can be displayed at a time.
+- [Dialogs] -  A dialog is a small window that prompts the user to make a decision or enter additional information. A dialog doesn't fill the screen and is normally used for modal events that require users to take an action before they can continue.
+- Add a [Fragment] to the current activity.
 - Navigate to another activity or view.
 
 ## Display a popup
 
-The Azure Maps Android SDK provides a `Popup` class that makes it easy to create UI annotation elements that are anchored to a position on the map. For popups, you have to pass in a view with a relative layout into the `content` option of the popup. Here is a simple layout example that displays dark text on top of a while background.
+The Azure Maps Android SDK provides a `Popup` class that makes it easy to create UI annotation elements that are anchored to a position on the map. For popups, you have to pass in a view with a relative layout into the `content` option of the popup. Here's a simple layout example that displays dark text on top of a while background.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -285,19 +286,29 @@ The following screen capture shows popups appearing when features are clicked an
 To add more data to your map:
 
 > [!div class="nextstepaction"]
-> [React to map events](android-map-events.md)
+> [React to map events]
 
 > [!div class="nextstepaction"]
-> [Create a data source](create-data-source-android-sdk.md)
+> [Create a data source]
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer](how-to-add-symbol-to-android-map.md)
+> [Add a symbol layer]
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](map-add-bubble-layer-android.md)
+> [Add a bubble layer]
 
 > [!div class="nextstepaction"]
-> [Add a line layer](android-map-add-line-layer.md)
+> [Add a line layer]
 
 > [!div class="nextstepaction"]
-> [Add a polygon layer](how-to-add-shapes-to-android-map.md)
+> [Add a polygon layer]
+
+[Create a data source]: create-data-source-android-sdk.md
+[Snackbar widget]: https://developer.android.com/training/snackbar/showing.html
+[Dialogs]: https://developer.android.com/guide/topics/ui/dialogs
+[Fragment]: https://developer.android.com/guide/components/fragments
+[React to map events]: android-map-events.md
+[Add a symbol layer]: how-to-add-symbol-to-android-map.md
+[Add a bubble layer]: map-add-bubble-layer-android.md
+[Add a line layer]: android-map-add-line-layer.md
+[Add a polygon layer]: how-to-add-shapes-to-android-map.md

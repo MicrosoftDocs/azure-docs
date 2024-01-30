@@ -2,10 +2,10 @@
 title: Data protection in Azure Stream Analytics
 description: This article explains how to encrypt your private data used by an Azure Stream Analytics job.
 author: ahartoon
-ms.author: anboisve
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 05/20/2022
+ms.date: 03/13/2023
 ---
 
 # Data protection in Azure Stream Analytics 
@@ -26,9 +26,8 @@ Azure Stream Analytics persists the following metadata and data in order to run:
 
 * Connection details of the resources used by your Stream Analytics job
 
-To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft's compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
-
 ## In-Region Data Residency
+
 Azure Stream Analytics stores customer data and other metadata described above. Customer data is stored by Azure Stream Analytics in a single region by default, so this service automatically satisfies in region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
 Additionally, you can choose to store all data assets (customer data and other metadata) related to your stream analytics job in a single region by encrypting them in a storage account of your choice.
 
@@ -49,8 +48,6 @@ If the storage account you want to use is in an Azure Virtual Network, you must 
 
 Encrypt your storage account to secure all of your data and explicitly choose the location of your private data. 
 
-To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft's compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
-
 Use the following steps to configure your storage account for private data assets. This configuration is made from your Stream Analytics job, not from your storage account.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -69,7 +66,7 @@ Use the following steps to configure your storage account for private data asset
 
    ![Private data storage account settings](./media/data-protection/storage-account-create.png)
 
-1. To authenticate with Managed Identity (preview), select **Managed Identity** from the Authentication mode dropdown. If you choose Managed Identity, you need to add your Stream Analytics job to the storage account's access control list with the *Storage Blob Data Contributor* role. If you do not give your job access, the job will not be able to perform any operations. For more information on how to grant access, see [Use Azure RBAC to assign a managed identity access to another resource](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
+1. To authenticate with Managed Identity, select **Managed Identity** from the Authentication mode dropdown. If you choose Managed Identity, you need to add your Stream Analytics job to the storage account's access control list with the *Storage Blob Data Contributor* role. If you do not give your job access, the job will not be able to perform any operations. For more information on how to grant access, see [Use Azure RBAC to assign a managed identity access to another resource](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
 
    :::image type="content" source="media/data-protection/storage-account-create-msi.png" alt-text="Private data storage account settings with managed identity authentication":::
 
@@ -86,8 +83,6 @@ Any private data that is required to be persisted by Stream Analytics is stored 
 * Snapshots of reference data 
 
 Connection details of your resources, which are used by your Stream Analytics job, are also stored. Encrypt your storage account to secure all of your data. 
-
-To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft's compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
 ## Enables Data Residency 
 You may use this feature to enforce any data residency requirements you may have by providing a storage account accordingly.

@@ -13,7 +13,7 @@ For a detailed wire-level AMQP 1.0 protocol guide, which explains how Service Bu
   
 ## Concepts  
     
-### Brokered message  
+### ServiceBusReceivedMessage / ServiceBusMessage  
 
 Represents a message in Service Bus, which is mapped to an AMQP message. The mapping is defined in the [Service Bus AMQP protocol guide](service-bus-amqp-protocol-guide.md).  
   
@@ -479,7 +479,7 @@ The **correlation-filter** map must include at least one of the following entrie
 |session-id|string|No||  
 |reply-to-session-id|string|No||  
 |content-type|string|No||  
-|properties|map|No|Maps to Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).|  
+|properties|map|No|Maps to Service Bus [ServiceBusMessage.Properties](/dotnet/api/azure.messaging.servicebus.servicebusmessage.applicationproperties)|  
   
 The **sql-rule-action** map must include the following entries:  
   
@@ -578,7 +578,7 @@ Each map entry in the list includes the following properties:
 |Index|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 | 0 | string | Yes | Sql Filter expression |
-| 1 | int | Yes | always 20 | 
+| 1 | int | Yes | always 20. This integer is the compatibility level of the sql filter. It indicates the syntax version of the sql filter. | 
 
 `com.microsoft:correlation-filter:list` is a described list, which includes:
 
@@ -601,7 +601,13 @@ Each map entry in the list includes the following properties:
 | `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Empty Rule Action - No rule action present |
 | `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | SQL Rule Action |
 
-`com.microsoft:sql-rule-action:list` is a described list that has two elements. The first element is a string, which contains the SQL rule action's expression. The second element is a 32-bit signed integer and its value is always 20. 
+`com.microsoft:sql-rule-action:list` is a described list that has two elements.
+
+|Index|Value Type|Required|Value Contents|  
+|---------|----------------|--------------|--------------------|  
+| 0 | string | Yes | SQL rule action's expression |
+| 1 | int | Yes | always 20. This integer is the compatibility level of the sql filter. It indicates the syntax version of the sql filter. | 
+
 
 ## Deferred message operations  
   

@@ -1,17 +1,16 @@
 ---
 title: Understand the IoT Plug and Play device models repository | Microsoft Docs
 description: As a solution developer or an IT professional, learn about the basic concepts of the device models repository for IoT Plug and Play devices.
-author: rido-min
-ms.author: rmpablos
-ms.date: 11/17/2022
+author: timlt
+ms.author: timlt
+ms.date: 1/23/2024
 ms.topic: conceptual
 ms.service: iot-develop
-services: iot-develop
 ---
 
 # Device models repository
 
-The device models repository (DMR) enables device builders to manage and share IoT Plug and Play device models. The device models are JSON LD documents defined using the [Digital Twins Modeling Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+The device models repository (DMR) enables device builders to manage and share IoT Plug and Play device models. The device models are JSON LD documents defined using the [Digital Twins Modeling Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md).
 
 The DMR defines a pattern to store DTDL interfaces in a folder structure based on the device twin model identifier (DTMI). You can locate an interface in the DMR by converting the DTMI to a relative path. For example, the `dtmi:com:example:Thermostat;1` DTMI translates to `/dtmi/com/example/thermostat-1.json` and can be obtained from the public base URL `devicemodels.azure.com` at the URL [https://devicemodels.azure.com/dtmi/com/example/thermostat-1.json](https://devicemodels.azure.com/dtmi/com/example/thermostat-1.json).
 

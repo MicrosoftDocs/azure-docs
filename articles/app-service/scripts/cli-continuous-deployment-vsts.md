@@ -30,16 +30,16 @@ This sample script creates an app in App Service with its related resources, and
 
 :::code language="azurecli" source="~/azure_cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous-webapp-only.sh" id="FullScript":::
 
-### To configure continuous deployment from GitHub
+### To configure continuous deployment from Azure DevOps
 
-Create the following variables containing your GitHub information.
+Create the following variables containing your Azure DevOps information.
 
 ```azurecli
-gitrepo=<Replace with your Visual Studio Team Services repo URL>
-token=<Replace with a Visual Studio Team Services personal access token>
+gitrepo=<Replace with your Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) repo URL>
+token=<Replace with an Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) personal access token>
 ```
 
-Configure continuous deployment from Visual Studio Team Services. The `--git-token` parameter is required only once per Azure account (Azure remembers token).
+Configure continuous deployment from Azure DevOps Services (formerly Visual Studio Team Services, or VSTS). The `--git-token` parameter is required only once per Azure account (Azure remembers token).
 
 ```azurecli
 az webapp deployment source config --name $webapp --resource-group $resourceGroup \

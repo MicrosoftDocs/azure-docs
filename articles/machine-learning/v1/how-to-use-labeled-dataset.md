@@ -8,7 +8,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: data4ml, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, data4ml, sdkv1, event-tier1-build-2022, ignite-2022
 ms.date: 08/17/2022
 #Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.
 ---
@@ -65,7 +65,7 @@ pip install azureml-dataprep
 In the following code, the `animal_labels` dataset is the output from a labeling project previously saved to the workspace.
 The exported dataset is a [TabularDataset](/python/api/azureml-core/azureml.data.tabular_dataset.tabulardataset). 
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```Python
 import azureml.core

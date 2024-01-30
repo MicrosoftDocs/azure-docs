@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # Flatten transformation in mapping data flow
@@ -24,13 +24,15 @@ Use the flatten transformation to take array values inside hierarchical structur
 
 ## Configuration
 
-The flatten transformation contains the following configuration settings
+The flatten transformation contains the following configuration settings.
 
-:::image type="content" source="media/data-flow/flatten1.png" alt-text="Flatten settings":::
+:::image type="content" source="media/data-flow/flatten-new-001.png" alt-text="Screenshot that shows flatten settings." lightbox="media/data-flow/flatten-new-001.png":::
 
 ### Unroll by
 
-Select an array to unroll. The output data will have one row per item in each array. If the unroll by array in the input row is null or empty, there will be one output row with unrolled values as null.
+Select an array to unroll. The output data will have one row per item in each array. If the unroll by array in the input row is null or empty, there will be one output row with unrolled values as null. You have the option to unroll more than one array per Flatten transformation. Click on the plus (+) button to include multiple arrays in a single Flatten transformation. You can use ADF data flow meta functions here including ```name``` and ```type``` and use pattern matching to unroll arrays that match those criteria. When including multiple arrays in a single Flatten transformation, your results will be a cartesian product of all of the possible array values.
+
+:::image type="content" source="media/data-flow/flatten-new-002.png" alt-text="Screenshot that shows flatten results." lightbox="media/data-flow/flatten-new-002.png":::
 
 ### Unroll root
 
@@ -58,7 +60,7 @@ Optional setting that tells the service to handle all subcolumns of a complex ob
 
 ### Hierarchy level
 
-Choose the level of the hierarchy that you would like expand.
+Choose the level of the hierarchy that you would like to expand.
 
 ### Name matches (regex)
 
@@ -193,7 +195,7 @@ source foldDown(unroll(goods.orders.shipped.orderItems, goods.orders),
     skipDuplicateMapOutputs: false) 
 ```    
 
-## Next steps
+## Related content
 
 * Use the [Pivot transformation](data-flow-pivot.md) to pivot rows to columns.
 * Use the [Unpivot transformation](data-flow-unpivot.md) to pivot columns to rows.

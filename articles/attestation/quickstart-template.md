@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: msmbaldwin
 ms.service: attestation
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: mbaldwin
 ms.date: 01/23/2023
 ---

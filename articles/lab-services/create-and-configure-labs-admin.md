@@ -1,8 +1,8 @@
 ---
 title: Configure regions for labs
 description: Learn how to change the region of a lab. 
-author: RoseHJM
-ms.author: rosemalcolm
+author: ntrogh
+ms.author: nicktrog
 ms.service: lab-services
 ms.topic: how-to 
 ms.date: 06/17/2022
@@ -19,6 +19,10 @@ You might need to change the region for your labs in these circumstances:
 - Regulatory compliance. Choosing where your data resides, such as organizations choosing specific regions to help ensure that they are compliant with local regulations. 
 - Service availability. Providing the optimal lab experience for your students by ensuring the Azure Lab Service is available in the region closest to them. For more information about service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=lab-services).
 - New region. You may acquire quota in a region different than the regions already enabled.
+
+> [!NOTE]
+> The default limit for the total number of regions you can use for creating labs varies by offer category type. If you have reached the Azure regions limit for your subscription, you can only create labs in regions that you're already using.
+> Learn more about [region restrictions in Azure Lab Services](./capacity-limits.md#azure-region-restrictions).
 
 ## Prerequisites
 
@@ -69,4 +73,7 @@ To disable one or more regions after lab creation, follow these steps:
 ## Next steps
 
 - Learn how to choose the right regions for your Lab plan at [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/#overview).
+
 - Check [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=lab-services) For Azure Lab Services availability near you.
+
+- Learn more about [region restrictions in Azure Lab Services](./capacity-limits.md#azure-region-restrictions).

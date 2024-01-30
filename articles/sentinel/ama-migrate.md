@@ -24,24 +24,24 @@ The following tables show gap analyses for the log types that currently rely on 
 
 ### Windows logs
 
-|Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
-|---------|---------|---------|
-|**Security Events**     |  [Windows Security Events data connector](data-connectors-reference.md#windows-security-events-via-ama)  (Public preview)     |  [Windows Security Events data connector (Legacy)](data-connectors-reference.md#security-events-via-legacy-agent-windows)       |
-|**Filtering by security event ID**     |   [Windows Security Events data connector (AMA)](data-connectors-reference.md#windows-security-events-via-ama)  (Public preview)    |     -     |
-|**Filtering by event ID**     | Collection only        |   -       |
-|**Windows Event Forwarding**     |  [Windows Forwarded Events](data-connectors-reference.md#windows-forwarded-events-preview) (Public Preview)       |     -     |
-|**Windows Firewall Logs**     |  -        |  [Windows Firewall data connector](data-connectors-reference.md#windows-firewall)       |
+| Log type / Support | Azure Monitor agent support | Log Analytics agent support |
+| --------- | --------- | --------- |
+| **Security Events** | [Windows Security Events data connector](data-connectors/windows-security-events-via-ama.md) | [Windows Security Events data connector (Legacy)](data-connectors/security-events-via-legacy-agent.md) |
+| **Filtering by security event ID** | [Windows Security Events data connector (AMA)](data-connectors/windows-security-events-via-ama.md) | - |
+| **Filtering by event ID** | Collection only | - |
+|**Windows Event Forwarding**     |  [Windows Forwarded Events](data-connectors/windows-forwarded-events.md)   |     -     |
+|**Windows Firewall Logs**     |  -        |  [Windows Firewall data connector](data-connectors/windows-firewall.md)       |
 |**Performance counters**     |   Collection only      |  Collection only       |
-|**Windows Event Logs**     |  Collection only       | Collection only        |
-|**Custom logs**     |   Collection only       |    Collection only     |
+| **Windows (System) Event Logs** | Collection only | Collection only |
+|**Custom logs (text)**     |   Collection only       |    Collection only     |
 |**IIS logs**     |    Collection only      |    Collection only     |
 |**Multi-homing**     |  Collection only       |   Collection only      |
-|**Application and service logs**     |    -      |    Collection only     |
-|**Sysmon**     |    Collection only      |      Collection only   |
-|**DNS logs**     |   [Windows DNS servers via AMA connector](connect-dns-ama.md) (Public preview)       | [Windows DNS Server connector](data-connectors-reference.md#windows-dns-server-preview) (Public preview)        |
+| **Application and service logs** | Collection only | Collection only |
+| **Sysmon** | Collection only | Collection only |
+|**DNS logs**     |   [Windows DNS servers via AMA connector](connect-dns-ama.md) (Public preview)       | [Windows DNS Server connector](data-connectors/dns.md) (Public preview)        |
 
 > [!IMPORTANT]
-> The AMA **for Windows** currently has a limit of 5,000 Events Per Second (EPS). Verify whether this limit works for your organization, especially if you are using your servers as log forwarders for Windows security events or forwarded events.
+> The Azure Monitor agent provides a throughput that is 25% better than legacy Log Analytics agents. Migrate to the new AMA connectors to get higher performance, especially if you are using your servers as log forwarders for Windows security events or forwarded events.
 
 ### Linux logs
 
@@ -50,7 +50,7 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Syslog**     |  Collection only      |   [Syslog data connector](connect-syslog.md)      |
 |**Common Event Format (CEF)**     |  [CEF via AMA data connector](connect-cef-ama.md)       |  [CEF data connector](connect-common-event-format.md)       |
 |**Sysmon**     |   Collection only    |  Collection only      |
-|**Custom logs**     |   -       |  Collection only       |
+|**Custom logs (text)**     |   Collection only       |  Collection only       |
 |**Multi-homing**     |   Collection only      |     -     |
 
 ## Recommended migration plan
@@ -59,11 +59,11 @@ Each organization will have different metrics of success and internal migration 
 
 **Include the following steps in your migration process**:
 
-1. Make sure that you've considered your environmental requirements and understand the gaps between the different agents. For more information, see [Migration plan considerations](../azure-monitor/agents/azure-monitor-agent-migration.md#migration-plan-considerations) in the Azure Monitor documentation.
+1. Make sure that you've reviewed necessary prerequisites and other considerations as [documented here](../azure-monitor/agents/azure-monitor-agent-migration.md#before-you-begin) in the Azure Monitor documentation.
 
 1. Run a proof of concept to test how the AMA sends data to Microsoft Sentinel, ideally in a development or sandbox environment.
 
-    1. To connect your Windows machines to the [Windows Security Event connector](data-connectors-reference.md#windows-security-events-via-ama), start with **Windows Security Events via AMA** data connector page in Microsoft Sentinel. For more information, see [Windows agent-based connections](connect-azure-windows-microsoft-services.md#windows-agent-based-connections).
+    1. To connect your Windows machines to the [Windows Security Event connector](data-connectors/windows-security-events-via-ama.md), start with **Windows Security Events via AMA** data connector page in Microsoft Sentinel. For more information, see [Windows agent-based connections](connect-services-windows-based.md).
 
     1. Go to the **Security Events via Legacy Agent** data connector page. On the **Instructions** tab, under **Configuration** > Step 2, **Select which events to stream**, select **None**. This configures your system so that you won't receive any security events through the MMA/OMS, but other data sources relying on this agent will continue to work. This step affects all machines reporting to your current Log Analytics workspace.
 
@@ -100,12 +100,12 @@ Each organization will have different metrics of success and internal migration 
 6. Uninstall the legacy agent. For more information, see [Manage the Azure Log Analytics agent ](../azure-monitor/agents/agent-manage.md#uninstall-agent).
 
 ## FAQs
-The following FAQs address issues specific to AMA migration with Microsoft Sentinel. For more information, see also the [Frequently asked questions for AMA migration](/azure/azure-monitor/faq#azure-monitor-agent) in the Azure Monitor documentation.
+The following FAQs address issues specific to AMA migration with Microsoft Sentinel. For more information, see also the [Frequently asked questions for AMA migration](../azure-monitor/agents/azure-monitor-agent-migration.md#frequently-asked-questions) and [Frequently asked questions for Azure Monitor Agent](../azure-monitor/agents/agents-overview.md#frequently-asked-questions) in the Azure Monitor documentation.
 
 ## What happens if I run both MMA/OMS and AMA in parallel in my Microsoft Sentinel deployment?
 Both the AMA and MMA/OMS agents can co-exist on the same machine. If they both send data, from the same data source to a Microsoft Sentinel workspace, at the same time, from a single host, duplicate events and double ingestion charges will occur.
 
-For your production rollout, we recommend that you configure either an MMA/OMS agent or the AMA for each data source. To address any issues for duplication, see the relevant FAQs in the [Azure Monitor documentation](/azure/azure-monitor/faq#azure-monitor-agent).
+For your production rollout, we recommend that you configure either an MMA/OMS agent or the AMA for each data source. To address any issues for duplication, see the relevant FAQs in the [Azure Monitor documentation](../azure-monitor/agents/agents-overview.md#frequently-asked-questions).
 
 ## The AMA doesn’t yet have the features my Microsoft Sentinel deployment needs to work. Should I migrate yet?
 The legacy Log Analytics agent will be retired on 31 August 2024.
@@ -120,9 +120,9 @@ While you can run the MMA and AMA simultaneously, you may want to migrate each c
 
 For more information, see:
 
-- [Frequently asked questions for AMA migration](/azure/azure-monitor/faq#azure-monitor-agent)
+- [Frequently asked questions for AMA migration](../azure-monitor/agents/azure-monitor-agent-migration.md#frequently-asked-questions)
 - [Overview of the Azure Monitor agents](../azure-monitor/agents/agents-overview.md)
 - [Migrate from Log Analytics agents](../azure-monitor/agents/azure-monitor-agent-migration.md)
-- [Windows Security Events via AMA](data-connectors-reference.md#windows-security-events-via-ama)
-- [Security events via Legacy Agent (Windows)](data-connectors-reference.md#security-events-via-legacy-agent-windows)
-- [Windows agent-based connections](connect-azure-windows-microsoft-services.md#windows-agent-based-connections)
+- [Windows Security Events via AMA](data-connectors/windows-security-events-via-ama.md)
+- [Security events via Legacy Agent (Windows)](data-connectors/security-events-via-legacy-agent.md)
+- [Windows agent-based connections](connect-services-windows-based.md)

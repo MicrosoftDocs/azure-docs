@@ -1,8 +1,8 @@
 ---
 title: Configure SAP audit log monitoring rules with Microsoft Sentinel
 description: Monitor the SAP audit logs using Microsoft Sentinel built-in analytics rules, to easily manage your SAP logs, reducing noise with no compromise to security value. 
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: how-to
 ms.date: 08/19/2022
 #Customer.intent: As a security operator, I want to monitor the SAP audit logs and easily manage the logs, so I can reduce noise without compromising security value.
@@ -19,7 +19,7 @@ You use two analytics rules to monitor and analyze your SAP audit log data:
 - **SAP - Dynamic Deterministic Audit Log Monitor (PREVIEW)**. Alerts on any SAP audit log events with minimal configuration. You can configure the rule for an even lower false-positive rate. [Learn how to configure the rule](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-sentinel-for-sap-news-dynamic-sap-security-audit-log/ba-p/3326842). 
 - **SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)**. Alerts on SAP audit log events when anomalies are detected, using machine learning capabilities and with no coding required. [Learn how to configure the rule](#set-up-the-sap---dynamic-anomaly-based-audit-log-monitor-alerts-preview-rule-for-anomaly-detection).
 
-The two [SAP Audit log monitor rules](sap-solution-security-content.md#built-in-sap-analytics-rules-for-monitoring-the-sap-audit-log) are delivered as ready to run out of the box, and allow for further fine tuning using the [SAP_Dynamic_Audit_Log_Monitor_Configuration and SAP_User_Config watchlists](sap-solution-security-content.md#available-watchlists).
+The two [SAP Audit log monitor rules](sap-solution-security-content.md#monitoring-the-sap-audit-log) are delivered as ready to run out of the box, and allow for further fine tuning using the [SAP_Dynamic_Audit_Log_Monitor_Configuration and SAP_User_Config watchlists](sap-solution-security-content.md#available-watchlists).
 
 ## Anomaly detection
  
@@ -63,8 +63,12 @@ You can further configure event types that produce too many incidents using the 
 |Determinism or anomalies     |If you know the event’s characteristics, you can use the deterministic capabilities. If you aren't sure how to correctly configure the event, the machine learning capabilities can decide.         |
 |SOAR capabilities     |You can use Microsoft Sentinel to further orchestrate, automate and respond to incidents that can be applied to the SAP audit log dynamic alerts. Learn about [Security Orchestration, Automation, and Response (SOAR)](../automation.md).  |
 
+## Next steps
 
+In this article, you learned how to monitor the SAP audit log using Microsoft Sentinel built-in analytics rules.
 
+- [Learn more about the SAP Audit log monitor rules](sap-solution-security-content.md#monitoring-the-sap-audit-log)
+- [Learn about the SAP Audit Log workbook](sap-audit-log-workbook.md)
 
  
 

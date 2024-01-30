@@ -4,7 +4,8 @@ description: Walk through the steps to use PowerShell to upload a VHD file to a 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 12/22/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Upload a VHD file to a lab storage account by using PowerShell
@@ -47,9 +48,9 @@ To upload a VHD file by using PowerShell:
 
 1. In a text editor, paste the generated PowerShell script you copied from the Azure portal.
 
-1. Modify the `-LocalFilePath` parameter of the Add-AzureRmVhd cmdlet to point to the location of the VHD file you want to upload.
+1. Modify the `-LocalFilePath` parameter of the Add-AZVHD cmdlet to point to the location of the VHD file you want to upload.
 
-1. At a PowerShell command prompt, run the Add-AzureRmVhd cmdlet with the modified `-LocalFilePath` parameter.
+1. At a PowerShell command prompt, run the Add-AZVHD cmdlet with the modified `-LocalFilePath` parameter.
 
 The process of uploading a VHD file might be lengthy depending on the size of the VHD file and your connection speed.
 

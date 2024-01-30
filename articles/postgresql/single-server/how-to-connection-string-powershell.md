@@ -15,6 +15,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 This article demonstrates how to generate a connection string for an Azure Database for PostgreSQL
 server. You can use a connection string to connect to an Azure Database for PostgreSQL from many
 different applications.

@@ -1,9 +1,9 @@
 ---
 title: "Diagnose connection issues for Azure Arc-enabled Kubernetes clusters"
-ms.date: 12/06/2022
+ms.date: 12/15/2023
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 description: "Learn how to resolve common issues when connecting Kubernetes clusters to Azure Arc."
-
 ---
 
 # Diagnose connection issues for Azure Arc-enabled Kubernetes clusters
@@ -27,7 +27,7 @@ Review the [prerequisites for connecting a cluster](quickstart-connect-cluster.m
 
 Make sure you [have the latest version installed](/cli/azure/install-azure-cli).
 
-If you connected your cluster by using Azure PowerShell, make sure you are [running the latest version](/powershell/azure/install-az-ps).
+If you connected your cluster by using Azure PowerShell, make sure you are [running the latest version](/powershell/azure/install-azure-powershell).
 
 ### Is the `connectedk8s` extension the latest version?
 
@@ -53,7 +53,7 @@ Be sure that the Microsoft.Kubernetes, Microsoft.KubernetesConfiguration, and Mi
 
 ### Are all network requirements met?
 
-Review the [network requirements](quickstart-connect-cluster.md#meet-network-requirements) and ensure that no required endpoints are blocked.
+Review the [network requirements](network-requirements.md) and ensure that no required endpoints are blocked.
 
 ### Are all pods in the `azure-arc` namespace running?
 
@@ -99,7 +99,7 @@ az connectedk8s connect --name <cluster-name> --resource-group <resource-group> 
 
 ### Is the proxy server able to reach required network endpoints?
 
-Review the [network requirements](quickstart-connect-cluster.md#meet-network-requirements) and ensure that no required endpoints are blocked.
+Review the [network requirements](network-requirements.md) and ensure that no required endpoints are blocked.
 
 ### Is the proxy server only using HTTP?
 
