@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Azure Blob Storage library - .NET"
-description: In this quickstart, you will learn how to use the Azure Blob Storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+description: In this quickstart, you learn how to use the Azure Blob Storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 01/30/2024
@@ -36,7 +36,7 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 ### Create the project
 
-For the steps ahead, you'll need to create a .NET console app using either the .NET CLI or Visual Studio 2022.
+Create a .NET console app using either the .NET CLI or Visual Studio 2022.
 
 ### [Visual Studio 2022](#tab/visual-studio)
 
@@ -48,7 +48,7 @@ For the steps ahead, you'll need to create a .NET console app using either the .
 
 1. For the **Project Name**, enter *BlobQuickstart*. Leave the default values for the rest of the fields and select **Next**.
 
-1. For the **Framework**, ensure the latest installed version of .NET is selected. Then choose **Create**. The new project will open inside the Visual Studio environment.
+1. For the **Framework**, ensure the latest installed version of .NET is selected. Then choose **Create**. The new project opens inside the Visual Studio environment.
 
 ### [.NET CLI](#tab/net-cli)
 
@@ -95,13 +95,13 @@ dotnet add package Azure.Storage.Blobs
 
 If this command to add the package fails, follow these steps:
 
-- Make sure that `nuget.org` is added as a package source. You can list the package sources using the [dotnet nuget list source](/dotnet/core/tools/dotnet-nuget-list-source#examples) command:
+- Make sure that `nuget.org` is added as a package source. You can list the package sources using the [`dotnet nuget list source`](/dotnet/core/tools/dotnet-nuget-list-source#examples) command:
 
     ```dotnetcli
     dotnet nuget list source
     ```
 
-- If you don't see `nuget.org` in the list, you can add it using the [dotnet nuget add source](/dotnet/core/tools/dotnet-nuget-add-source#examples) command:
+- If you don't see `nuget.org` in the list, you can add it using the [`dotnet nuget add source`](/dotnet/core/tools/dotnet-nuget-add-source#examples) command:
 
     ```dotnetcli
     dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
@@ -252,7 +252,7 @@ To learn more about downloading blobs, and to explore more code samples, see [Do
 
 The following code cleans up the resources the app created by deleting the container using [DeleteAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteasync). The code example also deletes the local files created by the app.
 
-The app pauses for user input by calling `Console.ReadLine` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were actually created correctly, before they are deleted.
+The app pauses for user input by calling `Console.ReadLine` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were created correctly, before they're deleted.
 
 Add the following code to the end of the `Program.cs` file:
 
@@ -275,7 +275,7 @@ To learn more about deleting a container, and to explore more code samples, see 
 
 ## The completed code
 
-After completing these steps the code in your `Program.cs` file should now resemble the following:
+After completing these steps, the code in your `Program.cs` file should now resemble the following:
 
 ## [Passwordless (Recommended)](#tab/managed-identity)
 
@@ -444,9 +444,9 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Before you begin the clean up process, check your *data* folder for the two files. You can open them and observe that they are identical.
+Before you begin the clean-up process, check your *data* folder for the two files. You can open them and observe that they're identical.
 
-After you've verified the files, press the **Enter** key to delete the test files and finish the demo.
+After you verify the files, press the **Enter** key to delete the test files and finish the demo.
 
 ## Next steps
 
