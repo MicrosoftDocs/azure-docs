@@ -15,6 +15,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Reserved capacity](optimize-costs-reserved-capacity.md)
+
+    If you have a material storage footprint in a region and service level, you can optimize their storage costs by committing to a one-year or three-plan for Azure NetApp Files. Committing to Azure NetApp Files includes a discount on capacity pools for a service level and region. Like other [Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md), Azure NetApp Files reserved capacity includes a discount for the reserved capacity and is automatically applied to matching Azure NetApp Files capacity pools. Reserved capacity can be used in a single subscription (singe subscription scope), or across multiple subscriptions (shared scope). Azure NetApp Files reserved capacity is available in increments of 100 TiB and 1 PiB for one or three-year term for a particular service level and region. For more detail, see [Azure NetApp Files reserved capacity](optimize-costs-reserved-capacity.md) or purchasing options in the Azure portal.
+    
 ## January 2024
 
 * [Standard network features - Edit volumes available in US Gov regions](azure-netapp-files-network-topologies.md#regions-edit-network-features) (Preview)
@@ -212,10 +216,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     Azure NetApp Files now supports a lower limit of 2 TiB for capacity pool sizing with Standard network features.
 
     You can now choose a minimum size of 2 TiB when creating a capacity pool. Capacity pools smaller than 4 TiB in size can only be used with volumes using [standard network features](configure-network-features.md#options-for-network-features). This enhancement provides a more cost effective solution for running workloads such as SAP-shared files and VDI that require lower capacity pool sizes for their capacity and performance needs. When you have less than 2-4 TiB capacity with proportional performance, this enhancement allows you to start with 2 TiB as a minimum pool size and increase with 1-TiB increments. For capacities less than 3 TiB, this enhancement saves cost by allowing you to re-evaluate volume planning to take advantage of savings of smaller capacity pools. This feature is supported in all [regions with Standard network features](azure-netapp-files-network-topologies.md#supported-regions).
-
-* [Reserved capacity](optimize-costs-reserved-capacity.md)
-
-    [Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) help you save money by committing to long-term plans for multiple products. Committing allows you to get a discount on the resources you use. Reservations can significantly reduce your resource costs from pay-as-you-go prices. You can now save money on the storage costs for Azure NetApp Files reserved capacity. Azure NetApp Files reserved capacity offers you a discount on capacity for storage costs when you commit to a reservation for one year. A reservation provides a fixed amount of storage capacity for the term of the reservation. How much you save will depend on the total capacity you choose to reserve, and the service level that you've chosen for your Azure NetApp Files.
 
 ## December 2022
 
