@@ -18,7 +18,7 @@ ms.date: 10/24/2023
 This page provides an overview of the tools that are available in prompt flow. It also offers instructions on how to create your own custom tool and how to install custom tools.
 
 
-## An Index of tools
+## An index of tools
 The following table shows an index of tools in prompt flow.
 
 | Tool name | Description | Environment | Package name |
