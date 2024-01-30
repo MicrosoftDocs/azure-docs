@@ -256,12 +256,12 @@ az keyvault create --enable-rbac-authorization false --name "<your unique key va
    | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
    | **Azure Key Vault** | Use the **Select a key vault** drop-down menu to choose the key vault that you set up in the previous section. |
 
-1. Once you select a key vault, the **Automation** tab populates Azure CLI commands with your deployment information. Copy the **Required** CLI command.
+1. Once you select a key vault, the **Automation** tab populates an Azure CLI command that configures your cluster with your deployment information. Copy the CLI command.
 
    >[!TIP]
-   >The **Required** CLI command configures your cluster with the information that it needs to communicate securely with Azure resources but does not deploy Azure IoT Operations. After running the configuration command, you'll deploy Azure IoT Operations on the **Summary** tab. The **Optional** CLI command does the same configuration tasks on your cluster and then also deploys Azure IoT Operations.
+   >Select the **Azure CLI deployment -- Efficiency unleashed** automation option to generate a CLI command that performs the configuration tasks on your cluster and then also deploys Azure IoT Operations.
 
-   :::image type="content" source="./media/quickstart-deploy/install-extension-automation.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
+   <!-- :::image type="content" source="./media/quickstart-deploy/install-extension-automation.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal."::: -->
 
 1. Sign in to Azure CLI on your development machine or in your codespace terminal. To prevent potential permission issues later, sign in interactively with a browser here even if you've already logged in before.
 
