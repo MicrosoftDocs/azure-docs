@@ -6,7 +6,7 @@ ms.author: mbender
 ms.topic: conceptual
 ms.custom: references_regions, subject-reliability
 ms.service: load-balancer
-ms.date: 01/18/2023
+ms.date: 01/30/2024
 ---
 
 # Reliability in Load Balancer
@@ -197,7 +197,7 @@ In the case where a region is augmented to have availability zones, any existing
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
-Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant High Availability scenarios such as:
+Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant high availability scenarios such as:
 
 * Incoming traffic originating from multiple regions.
 * [Instant global failover](#regional-redundancy) to the next optimal regional deployment.
@@ -216,9 +216,10 @@ The frontend IP configuration of your cross-region load balancer is static and a
 
 ### Disaster recovery in multi-region geography
 
+
 #### Regional redundancy
 
-Configure regional redundancy by adding a global frontend public IP address to your existing load balancers. 
+Configure regional redundancy by seamlessly linking a cross-region load balancer to your existing regional load balancers.
 
 If one region fails, the traffic is routed to the next closest healthy regional load balancer.  
 
