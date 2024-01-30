@@ -15,6 +15,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Capacity pool enhancement:](azure-netapp-files-set-up-capacity-pool.md): 1 TiB capacity pool is now generally available (GA). 
+
+    The 1 TiB lower limit for capacity pools using Standard network features is now generally available (GA).
+
 ## January 2024
 
 * [Standard network features - Edit volumes available in US Gov regions](azure-netapp-files-network-topologies.md#regions-edit-network-features) (Preview)
