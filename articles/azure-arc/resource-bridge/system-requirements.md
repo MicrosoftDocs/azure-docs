@@ -175,7 +175,7 @@ By default, these files are generated in the current CLI directory when `createc
 
 ### Kubeconfig
 
-The appliance VM hosts a management Kubernetes cluster. The kubeconfig is a low-privilege Kubernetes configuration file that is used to maintain the appliance VM. By default, it's generated in the current CLI directory when the `deploy` command completes. The kubeconfig should be saved in a secure location to the management machine, because it's required for maintaining the appliance VM. 
+The appliance VM hosts a management Kubernetes cluster. The kubeconfig is a low-privilege Kubernetes configuration file that is used to maintain the appliance VM. By default, it's generated in the current CLI directory when the `deploy` command completes. The kubeconfig should be saved in a secure location on the management machine, because it's required for maintaining the appliance VM. If the kubeconfig is lost, it can be retrieved by running the `az arcappliance get-credentials` command.
 
 ### HCI login configuration file (Azure Stack HCI only)
 
