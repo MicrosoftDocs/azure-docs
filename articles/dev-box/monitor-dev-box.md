@@ -180,7 +180,7 @@ DevCenterDiagnosticLogs
 
 These examples are just a small sample of the rich queries that can be performed in Monitor using the Kusto Query Language. For more information, see [samples for Kusto queries](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor).
 
-## Next steps
+## Related content
 
 To learn more about Azure logs, see the following articles:
 
