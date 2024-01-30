@@ -43,7 +43,7 @@ Expanding `result_detail` for a given category shows detailed results.
 
 ## Troubleshooting specific failures
 
-### System Info Category
+### System info category
 
 * Memory/RAM Related Failure (memory_capacity_GB)
     * Memory specs are defined in the SKU
