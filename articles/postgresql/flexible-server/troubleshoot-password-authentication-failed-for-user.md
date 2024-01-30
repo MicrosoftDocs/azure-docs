@@ -49,6 +49,9 @@ The password authentication failed for user `<user-name>` error occurs when the 
 * **User or role created without a password**
 Another possible cause of this error is creating a user or role in PostgreSQL without specifying a password. Executing commands like `CREATE USER <user-name>` or `CREATE ROLE <role-name>` without an accompanying password statement results in a user or role with no password set. Attempting to connect with such a user or role without setting a password will lead to authentication failure with password authentication failed error.
 
+* **Potential security breach**
+If the authentication failure is unexpected, especially if there are multiple failed attempts recorded, it could indicate a potential security breach. Unauthorized access attempts might trigger such errors. 
+
 ## Resolution
 If you're encountering the "password authentication failed for user `<user-name>`" error, follow these steps to resolve the issue.
 
@@ -69,6 +72,44 @@ If the cause of the error is the creation of a user or role without a password, 
   ALTER ROLE <role-name> WITH LOGIN;
   ALTER ROLE <role-name> WITH PASSWORD '<new-password>';
   ```
+  
+* **Identify the Attacker's IP Address and Secure Your Database**
+If you suspect a potential security breach is causing unauthorized access to your Azure Database for PostgreSQL - Flexible Server, follow these steps to address the issue:
+
+1. **Enable log capturing**
+If log capturing isn't already on, get it set up now. It's key for keeping an eye on database activities and catching any odd access patterns. There are several ways to do this, including Azure Monitor Log Analytics and server logs, which help store and analyze database event logs.
+  * **Log Analytics**, Check out the setup instructions for Azure Monitor Log Analytics here: [Configure and access logs in Azure Database for PostgreSQL - Flexible Server](how-to-configure-and-access-logs.md).
+  * **Server logs**, For hands-on log management, head over to the Azure portal's server logs section here: [Enable, list and download server logs for Azure Database for PostgreSQL - Flexible Server](how-to-server-logs-portal.md).
+
+2. **Identify the attacker's IP address**
+  * Review the logs to find the IP address from which the unauthorized access attempts are being made. If the attacker is using a `libpq`-based tool, you will see the IP address in the log entry associated with the failed connection attempt:
+      > connection to server at ".postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL: no pg_hba.conf entry for host "y.y.y.y", user "", database "postgres", no encryption
+  
+  In this example, `y.y.y.y` is the IP address from which the attacker is trying to connect.
+
+  * **Modify the `log_line_prefix`**
+  To improve logging and make it easier to troubleshoot, you should modify the `log_line_prefix` parameter in your PostgreSQL configuration to include the remote host's IP address. To log the remote host name or IP address, add the `%h` escape code to your `log_line_prefix`.
+  
+  For instance, you can change your `log_line_prefix` to the following format for comprehensive logging:
+  
+  ```bash
+  log_line_prefix = '%t [%p]: [%l-1] db=%d,user=%u,app=%a,client=%h '
+  ```
+
+  This format includes:
+
+  * `%t` for the timestamp of the event
+  * `%p` for the process ID
+  * `[%l-1]` for the session line number
+  * `%d` for the database name
+  * `%u` for the user name
+  * `%a` for the application name
+  * `%h` for the client IP address
+
+  By using this log line prefix, you will be able to track the time, process ID, user, application, and client IP address associated with each log entry, providing valuable context for each event in the server log.
+  
+  Implementing these changes will help you identify the source of the security threat and enhance your ability to troubleshoot and resolve issues efficiently.
+
 
 By following these steps, you should be able to resolve the authentication issues and successfully connect to your Azure Database for PostgreSQL - Flexible Server.
 
