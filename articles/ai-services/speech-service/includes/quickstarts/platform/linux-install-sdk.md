@@ -35,12 +35,12 @@ Use the following procedure to download and install the SDK. The steps include [
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   The directory listing should contain the third-party notice and license files. The listing should also contain an *include* directory that holds header (*.h*) files and a *lib* directory that holds libraries for arm32, arm64, x64, and x86.
+   The directory listing should contain the partner notice and license files. The listing should also contain an *include* directory that holds header (*.h*) files and a *lib* directory that holds libraries for arm32, arm64, x64, and x86.
 
     | Path | Description |
     |:-----|:----|
     | *license.md* | License
-    | *ThirdPartyNotices.md* | Third-party notices
+    | *ThirdPartyNotices.md* | Partner notices
     | *REDIST.txt* | Redistribution notice
     | *include* | Required header files for C++
     | *lib/arm32* | Native library for ARM32 required to link your application

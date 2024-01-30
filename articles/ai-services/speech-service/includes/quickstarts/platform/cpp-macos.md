@@ -39,4 +39,4 @@ This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-s
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   The directory listing should contain the third-party notice, license files, and a *MicrosoftCognitiveServicesSpeech.xcframework* directory.
+   The directory listing should contain the partner notice, license files, and a *MicrosoftCognitiveServicesSpeech.xcframework* directory.

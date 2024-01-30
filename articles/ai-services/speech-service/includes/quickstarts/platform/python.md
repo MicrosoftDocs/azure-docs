@@ -8,7 +8,7 @@ ms.author: eur
 
 [!INCLUDE [Header](../../common/python.md)]
 
-This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for Python.
+In this quickstart, you install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for Python.
 
 ## Platform requirements
 
