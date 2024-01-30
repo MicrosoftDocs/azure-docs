@@ -37,7 +37,6 @@ You can view and configure the following settings using the **Resource Menu**. T
   - [Cluster size](#cluster-size)
   - [Data persistence](#data-persistence)
   - [Identity](#identity)
-  - [Alerts](#alerts)
   - [Schedule updates](#schedule-updates)
   - [Geo-replication](#geo-replication)
   - [Virtual Network](#virtual-network)

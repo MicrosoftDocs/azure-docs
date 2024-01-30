@@ -90,7 +90,7 @@ The other **Monitoring** options provide other ways to view and use the metrics 
 |---------|---------|
 | [Insights](cache-insights-overview.md)   |   Predefined tiles and charts to use as starting point for your cache metrics.     |
 | [Alerts](#alerts)     |   Alerts based on metrics and activity logs.      |
-| [Advisor Recommendations](cache-configure.md#advisor-recommendations) |  Best practices to optimize your Azure deployments.       |
+| [Advisor Recommendations](#advisor-recommendations) |  Best practices to optimize your Azure deployments.       |
 | [Workbooks](cache-insights-overview.md#workbooks)     |    Metrics information displayed in a coherent and effective way.     |
 
 <!-- ## Customer-imported metrics. If your service doesn't use custom imported metrics, remove the following include and comments. -->
@@ -175,7 +175,7 @@ The connection logs have slightly different implementations, contents, and setup
 <!-- ### Sample Kusto queries. If you have sample Kusto queries for your service, add them after the include. -->
 [!INCLUDE [horz-monitor-kusto-queries](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 <!-- Add sample Kusto queries for your service here. -->
-
+For sample Kusto queries for Azure Cache for Redis connection logs, see [Connection log queries](cache-monitor-diagnostic-settings.md#log-analytics-queries).
 <!-- ## Azure Cache for Redis service-specific analytics
 Add short information or links to specific articles that outline how to analyze data for your service. -->
 
@@ -200,7 +200,7 @@ The following table lists common and recommended alert rules for Azure Cache for
 |Metric |High `Server Load` usage or spikes |High server load means the Redis server is unable to keep up with requests, leading to timeouts or slow responses. Create alerts on metrics on server load metrics to be notified early about potential impacts.|
 |Metric |High network bandwidth usage |If the server exceeds the available bandwidth, then data isn't sent to the client as quickly. Client requests could time out because the server can't push data to the client fast enough. Set up alerts for server-side network bandwidth limits by using the `Cache Read` and `Cache Write` counters. |
 
-### Alerts and Advisor recommendations
+### Advisor recommendations
 
 If any conditions occur during the operations of your cache such as imminent changes, high memory usage, network bandwidth, or server load, an alert displays on the cache **Overview** page in the portal.
 
