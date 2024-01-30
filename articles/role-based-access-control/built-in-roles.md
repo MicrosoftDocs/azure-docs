@@ -266,7 +266,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **DevOps** |  |  |
 > | [DevTest Labs User](#devtest-labs-user) | Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | [Lab Assistant](#lab-assistant) | Enables you to view an existing lab, perform actions on the lab VMs and send invitations to the lab. | ce40b423-cede-4313-a93f-9b28290b72e1 |
-> | [Lab Contributor](#lab-contributor) | Applied at lab level, enables you to manage the lab. Applied at a resource group, enables you to create and manage labs. | 5daaa2af-1fe8-407c-9122-bba179798270 |
+> | [Lab Contributor](#lab-contributor) | At lab level, enables you to manage the lab. At resource group level, enables you to create and manage labs. | 5daaa2af-1fe8-407c-9122-bba179798270 |
 > | [Lab Creator](#lab-creator) | Lets you create new labs under your Azure Lab Accounts. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
 > | [Lab Operator](#lab-operator) | Gives you limited ability to manage existing labs. | a36e6959-b6be-4b12-8e9f-ef4b474d304d |
 > | [Lab Services Contributor](#lab-services-contributor) | Enables you to fully control all Lab Services scenarios in the resource group. | f69b8690-cc87-41d6-b77a-a4bc3c0a966f |
@@ -288,7 +288,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Azure Arc Kubernetes Admin](#azure-arc-kubernetes-admin) | Lets you manage all resources under cluster/namespace, except update or delete resource quotas and namespaces. | dffb1e0c-446f-4dde-a09f-99eb5cc68b96 |
 > | [Azure Arc Kubernetes Cluster Admin](#azure-arc-kubernetes-cluster-admin) | Lets you manage all resources in the cluster. | 8393591c-06b9-48a2-a542-1bd6b377f6a2 |
 > | [Azure Arc Kubernetes Viewer](#azure-arc-kubernetes-viewer) | Lets you view all resources in cluster/namespace, except secrets. | 63f0a09d-1495-4db4-a681-037d84835eb4 |
-> | [Azure Arc Kubernetes Writer](#azure-arc-kubernetes-writer) | Lets you update everything in cluster/namespace, except (cluster)roles and (cluster)role bindings. | 5b999177-9696-4545-85c7-50de3797e5a1 |
+> | [Azure Arc Kubernetes Writer](#azure-arc-kubernetes-writer) | Lets you update everything in cluster/namespace, except (cluster) roles and (cluster) role bindings. | 5b999177-9696-4545-85c7-50de3797e5a1 |
 > | [Azure Connected Machine Onboarding](#azure-connected-machine-onboarding) | Can onboard Azure Connected Machines. | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
 > | [Azure Connected Machine Resource Administrator](#azure-connected-machine-resource-administrator) | Can read, write, delete and re-onboard Azure Connected Machines. | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | [Billing Reader](#billing-reader) | Allows read access to billing data | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
@@ -336,9 +336,9 @@ The following table provides a brief description of each built-in role. Click th
 > | [Grafana Admin](#grafana-admin) | Perform all Grafana operations, including the ability to manage data sources, create dashboards, and manage role assignments within Grafana. | 22926164-76b3-42b3-bc55-97df8dab3e41 |
 > | [Grafana Editor](#grafana-editor) | View and edit a Grafana instance, including its dashboards and alerts. | a79a5197-3a5c-4973-a920-486035ffd60f |
 > | [Grafana Viewer](#grafana-viewer) | View a Grafana instance, including its dashboards and alerts. | 60921a7e-fef1-4a43-9b16-a26c52ad4769 |
-> | [Load Test Contributor](#load-test-contributor) | View, create, update, delete and execute load tests. View and list load test resources but can not make any changes. | 749a398d-560b-491b-bb21-08924219302e |
+> | [Load Test Contributor](#load-test-contributor) | View, create, update, delete and execute load tests. View and list load test resources but can't make any changes. | 749a398d-560b-491b-bb21-08924219302e |
 > | [Load Test Owner](#load-test-owner) | Execute all operations on load test resources and load tests | 45bb0b16-2f0c-4e78-afaa-a07599b003f6 |
-> | [Load Test Reader](#load-test-reader) | View and list all load tests and load test resources but can not make any changes | 3ae3fb29-0000-4ccd-bf80-542e7b26e081 |
+> | [Load Test Reader](#load-test-reader) | View and list all load tests and load test resources but can't make any changes | 3ae3fb29-0000-4ccd-bf80-542e7b26e081 |
 > | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | [Services Hub Operator](#services-hub-operator) | Services Hub Operator allows you to perform all read, write, and deletion operations related to Services Hub Connectors. | 82200a5b-e217-47a5-b665-6d8765ee745b |
 
@@ -1086,7 +1086,7 @@ Create and manage virtual machines, manage disks, install and run software, rese
 
 ### Virtual Machine Data Access Administrator (preview)
 
-Manage access to Virtual Machines by adding or removing role assignments.for the Virtual Machine Administrator Login and Virtual Machine User Login roles. Includes an ABAC condition to constrain role assignments.
+Manage access to Virtual Machines by adding or removing role assignments for the Virtual Machine Administrator Login and Virtual Machine User Login roles. Includes an ABAC condition to constrain role assignments.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -12938,9 +12938,9 @@ Lets you manage managed HSM pools, but not access to them.
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/managedHSMs/* |  |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/deletedManagedHsms/read | View the properties of a deleted managed hsm |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/locations/deletedManagedHsms/read | View the properties of a deleted managed hsm |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/locations/deletedManagedHsms/purge/action | Purge a soft deleted managed hsm |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/deletedManagedHsms/read | View the properties of a deleted managed HSM |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/locations/deletedManagedHsms/read | View the properties of a deleted managed HSM |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/locations/deletedManagedHsms/purge/action | Purge a soft deleted managed HSM |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/locations/managedHsmOperationResults/read | Check the result of a long run operation |
 > | **NotActions** |  |
 > | *none* |  |
@@ -13751,7 +13751,7 @@ Enables you to view an existing lab, perform actions on the lab VMs and send inv
 
 ### Lab Contributor
 
-Applied at lab level, enables you to manage the lab. Applied at a resource group, enables you to create and manage labs.
+At lab level, enables you to manage the lab and applies at lab level. At resource group level, enables you to create and manage labs.
 
 [Learn more](/azure/lab-services/administrator-guide)
 
@@ -15133,7 +15133,7 @@ Lets you view all resources in cluster/namespace, except secrets.
 
 ### Azure Arc Kubernetes Writer
 
-Lets you update everything in cluster/namespace, except (cluster)roles and (cluster)role bindings.
+Lets you update everything in cluster/namespace, except (cluster) roles and (cluster) role bindings.
 
 [Learn more](/azure/azure-arc/kubernetes/azure-rbac)
 
@@ -15188,7 +15188,7 @@ Lets you update everything in cluster/namespace, except (cluster)roles and (clus
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you update everything in cluster/namespace, except (cluster)roles and (cluster)role bindings.",
+  "description": "Lets you update everything in cluster/namespace, except (cluster) roles and (cluster) role bindings.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/5b999177-9696-4545-85c7-50de3797e5a1",
   "name": "5b999177-9696-4545-85c7-50de3797e5a1",
   "permissions": [
@@ -16436,7 +16436,7 @@ Lets you manage Site Recovery service except vault creation and role assignment
 
 ### Site Recovery Operator
 
-Lets you fail over andfail backbut not perform other Site Recovery management operations
+Lets you fail over and fail back but not perform other Site Recovery management operations
 
 [Learn more](/azure/site-recovery/site-recovery-role-based-linked-access-control)
 
@@ -16514,7 +16514,7 @@ Lets you fail over andfail backbut not perform other Site Recovery management op
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you failover and failback but not perform other Site Recovery management operations",
+  "description": "Lets you fail over and fail back but not perform other Site Recovery management operations",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/494ae006-db33-4328-bf46-533a6560a3ca",
   "name": "494ae006-db33-4328-bf46-533a6560a3ca",
   "permissions": [
@@ -17743,7 +17743,7 @@ View a Grafana instance, including its dashboards and alerts.
 
 ### Load Test Contributor
 
-View, create, update, delete and execute load tests. View and list load test resources but can not make any changes.
+View, create, update, delete and execute load tests. View and list load test resources but can't make any changes.
 
 [Learn more](/azure/load-testing/how-to-assign-roles)
 
@@ -17767,7 +17767,7 @@ View, create, update, delete and execute load tests. View and list load test res
   "assignableScopes": [
     "/"
   ],
-  "description": "View, create, update, delete and execute load tests. View and list load test resources but can not make any changes.",
+  "description": "View, create, update, delete and execute load tests. View and list load test resources but can't make any changes.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/749a398d-560b-491b-bb21-08924219302e",
   "name": "749a398d-560b-491b-bb21-08924219302e",
   "permissions": [
@@ -17845,7 +17845,7 @@ Execute all operations on load test resources and load tests
 
 ### Load Test Reader
 
-View and list all load tests and load test resources but can not make any changes
+View and list all load tests and load test resources but can't make any changes
 
 [Learn more](/azure/load-testing/how-to-assign-roles)
 
@@ -17869,7 +17869,7 @@ View and list all load tests and load test resources but can not make any change
   "assignableScopes": [
     "/"
   ],
-  "description": "View and list all load tests and load test resources but can not make any changes",
+  "description": "View and list all load tests and load test resources but can't make any changes",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/3ae3fb29-0000-4ccd-bf80-542e7b26e081",
   "name": "3ae3fb29-0000-4ccd-bf80-542e7b26e081",
   "permissions": [
