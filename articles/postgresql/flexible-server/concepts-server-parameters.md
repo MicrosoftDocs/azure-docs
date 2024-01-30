@@ -37,9 +37,7 @@ Various methods and levels are available to customize your parameters according 
 For altering settings globally at the instance or server level, navigate to the **Server parameters** blade in the Azure portal, or use other available tools such as Azure CLI, REST API, ARM templates, and third-party tools.
 
 > [!NOTE]
-> Since Azure Database for PostgreSQL is a managed database service, users are not provided host or OS access to view or
-> modify configuration files such as `postgresql.conf`. The content of the file is automatically updated based on
-> parameter changes made using one of the methods described above.
+> Since Azure Database for PostgreSQL is a managed database service, users are not provided host or operating system access to view or modify configuration files such as `postgresql.conf`. The content of the file is automatically updated based on parameter changes made using one of the methods described above.
 
 :::image type="content" source="./media/concepts-server-parameters/server-parameters-portal.png" alt-text="Screenshot of server parameters blade in the Azure portal":::
 
@@ -81,13 +79,13 @@ disk, `shared_buffers` effectively reduces the number of required I/O operations
 
 ### huge_pages
 
-| Attribute            |                                                                                                                                                                                                                                                                                                                        Value |
-|:---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| Default value        |                                                                                                                                                                                                                                                                                                                          TRY |
-| Allowed value        |                                                                                                                                                                                                                                                                                                                 TRY, ON, OFF |
-| Type                 |                                                                                                                                                                                                                                                                                                                       Static |
-| Level                |                                                                                                                                                                                                                                                                                                                       Global |
-| Azure-Specific Notes |   For servers with 4 or more vCores, huge pages are automatically allocated from the underlying operating system. Feature isn't available for servers with fewer than 4 vCores. The number of huge pages will be automatically adjusted if any shared memory settings are changed, including alterations to `shared_buffers`. |
+| Attribute            |                                                                                                                                                                                                                                                                                                                 Value |
+|:---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Default value        |                                                                                                                                                                                                                                                                                                                   TRY |
+| Allowed value        |                                                                                                                                                                                                                                                                                                          TRY, ON, OFF |
+| Type                 |                                                                                                                                                                                                                                                                                                                Static |
+| Level                |                                                                                                                                                                                                                                                                                                                Global |
+| Azure-Specific Notes | For servers with 4 or more vCores, huge pages are automatically allocated from the underlying operating system. Feature isn't available for servers with fewer than 4 vCores. The number of huge pages is automatically adjusted if any shared memory settings are changed, including alterations to `shared_buffers`. |
 
 #### Description
 
@@ -125,7 +123,7 @@ It's essential to continuously monitor your system's performance and adjust `wor
 * **[Troubleshooting Guides](concepts-troubleshooting-guides.md)**: Utilize the **High Temporary Files** tab in the troubleshooting guides to identify problematic queries.
 
 ##### Granular adjustment
-While managing the `work_mem` parameter, it's often more efficient to adopt a granular adjustment approach rather than setting a global value.  This not only ensures that you allocate memory judiciously based on the specific needs of different processes and users but also minimizes the risk of encountering out-of-memory issues. Here’s how you can go about it:
+While managing the `work_mem` parameter, it's often more efficient to adopt a granular adjustment approach rather than setting a global value. This approach not only ensures that you allocate memory judiciously based on the specific needs of different processes and users but also minimizes the risk of encountering out-of-memory issues. Here’s how you can go about it:
 
 * **User-Level**: If a specific user is primarily involved in aggregation or reporting tasks, which are memory-intensive, consider customizing the `work_mem` value for that user using the `ALTER ROLE` command to enhance the performance of their operations.
 
@@ -133,7 +131,7 @@ While managing the `work_mem` parameter, it's often more efficient to adopt a gr
 
 * **Database Level**: Alter `work_mem` at the database level if only specific databases are generating high amounts of temporary files.
 
-* **Global Level**: If an analysis of your system reveals that most queries are generating small temporary files, while only a few are creating significantly larger ones, it may be prudent to globally increase the `work_mem` value. This would facilitate most queries to process in memory, thus avoiding disk-based operations and improving efficiency. However, always be cautious and monitor the memory utilization on your server to ensure it can handle the increased `work_mem`.
+* **Global Level**: If an analysis of your system reveals that most queries are generating small temporary files, while only a few are creating large ones, it may be prudent to globally increase the `work_mem` value. This would facilitate most queries to process in memory, thus avoiding disk-based operations and improving efficiency. However, always be cautious and monitor the memory utilization on your server to ensure it can handle the increased `work_mem`.
 
 ##### Determining the minimum `work_mem` value for sorting operations
 
