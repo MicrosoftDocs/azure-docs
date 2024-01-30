@@ -41,7 +41,7 @@ The Hardware Validation result for a given server includes the following categor
 
 Expanding `result_detail` for a given category shows detailed results.
 
-## Troubleshooting Specific Failures
+## Troubleshooting specific failures
 
 ### System Info Category
 
