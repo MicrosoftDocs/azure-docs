@@ -171,7 +171,8 @@ For convenience, the provided **`assign.sh`** script assigns the built-in policy
 
 #### Install Azure monitoring agent
 
-All server VMs that represent the nodes of the Nexus Kubernetes cluster are arc-enabled by default. 
+> [!NOTE]
+> To install Azure Monitoring Agent, you must first Arc connect the Nexus Kubernetes cluster VMs. This process is automated if you are using the latest version bundle. However, if the version bundle you use does not support cluster VM Arc enrollment by default, you will need to upgrade your cluster to the latest version bundle. For more information about the version bundle, please refer [Nexus Kubernetes cluster supported versions](reference-nexus-kubernetes-cluster-supported-versions.md)
 Use the included **`install.sh`** which creates a Kubernetes daemonSet on the Nexus Kubernetes cluster.
 It deploys a pod to each cluster node and installs the Azure Monitoring Agent (AMA).
 The `daemonSet` also includes a liveness probe that monitors the server connection and AMA processes.
