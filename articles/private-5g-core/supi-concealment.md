@@ -111,7 +111,10 @@ The home network private keys are stored in Azure Key Vault.
 
     :::image type="content" source="media/supi-concealment/modify-mobile-network.png" alt-text="Screenshot of the Azure portal. It shows the mobile network configuration pane.":::
 
-1. Choose an ID between 1 and 255 and enter the URL of the private key secret in your Key Vault. The ID must match the key identifier provisioned on the SIMs, as agreed with your SIM vendor.
+1. Add the key details.
+
+    - Choose an ID between 1 and 255 and enter it into the **id** field. The ID must match the key identifier provisioned on the SIMs, as agreed with your SIM vendor.
+    - Enter the URL of the private key secret into the **url** field, or select **Choose secret** to select it from a drop-down menu.
 
     :::image type="content" source="media/supi-concealment/add-key.png" alt-text="Screenshot of the Azure portal. It shows the Profile A keys popup.":::
 
