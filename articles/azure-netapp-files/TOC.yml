@@ -41,6 +41,8 @@
             href: nfs-access-control-lists.md
       - name: Understand dual-protocol security style and permission behaviors
         href: dual-protocol-permission-behaviors.md
+      - name: Understand guidelines for Active Directory Domain Services
+        href: understand-guidelines-active-directory-domain-service-site.md
       - name: Understand the use of LDAP
         href: lightweight-directory-access-protocol.md
       - name: Understand NFS group memberships and supplemental groups
@@ -201,8 +203,6 @@
       href: request-region-access.md
   - name: Manage Active Directory 
     items:
-    - name: Understand guidelines for Active Directory Domain Services
-      href: understand-guidelines-active-directory-domain-service-site.md
     - name: Create and manage Active Directory connections
       href: create-active-directory-connections.md
     - name: Modify Active Directory connections

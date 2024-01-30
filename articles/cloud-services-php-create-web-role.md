@@ -5,7 +5,6 @@ documentationcenter: php
 author: msangapu-msft
 ms.assetid: 9f7ccda0-bd96-4f7b-a7af-fb279a9e975b
 ms.service: cloud-services
-ms.workload: tbd
 ms.devlang: php
 ms.topic: article
 ms.date: 04/11/2018

@@ -24,7 +24,7 @@ This article explains in depth how to use a BYOS-enabled Speech resource in all 
 
 ## Data storage
 
-When using BYOS, the Speech service doesn't keep any customer artifacts after the data processing (transcription, model training, model testing) is complete. However, some metadata that isn't derived from the user content is stored within Speech service premises. For example, in the Custom speech scenario, the Service keeps certain information about the custom endpoints, like which models they use.
+When using BYOS, the Speech service doesn't keep any customer artifacts after the data processing (transcription, model training, model testing) is complete. However, some metadata that isn't derived from the user content is stored within Speech service premises. For example, in the custom speech scenario, the Service keeps certain information about the custom endpoints, like which models they use.
 
 BYOS-associated Storage account stores the following data:
 
@@ -123,23 +123,23 @@ URL of this format ensures that only Microsoft Entra identities (users, service 
 
 ## Custom speech
 
-With Custom speech, you can evaluate and improve the accuracy of speech recognition for your applications and products. A custom speech model can be used for real-time speech to text, speech translation, and batch transcription. For more information, see the [Custom speech overview](custom-speech-overview.md).
+With custom speech, you can evaluate and improve the accuracy of speech recognition for your applications and products. A custom speech model can be used for real-time speech to text, speech translation, and batch transcription. For more information, see the [custom speech overview](custom-speech-overview.md).
 
-There's nothing specific about how you use Custom speech with BYOS-enabled Speech resource. The only difference is where all custom model related data, which Speech service collects and produces for you, is stored. The data is stored in the following Blob containers of BYOS-associated Storage account:
+There's nothing specific about how you use custom speech with BYOS-enabled Speech resource. The only difference is where all custom model related data, which Speech service collects and produces for you, is stored. The data is stored in the following Blob containers of BYOS-associated Storage account:
 
-- `customspeech-models` - Location of Custom speech models
-- `customspeech-artifacts` - Location of all other Custom speech related data 
+- `customspeech-models` - Location of custom speech models
+- `customspeech-artifacts` - Location of all other custom speech related data 
 
 The Blob container structure is provided for your information only and subject to change without a notice.
 
 > [!CAUTION]
-> Speech service relies on pre-defined Blob container paths and file names for Custom speech module to correctly function. Don't move, rename or in any way alter the contents of `customspeech-models` container and Custom speech related folders of `customspeech-artifacts` container.
+> Speech service relies on pre-defined Blob container paths and file names for custom speech module to correctly function. Don't move, rename or in any way alter the contents of `customspeech-models` container and custom speech related folders of `customspeech-artifacts` container.
 >
 > Failure to do so very likely will result in hard to debug errors and may lead to the necessity of custom model retraining.
 >
-> Use standard tools, like REST API and Speech Studio to interact with the Custom speech related data. See details in [Custom speech section](custom-speech-overview.md).
+> Use standard tools, like REST API and Speech Studio to interact with the custom speech related data. See details in [custom speech section](custom-speech-overview.md).
 
-### Use of REST API with Custom speech
+### Use of REST API with custom speech
 
 [Speech to text REST API](rest-speech-to-text.md) fully supports BYOS-enabled Speech resources. However, because the data is now stored within the BYOS-enabled Storage account, requests like [Get Dataset Files](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_ListFiles) interact with the BYOS-associated Storage account Blob storage, instead of Speech service internal resources. It allows using the same REST API based code for both "regular" and BYOS-enabled Speech resources.
 

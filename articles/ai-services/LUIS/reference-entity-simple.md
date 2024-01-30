@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference
-ms.date: 01/07/2022
+ms.date: 01/19/2024
 ---
 
 # Simple entity

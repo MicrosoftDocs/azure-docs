@@ -196,7 +196,10 @@ items:
         href: view-analyze-data/tutorial-real-time-dashboard-fabric.md
       - name: Upload MQTT data to a lakehouse
         href: view-analyze-data/tutorial-upload-mqtt-lakehouse.md
-
+      - name: Calculate overall equipment effectiveness
+        href: view-analyze-data/tutorial-overall-equipment-effectiveness.md
+      - name: Detect anomalies in your manufacturing process
+        href: view-analyze-data/tutorial-anomaly-detection.md
 
     - name: Developer guide
       items:

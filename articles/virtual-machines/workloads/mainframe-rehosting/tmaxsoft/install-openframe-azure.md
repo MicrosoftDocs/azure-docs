@@ -2,7 +2,6 @@
 title: Install TmaxSoft OpenFrame on Azure Virtual Machines
 description: Learn how to set up an OpenFrame environment on Azure suitable for development, demos, testing, or production workloads.
 services: virtual-machines
-documentationcenter:
 author: njray
 ms.author: larryme
 ms.date: 04/19/2023

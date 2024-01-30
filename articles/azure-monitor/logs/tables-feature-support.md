@@ -4,7 +4,6 @@ description: Reference for tables that support ingestion-time transformations in
 ms.topic: reference
 author: bwren
 ms.author: bwren
-ms.tgt_pltfrm: na
 ms.date: 07/10/2022
 ---
 

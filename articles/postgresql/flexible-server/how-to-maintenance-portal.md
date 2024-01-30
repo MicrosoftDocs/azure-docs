@@ -6,8 +6,7 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ms.author: gennadyk
 author: GennadNY
-ms.reviewer: 
-ms.date: 11/30/2021
+ms.date: 01/19/2024
 ---
 
 # Manage scheduled maintenance settings for Azure Database for PostgreSQL - Flexible Server

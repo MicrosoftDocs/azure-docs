@@ -202,7 +202,7 @@ When you need to add a new disk to increase the VG size, extend your traditional
     ![Screenshot showing the code that checks the disk list. The results are highlighted.](./media/disk-encryption/resize-lvm/009-resize-lvm-scenariob-check-scsi12.png)
 
     ```bash
-    sudo lsbk
+    sudo lsblk
     ```
 
     ![Screenshot showing the code that checks the disk list by using l s b l k. The command and the result are highlighted.](./media/disk-encryption/resize-lvm/009-resize-lvm-scenariob-check-lsblk1.png)

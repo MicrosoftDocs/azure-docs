@@ -3,7 +3,6 @@ title: include file
 description: include file
 services: azure-communication-services
 author: memontic-ms
-manager: 
 ms.service: azure-communication-services
 ms.date: 06/20/2023
 ms.topic: include
