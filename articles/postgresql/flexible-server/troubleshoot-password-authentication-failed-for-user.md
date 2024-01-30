@@ -51,7 +51,7 @@ The password authentication failed for user `<user-name>` error occurs when the 
 Another possible cause of this error is creating a user or role in PostgreSQL without specifying a password. Executing commands like `CREATE USER <user-name>` or `CREATE ROLE <role-name>` without an accompanying password statement results in a user or role with no password set. Attempting to connect with such a user or role without setting a password will lead to authentication failure with password authentication failed error.
 
 * **Potential security breach**
-If the authentication failure is unexpected, especially if there are multiple failed attempts recorded, it could indicate a potential security breach. Unauthorized access attempts might trigger such errors. 
+If the authentication failure is unexpected, particularly if there are multiple failed attempts recorded, it could indicate a potential security breach. Unauthorized access attempts might trigger such errors. 
 
 ## Resolution
 If you're encountering the "password authentication failed for user `<user-name>`" error, follow these steps to resolve the issue.
