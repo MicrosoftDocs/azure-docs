@@ -14,12 +14,12 @@ ms.date: 01/29/2024
 
 # Chunking large documents for vector search solutions in Azure AI Search
 
-Partitioning large documents into smaller chunks is a common requirement due to maximum token input limits of embedding models. For example, the maximum length of input text for the [Azure OpenAI](/azure/ai-services/openai/how-to/embeddings) embedding models is 8,191 tokens. Given that each token is around 4 characters of text for common OpenAI models, this maximum limit is equivalent to around 6000 words of text. If you're using these models to generate embeddings, it's critical that the input text stays under the limit. Partitioning your content into chunks ensures that your data can be processed by the Large Language Models (LLM) used for indexing and queries. 
+Partitioning large documents into smaller chunks can help you stay under the maximum token input limits of embedding models. For example, the maximum length of input text for the [Azure OpenAI](/azure/ai-services/openai/how-to/embeddings) embedding models is 8,191 tokens. Given that each token is around four characters of text for common OpenAI models, this maximum limit is equivalent to around 6,000 words of text. If you're using these models to generate embeddings, it's critical that the input text stays under the limit. Partitioning your content into chunks ensures that your data can be processed by the embedding models used to populate vector stores and text-to-vector query conversions. 
 
-This article describes several approaches for chunking large documents so that you can generate embeddings for a vector store. Chunking is only required if source documents are too large for the maximum input size imposed by models.
+This article describes several approaches for data chunking. Chunking is only required if source documents are too large for the maximum input size imposed by models.
 
 > [!NOTE]
-> If you're using the generally available version of [vector search](vector-search-overview.md), data chunking and embedding requires external code, such as library or a custom skill. A new feature called [integrated vectorization](vector-search-integrated-vectorization.md), currently in preview, offers internal data chunking and embedding. Integrated vectorization takes a dependency on indexers, skillsets, the Text Split skill, and the AzureOpenAiEmbedding skill (or a custom skill).
+> If you're using the generally available version of [vector search](vector-search-overview.md), data chunking and embedding requires external code, such as library or a custom skill. A new feature called [integrated vectorization](vector-search-integrated-vectorization.md), currently in preview, offers internal data chunking and embedding. Integrated vectorization takes a dependency on indexers, skillsets, the Text Split skill, and the AzureOpenAiEmbedding skill (or a custom skill). If you can't use the preview features, the examples in this article provide an alternative path forward.
 
 ## Common chunking techniques
 
@@ -78,7 +78,7 @@ The `pages` parameter adds extra parameters:
 + `pageOverlapLength` defines how many characters from the end of the previous page are included at the start of the next page. If set, this must be less than half the maximum page length.
 + `maximumPagesToTake` defines how many pages / chunks to take from a document. The default value is 0, which means take all pages or chunks from the document.
 
-<sup>1</sup> Characters do not align to the defintion of a [token](https://learn.microsoft.com/azure/ai-services/openai/concepts/prompt-engineering#space-efficiency). The amount of tokens measured by the LLM might be different than the character size measured by the Text Split skill.
+<sup>1</sup> Characters do not align to the definition of a [token](https://learn.microsoft.com/azure/ai-services/openai/concepts/prompt-engineering#space-efficiency). The amount of tokens measured by the LLM might be different than the character size measured by the Text Split skill.
 
 The following table shows how the choice of parameters affects the total chunk count from the Earth at Night e-book:
 
@@ -156,7 +156,7 @@ print(f"Avg: {avg_token_count}")
 print(f"Max: {max_token_count}")
 ```
 
-Output indicates that no pages have zero tokens, the average token length per page is 189 tokens, and the maximum token count of any page is 1583
+Output indicates that no pages have zero tokens, the average token length per page is 189 tokens, and the maximum token count of any page is 1,583.
 
 :::image type="content" source="media/vector-search-how-to-chunk-documents/langchain-example-tiktoken-histogram.png" alt-text="Histogram of tokens using tiktoken.":::
 
@@ -179,13 +179,11 @@ print(chunks[20])
 print(chunks[21])
 ```
 
-Output for two consecutive chunks shows the text from the first chunk overlapping onto the second chunk. Output is lightly edited for clarity.
+Output for two consecutive chunks shows the text from the first chunk overlapping onto the second chunk. Output is lightly edited for readability.
 
-```
-'x Earth at NightForeword\nNASA’s Earth at Night explores the brilliance of our planet when it is in darkness.  \n  It is a compilation of stories depicting the interactions between science and \nwonder, and I am pleased to share this visually stunning and captivating exploration of \nour home planet.\nFrom space, our Earth looks tranquil. The blue ethereal vastness of the oceans \nharmoniously shares the space with verdant green land—an undercurrent of gentle-ness and solitude. But spending time gazing at the images presented in this book, our home planet at night instantly reveals a different reality. Beautiful, filled with glow-ing communities, natural wonders, and striking illumination, our world is bustling with activity and life.**\nDarkness is not void of illumination. It is the contrast, the area between light and'** metadata={'source': './data/earth_at_night_508.pdf', 'page': 9}
+`'x Earth at NightForeword\nNASA’s Earth at Night explores the brilliance of our planet when it is in darkness.  \n  It is a compilation of stories depicting the interactions between science and \nwonder, and I am pleased to share this visually stunning and captivating exploration of \nour home planet.\nFrom space, our Earth looks tranquil. The blue ethereal vastness of the oceans \nharmoniously shares the space with verdant green land—an undercurrent of gentle-ness and solitude. But spending time gazing at the images presented in this book, our home planet at night instantly reveals a different reality. Beautiful, filled with glow-ing communities, natural wonders, and striking illumination, our world is bustling with activity and life.**\nDarkness is not void of illumination. It is the contrast, the area between light and'** metadata={'source': './data/earth_at_night_508.pdf', 'page': 9}`
 
-'**Darkness is not void of illumination. It is the contrast, the area between light and **\ndark, that is often the most illustrative. Darkness reminds me of where I came from and where I am now—from a small town in the mountains, to the unique vantage point of the Nation’s capital. Darkness is where dreamers and learners of all ages peer into the universe and think of questions about themselves and their space in the cosmos. Light is where they work, where they gather, and take time together.\nNASA’s spacefaring satellites have compiled an unprecedented record of our \nEarth, and its luminescence in darkness, to captivate and spark curiosity. These missions see the contrast between dark and light through the lenses of scientific instruments. Our home planet is full of complex and dynamic cycles and processes. These soaring observers show us new ways to discern the nuances of light created by natural and human-made sources, such as auroras, wildfires, cities, phytoplankton, and volcanoes.' metadata={'source': './data/earth_at_night_508.pdf', 'page': 9}
-```
+`'**Darkness is not void of illumination. It is the contrast, the area between light and **\ndark, that is often the most illustrative. Darkness reminds me of where I came from and where I am now—from a small town in the mountains, to the unique vantage point of the Nation’s capital. Darkness is where dreamers and learners of all ages peer into the universe and think of questions about themselves and their space in the cosmos. Light is where they work, where they gather, and take time together.\nNASA’s spacefaring satellites have compiled an unprecedented record of our \nEarth, and its luminescence in darkness, to captivate and spark curiosity. These missions see the contrast between dark and light through the lenses of scientific instruments. Our home planet is full of complex and dynamic cycles and processes. These soaring observers show us new ways to discern the nuances of light created by natural and human-made sources, such as auroras, wildfires, cities, phytoplankton, and volcanoes.' metadata={'source': './data/earth_at_night_508.pdf', 'page': 9}`
 
 ### Semantic Kernel
 
