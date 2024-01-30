@@ -94,7 +94,7 @@ When the output from the script is displayed, save the resources parameters for 
 
 # [Manual setup](#tab/manual)
 
-Create and configure the following items in the GCP **Identity and Access Management (IAM)** service.
+Create and configure the following items in the Google Cloud Platform [Identity and Access Management (IAM)](https://cloud.google.com/iam/docs/overview) service.
 
 #### Create a custom role
 
@@ -133,7 +133,7 @@ For more information about service accounts in Google Cloud Platform, see [Servi
 
 1. Name the identity provider so it's recognizable for its purpose.
 
-1. Enter the following values in the provider settings:
+1. Enter the following values in the provider settings (these aren't samples&mdash;use these actual values):
    - **Issuer (URL)**: `https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d`    
    - **Allowed audiences**: the application ID URI: `api://2041288c-b303-4ca0-9076-9612db3beeb2`.
    - **Attribute mapping**: `google.subject=assertion.sub`
@@ -146,7 +146,7 @@ For more information about workload identity federation in Google Cloud Platform
 
 1. Locate the **permissions** configuration of the service account.
 
-1. **Grant access** to add a new principal.
+1. **Grant access** to the principal that represents the workload identity pool and provider that you created in the previous step.
    - Use the following format for the principal name:
      ```rest
      principal://iam.googleapis.com/projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{WORKLOAD_IDENTITY_POOL_ID}/subject/{WORKLOAD_IDENTITY_PROVIDER_ID}
@@ -197,24 +197,37 @@ Wait five minutes before moving to the next step.
 
 # [Manual setup](#tab/manual)
 
-Set up Continuous exports for Audit Logs.
+#### Create a publishing topic
 
-1. Create topic following [Google's instructions](https://cloud.google.com/pubsub/docs/create-topic). Ensure to select "Add default subscription" and, under **Encryption**, choose the option for **Google-managed encryption key**.
+Use the [Google Cloud Platform Pub/Sub service](https://cloud.google.com/pubsub/docs/overview) to set up export of audit logs.
 
-1. Set up a sink by following [Google's instructions](https://cloud.google.com/logging/docs/export/configure_export_v2#creating_sink) for its creation. Ensure that, under "Sink destination," you select "Cloud Pub/Sub topic" and choose the topic you previously created.
+Follow the instructions in the Google Cloud documentation to [**create a topic**](https://cloud.google.com/pubsub/docs/create-topic) for publishing logs to.
+- Choose a Topic ID that reflects the purpose of log collection for export to Microsoft Sentinel.
+- Add a default subscription.
+- Use a **Google-managed encryption key** for encryption.
 
-1. Verify that GCP can receive incoming messages:
+#### Create a log sink
 
-    1. In the GCP console, navigate to **Subscriptions**.
-    1. Select **Messages**, and select **PULL** to initiate a manual pull. 
-    1. Check the incoming messages.  
+Use the [Google Cloud Platform Route Logging service](https://cloud.google.com/logging/docs/export/configure_export_v2) to set up collection of audit logs.
+
+Follow the instructions in the Google Cloud documentation to [**set up a sink**](https://cloud.google.com/logging/docs/export/configure_export_v2#creating_sink) for collecting logs. 
+- Choose a Name that reflects the purpose of log collection for export to Microsoft Sentinel.
+- Select "Cloud Pub/Sub topic" as the destination type, and choose the topic you created in the previous step.
+
+---
+
+## Verify that GCP can receive incoming messages
+
+1. In the GCP console, navigate to **Subscriptions**.
+
+1. Select **Messages**, and select **PULL** to initiate a manual pull. 
+
+1. Check the incoming messages.  
 
    > [!NOTE]
    > To ingest logs for the entire organization: 
    > 1. Select the organization under **Project**. 
    > 1. Repeat steps 2-4, and under **Choose logs to include in the sink** in the **Log Router** section, select **Include logs ingested by this organization and all child resources**.   
-
----
 
 ## Set up the GCP Pub/Sub connector in Microsoft Sentinel
 
