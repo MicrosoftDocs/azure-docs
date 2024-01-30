@@ -90,7 +90,7 @@ To get a subscription key for accessing APIs, a subscription is required. A subs
 
 In some cases, customers with regulatory constraints or strict security requirements may find Option 1 and 2 not viable solutions due to publicly exposed endpoints. In others, the AKS cluster and the applications that consume the microservices might reside within the same VNet, hence there is no reason to expose the cluster publicly as all API traffic will remain within the VNet. For these scenarios, you can deploy API Management into the cluster VNet. [API Management Developer and Premium tiers](https://aka.ms/apimpricing) support VNet deployment. 
 
-There are two modes of [deploying API Management into a VNet](./api-management-using-with-vnet.md) – External and Internal. 
+There are two modes of [deploying API Management into a VNet](./virtual-network-concepts.md) – External and Internal. 
 
 If API consumers do not reside in the cluster VNet, the External mode (Fig. 4) should be used. In this mode, the API Management gateway is injected into the cluster VNet but accessible from public internet via an external load balancer. It helps to hide the cluster completely while still allowing external clients to consume the microservices. Additionally, you can use Azure networking capabilities such as Network Security Groups (NSG) to restrict network traffic.
 
@@ -114,4 +114,4 @@ Cons:
 ## Next steps
 
 * Learn more about [Network concepts for applications in AKS](../aks/concepts-network.md)
-* Learn more about [How to use API Management with virtual networks](./api-management-using-with-vnet.md)
+* Learn more about [How to use API Management with virtual networks](./virtual-network-concepts.md)
