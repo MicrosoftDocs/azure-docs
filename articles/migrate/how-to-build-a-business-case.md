@@ -83,7 +83,7 @@ There are three types of migration strategies that you can choose while building
     - With the default *Azure recommended approach to minimize cost*, you can get the most cost-efficient and compatible target recommendation in Azure across Azure IaaS and Azure PaaS targets.
     - With *Migrate to all IaaS (Infrastructure as a Service)*, you can get a quick lift and shift recommendation to Azure IaaS.
     - With *Modernize to PaaS (Platform as a Service)*, you can get cost effective recommendations for Azure IaaS and more PaaS preferred targets in Azure PaaS.
-    - With *Migrate to AVS (Azure VMware Solution)*, you can get the most cost effective and compatible target recommendation for hosting workloads on AVS. Only Reserved Instances are available as a savings options for migrating to AVS. 
+    - With *Migrate to AVS (Azure VMware Solution)*, you can get the most cost effective and compatible target recommendation for hosting workloads on AVS. Only Reserved Instances are available as a savings option for migrating to AVS. 
 1. In **Savings options**, specify the savings options combination that you want to be considered while optimizing your Azure costs and maximize savings. Based on the availability of the savings option in the chosen region and the targets, the business case recommends the appropriate savings options to maximize your savings on Azure.
     - Choose 'Reserved Instance', if your datacenter comprises most consistently running resources.
     - Choose 'Reserved Instance + Azure Savings Plan', if you want additional flexibility and automated cost optimization for workloads applicable for Azure Savings Plan (Compute targets including Azure VM and Azure App Service).
