@@ -47,7 +47,7 @@ The error encountered when connecting to Azure Database for PostgreSQL - Flexibl
 The password authentication failed for user `<user-name>` error occurs when the password for the user is incorrect. This could happen due to a mistyped password, a recent password change that hasn't been updated in the connection settings, or other similar issues.
 
 * **User or role created without a password**
-Another possible cause of this error is creating a user or role in PostgreSQL without specifying a password. Executing commands like `CREATE USER <user-name>;` or `CREATE ROLE <role-name>;` without an accompanying password statement results in a user or role with no password set. Attempting to connect with such a user or role without setting a password will lead to authentication failure with password authentication failed error.
+Another possible cause of this error is creating a user or role in PostgreSQL without specifying a password. Executing commands like `CREATE USER <user-name>` or `CREATE ROLE <role-name>` without an accompanying password statement results in a user or role with no password set. Attempting to connect with such a user or role without setting a password will lead to authentication failure with password authentication failed error.
 
 ## Resolution
 If you're encountering the "password authentication failed for user `<user-name>`" error, follow these steps to resolve the issue.
