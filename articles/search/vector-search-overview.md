@@ -130,7 +130,7 @@ Azure AI Search currently supports the following algorithms:
 
 Within an index definition, you can specify one or more algorithms, and then for each vector field specify which algorithm to use:
 
-+ [Create a vector index](vector-search-how-to-create-index.md) to specify an algorithm in the index and on fields.
++ [Create a vector store](vector-search-how-to-create-index.md) to specify an algorithm in the index and on fields.
 
 + For exhaustive KNN, use [2023-11-01](/rest/api/searchservice/indexes/create-or-update), [2023-10-01-Preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true), or Azure SDK beta libraries that target either REST API version.
 
@@ -154,6 +154,6 @@ Azure AI Search uses HNSW for its ANN algorithm.
 ## Next steps
 
 + [Try the quickstart](search-get-started-vector.md)
-+ [Learn more about vector indexing](vector-search-how-to-create-index.md)
++ [Learn more about vector stores](vector-search-how-to-create-index.md)
 + [Learn more about vector queries](vector-search-how-to-query.md)
 + [Azure Cognitive Search and LangChain: A Seamless Integration for Enhanced Vector Search Capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-and-langchain-a-seamless-integration-for/ba-p/3901448)

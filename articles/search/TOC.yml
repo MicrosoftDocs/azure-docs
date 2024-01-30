@@ -13,11 +13,11 @@
     href: search-faq-frequently-asked-questions.yml
 - name: Quickstarts
   items:
-  - name: Vector search
+  - name: Vector store
     href: search-get-started-vector.md
   - name: Full text search
     href: search-get-started-text.md
-  - name: Semantic ranking
+  - name: Semantic reranking
     href: search-get-started-semantic.md
   - name: Retrieval Augmented Generation (RAG)
     href: search-get-started-retrieval-augmented-generation.md
@@ -129,10 +129,10 @@
   items:
   - name: Storage (indexes)
     items:
-    - name: Vector store
-      href: vector-search-overview.md
     - name: Search index
       href: search-what-is-an-index.md
+    - name: Vector store
+      href: vector-search-overview.md
     - name: Knowledge store 
       href: knowledge-store-concept-intro.md
     - name: Data import strategies
@@ -254,7 +254,7 @@
         href: search-synonyms-tutorial-sdk.md
   - name: Vector stores
     items:
-    - name: Create a vector index
+    - name: Create a vector store
       href: vector-search-how-to-create-index.md
     - name: Configure a vectorizer (preview)
       href: vector-search-how-to-configure-vectorizer.md
