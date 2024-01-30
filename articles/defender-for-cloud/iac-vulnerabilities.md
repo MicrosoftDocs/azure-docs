@@ -14,7 +14,7 @@ After you set up the Microsoft Security DevOps GitHub action or the Microsoft Se
 
 - For Microsoft Security DevOps, set up the GitHub action or the Azure DevOps extension based on your source code management system:
   - If your repository is in GitHub, set up the [Microsoft Security DevOps GitHub action](github-action.md).
-  - If your repository is in Azure DevOps, set up the [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md)
+  - If your repository is in Azure DevOps, set up the [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
 - Ensure that you have an IaC template in your repository.
 
 <a name="configure-iac-scanning-and-view-the-results-in-github"></a>
