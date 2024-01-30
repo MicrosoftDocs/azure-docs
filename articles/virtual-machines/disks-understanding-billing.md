@@ -3,7 +3,7 @@ title: Understand Azure Disk Storage billing
 description: Learn about the available Azure disk types for virtual machines, including ultra disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 01/12/2024
+ms.date: 01/30/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
@@ -32,7 +32,7 @@ This table displays our current disk types and the available billable features:
 |Standard SSD|✔️| ✔️ | ✔️ |⛔|
 |Standard HHD|✔️| ✔️ |⛔|⛔|
 |Premium SSD v2|⛔| ✔️ |⛔| ✔️ |
-|Ultra Disk|✔️| ✔️ |⛔| ✔️|
+|Ultra Disk|⛔| ✔️ |⛔| ✔️|
 
 
 ## Understanding your Azure Disks Bill  
@@ -68,10 +68,6 @@ You will be billed for the provisioned size of the HDD disk and the transactions
 |Standard HDD Managed Disks| S20 LRS Disk|
 |Standard HDD Managed Disks| S4 LRS Disk Operations|
 
-- Standard HDD Managed Disks
-    - S20 LRS Disk
-    - S4 LRS Disk operations
-
 #### Example 2 - Standard SSD 
 In this example, we provision a 1 Tb Standard SSD Disk with LRS redundancy, where we also have snapshot created on the current used data size of 120 Gb. 
 You will be billed for the provisioned size of the HDD disk, the transactions performed on the disk, and the used snapshot size which will show as the following tier and meters in your bill:
@@ -81,11 +77,6 @@ You will be billed for the provisioned size of the HDD disk, the transactions pe
 |Standard SSD Managed Disks| E30 LRS Disk|
 |Standard SSD Managed Disks| E4 LRS Disk Operations|
 |Standard SSD Managed Disks| E10 LRS Disk |
-
-- Standard SSD Managed Disks
-    - E30 LRS Disk
-    - E4 LRS Disk Operations
-    - E10 LRS Disk
 
 ### Premium Storage:
 - Premium SSDs: Azure Premium SSDs deliver high-performance and low-latency disk support for virtual machines (VMs) with input/output (IO)-intensive workloads. 
@@ -117,10 +108,6 @@ You are billed for the provisioned size of the Premium SSD disk and the burst en
 |Premium SSD Managed Disks| P20 LRS Disk|
 |Premium SSD Managed Disks| LRS Burst Enablement* |
 
-- Premium SSD Managed Disks
-    - P20 LRS Disk
-    - LRS Burst Enablement*
-
 *To see a more detailed example of how bursting is billed, see [Disk-level bursting](disk-bursting.md#disk-level-bursting).
 
 #### Example 2 - Premium SSD v2 
@@ -133,13 +120,6 @@ You will be billed for the provisioned size of the disk, the additional IOPS and
 |Azure Premium SSD v2| Premium LRS provisioned IOPS |
 |Azure Premium SSD v2| Premium LRS provisioned throughput (MB/s) |
 |Standard HDD managed disks| LRS snapshots |
-
-- Azure Premium SSD v2
-    - Premium LRS provisioned capacity
-    - Premium LRS provisioned IOPS
-    - Premium LRS provisioned throughput (MB/s)
-- Standard HDD Managed Disks
-    - LRS snapshots
 
 ### Ultra Disks:
 - Ultra SSDs: Ultra Disks feature a flexible performance configuration model that allows you to independently configure IOPS and throughput both before and after you provision the disk.
@@ -161,22 +141,15 @@ You can adjust ultra disk IOPS and throughput performance at runtime without det
 You can store incremental snapshots for Ultra Disk only on Standard storage (which will also be reflected on the bill, see below examples). They are charged a monthly rate for both Standard LRS and ZRS snapshot options of the storage occupied by the delta changes since the last snapshot. For example, you are using a managed disk with provisioned size of 128 GB and a used size of 10 GB. The first incremental snapshot is billed only for the used size of 10 GB. Before you create the second snapshot, 20 GB of data is added to the disk. Now, the second incremental snapshot is billed for only 20 GB.
 
 #### Example 1 - Ultra Disk 
-In this example, we want to provision an Ultra Disk with ZRS redundancy with a total provisioned size of 3 Tb, a target performance of 100,000 IOPS and 2,000 Mbps of throughput. You also create and store incremental snapshots for your current used capacity. 
+In this example, we want to provision an Ultra Disk with ZRS redundancy with a total provisioned size of 3 Tb, a target performance of 100,000 IOPS and 2,000 MB/s of throughput. You also create and store incremental snapshots for your current used capacity. 
 You will be billed for the provisioned size of the disk, the additional IOPS and throughput past the baseline values, and the used snapshot size which will show as the following tier and meters in your bill:
 
 | Tier | Meter |
 |-|-|
 |Ultra Disks| Ultra ZRS provisioned capacity|
 |Ultra Disks| Ultra ZRS provisioned IOPS |
-|Ultra Disks| Ultra ZRS provisioned throughput (MBps) |
+|Ultra Disks| Ultra ZRS provisioned throughput (MB/s) |
 |Standard HDD managed disks| ZRS snapshots |
-
-- Ultra Disks
-    - Ultra ZRS provisioned capacity
-    - Ultra ZRS provisioned IOPS
-    - Ultra ZRS provisioned througput (MBps)
-- Standard HDD managed disks
-    - ZRS snapshots
 
 ## See also
 - [Azure Managed Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/)
