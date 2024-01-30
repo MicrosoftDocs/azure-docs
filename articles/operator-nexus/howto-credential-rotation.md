@@ -1,5 +1,5 @@
 ---
-title: Azure operator nexus credential rotation
+title: Azure Operator Nexus credential rotation
 description: Instructions on Credential Rotation Lifecycle Management requests.
 ms.service: azure-operator-nexus
 ms.custom: template-how-to
@@ -17,7 +17,7 @@ This document provides an overview of the credential rotation support request th
 
 - Target cluster and fabric must be in running and healthy state.
 
-### Create support request
+## Create support request
 
 Raise credential rotation request by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Below details are required in order to perform the credential rotation on the required target instance:
   - Type of credential that needs to be rotated. Specify if the request is for fabric device or BMC or Storage or Console User or for all four types.
