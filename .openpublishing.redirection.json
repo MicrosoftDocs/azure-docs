@@ -14408,6 +14408,11 @@
             "redirect_url": "/azure/automation/automation-dsc-overview"
         },
         {
+            "source_path_from_root": "/articles/aks/operator-best-practices-multi-region.md",
+            "redirect_url": "/azure/aks/ha-dr-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/extensions/dsc-linux.md",
             "redirect_url": "/azure/virtual-machines/extensions/dsc-overview"
         },
