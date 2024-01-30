@@ -186,15 +186,15 @@ ARM64 based clusters aren't supported at this time.
 
 ### Container Apps extension v1.30.6 (January 2024)
 
- - Update KEDA to 2.12
+ - Update KEDA to v2.12
  - Update Envoy SC image to v1.0.4
  - Update Dapr image to v1.11.6
- - Added default response timeout for Envoy routes to 1800s
+ - Added default response timeout for Envoy routes to 1800 seconds
  - Changed Fluent bit default log level to warn
  - Delay deletion of job pods to ensure log emission
  - Fixed issue for job pod deletion for failed job executions
  - Ensure jobs in suspended state also have failed pods deleted
- - Do not resolve HTTPOptions for TCP applications
+ - Update to not resolve HTTPOptions for TCP applications
  - Allow applications to listen on HTTP or HTTPS
  - Add ability to suspend jobs
  - Fixed issue where KEDA scaler was failing to create job after stopped job execution
