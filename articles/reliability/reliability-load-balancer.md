@@ -62,7 +62,7 @@ Deploy Load Balancer with at least two instances in the backend. A single instan
 
 #### :::image type="icon" source="media/icon-recommendation-medium.svg"::: **Use NAT Gateway instead of outbound rules for production workloads**
 
-Outbound rules ensure that you're not faced with connection failures as a result of SNAT port exhaustion. While outbound rules help improve the solution for small to mid size deployments, for production workloads, it's recommended that you couple Standard Load Balancer or any subnet deployment with VNet NAT.
+Outbound rules allocates fixed amounts of SNAT ports to each virtual machine instance in a backend pool. This method of allocation can lead to SNAT port exhaustion, especially if uneven traffic patterns result in a specific virtual machine sending a higher volume of outgoing connections. For production workloads, it's recommended that you couple Standard Load Balancer or any subnet deployment with [Azure NAT Gateway](/azure/nat-gateway/nat-overview). NAT Gateway dynamically allocates SNAT ports across all virtual machine instances in a subnet and in turn reduces the risk of SNAT port exhaustion. 
 
 
 # [Azure Resource Graph](#tab/graph)
