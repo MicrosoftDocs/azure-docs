@@ -48,7 +48,7 @@ There are two things you need to set up in your GCP environment:
 
 You can set up the environment in one of two ways:
 
-- [Create GCP resources via the Terraform API](?tabs=terraform): Terraform provides an API for ***the Identity and Access Management (IAM)???*** that creates the resources. Microsoft Sentinel provides a script that issues the necessary commands to the API.
+- [Create GCP resources via the Terraform API](?tabs=terraform): Terraform provides APIs for resource creation and for Identity and Access Management (see [Prerequisites](#prerequisites)). Microsoft Sentinel provides Terraform scripts that issue the necessary commands to the APIs.
 - [Set up GCP environment manually](?tabs=manual), creating the resources yourself in the GCP console.
 
 ### GCP Authentication Setup
@@ -64,7 +64,10 @@ You can set up the environment in one of two ways:
 
 1. Copy the Terraform authentication script provided by Microsoft Sentinel from the Sentinel GitHub repository into your GCP Cloud Shell environment.
 
-    1. Open the Terraform [GCPInitialAuthenticationSetup script](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPInitialAuthenticationSetup) file and copy its contents.  
+    1. Open the Terraform [GCPInitialAuthenticationSetup script](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPInitialAuthenticationSetup/GCPInitialAuthenticationSetup.tf) file and copy its contents.
+
+       > [!NOTE]
+       > For ingesting GCP data into an **Azure Government cloud**, [use this authentication setup script instead](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/GCP/Terraform/sentinel_resources_creation_gov/GCPInitialAuthenticationSetupGov/GCPInitialAuthenticationSetupGov.tf).
 
     1. Create a directory in your Cloud Shell environment, enter it, and create a new blank file.
         ```bash
@@ -153,7 +156,7 @@ For more information about workload identity federation in Google Cloud Platform
 
 1. **Grant access** to the principal that represents the workload identity pool and provider that you created in the previous step.
    - Use the following format for the principal name:
-     ```rest
+     ```http
      principal://iam.googleapis.com/projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{WORKLOAD_IDENTITY_POOL_ID}/subject/{WORKLOAD_IDENTITY_PROVIDER_ID}
      ```
 
@@ -169,7 +172,10 @@ For more information about granting access in Google Cloud Platform, see [Manage
 
 1. Copy the Terraform audit log setup script provided by Microsoft Sentinel from the Sentinel GitHub repository into a different folder in your GCP Cloud Shell environment.
 
-    1. Open the Terraform [GCPAuditLogsSetup script](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPAuditLogsSetup) file and copy its contents.  
+    1. Open the Terraform [GCPAuditLogsSetup script](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPAuditLogsSetup/GCPAuditLogsSetup.tf) file and copy its contents.
+
+       > [!NOTE]
+       > For ingesting GCP data into an **Azure Government cloud**, [use this audit log setup script instead](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/GCP/Terraform/sentinel_resources_creation_gov/GCPAuditLogsSetup/GCPAuditLogsSetup.tf).
 
     1. Create another directory in your Cloud Shell environment, enter it, and create a new blank file.
         ```bash
@@ -213,26 +219,36 @@ Follow the instructions in the Google Cloud documentation to [**create a topic**
 
 #### Create a log sink
 
-Use the [Google Cloud Platform Route Logging service](https://cloud.google.com/logging/docs/export/configure_export_v2) to set up collection of audit logs.
+Use the [Google Cloud Platform Log Router service](https://cloud.google.com/logging/docs/export/configure_export_v2) to set up collection of audit logs.
 
-Follow the instructions in the Google Cloud documentation to [**set up a sink**](https://cloud.google.com/logging/docs/export/configure_export_v2#creating_sink) for collecting logs. 
-- Choose a Name that reflects the purpose of log collection for export to Microsoft Sentinel.
-- Select "Cloud Pub/Sub topic" as the destination type, and choose the topic you created in the previous step.
+**To collect logs for resources in the current project only:**
 
-   > [!NOTE]
-   > To ingest logs for the entire organization: 
-   > 1. Select the organization under **Project**. 
-   > 1. Repeat steps 2-4, and under **Choose logs to include in the sink** in the **Log Router** section, select **Include logs ingested by this organization and all child resources**.   
+1. Verify that your project is selected in the project selector.
 
----
+1. Follow the instructions in the Google Cloud documentation to [**set up a sink**](https://cloud.google.com/logging/docs/export/configure_export_v2#creating_sink) for collecting logs. 
+   - Choose a Name that reflects the purpose of log collection for export to Microsoft Sentinel.
+   - Select "Cloud Pub/Sub topic" as the destination type, and choose the topic you created in the previous step.
 
-## Verify that GCP can receive incoming messages
+**To collect logs for resources throughout the entire organization:**
+
+1. Select your **organization** in the project selector. 
+
+1. Follow the instructions in the Google Cloud documentation to [**set up a sink**](https://cloud.google.com/logging/docs/export/configure_export_v2#creating_sink) for collecting logs. 
+   - Choose a Name that reflects the purpose of log collection for export to Microsoft Sentinel.
+   - Select "Cloud Pub/Sub topic" as the destination type, and choose the default "Use a Cloud Pub/Sub topic in a project".
+   - Enter the destination in the following format: `pubsub.googleapis.com/projects/{PROJECT_ID}/topics/{TOPIC_ID}`.
+
+1. Under **Choose logs to include in the sink**, select **Include logs ingested by this organization and all child resources**.   
+
+#### Verify that GCP can receive incoming messages
 
 1. In the GCP Pub/Sub console, navigate to **Subscriptions**.
 
 1. Select **Messages**, and select **PULL** to initiate a manual pull. 
 
 1. Check the incoming messages.  
+
+---
 
 ## Set up the GCP Pub/Sub connector in Microsoft Sentinel
 
@@ -250,7 +266,12 @@ Follow the instructions in the Google Cloud documentation to [**set up a sink**]
 
 1. In the **Configuration** area, select **Add new collector**. 
 
-1. Type the resource parameters you created when you [created the GCP resources](#set-up-gcp-environment). Make sure that the Data Collection Endpoint Name and the Data Collection Rule Name begin with **Microsoft-Sentinel-** and select **Connect**. 
+    :::image type="content" source="media/connect-google-cloud-platform/add-new-collector.png" alt-text="Screenshot of GCP connector configuration" lightbox="media/connect-google-cloud-platform/add-new-collector.png":::
+
+1. In the **Connect a new collector** panel, type the resource parameters you created when you [created the GCP resources](#set-up-gcp-environment). 
+
+
+***???*** Make sure that the Data Collection Endpoint Name and the Data Collection Rule Name begin with **Microsoft-Sentinel-** and select **Connect**. 
 
 ## Verify that the GCP data is in the Microsoft Sentinel environment 
 
