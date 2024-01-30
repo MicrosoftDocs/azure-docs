@@ -23,7 +23,7 @@ A Kubernetes cluster is divided into two components:
 - The **control plane**, which provides the core Kubernetes services and orchestration of application workloads, and
 - The **nodes**, which run your application workloads.
 
-![Kubernetes control plane and node components](media/concepts-clusters-workloads/control-plane-and-nodes.png)
+![Diagram of Kubernetes control plane and node components.](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
 When you create an AKS cluster, the Azure platform automatically creates and configures a control plane. AKS offers two pricing tiers for cluster management: the **Free tier** and the **Standard tier**. For more information, see [Free and Standard pricing tiers for AKS cluster management](./free-standard-pricing-tiers.md).
 

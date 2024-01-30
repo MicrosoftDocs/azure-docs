@@ -19,7 +19,7 @@ This guide outlines a passive-cold solution for AKS. Within this solution, we de
 
 ## Passive-cold solution overview
 
-In this approach, we have two independent AKS clusters being deployed in two Azure regions. When the application is needed, we activate the passive cluster to receive traffic. If the passive cluster goes down, we must manually activate the cold cluster to take over the flow of traffic. We can set this condition through a manual input every time or a specify a certain event.
+In this approach, we have two independent AKS clusters being deployed in two Azure regions. When the application is needed, we activate the passive cluster to receive traffic. If the passive cluster goes down, we must manually activate the cold cluster to take over the flow of traffic. We can set this condition through a manual input every time or to specify a certain event.
 
 ## Scenarios and configurations
 

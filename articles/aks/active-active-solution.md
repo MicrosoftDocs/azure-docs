@@ -24,7 +24,7 @@ This solution relies on two identical AKS clusters configured to actively serve 
 Availability zones are another way to ensure high availability and fault tolerance for your AKS cluster within the same region. Availability zones allow you to distribute your cluster nodes across multiple isolated locations within an Azure region. This way, if one zone goes down due to a power outage, hardware failure, or network issue, your cluster can continue to run and serve your applications. Availability zones also improve the performance and scalability of your cluster by reducing the latency and contention among nodes. To set up availability zones for your AKS cluster, you need to specify the zone numbers when creating or updating your node pools. For more information, see [What are Azure availability zones?](../reliability/availability-zones-overview.md)
 
 > [!NOTE]
-> Many regions support availability zones. Consider using regions with availability zones to provide more resiliency and availability for your workloads. For more information, see [Recover form a region-wide service disruption](/azure/architecture/resiliency/recovery-loss-azure-region).
+> Many regions support availability zones. Consider using regions with availability zones to provide more resiliency and availability for your workloads. For more information, see [Recover from a region-wide service disruption](/azure/architecture/resiliency/recovery-loss-azure-region).
 
 ## Scenarios and configurations
 
