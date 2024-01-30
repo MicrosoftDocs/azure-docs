@@ -12,7 +12,7 @@ ms.date: 01/29/2024
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-Single-tenant Azure Logic Apps gives you the option to select your preferred compute resources and set up your Standard logic app resources and workflows to dynamically scale based on varying workload demands. In cloud computing, scalability is how quickly and easily you can increase or decrease the size or power of an IT solution or resource. While scalability can refer to the capability of any system to handle a growing amount of work, the terms *scale out* versus *scale up* often refer to databases and data.
+Single-tenant Azure Logic Apps gives you the option to select your preferred compute resources and set up your Standard logic app resources and workflows to dynamically scale based on varying workload demands. In cloud computing, scalability is how quickly and easily you can increase or decrease the size or power of an IT solution or resource. While scalability can refer to the capability of any system to handle a growing amount of work, the terms *scale out* and *scale up* often refer to databases and data.
 
 For example, suppose you have a new app that takes off, so demand grows from a small group of customers to millions worldwide. The ability to efficiently scale is one of most important abilities to help you keep pace with demand and minimize downtime.
 
@@ -44,7 +44,7 @@ Previously, Azure Logic Apps used an *incremental scaling model* that added or r
 
 By comparison, target-based scaling lets you scale up to four worker instances at a time. The scale monitor calculates the desired number of worker instances required to process jobs across the job queues and returns this number to the scale controller, which helps make decisions about scaling. Also, the target-based scaling model also includes host settings that you can use to fine-tune the model's underlying dynamic scaling mechanism, which can result in faster scale-out and scale-in times. This capability lets you achieve higher throughput and reduced latency for fluctuating Standard logic app workloads.
 
-The follwing diagram shows the sequence for how the scaling components interact in target-based scaling:
+The following diagram shows the sequence for how the scaling components interact in target-based scaling:
 
 :::image type="content" source="media/target-based-scaling-overview/runtime-scaling-sequence.png" alt-text="Sequence diagram shows scaling process for Standard logic apps." lightbox="media/target-based-scaling-overview/runtime-scaling-architecture.png":::
 
