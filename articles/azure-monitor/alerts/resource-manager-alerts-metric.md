@@ -1970,7 +1970,8 @@ This section will describe Azure Resource Manager templates for three scenarios 
 
 > [!NOTE]
 >
-> In a metric alert rule that monitors multiple resources, only one condition is allowed.
+> - In a metric alert rule that monitors multiple resources, only one condition is allowed.
+> - If you are creating a metric alert for a single resource, the template uses the `ResourceId` of the target resource. If you are creating a metric alert for multiple resources, the template uses the `scope`, `TargetResourceType`, and `TargetResourceRegion` for the target resources.
 
 ### Static threshold alert on all virtual machines in one or more resource groups
 

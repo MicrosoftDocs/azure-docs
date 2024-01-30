@@ -3,11 +3,9 @@ title: Publishing to Azure Government Marketplace
 description: This article provides guidance on publishing solutions to Azure Government Marketplace.
 services: azure-government
 cloud: gov
-documentationcenter: ''
 
 ms.service: azure-government
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/31/2021
 ---

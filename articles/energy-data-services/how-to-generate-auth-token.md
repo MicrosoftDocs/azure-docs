@@ -21,7 +21,6 @@ In this article, you learn how to generate the service principal auth token, a u
   
    :::image type="content" source="media/how-to-generate-auth-token/app-registration-uri.png" alt-text="Screenshot that shows adding the URI to the app.":::
 
-1. Fetch the `redirect-uri` (or reply URL) for your app to receive responses from Microsoft Entra ID.
 
 ## Fetch parameters
 
@@ -66,7 +65,16 @@ A `client-secret` is a string value your app can use in place of a certificate t
 
    :::image type="content" source="media/how-to-generate-auth-token/client-secret.png" alt-text="Screenshot that shows finding the client secret.":::
 
-#### Find the URL for your Azure Data Manager for Energy instance
+### Find redirect-uri
+The `redirect-uri` of your app, where your app sends and receives the authentication responses. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL encoded.
+
+1. Go to **App registrations**.
+1. Under the **Manage** section, select **Authentication**.
+1. Fetch the `redirect-uri` (or reply URL) for your app to receive responses from Microsoft Entra ID.
+
+ :::image type="content" source="media/how-to-generate-auth-token/redirect-uri.png" alt-text="Screenshot that shows redirect-uri.":::
+
+### Find the adme-url for your Azure Data Manager for Energy instance
 
 1. Create an [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 1. Go to your Azure Data Manager for Energy **Overview** page on the Azure portal.
@@ -74,7 +82,7 @@ A `client-secret` is a string value your app can use in place of a certificate t
 
    :::image type="content" source="media/how-to-generate-auth-token/endpoint-url.png" alt-text="Screenshot that shows finding the URI for the Azure Data Manager for Energy instance.":::
 
-#### Find data-partition-id
+### Find data-partition-id
 
 You have two ways to get the list of data partitions in your Azure Data Manager for Energy instance.
 
@@ -119,7 +127,7 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 
 Generating a user's auth token is a two-step process.
 
-### Get the authorization code
+### Get the authorization-code
 
 The first step to get an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform `/authorize` endpoint. Microsoft Entra ID signs the user in and requests their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Microsoft Entra ID returns an authorization code to your app that it can redeem at the Microsoft identity platform `/token` endpoint for an access token.
 
@@ -131,7 +139,7 @@ The first step to get an access token for many OpenID Connect (OIDC) and OAuth 2
 
 1. The browser redirects to `http://localhost:8080/?code={authorization code}&state=...` upon successful authentication.
 1. Copy the response from the URL bar of the browser and fetch the text between `code=` and `&state`.
-1. Keep this authorization code handy for future use.
+1. Keep this `authorization-code` handy for future use.
 
 #### Request format
 
@@ -180,8 +188,8 @@ The second step is to get the auth token and the refresh token. Your app uses th
 ```bash
   curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id={client-id}
   &scope={client-id}%2f.default openid profile offline_access
-  &code={authorization code}
-  &redirect_uri=http%3A%2F%2Flocalhost%3a8080
+  &code={authorization-code}
+  &redirect_uri={redirect-uri}
   &grant_type=authorization_code
   &client_secret={client-secret}' 'https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/token'
 ```

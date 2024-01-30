@@ -2,7 +2,6 @@
 title: Azure RabbitMQ bindings for Azure Functions
 description: Learn to send Azure RabbitMQ triggers and bindings in Azure Functions.
 author: cachai2
-ms.assetid: 
 ms.topic: reference
 ms.date: 11/15/2021
 ms.author: cachai

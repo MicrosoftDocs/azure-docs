@@ -8,7 +8,7 @@ author: jcodella
 ms.service: azure-ai-personalizer
 ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
-ms.date: 02/02/2023
+ms.date: 01/19/2024
 ---
 
 [Reference documentation](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer) | [Package (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Quickstart code sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer)

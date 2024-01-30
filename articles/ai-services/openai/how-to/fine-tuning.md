@@ -11,7 +11,6 @@ ms.date: 10/12/2023
 author: mrbullwinkle
 ms.author: mbullwin
 zone_pivot_groups: openai-fine-tuning
-keywords: 
 ---
 
 # Customize a model with fine-tuning

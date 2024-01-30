@@ -245,4 +245,4 @@ To understand the limitations of the AppDynamics Agent, see [Monitor Azure Sprin
 
 ## Next steps
 
-* [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md)
+[Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md)

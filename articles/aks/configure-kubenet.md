@@ -153,19 +153,6 @@ For more information to help you decide which network model to use, see [Compare
     * The pod IP address range is used to assign a */24* address space to each node in the cluster. In the following example, the *--pod-cidr* of *10.244.0.0/16* assigns the first node *10.244.0.0/24*, the second node *10.244.1.0/24*, and the third node *10.244.2.0/24*.
     * As the cluster scales or upgrades, the Azure platform continues to assign a pod IP address range to each new node.
 
-> [!NOTE]
-> If you want to enable an AKS cluster to include a [Calico network policy][calico-network-policies], you can use the following command:
->
-> ```azurecli-interactive
-> az aks create \
->     --resource-group myResourceGroup \
->     --name myAKSCluster \
->     --node-count 3 \
->     --network-plugin kubenet \
->     --network-policy calico \
->     --vnet-subnet-id $SUBNET_ID 
-> ```
-
 ### Create an AKS cluster with user-assigned managed identity
 
 #### Create a managed identity

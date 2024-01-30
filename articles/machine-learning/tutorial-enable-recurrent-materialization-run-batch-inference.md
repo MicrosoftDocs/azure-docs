@@ -11,7 +11,7 @@ author: rsethur
 ms.author: seramasu
 ms.date: 11/28/2023
 ms.reviewer: franksolomon
-ms.custom: sdkv2, build-2023, ignite-2023
+ms.custom: sdkv2, build-2023, ignite-2023, update-code
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
@@ -64,15 +64,15 @@ Before you proceed with this tutorial, be sure to complete the first and second 
 
    1. Install the Azure Machine Learning extension.
 
-      [!notebook-python[] (~/azureml-examples-temp-fix/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb?name=install-ml-ext-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb?name=install-ml-ext-cli)]
 
    2. Authenticate.
 
-      [!notebook-python[] (~/azureml-examples-temp-fix/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb?name=auth-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb?name=auth-cli)]
 
    3. Set the default subscription.
 
-      [!notebook-python[] (~/azureml-examples-temp-fix/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb?name=set-default-subs-cli)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb?name=set-default-subs-cli)]
 
    ---
 

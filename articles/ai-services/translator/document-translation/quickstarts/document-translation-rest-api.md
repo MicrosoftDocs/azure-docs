@@ -9,7 +9,8 @@ ms.topic: quickstart
 ms.date: 07/18/2023
 ms.author: lajanuar
 recommendations: false
-ms.devlang: csharp, golang, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, javascript, python
 ms.custom: mode-other, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-translator
 ---

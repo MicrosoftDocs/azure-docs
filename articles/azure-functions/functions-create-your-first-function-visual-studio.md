@@ -77,8 +77,10 @@ Your function definition should now look like the following code:
 
 ```csharp
 [Function("HttpExample")]
-public static HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
-    FunctionContext executionContext)
+public IActionResult Run([HttpTrigger(AuthorizationLevel.AuthLevelValue, "get", "post")] HttpRequest req)
+{
+    return new OkObjectResult("Welcome to Azure Functions!");
+}
 ```
 
 Now that you've renamed the function, you can test it on your local computer.

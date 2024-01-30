@@ -22,6 +22,9 @@ Each authentication method gives access to different sets of operations, with so
 
 :::image type="content" source="./media/how-to-restrict-user-data/operations.png" alt-text="Split of operations per authentication type" border="false":::
 
+> [!NOTE]
+> [Microsoft Entra ID identities data operations are supported by NoSQL.](how-to-setup-rbac.md)
+
 In some scenarios, you may want to restrict some users of your organization to perform data operations (that is CRUD requests and queries) only. This is typically the case for developers who don't need to create or delete resources, or change the provisioned throughput of the containers they are working on.
 
 You can restrict the access by applying the following steps:

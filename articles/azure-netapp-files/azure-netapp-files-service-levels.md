@@ -2,15 +2,9 @@
 title: Service levels for Azure NetApp Files | Microsoft Docs
 description: Describes throughput performance for the service levels of Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/02/2022
 ms.author: anfdocs

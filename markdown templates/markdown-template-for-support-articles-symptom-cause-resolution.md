@@ -1,18 +1,10 @@
 ---
 title: Page title that displays in the browser tab and search results
 description: Article description that will be displayed on landing pages and in most search results
-services: service-name
-documentationcenter: dev-center-name
 author: GitHub-alias-of-only-one-author
 manager: manager-alias
-editor: ''
-tags: comma-separates-additional-tags-if-required
-
 ms.service: required
-ms.devlang: may be required
 ms.topic: article
-ms.tgt_pltfrm: may be required
-ms.workload: required
 ms.date: mm/dd/yyyy
 ms.author: Your MSFT alias or your full email address;semicolon separates two or more
 

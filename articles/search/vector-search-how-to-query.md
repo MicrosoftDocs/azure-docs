@@ -22,7 +22,7 @@ In Azure AI Search, if you [added vector fields](vector-search-how-to-create-ind
 > + [Query multiple vector fields at once](#multiple-vector-fields)
 > + [Query with integrated vectorization (preview)](#query-with-integrated-vectorization-preview)
 
-Code samples in the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
+Code samples in the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ This section applies to the generally available version of vector search (**2023
 
 To query a vector field, the query itself must be a vector. To convert a text query string provided by a user into a vector representation, your application must call an embedding library or API endpoint that provides this capability. **Use the same embedding that you used to generate embeddings in the source documents.**
 
-You can find multiple instances of query string conversion in the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/) repository for each of the Azure SDKs.
+You can find multiple instances of query string conversion in the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples) repository for each of the Azure SDKs.
 
 Here's a REST API example of a query string submitted to a deployment of an Azure OpenAI model:
 
@@ -238,19 +238,19 @@ Be sure to the **JSON view** and formulate the vector query in JSON. The search 
 
 + Use the [**Azure.Search.Documents 11.5.0**](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0) package for vector scenarios. 
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) GitHub repository for .NET code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet) GitHub repository for .NET code samples.
 
 ### [**Python**](#tab/python-vector-query)
 
 + Use the [**Azure.Search.Documents**](https://pypi.org/project/azure-search-documents) package for vector scenarios. 
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python) GitHub repository for Python code samples.
 
 ### [**JavaScript**](#tab/js-vector-query)
 
 + Use the [**@azure/search-documents 12.0.0-beta.4**](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.4) package for vector scenarios.  
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
 
 ---
 
@@ -456,9 +456,9 @@ api-key: {{admin-api-key}}
 
 ## Multiple vector queries
 
-Multi-query vector search sends multiple queries across multiple vector fields in your search index. A common example of this query request is when using models such as [CLIP](https://openai.com/research/clip) for a multi-modal vector search where the same model can vectorize image and non-image content.
+Multi-query vector search sends multiple queries across multiple vector fields in your search index. A common example of this query request is when using models such as [CLIP](https://openai.com/research/clip) for a multimodal vector search where the same model can vectorize image and text content.
 
-The following query example looks for similarity in both `myImageVector` and `myTextVector`, but sends in two different query embeddings respectively. This scenario is ideal for multi-modal use cases where you want to search over different embedding spaces. This query produces a result that's scored using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md).
+The following query example looks for similarity in both `myImageVector` and `myTextVector`, but sends in two different query embeddings respectively, each executing in parallel. This query produces a result that's scored using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md).
 
 + `vectorQueries` provides an array of vector queries.
 + `vector` contains the image vectors and text vectors in the search index. Each instance is a separate query.
@@ -604,4 +604,4 @@ Multiple sets are created if the query targets multiple vector fields, or if the
 
 ## Next steps
 
-As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) or [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript).
+As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet) or [JavaScript](https://github.com/Azure/cazure-search-vector-samplesr/tree/main/demo-javascript).

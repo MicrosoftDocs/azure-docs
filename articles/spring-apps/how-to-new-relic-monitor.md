@@ -195,4 +195,4 @@ For a vnet injection instance of Azure Spring Apps, you need to make sure the ou
 
 ## Next steps
 
-* [Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md)
+[Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md)

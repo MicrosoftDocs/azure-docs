@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 10/25/2023
+ms.date: 01/11/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -21,7 +21,7 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## December 2023
+## February 2024
 
 - [Incident tasks now generally available (GA)](#incident-tasks-now-generally-available-ga)
 
@@ -33,6 +33,20 @@ Incident tasks, which help you standardize your incident investigation and respo
 - See [this blog post by Benji Kovasevic](link) that shows how you can use incident tasks in combination with watchlists, automation rules, and playbooks to build a task management solution with two parts:
     - A repository of incident tasks.
     - A mechanism that automatically attaches tasks to newly created incidents, according to the incident title, and assigns them to the proper personnel.
+
+## January 2024
+
+[Reduce false positives for SAP systems with analytics rules](#reduce-false-positives-for-sap-systems-with-analytics-rules)
+
+### Reduce false positives for SAP systems with analytics rules
+
+Use analytics rules together with the [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md) to lower the number of false positives triggered from your SAP® systems. The Microsoft Sentinel solution for SAP® applications now includes the following enhancements:
+
+- The [**SAPUsersGetVIP**](sap/sap-solution-log-reference.md#sapusersgetvip) function now supports excluding users according to their SAP-given roles or profile.
+
+- The **SAP_User_Config** watchlist now supports using wildcards in the **SAPUser** field to exclude all users with a specific syntax.
+
+For more information, see [Microsoft Sentinel solution for SAP® applications data reference](sap/sap-solution-log-reference.md) and [Handle false positives in Microsoft Sentinel](false-positives.md).
 
 ## November 2023
 

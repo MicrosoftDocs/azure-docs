@@ -24,7 +24,7 @@ Managed identities for Azure resources provide an automatically managed identity
 
 ## Prerequisites
 
-If you're unfamiliar with managed identities for Azure resources, see the [Managed identities for Azure resources overview section](../active-directory/managed-identities-azure-resources/overview.md).
+If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 
 ::: zone pivot="sc-enterprise"
 
@@ -91,9 +91,9 @@ az spring app identity assign \
 
 An app can use its managed identity to get tokens to access other resources protected by Microsoft Entra ID, such as Azure Key Vault. These tokens represent the application accessing the resource, not any specific user of the application.
 
-You may need to [configure the target resource to allow access from your application](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). For example, if you request a token to access Key Vault, make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault are rejected, even if they include the token. To learn more about which resources support Microsoft Entra tokens, see [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+You may need to [configure the target resource to allow access from your application](/entra/identity/managed-identities-azure-resources/howto-assign-access-portal). For example, if you request a token to access Key Vault, make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault are rejected, even if they include the token. To learn more about which resources support Microsoft Entra tokens, see [Azure services that can use managed identities to access other services](/entra/identity/managed-identities-azure-resources/managed-identities-status).
 
-Azure Spring Apps shares the same endpoint for token acquisition with Azure Virtual Machine. We recommend using Java SDK or spring boot starters to acquire a token.  See [How to use VM token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) for various code and script examples and guidance on important topics such as handling token expiration and HTTP errors.
+Azure Spring Apps shares the same endpoint for token acquisition with Azure Virtual Machine. We recommend using Java SDK or spring boot starters to acquire a token. For various code and script examples and guidance on important topics such as handling token expiration and HTTP errors, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token).
 
 ## Disable system-assigned identity from an app
 
@@ -135,5 +135,5 @@ az ad sp show --id <object-ID> --query appId
 
 ## Next steps
 
-* [Learn more about managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+* [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 * [How to use managed identities with Java SDK](https://github.com/Azure-Samples/azure-spring-apps-samples)

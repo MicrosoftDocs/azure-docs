@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 8/24/2023
+ms.date: 1/22/2024
 ms.author: eur
 ---
 
@@ -246,7 +246,7 @@ The following table describes the usage of the `<lang xml:lang>` element's attri
 
 ### Multilingual voices with the lang element
 
-Use the [multilingual voices section](language-support.md?tabs=tts#multilingual-voices) to determine which speaking languages the Speech service supports for each neural voice, as demonstrated in the example table below. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
+Use the [multilingual voices section](language-support.md?tabs=tts#multilingual-voices) to determine which speaking languages the Speech service supports for each neural voice, as demonstrated in the following example table. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
 | Voice | Supported language number | Supported languages | Supported locales |
 |-------------|---------------------------|-----------------------|----------------|
@@ -400,7 +400,7 @@ This SSML snippet demonstrates how you can use the `emphasis` element to add
 
 ## Add recorded audio
 
-The `audio` element is optional. You can use it to insert prerecorded audio into an SSML document. The body of the `audio` element can contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. The `audio` element can also contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
+The `audio` element is optional. You can use it to insert prerecorded audio into an SSML document. The body of the `audio` element can contain plain text or SSML markup spoken if the audio file is unavailable or unplayable. The `audio` element can also contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
 
 Any audio included in the SSML document must meet these requirements:
 * The audio file must be valid **.mp3*, **.wav*, **.opus*, **.ogg*, **.flac*, or **.wma* files.
@@ -446,7 +446,7 @@ The following table describes the usage of the `mstts:audioduration` element's a
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
-| `value` | The requested duration of the output audio in either seconds, such as `2s`, or milliseconds, such as `2000ms`.<br/><br/>This value should be within `0.5` to `2` times the original audio without any other rate settings. For example, if the requested duration of your audio is `30s`, then the original audio must have otherwise been between 15 and 60 seconds. If you set a value outside of these boundaries, the duration is set according to the respective minimum or maximum multiple.<br/><br/>Given your requested output audio duration, the Speech service adjusts the speaking rate accordingly. Use the [voice list](rest-text-to-speech.md#get-a-list-of-voices) API and check the `WordsPerMinute` attribute to find out the speaking rate of the neural voice that you're using. You can divide the number of words in your input text by the value of the `WordsPerMinute` attribute to get the approximate original output audio duration. The output audio sounds most natural when you set the audio duration closest to the estimated duration.| Required |
+| `value` | The requested duration of the output audio in either seconds, such as `2s`, or milliseconds, such as `2000ms`.<br/><br/>This value should be within `0.5` to `2` times the original audio without any other rate settings. For example, if the requested duration of your audio is `30s`, then the original audio must otherwise be between 15 and 60 seconds. If you set a value outside of these boundaries, the duration is set according to the respective minimum or maximum multiple.<br/><br/>Given your requested output audio duration, the Speech service adjusts the speaking rate accordingly. Use the [voice list](rest-text-to-speech.md#get-a-list-of-voices) API and check the `WordsPerMinute` attribute to find out the speaking rate of the neural voice that you're using. You can divide the number of words in your input text by the value of the `WordsPerMinute` attribute to get the approximate original output audio duration. The output audio sounds most natural when you set the audio duration closest to the estimated duration.| Required |
 
 ### mstts audio duration examples
 
@@ -468,7 +468,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 You can use the `mstts:backgroundaudio` element to add background audio to your SSML documents or mix an audio file with text to speech. With `mstts:backgroundaudio`, you can loop an audio file in the background, fade in at the beginning of text to speech, and fade out at the end of text to speech.
 
-If the background audio provided is shorter than the text to speech or the fade out, it loops. If it's longer than the text to speech, it stops when the fade out has finished.
+If the background audio provided is shorter than the text to speech or the fade out, it loops. If it's longer than the text to speech, it stops when the fade out is finished.
 
 Only one background audio file is allowed per SSML document. You can intersperse `audio` tags within the `voice` element to add more audio to your SSML document.
 

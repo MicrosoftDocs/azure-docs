@@ -32,6 +32,11 @@ App Accelerator helps you bootstrap developing your applications and deploying t
   az extension remove --name spring-cloud
   ```
 
+- To use App Accelerator in VS Code, you'll also need to satisfy the following prerequisites:
+
+  - [Visual Studio Code](https://code.visualstudio.com/Download)
+  - [Azure Spring Apps extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-cloud)
+
 ## Enable App Accelerator
 
 You can enable App Accelerator when you provision an Azure Spring Apps Enterprise plan instance. If you already have an Azure Spring Apps Enterprise plan resource, see the [Manage App Accelerator in an existing Enterprise plan instance](#manage-app-accelerator-in-an-existing-enterprise-plan-instance) section to enable it.
@@ -46,7 +51,7 @@ Use the following steps to enable App Accelerator using the Azure portal:
 1. On the **Basics** tab, select **Enterprise tier** in the **Pricing** section and specify the required information. Then select **Next: VMware Tanzu settings**.
 1. On the **VMware Tanzu settings** tab, select **Enable App Accelerator**.
 
-   :::image type="content" source="media/how-to-use-accelerator/create-instance.png" alt-text="Screenshot of the Azure portal showing the VMware Tanzu settings tab of the Azure Spring Apps Create screen, with the Enable App Accelerator checkbox highlighted." lightbox="media/how-to-use-accelerator/create-instance.png":::
+   :::image type="content" source="media/how-to-use-accelerator/create-instance.png" alt-text="Screenshot of the Azure portal that shows the VMware Tanzu settings tab of the Azure Spring Apps Create screen, with the Enable App Accelerator checkbox highlighted." lightbox="media/how-to-use-accelerator/create-instance.png":::
 
 1. Specify other settings, and then select **Review and Create**.
 1. On the **Review an create** tab, make sure that **Enable App Accelerator** and **Enable Dev Tools Portal** are set to **Yes**. Select **Create** to create the Enterprise plan instance.
@@ -117,7 +122,7 @@ You can see the running instances and resource usage of all the components using
 
 You can view the state of Application Accelerator in the Azure portal on the **Developer Tools** page, as shown in the following screenshot:
 
-:::image type="content" source="media/how-to-use-accelerator/accelerator-components.png" alt-text="Screenshot of the Azure portal showing the Developer Tools page." lightbox="media/how-to-use-accelerator/accelerator-components.png":::
+:::image type="content" source="media/how-to-use-accelerator/accelerator-components.png" alt-text="Screenshot of the Azure portal that shows the Developer Tools page." lightbox="media/how-to-use-accelerator/accelerator-components.png":::
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -161,7 +166,7 @@ You can manage predefined accelerators using the Azure portal or Azure CLI.
 
 You can view the built-in accelerators in the Azure portal on the **Accelerators** tab, as shown in the following screenshot:
 
-:::image type="content" source="media/how-to-use-accelerator/predefined-accelerator.png" alt-text="Screenshot of the Azure portal showing the Accelerators tab with built-in accelerators, with the Disable Accelerator button highlighted." lightbox="media/how-to-use-accelerator/predefined-accelerator.png":::
+:::image type="content" source="media/how-to-use-accelerator/predefined-accelerator.png" alt-text="Screenshot of the Azure portal that shows the Accelerators tab with built-in accelerators, with the Disable Accelerator button highlighted." lightbox="media/how-to-use-accelerator/predefined-accelerator.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -211,7 +216,7 @@ After you create your *accelerator.yaml* file, you can create your accelerator. 
 
 To create your own accelerator, open the **Accelerators** section and then select **Add Accelerator** under the Customized Accelerators section.
 
-:::image type="content" source="media/how-to-use-accelerator/add-accelerator.png" alt-text="Screenshot of the Azure portal showing the Developer Tools page Accelerators tab, with the Add Accelerator button highlighted." lightbox="media/how-to-use-accelerator/add-accelerator.png":::
+:::image type="content" source="media/how-to-use-accelerator/add-accelerator.png" alt-text="Screenshot of the Azure portal that shows the Developer Tools page Accelerators tab, with the Add Accelerator button highlighted." lightbox="media/how-to-use-accelerator/add-accelerator.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -243,43 +248,43 @@ az spring application-accelerator customized-accelerator create \
 
 The following table describes the customizable accelerator fields.
 
-| Portal                             | CLI                       | Description                                                                                                                                                                                                                                                                                                                                                                     | Required/Optional                                              |
-|------------------------------------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
-| **Name**                           | `name`                    | A unique name for the accelerator. The name can't change after you create it.                                                                                                                                                                                                                                                                                                   | Required                                                       |
-| **Description**                    | `display-name`            | A longer description of the accelerator.                                                                                                                                                                                                                                                                                                                                        | Optional                                                       |
-| **Icon url**                       | `icon-url`                | A URL for an image to represent the accelerator in the UI.                                                                                                                                                                                                                                                                                                                      | Optional                                                       |
-| **Tags**                           | `accelerator-tags`        | An array of strings defining attributes of the accelerator that can be used in a search in the UI.                                                                                                                                                                                                                                                                              | Optional                                                       |
-| **Git url**                        | `git-url`                 | The repository URL of the accelerator source Git repository. The URL can be an HTTP/S or SSH address.  The [scp-like syntax](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols#_the_ssh_protocol) isn't supported for SSH addresses (for example, `user@example.com:repository.git`). Instead, the valid URL format is `ssh://user@example.com:22/repository.git`. | Required                                                       |
-| **Git interval**                   | `git-interval-in-seconds` | The interval at which to check for repository updates. If not specified, the interval defaults to 10 minutes. There's also a refresh interval (currently 10 seconds) before accelerators may appear in the UI. There could be a 10-second delay before changes are reflected in the UI.                                                                                         | Optional                                                       |
-| **Git branch**                     | `git-branch`              | The Git branch to check out and monitor for changes. You should specify only the Git branch, Git commit, or Git tag.                                                                                                                                                                                                                                                            | Optional                                                       |
-| **Git commit**                     | `git-commit`              | The Git commit SHA to check out. You should specify only the Git branch, Git commit, or Git tag.                                                                                                                                                                                                                                                                                | Optional                                                       |
-| **Git tag**                        | `git-tag`                 | The Git commit tag to check out. You should specify only the Git branch, Git commit, or Git tag.                                                                                                                                                                                                                                                                                | Optional                                                       |
-| **Git sub path**                   | `git-sub-path`            | The folder path inside the Git repository to consider as the root of the accelerator or fragment.                                                                                                                                                                                                                                                                               | Optional                                                       |
-| **Authentication type**            | `N/A`                     | The authentication type of the accelerator source repository. The type can be `Public`, `Basic auth`, or `SSH`.                                                                                                                                                                                                                                                                 | Required                                                       |
-| **User name**                      | `username`                | The user name to access the accelerator source repository whose authentication type is `Basic auth`.                                                                                                                                                                                                                                                                            | Required when the authentication type is `Basic auth`.         |
-| **Password/Personal access token** | `password`                | The password to access the accelerator source repository whose authentication type is `Basic auth`.                                                                                                                                                                                                                                                                             | Required when the authentication type is `Basic auth`.         |
-| **Private key**                    | `private-key`             | The private key to access the accelerator source repository whose authentication type is `SSH`. Only OpenSSH private key is supported.                                                                                                                                                                                                                                          | Required when authentication type is `SSH`.                    |
-| **Host key**                       | `host-key`                | The host key to access the accelerator source repository whose authentication type is `SSH`.                                                                                                                                                                                                                                                                                    | Required when the authentication type is `SSH`.                |
-| **Host key algorithm**             | `host-key-algorithm`      | The host key algorithm to access the accelerator source repository whose authentication type is `SSH`. Can be `ecdsa-sha2-nistp256` or `ssh-rsa`.                                                                                                                                                                                                                               | Required when authentication type is `SSH`.                    |
-| **CA certificate name**            | `ca-cert-name`            | The CA certificate name to access the accelerator source repository with self-signed certificate whose authentication type is `Public` or `Basic auth`.                                                                                                                                                                                                                         | Required when a self-signed cert is used for the Git repo URL. |
-| **Type**                           | `type`                    | The type of customized accelerator. The type can be `Accelerator` or `Fragment`. The default value is `Accelerator`.                                                                                                                                                                                                                                                                     | Optional                                                       |
+| Portal                             | CLI                       | Description                                                                                                                                                                                                                                                                                                                                                                    | Required/Optional                                              |
+|------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| **Name**                           | `name`                    | A unique name for the accelerator. The name can't change after you create it.                                                                                                                                                                                                                                                                                                  | Required                                                       |
+| **Description**                    | `display-name`            | A longer description of the accelerator.                                                                                                                                                                                                                                                                                                                                       | Optional                                                       |
+| **Icon url**                       | `icon-url`                | A URL for an image to represent the accelerator in the UI.                                                                                                                                                                                                                                                                                                                     | Optional                                                       |
+| **Tags**                           | `accelerator-tags`        | An array of strings defining attributes of the accelerator that can be used in a search in the UI.                                                                                                                                                                                                                                                                             | Optional                                                       |
+| **Git url**                        | `git-url`                 | The repository URL of the accelerator source Git repository. The URL can be an HTTP/S or SSH address. The [scp-like syntax](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols#_the_ssh_protocol) isn't supported for SSH addresses (for example, `user@example.com:repository.git`). Instead, the valid URL format is `ssh://user@example.com:22/repository.git`. | Required                                                       |
+| **Git interval**                   | `git-interval-in-seconds` | The interval at which to check for repository updates. If not specified, the interval defaults to 10 minutes. There's also a refresh interval (currently 10 seconds) before accelerators may appear in the UI. There could be a 10-second delay before changes are reflected in the UI.                                                                                        | Optional                                                       |
+| **Git branch**                     | `git-branch`              | The Git branch to check out and monitor for changes. You should specify only the Git branch, Git commit, or Git tag.                                                                                                                                                                                                                                                           | Optional                                                       |
+| **Git commit**                     | `git-commit`              | The Git commit SHA to check out. You should specify only the Git branch, Git commit, or Git tag.                                                                                                                                                                                                                                                                               | Optional                                                       |
+| **Git tag**                        | `git-tag`                 | The Git commit tag to check out. You should specify only the Git branch, Git commit, or Git tag.                                                                                                                                                                                                                                                                               | Optional                                                       |
+| **Git sub path**                   | `git-sub-path`            | The folder path inside the Git repository to consider as the root of the accelerator or fragment.                                                                                                                                                                                                                                                                              | Optional                                                       |
+| **Authentication type**            | `N/A`                     | The authentication type of the accelerator source repository. The type can be `Public`, `Basic auth`, or `SSH`.                                                                                                                                                                                                                                                                | Required                                                       |
+| **User name**                      | `username`                | The user name to access the accelerator source repository whose authentication type is `Basic auth`.                                                                                                                                                                                                                                                                           | Required when the authentication type is `Basic auth`.         |
+| **Password/Personal access token** | `password`                | The password to access the accelerator source repository whose authentication type is `Basic auth`.                                                                                                                                                                                                                                                                            | Required when the authentication type is `Basic auth`.         |
+| **Private key**                    | `private-key`             | The private key to access the accelerator source repository whose authentication type is `SSH`. Only OpenSSH private key is supported.                                                                                                                                                                                                                                         | Required when authentication type is `SSH`.                    |
+| **Host key**                       | `host-key`                | The host key to access the accelerator source repository whose authentication type is `SSH`.                                                                                                                                                                                                                                                                                   | Required when the authentication type is `SSH`.                |
+| **Host key algorithm**             | `host-key-algorithm`      | The host key algorithm to access the accelerator source repository whose authentication type is `SSH`. Can be `ecdsa-sha2-nistp256` or `ssh-rsa`.                                                                                                                                                                                                                              | Required when authentication type is `SSH`.                    |
+| **CA certificate name**            | `ca-cert-name`            | The CA certificate name to access the accelerator source repository with self-signed certificate whose authentication type is `Public` or `Basic auth`.                                                                                                                                                                                                                        | Required when a self-signed cert is used for the Git repo URL. |
+| **Type**                           | `type`                    | The type of customized accelerator. The type can be `Accelerator` or `Fragment`. The default value is `Accelerator`.                                                                                                                                                                                                                                                           | Optional                                                       |
 
 To view all published accelerators, see the App Accelerators section of the **Developer Tools** page. Select the App Accelerator URL to view the published accelerators in Dev Tools Portal:
 
-:::image type="content" source="media/how-to-use-accelerator/tap-gui-url.png" alt-text="Screenshot of the Azure portal showing the Developer Tools page with the App Accelerator URL highlighted." lightbox="media/how-to-use-accelerator/tap-gui-url.png":::
+:::image type="content" source="media/how-to-use-accelerator/tap-gui-url.png" alt-text="Screenshot of the Azure portal that shows the Developer Tools page with the App Accelerator URL highlighted." lightbox="media/how-to-use-accelerator/tap-gui-url.png":::
 
 To view the newly published accelerator, refresh Dev Tools Portal.
 
 :::image type="content" source="media/how-to-use-accelerator/tap-gui-accelerator.png" alt-text="Screenshot of the VMware Tanzu Dev Tools for Azure Spring Apps Application Accelerators page." lightbox="media/how-to-use-accelerator/tap-gui-accelerator.png":::
 
 > [!NOTE]
-> It might take a few seconds for Dev Tools Portal to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as `git-interval` when you create the accelerator. After you change the accelerator, it will also take time to be reflected in Dev Tools Portal. The best practice is to change the `git-interval` to speed up for verification after you apply changes to the Git repo.
+> It might take a few seconds for Dev Tools Portal to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as `git-interval` when you create the accelerator. After you change the accelerator, it also takes time to be reflected in Dev Tools Portal. The best practice is to change the `git-interval` to speed up for verification after you apply changes to the Git repo.
 
 ### Reference a fragment in your own accelerators
 
 Writing and maintaining accelerators can become repetitive and verbose as new accelerators are added. Some people create new projects by copying existing ones and making modifications, but this process can be tedious and error prone. To make the creation and maintenance of accelerators easier, Application Accelerator supports a feature named Composition that allows the reuse of parts of an accelerator, called *fragments*.
 
-Use following steps to reference a fragment in your accelerator:
+Use the following steps to reference a fragment in your accelerator:
 
 1. Publish the new accelerator of type `Fragment` using the Azure portal or the Azure CLI.
 
@@ -315,7 +320,7 @@ Use following steps to reference a fragment in your accelerator:
      imports:
      - name: <fragment-accelerator-name>
      ...
-   
+
    engine:
      chain:
        ...
@@ -357,13 +362,13 @@ Use the following steps to bootstrap a new project using accelerators:
 
 1. On the **Developer Tools** page, select the App Accelerator URL to open the Dev Tools Portal.
 
-   :::image type="content" source="media/how-to-use-accelerator/tap-gui-url.png" alt-text="Screenshot of the Azure portal showing the Developer Tools page with the App Accelerator URL highlighted." lightbox="media/how-to-use-accelerator/tap-gui-url.png":::
+   :::image type="content" source="media/how-to-use-accelerator/tap-gui-url.png" alt-text="Screenshot of the Azure portal that shows the Developer Tools page with the App Accelerator URL highlighted." lightbox="media/how-to-use-accelerator/tap-gui-url.png":::
 
 1. On the Dev Tools Portal, select an accelerator.
 
 1. Specify input options in the **Configure accelerator** section of the **Generate Accelerators** page.
 
-   :::image type="content" source="media/how-to-use-accelerator/configure-accelerator.png" alt-text="Screenshot of the VMware Tanzu Dev Tools for Azure Spring Apps Generate Accelerators page showing the Configure accelerator section." lightbox="media/how-to-use-accelerator/configure-accelerator.png":::
+   :::image type="content" source="media/how-to-use-accelerator/configure-accelerator.png" alt-text="Screenshot of the VMware Tanzu Dev Tools for Azure Spring Apps Generate Accelerators page that shows the Configure accelerator section." lightbox="media/how-to-use-accelerator/configure-accelerator.png":::
 
 1. Select **EXPLORE FILE** to view the project structure and source code.
 
@@ -371,11 +376,11 @@ Use the following steps to bootstrap a new project using accelerators:
 
 1. Select **Review and generate** to review the specified parameters, and then select **Generate accelerator**.
 
-   :::image type="content" source="media/how-to-use-accelerator/generate-accelerator.png" alt-text="Screenshot of the VMware Tanzu Dev Tools for Azure Spring Apps Generate Accelerators page showing the Review and generate section." lightbox="media/how-to-use-accelerator/generate-accelerator.png":::
+   :::image type="content" source="media/how-to-use-accelerator/generate-accelerator.png" alt-text="Screenshot of the VMware Tanzu Dev Tools for Azure Spring Apps Generate Accelerators page that shows the Review and generate section." lightbox="media/how-to-use-accelerator/generate-accelerator.png":::
 
 1. You can then view or download the project as a zip file.
 
-   :::image type="content" source="media/how-to-use-accelerator/download-file.png" alt-text="Screenshot the VMware Tanzu Dev Tools for Azure Spring Apps showing the Task Activity pane." lightbox="media/how-to-use-accelerator/download-file.png":::
+   :::image type="content" source="media/how-to-use-accelerator/download-file.png" alt-text="Screenshot the VMware Tanzu Dev Tools for Azure Spring Apps that shows the Task Activity pane." lightbox="media/how-to-use-accelerator/download-file.png":::
 
 ### Configure accelerators with a self-signed certificate
 
@@ -384,13 +389,13 @@ When you set up a private Git repository and enable HTTPS with a self-signed cer
 Use the following steps to configure accelerators with a self-signed certificate:
 
 1. Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
-2. Configure the certificate for the accelerator by using the Azure portal or the Azure CLI.
+1. Configure the certificate for the accelerator by using the Azure portal or the Azure CLI.
 
 #### [Azure portal](#tab/Portal)
 
 To configure a certificate for an accelerator, open the **Accelerators** section and then select **Add Accelerator** under the **Customized Accelerators** section. Then, select the certificate from the dropdown list.
 
-:::image type="content" source="media/how-to-use-accelerator/config-cert.png" alt-text="Screenshot of the Azure portal showing the Add Accelerator pane." lightbox="media/how-to-use-accelerator/config-cert.png":::
+:::image type="content" source="media/how-to-use-accelerator/configure-certificate.png" alt-text="Screenshot of the Azure portal that shows the Add Accelerator pane." lightbox="media/how-to-use-accelerator/configure-certificate.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -421,11 +426,11 @@ The accelerators won't automatically use the latest certificate. You should sync
 
 To sync certificates for all accelerators, open the **Accelerators** section and then select **Sync certificate**, as shown in the following screenshot:
 
-:::image type="content" source="media/how-to-use-accelerator/sync-all-cert.png" alt-text="Screenshot of the Azure portal showing the Customized Accelerators pane with the Sync certificate button highlighted." lightbox="media/how-to-use-accelerator/sync-all-cert.png":::
+:::image type="content" source="media/how-to-use-accelerator/sync-all-certificates.png" alt-text="Screenshot of the Azure portal that shows the Customized Accelerators pane with the Sync certificate button highlighted." lightbox="media/how-to-use-accelerator/sync-all-certificates.png":::
 
 To sync a certificate for a single accelerator, open the **Accelerators** section and then select **Sync certificate** from the context menu of an accelerator, as shown in the following screenshot:
 
-:::image type="content" source="media/how-to-use-accelerator/sync-cert.png" alt-text="Screenshot or the Azure portal showing the Customized Accelerators pane with the Sync certificate context menu option highlighted." lightbox="media/how-to-use-accelerator/sync-cert.png":::
+:::image type="content" source="media/how-to-use-accelerator/sync-certificate.png" alt-text="Screenshot or the Azure portal that shows the Customized Accelerators pane with the Sync certificate context menu option highlighted." lightbox="media/how-to-use-accelerator/sync-certificate.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -454,7 +459,7 @@ Use the following steps to enable App Accelerator under an existing Azure Spring
 1. Select **Manage tools**.
 1. Select **Enable App Accelerator**, and then select **Apply**.
 
-   :::image type="content" source="media/how-to-use-accelerator/enable-app-accelerator.png" alt-text="Screenshot of the Azure portal showing the Manage tools pane with the Enable App Accelerator option highlighted." lightbox="media/how-to-use-accelerator/enable-app-accelerator.png":::
+   :::image type="content" source="media/how-to-use-accelerator/enable-app-accelerator.png" alt-text="Screenshot of the Azure portal that shows the Manage tools pane with the Enable App Accelerator option highlighted." lightbox="media/how-to-use-accelerator/enable-app-accelerator.png":::
 
 You can view whether App Accelerator is enabled or disabled on the **Developer Tools** page.
 
@@ -486,6 +491,45 @@ az spring dev-tool create \
 ```
 
 ---
+
+## Use App Accelerator in VS Code
+
+You can bootstrap your project from any accelerator of App Accelerator in an Azure Spring Apps Enterprise plan service instance in VS Code directly.
+
+### View the list of App Accelerators
+
+Use the following steps to view the list of App Accelerators in an Azure Spring Apps Enterprise plan service instance:
+
+1. In Visual Studio Code, open the Azure Spring Apps extension, and then sign in to your Azure account.
+
+1. Expand the service instance that you want and right-click to select the service instance.
+
+1. From the menu, select **Open Application Accelerator** to open the list of App Accelerators. The system prompts you to install the [Tanzu Application Accelerator Visual Studio Code extension](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.6/tap/application-accelerator-vscode.html) if it isn't installed.
+
+   :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-open-accelerator.png" alt-text="Screenshot of the VS Code extension showing the Open Application Accelerator option for a service instance." lightbox="media/how-to-use-accelerator/visual-studio-code-open-accelerator.png":::
+
+1. Select any accelerator to bootstrap your project.
+
+   :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png" alt-text="Screenshot of VS Code that shows the list of App Accelerator extensions." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png":::
+
+> [!NOTE]
+> When using the extension, if you experience any issues that you can't fix, log out of your account from the extension.
+
+### Troubleshoot App Accelerator issues
+
+If you try to open App Accelerator for a service instance that hasn't enabled App Accelerator or exposed a public endpoint, you see the following error message: `Application Accelerator of Spring Apps <instance-name> is not enabled or publically accessible`.
+
+To enable App Accelerator and expose public endpoints, use the following steps. For more information, see the [Manage App Accelerator in an existing Enterprise plan instance](#manage-app-accelerator-in-an-existing-enterprise-plan-instance) section.
+
+1. If you enabled single sign-on in the Dev Tools Portal, you see the following message when you access the extension: `The extension 'Tanzu App Accelerator' wants to sign in using VMware Tanzu.` For more information, see the [Configure Dev Tools Portal](./how-to-use-dev-tool-portal.md#configure-dev-tools-portal) section of [Configure Tanzu Dev Tools in the Azure Spring Apps Enterprise plan](how-to-use-dev-tool-portal.md).
+
+1. Select **Allow**, select **Open**, and then select **Open** again to open the list of VS Code extensions.
+
+   :::image type="content" source="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png" alt-text="Screenshot of VS Code that shows the list of App Accelerator extensions." lightbox="media/how-to-use-accelerator/visual-studio-code-extension-accelerator-list.png":::
+
+Sometimes, you might get an error message similar to the following example: `AADSTS50011: The redirect URI 'vscode://VMware.tanzu-app-accelerator' specified in the request does not match the redirect URIs configured for the application 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'. Make sure the redirect URI sent in the request matches one added to your application in the Azure portal. Navigate to https://aka.ms/redirectUriMismatchError to learn more about how to fix this.`
+
+To address this issue, add the redirect URI `vscode://VMware.tanzu-app-accelerator` to the relevant identity provider (IdP). In Microsoft Entra ID, go to the **Authentication** menu and add redirect URIs to mobile and desktop applications in the platform configurations.
 
 ## Next steps
 

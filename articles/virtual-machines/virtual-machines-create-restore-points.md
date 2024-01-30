@@ -46,7 +46,7 @@ Currently, you can create restore points in only one VM at a time. You can't cre
 
 ## Throttling limits for Restore points
 
-**Scope** | **Operation** | **Limit**
+**Scope** | **Operation** | **Limit per hour**
 --- | --- | ---
 VM | RestorePoints.RestorePointOperation.PUT (Create new **Application Consistent**) | 3
 VM | RestorePoints.RestorePointOperation.PUT (Create new **Crash Consisten**t) | 3

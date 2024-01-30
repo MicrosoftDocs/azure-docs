@@ -4,7 +4,6 @@ description: Learn how to use a sample notebook from the Synapse Analytics galle
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart
-ms.reviewer: 
 ms.date: 06/11/2021
 author: WilliamDAssafMSFT
 ms.author: wiassaf

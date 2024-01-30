@@ -54,10 +54,10 @@ This article uses the following environment variables. Set these variables to th
 
 ## Create Service A with Spring Boot
 
-Navigate to [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.4&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=Sample%20Service%20A&name=Sample%20Service%20A&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.Sample%20Service%20A&dependencies=web,cloud-eureka) to create sample Service A. This link uses the following URL to initialize the settings.
+Navigate to [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&packaging=jar&groupId=com.example&artifactId=Sample%20Service%20A&name=Sample%20Service%20A&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.Sample%20Service%20A&dependencies=web,cloud-eureka) to create sample Service A. This link uses the following URL to initialize the settings.
 
 ```URL
-https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.4&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=Sample%20Service%20A&name=Sample%20Service%20A&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.Sample%20Service%20A&dependencies=web,cloud-eureka
+https://start.spring.io/#!type=maven-project&language=java&packaging=jar&groupId=com.example&artifactId=Sample%20Service%20A&name=Sample%20Service%20A&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.Sample%20Service%20A&dependencies=web,cloud-eureka
 ```
 
 The following screenshot shows Spring Initializr with the required settings.
@@ -283,10 +283,10 @@ You can now register the service to the Service Registry (Eureka Server) in Azur
 
 ### Implement Service B with Spring Boot
 
-Navigate to [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.4&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=Sample%20Service%20B&name=Sample%20Service%20B&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.Sample%20Service%20B&dependencies=web,cloud-eureka) to create a new project for Service B. This link uses the following URL to initialize the settings:
+Navigate to [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&packaging=jar&groupId=com.example&artifactId=Sample%20Service%20B&name=Sample%20Service%20B&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.Sample%20Service%20B&dependencies=web,cloud-eureka) to create a new project for Service B. This link uses the following URL to initialize the settings:
 
 ```URL
-https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.6.4&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=Sample%20Service%20B&name=Sample%20Service%20B&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.Sample%20Service%20B&dependencies=web,cloud-eureka
+https://start.spring.io/#!type=maven-project&language=java&packaging=jar&groupId=com.example&artifactId=Sample%20Service%20B&name=Sample%20Service%20B&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.Sample%20Service%20B&dependencies=web,cloud-eureka
 ```
 
 Then, select **GENERATE** to get the new project.

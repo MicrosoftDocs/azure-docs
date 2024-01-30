@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: reference
-ms.date: 10/04/2019
+ms.date: 01/19/2024
 ---
 
 # Age prebuilt entity for a LUIS app

@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli, devx-track-linux
+ms.custom: mimckitt, devx-track-azurecli, linux-related-content
 ---
 # Encrypt OS and attached data disks in a Virtual Machine Scale Set with the Azure CLI
 
@@ -37,6 +37,7 @@ Now create a Virtual Machine Scale Set with [az vmss create](/cli/azure/vmss). T
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
+  --orchestration-mode Flexible \
   --image <SKU Linux Image> \
   --admin-username azureuser \
   --generate-ssh-keys \
@@ -85,7 +86,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 ## Enable encryption
 
 > [!NOTE]
->  If using Virtual Machine Scale Sets in Flexible Orchestration Mode, only new instances will be encrypted. Existing instances in the scale set will need to be encrypted individually or removed and replaced. 
+>  If using Virtual Machine Scale Sets in Flexible Orchestration Mode, only new instances will be encrypted. Existing instances in the scale set will need to be encrypted individually or removed and replaced.
 
 To encrypt VM instances in a scale set, first get some information on the Key Vault resource ID with [az keyvault show](/cli/azure/keyvault#az-keyvault-show). These variables are used to then start the encryption process with [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
 
@@ -175,5 +176,5 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 ## Next steps
 
 - In this article, you used the Azure CLI to encrypt a Virtual Machine Scale Set. You can also use [Azure PowerShell](disk-encryption-powershell.md) or [Azure Resource Manager templates](disk-encryption-azure-resource-manager.md).
-- If you wish to have Azure Disk Encryption applied after another extension is provisioned, you can use [extension sequencing](virtual-machine-scale-sets-extension-sequencing.md). 
+- If you wish to have Azure Disk Encryption applied after another extension is provisioned, you can use [extension sequencing](virtual-machine-scale-sets-extension-sequencing.md).
 - An end-to-end batch file example for Linux scale set data disk encryption can be found [here](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). This example creates a resource group, Linux scale set, mounts a 5-GB data disk, and encrypts the Virtual Machine Scale Set.

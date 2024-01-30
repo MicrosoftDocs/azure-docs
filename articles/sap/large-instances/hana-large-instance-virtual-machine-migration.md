@@ -2,10 +2,8 @@
 title: Migrating SAP HANA on Azure (Large Instances) to Azure virtual machines| Microsoft Docs
 description: How to migrate SAP HANA on Azure (Large Instances) to Azure virtual machines
 services: virtual-machines-linux
-documentationcenter:
 author: bentrin
 manager: juergent
-editor:
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article

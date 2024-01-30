@@ -126,6 +126,8 @@ To update this setting for an existing storage account, follow these steps:
 
     :::image type="content" source="media/authorize-data-operations-portal/default-auth-account-update-portal.png" alt-text="Screenshot showing how to configure default Microsoft Entra authorization in Azure portal for existing account":::
 
+The **defaultToOAuthAuthentication** property of a storage account is not set by default and does not return a value until you explicitly set it.
+
 ## Next steps
 
 - [Authorize access to data in Azure Storage](../common/authorize-data-access.md)

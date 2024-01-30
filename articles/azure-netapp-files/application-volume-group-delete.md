@@ -2,15 +2,9 @@
 title: Delete an application volume group in Azure NetApp Files  | Microsoft Docs
 description: Describes how to delete an application volume group.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 11/19/2021
 ms.author: anfdocs
