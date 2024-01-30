@@ -115,9 +115,7 @@ If you're encountering the "password authentication failed for user `<user-name>
           By using this log line prefix, you're able to track the time, process ID, user, application, and client IP address associated with each log entry, providing valuable context for each event in the server log.
 
     3. **Block the attacker's IP address**
-    Dig into the logs to spot any suspicious IP addresses that keep showing up in unauthorized access attempts. Once you find these IPs, immediately block them in your firewall settings. This cuts off their access and prevent any more unauthorized attempts.
-
-      Additionally, review your firewall rules to ensure they're not too permissive. Overly broad rules can expose your database to potential attacks. Limit access to only known and necessary IP ranges.
+    Dig into the logs to spot any suspicious IP addresses that keep showing up in unauthorized access attempts. Once you find these IPs, immediately block them in your firewall settings. This cuts off their access and prevent any more unauthorized attempts. Additionally, review your firewall rules to ensure they're not too permissive. Overly broad rules can expose your database to potential attacks. Limit access to only known and necessary IP ranges.
   
 
 
