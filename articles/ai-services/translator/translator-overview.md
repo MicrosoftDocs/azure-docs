@@ -40,7 +40,7 @@ Now, you're ready to get started! [**Create a Translator service**](create-trans
 * Learn more about the following features:
 
   * [**Text Translation**](text-translation-overview.md)
-  * [**Batch Document Translation**](document-translation/overview.md)
+  * [**Document Translation**](document-translation/overview.md)
   * [**Custom Translator**](custom-translator/overview.md)
 
 * Review [**Translator pricing**](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
