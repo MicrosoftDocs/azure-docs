@@ -219,7 +219,7 @@ To use Azure Linux, you specify the OS SKU by setting `os-sku` to `AzureLinux` d
 
 The NVIDIA GPU Operator automates the management of all NVIDIA software components needed to provision GPU including driver installation, the [NVIDIA device plugin for Kubernetes](https://github.com/NVIDIA/k8s-device-plugin?tab=readme-ov-file), the NVIDIA container runtime, and more. Since the GPU Operator handles these components, it's not necessary to manually install the NVIDIA device plugin. This also means that the automatic GPU driver installation on AKS is no longer required.
 
-1. [Skip automatic GPU driver installation](#gpu-driver-installation) by creating a node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command with `--skip-gpu-driver-install`. Adding the `--skip-gpu-driver-install` flag during node pool creation skips the automatic GPU driver installation. Any existing nodes aren't changed. You can scale the node pool to zero and then back up to make the change take effect.
+1. Skip automatic GPU driver installation by creating a node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command with `--skip-gpu-driver-install`. Adding the `--skip-gpu-driver-install` flag during node pool creation skips the automatic GPU driver installation. Any existing nodes aren't changed. You can scale the node pool to zero and then back up to make the change take effect.
 
 2. Follow the NVIDIA documentation to [Install the GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/openshift/latest/install-gpu-ocp.html#install-nvidiagpu:~:text=NVIDIA%20GPU%20Operator-,Installing%20the%20NVIDIA%20GPU%20Operator,-%EF%83%81).
 
