@@ -208,7 +208,7 @@ Yes, there are several [metrics available](cache-how-to-monitor.md#list-of-metri
 - **Geo Replication Fully Sync Event Started** indicates that a full synchronization action has been initiated between the geo-primary and geo-secondary caches. This occurs if standard replication can't keep up with the number of new writes.
 - **Geo Replication Full Sync Event Finished** indicates that a full synchronization action was completed.
 
-There's also a [prebuilt workbook](cache-how-to-monitor.md#organize-with-workbooks) called the **Geo-Replication Dashboard** that includes all of the geo-replication health metrics in one view. Using this view is recommended because it aggregates information that is emitted only from the geo-primary or geo-secondary cache instances.
+There's also a [prebuilt workbook](cache-insights-overview.md#workbooks) called the **Geo-Replication Dashboard** that includes all of the geo-replication health metrics in one view. Using this view is recommended because it aggregates information that's emitted only from the geo-primary or geo-secondary cache instances.
 
 ### Can I link more than two caches together?
 

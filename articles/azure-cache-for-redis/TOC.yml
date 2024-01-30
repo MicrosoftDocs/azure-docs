@@ -109,7 +109,7 @@
   - name: Monitor in Azure portal
     href: cache-how-to-monitor.md
   - name: Set alerts for exceptions
-    href: cache-how-to-monitor.md#create-alerts
+    href: monitor-cache.md#alerts
   - name: Monitor with diagnostic logs
     href: cache-monitor-diagnostic-settings.md
   - name: Use Insights to understand performance and utilization

@@ -81,10 +81,10 @@ The other **Monitoring** options provide other ways to view and use the metrics 
 |Selection  | Description  |
 |---------|---------|
 | [**Insights**](cache-insights-overview.md)   |   Predefined tiles and charts to use as starting point for your cache metrics.     |
-| [**Alerts**](#create-alerts)     |   Alerts based on metrics and activity logs.      |
-| [**Metrics**](#monitor-cache.md#metrics)     |   Built-in and custom charts to track the metrics you want to see.       |
+| [**Alerts**](#alerts)     |   Alerts based on metrics and activity logs.      |
+| [**Metrics**](#metrics)     |   Built-in and custom charts to track the metrics you want to see.       |
 | [**Advisor Recommendations**](cache-configure.md#advisor-recommendations)) |  Best practices to optimize your Azure deployments.       |
-| [**Workbooks**](cache-insights-overview#workbooks)     |    Metrics information displayed in a coherent and effective way.     |
+| [**Workbooks**](cache-insights-overview.md#workbooks)     |    Metrics information displayed in a coherent and effective way.     |
 
 <!-- Platform metrics service-specific information. Add service-specific information about your platform metrics here.-->
 

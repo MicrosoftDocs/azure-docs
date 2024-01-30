@@ -20,7 +20,7 @@ Diagnostic settings in Azure are used to collect resource logs. In Azure Cache f
 
 Analyzing the connection logs diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. The log data could be used to identify the scope of a security breach and for security auditing purposes.
 
-This article describes the differences in connection log setup, implementation, and contents between the different Azure Cache for Redis tiers. For detailed information and instructions about collecting and routing resource logs, see [diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings). For details about the resource logs that Azure Cache for Redis collects, see [Resource logs](monitor-cache-reference#resource-logs).
+This article describes the differences in connection log setup, implementation, and contents between the different Azure Cache for Redis tiers. For detailed information and instructions about collecting and routing resource logs, see [diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings). For details about the resource logs that Azure Cache for Redis collects, see [Resource logs](monitor-cache-reference.md#resource-logs).
 
 ## Differences between Azure Cache for Redis tiers
 
