@@ -38,7 +38,7 @@ Virtual network manager applies the configuration to the virtual networks in the
 
 ## Deployment status
 
-When you commit a configuration deployment, the API does a POST operation. Once the deployment request has been made, Azure Virtual Network Manager calculates the goal state of your networks in the deployed regions and request the underlying infrastructure to make the changes. You can see the deployment status on the *Deployment* page of the Virtual Network Manager.
+When you commit a configuration deployment, the API does a POST operation. Once the deployment request is made, Azure Virtual Network Manager calculates the goal state of your networks in the deployed regions and request the underlying infrastructure to make the changes. You can see the deployment status on the *Deployment* page of the Virtual Network Manager.
 
 :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deployment-in-progress.png" alt-text="Screenshot of deployment in progress in deployment list.":::
 
@@ -50,7 +50,7 @@ When you commit a deployment of configuration(s), you're describing the goal sta
 
 A virtual network manager instance is available in a region as long as the region is up and running. Should a region with a virtual network manager go down, the virtual network manager instance is no longer available for deploying new configurations or editing current configurations. However, the configurations that were deployed to the virtual networks in the network group are still in effect unless those virtual networks are in the region that went down.
 
-For example, if an Azure Virtual Network Manager instance is created in region A, and it's used to program the VNets in region B, the configurations are still in effect even if region A goes down. However, if region B goes down, the configurations are no longer in effect. Also, you cannot create new configurations or edit current configurations for virtual networks in region B.
+For example, if an Azure Virtual Network Manager instance is created in region A and programs the VNets in region B, the configurations are still in effect even if region A goes down. However, if region B goes down, the configurations are no longer in effect. Also, you can't create new configurations or edit current configurations for virtual networks in region B.
 
 ## Next steps
 
