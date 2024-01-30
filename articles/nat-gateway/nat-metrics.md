@@ -33,7 +33,7 @@ NAT gateway provides the following multi-dimensional metrics in Azure Monitor:
 | Packets | Packets processed inbound and outbound | Sum | **Direction (In; Out)**, **Protocol (6 TCP; 17 UDP)** |
 | Dropped Packets | Packets dropped by the NAT gateway | Sum | / |
 | SNAT Connection Count | Number of new SNAT connections over a given interval of time | Sum | **Connection State (Attempted, Failed)**, **Protocol (6 TCP; 17 UDP)** |
-| Total SNAT Connection Count | Total number of active SNAT connections | Sum | Protocol **(6 TCP; 17 UDP)** |
+| Total SNAT Connection Count | Total number of active SNAT connections | Sum | **Protocol (6 TCP; 17 UDP)** |
 | Datapath Availability | Availability of the data path of the NAT gateway. Used to determine whether the NAT gateway endpoints are available for outbound traffic flow. | Avg | **Availability (0, 100)** |
 
 >[!NOTE]
