@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ms.author: alkuchar
 author: AlicjaKucharczyk
-ms.date: 12/21/2023
+ms.date: 1/30/2024
 ms.custom: fasttrack-edit, ignite-2022
 ---
 
@@ -51,13 +51,13 @@ The table below provides the retirement details for PostgreSQL major versions. T
 | Version | What's New | Azure support start date | Retirement date (Azure)|
 | ------- | ---------- | ------------------------ | ---------------------- |
 | [PostgreSQL 9.5 (retired)](https://www.postgresql.org/about/news/postgresql-132-126-1111-1016-9621-and-9525-released-2165/)| [Features](https://www.postgresql.org/docs/9.5/release-9-5.html)  | April 18, 2018	| February 11, 2021
-| [PostgreSQL 9.6 (retired)](https://www.postgresql.org/about/news/postgresql-96-released-1703/) | [Features](https://wiki.postgresql.org/wiki/NewIn96) | April 18, 2018 | November 11, 2021
-| [PostgreSQL 10 (retired)](https://www.postgresql.org/about/news/postgresql-10-released-1786/) | [Features](https://wiki.postgresql.org/wiki/New_in_postgres_10) | June 4, 2018	| November 10, 2022
+| [PostgreSQL 9.6 (retired)](https://www.postgresql.org/about/news/postgresql-96-released-1703/) | [Features](https://wiki.postgresql.org/wiki/NewIn96) | April 18, 2018 | November 11, 2021 |
+| [PostgreSQL 10 (retired)](https://www.postgresql.org/about/news/postgresql-10-released-1786/) | [Features](https://wiki.postgresql.org/wiki/New_in_postgres_10) | June 4, 2018	| November 10, 2022 |
 | [PostgreSQL 11](https://www.postgresql.org/about/news/postgresql-11-released-1894/) | [Features](https://www.postgresql.org/docs/11/release-11.html) | July 24, 2019	| November 9, 2024 |
-| [PostgreSQL 12](https://www.postgresql.org/about/news/postgresql-12-released-1976/) | [Features](https://www.postgresql.org/docs/12/release-12.html) | Sept 22, 2020 	| November 14, 2024
-| [PostgreSQL 13](https://www.postgresql.org/about/news/postgresql-13-released-2077/) | [Features](https://www.postgresql.org/docs/13/release-13.html) | May 25, 2021 	| November 13, 2025
-| [PostgreSQL 14](https://www.postgresql.org/about/news/postgresql-14-released-2318/) | [Features](https://www.postgresql.org/docs/14/release-14.html) | June 29, 2022 | November 12, 2026
-| [PostgreSQL 15](https://www.postgresql.org/about/news/postgresql-15-released-2526/) | [Features](https://www.postgresql.org/docs/14/release-14.html) | May 15, 2023 | November 11, 2027
+| [PostgreSQL 12](https://www.postgresql.org/about/news/postgresql-12-released-1976/) | [Features](https://www.postgresql.org/docs/12/release-12.html) | Sept 22, 2020 	| November 14, 2024 |
+| [PostgreSQL 13](https://www.postgresql.org/about/news/postgresql-13-released-2077/) | [Features](https://www.postgresql.org/docs/13/release-13.html) | May 25, 2021 	| November 13, 2025 |
+| [PostgreSQL 14](https://www.postgresql.org/about/news/postgresql-14-released-2318/) | [Features](https://www.postgresql.org/docs/14/release-14.html) | June 29, 2022 | November 12, 2026 |
+| [PostgreSQL 15](https://www.postgresql.org/about/news/postgresql-15-released-2526/) | [Features](https://www.postgresql.org/docs/14/release-14.html) | May 15, 2023 | November 11, 2027 |
 
 ## PostgreSQL 11 support in Azure Database for PostgreSQL single server and Azure Database for PostgreSQL flexible server
 
@@ -77,6 +77,7 @@ You might continue to run the retired version in Azure Database for PostgreSQL f
 - New service capabilities developed by Azure Database for PostgreSQL flexible server might only be available to supported database server versions.
 - Uptime SLAs will apply solely to Azure Database for PostgreSQL flexible server service-related issues and not to any downtime caused by database engine-related bugs.  
 - In the extreme event of a serious threat to the service caused by the PostgreSQL database engine vulnerability identified in the retired database version, Azure might choose to stop your database server to secure the service. In such case, you'll be notified to upgrade the server before bringing the server online.
+- The new extensions introduced for Azure Postgres Flexible Server will not be supported on the community retired postgres versions.
 
   
 ## PostgreSQL version syntax
