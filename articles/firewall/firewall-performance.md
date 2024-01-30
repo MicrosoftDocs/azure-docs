@@ -1,11 +1,11 @@
 ---
 title: Azure Firewall performance 
-description: Compare Azure Firewall performance for Azure Firewall Standard and Premium
+description: Compare Azure Firewall performance for Azure Firewall Basic, Standard, and Premium.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 11/29/2022
+ms.date: 01/30/2024
 ms.author: victorh
 ---
 
@@ -13,7 +13,11 @@ ms.author: victorh
 
 Reliable firewall performance is essential to operate and protect your virtual networks in Azure. More advanced features (like those found in Azure Firewall Premium) require more processing complexity. This will affect firewall performance and impact the overall network performance.
 
-Azure Firewall has two versions: Standard and Premium.
+Azure Firewall has three versions: Basic, Standard, and Premium.
+
+- Azure Firewall Basic
+   
+   Azure Firewall Basic is intended for small and medium size (SMB) customers to secure their Azure cloud. environments. It provides the essential protection SMB customers need at an affordable price point.
 
 - Azure Firewall Standard
 
@@ -35,6 +39,7 @@ The following set of performance results demonstrates the maximal Azure Firewall
 
 |Firewall type and use case  |TCP/UDP bandwidth (Gbps)  |HTTP/S bandwidth (Gbps)  |
 |---------|---------|---------|
+|Basic|0.25|0.25|
 |Standard     |30|30|
 |Premium (no TLS/IDPS)     |100|100|
 |Premium with TLS (no IDS/IPS)     |-|100|
@@ -48,13 +53,14 @@ The following set of performance results demonstrates the maximal Azure Firewall
 
 |Firewall use case  |Throughput (Gbps)|
 |---------|---------|
+|Basic|up to 250 Mbps|
 |Standard<br>Max bandwidth for single TCP connection     |up to 1.5|
 |Premium<br>Max bandwidth for single TCP connection     |up to 9|
 |Premium single TCP connection with IDPS on *Alert and Deny* mode|up to 300 Mbps|
 
 ### Total throughput  for initial firewall deployment
 
-The following throughput numbers are for an Azure Firewall deployment before auto-scale (out of the box deployment). Azure Firewall gradually scales out when the average throughput and CPU consumption is at 60% or if the number of connections usage is at 80%. Scale out takes five to seven minutes. Azure Firewall gradually scales in when the average throughput, CPU consumption, or number of connections is below 20%.
+The following throughput numbers are for an Azure Firewall Standard and Premium deployments before auto-scale (out of the box deployment). Azure Firewall gradually scales out when the average throughput and CPU consumption is at 60% or if the number of connections usage is at 80%. Scale out takes five to seven minutes. Azure Firewall gradually scales in when the average throughput, CPU consumption, or number of connections is below 20%.
 
 When performance testing, ensure you test for at least 10 to 15 minutes, and start new connections to take advantage of newly created firewall nodes.
 
@@ -64,8 +70,8 @@ When performance testing, ensure you test for at least 10 to 15 minutes, and sta
 |Standard<br>Max bandwidth      |up to 3 |
 |Premium<br>Max bandwidth      |up to 18|
 
-
-Actual performance may vary depending on your rule complexity and network configuration. These metrics are updated periodically as performance continuously evolves with each release.
+> [!NOTE]
+> Azure Firewall Basic doesn't autoscale.
 
 ## Next steps
 
