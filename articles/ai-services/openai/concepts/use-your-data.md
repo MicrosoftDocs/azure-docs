@@ -590,7 +590,7 @@ You can use Azure OpenAI on your data with an Azure OpenAI resource in the follo
 * West Europe
 * West US
 
-If your Azure OpenAI resource is in another regions, you won't be abl to use Azure OpenAI on your data.
+If your Azure OpenAI resource is in another region, you won't be able to use Azure OpenAI on your data.
 
 ## Next steps
 * [Get started using your data with Azure OpenAI](../use-your-data-quickstart.md)
