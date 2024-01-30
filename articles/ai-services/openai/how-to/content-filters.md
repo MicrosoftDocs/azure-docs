@@ -10,7 +10,6 @@ ms.date: 6/5/2023
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
-keywords: 
 ---
 
 # How to configure content filters with Azure OpenAI Service

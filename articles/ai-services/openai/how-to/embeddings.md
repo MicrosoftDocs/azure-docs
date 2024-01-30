@@ -10,7 +10,6 @@ ms.date: 01/16/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
-keywords: 
 
 ---
 # Learn how to generate embeddings with Azure OpenAI

@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 ARO allows you to use infrastructure machine sets to create machines that only host infrastructure components, such as the default router, the integrated container registry, and the components for cluster metrics and monitoring. These infrastructure machines don't incur OpenShift costs; they only incur Azure Compute costs.
 
-In a production deployment, it's recommended that you deploy three machine sets to hold infrastructure components. Each of these nodes can be deployed to different availability zones to increase availability. This type of configuration requires three different machines sets; one for each availability zone.
+In a production deployment, it's recommended that you deploy three machine sets to hold infrastructure components. Each of these nodes can be deployed to different availability zones to increase availability. This type of configuration requires three different machines sets; one for each availability zone. For infrastructure node sizing guidance, see [Recommended infrastructure practices](https://docs.openshift.com/container-platform/4.14/scalability_and_performance/recommended-performance-scale-practices/recommended-infrastructure-practices.html).
 
 ## Qualified workloads
 

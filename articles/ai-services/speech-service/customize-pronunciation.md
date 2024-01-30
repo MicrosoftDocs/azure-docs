@@ -5,7 +5,7 @@ author: ut-karsh
 ms.author: umaheshwari
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 05/08/2022
+ms.date: 1/18/2024
 ms.custom: template-concept, ignite-fall-2021
 ---
 
@@ -15,7 +15,7 @@ You can specify the phonetic pronunciation of words using the Universal Phone Se
 
 UPS pronunciations consist of a string of UPS phonemes, each separated by whitespace. UPS phoneme labels are all defined using ASCII character strings.
 
-For steps on implementing UPS, see [Structured text phonetic pronunciation](how-to-custom-speech-test-and-train.md#structured-text-data-for-training). Structured text phonetic pronunciation data is separate from [pronunciation data](how-to-custom-speech-test-and-train.md#pronunciation-data-for-training), and they cannot be used together. The first one is "sounds-like" or spoken-form data, and is input as a separate file, and trains the model what the spoken form sounds like 
+For steps on implementing UPS, see [Structured text phonetic pronunciation](how-to-custom-speech-test-and-train.md#structured-text-data-for-training). Structured text phonetic pronunciation data is separate from [pronunciation data](how-to-custom-speech-test-and-train.md#pronunciation-data-for-training), and they can't be used together. The first one is "sounds-like" or spoken-form data, and is input as a separate file, and trains the model what the spoken form sounds like 
 
  [Structured text phonetic pronunciation data](how-to-custom-speech-test-and-train.md#structured-text-data-for-training) is specified per syllable in a markdown file. Separately, [pronunciation data](how-to-custom-speech-test-and-train.md#pronunciation-data-for-training) it input on its own, and trains the model what the spoken form sounds like. You can either use a pronunciation data file on its own, or you can add pronunciation within a structured text data file. The Speech service doesn't support training a model with both of those datasets as input.
 

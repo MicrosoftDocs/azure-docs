@@ -25,7 +25,7 @@ You can create an Azure Database for MySQL flexible server instance in one of th
 | Storage size | 20 GiB to 16 TiB | 20 GiB to 16 TiB | 20 GiB to 16 TiB |
 | Database backup retention period | 1 to 35 days | 1 to 35 days | 1 to 35 days |
 
-\** With the exception of 64,80, and 96 vCores, which has 504, 504 and 672 GiB of memory respectively.
+\** With the exception of 64,80, and 96 vCores, which has 504 GiB, 504 GiB and 672 GiB of memory respectively.
 
 \* Ev5 compute provides best performance among other VM series in terms of QPS and latency. learn more about performance and region availability of Ev5 compute from [here](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/boost-azure-mysql-business-critical-flexible-server-performance/ba-p/3603698).
 
@@ -113,9 +113,9 @@ The unique feature of the burstable compute tier is its ability to “burst”, 
 
 However, it’s important to note that once a burstable instance exhausts its CPU credits, it operates at its base CPU performance. For example, the base CPU performance of a Standard_B1s is 20% that is, 0.2 Vcore. If Burstable tier server is running a workload that requires more CPU performance than the base level, and it has exhausted its CPU credits, the server may experience performance limitations and eventually could affect various system operations for your server.
 
-Therefore, while the Burstable compute tier offers significant cost and flexibility advantages for certain types of workloads, **it is not recommended for production workloads** that require consistent CPU performance. Note that the Burstable tier doesn't support functionality of creating [Read Replicas](./concepts-read-replicas.md) and [High availability](./concepts-high-availability.md) feature. For such workloads and features, other compute tiers, such as the General Purpose or Business Critical are more appropriate.
+Therefore, while the Burstable compute tier offers significant cost and flexibility advantages for certain types of workloads, **it is not recommended for production workloads** that require consistent CPU performance. The Burstable tier doesn't support functionality of creating [Read Replicas](./concepts-read-replicas.md) and [High availability](./concepts-high-availability.md) feature. For such workloads and features, other compute tiers, such as the General Purpose or Business Critical are more appropriate.
 
-For more information on the Azure's B-series CPU credit model, refer to the [B-series burstable instances](../../virtual-machines/sizes-b-series-burstable.md) and [B-series CPU credit model](../../virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model.md#b-series-cpu-credit-model).
+For more information on the Azure's B-series CPU credit model, see the [B-series burstable instances](../../virtual-machines/sizes-b-series-burstable.md) and [B-series CPU credit model](../../virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model.md#b-series-cpu-credit-model).
 
 ### Monitoring CPU credits in burstable tier
 
@@ -124,7 +124,7 @@ Monitoring your CPU credit balance is crucial for maintaining optimal performanc
 
 [CPU Credit Consumed](./concepts-monitoring.md): This metric indicates the number of CPU credits consumed by your instance. Monitoring this metric can help you understand your instance’s CPU usage patterns and manage its performance effectively.
 
-[CPU Credit Remaining](./concepts-monitoring.md): This metric shows the number of CPU credits remaining for your instance. Keeping an eye on this metric can help you prevent your instance from degrading in performance due to exhausting its CPU credits.
+[CPU Credit Remaining](./concepts-monitoring.md): This metric shows the number of CPU credits remaining for your instance. Keeping an eye on this metric can help you prevent your instance from degrading in performance due to exhausting its CPU credits. If the CPU Credit Remaining metric drops below a certain level (for example, less than 30% of the total available credits), this would indicate that the instance is at risk of exhausting its CPU credits if the current CPU load continues.
 
 For more information, on [how to setup alerts on metrics, refer to this guide](./how-to-alert-on-metric.md).
 

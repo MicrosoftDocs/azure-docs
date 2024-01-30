@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 12/12/2023
+ms.date: 01/02/2024
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance in the Azure portal

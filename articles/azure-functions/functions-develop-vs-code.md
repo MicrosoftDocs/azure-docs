@@ -118,6 +118,9 @@ The Functions extension lets you create a function app project, along with your 
 
     :::image type="content" source="./media/functions-develop-vs-code/select-http-trigger.png" alt-text="Screenshot for selecting H T T P trigger.":::
 
+    > [!TIP]
+    > You can view additional templates by selecting the `Change template filter` option and setting it to "Core" or "All".
+
 1. Type **HttpExample** for the function name and select Enter, and then select **Function** authorization. This authorization level requires you to provide a [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) when you call the function endpoint.
 
     :::image type="content" source="./media/functions-develop-vs-code/create-function-auth.png" alt-text="Screenshot for creating function authorization.":::

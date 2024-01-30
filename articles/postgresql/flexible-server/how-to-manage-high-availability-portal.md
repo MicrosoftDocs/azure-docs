@@ -6,7 +6,7 @@ author: AwdotiaRomanowna
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 06/23/2022
+ms.date: 01/02/2024
 ---
 
 # Manage high availability in Azure Database for PostgreSQL - Flexible Server

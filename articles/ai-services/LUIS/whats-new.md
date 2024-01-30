@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.subservice: azure-ai-luis
 ms.topic: overview
-ms.date: 02/24/2022
+ms.date: 01/19/2024
 ---
 
 # What's new in Language Understanding

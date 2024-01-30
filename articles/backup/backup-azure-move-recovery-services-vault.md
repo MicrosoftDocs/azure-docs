@@ -2,8 +2,8 @@
 title: How to move Azure Backup Recovery Services vaults 
 description: Instructions on how to move a Recovery Services vault across Azure subscriptions and resource groups.
 ms.topic: conceptual
-ms.date: 02/11/2022
-ms.custom: references_regions 
+ms.date: 01/04/2024
+ms.custom: references_regions, engagement-fy24
 ms.reviewer: caishwarya
 ms.service: backup
 author: AbhishekMallick-MS
@@ -145,7 +145,7 @@ The above steps should help ensure that your resources are being backed up in th
 
 ### Back up Azure File Share after moving across regions
 
-Azure Backup offers [a snapshot management solution](./backup-afs.md) for your Azure Files today. This means, you don’t move the file share data into the Recovery Services vaults. Also, as the snapshots don’t move with your Storage Account, you’ll effectively have all your backups (snapshots) in the existing region only and protected by the existing vault. However, if you move your Storage Accounts along with the file shares across regions or create new file shares in the new region, see to the following sections to ensure that they are protected by Azure Backup.
+Azure Backup offers [a snapshot management solution](./backup-afs.md) for your Azure Files today. This means, you don’t move the file share data into the Recovery Services vaults. Also, as the snapshots don’t move with your Storage Account, you’ll effectively have all your backups (snapshots) in the existing region only and protected by the existing vault. However, To move your Storage Accounts along with the file shares across regions or create new file shares in the new region, see the following sections to ensure that they are protected by Azure Backup.
 
 #### Prepare to move Azure File Share
 
