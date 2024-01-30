@@ -198,7 +198,7 @@ ARM64 based clusters aren't supported at this time.
  - Allow applications to listen on HTTP or HTTPS
  - Add ability to suspend jobs
  - Fixed issue where KEDA scaler was failing to create job after stopped job execution
- - Add startingDeadlineSeconds to Container App Job in case of cluster report
+ - Add startingDeadlineSeconds to Container App Job in case of cluster reboot
  - Removed heavy logging in Envoy access log server
  - Updated Monitoring Configuration version for Azure Container Apps on Azure Arc enabled Kubernetes
   
