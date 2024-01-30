@@ -181,7 +181,7 @@ curl -X PUT \
 
 ---
 
-### 4. Submit the training job
+### 3. Submit the training job
 
 # [Python SDK](#tab/python)
 
