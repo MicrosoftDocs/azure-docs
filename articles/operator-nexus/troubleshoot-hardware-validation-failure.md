@@ -18,7 +18,7 @@ This article describes how to troubleshoot a failed server hardware validation. 
 - Gather the following information:
   - Subscription ID
   - Cluster name and resource group
-  - Access to the Cluster's Log Analytics Workspace (LAW)
+- The user needs access to the Cluster's Log Analytics Workspace (LAW)
 
 ## Locating hardware validation results
 
