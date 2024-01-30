@@ -58,7 +58,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     using System.Threading.Tasks;
     ```
 
-1. Update the `Main` method to connect to App Configuration, specifying the `UseFeatureFlags` option so that feature flags are retrieved. Create a `FeatureManager` to evaluate feature flags' state. Then display a message if the `Beta` feature flag is enabled.
+1. Update the `Main` method to connect to App Configuration, specifying the `UseFeatureFlags` option so that feature flags are retrieved. Create a `ConfigurationFeatureDefinitionProvider` to provide feature flag definitions from the configuration and a `FeatureManager` to evaluate feature flags' state. Then display a message if the `Beta` feature flag is enabled.
 
     ```csharp
         public static async Task Main(string[] args)
