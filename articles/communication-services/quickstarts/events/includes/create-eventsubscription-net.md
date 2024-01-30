@@ -39,15 +39,14 @@ You will need to know the resourceId of your Azure Commmunication Services resou
 5. Select the Copy button to copy the resourceId 
     :::image type="content" source="../media/subscribe-through-portal/communication-services-resourceid.png" alt-text="Screenshot highlighting the ResourceID button in the JSON View in the Azure portal.":::
 
-
 ## Authenticating with Azure Identity library
 
 ### Prerequisites:
-1. Create a Microsoft Entra application and Service Principal that can access the resources in your subscription by following the instructions [here](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal).
+1. Create a Microsoft Entra application and Service Principal that can access the resources in your subscription by following the instructions [here](/entra/identity-platform/howto-create-service-principal-portal).
 2. Create a new Client secret or upload a trusted certificate issued by a certificate authority following the instructions above.
-3. Give contributor or owner access to the subscription to that application following the instructions [here](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal-subscription-admin).
+3. Give contributor or owner access to the subscription to that application following the instructions [here](/azure/role-based-access-control/role-assignments-portal-subscription-admin).
 
-The Azure Identity library provides Microsoft Entra ID (Formerly Azure Active Directory) token authentication support across the Azure SDK. It provides a set of TokenCredential implementations which can be used to construct Azure SDK clients which support Microsoft Entra token authentication. You can read more about it [here](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/identity-readme?view=azure-dotnet).
+The Azure Identity library provides Microsoft Entra ID (Formerly Azure Active Directory) token authentication support across the Azure SDK. It provides a set of TokenCredential implementations which can be used to construct Azure SDK clients which support Microsoft Entra token authentication. You can read more about it [here](/dotnet/api/overview/azure/identity-readme).
 
 The default option to create an authenticated client is to use DefaultAzureCredential. 
 
