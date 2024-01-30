@@ -244,6 +244,57 @@ To filter on a complex collection field, you can use a **lambda expression** wit
 
 As with top-level simple fields, simple subfields of complex fields can only be included in filters if they have the **filterable** attribute set to `true` in the index definition. For more information, see the [Create Index API reference](/rest/api/searchservice/create-index).
 
+Azure search has the limitation wherein the complex object in all the collections total in a document cannot exceeed 3000
+
+“A collection in your document exceeds the maximum elements across all complex collections limit. The document with key '1052' has '4303' objects in collections (JSON arrays). At most '3000' objects are allowed to be in collections across the entire document. Remove objects from collections and try indexing the document again."
+
+In some cases we might need to add more than 3000 .In those cases we can pipe and store it as a string .There is no limitation of number of strings stored in an array in azure search
+
+For example if we need to search for all combination of countries and products and categories if we had stored it as complex object as below the combination cannot exceed 3000
+
+```json
+
+"searchScope": [
+  {
+     "countryCode": "FRA",
+     "productCode": 1234,
+     "categoryCode": "C100" 
+  },
+  {
+     "countryCode": "USA",
+     "productCode": 1235,
+     "categoryCode": "C200" 
+  }
+]
+```
+
+If we instead concatenate and store the values as delimited we can overcome the limitation
+```json
+"searchScope": [
+        "|FRA|1234|C100|",
+        "|FRA|*|*|",
+        "|*|1234|*|",
+        "|*|*|C100|",
+        "|FRA|*|C100|",
+        "|*|1234|C100|"
+]
+
+```
+The reason we stored it as above is because if we want to filter only on france or only on category c100 this combination with wildcard for rest of the properties will work.
+
+We will take the user input to filter an france and construct it as string
+
+>`|FRA|*|*|`
+
+which we can then filter in azure search as we search in an array
+```csharp
+foreach (var filterItem in filterCombinations)
+        {
+            var formattedCondition = $"searchScope/any(s: s eq '{filterItem}')";
+            combFilter.Append(combFilter.Length > 0 ? " or (" + formattedCondition + ")" : "(" + formattedCondition + ")");
+        }
+
+```
 ## Next steps
 
 Try the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels) in the **Import data** wizard. You need the Azure Cosmos DB connection information provided in the readme to access the data.
