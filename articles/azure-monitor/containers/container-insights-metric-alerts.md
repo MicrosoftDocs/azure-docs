@@ -41,7 +41,7 @@ The methods currently available for creating Prometheus alert rules are Azure Re
 
 1. Download the template that includes the set of alert rules you want to enable. For a list of the rules for each, see [Alert rule details](#alert-rule-details).
 
-   - [Recommended metric alerts](https://aka.ms/azureprometheus-recommendedmetricalerts)
+   [Recommended metric alerts](https://aka.ms/azureprometheus-recommendedmetricalerts)
 
 2. Deploy the template by using any standard methods for installing ARM templates. For guidance, see [ARM template samples for Azure Monitor](../resource-manager-samples.md#deploy-the-sample-templates).
 
