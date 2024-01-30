@@ -94,7 +94,7 @@ Yes. You can find a sample for deploying a cluster with a datacenter [here](http
 
 ### How can I add a single public endpoint to my Azure Managed Instance Cassandra Cluster?
 
-To achieve this, you can [create a load balancer](../load-balancer/basic/quickstart-basic-internal-load-balancer-portal). When configuring the Backend pools of the load balancer, utilize all the IP addresses from the data center within your Managed Instance cluster. This approach might result in extra costs. Also, you should carefully assess how opting for a single endpoint can affect performance.
+To achieve this, you can [create a load balancer](../load-balancer/basic/quickstart-basic-internal-load-balancer-portal.md). When configuring the Backend pools of the load balancer, utilize all the IP addresses from the data center within your Managed Instance cluster. This approach might result in extra costs. Also, you should carefully assess how opting for a single endpoint can affect performance.
 
 ## Next steps
 
