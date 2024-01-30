@@ -19,6 +19,18 @@ Creating a capacity pool enables you to create volumes within it.
 * If you are using Azure CLI, ensure that you are using the latest version. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
 * If you are using PowerShell, ensure that you are using the latest version of the Az.NetAppFiles module. To update to the latest version, use the 'Update-Module Az.NetAppFiles' command. For more information, see [Update-Module](/powershell/module/powershellget/update-module).
 * If you are using the Azure REST API, ensure that you are specifying the latest version.
+* If this is your first time using a 1-TiB capacity pool, you must first register the feature: 
+    1. Register the feature: 
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANF1TiBPoolSize
+        ```
+    2. Check the status of the feature registration: 
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANF1TiBPoolSize
+        ```
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Steps 
 
