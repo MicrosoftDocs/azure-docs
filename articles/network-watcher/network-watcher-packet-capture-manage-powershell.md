@@ -136,7 +136,7 @@ The following output is an example of the output from the `Get-AzNetworkWatcherP
 
 ```output
 ProvisioningState Name   Target                                                                                                                              BytesToCapturePerPacket TotalBytesPerSession TimeLimitInSeconds
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Succeeded         myVM_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM 0                       1073741824           18000
 ```
 
