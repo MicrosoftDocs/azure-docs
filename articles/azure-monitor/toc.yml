@@ -139,21 +139,11 @@ items:
               href: app/worker-service.md
             - name: Advanced ASP.NET SDK topics
               items:
-              - name: Metrics
-                items:
-                - name: GetMetric
-                  displayName: get metric, custom metrics, metrics, TrackMetric
-                  href: app/get-metric.md
-                - name: Log-based & pre-aggregated metrics
-                  href: app/pre-aggregated-metrics-log-metrics.md
-                - name: Log-based metrics definitions
-                  href: essentials/app-insights-metrics.md
-                - name: Standard metrics
-                  href: app/standard-metrics.md
+              - name: GetMetric
+                displayName: get metric, custom metrics, metrics, TrackMetric
+                href: app/get-metric.md
               - name: EventCounters
                 href: app/eventcounters.md
-              - name: Dependencies
-                href: app/asp-net-dependencies.md
               - name: ApplicationInsights.config
                 href: app/configuration-with-applicationinsights-config.md
               - name: TelemetryChannels
@@ -173,8 +163,6 @@ items:
           - name: Application Insights API summary
             displayName: SDK, API, custom events, custom metrics, trackevent, trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
             href: app/api-custom-events-metrics.md
-          - name: Application Insights data model
-            href: app/data-model-complete.md
           - name: Connection strings
             href: app/sdk-connection-string.md
             displayName: connection string, instrumentation key
@@ -465,6 +453,23 @@ items:
         href: containers/container-insights-region-mapping.md
       - name: Transition from Container monitoring solution
         href: containers/container-insights-transition-solution.md
+    - name: Configure Container Insights (logs)
+      items:
+      - name: Configure data collection
+        items:
+        - name: Configure with ConfigMap
+          displayName: Container insights
+          href: containers/container-insights-data-collection-configmap.md
+        - name: Configure with  Data collection rule
+          displayName: Container insights
+          href: containers/container-insights-data-collection-dcr.md
+      - name: Log schema
+        href: containers/container-insights-logs-schema.md
+      - name: Data transformations
+        displayName: Container insights
+        href: containers/container-insights-transformations.md
+      - name: Authentication
+        href: containers/container-insights-authentication.md
     - name: Configure Prometheus (metrics)
       items:
       - name: Customize data collection
@@ -484,75 +489,60 @@ items:
         - name: High scale
           displayName: Prometheus
           href: containers/prometheus-metrics-scrape-scale.md
-      - name: Private link data ingestion
-        displayName: Private link data ingestion
-        href: essentials/private-link-data-ingestion.md
-      - name: Private link data query
-        displayName: Private link data query
-        href: ../managed-grafana/how-to-connect-to-data-source-privately.md
       - name: KEDA integration
         displayName: Prometheus
         href: containers/integrate-keda.md
-      - name: Microsoft Entra authorization proxy
-        displayName: Prometheus
-        href: containers/prometheus-authorization-proxy.md
-      - name: Remote write
-        items:
-        - name: Overview
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write.md
-        - name: Managed identity authentication
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write-managed-identity.md
-        - name: Microsoft Entra authentication
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write-active-directory.md
-        - name: Microsoft Entra pod-managed identity authentication
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write-azure-ad-pod-identity.md
-        - name: Microsoft Entra Workload ID (preview) authentication
-          displayName: Prometheus,remote-write
-          href: containers/prometheus-remote-write-azure-workload-identity.md
       - name: Send to multiple metric workspaces
         displayName: Prometheus
         href: containers/prometheus-metrics-multiple-workspaces.md
       - name: Send Prometheus metrics to Logs
         href: containers/container-insights-prometheus-logs.md
-      - name: Query Prometheus metrics
-        items:
-        - name: Query using Grafana
-          items:
-          - name: Configure Grafana with managed system identity
-            displayName: Prometheus
-            href: essentials/prometheus-grafana.md
-          - name: Configure Grafana with Microsoft Entra ID
-            displayName: Prometheus
-            href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
-        - name: Query using Azure workbooks
-          displayName: Prometheus
-          href: essentials/prometheus-workbooks.md
-        - name: Query using the API and PromQL
-          displayName: Prometheus
-          href: essentials/prometheus-api-promql.md        
-    - name: Configure Container Insights (logs)
+    - name: Remote-write with Prometheus
       items:
-      - name: Configure data collection
-        items:
-        - name: Configure with ConfigMap
-          displayName: Container insights
-          href: containers/container-insights-data-collection-configmap.md
-        - name: Configure with  Data collection rule
-          displayName: Container insights
-          href: containers/container-insights-data-collection-dcr.md
-      - name: Log schema
-        href: containers/container-insights-logs-schema.md
-      - name: Data transformations
-        displayName: Container insights
-        href: containers/container-insights-transformations.md
-      - name: Authentication
-        href: containers/container-insights-authentication.md
+      - name: Overview
+        displayName: Prometheus,remote-write
+        href: containers/prometheus-remote-write.md
+      - name: Microsoft Entra authorization proxy
+        displayName: Prometheus
+        href: containers/prometheus-authorization-proxy.md
+      - name: Managed identity authentication
+        displayName: Prometheus,remote-write
+        href: containers/prometheus-remote-write-managed-identity.md
+      - name: Microsoft Entra authentication
+        displayName: Prometheus,remote-write
+        href: containers/prometheus-remote-write-active-directory.md
+      - name: Microsoft Entra pod-managed identity authentication
+        displayName: Prometheus,remote-write
+        href: containers/prometheus-remote-write-azure-ad-pod-identity.md
+      - name: Microsoft Entra Workload ID (preview) authentication
+        displayName: Prometheus,remote-write
+        href: containers/prometheus-remote-write-azure-workload-identity.md
+    - name: Private Link
+      items:
+      - name: Private link data ingestion with Prometheus metrics
+        displayName: Private link data ingestion
+        href: essentials/private-link-data-ingestion.md
+      - name: Private link data query of Prometheus metrics
+        displayName: Private link data query
+        href: ../managed-grafana/how-to-connect-to-data-source-privately.md
       - name: Private link for Container Insights          
         href: containers/container-insights-private-link.md
+    - name: Query Prometheus metrics
+      items:
+      - name: Query using Grafana
+        items:
+        - name: Configure Grafana with managed system identity
+          displayName: Prometheus
+          href: essentials/prometheus-grafana.md
+        - name: Configure Grafana with Microsoft Entra ID
+          displayName: Prometheus
+          href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
+      - name: Query using Azure workbooks
+        displayName: Prometheus
+        href: essentials/prometheus-workbooks.md
+      - name: Query using the API and PromQL
+        displayName: Prometheus
+        href: essentials/prometheus-api-promql.md        
     - name: Disable monitoring
       href: containers/kubernetes-monitoring-disable.md
     - name: Monitor
@@ -1524,6 +1514,18 @@ items:
     href: agents/azure-monitor-agent-extension-versions.md
   - name: Application Insights
     items:
+    - name: Application Insights data model
+      href: app/data-model-complete.md
+    - name: Metrics
+      items:
+      - name: Log-based & pre-aggregated metrics
+        href: app/pre-aggregated-metrics-log-metrics.md
+      - name: Log-based metrics definitions
+        href: essentials/app-insights-metrics.md
+      - name: Standard metrics
+        href: app/standard-metrics.md
+    - name: ASP.NET Dependencies
+      href: app/asp-net-dependencies.md
     - name: Azure Functions
       href: ../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json
   - name: Azure PowerShell

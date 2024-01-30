@@ -161,6 +161,9 @@ Content-Type: `application/json`
 }
 ```
 
+## Performance consideration with Conditional operations
+Conditional interactions can be complex and performance-intensive. To enhance the latency of queries involving conditional interactions, you have the option to utilize the request header **x-conditionalquery-processing-logic** . Setting this header to **parallel** allows concurrent execution of queries with conditional interactions.
+
 ## Next steps
 
 In this article, you learned about some of the REST capabilities of Azure API for FHIR. Next, you can learn more about the key aspects to searching resources in FHIR. 

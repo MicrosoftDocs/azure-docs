@@ -70,17 +70,13 @@ landingContent:
             url: how-to-configure-project-environment-types.md
 
   # Card
-  - title: Configure Deployment Environments from the CLI
+  - title: Manage costs
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create and configure a dev center 
-            url: how-to-create-configure-dev-center.md
-          - text: Create and configure a project 
-            url: how-to-create-configure-projects.md
-          - text: Create environments
-            url: how-to-create-access-environments.md
-        
+          - text: Request a quota limit increase
+            url: how-to-request-quota-increase.md
+       
   # Card
   - title: Provide access to create and manage environments
     linkLists:
