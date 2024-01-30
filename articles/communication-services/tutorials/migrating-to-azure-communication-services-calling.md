@@ -26,9 +26,9 @@ However, there are some key differences between them that may affect your choice
 -  **Device Management and Media enablement** - The SDK manages audio and video devices, efficiently encodes content for transmission, and supports both screen and application sharing.
 -  **PSTN calling** - You can use the SDK to initiate voice calling using the traditional Public Switched Telephone Network (PSTN), [using phone numbers acquired either in the Azure portal](../quickstarts/telephony/get-phone-number.md) or programmatically.
 -  **Teams Meetings** – Azure Communication Services is equipped to [join Teams meetings](../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with Teams voice and video calls.
--  **Notifications** - Azure Communication Services provides APIs to notify clients of incoming calls. This allows your application to listen for events (such as incoming calls) even when your application is not running in the foreground.
+-  **Notifications** - Azure Communication Services provides APIs to notify clients of incoming calls. This allows your application to listen for events (such as incoming calls) even when your application isn't running in the foreground.
 -  **User Facing Diagnostics** - Azure Communication Services uses [events](../concepts/voice-video-calling/user-facing-diagnostics.md) designed to provide insights into underlying issues that could affect call quality. You can subscribe your application to triggers such as weak network signals or muted microphones for proactive issue awareness.
--  **Media Quality Statistics** - Provides comprehensive insights into VoIP and video call [metrics](../concepts/voice-video-calling/media-quality-sdk.md). Metrics includ call quality information, empowering developers to enhance communication experiences.
+-  **Media Quality Statistics** - Provides comprehensive insights into VoIP and video call [metrics](../concepts/voice-video-calling/media-quality-sdk.md). Metrics include call quality information, empowering developers to enhance communication experiences.
 -  **Video Constraints** - Azure Communication Services offers APIs that control [video quality among other parameters](../quickstarts/voice-video-calling/get-started-video-constraints.md) during video calls. The SDK supports different call situations for varied levels of video quality, so developers can adjust parameters like resolution and frame rate.
 
 **For a more detailed understanding of the Calling SDK for different platforms, see** [**this document**](../concepts/voice-video-calling/calling-sdk-features.md#detailed-capabilities)**.**
@@ -57,7 +57,7 @@ For Video Calling as a Teams user:
 
 The UI library simplifies the process of creating modern communication user interfaces using Azure Communication Services. It offers a collection of ready-to-use UI components that you can easily integrate into your application.
 
-This open source prebuilt set of controls enables you to create aesthetically pleasing designs using [Fluent UI SDK](https://developer.microsoft.com/en-us/fluentui#/) components and develop high quality audio/video communication experiences. For more information, check out the the [Azure Communications Services UI Library overview](../concepts/ui-library/ui-library-overview.md). The overview includes comprehensive information about both web and mobile platforms.
+This open source prebuilt set of controls enables you to create aesthetically pleasing designs using [Fluent UI SDK](https://developer.microsoft.com/en-us/fluentui#/) components and develop high quality audio/video communication experiences. For more information, check out the [Azure Communications Services UI Library overview](../concepts/ui-library/ui-library-overview.md). The overview includes comprehensive information about both web and mobile platforms.
 
 ### Calling support
 
@@ -112,7 +112,7 @@ The following classes and interfaces handle some of the main features of the Azu
 | AudioOptions                      | Audio options, provided to a participant when making an outgoing call or joining a group call.                                                                                                  |
 | AudioIssue                        | Represents the end of call survey audio issues. Example responses might be `NoLocalAudio` - the other participants were unable to hear me, or `LowVolume` - the call audio volume was too low. |
 
-When using in a Teams implementation there are a few differences:
+When using ACS calling in a Teams call, there are a few differences:
 
 -   Instead of `CallAgent` - use `TeamsCallAgent` for starting and managing Teams calls.
 -   Instead of `Call` - use `TeamsCall` for representing a Teams Call.
@@ -383,7 +383,7 @@ Or:
 videoTrack.enable();
 ```
 
-If there is a later created video track, attach it locally:
+If there's a later created video track, attach it locally:
 
 ```javascript
 const videoElement = videoTrack.attach();
@@ -452,7 +452,7 @@ call.off('isLocalVideoStartedChanged', () => {
 
 ```
 
-### Rendering a remote users video
+### Rendering a remote user's video
 
 #### Twilio
 
@@ -747,7 +747,7 @@ twilioRoom..on('trackSubscribed', (track, publication, participant) => {
 
 ```
 
-It is not possible to mute incoming audio in Twilio Video SDK.
+It isn't possible to mute incoming audio in Twilio Video SDK.
 
 #### Azure Communication Services
 
@@ -780,7 +780,7 @@ await call.unmuteIncomingAudio();
 
 #### Twilio
 
-To detect the loudest Participant in the Room, uce Dominant Speaker API. You can enable it in the connection options when joining the Group Room with at least 2 participants:
+To detect the loudest Participant in the Room, use the Dominant Speaker API. You can enable it in the connection options when joining the Group Room with at least 2 participants:
 ```javascript
 twilioRoom = await twilioVideo.connect('token', { 
 name: 'roomName', 
@@ -830,7 +830,7 @@ callDominantSpeakersApi.on('dominantSpeakersChanged', dominantSpeakersChangedHan
 ## Enabling screen sharing
 ### Twilio
 
-To share the screen in Twilio Video, abtain thesource track via `navigator.mediaDevices`:
+To share the screen in Twilio Video, obtain the source track via `navigator.mediaDevices`:
 
 Chromium-based browsers:
 ```javascript
@@ -934,7 +934,7 @@ mediaStatsCollector.dispose();
 ```
 
 
-You do not need to call the dispose method of `mediaStatsCollector` every time a call ends. The collectors are reclaimed internally when the call ends.
+You don't need to call the dispose method of `mediaStatsCollector` every time a call ends. The collectors are reclaimed internally when the call ends.
 
 For more information, see [Media quality statistics](../concepts/voice-video-calling/media-quality-sdk.md?pivots=platform-web).
 
@@ -1032,7 +1032,7 @@ userFacingDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
 
 To learn more about User Facing Diagnostics and the different diagnostic values available, see [User Facing Diagnostics](../concepts/voice-video-calling/user-facing-diagnostics.md?pivots=platform-web).
 
-Azure Communication Services also provides a pre-call diagnostics API. To Access the Pre-Call API, you need to initialize a `callClient`, and provision an Azure Communication Services access token. Then you can access the `PreCallDiagnostics` feature and the `startTest` method.
+Azure Communication Services also provides a precall diagnostics API. To Access the Pre-Call API, you need to initialize a `callClient`, and provision an Azure Communication Services access token. Then you can access the `PreCallDiagnostics` feature and the `startTest` method.
 
 ```javascript
 import { CallClient, Features} from "@azure/communication-calling";
