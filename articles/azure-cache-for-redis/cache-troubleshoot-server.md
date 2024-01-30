@@ -71,7 +71,7 @@ If the `used_memory_rss` value is higher than 1.5 times the `used_memory` metric
 
 If a cache is fragmented and is running under high memory pressure, the system does a failover to try recovering Resident Set Size (RSS) memory.
 
-Redis exposes two stats, `used_memory` and `used_memory_rss`, through the [INFO](https://redis.io/commands/info) command that can help you identify this issue. You can [view these metrics](cache-how-to-monitor.md#view-cache-metrics) using the portal.
+Redis exposes two stats, `used_memory` and `used_memory_rss`, through the [INFO](https://redis.io/commands/info) command that can help you identify this issue. You can [view these metrics](monitor-cache.md#view-cache-metrics) using the portal.
 
 Validate that the `maxmemory-reserved` and `maxfragmentationmemory-reserved` values are set appropriately.
 

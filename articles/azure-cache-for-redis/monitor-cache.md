@@ -37,7 +37,7 @@ For more information about the resource types for Azure Cache for Redis, see [Az
 
 ### Use a storage account to export Azure Cache for Redis metrics
 
-By default, Azure Cacher for Redis metrics in Azure Monitor are [stored for 30 days](/azure/azure-monitor/essentials/data-platform-metrics) and then deleted. To persist your cache metrics for longer than 30 days, you can use a [storage account](/azure/azure-monitor/essentials/resource-logs.md#send-to-azure-storage) and specify a **Retention (days)** policy that meets your requirements. The storage account must be in the same region as the cache.
+By default, Azure Cacher for Redis metrics in Azure Monitor are [stored for 30 days](/azure/azure-monitor/essentials/data-platform-metrics) and then deleted. To persist your cache metrics for longer than 30 days, you can use a [storage account](/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage) and specify a **Retention (days)** policy that meets your requirements. The storage account must be in the same region as the cache.
 
 To configure the storage account for your cache metrics:
 
@@ -52,8 +52,6 @@ To configure the storage account for your cache metrics:
 
 >[!NOTE]
 >In addition to archiving your cache metrics to storage, you can also [stream them to an event hub or send them to a Log Analytics workspace](/azure/azure-monitor/essentials/rest-api-walkthrough#retrieve-metric-values).
->
-<!-- Add service-specific information about storing monitoring data here. For example, SQL Server stores other monitoring data in its own databases. If your service doesn't have non-Azure Monitor methods of storing monitoring data, just remove this comment. -->
 
 <!-- METRICS SECTION START ------------------------------------->
 
@@ -64,7 +62,8 @@ To configure the storage account for your cache metrics:
 
 For a list of available metrics for Azure Cache for Redis, see [Azure Cache for Redis monitoring data reference](monitor-cache-reference.md#metrics).
 
-### View Azure Cache for Redis metrics
+<a name="view-cache-metrics"></a>
+### View metrics from an Azure Cache for Redis instance
 
 You can view Azure Monitor metrics for Azure Cache for Redis directly from an Azure Cache for Redis resource in the [Azure portal](https://portal.azure.com).
 
@@ -76,24 +75,27 @@ For more in-depth information, you can see more metrics under the **Monitoring**
 
 :::image type="content" source="media/cache-how-to-monitor/cache-monitor-metrics.png" alt-text="Screenshot of monitoring metrics selected in the Resource menu.":::
 
+You can monitor the following useful Azure Cache for Redis metrics from the **Monitoring** section of the Resource menu:
+
+| Azure Cache for Redis metric | More information |
+| --- | --- |
+| Network bandwidth usage |[Cache performance - available bandwidth](cache-planning-faq.yml#azure-cache-for-redis-performance) |
+| Connected clients |[Default Redis server configuration - max clients](cache-configure.md#maxclients) |
+| Server load |[Redis Server Load](cache-how-to-monitor.md#view-cache-metrics) |
+| Memory usage |[Cache performance - size](cache-planning-faq.yml#azure-cache-for-redis-performance) |
+
 The other **Monitoring** options provide other ways to view and use the metrics for your caches.
 
 |Selection  | Description  |
 |---------|---------|
-| [**Insights**](cache-insights-overview.md)   |   Predefined tiles and charts to use as starting point for your cache metrics.     |
-| [**Alerts**](#alerts)     |   Alerts based on metrics and activity logs.      |
-| [**Metrics**](#metrics)     |   Built-in and custom charts to track the metrics you want to see.       |
-| [**Advisor Recommendations**](cache-configure.md#advisor-recommendations)) |  Best practices to optimize your Azure deployments.       |
-| [**Workbooks**](cache-insights-overview.md#workbooks)     |    Metrics information displayed in a coherent and effective way.     |
-
-<!-- Platform metrics service-specific information. Add service-specific information about your platform metrics here.-->
+| [Insights](cache-insights-overview.md)   |   Predefined tiles and charts to use as starting point for your cache metrics.     |
+| [Alerts](#alerts)     |   Alerts based on metrics and activity logs.      |
+| [Advisor Recommendations](cache-configure.md#advisor-recommendations) |  Best practices to optimize your Azure deployments.       |
+| [Workbooks](cache-insights-overview.md#workbooks)     |    Metrics information displayed in a coherent and effective way.     |
 
 <!-- ## Customer-imported metrics. If your service doesn't use custom imported metrics, remove the following include and comments. -->
 [!INCLUDE [horz-monitor-custom-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-custom-metrics.md)]
 <!-- Customer-imported service-specific information. Add service-specific information about your custom imported metrics here.-->
-
-<!-- ## Non-Azure Monitor metrics. If your service doesn't use any non-Azure Monitor based metrics, remove the following include and comments. -->
-[!INCLUDE [horz-monitor-non-monitor-metrics](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)]
 
 Metrics for Azure Cache for Redis instances are collected using the Redis [`INFO`](https://redis.io/commands/info) command. Metrics are collected approximately two times per minute and automatically stored for 30 days so they can be displayed in the metrics charts and evaluated by alert rules.
 
@@ -156,55 +158,9 @@ Azure Cache for Redis uses Azure diagnostic settings to log information on clien
 
 The connection logs have slightly different implementations, contents, and setup procedures for the different Azure Cache for Redis tiers. For details, see [Azure Monitor diagnostic settings](cache-monitor-diagnostic-settings.md).
 
-for the diagnostic settings for connection logs and the differences Implementation of connection logs is slightly different between :
-- **Basic, Standard, and Premium-tier caches** polls client connections by IP address, including the number of connections originating from each unique IP address. These logs aren't cumulative. They represent point-in-time snapshots taken at 10-second intervals. Authentication events (successful and failed) and disconnection events aren't logged in these tiers.  
-- **Enterprise and Enterprise Flash-tier caches** use the [audit connection events](https://docs.redis.com/latest/rs/security/audit-events/) functionality built-into Redis Enterprise. Audit connection events allow every connection, disconnection, and authentication event to be logged, including failed authentication events. 
-
-> [!IMPORTANT]
-> The connection logging in the Basic, Standard, and Premium tiers _polls_ the current client connections in the cache. The same client IP addresses appears over and over again. Logging in the Enterprise and Enterprise Flash tiers is focused on each connection _event_. Logs only occur when the actual event occurred for the first time.
->
-
-## Prerequisites/Limitations of Connection Logging
-
-### Basic, Standard, and Premium tiers
-- Because connection logs in these tiers consist of point-in-time snapshots taken every 10 seconds, connections that are established and removed in-between 10-second intervals aren't logged.
-- Authentication events aren't logged.
-- All diagnostic settings may take up to [90 minutes](../azure-monitor/essentials/diagnostic-settings.md#time-before-telemetry-gets-to-destination) to start flowing to your selected destination. 
-- Enabling connection logs can cause a small performance degradation to the cache instance.
-- Only the _Analytics Logs_ pricing plan is supported when streaming logs to Azure Log Analytics. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). 
-
-### Enterprise and Enterprise Flash tiers
-- When you use **OSS Cluster Policy**, logs are emitted from each data node. When you use **Enterprise Cluster Policy**, only the node being used as a proxy emits logs. Both versions still cover all connections to the cache. This is just an architectural difference.  
-- Data loss (that is, missing a connection event) is rare, but possible. Data loss is typically caused by networking issues. 
-- Disconnection logs aren't yet fully stable and events may be missed.  
-- Because connection logs on the Enterprise tiers are event-based, be careful of your retention policies. For instance, if retention is set to 10 days, and a connection event occurred 15 days ago, that connection might still exist, but the log for that connection isn't retained.
-- If using [active geo-replication](cache-how-to-active-geo-replication.md), logging must be configured for each cache instance in the geo-replication group individually.
-- All diagnostic settings may take up to [90 minutes](../azure-monitor/essentials/diagnostic-settings.md#time-before-telemetry-gets-to-destination) to start flowing to your selected destination. 
-- Enabling connection logs may cause a small performance degradation to the cache instance.
-
-> [!NOTE]
-> It is always possible to use the [INFO](https://redis.io/commands/info/) or [CLIENT LIST](https://redis.io/commands/client-list/) commands to check who is connected to a cache instance on-demand.
->
-
-> [!IMPORTANT]
-> When selecting logs, you can chose either the specific _Category_ or _Category groups_, which are predefined groupings of logs across Azure services. When you use _Category groups_, [you can no longer configure the retention settings](../azure-monitor/essentials/diagnostic-settings.md#resource-logs). If you need to determine retention duration for your connection logs, select the item in the _Categories_ section instead. 
->
-
-## Log Destinations
-
-
-
-
 <!-- ## Activity log. Optionally, add service-specific information about your activity log after the include. -->
 [!INCLUDE [horz-monitor-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 <!-- Activity log service-specific information. Add service-specific information about your activity log here. -->
-
-<!-- ## Imported logs. If your service doesn't use imported logs, remove the following include and comments. -->
-[!INCLUDE [horz-monitor-imported-logs](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-imported-logs.md)]
-<!-- Imported log service-specific information. Add service-specific information about your imported logs here. -->
-
-<!-- ## Other logs. If your service doesn't produce any other types of non-Azure Monitor logs, remove this comment.
-If your service has other logs that aren't resource logs or in the activity log, you can state what they are and what they cover here. You can describe how to route them in a later section. If your service doesn't produce any other types of non-Azure Monitor logs, remove this comment. -->
 
 <!-- LOGS SECTION END ------------------------------------->
 
@@ -234,10 +190,13 @@ Add short information or links to specific articles that outline how to analyze 
 Fill in the following table with metric and log alerts that would be valuable for your service. Change the format as necessary for readability. You can instead link to an article that discusses your common alerts in detail.
 Ask your PMs if you don't know. This information is the BIGGEST request we get in Azure Monitor, so don't avoid it long term. People don't know what to monitor for best results. Be prescriptive. -->
 
+### Azure Cache for Redis common alert rules
+
 The following table lists common and recommended alert rules for Azure Cache for Redis.
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
+|Metric|99th percentile latency|Alert on the worst-case latency of server-side commands in Azure Cache for Redis instances. Latency is measured by using `PING` commands and tracking response times. Track the health of your cache instance to see if long-running commands are compromising latency performance.
 |Metric |High `Server Load` usage or spikes |High server load means the Redis server is unable to keep up with requests, leading to timeouts or slow responses. Create alerts on metrics on server load metrics to be notified early about potential impacts.|
 |Metric |High network bandwidth usage |If the server exceeds the available bandwidth, then data isn't sent to the client as quickly. Client requests could time out because the server can't push data to the client fast enough. Set up alerts for server-side network bandwidth limits by using the `Cache Read` and `Cache Write` counters. |
 

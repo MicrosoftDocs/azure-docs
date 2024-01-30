@@ -353,8 +353,8 @@ To reboot one or more nodes of your cache, select the desired nodes and select *
 
 ## Monitoring
 
-The **Monitoring** section allows you to configure diagnostics and monitoring for your Azure Cache for Redis.
-For more information on Azure Cache for Redis monitoring and diagnostics, see [How to monitor Azure Cache for Redis](cache-how-to-monitor.md).
+The **Monitoring** section allows you to configure diagnostics and monitoring for your Azure Cache for Redis instance.
+For more information on Azure Cache for Redis monitoring and diagnostics, see [Monitor Azure Cache for Redis](monitor-cache.md).
 
 :::image type="content" source="media/cache-configure/redis-cache-diagnostics.png" alt-text="Diagnostics":::
 
@@ -363,58 +363,12 @@ For more information on Azure Cache for Redis monitoring and diagnostics, see [H
 - [Alerts](#alerts)
 - [Diagnostic settings](#diagnostic-settings)
 - [Advisor recommendations](#advisor-recommendations)
-
-### Insights
-
-Use **Insights** to see groups of predefined tiles and charts to use as starting point for your cache metrics.
-
-For more information, see [Use Insights for predefined charts](cache-how-to-monitor.md#use-insights-for-predefined-charts) and [Azure Monitor insights for Azure Cache for Redis](cache-insights-overview.md).
-
-### Metrics
-
-Select **Metrics** to Create your own custom chart to track the metrics you want to see for your cache. For more information, see [Metrics](monitor-cache.md#metrics).
-
-### Alerts
-
-Select **Alerts** to configure alerts based on Azure Cache for Redis metrics and logs. For more information, see [Alerts](monitor-cache.md#alerts).
-
-### Diagnostic settings
-
-By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics settings** to [configure the storage account](monitor-cache.md#use-a-storage-account-to-export-cache-metrics) used to store cache diagnostics.
-
->[!NOTE]
->In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
->
-
-### Advisor recommendations
-
-The **Advisor recommendations** on the left displays recommendations for your cache. During normal operations, no recommendations are displayed.
-
-:::image type="content" source="media/cache-configure/redis-cache-no-recommendations.png" alt-text="Screenshot that shows where the Advisor recommendations are displayed but there are no current ones.":::
-
-If any conditions occur during the operations of your cache such as imminent changes, high memory usage, network bandwidth, or server load, an alert is displayed in the **Overview** of the Resource menu.
-
-:::image type="content" source="media/cache-configure/redis-cache-recommendations-alert.png" alt-text="Screenshot that shows where alerts are displayed in when Overview is selected in the Resource menu.":::
-
-Further information can be found on the **Recommendations** in the working pane of the Azure portal.
-
-:::image type="content" source="media/cache-configure/redis-cache-recommendations.png" alt-text="Screenshot that shows Advisor recommendations":::
-<!-- How do we trigger an event that causes a good recommendation for the image? -->
-
-You can monitor these metrics on the [Monitoring](cache-how-to-monitor.md) section of the Resource menu.
-
-| Azure Cache for Redis metric | More information |
-| --- | --- |
-| Network bandwidth usage |[Cache performance - available bandwidth](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
-| Connected clients |[Default Redis server configuration - max clients](#maxclients) |
-| Server load |[Redis Server Load](cache-how-to-monitor.md#view-cache-metrics) |
-| Memory usage |[Cache performance - size](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
-
-To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale](#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier).
-
 ### Workbooks
 
-Organize your metrics into groups so that you display metric information in a coherent and effective way.
+For more information, see [Use Insights for predefined charts](cache-how-to-monitor.md#use-insights-for-predefined-charts) and [Azure Monitor insights for Azure Cache for Redis](cache-insights-overview.md).
+Select **Metrics** to Create your own custom chart to track the metrics you want to see for your cache. For more information, see [Metrics](monitor-cache.md#metrics).
+Select **Alerts** to configure alerts based on Azure Cache for Redis metrics and logs. For more information, see [Alerts](monitor-cache.md#alerts).
+By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics settings** to [configure the storage account](monitor-cache.md#use-a-storage-account-to-export-cache-metrics) used to store cache diagnostics.
 
 ## Automation
 
