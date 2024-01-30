@@ -121,7 +121,7 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 
 ## Next steps
 
-* Learn more about the [underlying models that power Azure OpenAI](./concepts/models.md).
+* Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
 
 <!--
 * Learn more about how to use assistants with our in-depth [How-to guide on Azure OpenAI Assistants](../how-to/assistant.md).
