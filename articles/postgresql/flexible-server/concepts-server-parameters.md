@@ -18,17 +18,16 @@ Postgres parameters, see the [PostgreSQL documentation](https://www.postgresql.o
 
 ## An overview of PostgreSQL parameters
 
-Azure Database for PostgreSQL - Flexible Server comes pre-configured with optimal default settings for each parameter.
-Parameters are categorized into one of the following types:
+Azure Database for PostgreSQL - Flexible Server comes pre-configured with optimal default settings for each parameter. Parameters are categorized into one of the following types:
 
 * **Static Parameters**: Parameters of this type require a server restart to implement any changes.
 * **Dynamic Parameters**: Parameters in this category can be altered without needing to restart the server instance;
   however, changes will only apply to new connections established after the modification.
-* **Read-Only Parameters**: Parameters within this grouping are not user-configurable due to their critical role in
+* **Read-Only Parameters**: Parameters within this grouping aren't user-configurable due to their critical role in
   maintaining the reliability, security, or other operational aspects of the service.
 
 To determine the category to which a parameter belongs, you can check the Azure portal under the **Server parameters**
-blade, where they are grouped into respective tabs for easy identification.
+blade, where they're grouped into respective tabs for easy identification.
 
 ### Modification of server parameters
 
@@ -37,7 +36,7 @@ Various methods and levels are available to customize your parameters according 
 #### Global - server level
 
 For altering settings globally at the instance or server level, navigate to the **Server parameters** blade in the Azure
-Portal, or use other available tools such as Azure CLI, REST API, ARM Templates, as well as third-party tools.
+Portal, or use other available tools such as Azure CLI, REST API, ARM Templates, and third-party tools.
 
 > [!NOTE]
 > Since Azure Database for PostgreSQL is a managed database service, users are not provided host or OS access to view or
@@ -49,23 +48,18 @@ Portal, or use other available tools such as Azure CLI, REST API, ARM Templates,
 #### Granular levels
 
 You can adjust parameters at more granular levels, thereby overriding globally set values. The scope and duration of
-these modifications depend on the level at which they are made:
+these modifications depend on the level at which they're made:
 
 * **Database Level**: Utilize the `ALTER DATABASE` command for database-specific configurations.
-* **Role or User Level**: Leverage the `ALTER USER` command for user-centric settings.
-* **Function, Procedure Level**: When defining a function or procedure, you can specify or alter the configuration
-  parameters that will be set when the function is called.
+* **Role or User Level**: Use the `ALTER USER` command for user-centric settings.
+* **Function, Procedure Level**: When defining a function or procedure, you can specify or alter the configuration parameters that will be set when the function is called.
 * **Table Level**: As an example, you can modify parameters related to autovacuum at this level.
 * **Session Level**: For the duration of an individual database session, you can adjust specific parameters. PostgreSQL
   facilitates this with the following SQL commands:
-    * The `SET` command lets you make session-specific adjustments. These changes will serve as the default settings for
-      the duration of the current session. Access to these changes may require specific SET privileges, and the
-      limitations about modifiable and read-only parameters described above do apply. The corresponding SQL function
-      is `set_config(setting_name, new_value, is_local)`.
-    * The `SHOW` command allows you to examine existing parameter settings. Its SQL function equivalent
-      is `current_setting(setting_name text)`.
+    * The `SET` command lets you make session-specific adjustments. These changes serve as the default settings during the current session. Access to these changes may require specific SET privileges, and the limitations about modifiable and read-only parameters described above do apply. The corresponding SQL function is `set_config(setting_name, new_value, is_local)`.
+    * The `SHOW` command allows you to examine existing parameter settings. Its SQL function equivalent is `current_setting(setting_name text)`.
 
-Here's the list of some of the parameters:
+Here's the list of some of the parameters.
 
 ## Memory
 
@@ -95,23 +89,16 @@ disk, `shared_buffers` effectively reduces the number of required I/O operations
 | Allowed value        |                                                                                                                                                                                                                                                                                                                 TRY, ON, OFF |
 | Type                 |                                                                                                                                                                                                                                                                                                                       Static |
 | Level                |                                                                                                                                                                                                                                                                                                                       Global |
-| Azure-Specific Notes | For servers with 4 or more vCores, huge pages are automatically allocated from the underlying operating system. Feature is not available for servers with fewer than 4 vCores. The number of huge pages will be automatically adjusted if any shared memory settings are changed, including alterations to `shared_buffers`. |
+| Azure-Specific Notes |   For servers with 4 or more vCores, huge pages are automatically allocated from the underlying operating system. Feature isn't available for servers with fewer than 4 vCores. The number of huge pages will be automatically adjusted if any shared memory settings are changed, including alterations to `shared_buffers`. |
 
 #### Description
 
-Huge pages are a feature that allow for memory to be managed in larger blocks - typically 2MB, as opposed to the "classic"
-4KB pages. Utilizing huge pages can offer performance advantages in several ways: they reduce the overhead associated
-with memory management tasks like fewer Translation Lookaside Buffer (TLB) misses and shorten the time needed for memory
-management, effectively offloading the CPU. Specifically, in PostgreSQL, huge pages can only be utilized for the shared
-memory area, a significant part of which is allocated for shared buffers. An additional advantage is that when the
-shared memory area is backed by huge pages, it cannot be swapped out to disk, further stabilizing performance.
+Huge pages are a feature that allow for memory to be managed in larger blocks - typically 2MB, as opposed to the "classic" 4KB pages. Utilizing huge pages can offer performance advantages in several ways: they reduce the overhead associated with memory management tasks like fewer Translation Lookaside Buffer (TLB) misses and shorten the time needed for memory management, effectively offloading the CPU. Specifically, in PostgreSQL, huge pages can only be utilized for the shared memory area, a significant part of which is allocated for shared buffers. Another advantage is that when the shared memory area is backed by huge pages, it cannot be swapped out to disk, further stabilizing performance.
 
 #### Recommendations
 
-* For servers with significant memory resources, it's advisable to avoid disabling huge pages, as doing so could
-  compromise performance.
-* If you start with a smaller server that doesn't support huge pages but anticipate scaling up to a server that does,
-  keeping the `huge_pages` setting at `TRY` is recommended for seamless transition and optimal performance.
+* For servers with significant memory resources, it's advisable to avoid disabling huge pages, as doing so could compromise performance.
+* If you start with a smaller server that doesn't support huge pages but anticipate scaling up to a server that does, keeping the `huge_pages` setting at `TRY` is recommended for seamless transition and optimal performance.
 
 ### work_mem
 
@@ -124,21 +111,13 @@ shared memory area is backed by huge pages, it cannot be swapped out to disk, fu
 
 #### Description
 
-The `work_mem` parameter in PostgreSQL controls the amount of memory allocated for certain internal operations, such as
-sorting and hashing, within each database session's private memory area. Unlike shared buffers, which is in the shared
-memory area, `work_mem` is allocated in a per-session or per-query private memory space. By setting an
-adequate `work_mem` size, you can significantly improve the efficiency of these operations, reducing the need to write
-temporary data to disk.
+The `work_mem` parameter in PostgreSQL controls the amount of memory allocated for certain internal operations, such as sorting and hashing, within each database session's private memory area. Unlike shared buffers, which is in the shared memory area, `work_mem` is allocated in a per-session or per-query private memory space. By setting an adequate `work_mem` size, you can significantly improve the efficiency of these operations, reducing the need to write temporary data to disk.
 
 #### Key points
 
-* **Private Connection Memory**: `work_mem` is part of the private memory used by each database session, distinct from
-  the shared memory area used by `shared_buffers`.
-* **Query-Specific Usage**: Not all sessions or queries will use `work_mem`. Simple queries like `SELECT 1` are unlikely
-  to require any `work_mem`. However, more complex queries involving operations like sorting or hashing can consume one
-  or multiple chunks of `work_mem`.
-* **Parallel Operations**: For queries that span multiple parallel backends, each backend could potentially utilize one
-  or multiple chunks of `work_mem`.
+* **Private Connection Memory**: `work_mem` is part of the private memory used by each database session, distinct from the shared memory area used by `shared_buffers`.
+* **Query-Specific Usage**: Not all sessions or queries use `work_mem`. Simple queries like `SELECT 1` are unlikely to require any `work_mem`. However, more complex queries involving operations like sorting or hashing can consume one or multiple chunks of `work_mem`.
+* **Parallel Operations**: For queries that span multiple parallel backends, each backend could potentially utilize one or multiple chunks of `work_mem`.
 
 #### Monitoring and adjusting `work_mem`
 
@@ -150,20 +129,20 @@ It is essential to continuously monitor your system's performance and adjust `wo
 ##### Granular adjustment
 While managing the `work_mem` parameter, it is often more efficient to adopt a granular adjustment approach rather than setting a global value.  This not only ensures that you allocate memory judiciously based on the specific needs of different processes and users but also minimizes the risk of encountering out-of-memory issues. Here’s how you can go about it:
 
-* **User-Level**: If a specific user is primarily involved in aggregation or reporting tasks which are memory-intensive, consider customizing the `work_mem` value for that user using the `ALTER ROLE` command to enhance the performance of their operations.
+* **User-Level**: If a specific user is primarily involved in aggregation or reporting tasks, which are memory-intensive, consider customizing the `work_mem` value for that user using the `ALTER ROLE` command to enhance the performance of their operations.
 
 * **Function/Procedure Level**: In cases where specific functions or procedures are generating substantial temporary files, increasing the `work_mem` at the specific function or procedure level can be beneficial. This can be done using the `ALTER FUNCTION` or `ALTER PROCEDURE` command to specifically allocate more memory to these operations.
 
 * **Database Level**: Alter `work_mem` at the database level if only specific databases are generating high amounts of temporary files.
 
-* **Global Level**: If an analysis of your system reveals that the majority of queries are generating small temporary files, while only a few are creating significantly larger ones, it may be prudent to globally increase the `work_mem` value. This would facilitate the majority of queries to process in memory, thus avoiding disk-based operations and improving efficiency. However, always be cautious and monitor the memory utilization on your server to ensure it can handle the increased `work_mem`.
+* **Global Level**: If an analysis of your system reveals that most queries are generating small temporary files, while only a few are creating significantly larger ones, it may be prudent to globally increase the `work_mem` value. This would facilitate most queries to process in memory, thus avoiding disk-based operations and improving efficiency. However, always be cautious and monitor the memory utilization on your server to ensure it can handle the increased `work_mem`.
 
 ##### Determining the minimum `work_mem` value for sorting operations
 
-To find the minimum `work_mem` value for a specific query, especially one generating temporary disk files during the sorting process, you would start by considering the temporary file size generated during the query execution. For instance, if a query is generating a 20MB temporary file:
+To find the minimum `work_mem` value for a specific query, especially one generating temporary disk files during the sorting process, you would start by considering the temporary file size generated during the query execution. For instance, if a query is generating a 20 MB temporary file:
 
 1. Connect to your database using psql or your preferred PostgreSQL client.
-2. Set an initial `work_mem` value slightly higher than 20MB to account for additional headers when processing in memory, using a command such as: `SET work_mem TO '25MB'`.
+2. Set an initial `work_mem` value slightly higher than 20 MB to account for additional headers when processing in memory, using a command such as: `SET work_mem TO '25MB'`.
 3. Execute `EXPLAIN ANALYZE` on the problematic query on the same session.
 4. Review the output for `“Sort Method: quicksort Memory: xkB"`. If it indicates `"external merge Disk: xkB"`, raise the `work_mem` value incrementally and retest until `"quicksort Memory"` appears, signaling that the query is now operating in memory.
 5. After determining the value through this method, it can be applied either globally or on more granular levels as described above to suit your operational needs.
