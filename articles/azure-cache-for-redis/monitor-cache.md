@@ -81,7 +81,7 @@ You can monitor the following useful Azure Cache for Redis metrics from the **Mo
 | --- | --- |
 | Network bandwidth usage |[Cache performance - available bandwidth](cache-planning-faq.yml#azure-cache-for-redis-performance) |
 | Connected clients |[Default Redis server configuration - max clients](cache-configure.md#maxclients) |
-| Server load |[Redis Server Load](cache-how-to-monitor.md#view-cache-metrics) |
+| Server load |[Redis Server Load](cache-how-to-monitor.md#metrics-details) |
 | Memory usage |[Cache performance - size](cache-planning-faq.yml#azure-cache-for-redis-performance) |
 
 The other **Monitoring** options provide other ways to view and use the metrics for your caches.
@@ -200,6 +200,18 @@ The following table lists common and recommended alert rules for Azure Cache for
 |Metric |High `Server Load` usage or spikes |High server load means the Redis server is unable to keep up with requests, leading to timeouts or slow responses. Create alerts on metrics on server load metrics to be notified early about potential impacts.|
 |Metric |High network bandwidth usage |If the server exceeds the available bandwidth, then data isn't sent to the client as quickly. Client requests could time out because the server can't push data to the client fast enough. Set up alerts for server-side network bandwidth limits by using the `Cache Read` and `Cache Write` counters. |
 
+### Alerts and Advisor recommendations
+
+If any conditions occur during the operations of your cache such as imminent changes, high memory usage, network bandwidth, or server load, an alert displays on the cache **Overview** page in the portal.
+
+:::image type="content" source="media/monitor-cache/redis-cache-recommendations-alert.png" alt-text="Screenshot that shows where alerts are displayed in when Overview is selected in the Resource menu.":::
+
+You can find more information in **Advisor recommendations** under **Monitoring**. During normal operations, no advisor recommendations are displayed.
+
+:::image type="content" source="media/monitor-cache/redis-cache-recommendations.png" alt-text="Screenshot that shows Advisor recommendations":::
+<!-- How do we trigger an event that causes a good recommendation for the image? -->
+
+To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale](cache-configure.md#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier).
 <!-- ALERTS SECTION END -------------------------------------->
 
 ## Related content

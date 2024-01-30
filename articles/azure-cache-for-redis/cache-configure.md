@@ -50,12 +50,6 @@ You can view and configure the following settings using the **Resource Menu**. T
   - [Export data](#importexport)
   - [Reboot](#reboot)
 - [Monitoring](#monitoring)
-  - [Insights](#insights)  
-  - [Alerts](#alerts)
-  - [Metrics](#metrics)
-  - [Diagnostic settings](#diagnostic-settings)
-  - [Advisor recommendations](#advisor-recommendations)
-  - [Workbooks](#workbooks)
 - Automation
   - [Tasks (preview)](#tasks)
   - [Export template](#export-template)
@@ -354,21 +348,7 @@ To reboot one or more nodes of your cache, select the desired nodes and select *
 ## Monitoring
 
 The **Monitoring** section allows you to configure diagnostics and monitoring for your Azure Cache for Redis instance.
-For more information on Azure Cache for Redis monitoring and diagnostics, see [Monitor Azure Cache for Redis](monitor-cache.md).
-
-:::image type="content" source="media/cache-configure/redis-cache-diagnostics.png" alt-text="Diagnostics":::
-
-- [Insights](#insights)
-- [Metrics](#metrics)
-- [Alerts](#alerts)
-- [Diagnostic settings](#diagnostic-settings)
-- [Advisor recommendations](#advisor-recommendations)
-### Workbooks
-
-For more information, see [Use Insights for predefined charts](cache-how-to-monitor.md#use-insights-for-predefined-charts) and [Azure Monitor insights for Azure Cache for Redis](cache-insights-overview.md).
-Select **Metrics** to Create your own custom chart to track the metrics you want to see for your cache. For more information, see [Metrics](monitor-cache.md#metrics).
-Select **Alerts** to configure alerts based on Azure Cache for Redis metrics and logs. For more information, see [Alerts](monitor-cache.md#alerts).
-By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics settings** to [configure the storage account](monitor-cache.md#use-a-storage-account-to-export-cache-metrics) used to store cache diagnostics.
+For information on how to set up and use Azure Cache for Redis monitoring and diagnostics, see [Monitor Azure Cache for Redis](monitor-cache.md).
 
 ## Automation
 
