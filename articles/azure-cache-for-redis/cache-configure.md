@@ -31,7 +31,7 @@ You can view and configure the following settings using the **Resource Menu**. T
 - [Diagnose and solve problems](#diagnose-and-solve-problems)
 - [Events](#events)
 - [Settings](#settings)
-  - [Access keys](#access-keys)
+  - [Authentication](#authentication)
   - [Advanced settings](#advanced-settings)
   - [Scale](#scale)
   - [Cluster size](#cluster-size)
@@ -154,11 +154,19 @@ The **Settings** section allows you to access and configure the following settin
 - [Properties](#properties)
 - [Locks](#locks)
 
-### Access keys
+### Authentication
+
+#### Access keys
 
 Select **Access keys** to view or regenerate the access keys for your cache. These keys are used by the clients connecting to your cache.
 
 :::image type="content" source="media/cache-configure/redis-cache-manage-keys.png" alt-text="Azure Cache for Redis Access Keys":::
+
+#### (Preview) Microsoft Entra Authentication
+
+Select **(Preview) Microsoft Entra Authentication** to .
+
+<!-- get an image  -->
 
 ### Advanced settings
 
