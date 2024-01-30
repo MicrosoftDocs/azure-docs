@@ -1,6 +1,6 @@
 ---
 title: MMA Discovery and Removal Utility
-description: This article describes a PowerShell script to remove the legacy agent from systems that have migrated to AMA.
+description: This article describes a PowerShell script to remove the legacy agent from systems that have migrated to the Azure Monitor Agent.
 ms.topic: conceptual
 author: jeffreywolford
 ms.author: jeffwo
@@ -18,7 +18,7 @@ The utility works in two steps:
 
 1. *Discovery*: The utility creates an inventory of all machines that have the MMA installed. We recommend that you don't create any new VMs, virtual machine scale sets, or Azure Arc servers with the MMA extension while the utility is running.  
 
-2. *Removal*: The utility selects machines that have both the MMA and the AMA and removes the MMA extension. You can disable this step and run it after you validate the list of machines. There's an option to remove the extension from machines that have only the MMA agent, but we recommend that you first migrate all dependencies to the AMA and then remove the MMA.  
+2. *Removal*: The utility selects machines that have both the MMA and the AMA and removes the MMA extension. You can disable this step and run it after you validate the list of machines. There's an option to remove the extension from machines that have only the MMA, but we recommend that you first migrate all dependencies to the AMA and then remove the MMA.  
 
 ## Prerequisites  
 
@@ -53,7 +53,7 @@ To install the package:
 
 ## Set up the utility
 
-### [Single tenant](#tab/Single)
+### [Single tenant](#tab/single-tenant)
 
 1. Go to deployment folder and load the consolidated setup script. You must have **Owner** access on the subscription.
 
@@ -108,7 +108,7 @@ To install the package:
    |`Location`| Location domain controller where the setup is created. Default value is `EastUS2`.| No|
    |`AzureEnvironmentName`| Azure environment where the solution is installed: `AzureCloud` or `AzureGovernmentCloud`. Default value is `AzureCloud`.| No|
 
-### [Multitenant](#tab/Multitenant)
+### [Multitenant](#tab/multitenant)
 
 This section walks you through the steps for setting up the multitenant AzTS MMA Discovery and Removal Utility. This setup might take up to 30 minutes.
 
@@ -342,9 +342,11 @@ The scope configuration file is a CSV file with a header row and three columns:
 | Subscription | `/subscriptions/abb5301a-22a4-41f9-9e5f-99badff261f8` | `72f988bf-86f1-41af-91ab-2d7cd011db47` |
 | Subscription | `/subscriptions/71bdd12b-ae1d-499a-a4ea-e32d4c1d9c35` | `e60f12c0-e1dc-4be1-8d86-e979a5527830` |
 
+---
+
 ## Run the utility
 
-### [Discovery](#tab/Discovery)
+### [Discovery](#tab/discovery)
 
 ``` PowerShell
 Update-AzTSMMARemovalUtilityDiscoveryTrigger ` 
@@ -365,7 +367,7 @@ The script contains these parameters:
 |`StartExtensionDiscoveryAfterMinutes` | Time, in minutes, to wait to run discovery (should be after the resolver is done). | Yes (mutually exclusive with `-StartExtensionDiscoveryImmediatley`)|
 |`StartExtensionDiscoveryImmediatley` | Indicator to run extension discovery immediately. | Yes (mutually exclusive with `-StartExtensionDiscoveryAfterMinutes`)|
 
-### [Removal](#tab/Removal)
+### [Removal](#tab/removal)
 
 By default, the removal phase is disabled. We recommend that you run it after validating the inventory of machines from the discovery step.
 
@@ -416,7 +418,7 @@ InventoryProcessingStatus_CL
 | project ResourceId, ProcessingStatus_s, ProcessErrorDetails_s
 ```
 
-## [Clean up](#tab/CleanUp)
+### [Cleanup](#tab/cleanup)
 
 The MMA Discovery and Removal Utility creates resources that you should clean up after you remove the MMA from your infrastructure. Complete the following steps to clean up:  
 
@@ -445,3 +447,5 @@ The script contains these parameters:
 |`ResourceGroupName`| Name of the resource group that you're deleting.| Yes|
 |`DeleteResourceGroup`| Boolean flag to delete an entire resource group.| Yes|
 |`KeepInventoryAndProcessLogs`| Boolean flag to exclude the Log Analytics workspace and Application Insights. You can't use it with `DeleteResourceGroup`.| No|
+
+---
