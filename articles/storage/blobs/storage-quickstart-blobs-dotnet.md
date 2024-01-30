@@ -145,13 +145,17 @@ Use the following .NET classes to interact with these resources:
 
 ## Code examples
 
-The sample code snippets in the following sections demonstrate how to perform basic data operations with the Azure Blob Storage client library for .NET.
+The sample code snippets in the following sections demonstrate how to perform the following tasks with the Azure Blob Storage client library for .NET:
+
+- [Authenticate to Azure and authorize access to blob data](#authenticate-to-azure-and-authorize-access-to-blob-data)
+- [Create a container](#create-a-container)
+- [Upload a blob to a container](#upload-a-blob-to-a-container)
+- [List blobs in a container](#list-blobs-in-a-container)
+- [Download a blob](#download-a-blob)
+- [Delete a container](#delete-a-container)
 
 > [!IMPORTANT]
-> Make sure you have installed the correct NuGet packages and added the necessary using statements in order for the code samples to work, as described in the [setting up](#setting-up) section.
-
-* **Azure.Identity** (if you are using the passwordless approach)
-* **Azure.Storage.Blobs**
+> Make sure you've installed the correct NuGet packages and added the necessary using statements in order for the code samples to work, as described in the [setting up](#setting-up) section.
 
 [!INCLUDE [storage-quickstart-credential-free-include](../../../includes/storage-quickstart-credential-free-include.md)]
 
