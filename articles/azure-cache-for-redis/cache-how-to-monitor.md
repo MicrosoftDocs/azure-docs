@@ -1,134 +1,18 @@
 ---
-title: Monitor Azure Cache for Redis
-description: Learn how to monitor the health and performance your Azure Cache for Redis instances
+title: Details about Azure Cache for Redis supported metrics
+description: Details of supported metrics for Microsoft.Cache/redis and Microsoft.Cache/redisEnterprise resource types.
 author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 12/02/2023
-
+ms.date: 01/29/2024
 ---
-# Monitor Azure Cache for Redis
 
-Azure Cache for Redis uses [Azure Monitor](../azure-monitor/index.yml) to provide several options for monitoring your cache instances. Use these tools to monitor the health of your Azure Cache for Redis instances and to help you manage your caching applications.
+# Details about Azure Cache for Redis supported metrics
 
-Use Azure Monitor to:
+This article gives details and more information about the supported Azure Monitor metrics for [Microsoft.Cache/redis](/azure/azure-monitor/reference/supported-metrics/microsoft-cache-redis-metrics) and [Microsoft.Cache/redisEnterprise](/azure/azure-monitor/reference/supported-metrics/microsoft-cache-redisenterprise-metrics).
 
-- view metrics
-- pin metrics charts to the dashboard
-- customize the date and time range of monitoring charts
-- add and remove metrics from the charts
-- and set alerts when certain conditions are met
-
-Metrics for Azure Cache for Redis instances are collected using the Redis [`INFO`](https://redis.io/commands/info) command. Metrics are collected approximately two times per minute and automatically stored for 30 days so they can be displayed in the metrics charts and evaluated by alert rules.
-
-To configure a different retention policy, see [Use a storage account to export cache metrics](#use-a-storage-account-to-export-cache-metrics).  
-
-For more information about the different `INFO` values used for each cache metric, see [Create your own metrics](#create-your-own-metrics).
-
-## View cache metrics
-
-The Resource menu shows some simple metrics in two places: **Overview** and **Monitoring**.
-
-To view basic cache metrics, [find your cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com). On the left, select **Overview**. You see the following predefined monitoring charts: **Memory Usage**, and **Redis Server Load**. These charts are useful summaries that allow you to take a quick look at the state of your cache.
-
-:::image type="content" source="./media/cache-how-to-monitor/cache-overview-metrics.png" alt-text="Screen showing two charts: Memory Usage and Redis Server Load.":::
-
-For more in depth information, you can see more metrics under the **Monitoring** section of the Resource menu. Select **Metrics** to see, create, or customize a chart by adding metrics, removing metrics, and changing the reporting interval.
-
-:::image type="content" source="media/cache-how-to-monitor/cache-monitor-metrics.png" alt-text="Screenshot of monitoring metrics selected in the Resource menu.":::
-
-The other options under **Monitoring**, provide other ways to view and use the metrics for your caches.
-
-|Selection  | Description  |
-|---------|---------|
-| [**Insights**](#use-insights-for-predefined-charts)   |   A group of predefined tiles and charts to use as starting point for your cache metrics.     |
-| [**Alerts**](#create-alerts)     |   Configure alerts based on metrics and activity logs.      |
-| [**Metrics**](#create-your-own-metrics)     |   Create your own custom chart to track the metrics you want to see.       |
-| [**Advisor Recommendations**](cache-configure.md#advisor-recommendations)) |  Helps you follow best practices to optimize your Azure deployments.       |
-| [**Workbooks**](#organize-with-workbooks)     |    Organize your metrics into groups so that you display metric information in a coherent and effective way.     |
-
-## View metrics charts with Azure Monitor for Azure Cache for Redis
-
-Use [Azure Monitor for Azure Cache for Redis](redis-cache-insights-overview.md) for a view of the overall performance, failures, capacity, and operational health of all your Azure Cache for Redis resources. View metrics in a customizable, unified, and interactive experience that lets you drill down into details for individual resources. Azure Monitor for Azure Cache for Redis is based on the [workbooks feature of Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) that provides rich visualizations for metrics and other data. To learn more, see the [Explore Azure Monitor for Azure Cache for Redis](redis-cache-insights-overview.md) article.
-
-While you can access Azure Monitor features from the Monitor menu in the Azure portal, Azure Monitor features can be accessed directly from the Resource menu for an Azure Cache for Redis resource. For more information on working with metrics using Azure Monitor, see [Overview of metrics in Microsoft Azure](../azure-monitor/data-platform.md).
-
-For scenarios where you don't need the full flexibility of Azure Monitor for Azure Cache for Redis, you can instead view metrics and create custom charts using **Metrics** from the Resource menu for your cache, and customize your chart using your preferred metrics, reporting interval, chart type, and more. For more information, see [Create your own metrics](#create-your-own-metrics).
-
-## Use Insights for predefined charts
-
-The **Monitoring** section in the Resource menu contains **Insights**. When you select **Insights**, you see groupings of three types of charts: **Overview**, **Performance** and **Operations**.
-
-:::image type="content" source="./media/cache-how-to-monitor/cache-monitoring-part.png" alt-text="Screenshot showing Monitoring Insights selected in the Resource menu.":::
-
-Each tab contains status tiles and charts. These tiles and charts are a starting point for your metrics. If you wish to expand beyond **Insights**, you can define your own alerts, metrics, diagnostic settings and workbooks.
-
-## Use a storage account to export cache metrics
-
-By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, you can use a [storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) and specify a **Retention (days)** policy that meets your requirements.
-
-Configure a storage account to use with to store your metrics. The storage account must be in the same region as the caches. Once you create a storage account, configure the storage account for your cache metrics:
-
-1. In the **Azure Cache for Redis** page, under the **Monitoring** heading, select **Diagnostics settings**.
-
-1. Select **+ Add diagnostic setting**.
-
-1. Name the settings.
-
-1. Check **Archive to a storage account**. You're charged normal data rates for storage and transactions when you send diagnostics to a storage account.
-
-1. Select **Configure** to choose the storage account in which to store the cache metrics.
-
-1. Under the table heading **metric**, check box beside the line items you want to store, such as **AllMetrics**. Specify a **Retention (days)** policy. The maximum days retention you can specify is **365 days**. However, if you want to keep the metrics data forever, set **Retention (days)** to **0**.
-
-1. Select **Save**.
-   :::image type="content" source="./media/cache-how-to-monitor/cache-diagnostics.png" alt-text="Redis diagnostics":::
-
->[!NOTE]
->In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to a Log Analytics workspace](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-values).
->
-
-To access your metrics, you view them in the Azure portal as previously described in this article. You can also access them using the [Azure Monitor Metrics REST API](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
-
-> [!NOTE]
-> If you change storage accounts, the data in the previously configured storage account remains available for download, but it is not displayed in the Azure portal.  
->
-
-## Create your own metrics
-
-You can create your own custom chart to track the metrics you want to see. Cache metrics are reported using several reporting intervals, including **Past hour**, **Today**, **Past week**, and **Custom**. On the left, select the **Metric** in the **Monitoring** section. Each metrics chart displays the average, minimum, and maximum values for each metric in the chart, and some metrics display a total for the reporting interval.
-
-Each metric includes two versions: One metric measures performance for the entire cache, and for caches that use clustering. A second version of the metric, which includes `(Shard 0-9)` in the name, measures performance for a single shard in a cache. For example if a cache has four shards, `Cache Hits` is the total number of hits for the entire cache, and `Cache Hits (Shard 3)` measures just the hits for that shard of the cache.
-
-In the Resource menu on the left, select **Metrics** under **Monitoring**. Here, you design your own chart for your cache, defining the metric type and aggregation type.
-
-:::image type="content" source="./media/cache-how-to-monitor/cache-monitor.png" alt-text="Screenshot with metrics showing in the resource manager":::
-
-### Aggregation types
-
-When you're seeing the aggregation type:
-
-- **Count** show 2, it indicates the metric received 2 data points for your time granularity (1 minute).
-- **Max** shows the maximum value of a data point in the time granularity,
-- **Min** shows the minimum value of a data point in the time granularity,
-- **Average** shows the average value of all data points in the time granularity.
-- **Sum** shows the sum of all data points in the time granularity and might be misleading depending on the specific metric.
-
-Under normal conditions, **Average** and **Max** are similar because only one node emits these metrics (the primary node). In a scenario where the number of connected clients changes rapidly, **Max**, **Average**, and **Min** would show different values and is also expected behavior.
-
-Generally, **Average** shows you a smooth chart of your desired metric and reacts well to changes in time granularity. **Max** and **Min** can hide large changes in the metric if the time granularity is large but can be used with a small time granularity to help pinpoint exact times when large changes occur in the metric.
-
-The types **Count** and **“Sum** can be misleading for certain metrics (connected clients included). Instead, we suggest you look at the **Average** metrics and not the **Sum** metrics.
-
-> [!NOTE]
-> Even when the cache is idle with no connected active client applications, you might see some cache activity, such as connected clients, memory usage, and operations being performed. The activity is normal in the operation of cache.
->
-
-For nonclustered caches, we recommend using the metrics without the suffix `Instance Based`. For example, to check server load for your cache instance, use the metric _Server Load_.
-
-In contrast, for clustered caches, we recommend using the metrics with the suffix `Instance Based`. Then, add a split or filter on `ShardId`. For example, to check the server load of shard 1, use the metric **Server Load (Instance Based)**, then apply filter **ShardId = 1**.
-
+<a name="available-metrics-and-reporting-intervals"></a>
 ## List of metrics
 
 - 99th Percentile Latency (preview)
@@ -173,13 +57,13 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
 - Expired Keys
   - The number of items expired from the cache during the specified reporting interval. This value maps to `expired_keys` from the Redis INFO command.
 
-> [!IMPORTANT]
-> Geo-replication metrics are affected by monthly internal maintenance operations. The Azure Cache for Redis service periodically patches all caches with the latest platform features and improvements. During these updates, each cache node is taken offline, which temporarily disables the geo-replication link. If your geo replication link is unhealthy, check to see if it was caused by a patching event on either the geo-primary or geo-secondary cache by using **Diagnose and Solve Problems**  from the Resource menu in the portal. Depending on the amount of data in the cache, the downtime from patching can take anywhere from a few minutes to an hour. If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
->
+    > [!IMPORTANT]
+    > Geo-replication metrics are affected by monthly internal maintenance operations. The Azure Cache for Redis service periodically patches all caches with the latest platform features and improvements. During these updates, each cache node is taken offline, which temporarily disables the geo-replication link. If your geo replication link is unhealthy, check to see if it was caused by a patching event on either the geo-primary or geo-secondary cache by using **Diagnose and Solve Problems**  from the Resource menu in the portal. Depending on the amount of data in the cache, the downtime from patching can take anywhere from a few minutes to an hour. If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+    >
 
-> [!NOTE]
-> The [Geo-Replication Dashboard](#organize-with-workbooks) workbook is a simple and easy way to view all Premium-tier geo-replication metrics in the same place. This dashboard will pull together metrics that are only emitted by the geo-primary or geo-secondary, so they can be viewed simultaneously.
->
+    >[!NOTE]
+    > The [Geo-Replication Dashboard](#organize-with-workbooks) workbook is a simple and easy way to view all Premium-tier geo-replication metrics in the same place. This dashboard will pull together metrics that are only emitted by the geo-primary or geo-secondary, so they can be viewed simultaneously.
+    >
 
 - Geo Replication Connectivity Lag
   - Depicts the time, in seconds, since the last successful data synchronization between geo-primary & geo-secondary. If the link goes down, this value continues to increase, indicating a problem.
@@ -219,8 +103,8 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - The percentage of CPU cycles in which the Redis server is busy processing and _not waiting idle_ for messages. If this counter reaches 100, the Redis server has hit a performance ceiling, and the CPU can't process work any faster. You can expect a large latency effect. If you're seeing a high Redis Server Load, such as 100, because you're sending many expensive commands to the server, then you might see timeout exceptions in the client. In this case, you should consider scaling up, scaling out to a Premium cluster, or partitioning your data into multiple caches. When _Server Load_ is only moderately high, such as 50 to 80 percent, then average latency usually remains low, and timeout exceptions could have other causes than high server latency.
   - The _Server Load_ metric is sensitive to other processes on the machine using the existing CPU cycles that reduce the Redis server's idle time. For example, on the _C1_ tier, background tasks such as virus scanning cause _Server Load_ to spike higher for no obvious reason. We recommended that you pay attention to other metrics such as operations, latency, and CPU, in addition to _Server Load_.
   
-> [!CAUTION]
-> The _Server Load_ metric can present incorrect data for Enterprise and Enterprise Flash tier caches. Sometimes _Server Load_ is represented as being over 100. We are investigating this issue. We recommend using the CPU metric instead in the meantime.
+  > [!CAUTION]
+  > The _Server Load_ metric can present incorrect data for Enterprise and Enterprise Flash tier caches. Sometimes _Server Load_ is represented as being over 100. We are investigating this issue. We recommend using the CPU metric instead in the meantime.
 
 - Sets
   - The number of set operations to the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange`, and `cmdstat_setnx`.
@@ -236,38 +120,7 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
 - Used Memory RSS
   - The amount of cache memory used in MB during the specified reporting interval, including fragmentation. This value maps to `used_memory_rss` from the Redis INFO command. This metric isn't available in Enterprise or Enterprise Flash tier caches.
 
-## Create alerts
-
-You can configure to receive alerts based on metrics and activity logs. Azure Monitor allows you to configure an alert to do the following when it triggers:
-
-- Send an email notification
-- Call a webhook
-- Invoke an Azure Logic App
-
-To configure alerts for your cache, select **Alerts** under **Monitoring** on the Resource menu.
-
-:::image type="content" source="./media/cache-how-to-monitor/cache-monitoring.png" alt-text="Screenshot showing how to create an alert.":::
-
-For more information about configuring and using Alerts, see [Overview of Alerts](../azure-monitor/alerts/alerts-classic-portal.md).
-
-## Organize with workbooks
-
-Once you define a metric, you can send it to a workbook. Workbooks provide a way to organize your metrics into groups that provide the information in coherent way. Azure Cache for Redis provides two workbooks by default in the **Azure Cache for Redis Insights** section:
-
-   :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-workbook.png" alt-text="Screenshot showing the workbooks selected in the Resource menu.":::
-
-For information on creating a metric, see [Create your own metrics](#create-your-own-metrics).
-
-The two workbooks provided are:
-
-- **Azure Cache For Redis Resource Overview** combines many of the most commonly used metrics so that the health and performance of the cache instance can be viewed at a glance.
-    :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-resource-overview.png" alt-text="Screenshot of graphs showing a resource overview for the cache.":::
-
-- **Geo-Replication Dashboard** pulls geo-replication health and status metrics from both the geo-primary and geo-secondary cache instances to give a complete picture of geo-replcation health. Using this dashboard is recommended, as some geo-replication metrics are only emitted from either the geo-primary or geo-secondary.
-    :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-geo-dashboard.png" alt-text="Screenshot showing the geo-replication dashboard with a geo-primary and geo-secondary cache set.":::
-
 ## Related content
 
-- [Azure Monitor for Azure Cache for Redis](redis-cache-insights-overview.md)
-- [Azure Monitor Metrics REST API](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)
-- [`INFO`](https://redis.io/commands/info)
+- [Azure Monitor Metrics REST API](/azure/azure-monitor/essentials/stream-monitoring-data-event-hubs)
+- [Overview of metrics in Azure](/azure/azure-monitor/data-platform).

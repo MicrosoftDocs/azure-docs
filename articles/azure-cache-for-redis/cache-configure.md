@@ -368,17 +368,15 @@ For more information on Azure Cache for Redis monitoring and diagnostics, see [H
 
 Use **Insights** to see groups of predefined tiles and charts to use as starting point for your cache metrics.
 
-For more information, see [Use Insights for predefined charts](cache-how-to-monitor.md#use-insights-for-predefined-charts).
-
-<!-- create link to new content for Insights when it is added by the monitor team -->
+For more information, see [Use Insights for predefined charts](cache-how-to-monitor.md#use-insights-for-predefined-charts) and [Azure Monitor insights for Azure Cache for Redis](cache-insights-overview.md).
 
 ### Metrics
 
-Select **Metrics** to Create your own custom chart to track the metrics you want to see for your cache. For more information, see [Create alerts](cache-how-to-monitor.md#create-alerts).
+Select **Metrics** to Create your own custom chart to track the metrics you want to see for your cache. For more information, see [Metrics](monitor-cache.md#metrics).
 
 ### Alerts
 
-Select **Alerts** to configure alerts based on Azure Cache for Redis metrics. For more information, see [Create alerts](cache-how-to-monitor.md#create-alerts).
+Select **Alerts** to configure alerts based on Azure Cache for Redis metrics and logs. For more information, see [Alerts](monitor-cache.md#alerts).
 
 ### Diagnostic settings
 

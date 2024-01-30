@@ -19,6 +19,8 @@ See [Monitor Azure Cache for Redis](monitor-cache.md) for details on the data yo
 <!-- ## Metrics -->
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
+For more details and information about the supported metrics for Microsoft.Cache/redis and Microsoft.Cache/redisEnterprise, see [List of metrics](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+
 ### Supported metrics for Microsoft.Cache/redis
 The following table lists the metrics available for the Microsoft.Cache/redis resource type.
 
@@ -52,10 +54,10 @@ Azure Cache for Redis logs use the following columns.
 [!INCLUDE [ACRConnectedClientList](~/azure-reference-other-repo/azure-monitor-ref/includes/acrconnectedclientlist-include.md)]
 
 #### AzureActivity
-- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)
+- [Columns](/azure/azure-monitor/reference/tables/azureactivity#columns)
 
 #### AzureMetrics
-- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics)
+- [Columns](/azure/azure-monitor/reference/tables/azuremetrics#columns)
 
 ### Microsoft.Cache/redisEnterprise
 Azure Cache for Redis Enterprise logs use the following columns.
@@ -65,7 +67,7 @@ Azure Cache for Redis Enterprise logs use the following columns.
 
 <!-- ## Activity log -->
 [!INCLUDE [horz-monitor-ref-activity-log](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
-- [Microsoft.Cache](/azure/role-based-access-control/resource-provider-operations#microsoftcache)
+- [Microsoft.Cache resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftcache)
 
 <!-- ## Other schemas. If your service doesn't use other schemas, remove this section. If your service uses other schemas, list them after the following include. Please keep heading in this order. -->
 <!--[!INCLUDE [horz-monitor-ref-other-schemas](~/articles/reusable-content/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
