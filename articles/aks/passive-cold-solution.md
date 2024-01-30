@@ -5,7 +5,7 @@ author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.topic: concept-article
-ms.date: 01/18/2024
+ms.date: 01/30/2024
 ---
 
 # Passive-cold solution overview for Azure Kubernetes Service (AKS)

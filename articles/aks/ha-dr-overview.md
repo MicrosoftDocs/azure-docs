@@ -5,7 +5,7 @@ author: schaffererin
 ms.author: schaffererin
 ms.topic: concept-article
 ms.service: azure-kubernetes-service
-ms.date: 01/18/2024
+ms.date: 01/30/2024
 ---
 
 # High availability and disaster recovery overview for Azure Kubernetes Service (AKS)

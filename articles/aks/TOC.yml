@@ -166,7 +166,7 @@
           href: ha-dr-overview.md
           required: yes
           limit: 1
-        - name: Recommended solutions
+        - name: Solutions
           items:
             - name: Active-active
               href: active-active-solution.md
