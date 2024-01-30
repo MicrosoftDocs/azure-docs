@@ -9,7 +9,7 @@ ms.topic:    conceptual
 ms.date:     01/29/2024
 ---
 
-# Fasv6,Falsv6 and Famsv6-series
+# Fasv6,Falsv6 and Famsv6-series (Preview)
 
 **In this article** 
 [Falsv6-series](/azure/virtual-machines/dasv5-dadsv5-series) 
