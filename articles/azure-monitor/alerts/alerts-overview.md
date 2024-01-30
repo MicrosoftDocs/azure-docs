@@ -79,7 +79,7 @@ For stateful alerts, while the alert itself is deleted after 30 days, the alert 
 
 Stateful log alerts have these limitations:
 - they can trigger up to 300 alerts per evaluation.
-- you can have a maximum of 5000 alerts with the `fired` alert condition.
+- you can have a maximum of 6000 alerts with the `fired` alert condition.
 
 This table describes when a stateful alert is considered resolved:
 
