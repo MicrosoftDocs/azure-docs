@@ -175,10 +175,10 @@ az cosmosdb sql container merge \
 For **shared throughput databases**, start the merge by using `az cosmosdb sql database merge`.
 
 ```azurecli-interactive
-az cosmosdb sql database merge \
-	--account-name '<cosmos-account-name>'                               
-	--name '<cosmos-database-name>'                                
-	--resource-group '<resource-group-name>'
+az cosmosdb sql database merge `
+    --resource-group "<resource-group-name>" `         
+    --name "<database-name>"  `
+    --account-name "<cosmos-db-account-name>" 
 ```
 
 
