@@ -29,11 +29,11 @@ NAT gateway provides the following multi-dimensional metrics in Azure Monitor:
 
 | Metric | Description | Recommended aggregation | Dimensions |
 |---|---|---|---|
-| Bytes | Bytes processed inbound and outbound | Sum | Direction (In; Out), Protocol (6 TCP; 17 UDP) |
-| Packets | Packets processed inbound and outbound | Sum | Direction (In; Out), Protocol (6 TCP; 17 UDP) |
+| Bytes | Bytes processed inbound and outbound | Sum | Direction (In; Out), **Protocol (6 TCP; 17 UDP)** |
+| Packets | Packets processed inbound and outbound | Sum | Direction (In; Out), **Protocol (6 TCP; 17 UDP)** |
 | Dropped Packets | Packets dropped by the NAT gateway | Sum | / |
-| SNAT Connection Count | Number of new SNAT connections over a given interval of time | Sum | Connection State (Attempted, Failed), Protocol (6 TCP; 17 UDP) |
-| Total SNAT Connection Count | Total number of active SNAT connections | Sum | Protocol (6 TCP; 17 UDP) |
+| SNAT Connection Count | Number of new SNAT connections over a given interval of time | Sum | Connection State (Attempted, Failed), **Protocol (6 TCP; 17 UDP)** |
+| Total SNAT Connection Count | Total number of active SNAT connections | Sum | Protocol **(6 TCP; 17 UDP)** |
 | Datapath Availability | Availability of the data path of the NAT gateway. Used to determine whether the NAT gateway endpoints are available for outbound traffic flow. | Avg | Availability (0, 100) |
 
 >[!NOTE]
@@ -238,7 +238,7 @@ Setting the aggregation granularity to less than 5 minutes may trigger false pos
 
 ### Alerts for SNAT port exhaustion 
 
-Set up an alert on the **SNAT connection count** metric to notify you of connection failures on your NAT gateway. A failed connection volume greater than zero can indicate that either you have reached the connection limit on your NAT gateway or that you have hit SNAT port exhaustion. Investigate further to determine the root cause of these failures.
+Set up an alert on the **SNAT connection count** metric to notify you of connection failures on your NAT gateway. A failed connection volume greater than zero can indicate that you reached the connection limit on your NAT gateway or that you hit SNAT port exhaustion. Investigate further to determine the root cause of these failures.
 
 To create the alert, use the following steps:
 
@@ -316,7 +316,7 @@ For more information on what each metric is showing you and how to analyze these
 
 ### What type of metrics are available for NAT gateway?
 
-NAT gateway has [multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics). Multi-dimensional metrics can be filtered by different dimensions in order to provide greater insight on the data provided. The [SNAT connection count](#snat-connection-count) metric can be filtered by Attempted and Failed connections in order to distinguish between the different types of connections being made by NAT gateway.  
+The NAT gateway supports [multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics). You can filter the multi-dimensional metrics by different dimensions to gain greater insight into the provided data. The [SNAT connection count](#snat-connection-count) metric allows you to filter the connections by Attempted and Failed connections, enabling you to distinguish between different types of connections made by the NAT gateway.
 
 Refer to the dimensions column in the [metrics overview](#metrics-overview) table to see which dimensions are available for each NAT gateway metric. 
 
