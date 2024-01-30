@@ -17,7 +17,7 @@ ms.author: anfdocs
 ---
 # Optimize costs for Azure NetApp Files with reserved capacity
 
-You can save money on the storage costs for Azure NetApp Files with capacity reservations. Azure NetApp Files reserved capacity offers you a discount on capacity for storage costs when you commit to a reservation for one year. A reservation provides a fixed amount of storage capacity for the term of the reservation.
+You can save money on the storage costs for Azure NetApp Files with capacity reservations. Azure NetApp Files reserved capacity offers you a discount on capacity for storage costs when you commit to a reservation for one or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation.
 
 Azure NetApp Files reserved capacity can significantly reduce your capacity costs for storing data in your Azure NetApp Files volumes. How much you save depends on the total capacity you choose to reserve, and the [service level](azure-netapp-files-service-levels.md) chosen. 
 
@@ -32,7 +32,7 @@ This section describes the terms of an Azure NetApp Files capacity reservation.
 
 ### Reservation capacity
 
-You can purchase Azure NetApp Files reserved capacity in units of 100 TiB and 1 PiB per month for a one-year term for a particular service level within a region.
+You can purchase Azure NetApp Files reserved capacity in units of 100 TiB and 1 PiB per month for a one- or three-year term for a particular service level within a region.
 
 ### Reservation scope
 
