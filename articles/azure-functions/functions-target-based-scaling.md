@@ -464,8 +464,6 @@ For Functions languages that use `function.json`, the `LagThreshold` parameter i
           "protocol": "saslSsl",
           "authenticationMode": "plain",
           "lagThreshold": "100"
-          "FUNCTIONS_RUNTIME_SCALE_MONITORING_ENABLED" : 1,
-          "TARGET_BASED_SCALING_ENABLED" : 1
         }
     ]
 }
