@@ -178,7 +178,7 @@ But you'll also want to become familiar with methodologies for loading an index 
 
 + [Create a search index](search-how-to-create-search-index.md)
 
-+ [Create a vector index](vector-search-how-to-create-index.md)
++ [Create a vector store](vector-search-how-to-create-index.md)
 
 + [Create an index alias](search-how-to-alias.md)
 

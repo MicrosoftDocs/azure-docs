@@ -248,3 +248,4 @@ After you create your circuit, continue with the following next step:
 
 > [!div class="nextstepaction"]
 > [Create and modify routing for your ExpressRoute circuit](expressroute-howto-routing-portal-resource-manager.md)
+> [Create a connection to a virtual network gateway (Preview)](expressroute-howto-linkvnet-portal-resource-manager.md?pivots=expressroute-preview)
