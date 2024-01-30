@@ -420,19 +420,19 @@ dotnet build
 dotnet run
 ```
 
-The output of the app is similar to the following example:
+The output of the app is similar to the following example (GUID values omitted for readability):
 
 ```output
 Azure Blob Storage - .NET quickstart sample
 
 Uploading to Blob storage as blob:
-         https://mystorageacct.blob.core.windows.net/quickstartblobs60c70d78-8d93-43ae-954d-8322058cfd64/quickstart2fe6c5b4-7918-46cb-96f4-8c4c5cb2fd31.txt
+         https://mystorageacct.blob.core.windows.net/quickstartblobsGUID/quickstartGUID.txt
 
 Listing blobs...
-        quickstart2fe6c5b4-7918-46cb-96f4-8c4c5cb2fd31.txt
+        quickstartGUID.txt
 
 Downloading blob to
-        ./data/quickstart2fe6c5b4-7918-46cb-96f4-8c4c5cb2fd31DOWNLOADED.txt
+        ./data/quickstartGUIDDOWNLOADED.txt
 
 Press any key to begin clean up
 Deleting blob container...
