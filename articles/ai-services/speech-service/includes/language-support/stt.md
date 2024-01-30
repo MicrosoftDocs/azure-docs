@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-| Locale (BCP-47) | Language | Custom Speech support |
+| Locale (BCP-47) | Language | Custom speech support |
 | ----- | ----- | ----- |
 | `af-ZA` | Afrikaans (South Africa) | Plain text |
 | `am-ET` | Amharic (Ethiopia) | Plain text |

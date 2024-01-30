@@ -111,7 +111,7 @@ This section discusses requirements and limitations.
 
 ### Time before telemetry gets to destination
 
-After you set up a diagnostic setting, data should start flowing to your selected destination(s) within 90 minutes. If you get no information within 24 hours, then you might be experiencing one of the following issues:
+After you set up a diagnostic setting, data should start flowing to your selected destination(s) within 90 minutes. When sending logs to a Log Analytics workspace, the table will be created automatically if it doesn't already exist. The table is only created when the first log records are received. If you get no information within 24 hours, then you might be experiencing one of the following issues:
 
 - No logs are being generated.
 - Something is wrong in the underlying routing mechanism.

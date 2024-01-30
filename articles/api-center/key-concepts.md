@@ -2,13 +2,10 @@
 title: Azure API Center (preview) - Key concepts
 description: Key concepts of Azure API Center. API Center enables tracking APIs in a centralized location for discovery, reuse, and governance.
 author: dlepow
-editor: ''
- 
 ms.service: api-center
 ms.topic: conceptual
 ms.date: 11/08/2023
 ms.author: danlep
-ms.custom: 
 ---
 
 # Azure API Center - key concepts
@@ -42,6 +39,9 @@ Each API version should ideally be defined by at least one definition, such as a
 ## Environment
 
 An environment represents a location where an API runtime could be deployed, for example, an Azure API Management service, an Apigee API Management service, or a compute service such as a Kubernetes cluster, a Web App, or an Azure Function. Each environment has a type (such as production or staging) and may include information about developer portal or management interfaces.
+
+> [!NOTE]
+> Use API Center to track any of your API runtime environments, whether or not they're hosted on Azure infrastructure. These environments aren't the same as Azure Deployment Environments. 
 
 ## Deployment
 

@@ -241,7 +241,7 @@ The [Defender product family](../../defender-for-cloud/defender-for-cloud-introd
 
 - Defender for Servers (SAP hosts)
     - [Protect your SAP hosts with Defender](../../defender-for-cloud/defender-for-servers-introduction.md) including OS specific Endpoint protection with Microsoft Defender for Endpoint (MDE)
-    - [Microsoft Defender for Endpoint on Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux)
+    - [Microsoft Defender for Endpoint on Linux](/microsoft-365/security/defender-endpoint/mde-linux-deployment-on-sap)
     - [Microsoft Defender for Endpoint on Windows](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint)
     - [Enable Defender for Servers](../../defender-for-cloud/tutorial-enable-servers-plan.md#enable-the-defender-for-servers-plan)
 - Defender for Storage (SAP SMB file shares on Azure)
@@ -257,7 +257,7 @@ For more information about using Microsoft Defender for Endpoint (MDE) via Micro
 
 - [SAP Applications and Microsoft Defender for Linux | Microsoft TechCommunity](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-applications-and-microsoft-defender-for-linux/ba-p/3675480)
 - [SAP Applications and Microsoft Defender for Windows Server | Microsoft TechCommunity](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/microsoft-defender-endpoint-mde-for-sap-applications-on-windows/ba-p/3912268)
-- [Enable the Microsoft Defender for Endpoint integration](../../defender-for-cloud/integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration)
+- [Enable the Microsoft Defender for Endpoint integration](../../defender-for-cloud/enable-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration)
 - [Common mistakes to avoid when defining exclusions](/microsoft-365/security/defender-endpoint/common-exclusion-mistakes-microsoft-defender-antivirus)
 
 Also see the following SAP resources:

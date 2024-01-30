@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 08/19/2021
 ms.author: helohr
-manager: femila
 ---
 # Troubleshoot Azure Files authentication with Active Directory
 

@@ -27,6 +27,9 @@ Moreover, Additional IOPS with pre-provisioned refers to the flexibility of incr
 
 Autoscale IOPS offer the flexibility to scale IOPS on demand, eliminating the need to pre-provision a specific amount of IO per second. By enabling Autoscale IOPS, your server will automatically adjust IOPS based on workload requirements. With the Autoscale IOPS featured enable, you can now enjoy worry free IO management in Azure Database for MySQL flexible server because the server scales IOPs up or down automatically depending on workload needs.
 
+**Dynamic Scaling**: Autoscale IOPS dynamically adjust the IOPS limit of your database server based on the actual demand of your workload. This ensures optimal performance without manual intervention or configuration
+**Handling Workload Spikes**: Autoscale IOPS enable your database to seamlessly handle workload spikes or fluctuations without compromising the performance of your applications. This feature ensures consistent responsiveness even during peak usage periods.
+**Cost Savings**: Unlike the Pre-provisioned IOPS  where a fixed IOPS limit is specified and paid for regardless of usage, Autoscale IOPS lets you pay only for the number of I/O operations that you consume.
 With this feature, you'll only be charged for the IO your server actually utilizes, avoiding unnecessary provisioning and expenses for underutilized resources. This ensures both cost savings and optimal performance, making it a smart choice for managing your database workload efficiently.
 
 
@@ -106,12 +109,16 @@ Autoscale IOPS: The Autoscale feature might not provide significant advantages i
 ## Frequent Asked Questions 
 
 #### How to move from pre-provisioned IOPS to Autoscale IOPS?
-- Access your Azure portal and locate the relevant Azure database for Azure Database for MySQL flexible server.
+- Access your Azure portal and locate the relevant Azure Database for MySQL flexible server.
 - Go to the Settings blade and choose the Compute + Storage section.
 - Within the IOPS section, opt for Auto Scale IOPS and save the settings to apply the modifications.
 
 #### How soon does Autoscale IOPS take effect after making the change?
 Once you enable Autoscale IOPS for Azure Database for MySQL flexible server and save the settings, the changes take effect immediately after the deployment to the resource has completed successfully. This means that the Autoscale IOPS feature will be applied to your database without any delay.
+
+#### How does a Point-In-Time Restore (PITR) operation affect IOPS usage?
+During a PITR operation in Azure Database for MySQL - Flexible Server, a new server is created and data is copied from the source server’s storage to the new server’s storage. This process results in an increased IOPS usage on the source server. This increase in IOPS usage is a normal occurrence and doesn't indicate any issues with the source server or the PITR operation. Once the PITR operation is complete, the IOPS usage on the source server returns to its usual levels. For more information on PITR, you can refer to the 
+[Backup and Restore section](./concepts-backup-restore.md) in the Azure Database for MySQL - Flexible Server documentation.
 
 #### How to know when IOPS have scaled up and scaled down when the server is using Autoscale IOPS feature? Or Can I monitor IOPS usage for my server?
 Refer to [“Monitor Storage performance”](#monitor-storage-performance) section, which will help to identify if your server has scaled up or scaled down during specific time window.

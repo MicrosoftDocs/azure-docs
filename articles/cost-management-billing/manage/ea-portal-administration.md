@@ -435,7 +435,7 @@ Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to 
 To begin:
 
 1. Add the work or school account to the Azure EA Portal in the role(s) needed.
-1. If you get errors, the account may not be valid in the active directory.  Azure uses User Principal Name (UPN), which isn't always identical to the email address.
+1. If you get errors, the account may not be valid in Microsoft Entra ID.  Azure uses User Principal Name (UPN), which isn't always identical to the email address.
 1. Authenticate to the Azure EA portal using the work or school account.
 
 ### To convert subscriptions from Microsoft accounts to work or school accounts:

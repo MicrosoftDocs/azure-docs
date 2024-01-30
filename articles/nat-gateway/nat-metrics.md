@@ -308,6 +308,27 @@ The metrics dashboard can be used to better understand the performance and healt
 
 For more information on what each metric is showing you and how to analyze these metrics, see [How to use NAT gateway metrics](#how-to-use-nat-gateway-metrics).
 
+## More NAT gateway metrics guidance 
+
+### What type of metrics are available for NAT gateway?
+
+NAT gateway has [multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics). Multi-dimensional metrics can be filtered by different dimensions in order to provide greater insight on the data provided. The [SNAT connection count](#snat-connection-count) metric can be filtered by Attempted and Failed connections in order to distinguish between the different types of connections being made by NAT gateway.  
+
+Refer to the dimensions column in the [metrics overview](#metrics-overview) table to see which dimensions are available for each NAT gateway metric. 
+
+### How to store NAT gateway metrics long-term
+
+All [platform metrics are stored](/azure/azure-monitor/essentials/data-platform-metrics#retention-of-metrics) for 93 days. If you require long term access to your NAT gateway metrics data, NAT gateway metrics can be retrieved by using the [metrics REST API](/rest/api/monitor/metrics/list). For more information on how to use the API, see the [Azure monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough).  
+
+>[!NOTE]
+>Diagnostic Settings [doesn’t support the export of multi-dimensional metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index#exporting-platform-metrics-to-other-locations) to another location, such as Azure Storage and Log Analytics.
+>
+>To retrieve NAT gateway metrics, use the metrics REST API.
+
+### How interpret metrics charts
+
+Refer to [troubleshooting metrics charts](/azure/azure-monitor/essentials/metrics-troubleshoot) if you run into issues with creating, customizing or interpreting charts in Azure metrics explorer. 
+
 ## Next steps
 
 * Learn about [Azure NAT Gateway](nat-overview.md)

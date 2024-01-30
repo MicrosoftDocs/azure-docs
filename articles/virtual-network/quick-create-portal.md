@@ -7,7 +7,6 @@ ms.author: allensu
 ms.date: 06/06/2023
 ms.topic: quickstart
 ms.service: virtual-network
-ms.custom: 
 #Customer intent: I want to use the Azure portal to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
 ---
 

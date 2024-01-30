@@ -845,23 +845,11 @@ The following example script copies a custom Tomcat to a local folder, performs 
 
 #### Finalize configuration
 
-Finally, you'll place the driver JARs in the Tomcat classpath and restart your App Service. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the */home/tomcat/lib* directory. (Create this directory if it doesn't already exist.) To upload these files to your App Service instance, perform the following steps:
+Finally, you'll place the driver JARs in the Tomcat classpath and restart your App Service. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the */home/site/lib* directory. In the [Cloud Shell](https://shell.azure.com), run `az webapp deploy --type=lib` for each driver JAR:
 
-1. In the [Cloud Shell](https://shell.azure.com), install the webapp extension:
-
-    ```azurecli-interactive
-    az extension add -–name webapp
-    ```
-
-2. Run the following CLI command to create an SSH tunnel from your local system to App Service:
-
-    ```azurecli-interactive
-    az webapp remote-connection create --resource-group <resource-group-name> --name <app-name> --port <port-on-local-machine>
-    ```
-
-3. Connect to the local tunneling port with your SFTP client and upload the files to the */home/tomcat/lib* folder.
-
-Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](deploy-configure-credentials.md).
+```azurecli-interactive
+az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar-name>.jar --type=lib --target-path <jar-name>.jar
+```
 
 ---
 
@@ -1001,25 +989,13 @@ An example xsl file is provided below. The example xsl file adds a new connector
 
 Finally, place the driver JARs in the Tomcat classpath and restart your App Service.
 
-1. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the */home/tomcat/lib* directory. (Create this directory if it doesn't already exist.) To upload these files to your App Service instance, perform the following steps:
+1. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the */home/site/lib* directory. In the [Cloud Shell](https://shell.azure.com), run `az webapp deploy --type=lib` for each driver JAR:
 
-    1. In the [Cloud Shell](https://shell.azure.com), install the webapp extension:
+```azurecli-interactive
+az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar-name>.jar --type=lib --path <jar-name>.jar
+```
 
-      ```azurecli-interactive
-      az extension add -–name webapp
-      ```
-
-    2. Run the following CLI command to create an SSH tunnel from your local system to App Service:
-
-      ```azurecli-interactive
-      az webapp remote-connection create --resource-group <resource-group-name> --name <app-name> --port <port-on-local-machine>
-      ```
-
-    3. Connect to the local tunneling port with your SFTP client and upload the files to the */home/tomcat/lib* folder.
-
-    Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](deploy-configure-credentials.md).
-
-2. If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_BASE` to `/home/tomcat` and use the updated configuration.
+If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_BASE` to `/home/tomcat` and use the updated configuration.
 
 ### JBoss EAP Data Sources
 

@@ -2,15 +2,15 @@
 title: How to troubleshoot your deployments and monitors in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article provides instructions on how to troubleshoot your deployments and monitors in Azure AI Studio.
-author: eric-urban
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
-ms.reviewer: eur
-ms.author: eur
+ms.reviewer: fasantia
+ms.author: mopeakande
+author: msakande
 ---
 
 # How to troubleshoot your deployments and monitors in Azure AI Studio
@@ -55,7 +55,7 @@ For the general deployment error code reference, you can go to the [Azure Machin
 
 **Question:** I got the following error message about the deployment failure. What should I do to troubleshoot?
 ```
-ResourceNotFound: Deployment failed due to timeout while waiting for Environment Image to become available. Check Environment Build Log in ML Studio Workspace or Workspace storage for potential failures. Image build summary: [N/A]. Environment info: Name: CliV2AnonymousEnvironment, Version: ‘Ver’, you might be able to find the build log under the storage account 'NAME' in the container 'CONTAINER_NAME' at the Path 'PATH/PATH/image_build_aggregate_log.txt'.
+ResourceNotFound: Deployment failed due to timeout while waiting for Environment Image to become available. Check Environment Build Log in ML Studio Workspace or Workspace storage for potential failures. Image build summary: [N/A]. Environment info: Name: CliV2AnonymousEnvironment, Version: 'Ver', you might be able to find the build log under the storage account 'NAME' in the container 'CONTAINER_NAME' at the Path 'PATH/PATH/image_build_aggregate_log.txt'.
 ```
 
 You might have come across an ImageBuildFailure error: This happens when the environment (docker image) is being built. For more information about the error, you can check the build log for your `<CONTAINER NAME>` environment. 

@@ -285,7 +285,7 @@ serverless_compute:
 Update workspace:
 
 ```azurecli
-az ml workspace update -n <workspace-name> -g <resource-group-name> -file serverlesscomputevnetsettings.yml
+az ml workspace update -n <workspace-name> -g <resource-group-name> --file serverlesscomputevnetsettings.yml
 ```
 
 ```yaml
@@ -452,7 +452,7 @@ serverless_compute:
 Update workspace:
 
 ```azurecli
-az ml workspace update -n <workspace-name> -g <resource-group-name> -file serverlesscomputevnetsettings.yml
+az ml workspace update -n <workspace-name> -g <resource-group-name> --file serverlesscomputevnetsettings.yml
 ```
 
 ```yaml

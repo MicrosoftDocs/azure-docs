@@ -2,15 +2,10 @@
 title: Update Terraform-managed Azure resource 
 description: Learn how to safely update Terraform-managed Azure resources to ensure the safety of your data. 
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
+ms.custom: devx-track-terraform
 ms.topic: how-to
 ms.date: 12/20/2023
 ms.author: anfdocs

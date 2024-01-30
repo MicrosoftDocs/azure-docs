@@ -2,7 +2,7 @@
 title: View live data with Container insights
 description: This article describes the real-time view of Kubernetes logs, events, and pod metrics without using kubectl in Container insights.
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 01/12/2024
 ms.custom: references_regions
 ms.reviewer: aul
 ---
@@ -19,6 +19,9 @@ This article provides an overview of this feature and helps you understand how t
 For help with setting up or troubleshooting the Live Data feature, see the [Setup guide](container-insights-livedata-setup.md). This feature directly accesses the Kubernetes API. For more information about the authentication model, see [The Kubernetes API](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
 ## View AKS resource live logs
+
+> [!NOTE]
+> You must be on a machine on the same private network to access live logs from a private cluster.
 
 To view the live logs for pods, deployments, replica sets, stateful sets, daemon sets, and jobs with or without Container insights from the AKS resource view:
 

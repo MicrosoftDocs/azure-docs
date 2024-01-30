@@ -2,7 +2,6 @@
 title: Explore Azure AI capabilities in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article introduces Azure AI capabilities in Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
@@ -11,6 +10,7 @@ ms.topic: how-to
 ms.date: 11/15/2023
 ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Explore Azure AI capabilities in Azure AI Studio

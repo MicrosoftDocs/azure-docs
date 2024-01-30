@@ -8,7 +8,6 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/24/2022
 ms.author: helohr
-manager: femila
 ---
 
 # Azure Virtual Desktop disaster recovery concepts

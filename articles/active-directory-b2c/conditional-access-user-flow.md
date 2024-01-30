@@ -5,12 +5,15 @@ description: Learn how to add Conditional Access to your Azure AD B2C user flows
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 04/10/2022
-ms.custom: 
+ms.date: 01/11/2024
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to add Conditional Access to user flows, so that I can manage risky sign-ins to my applications and enforce organizational policies based on risk assessment.
+
 ---
 
 # Add Conditional Access to user flows in Azure Active Directory B2C

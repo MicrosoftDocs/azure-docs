@@ -4,7 +4,7 @@ description: This quickstart article describes how to create a Traffic Manager p
 services: traffic-manager
 author: greg-lindsay
 ms.author: greglin
-manager: twooley
+
 ms.date: 02/18/2023
 ms.topic: quickstart
 ms.service: traffic-manager

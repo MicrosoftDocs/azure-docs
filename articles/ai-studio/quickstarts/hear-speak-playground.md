@@ -2,7 +2,6 @@
 title: Hear and speak with chat models in the Azure AI Studio playground
 titleSuffix: Azure AI Studio
 description: Hear and speak with chat models in the Azure AI Studio playground.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
@@ -11,6 +10,7 @@ ms.topic: quickstart
 ms.date: 11/15/2023
 ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Quickstart: Hear and speak with chat models in the Azure AI Studio playground

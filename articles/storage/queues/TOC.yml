@@ -119,8 +119,6 @@
       items:
       - name: Storage Analytics
         href: ../common/storage-analytics.md?toc=/azure/storage/queues/toc.json
-      - name: Metrics
-        href: ../common/storage-analytics-metrics.md?toc=/azure/storage/queues/toc.json
       - name: Logs
         href: ../common/storage-analytics-logging.md?toc=/azure/storage/queues/toc.json
       - name: Monitor, diagnose, and troubleshoot

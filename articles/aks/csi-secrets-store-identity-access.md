@@ -1,11 +1,11 @@
 ---
 title: Access Azure Key Vault with the CSI Driver Identity Provider
 description: Learn how to integrate the Azure Key Vault Provider for Secrets Store CSI Driver with your Azure credentials and user identities.
-author: nickomang 
+author: nickomang
 ms.author: nickoman
 ms.topic: article
 ms.date: 12/19/2023
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Connect your Azure identity provider to the Azure Key Vault Secrets Store CSI Driver in Azure Kubernetes Service (AKS)
@@ -27,7 +27,7 @@ You can use one of the following access methods:
 
 A [Microsoft Entra Workload ID][workload-identity] is an identity that an application running on a pod uses to authenticate itself against other Azure services, such as workloads in software. The Secret Store CSI Driver integrates with native Kubernetes capabilities to federate with external identity providers.
 
-In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID then uses OIDC to discover public signing keys and verify the authenticity of the service account token before exchanging it for a Microsoft Entra token. For your workload to exchange a service account token projected to its volume for a Microsoft Entra token, you need the Azure Identity client library in the Azure SDK or the Microsoft Authentication Library (MSAL) 
+In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID then uses OIDC to discover public signing keys and verify the authenticity of the service account token before exchanging it for a Microsoft Entra token. For your workload to exchange a service account token projected to its volume for a Microsoft Entra token, you need the Azure Identity client library in the Azure SDK or the Microsoft Authentication Library (MSAL)
 
 > [!NOTE]
 >
@@ -44,7 +44,7 @@ In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID
     export UAMI=<name for user assigned identity>
     export KEYVAULT_NAME=<existing keyvault name>
     export CLUSTER_NAME=<aks cluster name>
-    
+
     az account set --subscription $SUBSCRIPTION_ID
     ```
 
@@ -80,7 +80,7 @@ In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID
     ```bash
     export SERVICE_ACCOUNT_NAME="workload-identity-sa"  # sample name; can be changed
     export SERVICE_ACCOUNT_NAMESPACE="default" # can be changed to namespace of your workload
-    
+
     cat <<EOF | kubectl apply -f -
     apiVersion: v1
     kind: ServiceAccount
@@ -112,7 +112,7 @@ In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID
     spec:
       provider: azure
       parameters:
-        usePodIdentity: "false"       
+        usePodIdentity: "false"
         clientID: "${USER_ASSIGNED_CLIENT_ID}" # Setting this to use workload identity
         keyvaultName: ${KEYVAULT_NAME}       # Set to the name of your key vault
         cloudName: ""                         # [OPTIONAL for Azure] if not provided, the Azure environment defaults to AzurePublicCloud
@@ -142,7 +142,7 @@ In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID
     apiVersion: v1
     metadata:
       name: busybox-secrets-store-inline-wi
-      labels:  
+      labels:
         azure.workload.identity/use: "true"
     spec:
       serviceAccountName: "workload-identity-sa"
@@ -163,14 +163,14 @@ In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID
             readOnly: true
             volumeAttributes:
               secretProviderClass: "azure-kvname-wi"
-    EOF   
+    EOF
     ```
 
 <a name='access-with-a-user-assigned-managed-identity'></a>
 
-## Access with managed identity 
+## Access with managed identity
 
-A [Microsoft Entra Managed ID][managed-identity] is an identity that an administrator uses to authenticate themselves against other Azure services. The managed identity uses RBAC to federate with external identity providers. 
+A [Microsoft Entra Managed ID][managed-identity] is an identity that an administrator uses to authenticate themselves against other Azure services. The managed identity uses RBAC to federate with external identity providers.
 
 In this security model, you can grant access to your cluster's resources to team members or tenants sharing a managed role. The role is checked for scope to access the keyvault and other credentials. When you [enabled the Azure Key Vault provider for Secrets Store CSI Driver on your AKS Cluster](./csi-secrets-store-driver.md#create-an-aks-cluster-with-azure-key-vault-provider-for-secrets-store-csi-driver-support), it created a user identity.
 
@@ -179,13 +179,13 @@ In this security model, you can grant access to your cluster's resources to team
 1. Access your key vault using the [`az aks show`][az-aks-show] command and the user-assigned managed identity created by the add-on.
 
     ```azurecli-interactive
-    az aks show -g <resource-group> -n <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.clientId -o tsv
+    az aks show -g <resource-group> -n <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.objectId -o tsv
     ```
 
     Alternatively, you can create a new managed identity and assign it to your virtual machine (VM) scale set or to each VM instance in your availability set using the following commands.
 
     ```azurecli-interactive
-    az identity create -g <resource-group> -n <identity-name> 
+    az identity create -g <resource-group> -n <identity-name>
     az vmss identity assign -g <resource-group> -n <agent-pool-vmss> --identities <identity-resource-id>
     az vm identity assign -g <resource-group> -n <agent-pool-vm> --identities <identity-resource-id>
     ```
@@ -193,10 +193,10 @@ In this security model, you can grant access to your cluster's resources to team
 2. Create a role assignment that grants the identity permission access to the key vault secrets, access keys, and certificates using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
-    export IDENTITY_CLIENT_ID="$(az identity show -g <resource-group> --name <identity-name> --query 'clientId' -o tsv)"
+    export IDENTITY_OBJECT_ID="$(az identity show -g <resource-group> --name <identity-name> --query 'principalId' -o tsv)"
     export KEYVAULT_SCOPE=$(az keyvault show --name <key-vault-name> --query id -o tsv)
 
-    az role assignment create --role Key Vault Administrator --assignee <identity-client-id> --scope $KEYVAULT_SCOPE
+    az role assignment create --role "Key Vault Administrator" --assignee $IDENTITY_OBJECT_ID --scope $KEYVAULT_SCOPE
     ```
 
 3. Create a `SecretProviderClass` using the following YAML. Make sure to use your own values for `userAssignedIdentityID`, `keyvaultName`, `tenantId`, and the objects to retrieve from your key vault.
