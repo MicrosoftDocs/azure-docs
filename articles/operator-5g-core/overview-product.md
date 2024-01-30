@@ -91,6 +91,25 @@ Once deployed, AO5GC provides an inventory view of clusters and first-party netw
   
 Disconnected "break-glass" mode maintains data when connectivity between the Azure public cloud regions and local on-premises platforms is lost. AO5GC also allows operators to ingest the telemetry data into their chosen analytics solution for further analysis.  
 
+## Supported Regions
+AO5GC deployment is supported in:
+
+- East US
+- UAE North
+- South Central US
+- Northern Europe
+
+## Compatibility
+
+The table shows which versions of Azure Kubernetes/Nexus Azure Kubernetes K8s are compatible with the current AO5GC release. To use or update to the current AO5GC version, these clusters need to be updated to the appropriate version.
+
+
+|AO5GC Version  |AKS K8s Version   |Nexus K8s Version  |
+|---------|---------|---------|
+|2402.0     |   1.27.3      |     1.27.3    |
+|       |
+
+
 ## Related content
 
 - [Azure Operator 5G Core architecture](overview-architecture.md)

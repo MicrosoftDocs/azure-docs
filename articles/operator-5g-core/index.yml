@@ -34,10 +34,6 @@ landingContent:
            url: concept-centralized-lifecycle-management.md
          - text: Security
            url: concept-security.md
-         - text: Supported region map
-           url: concept-supported-region-map.md
-         - text: Supported features
-           url: concept-supported-features.md
       - linkListType: quickstart
         links:
           - text: Getting an Azure Operator 5G Core subscription

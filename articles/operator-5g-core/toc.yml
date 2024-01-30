@@ -49,8 +49,6 @@ items:
     href: concept-security.md
   - name: Centralized lifecycle management
     href: concept-centralized-lifecycle-management.md
-  - name: Supported features
-    href: concept-supported-features.md
   - name: Deployment order for clusters, network functions and observability on Azure Kubernetes Services
     href: concept-deployment-order.md
   - name: Observability and analytics
@@ -58,8 +56,6 @@ items:
     href: concept-nexus-deployment-order.md
   - name: Observability and analytics
     href: concept-observability-analytics.md
-  - name: Supported region map
-    href: concept-supported-region-map.md
 - name: How-to guides
   items:
   - name: Complete the prerequisite tasks to deploy Nexus Azure Kubernetes Services
