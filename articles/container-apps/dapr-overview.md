@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022, build-2023
 ms.topic: conceptual
-ms.date: 01/10/2024
+ms.date: 01/30/2024
 ---
 
 # Microservice APIs powered by Dapr
@@ -33,7 +33,7 @@ Azure Container Apps offers the following APIs powered by Dapr.
 
 | API                                              | Description                                                                                                                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [**Service-to-service invocation**][dapr-serviceinvo] | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption. [See known limitations for Dapr service invocation in Azure Container Apps.](#limitations)                                     |
+| [**Service-to-service invocation**][dapr-serviceinvo] | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption.                                     |
 | [**State management**][dapr-statemgmt]                | Provides state management capabilities for transactions and CRUD operations.                                                                                    |
 | [**Pub/sub**][dapr-pubsub]                            | Allows publisher and subscriber container apps to intercommunicate via an intermediary message broker. You can also create [declarative subscriptions][dapr-subscriptions] to a topic using an external component JSON file. [Learn more about the declarative pub/sub API.][declarative-pubsub]                                                         |
 | [**Bindings**][dapr-bindings]                         | Trigger your applications based on events                                                                                                                       |
