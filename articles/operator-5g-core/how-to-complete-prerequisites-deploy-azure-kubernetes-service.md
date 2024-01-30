@@ -7,32 +7,7 @@ ms.service: azure
 ms.topic: how-to #required; leave this attribute/value as-is.
 ms.date: 01/30/2024
 
-#CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of a How-to article pattern. See the
-[instructions - How-to](../level4/article-how-to-guide.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-How-to is a procedure-based article pattern that show the user how to complete a task in their own environment. A task is a work activity that has a definite beginning and ending, is observable, consist of two or more definite steps, and leads to a product, service, or decision.
-
--->
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Use a "<verb> * <noun>" format for your H1. Pick an H1 that clearly conveys the task the user will complete.
-
-For example: "Migrate data from regular tables to ledger tables" or "Create a new Azure SQL Database".
-
-* Include only a single H1 in the article.
-* Don't start with a gerund.
-* Don't include "Tutorial" in the H1.
-
--->
 
 # Complete the prerequisites to deploy Azure Operator 5G Core on Advanced Kubernetes Service
 
@@ -54,8 +29,8 @@ To deploy on the Azure Kubernetes service, you must have the following configura
 
 1. Navigate and sign in to the [Azure portal](https://ms.portal.azure.com/).
 1. On the Azure portal home pages, select **Create a Resource**.
-1. In the Categories section, select **Containers** > **Azure Kubernetes Service (AKS)**.
-1. On the Basics tab:
+1. In the **Categories** section, select **Containers** > **Azure Kubernetes Service (AKS)**.
+1. On the **Basics** tab:
     - Enter the **Subscription**, **Resource Group**, **Cluster Name**, **Availability Zones**, and **Pricing Tier** based on your AO5GC requirements.
     -  Disable **Automatic upgrade**.
     - Select **Local accounts with Kubernetes RBAC** for the **Authentication and Authorization** method.
@@ -97,7 +72,7 @@ To deploy on the Azure Kubernetes service, you must have the following configura
     1. Change the fields to **true** and select the green **Patch** button at the top of the screen.
     1. Return to the Azure portal. Navigate to the cluster resource in the original resource group and scale it up to the desired number of workers.
     
-## Next step
+## Next steps
 
 - Learn about the [Deployment order on Azure Kubernetes Services](concept-deployment-order.md).
 - [Deploy a cluster on Advanced Kubernetes Services (AKS)](quickstart-deploy-cluster.md).
