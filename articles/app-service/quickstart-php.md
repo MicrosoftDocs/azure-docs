@@ -77,7 +77,7 @@ You can create the web app using the [Azure CLI](/cli/azure/get-started-with-azu
 
 ### [Azure CLI](#tab/cli)
 
-Azure CLI has a command [`az webapp up`](/cli/azure/webapp#az-webapp-up) that creates the necessary resources and deploy your application in a single step.
+Azure CLI has a command [`az webapp up`](/cli/azure/webapp#az-webapp-up) that creates the necessary resources and deploys your application in a single step.
 
 In the terminal, deploy the code in your local folder using the  [`az webapp up`](/cli/azure/webapp#az-webapp-up) command:
 
@@ -142,12 +142,12 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
     - Under **Runtime stack** select *PHP 8.2*.
     - Under **Operating System**, select *Linux*.
     - Under **Region**, select an Azure region close to you.
-    - **App Service Plan**: Create an app service plan named *myAppServicePlan*.
+    - Under **App Service Plan**, create an app service plan named *myAppServicePlan*.
     - Under **Pricing plan**, select **Free F1**.
     
     :::image type="content" source="./media/quickstart-php/app-service-details-php.png" lightbox="./media/quickstart-php/app-service-details-php.png" alt-text="Screenshot of new App Service app configuration for PHP in the Azure portal.":::
 
-1. Select the **Deployment** tab at the top of the page
+1. Select the **Deployment** tab at the top of the page.
 
 1. Under **GitHub Actions settings**, set **Continuous deployment** to *Enable*.
 
@@ -204,10 +204,10 @@ The PHP sample code is running in an Azure App Service.
 
 1. On your repo page, press `.` to start Visual Studio Code within your browser.
 
-![Screenshot of the forked php-docs-hello-world repo in GitHub with instructions to press the period key on this screen.](media/quickstart-php/forked-github-repo-press-period.png)
+    ![Screenshot of the forked php-docs-hello-world repo in GitHub with instructions to press the period key on this screen.](media/quickstart-php/forked-github-repo-press-period.png)
 
-> [!NOTE]
-> The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
+    > [!NOTE]
+    > The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
 
 1. Edit **index.php** so that it shows "Hello Azure!" instead of "Hello World!"
 

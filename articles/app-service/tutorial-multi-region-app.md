@@ -45,7 +45,7 @@ To complete this tutorial:
 
 ## Create two instances of a web app
 
-You need two instances of a web app that run in different Azure regions for this tutorial. You use the [region pair](../availability-zones/cross-region-replication-azure.md#azure-paired-regions) East US/West US as your two regions and create two empty web apps. Feel free to choose you're own regions if needed.
+You need two instances of a web app that run in different Azure regions for this tutorial. You use the [region pair](../availability-zones/cross-region-replication-azure.md#azure-paired-regions) East US/West US as your two regions and create two empty web apps. Feel free to choose your own regions if needed.
 
 To make management and clean-up simpler, you use a single resource group for all resources in this tutorial. Consider using separate resource groups for each region/resource to further isolate your resources in a disaster recovery situation.
 
@@ -469,7 +469,7 @@ Now that you have a service principal that can access your App Service apps, edi
 
 ### How does slot traffic routing allow me to test updates that I make to my apps?
 
-Traffic routing with slots allows you to direct a predefined portion of your user traffic to each slot. Initially, 100% of traffic is directed to the production site. However, you have the ability, for example, to send 10% of your traffic to your staging slot. If you configure slot traffic routing in this way, when users try to access your app, 10% of them is automatically routed to the staging slot with no changes to your Front Door instance. To learn more about slot swaps and staging environments in App Service, see [Set up staging environments in Azure App Service](deploy-staging-slots.md).
+Traffic routing with slots allows you to direct a predefined portion of your user traffic to each slot. Initially, 100% of traffic is directed to the production site. However, you have the ability, for example, to send 10% of your traffic to your staging slot. If you configure slot traffic routing in this way, when users try to access your app, 10% of them are automatically routed to the staging slot with no changes to your Front Door instance. To learn more about slot swaps and staging environments in App Service, see [Set up staging environments in Azure App Service](deploy-staging-slots.md).
 
 ### How do I move my code from my staging slot to my production slot?
 
@@ -483,7 +483,7 @@ az webapp deployment slot swap --resource-group MyResourceGroup -name <web-app-n
 
 After a few minutes, you can navigate to your Front Door's endpoint to validate the slot swap succeeded.
 
-At this point, your apps are up and running and any changes you make to your application source code automatically triggers an update to both of your staging slots. You can then repeat the slot swap process when you're ready to move that code into production.
+At this point, your apps are up and running and any changes you make to your application source code automatically trigger an update to both of your staging slots. You can then repeat the slot swap process when you're ready to move that code into production.
 
 ### How else can I use Azure Front Door in my multi-region deployments?
 

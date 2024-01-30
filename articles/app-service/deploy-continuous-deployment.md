@@ -95,7 +95,7 @@ For Windows apps, you can manually configure continuous deployment from a cloud 
 
 ## What are the build providers?
 
-Depending on your deployment source in the Deployment Center, you might see a few options to select for build providers. Build providers help you build an CI/CD solution with Azure App Service by automating build, test, and deployment.
+Depending on your deployment source in the Deployment Center, you might see a few options to select for build providers. Build providers help you build a CI/CD solution with Azure App Service by automating build, test, and deployment.
 
 You're not limited to the build provider options found in the Deployment Center, but App Service lets you set them up quickly and offers some integrated deployment logging experience.
 

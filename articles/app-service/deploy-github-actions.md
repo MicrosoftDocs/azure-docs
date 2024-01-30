@@ -22,7 +22,7 @@ Get started with [GitHub Actions](https://docs.github.com/en/actions/learn-githu
 
 GitHub Actions deployment is integrated into the default [app creation wizard](https://portal.azure.com/#create/Microsoft.WebSite). You just need to set **Continuous deployment** to **Enable** in the Deployment tab, and configure the organization, repository, and branch you want.
 
-:::image type="content" source="media/deploy-github-actions/create-wizard-deployment.png" alt-text="A screenshot showing how to enable GitHub Actions deployment in the App Service create wizard":::
+:::image type="content" source="media/deploy-github-actions/create-wizard-deployment.png" alt-text="A screenshot showing how to enable GitHub Actions deployment in the App Service create wizard.":::
 
 When you enable continuous deployment, the app creation wizard automatically picks the authentication method based on the basic authentication selection and configures your app and your GitHub repository accordingly:
 
@@ -32,7 +32,7 @@ When you enable continuous deployment, the app creation wizard automatically pic
 |Enable| [Basic authentication](configure-basic-auth-disable.md) |
 
 > [!NOTE]
-> If you receive an error when creating your app saying that your Azure account doesn't have certain permissions, it may not have [the required permissions to create and configure the user-assigned identity](deploy-continuous-deployment.md#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials). For an alternative, see [Set up GitHub Actions deployment from the Deployment Center](#set-up-github-actions-deployment-from-the-deployment-center)
+> If you receive an error when creating your app saying that your Azure account doesn't have certain permissions, it may not have [the required permissions to create and configure the user-assigned identity](deploy-continuous-deployment.md#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials). For an alternative, see [Set up GitHub Actions deployment from the Deployment Center](#set-up-github-actions-deployment-from-the-deployment-center).
 
 ## Set up GitHub Actions deployment from the Deployment Center
 
@@ -48,9 +48,9 @@ For more information, see [Continuous deployment to Azure App Service](deploy-co
 
 You can also deploy a workflow without using the Deployment Center.
 
-- [1. Generate deployment credentials](#1-generate-deployment-credentials)
-- [2. Configure the GitHub secret](#2-configure-the-github-secret)
-- [3. Add the workflow file to your GitHub repository](#3-add-the-workflow-file-to-your-github-repository)
+1. [Generate deployment credentials](#1-generate-deployment-credentials)
+1. [Configure the GitHub secret](#2-configure-the-github-secret)
+1. [Add the workflow file to your GitHub repository](#3-add-the-workflow-file-to-your-github-repository)
 
 ### 1. Generate deployment credentials
 
@@ -218,7 +218,7 @@ At a minimum, the workflow file would have the following distinct steps:
 1. Build the web app.
 1. Deploy the web app.
 
-To deploy your code to an App Service app, you use the [azure/webapps-deploy@v3](https://github.com/Azure/webapps-deploy/tree/releases/v3) action. The action requires the name of your web app in `app-name` and, depending on your language stack, the path of the a *.zip, *.war, *.jar, or folder to deploy in `package`. For a complete list of possible inputs for the `azure/webapps-deploy@v3` action, see the [action.yml](https://github.com/Azure/webapps-deploy/blob/releases/v3/action.yml) definition.
+To deploy your code to an App Service app, you use the [azure/webapps-deploy@v3](https://github.com/Azure/webapps-deploy/tree/releases/v3) action. The action requires the name of your web app in `app-name` and, depending on your language stack, the path of a *.zip, *.war, *.jar, or folder to deploy in `package`. For a complete list of possible inputs for the `azure/webapps-deploy@v3` action, see the [action.yml](https://github.com/Azure/webapps-deploy/blob/releases/v3/action.yml) definition.
 
 The following examples show the part of the workflow that builds the web app, in different supported languages.
 
@@ -235,8 +235,6 @@ The following examples show the part of the workflow that builds the web app, in
 [!INCLUDE [deploy-github-actions-openid-connect](includes/deploy-github-actions/deploy-github-actions-openid-connect.md)]
 
 -----
-
-## Frequently asked questions
 
 ## Next steps
 
