@@ -36,11 +36,11 @@ You can purchase Azure NetApp Files reserved capacity in units of 100 TiB and 1 
 
 ### Reservation scope
 
-Azure NetApp Files reserved capacity is available for a single subscription and multiple subscriptions (shared scope). When scoped to a single subscription, the reservation discount is applied to the selected subscription only. When scoped to multiple subscriptions, the reservation discount is shared across those subscriptions within the customer's billing context. 
+Azure NetApp Files reserved capacity is available for a single subscription and multiple subscriptions (shared scope). When scoped to a single subscription, the reservation discount is applied to the selected subscription only. When scoped to multiple subscriptions, the reservation discount is shared across those subscriptions within the customer's billing context.
 
- A reservation applies to your usage within the purchased scope and cannot be limited to a specific NetApp account, capacity pools, container, or object within the subscription.
+A reservation applies to your usage within the purchased scope and cannot be limited to a specific NetApp account, capacity pools, container, or object within the subscription.
 
-Any capacity reservation for Azure NetApp Files covers only the capacity pools within the service level selected. Add-on features like cross-region replication, backup, and so on are not included in the reservation. As soon as you buy a reservation, the capacity charges that match the reservation attributes are charged at the discount rates instead of the pay-as-you go rates. 
+Any capacity reservation for Azure NetApp Files covers only the capacity pools within the service level selected. Add-on features such as cross-region replication and backup are not included in the reservation. As soon as you buy a reservation, the capacity charges that match the reservation attributes are charged at the discount rates instead of the pay-as-you go rates. 
 
 For more information on Azure reservations, see [What are Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
