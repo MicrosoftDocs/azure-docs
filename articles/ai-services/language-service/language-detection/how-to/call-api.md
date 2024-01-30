@@ -59,6 +59,10 @@ In some cases it may be hard to disambiguate languages based on the input. You c
 
 For example, "communication" is common to both English and French and if given with limited context the response will be based on the "US" country/region hint. If the origin of the text is known to be coming from France that can be given as a hint.
 
+> [!NOTE] 
+> Ambiguous content can cause confidence scores to be lower.
+> The `countryHint` in the response is only applicable if the confidence score is less than 0.8.
+
 **Input**
 
 ```json
@@ -77,36 +81,37 @@ For example, "communication" is common to both English and French and if given w
 }
 ```
 
-The language detection model now has additional context to make a better judgment: 
+With the second document, the language detection model has additional context to make a better judgment because it contains the `countryHint` property in the input above. This will return the following output.
+ 
 
 **Output**
 
 ```json
 {
-    "documents": [
-            {
-                "id": "1",
-                "detectedLanguage": {
-                    "name": "English",
-                    "iso6391Name": "en",
-                    "confidenceScore": 0.99,
-                    "script": "Latin",
-                    "scriptCode": "Latn"
-                },
-                "warnings": []
+    "documents":[
+        {
+            "detectedLanguage":{
+                "confidenceScore":0.62,
+                "iso6391Name":"en",
+                "name":"English"
             },
-            {
-                "id": "2",
-                "detectedLanguage": {
-                    "name": "French",
-                    "iso6391Name": "fr",
-                    "confidenceScore": 1.0,
-                    "script": "Latin",
-                    "scriptCode": "Latn"
-                },
-                "warnings": []
-            }
-        ],
+            "id":"1",
+            "warnings":[
+                
+            ]
+        },
+        {
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"fr",
+                "name":"French"
+            },
+            "id":"2",
+            "warnings":[
+                
+            ]
+        }
+    ],
     "errors":[
         
     ],
@@ -178,23 +183,43 @@ The resulting output consists of the predominant language, with a score of less 
 }
 ```
 
-## Script name and script code content
-
-To distinguish between multiple scripts used to write certain languages, such as Kazakh, the Language Detection feature returns a script name and script code according to the [ISO 15924 standard](https://wikipedia.org/wiki/ISO_15924).  
+## Script detection
 
 > [!NOTE]
-> The script name and script code will be returned on input documents larger than 12 characters.
+> Script detection is currently limited to [select languages](../language-support.md#script-detection).  
+
+
+Language detection offers the ability to detect more than one script per language according to the [ISO 15924 standard](https://wikipedia.org/wiki/ISO_15924). Specifically, Language Detection returns two script-related properties:
+
+* `script`: The human-readable name of the identified script
+* `scriptCode`: The ISO 15924 code for the identified script
+
+The output of the API includes the value of the `scriptCode` property for documents that are at least 12 characters or greater in length and matches the list of supported languages and scripts. Script detection is designed to benefit users whose language can be transliterated or written in more than one script, such as Kazakh or Hindi language.
+
+Previously, language detection was designed to detect the language of documents in a wide variety of languages, dialects, and regional variants, but was limited by "Romanization". Romanization refers to conversion of text from one writing system to the Roman (Latin) script, and is necessary to detect many Indo-European languages. However, there are other languages which are written in multiple scripts, such as Kazakh, which can be written in Cyrillic, Perso-Arabic, and Latin scripts. There are also other cases in which users may either choose or are required to transliterate their language in more than one script, such as Hindi transliterated in Latin script, due to the limited availability of keyboards which support its Devanagari script.  
+
+Consequently, language detection's expanded support for script detection behaves as follows:
 
 **Input**
 
 ```json
 {
-    "documents": [
-        {
-            "id": "1",
-            "text": "How are you?"
-        }
-    ]
+    "kind": "LanguageDetection",
+    "parameters": {
+        "modelVersion": "latest"
+    },
+    "analysisInput": {
+        "documents": [
+            {
+                "id": "1",
+                "text": "आप कहाँ जा रहे हैं?"
+            },
+            {
+                "id": "2",
+                "text": "Aap kahan ja rahe hain?"
+            }
+        ]
+    }
 }
 ```
 
@@ -204,23 +229,40 @@ The resulting output consists of the predominant language, along with a script n
 
 ```json
 {
-    "documents": [
-        {
-            "id": "1",
-            "detectedLanguage": {
-                "name": "English",
-                "iso6391Name": "es",
-                "confidenceScore": 0.99, 
-                "script": "Latin",
-                "scriptCode": "Latn",
+    "kind": "LanguageDetectionResults",
+    "results": {
+        "documents": [
+            {
+                "id": "1",
+                "detectedLanguage": {
+                    "name": "Hindi",
+                    "iso6391Name": "hi",
+                    "confidenceScore": 1.0,
+                    "script": "Devanagari",
+                    "scriptCode": "Deva"
+                },
+                "warnings": []
             },
-            "warnings": []
-        }
-    ],
-    "errors": [],
-    "modelVersion": "2021-01-05"
+            {
+                "id": "2",
+                "detectedLanguage": {
+                    "name": "Hindi",
+                    "iso6391Name": "hi",
+                    "confidenceScore": 0.52,
+                    "script": "Devanagari",
+                    "scriptCode": "Deva"
+                },
+                "warnings": []
+            }
+        ],
+        "errors": [],
+        "modelVersion": "2023-12-01"
+    }
 }
+
 ```
+
+
 
 ## Service and data limits
 
