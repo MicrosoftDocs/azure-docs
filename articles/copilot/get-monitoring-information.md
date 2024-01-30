@@ -25,7 +25,7 @@ To get details about your container logs, start on the **Logs** page for your AK
 
 ## Sample prompts
 
-Here are a few examples of the kinds of prompts you can use to get information about Azure Monitor logs. Modify these prompts based on your real-life scenarios, or try additional prompts to get different kinds of information.
+Here are a few examples of the kinds of prompts you can use to get information about Azure Monitor logs for an AKS cluster. Modify these prompts based on your real-life scenarios, or try additional prompts to get different kinds of information.
 
 - "Are there any errors in container logs?"
 - "Show logs for the last day of pod <provide_pod_name> under namespace <provide_namespace>"
@@ -36,5 +36,5 @@ Here are a few examples of the kinds of prompts you can use to get information a
 ## Next steps
 
 - Explore [capabilities](capabilities.md) of Microsoft Copilot for Azure (preview).
-- Learn more about [Azure Monitor](/azure/azure-monitor/).
+- Learn more about [Azure Monitor](/azure/azure-monitor/) and [how to use it with AKS clusters](/azure/aks/monitor-aks).
 - [Request access](https://aka.ms/MSCopilotforAzurePreview) to Microsoft Copilot for Azure (preview).
