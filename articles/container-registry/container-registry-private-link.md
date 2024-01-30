@@ -339,7 +339,7 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 Consider the following options to execute the `az acr build` successfully.
 > [!NOTE]
 > Once you disable public network [access here](#disable-public-access), then `az acr build` commands will no longer work.
-> When using Azure DevOps with ACR, public IPs are needed unless we opt for dedicated agent pools.
+> Unless you are utilizing dedicated agent pools, it's typically necessary to whitelist the public IP ranges associated with the Azure machine pools used by the DevOps agents. These public IPs facilitate outbound requests from the Azure machine pools to reach the ACR instance. Failure to whitelist these IPs may result in connectivity issues between DevOps agents and ACR.
 
 1. Assign a [dedicated agent pool.](./tasks-agent-pools.md) 
 2. If agent pool is not available in the region, add the regional [Azure Container Registry Service Tag IPv4](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) to the [firewall access rules.](./container-registry-firewall-access-rules.md#allow-access-by-ip-address-range)
