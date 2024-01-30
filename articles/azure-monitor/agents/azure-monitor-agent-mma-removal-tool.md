@@ -55,7 +55,7 @@ To install the package:
 
 ### [Single tenant](#tab/single-tenant)
 
-1. Go to deployment folder and load the consolidated setup script. You must have **Owner** access on the subscription.
+1. Go to the deployment folder and load the consolidated setup script. You must have **Owner** access on the subscription.
 
    ``` PowerShell
    CD "<LocalExtractedFolderPath>\AzTSMMARemovalUtilityDeploymentFiles"
@@ -103,7 +103,7 @@ To install the package:
    |`TargetSubscriptionIds`| List of target subscription IDs to run on. | No |
    |`TargetManagementGroupNames`| List of target management group names to run on. | No|
    |`TenantScope`| Tenant scope for assigning roles via your tenant ID.| No|
-   |`SubscriptionId`| Subscription ID where the setup is installed.| Yes|
+   |`SubscriptionId`| ID of the subscription where the setup is installed.| Yes|
    |`HostRGName`| Name of the new resource group where the remediation managed identity is created. Default value is `AzTS-MMARemovalUtility-Host-RG`.| No|
    |`Location`| Location domain controller where the setup is created. Default value is `EastUS2`.| No|
    |`AzureEnvironmentName`| Azure environment where the solution is installed: `AzureCloud` or `AzureGovernmentCloud`. Default value is `AzureCloud`.| No|
@@ -265,7 +265,7 @@ You perform the following operations:
 - Create or update the automation account.
 - Grant access for the automation account by using a system-assigned managed identity on the key vault.
 - Set up the runbook with a script to fetch the IP ranges that Azure publishes every week.
-- Run the runbook one time at the time of setup and schedule a task to run every week.
+- Run the runbook one time at the time of setup, and schedule a task to run every week.
 
 ``` PowerShell
 Set-AzTSMMARemovalUtilityRunbook ` 
