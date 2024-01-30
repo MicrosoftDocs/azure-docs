@@ -9,6 +9,8 @@ ms.custom: Edge Secured-core certified devices
 ms.service: certification
 ---
 
+test
+
 # Edge Secured-core certified devices
 This page contains a list of devices that have successfully passed the Edge Secured-core certifications and adhere to the Microsoft recommended security baselines.
 
