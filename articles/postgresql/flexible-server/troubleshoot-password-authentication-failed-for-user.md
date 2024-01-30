@@ -74,8 +74,8 @@ If you're encountering the "password authentication failed for user `<user-name>
   If the cause of the error is the creation of a user or role without a password, log in to your PostgreSQL instance and set the password for the role. For roles created without the `LOGIN` privilege, make sure to grant this privilege along with setting the password:
 
   ```sql
-  ALTER ROLE <role-name> WITH LOGIN;
-  ALTER ROLE <role-name> WITH PASSWORD '<new-password>';
+  ALTER ROLE <role-name> LOGIN;
+  ALTER ROLE <role-name> PASSWORD '<new-password>';
   ```
   
 * **Identify the Attacker's IP Address and Secure Your Database**
@@ -118,7 +118,7 @@ If you're encountering the "password authentication failed for user `<user-name>
     3. **Block the attacker's IP address**
     Dig into the logs to spot any suspicious IP addresses that keep showing up in unauthorized access attempts. Once you find these IPs, immediately block them in your firewall settings. This cuts off their access and prevent any more unauthorized attempts.
 
-    Additionally, review your firewall rules to ensure they're not too permissive. Overly broad rules can expose your database to potential attacks. Limit access to only known and necessary IP ranges.
+     Additionally, review your firewall rules to ensure they're not too permissive. Overly broad rules can expose your database to potential attacks. Limit access to only known and necessary IP ranges.
   
 
 
