@@ -98,7 +98,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 
 On a flow page, you can use the following options to manage an automatic runtime:
 
-- **Install packages** triggers `pip install -r requirements.txt` in the flow folder. The process can take a few minutes, depending on the packages that you install.
+- **Install packages** Open `requirements.txt` in prompt flow UI, you can add packages in it.
 - **View installed packages** shows the packages that are installed in the runtime. It includes the packages baked to base image and packages specify in the `requirements.txt` file in the flow folder.
 - **Reset** deletes the current runtime and creates a new one with the same environment. If you encounter a package conflict, you can try this option.
 - **Edit** opens the runtime configuration page, where you can define the VM side and the idle time for the runtime.
