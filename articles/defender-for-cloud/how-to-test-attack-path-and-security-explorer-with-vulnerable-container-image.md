@@ -129,8 +129,8 @@ After you completed testing the attack path, investigate the created attack path
 
     ```docker
     docker pull alpine
-    docker tag alpine <LOCATION>-docker.pkg.dev/<PROJECT_ID>/<REGISTRY>/<REPOSITORY>/ mdc-mock-0001
-    docker push <LOCATION>-docker.pkg.dev/<PROJECT_ID>/<REGISTRY>/<REPOSITORY>/ mdc-mock-0001
+    docker tag alpine <LOCATION>-docker.pkg.dev/<PROJECT_ID>/<REGISTRY>/<REPOSITORY>/mdc-mock-0001
+    docker push <LOCATION>-docker.pkg.dev/<PROJECT_ID>/<REGISTRY>/<REPOSITORY>/mdc-mock-0001
     ```
 
 1. Go to the GCP portal. Then go to **Kubernetes Engine** > **Clusters**. Select the **Connect** button.
@@ -146,19 +146,13 @@ After you completed testing the attack path, investigate the created attack path
     kubectl get nodes
     ```
 
-1. Install the [ngnix ingress Controller](https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/) :
-
-    ```azurecli
-    helm install ingress-controller oci://ghcr.io/nginxinc/charts/nginx-ingress --version 1.0.1
-    ```
-
 1. To install the Helm chart, follow these steps:
 
     1. Under **Artifact registry** in the portal, go to the repository, and find the image URI under **Pull by digest**.
     1. Use the following command to install the Helm chart:
 
         ```gcloud-cli
-        helm install dcspmcharts oci://dcspmtesting.azurecr.io/multi-cloud/dcspmcharts --version 1.0.0 --namespace mdc-dcspm-demo --create-namespace --set image=<IMAGE_URI> --set distribution=GCP
+        helm install dcspmcharts oci:/mcr.microsoft.com/mdc/stable/dcspmcharts --version 1.0.0 --namespace mdc-dcspm-demo --create-namespace --set image=<IMAGE_URI> --set distribution=GCP
         ```
 
 The Helm chart deploys resources onto your cluster that can be used to infer attack paths. It also includes the vulnerable image.
