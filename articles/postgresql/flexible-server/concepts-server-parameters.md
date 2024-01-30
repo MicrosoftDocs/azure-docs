@@ -89,7 +89,7 @@ disk, `shared_buffers` effectively reduces the number of required I/O operations
 
 #### Description
 
-Huge pages are a feature that allows for memory to be managed in larger blocks - typically 2 MB, as opposed to the "classic" 4 KB pages. Utilizing huge pages can offer performance advantages in several ways: they reduce the overhead associated with memory management tasks like fewer Translation Lookaside Buffer (TLB) misses and shorten the time needed for memory management, effectively offloading the CPU. Specifically, in PostgreSQL, huge pages can only be utilized for the shared memory area, a significant part of which is allocated for shared buffers. Another advantage is that when the shared memory area is backed by huge pages, it can't be swapped out to disk, further stabilizing performance.
+Huge pages are a feature that allows for memory to be managed in larger blocks - typically 2 MB, as opposed to the "classic" 4 KB pages. Utilizing huge pages can offer performance advantages in several ways: they reduce the overhead associated with memory management tasks like fewer Translation Lookaside Buffer (TLB) misses and shorten the time needed for memory management, effectively offloading the CPU. Specifically, in PostgreSQL, huge pages can only be utilized for the shared memory area, a significant part of which is allocated for shared buffers. Another advantage is that huge pages prevent the swapping of the shared memory area out to disk, further stabilizing performance.
 
 #### Recommendations
 
