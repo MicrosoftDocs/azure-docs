@@ -223,6 +223,10 @@
     items:  
     - name: Troubleshooting guides
       href: flexible-server/how-to-troubleshooting-guides.md
+    - name: Connection errors
+      items:
+      - name: Password authentication failed for user
+        href: flexible-server/troubleshoot-password-authentication-failed-for-user.md
     - name: Functional troubleshooting
       items:
       - name: Troubleshoot CLI errors
