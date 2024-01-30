@@ -10,110 +10,47 @@ ms.date: 01/18/2024
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the  main branch.
-
-This template provides the basic structure of a Concept article pattern. See the [instructions - Concept](../level4/article-concept.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-Concept is an article pattern that defines what something is or explains an abstract idea.
-
-There are several situations that might call for writing a Concept article, including:
-
-* If there's a new idea that's central to a service or product, that idea must be explained so that customers understand the value of the service or product as it relates to their circumstances. A good recent example is the concept of containerization or the concept of scalability.
-* If there's optional information or explanations that are common to several Tutorials or How-to guides, this information can be consolidated and single-sourced in a full-bodied Concept article for you to reference.
-* If a service or product is extensible, advanced users might modify it to better suit their application. It's better that advanced users fully understand the reasoning behind the design choices and everything else "under the hood" so that their variants are more robust, thereby improving their experience.
-
--->
-
-<!-- 1. H1
------------------------------------------------------------------------------
-
-Required. Set expectations for what the content covers, so customers know the content meets their needs. The H1 should NOT begin with a verb.
-
-Reflect the concept that undergirds an action, not the action itself. The H1 must start with:
-
-* "\<noun phrase\> concept(s)", or
-* "What is \<noun\>?", or
-* "\<noun\> overview"
-
-Concept articles are primarily distinguished by what they aren't:
-
-* They aren't procedural articles. They don't show how to complete a task.
-* They don't have specific end states, other than conveying an underlying idea, and don't have concrete, sequential actions for the user to take.
-
-One clear sign of a procedural article would be the use of a numbered list. With rare exception, numbered lists shouldn't appear in Concept articles.
-
--->
 
 # Centralized Lifecycle Management in Azure Operator 5G Core
-TODO: Add your heading
+ 
+The Azure Operator 5G Core Resource Provider (RP) is responsible for the lifecycle management (LCM) of the following UnityCloud network functions:
+- Access and Mobility Management Function (AMF)
+- Session Management Function (SMF)
+- User Plane Function (UPF)
+- Network Repository Function (NRF)
+- Network Slice Selection Function (NSSF)
+- Containerized Mobility Management Entity (cMME)
 
-<!-- 2. Introductory paragraph
-----------------------------------------------------------
+Lifecycle Management consists of the following operations:
+- Instantiation
+- Upgrade (out of scope for Public Preview)
+- Termination
 
-Required. Lead with a light intro that describes what the article covers. Answer the fundamental “why would I want to know this?” question. Keep it short.
+The Azure Resource Manager (ARM) model that is used for lifecycle management is shown here: 
 
-* Answer the fundamental "Why do I want this knowledge?" question.
-* Don't start the article with a bunch of notes or caveats.
-* Don’t link away from the article in the introduction.
-* For definitive concepts, it's better to lead with a sentence in the form, "X is a (type of) Y that does Z."
+> [!NOTE]
+> The CNFs are included for Public Preview while the VNFs are targeted for GA release.
 
--->
+:::image type="content" source="media/overview-architecture/lifecycle-management-model.png" alt-text="Diagram showing the containerized network functions and virtualized network functions responsible for lifecycle management in Azure Operator 5G Core.":::
 
-[Introductory paragraph]
-TODO: Add your introductory paragraph
+Network function federated deployments require fully deployed local Platform as a Service (PaaS) components (cluster). Any attempt to deploy a network function prior to PaaS deployment fails. ARM templates are serial in nature and don't proceed until dependent templates are complete. This process prevents network function templates from being deployed prior to PaaS completion.  Observability deployments also fail if local PaaS deployment is incomplete.
 
-<!-- 3. Prerequisites --------------------------------------------------------------------
+The federated network functions include:
+- fed-smf
+- fed-amf-mme
+- fed-upf
+- fed-nrf
+- fed-nssf
 
-Optional: Make **Prerequisites** your first H2 in the article. Use clear and unambiguous
-language and use a unordered list format. 
+The deployments for cMME and AnyG are variations on the existing helm charts. Creation of these functions is a matter of specifying different input Helm values. The AO5GC RP uses the Network Function Manager (NFM) Resource Provider to perform this activity. 
 
--->
+AO5GC network function images and Helm charts are Azure-managed and accessed by the AO5GC Resource Provider for lifecycle management operations.  
 
-## Prerequisites
-TODO: [List the prerequisites if appropriate]
+Local Observability is provided by UnityCloud Observability components listed in the diagram. Because the Observability function is local, it also available in break-glass scenarios for Nexus where the interfaces can be accessed locally.
+ 
+:::image type="content" source="media/overview-architecture/local-observability.png" alt-text="Diagram showing how UnityCloud observability components are used in Azure Operator 5G Core. ":::
 
-<!-- 4. H2s (Article body)
---------------------------------------------------------------------
 
-Required: In a series of H2 sections, the article body should discuss the ideas that explain how "X is a (type of) Y that does Z":
-
-* Give each H2 a heading that sets expectations for the content that follows.
-* Follow the H2 headings with a sentence about how the section contributes to the whole.
-* Describe the concept's critical features in the context of defining what it is.
-* Provide an example of how it's used where, how it fits into the context, or what it does. If it's complex and new to the user, show at least two examples.
-* Provide a non-example if contrasting it will make it clearer to the user what the concept is.
-* Images, code blocks, or other graphical elements come after the text block it illustrates.
-* Don't number H2s.
-
--->
-
-## [Section 1 heading]
-TODO: add your content
-
-## [Section 2 heading]
-TODO: add your content
-
-## [Section n heading]
-TODO: add your content
-
-<!-- 5. Next step/Related content ------------------------------------------------------------------------ 
-
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
-
-<!-- 6. Next step/Related content ------------------------------------------------------------------------
-
-Optional: You have two options for manually curated links in this pattern: Next step and Related
-content. You don't have to use either, but don't use both. For Next step, provide one link to the
-next step in a sequence. Use the blue box format For Related content provide 1-3 links. Include some
-context so the customer can determine why they would click the link. Add a context sentence for the
-following links.
-
--->
 
 ## Next step
 TODO: Add your next step link(s)
