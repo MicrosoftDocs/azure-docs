@@ -45,7 +45,7 @@ Ephemeral OS Disks: Not Supported 
 Nested Virtualization: Supported 
 
 ## Fasv6-series
- 
+
 | Size              | vCPU | Memory: GiB | Local NVMe Temporary storage (SSD) GiB   | Max data disks | Max uncached Premium SSD disk throughput: IOPS/MBps | Max burst uncached Premium SSD disk throughput: IOPS/MBps1 | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps1 | Max NICs | Max network bandwidth (Mbps) |
 |-------------------|------|-------------|------------------------------------------|----------------|-----------------------------------------------------|------------------------------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------|----------|------------------------------|
 | Standard_F2as_v6  | 2    | 8           | Remote Storage Only                      | 4              | 4000/90                                             | 20000/1250                                                 | 8000/90                                                               | 20000/1250                                                                   | 2        | 12500                        |
