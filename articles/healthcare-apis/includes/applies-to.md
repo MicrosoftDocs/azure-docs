@@ -1,9 +1,9 @@
 ---
-title: Applies to
-description: Icon indicates the services the article applies to
+title: Yes icon
+description: Green checkmark icon indicates the services the article applies to
 services: healthcare-apis
 ms.service: workspace
-ms.topic: "include"
+ms.topic: include
 ms.date: 01/30/2024
 ms.author: jasteppe
 
