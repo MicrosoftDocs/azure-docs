@@ -17,7 +17,7 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 ## Requirements and considerations 
 
 >[!IMPORTANT]
->If you're using custom roles with role-based access control (RBAC), you need to ensure the appropriate permissions are set for the custom role. For configuration details, see [Configure custom RBAC roles](#configure-custom-rbac-roles).
+>If you're using availability zones and custom roles with role-based access control (RBAC), ensure you have the appropriate permissions set. Not having certain permissions can cause issues in the Azure portal. For configuration details, see [Configure custom RBAC roles](#configure-custom-rbac-roles).
 
 * This feature doesn't guarantee free capacity in the availability zone. For example, even if you can deploy a VM in availability zone 3 of the East US region, it doesn’t guarantee free Azure NetApp Files capacity in that zone. If no sufficient capacity is available, volume creation will fail.
 
