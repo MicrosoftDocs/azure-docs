@@ -135,8 +135,13 @@ For more information about service accounts in Google Cloud Platform, see [Servi
 
 1. Enter the following values in the provider settings (these aren't samples&mdash;use these actual values):
    - **Issuer (URL)**: `https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d`    
-   - **Allowed audiences**: the application ID URI: `api://2041288c-b303-4ca0-9076-9612db3beeb2`.
+   - **Audience**: the application ID URI: `api://2041288c-b303-4ca0-9076-9612db3beeb2`
    - **Attribute mapping**: `google.subject=assertion.sub`
+
+   > [!NOTE]
+   > To set up the connector to send logs from GCP to the **Azure Government cloud**, use the following alternate values for the provider settings instead of those above:
+   > - **Issuer (URL)**: `https://sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e`
+   > - **Audience**: `api://e9885b54-fac0-4cd6-959f-a72066026929`
 
 For more information about workload identity federation in Google Cloud Platform, see [Workload identity federation](https://cloud.google.com/iam/docs/workload-identity-federation) in the Google Cloud documentation.
 
@@ -214,20 +219,20 @@ Follow the instructions in the Google Cloud documentation to [**set up a sink**]
 - Choose a Name that reflects the purpose of log collection for export to Microsoft Sentinel.
 - Select "Cloud Pub/Sub topic" as the destination type, and choose the topic you created in the previous step.
 
----
-
-## Verify that GCP can receive incoming messages
-
-1. In the GCP console, navigate to **Subscriptions**.
-
-1. Select **Messages**, and select **PULL** to initiate a manual pull. 
-
-1. Check the incoming messages.  
-
    > [!NOTE]
    > To ingest logs for the entire organization: 
    > 1. Select the organization under **Project**. 
    > 1. Repeat steps 2-4, and under **Choose logs to include in the sink** in the **Log Router** section, select **Include logs ingested by this organization and all child resources**.   
+
+---
+
+## Verify that GCP can receive incoming messages
+
+1. In the GCP Pub/Sub console, navigate to **Subscriptions**.
+
+1. Select **Messages**, and select **PULL** to initiate a manual pull. 
+
+1. Check the incoming messages.  
 
 ## Set up the GCP Pub/Sub connector in Microsoft Sentinel
 
