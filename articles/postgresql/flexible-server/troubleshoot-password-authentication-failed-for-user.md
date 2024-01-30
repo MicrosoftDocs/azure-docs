@@ -93,26 +93,27 @@ If you're encountering the "password authentication failed for user `<user-name>
       
             In this example, `y.y.y.y` is the IP address from which the attacker is trying to connect.
 
-          * **Modify the `log_line_prefix`**
-          To improve logging and make it easier to troubleshoot, you should modify the `log_line_prefix` parameter in your PostgreSQL configuration to include the remote host's IP address. To log the remote host name or IP address, add the `%h` escape code to your `log_line_prefix`.
+       * **Modify the `log_line_prefix`**
+       To improve logging and make it easier to troubleshoot, you should modify the `log_line_prefix` parameter in your PostgreSQL configuration to include the remote host's IP address. To log the remote host name or IP address, add the `%h` escape code to your `log_line_prefix`.
             
-          For instance, you can change your `log_line_prefix` to the following format for comprehensive logging:
+         For instance, you can change your `log_line_prefix` to the following format for comprehensive logging:
 
-           ```bash
-           log_line_prefix = '%t [%p]: [%l-1] db=%d,user=%u,app=%a,client=%h '
-           ```
+          ```bash
+          log_line_prefix = '%t [%p]: [%l-1] db=%d,user=%u,app=%a,client=%h '
+          ```
       
-           This format includes:
+          This format includes:
       
-           * `%t` for the timestamp of the event
-           * `%p` for the process ID
-           * `[%l-1]` for the session line number
-           * `%d` for the database name
-           * `%u` for the user name
-           * `%a` for the application name
-           * `%h` for the client IP address
+          * `%t` for the timestamp of the event
+          * `%p` for the process ID
+          * `[%l-1]` for the session line number
+          * `%d` for the database name
+          * `%u` for the user name
+          * `%a` for the application name
+          * `%h` for the client IP address
+         
       
-           By using this log line prefix, you will be able to track the time, process ID, user, application, and client IP address associated with each log entry, providing valuable context for each event in the server log.
+          By using this log line prefix, you will be able to track the time, process ID, user, application, and client IP address associated with each log entry, providing valuable context for each event in the server log.
   
   Implementing these changes will help you identify the source of the security threat and enhance your ability to troubleshoot and resolve issues efficiently.
 
