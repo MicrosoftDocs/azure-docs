@@ -16,6 +16,12 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
 ## Requirements and considerations 
 
+>[!IMPORTANT]
+>If you are using custom roles with role-based access control (RBAC), you need to ensure the appropriate permissions are set for the custom role. For configuration details, see [Configure custom RBAC roles](#configure-custom-rbac-roles).
+“Issue was that region info call was not reaching RP due to a RBAC permission error which was not being caught by portal. Customers with custom roles would not have read permission for region info and Portal would not notify customers that they lack this permission.
+To fix this, we improved the error handling for region info in the Portal so that we display an appropriate error to users when customers hit a permission error with the region info call.”
+
+
 * This feature doesn't guarantee free capacity in the availability zone. For example, even if you can deploy a VM in availability zone 3 of the East US region, it doesn’t guarantee free Azure NetApp Files capacity in that zone. If no sufficient capacity is available, volume creation will fail.
 
 * After a volume is created with an availability zone, the specified availability zone can’t be modified. Volumes can’t be moved between availability zones.
@@ -112,7 +118,47 @@ The populate availability zone features requires a `zone` property on the volume
 1. Run `terraform apply` to apply the changes. You should see the same CLI output as in the previous step. 
 
 If you need to delete and recreate the volume in a different availability zone, remove the `ignore_changes = [zone]` line in the configuration file then run `terraform plan`. If the output indicates that no changes will be made to the volume, you can successfully populate the availability zone.
- 
+
+## Configure custom RBAC roles
+
+If you are using a custom RBAC role, you may not be able to access network features and Availability Zone options in the Azure portal. To ensure you have the appropriate access, you should add the `Microsoft.NetApp/locations/*` permission, which adds the following permissions: 
+
+* `Microsoft.NetApp/locations/{location}/checkNameAvailability`
+* `Microsoft.NetApp/locations/{location}/checkFilePathAvailability`
+* `Microsoft.NetApp/locations/{location}/checkQuotaAvailability`
+* `Microsoft.NetApp/locations/{location}/quotaLimits`
+* `Microsoft.NetApp/locations/{location}/quotaLimits/{quotaLimitName}`
+* `Microsoft.NetApp/locations/{location}/regionInfo`
+* `Microsoft.NetApp/locations/{location}/queryNetworkSiblingSet`
+* `Microsoft.NetApp/locations/{location}/updateNetworkSiblingSet`
+
+1. In your Azure NetApp Files subscription, select **Access control (IAM)**.
+1. Select **Roles** then choose the custom role you want to modify. Select the three dots (`...`) then **Edit**. 
+1. To update the custom role, select **JSON**. Modify the JSON file to include the locations wild card permission (`Microsoft.NetApp/locations/*`). For example: 
+
+    ```json
+    {
+    	"properties": {
+    	    "roleName": ""
+    	    "description": ""
+    	    "assignableScopes": ["/subscription/<subscriptionID>"
+            ],
+    	},
+    	"permissions": [
+            {
+        	    "actions": [
+                	"Microsoft.NetApp/locations/*",
+                	"Microsoft.NetApp/netAppAccounts/read",
+                	"Microsoft.NetApp/netAppAccounts/renewCredentials/action",
+                    "Microsoft.NetApp/netAppAccounts/capacityPools/read",
+                ]
+            }]
+    }
+    ```
+
+1. Select **Review + update**.
+1. Log out of your Azure account and the log back in to confirm permissions effect has taken hold and the options are visible. 
+
 ## Next steps  
 
 * [Use availability zones for high availability](use-availability-zones.md)
