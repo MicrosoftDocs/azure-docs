@@ -71,8 +71,10 @@ landingContent:
     linkLists:
     - linkListType: how-to-guide
       links:
-      - text: Use Application Configuration service
-        url: how-to-enterprise-application-configuration-service.md
+      - text: Deploy apps using IntelliJ
+        url: how-to-intellij-deploy-apps.md
+      - text: Deploy apps using VS Code
+        url: https://code.visualstudio.com/docs/java/java-spring-apps
       - text: CI/CD with Azure DevOps
         url: how-to-cicd.md?pivots=programming-language-java
       - text: CI/CD with GitHub Actions
