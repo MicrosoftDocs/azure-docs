@@ -37,16 +37,16 @@ This example shows how you can deploy an MLflow model to an online endpoint to p
 
 The model was trained using a `scikit-learn` regressor, and all the required preprocessing has been packaged as a pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo, and then change directories to `cli/endpoints/online` if you're using the Azure CLI or `sdk/python/using-mlflow/deploy` if you're using the Azure Machine Learning SDK for Python.
+The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo, and then change directories to `cli/endpoints/online` if you're using the Azure CLI or `sdk/python/endpoints/online/mlflow` if you're using the Azure Machine Learning SDK for Python.
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples/cli/endpoints/online
 ```
 
-<!-- ### Follow along in Jupyter Notebook
+### Follow along in Jupyter Notebook
 
-You can follow the steps for using the Azure Machine Learning Python SDK by opening the [mlflow_sdk_online_endpoints_progresive.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/deploy/mlflow_sdk_online_endpoints.ipynb) notebook in the cloned repository. -->
+You can follow the steps for using the Azure Machine Learning Python SDK by opening the [Deploy MLflow model to online endpoints](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/mlflow/online-endpoints-deploy-mlflow-model.ipynb) notebook in the cloned repository.
 
 ## Prerequisites
 
@@ -106,9 +106,15 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 
     ```python
     from azure.ai.ml import MLClient, Input
-    from azure.ai.ml.entities import ManagedOnlineEndpoint, ManagedOnlineDeployment, Model
-    from azure.ai.ml.constants import AssetTypes
+    from azure.ai.ml.entities import (
+    ManagedOnlineEndpoint,
+    ManagedOnlineDeployment,
+    Model,
+    Environment,
+    CodeConfiguration,
+    )
     from azure.identity import DefaultAzureCredential
+    from azure.ai.ml.constants import AssetTypes
     ```
 
 2. Configure workspace details and get a handle to the workspace:
@@ -147,7 +153,7 @@ Navigate to [Azure Machine Learning studio](https://ml.azure.com).
 
 ### Register the model
 
-You can only deploy registered models to online endpoints. In this case, you already have a local copy of the model in the repository, so you only need to publish the model to the registry in the workspace. You can skip this step if the model you're trying to deploy is already registered.
+You can deploy only registered models to online endpoints. In this case, you already have a local copy of the model in the repository, so you only need to publish the model to the registry in the workspace. You can skip this step if the model you're trying to deploy is already registered.
 
 # [Azure CLI](#tab/cli)
 
@@ -262,6 +268,9 @@ version = registered_model.version
     # [Python (Azure Machine Learning SDK)](#tab/sdk)
 
     ```python
+    # Creating a unique endpoint name with current datetime to avoid conflicts
+    import datetime
+
     endpoint_name = "sklearn-diabetes-" + datetime.datetime.now().strftime("%m%d%H%M%f")
 
     endpoint = ManagedOnlineEndpoint(
@@ -342,7 +351,7 @@ version = registered_model.version
     )
     ```
 
-    If your endpoint doesn't have egress connectivity, use [model packaging (preview)](how-to-package-models.md) by including the argument `with_package=True`:
+    Alternatively, if your endpoint doesn't have egress connectivity, use [model packaging (preview)](how-to-package-models.md) by including the argument `with_package=True`:
 
     ```python
     blue_deployment = ManagedOnlineDeployment(
@@ -446,7 +455,7 @@ version = registered_model.version
     # [Python (Azure Machine Learning SDK)](#tab/sdk)
     
     ```python
-    endpoint.traffic = { blue_deployment_name: 100 }
+    endpoint.traffic = {"blue": 100}
     ```
     
     # [Python (MLflow SDK)](#tab/mlflow)
@@ -575,11 +584,11 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
 1. Identify the folder where your MLflow model is placed.
 
-    a. Go to [Azure Machine Learning portal](https://ml.azure.com).
+    a. Go to the [Azure Machine Learning studio](https://ml.azure.com).
 
     b. Go to the section __Models__.
 
-    c. Select the model you are trying to deploy and click on the tab __Artifacts__.
+    c. Select the model you're trying to deploy and go to its __Artifacts__ tab.
 
     d. Take note of the folder that is displayed. This folder was indicated when the model was registered.
 
@@ -629,15 +638,16 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     # [Studio](#tab/studio)
     
-    On [Azure Machine Learning studio portal](https://ml.azure.com), follow these steps:
+    In the [studio](https://ml.azure.com), follow these steps:
     
     1. Navigate to the __Environments__ tab on the side menu.
     1. Select the tab __Custom environments__ > __Create__.
     1. Enter the name of the environment, in this case `sklearn-mlflow-online-py37`.
-    1. On __Select environment type__ select __Use existing docker image with conda__.
+    1. On __Select environment source__ select __Use existing docker image with optional conda file__.
     1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04`.
     1. On __Customize__ section copy the content of the file `sklearn-diabetes/environment/conda.yml` we introduced before. 
-    1. Click on __Next__ and then on __Create__.
+    1. Click on __Next__ to go tp the "Tags" page, and then __Next__ again.
+    1. On the "Review" page, select __Create__.
     1. The environment is ready to be used.   
 
     ---
@@ -692,16 +702,24 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     # [Studio](#tab/studio)
     
-    On [Azure Machine Learning studio portal](https://ml.azure.com), follow these steps:
+    In the [Azure Machine Learning studio](https://ml.azure.com), follow these steps:
    
     1. From the __Endpoints__ page, Select **+Create**.
-    1. Provide a name and authentication type for the endpoint, and then select __Next__.
-    1. When selecting a model, select the MLflow model registered previously. Select __Next__ to continue.
-    1. When you select a model registered in MLflow format, in the Environment step of the wizard, you don't need a scoring script or an environment. However, you can indicate one by selecting the checkbox __Customize environment and scoring script__.
-
-        :::image type="content" source="media/how-to-batch-scoring-script/configure-scoring-script-mlflow.png" lightbox="media/how-to-batch-scoring-script/configure-scoring-script-mlflow.png" alt-text="Screenshot showing how to indicate an environment and scoring script for MLflow models":::
+    1. Select the MLflow model you registered previously.
+    1. Select __More options__ in the endpoint creation wizard to open up advanced options.
     
-    1. Select the environment and scoring script you created before, then select __Next__.
+    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/select-advanced-deployment-options.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/select-advanced-deployment-options.png" alt-text="Screenshot showing how to select advanced deployment options when creating an endpoint"::: 
+    
+    1. Provide a name and authentication type for the endpoint, and then select __Next__ to see that the model you selected is being used for your deployment.
+    1. Select __Next__ to continue to the "Deployment" page.
+    1. Select __Next__ to go to the "Code + environment" page. When you select a model registered in MLflow format, you don't need to specify a scoring script or an environment on this page. However, you want to specify one in this section
+    1. Select the slider next to __Customize environment and scoring script__.
+
+        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/configure-scoring-script-mlflow.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/configure-scoring-script-mlflow.png" alt-text="Screenshot showing how to indicate an environment and scoring script for MLflow models":::
+    
+    1. Browse to select the scoring script you created before.
+    1. Select __Custom environments__ for the environment type.
+    1. Select the custom environment you created before and select __Next__.
     1. Complete the wizard to deploy the model to the endpoint.
 
     ---
@@ -740,9 +758,9 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     
     1. Go to the __Endpoints__ tab and select the new endpoint created.
     1. Go to the __Test__ tab.
-    1. Paste the content of the file `sample-request-sklearn.json`.
-    1. Click on __Test__.
-    1. The predictions will show up in the box on the right.
+    1. Paste the content of the file `sample-request-sklearn.json` into the __Input data to test endpoint__ box.
+    1. Select __Test__.
+    1. The predictions will show up under "Test results" to the right-hand side of the box.
     
     ---
     
@@ -783,11 +801,11 @@ deployment_client.delete_endpoint(endpoint_name)
 
 # [Studio](#tab/studio)
 
-1. Navigate to the __Endpoints__ tab on the side menu.
-1. Select the tab __Online endpoints__.
+1. Go to the __Endpoints__ tab in the studio.
+1. Select the __Real-time endpoints__ tab.
 1. Select the endpoint you want to delete.
-1. Click on __Delete__.
-1. The endpoint all along with its deployments will be deleted.
+1. Select __Delete__.
+1. The endpoint and all its deployments will be deleted.
 
 ---
 
