@@ -50,6 +50,7 @@ Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) th
     | Hostname | Enter the hostname of your Web App. This example uses *webapp-current.azurewebsites.net*. |
     | Priority | Enter **1**. |
     | Weight | Enter **75**. |
+    | Status | Select the check box for **Enable this origin**. |
 
 1. Select **+ Add** to add another origin to the origin group. Enter the following information for the new version of the application:
 
@@ -59,8 +60,34 @@ Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) th
     | Hostname | Enter the hostname of your Web App. This example uses *webapp-new.azurewebsites.net*. |
     | Priority | Enter **1**. |
     | Weight | Enter **25**. |
+    | Status | Leave **Enable this origin** unchecked. |
 
     > [!NOTE]
     > Initially you want to set the weight of the current origin higher than the new origin. This ensures that most of the traffic is routed to the current origin. As you test the new origin, you can gradually increase the weight of the new origin and decrease the weight of the current origin. The total weight doesn't have to add up to be 100, although it will help you visualize the traffic distribution. The example sets the existing origin to receive three times as much traffic as the new origin.
 
-1.
+1. Enable session affinity if your application requires it. For more information, see [Session affinity](routing-methods.md#session-affinity).
+
+    > [!NOTE]
+    > *Session affinity* determines if the end user gets routed to the same origin after the first first request goes through Azure Front Door. Whether or not you enable this feature depends on your application, and the type of enhancements being rolled out. If it is a major revision, you might want to enable session affinity, so that if users were initially routed to the new codebase they will continue to use it. If the enhancement is relatively minor, for example, involving a single page with no dependencies on other parts of the application, you can potentially leave session affinity disabled. When in doubt, have session affinity enabled.
+
+1. Health probe settings can be left at the default values. You can adjust the probe settings based on the needs of your application. For more information, see [Health probes](health-probes.md).
+
+1. Under **Load balancing settings**, enter the following information:
+
+    | Settings | Values |
+    | Sample size | Enter **4**. |
+    | Successful samples required | Enter **3**. |
+    | Latency sensitivity (in milliseconds) | Enter **500**. |
+
+    > [!NOTE]
+    > We recommend setting the latency sensitivity to 500 milliseconds (half a second) or higher. This ensures that both origins gets used, as it is possible that one origin is faster than the other.
+
+1. Select **Add** to add the origin group. Then select **Review + create** to review the settings of your Front Door profile. Select **Create** to create the profile.
+
+## Start Blue/Green deployment
+
+When you're ready to beging the blue/green deployment, you can start by enabling the new origin. This will start routing traffic to the new origin, while still allowing you to revert back to the old origin if needed.
+
+1. After the Front Door profile gets created, go to the origin group you created earlier. Select the new origin, and then select **Enable this origin**. This will start routing traffic to the new origin.
+
+1.  
