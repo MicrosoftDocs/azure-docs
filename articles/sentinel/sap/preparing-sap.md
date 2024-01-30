@@ -2,8 +2,8 @@
 title: Deploy SAP Change Requests (CRs) and configure authorization
 titleSuffix: Microsoft Sentinel
 description: This article shows you how to deploy the SAP Change Requests (CRs) necessary to prepare the environment for the installation of the SAP agent, so that it can properly connect to your SAP systems.
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: how-to
 ms.date: 03/10/2023
 ---

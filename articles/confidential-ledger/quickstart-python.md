@@ -22,6 +22,7 @@ Microsoft Azure confidential ledger is a new and highly secure service for manag
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [Ensure subscription owner](./includes/ensure-subscription-owner.md)]
 - Python versions that are [supported by the Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python#prerequisites).
 - [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell).
 

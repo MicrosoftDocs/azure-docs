@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 04/20/2023
+ms.date: 01/05/2024
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse, ignite-2022
 ---
@@ -124,7 +124,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**: Check your Azure Cosmos DB partition design. For more information, see [Logical partitions](../cosmos-db/partitioning-overview.md#logical-partitions).
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

@@ -4,7 +4,6 @@ description: Learn how to use text analytics in Azure Synapse Analytics.
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: 
 ms.date: 11/02/2021
 author: ruixinxu
 ms.author: ruxu

@@ -195,7 +195,7 @@ Azure Monitor Windows agent version 1.1.1.0 or higher (by using [data collection
 
 #### Azure Monitor Linux agents
 
-Azure Monitor Windows agent version 1.10.5.0 or higher (by using [data collection endpoints](../essentials/data-collection-endpoint-overview.md)).
+Azure Monitor Linux agent version 1.10.5.0 or higher (by using [data collection endpoints](../essentials/data-collection-endpoint-overview.md)).
 
 #### Log Analytics Windows agent (on deprecation path)
 

@@ -4,7 +4,7 @@ description: Learn how to create HDInsight clusters by submitting Azure Resource
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli, devx-track-arm-template
-ms.date: 11/17/2022
+ms.date: 12/05/2023
 ---
 
 # Create Apache Hadoop clusters using the Azure REST API

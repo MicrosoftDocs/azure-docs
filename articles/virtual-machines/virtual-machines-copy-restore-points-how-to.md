@@ -1,6 +1,6 @@
 ---
-title: how to copy Virtual Machine Restore Points to another region
-description: how to copy Virtual Machine Restore Points to another region
+title: Copy VM restore points to another region
+description: Learn how to copy virtual machine (VM) restore points to another region.
 author: aarthiv
 ms.author: aarthiv
 ms.service: virtual-machines
@@ -10,24 +10,27 @@ ms.date: 10/31/2023
 ms.custom: template-tutorial
 ---
 
-# Cross-region copy of VM Restore Points
+# Cross-region copy of VM restore points
+
+In this article, you learn how to copy virtual machine (VM) restore points to another region.
 
 ## Prerequisites
 
-For copying a RestorePoint across region, you need to pre-create a RestorePointCollection in the target region.
-Learn more about [cross region copy and its limitation](virtual-machines-restore-points-copy.md) before copying a restore points.
+To copy a restore point across a region, you need to precreate a `restorePointCollection` resource in the target region.
 
-### Create Restore Point Collection in target region
+Learn more about [cross-region copy and its limitation](virtual-machines-restore-points-copy.md) before you copy restore points.
 
-First step in copying an existing VM Restore point from one region to another is to create a RestorePointCollection in the target region by referencing the RestorePointCollection from the source region.
+### Create a restore point collection in a target region
 
-#### URI Request
+The first step in copying an existing VM restore point from one region to another is to create a `restorePointCollection` resource in the target region by referencing `restorePointCollection` from the source region.
+
+#### URI request
 
 ```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/restorePointCollections/{restorePointCollectionName}&api-version={api-version}
 ```
 
-#### Request Body
+#### Request body
 
 ```
 {
@@ -45,10 +48,12 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ```
 
 #### Response
-The request response will include a status code and set of response headers.
+
+The request response includes a status code and a set of response headers.
 
 ##### Status code
-The operation returns a 201 during create and 200 during Update.
+
+The operation returns 201 during creation and 200 during the update.
 
 ##### Response body
 
@@ -70,8 +75,9 @@ The operation returns a 201 during create and 200 during Update.
 }
 ```
 
-### Create VM Restore Point in Target Region
-Next step is to trigger copy of a RestorePoint in the target RestorePointCollection referencing the RestorePoint in the source region that needs to be copied.
+### Create a VM restore point in a target region
+
+The next step is to trigger the copy of a restore point in the target `RestorePointCollection` resource by referencing the restore point in the source region that needs to be copied.
 
 #### URI request
 
@@ -92,17 +98,21 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 }
 ```
 
-**NOTE:** Location of the sourceRestorePoint would be inferred from that of the source RestorePointCollection
+> [!NOTE]
+> The location of `sourceRestorePoint` is inferred from that of the source `RestorePointCollection`.
 
 #### Response
-The request response will include a status code and set of response headers. 
 
-##### Status Code
-This is a long running operation; hence the operation returns a 201 during create. The client is expected to poll for the status using the operation. (Both the Location and Azure-AsyncOperation headers are provided for this purpose.) 
+The request response includes a status code and a set of response headers.
 
-During restore point creation, the ProvisioningState would appear as Creating in GET restore point API response. If creation fails, its ProvisioningState will be Failed. ProvisioningState would be set to Succeeded when the data copy across regions is initiated. 
+##### Status code
 
-**NOTE:** You can track the copy status by calling GET instance View (?$expand=instanceView) on the target VM Restore Point. Please check the "Get VM Restore Points Copy/Replication Status" section below on how to do this. VM Restore Point is considered usable (can be used to restore a VM) only when copy of all the disk restore points are successful.
+This operation is long running, so the operation returns 201 during creation. The client is expected to poll for the status by using the operation. Both the `location` and `Azure-AsyncOperation` headers are provided for this purpose.
+
+During restore point creation, `ProvisioningState` appears as `Creating` in the GET restore point API response. If creation fails, `ProvisioningState` appears as `Failed`. `ProvisioningState` is set to `Succeeded` when the data copy across regions is initiated.
+
+> [!NOTE]
+> You can track the copy status by calling GET instance view (`?$expand=instanceView`) on the target VM restore point. For steps on how to do this, see the section "Get the VM restore points Copy/Replication status." The VM restore point is considered usable (can be used to restore a VM) only when a copy of all the disk restore points are successful.
 
 ##### Response body
 
@@ -219,10 +229,11 @@ During restore point creation, the ProvisioningState would appear as Creating in
 }
 ```
 
-### Get VM Restore Points Copy/Replication Status
-Once copy of VM Restore Points is initiated, you can track the copy status by calling GET instance View (?$expand=instanceView) on the target VM Restore Point.
+### Get the VM restore points Copy/Replication status
 
-#### URI Request
+After the copy of VM restore points is initiated, you can track the copy status by calling the GET instance view (`?$expand=instanceView`) on the target VM restore point.
+
+#### URI request
 
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/restorePointCollections/{restorePointCollectionName}/restorePoints/{restorePointName}?$expand=instanceView&api-version={api-version}
@@ -368,4 +379,4 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ## Next steps
 
 - [Create a VM restore point](create-restore-points.md).
-- [Learn more](backup-recovery.md) about Backup and restore options for virtual machines in Azure.
+- [Learn more](backup-recovery.md) about backup and restore options for VMs in Azure.

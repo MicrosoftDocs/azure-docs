@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/cosmos-db/intra-account-container-copy.md",
+      "redirect_url": "/azure/cosmos-db/container-copy",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/managed-instance-apache-cassandra/compare-cosmosdb-managed-instance.md",
       "redirect_url": "/azure/cosmos-db/cassandra/choose-service",
       "redirect_document_id": true
@@ -6233,6 +6238,21 @@
     {
       "source_path_from_root": "/articles/cosmos-db/postgresql/howto-create-users.md",
       "redirect_url": "/azure/cosmos-db/postgresql/how-to-configure-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/quickstart-java-spring-data.md",
+      "redirect_url": "/azure/cosmos-db/nosql/quickstart-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/quickstart-spark.md",
+      "redirect_url": "/azure/cosmos-db/nosql/tutorial-spark-connector",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sdk-java-spark-v3.md",
+      "redirect_url": "/azure/cosmos-db/nosql/tutorial-spark-connector",
       "redirect_document_id": false
     },
     {

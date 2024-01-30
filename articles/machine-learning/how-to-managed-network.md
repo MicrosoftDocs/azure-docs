@@ -10,7 +10,10 @@ ms.author: jhirono
 author: jhirono
 ms.date: 08/22/2023
 ms.topic: how-to
-ms.custom: build-2023, devx-track-azurecli
+ms.custom:
+  - build-2023
+  - devx-track-azurecli
+  - ignite-2023
 ---
 
 # Workspace managed virtual network isolation
@@ -53,6 +56,10 @@ The following diagram shows a managed VNet configured to __allow only approved o
 
 :::image type="content" source="./media/how-to-managed-network/only-approved-outbound.svg" alt-text="Diagram of managed VNet isolation configured for allow only approved outbound." lightbox="./media/how-to-managed-network/only-approved-outbound.svg":::
 
+> [!NOTE]
+> Once a managed VNet workspace is configured to __allow internet outbound__, the workspace cannot be reconfigured to __disabled__. Similarily, once a managed VNet workspace is configured to __allow only approved outbound__, the workspace cannot be reconfigured to __allow internet outbound__. Please keep this in mind when selecting the isolation mode for managed VNet in your workspace.
+
+
 ### Azure Machine Learning studio
 
 If you want to use the integrated notebook or create datasets in the default storage account from studio, your client needs access to the default storage account. Create a _private endpoint_ or _service endpoint_ for the default storage account in the Azure Virtual Network that the clients use.
@@ -90,6 +97,8 @@ Before following the steps in this article, make sure you have the following pre
 * The CLI examples in this article assume that you're using the Bash (or compatible) shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about).
 
 * The Azure CLI examples in this article use `ws` to represent the name of the workspace, and `rg` to represent the name of the resource group. Change these values as needed when using the commands with your Azure subscription.
+
+* With Azure CLI and managed VNet, SSH using public IP works, but SSH using private IP doesn't work. 
 
 # [Python SDK](#tab/python)
 
@@ -149,6 +158,9 @@ Before following the steps in this article, make sure you have the following pre
     * Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/write
 
 ---
+
+> [!NOTE]
+> If you are using UAI workspace please make sure to add the Network Contributor role to your identity. For more information, see [User-assigned managed identity](how-to-identity-based-service-authentication.md).
 
 ## Configure a managed virtual network to allow internet outbound
 
@@ -993,6 +1005,7 @@ If you plan to use __Visual Studio Code__ with Azure Machine Learning, add outbo
 * `update.code.visualstudio.com`
 * `*.vo.msecnd.net`
 * `marketplace.visualstudio.com`
+* `vscode.download.prss.microsoft.com`
 
 ### Scenario: Use batch endpoints
 
@@ -1001,10 +1014,10 @@ If you plan to use __Azure Machine Learning batch endpoints__ for deployment, ad
 * `queue`
 * `table`
 
-### Scenario: Use prompt flow with Azure Open AI, content safety, and cognitive search
+### Scenario: Use prompt flow with Azure Open AI, content safety, and Azure AI Search
 
 * Private endpoint to Azure AI Services
-* Private endpoint to Azure Cognitive Search
+* Private endpoint to Azure AI Search
 
 ### Scenario: Use HuggingFace models
 
@@ -1030,7 +1043,7 @@ Private endpoints are currently supported for the following Azure services:
 * Azure Container Registry
 * Azure Key Vault
 * Azure AI services
-* Azure Cognitive Search
+* Azure AI Search (formerly Cognitive Search)
 * Azure SQL Server
 * Azure Data Factory
 * Azure Cosmos DB (all sub resource types)
@@ -1054,10 +1067,10 @@ When you create a private endpoint for Azure Machine Learning dependency resourc
 The Azure Machine Learning managed VNet feature is free. However, you're charged for the following resources that are used by the managed VNet:
 
 * Azure Private Link - Private endpoints used to secure communications between the managed VNet and Azure resources relies on Azure Private Link. For more information on pricing, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
-* FQDN outbound rules - FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. 
+* FQDN outbound rules - FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. The Azure Firewall (standard SKU) is provisioned by Azure Machine Learning.
 
     > [!IMPORTANT]
-    > The firewall isn't created until you add an outbound FQDN rule. If you don't use FQDN rules, you will not be charged for Azure Firewall. For more information on pricing, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
+    > The firewall isn't created until you add an outbound FQDN rule. If you don't use FQDN rules, you will not be charged for Azure Firewall. For more information on pricing, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/) and view prices for the _standard_ version.
 
 ## Limitations
 

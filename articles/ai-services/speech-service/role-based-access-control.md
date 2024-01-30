@@ -2,18 +2,17 @@
 title: Role-based access control for Speech resources - Speech service
 titleSuffix: Azure AI services
 description: Learn how to assign access roles for a Speech resource.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 04/03/2022
+ms.date: 1/21/2024
 ms.author: eur
 ---
 
 # Role-based access control for Speech resources
 
-You can manage access and permissions to your Speech resources with Azure role-based access control (Azure RBAC). Assigned roles can vary across Speech resources. For example, you can assign a role to a Speech resource that should only be used to train a Custom Speech model. You can assign another role to a Speech resource that is used to transcribe audio files. Depending on who can access each Speech resource, you can effectively set a different level of access per application or user. For more information on Azure RBAC, see the [Azure RBAC documentation](../../role-based-access-control/overview.md).
+You can manage access and permissions to your Speech resources with Azure role-based access control (Azure RBAC). Assigned roles can vary across Speech resources. For example, you can assign a role to a Speech resource that should only be used to train a custom speech model. You can assign another role to a Speech resource that is used to transcribe audio files. Depending on who can access each Speech resource, you can effectively set a different level of access per application or user. For more information on Azure RBAC, see the [Azure RBAC documentation](../../role-based-access-control/overview.md).
 
 > [!NOTE]
 > A Speech resource can inherit or be assigned multiple roles. The final level of access to this resource is a combination of all roles permissions from the operation level.
@@ -37,7 +36,7 @@ A role definition is a collection of permissions. When you create a Speech resou
 
 Keep the built-in roles if your Speech resource can have full read and write access to the projects. 
 
-For finer-grained resource access control, you can [add or remove roles](../../role-based-access-control/role-assignments-portal.md?tabs=current) using the Azure portal. For example, you could create a custom role with permission to upload Custom Speech datasets, but without permission to deploy a Custom Speech model to an endpoint. 
+For finer-grained resource access control, you can [add or remove roles](../../role-based-access-control/role-assignments-portal.md?tabs=current) using the Azure portal. For example, you could create a custom role with permission to upload custom speech datasets, but without permission to deploy a custom speech model to an endpoint. 
 
 ## Authentication with keys and tokens
 
@@ -51,15 +50,15 @@ For the SDK, you configure whether to authenticate with a Speech resource key or
 
 ### Speech Studio authentication
 
-Once you're signed into [Speech Studio](speech-studio-overview.md), you select a subscription and Speech resource. You don't choose whether to authenticate with a Speech resource key or Microsoft Entra token. Speech Studio gets the key or token automatically from the Speech resource. If one of the assigned [roles](#roles-for-speech-resources) has permission to list resource keys, Speech Studio will authenticate with the key. Otherwise, Speech Studio will authenticate with the Microsoft Entra token. 
+Once you're signed into [Speech Studio](speech-studio-overview.md), you select a subscription and Speech resource. You don't choose whether to authenticate with a Speech resource key or Microsoft Entra token. Speech Studio gets the key or token automatically from the Speech resource. If one of the assigned [roles](#roles-for-speech-resources) has permission to list resource keys, Speech Studio authenticates with the key. Otherwise, Speech Studio authenticates with the Microsoft Entra token. 
 
-If Speech Studio uses your Microsoft Entra token, but the Speech resource doesn't have a custom subdomain and private endpoint, then you can't use some features in Speech Studio. In this case, for example, the Speech resource can be used to train a Custom Speech model, but you can't use a Custom Speech model to transcribe audio files.
+If Speech Studio uses your Microsoft Entra token, but the Speech resource doesn't have a custom subdomain and private endpoint, then you can't use some features in Speech Studio. In this case, for example, the Speech resource can be used to train a custom speech model, but you can't use a custom speech model to transcribe audio files.
 
 | Authentication credential | Feature availability | 
 | ---| ---|  
 |Speech resource key|Full access limited only by the assigned role permissions.|
 |Microsoft Entra token with custom subdomain and private endpoint|Full access limited only by the assigned role permissions.|
-|Microsoft Entra token without custom subdomain and private endpoint (not recommended)|Features are limited. For example, the Speech resource can be used to train a Custom Speech model or Custom Neural Voice. But you can't use a Custom Speech model or Custom Neural Voice.|
+|Microsoft Entra token without custom subdomain and private endpoint (not recommended)|Features are limited. For example, the Speech resource can be used to train a custom speech model or custom neural voice. But you can't use a custom speech model or custom neural voice.|
 
 ## Next steps
 

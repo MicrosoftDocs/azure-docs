@@ -69,10 +69,6 @@
     href: ../application-gateway/tutorial-protect-application-gateway-ddos.md?toc=/azure/ddos-protection/TOC.json
   - name: Deploy Load Balancer with DDoS Protection
     href: ../load-balancer/tutorial-protect-load-balancer-ddos.md?toc=/azure/ddos-protection/TOC.json
-  - name: Deploy VPN Gateway with DDoS Protection
-    href: ../vpn-gateway/tutorial-protect-vpn-gateway.md?toc=/azure/ddos-protection/TOC.json
-  - name: Deploy Bastion with DDoS Protection
-    href: ../bastion/tutorial-protect-bastion-host-ddos.md?toc=/azure/ddos-protection/TOC.json
     
 
 - name: Concepts

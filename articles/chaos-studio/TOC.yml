@@ -4,8 +4,6 @@
   items:
   - name: What is Azure Chaos Studio?
     href: chaos-studio-overview.md
-  - name: What is chaos engineering?
-    href: /azure/architecture/framework/resiliency/chaos-engineering?toc=/azure/chaos-studio/toc.json&bc=/azure/chaos-studio/breadcrumb/toc.json
 - name: Quickstart
   items:
   - name: Create and run a chaos experiment using Azure Chaos Studio 
@@ -46,6 +44,8 @@
     href: chaos-studio-private-networking.md
   - name: Regional availability
     href: chaos-studio-region-availability.md
+  - name: Reliability 
+    href: ../reliability/reliability-chaos-studio.md?toc=/azure/chaos-studio/toc.json&bc=/azure/chaos-studio/breadcrumb/toc.json
 - name: How-to guides
   items:
   - name: Create and run experiment - Service-direct faults
@@ -86,6 +86,8 @@
       href: chaos-studio-set-up-app-insights.md
   - name: Configure an experiment using customer-managed keys (CMK)
     href: chaos-studio-configure-customer-managed-keys.md
+  - name: Set up an agent-based chaos experiment using private link
+    href: chaos-studio-private-link-agent-service.md
   - name: Troubleshoot common issues
     href: troubleshooting.md
 - name: Reference

@@ -3,7 +3,7 @@ metadata:
   title: "Frequently asked questions - Azure AI Vision"
   titleSuffix: Azure AI services
   description: Get answers to frequently asked questions about the Azure AI Vision Service in Azure AI services.
-  services: cognitive-services
+  #services: cognitive-services
   author: PatrickFarley
   manager: nitinme
 
@@ -29,7 +29,7 @@ sections:
       - question: |
           The service is throwing an error because my image file is too large. How can I work around this?
         answer: |
-          The file size limit for most Azure AI Vision features is 4 MB for the 3.2 version of the API and 20MB for the 4.0 preview version, and the client library SDKs can handle files up to 6 MB. For more information, see the [Image Analysis input limits](overview-image-analysis.md#image-requirements).
+          The file size limit for most Azure AI Vision features is 4 MB for the 3.2 version of the API and 20MB for the 4.0 version, and the client library SDKs can handle files up to 6 MB. For more information, see the [Image Analysis input limits](overview-image-analysis.md#image-requirements).
 
       - question: |
           Can I send multiple images in a single API call to the Azure AI Vision service?

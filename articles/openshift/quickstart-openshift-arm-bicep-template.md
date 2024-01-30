@@ -371,7 +371,7 @@ More Azure Red Hat OpenShift templates can be found on the [Red Hat OpenShift we
 
 Create the following Bicep file containing the definition for the Azure Red Hat OpenShift cluster. The following example shows how your Bicep file should look when configured.
 
-Save the following file as *azuredeploy.json*:
+Save the following file as *azuredeploy.bicep*:
 
 ```bicep
 @description('Location')
@@ -453,6 +453,27 @@ param aadClientSecret string
 @description('The ObjectID of the Resource Provider Service Principal')
 param rpObjectId string
 
+@description('Specify if FIPS validated crypto modules are used')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param fips string = 'Disabled'
+
+@description('Specify if master VMs are encrypted at host')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param masterEncryptionAtHost string = 'Disabled'
+
+@description('Specify if worker VMs are encrypted at host')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param workerEncryptionAtHost string = 'Disabled'
+
 var contributorRoleDefinitionId = resourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')
 var resourceGroupId = '/subscriptions/${subscription().subscriptionId}/resourceGroups/aro-${domain}-${location}'
 var masterSubnetId=resourceId('Microsoft.Network/virtualNetworks/subnets', clusterVnetName, 'master')
@@ -525,6 +546,7 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2023-
       domain: domain
       resourceGroupId: resourceGroupId
       pullSecret: pullSecret
+      fipsValidatedModules: fips
     }
     networkProfile: {
       podCidr: podCidr
@@ -537,6 +559,7 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2023-
     masterProfile: {
       vmSize: masterVmSize
       subnetId: masterSubnetId
+      encryptionAtHost: masterEncryptionAtHost
     }
     workerProfiles: [
       {
@@ -545,6 +568,7 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2023-
         diskSizeGB: workerVmDiskSize
         subnetId: workerSubnetId
         count: workerCount
+        encryptionAtHost: workerEncryptionAtHost
       }
     ]
     apiserverProfile: {
@@ -700,7 +724,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup @templateParams 
 
 ::: zone-end
 
-### Connect to your cluster -  PowerShell
+### Connect to your cluster
 
 To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](tutorial-connect-cluster.md).
 

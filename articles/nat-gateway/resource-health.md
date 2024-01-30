@@ -24,9 +24,9 @@ The health of your NAT gateway resource is displayed as one of the following sta
 | Resource health status | Description |
 |---|---|
 | Available | Your NAT gateway resource is healthy and available. |
-| Degraded | Your NAT gateway resource has platform or user initiated events impacting the health of your NAT gateway. The metric for the data-path availability has reported less than 80% but greater than 25% health for the last 15 minutes. You'll experience moderate to severe performance impact. |
-| Unavailable | Your NAT gateway resource isn't healthy. The metric for the data-path availability has reported less than 25% for the past 15 minutes. You'll experience significant performance impact or unavailability of your NAT gateway resource for outbound connectivity. There may be user or platform events causing unavailability. |
-| Unknown | Health status for your NAT gateway resource hasn’t been updated or hasn’t received information for data-path availability for more than 5 minutes. This state should be transient and will reflect the correct status as soon as data is received. |
+| Degraded | Your NAT gateway resource has platform or user initiated events impacting the health of your NAT gateway. The metric for the data-path availability reports less than 80% but greater than 25% health for the last 15 minutes. You experience moderate to severe performance impact. |
+| Unavailable | Your NAT gateway resource isn't healthy. The metric for the data-path availability reports less than 25% for the past 15 minutes. You experience significant performance impact or unavailability of your NAT gateway resource for outbound connectivity. There may be user or platform events causing unavailability. |
+| Unknown | Health status for your NAT gateway resource hasn’t updated or received information for data-path availability for more than 5 minutes. This state should be transient and will reflect the correct status as soon as data is received. |
 
 For more information about Azure Resource Health, see [Resource Health overview](../service-health/resource-health-overview.md).
 
@@ -40,9 +40,9 @@ To view the health of your NAT gateway resource:
 
 ## Resource health alerts
 
-Azure Resource Health alerts can notify you in near real-time when the health state of your NAT gateway resource changes. It's recommended that you set resource health alerts to notify you when your NAT gateway resource is in a **Degraded** or **Unavailable** state.
+Azure Resource Health alerts can notify you in near real-time when the health state of your NAT gateway resource changes. It's recommended that you set resource health alerts to notify you when your NAT gateway resource changes to a **Degraded** or **Unavailable** health state.
 
-When you create Azure resource health alerts for NAT gateway, Azure sends resource health notifications to your Azure subscription. You can create and customize alerts based on:
+After you create Azure resource health alerts for NAT gateway, Azure sends resource health notifications to your Azure subscription when the health state of NAT gateway changes. You can create and customize alerts based on:
 * The subscription affected
 * The resource group affected
 * The resource type affected (Microsoft.Network/NATGateways)

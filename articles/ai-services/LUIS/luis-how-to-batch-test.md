@@ -2,7 +2,7 @@
 title: How to perform a batch test - LUIS
 titleSuffix: Azure AI services
 description: Use Language Understanding (LUIS) batch testing sets to find utterances with incorrect intents and entities.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 ms.author: aahi
 manager: nitinme
@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 01/19/2024
 
 ---
 

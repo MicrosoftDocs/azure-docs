@@ -55,7 +55,7 @@ Functionality that has been imported from another file can be used without restr
 
 ### Example
 
-module.bicep
+exports.bicep
 
 ```bicep
 @export()

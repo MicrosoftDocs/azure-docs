@@ -156,4 +156,4 @@ For more information, see:
 
 - [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
 
-- [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+- [Manage sensors from the management console](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md)

@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.devlang: javascript
 author: SudheeshGH
 ms.author: sunaray
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api, devx-track-linux
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api, linux-related-content
 ms.date: 05/03/2023
 ---
 
@@ -17,7 +17,7 @@ ms.date: 05/03/2023
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-In this quickstart, you connect to an Azure Database for MySQL by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Linux, and Windows platforms. 
+In this quickstart, you connect to an Azure Database for MySQL by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Linux, and Windows platforms.
 
 This article assumes that you're familiar with developing using Node.js, but you're new to working with Azure Database for MySQL.
 
@@ -26,7 +26,7 @@ This article assumes that you're familiar with developing using Node.js, but you
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - An Azure Database for MySQL server. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./how-to-manage-firewall-using-portal.md) or [Azure CLI](./how-to-manage-firewall-using-cli.md)
 
 ## Install Node.js and the MySQL connector
@@ -36,7 +36,7 @@ Depending on your platform, follow the instructions in the appropriate section t
 ### [Windows](#tab/windows)
 
 1. Visit the [Node.js downloads page](https://nodejs.org/en/download/), and then select your desired Windows installer option.
-2. Make a local project folder such as `nodejsmysql`. 
+2. Make a local project folder such as `nodejsmysql`.
 3. Open the command prompt, and then change directory into the project folder, such as `cd c:\nodejsmysql\`
 4. Run the NPM tool to install the mysql2 library into the project folder.
 
@@ -155,7 +155,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 
     **For Microsoft Internet Explorer and Microsoft Edge:** After the download has completed, rename the certificate to DigiCertGlobalRootCA.crt.pem.
 
-    See the following links for certificates for servers in sovereign clouds: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Microsoft Azure operated by 21Vianet](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
+    See the following links for certificates for servers in sovereign clouds: [Azure Government](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem), [Microsoft Azure operated by 21Vianet](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 1. In the `ssl` config option, replace the `ca-cert` filename with the path to this local file.
 1. Open the command prompt or bash shell, and then change directory into your project folder `cd nodejsmysql`.
 1. To run the application, enter the node command followed by the file name, such as `node createtable.js`.
@@ -165,7 +165,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 
 Use the following code to connect and load the data by using **CREATE TABLE** and  **INSERT INTO** SQL statements.
 
-The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the MySQL server. The [connect()](https://github.com/sidorares/node-mysql2#first-query) function is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) function is used to execute the SQL query against MySQL database. 
+The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the MySQL server. The [connect()](https://github.com/sidorares/node-mysql2#first-query) function is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) function is used to execute the SQL query against MySQL database.
 
 ```javascript
 const mysql = require('mysql2');
@@ -184,8 +184,8 @@ var config =
 const conn = new mysql.createConnection(config);
 
 conn.connect(
-    function (err) { 
-    if (err) { 
+    function (err) {
+    if (err) {
         console.log("!!! Cannot connect !!! Error:");
         throw err;
     }
@@ -197,40 +197,40 @@ conn.connect(
 });
 
 function queryDatabase(){
-    conn.query('DROP TABLE IF EXISTS inventory;', function (err, results, fields) { 
-        if (err) throw err; 
+    conn.query('DROP TABLE IF EXISTS inventory;', function (err, results, fields) {
+        if (err) throw err;
         console.log('Dropped inventory table if existed.');
     })
-        conn.query('CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);', 
+        conn.query('CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);',
             function (err, results, fields) {
                 if (err) throw err;
         console.log('Created inventory table.');
     })
-    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['banana', 150], 
+    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['banana', 150],
             function (err, results, fields) {
                 if (err) throw err;
         else console.log('Inserted ' + results.affectedRows + ' row(s).');
         })
-    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['orange', 154], 
+    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['orange', 154],
             function (err, results, fields) {
                 if (err) throw err;
         console.log('Inserted ' + results.affectedRows + ' row(s).');
         })
-    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['apple', 100], 
+    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['apple', 100],
     function (err, results, fields) {
                 if (err) throw err;
         console.log('Inserted ' + results.affectedRows + ' row(s).');
         })
-    conn.end(function (err) { 
+    conn.end(function (err) {
     if (err) throw err;
-    else  console.log('Done.') 
+    else  console.log('Done.')
     });
 };
 ```
 
 ## Read data
 
-Use the following code to connect and read the data by using a **SELECT** SQL statement. 
+Use the following code to connect and read the data by using a **SELECT** SQL statement.
 
 The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the MySQL server. The [connect()](https://github.com/sidorares/node-mysql2#first-query) method is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) method is used to execute the SQL query against MySQL database. The results array is used to hold the results of the query.
 
@@ -251,8 +251,8 @@ var config =
 const conn = new mysql.createConnection(config);
 
 conn.connect(
-    function (err) { 
-        if (err) { 
+    function (err) {
+        if (err) {
             console.log("!!! Cannot connect !!! Error:");
             throw err;
         }
@@ -263,7 +263,7 @@ conn.connect(
     });
 
 function readData(){
-    conn.query('SELECT * FROM inventory', 
+    conn.query('SELECT * FROM inventory',
         function (err, results, fields) {
             if (err) throw err;
             else console.log('Selected ' + results.length + ' row(s).');
@@ -273,18 +273,18 @@ function readData(){
             console.log('Done.');
         })
     conn.end(
-        function (err) { 
+        function (err) {
             if (err) throw err;
-            else  console.log('Closing connection.') 
+            else  console.log('Closing connection.')
     });
 };
 ```
 
 ## Update data
 
-Use the following code to connect and update data by using an **UPDATE** SQL statement. 
+Use the following code to connect and update data by using an **UPDATE** SQL statement.
 
-The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the MySQL server. The [connect()](https://github.com/sidorares/node-mysql2#first-query) method is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) method is used to execute the SQL query against MySQL database. 
+The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the MySQL server. The [connect()](https://github.com/sidorares/node-mysql2#first-query) method is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) method is used to execute the SQL query against MySQL database.
 
 ```javascript
 const mysql = require('mysql2');
@@ -303,8 +303,8 @@ var config =
 const conn = new mysql.createConnection(config);
 
 conn.connect(
-    function (err) { 
-        if (err) { 
+    function (err) {
+        if (err) {
             console.log("!!! Cannot connect !!! Error:");
             throw err;
         }
@@ -315,24 +315,24 @@ conn.connect(
     });
 
 function updateData(){
-       conn.query('UPDATE inventory SET quantity = ? WHERE name = ?', [200, 'banana'], 
+       conn.query('UPDATE inventory SET quantity = ? WHERE name = ?', [200, 'banana'],
             function (err, results, fields) {
                 if (err) throw err;
                 else console.log('Updated ' + results.affectedRows + ' row(s).');
            })
        conn.end(
-           function (err) { 
+           function (err) {
                 if (err) throw err;
-                else  console.log('Done.') 
+                else  console.log('Done.')
         });
 };
 ```
 
 ## Delete data
 
-Use the following code to connect and delete data by using a **DELETE** SQL statement. 
+Use the following code to connect and delete data by using a **DELETE** SQL statement.
 
-The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the MySQL server. The [connect()](https://github.com/sidorares/node-mysql2#first-query) method is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) method is used to execute the SQL query against MySQL database. 
+The [mysql.createConnection()](https://github.com/sidorares/node-mysql2#first-query) method is used to interface with the MySQL server. The [connect()](https://github.com/sidorares/node-mysql2#first-query) method is used to establish the connection to the server. The [query()](https://github.com/sidorares/node-mysql2#first-query) method is used to execute the SQL query against MySQL database.
 
 ```javascript
 const mysql = require('mysql2');
@@ -351,8 +351,8 @@ var config =
 const conn = new mysql.createConnection(config);
 
 conn.connect(
-    function (err) { 
-        if (err) { 
+    function (err) {
+        if (err) {
             console.log("!!! Cannot connect !!! Error:");
             throw err;
         }
@@ -363,15 +363,15 @@ conn.connect(
     });
 
 function deleteData(){
-       conn.query('DELETE FROM inventory WHERE name = ?', ['orange'], 
+       conn.query('DELETE FROM inventory WHERE name = ?', ['orange'],
             function (err, results, fields) {
                 if (err) throw err;
                 else console.log('Deleted ' + results.affectedRows + ' row(s).');
            })
        conn.end(
-           function (err) { 
+           function (err) {
                 if (err) throw err;
-                else  console.log('Done.') 
+                else  console.log('Done.')
         });
 };
 ```
@@ -389,4 +389,4 @@ az group delete \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Migrate your database using Export and Import](./concepts-migrate-import-export.md)
+> [Migrate your database using Export and Import](../flexible-server/concepts-migrate-import-export.md)

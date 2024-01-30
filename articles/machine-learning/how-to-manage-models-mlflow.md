@@ -117,7 +117,7 @@ You can load models directly from the registry to restore the models objects tha
 * `models:/<model-name>/<stage-name>`, to load a specific version in a given stage for a model. View [Model stages](#model-stages) for details.
 
 > [!TIP]
-> For learning about the difference between `mlflow.<flavor>.load_model()` and `mlflow.pyfunc.load_model()`, view [Loading MLflow models back](concept-mlflow-models.md#loading-mlflow-models-back) article.
+> To learn about the difference between `mlflow.<flavor>.load_model()` and `mlflow.pyfunc.load_model()`, view [Workflows for loading MLflow models](concept-mlflow-models.md#workflows-for-loading-mlflow-models).
 
 ## Model stages
 

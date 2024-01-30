@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 11/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -35,6 +35,9 @@ Azure service: core
 > | Microsoft.Marketplace/register/action | Registers Microsoft.Marketplace resource provider in the subscription. |
 > | Microsoft.Marketplace/privateStores/action | Updates PrivateStore. |
 > | Microsoft.Marketplace/search/action | Returns a list of azure private store marketplace catalog offers and total count and facets |
+> | Microsoft.Marketplace/mysolutions/read | Get user solutions |
+> | Microsoft.Marketplace/mysolutions/write | Create or update user solutions |
+> | Microsoft.Marketplace/mysolutions/delete | Remove user solutions |
 > | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read | Returns an Agreement. |
 > | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/write | Accepts a signed agreement. |
 > | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/read | Returns a config. |
@@ -142,6 +145,7 @@ Azure service: core
 > | Microsoft.Support/operations/read | Lists all operations available on Microsoft.Support resource provider |
 > | Microsoft.Support/operationsstatus/read | Gets the status of the asynchronous operation |
 > | Microsoft.Support/services/read | Lists one or all Azure services available for support |
+> | Microsoft.Support/services/classifyProblems/action | Lists one or all classified problems |
 > | Microsoft.Support/services/problemClassifications/read | Lists one or all problem classifications for an Azure service |
 > | Microsoft.Support/supportTickets/read | Lists one or all support tickets |
 > | Microsoft.Support/supportTickets/write | Allows creating and updating a support ticket |

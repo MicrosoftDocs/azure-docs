@@ -51,7 +51,7 @@ This table helps you determine whether you can meet your intended migration wind
 > By using online migration, you can achieve both historical data loading and incremental feeds end-to-end through a single tool.  Through this approach, your data can be kept synchronized between the existing store and the new store during the entire migration window. This means you can rebuild your ETL logic on the new store with refreshed data.
 
 
-## Next steps
+## Related content
 
 - [Migrate data from AWS S3 to Azure](data-migration-guidance-s3-azure-storage.md)
 - [Migrate data from on-premises hadoop cluster to Azure](data-migration-guidance-hdfs-azure-storage.md)

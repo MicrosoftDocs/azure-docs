@@ -14,8 +14,6 @@ ms.service: azure-communication-services
 
 # Job classification
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 When you submit a job to Job Router, you can either specify the queue, priority, and worker selectors manually or you can specify a classification policy to drive these values.
 
 If you choose to use a classification policy, you receive a [JobClassified Event][job_classified_event] or a [JobClassificationFailed Event][job_classify_failed_event] with the result.  Once the job has been successfully classified, it's automatically queued.  If the classification process fails, you need to intervene to fix it.
@@ -25,6 +23,10 @@ The process of classifying a Job involves optionally setting the following prope
 - Priority
 - Worker Selectors
 - Queue ID
+
+## Fallback queue
+
+The fallback queue is used when queue selectors, resulting from queue selector attachments, are unable to select a queue _and_ the job does not have a `queueId`. In this case, if the fallback queue is defined, the job is assigned to it.
 
 ## Prioritization rule
 

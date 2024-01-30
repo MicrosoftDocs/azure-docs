@@ -1639,7 +1639,7 @@ These application settings are required for container deployments:
 
 Keep these considerations in mind when working with site and application settings using Bicep files or ARM templates:
  :::zone pivot="consumption-plan,premium-plan,dedicated-plan" 
-+ There are important considerations for using [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) in an automated deployment.  
++ There are important considerations for when you should set `WEBSITE_CONTENTSHARE` in an automated deployment. For detailed guidance, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference. 
 ::: zone-end
 :::zone pivot="container-apps,azure-arc,premium-plan,dedicated-plan"  
 + For container deployments, also set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../app-service/reference-app-settings.md#custom-containers) to `false`, since your app content is provided in the container itself. 
@@ -1665,7 +1665,9 @@ Keep the following considerations in mind when working with slot deployments:
 :::zone pivot="premium-plan,dedicated-plan" 
 ## Secured deployments
 
-You can create your function app in a deployment where one or more of the resources have been secured by integrating with virtual networks. Virtual network integration for your function app is defined by a `Microsoft.Web/sites/networkConfig` resource. This integration depends on both the referenced function app and virtual network resources. You function app might also depend on other private networking resources, such as private endpoints and routes. For more information, see [Azure Functions networking options](functions-networking-options.md).
+You can create your function app in a deployment where one or more of the resources have been secured by integrating with virtual networks. Virtual network integration for your function app is defined by a `Microsoft.Web/sites/networkConfig` resource. This integration depends on both the referenced function app and virtual network resources. You function app might also depend on other private networking resources, such as private endpoints and routes. For more information, see [Azure Functions networking options](functions-networking-options.md). 
+
+When creating a deployment that uses a secured storage account, you must both explicitly set the `WEBSITE_CONTENTSHARE` setting and create the file share resource named in this setting. Make sure you create a `Microsoft.Storage/storageAccounts/fileServices/shares` resource using the value of `WEBSITE_CONTENTSHARE`, as shown in this example ([ARM template](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-private-endpoints-storage-private-endpoints/azuredeploy.json#L467)|[Bicep file](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-private-endpoints-storage-private-endpoints/main.bicep#L351)).  
 
 These projects provide both Bicep and ARM template examples of how to deploy your function apps in a virtual network, including with network access restrictions:
 

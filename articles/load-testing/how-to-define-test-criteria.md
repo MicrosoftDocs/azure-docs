@@ -28,7 +28,7 @@ You can define test criteria at two levels. A load test can combine criteria at 
 - At the load test level. For example, to ensure that the total error percentage doesn't exceed a threshold.
 - At the JMeter request level (JMeter sampler). For example, you could specify a response time threshold of the *getProducts* request, but disregard the response time of the *sign in* request.
 
-You can define a maximum of 10 test criteria for a load test. If there are multiple criteria for the same client metric, the criterion with the lowest threshold value is used.
+You can define a maximum of 50 test criteria for a load test. If there are multiple criteria for the same client metric, the criterion with the lowest threshold value is used.
 
 ### Fail criteria structure
 
@@ -95,7 +95,7 @@ In this section, you configure test criteria for a load test in the Azure portal
 
 # [Azure Pipelines / GitHub Actions](#tab/pipelines+github)
 
-In this section, you configure test criteria for a load test, as part of a CI/CD workflow. Learn how to [set up automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).
+In this section, you configure test criteria for a load test, as part of a CI/CD workflow. Learn how to [set up automated performance testing with CI/CD](./quickstart-add-load-test-cicd.md).
 
 For CI/CD workflows, you configure the load test settings in a [YAML test configuration file](./reference-test-config-yaml.md). You store the load test configuration file alongside the JMeter test script file in the source control repository.
 
@@ -207,7 +207,7 @@ To specify auto stop settings in the YAML configuration file:
 
 1. Save the YAML configuration file, and commit the changes to source control.
 
-Learn how to [set up automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).
+Learn how to [set up automated performance testing with CI/CD](./quickstart-add-load-test-cicd.md).
 
 ---
 
@@ -215,4 +215,4 @@ Learn how to [set up automated performance testing with CI/CD](./tutorial-identi
 
 - To learn how to parameterize a load test by using secrets, see [Parameterize a load test](./how-to-parameterize-load-tests.md).
 
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
+- To learn about performance test automation, see [Configure automated performance testing](./quickstart-add-load-test-cicd.md).

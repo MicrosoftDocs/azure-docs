@@ -17,14 +17,14 @@ This article describes the data that Azure Arc-enabled data services transmit to
 
 Neither Azure Arc-enabled data services nor any of the applicable data services store any customer data. This applies to:
 
-- Azure Arc-enabled SQL Managed Instance
+- SQL Managed Instance enabled by Azure Arc
 - Azure Arc-enabled PostgreSQL
 
 ## Azure Arc-enabled data services
 
 Azure Arc-enabled data services may use some or all of the following products:
 
-- Azure Arc-enabled SQL Managed Instance 
+- SQL Managed Instance enabled by Azure Arc 
 - Azure Arc-enabled PostgreSQL
 - Azure Data Studio
 
@@ -79,7 +79,7 @@ Every database instance and the data controller itself will be reflected in Azur
 
 There are three resource types: 
 
-- Azure Arc-enabled SQL Managed Instance 
+- SQL Managed Instance enabled by Azure Arc 
 - Azure Arc-enabled PostgreSQL server 
 - Data controller
 
@@ -667,7 +667,7 @@ In support situations, you may be asked to provide database instance logs, Kuber
 |Crash dumps – customer data | Maximum 30-day retention of crash dumps – may contain access control data <br/><br/> Statistics objects, data values within rows, query texts could be in customer crash dumps    |
 |Crash dumps – personal data | Machine, logins/ user names, emails, location information, customer identification – require user consent to be included  |
 
-## Next steps
+## Related content
 [Upload usage data to Azure Monitor](upload-usage-data.md)
 
 

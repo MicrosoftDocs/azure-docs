@@ -3,8 +3,9 @@ title: Enable Artifact Cache with authentication - Azure CLI
 description: Learn how to enable Artifact Cache with authentication using Azure CLI.
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 06/17/2022
+ms.date: 10/31/2023
 ms.author: tejaswikolli
+ms.service: container-registry
 ---
 
 # Enable Artifact Cache with authentication - Azure CLI

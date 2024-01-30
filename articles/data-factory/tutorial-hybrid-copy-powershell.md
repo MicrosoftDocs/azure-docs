@@ -710,7 +710,7 @@ The pipeline automatically creates the output folder named *fromonprem* in the `
     :::image type="content" source="media/tutorial-hybrid-copy-powershell/fromonprem-file.png" alt-text="Output file":::
 
 
-## Next steps
+## Related content
 The pipeline in this sample copies data from one location to another in Azure Blob storage. You learned how to:
 
 > [!div class="checklist"]

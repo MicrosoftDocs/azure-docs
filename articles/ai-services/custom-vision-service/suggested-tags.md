@@ -1,14 +1,14 @@
 ---
-title: "Label images faster with Smart Labeler"
+title: "Tag images faster with Smart Labeler"
 titleSuffix: Azure AI services
 description: In this guide, you'll learn how to use Smart Labeler to generate suggested tags for images. This lets you label a large number of images more quickly when training a Custom Vision model.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
 ms.service: azure-ai-custom-vision
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 01/21/2024
 ms.author: pafarley
 ---
 
@@ -16,13 +16,13 @@ ms.author: pafarley
 
 In this guide, you'll learn how to use Smart Labeler to generate suggested tags for images. This lets you label a large number of images more quickly when you're training a Custom Vision model.
 
-When you tag images for a Custom Vision model, the service uses the latest trained iteration of the model to predict the labels of new images. It shows these predictions as suggested tags, based on the selected confidence threshold and prediction uncertainty. You can then either confirm or change the suggestions, speeding up the process of manually tagging the images for training.
+When you tag images for a Custom Vision model, the service uses the latest trained iteration of the model to predict the labels of new images. It shows these predictions as suggested tags in the UI, based on the selected confidence threshold and prediction uncertainty. You can then either confirm or change the suggestions. This speeds up the process of manually tagging the images for training.
 
 ## When to use Smart Labeler
 
 Keep the following limitations in mind:
 
-* You should only request suggested tags for images whose tags have already been trained on once. Don't get suggestions for a new tag that you're just beginning to train.
+* You should only request suggested tags for images whose tags have already been trained on once. Don't get suggestions for a new tag that you're just beginning to train on.
 
 > [!IMPORTANT]
 > The Smart Labeler feature uses the same [pricing model](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) as regular predictions. The first time you trigger suggested tags for a set of images, you'll be charged the same as for prediction calls. After that, the service stores the results for the selected images in a database for 30 days, and you can access them anytime for free within that period. After 30 days, you'll be charged if you request their suggested tags again.

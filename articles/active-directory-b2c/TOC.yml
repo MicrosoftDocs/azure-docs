@@ -65,7 +65,7 @@
   items:
   - name: Compare solutions for External Identities
     href: /entra/external-id/external-identities-overview?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
-  - name: Supported Microsoft Entra features
+  - name: Supported Microsoft Entra ID features
     href: supported-azure-ad-features.md
   - name: Learn authentication basics
     items:

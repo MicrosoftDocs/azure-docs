@@ -567,7 +567,7 @@ This pipeline performs two steps:
 
 3. Connect to your sink Azure Synapse Analytics and confirm that data has been copied from Azure SQL Database properly.
 
-## Next steps
+## Related content
 
 You performed the following steps in this tutorial: 
 

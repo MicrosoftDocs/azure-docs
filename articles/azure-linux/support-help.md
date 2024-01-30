@@ -5,7 +5,7 @@ author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
 ms.topic: troubleshooting
-ms.date: 09/29/2023
+ms.date: 11/30/2023
 ---
 
 # Support and help for the Azure Linux Container Host for AKS
@@ -24,18 +24,6 @@ For a full list of self help troubleshooting content, see the Azure Linux Contai
 - [Kernel versioning](./troubleshoot-kernel.md)
 - [Troubleshoot common issues](/troubleshoot/azure/azure-kubernetes/troubleshoot-common-mariner-aks)
 
-## Post a question on Microsoft Q+A
-
-:::image type="icon" source="./media/logos/microsoft-logo.png" alt-text="":::
-
-For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/tags/133/azure), Azure's preferred destination for community support.
-
-If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when asking your question:
-
-| Area | Tag |
-|-------|----------------------|
-| [Azure Kubernetes Service](../../articles/aks/intro-kubernetes.md) | [azure-kubernetes-service](/answers/tags/200/azure-kubernetes-service) |
-
 ## Create an Azure support request
 
 :::image type="icon" source="./media/logos/azure-logo.png" alt-text="":::
@@ -52,23 +40,19 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 ### Get support for Azure Linux
 
-This project uses [GitHub issues](https://github.com/microsoft/CBL-Mariner/issues/new) to track [bugs](https://github.com/microsoft/CBL-Mariner/issues/new?labels=bug) and [feature requests](https://github.com/microsoft/CBL-Mariner/issues/new?labels=enhancement). For questions about using this project, see the [CBL-Mariner Tutorials repo](https://github.com/Microsoft/CBL-MarinerTutorials) and the [Contributor's Guide](https://github.com/microsoft/CBL-Mariner/blob/main/CONTRIBUTING.md).
+Submit a [GitHub issue](https://github.com/microsoft/CBL-Mariner/issues/new/choose) to ask a question, provide feedback, or submit a feature request. Create an [Azure support request](#create-an-azure-support-request) for any issues or bugs.
 
 ### Get support for development and management tools
 
-If you need help with the language and tools used to develop and manage the Azure Linux Container Host on Azure Kubernetes Service, open an issue in its repository on GitHub.
+We're hosting public community calls for Azure Linux users to get together and discuss new features, provide feedback, and learn more about how others use Azure Linux. In each session, we will feature a new demo. The schedule for the upcoming community calls is as follows:
 
-| Library | GitHub issues URL|
-| --- | --- |
-| Azure Kubernetes Service | https://github.com/Azure/AKS/issues |
-| Azure CLI | https://github.com/Azure/azure-cli/issues |
-| CBL-Mariner | https://github.com/microsoft/CBL-Mariner/issues |
-
-## Stay informed of updates and new releases
-
-:::image type="icon" source="./media/logos/updates-logo.png" alt-text="":::
-
-Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates).
+| Date | Time | Meeting link |
+| --- | --- | --- |
+| 1/25/2024 | 8-9 AM PST | [Click to join](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NGM1YWZiMDMtYWZkZi00NzBmLWExNjgtM2RkMjFmYTNiYmU2%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%2230697089-15b8-4c68-b67e-7db9cd4f02ea%22%7d). |
+| 3/28/2024 | 8-9 AM PST | [Click to join](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NGM1YWZiMDMtYWZkZi00NzBmLWExNjgtM2RkMjFmYTNiYmU2%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%2230697089-15b8-4c68-b67e-7db9cd4f02ea%22%7d). |
+| 5/23/2024 | 8-9 AM PST | [Click to join](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NGM1YWZiMDMtYWZkZi00NzBmLWExNjgtM2RkMjFmYTNiYmU2%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%2230697089-15b8-4c68-b67e-7db9cd4f02ea%22%7d). |
+| 7/25/2024 | 8-9 AM PST | [Click to join](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NGM1YWZiMDMtYWZkZi00NzBmLWExNjgtM2RkMjFmYTNiYmU2%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%2230697089-15b8-4c68-b67e-7db9cd4f02ea%22%7d). |
+| 9/26/2024 | 8-9 AM PST | [Click to join](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NGM1YWZiMDMtYWZkZi00NzBmLWExNjgtM2RkMjFmYTNiYmU2%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%2230697089-15b8-4c68-b67e-7db9cd4f02ea%22%7d). |
 
 ## Next steps
 

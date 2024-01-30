@@ -54,7 +54,7 @@ If the pipeline fails to run successfully, there's a few main things to check fo
 * Data flow sources. If you used different column or table names than what were provided in the example schema, you'll need to step through the data flows to verify that the columns are mapped correctly.
 * Data flow sink. The schema and data format configurations on the target database will need to match the data flow template. Like above, if any changes were made you those items will need to be aligned.
 
-## Next steps
+## Related content
 
 * Learn more about [mapping data flows](concepts-data-flow-overview.md).
 * Learn more about [pipeline templates](solution-templates-introduction.md)

@@ -2,12 +2,11 @@
 title: Speech to text REST API - Speech service
 titleSuffix: Azure AI services
 description: Get reference documentation for Speech to text REST API.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: reference
-ms.date: 09/15/2023
+ms.date: 1/21/2024
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -15,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Speech to text REST API
 
-Speech to text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). 
+Speech to text REST API is used for [batch transcription](batch-transcription.md) and [custom speech](custom-speech-overview.md). 
 
 > [!IMPORTANT]
 > Speech to text REST API v3.2 is available in preview. 
@@ -23,7 +22,7 @@ Speech to text REST API is used for [Batch transcription](batch-transcription.md
 > Speech to text REST API v3.0 will be retired on April 1st, 2026. For more information, see the Speech to text REST API [v3.0 to v3.1](migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](migrate-v3-1-to-v3-2.md) migration guides.
 
 > [!div class="nextstepaction"]
-> [See the Speech to text REST API v3.2 (preview) specification](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/Speech/SpeechToText/preview/v3.2-preview.1)
+> [See the Speech to text REST API v3.2 (preview)](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview1)
 
 > [!div class="nextstepaction"]
 > [See the Speech to text REST API v3.1 reference documentation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/)
@@ -33,12 +32,12 @@ Speech to text REST API is used for [Batch transcription](batch-transcription.md
 
 Use Speech to text REST API to:
 
-- [Custom Speech](custom-speech-overview.md): With Custom Speech, you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. Copy models to other subscriptions if you want colleagues to have access to a model that you built, or if you want to deploy a model to more than one region.
+- [Custom speech](custom-speech-overview.md): With custom speech, you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. Copy models to other subscriptions if you want colleagues to have access to a model that you built, or if you want to deploy a model to more than one region.
 - [Batch transcription](batch-transcription.md): Transcribe audio files as a batch from multiple URLs or an Azure container. 
 
 Speech to text REST API includes such features as:
 
-- Get logs for each endpoint if logs have been requested for that endpoint.
+- Get logs for each endpoint if logs are requested for that endpoint.
 - Request the manifest of the models that you create, to set up on-premises containers.
 - Upload data from Azure storage accounts by using a shared access signature (SAS) URI.
 - Bring your own storage. Use your own storage accounts for logs, transcription files, and other data.
@@ -46,7 +45,7 @@ Speech to text REST API includes such features as:
 
 ## Datasets
 
-Datasets are applicable for [Custom Speech](custom-speech-overview.md). You can use datasets to train and test the performance of different models. For example, you can compare the performance of a model trained with a specific dataset to the performance of a model trained with a different dataset.
+Datasets are applicable for [custom speech](custom-speech-overview.md). You can use datasets to train and test the performance of different models. For example, you can compare the performance of a model trained with a specific dataset to the performance of a model trained with a different dataset.
 
 See [Upload training and testing datasets](how-to-custom-speech-upload-data.md?pivots=rest-api) for examples of how to upload datasets. This table includes all the operations that you can perform on datasets.
 
@@ -67,7 +66,7 @@ See [Upload training and testing datasets](how-to-custom-speech-upload-data.md?p
 
 ## Endpoints
 
-Endpoints are applicable for [Custom Speech](custom-speech-overview.md). You must deploy a custom endpoint to use a Custom Speech model.  
+Endpoints are applicable for [custom speech](custom-speech-overview.md). You must deploy a custom endpoint to use a custom speech model.  
 
 See [Deploy a model](how-to-custom-speech-deploy-model.md?pivots=rest-api) for examples of how to manage deployment endpoints. This table includes all the operations that you can perform on endpoints.
 
@@ -90,9 +89,9 @@ See [Deploy a model](how-to-custom-speech-deploy-model.md?pivots=rest-api) for e
 
 ## Evaluations
 
-Evaluations are applicable for [Custom Speech](custom-speech-overview.md). You can use evaluations to compare the performance of different models. For example, you can compare the performance of a model trained with a specific dataset to the performance of a model trained with a different dataset.
+Evaluations are applicable for [custom speech](custom-speech-overview.md). You can use evaluations to compare the performance of different models. For example, you can compare the performance of a model trained with a specific dataset to the performance of a model trained with a different dataset.
 
-See [Test recognition quality](how-to-custom-speech-inspect-data.md?pivots=rest-api) and [Test accuracy](how-to-custom-speech-evaluate-data.md?pivots=rest-api) for examples of how to test and evaluate Custom Speech models. This table includes all the operations that you can perform on evaluations.
+See [Test recognition quality](how-to-custom-speech-inspect-data.md?pivots=rest-api) and [Test accuracy](how-to-custom-speech-evaluate-data.md?pivots=rest-api) for examples of how to test and evaluate custom speech models. This table includes all the operations that you can perform on evaluations.
 
 |Path|Method|Version 3.1|Version 3.0|
 |---------|---------|---------|---------|
@@ -107,7 +106,7 @@ See [Test recognition quality](how-to-custom-speech-inspect-data.md?pivots=rest-
 
 ## Health status
 
-Health status provides insights about the overall health of the service and sub-components.
+Health status provides insights about the overall health of the service and subcomponents.
 
 |Path|Method|Version 3.1|Version 3.0|
 |---------|---------|---------|---------|
@@ -115,9 +114,9 @@ Health status provides insights about the overall health of the service and sub-
 
 ## Models
 
-Models are applicable for [Custom Speech](custom-speech-overview.md) and [Batch Transcription](batch-transcription.md). You can use models to transcribe audio files. For example, you can use a model trained with a specific dataset to transcribe audio files. 
+Models are applicable for [custom speech](custom-speech-overview.md) and [Batch Transcription](batch-transcription.md). You can use models to transcribe audio files. For example, you can use a model trained with a specific dataset to transcribe audio files. 
 
-See [Train a model](how-to-custom-speech-train-model.md?pivots=rest-api) and [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md?pivots=rest-api) for examples of how to train and manage Custom Speech models. This table includes all the operations that you can perform on models.
+See [Train a model](how-to-custom-speech-train-model.md?pivots=rest-api) and [custom speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md?pivots=rest-api) for examples of how to train and manage custom speech models. This table includes all the operations that you can perform on models.
 
 |Path|Method|Version 3.1|Version 3.0|
 |---------|---------|---------|---------|
@@ -137,7 +136,7 @@ See [Train a model](how-to-custom-speech-train-model.md?pivots=rest-api) and [Cu
 
 ## Projects
 
-Projects are applicable for [Custom Speech](custom-speech-overview.md). Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt). For example, you might create a project for English in the United States.
+Projects are applicable for [custom speech](custom-speech-overview.md). Custom speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt). For example, you might create a project for English in the United States.
 
 See [Create a project](how-to-custom-speech-create-project.md?pivots=rest-api) for examples of how to create projects. This table includes all the operations that you can perform on projects.
 
@@ -176,7 +175,7 @@ See [Create a transcription](batch-transcription-create.md?pivots=rest-api) for 
 
 ## Web hooks
 
-Web hooks are applicable for [Custom Speech](custom-speech-overview.md) and [Batch Transcription](batch-transcription.md). In particular, web hooks apply to [datasets](#datasets), [endpoints](#endpoints), [evaluations](#evaluations), [models](#models), and [transcriptions](#transcriptions). Web hooks can be used to receive notifications about creation, processing, completion, and deletion events.
+Web hooks are applicable for [custom speech](custom-speech-overview.md) and [Batch Transcription](batch-transcription.md). In particular, web hooks apply to [datasets](#datasets), [endpoints](#endpoints), [evaluations](#evaluations), [models](#models), and [transcriptions](#transcriptions). Web hooks can be used to receive notifications about creation, processing, completion, and deletion events.
 
 This table includes all the web hook operations that are available with the Speech to text REST API.
 
@@ -196,6 +195,6 @@ This table includes all the web hook operations that are available with the Spee
 
 ## Next steps
 
-- [Create a Custom Speech project](how-to-custom-speech-create-project.md)
+- [Create a custom speech project](how-to-custom-speech-create-project.md)
 - [Get familiar with batch transcription](batch-transcription.md)
 

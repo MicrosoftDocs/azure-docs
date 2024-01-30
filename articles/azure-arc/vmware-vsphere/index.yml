@@ -57,7 +57,7 @@ landingContent:
      - linkListType: sample
        links:
         - text: Jumpstart for Azure Arc-enabled VMware vSphere
-          url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
+          url: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_vsphere
   - title: Administer Arc-enabled VMware
     linkLists:
       - linkListType: how-to-guide

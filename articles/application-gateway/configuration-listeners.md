@@ -41,7 +41,7 @@ Choose the frontend IP address that you plan to associate with this listener. Th
 
 ## Frontend port
 
-Associate a frontend port. You can select an existing port or create a new one. Choose any value from the [allowed range of ports](./application-gateway-components.md#ports). You can use not only well-known ports, such as 80 and 443, but any allowed custom port that's suitable. The same port can be used for public and private listeners (Preview feature). 
+Associate a frontend port. You can select an existing port or create a new one. Choose any value from the [allowed range of ports](./application-gateway-components.md#ports). You can use not only well-known ports, such as 80 and 443, but any allowed custom port that's suitable. The same port can be used for public and private listeners. 
 
 >[!NOTE] 
 > When using private and public listeners with the same port number, your application gateway changes the "destination" of the inbound flow to the frontend IPs of your gateway. Hence, depending on your Network Security Group's configuration, you may need an inbound rule with **Destination IP addresses** as your application gateway's public and private frontend IPs.

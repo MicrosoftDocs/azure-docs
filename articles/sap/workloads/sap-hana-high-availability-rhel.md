@@ -2,7 +2,6 @@
 title: High availability of SAP HANA on Azure VMs on RHEL | Microsoft Docs
 description: Establish high availability of SAP HANA on Azure virtual machines (VMs).
 services: virtual-machines-linux
-documentationcenter: 
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
@@ -10,7 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
 ms.custom: devx-track-python
-ms.date: 09/08/2023
+ms.date: 01/22/2024
 ms.author: radeltch
 ---
 # High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux
@@ -83,7 +82,7 @@ The SAP HANA System Replication setup uses a dedicated virtual hostname and virt
 * Front-end IP address: 10.0.0.13 for hn1-db
 * Probe port: 62503
 
-## Deploy for Linux
+## Prepare the infrastructure
 
 Azure Marketplace contains images qualified for SAP HANA with the High Availability add-on, which you can use to deploy new VMs by using various versions of Red Hat.
 
@@ -91,49 +90,29 @@ Azure Marketplace contains images qualified for SAP HANA with the High Availabil
 
 This document assumes that you've already deployed a resource group, an [Azure virtual network](../../virtual-network/virtual-networks-overview.md), and a subnet.
 
-Deploy VMs for SAP HANA. Choose a suitable RHEL image that's supported for the HANA system. You can deploy a VM in any one of the availability options: scale set, availability zone, or availability set.
+Deploy VMs for SAP HANA. Choose a suitable RHEL image that's supported for the HANA system. You can deploy a VM in any one of the availability options: virtual machine scale set, availability zone, or availability set.
 
 > [!IMPORTANT]
 >
 > Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types that you plan to use in your deployment. You can look up SAP HANA-certified VM types and their OS releases in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). Make sure that you look at the details of the VM type to get the complete list of SAP HANA-supported OS releases for the specific VM type.
 
-During VM configuration, you can create or select an existing load balancer in the networking section. If you're creating a new load balancer, follow these steps:
+### Configure Azure load balancer
 
-   1. Create a front-end IP pool:
+During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow below steps, to setup standard load balancer for high availability setup of HANA database.
 
-      1. Open the load balancer, select **frontend IP pool**, and select **Add**.
-      1. Enter the name of the new front-end IP pool (for example, **hana-frontend**).
-      1. Set **Assignment** to **Static** and enter the IP address (for example, **10.0.0.13**).
-      1. Select **OK**.
-      1. After the new front-end IP pool is created, note the pool IP address.
+#### [Azure portal](#tab/lb-portal)
 
-   1. Create a single back-end pool:
+[!INCLUDE [Configure Azure standard load balancer using Azure portal](../../../includes/sap-load-balancer-db-portal.md)]
 
-      1. Open the load balancer, select **Backend pools**, and then select **Add**.
-      1. Enter the name of the new back-end pool (for example, **hana-backend**).
-      1. Select **NIC** for **Backend Pool Configuration**.
-      1. Select **Add a virtual machine**.
-      1. Select the VMs of the HANA cluster.
-      1. Select **Add**.
-      1. Select **Save**.
+#### [Azure CLI](#tab/lb-azurecli)
 
-   1. Create a health probe:
+[!INCLUDE [Configure Azure standard load balancer using Azure CLI](../../../includes/sap-load-balancer-db-azurecli.md)]
 
-      1. Open the load balancer, select **health probes**, and select **Add**.
-      1. Enter the name of the new health probe (for example, **hana-hp**).
-      1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to **5**.
-      1. Select **OK**.
+#### [PowerShell](#tab/lb-powershell)
 
-   1. Create the load-balancing rules:
+[!INCLUDE [Configure Azure standard load balancer using PowerShell](../../../includes/sap-load-balancer-db-powershell.md)]
 
-      1. Open the load balancer, select **load balancing rules**, and select **Add**.
-      1. Enter the name of the new load balancer rule (for example, **hana-lb**).
-      1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend**, and **hana-hp**).
-      1. Increase the idle timeout to **30 minutes**.
-      1. Select **HA Ports**.
-      1. Increase the idle timeout to **30 minutes**.
-      1. Make sure to enable **Floating IP**.
-      1. Select **OK**.
+---
 
 For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or SAP Note [2388694][2388694].
 
@@ -144,8 +123,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 > When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) instance of Standard Azure Load Balancer, there's no outbound internet connectivity unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for VMs using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 > [!IMPORTANT]
-> Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps could cause the health probes to fail. Set the parameter **net.ipv4.tcp_timestamps** to **0**. For more information, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
-> See also SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
+> Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps could cause the health probes to fail. Set the parameter `net.ipv4.tcp_timestamps` to `0`. For more information, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md) and SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
 
 ## Install SAP HANA
 
@@ -188,12 +166,12 @@ The steps in this section use the following prefixes:
    sudo vgcreate vg_hana_shared_HN1 /dev/disk/azure/scsi1/lun3
    ```
 
-   Create the logical volumes. A linear volume is created when you use `lvcreate` without the `-i` switch. We suggest that you create a striped volume for better I/O performance. Align the stripe sizes to the values documented in [SAP HANA VM storage configurations](./hana-vm-operations-storage.md). The `-i` argument should be the number of the underlying physical volumes, and the `-I` argument is the stripe size. 
+   Create the logical volumes. A linear volume is created when you use `lvcreate` without the `-i` switch. We suggest that you create a striped volume for better I/O performance. Align the stripe sizes to the values documented in [SAP HANA VM storage configurations](./hana-vm-operations-storage.md). The `-i` argument should be the number of the underlying physical volumes, and the `-I` argument is the stripe size.
 
    In this document, two physical volumes are used for the data volume, so the `-i` switch argument is set to **2**. The stripe size for the data volume is **256KiB**. One physical volume is used for the log volume, so no `-i` or `-I` switches are explicitly used for the log volume commands.
 
    > [!IMPORTANT]
-   > Use the `-i` switch and set it to the number of the underlying physical volume when you use more than one physical volume for each data, log, or shared volumes. Use the `-I` switch to specify the stripe size when you're creating a striped volume. 
+   > Use the `-i` switch and set it to the number of the underlying physical volume when you use more than one physical volume for each data, log, or shared volumes. Use the `-I` switch to specify the stripe size when you're creating a striped volume.
    > See [SAP HANA VM storage configurations](./hana-vm-operations-storage.md) for recommended storage configurations, including stripe sizes and number of disks. The following layout examples don't necessarily meet the performance guidelines for a particular system size. They're for illustration only.
 
    ```bash
@@ -239,7 +217,7 @@ The steps in this section use the following prefixes:
    * [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
    * [2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
    * [2455582 - Linux: Running SAP applications compiled with GCC 6.x](https://launchpad.support.sap.com/#/notes/2455582)
-   * [2593824 - Linux: Running SAP applications compiled with GCC 7.x](https://launchpad.support.sap.com/#/notes/2593824) 
+   * [2593824 - Linux: Running SAP applications compiled with GCC 7.x](https://launchpad.support.sap.com/#/notes/2593824)
    * [2886607 - Linux: Running SAP applications compiled with GCC 9.x](https://launchpad.support.sap.com/#/notes/2886607)
 
 1. **[A]** Install the SAP HANA.
@@ -303,22 +281,9 @@ The steps in this section use the following prefixes:
    Create firewall rules to allow HANA System Replication and client traffic. The required ports are listed on [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports). The following commands are just an example to allow HANA 2.0 System Replication and client traffic to database SYSTEMDB, HN1, and NW1.
 
    ```bash
-   sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40302/tcp
-   sudo firewall-cmd --zone=public --add-port=40301/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40301/tcp
-   sudo firewall-cmd --zone=public --add-port=40307/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40307/tcp
-   sudo firewall-cmd --zone=public --add-port=40303/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40303/tcp
-   sudo firewall-cmd --zone=public --add-port=40340/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40340/tcp
-   sudo firewall-cmd --zone=public --add-port=30340/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=30340/tcp
-   sudo firewall-cmd --zone=public --add-port=30341/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=30341/tcp
-   sudo firewall-cmd --zone=public --add-port=30342/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=30342/tcp
+    sudo firewall-cmd --zone=public --add-port={40302,40301,40307,40303,40340,30340,30341,30342}/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port={40302,40301,40307,40303,40340,30340,30341,30342}/tcp
+
    ```
 
 1. **[1]** Create the tenant database.
@@ -462,6 +427,11 @@ The steps in this section use the following prefixes:
 ## Create a Pacemaker cluster
 
 Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](high-availability-guide-rhel-pacemaker.md) to create a basic Pacemaker cluster for this HANA server.
+
+> [!IMPORTANT]
+> With the systemd based SAP Startup Framework, SAP HANA instances can now be managed by systemd. The minimum required Red Hat Enterprise Linux (RHEL) version is RHEL 8 for SAP. As outlined in SAP Note [3189534](https://me.sap.com/notes/3189534), any new installations of SAP HANA SPS07 revision 70 or above, or updates to HANA systems to HANA 2.0 SPS07 revision 70 or above, SAP Startup framework will be automatically registered with systemd.
+>
+> When using HA solutions to manage SAP HANA system replication in combination with systemd-enabled SAP HANA instances (refer to SAP Note [3189534](https://me.sap.com/notes/3189534)), additional steps are necessary to ensure that the HA cluster can manage the SAP instance without systemd interference. So, for SAP HANA system integrated with systemd, additional steps outlined in [Red Hat KBA 7029705](https://access.redhat.com/solutions/7029705) must be followed on all cluster nodes.
 
 ## Implement the Python system replication hook SAPHanaSR
 
@@ -655,7 +625,7 @@ Use the command `sudo pcs status` to check the state of the cluster resources cr
 
 ## Configure HANA active/read-enabled system replication in Pacemaker cluster
 
-Starting with SAP HANA 2.0 SPS 01, SAP allows active/read-enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA System Replication can be used actively for read-intense workloads. 
+Starting with SAP HANA 2.0 SPS 01, SAP allows active/read-enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA System Replication can be used actively for read-intense workloads.
 
 To support such a setup in a cluster, a second virtual IP address is required, which allows clients to access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover has occurred, the cluster needs to move the virtual IP address around with the secondary SAPHana resource.
 
@@ -883,7 +853,7 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 ```
 
-You can test the setup of the Azure fencing agent by disabling the network interface on the node where SAP HANA is running as Master. For a description on how to simulate a network failure, see [Red Hat Knowledge Base article 79523](https://access.redhat.com/solutions/79523). 
+You can test the setup of the Azure fencing agent by disabling the network interface on the node where SAP HANA is running as Master. For a description on how to simulate a network failure, see [Red Hat Knowledge Base article 79523](https://access.redhat.com/solutions/79523).
 
 In this example, we use the `net_breaker` script as root to block all access to the network:
 

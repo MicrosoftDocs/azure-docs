@@ -1,6 +1,6 @@
 ---
 title: Transparency Note for Trial Matcher
-titleSuffix: Project Health Insights
+titleSuffix: Azure AI Health Insights
 description: Microsoft's Transparency Note for Trial Matcher intended to help understand how our AI technology works
 services: azure-health-insights
 author: adishachar

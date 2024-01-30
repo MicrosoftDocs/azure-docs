@@ -61,7 +61,7 @@ az containerapp ingress enable \
 | `--target-port` | targetPort | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
 |`--exposed-port` | exposedPort | (TCP ingress only) An port for TCP ingress. If `external` is `true`, the value must be unique in the Container Apps environment if ingress is external. | A port number from `1` to `65535`. (can't be `80` or `443`) | No |
 |`--transport` | transport | The transport protocol type. | auto (default) detects HTTP/1 or HTTP/2,  `http` for HTTP/1, `http2` for HTTP/2, `tcp` for TCP. | No |
-
+ 
 ::: zone-end
 
 ::: zone pivot="azure-portal"
@@ -148,6 +148,9 @@ Disable ingress for your container app by omitting the `ingress` configuration p
 ## <a name="use-additional-tcp-ports"></a>Use additional TCP ports (preview)
 
 You can expose additional TCP ports from your application. To learn more, see the [ingress concept article](ingress-overview.md#additional-tcp-ports).
+
+> [Note]
+> To use this preview feature, you must have the container apps CLI extension. Run `az extension add -n containerapp` in order to install the latest version of the container apps CLI extension.
 
 
 ::: zone pivot="azure-cli"

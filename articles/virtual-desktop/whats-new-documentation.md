@@ -4,12 +4,38 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 02/09/2023
+ms.date: 12/04/2023
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article we highlight articles for new features and where there have been important updates to existing articles.
+
+## December 2023
+
+In December 2023, we published the following changes:
+
+- Published new content for the preview of *app attach*, which is now available alongside MSIX app attach. App attach brings many benefits over MSIX app attach, including assigning applications per user, using the same application package across multiple host pools, upgrading applications, and being able to run two versions of the same application concurrently on the same session host. For more information, see [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+
+- Updated the article [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) to include support for [new Teams desktop client](/microsoftteams/new-teams-desktop-admin) on your session hosts.
+
+- Updated the article [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID authentication](configure-single-sign-on.md) to include example PowerShell commands to help configure single sign-on using Microsoft Entra ID authentication.
+
+## November 2023
+
+In November 2023, we published the following changes:
+
+- Updated articles for the general availability of autoscale for personal host pools. We also added in support for hibernate (preview). For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md).
+- Updated articles for the updated preview of Azure Virtual Desktop on Azure Stack HCI. You can now deploy Azure Virtual Desktop with your session hosts on Azure Stack HCI as an integrated experience with Azure Virtual Desktop in the Azure portal. For more information, see [Azure Virtual Desktop on Azure Stack HCI](azure-stack-hci-overview.md) and [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md).
+- Updated articles for the general availability of Single sign-on using Microsoft Entra authentication and In-session passwordless authentication. For more information, see [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md) and [In-session passwordless authentication](authentication.md#in-session-authentication).
+- Published a new set of documentation for Windows App (preview). You can use Windows App to connect to Azure Virtual Desktop, Windows 365, Microsoft Dev Box, Remote Desktop Services, and remote PCs, securely connecting you to Windows devices and apps. For more information, see [Windows App](/windows-app/overview).
+
+## October 2023
+
+In October 2023, we published the following changes:
+
+- A new article about the service architecture for Azure Virtual Desktop and how it provides a resilient, reliable, and secure service for organizations and users. Most components are Microsoft-managed, but some are customer-managed. You can learn more at [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
+- Updated [Connect to Azure Virtual Desktop with the Remote Desktop Web client](./users/connect-web.md) and [Use features of the Remote Desktop Web client when connecting to Azure Virtual Desktop](./users/client-features-web.md) for the general availability of the updated user interface for the Remote Desktop Web client.
 
 ## September 2023
 

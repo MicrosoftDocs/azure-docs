@@ -4,9 +4,11 @@ description: Learn about key features of Azure ExpressRoute Direct and informati
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.custom: ignite-2022
+ms.custom:
+  - ignite-2022
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 10/31/2022
+ms.date: 11/15/2023
 ms.author: duau
 ---
 
@@ -62,6 +64,8 @@ Azure ExpressRoute allows you to extend your on-premises network into the Micros
 Each peering location has access to the Microsoft global network and can access any region in a geopolitical zone by default. You can access any global regions when you set up a premium circuit.  
 
 The functionality in most scenarios is equivalent to circuits that use an ExpressRoute service provider to operate. To support further granularity and new capabilities offered using ExpressRoute Direct, there are certain key capabilities that exist only with ExpressRoute Direct circuits.
+
+You can enable or disable rate limiting (preview) for ExpressRoute Direct circuits at the circuit level. For more information, see [Rate limiting for ExpressRoute Direct circuits (Preview)](rate-limit.md).
 
 ## Circuit SKUs
 
@@ -121,4 +125,5 @@ For details on how ExpressRoute Direct is billed, see [ExpressRoute FAQ](express
 
 ## Next steps
 
-Learn how to [configure ExpressRoute Direct](expressroute-howto-erdirect.md).
+- Learn how to [configure ExpressRoute Direct](expressroute-howto-erdirect.md).
+- Learn how to [Enable Rate limiting for ExpressRoute Direct circuits (Preview)](rate-limit.md).

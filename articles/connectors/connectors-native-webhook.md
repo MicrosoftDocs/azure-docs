@@ -5,11 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 01/04/2024
 tags: connectors
 ---
 
 # Create and run automated event-based workflows by using HTTP webhooks in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the HTTP Webhook built-in connector, you can create an automated workflow that subscribes to a service endpoint, waits for specific events, and runs specific actions, rather than regularly check or *poll* the service endpoint.
 
