@@ -39,7 +39,7 @@ When you author an alert rule, Log Analytics creates a permission snapshot for y
 
 ### The alert rule uses a system-assigned managed identity
 
-When you create a log alert rule with system-assigned managed identity, the identity is created without any permissions. After you create the rule, you need to assign the appropriate roles to the rule’s identity so that it can access the data you want to query. For example, you might need to give it a Reader role for the relevant Log Analytics workspaces, or a Reader role and a Database Viewer role for the relevant ADX cluster. See [managed identities](alerts-create-new-alert-rule.md#managed-id) for more information about using managed identities in log alerts.
+When you create a log alert rule with system-assigned managed identity, the identity is created without any permissions. After you create the rule, you need to assign the appropriate roles to the rule’s identity so that it can access the data you want to query. For example, you might need to give it a Reader role for the relevant Log Analytics workspaces, or a Reader role and a Database Viewer role for the relevant ADX cluster. See [managed identities](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information about using managed identities in log alerts.
 
 ### Metric measurement alert rule with splitting using the legacy Log Analytics API
 
