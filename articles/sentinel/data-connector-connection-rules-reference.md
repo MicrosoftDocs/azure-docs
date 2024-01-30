@@ -444,7 +444,7 @@ Paging: {
 
 #### Configure NextPageUrl
 
-`NextPageUrl` paging means the API response includes a complex link in the response body similar to `LinkHeader`, but the 
+`NextPageUrl` paging means the API response includes a complex link in the response body similar to `LinkHeader`, but the URL is included in the response body instead of the header.
 
 | Field | Required | Type | Description |
 |----|----|----|----|
