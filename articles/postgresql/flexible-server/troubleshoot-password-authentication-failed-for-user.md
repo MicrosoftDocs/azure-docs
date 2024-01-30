@@ -26,14 +26,13 @@ Following the initial password authentication error, you might see another error
 > connection to server at "\<server-name\>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  no pg_hba.conf entry for host "y.y.y.y", user "\<user-name\>", database "postgres", no encryption
 
 
+When using a `libpq` client that supports SSL, such as tools like `psql`, `pg_dump`, or `pgbench`, it's standard behavior to try connecting once with SSL and once without. The reason for this approach is that the server can have different `pg_hba` rules for SSL and non-SSL connections.
 The combined error message you receive in this scenario looks like this:
 
 
 > psql: error: connection to server at "\<server-name\>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  password authentication failed for user "\<user-name\>"
 connection to server at "\<server-name\>.postgres.database.azure.com" (x.x.x.x), port 5432 failed: FATAL:  no pg_hba.conf entry for host "y.y.y.y", user "\<user-name\>", database "postgres", no encryption
 
-
-When using a `libpq` client that supports SSL, such as tools like `psql`, `pg_dump`, or `pgbench`, it's standard behavior to try connecting once with SSL and once without. The reason for this approach is that the server can have different `pg_hba` rules for SSL and non-SSL connections.
 
 To avoid this dual attempt and specify the desired SSL mode, you can use the `sslmode` connection option in your client configuration. For instance, if you're using `libpq` variables in the bash shell, you can set the SSL mode by using the following command:
 
