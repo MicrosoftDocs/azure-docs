@@ -369,7 +369,7 @@ In secure boot chain, each step in the boot process checks a cryptographic signa
 
 ### Why is Trusted Launch Virtual Machine not booting correctly? 
 
-If unsigned components are detected from the UEFI (guest firmware), bootloader, operating system, or boot drivers, a Trusted Launch Virtual Machine won't boot. The [secure boot](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#secure-boot-setting-in-hyper-v-manager) setting in the Trusted Launch virtual machine fails to boot if unsigned or untrusted boot components are encountered during the boot process and will report as a secure boot failure.
+If unsigned components are detected from the UEFI (guest firmware), bootloader, operating system, or boot drivers, a Trusted Launch Virtual Machine won't boot. The [secure boot](/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#secure-boot-setting-in-hyper-v-manager) setting in the Trusted Launch virtual machine fails to boot if unsigned or untrusted boot components are encountered during the boot process and will report as a secure boot failure.
 
 ![The trusted launch pipeline from secure boot to third party drivers](./media/trusted-launch/trusted-launch-pipeline.png)
 
