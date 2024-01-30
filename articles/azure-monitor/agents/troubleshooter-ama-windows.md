@@ -1,5 +1,5 @@
 ---
-title: Use Azure Monitor Agent Troubleshooter for Windows
+title: How to use the Windows operating system (OS) Azure Monitor Agent Troubleshooter
 description: Detailed instructions on using the Windows agent troubleshooter tool to diagnose potential issues.
 ms.topic: conceptual
 author: RepinStyle
@@ -11,14 +11,16 @@ ms.reviewer: jeffwo
 # customer-intent: When AMA is experiencing issues, I want to investigate the issues and determine if I can resolve the issue on my own.
 ---
 
-# Use the Azure Monitor Agent Troubleshooter for Windows
+# How to use the Windows operating system (OS) Azure Monitor Agent Troubleshooter
 The Azure Monitor Agent (AMA) Troubleshooter is designed to help identify issues with the agent and perform general health assessments. It can perform various checks to ensure that the agent is properly installed and connected, and can also gather AMA-related logs from the machine being diagnosed.
 
 > [!Note]
-> The AMA Troubleshooter is a command line executable that is shipped with the agent for all versions newer than **1.12.0.0** for Windows. 
+> The Windows AMA Troubleshooter is a command line executable that is shipped with the agent for all versions newer than **1.12.0.0**. 
 
 ## Prerequisites
-On the machine to be diagnosed, does this directory exist:
+### Troubleshooter existence check
+Check for the existence of the AMA Agent Troubleshooter directory on the machine to be diagnosed to confirm the installation of the agent troubleshooter:
+
 ***C:/Packages/Plugins/Microsoft.Azure.Monitor.AzureMonitorWindowsAgent***
 
 # [PowerShell](#tab/WindowsPowerShell)
@@ -43,7 +45,7 @@ If the directory exists, the cd command changes directories successfully.
 
 ---
 
-If not, the directory doesn't exist and the installation failed. In this case, follow [Basic troubleshooting steps](../agents/azure-monitor-agent-troubleshoot-windows-vm.md#basic-troubleshooting-steps-installation-agent-not-running-configuration-issues) instead.
+If directory doesn't exist or the installation is failed, follow [Basic troubleshooting steps](../agents/azure-monitor-agent-troubleshoot-windows-vm.md#basic-troubleshooting-steps-installation-agent-not-running-configuration-issues).
 
 Yes, the directory exists. Proceed to [Run the Troubleshooter](#run-the-troubleshooter).
 

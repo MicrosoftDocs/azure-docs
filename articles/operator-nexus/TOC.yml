@@ -86,6 +86,8 @@
                   href: howto-run-instance-readiness-testing.md
                 - name: Cluster Upgrades
                   href: howto-cluster-runtime-upgrade.md
+                - name: Credential Rotation
+                  href: howto-credential-rotation.md
         - name: Network Fabric
           expanded: false
           items:
@@ -161,6 +163,8 @@
       href: troubleshoot-bmm-node-reboot.md
     - name: Troubleshoot Resolve CSN storage pod stuck in ContainerCreating
       href: troubleshoot-csn-storage-pod-container-stuck-in-creating.md
+    - name: Troubleshoot Hardware Validation Failure
+      href: troubleshoot-hardware-validation-failure.md
     - name: Enable node down cleaner
       href: troubleshoot-enable-node-down-cleaner.md
     - name: BareMetal Actions
