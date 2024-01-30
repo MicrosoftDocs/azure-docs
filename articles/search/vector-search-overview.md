@@ -37,11 +37,11 @@ The following diagram shows the indexing and query workflows for vector search.
 
 On the indexing side, Azure AI Search takes vector embeddings and uses a [nearest neighbors algorithm](vector-search-ranking.md) to place similar vectors close together in an index. Internally, it creates vector indices for each vector field.
 
-How you get embeddings from your source content into Azure AI Search depends on your approach and whether you can use preview features. You can vectorize or generate embeddings as a preliminary step using models from OpenAI, Azure OpenAI, and any number of providers, over a wide range of source content including text, images, and other content types supported by the models. You can then push pre-vectorized content to [vector fields](vector-search-how-to-create-index.md) in a vector store. That's the generally available approach. If you can use preview features, Azure AI Search offers [integrated data chunking and vectorization](vector-search-integrated-vectorization.md) in an indexer pipeline. You still provide the resources (endpoints and connection information to Azure OpenAI), but Azure AI Search makes all of the calls and handles the transitions.
+How you get embeddings from your source content into Azure AI Search depends on your approach and whether you can use preview features. You can vectorize or generate embeddings as a preliminary step using models from OpenAI, Azure OpenAI, and any number of providers, over a wide range of source content including text, images, and other content types supported by the models. You can then push prevectorized content to [vector fields](vector-search-how-to-create-index.md) in a vector store. That's the generally available approach. If you can use preview features, Azure AI Search offers [integrated data chunking and vectorization](vector-search-integrated-vectorization.md) in an indexer pipeline. You still provide the resources (endpoints and connection information to Azure OpenAI), but Azure AI Search makes all of the calls and handles the transitions.
 
 On the query side, in your client application, you collect the query input from a user, usually through a prompt workflow. You can then add an encoding step that converts the input into a vector, and then send the vector query to your index on Azure AI Search for a similarity search. As with indexing, you can deploy the [integrated vectorization (preview)](vector-search-integrated-vectorization.md) to convert the question into a vector. For either approach, Azure AI Search returns documents with the requested `k` nearest neighbors (kNN) in the results.
 
-Azure AI Search supports [hybrid scenarios](hybrid-search-overview.md) that run vector and keyword search in parallel, returning a unified result set that often provides better results than just vector or keyword search alone. For hybrid, vector and non-vector content is ingested into the same index, for queries that run side by side.
+Azure AI Search supports [hybrid scenarios](hybrid-search-overview.md) that run vector and keyword search in parallel, returning a unified result set that often provides better results than just vector or keyword search alone. For hybrid, vector and nonvector content is ingested into the same index, for queries that run side by side.
 
 ## Availability and pricing
 
@@ -52,10 +52,9 @@ Newer services created after July 1, 2023 support [higher quotas for vector inde
 Vector search is available in:
 
 + Azure portal using the [Import and vectorize data wizard](search-get-started-portal-import-vectors.md)
-+ Azure OpenAI Studio, see this [Quickstart](search-get-started-retrieval-augmented-generation.md)
-+ Azure AI Studio
 + Azure REST APIs, [version 2023-11-01](/rest/api/searchservice/operation-groups)
 + Azure SDKs for [.NET](https://www.nuget.org/packages/Azure.Search.Documents), [Python](https://pypi.org/project/azure-search-documents), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2)
++ Other Azure offerings such as Azure AI Studio and Azure OpenAI Studio.
 
 > [!NOTE]
 > Some older search services created before January 1, 2019 are deployed on infrastructure that doesn't support vector workloads. If you try to add a vector field to a schema and get an error, it's a result of outdated services. In this situation, you must create a new search service to try out the vector feature.
@@ -72,13 +71,13 @@ Scenarios for vector search include:
 
 + [**Hybrid search**](hybrid-search-overview.md). In Azure AI Search, hybrid search refers to vector and keyword query execution from the same request. Vector support is implemented at the field level, with an index containing both vector fields and searchable text fields. The queries execute in parallel and the results are merged into a single response. Optionally, add [semantic ranking](semantic-search-overview.md) for more accuracy with L2 reranking using the same language models that power Bing.
 
-+ **Multilingual search**. Providing a search experience in the users own language is possible through embedding models and chat models trained in multiple langguages. If you need more control over translation, you can supplement with the [multi-language capabilities](search-language-support.md) that Azure AI Search supports for non-vector content, in hybrid search scenarios.
++ **Multilingual search**. Providing a search experience in the users own language is possible through embedding models and chat models trained in multiple languages. If you need more control over translation, you can supplement with the [multi-language capabilities](search-language-support.md) that Azure AI Search supports for nonvector content, in hybrid search scenarios.
 
 + **Filtered vector search**. A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to text and numeric fields, and are useful for metadata filters, and including or excluding search results based on filter criteria. Although a vector field isn't filterable itself, you can set up a filterable text or numeric field. The search engine can process the filter before or after the vector query executes.
 
 ## Azure integration and related services
 
-Azure AI Search has widespread built-in integration across the Azure AI platform. The following table lists several that are useful in vector workloads.
+Azure AI Search is deeply integrated across the Azure AI platform. The following table lists several that are useful in vector workloads.
 
 | Product | Integration |
 |---------|-------------|
@@ -119,7 +118,7 @@ For example, documents that talk about different species of dogs would be cluste
 
 ### Nearest neighbors search
 
-In vector search, the search engine searches through the vectors within the embedding space to identify those that are near to the query vector. This technique is called [*nearest neighbor search*](https://en.wikipedia.org/wiki/Nearest_neighbor_search). Nearest neighbors help quantify the similarity between items. A high degree of vector similarity indicates that the original data was similar too. To facilitate fast nearest neighbor search, the search engine performs optimizations or employ data structures or data partitioning to reduce the search space. Each vector search algorithm has different approaches to this problem, trading off different characteristics such as latency, throughput, recall, and memory. To compute similarity, similarity metrics provide the mechanism for computing this distance.
+In vector search, the search engine scans vectors within the embedding space to identify vectors that are closest to the query vector. This technique is called [*nearest neighbor search*](https://en.wikipedia.org/wiki/Nearest_neighbor_search). Nearest neighbors help quantify the similarity between items. A high degree of vector similarity indicates that the original data was similar too. To facilitate fast nearest neighbor search, the search engine performs optimizations, or employs data structures and data partitioning, to reduce the search space. Each vector search algorithm solves the nearest neighbor problems in different ways as they optimize for minimum latency, maximum throughput, recall, and memory. To compute similarity, similarity metrics provide the mechanism for computing distance.
 
 Azure AI Search currently supports the following algorithms:
 
