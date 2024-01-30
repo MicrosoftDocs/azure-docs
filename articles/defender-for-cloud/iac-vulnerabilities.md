@@ -1,35 +1,39 @@
 ---
-title: Discover misconfigurations in Infrastructure as Code
-description: Learn how to use DevOps security in Defender for Cloud to discover misconfigurations in Infrastructure as Code (IaC).
+title: Find misconfigurations in Infrastructure as Code
+description: Learn how to use Microsoft Security DevOps scanning with Microsoft Defender for Cloud to find misconfigurations in Infrastructure as Code (IaC).
 ms.date: 01/24/2023
 ms.topic: how-to
 ms.custom: ignite-2022
 ---
 
-# Discover misconfigurations in Infrastructure as Code
+# Set up Microsoft Security DevOps scanning for Infrastructure as Code
 
-After you set up the Microsoft Security DevOps GitHub action or Azure DevOps extension, you can configure the YAML configuration file to run a single tool or multiple tools. For example, you can set up the action or extension to run only Infrastructure as Code (IaC) scanning tools. This can help reduce the pipeline runtime.
+After you set up the Microsoft Security DevOps GitHub action or the Microsoft Security DevOps Azure DevOps extension, you can set the YAML configuration file to run a single tool or multiple tools. For example, you can set up the action or extension to run only Infrastructure as Code (IaC) scanning tools. By using specific scanning tools like for IaC, you can help reduce your pipeline runtime.
 
 ## Prerequisites
 
-- Configure the Microsoft Security DevOps GitHub action or the Azure DevOps-based extension depending on your source code management system:
-  - [Microsoft Security DevOps GitHub action](github-action.md)
-  - [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
+- For Microsoft Security DevOps, set up the GitHub action or the Azure DevOps extension based on your source code management system:
+  - If your repository is in GitHub, set up the [Microsoft Security DevOps GitHub action](github-action.md).
+  - If your repository is in Azure DevOps, set up the [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md)
 - Ensure that you have an IaC template in your repository.
 
-## Set up IaC scanning and view the results in GitHub
+## Set up a GitHub action for IaC scanning
+
+To set up an action and view scan results in GitHub:
 
 1. Sign in to [GitHub](https://www.github.com).
 
-1. On the home page of your repository, go to **.github/workflows** > **msdevopssec.yml**.
+1. Go to the main page of your repository.
+
+1. In the directory, select **.github** > **workflows** > **msdevopssec.yml**.
 
    For more information, see [Prerequisites](github-action.md#configure-the-microsoft-security-devops-github-action-1).
 
-1. Select **Edit file**.
+1. Select the **Edit this file** (pencil) icon.
 
-    :::image type="content" source="media/tutorial-iac-vulnerabilities/workflow-yaml.png" alt-text="Screenshot that shows where to find the edit button for the msdevopssec.yml file." lightbox="media/tutorial-iac-vulnerabilities/workflow-yaml.png":::
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/workflow-yaml.png" alt-text="Screenshot that highlights the Edit this file icon for the msdevopssec.yml file." lightbox="media/tutorial-iac-vulnerabilities/workflow-yaml.png":::
 
-1. In the Run Analyzers section, add:
+1. In the **Run analyzers** section of the YAML file, add this code:
 
     ```yaml
     with:
@@ -37,21 +41,21 @@ After you set up the Microsoft Security DevOps GitHub action or Azure DevOps ext
     ```
 
     > [!NOTE]
-    > Categories are case sensitive.
+    > Values for **categories** are case sensitive.
 
-    :::image type="content" source="media/tutorial-iac-vulnerabilities/add-to-yaml.png" alt-text="Screenshot that shows the information that needs to be added to the YAML file.":::
-
-1. Select **Start Commit**.
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/add-to-yaml.png" alt-text="Screenshot that shows the information to add to the YAML file.":::
 
 1. Select **Commit changes**.
 
-    :::image type="content" source="media/tutorial-iac-vulnerabilities/commit-change.png" alt-text="Screenshot that shows where to select commit change on the GitHub page.":::
+1. Select **Commit changes**.
+
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/commit-change.png" alt-text="Screenshot that shows where to select Commit changes on the GitHub page.":::
 
 1. (Optional) Add an IaC template to your repository. If you already have an IaC template in your repository, skip this step.
 
     For example, commit an IaC template to [deploy a basic Linux web application](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-linux) to your repository.
 
-    1. Select the *azuredeploy.json* file.
+    1. Select the **azuredeploy.json** file.
 
         :::image type="content" source="media/tutorial-iac-vulnerabilities/deploy-json.png" alt-text="Screenshot that shows where the azuredeploy.json file is located.":::
 
@@ -132,7 +136,7 @@ After you set up the Microsoft Security DevOps GitHub action or Azure DevOps ext
         }
         ```
 
-    1. Go to your GitHub repository.
+    1. In your GitHub repository, go to the **.github/workflows** folder.
 
     1. Select **Add file** > **Create new file**.
 
@@ -140,26 +144,26 @@ After you set up the Microsoft Security DevOps GitHub action or Azure DevOps ext
 
     1. Enter a name for the file.
 
-    1. Paste the copied information into the file.
+    1. Paste the copied information in the file.
 
     1. Select **Commit new file**.
 
     The file is added to your repository.
 
-    :::image type="content" source="media/tutorial-iac-vulnerabilities/file-added.png" alt-text="Screenshot that shows that the new file you created has been added to your repository.":::
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/file-added.png" alt-text="Screenshot that shows that the new file you created is added to your repository.":::
 
 1. Confirm that the Microsoft Security DevOps scan is finished:
 
-   1. Select **Actions**.
+   1. For the repository, select **Actions**.
    1. Select the workflow to see the results.
 
 1. To view the results of the scan, go to **Security** > **Code scanning alerts**.
 
    You can filter by tool to see only the IaC findings.
 
-## Configure IaC scanning and view the results in Azure DevOps
+## Set up an Azure DevOps extension for IaC scanning
 
-To view the results of the IaC scan in Azure DevOps:
+To set up an extension and view scan results in Azure DevOps:
 
 1. Sign in to [Azure DevOps](https://dev.azure.com/).
 
@@ -167,42 +171,44 @@ To view the results of the IaC scan in Azure DevOps:
 
 1. Select **Pipeline**.
 
-1. Select the pipeline where the Microsoft Security DevOps Azure DevOps Extension is configured.
+1. Select the pipeline where the Microsoft Security DevOps Azure DevOps extension is configured.
 
-1. **Edit** the pipeline configuration YAML file by adding the following lines:
+1. Select **Edit**.
+
+1. Below the `displayName` line for the **MicrosoftSecurityDevOps@1** task, add this code:
 
    ```yaml
    inputs:
        categories: 'IaC'
    ```
 
-   :::image type="content" source="media/tutorial-iac-vulnerabilities/addition-to-yaml.png" alt-text="Screenshot that shows where to add this line to the YAML file.":::
+   :::image type="content" source="media/tutorial-iac-vulnerabilities/addition-to-yaml.png" alt-text="Screenshot that shows where to add the IaC categories line in the pipeline configuration YAML file.":::
 
 1. Select **Save**.
 
-1. (Optional) Add an IaC template to your repository. Skip if you already have an IaC template in your repository.
+1. (Optional) Add an IaC template to your repository. If you already have an IaC template in your repository, skip this step.
 
-1. Select **Save** to commit directly to the main branch or Create a new branch for this commit.
+1. Select **Save** to commit directly to the main branch or create a new branch for this commit.
 
 1. To view the results of the IaC scan, select **Pipeline**, and then select the pipeline you created.
 
 1. Select any result to see the details.
 
-## View details and remediation information on IaC rules included with Microsoft Security DevOps
+## View details and remediation information about IaC rules in Microsoft Security DevOps
 
-The IaC scanning tools that are included with Microsoft Security DevOps are [Template Analyzer](https://github.com/Azure/template-analyzer) (which contains [PSRule](https://aka.ms/ps-rule-azure)) and [Terrascan](https://github.com/tenable/terrascan).
+The IaC scanning tools that are included with Microsoft Security DevOps are [Template Analyzer](https://github.com/Azure/template-analyzer), which contains [PSRule](https://aka.ms/ps-rule-azure), and [Terrascan](https://github.com/tenable/terrascan).
 
 Template Analyzer runs rules on Azure Resource Manager templates (ARM templates) and Bicep templates. You can learn more about [Template Analyzer rules and remediation details](https://github.com/Azure/template-analyzer/blob/main/docs/built-in-rules.md#built-in-rules).
 
-Terrascan runs rules on templates for ARM, CloudFormation, Docker, Helm, Kubernetes, Kustomize, and Terraform. You can learn more about the [Terrascan rules](https://runterrascan.io/docs/policies/).
+Terrascan runs rules on templates for Azure Resource Manager, CloudFormation, Docker, Helm, Kubernetes, Kustomize, and Terraform. You can learn more about the [Terrascan rules](https://runterrascan.io/docs/policies/).
 
-## Learn more
+To learn more about the IaC scanning tools that are included with Microsoft Security DevOps:
 
-- Learn more about [Template Analyzer](https://github.com/Azure/template-analyzer).
-- Learn more about [PSRule](https://aka.ms/ps-rule-azure).
-- Learn more about [Terrascan](https://runterrascan.io/).
+- [Template Analyzer](https://github.com/Azure/template-analyzer)
+- [PSRule](https://aka.ms/ps-rule-azure)
+- [Terrascan](https://runterrascan.io/)
 
-In this tutorial, you learned how to configure the Microsoft Security DevOps GitHub action and Azure DevOps extension to scan for Infrastructure as Code (IaC) security misconfigurations and how to view the results.
+In this article, you learned how to set up the GitHub action and the Azure DevOps extension for Microsoft Security DevOps to scan for IaC security misconfigurations and how to view the results.
 
 ## Related content
 
