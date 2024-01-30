@@ -8,7 +8,6 @@ manager: Kumud
 ms.service: traffic-manager
 ms.devlang: powershell
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/27/2023
 ms.author: greglin 

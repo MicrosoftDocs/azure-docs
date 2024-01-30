@@ -107,15 +107,15 @@ In this section, you deploy, upgrade, or disable the Vertical Pod Autoscaler on 
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
-2. Optionally, to enable VPA on an existing cluster, use the `--enable-vpa` with the [az aks upgrade][az-aks-upgrade] command.
+2. Optionally, to enable VPA on an existing cluster, use the `--enable-vpa` with the [https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-update] command.
 
     ```azurecli-interactive
-    az aks update -n myAKSCluster -g myResourceGroup --enable-vpa
+    az aks update -n myAKSCluster -g myResourceGroup --enable-vpa 
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
-3. Optionally, to disable VPA on an existing cluster, use the `--disable-vpa` with the [az aks upgrade][az-aks-upgrade] command.
+3. Optionally, to disable VPA on an existing cluster, use the `--disable-vpa` with the [https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-update] command.
 
     ```azurecli-interactive
     az aks update -n myAKSCluster -g myResourceGroup --disable-vpa

@@ -7,7 +7,7 @@ author: eric-urban
 ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 10/21/2022
+ms.date: 1/18/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli
 ---
@@ -26,7 +26,7 @@ You can specify one or multiple audio files when creating a transcription. We re
 
 ## Supported audio formats and codecs
 
-The batch transcription API supports a number of different formats and codecs, such as:
+The batch transcription API supports many different formats and codecs, such as:
 
 - WAV
 - MP3
@@ -70,7 +70,7 @@ Follow these steps to create a storage account and upload wav files from your lo
 
 Follow these steps to create a storage account and upload wav files from your local directory to a new container. 
 
-1. Set the `RESOURCE_GROUP` environment variable to the name of an existing resource group where the new storage account will be created. Use the same subscription and resource group as your Speech resource.
+1. Set the `RESOURCE_GROUP` environment variable to the name of an existing resource group where the new storage account is created. Use the same subscription and resource group as your Speech resource.
 
     ```azurecli-interactive
     set RESOURCE_GROUP=<your existing resource group name>
@@ -127,7 +127,7 @@ This section explains how to set up and limit access to your batch transcription
 > [!NOTE]
 > With the trusted Azure services security mechanism, you need to use [Azure Blob storage](../../storage/blobs/storage-blobs-overview.md) to store audio files. Usage of [Azure Files](../../storage/files/storage-files-introduction.md) is not supported.
 
-If you perform all actions in this section, your Storage account will be in the following configuration:
+If you perform all actions in this section, your Storage account is configured as follows:
 - Access to all external network traffic is prohibited.
 - Access to Storage account using Storage account key is prohibited.
 - Access to Storage account blob storage using [shared access signatures (SAS)](../../storage/common/storage-sas-overview.md) is prohibited.
@@ -135,16 +135,16 @@ If you perform all actions in this section, your Storage account will be in the 
 
 So in effect your Storage account becomes completely "locked" and can't be used in any scenario apart from transcribing audio files that were already present by the time the new configuration was applied. You should consider this configuration as a model as far as the security of your audio data is concerned and customize it according to your needs.
 
-For example, you may allow traffic from selected public IP addresses and Azure Virtual networks. You may also set up access to your Storage account using [private endpoints](../../storage/common/storage-private-endpoints.md) (see as well [this tutorial](../../private-link/tutorial-private-endpoint-storage-portal.md)), re-enable access using Storage account key, allow access to other Azure trusted services, etc.
+For example, you can allow traffic from selected public IP addresses and Azure Virtual networks. You can also set up access to your Storage account using [private endpoints](../../storage/common/storage-private-endpoints.md) (see as well [this tutorial](../../private-link/tutorial-private-endpoint-storage-portal.md)), re-enable access using Storage account key, allow access to other Azure trusted services, etc.
 
 > [!NOTE] 
 > Using [private endpoints for Speech](speech-services-private-link.md) isn't required to secure the storage account. You can use a private endpoint for batch transcription API requests, while separately accessing the source audio files from a secure storage account, or the other way around.
 
-By following the steps below, you'll severely restrict access to the storage account. Then you'll assign the minimum required permissions for Speech resource managed identity to access the Storage account. 
+By following the steps below, you severely restrict access to the storage account. Then you assign the minimum required permissions for Speech resource managed identity to access the Storage account. 
 
 ### Enable system assigned managed identity for the Speech resource
 
-Follow these steps to enable system assigned managed identity for the Speech resource that you will use for batch transcription. 
+Follow these steps to enable system assigned managed identity for the Speech resource that you use for batch transcription. 
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select the Speech resource.
@@ -213,7 +213,7 @@ Follow these steps to assign the **Storage Blob Data Reader** role to the manage
 
 Now the Speech resource managed identity has access to the Storage account and can access the audio files for batch transcription.
 
-With system assigned managed identity, you'll use a plain Storage Account URL (no SAS or other additions) when you [create a batch transcription](batch-transcription-create.md) request. For example: 
+With system assigned managed identity, you use a plain Storage Account URL (no SAS or other additions) when you [create a batch transcription](batch-transcription-create.md) request. For example: 
 
 ```json
 {
@@ -269,7 +269,7 @@ The previous command returns a SAS token. Append the SAS token to your container
 
 ---
 
-You will use the SAS URL when you [create a batch transcription](batch-transcription-create.md) request. For example: 
+You use the SAS URL when you [create a batch transcription](batch-transcription-create.md) request. For example: 
 
 ```json
 {

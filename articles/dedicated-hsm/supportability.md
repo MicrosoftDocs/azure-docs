@@ -7,7 +7,6 @@ manager: rkarlin
 
 ms.service: key-vault
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 03/25/2021

@@ -5,12 +5,12 @@ ms.topic: how-to
 ms.date: 05/18/2023
 ms.devlang: csharp
 # ms.devlang: csharp, python
-ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp, devx-track-dotnet, devx-track-linux
+ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp, devx-track-dotnet, linux-related-content
 zone_pivot_groups: programming-languages-batch-linux-nodes
 ---
 # Provision Linux compute nodes in Batch pools
 
-You can use Azure Batch to run parallel compute workloads on both Linux and Windows virtual machines. This article details how to create pools of Linux compute nodes in the Batch service by using both the [Batch Python](https://pypi.python.org/pypi/azure-batch) and [Batch .NET](/dotnet/api/microsoft.azure.batch) client libraries. 
+You can use Azure Batch to run parallel compute workloads on both Linux and Windows virtual machines. This article details how to create pools of Linux compute nodes in the Batch service by using both the [Batch Python](https://pypi.python.org/pypi/azure-batch) and [Batch .NET](/dotnet/api/microsoft.azure.batch) client libraries.
 
 ## Virtual Machine Configuration
 

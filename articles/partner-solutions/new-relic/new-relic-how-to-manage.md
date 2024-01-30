@@ -95,6 +95,19 @@ For each virtual machine, the following info appears:
 > [!NOTE]
 > If a virtual machine shows that an agent is installed, but the option **Uninstall extension** is disabled, the agent was configured through a different New Relic resource in the same Azure subscription. To make any changes, go to the other New Relic resource in the Azure subscription.
 
+## Monitor virtual machine scale sets by using the New Relic agent
+
+You can install New Relic agent on virtual machine scale sets as an extension. Select **Virtual Machine Scale Sets** under **New Relic account config** in the Resource menu. In the working pane, you see a list of all virtual machine scale sets in the subscription.
+Virtual Machine Scale Sets (VMSS) is an Azure Compute resource which can be used to deploy and manage a set of identical VMs. Please familiarize yourself with the Azure resource [here](../../virtual-machine-scale-sets/overview.md) and the orchestration modes available [here](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md).
+
+The native integration can be used to install agent on both the uniform and flexible scale-sets. The new instances (VMs) of a scale set, in any mode, will receive the agent extension in the event of a scale-up scenario. VMSS resources in a uniform orchestration mode supports Automatic, Rolling, and Manual upgrade policy while resources in Flexible orchestration mode only supports manual upgrade today. In case, a manual upgrade policy is set for a resource, please upgrade the instances manually by installing the agent extension for the already scaled up instances. The auto-scaling and instance orchestration guide can be found [here](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#autoscaling-and-instance-orchestration)
+
+> [!NOTE]
+> In manual upgrade policy, pre-existing VM instances will not receive the extension automatically. This will show the agent status as **Partially Installed**. Please upgrade the VM instances by manually installing extension on them from the VM extensions blade or by going to ‘VMSS resource/Instances’ view.
+
+> [!NOTE]
+> The agent installation dashboard will support the automatic and rolling upgrade policy for Flex orchestration mode in the next release when similar support is available from VMSS Flex resources.
+
 ## Monitor app services by using the New Relic agent
 
 You can install the New Relic agent on app services as an extension. Select **App Services** on the left pane. The working pane shows a list of all app services in the subscription.

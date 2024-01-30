@@ -1,16 +1,11 @@
 ---
 title: Error handling in Azure API Management policies | Microsoft Docs
 description: Learn how to respond to error conditions that may occur during the processing of requests in Azure API Management.
-services: api-management
-documentationcenter: ''
 author: dlepow
 manager: erikre
-editor: ''
-
 ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: danlep

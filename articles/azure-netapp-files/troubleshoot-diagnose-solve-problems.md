@@ -2,15 +2,9 @@
 title: Troubleshoot Azure NetApp Files using diagnose and solve problems tool 
 description: Describes how to use the Azure diagnose and solve problems tool to troubleshoot issues of Azure NetApp Files.  
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 10/15/2023
 ms.author: anfdocs
