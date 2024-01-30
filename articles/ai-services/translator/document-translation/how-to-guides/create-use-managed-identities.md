@@ -129,7 +129,7 @@ You must grant the Translator resource access to your storage account before it 
 
 ## HTTP requests
 
-* A batch Document Translation request is submitted to your Translator service endpoint via a POST request.
+* An asynchronous batch translation request is submitted to your Translator service endpoint via a POST request.
 
 * With managed identity and `Azure RBAC`, you no longer need to include SAS URLs.
 

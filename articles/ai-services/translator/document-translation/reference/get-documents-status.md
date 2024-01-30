@@ -1,7 +1,7 @@
 ---
 title: Get documents status
 titleSuffix: Azure AI services
-description: The get documents status method returns the status for all documents in a batch document translation request.
+description: The get documents status method returns the status for all documents in an asynchronous batch translation request.
 #services: cognitive-services
 manager: nitinme
 ms.author: lajanuar

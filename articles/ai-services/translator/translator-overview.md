@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: overview
-ms.date: 10/12/2023
+ms.date: 01/29/2024
 ms.author: lajanuar
 ---
 
@@ -21,7 +21,8 @@ Translator service supports the following features. Use the links in this table 
 | Feature | Description | Development options |
 |----------|-------------|--------------------------|
 | [**Text Translation**](text-translation-overview.md) | Execute text translation between supported source and target languages in real time. Create a [dynamic dictionary](dynamic-dictionary.md) and learn how to [prevent translations](prevent-translation.md) using the Translator API. | &bull; [**REST API**](reference/rest-api-guide.md) </br>&bull; [**Text translation container**](containers/translator-how-to-install-container.md)
-| [**Batch Document Translation**](document-translation/overview.md) | Translate batch and complex files while preserving the structure and format of the original documents. [Create a glossary](document-translation/how-to-guides/create-use-glossaries.md) to use with document translation.| &bull; [**REST API**](document-translation/reference/rest-api-guide.md)</br>&bull; [**Client-library SDK**](document-translation/quickstarts/asynchronous-sdk.md) |
+| [**Asynchronous Batch Document Translation**](document-translation/overview.md) | Translate batch and complex files while preserving the structure and format of the original documents. [Create a glossary](document-translation/how-to-guides/create-use-glossaries.md) to use with document translation. The batch translation process requires an Azure Blob storage account with containers for your source and translated documents.| &bull; [**REST API**](document-translation/reference/rest-api-guide.md)</br>&bull; [**Client-library SDK**](document-translation/quickstarts/asynchronous-sdk.md) |
+|[**Synchronous Document translation**](document-translation/reference/synchronous-rest-api-guide.md)| Translate a single document file alone or with a glossary file while preserving the structure and format of the original document. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.|[**REST API**](document-translation/quickstarts/synchronous-rest-api.md)|
 | [**Custom Translator**](custom-translator/overview.md) | Build customized models to translate domain- and industry-specific language, terminology, and style. [Create a dictionary (phrase or sentence)](custom-translator/concepts/dictionaries.md) for custom translations. | &bull; [**Custom Translator portal**](https://portal.customtranslator.azure.ai/)|
 
 For detailed information regarding Azure AI Translator Service request limits, *see* [**Text translation request limits**](service-limits.md#text-translation).

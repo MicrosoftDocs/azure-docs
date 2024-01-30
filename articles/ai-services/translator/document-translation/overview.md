@@ -1,6 +1,6 @@
 ---
 title: What is Document Translation?
-description: An overview of the cloud-based batch Document Translation services and processes.
+description: An overview of the cloud-based asynchronous batch translation services and processes.
 #services: cognitive-services
 author: laujan
 manager: nitinme
@@ -164,4 +164,4 @@ Document Translation data residency depends on the Azure region where your Trans
 In our quickstart, you learn how to rapidly get started using Document Translation. To begin, you need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
 
 > [!div class="nextstepaction"]
-> [Get Started with Batch document translation](./quickstarts/asynchronous-rest-api.md) [Get started with synchronous translation](quickstarts/synchronous-rest-api.md)
+> [Get Started with Asynchronous batch translation](./quickstarts/asynchronous-rest-api.md) [Get started with synchronous translation](quickstarts/synchronous-rest-api.md)
